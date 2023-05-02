@@ -4,7 +4,8 @@ export default function Web() {
   return (
     <div>
       <h1>Web</h1>
-      <Button />
+      <br />
+      <Button label={"Click me"} primary />
     </div>
   );
 }
