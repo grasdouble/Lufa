@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Header } from "@lufa/ui;
+import { Header } from "@lufa/ui";
 
 const meta: Meta<typeof Header> = {
   title: "Example/Header",

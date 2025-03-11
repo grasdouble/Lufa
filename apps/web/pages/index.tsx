@@ -1,4 +1,4 @@
-import { Button } from "@lufa/ui;
+import { Button } from "@lufa/ui";
 
 export default function Web() {
   return (
