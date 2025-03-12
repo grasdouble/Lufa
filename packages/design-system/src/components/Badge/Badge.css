@@ -1,0 +1,65 @@
+@tailwind components;
+
+@layer components {
+  .badge {
+    @apply inline-flex items-center rounded-md px-2 py-1;
+    @apply ring-1 ring-inset ring-gray-500/10 shadow-black;
+    @apply shadow-inner dark:shadow-md;
+  }
+
+  .badge-red {
+    @apply badge;
+    @apply bg-red-50;
+    @apply text-red-600;
+    @apply shadow-red-500/50;
+  }
+
+  .badge-yellow {
+    @apply badge;
+    @apply bg-yellow-50;
+    @apply text-yellow-600;
+    @apply shadow-yellow-500/50;
+  }
+
+  .badge-green {
+    @apply badge;
+    @apply bg-green-50;
+    @apply text-green-600;
+    @apply shadow-green-500/50;
+  }
+
+  .badge-blue {
+    @apply badge;
+    @apply bg-blue-50;
+    @apply text-blue-600;
+    @apply shadow-blue-500/50;
+  }
+
+  .badge-indigo {
+    @apply badge;
+    @apply bg-indigo-50;
+    @apply text-indigo-600;
+    @apply shadow-indigo-500/50;
+  }
+
+  .badge-purple {
+    @apply badge;
+    @apply bg-purple-50;
+    @apply text-purple-600;
+    @apply shadow-purple-500/50;
+  }
+
+  .badge-pink {
+    @apply badge;
+    @apply bg-pink-50;
+    @apply text-pink-600;
+    @apply shadow-pink-500/50;
+  }
+
+  .badge-gray {
+    @apply badge;
+    @apply bg-gray-50;
+    @apply text-gray-600;
+    @apply shadow-gray-500/50;
+  }
+}

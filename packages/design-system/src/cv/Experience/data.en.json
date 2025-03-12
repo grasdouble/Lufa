@@ -1,0 +1,126 @@
+[
+  {
+    "company": "ImInfo",
+    "dates": "2007 - 2009",
+    "role": [{ "title": "Developer", "date": "2007 - 2009" }],
+    "description": "ImÍnfo was a small company providing IT services and taining. I worked as developer on java projects and occasionally as trainer.",
+    "Projects": [
+      {
+        "title": "",
+        "client": "Faiveley Transport",
+        "description": "An eclipse RCP application for Faiveley Transport",
+        "role": [{ "title": "Developer" }],
+        "period": "2007 - 2009"
+      }
+    ],
+    "tags": [
+      { "type": "backend", "value": "Java" },
+      { "type": "frontend", "value": "Eclipse RCP" },
+      { "type": "frontend", "value": "Html" },
+      { "type": "frontend", "value": "Javascript" }
+    ]
+  },
+  {
+    "company": "Sopra Steria",
+    "dates": "2009 - 2015",
+    "role": [
+      { "title": "Software Engineer", "date": "2009 - 2013" },
+      { "title": "Technical Leader", "date": "2013 - 2015" }
+    ],
+    "description": "Sopra Steria is a french IT company. I worked as developer and technical leader for various clients (Ministry of the Interior, Pôle Emploi, ERDF).",
+    "Projects": [
+      {
+        "title": "MIOMCT (ACTES, ELOI, AGRIPPA, FNEAG)",
+        "client": "Ministère de l'Intérieur (French Ministry of the Interior)",
+        "description": "As Software Engineer, I worked on the maintenance of the MIOMCT applications. I had to fix bugs and develop new features on those applications. I also had to write technical documentation and functionnal specification.",
+        "role": [{ "title": "Software Engineer" }],
+        "period": "2009 - 2013"
+      },
+      {
+        "title": "GUPPI",
+        "client": "Pôle Emploi (French National Employment Agency)",
+        "description": "As Software Engineer, I worked on the maintenance of the GUPPI application. I had to fix bugs and develop new features on those applications.",
+        "role": [{ "title": "Software Engineer" }],
+        "period": "2013"
+      },
+      {
+        "title": "TAMARIS",
+        "client": "ERDF (French Electricity Distribution Network)",
+        "description": "As Technical Leader, I worked on the maintenance of the TAMARIS application. I had to fix bugs and develop new features on those applications. I also had to write technical documentation and functionnal specification.",
+        "role": [{ "title": "Technical Leader" }],
+        "period": "2013 - 2015"
+      }
+    ],
+    "tags": [
+      { "type": "database", "value": "Oracle" },
+      { "type": "database", "value": "MySql" },
+      { "type": "backend", "value": "Java" },
+      { "type": "backend", "value": "Hibernate" },
+      { "type": "backend", "value": "Struts" },
+      { "type": "backend", "value": "spring" },
+      { "type": "frontend", "value": "Php" },
+      { "type": "frontend", "value": "Html" },
+      { "type": "frontend", "value": "Javascript" },
+      { "type": "qa", "value": "junit" },
+      { "type": "qa", "value": "selenium" }
+    ]
+  },
+  {
+    "company": "INFOTEL",
+    "dates": "2015 - 2017",
+    "role": [{ "title": "Frontend Software Engineer", "date": "2015 - 2017" }],
+    "description": "Infotel is a french IT company. I worked as developer for a client (Bureau Veritas).",
+    "Projects": [
+      {
+        "title": "",
+        "client": "Bureau Veritas",
+        "description": "As Frontend Software Engineer, I worked on the maintenance of the Bureau Veritas applications. I had to fix bugs and develop new features on existing applications. I had also to work on new application like Code'n'Go where I had to put in place frontend architecture and integrate UI design made by an external company.",
+        "role": [{ "title": "Frontend Software Engineer" }],
+        "period": "2015 - 2017"
+      }
+    ],
+    "tags": [
+      { "type": "frontend", "value": "Amgular" },
+      { "type": "frontend", "value": "Ionic" },
+      { "type": "frontend", "value": "Html" },
+      { "type": "frontend", "value": "Javascript" },
+      { "type": "qa", "value": "jest" }
+    ]
+  },
+  {
+    "company": "Talend",
+    "dates": "2017 - current",
+    "role": [
+      { "title": "Senior Frontend Engineer", "date": "2017 - 2021" },
+      { "title": "Principal Frontend Engineer", "date": "2021 - current" }
+    ],
+    "description": "Talend is a company specialised in data integration. I'm working as frontend engineer on Talend Cloud.",
+    "Projects": [
+      {
+        "title": "Talend Management Console (TMC)",
+        "client": "Talend",
+        "description": "As Senior Frontend Engineer, I worked on the Talend Management Console. I had to fix bugs and develop new features on those applications. Now as Principal Frontend Engineer, I'm working more on technical architecture and code quality to keep the project up to date with the standards and I continue to participate on the design of the new features.",
+        "role": [
+          { "title": "Senior Frontend Engineer" },
+          { "title": "Principal Frontend Engineer" }
+        ],
+        "period": "2017 - current"
+      }
+    ],
+    "tags": [
+      { "type": "frontend", "value": "React" },
+      { "type": "frontend", "value": "Redux" },
+      { "type": "frontend", "value": "Typescript" },
+      { "type": "frontend", "value": "Html" },
+      { "type": "frontend", "value": "Javascript" },
+      { "type": "qa", "value": "jest" },
+      { "type": "qa", "value": "testing-library" },
+      { "type": "qa", "value": "cypress" },
+      { "type": "devops", "value": "docker" },
+      { "type": "devops", "value": "jenkins" },
+      { "type": "devops", "value": "Github Action" },
+      { "type": "devops", "value": "kubernetes" },
+      { "type": "devops", "value": "Grafana" }
+    ]
+  }
+]

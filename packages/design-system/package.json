@@ -1,0 +1,44 @@
+{
+  "name": "@lufa/design-system",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ./src",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/lufa-ui.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@lufa/shared-config": "workspace:*",
+    "@lufa/tools-tsconfig": "workspace:*",
+    "@types/node": "^20.10.5",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "10.4.16",
+    "eslint-config-lufa": "workspace:^",
+    "postcss": "8.4.31",
+    "react": "^19.0.0",
+    "tailwindcss": "3.3.5",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-dts": "^4.5.3",
+    "vite-plugin-externalize-deps": "^0.9.0",
+    "vite-tsconfig-paths": "^4.2.2"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.1.1"
+  }
+}

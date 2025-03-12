@@ -1,5 +1,5 @@
 {
-  "name": "lufa",
+  "name": "@lufa/workspace",
   "private": true,
   "scripts": {
     "build": "",

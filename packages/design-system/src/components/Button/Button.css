@@ -1,0 +1,120 @@
+@tailwind components;
+
+@layer components {
+  .button {
+    /* Focus */
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500;
+    /* Transition */
+    @apply transition-colors ease-in duration-300;
+    /* Border */
+    @apply rounded-md;
+  }
+
+  .button-solid {
+    @apply button;
+    /* Background */
+    @apply bg-blue-400 hover:bg-blue-500;
+    /* text + font */
+    @apply text-white;
+    /* Shadow */
+    @apply shadow-md shadow-blue-100;
+  }
+
+  .button-text {
+    @apply button;
+    /* Background */
+    @apply bg-white hover:bg-blue-100;
+    /* Border */
+    @apply border-blue-300 border-2 border-solid;
+    /* text + font */
+    @apply text-blue-500;
+    /* Shadow */
+    @apply shadow-md shadow-blue-100;
+  }
+
+  .button-dashed {
+    @apply button;
+    /* Background */
+    @apply bg-white hover:bg-blue-100;
+    /* Border */
+    @apply border-blue-300 border-2 border-dashed;
+    /* text + font */
+    @apply text-blue-500;
+    /* Shadow */
+    @apply shadow-md shadow-blue-100;
+  }
+
+  .button-link {
+    @apply button;
+    /* Background */
+    @apply bg-white;
+    /* text + font */
+    @apply text-blue-500 hover:underline-offset-2 hover:underline;
+  }
+
+  .button-disabled {
+    @apply button;
+    @apply bg-gray-100 border-gray-200 border-2;
+    @apply text-gray-400 focus-visible:outline-gray-300;
+    @apply shadow-md shadow-gray-100;
+    @apply cursor-not-allowed;
+  }
+
+  .button-disabled-link {
+    @apply button;
+    @apply text-gray-400 focus-visible:outline-gray-300;
+    @apply cursor-not-allowed;
+    @apply bg-white;
+  }
+
+  .button-danger-solid {
+    @apply button;
+    @apply bg-red-400 hover:bg-red-500 focus-visible:outline-red-500;
+    @apply text-white;
+    @apply shadow-md shadow-red-100;
+  }
+
+  .button-danger-text {
+    @apply button;
+    @apply bg-white border-red-300 border-2 hover:bg-red-100 focus-visible:outline-red-500;
+    @apply text-red-500;
+    @apply shadow-md shadow-red-100;
+  }
+
+  .button-danger-dashed {
+    @apply button;
+    @apply bg-white border-red-300 border-2 border-dashed hover:bg-red-100 focus-visible:outline-red-500;
+    @apply text-red-500;
+    @apply shadow-md shadow-red-100;
+  }
+
+  .button-danger-link {
+    @apply button;
+    @apply bg-white focus-visible:outline-red-500;
+    @apply text-red-500 hover:underline-offset-2 hover:underline;
+  }
+
+  .button-size {
+    @apply font-semibold;
+  }
+
+  .button-size-xs {
+    @apply button-size;
+    @apply px-1 py-1 text-xs;
+  }
+
+  .button-size-sm {
+    @apply button-size;
+    @apply px-3 py-1 text-sm;
+  }
+
+  .button-size-md {
+    @apply button-size;
+    @apply px-4 py-2 text-base;
+  }
+
+  .button-size-lg {
+    @apply button-size;
+    @apply px-8 py-3 text-lg;
+  }
+}

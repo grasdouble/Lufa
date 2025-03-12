@@ -1,8 +1,5 @@
 {
   "extends": "@lufa/tools-tsconfig/react-app.json",
   "include": ["**/*.ts", "**/*.tsx"],
-  "compilerOptions": {
-    "moduleResolution": "bundler",
-  },
   "exclude": ["node_modules"]
 }
