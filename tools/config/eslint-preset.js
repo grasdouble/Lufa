@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["prettier", "next/core-web-vitals"],
+  extends: ["prettier"],
   plugins: ["simple-import-sort", "prettier"],
   rules: {
     "simple-import-sort/imports": "error",
