@@ -1,13 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "React Library",
+  "display": "React App",
   "extends": "./base.json",
   "compilerOptions": {
-    "target": "es6",
     "jsx": "react-jsx",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "allowJs": false,
-    "types": []
+    "moduleResolution": "bundler",
+    "target": "ESNext"
   }
 }

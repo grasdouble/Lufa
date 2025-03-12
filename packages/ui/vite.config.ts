@@ -38,9 +38,10 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
       plugins: [
         ...defaultPlugin,
         dts({
+          entryRoot: "src",
           tsconfigPath: "./tsconfig.build.json",
           rollupTypes: false,
-          outDir: "dist/types",
+          outDir: "dist",
           exclude: ["**/*.test.*"],
         }),
         externalizeDeps({
@@ -59,10 +60,10 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
         target: "modules",
         minify: true,
         sourcemap: true,
-        cssMinify: true,
+        cssMinify: false,
         outDir: "dist",
         lib: {
-          formats: ["es", "umd"],
+          formats: ["es"],
           entry: resolve(__dirname, "src/index.ts"),
           name: "LufaUi",
           cssFileName: "style",

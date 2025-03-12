@@ -1,5 +1,8 @@
 {
-  "extends": "tsconfig/nextjs.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "extends": "@lufa/tools-tsconfig/react-app.json",
+  "include": ["**/*.ts", "**/*.tsx"],
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+  },
   "exclude": ["node_modules"]
 }
