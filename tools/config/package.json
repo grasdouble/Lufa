@@ -1,6 +1,6 @@
 {
   "name": "@lufa/shared-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "files": [
@@ -10,7 +10,9 @@
     "tailwind.config.js"
   ],
   "dependencies": {
-    "tailwindcss": "3.3.5",
     "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.13"
   }
 }

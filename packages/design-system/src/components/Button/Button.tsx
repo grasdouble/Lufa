@@ -1,7 +1,5 @@
 // Define a component using Tailwind CSS
 import { getButtonClasses } from "./ButtonHelpers";
-
-import "./Button.css";
 export interface ButtonProps {
   label: string;
   variant?: "solid" | "text" | "link" | "dashed";

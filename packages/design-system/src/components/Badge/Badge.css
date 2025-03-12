@@ -1,4 +1,4 @@
-@tailwind components;
+@reference '../../tailwind.css';
 
 @layer components {
   .badge {
@@ -8,56 +8,56 @@
   }
 
   .badge-red {
-    @apply badge;
+    @extend badge;
     @apply bg-red-50;
     @apply text-red-600;
     @apply shadow-red-500/50;
   }
 
   .badge-yellow {
-    @apply badge;
+    @extend badge;
     @apply bg-yellow-50;
     @apply text-yellow-600;
     @apply shadow-yellow-500/50;
   }
 
   .badge-green {
-    @apply badge;
+    @extend badge;
     @apply bg-green-50;
     @apply text-green-600;
     @apply shadow-green-500/50;
   }
 
   .badge-blue {
-    @apply badge;
+    @extend badge;
     @apply bg-blue-50;
     @apply text-blue-600;
     @apply shadow-blue-500/50;
   }
 
   .badge-indigo {
-    @apply badge;
+    @extend badge;
     @apply bg-indigo-50;
     @apply text-indigo-600;
     @apply shadow-indigo-500/50;
   }
 
   .badge-purple {
-    @apply badge;
+    @extend badge;
     @apply bg-purple-50;
     @apply text-purple-600;
     @apply shadow-purple-500/50;
   }
 
   .badge-pink {
-    @apply badge;
+    @extend badge;
     @apply bg-pink-50;
     @apply text-pink-600;
     @apply shadow-pink-500/50;
   }
 
   .badge-gray {
-    @apply badge;
+    @extend badge;
     @apply bg-gray-50;
     @apply text-gray-600;
     @apply shadow-gray-500/50;

@@ -1,3 +1,5 @@
+@reference '../../tailwind.css';
+
 @tailwind components;
 
 @layer components {
@@ -11,7 +13,7 @@
   }
 
   .button-solid {
-    @apply button;
+    @extend button;
     /* Background */
     @apply bg-blue-400 hover:bg-blue-500;
     /* text + font */
@@ -21,7 +23,7 @@
   }
 
   .button-text {
-    @apply button;
+    @extend button;
     /* Background */
     @apply bg-white hover:bg-blue-100;
     /* Border */
@@ -33,7 +35,7 @@
   }
 
   .button-dashed {
-    @apply button;
+    @extend button;
     /* Background */
     @apply bg-white hover:bg-blue-100;
     /* Border */
@@ -45,7 +47,7 @@
   }
 
   .button-link {
-    @apply button;
+    @extend button;
     /* Background */
     @apply bg-white;
     /* text + font */
@@ -53,7 +55,7 @@
   }
 
   .button-disabled {
-    @apply button;
+    @extend button;
     @apply bg-gray-100 border-gray-200 border-2;
     @apply text-gray-400 focus-visible:outline-gray-300;
     @apply shadow-md shadow-gray-100;
@@ -61,35 +63,35 @@
   }
 
   .button-disabled-link {
-    @apply button;
+    @extend button;
     @apply text-gray-400 focus-visible:outline-gray-300;
     @apply cursor-not-allowed;
     @apply bg-white;
   }
 
   .button-danger-solid {
-    @apply button;
+    @extend button;
     @apply bg-red-400 hover:bg-red-500 focus-visible:outline-red-500;
     @apply text-white;
     @apply shadow-md shadow-red-100;
   }
 
   .button-danger-text {
-    @apply button;
+    @extend button;
     @apply bg-white border-red-300 border-2 hover:bg-red-100 focus-visible:outline-red-500;
     @apply text-red-500;
     @apply shadow-md shadow-red-100;
   }
 
   .button-danger-dashed {
-    @apply button;
+    @extend button;
     @apply bg-white border-red-300 border-2 border-dashed hover:bg-red-100 focus-visible:outline-red-500;
     @apply text-red-500;
     @apply shadow-md shadow-red-100;
   }
 
   .button-danger-link {
-    @apply button;
+    @extend button;
     @apply bg-white focus-visible:outline-red-500;
     @apply text-red-500 hover:underline-offset-2 hover:underline;
   }
@@ -99,22 +101,22 @@
   }
 
   .button-size-xs {
-    @apply button-size;
+    @extend button-size;
     @apply px-1 py-1 text-xs;
   }
 
   .button-size-sm {
-    @apply button-size;
+    @extend button-size;
     @apply px-3 py-1 text-sm;
   }
 
   .button-size-md {
-    @apply button-size;
+    @extend button-size;
     @apply px-4 py-2 text-base;
   }
 
   .button-size-lg {
-    @apply button-size;
+    @extend button-size;
     @apply px-8 py-3 text-lg;
   }
 }

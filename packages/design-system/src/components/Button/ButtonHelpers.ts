@@ -1,4 +1,5 @@
 import { ButtonProps } from "./Button";
+import buttonStyle from "./Button.module.css";
 
 export const getButtonClasses = (
   variant: ButtonProps["variant"],
@@ -9,23 +10,28 @@ export const getButtonClasses = (
   let result = "";
 
   if (disabled) {
-    result = variant === "link" ? "button-disabled-link" : "button-disabled";
+    result =
+      variant === "link"
+        ? buttonStyle["button-disabled-link"]
+        : buttonStyle["button-disabled"];
   } else if (danger) {
     const dangerColorMapping = {
-      text: "button-danger-text",
-      dashed: "button-danger-dashed",
-      link: "button-danger-link",
-      solid: "button-danger-solid",
+      text: buttonStyle["button-danger-text"],
+      dashed: buttonStyle["button-danger-dashed"],
+      link: buttonStyle["button-danger-link"],
+      solid: buttonStyle["button-danger-solid"],
     };
-    result = (variant && dangerColorMapping[variant]) || "button-danger-solid";
+    result =
+      (variant && dangerColorMapping[variant]) ||
+      buttonStyle["button-danger-solid"];
   } else {
     const colorMapping = {
-      text: "button-text",
-      dashed: "button-dashed",
-      link: "button-link",
-      solid: "button-solid",
+      text: buttonStyle["button-text"],
+      dashed: buttonStyle["button-dashed"],
+      link: buttonStyle["button-link"],
+      solid: buttonStyle["button-solid"],
     };
-    result = (variant && colorMapping[variant]) || "button-solid";
+    result = (variant && colorMapping[variant]) || buttonStyle["button-solid"];
   }
 
   const sizeMapping = {
