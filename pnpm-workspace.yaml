@@ -1,4 +1,4 @@
 packages:
-  - apps/*
-  - packages/*
-  - tools/*
+  - packages/design-system
+  - packages/apps/*
+  - packages/tools/*

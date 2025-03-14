@@ -1,6 +1,6 @@
 {
-  "name": "eslint-config-lufa",
-  "version": "0.0.0",
+  "name": "@lufa/tools-eslint-config",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {

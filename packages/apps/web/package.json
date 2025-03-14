@@ -15,12 +15,12 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@lufa/tools-eslint-config": "workspace:^",
     "@lufa/tools-tsconfig": "workspace:^",
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
-    "eslint-config-lufa": "workspace:^",
     "typescript": "^5.8.2",
     "vite": "^6.2.1"
   }
