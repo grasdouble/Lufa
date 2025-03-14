@@ -1,0 +1,49 @@
+{
+  "name": "@lufa/storybook",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@lufa/design-system": "workspace:^",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3",
+    "@eslint/js": "^9.21.0",
+    "@storybook/addon-essentials": "^8.6.5",
+    "@storybook/addon-mdx-gfm": "^8.6.5",
+    "@storybook/addon-onboarding": "^8.6.5",
+    "@storybook/blocks": "^8.6.5",
+    "@storybook/experimental-addon-test": "^8.6.5",
+    "@storybook/react": "^8.6.5",
+    "@storybook/react-vite": "^8.6.5",
+    "@storybook/test": "^8.6.5",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "eslint-plugin-storybook": "^0.11.4",
+    "globals": "^15.15.0",
+    "preset": "link:@storybook/react-vite/preset.js",
+    "storybook": "^8.6.5",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.2.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
+}
