@@ -2,9 +2,7 @@
   "name": "@lufa/workspace",
   "private": true,
   "scripts": {
-    "build": "",
-    "dev": "",
-    "lint": ""
+    "generate-outdated-report": "node .github/scripts/generateOutdatedReport.js"
   },
   "packageManager": "pnpm@10.6.2"
 }
