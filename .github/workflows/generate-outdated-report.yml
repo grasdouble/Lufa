@@ -3,7 +3,7 @@ name: Generate Outdated Dependencies Report
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * 1" # Perform every Monday at midnight
+    - cron: "0 0 * * 2" # Perform every Tuesday at midnight
 
 permissions:
   contents: write
