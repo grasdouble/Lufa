@@ -51,7 +51,7 @@ jobs:
           fi
 
       - name: Commit and push report
-        if: steps.check_changes.outputs.changes == 'true'
+        if: env.changes == 'true'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
@@ -60,3 +60,4 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          changes: ${{ env.changes }}
