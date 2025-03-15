@@ -28,7 +28,7 @@ jobs:
         run: pnpm install
 
       - name: Update dependencies (minor and patch versions only)
-        run: pnpm update -r --latest --recursive --no-major
+        run: pnpm update -r --recursive
 
       - name: Check for changes
         id: check_changes
