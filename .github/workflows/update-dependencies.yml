@@ -30,6 +30,9 @@ jobs:
       - name: Update dependencies (minor and patch versions only)
         run: pnpm update -r --recursive
 
+      - name: Update outdated dependencies report
+        run: pnpm exec node .github/scripts/generateOutdatedReport.js
+
       - name: Check for changes
         id: check_changes
         run: |
