@@ -1,9 +1,7 @@
 name: Generate Outdated Dependencies Report
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * 1" # Perform every Monday at midnight
 
@@ -41,7 +39,19 @@ jobs:
       - name: Generate outdated dependencies report
         run: pnpm exec node .github/scripts/generateOutdatedReport.js
 
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changes detected"
+            echo "changes=true" >> $GITHUB_ENV
+          else
+            echo "no changes detected"
+            echo "changes=false" >> $GITHUB_ENV
+          fi
+
       - name: Commit and push report
+        if: steps.check_changes.outputs.changes == 'true'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
