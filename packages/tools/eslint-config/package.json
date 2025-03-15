@@ -2,7 +2,7 @@
   "name": "@lufa/tools-eslint-config",
   "version": "0.0.1",
   "main": "index.js",
-  "license": "MIT",
+  "license": "CC-BY-NC-4.0",
   "dependencies": {
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-react": "^7.37.4"

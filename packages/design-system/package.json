@@ -1,7 +1,7 @@
 {
   "name": "@lufa/design-system",
   "version": "0.0.1",
-  "license": "MIT",
+  "license": "CC-BY-NC-4.0",
   "type": "module",
   "scripts": {
     "lint": "eslint ./src",

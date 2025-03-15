@@ -6,11 +6,15 @@ exec("pnpm outdated -r", (err, stdout, stderr) => {
     stdout.trim() || "No outdated dependency"
   }`;
 
-  fs.writeFile("reports/OUTDATED_DEPENDENCIES.report", reportContent, (err) => {
-    if (err) {
-      console.error(`File write error : ${err}`);
-      return;
+  fs.writeFile(
+    "docs/reports/OUTDATED_DEPENDENCIES.report",
+    reportContent,
+    (err) => {
+      if (err) {
+        console.error(`File write error : ${err}`);
+        return;
+      }
+      console.log("Report generated successfully.");
     }
-    console.log("Report generated successfully.");
-  });
+  );
 });

@@ -2,7 +2,7 @@
   "name": "@lufa/shared-config",
   "version": "0.0.1",
   "main": "index.js",
-  "license": "MIT",
+  "license": "CC-BY-NC-4.0",
   "files": [
     ".eslintrc.js",
     "eslint-preset.js",
