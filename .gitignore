@@ -8,11 +8,6 @@ node_modules
 # testing
 coverage
 
-# next.js
-.next/
-out/
-build
-
 # misc
 .DS_Store
 *.pem
@@ -29,11 +24,8 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# turbo
-.turbo
-
-# vercel
-.vercel
-
 # storybook
 storybook-static
+
+# outputs
+dist

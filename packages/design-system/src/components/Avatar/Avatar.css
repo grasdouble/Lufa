@@ -1,0 +1,23 @@
+@reference '../../tailwind.css';
+
+@tailwind components;
+
+@layer components {
+  .avatar {
+    @apply ring-2 ring-white;
+  }
+
+  .avatar-circle {
+    @extend avatar;
+    @apply rounded-full;
+  }
+
+  .avatar-square {
+    @extend avatar;
+    @apply rounded-md;
+  }
+
+  .notification {
+    @apply absolute right-0 block rounded-full ring-2 ring-white;
+  }
+}

@@ -1,0 +1,35 @@
+import { Meta, Primary, Controls, Story } from "@storybook/blocks";
+import * as Testimonial from "./Testimonial.stories";
+
+<Meta of={Testimonial} />
+
+# Testimonial
+
+A testimonial is ...
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Stories
+
+### Style variants
+
+A testimonial can use different style.
+
+## With overlapping image
+
+<Story of={Testimonial.Primary} />
+<Controls exclude={["style"]} of={Testimonial.Primary} />
+
+## Simple centered
+
+<Story of={Testimonial.Secondary} />
+<Controls exclude={["style"]} of={Testimonial.Secondary} />
+
+## With large avatar
+
+<Story of={Testimonial.Tertiary} />
+<Controls exclude={["style"]} of={Testimonial.Tertiary} />

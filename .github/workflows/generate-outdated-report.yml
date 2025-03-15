@@ -1,0 +1,48 @@
+name: Generate Outdated Dependencies Report
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * 1" # Perform every Monday at midnight
+
+permissions:
+  contents: write
+  actions: none
+  checks: none
+  deployments: none
+  issues: none
+  packages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Generate outdated dependencies report
+        run: pnpm exec node .github/scripts/generateOutdatedReport.js
+
+      - name: Commit and push report
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add REPORT_OUTDATED_DEPENDENCIES.md
+          git commit -m 'Update outdated dependencies report'
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
