@@ -1,15 +1,15 @@
 # LUFA
 
-LUFA is a monorepo without lens, except to satisfy its owner.
+LUFA is a mono repo without a lens except to satisfy its owner.
 
 It's composed to:
 
-- a design system (almost, there is only few components)
-- a storybook (to play with component of the design-system)
+- a design system (almost, there are only a few components)
+- a storybook (to play with components of the design system)
 - a backpack of shared config (eslint, typescript, ...)
-- a todo list (just in case, I have ideas but not time to test them)
-- a doc folder (it's not a promise but I will try to document things interesting for me)
-- a poc folder (without suprise, it's to do POC)
+- a todo list (just in case I have ideas but not time to test them)
+- a doc folder (it's not a promise, but I will try to document things interesting for me)
+- a poc folder (without surprise, it's to do POC)
 
 ## Why
 
