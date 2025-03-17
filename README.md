@@ -1,6 +1,6 @@
 # LUFA
 
-Lufa is a monorepo without lens, except maybe to test everything
+LUFA is a monorepo without lens, except to satisfy its owner.
 
 It's composed to:
 
@@ -9,6 +9,7 @@ It's composed to:
 - a backpack of shared config (eslint, typescript, ...)
 - a todo list (just in case, I have ideas but not time to test them)
 - a doc folder (it's not a promise but I will try to document things interesting for me)
+- a poc folder (without suprise, it's to do POC)
 
 ## Why
 
