@@ -1,0 +1,16 @@
+{
+  "name": "@lufa/poc_single-spa-vite-esm_vite-plugin-import-map-injector",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [
+    "vite",
+    "plugin",
+    "import-map",
+    "injector"
+  ],
+  "peerDependencies": {
+    "vite": "^6.2.2"
+  }
+}
