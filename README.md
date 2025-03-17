@@ -17,11 +17,11 @@ I started a lot of projects (some still available on Github), but most of them h
 After doing this conclusion, I decided to bring together all the new projects in a mono-repository.
 It will help me keep an eye on the oldest projects and keep them up to date.
 
-# List of POCs
+## List of POCs
 
-| POC Name                                                           | Description                         | Status |
-| ------------------------------------------------------------------ | ----------------------------------- | ------ |
-| [single-spa-vite-esm](/packages/poc/single-spa-vite-esm/README.md) | A micro-frontend using Vite and ESM | Done   |
+| First Commit | Latest Update | POC Name                                                           | Description                         | Status |
+| ------------ | ------------- | ------------------------------------------------------------------ | ----------------------------------- | ------ |
+| 2025-02-07   | 2025-03-17    | [single-spa-vite-esm](/packages/poc/single-spa-vite-esm/README.md) | A micro-frontend using Vite and ESM | Done   |
 
 ## License
 
