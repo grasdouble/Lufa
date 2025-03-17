@@ -1,10 +1,18 @@
-= SingleSPA with Vite and ESM
+# SingleSPA with Vite and ESM
 
-== Goal
+## What
 
-SingleSPA is known to work with SystemJS and Webpack, but now it's possible to use SingleSPA with ESM and Vite.
+**SingleSPA** is a JavaScript framework that enables you to combine multiple micro-frontends into a single application.
 
-== Why
+It allows you to load and run multiple independent front-end applications, **written with different frameworks** (such as React, Angular, Vue, etc.), on the same web page.
+
+This makes it easier to manage and develop large applications by breaking them down into smaller, autonomous parts.
+
+## Goal
+
+SingleSPA is known to work with SystemJS and Webpack, but now it's possible to use SingleSPA with ESM and Vite and I want to test that.
+
+## Why
 
 SystemJS is an old module loader that was designed to support the dynamic loading of modules in JavaScript. While it has been a useful tool in the past, it has several limitations and drawbacks compared to modern standards:
 
@@ -26,11 +34,11 @@ On the other hand, ECMAScript Modules (ESM) are the standardized way to define a
 
 For these reasons, it is preferable to use ESM with modern tools like Vite to build efficient, maintainable, and future-proof applications.
 
-== POC description
+## POC description
 
-In this POC, you will find 4 packages: 
-- **main-container**: This package will container the root container of the SingleSPA. It will be in charge to load parcels
-- **parcel-a**: It's a simple parcel containing the react demo
-- **vitePlugin-importMapInjector**: It's a vite plugin used to manage importMap depdending of the mode (dev or production)
-- **vitePlugin-reactPreamble**: It's another vite plugin and this one is to make the HMR possible in dev mode with react
+In this POC, you will find 4 packages:
 
+- **main-container**: This package is the root container of the SingleSPA. It will be responsible for loading parcels.
+- **parcel-a**: It's a simple parcel containing the react demo.
+- **vitePlugin-importMapInjector**: It's a vite plugin used to manage importMap depdending of the mode (dev or production).
+- **vitePlugin-reactPreamble**: It's another vite plugin and this one is to make the HMR possible in dev mode with react.
