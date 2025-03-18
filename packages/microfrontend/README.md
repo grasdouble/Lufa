@@ -17,3 +17,9 @@ The `main-container` is the core module responsible for orchestrating the integr
 ### home
 
 The `home` module represents the landing page or entry point of the application. It provides the initial user interface and serves as a starting point for navigation to other microfrontend components. This module typically includes shared layouts, headers, and footers.
+
+## Changelog
+
+## [Unreleased] 2025-03-18
+
+- Initial setup of the microfrontend with the first application (home) and the integration of the storybook using an iframe
