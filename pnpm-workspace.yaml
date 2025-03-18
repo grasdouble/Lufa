@@ -1,5 +1,6 @@
 packages:
   - packages/design-system
   - packages/apps/*
+  - packages/microfrontend/*
   - packages/tools/*
   - packages/poc/single-spa-vite-esm/*

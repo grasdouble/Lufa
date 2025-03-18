@@ -20,9 +20,9 @@
     "dist"
   ],
   "devDependencies": {
-    "@lufa/shared-config": "workspace:^",
-    "@lufa/tools-eslint-config": "workspace:^",
-    "@lufa/tools-tsconfig": "workspace:^",
+    "@lufa/config_shared": "workspace:^",
+    "@lufa/config_eslint": "workspace:^",
+    "@lufa/config_tsconfig": "workspace:^",
     "@tailwindcss/vite": "^4.0.14",
     "@types/react": "^19.0.11",
     "@types/react-dom": "^19.0.4",
