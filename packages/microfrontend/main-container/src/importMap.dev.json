@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lufa/microfrontend_home": "http://localhost:4101/src/parcel.jsx"
+  }
+}

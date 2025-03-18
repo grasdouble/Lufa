@@ -1,5 +1,5 @@
 {
-  "name": "@lufa/shared-config",
+  "name": "@lufa/config_shared",
   "version": "0.0.1",
   "main": "index.js",
   "license": "CC-BY-NC-4.0",

@@ -1,5 +1,5 @@
 {
-  "extends": "@lufa/tools-tsconfig/react-app.json",
+  "extends": "@lufa/config_tsconfig/react-app.json",
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

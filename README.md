@@ -2,6 +2,10 @@
 
 LUFA is a mono repo without a lens except to satisfy its owner.
 
+<p align="center">
+  <img src="./docs/img/Lufa_Logo_small.png" alt="Logo" width="300"/>
+</p>
+
 It's composed to:
 
 - a design system (almost, there are only a few components)
