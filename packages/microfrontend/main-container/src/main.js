@@ -7,7 +7,7 @@ const loadApp = (url) => () => import(/* @vite-ignore */ url);
 registerApplication({
   name: "@lufa/microfrontend_home",
   app: loadApp("@lufa/microfrontend_home"),
-  activeWhen: ["/"],
+  activeWhen: (location) => location.pathname === "/",
 });
 registerApplication({
   name: "@lufa/apps_storybook",

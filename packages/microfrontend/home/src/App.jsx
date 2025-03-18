@@ -19,7 +19,7 @@ function App() {
             Storybook (WIP)
           </a>
           <a
-            href="https://github.com/grasdouble"
+            href="https://github.com/grasdouble/Lufa"
             target="_blank"
             rel="noopener noreferrer"
             className="link github"
