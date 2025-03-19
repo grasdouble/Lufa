@@ -1,5 +1,5 @@
 {
-  "name": "@lufa/apps_storybook",
+  "name": "@grasdouble/lufa_apps_storybook",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -9,7 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@lufa/design-system": "workspace:^",
+    "@grasdouble/lufa_design-system": "workspace:^",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

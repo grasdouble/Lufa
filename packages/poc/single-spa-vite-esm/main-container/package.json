@@ -1,5 +1,5 @@
 {
-  "name": "@lufa/poc_single-spa-vite-esm_main-container",
+  "name": "@grasdouble/lufa_poc_single-spa-vite-esm_main-container",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -15,7 +15,7 @@
   "dependencies": {
     "import-map-overrides": "^5.1.1",
     "single-spa": "^6.0.3",
-    "@lufa/poc_single-spa-vite-esm_vite-plugin-react-preamble": "workspace:^",
-    "@lufa/poc_single-spa-vite-esm_vite-plugin-import-map-injector": "workspace:^"
+    "@grasdouble/lufa_poc_single-spa-vite-esm_vite-plugin-react-preamble": "workspace:^",
+    "@grasdouble/lufa_poc_single-spa-vite-esm_vite-plugin-import-map-injector": "workspace:^"
   }
 }

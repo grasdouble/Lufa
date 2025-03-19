@@ -1,5 +1,5 @@
 {
-  "name": "@lufa/apps_web",
+  "name": "@grasdouble/lufa_apps_web",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -10,13 +10,13 @@
     "lint": ""
   },
   "dependencies": {
-    "@lufa/design-system": "workspace:^",
+    "@grasdouble/lufa_design-system": "workspace:^",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@lufa/config_eslint": "workspace:^",
-    "@lufa/config_tsconfig": "workspace:^",
+    "@grasdouble/lufa_config_eslint": "workspace:^",
+    "@grasdouble/lufa_config_tsconfig": "workspace:^",
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.11",
     "@types/react-dom": "^19.0.4",

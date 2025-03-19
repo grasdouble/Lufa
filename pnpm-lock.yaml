@@ -17,7 +17,7 @@ importers:
 
   packages/apps/storybook:
     dependencies:
-      '@lufa/design-system':
+      '@grasdouble/lufa_design-system':
         specifier: workspace:^
         version: link:../../design-system
       react:
@@ -99,7 +99,7 @@ importers:
 
   packages/apps/web:
     dependencies:
-      '@lufa/design-system':
+      '@grasdouble/lufa_design-system':
         specifier: workspace:^
         version: link:../../design-system
       react:
@@ -109,10 +109,10 @@ importers:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
     devDependencies:
-      '@lufa/config_eslint':
+      '@grasdouble/lufa_config_eslint':
         specifier: workspace:^
         version: link:../../tools/eslint-config
-      '@lufa/config_tsconfig':
+      '@grasdouble/lufa_config_tsconfig':
         specifier: workspace:^
         version: link:../../tools/tsconfig
       '@types/node':
@@ -143,13 +143,13 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0(react@19.0.0)
     devDependencies:
-      '@lufa/config_eslint':
+      '@grasdouble/lufa_config_eslint':
         specifier: workspace:^
         version: link:../tools/eslint-config
-      '@lufa/config_shared':
+      '@grasdouble/lufa_config_shared':
         specifier: workspace:^
         version: link:../tools/config
-      '@lufa/config_tsconfig':
+      '@grasdouble/lufa_config_tsconfig':
         specifier: workspace:^
         version: link:../tools/tsconfig
       '@tailwindcss/vite':
@@ -258,10 +258,10 @@ importers:
 
   packages/microfrontend/main-container:
     dependencies:
-      '@lufa/poc_single-spa-vite-esm_vite-plugin-import-map-injector':
+      '@grasdouble/lufa_poc_single-spa-vite-esm_vite-plugin-import-map-injector':
         specifier: workspace:^
         version: link:../../poc/single-spa-vite-esm/vitePlugin-importMapInjector
-      '@lufa/poc_single-spa-vite-esm_vite-plugin-react-preamble':
+      '@grasdouble/lufa_poc_single-spa-vite-esm_vite-plugin-react-preamble':
         specifier: workspace:^
         version: link:../../poc/single-spa-vite-esm/vitePlugin-reactPreamble
       import-map-overrides:
@@ -277,10 +277,10 @@ importers:
 
   packages/poc/single-spa-vite-esm/main-container:
     dependencies:
-      '@lufa/poc_single-spa-vite-esm_vite-plugin-import-map-injector':
+      '@grasdouble/lufa_poc_single-spa-vite-esm_vite-plugin-import-map-injector':
         specifier: workspace:^
         version: link:../vitePlugin-importMapInjector
-      '@lufa/poc_single-spa-vite-esm_vite-plugin-react-preamble':
+      '@grasdouble/lufa_poc_single-spa-vite-esm_vite-plugin-react-preamble':
         specifier: workspace:^
         version: link:../vitePlugin-reactPreamble
       import-map-overrides:

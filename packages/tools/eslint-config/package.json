@@ -1,5 +1,5 @@
 {
-  "name": "@lufa/config_eslint",
+  "name": "@grasdouble/lufa_config_eslint",
   "version": "0.0.1",
   "private": true,
   "main": "index.js",
