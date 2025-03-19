@@ -35,7 +35,7 @@ jobs:
       # Configure npm for GitHub Registry
       - name: Configure npm for GitHub Registry
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_GITHUB_SECRET }}" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
           echo "@lufa:registry=https://npm.pkg.github.com" >> ~/.npmrc
 
       # Install dependencies
@@ -57,5 +57,5 @@ jobs:
           version: pnpm changeset version # The command to run to bump the version
           createGithubReleases: true # Set this to true if you want to create a GitHub release
         env:
-          GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_SECRET }}
-          NPM_TOKEN: ${{ secrets.NPM_GITHUB_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
