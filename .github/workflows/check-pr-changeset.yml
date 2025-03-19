@@ -48,7 +48,9 @@ jobs:
         run: |
           git fetch origin ${{ github.event.pull_request.base.ref }}
           git diff --name-only origin/${{ github.event.pull_request.base.ref }} > files.txt
-          echo "files=$(cat files.txt)" >> $GITHUB_ENV
+          echo "files<<EOF" >> $GITHUB_ENV
+          cat files.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       # Check if a changeset file exists in the modified files
       - name: Check for changeset
