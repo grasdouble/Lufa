@@ -1,6 +1,7 @@
 {
   "name": "@lufa/design-system",
   "version": "0.0.1",
+  "private": false,
   "license": "CC-BY-NC-4.0",
   "type": "module",
   "scripts": {

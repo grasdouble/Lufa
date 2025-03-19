@@ -1,6 +1,7 @@
 {
   "name": "@lufa/config_eslint",
   "version": "0.0.1",
+  "private": true,
   "main": "index.js",
   "license": "CC-BY-NC-4.0",
   "dependencies": {
