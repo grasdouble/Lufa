@@ -64,7 +64,7 @@
          - name: Set up Node.js
            uses: actions/setup-node@v4
            with:
-             node-version: "14"
+             node-version: "23"
 
          - name: Install dependencies
            run: npm install license-checker
