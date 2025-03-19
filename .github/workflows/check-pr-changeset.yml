@@ -1,0 +1,61 @@
+name: Check for Changeset
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+
+jobs:
+  check-changeset:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Check if the PR has the 'skipChangeset' label
+      - name: Check for skipChangeset label
+        id: check-label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = await github.rest.issues.listLabelsOnIssue({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+            });
+            const hasSkipChangeset = labels.data.some(label => label.name === 'skipChangeset');
+            if (hasSkipChangeset) {
+              core.info("✅ 'skipChangeset' label found. Skipping changeset check.");
+              return 'true';
+            } else {
+              core.info("❌ 'skipChangeset' label not found. Proceeding with changeset check.");
+              return 'false';
+            }
+          result-encoding: string
+
+      # Stop the job if the 'skipChangeset' label is present
+      - name: Skip if bypass is true
+        if: steps.check-label.outputs.result == 'true'
+        run: |
+          echo "Skipping changeset check because 'skipChangeset' label is present."
+          exit 0
+
+      # Get the list of modified files in the PR
+      - name: Get list of modified files
+        id: files
+        run: |
+          git fetch origin ${{ github.event.pull_request.base.ref }}
+          git diff --name-only origin/${{ github.event.pull_request.base.ref }} > files.txt
+          echo "files=$(cat files.txt)" >> $GITHUB_ENV
+
+      # Check if a changeset file exists in the modified files
+      - name: Check for changeset
+        run: |
+          if ! grep -q "^.changeset/" <<< "$files"; then
+            echo "❌ No changeset file found in this PR."
+            echo "Please add a changeset file to describe your changes."
+            exit 1
+          else
+            echo "✅ Changeset file found."
+          fi
