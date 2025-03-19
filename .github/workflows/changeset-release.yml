@@ -30,15 +30,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 23
+          cache: "pnpm"
           registry-url: https://registry.npmjs.org
-
-      # Install dependencies
-      - name: Install dependencies
-        run: pnpm install
-
-      # Build all packages
-      - name: Build All packages
-        run: pnpm build:all
 
       # Configure npm for GitHub Registry
       - name: Configure npm for GitHub Registry
@@ -46,15 +39,19 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
           echo "registry=https://npm.pkg.github.com" >> ~/.npmrc
 
-      # Install updated dependencies
+      # Install dependencies
       - name: Install updated dependencies
         run: pnpm install
+
+      # Build all packages
+      # - name: Build All packages
+      #   run: pnpm build:all
 
       # Publish the release or pre-release
       - name: Run Changesets Action
         uses: changesets/action@v1
         with:
-          publish: ${{ inputs.preRelease == 'true' && 'beta' || 'latest' }}
+          publish: ${{ inputs.preRelease == 'true' && 'pnpm release' || 'pnpm prerelease' }}
           title: "Release: New Version Updates" # The title for the changeset commit
           commit: "Release new versions" # The commit message for the changeset commit
           setupGitUser: true # Set this to true if you want to set up the git user for the action
