@@ -1,7 +1,9 @@
 {
   "imports": {
     "@lufa/microfrontend_home": "https://cdn.sebastien-lemouillour.fr/microfrontend_home/home.mjs",
+    "@lufa/microfrontend_todo": "http://localhost:4102/todo.mjs",
     "react": "https://esm.sh/react@19.0.0",
+    "react-markdown": "https://esm.sh/react-markdown@10.1.0",
     "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/client": "https://esm.sh/react-dom@19.0.0/client"

@@ -10,6 +10,11 @@ registerApplication({
   activeWhen: (location) => location.pathname === "/",
 });
 registerApplication({
+  name: "@lufa/microfrontend_todo",
+  app: loadApp("@lufa/microfrontend_todo"),
+  activeWhen: ["/todo"],
+});
+registerApplication({
   name: "@lufa/apps_storybook",
   app: async () => {
     // Create a false module to encapsulate your storybook application
