@@ -43,6 +43,7 @@ jobs:
 
       # Get the list of modified files in the PR
       - name: Get list of modified files
+        if: steps.check-label.outputs.result == 'false'
         id: files
         run: |
           git fetch origin ${{ github.event.pull_request.base.ref }}
@@ -51,6 +52,7 @@ jobs:
 
       # Check if a changeset file exists in the modified files
       - name: Check for changeset
+        if: steps.check-label.outputs.result == 'false'
         run: |
           if ! grep -q "^.changeset/" <<< "$files"; then
             echo "❌ No changeset file found in this PR."
