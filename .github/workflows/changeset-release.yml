@@ -36,6 +36,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      # Build all packages
+      - name: Build All packages
+        run: pnpm build:all
+
       # Configure npm for GitHub Registry
       - name: Configure npm for GitHub Registry
         run: |

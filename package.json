@@ -3,6 +3,9 @@
   "private": true,
   "scripts": {
     "build:all": "pnpm --filter @lufa/* run build",
+    "release": "pnpm build:all && changeset publish",
+    "--Microfrontends--": "",
+    
     "--DesignSystem--": "",
     "build:design-system": "pnpm --filter @lufa/design-system run build",
     "--APPs--": "",
