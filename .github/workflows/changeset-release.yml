@@ -21,6 +21,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Configure npm for GitHub Registry
+      - name: Configure npm for GitHub Registry
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+          echo "registry=https://npm.pkg.github.com" >> ~/.npmrc
+
       # Install pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -31,13 +37,6 @@ jobs:
         with:
           node-version: 23
           cache: "pnpm"
-          registry-url: https://registry.npmjs.org
-
-      # Configure npm for GitHub Registry
-      - name: Configure npm for GitHub Registry
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
-          echo "registry=https://npm.pkg.github.com" >> ~/.npmrc
 
       # Install dependencies
       - name: Install updated dependencies
