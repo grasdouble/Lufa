@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@lufa/microfrontend_home": "http://localhost:4101/src/parcel.jsx"
+    "@grasdouble/lufa_microfrontend_home": "http://localhost:4101/src/parcel.jsx"
   }
 }

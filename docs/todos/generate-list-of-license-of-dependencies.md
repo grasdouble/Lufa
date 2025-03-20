@@ -59,12 +59,12 @@
 
        steps:
          - name: Checkout repository
-           uses: actions/checkout@v2
+           uses: actions/checkout@v4
 
          - name: Set up Node.js
-           uses: actions/setup-node@v2
+           uses: actions/setup-node@v4
            with:
-             node-version: "14"
+             node-version: "23"
 
          - name: Install dependencies
            run: npm install license-checker

@@ -11,7 +11,7 @@ jobs:
     steps:
       # Checkout the code
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Check if the PR has the 'skipChangeset' label
       - name: Check for skipChangeset label

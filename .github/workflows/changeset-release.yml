@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      preRelease:
+        description: "Is it a pre-release version?"
+        type: boolean
+        required: true
+        default: false
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      # Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
+          cache: "pnpm"
+
+      # Configure npm for GitHub Registry
+      - name: Configure npm for GitHub Registry
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+          echo "@grasdouble:registry=https://npm.pkg.github.com" >> ~/.npmrc
+
+      # Install dependencies
+      - name: Install updated dependencies
+        run: pnpm install
+
+      # Build all packages
+      # - name: Build All packages
+      #   run: pnpm build:all
+
+      # Publish the release or pre-release
+      - name: Run Changesets Action
+        uses: changesets/action@v1
+        with:
+          publish: ${{ inputs.preRelease == 'true' && 'pnpm prerelease' || 'pnpm release' }}
+          title: "Release: New Version Updates" # The title for the changeset commit
+          commit: "Release new versions" # The commit message for the changeset commit
+          setupGitUser: true # Set this to true if you want to set up the git user for the action
+          version: pnpm changeset version # The command to run to bump the version
+          createGithubReleases: true # Set this to true if you want to create a GitHub release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}

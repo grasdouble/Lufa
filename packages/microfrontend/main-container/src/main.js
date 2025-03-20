@@ -5,17 +5,17 @@ const loadApp = (url) => () => import(/* @vite-ignore */ url);
 
 // PARCELS
 registerApplication({
-  name: "@lufa/microfrontend_home",
-  app: loadApp("@lufa/microfrontend_home"),
+  name: "@grasdouble/lufa_microfrontend_home",
+  app: loadApp("@grasdouble/lufa_microfrontend_home"),
   activeWhen: (location) => location.pathname === "/",
 });
 registerApplication({
-  name: "@lufa/microfrontend_todo",
-  app: loadApp("@lufa/microfrontend_todo"),
+  name: "@grasdouble/lufa_microfrontend_todo",
+  app: loadApp("@grasdouble/lufa_microfrontend_todo"),
   activeWhen: ["/todo"],
 });
 registerApplication({
-  name: "@lufa/apps_storybook",
+  name: "@grasdouble/lufa_apps_storybook",
   app: async () => {
     // Create a false module to encapsulate your storybook application
     return {

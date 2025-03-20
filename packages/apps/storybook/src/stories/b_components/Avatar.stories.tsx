@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Avatar } from "@lufa/design-system";
+import { Avatar } from "@grasdouble/lufa_design-system";
 import type {
   AvatarNotificationProps,
   AvatarProps,
   AvatarImageProps,
-} from "@lufa/design-system";
+} from "@grasdouble/lufa_design-system";
 
 type AvatarPropsAndCustomArgs = React.ComponentProps<typeof Avatar> &
   AvatarImageProps &

@@ -1,6 +1,6 @@
 {
-  "name": "@lufa/microfrontend_home",
-  "private": true,
+  "name": "@grasdouble/lufa_microfrontend_home",
+  "private": false,
   "version": "0.0.1",
   "type": "module",
   "scripts": {

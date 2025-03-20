@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import "@lufa/design-system/style.css";
+import "@grasdouble/lufa_design-system/style.css";
 
 const preview: Preview = {
   parameters: {
