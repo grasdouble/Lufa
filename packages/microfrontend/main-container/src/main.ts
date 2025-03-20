@@ -1,31 +1,39 @@
-import { registerApplication, start } from "single-spa";
+import { LifeCycles, registerApplication, start } from "single-spa";
 import "import-map-overrides";
 
-const loadApp = (url) => () => import(/* @vite-ignore */ url);
+const loadApp =
+  (url: string): (() => Promise<LifeCycles>) =>
+  () =>
+    import(/* @vite-ignore */ url);
 
 // PARCELS
 registerApplication({
   name: "@grasdouble/lufa_microfrontend_home",
   app: loadApp("@grasdouble/lufa_microfrontend_home"),
-  activeWhen: (location) => location.pathname === "/",
+  activeWhen: (location: Location) => location.pathname === "/",
 });
+
 registerApplication({
   name: "@grasdouble/lufa_apps_storybook",
   app: async () => {
     // Create a false module to encapsulate your storybook application
     return {
-      bootstrap: () => Promise.resolve(),
-      mount: () => {
+      bootstrap: (): Promise<void> => Promise.resolve(),
+      mount: (): Promise<void> => {
         // Create an iframe to encapsulate the storybook application
         const iframe = document.createElement("iframe");
+        iframe.id = "storybook-iframe"; // Add an ID for easier unmounting
         iframe.src = "https://storybook.sebastien-lemouillour.fr";
         iframe.style.width = "100%";
         iframe.style.height = "100vh";
         iframe.style.border = "none";
-        document.getElementById("app").appendChild(iframe);
+        const appElement = document.getElementById("app");
+        if (appElement) {
+          appElement.appendChild(iframe);
+        }
         return Promise.resolve();
       },
-      unmount: () => {
+      unmount: (): Promise<void> => {
         // Unmount the iframe and remove it from the DOM
         const iframe = document.getElementById("storybook-iframe");
         if (iframe) {

@@ -1,6 +1,5 @@
 {
   "name": "@grasdouble/lufa_microfrontend_home",
-  "private": false,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
@@ -9,6 +8,11 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "buildAndPreview": "vite build && vite preview"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "react": "^19.0.0",
