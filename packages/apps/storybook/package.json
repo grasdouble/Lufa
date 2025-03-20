@@ -9,7 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@grasdouble/lufa_design-system": "0.0.1",
+    "@grasdouble/lufa_design-system": "workspace:^",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
