@@ -2,7 +2,10 @@
   "name": "@grasdouble/lufa",
   "private": true,
   "scripts": {
+    "--ALL--": "",
     "build:all": "pnpm --filter @grasdouble/* run build",
+    "lint:all": "pnpm --filter @grasdouble/* run lint",
+    "--Release--": "",
     "release": "pnpm build:all && changeset publish",
     "prerelease": "pnpm build:all && changeset publish",
     "--Microfrontends--": "",

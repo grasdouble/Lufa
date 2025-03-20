@@ -3,7 +3,7 @@ import { Badge } from "../../components/Badge";
 
 import dataEN from "./data.en.json";
 
-export const Experience = (index: number) => {
+export const Experience = () => {
   const xp = dataEN[3];
 
   const getBadgeColor = (tagType: string) => {
@@ -33,11 +33,12 @@ export const Experience = (index: number) => {
         <h3>{xp.description}</h3>
         <p className="mt-6 text-base leading-7 text-gray-600">
           <p className="mt-6 text-base leading-7 text-gray-600">
-            {xp.tags.map((tag) => (
+            {xp.tags.map((tag, index) => (
               <Badge
                 size="small"
                 label={tag.value}
                 color={getBadgeColor(tag.type)}
+                key={index}
               />
             ))}
           </p>
