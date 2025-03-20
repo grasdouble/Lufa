@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/lufa_config_tailwind",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "license": "CC-BY-NC-4.0",
   "private": true,
