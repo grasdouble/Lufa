@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@lufa/microfrontend_home": "https://cdn.sebastien-lemouillour.fr/microfrontend_home/home.mjs",
+    "@grasdouble/lufa_microfrontend_home": "https://cdn.sebastien-lemouillour.fr/microfrontend_home/home.mjs",
     "react": "https://esm.sh/react@19.0.0",
     "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
     "react-dom": "https://esm.sh/react-dom@19.0.0",

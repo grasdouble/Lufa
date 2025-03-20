@@ -1,4 +1,4 @@
-# @lufa/poc_single-spa-vite-esm_parcel-a
+# @grasdouble/lufa_poc_single-spa-vite-esm_parcel-a
 
 ## 0.0.4
 

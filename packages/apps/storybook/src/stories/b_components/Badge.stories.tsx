@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Badge } from "@gradouble/lufa_design-system";
+import { Badge } from "@grasdouble/lufa_design-system";
 
 const meta = {
   title: "2. Components/Badge",
