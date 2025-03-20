@@ -43,8 +43,8 @@ jobs:
         run: pnpm install
 
       # Build all packages
-      # - name: Build All packages
-      #   run: pnpm build:all
+      - name: Build All packages
+        run: pnpm build:all
 
       # Publish the release or pre-release
       - name: Run Changesets Action
