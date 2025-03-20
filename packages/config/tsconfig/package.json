@@ -1,9 +1,10 @@
 {
   "name": "@grasdouble/lufa_config_tsconfig",
   "version": "0.0.2",
-  "private": true,
   "license": "CC-BY-NC-4.0",
+  "private": false,
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   }
 }

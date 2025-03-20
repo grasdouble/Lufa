@@ -1,6 +1,5 @@
 {
   "name": "@grasdouble/lufa_apps_storybook",
-  "private": true,
   "version": "0.0.2",
   "type": "module",
   "scripts": {
@@ -8,6 +7,16 @@
     "build": "storybook build",
     "lint": "eslint ."
   },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "storybook-static",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "dependencies": {
     "@grasdouble/lufa_design-system": "workspace:^",
     "react": "^19.0.0",

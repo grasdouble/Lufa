@@ -1,6 +1,5 @@
 {
   "name": "@grasdouble/lufa_microfrontend_main-container",
-  "private": true,
   "version": "0.0.2",
   "type": "module",
   "scripts": {
@@ -10,6 +9,16 @@
     "buildAndPreview": "vite build && vite preview",
     "lint": "eslint ./src"
   },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "devDependencies": {
     "eslint": "^9.22.0",
     "typescript": "^5.8.2",

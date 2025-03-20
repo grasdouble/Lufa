@@ -1,7 +1,6 @@
 {
   "name": "@grasdouble/lufa_apps_web",
   "version": "0.0.2",
-  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +8,16 @@
     "preview": "vite preview",
     "lint": "eslint ./src"
   },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "dependencies": {
     "@grasdouble/lufa_design-system": "workspace:^",
     "react": "^19.0.0",
