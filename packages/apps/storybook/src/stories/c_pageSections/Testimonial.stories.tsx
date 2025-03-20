@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Testimonial } from "@lufa/design-system";
+import { Testimonial } from "@gradouble/lufa_design-system";
 
 const meta = {
   title: "3. Page Sections/Testimonial",

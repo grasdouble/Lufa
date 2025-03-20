@@ -1,4 +1,4 @@
-import { Button } from "@lufa/design-system";
+import { Button } from "@gradouble/lufa_design-system";
 
 export default function MyApp() {
   return (

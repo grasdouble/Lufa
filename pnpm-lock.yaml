@@ -18,8 +18,8 @@ importers:
   packages/apps/storybook:
     dependencies:
       '@grasdouble/lufa_design-system':
-        specifier: workspace:^
-        version: link:../../design-system
+        specifier: 0.0.1
+        version: 0.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -743,6 +743,9 @@ packages:
 
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
+
+  '@grasdouble/lufa_design-system@0.0.1':
+    resolution: {integrity: sha512-87EMoE9bYlMA9MxeeDHfvcidF2Hb8EYA9dEv9w5Zxp1dwuRHUswsvWAJ1lu9pXGFBJXzTsenceae86J1cb60uA==, tarball: https://npm.pkg.github.com/download/@grasdouble/lufa_design-system/0.0.1/a93f46977bc7e06ea6631ae942442ab862c0c327}
 
   '@headlessui/react@2.2.0':
     resolution: {integrity: sha512-RzCEg+LXsuI7mHiSomsu/gBJSjpupm6A1qIZ5sWjd7JhARNlMiSA4kKfJpCKwU9tE+zMRterhhrP74PvfJrpXQ==}
@@ -4058,6 +4061,14 @@ snapshots:
       tabbable: 6.2.0
 
   '@floating-ui/utils@0.2.9': {}
+
+  '@grasdouble/lufa_design-system@0.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@headlessui/react': 2.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@heroicons/react': 2.2.0(react@19.0.0)
+    transitivePeerDependencies:
+      - react
+      - react-dom
 
   '@headlessui/react@2.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Divider } from "@lufa/design-system";
+import { Divider } from "@gradouble/lufa_design-system";
 
 const meta = {
   title: "2. Components/Divider",

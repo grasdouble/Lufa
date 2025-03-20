@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@lufa/design-system";
+import { Button } from "@gradouble/lufa_design-system";
 
 const meta = {
   title: "2. Components/Button",
