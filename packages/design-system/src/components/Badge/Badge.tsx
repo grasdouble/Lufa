@@ -21,7 +21,6 @@ export const Badge = ({
   size = "medium",
   label,
   color = "gray",
-  ...props
 }: BadgeProps) => {
   const badgeClasses = getBadgeClasses(color, size);
 
