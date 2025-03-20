@@ -1,13 +1,15 @@
 {
   "name": "@grasdouble/lufa_config_tailwind",
   "version": "0.0.2",
-  "private": true,
   "main": "index.js",
   "license": "CC-BY-NC-4.0",
+  "private": true,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": [
-    ".eslintrc.js",
-    "eslint-preset.js",
-    "postcss.config.js",
+    "tailwind.css",
     "tailwind.config.js"
   ],
   "dependencies": {
