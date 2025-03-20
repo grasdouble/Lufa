@@ -50,7 +50,7 @@ jobs:
       - name: Run Changesets Action
         uses: changesets/action@v1
         with:
-          publish: ${{ inputs.preRelease == 'true' && 'pnpm release' || 'pnpm prerelease' }}
+          publish: ${{ inputs.preRelease == 'true' && 'pnpm prerelease' || 'pnpm release' }}
           title: "Release: New Version Updates" # The title for the changeset commit
           commit: "Release new versions" # The commit message for the changeset commit
           setupGitUser: true # Set this to true if you want to set up the git user for the action

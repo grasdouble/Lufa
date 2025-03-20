@@ -4,7 +4,7 @@
   "scripts": {
     "build:all": "pnpm --filter @grasdouble/* run build",
     "release": "pnpm build:all && changeset publish",
-    "prerelease": "changeset publish",
+    "prerelease": "pnpm build:all && changeset publish",
     "--Microfrontends--": "",
     "--DesignSystem--": "",
     "build:design-system": "pnpm --filter @grasdouble/lufa_design-system run build",
