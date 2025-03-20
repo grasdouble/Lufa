@@ -1,7 +1,6 @@
 {
   "name": "@grasdouble/lufa_design-system",
   "version": "0.0.1",
-  "private": false,
   "license": "CC-BY-NC-4.0",
   "type": "module",
   "scripts": {
@@ -9,6 +8,11 @@
     "build:types": "tsc --emitDeclarationOnly",
     "build": "vite build",
     "preview": "vite preview"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "exports": {
     ".": {
@@ -21,7 +25,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@grasdouble/lufa_config_shared": "workspace:^",
+    "@grasdouble/lufa_config_tailwind": "workspace:^",
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
     "@tailwindcss/vite": "^4.0.14",

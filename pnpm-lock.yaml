@@ -30,9 +30,9 @@ importers:
       '@chromatic-com/storybook':
         specifier: ^3.2.6
         version: 3.2.6(react@19.0.0)(storybook@8.6.7(prettier@3.5.3))
-      '@eslint/js':
-        specifier: ^9.22.0
-        version: 9.22.0
+      '@grasdouble/lufa_config_eslint':
+        specifier: workspace:^
+        version: link:../../config/eslint
       '@storybook/addon-essentials':
         specifier: ^8.6.7
         version: 8.6.7(@types/react@19.0.11)(storybook@8.6.7(prettier@3.5.3))
@@ -69,15 +69,6 @@ importers:
       eslint:
         specifier: ^9.22.0
         version: 9.22.0(jiti@2.4.2)
-      eslint-plugin-react-hooks:
-        specifier: ^5.2.0
-        version: 5.2.0(eslint@9.22.0(jiti@2.4.2))
-      eslint-plugin-react-refresh:
-        specifier: ^0.4.19
-        version: 0.4.19(eslint@9.22.0(jiti@2.4.2))
-      eslint-plugin-storybook:
-        specifier: ^0.11.6
-        version: 0.11.6(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)
       globals:
         specifier: ^16.0.0
         version: 16.0.0
@@ -111,10 +102,10 @@ importers:
     devDependencies:
       '@grasdouble/lufa_config_eslint':
         specifier: workspace:^
-        version: link:../../tools/eslint-config
+        version: link:../../config/eslint
       '@grasdouble/lufa_config_tsconfig':
         specifier: workspace:^
-        version: link:../../tools/tsconfig
+        version: link:../../config/tsconfig
       '@types/node':
         specifier: ^22.13.10
         version: 22.13.10
@@ -127,12 +118,55 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.3.4
         version: 4.3.4(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(less@4.2.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))
+      eslint:
+        specifier: ^9.22.0
+        version: 9.22.0(jiti@2.4.2)
       typescript:
         specifier: ^5.8.2
         version: 5.8.2
       vite:
         specifier: ^6.2.2
         version: 6.2.2(@types/node@22.13.10)(jiti@2.4.2)(less@4.2.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0)
+
+  packages/config/eslint:
+    dependencies:
+      eslint:
+        specifier: ^9.22.0
+        version: 9.22.0(jiti@2.4.2)
+      eslint-config-prettier:
+        specifier: ^10.1.1
+        version: 10.1.1(eslint@9.22.0(jiti@2.4.2))
+      eslint-plugin-react:
+        specifier: ^7.37.4
+        version: 7.37.4(eslint@9.22.0(jiti@2.4.2))
+    devDependencies:
+      '@eslint/js':
+        specifier: ^9.22.0
+        version: 9.22.0
+      eslint-plugin-react-hooks:
+        specifier: ^5.2.0
+        version: 5.2.0(eslint@9.22.0(jiti@2.4.2))
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.19
+        version: 0.4.19(eslint@9.22.0(jiti@2.4.2))
+      globals:
+        specifier: ^16.0.0
+        version: 16.0.0
+      typescript-eslint:
+        specifier: ^8.26.1
+        version: 8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)
+
+  packages/config/tailwind:
+    dependencies:
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@4.0.14)
+    devDependencies:
+      tailwindcss:
+        specifier: ^4.0.14
+        version: 4.0.14
+
+  packages/config/tsconfig: {}
 
   packages/design-system:
     dependencies:
@@ -145,13 +179,13 @@ importers:
     devDependencies:
       '@grasdouble/lufa_config_eslint':
         specifier: workspace:^
-        version: link:../tools/eslint-config
-      '@grasdouble/lufa_config_shared':
+        version: link:../config/eslint
+      '@grasdouble/lufa_config_tailwind':
         specifier: workspace:^
-        version: link:../tools/config
+        version: link:../config/tailwind
       '@grasdouble/lufa_config_tsconfig':
         specifier: workspace:^
-        version: link:../tools/tsconfig
+        version: link:../config/tsconfig
       '@tailwindcss/vite':
         specifier: ^4.0.14
         version: 4.0.14(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(less@4.2.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))
@@ -258,6 +292,12 @@ importers:
 
   packages/microfrontend/main-container:
     dependencies:
+      '@grasdouble/lufa_config_eslint':
+        specifier: workspace:^
+        version: link:../../config/eslint
+      '@grasdouble/lufa_config_tsconfig':
+        specifier: workspace:^
+        version: link:../../config/tsconfig
       '@grasdouble/lufa_poc_single-spa-vite-esm_vite-plugin-import-map-injector':
         specifier: workspace:^
         version: link:../../poc/single-spa-vite-esm/vitePlugin-importMapInjector
@@ -271,6 +311,15 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
     devDependencies:
+      eslint:
+        specifier: ^9.22.0
+        version: 9.22.0(jiti@2.4.2)
+      typescript:
+        specifier: ^5.8.2
+        version: 5.8.2
+      typescript-eslint:
+        specifier: ^8.26.1
+        version: 8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)
       vite:
         specifier: ^6.2.2
         version: 6.2.2(@types/node@22.13.10)(jiti@2.4.2)(less@4.2.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0)
@@ -360,27 +409,6 @@ importers:
       vite:
         specifier: ^6.2.2
         version: 6.2.2(@types/node@22.13.10)(jiti@2.4.2)(less@4.2.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0)
-
-  packages/tools/config:
-    dependencies:
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@4.0.14)
-    devDependencies:
-      tailwindcss:
-        specifier: ^4.0.14
-        version: 4.0.14
-
-  packages/tools/eslint-config:
-    dependencies:
-      eslint-config-prettier:
-        specifier: ^10.1.1
-        version: 10.1.1(eslint@9.22.0(jiti@2.4.2))
-      eslint-plugin-react:
-        specifier: ^7.37.4
-        version: 7.37.4(eslint@9.22.0(jiti@2.4.2))
-
-  packages/tools/tsconfig: {}
 
 packages:
 
@@ -1109,9 +1137,6 @@ packages:
     resolution: {integrity: sha512-HK7yQD4kFu04JOKnUwoFeR58r5WY6ucF0D8zfW4Gx+r8hBJ5K4t3z6k2dlIlRQF1X5+2vNkQOwD8liHjckuZ8Q==}
     peerDependencies:
       storybook: ^8.6.7
-
-  '@storybook/csf@0.1.13':
-    resolution: {integrity: sha512-7xOOwCLGB3ebM87eemep89MYRFTko+D8qE7EdAAq74lgdqRR5cOUtYWJLjO2dLtP94nqoOdHJo6MdLLKzg412Q==}
 
   '@storybook/experimental-addon-test@8.6.7':
     resolution: {integrity: sha512-laA3Tx6shWDROS+TUTd70i7oDXog7dyKcM9tAEAvqf9acSkcGrGOm/MKAFZtefUx+wZeYaAVjpCER/v0MaN1qQ==}
@@ -1927,12 +1952,6 @@ packages:
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
-
-  eslint-plugin-storybook@0.11.6:
-    resolution: {integrity: sha512-3WodYD6Bs9ACqnB+TP2TuLh774c/nacAjxSKOP9bHJ2c8rf+nrhocxjjeAWNmO9IPkFIzTKlcl0vNXI2yYpVOw==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      eslint: '>=8'
 
   eslint-scope@8.3.0:
     resolution: {integrity: sha512-pUNxi75F8MJ/GdeKtVLSbYg4ZI34J6C0C7sbL4YOp2exGwen7ZsuBqKzUhXd0qMQ362yET3z+uPwKeg/0C2XCQ==}
@@ -3388,10 +3407,6 @@ packages:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
 
-  type-fest@2.19.0:
-    resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
-    engines: {node: '>=12.20'}
-
   typed-array-buffer@1.0.3:
     resolution: {integrity: sha512-nAYYwfY3qnzX30IkA6AQZjVbtK6duGontcQm1WSG1MD94YLqK0515GNApXkoxKOWMusVssAHWLh9SeaoefYFGw==}
     engines: {node: '>= 0.4'}
@@ -4483,10 +4498,6 @@ snapshots:
       storybook: 8.6.7(prettier@3.5.3)
       unplugin: 1.16.1
 
-  '@storybook/csf@0.1.13':
-    dependencies:
-      type-fest: 2.19.0
-
   '@storybook/experimental-addon-test@8.6.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.7(prettier@3.5.3))':
     dependencies:
       '@storybook/global': 5.0.0
@@ -5457,16 +5468,6 @@ snapshots:
       semver: 6.3.1
       string.prototype.matchall: 4.0.12
       string.prototype.repeat: 1.0.0
-
-  eslint-plugin-storybook@0.11.6(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2):
-    dependencies:
-      '@storybook/csf': 0.1.13
-      '@typescript-eslint/utils': 8.26.1(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)
-      eslint: 9.22.0(jiti@2.4.2)
-      ts-dedent: 2.2.0
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
 
   eslint-scope@8.3.0:
     dependencies:
@@ -7098,8 +7099,6 @@ snapshots:
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
-
-  type-fest@2.19.0: {}
 
   typed-array-buffer@1.0.3:
     dependencies:
