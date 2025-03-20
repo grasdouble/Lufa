@@ -1,5 +1,11 @@
 # @grasdouble/lufa_design-system
 
+## 0.0.3
+
+### Patch Changes
+
+- b893e5b: Update publishConfig
+
 ## 0.0.2
 
 ### Patch Changes

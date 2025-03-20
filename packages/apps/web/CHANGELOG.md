@@ -1,5 +1,13 @@
 # @grasdouble/lufa_apps_web
 
+## 0.0.3
+
+### Patch Changes
+
+- b893e5b: Update publishConfig
+- Updated dependencies [b893e5b]
+  - @grasdouble/lufa_design-system@0.0.3
+
 ## 0.0.2
 
 ### Patch Changes
