@@ -18,15 +18,15 @@ export const Divider = ({ label, position = "center" }: DividerProps) => {
   };
 
   return (
-    <div className="px-4 max-w-2xl mx-auto">
+    <div className="mx-auto max-w-2xl px-4">
       <div className="relative">
-        <div className="items-center flex inset-0 absolute" aria-hidden="true">
-          <div className="border-t w-full border-gray-300 dark:border-gray-100"></div>
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t border-gray-300 dark:border-gray-100"></div>
         </div>
         {label && (
-          <div className={`${labelPositionMap[position]} flex relative`}>
+          <div className={`${labelPositionMap[position]} relative flex`}>
             <span
-              className={`${labelPaddingMap[position]} text-gray-500 text-sm dark:text-white bg-root-background-color-light dark:bg-root-background-color-dark`}
+              className={`${labelPaddingMap[position]} bg-root-background-color-light dark:bg-root-background-color-dark text-sm text-gray-500 dark:text-white`}
             >
               {label}
             </span>

@@ -3,7 +3,7 @@
 @layer components {
   .badge {
     @apply inline-flex items-center rounded-md px-2 py-1;
-    @apply ring-1 ring-inset ring-gray-500/10 shadow-black;
+    @apply ring-1 shadow-black ring-gray-500/10 ring-inset;
     @apply shadow-inner dark:shadow-md;
   }
 

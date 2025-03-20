@@ -2,7 +2,7 @@ import type { BadgeProps } from "./Badge";
 
 export const getBadgeClasses = (
   color?: BadgeProps["color"],
-  size?: BadgeProps["size"]
+  size?: BadgeProps["size"],
 ) => {
   let result = "";
 

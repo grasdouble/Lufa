@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint ./src",
     "build:types": "tsc --emitDeclarationOnly",
+    "prettier:fix": "prettier --write .",
     "build": "vite build",
     "preview": "vite preview"
   },

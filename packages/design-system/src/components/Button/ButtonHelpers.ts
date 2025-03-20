@@ -5,7 +5,7 @@ export const getButtonClasses = (
   variant: ButtonProps["variant"],
   danger: ButtonProps["danger"],
   disabled: ButtonProps["disabled"],
-  size: ButtonProps["size"]
+  size: ButtonProps["size"],
 ) => {
   let result = "";
 

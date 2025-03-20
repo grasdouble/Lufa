@@ -14,7 +14,7 @@ export interface AvatarProps {
 
 export const getAvatarClasses = (
   variant?: AvatarImageProps["variant"],
-  size?: AvatarProps["size"]
+  size?: AvatarProps["size"],
 ) => {
   let result = "";
 
@@ -42,7 +42,7 @@ export const getNotificationClasses = (
   size?: AvatarProps["size"],
   variant?: AvatarImageProps["variant"],
   color?: AvatarNotificationProps["color"],
-  position?: AvatarNotificationProps["position"]
+  position?: AvatarNotificationProps["position"],
 ) => {
   let result = "notification";
 

@@ -28,7 +28,7 @@ export const Avatar = ({
             size,
             variant,
             color,
-            position
+            position,
           )}`}
         />
       )}
