@@ -1,4 +1,4 @@
-import defaultTheme from "tailwindcss/defaultTheme";
+// import defaultTheme from "tailwindcss/defaultTheme";
 
 /**
  * Initial config
@@ -25,7 +25,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [import("tailwindcss-animate")],
 };
 export default config;
 
