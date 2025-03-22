@@ -13,7 +13,7 @@ export const Avatar = ({
   size = "medium",
 }: AvatarProps) => {
   const { variant, imgURL } = avatar;
-  console.log("Avatar");
+  
   const { color, position } = notification;
   return (
     <span className="relative inline-block">

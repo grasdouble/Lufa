@@ -12,26 +12,26 @@ export const getButtonClasses = (
   if (disabled) {
     result =
       variant === "link"
-        ? buttonStyle["button-disabled-link"]
-        : buttonStyle["button-disabled"];
+        ? `${buttonStyle["button"]} ${buttonStyle["button-disabled-link"]}`
+        : `${buttonStyle["button"]} ${buttonStyle["button-disabled"]}`;
   } else if (danger) {
     const dangerColorMapping = {
-      text: buttonStyle["button-danger-text"],
-      dashed: buttonStyle["button-danger-dashed"],
-      link: buttonStyle["button-danger-link"],
-      solid: buttonStyle["button-danger-solid"],
+      text: `${buttonStyle["button"]} ${buttonStyle["button-danger-text"]}`,
+      dashed: `${buttonStyle["button"]} ${buttonStyle["button-danger-dashed"]}`,
+      link: `${buttonStyle["button"]} ${buttonStyle["button-danger-link"]}`,
+      solid: `${buttonStyle["button"]} ${buttonStyle["button-danger-solid"]}`,
     };
     result =
       (variant && dangerColorMapping[variant]) ||
-      buttonStyle["button-danger-solid"];
+      `${buttonStyle["button"]} ${buttonStyle["button-danger-solid"]}`;
   } else {
     const colorMapping = {
-      text: buttonStyle["button-text"],
-      dashed: buttonStyle["button-dashed"],
-      link: buttonStyle["button-link"],
-      solid: buttonStyle["button-solid"],
+      text: `${buttonStyle["button"]} ${buttonStyle["button-text"]}`,
+      dashed: `${buttonStyle["button"]} ${buttonStyle["button-dashed"]}`,
+      link: `${buttonStyle["button"]} ${buttonStyle["button-link"]}`,
+      solid: `${buttonStyle["button"]} ${buttonStyle["button-solid"]}`,
     };
-    result = (variant && colorMapping[variant]) || buttonStyle["button-solid"];
+    result = (variant && colorMapping[variant]) || `${buttonStyle["button"]} ${buttonStyle["button-solid"]}`;
   }
 
   const sizeMapping = {

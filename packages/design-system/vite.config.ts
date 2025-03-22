@@ -5,7 +5,7 @@ import { externalizeDeps } from "vite-plugin-externalize-deps";
 import reactPlugin from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
+export default defineConfig(({ command, mode, isPreview }) => {
   // Load env file based on `mode` in the current working directory.
   // Set the third parameter to '' to load all env regardless of the
   // `VITE_` prefix.
@@ -17,7 +17,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
 
   const defaultPlugin = [reactPlugin()];
 
-  if (command === "serve") {
+  const getServeConfig = () => {
     return {
       // dev specific config
       plugins: [...defaultPlugin],
@@ -25,7 +25,9 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
         ...defaultDefine,
       },
     };
-  } else if (isPreview) {
+  };
+
+  const getPreviewConfig = () => {
     return {
       // preview specific config
       plugins: [...defaultPlugin],
@@ -33,7 +35,9 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
         ...defaultDefine,
       },
     };
-  } else if (command === "build") {
+  };
+
+  const getBuildConfig = () => {
     return {
       // build specific config
       plugins: [
@@ -60,7 +64,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
       },
       build: {
         target: "modules",
-        minify: true,
+        minify: false,
         sourcemap: true,
         declaration: true,
         cssMinify: false,
@@ -71,7 +75,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
           entry: resolve(__dirname, "src/index.ts"),
           name: "LufaDS",
           cssFileName: "style",
-          fileName: (format: string, entryName: string) => {
+          fileName: (format: string) => {
             let output = "lufa-ui";
             if (format === "es") {
               output += ".mjs";
@@ -83,16 +87,16 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
             return output;
           },
         },
-        // rollupOptions:{
-        //   external:['react'],
-        //   output: {
-        //     globals: {
-        //       react: "react"
-        //     },
-        //   },
-        // }
       },
     };
+  };
+
+  if (command === "serve") {
+    return getServeConfig();
+  } else if (isPreview) {
+    return getPreviewConfig();
+  } else if (command === "build") {
+    return getBuildConfig();
   } else {
     // Oops something wrong should happen
     return {};

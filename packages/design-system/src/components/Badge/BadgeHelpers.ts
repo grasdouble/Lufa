@@ -8,14 +8,14 @@ export const getBadgeClasses = (
 
   // Get Color Classes
   const colorMapping = {
-    red: "badge-red",
-    yellow: "badge-yellow",
-    green: "badge-green",
-    blue: "badge-blue",
-    indigo: "badge-indigo",
-    purple: "badge-purple",
-    pink: "badge-pink",
-    gray: "badge-gray",
+    red: "badge badge-red",
+    yellow: "badge badge-yellow",
+    green: "badge badge-green",
+    blue: "badge badge-blue",
+    indigo: "badge badge-indigo",
+    purple: "badge badge-purple",
+    pink: "badge badge-pink",
+    gray: "badge badge-gray",
   };
   result += (color && colorMapping[color]) || "badge-gray";
 

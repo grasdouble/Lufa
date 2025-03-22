@@ -20,8 +20,8 @@ export const getAvatarClasses = (
 
   // Get Variant Classes
   const variantMapping = {
-    square: "avatar-square",
-    circle: "avatar-circle",
+    square: "avatar avatar-square",
+    circle: "avatar avatar-circle",
   };
   result += (variant && variantMapping[variant]) || "";
 
