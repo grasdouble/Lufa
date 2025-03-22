@@ -1,1 +1,5 @@
 @import "@grasdouble/lufa_config_tailwind/tailwind.css";
+
+/* https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
+@custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *)); 
+

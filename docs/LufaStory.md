@@ -11,3 +11,12 @@
 ## [2025-03-20]
 
 - Improve shared config packages (especially eslint and tsconfig)
+- Update publish config for all package except those inside poc folder
+
+## [2025-03-21]
+
+- Try to fix issue in DS and storybook since the upgrade to v4
+
+## [2025-03-22]
+
+- Add dark mode switcher in storybook

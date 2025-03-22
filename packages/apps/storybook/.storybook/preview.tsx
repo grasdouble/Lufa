@@ -38,13 +38,6 @@ const hackDecoratorDarkMode = (story, context) => {
     (v) => v.name === "light"
   )?.color;
 
-  console.log(
-    "defaultBackgroundColorKey",
-    isDarkMode,
-    darkModeColor,
-    lightModeColor
-  );
-
   const styleContentForDocs = `
   .docs-story {
     background-color: ${isDarkMode ? darkModeColor : lightModeColor};
