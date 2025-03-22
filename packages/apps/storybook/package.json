@@ -32,6 +32,7 @@
     "@storybook/react-vite": "^8.6.7",
     "@storybook/test": "^8.6.7",
     "@storybook/theming": "^8.6.8",
+    "@tailwindcss/vite": "^4.0.14",
     "@types/react": "^19.0.11",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
@@ -39,6 +40,7 @@
     "globals": "^16.0.0",
     "preset": "link:@storybook/react-vite/preset.js",
     "storybook": "^8.6.7",
+    "tailwindcss": "^4.0.14",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.2.2"
