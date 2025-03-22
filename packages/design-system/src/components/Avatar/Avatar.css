@@ -1,6 +1,5 @@
 @reference '../../tailwind.css';
 
-@tailwind components;
 
 @layer components {
   .avatar {
@@ -8,12 +7,10 @@
   }
 
   .avatar-circle {
-    @extend avatar;
     @apply rounded-full;
   }
 
   .avatar-square {
-    @extend avatar;
     @apply rounded-md;
   }
 

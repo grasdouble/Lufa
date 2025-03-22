@@ -7,7 +7,7 @@ export { Button } from "./components/Button";
 // export {Typography} from "./components/Typography";
 
 // Layout components
-export { Divider } from "./components/Divider";
+// export { Divider } from "./components/Divider";
 // export { Grid } from "./components/Grid";
 // export { Layout } from "./components/Layout";
 // export { Space } from "./components/Space";
@@ -82,6 +82,6 @@ export { Badge } from "./components/Badge";
 // page section
 export { Testimonial } from "./pageSections/Testimonial";
 // cv exports
-export { NotFound as ResumeNotFound } from "./cv/NotFoundPage";
-export { Introduction as ResumeIntroduction } from "./cv/Introduction";
-export { Experience as ResumeExperience } from "./cv/Experience";
+// export { NotFound as ResumeNotFound } from "./cv/NotFoundPage";
+// export { Introduction as ResumeIntroduction } from "./cv/Introduction";
+// export { Experience as ResumeExperience } from "./cv/Experience";
