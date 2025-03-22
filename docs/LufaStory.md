@@ -20,3 +20,4 @@
 ## [2025-03-22]
 
 - Add dark mode switcher in storybook
+- Clean code (no more tailwind.config.mjs, all is managed directly in css now. https://v3.tailwindcss.com/docs/v4-beta#css-first-configuration)
