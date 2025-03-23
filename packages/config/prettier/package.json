@@ -1,0 +1,21 @@
+{
+  "name": "@grasdouble/lufa_config_prettier",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "CC-BY-NC-4.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "prettier.config.mjs",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11"
+  }
+}

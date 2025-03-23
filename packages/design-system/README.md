@@ -1,3 +1,3 @@
-# @grasdouble/lufa_config_tsconfig
+# @grasdouble/lufa_design-system
 
 TBD

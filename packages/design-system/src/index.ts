@@ -1,5 +1,8 @@
 import "./tailwind.css";
 
+// Primer components
+export { Placeholder } from "./components/Placeholder";
+
 // General components
 export { Button } from "./components/Button";
 // export {FloatButton} from "./components/FloatButton";
