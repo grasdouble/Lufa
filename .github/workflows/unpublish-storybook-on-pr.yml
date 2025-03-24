@@ -1,0 +1,34 @@
+name: Cleanup Storybook on PR Merge
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  cleanup-storybook:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Checkout the gh-pages branch
+      - name: Checkout gh-pages branch
+        run: |
+          git fetch origin gh-pages
+          git checkout gh-pages
+
+      # Step 3: Remove the PR folder
+      - name: Remove PR folder
+        run: |
+          rm -rf pr-${{ github.event.pull_request.number }}
+          git add .
+          git commit -m "Cleanup Storybook for PR #${{ github.event.pull_request.number }}"
+
+      # Step 4: Push changes to gh-pages
+      - name: Push changes
+        run: |
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
