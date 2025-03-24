@@ -1,4 +1,4 @@
-import{j as n}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as i}from"./index-CePRvBtH.js";import{M as t,P as a,C as d,S as o}from"./index-BYr_cvSO.js";import{B as c,A as h,a as m}from"./Badge.stories-BTZn8Ne8.js";import"./index-DmM0KDA7.js";import"./iframe-DScL3lBa.js";import"./index-nLeaPAJ8.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";import"./lufa-ui-Bz09sRql.js";function e(s){const r={h1:"h1",h2:"h2",h3:"h3",p:"p",...i(),...s.components};return n.jsxs(n.Fragment,{children:[n.jsx(t,{of:c}),`
+import{j as n}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as i}from"./index-CePRvBtH.js";import{M as t,P as a,C as d,S as o}from"./index-CIM55oRt.js";import{B as c,A as h,a as m}from"./Badge.stories-BTZn8Ne8.js";import"./index-DmM0KDA7.js";import"./iframe-Dg5xyMCq.js";import"./index-nLeaPAJ8.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";import"./lufa-ui-Bz09sRql.js";function e(s){const r={h1:"h1",h2:"h2",h3:"h3",p:"p",...i(),...s.components};return n.jsxs(n.Fragment,{children:[n.jsx(t,{of:c}),`
 `,n.jsx(r.h1,{id:"badge",children:"Badge"}),`
 `,n.jsx(r.p,{children:"A badge is ..."}),`
 `,n.jsx(a,{}),`
