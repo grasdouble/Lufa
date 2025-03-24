@@ -1,8 +1,8 @@
 import './tailwind.css';
 
 // Primer components
-export { Placeholder } from './components/Placeholder'; // Note: The Placeholder component is not clearly defined in the Primer design system but used in documentation.
-export { Stack } from './components/Stack';
+export * from './components/Placeholder'; // Note: The Placeholder component is not clearly defined in the Primer design system but used in documentation.
+export * from './components/Stack';
 
 // General components
 export { Button } from './oldComponents/Button';
