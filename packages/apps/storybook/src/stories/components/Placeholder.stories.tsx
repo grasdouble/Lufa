@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Placeholder } from '@grasdouble/lufa_design-system';
 
 const meta = {
-    title: '1. Primer/Placeholder',
+    title: '1. Components/Placeholder',
     component: Placeholder,
     parameters: {
         layout: 'centered',

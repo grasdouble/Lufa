@@ -3,3 +3,8 @@
 
 /* In project only this oen is needed without any deps related to tailwind (except if you want to use it for custom component you can have in your app) */
 @import '@grasdouble/lufa_design-system/style.css';
+
+#storybook-root {
+    height: 100%;
+    width: 100%;
+}

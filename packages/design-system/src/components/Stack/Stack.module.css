@@ -1,0 +1,82 @@
+@reference '../../tailwind.css';
+
+@layer components {
+    .stack {
+        @apply gap-1;
+        @apply flex flex-col;
+    }
+
+    /* Direction */
+    .direction-horizontal {
+        display: flex;
+        flex-direction: row;
+        flex-flow: row;
+    }
+
+    .direction-vertical {
+        flex-direction: column;
+    }
+
+    /* Align */
+    .align-stretch {
+        align-items: stretch;
+    }
+    .align-start {
+        align-items: flex-start;
+    }
+    .align-center {
+        align-items: center;
+    }
+    .align-end {
+        align-items: flex-end;
+    }
+    .align-baseline {
+        align-items: baseline;
+    }
+
+    /* Wrap */
+    .wrap-wrap {
+        flex-wrap: wrap;
+    }
+    .wrap-nowrap {
+        flex-wrap: nowrap;
+    }
+
+    /* Justify */
+    .justify-start {
+        justify-content: flex-start;
+    }
+
+    .justify-center {
+        justify-content: center;
+    }
+
+    .justify-end {
+        justify-content: flex-end;
+    }
+
+    .justify-space-between {
+        justify-content: space-between;
+    }
+
+    .justify-space-evenly {
+        justify-content: space-evenly;
+    }
+
+    /* Padding */
+    .padding-none {
+        padding: 0;
+    }
+
+    .padding-condensed {
+        padding: 0.5rem;
+    }
+
+    .paddin-normal {
+        padding: 1rem;
+    }
+
+    .padding-spacious {
+        padding: 1.5rem;
+    }
+}

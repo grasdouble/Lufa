@@ -1,10 +1,11 @@
-import "./tailwind.css";
+import './tailwind.css';
 
 // Primer components
-export { Placeholder } from "./components/Placeholder";
+export { Placeholder } from './components/Placeholder'; // Note: The Placeholder component is not clearly defined in the Primer design system but used in documentation.
+export { Stack } from './components/Stack';
 
 // General components
-export { Button } from "./components/Button";
+export { Button } from './oldComponents/Button';
 // export {FloatButton} from "./components/FloatButton";
 // export {Icon} from "./components/Icon";
 // export {Typography} from "./components/Typography";
@@ -44,13 +45,13 @@ export { Button } from "./components/Button";
 // export { Upload } from "./components/Upload";
 
 // Data display components
-export { Avatar } from "./components/Avatar";
+export { Avatar } from './oldComponents/Avatar';
 export type {
-  AvatarImageProps,
-  AvatarNotificationProps,
-  AvatarProps,
-} from "./components/Avatar";
-export { Badge } from "./components/Badge";
+    AvatarImageProps,
+    AvatarNotificationProps,
+    AvatarProps,
+} from './oldComponents/Avatar';
+export { Badge } from './oldComponents/Badge';
 // export {Calendar} from "./components/Calendar";
 // export { Card } from "./components/Card";
 // export { Carousel } from "./components/Carousel";
@@ -83,7 +84,7 @@ export { Badge } from "./components/Badge";
 // export { Watermark } from "./components/Watermark";
 
 // page section
-export { Testimonial } from "./pageSections/Testimonial";
+export { Testimonial } from './oldComponents/pageSections/Testimonial';
 // cv exports
 // export { NotFound as ResumeNotFound } from "./cv/NotFoundPage";
 // export { Introduction as ResumeIntroduction } from "./cv/Introduction";
