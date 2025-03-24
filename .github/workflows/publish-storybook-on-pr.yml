@@ -1,8 +1,20 @@
 name: Publish Storybook on PR
 
+permissions:
+  contents: write
+  actions: none
+  checks: none
+  deployments: none
+  issues: none
+  packages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
 on:
   pull_request:
-    types: [labeled]
+    types: [opened, synchronize, reopened, labeled]
 
 jobs:
   publish-storybook:

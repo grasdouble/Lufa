@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Badge } from "@grasdouble/lufa_design-system";
 
 const meta = {
-  title: "2. Components/Badge",
+  title: "2. OLD/Components/Badge",
   component: Badge,
   parameters: {
     layout: "centered",

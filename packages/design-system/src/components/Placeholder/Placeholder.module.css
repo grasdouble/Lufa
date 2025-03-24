@@ -1,0 +1,11 @@
+@reference '../../tailwind.css';
+
+@layer components {
+    .placeholder {
+        @apply h-[2rem]; /* Height */
+        @apply min-w-24; /* Min width */
+        @apply rounded-md; /* Rounded */
+        @apply border-2 border-solid border-violet-300; /* Border */
+        @apply bg-violet-100; /* Background */
+    }
+}
