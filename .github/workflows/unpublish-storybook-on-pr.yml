@@ -4,6 +4,18 @@ on:
   pull_request:
     types: [closed]
 
+permissions:
+  contents: write
+  actions: none
+  checks: none
+  deployments: none
+  issues: none
+  packages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
 jobs:
   cleanup-storybook:
     runs-on: ubuntu-latest
