@@ -1,0 +1,48 @@
+name: Publish Storybook on PR
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  publish-storybook:
+    if: contains(github.event.pull_request.labels.*.name, 'publish-storybook')
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      # Step 3: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "23"
+          cache: "pnpm"
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: pnpm install
+
+      # Step 5: Build Design System
+      - name: Build Design System
+        run: pnpm build:design-system
+
+      # Step 6: Build Storybook
+      - name: Build Storybook
+        run: pnpm build:apps:storybook
+
+      # Step 7: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/apps/storybook/storybook-static
+          publish_branch: gh-pages
+          destination_dir: pr-${{ github.event.pull_request.number }}
+          cname: ""
