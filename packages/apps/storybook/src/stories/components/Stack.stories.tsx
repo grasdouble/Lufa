@@ -23,14 +23,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<React.ComponentProps<typeof Placeholder>>;
 
-const argsTypes = {
+const argTypes = {
     gap: {
         control: {
             type: 'inline-radio',
         },
         type: {
             name: 'enum',
-            value: STACK_GAP,
+            value: Object.values(STACK_GAP),
         },
         table: {
             category: 'Properties',
@@ -41,26 +41,26 @@ const argsTypes = {
     },
     direction: {
         control: {
-            type: 'radio',
+            type: 'inline-radio',
         },
         type: {
             name: 'enum',
-            value: STACK_DIRECTION,
+            value: Object.values(STACK_DIRECTION),
         },
         table: {
             category: 'Properties',
             defaultValue: {
-                summary: STACK_DIRECTION.horizontal,
+                summary: STACK_DIRECTION.vertical,
             },
         },
     },
     padding: {
         control: {
-            type: 'radio',
+            type: 'inline-radio',
         },
         type: {
             name: 'enum',
-            value: STACK_PADDING,
+            value: Object.values(STACK_PADDING),
         },
         table: {
             category: 'Properties',
@@ -71,11 +71,11 @@ const argsTypes = {
     },
     align: {
         control: {
-            type: 'radio',
+            type: 'inline-radio',
         },
         type: {
             name: 'enum',
-            value: STACK_ALIGN,
+            value: Object.values(STACK_ALIGN),
         },
         table: {
             category: 'Properties',
@@ -86,11 +86,11 @@ const argsTypes = {
     },
     justify: {
         control: {
-            type: 'radio',
+            type: 'inline-radio',
         },
         type: {
             name: 'enum',
-            value: STACK_JUSTIFY,
+            value: Object.values(STACK_JUSTIFY),
         },
         table: {
             category: 'Properties',
@@ -101,11 +101,11 @@ const argsTypes = {
     },
     wrap: {
         control: {
-            type: 'radio',
+            type: 'inline-radio',
         },
         type: {
             name: 'enum',
-            value: STACK_WRAP,
+            value: Object.values(STACK_WRAP),
         },
         table: {
             category: 'Properties',
@@ -115,13 +115,22 @@ const argsTypes = {
         },
     },
 };
+const args = {
+    gap: STACK_GAP.normal,
+    direction: STACK_DIRECTION.vertical,
+    padding: STACK_PADDING.none,
+    align: STACK_ALIGN.stretch,
+    justify: STACK_JUSTIFY.start,
+    wrap: STACK_WRAP.nowrap,
+};
 
 export const Default: Story = {
-    argTypes: argsTypes,
+    argTypes,
+    args,
     render: (args) => {
         return (
             <>
-                <Stack>
+                <Stack {...args}>
                     <Placeholder />
                     <Placeholder />
                     <Placeholder />
@@ -132,11 +141,12 @@ export const Default: Story = {
 };
 
 export const Playground: Story = {
-    argTypes: argsTypes,
+    argTypes,
+    args,
     render: (args) => {
         return (
             <Stack {...args}>
-                {Array.from({ length: 50 }).map((_, index) => (
+                {Array.from({ length: 20 }).map((_, index) => (
                     <Placeholder key={index}>{index}</Placeholder>
                 ))}
             </Stack>

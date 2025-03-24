@@ -13,18 +13,16 @@ import {
 
 interface StackProps {
     children: ReactNode;
-    gap?: keyof typeof STACK_GAP; // Need to add ResponsiveValue<keyof typeof STACK_GAP> ??
-    direction?: keyof typeof STACK_DIRECTION; // Need to add ResponsiveValue<keyof typeof STACK_DIRECTION> ??
-    align?: keyof typeof STACK_ALIGN; // Need to add ResponsiveValue<keyof typeof STACK_ALIGN> ??
-    wrap?: keyof typeof STACK_WRAP; // Need to add ResponsiveValue<keyof typeof STACK_WRAP> ??
-    justify?: keyof typeof STACK_JUSTIFY; // Need to add ResponsiveValue<keyof typeof STACK_JUSTIFY> ??
-    padding?: keyof typeof STACK_PADDING; // Need to add ResponsiveValue<keyof typeof STACK_PADDING> ??
-    //className: string; // Not sure to add it
+    gap?: keyof typeof STACK_GAP;
+    direction?: keyof typeof STACK_DIRECTION;
+    align?: keyof typeof STACK_ALIGN;
+    wrap?: keyof typeof STACK_WRAP;
+    justify?: keyof typeof STACK_JUSTIFY;
+    padding?: keyof typeof STACK_PADDING;
 }
 
 interface StackItemProps {
-    grow?: boolean; // Need to add ResponsiveValue<boolean> ??
-    //className: string; // Not sure to add it
+    grow?: boolean;
 }
 
 export const Stack = ({
@@ -39,7 +37,7 @@ export const Stack = ({
     return (
         <div
             className={clsx(
-                styles[`direction-${gap}`],
+                styles[`gap-${gap}`],
                 styles[`direction-${direction}`],
                 styles[`align-${align}`],
                 styles[`wrap-${wrap}`],

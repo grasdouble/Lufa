@@ -1,6 +1,20 @@
 @reference '../../tailwind.css';
 
 @layer components {
+    /* Gap */
+    .gap-none {
+        @apply gap-0;
+    }
+    .gap-condensed {
+        @apply gap-2;
+    }
+    .gap-normal {
+        @apply gap-4;
+    }
+    .gap-spacious {
+        @apply gap-6;
+    }
+
     /* Direction */
     .direction-horizontal {
         @apply flex flex-row;
@@ -56,15 +70,12 @@
         @apply p-0;
     }
     .padding-condensed {
-        /* --stack-padding-condensed */
         @apply p-2;
     }
     .paddin-normal {
-        /* --stack-padding-normal */
         @apply p-4;
     }
     .padding-spacious {
-        /* --stack-padding-spacious */
         @apply p-6;
     }
 }
