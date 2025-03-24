@@ -24,6 +24,17 @@ export default meta;
 type Story = StoryObj<React.ComponentProps<typeof Placeholder>>;
 
 const argTypes = {
+    nbPlaceholders: {
+        control: {
+            type: 'number',
+        },
+        table: {
+            category: 'Customize Story content',
+            defaultValue: {
+                summary: 3,
+            },
+        },
+    },
     gap: {
         control: {
             type: 'inline-radio',
@@ -116,6 +127,7 @@ const argTypes = {
     },
 };
 const args = {
+    nbPlaceholders: 3,
     gap: STACK_GAP.normal,
     direction: STACK_DIRECTION.vertical,
     padding: STACK_PADDING.none,
@@ -129,24 +141,8 @@ export const Default: Story = {
     args,
     render: (args) => {
         return (
-            <>
-                <Stack {...args}>
-                    <Placeholder />
-                    <Placeholder />
-                    <Placeholder />
-                </Stack>
-            </>
-        );
-    },
-};
-
-export const Playground: Story = {
-    argTypes,
-    args,
-    render: (args) => {
-        return (
             <Stack {...args}>
-                {Array.from({ length: 20 }).map((_, index) => (
+                {Array.from({ length: args.nbPlaceholders }).map((_, index) => (
                     <Placeholder key={index}>{index}</Placeholder>
                 ))}
             </Stack>
