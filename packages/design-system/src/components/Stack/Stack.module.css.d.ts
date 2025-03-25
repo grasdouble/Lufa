@@ -1,6 +1,26 @@
 declare const styles: {
-    readonly stack: string;
+    readonly ['gap-none']: string;
+    readonly ['gap-condensed']: string;
+    readonly ['gap-normal']: string;
+    readonly ['gap-spacious']: string;
     readonly ['direction-horizontal']: string;
     readonly ['direction-vertical']: string;
+    readonly ['align-stretch']: string;
+    readonly ['align-start']: string;
+    readonly ['align-center']: string;
+    readonly ['align-end']: string;
+    readonly ['align-baseline']: string;
+    readonly ['wrap-wrap']: string;
+    readonly ['wrap-nowrap']: string;
+    readonly ['justify-start']: string;
+    readonly ['justify-center']: string;
+    readonly ['justify-end']: string;
+    readonly ['justify-space-between']: string;
+    readonly ['justify-space-evenly']: string;
+    readonly ['padding-none']: string;
+    readonly ['padding-condensed']: string;
+    readonly ['paddin-normal']: string;
+    readonly ['padding-spacious']: string;
+    readonly ['grow']: string;
 };
 export default styles;

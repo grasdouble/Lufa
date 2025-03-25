@@ -78,4 +78,9 @@
     .padding-spacious {
         @apply p-6;
     }
+
+    /* StackItem - Grow */
+    .grow {
+        @apply flex-grow;
+    }
 }
