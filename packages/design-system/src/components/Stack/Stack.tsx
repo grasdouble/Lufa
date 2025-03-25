@@ -11,7 +11,7 @@ import {
     STACK_WRAP,
 } from './Stack.constants';
 
-interface StackProps {
+export interface StackProps {
     children: ReactNode;
     gap?: keyof typeof STACK_GAP;
     direction?: keyof typeof STACK_DIRECTION;
@@ -19,10 +19,6 @@ interface StackProps {
     wrap?: keyof typeof STACK_WRAP;
     justify?: keyof typeof STACK_JUSTIFY;
     padding?: keyof typeof STACK_PADDING;
-}
-
-interface StackItemProps {
-    grow?: boolean;
 }
 
 export const Stack = ({
@@ -48,8 +44,4 @@ export const Stack = ({
             {children}
         </div>
     );
-};
-
-export const StackItem = (): StackItemProps => {
-    return {};
 };

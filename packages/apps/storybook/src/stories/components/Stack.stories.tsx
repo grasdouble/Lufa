@@ -149,3 +149,91 @@ export const Default: Story = {
         );
     },
 };
+
+const argStackItem = {
+    grow: true,
+    example: 'mode 1',
+};
+const argTypesStackItem = {
+    grow: {
+        control: {
+            type: 'boolean',
+        },
+        table: {
+            category: 'Properties',
+            defaultValue: {
+                summary: 'true',
+            },
+        },
+    },
+    example: {
+        control: {
+            type: 'inline-radio',
+        },
+        type: {
+            name: 'enum',
+            value: ['mode 1', 'mode 2', 'mode 3', 'mode 4', 'mode 5', 'mode 6'],
+        },
+        table: {
+            category: 'Properties',
+            defaultValue: {
+                summary: 'false',
+            },
+        },
+    },
+};
+
+export const StackItem: Story = {
+    args: argStackItem,
+    argTypes: argTypesStackItem,
+    render: ({ grow, example }) => {
+        return (
+            <>
+                <Stack
+                    gap="normal"
+                    direction="horizontal"
+                    align="center"
+                    justify="space-between"
+                    wrap="nowrap"
+                >
+                    <Stack.Item
+                        grow={
+                            grow &&
+                            ['mode 1', 'mode 4', 'mode 6'].includes(example)
+                        }
+                    >
+                        <Placeholder>
+                            {['mode 1', 'mode 4', 'mode 6'].includes(example)
+                                ? 'Adjust this item'
+                                : 'Fixed width'}
+                        </Placeholder>
+                    </Stack.Item>
+                    <Stack.Item
+                        grow={
+                            grow &&
+                            ['mode 2', 'mode 4', 'mode 5'].includes(example)
+                        }
+                    >
+                        <Placeholder>
+                            {['mode 2', 'mode 4', 'mode 5'].includes(example)
+                                ? 'Adjust this item'
+                                : 'Fixed width'}
+                        </Placeholder>
+                    </Stack.Item>
+                    <Stack.Item
+                        grow={
+                            grow &&
+                            ['mode 3', 'mode 5', 'mode 6'].includes(example)
+                        }
+                    >
+                        <Placeholder>
+                            {['mode 3', 'mode 5', 'mode 6'].includes(example)
+                                ? 'Adjust this item'
+                                : 'Fixed width'}
+                        </Placeholder>
+                    </Stack.Item>
+                </Stack>
+            </>
+        );
+    },
+};
