@@ -184,8 +184,8 @@ const argTypesStackItem = {
 };
 
 export const StackItem: Story = {
-    args: argStackItem,
     argTypes: argTypesStackItem,
+    args: argStackItem,
     render: ({ grow, example }) => {
         return (
             <>
