@@ -1,5 +1,11 @@
 # @grasdouble/lufa_design-system
 
+## 0.1.0
+
+### Minor Changes
+
+- 078d452: Add the spinner component
+
 ## 0.0.5
 
 ### Patch Changes
