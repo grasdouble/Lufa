@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import styles from './Stack.module.css';
+import { ReactNode } from 'react';
 
 export interface StackItemProps {
     grow?: boolean;

@@ -1,4 +1,4 @@
-name: Release
+name: Release with Changesets
 
 on:
   workflow_dispatch:
@@ -15,17 +15,17 @@ on:
 permissions:
   contents: write
   packages: write
+  pull-requests: write
+  issues: read
   actions: none
   checks: none
   deployments: none
-  issues: none
-  pull-requests: none
   repository-projects: none
   security-events: none
   statuses: none
 
 jobs:
-  release:
+  Changesets-release:
     runs-on: ubuntu-latest
 
     steps:
