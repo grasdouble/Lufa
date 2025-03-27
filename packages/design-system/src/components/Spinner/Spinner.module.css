@@ -1,0 +1,20 @@
+@reference '../../tailwind.css';
+
+@layer components {
+    .spinner {
+        @apply animate-spin;
+    }
+
+    .spinner-small {
+        @apply w-4;
+        @apply h-4;
+    }
+    .spinner-medium {
+        @apply w-8;
+        @apply h-8;
+    }
+    .spinner-large {
+        @apply w-16;
+        @apply h-16;
+    }
+}

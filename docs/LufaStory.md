@@ -17,7 +17,20 @@
 
 - Try to fix issue in DS and storybook since the upgrade to v4
 
-## [2025-03-22]
+## [2025-03-23]
 
 - Add dark mode switcher in storybook
 - Clean code (no more tailwind.config.mjs, all is managed directly in css now. https://v3.tailwindcss.com/docs/v4-beta#css-first-configuration)
+
+## [2025-03-24]
+
+- Add a workflow to publish a storybook from a PR in github pages using a tag ('publish-storybook')
+
+## [2025-03-25]
+
+- Add Stack.Item component in DS and story in storybook
+
+## [2025-03-27]
+
+- add workflow to publish storybook in production
+- start spinner component
