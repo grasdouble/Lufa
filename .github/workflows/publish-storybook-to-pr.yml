@@ -20,7 +20,7 @@ on:
     types: [opened, synchronize, reopened, labeled]
 
 jobs:
-  publish-storybook-for-pr:
+  publish-storybook-to-pr:
     if: contains(github.event.pull_request.labels.*.name, 'publish-storybook')
     runs-on: ubuntu-latest
 
