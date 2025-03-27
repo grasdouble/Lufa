@@ -1,5 +1,12 @@
 # @grasdouble/lufa_apps_web
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [078d452]
+  - @grasdouble/lufa_design-system@0.1.0
+
 ## 0.0.5
 
 ### Patch Changes

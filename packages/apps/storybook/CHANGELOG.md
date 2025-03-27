@@ -1,5 +1,16 @@
 # @grasdouble/lufa_apps_storybook
 
+## 0.1.0
+
+### Minor Changes
+
+- 078d452: Add the spinner component
+
+### Patch Changes
+
+- Updated dependencies [078d452]
+  - @grasdouble/lufa_design-system@0.1.0
+
 ## 0.0.5
 
 ### Patch Changes
