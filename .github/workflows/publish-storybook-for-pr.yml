@@ -1,0 +1,63 @@
+name: Publish Storybook to PR
+description: |
+  This workflow publishes the Storybook to GitHub Pages for pull requests that are labeled with 'publish-storybook'.
+  It is triggered when a pull request is opened, synchronized, reopened, or labeled.
+  The Storybook is built and deployed to a branch named 'gh-pages' with the destination directory set to 'pr-<PR_NUMBER>'.
+permissions:
+  contents: write
+  actions: none
+  checks: none
+  deployments: none
+  issues: none
+  packages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+
+jobs:
+  publish-storybook-for-pr:
+    if: contains(github.event.pull_request.labels.*.name, 'publish-storybook')
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      # Step 3: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "23"
+          cache: "pnpm"
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: pnpm install
+
+      # Step 5: Build Design System
+      - name: Build Design System
+        run: pnpm build:design-system
+
+      # Step 6: Build Storybook
+      - name: Build Storybook
+        run: pnpm build:apps:storybook
+
+      # Step 7: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/apps/storybook/storybook-static
+          publish_branch: gh-pages
+          destination_dir: pr-${{ github.event.pull_request.number }}
+          cname: ""

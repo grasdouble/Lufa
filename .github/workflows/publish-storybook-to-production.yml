@@ -1,10 +1,16 @@
-name: Publish Storybook on PR
+name: Publish Storybook to Production
+description: |
+  This workflow publishes the Storybook to GitHub Pages for the main branch.
+  It is manually triggered.
+
+on:
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  deployments: write
   actions: none
   checks: none
-  deployments: none
   issues: none
   packages: none
   pull-requests: none
@@ -12,13 +18,8 @@ permissions:
   security-events: none
   statuses: none
 
-on:
-  pull_request:
-    types: [opened, synchronize, reopened, labeled]
-
 jobs:
-  publish-storybook:
-    if: contains(github.event.pull_request.labels.*.name, 'publish-storybook')
+  publish-storybook-to-prod:
     runs-on: ubuntu-latest
 
     steps:
@@ -50,11 +51,17 @@ jobs:
         run: pnpm build:apps:storybook
 
       # Step 7: Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./packages/apps/storybook/storybook-static
-          publish_branch: gh-pages
-          destination_dir: pr-${{ github.event.pull_request.number }}
-          cname: ""
+          server: ${{ secrets.STORYBOOK_FTP_URL }}
+          port: ${{ secrets.STORYBOOK_FTP_PORT }}
+          protocol: ${{ secrets.STORYBOOK_FTP_PROTOCOL }}
+          username: ${{ secrets.STORYBOOK_FTP_LOGIN }}
+          password: ${{ secrets.STORYBOOK_FTP_PWD }}
+          local-dir: ./packages/apps/storybook/storybook-static
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/cgi-bin/**
