@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/lufa_config_prettier",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "license": "CC-BY-NC-4.0",
   "private": false,

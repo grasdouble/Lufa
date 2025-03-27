@@ -1,5 +1,17 @@
 # @grasdouble/lufa_design-system
 
+## 0.0.5
+
+### Patch Changes
+
+- cddcb85: Restart the DS using as a reference the DS shared by Github (Primer)
+  First components added:
+
+  - Placeholder
+  - Stack
+
+- 263a062: Add StackItem
+
 ## 0.0.4
 
 ### Patch Changes
