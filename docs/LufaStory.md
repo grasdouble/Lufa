@@ -34,3 +34,9 @@
 
 - add workflow to publish storybook in production
 - start spinner component
+
+## [2025-03-28]
+
+- add workflow to run lint in all PR
+- move vite plugins created during poc about singleSpa to a new package folder and release them
+- archive poc about SingleSPA

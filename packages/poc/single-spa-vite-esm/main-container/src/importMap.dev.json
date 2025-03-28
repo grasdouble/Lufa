@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@app/parcelA": "http://localhost:4101/src/parcel.jsx"
-  }
-}

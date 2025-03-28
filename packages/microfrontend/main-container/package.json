@@ -28,8 +28,8 @@
   "dependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
-    "@grasdouble/lufa_poc_single-spa-vite-esm_vite-plugin-import-map-injector": "workspace:^",
-    "@grasdouble/lufa_poc_single-spa-vite-esm_vite-plugin-react-preamble": "workspace:^",
+    "@grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector": "workspace:^",
+    "@grasdouble/lufa_plugin_vite_vite-plugin-react-preamble": "workspace:^",
     "import-map-overrides": "^5.1.1",
     "single-spa": "^6.0.3"
   }

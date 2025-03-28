@@ -1,4 +1,6 @@
-# SingleSPA with Vite and ESM
+# [ARCHIVED]SingleSPA with Vite and ESM
+
+!! This POC has been archived. If you want to see the code, you can access it using the tag [archive_poc_001](https://github.com/grasdouble/Lufa/tree/archive_poc_0001).
 
 ## What
 

@@ -1,0 +1,27 @@
+{
+  "name": "@grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.mjs",
+  "license": "CC-BY-NC-4.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "index.mjs",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "type": "module",
+  "keywords": [
+    "vite",
+    "plugin",
+    "import-map",
+    "injector"
+  ],
+  "peerDependencies": {
+    "vite": "^6.2.2"
+  }
+}
