@@ -17,8 +17,6 @@
     "dev:apps:storybook": "concurrently \"pnpm dev:design-system\" \"pnpm --filter @grasdouble/lufa_apps_storybook run dev\"",
     "dev:apps:web": "pnpm --filter @grasdouble/lufa_apps_web run dev",
     "--POCs--": "",
-    "dev:poc:single-spa-vite-esm": "concurrently \"pnpm --filter @grasdouble/lufa_poc_single-spa-vite-esm_parcel-a run dev\" \"pnpm --filter @grasdouble/lufa_poc_single-spa-vite-esm_main-container dev\"",
-    "preview:poc:single-spa-vite-esm": "concurrently \"pnpm --filter @grasdouble/lufa_poc_single-spa-vite-esm_parcel-a run buildAndPreview\" \"pnpm --filter @grasdouble/lufa_poc_single-spa-vite-esm_main-container buildAndPreview\"",
     "--CI/CD--": "",
     "generate-outdated-report": "node .github/scripts/generateOutdatedReport.js"
   },

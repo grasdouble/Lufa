@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
-import reactPreamblePlugin from "@grasdouble/lufa_poc_single-spa-vite-esm_vite-plugin-react-preamble";
-import importMapInjectorPlugin from "@grasdouble/lufa_poc_single-spa-vite-esm_vite-plugin-import-map-injector";
+import reactPreamblePlugin from "@grasdouble/lufa_plugin_vite_vite-plugin-react-preamble";
+import importMapInjectorPlugin from "@grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector";
 
 export default defineConfig({
   plugins: [

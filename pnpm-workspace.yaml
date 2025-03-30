@@ -4,3 +4,4 @@ packages:
   - packages/microfrontend/*
   - packages/config/*
   - packages/poc/single-spa-vite-esm/*
+  - packages/plugins/vite/*
