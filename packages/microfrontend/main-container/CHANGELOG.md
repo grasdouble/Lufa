@@ -1,5 +1,14 @@
 # @grasdouble/lufa_microfrontend_main-container
 
+## 0.0.4
+
+### Patch Changes
+
+- e77cb68: transform vite plugins used in the poc singleSpa into real packages
+- Updated dependencies [e77cb68]
+  - @grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector@0.0.2
+  - @grasdouble/lufa_plugin_vite_vite-plugin-react-preamble@0.0.2
+
 ## 0.0.3
 
 ### Patch Changes
