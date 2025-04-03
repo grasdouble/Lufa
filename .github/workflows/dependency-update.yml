@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -60,5 +62,4 @@ jobs:
           git commit -m 'chore: update dependencies'
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}
           changes: ${{ env.changes }}
