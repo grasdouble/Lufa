@@ -1,5 +1,11 @@
 # @grasdouble/lufa_microfrontend_main-container
 
+## 0.1.0
+
+### Minor Changes
+
+- 7cbeef0: Fix usage of assets (no more base64) and remove usage of single-spa-react in home
+
 ## 0.0.4
 
 ### Patch Changes
