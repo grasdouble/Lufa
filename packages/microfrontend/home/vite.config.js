@@ -21,11 +21,7 @@ export default defineConfig({
       devDeps: false,
       optionalDeps: false,
       peerDeps: false,
-      except: [
-        "single-spa",
-        "single-spa-react",
-        "single-spa/lib/es2015/esm/single-spa.dev.js",
-      ],
+      except: [],
       nodeBuiltins: true,
     }),
   ],
