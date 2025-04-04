@@ -1,11 +1,16 @@
-import imgUrl from "./assets/Lufa_Logo_original.png";
+import React from "react";
 import "./App.css";
+import { getImageUrl } from "./getImageUrl";
 
 function App() {
   return (
-    <div className="app-container">
+    <div className="lufa-home" id="lufa-home">
       <div className="content">
-        <img src={imgUrl} alt="Centered Logo" className="centered-image" />
+        <img
+          src={getImageUrl("Lufa_Logo_original.png")}
+          alt="Centered Logo"
+          className="centered-image"
+        />
         <h1 className="centered-message">
           Lufa Workspace (WIP) <br /> by Sebastien LE MOUILLOUR
         </h1>
@@ -33,6 +38,9 @@ function App() {
             className="link linkedin"
           >
             LinkedIn
+          </a>
+          <a href="./test" className="link linkedin">
+            TEST
           </a>
         </div>
       </div>

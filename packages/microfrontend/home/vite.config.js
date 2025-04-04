@@ -2,17 +2,26 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { externalizeDeps } from "vite-plugin-externalize-deps";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
   plugins: [
     react(),
     cssInjectedByJsPlugin(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: "src/assets/*",
+          dest: "assets",
+        },
+      ],
+    }),
     externalizeDeps({
       deps: true,
       devDeps: false,
       optionalDeps: false,
       peerDeps: false,
-      except: ["single-spa-react"],
+      except: [],
       nodeBuiltins: true,
     }),
   ],
@@ -21,8 +30,10 @@ export default defineConfig({
     "process.env": {},
   },
   build: {
-    minify: true,
+    minify: false,
+    assetsDir: "assets",
     lib: {
+      assetsDir: "assets",
       formats: ["es"],
       entry: {
         index: "src/parcel.jsx",
