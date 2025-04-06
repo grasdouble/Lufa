@@ -42,6 +42,9 @@ export default function importMapPlugin({
         },
       };
 
+      // overridable-importmap is a custom attribute used by single-spa and import-map-overrides
+      // to allow the import map to be overridden at runtime
+      // see https://github.com/single-spa/import-map-overrides/blob/main/docs/configuration.md#client-side-single-map
       return html.replace(
         "</head>",
         `<script type="overridable-importmap">${JSON.stringify(
