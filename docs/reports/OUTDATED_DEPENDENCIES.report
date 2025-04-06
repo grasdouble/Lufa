@@ -1,8 +1,41 @@
 # Outdated Dependencies Report
 
-┌──────────────────────┬─────────┬────────┬────────────────────────────────┐
-│ Package              │ Current │ Latest │ Dependents                     │
-├──────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ import-map-overrides │ 5.1.1   │ 6.0.0  │ @grasdouble/lufa_              │
-│                      │         │        │ microfrontend_main-container   │
-└──────────────────────┴─────────┴────────┴────────────────────────────────┘
+┌─────────────────────────┬─────────┬────────┬────────────────────────────────┐
+│ Package                 │ Current │ Latest │ Dependents                     │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ @headlessui/react       │ 2.2.0   │ 2.2.1  │ @grasdouble/lufa_design-system │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ @tailwindcss/vite (dev) │ 4.1.2   │ 4.1.3  │ @grasdouble/lufa_apps_         │
+│                         │         │        │ storybook,                     │
+│                         │         │        │ @grasdouble/lufa_design-system │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ tailwindcss (dev)       │ 4.1.2   │ 4.1.3  │ @grasdouble/lufa_apps_         │
+│                         │         │        │ storybook,                     │
+│                         │         │        │ @grasdouble/lufa_design-system │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ typescript (dev)        │ 5.8.2   │ 5.8.3  │ @grasdouble/lufa_apps_         │
+│                         │         │        │ storybook,                     │
+│                         │         │        │ @grasdouble/lufa_apps_web,     │
+│                         │         │        │ @grasdouble/lufa_design-       │
+│                         │         │        │ system,                        │
+│                         │         │        │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_main-container   │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ @eslint/js (dev)        │ 9.23.0  │ 9.24.0 │ @grasdouble/lufa_config_       │
+│                         │         │        │ eslint,                        │
+│                         │         │        │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_home             │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ eslint (dev)            │ 9.23.0  │ 9.24.0 │ @grasdouble/lufa_apps_         │
+│                         │         │        │ storybook,                     │
+│                         │         │        │ @grasdouble/lufa_apps_web,     │
+│                         │         │        │ @grasdouble/lufa_design-       │
+│                         │         │        │ system,                        │
+│                         │         │        │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_home,            │
+│                         │         │        │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_main-container   │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ import-map-overrides    │ 5.1.1   │ 6.0.0  │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_main-container   │
+└─────────────────────────┴─────────┴────────┴────────────────────────────────┘
