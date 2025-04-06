@@ -1,5 +1,11 @@
 # @grasdouble/lufa_microfrontend_home
 
+## 0.1.1
+
+### Patch Changes
+
+- 58ccad9: Remove test button
+
 ## 0.1.0
 
 ### Minor Changes
