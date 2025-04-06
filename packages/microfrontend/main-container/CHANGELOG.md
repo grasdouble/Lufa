@@ -1,5 +1,16 @@
 # @grasdouble/lufa_microfrontend_main-container
 
+## 0.3.0
+
+### Minor Changes
+
+- f732079: Add possibility to override importmap
+
+### Patch Changes
+
+- Updated dependencies [f732079]
+  - @grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector@0.1.0
+
 ## 0.2.0
 
 ### Minor Changes

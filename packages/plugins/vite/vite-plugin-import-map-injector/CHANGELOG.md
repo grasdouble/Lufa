@@ -1,5 +1,11 @@
 # @grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector
 
+## 0.1.0
+
+### Minor Changes
+
+- f732079: Add possibility to override importmap
+
 ## 0.0.2
 
 ### Patch Changes
