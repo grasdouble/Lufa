@@ -39,9 +39,6 @@ function App() {
           >
             LinkedIn
           </a>
-          <a href="./test" className="link linkedin">
-            TEST
-          </a>
         </div>
       </div>
     </div>
