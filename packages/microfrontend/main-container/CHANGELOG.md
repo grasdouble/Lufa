@@ -1,5 +1,16 @@
 # @grasdouble/lufa_microfrontend_main-container
 
+## 0.4.0
+
+### Minor Changes
+
+- adc46ac: Upgrade import-map-overrides to v6
+
+### Patch Changes
+
+- Updated dependencies [adc46ac]
+  - @grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector@0.1.1
+
 ## 0.3.0
 
 ### Minor Changes

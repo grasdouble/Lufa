@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/lufa_microfrontend_main-container",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

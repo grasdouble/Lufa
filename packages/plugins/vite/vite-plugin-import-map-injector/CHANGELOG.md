@@ -1,5 +1,11 @@
 # @grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector
 
+## 0.1.1
+
+### Patch Changes
+
+- adc46ac: Make not possible to override external deps like react
+
 ## 0.1.0
 
 ### Minor Changes
