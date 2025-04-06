@@ -44,4 +44,4 @@
 ## [2025-06-06]
 
 - create a script to generate cdn content based on a list of packages
-- add import-map-override usable (https://github.com/single-spa/import-map-overrides/blob/main/docs/configuration.md#client-side-single-map)
+- add import-map-overrides usable (https://github.com/single-spa/import-map-overrides/blob/main/docs/configuration.md#client-side-single-map)
