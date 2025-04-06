@@ -5,6 +5,7 @@ import importMapInjectorPlugin from "@grasdouble/lufa_plugin_vite_vite-plugin-im
 export default defineConfig({
   plugins: [
     importMapInjectorPlugin({
+      extImportMap: "src/importMapExternal.json",
       devImportMap: "src/importMap.dev.json",
       prodImportMap: "src/importMap.json",
     }),

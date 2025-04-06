@@ -30,7 +30,7 @@
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
     "@grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector": "workspace:^",
     "@grasdouble/lufa_plugin_vite_vite-plugin-react-preamble": "workspace:^",
-    "import-map-overrides": "^5.1.1",
+    "import-map-overrides": "^6.0.0",
     "single-spa": "^6.0.3"
   }
 }

@@ -319,8 +319,8 @@ importers:
         specifier: workspace:^
         version: link:../../plugins/vite/vite-plugin-react-preamble
       import-map-overrides:
-        specifier: ^5.1.1
-        version: 5.1.1
+        specifier: ^6.0.0
+        version: 6.0.0
       single-spa:
         specifier: ^6.0.3
         version: 6.0.3
@@ -1647,9 +1647,9 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-  cookie@0.6.0:
-    resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
-    engines: {node: '>= 0.6'}
+  cookie@1.0.2:
+    resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
+    engines: {node: '>=18'}
 
   copy-anything@2.0.6:
     resolution: {integrity: sha512-1j20GZTsvKNkc4BY3NpMOM8tt///wY3FpIzozTOFO2ffuZcV61nojHXVKIy3WM+7ADCy5FVhdZYHYDdgTU0yJw==}
@@ -2108,8 +2108,8 @@ packages:
     resolution: {integrity: sha512-rKtvo6a868b5Hu3heneU+L4yEQ4jYKLtjpnPeUdK7h0yzXGmyBTypknlkCvHFBqfX9YlorEiMM6Dnq/5atfHkw==}
     engines: {node: '>=8'}
 
-  import-map-overrides@5.1.1:
-    resolution: {integrity: sha512-Tn/Jkr0ZRBk7bf9VrmvAj2J6iFtVXMJi+VCLc3ALlZa28VwgZi9/D+GjpK1ti3ERSZ07nQw+4oYUEWhqiMSvKA==}
+  import-map-overrides@6.0.0:
+    resolution: {integrity: sha512-VZA0pKHRKWeoJNIC/+6fNulwwnZQ9hXj4hXL3zu+GFTrArkOpEiNcpfO240RxIoI5X0bvofXs5va1JYOKouVGA==}
 
   imurmurhash@0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
@@ -4850,7 +4850,7 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  cookie@0.6.0: {}
+  cookie@1.0.2: {}
 
   copy-anything@2.0.6:
     dependencies:
@@ -5432,9 +5432,9 @@ snapshots:
 
   import-lazy@4.0.0: {}
 
-  import-map-overrides@5.1.1:
+  import-map-overrides@6.0.0:
     dependencies:
-      cookie: 0.6.0
+      cookie: 1.0.2
 
   imurmurhash@0.1.4: {}
 
