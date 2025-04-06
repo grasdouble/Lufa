@@ -40,3 +40,8 @@
 - add workflow to run lint in all PR
 - move vite plugins created during poc about singleSpa to a new package folder and release them
 - archive poc about SingleSPA
+
+## [2025-06-06]
+
+- create a script to generate cdn content based on a list of packages
+- add import-map-overrides usable (https://github.com/single-spa/import-map-overrides/blob/main/docs/configuration.md#client-side-single-map)
