@@ -44,7 +44,7 @@ export default function importMapPlugin({
 
       return html.replace(
         "</head>",
-        `  <script type="importmap">${JSON.stringify(
+        `<script type="overridable-importmap">${JSON.stringify(
           mergedImportMap,
           null,
           2

@@ -9,6 +9,8 @@
     "release": "changeset publish",
     "prerelease": "changeset publish",
     "--Microfrontends--": "",
+    "mf:dev": "concurrently \"pnpm --filter @grasdouble/lufa_microfrontend_main-container run dev\" \"pnpm --filter @grasdouble/lufa_microfrontend_home run dev\"",
+    "mf:buildAndPreview": "pnpm --filter @grasdouble/lufa_microfrontend_main-container run buildAndPreview",
     "--DesignSystem--": "",
     "build:design-system": "pnpm --filter @grasdouble/lufa_design-system run build",
     "dev:design-system": "pnpm --filter @grasdouble/lufa_design-system run build -w",
