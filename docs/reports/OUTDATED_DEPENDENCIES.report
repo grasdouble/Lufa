@@ -1,8 +1,3 @@
 # Outdated Dependencies Report
 
-┌──────────────────────┬─────────┬────────┬────────────────────────────────┐
-│ Package              │ Current │ Latest │ Dependents                     │
-├──────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ import-map-overrides │ 5.1.1   │ 6.0.0  │ @grasdouble/lufa_              │
-│                      │         │        │ microfrontend_main-container   │
-└──────────────────────┴─────────┴────────┴────────────────────────────────┘
+No outdated dependency
