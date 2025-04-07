@@ -1,14 +1,31 @@
 {
   "name": "@grasdouble/cdn_autobuild-server",
   "version": "0.0.1",
-  "description": "CDN auto-alimenté à partir de packages npm",
-  "main": "index.js",
+  "description": "Self-fed CDN from npm packages",
+  "main": "dist/index.mjs",
   "type": "module",
   "scripts": {
-    "start": "node dist/index.cjs",
+    "start": "node dist/index.mjs",
     "dev": "nodemon src/index.js",
-    "build": "esbuild src/index.js --bundle --outfile=dist/index.cjs --platform=node"
+    "build": "esbuild src/index.js --bundle --outfile=dist/index.mjs --platform=node --format=esm",
+    "build:cjs": "esbuild src/index.js --bundle --outfile=dist/index.cjs --platform=node"
   },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "dependencies": {
     "esbuild": "^0.25.2",
     "express": "^5.1.0",
