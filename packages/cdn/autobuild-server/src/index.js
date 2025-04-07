@@ -79,7 +79,7 @@ app.get(
             "react-dom/client",
           ];
 
-          // TODO: Not sure to keep this. too many reason to generate errors or bad things
+          // TODO: Evaluate if this approach should be removed to prevent potential errors.
           await build({
             entryPoints: [entryPath],
             bundle: true,
