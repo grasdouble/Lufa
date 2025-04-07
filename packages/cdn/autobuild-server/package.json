@@ -1,0 +1,25 @@
+{
+  "name": "@grasdouble/cdn_autobuild-server",
+  "version": "0.0.1",
+  "description": "CDN auto-alimenté à partir de packages npm",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node dist/index.cjs",
+    "dev": "nodemon src/index.js",
+    "build": "esbuild src/index.js --bundle --outfile=dist/index.cjs --platform=node"
+  },
+  "dependencies": {
+    "esbuild": "^0.25.2",
+    "express": "^5.1.0",
+    "fs-extra": "^11.2.0",
+    "pacote": "^21.0.0",
+    "dotenv": "^16.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
