@@ -7,6 +7,7 @@ import os from "os";
 import dotenv from "dotenv";
 import rateLimit from "express-rate-limit";
 import sanitize from "sanitize-filename";
+import escapeHtml from "escape-html";
 
 dotenv.config();
 
