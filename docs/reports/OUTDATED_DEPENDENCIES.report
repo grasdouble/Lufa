@@ -1,3 +1,12 @@
 # Outdated Dependencies Report
 
-No outdated dependency
+┌─────────────────────────┬─────────┬────────┬────────────────────────────────┐
+│ Package                 │ Current │ Latest │ Dependents                     │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ typescript-eslint (dev) │ 8.29.0  │ 8.29.1 │ @grasdouble/lufa_apps_         │
+│                         │         │        │ storybook,                     │
+│                         │         │        │ @grasdouble/lufa_config_       │
+│                         │         │        │ eslint,                        │
+│                         │         │        │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_main-container   │
+└─────────────────────────┴─────────┴────────┴────────────────────────────────┘
