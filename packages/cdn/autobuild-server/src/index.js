@@ -43,7 +43,7 @@ app.get(
     const dirName = makeDirName(pkgName, sanitizedVersion);
 
     const pkgPath = path.resolve(CDN_DIR, dirName);
-    if (path.relative(CDN_DIR, pkgPath).startsWith('..')) {
+    if (path.relative(CDN_DIR, pkgPath).startsWith('..') || path.isAbsolute(path.relative(CDN_DIR, pkgPath))) {
       return res.status(403).send("Forbidden");
     }
 
