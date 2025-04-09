@@ -1,5 +1,11 @@
 # @grasdouble/lufa_microfrontend_home
 
+## 0.1.2
+
+### Patch Changes
+
+- 66ed8fa: Fix export in package.json
+
 ## 0.1.1
 
 ### Patch Changes
