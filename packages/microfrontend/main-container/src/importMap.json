@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@grasdouble/lufa_microfrontend_home": "https://cdn.sebastien-lemouillour.fr/@grasdouble/lufa_microfrontend_home/0.1.1/dist/home.mjs"
+    "@grasdouble/lufa_microfrontend_home": "https://cdn.sebastien-lemouillour.fr/gh/@grasdouble/lufa_microfrontend_home@0.1.2"
   }
 }

@@ -11,6 +11,19 @@
       show-when-local-storage="devtools"
     ></import-map-overrides-full>
     <div id="lufa-container"></div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module">
+      fetch("https://cdn.sebastien-lemouillour.fr/importMap.json")
+        .then((res) => res.json())
+        .then((importMap) => {
+          const script = document.createElement("script");
+          script.type = "overridable-importmap";
+          script.textContent = JSON.stringify(importMap, null, 2);
+          document.head.appendChild(script);
+        })
+        .then(() => import("/src/main.js"))
+        .catch((err) => {
+          console.error("Failed to load import map or main.js:", err);
+        });
+    </script>
   </body>
 </html>
