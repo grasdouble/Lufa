@@ -66,11 +66,7 @@ export default function importMapPlugin({
           null,
           2
         )}</script>
-        <script type="overridable-importmap">${JSON.stringify(
-          mergedImportMap,
-          null,
-          2
-        )}</script>\n</head>`
+        \n</head>`
       );
     },
   };

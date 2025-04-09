@@ -7,7 +7,7 @@ function App() {
     <div className="lufa-home" id="lufa-home">
       <div className="content">
         <img
-          src={getImageUrl("Lufa_Logo_original.png")}
+          src={getImageUrl("Lufa_Logo_original")}
           alt="Centered Logo"
           className="centered-image"
         />
