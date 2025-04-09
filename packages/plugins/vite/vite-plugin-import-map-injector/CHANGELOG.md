@@ -1,5 +1,11 @@
 # @grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector
 
+## 0.2.0
+
+### Minor Changes
+
+- 66ed8fa: Load importMap from cdn
+
 ## 0.1.1
 
 ### Patch Changes

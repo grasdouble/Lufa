@@ -1,5 +1,16 @@
 # @grasdouble/lufa_microfrontend_main-container
 
+## 0.5.0
+
+### Minor Changes
+
+- 66ed8fa: Load importMap from cdn
+
+### Patch Changes
+
+- Updated dependencies [66ed8fa]
+  - @grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector@0.2.0
+
 ## 0.4.0
 
 ### Minor Changes
