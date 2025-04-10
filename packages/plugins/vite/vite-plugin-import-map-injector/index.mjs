@@ -59,15 +59,25 @@ export default function importMapPlugin({
       // to allow the import map to be overridden at runtime
       // see https://github.com/single-spa/import-map-overrides/blob/main/docs/configuration.md#client-side-single-map
       // The choise has been made to use standard importmap for the external dependencies like that it will not be possible to override them
-      return html.replace(
-        "</head>",
+      const importMapScripts = [
         `<script type="importmap">${JSON.stringify(
           extImportMapContent,
           null,
           2
-        )}</script>
-        \n</head>`
-      );
+        )}</script>`,
+      ];
+
+      if (isDev) {
+        importMapScripts.push(
+          `<script type="importmap" overridable="true">${JSON.stringify(
+            mergedImportMap,
+            null,
+            2
+          )}</script>`
+        );
+      }
+
+      return html.replace("</head>", `${importMapScripts.join("\n")}\n</head>`);
     },
   };
 }

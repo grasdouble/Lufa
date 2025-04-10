@@ -1,25 +1,29 @@
 import React from "react";
-import "./App.css";
+
+import styles from "./App.module.css";
+import clsx from "clsx";
 import { getImageUrl } from "./getImageUrl";
+import { Placeholder } from "@grasdouble/lufa_design-system";
 
 function App() {
   return (
-    <div className="lufa-home" id="lufa-home">
+    <div className={clsx(styles["lufa-home"])} id="lufa-home">
       <div className="content">
+        <Placeholder />
         <img
           src={getImageUrl("Lufa_Logo_original")}
           alt="Centered Logo"
-          className="centered-image"
+          className={clsx(styles["centered-image"])}
         />
-        <h1 className="centered-message">
+        <h1 className={clsx(styles["centered-message"])}>
           Lufa Workspace (WIP) <br /> by Sebastien LE MOUILLOUR
         </h1>
-        <div className="links">
+        <div className={clsx(styles["links"])}>
           <a
             href="./storybook"
             target="_blank"
             rel="noopener noreferrer"
-            className="link storybook"
+            className={clsx(styles["link"], styles["storybook"])}
           >
             Storybook (WIP)
           </a>
@@ -27,7 +31,7 @@ function App() {
             href="https://github.com/grasdouble/Lufa"
             target="_blank"
             rel="noopener noreferrer"
-            className="link github"
+            className={clsx(styles["link"], styles["github"])}
           >
             Github
           </a>
@@ -35,7 +39,7 @@ function App() {
             href="https://www.linkedin.com/in/sebastienlemouillour/"
             target="_blank"
             rel="noopener noreferrer"
-            className="link linkedin"
+            className={clsx(styles["link"], styles["linkedin"])}
           >
             LinkedIn
           </a>

@@ -2,17 +2,19 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { externalizeDeps } from "vite-plugin-externalize-deps";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
     react(),
     cssInjectedByJsPlugin(),
+    tailwindcss(),
     externalizeDeps({
       deps: true,
       devDeps: false,
       optionalDeps: false,
       peerDeps: false,
-      except: [],
+      except: ["@grasdouble/lufa_design-system", "clsx"],
       nodeBuiltins: true,
     }),
   ],
