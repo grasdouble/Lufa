@@ -41,7 +41,17 @@
 - move vite plugins created during poc about singleSpa to a new package folder and release them
 - archive poc about SingleSPA
 
-## [2025-06-06]
+## [2025-04-06]
 
 - create a script to generate cdn content based on a list of packages
 - add import-map-overrides usable (https://github.com/single-spa/import-map-overrides/blob/main/docs/configuration.md#client-side-single-map)
+
+## [2025-04-08]
+
+- Add a new way to populate cdn (on demand)
+- Fix exports in mf-home
+
+## [2025-04-10]
+
+- Start to use ds components in mf-home
+- Improve one more time the CDN to be able to manage different entries for a same lib

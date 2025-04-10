@@ -10,6 +10,7 @@
   },
   "files": [
     "basic.mjs",
+    "node.mjs",
     "react.mjs",
     "README.md",
     "CHANGELOG.md"

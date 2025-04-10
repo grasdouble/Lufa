@@ -1,65 +1,54 @@
 @reference "tailwindcss";
 
 @layer components {
-  .lufa-home {
-    @apply flex;
-    @apply justify-center;
-    @apply items-center;
-    @apply h-screen;
-    @apply bg-[#101010];
-    @apply m-0;
-    @apply text-white;
-  }
+    .lufa-home {
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+        @apply h-screen;
+        @apply bg-[#101010];
+        @apply m-0;
+        @apply text-white;
+    }
 
-  .content {
-    @apply text-center;
-  }
+    .centered-image {
+        @apply w-72;
+        @apply h-72;
+        @apply mb-5;
+    }
 
-  .centered-image {
-    @apply w-72;
-    @apply h-72;
-    @apply mb-5;
-  }
+    .centered-message {
+        @apply text-center;
+        @apply text-2xl;
+        @apply font-bold;
+        @apply mb-5;
+    }
 
-  .centered-message {
-    @apply text-2xl;
-    @apply font-bold;
-    @apply mb-5;
-  }
+    .link {
+        @apply no-underline;
+        @apply text-lg;
+        @apply font-bold;
+        @apply px-5 py-2.5;
+        @apply rounded-md;
+        @apply text-white;
+        @apply opacity-80;
+        @apply transition;
+    }
 
-  .links {
-    @apply flex;
-    @apply justify-center;
-    @apply gap-5;
-  }
+    .link.storybook {
+        @apply bg-pink-600;
+    }
 
-  .link {
-    @apply no-underline;
-    @apply text-lg;
-    @apply font-bold;
-    @apply px-5 py-2.5;
-    @apply rounded-md;
-    @apply text-white;
+    .link.github {
+        @apply bg-purple-600;
+    }
 
-    transition:
-      transform 0.2s,
-      background-color 0.2s;
-  }
+    .link.linkedin {
+        @apply bg-blue-500;
+    }
 
-  .link.storybook {
-    @apply bg-violet-500;
-  }
-
-  .link.github {
-    @apply bg-gray-900;
-  }
-
-  .link.linkedin {
-    @apply bg-blue-600;
-  }
-
-  .link:hover {
-    @apply scale-110;
-    @apply opacity-90;
-  }
+    .link:hover {
+        @apply scale-105;
+        @apply opacity-100;
+    }
 }
