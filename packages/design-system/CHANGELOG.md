@@ -1,5 +1,12 @@
 # @grasdouble/lufa_design-system
 
+## 0.1.1
+
+### Patch Changes
+
+- d4b3d7e: Add missing type for Spinner
+  Fix peer dependencies
+
 ## 0.1.0
 
 ### Minor Changes

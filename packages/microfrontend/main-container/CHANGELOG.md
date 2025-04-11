@@ -1,5 +1,16 @@
 # @grasdouble/lufa_microfrontend_main-container
 
+## 0.6.0
+
+### Minor Changes
+
+- d4b3d7e: Start to use components from DS and Tailwindcss
+
+### Patch Changes
+
+- Updated dependencies [d4b3d7e]
+  - @grasdouble/lufa_design-system@0.1.1
+
 ## 0.5.0
 
 ### Minor Changes
