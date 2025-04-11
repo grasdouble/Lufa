@@ -3,3 +3,4 @@
 ---
 
 Add missing type for Spinner
+Fix peer dependencies
