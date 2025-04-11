@@ -1,45 +1,58 @@
 {
-  "name": "@grasdouble/cdn_autobuild-server",
-  "version": "0.1.0",
-  "description": "Self-fed CDN from npm packages",
-  "main": "dist/index.cjs",
-  "type": "module",
-  "scripts": {
-    "start": "node dist/index.cjs",
-    "dev": "nodemon src/index.js",
-    "build": "esbuild src/index.js --bundle --outfile=dist/index.mjs --platform=node --format=esm --external:esbuild",
-    "build:cjs": "esbuild src/index.js --bundle --outfile=dist/index.cjs --platform=node --external:esbuild"
-  },
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+    "name": "@grasdouble/cdn_autobuild-server",
+    "version": "0.1.0",
+    "description": "Self-fed CDN from npm packages",
+    "main": "dist/index.cjs",
+    "type": "module",
+    "scripts": {
+        "start": "dotenvx run --env-file=.env.production --env-file=.env -- node dist/index.cjs",
+        "dev": "dotenvx run --env-file=.env.development --env-file=.env -- nodemon --exec tsx src/index.ts",
+        "build": "esbuild src/index.ts --bundle --outfile=dist/index.mjs --platform=node --format=esm --external:esbuild",
+        "build:cjs": "esbuild src/index.ts --bundle --outfile=dist/index.cjs --platform=node --external:esbuild"
+    },
+    "exports": {
+        ".": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.mjs"
+        }
+    },
+    "private": false,
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://npm.pkg.github.com"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "dependencies": {
+        "@dotenvx/dotenvx": "^1.39.1",
+        "escape-html": "^1.0.3",
+        "express": "^5.1.0",
+        "express-rate-limit": "^7.5.0",
+        "fs-extra": "^11.2.0",
+        "pacote": "^21.0.0",
+        "sanitize-filename": "^1.6.3"
+    },
+    "devDependencies": {
+        "@grasdouble/lufa_config_eslint": "workspace:^",
+        "@grasdouble/lufa_config_prettier": "workspace:^",
+        "@grasdouble/lufa_config_tsconfig": "workspace:^",
+        "@types/escape-html": "^1.0.4",
+        "@types/express": "^5.0.1",
+        "@types/fs-extra": "^11.0.4",
+        "@types/node": "^22.14.0",
+        "@types/pacote": "^11.1.8",
+        "esbuild": "^0.25.2",
+        "eslint": "^9.24.0",
+        "nodemon": "^3.0.2",
+        "prettier": "^3.5.3",
+        "tsx": "^4.19.3",
+        "typescript": "^5.8.3",
+        "typescript-eslint": "^8.29.0"
+    },
+    "engines": {
+        "node": ">=18"
     }
-  },
-  "private": false,
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "CHANGELOG.md"
-  ],
-  "dependencies": {
-    "dotenv": "^16.4.0",
-    "esbuild": "^0.25.2",
-    "escape-html": "^1.0.3",
-    "express": "^5.1.0",
-    "express-rate-limit": "^7.5.0",
-    "fs-extra": "^11.2.0",
-    "pacote": "^21.0.0",
-    "sanitize-filename": "^1.6.3"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
-  },
-  "engines": {
-    "node": ">=18"
-  }
 }

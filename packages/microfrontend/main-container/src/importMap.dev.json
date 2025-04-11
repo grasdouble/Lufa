@@ -1,5 +1,6 @@
 {
-  "imports": {
-    "@grasdouble/lufa_microfrontend_home": "http://localhost:4101/src/parcel.jsx"
-  }
+    "imports": {
+        "@grasdouble/lufa_microfrontend_home": "http://localhost:4101/home.mjs",
+        "@grasdouble/lufa_design-system": "http://cdn.sebastien-lemouillour.fr/@grasdouble/lufa_design-system@0.1.0"
+    }
 }
