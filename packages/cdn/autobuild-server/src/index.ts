@@ -247,7 +247,7 @@ app.get(['{/:urlScope}/:urlName@:urlVersion{/:urlExportPath}'], async (req: Requ
             res.status(200).sendFile(result.outputFile);
         }
     } else {
-        res.status(500).send('Error: No output file found but it should the case');
+        res.status(500).send('Error: No output file found, although one was expected.');
     }
     return;
 });
