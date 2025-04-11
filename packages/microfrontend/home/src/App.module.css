@@ -35,15 +35,15 @@
         @apply transition;
     }
 
-    .link.storybook {
+    .storybook {
         @apply bg-pink-600;
     }
 
-    .link.github {
+    .github {
         @apply bg-purple-600;
     }
 
-    .link.linkedin {
+    .linkedin {
         @apply bg-blue-500;
     }
 

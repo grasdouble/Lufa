@@ -5,8 +5,8 @@ declare const styles: {
     readonly ['centered-message']: string;
     readonly links: string;
     readonly link: string;
-    readonly ['link-storybook']: string;
-    readonly ['link-github']: string;
-    readonly ['link-linkedin']: string;
+    readonly storybook: string;
+    readonly github: string;
+    readonly linkedin: string;
 };
 export default styles;

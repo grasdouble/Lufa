@@ -44,7 +44,6 @@ const PORT = process.env.PORT || 3000;
 const TMP_DIR = process.env.TMP_DIR || path.join(os.tmpdir(), 'tmp_cdn');
 const CDN_DIR = process.env.CDN_DIR || path.join(os.tmpdir(), 'cdn');
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const NODE_ENV = process.env.NODE_ENV;
 
 // Generates a clear file name, with @ and / preserved
 const makePackageDirName = (pkg: string, version: string) => `${pkg}@${version}`;

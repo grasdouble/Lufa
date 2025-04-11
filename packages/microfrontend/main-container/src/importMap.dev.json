@@ -1,9 +1,6 @@
 {
-  "imports": {
-    "@grasdouble/lufa_microfrontend_home": "http://localhost:4101/home.mjs",
-    "react": "https://esm.sh/react@19.0.0",
-    "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
-    "react-dom": "https://esm.sh/react-dom@19.0.0",
-    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client"
-  }
+    "imports": {
+        "@grasdouble/lufa_microfrontend_home": "http://localhost:4101/home.mjs",
+        "@grasdouble/lufa_design-system": "http://cdn.sebastien-lemouillour.fr/@grasdouble/lufa_design-system@0.1.0"
+    }
 }

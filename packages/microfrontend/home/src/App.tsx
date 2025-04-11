@@ -18,7 +18,7 @@ function App() {
                         href="https://storybook.sebastien-lemouillour.fr"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={clsx(styles['link'], styles['link-storybook'])}
+                        className={clsx(styles.link, styles.storybook)}
                     >
                         Storybook (WIP)
                     </a>
@@ -26,7 +26,7 @@ function App() {
                         href="https://github.com/grasdouble/Lufa"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={clsx(styles['link'], styles['link-github'])}
+                        className={clsx(styles.link, styles.github)}
                     >
                         Github
                     </a>
@@ -34,7 +34,7 @@ function App() {
                         href="https://www.linkedin.com/in/sebastienlemouillour/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={clsx(styles['link'], styles['link-linkedin'])}
+                        className={clsx(styles.link, styles.linkedin)}
                     >
                         LinkedIn
                     </a>
