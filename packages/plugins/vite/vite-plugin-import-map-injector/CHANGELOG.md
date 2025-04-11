@@ -1,5 +1,11 @@
 # @grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector
 
+## 0.2.1
+
+### Patch Changes
+
+- d4b3d7e: Fix way to work on dev mode
+
 ## 0.2.0
 
 ### Minor Changes
