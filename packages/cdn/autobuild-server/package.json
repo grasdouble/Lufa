@@ -27,11 +27,11 @@
         "CHANGELOG.md"
     ],
     "dependencies": {
-        "@dotenvx/dotenvx": "^1.39.1",
+        "@dotenvx/dotenvx": "^1.40.0",
         "escape-html": "^1.0.3",
         "express": "^5.1.0",
         "express-rate-limit": "^7.5.0",
-        "fs-extra": "^11.2.0",
+        "fs-extra": "^11.3.0",
         "pacote": "^21.0.0",
         "sanitize-filename": "^1.6.3"
     },
@@ -42,15 +42,15 @@
         "@types/escape-html": "^1.0.4",
         "@types/express": "^5.0.1",
         "@types/fs-extra": "^11.0.4",
-        "@types/node": "^22.14.0",
+        "@types/node": "^22.14.1",
         "@types/pacote": "^11.1.8",
         "esbuild": "^0.25.2",
         "eslint": "^9.24.0",
-        "nodemon": "^3.0.2",
+        "nodemon": "^3.1.9",
         "prettier": "^3.5.3",
         "tsx": "^4.19.3",
         "typescript": "^5.8.3",
-        "typescript-eslint": "^8.29.0"
+        "typescript-eslint": "^8.29.1"
     },
     "engines": {
         "node": ">=18"
