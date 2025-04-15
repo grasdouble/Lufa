@@ -1,3 +1,42 @@
 # Outdated Dependencies Report
 
-No outdated dependency
+┌─────────────────────────┬─────────┬────────┬────────────────────────────────┐
+│ Package                 │ Current │ Latest │ Dependents                     │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ @tailwindcss/vite (dev) │ 4.1.3   │ 4.1.4  │ @grasdouble/lufa_apps_         │
+│                         │         │        │ storybook,                     │
+│                         │         │        │ @grasdouble/lufa_design-       │
+│                         │         │        │ system,                        │
+│                         │         │        │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_home             │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ @types/react (dev)      │ 19.1.1  │ 19.1.2 │ @grasdouble/lufa_apps_         │
+│                         │         │        │ storybook,                     │
+│                         │         │        │ @grasdouble/lufa_apps_web,     │
+│                         │         │        │ @grasdouble/lufa_design-       │
+│                         │         │        │ system,                        │
+│                         │         │        │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_home,            │
+│                         │         │        │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_main-container   │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ tailwindcss (dev)       │ 4.1.3   │ 4.1.4  │ @grasdouble/lufa_apps_         │
+│                         │         │        │ storybook,                     │
+│                         │         │        │ @grasdouble/lufa_design-       │
+│                         │         │        │ system,                        │
+│                         │         │        │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_home             │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ @changesets/cli (dev)   │ 2.28.1  │ 2.29.0 │ @grasdouble/lufa               │
+├─────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ typescript-eslint (dev) │ 8.29.1  │ 8.30.1 │ @grasdouble/cdn_autobuild-     │
+│                         │         │        │ server,                        │
+│                         │         │        │ @grasdouble/lufa_apps_         │
+│                         │         │        │ storybook,                     │
+│                         │         │        │ @grasdouble/lufa_config_       │
+│                         │         │        │ eslint,                        │
+│                         │         │        │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_home,            │
+│                         │         │        │ @grasdouble/lufa_              │
+│                         │         │        │ microfrontend_main-container   │
+└─────────────────────────┴─────────┴────────┴────────────────────────────────┘
