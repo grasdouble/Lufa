@@ -1,200 +1,59 @@
 import express, { type Request, type Response, type NextFunction } from 'express';
 import path from 'path';
 import fs from 'fs-extra';
-import pacote from 'pacote';
 import os from 'os';
-import rateLimit from 'express-rate-limit';
-import sanitize from 'sanitize-filename';
-import escapeHtml from 'escape-html';
-import cors, { CorsOptions } from 'cors';
+
+import cors from 'cors';
 
 import '@dotenvx/dotenvx/config';
 
-interface PackageJson {
-    name: string;
-    version: string;
-    type?: 'module' | 'commonjs';
-    main?: string;
-    module?: string;
-    exports?: Record<string, string | { import?: string; default?: string }>;
-    peerDependencies?: Record<string, string>;
-}
-
-interface ExtractedParams {
-    scope?: string;
-    exportPath?: string;
-    fullName: string;
-    dirName: string;
-    cdnPkgPath: string;
-    tmpPkgPath: string;
-}
-
-interface LoadLibraryResult {
-    status: number;
-    message: string;
-}
+import { CorsError, corsOptions, getRateLimiter, ipBlockMiddleware, unblockIPsAfterTimeout } from './security.js'
+import { extractParams, ExtractParamsProps, loadLibrary, sendEntry } from './utils.js';
+import { ExtractedParams, LoadLibraryResult, PackageJson } from './types.js';
 
 const app: express.Application = express();
+// Enable trust proxy to get proper IPs behind proxies
+app.set('trust proxy', true);
 
-const limiter = rateLimit({
-    windowMs: 10 * 60 * 1000, // 10 minutes
-    max: 1000, // max 1000 requests per windowMs
-});
-
-// List of allowed domains
-const whitelist: string[] = ['https://sebastien-lemouillour.fr', 'https://www.sebastien-lemouillour.fr'];
-
-// Define a custom error for stricter typing
-class CorsError extends Error {
-    constructor(message: string) {
-        super(message);
-        this.name = 'CorsError';
-    }
-}
-
-// CORS configuration options
-const corsOptions: CorsOptions = {
-    origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void): void => {
-        if (!origin) {
-            // Deny requests without an origin
-            callback(new CorsError('Access denied: Missing Origin header'));
-        } else if (whitelist.includes(origin)) {
-            // Allow access if the origin is in the whitelist
-            callback(null, true);
-        } else {
-            // Deny access if the origin is not in the whitelist
-            callback(new CorsError('Access denied by CORS policy'));
-        }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-};
-
+// TMP and CDN directories
 const PORT = process.env.PORT || 3000;
 const TMP_DIR = process.env.TMP_DIR || path.join(os.tmpdir(), 'tmp_cdn');
 const CDN_DIR = process.env.CDN_DIR || path.join(os.tmpdir(), 'cdn');
+if (!process.env.GITHUB_TOKEN) {
+    throw new Error('Environment variable GITHUB_TOKEN is required but not defined.');
+}
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
-// Generates a clear file name, with @ and / preserved
-const makePackageDirName = (pkg: string, version: string) => `${pkg}@${version}`;
+// Blocked IPs storage
+const blockedIPs = new Set<string>();
+const limiter = getRateLimiter(blockedIPs);
 
-const getPackageName = (scope: string | undefined, name: string) => {
-    if (scope) {
-        return `${scope}/${name}`;
+
+
+// Route to unblock the IP of the user making the request
+app.get('/unblock-ip', (req: Request, res: Response): void => {
+    const clientIP = req.ip || req.connection.remoteAddress;
+
+    if (clientIP && blockedIPs.has(clientIP)) {
+        // Delete the IP from the blocked IP list
+        blockedIPs.delete(clientIP);
+
+        // Reset the Limit races counter for this IP
+        limiter.resetKey(clientIP);
+
+        res.status(200).json({ message: `Your IP (${clientIP}) has been unblocked and rate limits have been reset.` });
+        return;
     }
-    return name;
-};
-
-type ExtractParamsProps = {
-    urlScope?: string;
-    urlName: string;
-    urlVersion?: string;
-    urlExportPath?: string;
-};
-
-const extractParams = ({ urlScope, urlName, urlVersion, urlExportPath }: ExtractParamsProps) => {
-    // Sanitize the inputs
-    const scope = typeof urlScope === 'string' ? sanitize(urlScope) : undefined;
-    const name = typeof urlName === 'string' ? sanitize(urlName) : '';
-    const version = typeof urlVersion === 'string' ? sanitize(urlVersion) : '';
-    const exportPath = typeof urlExportPath === 'string' ? `./${sanitize(urlExportPath)}` : '.';
-
-    const fullName = `${getPackageName(scope, name)}@${version}`;
-    const dirName = makePackageDirName(getPackageName(scope, name), version);
-
-    const cdnPkgPath = path.resolve(CDN_DIR, dirName);
-    const tmpPkgPath = path.resolve(TMP_DIR, dirName);
-
-    return {
-        scope,
-        exportPath,
-        fullName,
-        dirName,
-        tmpPkgPath,
-        cdnPkgPath,
-    };
-};
-
-type LoadLibraryProps = {
-    scope?: string;
-    fullName: string;
-    tmpPkgPath: string;
-    cdnPkgPath: string;
-};
-const loadLibrary = async ({ scope, fullName, tmpPkgPath, cdnPkgPath }: LoadLibraryProps) => {
-    // Check if the path is outside the CDN_DIR
-    if (!tmpPkgPath.startsWith(TMP_DIR) || !cdnPkgPath.startsWith(CDN_DIR)) {
-        console.error('❌ Path is outside the CDN_DIR or TMP_DIR');
-        return {
-            status: 403,
-            message: 'Forbidden',
-        };
-    }
-
-    try {
-        if (scope === '@grasdouble') {
-            console.log(`Loading package ${fullName} from GitHub...`);
-            // For @grasdouble packages, we use the GitHub registry
-            await pacote.extract(fullName, cdnPkgPath, {
-                registry: 'https://npm.pkg.github.com',
-                scope: '@grasdouble',
-                headers: {
-                    authorization: `Bearer ${GITHUB_TOKEN}`,
-                },
-            });
-        } else {
-            console.log(`Loading package ${fullName} from npm...`);
-            await pacote.extract(fullName, tmpPkgPath);
-        }
-        console.log(`Package ${fullName} loaded successfully.`);
-        return {
-            status: 200,
-            message: 'Package loaded successfully from npm or github',
-        };
-    } catch (err) {
-        console.error(`❌ Error with ${fullName}:`, err);
-        if (tmpPkgPath) {
-            await fs.remove(tmpPkgPath);
-        }
-        if (cdnPkgPath) {
-            await fs.remove(cdnPkgPath);
-        }
-        return {
-            status: 500,
-            message: `Error with the package ${escapeHtml(fullName)}`,
-        };
-    }
-};
-
-type SendEntryProps = {
-    exportPath: string;
-    cdnPkgPath: string;
-    fullName: string;
-};
-const sendEntry = async ({ exportPath, cdnPkgPath, fullName }: SendEntryProps) => {
-    const pkgJson: PackageJson = await fs.readJson(path.join(cdnPkgPath, 'package.json'));
-
-    const entry =
-        (typeof pkgJson.exports?.[exportPath] === 'object' && pkgJson.exports?.[exportPath]?.import) ||
-        (typeof pkgJson.exports?.[exportPath] === 'object' && pkgJson.exports?.[exportPath]?.default) ||
-        pkgJson.exports?.[exportPath] ||
-        pkgJson.module ||
-        pkgJson.main;
-    if (typeof entry !== 'string') {
-        return {
-            status: 500,
-            message: `The entry point for ${escapeHtml(fullName)} is not valid.`,
-        };
-    }
-    const outputFile = path.resolve(cdnPkgPath, entry);
-    console.log(`Entry point path found: ${outputFile}`);
-
-    return { status: 200, outputFile };
-};
+    res.status(400).json({ error: 'Your IP is not blocked.' });
+    return;
+});
 
 
-app.use(cors(corsOptions));
-app.use(limiter);
+unblockIPsAfterTimeout(blockedIPs);
+
+app.use(ipBlockMiddleware(blockedIPs)); // Apply IP blocking middleware
+app.use(limiter); // Apply rate limiting middleware
+app.use(cors(corsOptions)); // Apply CORS middleware
 
 // Middleware to handle CORS errors
 app.use((err: Error, req: Request, res: Response, next: NextFunction): void => {
@@ -206,7 +65,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction): void => {
 });
 
 app.get(['{/:urlScope}/:urlName@:urlVersion{/:urlExportPath}'], async (req: Request, res: Response): Promise<void> => {
-    const { scope, exportPath, fullName, tmpPkgPath, cdnPkgPath }: ExtractedParams = extractParams(req.params as ExtractParamsProps);
+    const { scope, exportPath, fullName, tmpPkgPath, cdnPkgPath }: ExtractedParams = extractParams({...req.params, CDN_DIR, TMP_DIR } as ExtractParamsProps);
 
     // Confirm that the path is not outside the CDN_DIR
     // and that it is not an absolute path
@@ -237,6 +96,9 @@ app.get(['{/:urlScope}/:urlName@:urlVersion{/:urlExportPath}'], async (req: Requ
             fullName,
             tmpPkgPath,
             cdnPkgPath,
+            TMP_DIR,
+            CDN_DIR,
+            GITHUB_TOKEN,
         });
 
         // Check if the load was successful from npm or github
@@ -294,7 +156,7 @@ app.get(['{/:urlScope}/:urlName@:urlVersion{/:urlExportPath}'], async (req: Requ
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 CDN auto-build dispo sur http://localhost:${PORT}`);
+    console.log(`🚀 Server is running on http://localhost:${PORT}`);
     console.log('TMP_DIR: ', TMP_DIR);
     console.log('CDN_DIR: ', CDN_DIR);
 });
