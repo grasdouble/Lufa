@@ -1,5 +1,15 @@
 # @grasdouble/cdn_autobuild-server
 
+## 0.3.0
+
+### Minor Changes
+
+- 720e56d: Increase security adding domain whitelist and updating ratelimit
+
+### Patch Changes
+
+- a3d7a75: Adapt rate limit to distinguish client ip
+
 ## 0.2.0
 
 ### Minor Changes
