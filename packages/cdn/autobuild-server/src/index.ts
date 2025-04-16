@@ -1,4 +1,4 @@
-import express, { type Request, type Response } from 'express';
+import express, { type Request, type Response, type NextFunction } from 'express';
 import path from 'path';
 import fs from 'fs-extra';
 import pacote from 'pacote';
@@ -6,6 +6,7 @@ import os from 'os';
 import rateLimit from 'express-rate-limit';
 import sanitize from 'sanitize-filename';
 import escapeHtml from 'escape-html';
+import cors, { CorsOptions } from 'cors';
 
 import '@dotenvx/dotenvx/config';
 
@@ -36,9 +37,38 @@ interface LoadLibraryResult {
 const app: express.Application = express();
 
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // max 100 requests per windowMs
+    windowMs: 10 * 60 * 1000, // 10 minutes
+    max: 1000, // max 1000 requests per windowMs
 });
+
+// List of allowed domains
+const whitelist: string[] = ['https://sebastien-lemouillour.fr', 'https://www.sebastien-lemouillour.fr'];
+
+// Define a custom error for stricter typing
+class CorsError extends Error {
+    constructor(message: string) {
+        super(message);
+        this.name = 'CorsError';
+    }
+}
+
+// CORS configuration options
+const corsOptions: CorsOptions = {
+    origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void): void => {
+        if (!origin) {
+            // Deny requests without an origin
+            callback(new CorsError('Access denied: Missing Origin header'));
+        } else if (whitelist.includes(origin)) {
+            // Allow access if the origin is in the whitelist
+            callback(null, true);
+        } else {
+            // Deny access if the origin is not in the whitelist
+            callback(new CorsError('Access denied by CORS policy'));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+};
 
 const PORT = process.env.PORT || 3000;
 const TMP_DIR = process.env.TMP_DIR || path.join(os.tmpdir(), 'tmp_cdn');
@@ -162,7 +192,18 @@ const sendEntry = async ({ exportPath, cdnPkgPath, fullName }: SendEntryProps) =
     return { status: 200, outputFile };
 };
 
+
+app.use(cors(corsOptions));
 app.use(limiter);
+
+// Middleware to handle CORS errors
+app.use((err: Error, req: Request, res: Response, next: NextFunction): void => {
+    if (err instanceof CorsError) {
+        res.status(403).json({ error: err.message });
+    } else {
+        next(err);
+    }
+});
 
 app.get(['{/:urlScope}/:urlName@:urlVersion{/:urlExportPath}'], async (req: Request, res: Response): Promise<void> => {
     const { scope, exportPath, fullName, tmpPkgPath, cdnPkgPath }: ExtractedParams = extractParams(req.params as ExtractParamsProps);

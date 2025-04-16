@@ -28,6 +28,7 @@
     ],
     "dependencies": {
         "@dotenvx/dotenvx": "^1.40.0",
+        "cors": "^2.8.5",
         "escape-html": "^1.0.3",
         "express": "^5.1.0",
         "express-rate-limit": "^7.5.0",
@@ -39,6 +40,7 @@
         "@grasdouble/lufa_config_eslint": "workspace:^",
         "@grasdouble/lufa_config_prettier": "workspace:^",
         "@grasdouble/lufa_config_tsconfig": "workspace:^",
+        "@types/cors": "^2.8.17",
         "@types/escape-html": "^1.0.4",
         "@types/express": "^5.0.1",
         "@types/fs-extra": "^11.0.4",
