@@ -19,7 +19,10 @@ app.set('trust proxy', true);
 const PORT = process.env.PORT || 3000;
 const TMP_DIR = process.env.TMP_DIR || path.join(os.tmpdir(), 'tmp_cdn');
 const CDN_DIR = process.env.CDN_DIR || path.join(os.tmpdir(), 'cdn');
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN || 'NOT DEFINED';
+if (!process.env.GITHUB_TOKEN) {
+    throw new Error('Environment variable GITHUB_TOKEN is required but not defined.');
+}
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 // Blocked IPs storage
 const blockedIPs = new Set<string>();
