@@ -55,3 +55,8 @@
 
 - Start to use ds components in mf-home
 - Improve one more time the CDN to be able to manage different entries for a same lib
+
+## [2025-04-16]
+
+- CDN: Increase security with domain whitelist and update rate limit
+- Start new app for website under construction
