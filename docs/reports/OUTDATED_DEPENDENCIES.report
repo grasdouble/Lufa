@@ -1,3 +1,37 @@
 # Outdated Dependencies Report
 
-No outdated dependency
+┌─────────────────────────────────┬─────────┬────────┬────────────────────────────────┐
+│ Package                         │ Current │ Latest │ Dependents                     │
+├─────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ @eslint/js (dev)                │ 9.25.0  │ 9.25.1 │ @grasdouble/lufa_config_eslint │
+├─────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ eslint (dev)                    │ 9.25.0  │ 9.25.1 │ @grasdouble/cdn_autobuild-     │
+│                                 │         │        │ server,                        │
+│                                 │         │        │ @grasdouble/lufa_apps_         │
+│                                 │         │        │ storybook,                     │
+│                                 │         │        │ @grasdouble/lufa_apps_web,     │
+│                                 │         │        │ @grasdouble/lufa_design-       │
+│                                 │         │        │ system,                        │
+│                                 │         │        │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_home,            │
+│                                 │         │        │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_main-container   │
+├─────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ typescript-eslint (dev)         │ 8.30.1  │ 8.31.0 │ @grasdouble/cdn_autobuild-     │
+│                                 │         │        │ server,                        │
+│                                 │         │        │ @grasdouble/lufa_apps_         │
+│                                 │         │        │ storybook,                     │
+│                                 │         │        │ @grasdouble/lufa_config_       │
+│                                 │         │        │ eslint,                        │
+│                                 │         │        │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_home,            │
+│                                 │         │        │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_main-container   │
+├─────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ eslint-plugin-react-hooks (dev) │ 5.2.0   │ 6.0.0  │ @grasdouble/lufa_config_       │
+│                                 │         │        │ eslint,                        │
+│                                 │         │        │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_home,            │
+│                                 │         │        │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_main-container   │
+└─────────────────────────────────┴─────────┴────────┴────────────────────────────────┘
