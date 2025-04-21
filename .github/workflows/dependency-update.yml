@@ -26,6 +26,9 @@ jobs:
         with:
           token: ${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}
 
+      - name: Update .npmrc with authentication token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}" > ~/.npmrc
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
