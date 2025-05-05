@@ -1,20 +1,3 @@
 # Outdated Dependencies Report
 
-┌─────────────────────────┬─────────┬─────────┬────────────────────────────────┐
-│ Package                 │ Current │ Latest  │ Dependents                     │
-├─────────────────────────┼─────────┼─────────┼────────────────────────────────┤
-│ @types/node (dev)       │ 22.15.2 │ 22.15.3 │ @grasdouble/cdn_autobuild-     │
-│                         │         │         │ server,                        │
-│                         │         │         │ @grasdouble/lufa_apps_web      │
-├─────────────────────────┼─────────┼─────────┼────────────────────────────────┤
-│ typescript-eslint (dev) │ 8.31.0  │ 8.31.1  │ @grasdouble/cdn_autobuild-     │
-│                         │         │         │ server,                        │
-│                         │         │         │ @grasdouble/lufa_apps_         │
-│                         │         │         │ storybook,                     │
-│                         │         │         │ @grasdouble/lufa_config_       │
-│                         │         │         │ eslint,                        │
-│                         │         │         │ @grasdouble/lufa_              │
-│                         │         │         │ microfrontend_home,            │
-│                         │         │         │ @grasdouble/lufa_              │
-│                         │         │         │ microfrontend_main-container   │
-└─────────────────────────┴─────────┴─────────┴────────────────────────────────┘
+No outdated dependency
