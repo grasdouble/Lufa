@@ -16,7 +16,7 @@
     "CHANGELOG.md"
   ],
   "dependencies": {
-    "eslint-config-prettier": "^10.1.2",
+    "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-react": "^7.37.5"
   },
   "peerDependencies": {
@@ -26,7 +26,7 @@
     "@eslint/js": "^9.26.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.0.0",
-    "typescript-eslint": "^8.31.1"
+    "globals": "^16.1.0",
+    "typescript-eslint": "^8.32.0"
   }
 }

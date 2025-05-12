@@ -40,19 +40,19 @@
         "@grasdouble/lufa_config_eslint": "workspace:^",
         "@grasdouble/lufa_config_prettier": "workspace:^",
         "@grasdouble/lufa_config_tsconfig": "workspace:^",
-        "@types/cors": "^2.8.17",
+        "@types/cors": "^2.8.18",
         "@types/escape-html": "^1.0.4",
         "@types/express": "^5.0.1",
         "@types/fs-extra": "^11.0.4",
-        "@types/node": "^22.15.3",
+        "@types/node": "^22.15.17",
         "@types/pacote": "^11.1.8",
-        "esbuild": "^0.25.3",
+        "esbuild": "^0.25.4",
         "eslint": "^9.26.0",
         "nodemon": "^3.1.10",
         "prettier": "^3.5.3",
         "tsx": "^4.19.4",
         "typescript": "^5.8.3",
-        "typescript-eslint": "^8.31.1"
+        "typescript-eslint": "^8.32.0"
     },
     "engines": {
         "node": ">=18"
