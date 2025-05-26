@@ -27,7 +27,7 @@
         "CHANGELOG.md"
     ],
     "dependencies": {
-        "@dotenvx/dotenvx": "^1.44.0",
+        "@dotenvx/dotenvx": "^1.44.1",
         "cors": "^2.8.5",
         "escape-html": "^1.0.3",
         "express": "^5.1.0",
@@ -44,7 +44,7 @@
         "@types/escape-html": "^1.0.4",
         "@types/express": "^5.0.2",
         "@types/fs-extra": "^11.0.4",
-        "@types/node": "^22.15.19",
+        "@types/node": "^22.15.21",
         "@types/pacote": "^11.1.8",
         "esbuild": "^0.25.4",
         "eslint": "^9.27.0",

@@ -32,9 +32,9 @@
         "@grasdouble/lufa_config_prettier": "workspace:^",
         "@grasdouble/lufa_config_tsconfig": "workspace:^",
         "@tailwindcss/vite": "^4.1.7",
-        "@types/react": "^19.1.4",
+        "@types/react": "^19.1.5",
         "@types/react-dom": "^19.1.5",
-        "@vitejs/plugin-react": "^4.4.1",
+        "@vitejs/plugin-react": "^4.5.0",
         "eslint": "^9.27.0",
         "postcss": "^8.5.3",
         "prettier": "^3.5.3",
@@ -48,7 +48,7 @@
         "vite-tsconfig-paths": "^5.1.4"
     },
     "dependencies": {
-        "@headlessui/react": "^2.2.3",
+        "@headlessui/react": "^2.2.4",
         "@heroicons/react": "^2.2.0",
         "clsx": "^2.1.1"
     },

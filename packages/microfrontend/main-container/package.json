@@ -26,7 +26,7 @@
         "@grasdouble/lufa_config_tsconfig": "workspace:^",
         "@grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector": "workspace:^",
         "@grasdouble/lufa_plugin_vite_vite-plugin-react-preamble": "workspace:^",
-        "@types/react": "^19.1.4",
+        "@types/react": "^19.1.5",
         "@types/react-dom": "^19.1.5",
         "eslint": "^9.27.0",
         "eslint-plugin-react": "^7.37.5",
