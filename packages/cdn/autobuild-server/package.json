@@ -44,15 +44,15 @@
         "@types/escape-html": "^1.0.4",
         "@types/express": "^5.0.2",
         "@types/fs-extra": "^11.0.4",
-        "@types/node": "^22.15.21",
+        "@types/node": "^22.15.29",
         "@types/pacote": "^11.1.8",
-        "esbuild": "^0.25.4",
-        "eslint": "^9.27.0",
+        "esbuild": "^0.25.5",
+        "eslint": "^9.28.0",
         "nodemon": "^3.1.10",
         "prettier": "^3.5.3",
         "tsx": "^4.19.4",
         "typescript": "^5.8.3",
-        "typescript-eslint": "^8.32.1"
+        "typescript-eslint": "^8.33.0"
     },
     "engines": {
         "node": ">=18"
