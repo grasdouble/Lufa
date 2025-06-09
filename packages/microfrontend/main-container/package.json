@@ -27,7 +27,7 @@
         "@grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector": "workspace:^",
         "@grasdouble/lufa_plugin_vite_vite-plugin-react-preamble": "workspace:^",
         "@types/react": "^19.1.6",
-        "@types/react-dom": "^19.1.5",
+        "@types/react-dom": "^19.1.6",
         "eslint": "^9.28.0",
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^5.2.0",
@@ -35,7 +35,7 @@
         "prettier": "^3.5.3",
         "prettier-plugin-tailwindcss": "^0.6.12",
         "typescript": "^5.8.3",
-        "typescript-eslint": "^8.33.0",
+        "typescript-eslint": "^8.33.1",
         "vite": "^6.3.5",
         "vite-plugin-externalize-deps": "^0.9.0"
     },
