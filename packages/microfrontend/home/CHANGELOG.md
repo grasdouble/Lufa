@@ -1,5 +1,11 @@
 # @grasdouble/lufa_microfrontend_home
 
+## 0.2.1
+
+### Patch Changes
+
+- 079827f: chore: change way to manage images in the repository
+
 ## 0.2.0
 
 ### Minor Changes
