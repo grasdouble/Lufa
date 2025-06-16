@@ -1,49 +1,24 @@
 # Outdated Dependencies Report
 
-┌───────────────────────────────┬─────────┬────────┬────────────────────────────────┐
-│ Package                       │ Current │ Latest │ Dependents                     │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @types/react (dev)            │ 19.1.6  │ 19.1.7 │ @grasdouble/lufa_apps_         │
-│                               │         │        │ storybook,                     │
-│                               │         │        │ @grasdouble/lufa_apps_web,     │
-│                               │         │        │ @grasdouble/lufa_design-       │
-│                               │         │        │ system,                        │
-│                               │         │        │ @grasdouble/lufa_              │
-│                               │         │        │ microfrontend_home,            │
-│                               │         │        │ @grasdouble/lufa_              │
-│                               │         │        │ microfrontend_main-container   │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @vitejs/plugin-react (dev)    │ 4.5.1   │ 4.5.2  │ @grasdouble/lufa_apps_         │
-│                               │         │        │ storybook,                     │
-│                               │         │        │ @grasdouble/lufa_apps_web,     │
-│                               │         │        │ @grasdouble/lufa_design-       │
-│                               │         │        │ system,                        │
-│                               │         │        │ @grasdouble/lufa_              │
-│                               │         │        │ microfrontend_home             │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ typescript-eslint (dev)       │ 8.33.1  │ 8.34.0 │ @grasdouble/cdn_autobuild-     │
-│                               │         │        │ server,                        │
-│                               │         │        │ @grasdouble/lufa_apps_         │
-│                               │         │        │ storybook,                     │
-│                               │         │        │ @grasdouble/lufa_config_       │
-│                               │         │        │ eslint,                        │
-│                               │         │        │ @grasdouble/lufa_              │
-│                               │         │        │ microfrontend_home,            │
-│                               │         │        │ @grasdouble/lufa_              │
-│                               │         │        │ microfrontend_main-container   │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @storybook/addon-themes (dev) │ 8.6.14  │ 9.0.6  │ @grasdouble/lufa_apps_         │
-│                               │         │        │ storybook                      │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @storybook/react (dev)        │ 8.6.14  │ 9.0.6  │ @grasdouble/lufa_apps_         │
-│                               │         │        │ storybook                      │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @storybook/react-vite (dev)   │ 8.6.14  │ 9.0.6  │ @grasdouble/lufa_apps_         │
-│                               │         │        │ storybook                      │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ storybook (dev)               │ 8.6.14  │ 9.0.6  │ @grasdouble/lufa_apps_         │
-│                               │         │        │ storybook                      │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ vite-plugin-static-copy (dev) │ 2.3.1   │ 3.0.0  │ @grasdouble/lufa_              │
-│                               │         │        │ microfrontend_home             │
-└───────────────────────────────┴─────────┴────────┴────────────────────────────────┘
+┌───────────────────────────────┬──────────┬────────┬────────────────────────────────┐
+│ Package                       │ Current  │ Latest │ Dependents                     │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ @storybook/addon-themes (dev) │ 8.6.14   │ 9.0.10 │ @grasdouble/lufa_apps_         │
+│                               │          │        │ storybook                      │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ @storybook/react (dev)        │ 8.6.14   │ 9.0.10 │ @grasdouble/lufa_apps_         │
+│                               │          │        │ storybook                      │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ @storybook/react-vite (dev)   │ 8.6.14   │ 9.0.10 │ @grasdouble/lufa_apps_         │
+│                               │          │        │ storybook                      │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ @types/node (dev)             │ 22.15.31 │ 24.0.1 │ @grasdouble/cdn_autobuild-     │
+│                               │          │        │ server,                        │
+│                               │          │        │ @grasdouble/lufa_apps_web      │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ storybook (dev)               │ 8.6.14   │ 9.0.10 │ @grasdouble/lufa_apps_         │
+│                               │          │        │ storybook                      │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ vite-plugin-static-copy (dev) │ 2.3.1    │ 3.0.2  │ @grasdouble/lufa_              │
+│                               │          │        │ microfrontend_home             │
+└───────────────────────────────┴──────────┴────────┴────────────────────────────────┘

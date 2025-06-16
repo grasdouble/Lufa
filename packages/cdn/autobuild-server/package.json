@@ -27,7 +27,7 @@
         "CHANGELOG.md"
     ],
     "dependencies": {
-        "@dotenvx/dotenvx": "^1.44.1",
+        "@dotenvx/dotenvx": "^1.44.2",
         "cors": "^2.8.5",
         "escape-html": "^1.0.3",
         "express": "^5.1.0",
@@ -44,15 +44,15 @@
         "@types/escape-html": "^1.0.4",
         "@types/express": "^5.0.3",
         "@types/fs-extra": "^11.0.4",
-        "@types/node": "^22.15.30",
+        "@types/node": "^22.15.31",
         "@types/pacote": "^11.1.8",
         "esbuild": "^0.25.5",
-        "eslint": "^9.28.0",
+        "eslint": "^9.29.0",
         "nodemon": "^3.1.10",
         "prettier": "^3.5.3",
-        "tsx": "^4.19.4",
+        "tsx": "^4.20.3",
         "typescript": "^5.8.3",
-        "typescript-eslint": "^8.33.1"
+        "typescript-eslint": "^8.34.0"
     },
     "engines": {
         "node": ">=18"
