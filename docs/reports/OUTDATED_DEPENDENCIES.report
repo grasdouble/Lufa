@@ -3,6 +3,19 @@
 ┌───────────────────────────────┬──────────┬────────┬────────────────────────────────┐
 │ Package                       │ Current  │ Latest │ Dependents                     │
 ├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ postcss (dev)                 │ 8.5.5    │ 8.5.6  │ @grasdouble/lufa_design-system │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ typescript-eslint (dev)       │ 8.34.0   │ 8.34.1 │ @grasdouble/cdn_autobuild-     │
+│                               │          │        │ server,                        │
+│                               │          │        │ @grasdouble/lufa_apps_         │
+│                               │          │        │ storybook,                     │
+│                               │          │        │ @grasdouble/lufa_config_       │
+│                               │          │        │ eslint,                        │
+│                               │          │        │ @grasdouble/lufa_              │
+│                               │          │        │ microfrontend_home,            │
+│                               │          │        │ @grasdouble/lufa_              │
+│                               │          │        │ microfrontend_main-container   │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
 │ @storybook/addon-themes (dev) │ 8.6.14   │ 9.0.10 │ @grasdouble/lufa_apps_         │
 │                               │          │        │ storybook                      │
 ├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
@@ -12,7 +25,7 @@
 │ @storybook/react-vite (dev)   │ 8.6.14   │ 9.0.10 │ @grasdouble/lufa_apps_         │
 │                               │          │        │ storybook                      │
 ├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
-│ @types/node (dev)             │ 22.15.31 │ 24.0.1 │ @grasdouble/cdn_autobuild-     │
+│ @types/node (dev)             │ 22.15.31 │ 24.0.3 │ @grasdouble/cdn_autobuild-     │
 │                               │          │        │ server,                        │
 │                               │          │        │ @grasdouble/lufa_apps_web      │
 ├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
