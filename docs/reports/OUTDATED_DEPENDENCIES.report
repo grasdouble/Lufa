@@ -3,6 +3,36 @@
 ┌───────────────────────────────┬──────────┬────────┬────────────────────────────────┐
 │ Package                       │ Current  │ Latest │ Dependents                     │
 ├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ @vitejs/plugin-react (dev)    │ 4.5.2    │ 4.6.0  │ @grasdouble/lufa_apps_         │
+│                               │          │        │ storybook,                     │
+│                               │          │        │ @grasdouble/lufa_apps_web,     │
+│                               │          │        │ @grasdouble/lufa_design-       │
+│                               │          │        │ system,                        │
+│                               │          │        │ @grasdouble/lufa_              │
+│                               │          │        │ microfrontend_home             │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ prettier (dev)                │ 3.5.3    │ 3.6.0  │ @grasdouble/cdn_autobuild-     │
+│                               │          │        │ server,                        │
+│                               │          │        │ @grasdouble/lufa_apps_         │
+│                               │          │        │ storybook,                     │
+│                               │          │        │ @grasdouble/lufa_design-       │
+│                               │          │        │ system,                        │
+│                               │          │        │ @grasdouble/lufa_              │
+│                               │          │        │ microfrontend_home,            │
+│                               │          │        │ @grasdouble/lufa_              │
+│                               │          │        │ microfrontend_main-container   │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ typescript-eslint (dev)       │ 8.34.1   │ 8.35.0 │ @grasdouble/cdn_autobuild-     │
+│                               │          │        │ server,                        │
+│                               │          │        │ @grasdouble/lufa_apps_         │
+│                               │          │        │ storybook,                     │
+│                               │          │        │ @grasdouble/lufa_config_       │
+│                               │          │        │ eslint,                        │
+│                               │          │        │ @grasdouble/lufa_              │
+│                               │          │        │ microfrontend_home,            │
+│                               │          │        │ @grasdouble/lufa_              │
+│                               │          │        │ microfrontend_main-container   │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
 │ @storybook/addon-themes (dev) │ 8.6.14   │ 9.0.12 │ @grasdouble/lufa_apps_         │
 │                               │          │        │ storybook                      │
 ├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
