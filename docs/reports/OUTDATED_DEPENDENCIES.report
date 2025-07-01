@@ -3,6 +3,17 @@
 ┌───────────────────────────────┬──────────┬────────┬────────────────────────────────┐
 │ Package                       │ Current  │ Latest │ Dependents                     │
 ├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
+│ typescript-eslint (dev)       │ 8.35.0   │ 8.35.1 │ @grasdouble/cdn_autobuild-     │
+│                               │          │        │ server,                        │
+│                               │          │        │ @grasdouble/lufa_apps_         │
+│                               │          │        │ storybook,                     │
+│                               │          │        │ @grasdouble/lufa_config_       │
+│                               │          │        │ eslint,                        │
+│                               │          │        │ @grasdouble/lufa_              │
+│                               │          │        │ microfrontend_home,            │
+│                               │          │        │ @grasdouble/lufa_              │
+│                               │          │        │ microfrontend_main-container   │
+├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
 │ @storybook/addon-themes (dev) │ 8.6.14   │ 9.0.14 │ @grasdouble/lufa_apps_         │
 │                               │          │        │ storybook                      │
 ├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
@@ -12,7 +23,7 @@
 │ @storybook/react-vite (dev)   │ 8.6.14   │ 9.0.14 │ @grasdouble/lufa_apps_         │
 │                               │          │        │ storybook                      │
 ├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
-│ @types/node (dev)             │ 22.15.34 │ 24.0.7 │ @grasdouble/cdn_autobuild-     │
+│ @types/node (dev)             │ 22.15.34 │ 24.0.8 │ @grasdouble/cdn_autobuild-     │
 │                               │          │        │ server,                        │
 │                               │          │        │ @grasdouble/lufa_apps_web      │
 ├───────────────────────────────┼──────────┼────────┼────────────────────────────────┤
