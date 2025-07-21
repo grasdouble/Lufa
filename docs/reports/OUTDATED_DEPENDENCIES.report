@@ -3,37 +3,26 @@
 ┌───────────────────────────────┬─────────┬─────────┬────────────────────────────────┐
 │ Package                       │ Current │ Latest  │ Dependents                     │
 ├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
-│ @dotenvx/dotenvx              │ 1.47.5  │ 1.47.6  │ @grasdouble/cdn_autobuild-     │
-│                               │         │         │ server                         │
-├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
-│ typescript-eslint (dev)       │ 8.36.0  │ 8.37.0  │ @grasdouble/cdn_autobuild-     │
-│                               │         │         │ server,                        │
-│                               │         │         │ @grasdouble/lufa_apps_         │
-│                               │         │         │ storybook,                     │
-│                               │         │         │ @grasdouble/lufa_config_       │
-│                               │         │         │ eslint,                        │
-│                               │         │         │ @grasdouble/lufa_              │
-│                               │         │         │ microfrontend_home,            │
-│                               │         │         │ @grasdouble/lufa_              │
-│                               │         │         │ microfrontend_main-container   │
-├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
-│ @storybook/addon-themes (dev) │ 8.6.14  │ 9.0.16  │ @grasdouble/lufa_apps_         │
+│ @storybook/addon-themes (dev) │ 8.6.14  │ 9.0.17  │ @grasdouble/lufa_apps_         │
 │                               │         │         │ storybook                      │
 ├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
-│ @storybook/react (dev)        │ 8.6.14  │ 9.0.16  │ @grasdouble/lufa_apps_         │
+│ @storybook/react (dev)        │ 8.6.14  │ 9.0.17  │ @grasdouble/lufa_apps_         │
 │                               │         │         │ storybook                      │
 ├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
-│ @storybook/react-vite (dev)   │ 8.6.14  │ 9.0.16  │ @grasdouble/lufa_apps_         │
+│ @storybook/react-vite (dev)   │ 8.6.14  │ 9.0.17  │ @grasdouble/lufa_apps_         │
 │                               │         │         │ storybook                      │
 ├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
-│ @types/node (dev)             │ 22.16.3 │ 24.0.13 │ @grasdouble/cdn_autobuild-     │
+│ @types/node (dev)             │ 22.16.5 │ 24.0.15 │ @grasdouble/cdn_autobuild-     │
 │                               │         │         │ server,                        │
 │                               │         │         │ @grasdouble/lufa_apps_web      │
 ├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
-│ storybook (dev)               │ 8.6.14  │ 9.0.16  │ @grasdouble/lufa_apps_         │
+│ express-rate-limit            │ 7.5.1   │ 8.0.1   │ @grasdouble/cdn_autobuild-     │
+│                               │         │         │ server                         │
+├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
+│ storybook (dev)               │ 8.6.14  │ 9.0.17  │ @grasdouble/lufa_apps_         │
 │                               │         │         │ storybook                      │
 ├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
-│ vite (dev)                    │ 6.3.5   │ 7.0.4   │ @grasdouble/lufa_apps_         │
+│ vite (dev)                    │ 6.3.5   │ 7.0.5   │ @grasdouble/lufa_apps_         │
 │                               │         │         │ storybook,                     │
 │                               │         │         │ @grasdouble/lufa_apps_web,     │
 │                               │         │         │ @grasdouble/lufa_design-       │
