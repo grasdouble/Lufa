@@ -3,35 +3,23 @@
 ┌───────────────────────────────┬─────────┬────────┬────────────────────────────────┐
 │ Package                       │ Current │ Latest │ Dependents                     │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ react                         │ 19.1.0  │ 19.1.1 │ @grasdouble/lufa_apps_         │
-│                               │         │        │ storybook,                     │
-│                               │         │        │ @grasdouble/lufa_apps_web,     │
-│                               │         │        │ @grasdouble/lufa_              │
-│                               │         │        │ microfrontend_home             │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ react-dom                     │ 19.1.0  │ 19.1.1 │ @grasdouble/lufa_apps_         │
-│                               │         │        │ storybook,                     │
-│                               │         │        │ @grasdouble/lufa_apps_web,     │
-│                               │         │        │ @grasdouble/lufa_              │
-│                               │         │        │ microfrontend_home             │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @storybook/addon-themes (dev) │ 8.6.14  │ 9.0.18 │ @grasdouble/lufa_apps_         │
+│ @storybook/addon-themes (dev) │ 8.6.14  │ 9.1.0  │ @grasdouble/lufa_apps_         │
 │                               │         │        │ storybook                      │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @storybook/react (dev)        │ 8.6.14  │ 9.0.18 │ @grasdouble/lufa_apps_         │
+│ @storybook/react (dev)        │ 8.6.14  │ 9.1.0  │ @grasdouble/lufa_apps_         │
 │                               │         │        │ storybook                      │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @storybook/react-vite (dev)   │ 8.6.14  │ 9.0.18 │ @grasdouble/lufa_apps_         │
+│ @storybook/react-vite (dev)   │ 8.6.14  │ 9.1.0  │ @grasdouble/lufa_apps_         │
 │                               │         │        │ storybook                      │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @types/node (dev)             │ 22.16.5 │ 24.1.0 │ @grasdouble/cdn_autobuild-     │
+│ @types/node (dev)             │ 22.17.0 │ 24.1.0 │ @grasdouble/cdn_autobuild-     │
 │                               │         │        │ server,                        │
 │                               │         │        │ @grasdouble/lufa_apps_web      │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
 │ express-rate-limit            │ 7.5.1   │ 8.0.1  │ @grasdouble/cdn_autobuild-     │
 │                               │         │        │ server                         │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ storybook (dev)               │ 8.6.14  │ 9.0.18 │ @grasdouble/lufa_apps_         │
+│ storybook (dev)               │ 8.6.14  │ 9.1.0  │ @grasdouble/lufa_apps_         │
 │                               │         │        │ storybook                      │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
 │ vite (dev)                    │ 6.3.5   │ 7.0.6  │ @grasdouble/lufa_apps_         │
