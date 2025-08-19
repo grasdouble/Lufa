@@ -3,6 +3,17 @@
 ┌───────────────────────────────┬─────────┬────────┬────────────────────────────────┐
 │ Package                       │ Current │ Latest │ Dependents                     │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ typescript-eslint (dev)       │ 8.39.1  │ 8.40.0 │ @grasdouble/cdn_autobuild-     │
+│                               │         │        │ server,                        │
+│                               │         │        │ @grasdouble/lufa_apps_         │
+│                               │         │        │ storybook,                     │
+│                               │         │        │ @grasdouble/lufa_config_       │
+│                               │         │        │ eslint,                        │
+│                               │         │        │ @grasdouble/lufa_              │
+│                               │         │        │ microfrontend_home,            │
+│                               │         │        │ @grasdouble/lufa_              │
+│                               │         │        │ microfrontend_main-container   │
+├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
 │ @storybook/addon-themes (dev) │ 8.6.14  │ 9.1.2  │ @grasdouble/lufa_apps_         │
 │                               │         │        │ storybook                      │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
