@@ -3,31 +3,20 @@
 ┌───────────────────────────────┬─────────┬────────┬────────────────────────────────┐
 │ Package                       │ Current │ Latest │ Dependents                     │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ typescript-eslint (dev)       │ 8.39.1  │ 8.40.0 │ @grasdouble/cdn_autobuild-     │
-│                               │         │        │ server,                        │
-│                               │         │        │ @grasdouble/lufa_apps_         │
-│                               │         │        │ storybook,                     │
-│                               │         │        │ @grasdouble/lufa_config_       │
-│                               │         │        │ eslint,                        │
-│                               │         │        │ @grasdouble/lufa_              │
-│                               │         │        │ microfrontend_home,            │
-│                               │         │        │ @grasdouble/lufa_              │
-│                               │         │        │ microfrontend_main-container   │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @storybook/addon-themes (dev) │ 8.6.14  │ 9.1.2  │ @grasdouble/lufa_apps_         │
+│ @storybook/addon-themes (dev) │ 8.6.14  │ 9.1.3  │ @grasdouble/lufa_apps_         │
 │                               │         │        │ storybook                      │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @storybook/react (dev)        │ 8.6.14  │ 9.1.2  │ @grasdouble/lufa_apps_         │
+│ @storybook/react (dev)        │ 8.6.14  │ 9.1.3  │ @grasdouble/lufa_apps_         │
 │                               │         │        │ storybook                      │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @storybook/react-vite (dev)   │ 8.6.14  │ 9.1.2  │ @grasdouble/lufa_apps_         │
+│ @storybook/react-vite (dev)   │ 8.6.14  │ 9.1.3  │ @grasdouble/lufa_apps_         │
 │                               │         │        │ storybook                      │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
 │ @types/node (dev)             │ 22.17.2 │ 24.3.0 │ @grasdouble/cdn_autobuild-     │
 │                               │         │        │ server,                        │
 │                               │         │        │ @grasdouble/lufa_apps_web      │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @vitejs/plugin-react (dev)    │ 4.7.0   │ 5.0.0  │ @grasdouble/lufa_apps_         │
+│ @vitejs/plugin-react (dev)    │ 4.7.0   │ 5.0.1  │ @grasdouble/lufa_apps_         │
 │                               │         │        │ storybook,                     │
 │                               │         │        │ @grasdouble/lufa_apps_web,     │
 │                               │         │        │ @grasdouble/lufa_design-       │
@@ -38,10 +27,10 @@
 │ express-rate-limit            │ 7.5.1   │ 8.0.1  │ @grasdouble/cdn_autobuild-     │
 │                               │         │        │ server                         │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ storybook (dev)               │ 8.6.14  │ 9.1.2  │ @grasdouble/lufa_apps_         │
+│ storybook (dev)               │ 8.6.14  │ 9.1.3  │ @grasdouble/lufa_apps_         │
 │                               │         │        │ storybook                      │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ vite (dev)                    │ 6.3.5   │ 7.1.2  │ @grasdouble/lufa_apps_         │
+│ vite (dev)                    │ 6.3.5   │ 7.1.3  │ @grasdouble/lufa_apps_         │
 │                               │         │        │ storybook,                     │
 │                               │         │        │ @grasdouble/lufa_apps_web,     │
 │                               │         │        │ @grasdouble/lufa_design-       │
@@ -51,6 +40,6 @@
 │                               │         │        │ @grasdouble/lufa_              │
 │                               │         │        │ microfrontend_main-container   │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ vite-plugin-static-copy (dev) │ 2.3.1   │ 3.1.1  │ @grasdouble/lufa_              │
+│ vite-plugin-static-copy (dev) │ 2.3.2   │ 3.1.2  │ @grasdouble/lufa_              │
 │                               │         │        │ microfrontend_home             │
 └───────────────────────────────┴─────────┴────────┴────────────────────────────────┘
