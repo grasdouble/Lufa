@@ -44,7 +44,7 @@
         "@types/escape-html": "^1.0.4",
         "@types/express": "^5.0.3",
         "@types/fs-extra": "^11.0.4",
-        "@types/node": "^22.17.2",
+        "@types/node": "^22.18.0",
         "@types/pacote": "^11.1.8",
         "esbuild": "^0.25.9",
         "eslint": "^9.34.0",
@@ -52,7 +52,7 @@
         "prettier": "^3.6.2",
         "tsx": "^4.20.5",
         "typescript": "^5.9.2",
-        "typescript-eslint": "^8.40.0"
+        "typescript-eslint": "^8.41.0"
     },
     "engines": {
         "node": ">=18"
