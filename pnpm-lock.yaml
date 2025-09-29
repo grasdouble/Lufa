@@ -221,6 +221,9 @@ importers:
 
   packages/config/eslint:
     dependencies:
+      '@eslint/js':
+        specifier: ^9.36.0
+        version: 9.36.0
       eslint:
         specifier: ^9.22.0
         version: 9.36.0(jiti@2.6.0)
@@ -230,10 +233,6 @@ importers:
       eslint-plugin-react:
         specifier: ^7.37.5
         version: 7.37.5(eslint@9.36.0(jiti@2.6.0))
-    devDependencies:
-      '@eslint/js':
-        specifier: ^9.36.0
-        version: 9.36.0
       eslint-plugin-react-hooks:
         specifier: ^5.2.0
         version: 5.2.0(eslint@9.36.0(jiti@2.6.0))
