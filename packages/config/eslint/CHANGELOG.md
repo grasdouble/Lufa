@@ -1,5 +1,11 @@
 # @grasdouble/lufa_config_eslint
 
+## 0.1.1
+
+### Patch Changes
+
+- 5ad29ac: fix issue with dependencies declaration in package.json
+
 ## 0.1.0
 
 ### Minor Changes
