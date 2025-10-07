@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Spinner } from '@grasdouble/lufa_design-system';
 
@@ -44,8 +44,7 @@ const argTypes = {
             name: 'enum',
             value: ['A', 'B'],
         },
-        description:
-            'Mode of the spinner. It will define which spinner will be used',
+        description: 'Mode of the spinner. It will define which spinner will be used',
         table: {
             type: {
                 summary: 'A | B',

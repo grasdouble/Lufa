@@ -1,16 +1,11 @@
-import React from 'react';
-
-import type { Preview, ReactRenderer, Parameters } from '@storybook/react';
-import {
-    withThemeByClassName,
-    withThemeByDataAttribute,
-} from '@storybook/addon-themes';
+import type { Preview, ReactRenderer, Parameters, Decorator } from '@storybook/react-vite';
+import { withThemeByClassName, withThemeByDataAttribute } from '@storybook/addon-themes';
 
 import { Breakpoints } from './breakpoints';
 
 import '../src/tailwind.css';
 
-const storybookViewports = {};
+const storybookViewports: Parameters['viewport']['viewports'] = {};
 Object.entries(Breakpoints).forEach(([viewport, value]) => {
     const { width } = value;
     storybookViewports[viewport] = {
@@ -24,10 +19,8 @@ Object.entries(Breakpoints).forEach(([viewport, value]) => {
 
 const parameters: Parameters = {
     options: {
-        storySort: (a, b) =>
-            a.id === b.id
-                ? 0
-                : a.id.localeCompare(b.id, undefined, { numeric: true }),
+        // @ts-expect-error TS7006: implicit any is intentional (storybook doesn't accept type here)
+        storySort: (a, b) => (a.id === b.id ? 0 : a.id.localeCompare(b.id, undefined, { numeric: true })),
     },
     backgrounds: { disable: true },
     layout: 'fullscreen',
@@ -52,15 +45,18 @@ const parameters: Parameters = {
     },
 };
 
-const hackDecoratorDarkMode = (story, context) => {
-    const isDarkMode = context?.globals?.theme === 'dark';
-    const darkModeColor = context?.parameters?.themes?.list?.find(
-        (v) => v.name === 'dark'
-    )?.color;
+interface ThemeItem {
+    name: string;
+    color?: string;
+    class?: string;
+    default?: boolean;
+}
 
-    const lightModeColor = context?.parameters?.themes?.list?.find(
-        (v) => v.name === 'light'
-    )?.color;
+export const hackDecoratorDarkMode: Decorator = (story, context) => {
+    const isDarkMode = context?.globals?.theme === 'dark';
+    const darkModeColor = context?.parameters?.themes?.list?.find((v: ThemeItem) => v.name === 'dark')?.color;
+
+    const lightModeColor = context?.parameters?.themes?.list?.find((v: ThemeItem) => v.name === 'light')?.color;
 
     const styleContentForDocs = `
       .docs-story {
