@@ -37,7 +37,7 @@ jobs:
 
       # Step 4: Install dependencies
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       # Step 5: Run lint
       - name: Run lint

@@ -52,7 +52,7 @@ jobs:
 
       # Install dependencies
       - name: Install updated dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       # Build all packages
       - name: Build All packages
