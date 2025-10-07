@@ -63,7 +63,7 @@ export default defineConfig(({ command, mode, isPreview }) => {
                 ...defaultDefine,
             },
             build: {
-                target: 'modules',
+                target: 'esnext',
                 minify: false,
                 sourcemap: true,
                 declaration: true,
