@@ -1,3 +1,5 @@
-import lufaReactConfig from "@grasdouble/lufa_config_eslint/react.mjs";
+import storybook from 'eslint-plugin-storybook';
 
-export default [...lufaReactConfig, { ignores: ["storybook-static"] }];
+import lufaReactConfig from '@grasdouble/lufa_config_eslint/react.mjs';
+
+export default [...lufaReactConfig, { ignores: ['storybook-static'] }, ...storybook.configs['flat/recommended']];

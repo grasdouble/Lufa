@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import {
     Placeholder,
@@ -189,48 +189,15 @@ export const StackItem: Story = {
     render: ({ grow, example }) => {
         return (
             <>
-                <Stack
-                    gap="normal"
-                    direction="horizontal"
-                    align="center"
-                    justify="space-between"
-                    wrap="nowrap"
-                >
-                    <Stack.Item
-                        grow={
-                            grow &&
-                            ['mode 1', 'mode 4', 'mode 6'].includes(example)
-                        }
-                    >
-                        <Placeholder>
-                            {['mode 1', 'mode 4', 'mode 6'].includes(example)
-                                ? 'Adjust this item'
-                                : 'Fixed width'}
-                        </Placeholder>
+                <Stack gap="normal" direction="horizontal" align="center" justify="space-between" wrap="nowrap">
+                    <Stack.Item grow={grow && ['mode 1', 'mode 4', 'mode 6'].includes(example)}>
+                        <Placeholder>{['mode 1', 'mode 4', 'mode 6'].includes(example) ? 'Adjust this item' : 'Fixed width'}</Placeholder>
                     </Stack.Item>
-                    <Stack.Item
-                        grow={
-                            grow &&
-                            ['mode 2', 'mode 4', 'mode 5'].includes(example)
-                        }
-                    >
-                        <Placeholder>
-                            {['mode 2', 'mode 4', 'mode 5'].includes(example)
-                                ? 'Adjust this item'
-                                : 'Fixed width'}
-                        </Placeholder>
+                    <Stack.Item grow={grow && ['mode 2', 'mode 4', 'mode 5'].includes(example)}>
+                        <Placeholder>{['mode 2', 'mode 4', 'mode 5'].includes(example) ? 'Adjust this item' : 'Fixed width'}</Placeholder>
                     </Stack.Item>
-                    <Stack.Item
-                        grow={
-                            grow &&
-                            ['mode 3', 'mode 5', 'mode 6'].includes(example)
-                        }
-                    >
-                        <Placeholder>
-                            {['mode 3', 'mode 5', 'mode 6'].includes(example)
-                                ? 'Adjust this item'
-                                : 'Fixed width'}
-                        </Placeholder>
+                    <Stack.Item grow={grow && ['mode 3', 'mode 5', 'mode 6'].includes(example)}>
+                        <Placeholder>{['mode 3', 'mode 5', 'mode 6'].includes(example) ? 'Adjust this item' : 'Fixed width'}</Placeholder>
                     </Stack.Item>
                 </Stack>
             </>
