@@ -31,17 +31,31 @@ jobs:
           git fetch origin gh-pages
           git checkout gh-pages
 
-      # Step 3: Remove the PR folder
-      - name: Remove PR folder
+      # Step 3: Check if PR folder exists
+      - name: Check if PR folder exists
+        id: check_folder
         run: |
-          rm -rf pr-${{ github.event.pull_request.number }}
+          FOLDER="pr-${{ github.event.pull_request.number }}"
+          if [ -d "$FOLDER" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      # Step 4: Remove the PR folder
+      - name: Remove PR folder and commit changes
+        if: steps.check_folder.outputs.exists == 'true'
+        run: |
+          FOLDER="pr-${{ github.event.pull_request.number }}"
+          rm -rf "$FOLDER"
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
           git commit -m "Cleanup Storybook for PR #${{ github.event.pull_request.number }}"
 
-      # Step 4: Push changes to gh-pages
+      # Step 5: Push changes to gh-pages
       - name: Push changes
+        if: steps.check_folder.outputs.exists == 'true'
         run: |
           git push origin gh-pages
         env:
