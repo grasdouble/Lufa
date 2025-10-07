@@ -1,5 +1,11 @@
 # @grasdouble/lufa_apps_storybook
 
+## 0.2.0
+
+### Minor Changes
+
+- 7363a88: Upgrade storybook to v9
+
 ## 0.1.1
 
 ### Patch Changes
