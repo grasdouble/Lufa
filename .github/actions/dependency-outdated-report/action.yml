@@ -23,7 +23,7 @@ runs:
   using: "composite"
   steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         token: ${{ inputs.PAT_DEPENDENCY_CHECK_UPDATE }}
 
@@ -73,7 +73,4 @@ runs:
     - name: Generate summary
       shell: bash
       run: |
-        echo "Report:" >> "$GITHUB_STEP_SUMMARY"
-        echo "```" >> "$GITHUB_STEP_SUMMARY"
         cat ./docs/reports/OUTDATED_DEPENDENCIES.report >> "$GITHUB_STEP_SUMMARY"
-        echo "```" >> "$GITHUB_STEP_SUMMARY"

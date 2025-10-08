@@ -22,7 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: grasdouble/Lufa/.github/actions/dependency-outdated-report@chore-tranform-dependency-outdated-report-composite
+        uses: actions/checkout@v5
+
+      - name: Generate Outdated Dependencies Report
+        uses: ./.github/actions/dependency-outdated-report
         with:
           PAT_DEPENDENCY_CHECK_UPDATE: ${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}
           SETUP_VERSION_FILE: ".tool-versions"
