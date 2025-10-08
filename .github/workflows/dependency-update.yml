@@ -22,47 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+
+      - name: Update dependencies
+        uses: ./.github/actions/dependency-update
         with:
-          token: ${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}
-
-      - name: Update .npmrc with authentication token
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}" > ~/.npmrc
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 23
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Update dependencies (minor and patch versions only)
-        run: pnpm update -r
-
-      - name: Update outdated dependencies report
-        run: pnpm exec node .github/scripts/generateOutdatedReport.js
-
-      - name: Check for changes
-        id: check_changes
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "changes=true" >> $GITHUB_ENV
-          else
-            echo "changes=false" >> $GITHUB_ENV
-          fi
-
-      - name: Commit and push updates
-        if: env.changes == 'true'
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m 'chore: update dependencies'
-          git push
-        env:
-          changes: ${{ env.changes }}
+          PAT_DEPENDENCY_CHECK_UPDATE: ${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}
+          SETUP_VERSION_FILE: ".tool-versions"
