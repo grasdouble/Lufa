@@ -25,11 +25,11 @@ runs:
     - name: Checkout repository
       uses: actions/checkout@v5
       with:
-        token: ${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}
+        token: ${{ inputs.PAT_DEPENDENCY_CHECK_UPDATE }}
 
     - name: Update .npmrc with authentication token
       shell: bash
-      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}" > ~/.npmrc
+      run: echo "//npm.pkg.github.com/:_authToken=${{ inputs.PAT_DEPENDENCY_CHECK_UPDATE }}" > ~/.npmrc
 
     - name: Install pnpm
       uses: pnpm/action-setup@v4
