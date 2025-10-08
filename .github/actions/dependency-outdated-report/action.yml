@@ -28,6 +28,7 @@ runs:
         token: ${{ inputs.PAT_DEPENDENCY_CHECK_UPDATE }}
 
     - name: Update .npmrc with authentication token
+      shell: bash
       run: echo "//npm.pkg.github.com/:_authToken=${{ inputs.PAT_DEPENDENCY_CHECK_UPDATE }}" > ~/.npmrc
 
     - name: Install pnpm
@@ -40,13 +41,16 @@ runs:
         cache: "pnpm"
 
     - name: Install dependencies
+      shell: bash
       run: pnpm install --frozen-lockfile
 
     - name: Generate outdated dependencies report
+      shell: bash
       run: pnpm exec node ${{ github.action_path }}/generateOutdatedReport.js
 
     - name: Check for changes
       id: check_changes
+      shell: bash
       run: |
         if [ -n "$(git status --porcelain)" ]; then
           echo "changes detected"
@@ -58,6 +62,7 @@ runs:
 
     - name: Commit and push report
       if: env.changes == 'true'
+      shell: bash
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -66,6 +71,7 @@ runs:
         git push origin HEAD:${{ github.ref }}
 
     - name: Generate summary
+      shell: bash
       run: |
         echo "Report:" >> "$GITHUB_STEP_SUMMARY"
         echo "```" >> "$GITHUB_STEP_SUMMARY"
