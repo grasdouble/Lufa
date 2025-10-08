@@ -25,7 +25,7 @@ runs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        token: ${{ inoputs.PAT_DEPENDENCY_CHECK_UPDATE }}
+        token: ${{ inputs.PAT_DEPENDENCY_CHECK_UPDATE }}
 
     - name: Update .npmrc with authentication token
       run: echo "//npm.pkg.github.com/:_authToken=${{ inputs.PAT_DEPENDENCY_CHECK_UPDATE }}" > ~/.npmrc
