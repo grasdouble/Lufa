@@ -1,0 +1,80 @@
+name: Dependency:Update
+description: Update dependencies to their latest minor and patch versions and update an outdated dependencies report.
+
+inputs:
+  {
+    PAT_DEPENDENCY_CHECK_UPDATE:
+      {
+        description: "Personal Access Token with permissions to read and write packages.",
+        required: true,
+        default: "",
+      },
+    SETUP_VERSION_FILE:
+      {
+        description: "File version to use during setup (package.json, .nvmrc, .node-version, .tool-versions).",
+        required: false,
+        default: "",
+      },
+  }
+
+outputs: {}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+      with:
+        token: ${{ inputs.PAT_DEPENDENCY_CHECK_UPDATE }}
+
+    - name: Update .npmrc with authentication token
+      shell: bash
+      run: echo "//npm.pkg.github.com/:_authToken=${{ inputs.PAT_DEPENDENCY_CHECK_UPDATE }}" > ~/.npmrc
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: ${{ inputs.SETUP_VERSION_FILE }}
+        cache: "pnpm"
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile
+
+    - name: Update dependencies (minor and patch versions only)
+      shell: bash
+      run: pnpm update -r
+
+    - name: Update outdated dependencies report
+      shell: bash
+      run: pnpm exec node ${{ github.action_path }}/../dependency-outdated-report/generateOutdatedReport.js
+
+    - name: Check for changes
+      id: check_changes
+      shell: bash
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changes=true" >> $GITHUB_ENV
+        else
+          echo "changes=false" >> $GITHUB_ENV
+        fi
+
+    - name: Commit and push updates
+      if: env.changes == 'true'
+      shell: bash
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add .
+        git commit -m 'chore: update dependencies'
+        git push
+      env:
+        changes: ${{ env.changes }}
+
+    - name: Generate summary
+      shell: bash
+      run: |
+        cat ./docs/reports/OUTDATED_DEPENDENCIES.report >> "$GITHUB_STEP_SUMMARY"
