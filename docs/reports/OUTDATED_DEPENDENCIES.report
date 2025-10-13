@@ -1,3 +1,12 @@
 # Outdated Dependencies Report
 
-No outdated dependency
+┌─────────────────────────────────┬─────────┬────────┬────────────────────────────────┐
+│ Package                         │ Current │ Latest │ Dependents                     │
+├─────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ eslint-plugin-react-hooks       │ 6.1.1   │ 7.0.0  │ @grasdouble/lufa_config_eslint │
+├─────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ eslint-plugin-react-hooks (dev) │ 6.1.1   │ 7.0.0  │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_home,            │
+│                                 │         │        │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_main-container   │
+└─────────────────────────────────┴─────────┴────────┴────────────────────────────────┘
