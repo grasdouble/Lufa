@@ -3,6 +3,27 @@
 ┌─────────────────────────────────┬─────────┬────────┬────────────────────────────────┐
 │ Package                         │ Current │ Latest │ Dependents                     │
 ├─────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ @types/react-dom (dev)          │ 19.2.1  │ 19.2.2 │ @grasdouble/lufa_apps_         │
+│                                 │         │        │ storybook,                     │
+│                                 │         │        │ @grasdouble/lufa_apps_web,     │
+│                                 │         │        │ @grasdouble/lufa_design-       │
+│                                 │         │        │ system,                        │
+│                                 │         │        │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_home,            │
+│                                 │         │        │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_main-container   │
+├─────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ typescript-eslint               │ 8.46.0  │ 8.46.1 │ @grasdouble/lufa_config_eslint │
+├─────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ typescript-eslint (dev)         │ 8.46.0  │ 8.46.1 │ @grasdouble/cdn_autobuild-     │
+│                                 │         │        │ server,                        │
+│                                 │         │        │ @grasdouble/lufa_apps_         │
+│                                 │         │        │ storybook,                     │
+│                                 │         │        │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_home,            │
+│                                 │         │        │ @grasdouble/lufa_              │
+│                                 │         │        │ microfrontend_main-container   │
+├─────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
 │ eslint-plugin-react-hooks       │ 6.1.1   │ 7.0.0  │ @grasdouble/lufa_config_eslint │
 ├─────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
 │ eslint-plugin-react-hooks (dev) │ 6.1.1   │ 7.0.0  │ @grasdouble/lufa_              │
