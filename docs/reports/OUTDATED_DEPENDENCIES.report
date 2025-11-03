@@ -3,10 +3,13 @@
 ┌───────────────────────────────────┬─────────┬────────┬────────────────────────────────┐
 │ Package                           │ Current │ Latest │ Dependents                     │
 ├───────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @types/express (dev)              │ 5.0.4   │ 5.0.5  │ @grasdouble/cdn_autobuild-     │
-│                                   │         │        │ server                         │
+│ @storybook/addon-docs (dev)       │ 9.1.16  │ 10.0.2 │ @grasdouble/lufa_apps_         │
+│                                   │         │        │ storybook                      │
 ├───────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ eslint-plugin-storybook (dev)     │ 9.1.10  │ 9.1.15 │ @grasdouble/lufa_apps_         │
+│ @storybook/addon-themes (dev)     │ 9.1.16  │ 10.0.2 │ @grasdouble/lufa_apps_         │
+│                                   │         │        │ storybook                      │
+├───────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ @storybook/react-vite (dev)       │ 9.1.16  │ 10.0.2 │ @grasdouble/lufa_apps_         │
 │                                   │         │        │ storybook                      │
 ├───────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
 │ eslint-plugin-react-hooks         │ 6.1.1   │ 7.0.1  │ @grasdouble/lufa_config_eslint │
@@ -15,6 +18,12 @@
 │                                   │         │        │ microfrontend_home,            │
 │                                   │         │        │ @grasdouble/lufa_              │
 │                                   │         │        │ microfrontend_main-container   │
+├───────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ eslint-plugin-storybook (dev)     │ 9.1.10  │ 10.0.2 │ @grasdouble/lufa_apps_         │
+│                                   │         │        │ storybook                      │
+├───────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ storybook (dev)                   │ 9.1.16  │ 10.0.2 │ @grasdouble/lufa_apps_         │
+│                                   │         │        │ storybook                      │
 ├───────────────────────────────────┼─────────┼────────┼────────────────────────────────┤
 │ prettier-plugin-tailwindcss (dev) │ 0.6.14  │ 0.7.1  │ @grasdouble/lufa_apps_         │
 │                                   │         │        │ storybook,                     │

@@ -28,7 +28,7 @@
         "@grasdouble/lufa_plugin_vite_vite-plugin-react-preamble": "workspace:^",
         "@types/react": "^19.2.2",
         "@types/react-dom": "^19.2.2",
-        "eslint": "^9.38.0",
+        "eslint": "^9.39.0",
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^6.1.1",
         "eslint-plugin-react-refresh": "^0.4.24",
