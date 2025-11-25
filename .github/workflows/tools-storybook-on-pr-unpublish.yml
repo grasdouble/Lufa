@@ -1,4 +1,4 @@
-name: Cleanup Storybook on PR Merge
+name: Tools:Storybook-On-PR-Unpublish
 
 on:
   pull_request:

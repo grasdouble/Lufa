@@ -1,4 +1,4 @@
-name: Release with Changesets
+name: Release:Changesets
 
 on:
   workflow_dispatch:

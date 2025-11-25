@@ -1,4 +1,4 @@
-name: Dependency:Update
+name: Cron:Dependency-Update
 
 on:
   schedule:

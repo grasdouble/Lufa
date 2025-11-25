@@ -1,4 +1,4 @@
-name: Check lint
+name: Tools:Lint
 
 on:
   pull_request:
