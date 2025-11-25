@@ -50,7 +50,7 @@ runs:
 
     - name: Update outdated dependencies report
       shell: bash
-      run: pnpm exec node ${{ github.action_path }}/../dependency-outdated-report/generateOutdatedReport.js
+      run: pnpm exec node ${{ github.action_path }}/generateOutdatedReport.js
 
     - name: Check for changes
       id: check_changes
