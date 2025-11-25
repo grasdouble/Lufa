@@ -2,12 +2,6 @@ name: Release:Changesets
 
 on:
   workflow_dispatch:
-    inputs:
-      preRelease:
-        description: "Is it a pre-release version?"
-        type: boolean
-        required: true
-        default: false
   push:
     branches:
       - main
@@ -62,7 +56,7 @@ jobs:
       - name: Run Changesets Action
         uses: changesets/action@v1
         with:
-          publish: ${{ inputs.preRelease == 'true' && 'pnpm prerelease' || 'pnpm release' }}
+          publish: "pnpm changeset publish" # The command to run to publish the packages
           title: "Release: New Version Updates" # The title for the changeset commit
           commit: "Release new versions" # The commit message for the changeset commit
           setupGitUser: true # Set this to true if you want to set up the git user for the action
