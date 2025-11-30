@@ -5,7 +5,7 @@ import { Breakpoints } from './breakpoints';
 
 import '../src/tailwind.css';
 
-const storybookViewports: Parameters['viewport']['viewports'] = {};
+const storybookViewports: Parameters['viewport']['options'] = {};
 Object.entries(Breakpoints).forEach(([viewport, value]) => {
     const { width } = value;
     storybookViewports[viewport] = {
