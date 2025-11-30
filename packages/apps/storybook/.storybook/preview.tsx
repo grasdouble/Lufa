@@ -5,7 +5,7 @@ import { Breakpoints } from './breakpoints';
 
 import '../src/tailwind.css';
 
-const storybookViewports: Parameters['viewport']['viewports'] = {};
+const storybookViewports: Parameters['viewport']['options'] = {};
 Object.entries(Breakpoints).forEach(([viewport, value]) => {
     const { width } = value;
     storybookViewports[viewport] = {
@@ -22,10 +22,10 @@ const parameters: Parameters = {
         // @ts-expect-error TS7006: implicit any is intentional (storybook doesn't accept type here)
         storySort: (a, b) => (a.id === b.id ? 0 : a.id.localeCompare(b.id, undefined, { numeric: true })),
     },
-    backgrounds: { disable: true },
+    backgrounds: { disabled: true },
     layout: 'fullscreen',
     viewport: {
-        viewports: { ...storybookViewports },
+        options: { ...storybookViewports },
     },
     themes: {
         default: 'light',
