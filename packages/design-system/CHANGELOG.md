@@ -1,5 +1,11 @@
 # @grasdouble/lufa_design-system
 
+## 0.1.2
+
+### Patch Changes
+
+- dceff77: Upgrade deps
+
 ## 0.1.1
 
 ### Patch Changes

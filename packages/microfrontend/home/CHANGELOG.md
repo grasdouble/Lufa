@@ -1,5 +1,13 @@
 # @grasdouble/lufa_microfrontend_home
 
+## 0.2.2
+
+### Patch Changes
+
+- dceff77: Upgrade deps
+- Updated dependencies [dceff77]
+  - @grasdouble/lufa_design-system@0.1.2
+
 ## 0.2.1
 
 ### Patch Changes

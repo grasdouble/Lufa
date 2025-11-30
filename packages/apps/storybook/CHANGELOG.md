@@ -1,5 +1,14 @@
 # @grasdouble/lufa_apps_storybook
 
+## 0.2.1
+
+### Patch Changes
+
+- dceff77: Upgrade deps
+- 7c0d622: Upgrade to storybook 10
+- Updated dependencies [dceff77]
+  - @grasdouble/lufa_design-system@0.1.2
+
 ## 0.2.0
 
 ### Minor Changes
