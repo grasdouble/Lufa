@@ -1,5 +1,11 @@
 # @grasdouble/lufa_config_prettier
 
+## 0.1.1
+
+### Patch Changes
+
+- dceff77: Upgrade deps
+
 ## 0.1.0
 
 ### Minor Changes
