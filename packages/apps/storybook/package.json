@@ -36,7 +36,6 @@
         "eslint": "^9.39.1",
         "eslint-plugin-storybook": "10.1.2",
         "globals": "^16.5.0",
-        "preset": "link:@storybook/react-vite/preset.js",
         "prettier": "^3.7.3",
         "prettier-plugin-tailwindcss": "^0.7.1",
         "storybook": "^10.1.2",
