@@ -1,4 +1,5 @@
 import './tailwind.css';
+import './colors/colors.css';
 
 // Design System - Colors
 export * from './colors';

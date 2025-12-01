@@ -33,6 +33,9 @@ export * as accessibility from './accessibility';
 // Re-export commonly used functions
 export { getContrastRatio, meetsWCAG, meetsWCAGForUI, getContrastLevel, getSuggestedTextColor, WCAG_STANDARDS } from './accessibility';
 
+// Export CSS variables for direct injection
+export { cssVariables, generateCSSVariables, tailwindColors } from './cssVariables';
+
 /**
  * Complete color palette with both primitives and semantic tokens
  */

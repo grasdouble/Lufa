@@ -21,6 +21,8 @@ The color system is included in the `@grasdouble/lufa_design-system` package:
 pnpm add @grasdouble/lufa_design-system
 ```
 
+**CSS Variables are automatically included** when you import the design system. They're available globally via CSS custom properties in `:root` and are automatically injected into your application's styles.
+
 ## Usage
 
 ### In TypeScript/React
