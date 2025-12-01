@@ -8,7 +8,8 @@
         "build:types": "tsc --emitDeclarationOnly",
         "prettier:fix": "prettier --write .",
         "build": "vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "generate:colors": "tsx scripts/generate-colors-css.ts"
     },
     "private": false,
     "publishConfig": {
@@ -32,6 +33,7 @@
         "@grasdouble/lufa_config_prettier": "workspace:^",
         "@grasdouble/lufa_config_tsconfig": "workspace:^",
         "@tailwindcss/vite": "^4.1.17",
+        "@types/node": "^24.10.1",
         "@types/react": "^19.2.7",
         "@types/react-dom": "^19.2.3",
         "@vitejs/plugin-react": "^5.1.1",
@@ -40,6 +42,7 @@
         "prettier": "^3.7.3",
         "prettier-plugin-tailwindcss": "^0.7.1",
         "tailwindcss": "^4.1.17",
+        "tsx": "^4.21.0",
         "typescript": "^5.9.3",
         "vite": "^7.2.4",
         "vite-plugin-compression": "^0.5.1",

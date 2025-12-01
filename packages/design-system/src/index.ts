@@ -1,4 +1,8 @@
 import './tailwind.css';
+import './colors/colors.css';
+
+// Design System - Colors
+export * from './colors';
 
 // Primer components
 export * from './components/Placeholder'; // Note: The Placeholder component is not clearly defined in the Primer design system but used in documentation.
@@ -47,11 +51,7 @@ export { Button } from './oldComponents/Button';
 
 // Data display components
 export { Avatar } from './oldComponents/Avatar';
-export type {
-    AvatarImageProps,
-    AvatarNotificationProps,
-    AvatarProps,
-} from './oldComponents/Avatar';
+export type { AvatarImageProps, AvatarNotificationProps, AvatarProps } from './oldComponents/Avatar';
 export { Badge } from './oldComponents/Badge';
 // export {Calendar} from "./components/Calendar";
 // export { Card } from "./components/Card";
