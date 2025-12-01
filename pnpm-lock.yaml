@@ -3063,8 +3063,8 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
-  lru-cache@11.2.2:
-    resolution: {integrity: sha512-F9ODfyqML2coTIsQpSkRHnLSZMtkU8Q+mSfcaIyKwy58u+8k5nvAYeiNhsyMARvzNcXJ9QfWVrcPsC9e9rAxtg==}
+  lru-cache@11.2.4:
+    resolution: {integrity: sha512-B5Y16Jr9LB9dHVkh6ZevG+vAbOsNOYCX+sXvFWFu7B3Iz5mijW3zdbMyhsh8ANd2mSWBYdJgnqi+mL7/LrOPYg==}
     engines: {node: 20 || >=22}
 
   lru-cache@5.1.1:
@@ -5018,7 +5018,7 @@ snapshots:
       agent-base: 7.1.4
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.6
-      lru-cache: 11.2.2
+      lru-cache: 11.2.4
       socks-proxy-agent: 8.0.5
     transitivePeerDependencies:
       - supports-color
@@ -5031,7 +5031,7 @@ snapshots:
     dependencies:
       '@npmcli/promise-spawn': 9.0.1
       ini: 6.0.0
-      lru-cache: 11.2.2
+      lru-cache: 11.2.4
       npm-pick-manifest: 11.0.3
       proc-log: 6.1.0
       promise-retry: 2.0.1
@@ -6005,7 +6005,7 @@ snapshots:
       '@npmcli/fs': 5.0.0
       fs-minipass: 3.0.3
       glob: 13.0.0
-      lru-cache: 11.2.2
+      lru-cache: 11.2.4
       minipass: 7.1.2
       minipass-collect: 2.0.1
       minipass-flush: 1.0.5
@@ -6855,7 +6855,7 @@ snapshots:
 
   hosted-git-info@9.0.2:
     dependencies:
-      lru-cache: 11.2.2
+      lru-cache: 11.2.4
 
   http-cache-semantics@4.2.0: {}
 
@@ -7237,7 +7237,7 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
-  lru-cache@11.2.2: {}
+  lru-cache@11.2.4: {}
 
   lru-cache@5.1.1:
     dependencies:
@@ -7613,7 +7613,7 @@ snapshots:
 
   path-scurry@2.0.1:
     dependencies:
-      lru-cache: 11.2.2
+      lru-cache: 11.2.4
       minipass: 7.1.2
 
   path-to-regexp@8.3.0: {}
