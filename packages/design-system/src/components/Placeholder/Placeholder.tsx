@@ -31,7 +31,7 @@ export const Placeholder = ({ children, color, height = 'medium', width = 'auto'
     const className = `${styles.placeholder} ${heightClass} ${widthClass}`;
 
     return (
-        <div className={className} style={color ? { backgroundColor: color } : undefined}>
+        <div className={className} style={color ? { backgroundColor: color, backgroundImage: 'none' } : undefined}>
             {children}
         </div>
     );
