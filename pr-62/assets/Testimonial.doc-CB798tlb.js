@@ -1,4 +1,4 @@
-import{j as e}from"./iframe-9sJc_ofn.js";import{useMDXComponents as h}from"./index-ByIn-TDQ.js";import{M as m,P as x,C as t,S as i}from"./blocks-Bh5meeJs.js";import{T as d,P as r,S as o,a}from"./Testimonial.stories-CIexU97j.js";import"./preload-helper-PPVm8Dsz.js";import"./index-0md4v0bp.js";import"./lufa-ui-CZNmcjrL.js";function l(s){const n={h1:"h1",h2:"h2",h3:"h3",p:"p",...h(),...s.components};return e.jsxs(e.Fragment,{children:[e.jsx(m,{of:d}),`
+import{j as e}from"./iframe-DVJgsUcM.js";import{useMDXComponents as h}from"./index-BKq4MLpJ.js";import{M as m,P as x,C as t,S as i}from"./blocks-DTumEKh2.js";import{T as d,P as r,S as o,a}from"./Testimonial.stories-tXXNmErH.js";import"./preload-helper-PPVm8Dsz.js";import"./index-CWVsfGIr.js";import"./lufa-ui-CX_Qt84H.js";function l(s){const n={h1:"h1",h2:"h2",h3:"h3",p:"p",...h(),...s.components};return e.jsxs(e.Fragment,{children:[e.jsx(m,{of:d}),`
 `,e.jsx(n.h1,{id:"testimonial",children:"Testimonial"}),`
 `,e.jsx(n.p,{children:"A testimonial is ..."}),`
 `,e.jsx(x,{}),`

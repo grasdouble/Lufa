@@ -1,4 +1,4 @@
-import{j as n}from"./iframe-9sJc_ofn.js";import{useMDXComponents as i}from"./index-ByIn-TDQ.js";import{M as t,P as a,C as d,S as e}from"./blocks-Bh5meeJs.js";import{B as c,A as h,a as l}from"./Badge.stories-Db0rewXR.js";import"./preload-helper-PPVm8Dsz.js";import"./index-0md4v0bp.js";import"./lufa-ui-CZNmcjrL.js";function o(r){const s={h1:"h1",h2:"h2",h3:"h3",p:"p",...i(),...r.components};return n.jsxs(n.Fragment,{children:[n.jsx(t,{of:c}),`
+import{j as n}from"./iframe-DVJgsUcM.js";import{useMDXComponents as i}from"./index-BKq4MLpJ.js";import{M as t,P as a,C as d,S as e}from"./blocks-DTumEKh2.js";import{B as c,A as h,a as l}from"./Badge.stories-a8wDqsgQ.js";import"./preload-helper-PPVm8Dsz.js";import"./index-CWVsfGIr.js";import"./lufa-ui-CX_Qt84H.js";function o(r){const s={h1:"h1",h2:"h2",h3:"h3",p:"p",...i(),...r.components};return n.jsxs(n.Fragment,{children:[n.jsx(t,{of:c}),`
 `,n.jsx(s.h1,{id:"badge",children:"Badge"}),`
 `,n.jsx(s.p,{children:"A badge is ..."}),`
 `,n.jsx(a,{}),`

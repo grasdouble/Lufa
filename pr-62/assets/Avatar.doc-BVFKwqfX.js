@@ -1,4 +1,4 @@
-import{j as o}from"./iframe-9sJc_ofn.js";import{useMDXComponents as l}from"./index-ByIn-TDQ.js";import{M as c,P as x,C as t,S as r}from"./blocks-Bh5meeJs.js";import{A as h,a as i,b as a}from"./Avatar.stories-CwKQypeC.js";import"./preload-helper-PPVm8Dsz.js";import"./index-0md4v0bp.js";import"./lufa-ui-CZNmcjrL.js";function e(s){const n={h1:"h1",h2:"h2",h3:"h3",p:"p",...l(),...s.components};return o.jsxs(o.Fragment,{children:[o.jsx(c,{of:h}),`
+import{j as o}from"./iframe-DVJgsUcM.js";import{useMDXComponents as l}from"./index-BKq4MLpJ.js";import{M as c,P as x,C as t,S as r}from"./blocks-DTumEKh2.js";import{A as h,a as i,b as a}from"./Avatar.stories-DKSOJlE-.js";import"./preload-helper-PPVm8Dsz.js";import"./index-CWVsfGIr.js";import"./lufa-ui-CX_Qt84H.js";function e(s){const n={h1:"h1",h2:"h2",h3:"h3",p:"p",...l(),...s.components};return o.jsxs(o.Fragment,{children:[o.jsx(c,{of:h}),`
 `,o.jsx(n.h1,{id:"avatar",children:"Avatar"}),`
 `,o.jsx(n.p,{children:"An avatar is ..."}),`
 `,o.jsx(x,{}),`
