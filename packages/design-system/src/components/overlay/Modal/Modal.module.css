@@ -1,0 +1,91 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .backdrop {
+        @apply fixed inset-0 z-50;
+        @apply bg-black/50;
+        @apply flex items-center justify-center;
+        @apply p-4;
+        animation: fadeIn 200ms ease-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .modal {
+        @apply rounded-lg bg-white shadow-xl;
+        @apply flex flex-col;
+        @apply max-h-[90vh];
+        animation: slideIn 200ms ease-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Sizes */
+    .sizeSmall {
+        @apply w-full max-w-md;
+    }
+
+    .sizeMedium {
+        @apply w-full max-w-2xl;
+    }
+
+    .sizeLarge {
+        @apply w-full max-w-4xl;
+    }
+
+    .sizeFullscreen {
+        @apply h-full w-full max-w-none rounded-none;
+    }
+
+    /* Header */
+    .header {
+        @apply flex items-center justify-between;
+        @apply border-b border-neutral-200 p-6;
+    }
+
+    .title {
+        @apply text-xl font-semibold text-neutral-900;
+        @apply m-0;
+    }
+
+    .closeButton {
+        @apply rounded-md p-1;
+        @apply hover:bg-neutral-100;
+        @apply transition-colors duration-200;
+        @apply cursor-pointer border-none bg-transparent;
+        @apply text-neutral-500 hover:text-neutral-700;
+    }
+
+    .closeButton svg {
+        @apply h-5 w-5;
+    }
+
+    /* Content */
+    .content {
+        @apply p-6;
+        @apply overflow-y-auto;
+        @apply text-neutral-700;
+    }
+
+    /* Footer */
+    .footer {
+        @apply border-t border-neutral-200 p-6;
+        @apply flex items-center justify-end gap-3;
+    }
+}

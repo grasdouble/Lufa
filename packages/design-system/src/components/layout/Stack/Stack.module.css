@@ -1,0 +1,86 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    /* Gap */
+    .gap-none {
+        @apply gap-0;
+    }
+    .gap-condensed {
+        @apply gap-2;
+    }
+    .gap-normal {
+        @apply gap-4;
+    }
+    .gap-spacious {
+        @apply gap-6;
+    }
+
+    /* Direction */
+    .direction-horizontal {
+        @apply flex flex-row;
+    }
+    .direction-vertical {
+        @apply flex flex-col;
+    }
+
+    /* Align */
+    .align-stretch {
+        @apply items-stretch;
+    }
+    .align-start {
+        @apply items-start;
+    }
+    .align-center {
+        @apply items-center;
+    }
+    .align-end {
+        @apply items-end;
+    }
+    .align-baseline {
+        @apply items-baseline;
+    }
+
+    /* Wrap */
+    .wrap-wrap {
+        @apply flex-wrap;
+    }
+    .wrap-nowrap {
+        @apply flex-nowrap;
+    }
+
+    /* Justify */
+    .justify-start {
+        @apply justify-start;
+    }
+    .justify-center {
+        @apply justify-center;
+    }
+    .justify-end {
+        @apply justify-end;
+    }
+    .justify-space-between {
+        @apply justify-between;
+    }
+    .justify-space-evenly {
+        @apply justify-evenly;
+    }
+
+    /* Padding */
+    .padding-none {
+        @apply p-0;
+    }
+    .padding-condensed {
+        @apply p-2;
+    }
+    .paddin-normal {
+        @apply p-4;
+    }
+    .padding-spacious {
+        @apply p-6;
+    }
+
+    /* StackItem - Grow */
+    .grow {
+        @apply flex-grow;
+    }
+}

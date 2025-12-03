@@ -1,0 +1,90 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .container {
+        @apply inline-flex flex-col;
+    }
+
+    .fullWidth {
+        @apply w-full;
+    }
+
+    .label {
+        @apply mb-1 block text-sm font-medium text-neutral-700;
+    }
+
+    .required {
+        @apply ml-1 text-red-600;
+    }
+
+    .inputWrapper {
+        @apply relative flex items-center;
+    }
+
+    .input {
+        @apply w-full rounded-md transition-all duration-200;
+        @apply text-neutral-900 placeholder:text-neutral-400;
+        @apply focus:ring-2 focus:ring-blue-500 focus:ring-offset-0 focus:outline-none;
+    }
+
+    /* Sizes */
+    .sizeSmall {
+        @apply px-3 py-1.5 text-sm;
+    }
+
+    .sizeMedium {
+        @apply px-4 py-2 text-base;
+    }
+
+    .sizeLarge {
+        @apply px-5 py-3 text-lg;
+    }
+
+    /* Variants */
+    .variantOutlined {
+        @apply border border-neutral-300 bg-white;
+        @apply hover:border-neutral-400;
+    }
+
+    .variantFilled {
+        @apply border-none bg-neutral-100;
+        @apply hover:bg-neutral-200;
+    }
+
+    /* States */
+    .error {
+        @apply border-red-500;
+        @apply focus:ring-red-500;
+    }
+
+    .disabled {
+        @apply cursor-not-allowed bg-neutral-100 text-neutral-400;
+        @apply hover:border-neutral-300;
+    }
+
+    /* Adornments */
+    .hasStartAdornment {
+        @apply pl-10;
+    }
+
+    .hasEndAdornment {
+        @apply pr-10;
+    }
+
+    .startAdornment {
+        @apply absolute left-3 flex items-center text-neutral-500;
+    }
+
+    .endAdornment {
+        @apply absolute right-3 flex items-center text-neutral-500;
+    }
+
+    /* Helper/Error text */
+    .helperText {
+        @apply mt-1 text-sm text-neutral-600;
+    }
+
+    .errorText {
+        @apply mt-1 text-sm text-red-600;
+    }
+}

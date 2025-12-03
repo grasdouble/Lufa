@@ -20,7 +20,21 @@ Object.entries(Breakpoints).forEach(([viewport, value]) => {
 const parameters: Parameters = {
     options: {
         // @ts-expect-error TS7006: implicit any is intentional (storybook doesn't accept type here)
-        storySort: (a, b) => (a.id === b.id ? 0 : a.id.localeCompare(b.id, undefined, { numeric: true })),
+        storySort: (a, b) => {
+            // First sort by title (category) to maintain numeric order (1. Foundation, 2. Layout, etc.)
+            const titleCompare = a.title.localeCompare(b.title, undefined, { numeric: true });
+            if (titleCompare !== 0) return titleCompare;
+
+            // Within the same component, put Playground first
+            const aIsPlayground = a.name === 'Playground';
+            const bIsPlayground = b.name === 'Playground';
+
+            if (aIsPlayground && !bIsPlayground) return -1;
+            if (!aIsPlayground && bIsPlayground) return 1;
+
+            // Otherwise sort stories alphabetically
+            return a.id === b.id ? 0 : a.id.localeCompare(b.id, undefined, { numeric: true });
+        },
     },
     backgrounds: { disabled: true },
     layout: 'fullscreen',

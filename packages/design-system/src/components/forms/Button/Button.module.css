@@ -1,0 +1,260 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    /* Base button styles */
+    .button {
+        @apply inline-flex items-center justify-center gap-2;
+        @apply rounded-lg font-medium;
+        @apply transition-all duration-200;
+        @apply focus-visible:outline-2 focus-visible:outline-offset-2;
+        @apply disabled:cursor-not-allowed;
+        @apply border border-transparent;
+    }
+
+    /* Sizes */
+    .sizeSmall {
+        @apply px-3 py-1.5 text-sm;
+    }
+
+    .sizeMedium {
+        @apply px-4 py-2 text-base;
+    }
+
+    .sizeLarge {
+        @apply px-6 py-3 text-lg;
+    }
+
+    /* Full width */
+    .fullWidth {
+        @apply w-full;
+    }
+
+    /* Variants - Solid */
+    .variantSolid.colorPrimary {
+        @apply bg-blue-600 text-white;
+        @apply hover:bg-blue-700;
+        @apply focus-visible:outline-blue-600;
+        @apply disabled:bg-blue-300;
+    }
+
+    .variantSolid.colorSecondary {
+        @apply bg-neutral-600 text-white;
+        @apply hover:bg-neutral-700;
+        @apply focus-visible:outline-neutral-600;
+        @apply disabled:bg-neutral-300;
+    }
+
+    .variantSolid.colorSuccess {
+        @apply bg-green-600 text-white;
+        @apply hover:bg-green-700;
+        @apply focus-visible:outline-green-600;
+        @apply disabled:bg-green-300;
+    }
+
+    .variantSolid.colorWarning {
+        @apply bg-orange-600 text-white;
+        @apply hover:bg-orange-700;
+        @apply focus-visible:outline-orange-600;
+        @apply disabled:bg-orange-300;
+    }
+
+    .variantSolid.colorDanger {
+        @apply bg-red-600 text-white;
+        @apply hover:bg-red-700;
+        @apply focus-visible:outline-red-600;
+        @apply disabled:bg-red-300;
+    }
+
+    /* Variants - Outlined */
+    .variantOutlined.colorPrimary {
+        @apply border-blue-600 text-blue-600;
+        @apply hover:bg-blue-50;
+        @apply focus-visible:outline-blue-600;
+        @apply disabled:border-blue-300 disabled:text-blue-300;
+    }
+
+    .variantOutlined.colorSecondary {
+        @apply border-neutral-600 text-neutral-600;
+        @apply hover:bg-neutral-50;
+        @apply focus-visible:outline-neutral-600;
+        @apply disabled:border-neutral-300 disabled:text-neutral-300;
+    }
+
+    .variantOutlined.colorSuccess {
+        @apply border-green-600 text-green-600;
+        @apply hover:bg-green-50;
+        @apply focus-visible:outline-green-600;
+        @apply disabled:border-green-300 disabled:text-green-300;
+    }
+
+    .variantOutlined.colorWarning {
+        @apply border-orange-600 text-orange-600;
+        @apply hover:bg-orange-50;
+        @apply focus-visible:outline-orange-600;
+        @apply disabled:border-orange-300 disabled:text-orange-300;
+    }
+
+    .variantOutlined.colorDanger {
+        @apply border-red-600 text-red-600;
+        @apply hover:bg-red-50;
+        @apply focus-visible:outline-red-600;
+        @apply disabled:border-red-300 disabled:text-red-300;
+    }
+
+    /* Variants - Text */
+    .variantText {
+        @apply border-transparent;
+    }
+
+    .variantText.colorPrimary {
+        @apply text-blue-600;
+        @apply hover:bg-blue-50;
+        @apply focus-visible:outline-blue-600;
+        @apply disabled:text-blue-300;
+    }
+
+    .variantText.colorSecondary {
+        @apply text-neutral-600;
+        @apply hover:bg-neutral-50;
+        @apply focus-visible:outline-neutral-600;
+        @apply disabled:text-neutral-300;
+    }
+
+    .variantText.colorSuccess {
+        @apply text-green-600;
+        @apply hover:bg-green-50;
+        @apply focus-visible:outline-green-600;
+        @apply disabled:text-green-300;
+    }
+
+    .variantText.colorWarning {
+        @apply text-orange-600;
+        @apply hover:bg-orange-50;
+        @apply focus-visible:outline-orange-600;
+        @apply disabled:text-orange-300;
+    }
+
+    .variantText.colorDanger {
+        @apply text-red-600;
+        @apply hover:bg-red-50;
+        @apply focus-visible:outline-red-600;
+        @apply disabled:text-red-300;
+    }
+
+    /* Variants - Ghost */
+    .variantGhost {
+        @apply border-transparent;
+    }
+
+    .variantGhost.colorPrimary {
+        @apply text-blue-600;
+        @apply hover:bg-blue-100;
+        @apply focus-visible:outline-blue-600;
+        @apply disabled:text-blue-300;
+    }
+
+    .variantGhost.colorSecondary {
+        @apply text-neutral-600;
+        @apply hover:bg-neutral-100;
+        @apply focus-visible:outline-neutral-600;
+        @apply disabled:text-neutral-300;
+    }
+
+    .variantGhost.colorSuccess {
+        @apply text-green-600;
+        @apply hover:bg-green-100;
+        @apply focus-visible:outline-green-600;
+        @apply disabled:text-green-300;
+    }
+
+    .variantGhost.colorWarning {
+        @apply text-orange-600;
+        @apply hover:bg-orange-100;
+        @apply focus-visible:outline-orange-600;
+        @apply disabled:text-orange-300;
+    }
+
+    .variantGhost.colorDanger {
+        @apply text-red-600;
+        @apply hover:bg-red-100;
+        @apply focus-visible:outline-red-600;
+        @apply disabled:text-red-300;
+    }
+
+    /* Variants - Link */
+    .variantLink {
+        @apply border-transparent p-0;
+        @apply underline-offset-4 hover:underline;
+    }
+
+    .variantLink.colorPrimary {
+        @apply text-blue-600;
+        @apply focus-visible:outline-blue-600;
+        @apply disabled:text-blue-300 disabled:no-underline;
+    }
+
+    .variantLink.colorSecondary {
+        @apply text-neutral-600;
+        @apply focus-visible:outline-neutral-600;
+        @apply disabled:text-neutral-300 disabled:no-underline;
+    }
+
+    .variantLink.colorSuccess {
+        @apply text-green-600;
+        @apply focus-visible:outline-green-600;
+        @apply disabled:text-green-300 disabled:no-underline;
+    }
+
+    .variantLink.colorWarning {
+        @apply text-orange-600;
+        @apply focus-visible:outline-orange-600;
+        @apply disabled:text-orange-300 disabled:no-underline;
+    }
+
+    .variantLink.colorDanger {
+        @apply text-red-600;
+        @apply focus-visible:outline-red-600;
+        @apply disabled:text-red-300 disabled:no-underline;
+    }
+
+    /* Loading state */
+    .loading {
+        @apply cursor-wait opacity-70;
+    }
+
+    .loading .content {
+        @apply opacity-0;
+    }
+
+    /* Icons */
+    .startIcon,
+    .endIcon {
+        @apply inline-flex shrink-0;
+    }
+
+    .content {
+        @apply inline-flex items-center;
+    }
+
+    /* Spinner */
+    .spinner {
+        @apply absolute inset-0 flex items-center justify-center;
+    }
+
+    .spinnerIcon {
+        @apply h-5 w-5 animate-spin;
+    }
+
+    .spinnerCircle {
+        @apply opacity-25;
+    }
+
+    .spinnerPath {
+        @apply opacity-75;
+    }
+
+    /* Disabled state */
+    .disabled {
+        @apply opacity-50;
+    }
+}
