@@ -1,0 +1,91 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .container {
+        @apply inline-flex flex-col;
+    }
+
+    .fullWidth {
+        @apply w-full;
+    }
+
+    .label {
+        @apply text-text-primary mb-1 block text-sm font-medium;
+    }
+
+    .required {
+        @apply text-error-default ml-1;
+    }
+
+    .inputWrapper {
+        @apply relative flex items-center;
+    }
+
+    .input {
+        @apply w-full transition-all duration-200;
+        border-radius: var(--radius-md);
+        @apply text-text-primary placeholder:text-text-tertiary;
+        @apply focus:ring-interactive-focus focus:ring-2 focus:ring-offset-0 focus:outline-none;
+    }
+
+    /* Sizes */
+    .sizeSmall {
+        @apply px-sm py-xs text-sm;
+    }
+
+    .sizeMedium {
+        @apply px-base py-sm text-base;
+    }
+
+    .sizeLarge {
+        @apply px-lg py-md text-lg;
+    }
+
+    /* Variants */
+    .variantOutlined {
+        @apply border-border-default bg-background-primary border;
+        @apply hover:border-border-medium;
+    }
+
+    .variantFilled {
+        @apply bg-background-secondary border-none;
+        @apply hover:bg-background-tertiary;
+    }
+
+    /* States */
+    .error {
+        @apply border-error-border;
+        @apply focus:ring-error-default;
+    }
+
+    .disabled {
+        @apply bg-background-secondary text-text-disabled cursor-not-allowed;
+        @apply hover:border-border-default;
+    }
+
+    /* Adornments */
+    .hasStartAdornment {
+        @apply pl-10;
+    }
+
+    .hasEndAdornment {
+        @apply pr-10;
+    }
+
+    .startAdornment {
+        @apply text-text-tertiary absolute left-3 flex items-center;
+    }
+
+    .endAdornment {
+        @apply text-text-tertiary absolute right-3 flex items-center;
+    }
+
+    /* Helper/Error text */
+    .helperText {
+        @apply text-text-secondary mt-1 text-sm;
+    }
+
+    .errorText {
+        @apply text-error-text mt-1 text-sm;
+    }
+}

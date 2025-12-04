@@ -1,0 +1,79 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .card {
+        border-radius: var(--radius-lg);
+        @apply transition-all duration-200;
+        @apply bg-background-primary;
+    }
+
+    /* Variants */
+    .variantDefault {
+        @apply border-border-default border;
+    }
+
+    .variantElevated {
+        box-shadow: var(--shadow-md);
+    }
+
+    .variantOutlined {
+        @apply border-border-medium border-2;
+    }
+
+    .variantFilled {
+        @apply bg-background-secondary;
+    }
+
+    /* Padding */
+    .paddingNone {
+        @apply p-0;
+    }
+
+    .paddingSmall {
+        @apply p-base;
+    }
+
+    .paddingMedium {
+        @apply p-xl;
+    }
+
+    .paddingLarge {
+        @apply p-2xl;
+    }
+
+    /* Interactive states */
+    .hoverable:hover {
+        box-shadow: var(--shadow-lg);
+        @apply -translate-y-0.5;
+    }
+
+    .clickable {
+        @apply cursor-pointer;
+    }
+
+    /* Header */
+    .header {
+        @apply mb-base;
+    }
+
+    .title {
+        @apply text-text-primary text-lg font-semibold;
+        @apply m-0;
+    }
+
+    .subtitle {
+        @apply text-text-secondary text-sm;
+        @apply m-0 mt-1;
+    }
+
+    /* Content */
+    .content {
+        @apply text-text-secondary;
+    }
+
+    /* Footer */
+    .footer {
+        @apply mt-base pt-base;
+        @apply border-border-default border-t;
+    }
+}

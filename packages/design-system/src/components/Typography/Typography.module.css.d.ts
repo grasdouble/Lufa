@@ -1,0 +1,32 @@
+declare const styles: {
+    readonly typography: string;
+    readonly 'variant-h1': string;
+    readonly 'variant-h2': string;
+    readonly 'variant-h3': string;
+    readonly 'variant-h4': string;
+    readonly 'variant-h5': string;
+    readonly 'variant-h6': string;
+    readonly 'variant-body': string;
+    readonly 'variant-bodyLarge': string;
+    readonly 'variant-bodySmall': string;
+    readonly 'variant-caption': string;
+    readonly 'variant-label': string;
+    readonly 'weight-light': string;
+    readonly 'weight-normal': string;
+    readonly 'weight-medium': string;
+    readonly 'weight-semibold': string;
+    readonly 'weight-bold': string;
+    readonly 'align-left': string;
+    readonly 'align-center': string;
+    readonly 'align-right': string;
+    readonly 'align-justify': string;
+    readonly 'color-primary': string;
+    readonly 'color-secondary': string;
+    readonly 'color-tertiary': string;
+    readonly 'color-inverse': string;
+    readonly 'color-error': string;
+    readonly 'color-success': string;
+    readonly 'color-warning': string;
+};
+
+export default styles;

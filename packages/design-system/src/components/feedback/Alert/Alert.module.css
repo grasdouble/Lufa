@@ -1,0 +1,78 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .alert {
+        @apply gap-sm p-base relative flex items-start;
+        border-radius: var(--radius-lg);
+    }
+
+    /* Variants */
+    .variantInfo {
+        @apply border border-blue-200 bg-blue-50 text-blue-900;
+    }
+
+    .variantInfo .icon {
+        @apply text-blue-600;
+    }
+
+    .variantSuccess {
+        @apply border border-green-200 bg-green-50 text-green-900;
+    }
+
+    .variantSuccess .icon {
+        @apply text-green-600;
+    }
+
+    .variantWarning {
+        @apply border border-orange-200 bg-orange-50 text-orange-900;
+    }
+
+    .variantWarning .icon {
+        @apply text-orange-600;
+    }
+
+    .variantError {
+        @apply border border-red-200 bg-red-50 text-red-900;
+    }
+
+    .variantError .icon {
+        @apply text-red-600;
+    }
+
+    /* Icon */
+    .iconWrapper {
+        @apply shrink-0;
+    }
+
+    .icon {
+        @apply h-5 w-5;
+    }
+
+    /* Content */
+    .content {
+        @apply flex-1;
+    }
+
+    .title {
+        @apply mb-1 text-sm font-semibold;
+        @apply m-0;
+    }
+
+    .message {
+        @apply text-sm;
+    }
+
+    /* Close button */
+    .closeButton {
+        @apply ml-auto shrink-0;
+        @apply p-1;
+        border-radius: var(--radius-md);
+        @apply hover:bg-black/5;
+        @apply transition-colors duration-200;
+        @apply cursor-pointer border-none bg-transparent;
+    }
+
+    .closeButton svg {
+        @apply h-4 w-4;
+    }
+}

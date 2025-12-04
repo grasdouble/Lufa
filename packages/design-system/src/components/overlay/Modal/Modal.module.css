@@ -1,0 +1,95 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .backdrop {
+        @apply fixed inset-0;
+        z-index: var(--z-index-modal);
+        @apply bg-background-overlay;
+        @apply flex items-center justify-center;
+        @apply p-base;
+        animation: fadeIn 200ms ease-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .modal {
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-2xl);
+        @apply bg-background-primary;
+        @apply flex flex-col;
+        @apply max-h-[90vh];
+        animation: slideIn 200ms ease-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Sizes */
+    .sizeSmall {
+        @apply w-full max-w-md;
+    }
+
+    .sizeMedium {
+        @apply w-full max-w-2xl;
+    }
+
+    .sizeLarge {
+        @apply w-full max-w-4xl;
+    }
+
+    .sizeFullscreen {
+        @apply h-full w-full max-w-none rounded-none;
+    }
+
+    /* Header */
+    .header {
+        @apply flex items-center justify-between;
+        @apply border-border-default p-xl border-b;
+    }
+
+    .title {
+        @apply text-text-primary text-xl font-semibold;
+        @apply m-0;
+    }
+
+    .closeButton {
+        @apply p-1;
+        border-radius: var(--radius-md);
+        @apply hover:bg-background-secondary;
+        @apply transition-colors duration-200;
+        @apply cursor-pointer border-none bg-transparent;
+        @apply text-text-tertiary hover:text-text-primary;
+    }
+
+    .closeButton svg {
+        @apply h-5 w-5;
+    }
+
+    /* Content */
+    .content {
+        @apply p-xl;
+        @apply overflow-y-auto;
+        @apply text-text-secondary;
+    }
+
+    /* Footer */
+    .footer {
+        @apply border-border-default p-xl border-t;
+        @apply gap-sm flex items-center justify-end;
+    }
+}

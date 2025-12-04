@@ -1,0 +1,112 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .container {
+        @apply relative inline-block;
+    }
+
+    .avatar {
+        @apply ring-background-primary ring-2;
+        @apply object-cover;
+    }
+
+    /* Sizes */
+    .size-xs {
+        @apply h-6 w-6;
+    }
+
+    .size-sm {
+        @apply h-8 w-8;
+    }
+
+    .size-md {
+        @apply h-10 w-10;
+    }
+
+    .size-lg {
+        @apply h-12 w-12;
+    }
+
+    .size-xl {
+        @apply h-16 w-16;
+    }
+
+    /* Variants */
+    .variant-circle {
+        @apply rounded-full;
+    }
+
+    .variant-square {
+        border-radius: var(--radius-lg);
+    }
+
+    .variant-count {
+        @apply rounded-full;
+        @apply bg-background-secondary;
+        @apply text-text-secondary;
+        @apply flex items-center justify-center;
+        @apply font-semibold;
+        @apply text-sm;
+    }
+
+    /* Status indicator */
+    .status {
+        @apply absolute block rounded-full;
+        @apply ring-background-primary ring-2;
+    }
+
+    .status-size-xs {
+        @apply h-1.5 w-1.5;
+    }
+
+    .status-size-sm {
+        @apply h-2 w-2;
+    }
+
+    .status-size-md {
+        @apply h-2.5 w-2.5;
+    }
+
+    .status-size-lg {
+        @apply h-3 w-3;
+    }
+
+    .status-size-xl {
+        @apply h-4 w-4;
+    }
+
+    /* Status colors */
+    .status-online {
+        @apply bg-success-default;
+    }
+
+    .status-offline {
+        @apply bg-text-disabled;
+    }
+
+    .status-away {
+        @apply bg-warning-default;
+    }
+
+    .status-busy {
+        @apply bg-error-default;
+    }
+
+    /* Status positions - Circle */
+    .status-position-top {
+        @apply top-0 right-0;
+    }
+
+    .status-position-bottom {
+        @apply right-0 bottom-0;
+    }
+
+    /* Status positions - Square */
+    .status-square.status-position-top {
+        @apply translate-x-1/3 -translate-y-1/3;
+    }
+
+    .status-square.status-position-bottom {
+        @apply translate-x-1/3 translate-y-1/3;
+    }
+}
