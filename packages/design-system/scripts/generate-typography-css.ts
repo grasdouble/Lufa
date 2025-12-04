@@ -41,11 +41,11 @@ function generateTypographyCSS(): string {
         .map(([key, scale]) => {
             const kebabKey = key.replace(/([A-Z])/g, '-$1').toLowerCase();
             return [
-                `    --typography-${kebabKey}-font-size: var(--font-size-${Object.keys(fontSize).find((k) => fontSize[k] === scale.fontSize)});`,
-                `    --typography-${kebabKey}-line-height: var(--line-height-${Object.keys(lineHeight).find((k) => lineHeight[k] === scale.lineHeight)});`,
-                `    --typography-${kebabKey}-font-weight: var(--font-weight-${Object.keys(fontWeight).find((k) => fontWeight[k] === scale.fontWeight)});`,
+                `    --typography-${kebabKey}-font-size: var(--font-size-${Object.keys(fontSize).find((k) => fontSize[k as keyof typeof fontSize] === scale.fontSize)});`,
+                `    --typography-${kebabKey}-line-height: var(--line-height-${Object.keys(lineHeight).find((k) => lineHeight[k as keyof typeof lineHeight] === scale.lineHeight)});`,
+                `    --typography-${kebabKey}-font-weight: var(--font-weight-${Object.keys(fontWeight).find((k) => fontWeight[k as keyof typeof fontWeight] === scale.fontWeight)});`,
                 scale.letterSpacing
-                    ? `    --typography-${kebabKey}-letter-spacing: var(--letter-spacing-${Object.keys(letterSpacing).find((k) => letterSpacing[k] === scale.letterSpacing)});`
+                    ? `    --typography-${kebabKey}-letter-spacing: var(--letter-spacing-${Object.keys(letterSpacing).find((k) => letterSpacing[k as keyof typeof letterSpacing] === scale.letterSpacing)});`
                     : null,
             ]
                 .filter(Boolean)

@@ -35,7 +35,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
             .join(' ');
 
         return (
-            <Component ref={ref as any} className={typographyClasses} {...props}>
+            <Component ref={ref as React.Ref<HTMLElement>} className={typographyClasses} {...props}>
                 {children}
             </Component>
         );
