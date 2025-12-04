@@ -5,8 +5,8 @@
  * These can be used in CSS files and are compatible with Tailwind CSS v4.
  */
 
-import { primitives } from './primitives';
-import { semantic } from './semantic';
+import { primitives } from '../colors-primitives';
+import { semantic } from '../colors-semantic';
 
 /**
  * Generate CSS custom properties from the color tokens

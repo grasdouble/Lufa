@@ -2,29 +2,30 @@
 
 @layer components {
     .badge {
-        @apply inline-flex items-center gap-1.5;
+        @apply gap-xs inline-flex items-center;
         @apply font-medium;
-        @apply rounded-md px-2 py-0.5;
+        @apply px-sm py-xxs;
+        border-radius: var(--radius-md);
         @apply ring-1 ring-inset;
         @apply transition-colors duration-150;
     }
 
     /* Sizes */
     .size-sm {
-        @apply px-1.5 py-0.5 text-xs;
+        @apply px-xs py-xxs text-xs;
     }
 
     .size-md {
-        @apply px-2 py-0.5 text-sm;
+        @apply px-sm py-xxs text-sm;
     }
 
     .size-lg {
-        @apply px-2.5 py-1 text-base;
+        @apply px-md py-xs text-base;
     }
 
     /* Rounded variant */
     .rounded {
-        @apply rounded-full;
+        border-radius: var(--radius-full);
     }
 
     /* Dot indicator */
@@ -34,68 +35,56 @@
 
     /* Color variants */
     .variant-default {
-        @apply bg-neutral-100 text-neutral-700;
-        @apply ring-neutral-200/50;
-        @apply dark:bg-neutral-800 dark:text-neutral-300;
-        @apply dark:ring-neutral-700/50;
+        @apply bg-background-secondary text-text-secondary;
+        @apply ring-border-default;
     }
 
     .variant-default .dot {
-        @apply bg-neutral-500;
+        @apply bg-text-tertiary;
     }
 
     .variant-primary {
-        @apply bg-blue-50 text-blue-700;
-        @apply ring-blue-600/20;
-        @apply dark:bg-blue-950 dark:text-blue-300;
-        @apply dark:ring-blue-400/30;
+        @apply bg-interactive-focus text-interactive-default;
+        @apply ring-interactive-default;
     }
 
     .variant-primary .dot {
-        @apply bg-blue-500;
+        @apply bg-interactive-default;
     }
 
     .variant-success {
-        @apply bg-green-50 text-green-700;
-        @apply ring-green-600/20;
-        @apply dark:bg-green-950 dark:text-green-300;
-        @apply dark:ring-green-400/30;
+        @apply bg-success-lighter text-success-text;
+        @apply ring-success-border;
     }
 
     .variant-success .dot {
-        @apply bg-green-500;
+        @apply bg-success-default;
     }
 
     .variant-warning {
-        @apply bg-yellow-50 text-yellow-700;
-        @apply ring-yellow-600/20;
-        @apply dark:bg-yellow-950 dark:text-yellow-300;
-        @apply dark:ring-yellow-400/30;
+        @apply bg-warning-lighter text-warning-text;
+        @apply ring-warning-border;
     }
 
     .variant-warning .dot {
-        @apply bg-yellow-500;
+        @apply bg-warning-default;
     }
 
     .variant-danger {
-        @apply bg-red-50 text-red-700;
-        @apply ring-red-600/20;
-        @apply dark:bg-red-950 dark:text-red-300;
-        @apply dark:ring-red-400/30;
+        @apply bg-error-lighter text-error-text;
+        @apply ring-error-border;
     }
 
     .variant-danger .dot {
-        @apply bg-red-500;
+        @apply bg-error-default;
     }
 
     .variant-info {
-        @apply bg-cyan-50 text-cyan-700;
-        @apply ring-cyan-600/20;
-        @apply dark:bg-cyan-950 dark:text-cyan-300;
-        @apply dark:ring-cyan-400/30;
+        @apply bg-info-lighter text-info-text;
+        @apply ring-info-border;
     }
 
     .variant-info .dot {
-        @apply bg-cyan-500;
+        @apply bg-info-default;
     }
 }

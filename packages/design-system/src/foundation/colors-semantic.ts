@@ -5,7 +5,7 @@
  * They provide intent-based naming for easier usage and better maintainability.
  */
 
-import { primitives } from './primitives';
+import { primitives } from './colors-primitives';
 
 export const semantic = {
     // Text colors

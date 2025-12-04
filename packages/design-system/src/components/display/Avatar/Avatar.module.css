@@ -6,7 +6,7 @@
     }
 
     .avatar {
-        @apply ring-2 ring-white dark:ring-neutral-800;
+        @apply ring-background-primary ring-2;
         @apply object-cover;
     }
 
@@ -37,13 +37,13 @@
     }
 
     .variant-square {
-        @apply rounded-lg;
+        border-radius: var(--radius-lg);
     }
 
     .variant-count {
         @apply rounded-full;
-        @apply bg-neutral-200 dark:bg-neutral-700;
-        @apply text-neutral-700 dark:text-neutral-200;
+        @apply bg-background-secondary;
+        @apply text-text-secondary;
         @apply flex items-center justify-center;
         @apply font-semibold;
         @apply text-sm;
@@ -52,7 +52,7 @@
     /* Status indicator */
     .status {
         @apply absolute block rounded-full;
-        @apply ring-2 ring-white dark:ring-neutral-800;
+        @apply ring-background-primary ring-2;
     }
 
     .status-size-xs {
@@ -77,19 +77,19 @@
 
     /* Status colors */
     .status-online {
-        @apply bg-green-500;
+        @apply bg-success-default;
     }
 
     .status-offline {
-        @apply bg-neutral-400;
+        @apply bg-text-disabled;
     }
 
     .status-away {
-        @apply bg-yellow-500;
+        @apply bg-warning-default;
     }
 
     .status-busy {
-        @apply bg-red-500;
+        @apply bg-error-default;
     }
 
     /* Status positions - Circle */

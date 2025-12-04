@@ -1,10 +1,22 @@
 import './tailwind.css';
-import './colors/colors.css';
+import './foundation/colors.css';
+import './foundation/typography.css';
+import './foundation/spacing.css';
+import './foundation/radius.css';
+import './foundation/shadows.css';
+import './foundation/zIndex.css';
+import './foundation/breakpoints.css';
 
 // ============================================
 // FOUNDATION (Design Tokens)
 // ============================================
-export * from './colors';
+export * from './foundation';
+
+// ============================================
+// COMPONENTS
+// ============================================
+export { Typography } from './components/Typography';
+export type { TypographyProps } from './components/Typography';
 
 // ============================================
 // LAYOUT
@@ -97,6 +109,7 @@ export * from './components/feedback/Spinner';
 // ============================================
 // UTILITIES
 // ============================================
+export * from './components/utility/ThemeSwitcher';
 // export { Icon } from "./components/utilities/Icon";
 // export { Typography } from "./components/utilities/Typography";
 // export { Text } from "./components/utilities/Text";

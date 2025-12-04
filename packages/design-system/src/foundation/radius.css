@@ -1,0 +1,24 @@
+/**
+ * Border Radius System CSS Variables
+ * 
+ * This file is auto-generated from the TypeScript radius tokens.
+ * DO NOT EDIT MANUALLY - Run 'pnpm run generate:radius' to regenerate.
+ * 
+ * Standardized border radius values for consistent rounded corners.
+ * 
+ * Generated on: 2025-12-04T00:04:23.196Z
+ */
+
+:root {
+    /* Border Radius Scale */
+    --radius-none: 0;
+    --radius-xs: 0.125rem; /* 2px */
+    --radius-sm: 0.25rem; /* 4px */
+    --radius-md: 0.375rem; /* 6px */
+    --radius-base: 0.5rem; /* 8px */
+    --radius-lg: 0.75rem; /* 12px */
+    --radius-xl: 1rem; /* 16px */
+    --radius-2xl: 1.5rem; /* 24px */
+    --radius-3xl: 2rem; /* 32px */
+    --radius-full: 9999px; /* Fully rounded */
+}

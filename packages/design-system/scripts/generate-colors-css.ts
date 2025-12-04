@@ -10,12 +10,12 @@
 import { writeFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { generateCSSVariables } from '../src/colors/cssVariables.js';
+import { generateCSSVariables } from '../src/foundation/colors-utilities/cssVariables.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const outputPath = resolve(__dirname, '../src/colors/colors.css');
+const outputPath = resolve(__dirname, '../src/foundation/colors.css');
 
 const cssContent = `/**
  * Color System CSS Variables

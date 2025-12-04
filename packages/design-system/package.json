@@ -9,7 +9,14 @@
         "prettier:fix": "prettier --write .",
         "build": "vite build",
         "preview": "vite preview",
-        "generate:colors": "tsx scripts/generate-colors-css.ts"
+        "generate:colors": "tsx scripts/generate-colors-css.ts",
+        "generate:spacing": "tsx scripts/generate-spacing-css.ts",
+        "generate:radius": "tsx scripts/generate-radius-css.ts",
+        "generate:shadows": "tsx scripts/generate-shadows-css.ts",
+        "generate:zindex": "tsx scripts/generate-zindex-css.ts",
+        "generate:breakpoints": "tsx scripts/generate-breakpoints-css.ts",
+        "generate:typography": "tsx scripts/generate-typography-css.ts",
+        "generate:foundation": "tsx scripts/generate-foundation-css.ts"
     },
     "private": false,
     "publishConfig": {

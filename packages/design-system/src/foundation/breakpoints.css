@@ -1,0 +1,22 @@
+/**
+ * Breakpoint System CSS Variables
+ * 
+ * This file is auto-generated from the TypeScript breakpoint tokens.
+ * DO NOT EDIT MANUALLY - Run 'pnpm run generate:breakpoints' to regenerate.
+ * 
+ * Standardized breakpoints for responsive design.
+ * Note: CSS variables cannot be used in media queries directly.
+ * These are provided for JavaScript integration.
+ * 
+ * Generated on: 2025-12-04T00:04:24.936Z
+ */
+
+:root {
+    /* Breakpoint Scale */
+    --breakpoint-xs: 0px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+}
