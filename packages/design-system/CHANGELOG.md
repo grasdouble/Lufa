@@ -1,5 +1,12 @@
 # @grasdouble/lufa_design-system
 
+## 0.2.0
+
+### Minor Changes
+
+- dba64f6: Add fundation, implement tailwind theme, update and add components
+- 6c4eb34: Add colors and improve placeholder component
+
 ## 0.1.2
 
 ### Patch Changes
