@@ -1,5 +1,19 @@
 # @grasdouble/lufa_apps_storybook
 
+## 0.3.0
+
+### Minor Changes
+
+- c4e20b6: Add Theme generator
+- dba64f6: Add fundation, implement tailwind theme, update and add components
+- 6c4eb34: Improve stories + add story for colors
+
+### Patch Changes
+
+- Updated dependencies [dba64f6]
+- Updated dependencies [6c4eb34]
+  - @grasdouble/lufa_design-system@0.2.0
+
 ## 0.2.1
 
 ### Patch Changes
