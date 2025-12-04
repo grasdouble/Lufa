@@ -13,6 +13,11 @@ import './foundation/breakpoints.css';
 export * from './foundation';
 
 // ============================================
+// UTILITIES (Development Tools)
+// ============================================
+export * from './utils';
+
+// ============================================
 // COMPONENTS
 // ============================================
 export { Typography } from './components/Typography';

@@ -6,7 +6,7 @@ import {
     getContrastLevel,
     getSuggestedTextColor,
     WCAG_STANDARDS,
-    accessibility,
+    accessiblePairs,
 } from '@grasdouble/lufa_design-system';
 
 const meta = {
@@ -257,7 +257,7 @@ export const AccessiblePairs: Story = {
             <div
                 style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px', marginBottom: '40px' }}
             >
-                {accessibility.accessiblePairs.highContrast.map((pair: ColorPair, idx: number) => (
+                {accessiblePairs.highContrast.map((pair: ColorPair, idx: number) => (
                     <div
                         key={idx}
                         style={{
@@ -281,7 +281,7 @@ export const AccessiblePairs: Story = {
             <div
                 style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px', marginBottom: '40px' }}
             >
-                {accessibility.accessiblePairs.brand.map((pair: ColorPair, idx: number) => (
+                {accessiblePairs.brand.map((pair: ColorPair, idx: number) => (
                     <div
                         key={idx}
                         style={{
@@ -303,7 +303,7 @@ export const AccessiblePairs: Story = {
 
             <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Status Color Pairs</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px' }}>
-                {accessibility.accessiblePairs.status.map((pair: ColorPair, idx: number) => (
+                {accessiblePairs.status.map((pair: ColorPair, idx: number) => (
                     <div
                         key={idx}
                         style={{

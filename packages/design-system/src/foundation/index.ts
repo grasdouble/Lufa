@@ -8,9 +8,6 @@
 // Color tokens
 export * from './colors';
 
-// Color utilities
-export * as colorUtilities from './colors-utilities';
-
 // Typography tokens
 export { fontSize, lineHeight, fontWeight, letterSpacing, typographyScale } from './typography';
 export type { FontSizeToken, LineHeightToken, FontWeightToken, LetterSpacingToken, TypographyScaleToken } from './typography';
