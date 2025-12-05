@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Typography, Card } from '@grasdouble/lufa_design-system';
 
 const meta = {
-    title: '1. Foundation/Tailwind Integration',
+    title: '0. Getting Started/Tailwind Utilities',
     parameters: {
         layout: 'padded',
     },
@@ -13,16 +14,20 @@ type Story = StoryObj<typeof meta>;
 
 export const Overview: Story = {
     render: () => (
-        <div style={{ padding: '40px', maxWidth: '900px', fontFamily: 'system-ui, sans-serif' }}>
-            <h1 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '16px' }}>Tailwind + Foundation Integration</h1>
-            <p style={{ fontSize: '18px', color: '#737373', marginBottom: '40px', lineHeight: 1.6 }}>
+        <div style={{ padding: '40px', maxWidth: '900px' }}>
+            <Typography variant="h1" style={{ marginBottom: '16px' }}>
+                Tailwind + Lufa DS Integration
+            </Typography>
+            <Typography variant="bodyLarge" color="secondary" style={{ marginBottom: '40px' }}>
                 Our design system uses Tailwind v4's <code>@theme</code> directive to expose foundation tokens as semantic Tailwind
                 utilities. This provides a single source of truth while maintaining Tailwind's developer experience.
-            </p>
+            </Typography>
 
             {/* Key Benefits */}
             <section style={{ marginBottom: '48px' }}>
-                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '20px' }}>✨ Key Benefits</h2>
+                <Typography variant="h2" style={{ marginBottom: '20px' }}>
+                    ✨ Key Benefits
+                </Typography>
                 <div
                     style={{
                         display: 'grid',
@@ -47,25 +52,23 @@ export const Overview: Story = {
                             desc: 'All responsive, state, and dark mode modifiers work perfectly',
                         },
                     ].map((benefit, i) => (
-                        <div
-                            key={i}
-                            style={{
-                                padding: '20px',
-                                backgroundColor: '#F9FAFB',
-                                borderRadius: '8px',
-                                border: '1px solid #E5E7EB',
-                            }}
-                        >
-                            <div style={{ fontWeight: '600', marginBottom: '8px' }}>{benefit.title}</div>
-                            <div style={{ fontSize: '14px', color: '#6B7280' }}>{benefit.desc}</div>
-                        </div>
+                        <Card key={i} padding="medium" variant="filled">
+                            <Typography variant="body" weight="semibold" style={{ marginBottom: '8px' }}>
+                                {benefit.title}
+                            </Typography>
+                            <Typography variant="bodySmall" color="secondary">
+                                {benefit.desc}
+                            </Typography>
+                        </Card>
                     ))}
                 </div>
             </section>
 
             {/* Architecture */}
             <section style={{ marginBottom: '48px' }}>
-                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '20px' }}>🏗️ How It Works</h2>
+                <Typography variant="h2" style={{ marginBottom: '20px' }}>
+                    🏗️ How It Works
+                </Typography>
                 <div
                     style={{
                         padding: '24px',
@@ -88,7 +91,7 @@ export const Overview: Story = {
                         </div>
                         <div style={{ marginLeft: '20px', color: '#6B7280' }}>↓</div>
                         <div>
-                            <strong>Your components</strong>
+                            <strong>DS components</strong>
                         </div>
                     </div>
                 </div>
@@ -96,7 +99,9 @@ export const Overview: Story = {
 
             {/* Spacing Examples */}
             <section style={{ marginBottom: '48px' }}>
-                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '20px' }}>📏 Spacing Utilities</h2>
+                <Typography variant="h2" style={{ marginBottom: '20px' }}>
+                    📏 Spacing Utilities
+                </Typography>
                 <p style={{ fontSize: '14px', color: '#6B7280', marginBottom: '16px' }}>Use semantic names instead of arbitrary numbers:</p>
                 <div
                     style={{
@@ -148,7 +153,9 @@ export const Overview: Story = {
 
             {/* Color Examples */}
             <section style={{ marginBottom: '48px' }}>
-                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '20px' }}>🎨 Semantic Colors</h2>
+                <Typography variant="h2" style={{ marginBottom: '20px' }}>
+                    🎨 Semantic Colors
+                </Typography>
                 <p style={{ fontSize: '14px', color: '#6B7280', marginBottom: '16px' }}>Intent-based color utilities for consistency:</p>
                 <div
                     style={{
@@ -215,7 +222,9 @@ export const Overview: Story = {
 
             {/* Component Example */}
             <section style={{ marginBottom: '48px' }}>
-                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '20px' }}>💡 Complete Component Example</h2>
+                <Typography variant="h2" style={{ marginBottom: '20px' }}>
+                    💡 Complete Component Example
+                </Typography>
                 <div
                     style={{
                         padding: '20px',
@@ -274,7 +283,9 @@ export const Overview: Story = {
 
             {/* Quick Reference */}
             <section style={{ marginBottom: '48px' }}>
-                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '20px' }}>📚 Quick Reference</h2>
+                <Typography variant="h2" style={{ marginBottom: '20px' }}>
+                    📚 Quick Reference
+                </Typography>
                 <div
                     style={{
                         padding: '20px',
@@ -283,7 +294,9 @@ export const Overview: Story = {
                         border: '1px solid #FDE68A',
                     }}
                 >
-                    <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px' }}>🎯 When to Use Tailwind Utilities</h3>
+                    <Typography variant="h4" style={{ marginBottom: '12px' }}>
+                        🎯 When to Use Tailwind Utilities
+                    </Typography>
                     <ul style={{ fontSize: '14px', lineHeight: 1.8, paddingLeft: '20px', color: '#78350F' }}>
                         <li>Standard spacing, sizing, colors from foundation</li>
                         <li>Need responsive variants (md:, lg:, etc.)</li>
@@ -301,7 +314,9 @@ export const Overview: Story = {
                         border: '1px solid #BFDBFE',
                     }}
                 >
-                    <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px' }}>🎯 When to Use CSS Variables</h3>
+                    <Typography variant="h4" style={{ marginBottom: '12px' }}>
+                        🎯 When to Use CSS Variables
+                    </Typography>
                     <ul style={{ fontSize: '14px', lineHeight: 1.8, paddingLeft: '20px', color: '#1E3A8A' }}>
                         <li>Z-index stacking (var(--z-index-modal))</li>
                         <li>Custom calculations (calc(var(--spacing-base) * 2))</li>
@@ -313,7 +328,9 @@ export const Overview: Story = {
 
             {/* Documentation Links */}
             <section>
-                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '20px' }}>📖 Documentation</h2>
+                <Typography variant="h2" style={{ marginBottom: '20px' }}>
+                    📖 Documentation
+                </Typography>
                 <div style={{ display: 'grid', gap: '12px' }}>
                     <a
                         href="https://github.com/grasdouble/Lufa/blob/main/packages/design-system/docs/TAILWIND_WITH_FOUNDATION.md"

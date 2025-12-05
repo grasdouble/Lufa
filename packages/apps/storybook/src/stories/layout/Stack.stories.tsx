@@ -8,7 +8,6 @@ import {
     STACK_PADDING,
     STACK_WRAP,
     Placeholder,
-    primitives,
     semantic,
 } from '@grasdouble/lufa_design-system';
 
@@ -96,9 +95,9 @@ export const Playground: Story = {
         padding: STACK_PADDING.none,
         children: (
             <>
-                <Placeholder color={primitives.blue[600]}>Item 1</Placeholder>
-                <Placeholder color={primitives.blue[600]}>Item 2</Placeholder>
-                <Placeholder color={primitives.blue[600]}>Item 3</Placeholder>
+                <Placeholder color={semantic.interactive.default}>Item 1</Placeholder>
+                <Placeholder color={semantic.interactive.default}>Item 2</Placeholder>
+                <Placeholder color={semantic.interactive.default}>Item 3</Placeholder>
             </>
         ),
     },
@@ -107,9 +106,9 @@ export const Playground: Story = {
 export const VerticalStack: Story = {
     render: () => (
         <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-            <Placeholder color={primitives.blue[600]}>First Item</Placeholder>
-            <Placeholder color={primitives.blue[600]}>Second Item</Placeholder>
-            <Placeholder color={primitives.blue[600]}>Third Item</Placeholder>
+            <Placeholder color={semantic.interactive.default}>First Item</Placeholder>
+            <Placeholder color={semantic.interactive.default}>Second Item</Placeholder>
+            <Placeholder color={semantic.interactive.default}>Third Item</Placeholder>
         </Stack>
     ),
 };
@@ -117,9 +116,9 @@ export const VerticalStack: Story = {
 export const HorizontalStack: Story = {
     render: () => (
         <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
-            <Placeholder color={primitives.blue[600]}>Item 1</Placeholder>
-            <Placeholder color={primitives.blue[600]}>Item 2</Placeholder>
-            <Placeholder color={primitives.blue[600]}>Item 3</Placeholder>
+            <Placeholder color={semantic.interactive.default}>Item 1</Placeholder>
+            <Placeholder color={semantic.interactive.default}>Item 2</Placeholder>
+            <Placeholder color={semantic.interactive.default}>Item 3</Placeholder>
         </Stack>
     ),
 };
@@ -130,33 +129,33 @@ export const GapVariants: Story = {
             <div>
                 <h3 style={{ marginBottom: '16px' }}>Gap: None</h3>
                 <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.none}>
-                    <Placeholder color={primitives.blue[600]}>A</Placeholder>
-                    <Placeholder color={primitives.blue[600]}>B</Placeholder>
-                    <Placeholder color={primitives.blue[600]}>C</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>A</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>B</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>C</Placeholder>
                 </Stack>
             </div>
             <div>
                 <h3 style={{ marginBottom: '16px' }}>Gap: Condensed</h3>
                 <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed}>
-                    <Placeholder color={primitives.blue[600]}>A</Placeholder>
-                    <Placeholder color={primitives.blue[600]}>B</Placeholder>
-                    <Placeholder color={primitives.blue[600]}>C</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>A</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>B</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>C</Placeholder>
                 </Stack>
             </div>
             <div>
                 <h3 style={{ marginBottom: '16px' }}>Gap: Normal</h3>
                 <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
-                    <Placeholder color={primitives.blue[600]}>A</Placeholder>
-                    <Placeholder color={primitives.blue[600]}>B</Placeholder>
-                    <Placeholder color={primitives.blue[600]}>C</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>A</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>B</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>C</Placeholder>
                 </Stack>
             </div>
             <div>
                 <h3 style={{ marginBottom: '16px' }}>Gap: Spacious</h3>
                 <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.spacious}>
-                    <Placeholder color={primitives.blue[600]}>A</Placeholder>
-                    <Placeholder color={primitives.blue[600]}>B</Placeholder>
-                    <Placeholder color={primitives.blue[600]}>C</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>A</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>B</Placeholder>
+                    <Placeholder color={semantic.interactive.default}>C</Placeholder>
                 </Stack>
             </div>
         </div>
@@ -176,17 +175,17 @@ export const Alignment: Story = {
                                 height: '200px',
                                 backgroundColor: semantic.background.secondary,
                                 padding: '16px',
-                                border: `2px dashed ${primitives.neutral[300]}`,
+                                border: `2px dashed ${semantic.border.default}`,
                             }}
                         >
                             <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} align={STACK_ALIGN.start}>
-                                <Placeholder color={primitives.blue[600]} height="small">
+                                <Placeholder color={semantic.interactive.default} height="small">
                                     Small
                                 </Placeholder>
-                                <Placeholder color={primitives.blue[600]} height="medium">
+                                <Placeholder color={semantic.interactive.default} height="medium">
                                     Medium
                                 </Placeholder>
-                                <Placeholder color={primitives.blue[600]} height="large">
+                                <Placeholder color={semantic.interactive.default} height="large">
                                     Large
                                 </Placeholder>
                             </Stack>
@@ -199,17 +198,17 @@ export const Alignment: Story = {
                                 height: '200px',
                                 backgroundColor: semantic.background.secondary,
                                 padding: '16px',
-                                border: `2px dashed ${primitives.neutral[300]}`,
+                                border: `2px dashed ${semantic.border.default}`,
                             }}
                         >
                             <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} align={STACK_ALIGN.center}>
-                                <Placeholder color={primitives.green[600]} height="small">
+                                <Placeholder color={semantic.success.default} height="small">
                                     Small
                                 </Placeholder>
-                                <Placeholder color={primitives.green[600]} height="medium">
+                                <Placeholder color={semantic.success.default} height="medium">
                                     Medium
                                 </Placeholder>
-                                <Placeholder color={primitives.green[600]} height="large">
+                                <Placeholder color={semantic.success.default} height="large">
                                     Large
                                 </Placeholder>
                             </Stack>
@@ -222,17 +221,17 @@ export const Alignment: Story = {
                                 height: '200px',
                                 backgroundColor: semantic.background.secondary,
                                 padding: '16px',
-                                border: `2px dashed ${primitives.neutral[300]}`,
+                                border: `2px dashed ${semantic.border.default}`,
                             }}
                         >
                             <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} align={STACK_ALIGN.end}>
-                                <Placeholder color={primitives.red[600]} height="small">
+                                <Placeholder color={semantic.error.default} height="small">
                                     Small
                                 </Placeholder>
-                                <Placeholder color={primitives.red[600]} height="medium">
+                                <Placeholder color={semantic.error.default} height="medium">
                                     Medium
                                 </Placeholder>
-                                <Placeholder color={primitives.red[600]} height="large">
+                                <Placeholder color={semantic.error.default} height="large">
                                     Large
                                 </Placeholder>
                             </Stack>
@@ -245,17 +244,17 @@ export const Alignment: Story = {
                                 height: '200px',
                                 backgroundColor: semantic.background.secondary,
                                 padding: '16px',
-                                border: `2px dashed ${primitives.neutral[300]}`,
+                                border: `2px dashed ${semantic.border.default}`,
                             }}
                         >
                             <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} align={STACK_ALIGN.stretch}>
-                                <Placeholder color={primitives.purple[600]} height="full">
+                                <Placeholder color={semantic.brand.secondary} height="full">
                                     Stretched 1
                                 </Placeholder>
-                                <Placeholder color={primitives.purple[600]} height="full">
+                                <Placeholder color={semantic.brand.secondary} height="full">
                                     Stretched 2
                                 </Placeholder>
-                                <Placeholder color={primitives.purple[600]} height="full">
+                                <Placeholder color={semantic.brand.secondary} height="full">
                                     Stretched 3
                                 </Placeholder>
                             </Stack>
@@ -274,17 +273,17 @@ export const Alignment: Story = {
                                 width: '600px',
                                 backgroundColor: semantic.background.secondary,
                                 padding: '16px',
-                                border: `2px dashed ${primitives.neutral[300]}`,
+                                border: `2px dashed ${semantic.border.default}`,
                             }}
                         >
                             <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal} align={STACK_ALIGN.start}>
-                                <Placeholder color={primitives.blue[600]} width="small">
+                                <Placeholder color={semantic.interactive.default} width="small">
                                     Short
                                 </Placeholder>
-                                <Placeholder color={primitives.blue[600]} width="medium">
+                                <Placeholder color={semantic.interactive.default} width="medium">
                                     Medium Width
                                 </Placeholder>
-                                <Placeholder color={primitives.blue[600]} width="large">
+                                <Placeholder color={semantic.interactive.default} width="large">
                                     Very Long Width
                                 </Placeholder>
                             </Stack>
@@ -297,17 +296,17 @@ export const Alignment: Story = {
                                 width: '600px',
                                 backgroundColor: semantic.background.secondary,
                                 padding: '16px',
-                                border: `2px dashed ${primitives.neutral[300]}`,
+                                border: `2px dashed ${semantic.border.default}`,
                             }}
                         >
                             <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal} align={STACK_ALIGN.center}>
-                                <Placeholder color={primitives.green[600]} width="small">
+                                <Placeholder color={semantic.success.default} width="small">
                                     Short
                                 </Placeholder>
-                                <Placeholder color={primitives.green[600]} width="medium">
+                                <Placeholder color={semantic.success.default} width="medium">
                                     Medium Width
                                 </Placeholder>
-                                <Placeholder color={primitives.green[600]} width="large">
+                                <Placeholder color={semantic.success.default} width="large">
                                     Very Long Width
                                 </Placeholder>
                             </Stack>
@@ -320,17 +319,17 @@ export const Alignment: Story = {
                                 width: '600px',
                                 backgroundColor: semantic.background.secondary,
                                 padding: '16px',
-                                border: `2px dashed ${primitives.neutral[300]}`,
+                                border: `2px dashed ${semantic.border.default}`,
                             }}
                         >
                             <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal} align={STACK_ALIGN.end}>
-                                <Placeholder color={primitives.red[600]} width="small">
+                                <Placeholder color={semantic.error.default} width="small">
                                     Short
                                 </Placeholder>
-                                <Placeholder color={primitives.red[600]} width="medium">
+                                <Placeholder color={semantic.error.default} width="medium">
                                     Medium Width
                                 </Placeholder>
-                                <Placeholder color={primitives.red[600]} width="large">
+                                <Placeholder color={semantic.error.default} width="large">
                                     Very Long Width
                                 </Placeholder>
                             </Stack>
@@ -343,17 +342,17 @@ export const Alignment: Story = {
                                 width: '600px',
                                 backgroundColor: semantic.background.secondary,
                                 padding: '16px',
-                                border: `2px dashed ${primitives.neutral[300]}`,
+                                border: `2px dashed ${semantic.border.default}`,
                             }}
                         >
                             <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal} align={STACK_ALIGN.stretch}>
-                                <Placeholder color={primitives.purple[600]} width="full">
+                                <Placeholder color={semantic.brand.secondary} width="full">
                                     Stretched Item 1
                                 </Placeholder>
-                                <Placeholder color={primitives.purple[600]} width="full">
+                                <Placeholder color={semantic.brand.secondary} width="full">
                                     Stretched Item 2
                                 </Placeholder>
-                                <Placeholder color={primitives.purple[600]} width="full">
+                                <Placeholder color={semantic.brand.secondary} width="full">
                                     Stretched Item 3
                                 </Placeholder>
                             </Stack>
@@ -372,9 +371,9 @@ export const Justification: Story = {
                 <h3 style={{ marginBottom: '16px' }}>Justify: Start</h3>
                 <div style={{ width: '600px', backgroundColor: semantic.background.secondary, padding: '16px' }}>
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} justify={STACK_JUSTIFY.start}>
-                        <Placeholder color={primitives.blue[600]}>A</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>B</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>C</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>A</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>B</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>C</Placeholder>
                     </Stack>
                 </div>
             </div>
@@ -382,9 +381,9 @@ export const Justification: Story = {
                 <h3 style={{ marginBottom: '16px' }}>Justify: Center</h3>
                 <div style={{ width: '600px', backgroundColor: semantic.background.secondary, padding: '16px' }}>
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} justify={STACK_JUSTIFY.center}>
-                        <Placeholder color={primitives.blue[600]}>A</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>B</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>C</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>A</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>B</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>C</Placeholder>
                     </Stack>
                 </div>
             </div>
@@ -392,9 +391,9 @@ export const Justification: Story = {
                 <h3 style={{ marginBottom: '16px' }}>Justify: End</h3>
                 <div style={{ width: '600px', backgroundColor: semantic.background.secondary, padding: '16px' }}>
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} justify={STACK_JUSTIFY.end}>
-                        <Placeholder color={primitives.blue[600]}>A</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>B</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>C</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>A</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>B</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>C</Placeholder>
                     </Stack>
                 </div>
             </div>
@@ -402,9 +401,9 @@ export const Justification: Story = {
                 <h3 style={{ marginBottom: '16px' }}>Justify: Space Between</h3>
                 <div style={{ width: '600px', backgroundColor: semantic.background.secondary, padding: '16px' }}>
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.none} justify={STACK_JUSTIFY['space-between']}>
-                        <Placeholder color={primitives.blue[600]}>A</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>B</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>C</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>A</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>B</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>C</Placeholder>
                     </Stack>
                 </div>
             </div>
@@ -412,9 +411,9 @@ export const Justification: Story = {
                 <h3 style={{ marginBottom: '16px' }}>Justify: Space Evenly</h3>
                 <div style={{ width: '600px', backgroundColor: semantic.background.secondary, padding: '16px' }}>
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.none} justify={STACK_JUSTIFY['space-evenly']}>
-                        <Placeholder color={primitives.blue[600]}>A</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>B</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>C</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>A</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>B</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>C</Placeholder>
                     </Stack>
                 </div>
             </div>
@@ -432,13 +431,13 @@ export const WithWrap: Story = {
                         width: '500px',
                         backgroundColor: semantic.background.secondary,
                         padding: '16px',
-                        border: `2px dashed ${primitives.red[400]}`,
+                        border: `2px dashed ${semantic.error.border}`,
                         overflow: 'auto',
                     }}
                 >
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} wrap={STACK_WRAP.nowrap}>
                         {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                            <Placeholder key={n} color={primitives.red[600]} width="small">
+                            <Placeholder key={n} color={semantic.error.default} width="small">
                                 Item {n}
                             </Placeholder>
                         ))}
@@ -452,12 +451,12 @@ export const WithWrap: Story = {
                         width: '500px',
                         backgroundColor: semantic.background.secondary,
                         padding: '16px',
-                        border: `2px dashed ${primitives.green[400]}`,
+                        border: `2px dashed ${semantic.success.border}`,
                     }}
                 >
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} wrap={STACK_WRAP.wrap}>
                         {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                            <Placeholder key={n} color={primitives.green[600]} width="small">
+                            <Placeholder key={n} color={semantic.success.default} width="small">
                                 Item {n}
                             </Placeholder>
                         ))}
@@ -475,9 +474,9 @@ export const WithPadding: Story = {
                 <h3 style={{ marginBottom: '16px' }}>No Padding</h3>
                 <div style={{ backgroundColor: semantic.background.secondary }}>
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} padding={STACK_PADDING.none}>
-                        <Placeholder color={primitives.blue[600]}>Item 1</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>Item 2</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>Item 3</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 1</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 2</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 3</Placeholder>
                     </Stack>
                 </div>
             </div>
@@ -485,9 +484,9 @@ export const WithPadding: Story = {
                 <h3 style={{ marginBottom: '16px' }}>Condensed Padding</h3>
                 <div style={{ backgroundColor: semantic.background.secondary }}>
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} padding={STACK_PADDING.condensed}>
-                        <Placeholder color={primitives.blue[600]}>Item 1</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>Item 2</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>Item 3</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 1</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 2</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 3</Placeholder>
                     </Stack>
                 </div>
             </div>
@@ -495,9 +494,9 @@ export const WithPadding: Story = {
                 <h3 style={{ marginBottom: '16px' }}>Normal Padding</h3>
                 <div style={{ backgroundColor: semantic.background.secondary }}>
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} padding={STACK_PADDING.normal}>
-                        <Placeholder color={primitives.blue[600]}>Item 1</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>Item 2</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>Item 3</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 1</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 2</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 3</Placeholder>
                     </Stack>
                 </div>
             </div>
@@ -505,9 +504,9 @@ export const WithPadding: Story = {
                 <h3 style={{ marginBottom: '16px' }}>Spacious Padding</h3>
                 <div style={{ backgroundColor: semantic.background.secondary }}>
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} padding={STACK_PADDING.spacious}>
-                        <Placeholder color={primitives.blue[600]}>Item 1</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>Item 2</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>Item 3</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 1</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 2</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Item 3</Placeholder>
                     </Stack>
                 </div>
             </div>
@@ -522,13 +521,13 @@ export const StackItem: Story = {
                 <h3 style={{ marginBottom: '16px' }}>Without grow</h3>
                 <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
                     <Stack.Item>
-                        <Placeholder color={primitives.red[600]}>Fixed</Placeholder>
+                        <Placeholder color={semantic.error.default}>Fixed</Placeholder>
                     </Stack.Item>
                     <Stack.Item>
-                        <Placeholder color={primitives.blue[600]}>Fixed</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Fixed</Placeholder>
                     </Stack.Item>
                     <Stack.Item>
-                        <Placeholder color={primitives.green[600]}>Fixed</Placeholder>
+                        <Placeholder color={semantic.success.default}>Fixed</Placeholder>
                     </Stack.Item>
                 </Stack>
             </div>
@@ -537,13 +536,13 @@ export const StackItem: Story = {
                 <h3 style={{ marginBottom: '16px' }}>With grow on middle item</h3>
                 <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
                     <Stack.Item>
-                        <Placeholder color={primitives.red[600]}>Fixed</Placeholder>
+                        <Placeholder color={semantic.error.default}>Fixed</Placeholder>
                     </Stack.Item>
                     <Stack.Item grow>
-                        <Placeholder color={primitives.blue[600]}>Growing</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Growing</Placeholder>
                     </Stack.Item>
                     <Stack.Item>
-                        <Placeholder color={primitives.green[600]}>Fixed</Placeholder>
+                        <Placeholder color={semantic.success.default}>Fixed</Placeholder>
                     </Stack.Item>
                 </Stack>
             </div>
@@ -552,13 +551,13 @@ export const StackItem: Story = {
                 <h3 style={{ marginBottom: '16px' }}>Multiple growing items</h3>
                 <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
                     <Stack.Item>
-                        <Placeholder color={primitives.red[600]}>Fixed</Placeholder>
+                        <Placeholder color={semantic.error.default}>Fixed</Placeholder>
                     </Stack.Item>
                     <Stack.Item grow>
-                        <Placeholder color={primitives.blue[600]}>Growing</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Growing</Placeholder>
                     </Stack.Item>
                     <Stack.Item grow>
-                        <Placeholder color={primitives.green[600]}>Growing</Placeholder>
+                        <Placeholder color={semantic.success.default}>Growing</Placeholder>
                     </Stack.Item>
                 </Stack>
             </div>
@@ -574,24 +573,24 @@ export const RealWorldExamples: Story = {
                 <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
                         <Stack.Item grow>
-                            <Placeholder color={primitives.indigo[600]}>First Name</Placeholder>
+                            <Placeholder color={semantic.info.default}>First Name</Placeholder>
                         </Stack.Item>
                         <Stack.Item grow>
-                            <Placeholder color={primitives.indigo[600]}>Last Name</Placeholder>
+                            <Placeholder color={semantic.info.default}>Last Name</Placeholder>
                         </Stack.Item>
                     </Stack>
-                    <Placeholder color={primitives.indigo[600]}>Email</Placeholder>
-                    <Placeholder color={primitives.indigo[600]}>Message</Placeholder>
+                    <Placeholder color={semantic.info.default}>Email</Placeholder>
+                    <Placeholder color={semantic.info.default}>Message</Placeholder>
                     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} justify={STACK_JUSTIFY.end}>
-                        <Placeholder color={primitives.neutral[400]}>Cancel</Placeholder>
-                        <Placeholder color={primitives.blue[600]}>Submit</Placeholder>
+                        <Placeholder color={semantic.text.disabled}>Cancel</Placeholder>
+                        <Placeholder color={semantic.interactive.default}>Submit</Placeholder>
                     </Stack>
                 </Stack>
             </div>
 
             <div>
                 <h3 style={{ marginBottom: '16px' }}>Navigation Bar</h3>
-                <div style={{ backgroundColor: primitives.neutral[800], borderRadius: '8px' }}>
+                <div style={{ backgroundColor: semantic.background.inverse, borderRadius: '8px' }}>
                     <Stack
                         direction={STACK_DIRECTION.horizontal}
                         gap={STACK_GAP.spacious}
@@ -599,13 +598,13 @@ export const RealWorldExamples: Story = {
                         justify={STACK_JUSTIFY['space-between']}
                         padding={STACK_PADDING.normal}
                     >
-                        <Placeholder color={primitives.blue[500]}>Logo</Placeholder>
+                        <Placeholder color={semantic.interactive.focus}>Logo</Placeholder>
                         <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
-                            <Placeholder color={primitives.neutral[500]}>Home</Placeholder>
-                            <Placeholder color={primitives.neutral[500]}>About</Placeholder>
-                            <Placeholder color={primitives.neutral[500]}>Contact</Placeholder>
+                            <Placeholder color={semantic.text.tertiary}>Home</Placeholder>
+                            <Placeholder color={semantic.text.tertiary}>About</Placeholder>
+                            <Placeholder color={semantic.text.tertiary}>Contact</Placeholder>
                         </Stack>
-                        <Placeholder color={primitives.green[500]}>Sign In</Placeholder>
+                        <Placeholder color={semantic.success.hover}>Sign In</Placeholder>
                     </Stack>
                 </div>
             </div>
@@ -615,7 +614,7 @@ export const RealWorldExamples: Story = {
                 <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} wrap={STACK_WRAP.wrap}>
                     {[1, 2, 3, 4, 5, 6].map((n) => (
                         <div key={n} style={{ flex: '1 1 200px' }}>
-                            <Placeholder color={primitives.purple[600]}>Card {n}</Placeholder>
+                            <Placeholder color={semantic.brand.secondary}>Card {n}</Placeholder>
                         </div>
                     ))}
                 </Stack>
@@ -626,16 +625,16 @@ export const RealWorldExamples: Story = {
                 <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} align={STACK_ALIGN.stretch}>
                     <Stack.Item>
                         <div style={{ height: '200px' }}>
-                            <Placeholder color={primitives.neutral[600]} height="full">
+                            <Placeholder color={semantic.text.secondary} height="full">
                                 Sidebar
                             </Placeholder>
                         </div>
                     </Stack.Item>
                     <Stack.Item grow>
                         <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-                            <Placeholder color={primitives.blue[600]}>Header</Placeholder>
+                            <Placeholder color={semantic.interactive.default}>Header</Placeholder>
                             <div style={{ height: '140px' }}>
-                                <Placeholder color={primitives.indigo[600]} height="full">
+                                <Placeholder color={semantic.info.default} height="full">
                                     Main Content
                                 </Placeholder>
                             </div>

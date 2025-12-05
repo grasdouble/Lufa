@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Button, Typography } from '@grasdouble/lufa_design-system';
 import styles from './ThemeSwitcher.module.css';
 
 export type Theme = 'default' | 'ocean' | 'forest';
@@ -46,7 +47,11 @@ export function ThemeSwitcher({ defaultTheme = 'default', onThemeChange, variant
     if (variant === 'select') {
         return (
             <div className={styles.container}>
-                {showLabel && <label className={styles.label}>Theme:</label>}
+                {showLabel && (
+                    <Typography variant="bodySmall" color="secondary" weight="medium">
+                        Theme:
+                    </Typography>
+                )}
                 <select className={styles.select} value={currentTheme} onChange={(e) => handleThemeChange(e.target.value as Theme)}>
                     <option value="default">Default</option>
                     <option value="ocean">Ocean</option>
@@ -59,24 +64,15 @@ export function ThemeSwitcher({ defaultTheme = 'default', onThemeChange, variant
     if (variant === 'tabs') {
         return (
             <div className={styles.tabs}>
-                <button
-                    className={`${styles.tab} ${currentTheme === 'default' ? styles.active : ''}`}
-                    onClick={() => handleThemeChange('default')}
-                >
+                <Button variant={currentTheme === 'default' ? 'solid' : 'ghost'} size="small" onClick={() => handleThemeChange('default')}>
                     Default
-                </button>
-                <button
-                    className={`${styles.tab} ${currentTheme === 'ocean' ? styles.active : ''}`}
-                    onClick={() => handleThemeChange('ocean')}
-                >
+                </Button>
+                <Button variant={currentTheme === 'ocean' ? 'solid' : 'ghost'} size="small" onClick={() => handleThemeChange('ocean')}>
                     Ocean
-                </button>
-                <button
-                    className={`${styles.tab} ${currentTheme === 'forest' ? styles.active : ''}`}
-                    onClick={() => handleThemeChange('forest')}
-                >
+                </Button>
+                <Button variant={currentTheme === 'forest' ? 'solid' : 'ghost'} size="small" onClick={() => handleThemeChange('forest')}>
                     Forest
-                </button>
+                </Button>
             </div>
         );
     }
@@ -84,25 +80,20 @@ export function ThemeSwitcher({ defaultTheme = 'default', onThemeChange, variant
     // Default: button variant
     return (
         <div className={styles.buttonGroup}>
-            {showLabel && <span className={styles.label}>Theme:</span>}
-            <button
-                className={`${styles.button} ${currentTheme === 'default' ? styles.active : ''}`}
-                onClick={() => handleThemeChange('default')}
-            >
+            {showLabel && (
+                <Typography variant="bodySmall" color="secondary" weight="medium">
+                    Theme:
+                </Typography>
+            )}
+            <Button variant={currentTheme === 'default' ? 'solid' : 'outlined'} size="small" onClick={() => handleThemeChange('default')}>
                 Default
-            </button>
-            <button
-                className={`${styles.button} ${currentTheme === 'ocean' ? styles.active : ''}`}
-                onClick={() => handleThemeChange('ocean')}
-            >
+            </Button>
+            <Button variant={currentTheme === 'ocean' ? 'solid' : 'outlined'} size="small" onClick={() => handleThemeChange('ocean')}>
                 Ocean
-            </button>
-            <button
-                className={`${styles.button} ${currentTheme === 'forest' ? styles.active : ''}`}
-                onClick={() => handleThemeChange('forest')}
-            >
+            </Button>
+            <Button variant={currentTheme === 'forest' ? 'solid' : 'outlined'} size="small" onClick={() => handleThemeChange('forest')}>
                 Forest
-            </button>
+            </Button>
         </div>
     );
 }

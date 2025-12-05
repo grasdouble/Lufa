@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 export const ShadowTokens: Story = {
     render: () => (
         <div style={{ padding: '20px', maxWidth: '1000px' }}>
-            <h1 style={{ marginBottom: '16px' }}>Shadow Tokens</h1>
+            <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Shadow Tokens</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
                 Standardized shadow values for elevation and depth, following Material Design principles.
             </p>
@@ -71,7 +71,7 @@ export const ShadowTokens: Story = {
             </div>
 
             <div style={{ marginTop: '48px' }}>
-                <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Usage</h2>
+                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Usage</h2>
                 <div
                     style={{
                         padding: '20px',
@@ -96,7 +96,7 @@ export const ShadowTokens: Story = {
 export const RadiusTokens: Story = {
     render: () => (
         <div style={{ padding: '20px', maxWidth: '1000px' }}>
-            <h1 style={{ marginBottom: '16px' }}>Border Radius Tokens</h1>
+            <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Border Radius Tokens</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
                 Standardized border radius values for consistent rounded corners.
             </p>
@@ -144,7 +144,7 @@ export const RadiusTokens: Story = {
             </div>
 
             <div style={{ marginTop: '48px' }}>
-                <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Usage</h2>
+                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Usage</h2>
                 <div
                     style={{
                         padding: '20px',

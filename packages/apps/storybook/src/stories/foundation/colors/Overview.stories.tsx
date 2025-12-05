@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Introduction: Story = {
     render: () => (
         <div style={{ padding: '20px', maxWidth: '900px' }}>
-            <h1 style={{ marginBottom: '16px' }}>Color System Overview</h1>
+            <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Color System Overview</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
                 The Lufa Design System includes a comprehensive, accessible color system that follows WCAG 2.1 guidelines. All colors are
                 designed to meet AAA accessibility standards when used as intended.
@@ -33,30 +33,30 @@ export const Introduction: Story = {
                 <div
                     style={{
                         padding: '24px',
-                        backgroundColor: '#EFF6FF',
+                        backgroundColor: '#F0FDF4',
                         borderRadius: '12px',
-                        border: '1px solid #BFDBFE',
+                        border: '1px solid #BBF7D0',
                     }}
                 >
-                    <h3 style={{ marginBottom: '12px', fontSize: '18px', color: '#1E40AF' }}>Primitive Colors</h3>
-                    <p style={{ margin: 0, color: '#1E3A8A', fontSize: '14px' }}>
-                        Base color values in 11 shades. Use these when building new components or when semantic tokens don&apos;t fit your
-                        needs.
+                    <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px', color: '#15803D' }}>Semantic Colors</h3>
+                    <p style={{ margin: 0, color: '#14532D', fontSize: '14px' }}>
+                        Intent-based color tokens for consistent usage across your application. Use these for text, backgrounds, borders,
+                        and interactive elements. This is the recommended approach.
                     </p>
                 </div>
 
                 <div
                     style={{
                         padding: '24px',
-                        backgroundColor: '#F0FDF4',
+                        backgroundColor: '#EFF6FF',
                         borderRadius: '12px',
-                        border: '1px solid #BBF7D0',
+                        border: '1px solid #BFDBFE',
                     }}
                 >
-                    <h3 style={{ marginBottom: '12px', fontSize: '18px', color: '#15803D' }}>Semantic Colors</h3>
-                    <p style={{ margin: 0, color: '#14532D', fontSize: '14px' }}>
-                        Intent-based color tokens for consistent usage. Preferred for most components. Use these for text, backgrounds, and
-                        interactive elements.
+                    <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px', color: '#1E40AF' }}>Primitive Colors</h3>
+                    <p style={{ margin: 0, color: '#1E3A8A', fontSize: '14px' }}>
+                        Internal base color values used to define semantic tokens. Not exposed in the public API, but documented here for
+                        reference.
                     </p>
                 </div>
 
@@ -68,7 +68,7 @@ export const Introduction: Story = {
                         border: '1px solid #FED7AA',
                     }}
                 >
-                    <h3 style={{ marginBottom: '12px', fontSize: '18px', color: '#C2410C' }}>Accessibility Tools</h3>
+                    <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px', color: '#C2410C' }}>Accessibility Tools</h3>
                     <p style={{ margin: 0, color: '#7C2D12', fontSize: '14px' }}>
                         Utilities to check contrast ratios and verify WCAG compliance. Use these to ensure your custom color combinations
                         are accessible.
@@ -76,17 +76,18 @@ export const Introduction: Story = {
                 </div>
             </div>
 
-            <h2 style={{ marginBottom: '16px', fontSize: '24px' }}>Key Features</h2>
+            <h2 style={{ fontSize: '32px', fontWeight: '600', marginBottom: '16px' }}>Key Features</h2>
             <ul style={{ marginBottom: '32px', color: '#525252', lineHeight: '1.8' }}>
                 <li>
-                    <strong>WCAG 2.1 AAA Compliance:</strong> All primary colors (600+ shades) meet AAA standards (7:1 contrast ratio)
+                    <strong>WCAG 2.1 AAA Compliance:</strong> All semantic colors meet AAA accessibility standards (7:1 contrast ratio)
                 </li>
                 <li>
-                    <strong>10 Color Palettes:</strong> Neutral, Blue, Green, Red, Orange, Yellow, Purple, Teal, Pink, and Indigo
+                    <strong>Semantic-First Approach:</strong> Intent-based naming for text, backgrounds, borders, interactive elements, and
+                    status colors - no need to think about primitive values
                 </li>
                 <li>
-                    <strong>Semantic Tokens:</strong> Intent-based naming for text, backgrounds, borders, interactive elements, and status
-                    colors
+                    <strong>Internal Primitives:</strong> 10 color palettes (Neutral, Blue, Green, Red, Orange, Yellow, Purple, Teal, Pink,
+                    Indigo) used internally to define semantic tokens
                 </li>
                 <li>
                     <strong>Dark Mode Support:</strong> Built-in CSS variable overrides for dark themes
@@ -99,7 +100,7 @@ export const Introduction: Story = {
                 </li>
             </ul>
 
-            <h2 style={{ marginBottom: '16px', fontSize: '24px' }}>Quick Start</h2>
+            <h2 style={{ fontSize: '32px', fontWeight: '600', marginBottom: '16px' }}>Quick Start</h2>
 
             <div
                 style={{
@@ -111,15 +112,15 @@ export const Introduction: Story = {
                     fontSize: '14px',
                 }}
             >
-                <div style={{ marginBottom: '16px', color: '#737373' }}>{`// Import colors`}</div>
+                <div style={{ marginBottom: '16px', color: '#737373' }}>{`// Import semantic colors`}</div>
                 <div style={{ marginBottom: '8px' }}>
-                    <span style={{ color: '#C678DD' }}>import</span> <span style={{ color: '#E06C75' }}>{'{ primitives, semantic }'}</span>{' '}
+                    <span style={{ color: '#C678DD' }}>import</span> <span style={{ color: '#E06C75' }}>{'{ semantic }'}</span>{' '}
                     <span style={{ color: '#C678DD' }}>from</span>{' '}
                     <span style={{ color: '#98C379' }}>&apos;@grasdouble/lufa_design-system&apos;</span>
                     <span style={{ color: '#ABB2BF' }}>;</span>
                 </div>
                 <br />
-                <div style={{ marginBottom: '16px', color: '#737373' }}>{`// Use semantic colors (recommended)`}</div>
+                <div style={{ marginBottom: '16px', color: '#737373' }}>{`// Use semantic colors`}</div>
                 <div style={{ marginBottom: '8px' }}>
                     <span style={{ color: '#C678DD' }}>const</span> button <span style={{ color: '#ABB2BF' }}>=</span>{' '}
                     <span style={{ color: '#ABB2BF' }}>{'{'}</span>
@@ -139,50 +140,44 @@ export const Introduction: Story = {
                     <span style={{ color: '#ABB2BF' }}>{'}'}</span>
                     <span style={{ color: '#ABB2BF' }}>;</span>
                 </div>
-                <br />
-                <div style={{ marginBottom: '16px', color: '#737373' }}>{`// Or use primitive colors`}</div>
-                <div style={{ marginBottom: '8px' }}>
-                    <span style={{ color: '#C678DD' }}>const</span> accent <span style={{ color: '#ABB2BF' }}>=</span> primitives
-                    <span style={{ color: '#ABB2BF' }}>.</span>blue
-                    <span style={{ color: '#ABB2BF' }}>[</span>
-                    <span style={{ color: '#D19A66' }}>600</span>
-                    <span style={{ color: '#ABB2BF' }}>]</span>
-                    <span style={{ color: '#ABB2BF' }}>;</span>
-                </div>
             </div>
 
-            <h2 style={{ marginBottom: '16px', fontSize: '24px' }}>Navigation</h2>
+            <h2 style={{ fontSize: '32px', fontWeight: '600', marginBottom: '16px' }}>Navigation</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <a
-                    href="?path=/story/0-design-system-colors-primitives--all-primitives"
+                    href="?path=/story/1-foundation-colors-semantic--overview"
                     style={{
                         padding: '16px',
                         backgroundColor: '#FFFFFF',
-                        border: '1px solid #E5E5E5',
+                        border: '2px solid #BBF7D0',
                         borderRadius: '8px',
                         textDecoration: 'none',
                         color: '#171717',
                         display: 'block',
                     }}
                 >
-                    <strong style={{ color: '#2563EB' }}>Primitive Colors →</strong>
-                    <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: '#737373' }}>View all base color values and shades</p>
+                    <strong style={{ color: '#15803D' }}>✨ Semantic Colors (Recommended) →</strong>
+                    <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: '#737373' }}>
+                        View intent-based color tokens - the public API
+                    </p>
                 </a>
 
                 <a
-                    href="?path=/story/0-design-system-colors-semantic--all-semantic"
+                    href="?path=/story/1-foundation-colors-primitives-internal--all-primitives"
                     style={{
                         padding: '16px',
-                        backgroundColor: '#FFFFFF',
-                        border: '1px solid #E5E5E5',
+                        backgroundColor: '#FEF3C7',
+                        border: '1px solid #FDE68A',
                         borderRadius: '8px',
                         textDecoration: 'none',
                         color: '#171717',
                         display: 'block',
                     }}
                 >
-                    <strong style={{ color: '#2563EB' }}>Semantic Colors →</strong>
-                    <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: '#737373' }}>View intent-based color tokens for components</p>
+                    <strong style={{ color: '#92400E' }}>⚙️ Primitive Colors (Internal) →</strong>
+                    <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: '#737373' }}>
+                        Internal base colors - not exposed in public API
+                    </p>
                 </a>
 
                 <a
@@ -224,10 +219,10 @@ export const Introduction: Story = {
 export const ComponentExamples: Story = {
     render: () => (
         <div style={{ padding: '20px', maxWidth: '1000px' }}>
-            <h1 style={{ marginBottom: '16px' }}>Component Examples</h1>
+            <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Component Examples</h1>
             <p style={{ marginBottom: '32px', color: '#737373' }}>See how to use the color system in real components.</p>
 
-            <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Buttons</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Buttons</h2>
             <div
                 style={{
                     display: 'flex',
@@ -297,7 +292,7 @@ export const ComponentExamples: Story = {
                 </button>
             </div>
 
-            <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Alerts</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Alerts</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '40px' }}>
                 <div
                     style={{
@@ -348,7 +343,7 @@ export const ComponentExamples: Story = {
                 </div>
             </div>
 
-            <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Cards</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Cards</h2>
             <div
                 style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px', marginBottom: '40px' }}
             >
@@ -409,7 +404,7 @@ export const ComponentExamples: Story = {
                 </div>
             </div>
 
-            <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Form Elements</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Form Elements</h2>
             <div style={{ maxWidth: '400px' }}>
                 <div style={{ marginBottom: '16px' }}>
                     <label

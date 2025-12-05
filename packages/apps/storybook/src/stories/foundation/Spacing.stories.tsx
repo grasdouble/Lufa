@@ -15,13 +15,13 @@ type Story = StoryObj<typeof meta>;
 export const Overview: Story = {
     render: () => (
         <div style={{ padding: '20px', maxWidth: '1000px' }}>
-            <h1 style={{ marginBottom: '16px' }}>Spacing Tokens</h1>
+            <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Spacing Tokens</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
                 Standardized spacing values based on an 8px grid system for consistent layouts and visual rhythm.
             </p>
 
             <div style={{ marginBottom: '40px' }}>
-                <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Usage</h2>
+                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Usage</h2>
                 <div
                     style={{
                         padding: '20px',
@@ -51,7 +51,7 @@ export const Overview: Story = {
                 </div>
             </div>
 
-            <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>All Spacing Tokens</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>All Spacing Tokens</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {Object.entries(spacing).map(([key, value]) => (
                     <div

@@ -1,8 +1,6 @@
-/* Local config / usage of tailwind is needed to be able to use tailwind classes in storybook */
-@import 'tailwindcss';
-
-/* In project only this oen is needed without any deps related to tailwind (except if you want to use it for custom component you can have in your app) */
-@import '@grasdouble/lufa_design-system/style.css';
+/* Import the design system's Tailwind configuration with @theme definitions */
+/* This allows @apply to work with custom utilities like gap-sm, px-base, etc. */
+@import '@grasdouble/lufa_design-system/tailwind.css';
 
 #storybook-root {
     height: 100%;

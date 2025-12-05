@@ -51,7 +51,7 @@ const SemanticColorCard = ({ title, colors, description }: { title: string; colo
 export const AllSemantic: Story = {
     render: () => (
         <div style={{ padding: '20px', maxWidth: '1200px' }}>
-            <h1 style={{ marginBottom: '16px' }}>Semantic Colors</h1>
+            <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Semantic Colors</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
                 Intent-based color tokens for consistent usage across components. All semantic colors meet WCAG 2.1 accessibility standards
                 when used as intended.

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Placeholder, primitives } from '@grasdouble/lufa_design-system';
+import { Placeholder, semantic } from '@grasdouble/lufa_design-system';
 
 const meta = {
     title: '2. Layout/Placeholder',
@@ -117,32 +117,32 @@ export const ColorVariants: Story = {
                 <Placeholder>Default Color</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Blue</h3>
-                <Placeholder color={primitives.blue[600]}>Blue</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Interactive (Blue)</h3>
+                <Placeholder color={semantic.interactive.default}>Interactive</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Green</h3>
-                <Placeholder color={primitives.green[600]}>Green</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Success (Green)</h3>
+                <Placeholder color={semantic.success.default}>Success</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Red</h3>
-                <Placeholder color={primitives.red[600]}>Red</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Error (Red)</h3>
+                <Placeholder color={semantic.error.default}>Error</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Purple</h3>
-                <Placeholder color={primitives.purple[600]}>Purple</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Brand Secondary (Purple)</h3>
+                <Placeholder color={semantic.brand.secondary}>Brand Secondary</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Indigo</h3>
-                <Placeholder color={primitives.indigo[600]}>Indigo</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Info</h3>
+                <Placeholder color={semantic.info.default}>Info</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Orange</h3>
-                <Placeholder color={primitives.orange[600]}>Orange</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Warning (Orange)</h3>
+                <Placeholder color={semantic.warning.default}>Warning</Placeholder>
             </div>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Neutral</h3>
-                <Placeholder color={primitives.neutral[600]}>Neutral</Placeholder>
+                <Placeholder color={semantic.text.secondary}>Neutral</Placeholder>
             </div>
         </div>
     ),
@@ -151,31 +151,31 @@ export const ColorVariants: Story = {
 export const CombinedVariants: Story = {
     render: () => (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-            <Placeholder height="small" width="small" color={primitives.blue[500]}>
+            <Placeholder height="small" width="small" color={semantic.interactive.default}>
                 Small × Small
             </Placeholder>
-            <Placeholder height="small" width="medium" color={primitives.green[500]}>
+            <Placeholder height="small" width="medium" color={semantic.success.default}>
                 Small × Medium
             </Placeholder>
-            <Placeholder height="small" width="large" color={primitives.red[500]}>
+            <Placeholder height="small" width="large" color={semantic.error.default}>
                 Small × Large
             </Placeholder>
-            <Placeholder height="medium" width="small" color={primitives.purple[500]}>
+            <Placeholder height="medium" width="small" color={semantic.brand.secondary}>
                 Medium × Small
             </Placeholder>
-            <Placeholder height="medium" width="medium" color={primitives.indigo[500]}>
+            <Placeholder height="medium" width="medium" color={semantic.info.default}>
                 Medium × Medium
             </Placeholder>
-            <Placeholder height="medium" width="large" color={primitives.orange[500]}>
+            <Placeholder height="medium" width="large" color={semantic.warning.default}>
                 Medium × Large
             </Placeholder>
-            <Placeholder height="large" width="small" color={primitives.teal[500]}>
+            <Placeholder height="large" width="small" color={semantic.interactive.hover}>
                 Large × Small
             </Placeholder>
-            <Placeholder height="large" width="medium" color={primitives.pink[500]}>
+            <Placeholder height="large" width="medium" color={semantic.success.hover}>
                 Large × Medium
             </Placeholder>
-            <Placeholder height="large" width="large" color={primitives.yellow[600]}>
+            <Placeholder height="large" width="large" color={semantic.warning.default}>
                 Large × Large
             </Placeholder>
         </div>
@@ -194,15 +194,15 @@ export const LayoutExample: Story = {
         >
             <h2 style={{ marginBottom: '16px' }}>Dashboard Layout Example</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <Placeholder height="small" width="full" color={primitives.blue[600]}>
+                <Placeholder height="small" width="full" color={semantic.interactive.default}>
                     Header - Small Height, Full Width
                 </Placeholder>
                 <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '16px' }}>
-                    <Placeholder height="full" width="full" color={primitives.purple[500]}>
+                    <Placeholder height="full" width="full" color={semantic.brand.secondary}>
                         Sidebar
                     </Placeholder>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                        <Placeholder height="medium" width="full" color={primitives.green[500]}>
+                        <Placeholder height="medium" width="full" color={semantic.success.light}>
                             Content Area
                         </Placeholder>
                         <div
@@ -212,19 +212,19 @@ export const LayoutExample: Story = {
                                 gap: '16px',
                             }}
                         >
-                            <Placeholder height="small" color={primitives.orange[500]}>
+                            <Placeholder height="small" color={semantic.warning.light}>
                                 Card 1
                             </Placeholder>
-                            <Placeholder height="small" color={primitives.orange[500]}>
+                            <Placeholder height="small" color={semantic.warning.light}>
                                 Card 2
                             </Placeholder>
-                            <Placeholder height="small" color={primitives.orange[500]}>
+                            <Placeholder height="small" color={semantic.warning.light}>
                                 Card 3
                             </Placeholder>
                         </div>
                     </div>
                 </div>
-                <Placeholder height="small" width="full" color={primitives.neutral[600]}>
+                <Placeholder height="small" width="full" color={semantic.text.secondary}>
                     Footer - Small Height, Full Width
                 </Placeholder>
             </div>

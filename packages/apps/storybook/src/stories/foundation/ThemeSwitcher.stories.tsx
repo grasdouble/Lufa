@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ThemeSwitcher, Button, Input, Card, Badge, Alert, Typography } from '@grasdouble/lufa_design-system';
+import { Button, Input, Card, Badge, Alert, Typography } from '@grasdouble/lufa_design-system';
+import { ThemeSwitcher } from '../../components/ThemeSwitcher';
 
 const meta = {
     title: '1. Foundation/Theme Switcher',

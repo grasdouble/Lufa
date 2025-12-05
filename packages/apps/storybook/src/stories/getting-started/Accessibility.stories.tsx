@@ -1,16 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import {
-    getContrastRatio,
-    meetsWCAG,
-    getContrastLevel,
-    getSuggestedTextColor,
-    WCAG_STANDARDS,
-    accessiblePairs,
-} from '@grasdouble/lufa_design-system';
+import { getContrastRatio, meetsWCAG, getContrastLevel, getSuggestedTextColor, WCAG_STANDARDS } from '@grasdouble/lufa_design-system';
 
 const meta = {
-    title: '1. Foundation/Colors/Accessibility',
+    title: '0. Getting Started/Accessibility',
     parameters: {
         layout: 'padded',
     },
@@ -19,12 +12,6 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-type ColorPair = {
-    foreground: string;
-    background: string;
-    ratio: number;
-};
 
 export const ContrastChecker: Story = {
     render: () => {
@@ -40,7 +27,7 @@ export const ContrastChecker: Story = {
 
         return (
             <div style={{ padding: '20px', maxWidth: '800px' }}>
-                <h1 style={{ marginBottom: '16px' }}>Contrast Ratio Checker</h1>
+                <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Contrast Ratio Checker</h1>
                 <p style={{ marginBottom: '32px', color: '#737373' }}>
                     Check if your color combinations meet WCAG 2.1 accessibility standards.
                 </p>
@@ -245,91 +232,10 @@ export const ContrastChecker: Story = {
     },
 };
 
-export const AccessiblePairs: Story = {
-    render: () => (
-        <div style={{ padding: '20px', maxWidth: '1200px' }}>
-            <h1 style={{ marginBottom: '16px' }}>Pre-verified Accessible Color Pairs</h1>
-            <p style={{ marginBottom: '32px', color: '#737373' }}>
-                These color combinations have been tested and meet WCAG AAA standards (7:1 contrast ratio).
-            </p>
-
-            <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>High Contrast Pairs</h2>
-            <div
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px', marginBottom: '40px' }}
-            >
-                {accessiblePairs.highContrast.map((pair: ColorPair, idx: number) => (
-                    <div
-                        key={idx}
-                        style={{
-                            backgroundColor: pair.background,
-                            padding: '24px',
-                            borderRadius: '8px',
-                            border: '1px solid #E5E5E5',
-                        }}
-                    >
-                        <p style={{ color: pair.foreground, margin: '0 0 12px 0', fontSize: '16px' }}>Sample text content</p>
-                        <div style={{ fontSize: '12px', color: '#737373' }}>
-                            <div>Foreground: {pair.foreground}</div>
-                            <div>Background: {pair.background}</div>
-                            <div style={{ marginTop: '8px', color: '#16A34A', fontWeight: '600' }}>Ratio: {pair.ratio}:1 - AAA</div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Brand Color Pairs</h2>
-            <div
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px', marginBottom: '40px' }}
-            >
-                {accessiblePairs.brand.map((pair: ColorPair, idx: number) => (
-                    <div
-                        key={idx}
-                        style={{
-                            backgroundColor: pair.background,
-                            padding: '24px',
-                            borderRadius: '8px',
-                            border: '1px solid #E5E5E5',
-                        }}
-                    >
-                        <p style={{ color: pair.foreground, margin: '0 0 12px 0', fontSize: '16px' }}>Sample text content</p>
-                        <div style={{ fontSize: '12px', color: pair.foreground === '#FFFFFF' ? '#E5E5E5' : '#737373' }}>
-                            <div>Foreground: {pair.foreground}</div>
-                            <div>Background: {pair.background}</div>
-                            <div style={{ marginTop: '8px', color: '#16A34A', fontWeight: '600' }}>Ratio: {pair.ratio}:1 - AAA</div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Status Color Pairs</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px' }}>
-                {accessiblePairs.status.map((pair: ColorPair, idx: number) => (
-                    <div
-                        key={idx}
-                        style={{
-                            backgroundColor: pair.background,
-                            padding: '24px',
-                            borderRadius: '8px',
-                            border: '1px solid #E5E5E5',
-                        }}
-                    >
-                        <p style={{ color: pair.foreground, margin: '0 0 12px 0', fontSize: '16px' }}>Sample text content</p>
-                        <div style={{ fontSize: '12px', color: '#737373' }}>
-                            <div>Foreground: {pair.foreground}</div>
-                            <div>Background: {pair.background}</div>
-                            <div style={{ marginTop: '8px', color: '#16A34A', fontWeight: '600' }}>Ratio: {pair.ratio}:1 - AAA</div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    ),
-};
-
 export const WCAGStandards: Story = {
     render: () => (
         <div style={{ padding: '20px', maxWidth: '800px' }}>
-            <h1 style={{ marginBottom: '16px' }}>WCAG 2.1 Standards</h1>
+            <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>WCAG 2.1 Standards</h1>
             <p style={{ marginBottom: '32px', color: '#737373' }}>
                 Understanding the contrast ratio requirements for different compliance levels.
             </p>
@@ -342,7 +248,7 @@ export const WCAGStandards: Story = {
                     marginBottom: '24px',
                 }}
             >
-                <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Level AA (Minimum)</h2>
+                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Level AA (Minimum)</h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     <div
                         style={{
@@ -402,7 +308,7 @@ export const WCAGStandards: Story = {
                     marginBottom: '24px',
                 }}
             >
-                <h2 style={{ marginBottom: '16px', fontSize: '20px' }}>Level AAA (Enhanced)</h2>
+                <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Level AAA (Enhanced)</h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     <div
                         style={{
@@ -461,7 +367,7 @@ export const TextColorSuggestion: Story = {
 
         return (
             <div style={{ padding: '20px', maxWidth: '600px' }}>
-                <h1 style={{ marginBottom: '16px' }}>Text Color Suggestion</h1>
+                <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Text Color Suggestion</h1>
                 <p style={{ marginBottom: '32px', color: '#737373' }}>
                     Automatically suggests the best text color (black or white) for any background color.
                 </p>

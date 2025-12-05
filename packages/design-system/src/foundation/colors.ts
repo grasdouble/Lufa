@@ -1,35 +1,30 @@
 /**
  * Color System
  *
- * Main export file for the color system.
- * Combines primitive and semantic color tokens.
+ * Exports semantic color tokens for use in applications.
+ * Primitive colors are used internally to define semantic colors
+ * but are not exposed in the public API.
  *
  * @example
  * ```typescript
- * import { primitives, semantic } from '@grasdouble/lufa_design-system';
- *
- * // Use primitive colors
- * const blueColor = primitives.blue[600];
+ * import { semantic } from '@grasdouble/lufa_design-system';
  *
  * // Use semantic colors
  * const primaryText = semantic.text.primary;
+ * const buttonBg = semantic.interactive.default;
  * ```
  */
 
-import { primitives } from './colors-primitives';
 import { semantic } from './colors-semantic';
-
-export { primitives } from './colors-primitives';
-export type { PrimitiveColor, PrimitiveShade } from './colors-primitives';
 
 export { semantic } from './colors-semantic';
 export type { SemanticColorCategory, SemanticColorToken } from './colors-semantic';
 
 /**
- * Complete color palette with both primitives and semantic tokens
+ * Complete color palette (semantic tokens only)
+ * @deprecated Use `semantic` directly instead
  */
 export const colors = {
-    primitives,
     semantic,
 } as const;
 

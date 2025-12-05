@@ -3,9 +3,12 @@
  *
  * Core design tokens that form the foundation of the design system.
  * Includes colors, typography, spacing, shadows, radius, z-index, and breakpoints.
+ *
+ * Note: Only semantic colors are exported. Primitive colors are internal
+ * implementation details used to define semantic tokens.
  */
 
-// Color tokens
+// Color tokens (semantic only)
 export * from './colors';
 
 // Typography tokens
