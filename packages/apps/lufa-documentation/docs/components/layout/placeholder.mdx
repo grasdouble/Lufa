@@ -50,12 +50,14 @@ import { Placeholder } from "@grasdouble/lufa_design-system";
 
 ## Props
 
-| Prop       | Type                                                 | Default    | Description                                                               |
-| ---------- | ---------------------------------------------------- | ---------- | ------------------------------------------------------------------------- |
-| `children` | `ReactNode`                                          | -          | Content to display inside the placeholder                                 |
-| `color`    | `string`                                             | -          | Custom background color (any valid CSS color). Overrides default gradient |
-| `height`   | `'small' \| 'medium' \| 'large' \| 'auto' \| 'full'` | `'medium'` | Height variant of the placeholder                                         |
-| `width`    | `'auto' \| 'small' \| 'medium' \| 'large' \| 'full'` | `'auto'`   | Width variant of the placeholder                                          |
+| Prop        | Type                                                 | Default    | Description                                  |
+| ----------- | ---------------------------------------------------- | ---------- | -------------------------------------------- |
+| `children`  | `ReactNode`                                          | -          | Content to display inside the placeholder    |
+| `color`     | `string`                                             | -          | Solid background color (any valid CSS color) |
+| `colorFrom` | `string`                                             | -          | Gradient start color (requires `colorTo`)    |
+| `colorTo`   | `string`                                             | -          | Gradient end color (requires `colorFrom`)    |
+| `height`    | `'small' \| 'medium' \| 'large' \| 'auto' \| 'full'` | `'medium'` | Height variant of the placeholder            |
+| `width`     | `'auto' \| 'small' \| 'medium' \| 'large' \| 'full'` | `'auto'`   | Width variant of the placeholder             |
 
 ## Height Variants
 
@@ -262,9 +264,9 @@ Override the default violet gradient with any valid CSS color:
       weight="semibold"
       style={{ marginBottom: "8px" }}
     >
-      Default (Violet)
+      Default Gradient
     </Typography>
-    <Placeholder>Default</Placeholder>
+    <Placeholder>Violet Gradient</Placeholder>
   </div>
   <div>
     <Typography
@@ -272,9 +274,9 @@ Override the default violet gradient with any valid CSS color:
       weight="semibold"
       style={{ marginBottom: "8px" }}
     >
-      Interactive (Semantic)
+      Solid - Interactive
     </Typography>
-    <Placeholder color={semantic.interactive.default}>Interactive</Placeholder>
+    <Placeholder color={semantic.interactive.default}>Solid Blue</Placeholder>
   </div>
   <div>
     <Typography
@@ -282,9 +284,9 @@ Override the default violet gradient with any valid CSS color:
       weight="semibold"
       style={{ marginBottom: "8px" }}
     >
-      Success (Semantic)
+      Solid - Success
     </Typography>
-    <Placeholder color={semantic.success.default}>Success</Placeholder>
+    <Placeholder color={semantic.success.default}>Solid Green</Placeholder>
   </div>
   <div>
     <Typography
@@ -292,9 +294,9 @@ Override the default violet gradient with any valid CSS color:
       weight="semibold"
       style={{ marginBottom: "8px" }}
     >
-      Error (Semantic)
+      Solid - Error
     </Typography>
-    <Placeholder color={semantic.error.default}>Error</Placeholder>
+    <Placeholder color={semantic.error.default}>Solid Red</Placeholder>
   </div>
   <div>
     <Typography
@@ -302,9 +304,14 @@ Override the default violet gradient with any valid CSS color:
       weight="semibold"
       style={{ marginBottom: "8px" }}
     >
-      Warning (Semantic)
+      Gradient - Blue to Purple
     </Typography>
-    <Placeholder color={semantic.warning.default}>Warning</Placeholder>
+    <Placeholder
+      colorFrom={semantic.interactive.default}
+      colorTo={semantic.brand.secondary}
+    >
+      Custom Gradient
+    </Placeholder>
   </div>
   <div>
     <Typography
@@ -312,27 +319,40 @@ Override the default violet gradient with any valid CSS color:
       weight="semibold"
       style={{ marginBottom: "8px" }}
     >
-      Custom Purple
+      Gradient - Green to Teal
     </Typography>
-    <Placeholder color="#8b5cf6">Purple</Placeholder>
+    <Placeholder colorFrom={semantic.success.default} colorTo="#14B8A6">
+      Green → Teal
+    </Placeholder>
   </div>
 </div>
 
 ```tsx
 import { semantic } from '@grasdouble/lufa_design-system';
 
-// Using semantic colors
-<Placeholder color={semantic.interactive.default}>Interactive</Placeholder>
-<Placeholder color={semantic.success.default}>Success</Placeholder>
-<Placeholder color={semantic.error.default}>Error</Placeholder>
-<Placeholder color={semantic.warning.default}>Warning</Placeholder>
+// Default gradient
+<Placeholder>Default Gradient</Placeholder>
 
-// Using custom hex colors for variety
-<Placeholder color="#3b82f6">Blue</Placeholder>
-<Placeholder color="#10b981">Green</Placeholder>
-<Placeholder color="#ef4444">Red</Placeholder>
-<Placeholder color="#8b5cf6">Purple</Placeholder>
-<Placeholder color="#f59e0b">Orange</Placeholder>
+// Solid colors using semantic tokens
+<Placeholder color={semantic.interactive.default}>Solid Blue</Placeholder>
+<Placeholder color={semantic.success.default}>Solid Green</Placeholder>
+<Placeholder color={semantic.error.default}>Solid Red</Placeholder>
+<Placeholder color={semantic.warning.default}>Solid Orange</Placeholder>
+
+// Custom gradients
+<Placeholder colorFrom={semantic.interactive.default} colorTo={semantic.brand.secondary}>
+  Blue to Purple
+</Placeholder>
+<Placeholder colorFrom={semantic.success.default} colorTo="#14B8A6">
+  Green to Teal
+</Placeholder>
+<Placeholder colorFrom={semantic.warning.default} colorTo={semantic.error.default}>
+  Orange to Red
+</Placeholder>
+
+// Custom hex gradients
+<Placeholder colorFrom="#3b82f6" colorTo="#8b5cf6">Blue to Purple</Placeholder>
+<Placeholder colorFrom="#10b981" colorTo="#14B8A6">Green to Teal</Placeholder>
 ```
 
 ## Combined Variants

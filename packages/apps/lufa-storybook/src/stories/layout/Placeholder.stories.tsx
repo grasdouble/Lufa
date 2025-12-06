@@ -33,7 +33,15 @@ const meta = {
         },
         color: {
             control: 'color',
-            description: 'Custom background color (any valid CSS color)',
+            description: 'Custom solid background color (any valid CSS color)',
+        },
+        colorFrom: {
+            control: 'color',
+            description: 'Gradient start color (requires colorTo)',
+        },
+        colorTo: {
+            control: 'color',
+            description: 'Gradient end color (requires colorFrom)',
         },
         children: {
             control: 'text',
@@ -114,35 +122,60 @@ export const ColorVariants: Story = {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '400px' }}>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Default (Violet Gradient)</h3>
-                <Placeholder>Default Color</Placeholder>
+                <Placeholder>Default Gradient</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Interactive (Blue)</h3>
-                <Placeholder color={semantic.interactive.default}>Interactive</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Interactive (Blue)</h3>
+                <Placeholder color={semantic.interactive.default}>Solid Blue</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Success (Green)</h3>
-                <Placeholder color={semantic.success.default}>Success</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Success (Green)</h3>
+                <Placeholder color={semantic.success.default}>Solid Green</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Error (Red)</h3>
-                <Placeholder color={semantic.error.default}>Error</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Error (Red)</h3>
+                <Placeholder color={semantic.error.default}>Solid Red</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Brand Secondary (Purple)</h3>
-                <Placeholder color={semantic.brand.secondary}>Brand Secondary</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Warning (Orange)</h3>
+                <Placeholder color={semantic.warning.default}>Solid Orange</Placeholder>
+            </div>
+        </div>
+    ),
+};
+
+export const GradientVariants: Story = {
+    render: () => (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '400px' }}>
+            <div>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Blue to Purple</h3>
+                <Placeholder colorFrom={semantic.interactive.default} colorTo={semantic.brand.secondary}>
+                    Blue → Purple
+                </Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Info</h3>
-                <Placeholder color={semantic.info.default}>Info</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Green to Teal</h3>
+                <Placeholder colorFrom={semantic.success.default} colorTo="#14B8A6">
+                    Green → Teal
+                </Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Warning (Orange)</h3>
-                <Placeholder color={semantic.warning.default}>Warning</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Orange to Red</h3>
+                <Placeholder colorFrom={semantic.warning.default} colorTo={semantic.error.default}>
+                    Orange → Red
+                </Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Neutral</h3>
-                <Placeholder color={semantic.text.secondary}>Neutral</Placeholder>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Purple to Pink</h3>
+                <Placeholder colorFrom={semantic.brand.secondary} colorTo="#EC4899">
+                    Purple → Pink
+                </Placeholder>
+            </div>
+            <div>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Dark to Light</h3>
+                <Placeholder colorFrom="#1F2937" colorTo="#9CA3AF">
+                    Dark → Light
+                </Placeholder>
             </div>
         </div>
     ),
