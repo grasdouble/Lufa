@@ -3,7 +3,8 @@ sidebar_position: 99
 draft: true
 ---
 
-import { ComponentName } from "@grasdouble/lufa_design-system";
+import { ComponentName, Typography } from "@grasdouble/lufa_design-system";
+import { StorybookEmbed } from "@site/src/components/StorybookEmbed";
 
 # ComponentName
 
@@ -382,6 +383,19 @@ interface ComponentNameProps {
   onClick?: () => void;
 }
 ```
+
+## Interactive Playground
+
+Explore ComponentName interactively in Storybook with live controls:
+
+<StorybookEmbed storyId="category-componentname--default" height={400} />
+
+Try different variants:
+
+<StorybookEmbed
+  storyId="category-componentname--variant-example"
+  height={300}
+/>
 
 ## Related Components
 
