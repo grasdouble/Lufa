@@ -7,7 +7,7 @@
         "lint": "eslint ./src",
         "build:types": "tsc --emitDeclarationOnly",
         "prettier:fix": "prettier --write .",
-        "build": "vite build && tsx scripts/generate-foundation-css.ts && tsx scripts/copy-tailwind-css.ts",
+        "build": "vite build && tsx scripts/generate-foundation-css.ts && tsx scripts/copy-tailwind-css.ts && tsx scripts/build-foundation-bundle.ts",
         "preview": "vite preview",
         "generate:foundation": "tsx scripts/generate-foundation-css.ts"
     },
@@ -26,8 +26,11 @@
             "types": "./dist/index.d.ts",
             "import": "./dist/lufa-ui.mjs"
         },
+        "./foundation.css": "./dist/foundation.css",
         "./style.css": "./dist/style.css",
-        "./tailwind.css": "./dist/tailwind.css"
+        "./tailwind.css": "./dist/tailwind.css",
+        "./themes/ocean.css": "./dist/themes/ocean.css",
+        "./themes/forest.css": "./dist/themes/forest.css"
     },
     "devDependencies": {
         "@grasdouble/lufa_config_eslint": "workspace:^",

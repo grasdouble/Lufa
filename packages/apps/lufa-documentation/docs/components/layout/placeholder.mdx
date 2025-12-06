@@ -1,0 +1,778 @@
+---
+sidebar_position: 1
+---
+
+import {
+  Placeholder,
+  semantic,
+  Stack,
+  STACK_DIRECTION,
+  STACK_GAP,
+  STACK_JUSTIFY,
+  Typography,
+} from "@grasdouble/lufa_design-system";
+
+# Placeholder
+
+A versatile placeholder component used for layout spacing, visual structure, and prototyping. Features customizable height, width, and color variants with smooth transitions and modern styling.
+
+## Overview
+
+The Placeholder component is designed to help developers quickly prototype layouts, visualize component positioning, and maintain consistent spacing during development. It features a gradient background by default, customizable dimensions, and smooth hover effects.
+
+## Live Demo
+
+<div
+  style={{
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "24px",
+  }}
+>
+  <Placeholder>Default Placeholder</Placeholder>
+</div>
+
+## Installation
+
+The Placeholder component is part of the Lufa Design System:
+
+```tsx
+import { Placeholder } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Placeholder>Default Placeholder</Placeholder>
+```
+
+## Props
+
+| Prop       | Type                                                 | Default    | Description                                                               |
+| ---------- | ---------------------------------------------------- | ---------- | ------------------------------------------------------------------------- |
+| `children` | `ReactNode`                                          | -          | Content to display inside the placeholder                                 |
+| `color`    | `string`                                             | -          | Custom background color (any valid CSS color). Overrides default gradient |
+| `height`   | `'small' \| 'medium' \| 'large' \| 'auto' \| 'full'` | `'medium'` | Height variant of the placeholder                                         |
+| `width`    | `'auto' \| 'small' \| 'medium' \| 'large' \| 'full'` | `'auto'`   | Width variant of the placeholder                                          |
+
+## Height Variants
+
+The Placeholder component supports five height options:
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Small (40px)
+    </Typography>
+    <Placeholder height="small">Small Height</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Medium (80px) - Default
+    </Typography>
+    <Placeholder height="medium">Medium Height</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Large (128px)
+    </Typography>
+    <Placeholder height="large">Large Height</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Auto
+    </Typography>
+    <Placeholder height="auto">
+      Auto height adjusts to content
+      <br />
+      Multiple lines supported
+      <br />
+      Grows as needed
+    </Placeholder>
+  </div>
+</div>
+
+```tsx
+// Small height (40px)
+<Placeholder height="small">Small Height</Placeholder>
+
+// Medium height (80px) - Default
+<Placeholder height="medium">Medium Height</Placeholder>
+
+// Large height (128px)
+<Placeholder height="large">Large Height</Placeholder>
+
+// Auto height (adjusts to content with min-height: 40px)
+<Placeholder height="auto">
+  Auto height adjusts to content
+  <br />
+  Multiple lines supported
+</Placeholder>
+
+// Full height (100% of parent container)
+<Placeholder height="full">Full Height</Placeholder>
+```
+
+### Height Specifications
+
+- **Small**: `40px` (h-10)
+- **Medium**: `80px` (h-20) - Default
+- **Large**: `128px` (h-32)
+- **Auto**: Content-based with `min-height: 40px`
+- **Full**: `100%` of parent container
+
+## Width Variants
+
+The Placeholder component supports five width options:
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Auto (min-width: 96px)
+    </Typography>
+    <Placeholder width="auto">Auto</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Small (128px)
+    </Typography>
+    <Placeholder width="small">Small Width</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Medium (240px)
+    </Typography>
+    <Placeholder width="medium">Medium Width</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Large (384px)
+    </Typography>
+    <Placeholder width="large">Large Width</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Full (100%)
+    </Typography>
+    <Placeholder width="full">Full Width</Placeholder>
+  </div>
+</div>
+
+```tsx
+// Auto width (min-width: 96px)
+<Placeholder width="auto">Auto</Placeholder>
+
+// Small width (128px)
+<Placeholder width="small">Small Width</Placeholder>
+
+// Medium width (240px)
+<Placeholder width="medium">Medium Width</Placeholder>
+
+// Large width (384px)
+<Placeholder width="large">Large Width</Placeholder>
+
+// Full width (100% of parent container)
+<Placeholder width="full">Full Width</Placeholder>
+```
+
+### Width Specifications
+
+- **Auto**: Content-based with `min-width: 96px` - Default
+- **Small**: `128px` (w-32)
+- **Medium**: `240px` (w-60)
+- **Large**: `384px` (w-96)
+- **Full**: `100%` of parent container
+
+## Custom Colors
+
+Override the default violet gradient with any valid CSS color:
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "16px",
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Default (Violet)
+    </Typography>
+    <Placeholder>Default</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Interactive (Semantic)
+    </Typography>
+    <Placeholder color={semantic.interactive.default}>Interactive</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Success (Semantic)
+    </Typography>
+    <Placeholder color={semantic.success.default}>Success</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Error (Semantic)
+    </Typography>
+    <Placeholder color={semantic.error.default}>Error</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Warning (Semantic)
+    </Typography>
+    <Placeholder color={semantic.warning.default}>Warning</Placeholder>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Custom Purple
+    </Typography>
+    <Placeholder color="#8b5cf6">Purple</Placeholder>
+  </div>
+</div>
+
+```tsx
+import { semantic } from '@grasdouble/lufa_design-system';
+
+// Using semantic colors
+<Placeholder color={semantic.interactive.default}>Interactive</Placeholder>
+<Placeholder color={semantic.success.default}>Success</Placeholder>
+<Placeholder color={semantic.error.default}>Error</Placeholder>
+<Placeholder color={semantic.warning.default}>Warning</Placeholder>
+
+// Using custom hex colors for variety
+<Placeholder color="#3b82f6">Blue</Placeholder>
+<Placeholder color="#10b981">Green</Placeholder>
+<Placeholder color="#ef4444">Red</Placeholder>
+<Placeholder color="#8b5cf6">Purple</Placeholder>
+<Placeholder color="#f59e0b">Orange</Placeholder>
+```
+
+## Combined Variants
+
+Mix height and width variants for precise control:
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "16px",
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <Placeholder height="small" width="large" color="#8b5cf6">
+    Small × Large
+  </Placeholder>
+  <Placeholder height="large" width="small" color="#f59e0b">
+    Large × Small
+  </Placeholder>
+  <div style={{ gridColumn: "1 / -1" }}>
+    <Placeholder
+      height="medium"
+      width="full"
+      color={semantic.interactive.default}
+    >
+      Medium × Full Width
+    </Placeholder>
+  </div>
+</div>
+
+```tsx
+<Placeholder height="small" width="large" color="#8b5cf6">
+  Small Height × Large Width
+</Placeholder>
+
+<Placeholder height="large" width="small" color="#f59e0b">
+  Large Height × Small Width
+</Placeholder>
+
+<Placeholder height="medium" width="full">
+  Medium Height × Full Width
+</Placeholder>
+```
+
+## Layout Examples
+
+### Dashboard Layout
+
+<div
+  style={{
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+    {/* Header */}
+    <Placeholder height="small" width="full" color={"#3b82f6"}>
+      Header
+    </Placeholder>
+
+    {/* Main content with sidebar */}
+    <div
+      style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: "16px" }}
+    >
+      <Placeholder height="full" color={"#8b5cf6"}>
+        Sidebar
+      </Placeholder>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+        <Placeholder height="medium" width="full" color={"#10b981"}>
+          Content Area
+        </Placeholder>
+
+        {/* Card grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "16px",
+          }}
+        >
+          <Placeholder height="small" color={"#f59e0b"}>
+            Card 1
+          </Placeholder>
+          <Placeholder height="small" color={"#f59e0b"}>
+            Card 2
+          </Placeholder>
+          <Placeholder height="small" color={"#f59e0b"}>
+            Card 3
+          </Placeholder>
+        </div>
+      </div>
+    </div>
+
+    {/* Footer */}
+    <Placeholder height="small" width="full" color={"#525252"}>
+      Footer
+    </Placeholder>
+
+  </div>
+</div>
+
+```tsx
+<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+  {/* Header */}
+  <Placeholder height="small" width="full" color={"#3b82f6"}>
+    Header
+  </Placeholder>
+
+  {/* Main content with sidebar */}
+  <div
+    style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: "16px" }}
+  >
+    <Placeholder height="full" color={"#8b5cf6"}>
+      Sidebar
+    </Placeholder>
+
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <Placeholder height="medium" width="full" color={"#10b981"}>
+        Content Area
+      </Placeholder>
+
+      {/* Card grid */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "16px",
+        }}
+      >
+        <Placeholder height="small" color={"#f59e0b"}>
+          Card 1
+        </Placeholder>
+        <Placeholder height="small" color={"#f59e0b"}>
+          Card 2
+        </Placeholder>
+        <Placeholder height="small" color={"#f59e0b"}>
+          Card 3
+        </Placeholder>
+      </div>
+    </div>
+  </div>
+
+  {/* Footer */}
+  <Placeholder height="small" width="full" color={"#525252"}>
+    Footer
+  </Placeholder>
+</div>
+```
+
+### Form Layout
+
+<div
+  style={{
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+    <div style={{ display: "flex", gap: "16px" }}>
+      <div style={{ flex: 1 }}>
+        <Placeholder color={"#6366f1"}>First Name</Placeholder>
+      </div>
+      <div style={{ flex: 1 }}>
+        <Placeholder color={"#6366f1"}>Last Name</Placeholder>
+      </div>
+    </div>
+
+    <Placeholder color={"#6366f1"}>Email</Placeholder>
+    <Placeholder color={"#6366f1"}>Message</Placeholder>
+
+    <div style={{ display: "flex", gap: "16px", justifyContent: "flex-end" }}>
+      <Placeholder color={"#a3a3a3"}>Cancel</Placeholder>
+      <Placeholder color={"#3b82f6"}>Submit</Placeholder>
+    </div>
+
+  </div>
+</div>
+
+```tsx
+import {
+  Stack,
+  STACK_DIRECTION,
+  STACK_GAP,
+  STACK_JUSTIFY,
+} from "@grasdouble/lufa_design-system";
+
+<Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
+  <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
+    <Stack.Item grow>
+      <Placeholder color={"#6366f1"}>First Name</Placeholder>
+    </Stack.Item>
+    <Stack.Item grow>
+      <Placeholder color={"#6366f1"}>Last Name</Placeholder>
+    </Stack.Item>
+  </Stack>
+
+  <Placeholder color={"#6366f1"}>Email</Placeholder>
+  <Placeholder color={"#6366f1"}>Message</Placeholder>
+
+  <Stack
+    direction={STACK_DIRECTION.horizontal}
+    gap={STACK_GAP.normal}
+    justify={STACK_JUSTIFY.end}
+  >
+    <Placeholder color={"#a3a3a3"}>Cancel</Placeholder>
+    <Placeholder color={"#3b82f6"}>Submit</Placeholder>
+  </Stack>
+</Stack>;
+```
+
+## Styling
+
+The Placeholder component includes:
+
+### Base Styles
+
+- Flexbox display with centered content
+- Large border radius (--radius-lg)
+- Small shadow (--shadow-sm)
+- Horizontal padding (16px)
+- Small font size with medium weight
+- White text color
+- Smooth transitions (200ms)
+
+### Default Gradient
+
+```css
+background: linear-gradient(to bottom right, violet-500, violet-600);
+```
+
+With hover state:
+
+```css
+background: linear-gradient(to bottom right, violet-600, violet-700);
+```
+
+### Custom Color Override
+
+When a `color` prop is provided, it overrides the gradient with a solid color:
+
+```tsx
+<Placeholder color="#3b82f6">Solid blue background</Placeholder>
+```
+
+## Use Cases
+
+### 1. Prototyping Layouts
+
+Quickly visualize component placement before implementing actual components using Stack for proper spacing:
+
+<div
+  style={{
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
+    <Placeholder height="small" width="full" color="#2563eb">
+      Navigation Bar
+    </Placeholder>
+
+    <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
+      <Stack.Item basis="300px">
+        <Placeholder height="large" color="#7c3aed">
+          Sidebar Menu
+        </Placeholder>
+      </Stack.Item>
+
+      <Stack.Item grow>
+        <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
+          <Placeholder height="large" color="#10b981">
+            Hero Section
+          </Placeholder>
+
+          <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
+            <Stack.Item grow>
+              <Placeholder height="medium" color="#f59e0b">
+                Card 1
+              </Placeholder>
+            </Stack.Item>
+            <Stack.Item grow>
+              <Placeholder height="medium" color="#f59e0b">
+                Card 2
+              </Placeholder>
+            </Stack.Item>
+            <Stack.Item grow>
+              <Placeholder height="medium" color="#f59e0b">
+                Card 3
+              </Placeholder>
+            </Stack.Item>
+          </Stack>
+
+          <Placeholder height="medium" width="full" color="#6b7280">
+            Content Area
+          </Placeholder>
+        </Stack>
+      </Stack.Item>
+    </Stack>
+
+    <Placeholder height="small" width="full" color="#1f2937">
+      Footer
+    </Placeholder>
+
+  </Stack>
+</div>
+
+```tsx
+import {
+  Stack,
+  STACK_DIRECTION,
+  STACK_GAP,
+} from "@grasdouble/lufa_design-system";
+
+<Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
+  <Placeholder height="small" width="full" color="#2563eb">
+    Navigation Bar
+  </Placeholder>
+
+  <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
+    <Stack.Item basis="300px">
+      <Placeholder height="large" color="#7c3aed">
+        Sidebar Menu
+      </Placeholder>
+    </Stack.Item>
+
+    <Stack.Item grow>
+      <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
+        <Placeholder height="large" color="#10b981">
+          Hero Section
+        </Placeholder>
+
+        <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
+          <Stack.Item grow>
+            <Placeholder height="medium" color="#f59e0b">
+              Card 1
+            </Placeholder>
+          </Stack.Item>
+          <Stack.Item grow>
+            <Placeholder height="medium" color="#f59e0b">
+              Card 2
+            </Placeholder>
+          </Stack.Item>
+          <Stack.Item grow>
+            <Placeholder height="medium" color="#f59e0b">
+              Card 3
+            </Placeholder>
+          </Stack.Item>
+        </Stack>
+
+        <Placeholder height="medium" width="full" color="#6b7280">
+          Content Area
+        </Placeholder>
+      </Stack>
+    </Stack.Item>
+  </Stack>
+
+  <Placeholder height="small" width="full" color="#1f2937">
+    Footer
+  </Placeholder>
+</Stack>;
+```
+
+### 2. Spacing Visualization
+
+See spacing relationships in Stack or Grid layouts:
+
+<div
+  style={{
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.spacious}>
+    <Placeholder color={"#3b82f6"}>Item 1</Placeholder>
+    <Placeholder color={"#3b82f6"}>Item 2</Placeholder>
+    <Placeholder color={"#3b82f6"}>Item 3</Placeholder>
+  </Stack>
+</div>
+
+```tsx
+import {
+  Stack,
+  STACK_DIRECTION,
+  STACK_GAP,
+} from "@grasdouble/lufa_design-system";
+
+<Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.spacious}>
+  <Placeholder color={"#3b82f6"}>Item 1</Placeholder>
+  <Placeholder color={"#3b82f6"}>Item 2</Placeholder>
+  <Placeholder color={"#3b82f6"}>Item 3</Placeholder>
+</Stack>;
+```
+
+### 3. Component Documentation
+
+Show component size and positioning in Storybook stories or documentation.
+
+## Accessibility
+
+The Placeholder component is primarily a development and prototyping tool:
+
+- **Not for production UI**: Replace with actual components before shipping
+- **No semantic meaning**: Uses a plain `div` element
+- **No ARIA attributes**: Not intended for interactive use
+- **Visual only**: Content is for developer reference during prototyping
+
+If you need placeholder content in production (like skeleton screens), consider creating a dedicated loading component with proper accessibility attributes.
+
+## Best Practices
+
+### Do ✅
+
+- Use for rapid prototyping and layout visualization
+- Use color coding to distinguish different component types
+- Combine with Stack for spacing demonstrations
+- Replace with actual components before production
+
+### Don't ❌
+
+- Don't ship Placeholder components to production
+- Don't use for interactive elements (use Button, Link, etc.)
+- Don't rely on for final styling (implement proper components)
+- Don't use as skeleton loading screens without accessibility improvements
+
+## Related Components
+
+- **[Stack](./stack)** - Layout component that works well with Placeholder for spacing visualization
+
+## Interactive Examples
+
+View the Placeholder component in action in our [Storybook](http://localhost:6006/?path=/story/layout-placeholder).
