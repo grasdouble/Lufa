@@ -1,7 +1,7 @@
 // ============================================
-// FOUNDATION (Design Tokens)
+// DESIGN TOKENS
 // ============================================
-export * from './foundation';
+export * from '@grasdouble/lufa_design-system-tokens';
 
 // ============================================
 // UTILITIES (Development Tools)

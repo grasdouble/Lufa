@@ -1,9 +1,9 @@
 {
-    "name": "@grasdouble/lufa_design-system-foundation",
-    "version": "0.1.0",
+  "name": "@grasdouble/lufa_design-system-tokens",
+  "version": "0.1.0",
   "license": "CC-BY-NC-4.0",
   "type": "module",
-  "description": "Lufa Design System - Foundation tokens (semantic colors, spacing, typography, etc.)",
+  "description": "Lufa Design System - Semantic design tokens (colors, spacing, typography, etc.)",
   "scripts": {
     "build": "tsc && node scripts/generate-css.js"
   },
@@ -21,7 +21,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./foundation.css": "./dist/foundation.css"
+    "./tokens.css": "./dist/tokens.css"
   },
   "dependencies": {
     "@grasdouble/lufa_design-system-primitives": "workspace:^"

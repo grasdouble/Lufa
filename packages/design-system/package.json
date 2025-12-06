@@ -51,7 +51,7 @@
         "vite-tsconfig-paths": "^5.1.4"
     },
     "dependencies": {
-        "@grasdouble/lufa_design-system-foundation": "workspace:^",
+        "@grasdouble/lufa_design-system-tokens": "workspace:^",
         "@grasdouble/lufa_design-system-primitives": "workspace:^",
         "@headlessui/react": "^2.2.9",
         "@heroicons/react": "^2.2.0",

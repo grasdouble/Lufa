@@ -22,7 +22,7 @@
     "@grasdouble/lufa_config_prettier": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
     "@grasdouble/lufa_design-system": "workspace:^",
-    "@grasdouble/lufa_design-system-foundation": "workspace:^",
+    "@grasdouble/lufa_design-system-tokens": "workspace:^",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",

@@ -14,10 +14,13 @@ Apps are responsible for:
 
 The design system exports:
 
-- `foundation.css` - CSS variables only (11KB)
-- `style.css` - Pre-compiled component CSS modules (70KB)
-- `tailwind.css` - Source config to extend in your Tailwind setup (7KB)
 - Components (JS) - Import directly from the package
+- `style.css` - Pre-compiled component CSS modules (70KB)
+
+Separate packages provide:
+
+- `@grasdouble/lufa_design-system-tokens/tokens.css` - CSS variables (11KB)
+- `@grasdouble/lufa_design-system-themes` - Theme variants (ocean.css, forest.css)
 
 > **Important:** `style.css` contains ONLY the pre-compiled component styles (from CSS modules), NOT a full Tailwind bundle. It does not include Tailwind's base/reset or utilities - just the component CSS.
 
@@ -39,20 +42,22 @@ The CSS modules are processed by Vite + Tailwind during the DS build, converting
 The Lufa Design System provides multiple CSS entry points for different use cases:
 
 ```
-dist/
-├── foundation.css       # CSS variables only (11KB)
-├── style.css           # Pre-compiled component CSS modules (70KB)
-├── tailwind.css        # Source config for Tailwind (7KB)
-└── themes/
-    ├── ocean.css       # Ocean theme overrides
-    └── forest.css      # Forest theme overrides
+@grasdouble/lufa_design-system/
+└── style.css           # Pre-compiled component CSS modules (70KB)
+
+@grasdouble/lufa_design-system-tokens/
+└── tokens.css          # CSS variables only (11KB)
+
+@grasdouble/lufa_design-system-themes/
+├── ocean.css           # Ocean theme overrides
+└── forest.css          # Forest theme overrides
 ```
 
 ## Use Cases
 
-### 1. I want foundation CSS variables only
+### 1. I want design tokens CSS variables only
 
-**Import:** `@grasdouble/lufa_design-system/foundation.css`
+**Import:** `@grasdouble/lufa_design-system-tokens/tokens.css`
 
 **Contains:**
 
@@ -72,7 +77,7 @@ dist/
 
 ```css
 /* In your CSS file */
-@import '@grasdouble/lufa_design-system/foundation.css';
+@import '@grasdouble/lufa_design-system-tokens/tokens.css';
 
 .my-button {
     background: var(--lufa-color-interactive-default);
@@ -84,52 +89,14 @@ dist/
 
 ---
 
-### 3. I want to use Tailwind utilities with design system tokens
+### 2. I want themability
 
-**Import:** `@grasdouble/lufa_design-system/tailwind.css`
-
-**Contains:**
-
-- Source Tailwind configuration
-- `@theme` mappings from design tokens to Tailwind utilities
-- Theme imports
-- **Requires** Tailwind to be processed
-
-**Use when:**
-
-- Building a new app with Tailwind CSS
-- You want Tailwind utilities configured with design system tokens
-- You have a build step that processes Tailwind
-
-**Example:**
-
-```javascript
-// vite.config.js or tailwind.config.js
-export default {
-    content: ['./src/**/*.{js,ts,jsx,tsx}'],
-    // The design system's tailwind.css will be imported in your app
-};
-```
-
-```tsx
-// In your component
-import '@grasdouble/lufa_design-system/tailwind.css';
-
-function MyComponent() {
-    return <div className="bg-interactive-default p-md rounded-lg text-white shadow-md">Using Tailwind utilities with design tokens!</div>;
-}
-```
-
----
-
-### 4. I want themability
-
-**Import:** Foundation + theme file
+**Import:** Tokens + theme file from dedicated package
 
 **Available themes:**
 
-- `@grasdouble/lufa_design-system/themes/ocean.css`
-- `@grasdouble/lufa_design-system/themes/forest.css`
+- `@grasdouble/lufa_design-system-themes/ocean.css`
+- `@grasdouble/lufa_design-system-themes/forest.css`
 
 **Use when:**
 
@@ -139,15 +106,15 @@ function MyComponent() {
 **Example:**
 
 ```css
-/* Import foundation first, then theme */
-@import '@grasdouble/lufa_design-system/foundation.css';
-@import '@grasdouble/lufa_design-system/themes/ocean.css';
+/* Import tokens first, then theme */
+@import '@grasdouble/lufa_design-system-tokens/tokens.css';
+@import '@grasdouble/lufa_design-system-themes/ocean.css';
 ```
 
 Or create your own theme:
 
 ```css
-@import '@grasdouble/lufa_design-system/foundation.css';
+@import '@grasdouble/lufa_design-system-tokens/tokens.css';
 
 /* Override foundation variables */
 :root {
@@ -158,7 +125,7 @@ Or create your own theme:
 
 ---
 
-### 5. I want to customize component styles
+### 3. I want to use components
 
 **Import:** Just import the components
 
@@ -179,8 +146,8 @@ Or create your own theme:
 import { Button, Card } from '@grasdouble/lufa_design-system';
 
 // Component styles are automatically included via CSS modules
-// But you might want foundation.css for the CSS variables:
-import '@grasdouble/lufa_design-system/foundation.css';
+// But you might want tokens.css for the CSS variables:
+import '@grasdouble/lufa_design-system-tokens/tokens.css';
 ```
 
 ---
@@ -188,24 +155,22 @@ import '@grasdouble/lufa_design-system/foundation.css';
 ## Decision Tree
 
 ```
-Do you need Tailwind utilities?
-├─ YES → Use tailwind.css (source) + set up Tailwind in your app
-└─ NO → Use foundation.css only
-
 Do you want themes?
-└─ Import foundation.css + themes/[theme].css
+├─ YES → Import tokens.css + theme from @grasdouble/lufa_design-system-themes
+└─ NO → Import tokens.css only
 
 Do you just want components?
-└─ Import components + foundation.css for variables
+└─ Import components (styles included) + tokens.css for variables
 ```
 
 ## File Comparison
 
-| File             | Size | Contains                                    | Use Case                          |
-| ---------------- | ---- | ------------------------------------------- | --------------------------------- |
-| `foundation.css` | 11KB | CSS variables (`--lufa-*`)                  | Always needed for components      |
-| `style.css`      | 70KB | Pre-compiled component CSS modules          | Needed to render components       |
-| `tailwind.css`   | 7KB  | Tailwind source config with `@theme` tokens | For apps using Tailwind utilities |
+| Package/File | Size | Contains                                   | Use Case                               |
+| ------------ | ---- | ------------------------------------------ | -------------------------------------- |
+| `tokens.css` | 11KB | CSS variables (`--lufa-*`) from tokens pkg | Design tokens for custom styling       |
+| `style.css`  | 70KB | Pre-compiled component CSS modules         | Automatically included with components |
+| `ocean.css`  | 2KB  | Theme overrides from themes package        | Optional theming                       |
+| `forest.css` | 2KB  | Theme overrides from themes package        | Optional theming                       |
 
 ## Examples by Framework
 
@@ -213,67 +178,57 @@ Do you just want components?
 
 ```css
 /* src/css/custom.css */
-@import '@grasdouble/lufa_design-system/foundation.css'; /* CSS variables */
-@import '@grasdouble/lufa_design-system/style.css'; /* Component styles */
+@import '@grasdouble/lufa_design-system-tokens/tokens.css'; /* CSS variables */
+/* Component styles are automatically included when you import components */
 ```
 
 ### Next.js (with Tailwind)
 
 ```tsx
 // app/globals.css
-@import '@grasdouble/lufa_design-system/tailwind.css';
+@import '@grasdouble/lufa_design-system-tokens/tokens.css';
 
-// tailwind.config.ts
-export default {
-  content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@grasdouble/lufa_design-system/dist/**/*.mjs'
-  ],
-  // Your Tailwind config extends the design system
-}
+// Configure your own Tailwind setup
+// The design system no longer exports Tailwind configuration
 ```
 
 ### Next.js (without Tailwind)
 
 ```tsx
 // app/layout.tsx
-import '@grasdouble/lufa_design-system/foundation.css';
+import '@grasdouble/lufa_design-system-tokens/tokens.css';
 ```
 
 ### Vanilla React/Vite (with Tailwind)
 
 ```css
 /* src/index.css */
-@import '@grasdouble/lufa_design-system/tailwind.css';
+@import '@grasdouble/lufa_design-system-tokens/tokens.css';
 ```
 
 ```ts
 // vite.config.ts
-import tailwindcss from '@tailwindcss/vite';
-
-export default defineConfig({
-    plugins: [react(), tailwindcss()],
-});
+// Configure your own Tailwind setup
 ```
 
 ### Vanilla React/Vite (without Tailwind)
 
 ```tsx
 // main.tsx
-import '@grasdouble/lufa_design-system/foundation.css';
+import '@grasdouble/lufa_design-system-tokens/tokens.css';
 ```
 
 ### Storybook (with Tailwind)
 
 ```tsx
 // .storybook/preview.tsx
-import '@grasdouble/lufa_design-system/tailwind.css';
-// Configure Tailwind in your Storybook setup
+import '@grasdouble/lufa_design-system-tokens/tokens.css';
+// Configure your own Tailwind setup
 ```
 
 ### Storybook (without Tailwind)
 
 ```tsx
 // .storybook/preview.tsx
-import '@grasdouble/lufa_design-system/foundation.css';
+import '@grasdouble/lufa_design-system-tokens/tokens.css';
 ```

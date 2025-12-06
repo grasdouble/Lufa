@@ -3,7 +3,8 @@ packages:
   - packages/cdn/*
   - packages/config/*
   - packages/design-system-primitives
-  - packages/design-system-foundation
+  - packages/design-system-tokens
+  - packages/design-system-themes
   - packages/design-system
   - packages/microfrontend/*
   - packages/plugins/vite/*

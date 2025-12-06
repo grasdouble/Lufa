@@ -1,0 +1,26 @@
+{
+  "name": "@grasdouble/lufa_design-system-themes",
+  "version": "0.1.0",
+  "license": "CC-BY-NC-4.0",
+  "type": "module",
+  "description": "Lufa Design System - Theme variants (ocean, forest, etc.)",
+  "scripts": {
+    "build": "node scripts/copy-themes.js"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    "./ocean.css": "./dist/ocean.css",
+    "./forest.css": "./dist/forest.css"
+  },
+  "peerDependencies": {
+    "@grasdouble/lufa_design-system-tokens": "workspace:^"
+  }
+}

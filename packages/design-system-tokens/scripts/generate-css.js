@@ -80,5 +80,5 @@ for (const [key, value] of Object.entries(typography.letterSpacing)) {
 
 css += "}\n";
 
-writeFileSync(resolve(distDir, "foundation.css"), css);
-console.log("✅ Generated foundation.css");
+writeFileSync(resolve(distDir, "tokens.css"), css);
+console.log("✅ Generated tokens.css");

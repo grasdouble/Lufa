@@ -1,6 +1,6 @@
-/* Import the design system's Tailwind configuration with @theme definitions */
-/* This allows @apply to work with custom utilities like gap-sm, px-base, etc. */
-@import '@grasdouble/lufa_design-system/tailwind.css';
+/* Import the design system styles which include Tailwind CSS */
+@import '@grasdouble/lufa_design-system-foundation/foundation.css';
+@import '@grasdouble/lufa_design-system/style.css';
 
 #storybook-root {
     height: 100%;

@@ -38,9 +38,9 @@ importers:
       '@grasdouble/lufa_design-system':
         specifier: workspace:^
         version: link:../../design-system
-      '@grasdouble/lufa_design-system-foundation':
+      '@grasdouble/lufa_design-system-tokens':
         specifier: workspace:^
-        version: link:../../design-system-foundation
+        version: link:../../design-system-tokens
       '@mdx-js/react':
         specifier: ^3.0.0
         version: 3.1.1(@types/react@19.2.7)(react@19.2.0)
@@ -75,6 +75,9 @@ importers:
       '@grasdouble/lufa_design-system':
         specifier: workspace:^
         version: link:../../design-system
+      '@grasdouble/lufa_design-system-tokens':
+        specifier: workspace:^
+        version: link:../../design-system-tokens
       react:
         specifier: ^19.2.0
         version: 19.2.0
@@ -299,12 +302,12 @@ importers:
 
   packages/design-system:
     dependencies:
-      '@grasdouble/lufa_design-system-foundation':
-        specifier: workspace:^
-        version: link:../design-system-foundation
       '@grasdouble/lufa_design-system-primitives':
         specifier: workspace:^
         version: link:../design-system-primitives
+      '@grasdouble/lufa_design-system-tokens':
+        specifier: workspace:^
+        version: link:../design-system-tokens
       '@headlessui/react':
         specifier: ^2.2.9
         version: 2.2.9(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -379,11 +382,7 @@ importers:
         specifier: ^5.1.4
         version: 5.1.4(typescript@5.9.3)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.39.0)(tsx@4.21.0)(yaml@2.7.0))
 
-  packages/design-system-foundation:
-    dependencies:
-      '@grasdouble/lufa_design-system-primitives':
-        specifier: workspace:^
-        version: link:../design-system-primitives
+  packages/design-system-primitives:
     devDependencies:
       '@grasdouble/lufa_config_tsconfig':
         specifier: workspace:^
@@ -392,7 +391,17 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
-  packages/design-system-primitives:
+  packages/design-system-themes:
+    dependencies:
+      '@grasdouble/lufa_design-system-tokens':
+        specifier: workspace:^
+        version: link:../design-system-tokens
+
+  packages/design-system-tokens:
+    dependencies:
+      '@grasdouble/lufa_design-system-primitives':
+        specifier: workspace:^
+        version: link:../design-system-primitives
     devDependencies:
       '@grasdouble/lufa_config_tsconfig':
         specifier: workspace:^
