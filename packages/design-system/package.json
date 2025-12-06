@@ -7,9 +7,9 @@
         "lint": "eslint ./src",
         "build:types": "tsc --emitDeclarationOnly",
         "prettier:fix": "prettier --write .",
-        "build": "vite build && tsx scripts/generate-foundation-css.ts && tsx scripts/copy-tailwind-css.ts && tsx scripts/build-foundation-bundle.ts",
-        "preview": "vite preview",
-        "generate:foundation": "tsx scripts/generate-foundation-css.ts"
+        "build": "vite build",
+        "dev": "vite build --watch",
+        "preview": "vite preview"
     },
     "private": false,
     "publishConfig": {
@@ -26,11 +26,7 @@
             "types": "./dist/index.d.ts",
             "import": "./dist/lufa-ui.mjs"
         },
-        "./foundation.css": "./dist/foundation.css",
-        "./style.css": "./dist/style.css",
-        "./tailwind.css": "./dist/tailwind.css",
-        "./themes/ocean.css": "./dist/themes/ocean.css",
-        "./themes/forest.css": "./dist/themes/forest.css"
+        "./style.css": "./dist/style.css"
     },
     "devDependencies": {
         "@grasdouble/lufa_config_eslint": "workspace:^",
@@ -55,6 +51,8 @@
         "vite-tsconfig-paths": "^5.1.4"
     },
     "dependencies": {
+        "@grasdouble/lufa_design-system-foundation": "workspace:^",
+        "@grasdouble/lufa_design-system-primitives": "workspace:^",
         "@headlessui/react": "^2.2.9",
         "@heroicons/react": "^2.2.0",
         "clsx": "^2.1.1"
