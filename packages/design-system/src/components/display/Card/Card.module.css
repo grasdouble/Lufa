@@ -2,7 +2,7 @@
 
 @layer components {
     .card {
-        border-radius: var(--radius-lg);
+        @apply rounded-lg;
         @apply transition-all duration-200;
         @apply bg-background-primary;
     }
@@ -13,7 +13,7 @@
     }
 
     .variantElevated {
-        box-shadow: var(--shadow-md);
+        @apply shadow-md;
     }
 
     .variantOutlined {
@@ -43,7 +43,7 @@
 
     /* Interactive states */
     .hoverable:hover {
-        box-shadow: var(--shadow-lg);
+        @apply shadow-lg;
         @apply -translate-y-0.5;
     }
 

@@ -3,7 +3,7 @@
 @layer components {
     .alert {
         @apply gap-sm p-base relative flex items-start;
-        border-radius: var(--radius-lg);
+        @apply rounded-lg;
     }
 
     /* Variants */
@@ -66,7 +66,7 @@
     .closeButton {
         @apply ml-auto shrink-0;
         @apply p-1;
-        border-radius: var(--radius-md);
+        @apply rounded-md;
         @apply hover:bg-black/5;
         @apply transition-colors duration-200;
         @apply cursor-pointer border-none bg-transparent;

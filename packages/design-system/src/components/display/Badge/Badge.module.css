@@ -5,7 +5,7 @@
         @apply gap-xs inline-flex items-center;
         @apply font-medium;
         @apply px-sm py-xxs;
-        border-radius: var(--radius-md);
+        @apply rounded-md;
         @apply ring-1 ring-inset;
         @apply transition-colors duration-150;
     }
@@ -25,7 +25,7 @@
 
     /* Rounded variant */
     .rounded {
-        border-radius: var(--radius-full);
+        @apply rounded-full;
     }
 
     /* Dot indicator */

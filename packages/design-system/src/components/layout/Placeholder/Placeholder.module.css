@@ -4,11 +4,11 @@
     .placeholder {
         /* Modern base styles */
         @apply flex items-center justify-center;
-        border-radius: var(--radius-lg);
+        @apply rounded-lg;
         @apply px-4;
         @apply text-sm font-medium text-white;
         @apply transition-all duration-200;
-        box-shadow: var(--shadow-sm);
+        @apply shadow-sm;
 
         /* Default background with gradient */
         @apply bg-linear-to-br from-violet-500 to-violet-600;

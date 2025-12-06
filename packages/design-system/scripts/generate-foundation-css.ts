@@ -47,7 +47,7 @@ function generateColors(): string {
     // Semantic colors only
     Object.entries(semantic).forEach(([category, tokens]) => {
         Object.entries(tokens).forEach(([token, value]) => {
-            cssVars.push(`  --color-${category}-${token}: ${value};`);
+            cssVars.push(`  --lufa-color-${category}-${token}: ${value};`);
         });
     });
 
@@ -65,7 +65,7 @@ function generateSpacing(): string {
             const remMatch = value.match(/^([\d.]+)rem$/);
             const pxValue = remMatch ? `${parseFloat(remMatch[1]) * 16}px` : value;
             const comment = pxValue !== value ? ` /* ${pxValue} */` : '';
-            return `    --spacing-${key}: ${value};${comment}`;
+            return `    --lufa-spacing-${key}: ${value};${comment}`;
         })
         .join('\n');
 
@@ -86,7 +86,7 @@ function generateRadius(): string {
             const pxValue = remMatch ? `${parseFloat(remMatch[1]) * 16}px` : value;
             const comment =
                 pxValue !== value && value !== '9999px' ? ` /* ${pxValue} */` : value === '9999px' ? ' /* Fully rounded */' : '';
-            return `    --radius-${key}: ${value};${comment}`;
+            return `    --lufa-radius-${key}: ${value};${comment}`;
         })
         .join('\n');
 
@@ -101,7 +101,7 @@ ${variables}
 // ============================================
 function generateShadows(): string {
     const entries = Object.entries(shadows);
-    const variables = entries.map(([key, value]) => `    --shadow-${key}: ${value};`).join('\n');
+    const variables = entries.map(([key, value]) => `    --lufa-shadow-${key}: ${value};`).join('\n');
 
     return `:root {
     /* Shadow Scale */
@@ -114,7 +114,7 @@ ${variables}
 // ============================================
 function generateZIndex(): string {
     const entries = Object.entries(zIndex);
-    const variables = entries.map(([key, value]) => `    --z-index-${key}: ${value};`).join('\n');
+    const variables = entries.map(([key, value]) => `    --lufa-z-index-${key}: ${value};`).join('\n');
 
     return `:root {
     /* Z-Index Scale */
@@ -127,7 +127,7 @@ ${variables}
 // ============================================
 function generateBreakpoints(): string {
     const entries = Object.entries(breakpoints);
-    const variables = entries.map(([key, value]) => `    --breakpoint-${key}: ${value};`).join('\n');
+    const variables = entries.map(([key, value]) => `    --lufa-breakpoint-${key}: ${value};`).join('\n');
 
     return `:root {
     /* Breakpoint Scale */
@@ -142,26 +142,26 @@ function generateTypography(): string {
     const { fontSize, lineHeight, fontWeight, letterSpacing, typographyScale } = typographyTokens;
 
     const fontSizeVars = Object.entries(fontSize)
-        .map(([key, value]) => `    --font-size-${key}: ${value};`)
+        .map(([key, value]) => `    --lufa-font-size-${key}: ${value};`)
         .join('\n');
 
     const lineHeightVars = Object.entries(lineHeight)
-        .map(([key, value]) => `    --line-height-${key}: ${value};`)
+        .map(([key, value]) => `    --lufa-line-height-${key}: ${value};`)
         .join('\n');
 
     const fontWeightVars = Object.entries(fontWeight)
-        .map(([key, value]) => `    --font-weight-${key}: ${value};`)
+        .map(([key, value]) => `    --lufa-font-weight-${key}: ${value};`)
         .join('\n');
 
     const letterSpacingVars = Object.entries(letterSpacing)
-        .map(([key, value]) => `    --letter-spacing-${key}: ${value};`)
+        .map(([key, value]) => `    --lufa-letter-spacing-${key}: ${value};`)
         .join('\n');
 
     const scaleVars = Object.entries(typographyScale)
         .map(([variant, styles]) => {
             const vars = [`    /* ${variant} */`];
             Object.entries(styles).forEach(([prop, value]) => {
-                vars.push(`    --typography-${variant}-${prop}: ${value};`);
+                vars.push(`    --lufa-typography-${variant}-${prop}: ${value};`);
             });
             return vars.join('\n');
         })

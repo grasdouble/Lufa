@@ -7,171 +7,153 @@
 /* https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
 @custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *));
 
-/* 
+/**
  * Configure Tailwind v4 to use our foundation tokens
  * Following official Tailwind @theme structure
+ * 
+ * Organized by category with blank lines for visual separation:
+ * - Spacing utilities
+ * - Border radius utilities
+ * - Shadow/elevation utilities
+ * - Typography (font sizes and weights)
+ * - Semantic color system
  */
+
 @theme {
-    /* === SPACING === */
-    /* Use semantic names from foundation: p-base, m-lg, gap-xl, etc. */
-    --spacing-none: var(--spacing-none);
-    --spacing-xxs: var(--spacing-xxs);
-    --spacing-xs: var(--spacing-xs);
-    --spacing-sm: var(--spacing-sm);
-    --spacing-md: var(--spacing-md);
-    --spacing-base: var(--spacing-base);
-    --spacing-lg: var(--spacing-lg);
-    --spacing-xl: var(--spacing-xl);
-    --spacing-2xl: var(--spacing-2xl);
-    --spacing-3xl: var(--spacing-3xl);
-    --spacing-4xl: var(--spacing-4xl);
-    --spacing-5xl: var(--spacing-5xl);
-    --spacing-6xl: var(--spacing-6xl);
-    --spacing-7xl: var(--spacing-7xl);
+    --spacing-none: var(--lufa-spacing-none);
+    --spacing-xxs: var(--lufa-spacing-xxs);
+    --spacing-xs: var(--lufa-spacing-xs);
+    --spacing-sm: var(--lufa-spacing-sm);
+    --spacing-md: var(--lufa-spacing-md);
+    --spacing-base: var(--lufa-spacing-base);
+    --spacing-lg: var(--lufa-spacing-lg);
+    --spacing-xl: var(--lufa-spacing-xl);
+    --spacing-2xl: var(--lufa-spacing-2xl);
+    --spacing-3xl: var(--lufa-spacing-3xl);
+    --spacing-4xl: var(--lufa-spacing-4xl);
+    --spacing-5xl: var(--lufa-spacing-5xl);
+    --spacing-6xl: var(--lufa-spacing-6xl);
+    --spacing-7xl: var(--lufa-spacing-7xl);
 
-    /* === RADIUS === */
-    /* Maps Tailwind scale (rounded-lg, rounded-md) to foundation CSS variables */
-    --radius-none: var(--radius-none);
-    --radius-sm: var(--radius-xs);
-    --radius: var(--radius-sm); /* default */
-    --radius-md: var(--radius-md);
-    --radius-lg: var(--radius-lg);
-    --radius-xl: var(--radius-xl);
-    --radius-2xl: var(--radius-2xl);
-    --radius-3xl: var(--radius-3xl);
-    --radius-full: var(--radius-full);
+    --radius-none: var(--lufa-radius-none);
+    --radius-sm: var(--lufa-radius-xs);
+    --radius: var(--lufa-radius-sm);
+    --radius-md: var(--lufa-radius-md);
+    --radius-lg: var(--lufa-radius-lg);
+    --radius-xl: var(--lufa-radius-xl);
+    --radius-2xl: var(--lufa-radius-2xl);
+    --radius-3xl: var(--lufa-radius-3xl);
+    --radius-full: var(--lufa-radius-full);
 
-    /* === SHADOWS === */
-    /* Maps Tailwind scale (shadow-md, shadow-lg) to foundation CSS variables */
-    --shadow-xs: var(--shadow-xs);
-    --shadow-sm: var(--shadow-sm);
-    --shadow: var(--shadow-sm); /* default */
-    --shadow-md: var(--shadow-md);
-    --shadow-lg: var(--shadow-lg);
-    --shadow-xl: var(--shadow-xl);
-    --shadow-2xl: var(--shadow-2xl);
-    --shadow-inner: var(--shadow-inner);
-    --shadow-none: var(--shadow-none);
+    --shadow-xs: var(--lufa-shadow-xs);
+    --shadow-sm: var(--lufa-shadow-sm);
+    --shadow: var(--lufa-shadow-sm);
+    --shadow-md: var(--lufa-shadow-md);
+    --shadow-lg: var(--lufa-shadow-lg);
+    --shadow-xl: var(--lufa-shadow-xl);
+    --shadow-2xl: var(--lufa-shadow-2xl);
+    --shadow-inner: var(--lufa-shadow-inner);
+    --shadow-none: var(--lufa-shadow-none);
 
-    /* === TYPOGRAPHY === */
-    /* Font sizes - map to foundation CSS variables */
-    --text-xs: var(--font-size-xs);
-    --text-sm: var(--font-size-sm);
-    --text-base: var(--font-size-base);
-    --text-lg: var(--font-size-lg);
-    --text-xl: var(--font-size-xl);
-    --text-2xl: var(--font-size-2xl);
-    --text-3xl: var(--font-size-3xl);
-    --text-4xl: var(--font-size-4xl);
-    --text-5xl: var(--font-size-5xl);
-    --text-6xl: var(--font-size-6xl);
-    --text-7xl: var(--font-size-7xl);
+    --text-xs: var(--lufa-font-size-xs);
+    --text-sm: var(--lufa-font-size-sm);
+    --text-base: var(--lufa-font-size-base);
+    --text-lg: var(--lufa-font-size-lg);
+    --text-xl: var(--lufa-font-size-xl);
+    --text-2xl: var(--lufa-font-size-2xl);
+    --text-3xl: var(--lufa-font-size-3xl);
+    --text-4xl: var(--lufa-font-size-4xl);
+    --text-5xl: var(--lufa-font-size-5xl);
+    --text-6xl: var(--lufa-font-size-6xl);
+    --text-7xl: var(--lufa-font-size-7xl);
 
-    /* Font weights - map to foundation CSS variables */
-    --font-weight-light: var(--font-weight-light);
-    --font-weight-normal: var(--font-weight-normal);
-    --font-weight-medium: var(--font-weight-medium);
-    --font-weight-semibold: var(--font-weight-semibold);
-    --font-weight-bold: var(--font-weight-bold);
+    --font-weight-light: var(--lufa-font-weight-light);
+    --font-weight-normal: var(--lufa-font-weight-normal);
+    --font-weight-medium: var(--lufa-font-weight-medium);
+    --font-weight-semibold: var(--lufa-font-weight-semibold);
+    --font-weight-bold: var(--lufa-font-weight-bold);
 
-    /* === SEMANTIC COLORS === */
-    /* These reference CSS variables from foundation/colors.css */
-    /* Allows theming while keeping Tailwind utilities */
+    --color-text-primary: var(--lufa-color-text-primary);
+    --color-text-secondary: var(--lufa-color-text-secondary);
+    --color-text-tertiary: var(--lufa-color-text-tertiary);
+    --color-text-disabled: var(--lufa-color-text-disabled);
+    --color-text-inverse: var(--lufa-color-text-inverse);
+    --color-text-link: var(--lufa-color-text-link);
+    --color-text-link-hover: var(--lufa-color-text-linkHover);
 
-    /* Text colors: text-text-primary, text-text-secondary, etc. */
-    --color-text-primary: var(--color-text-primary);
-    --color-text-secondary: var(--color-text-secondary);
-    --color-text-tertiary: var(--color-text-tertiary);
-    --color-text-disabled: var(--color-text-disabled);
-    --color-text-inverse: var(--color-text-inverse);
-    --color-text-link: var(--color-text-link);
-    --color-text-link-hover: var(--color-text-linkHover);
+    --color-background-primary: var(--lufa-color-background-primary);
+    --color-background-secondary: var(--lufa-color-background-secondary);
+    --color-background-tertiary: var(--lufa-color-background-tertiary);
+    --color-background-inverse: var(--lufa-color-background-inverse);
+    --color-background-overlay: var(--lufa-color-background-overlay);
 
-    /* Background colors: bg-background-primary, bg-background-secondary, etc. */
-    --color-background-primary: var(--color-background-primary);
-    --color-background-secondary: var(--color-background-secondary);
-    --color-background-tertiary: var(--color-background-tertiary);
-    --color-background-inverse: var(--color-background-inverse);
-    --color-background-overlay: var(--color-background-overlay);
+    --color-border-default: var(--lufa-color-border-default);
+    --color-border-light: var(--lufa-color-border-light);
+    --color-border-medium: var(--lufa-color-border-medium);
+    --color-border-strong: var(--lufa-color-border-strong);
+    --color-border-focus: var(--lufa-color-border-focus);
 
-    /* Border colors: border-border-default, border-border-light, etc. */
-    --color-border-default: var(--color-border-default);
-    --color-border-light: var(--color-border-light);
-    --color-border-medium: var(--color-border-medium);
-    --color-border-strong: var(--color-border-strong);
-    --color-border-focus: var(--color-border-focus);
+    --color-interactive-default: var(--lufa-color-interactive-default);
+    --color-interactive-hover: var(--lufa-color-interactive-hover);
+    --color-interactive-active: var(--lufa-color-interactive-active);
+    --color-interactive-disabled: var(--lufa-color-interactive-disabled);
+    --color-interactive-focus: var(--lufa-color-interactive-focus);
 
-    /* Interactive colors: text-interactive-default, bg-interactive-hover, etc. */
-    --color-interactive-default: var(--color-interactive-default);
-    --color-interactive-hover: var(--color-interactive-hover);
-    --color-interactive-active: var(--color-interactive-active);
-    --color-interactive-disabled: var(--color-interactive-disabled);
-    --color-interactive-focus: var(--color-interactive-focus);
+    --color-success-default: var(--lufa-color-success-default);
+    --color-success-hover: var(--lufa-color-success-hover);
+    --color-success-active: var(--lufa-color-success-active);
+    --color-success-light: var(--lufa-color-success-light);
+    --color-success-lighter: var(--lufa-color-success-lighter);
+    --color-success-border: var(--lufa-color-success-border);
+    --color-success-text: var(--lufa-color-success-text);
 
-    /* Success colors: text-success-default, bg-success-light, border-success-border, etc. */
-    --color-success-default: var(--color-success-default);
-    --color-success-hover: var(--color-success-hover);
-    --color-success-active: var(--color-success-active);
-    --color-success-light: var(--color-success-light);
-    --color-success-lighter: var(--color-success-lighter);
-    --color-success-border: var(--color-success-border);
-    --color-success-text: var(--color-success-text);
+    --color-warning-default: var(--lufa-color-warning-default);
+    --color-warning-hover: var(--lufa-color-warning-hover);
+    --color-warning-active: var(--lufa-color-warning-active);
+    --color-warning-light: var(--lufa-color-warning-light);
+    --color-warning-lighter: var(--lufa-color-warning-lighter);
+    --color-warning-border: var(--lufa-color-warning-border);
+    --color-warning-text: var(--lufa-color-warning-text);
 
-    /* Warning colors: text-warning-default, bg-warning-light, border-warning-border, etc. */
-    --color-warning-default: var(--color-warning-default);
-    --color-warning-hover: var(--color-warning-hover);
-    --color-warning-active: var(--color-warning-active);
-    --color-warning-light: var(--color-warning-light);
-    --color-warning-lighter: var(--color-warning-lighter);
-    --color-warning-border: var(--color-warning-border);
-    --color-warning-text: var(--color-warning-text);
+    --color-error-default: var(--lufa-color-error-default);
+    --color-error-hover: var(--lufa-color-error-hover);
+    --color-error-active: var(--lufa-color-error-active);
+    --color-error-light: var(--lufa-color-error-light);
+    --color-error-lighter: var(--lufa-color-error-lighter);
+    --color-error-border: var(--lufa-color-error-border);
+    --color-error-text: var(--lufa-color-error-text);
 
-    /* Error/Danger colors: text-error-default, bg-error-light, border-error-border, etc. */
-    --color-error-default: var(--color-error-default);
-    --color-error-hover: var(--color-error-hover);
-    --color-error-active: var(--color-error-active);
-    --color-error-light: var(--color-error-light);
-    --color-error-lighter: var(--color-error-lighter);
-    --color-error-border: var(--color-error-border);
-    --color-error-text: var(--color-error-text);
+    --color-info-default: var(--lufa-color-info-default);
+    --color-info-hover: var(--lufa-color-info-hover);
+    --color-info-active: var(--lufa-color-info-active);
+    --color-info-light: var(--lufa-color-info-light);
+    --color-info-lighter: var(--lufa-color-info-lighter);
+    --color-info-border: var(--lufa-color-info-border);
+    --color-info-text: var(--lufa-color-info-text);
 
-    /* Info colors: text-info-default, bg-info-light, border-info-border, etc. */
-    --color-info-default: var(--color-info-default);
-    --color-info-hover: var(--color-info-hover);
-    --color-info-active: var(--color-info-active);
-    --color-info-light: var(--color-info-light);
-    --color-info-lighter: var(--color-info-lighter);
-    --color-info-border: var(--color-info-border);
-    --color-info-text: var(--color-info-text);
+    --color-brand-primary: var(--lufa-color-brand-primary);
+    --color-brand-primary-hover: var(--lufa-color-brand-primaryHover);
+    --color-brand-primary-active: var(--lufa-color-brand-primaryActive);
+    --color-brand-secondary: var(--lufa-color-brand-secondary);
+    --color-brand-secondary-hover: var(--lufa-color-brand-secondaryHover);
+    --color-brand-secondary-active: var(--lufa-color-brand-secondaryActive);
+    --color-brand-accent: var(--lufa-color-brand-accent);
 
-    /* Brand colors: text-brand-primary, bg-brand-secondary, etc. */
-    --color-brand-primary: var(--color-brand-primary);
-    --color-brand-primary-hover: var(--color-brand-primaryHover);
-    --color-brand-primary-active: var(--color-brand-primaryActive);
-    --color-brand-secondary: var(--color-brand-secondary);
-    --color-brand-secondary-hover: var(--color-brand-secondaryHover);
-    --color-brand-secondary-active: var(--color-brand-secondaryActive);
-    --color-brand-accent: var(--color-brand-accent);
+    --color-surface-default: var(--lufa-color-surface-default);
+    --color-surface-raised: var(--lufa-color-surface-raised);
+    --color-surface-overlay: var(--lufa-color-surface-overlay);
+    --color-surface-inverse: var(--lufa-color-surface-inverse);
 
-    /* Surface colors: bg-surface-default, bg-surface-raised, etc. */
-    --color-surface-default: var(--color-surface-default);
-    --color-surface-raised: var(--color-surface-raised);
-    --color-surface-overlay: var(--color-surface-overlay);
-    --color-surface-inverse: var(--color-surface-inverse);
+    --color-shadow-small: var(--lufa-color-shadow-small);
+    --color-shadow-medium: var(--lufa-color-shadow-medium);
+    --color-shadow-large: var(--lufa-color-shadow-large);
+    --color-shadow-extra-large: var(--lufa-color-shadow-extraLarge);
 
-    /* Shadow colors: shadow-color-shadow-small, etc. */
-    --color-shadow-small: var(--color-shadow-small);
-    --color-shadow-medium: var(--color-shadow-medium);
-    --color-shadow-large: var(--color-shadow-large);
-    --color-shadow-extra-large: var(--color-shadow-extraLarge);
-
-    /* === CONVENIENCE ALIASES === */
-    /* Shorter utility names for common use cases */
-    --color-primary: var(--color-interactive-default);
-    --color-secondary: var(--color-text-secondary);
-    --color-success: var(--color-success-default);
-    --color-warning: var(--color-warning-default);
-    --color-danger: var(--color-error-default);
-    --color-error: var(--color-error-default);
-    --color-info: var(--color-info-default);
+    --color-primary: var(--lufa-color-interactive-default);
+    --color-secondary: var(--lufa-color-text-secondary);
+    --color-success: var(--lufa-color-success-default);
+    --color-warning: var(--lufa-color-warning-default);
+    --color-danger: var(--lufa-color-error-default);
+    --color-error: var(--lufa-color-error-default);
+    --color-info: var(--lufa-color-info-default);
 }

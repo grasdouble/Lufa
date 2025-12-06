@@ -7,101 +7,101 @@
 
     /* Variants - Using CSS variables from typography tokens */
     .variant-h1 {
-        font-size: var(--typography-h1-font-size);
-        line-height: var(--typography-h1-line-height);
-        font-weight: var(--typography-h1-font-weight);
-        letter-spacing: var(--typography-h1-letter-spacing);
+        font-size: var(--lufa-typography-h1-font-size);
+        line-height: var(--lufa-typography-h1-line-height);
+        font-weight: var(--lufa-typography-h1-font-weight);
+        letter-spacing: var(--lufa-typography-h1-letter-spacing);
     }
 
     .variant-h2 {
-        font-size: var(--typography-h2-font-size);
-        line-height: var(--typography-h2-line-height);
-        font-weight: var(--typography-h2-font-weight);
-        letter-spacing: var(--typography-h2-letter-spacing);
+        font-size: var(--lufa-typography-h2-font-size);
+        line-height: var(--lufa-typography-h2-line-height);
+        font-weight: var(--lufa-typography-h2-font-weight);
+        letter-spacing: var(--lufa-typography-h2-letter-spacing);
     }
 
     .variant-h3 {
-        font-size: var(--typography-h3-font-size);
-        line-height: var(--typography-h3-line-height);
-        font-weight: var(--typography-h3-font-weight);
-        letter-spacing: var(--typography-h3-letter-spacing);
+        font-size: var(--lufa-typography-h3-font-size);
+        line-height: var(--lufa-typography-h3-line-height);
+        font-weight: var(--lufa-typography-h3-font-weight);
+        letter-spacing: var(--lufa-typography-h3-letter-spacing);
     }
 
     .variant-h4 {
-        font-size: var(--typography-h4-font-size);
-        line-height: var(--typography-h4-line-height);
-        font-weight: var(--typography-h4-font-weight);
-        letter-spacing: var(--typography-h4-letter-spacing);
+        font-size: var(--lufa-typography-h4-font-size);
+        line-height: var(--lufa-typography-h4-line-height);
+        font-weight: var(--lufa-typography-h4-font-weight);
+        letter-spacing: var(--lufa-typography-h4-letter-spacing);
     }
 
     .variant-h5 {
-        font-size: var(--typography-h5-font-size);
-        line-height: var(--typography-h5-line-height);
-        font-weight: var(--typography-h5-font-weight);
-        letter-spacing: var(--typography-h5-letter-spacing);
+        font-size: var(--lufa-typography-h5-font-size);
+        line-height: var(--lufa-typography-h5-line-height);
+        font-weight: var(--lufa-typography-h5-font-weight);
+        letter-spacing: var(--lufa-typography-h5-letter-spacing);
     }
 
     .variant-h6 {
-        font-size: var(--typography-h6-font-size);
-        line-height: var(--typography-h6-line-height);
-        font-weight: var(--typography-h6-font-weight);
-        letter-spacing: var(--typography-h6-letter-spacing);
+        font-size: var(--lufa-typography-h6-font-size);
+        line-height: var(--lufa-typography-h6-line-height);
+        font-weight: var(--lufa-typography-h6-font-weight);
+        letter-spacing: var(--lufa-typography-h6-letter-spacing);
     }
 
     .variant-body {
-        font-size: var(--typography-body-font-size);
-        line-height: var(--typography-body-line-height);
-        font-weight: var(--typography-body-font-weight);
-        letter-spacing: var(--typography-body-letter-spacing);
+        font-size: var(--lufa-typography-body-font-size);
+        line-height: var(--lufa-typography-body-line-height);
+        font-weight: var(--lufa-typography-body-font-weight);
+        letter-spacing: var(--lufa-typography-body-letter-spacing);
     }
 
     .variant-bodyLarge {
-        font-size: var(--typography-body-large-font-size);
-        line-height: var(--typography-body-large-line-height);
-        font-weight: var(--typography-body-large-font-weight);
-        letter-spacing: var(--typography-body-large-letter-spacing);
+        font-size: var(--lufa-typography-body-large-font-size);
+        line-height: var(--lufa-typography-body-large-line-height);
+        font-weight: var(--lufa-typography-body-large-font-weight);
+        letter-spacing: var(--lufa-typography-body-large-letter-spacing);
     }
 
     .variant-bodySmall {
-        font-size: var(--typography-body-small-font-size);
-        line-height: var(--typography-body-small-line-height);
-        font-weight: var(--typography-body-small-font-weight);
-        letter-spacing: var(--typography-body-small-letter-spacing);
+        font-size: var(--lufa-typography-body-small-font-size);
+        line-height: var(--lufa-typography-body-small-line-height);
+        font-weight: var(--lufa-typography-body-small-font-weight);
+        letter-spacing: var(--lufa-typography-body-small-letter-spacing);
     }
 
     .variant-caption {
-        font-size: var(--typography-caption-font-size);
-        line-height: var(--typography-caption-line-height);
-        font-weight: var(--typography-caption-font-weight);
-        letter-spacing: var(--typography-caption-letter-spacing);
+        font-size: var(--lufa-typography-caption-font-size);
+        line-height: var(--lufa-typography-caption-line-height);
+        font-weight: var(--lufa-typography-caption-font-weight);
+        letter-spacing: var(--lufa-typography-caption-letter-spacing);
     }
 
     .variant-label {
-        font-size: var(--typography-label-font-size);
-        line-height: var(--typography-label-line-height);
-        font-weight: var(--typography-label-font-weight);
-        letter-spacing: var(--typography-label-letter-spacing);
+        font-size: var(--lufa-typography-label-font-size);
+        line-height: var(--lufa-typography-label-line-height);
+        font-weight: var(--lufa-typography-label-font-weight);
+        letter-spacing: var(--lufa-typography-label-letter-spacing);
     }
 
     /* Font Weights - Using CSS variables */
     .weight-light {
-        font-weight: var(--font-weight-light);
+        font-weight: var(--lufa-font-weight-light);
     }
 
     .weight-normal {
-        font-weight: var(--font-weight-normal);
+        font-weight: var(--lufa-font-weight-normal);
     }
 
     .weight-medium {
-        font-weight: var(--font-weight-medium);
+        font-weight: var(--lufa-font-weight-medium);
     }
 
     .weight-semibold {
-        font-weight: var(--font-weight-semibold);
+        font-weight: var(--lufa-font-weight-semibold);
     }
 
     .weight-bold {
-        font-weight: var(--font-weight-bold);
+        font-weight: var(--lufa-font-weight-bold);
     }
 
     /* Alignment */
