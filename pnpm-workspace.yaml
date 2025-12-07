@@ -8,4 +8,4 @@ packages:
   - packages/design-system
   - packages/microfrontend/*
   - packages/plugins/vite/*
-  - packages/poc/single-spa-vite-esm/*
+  - packages/poc/*
