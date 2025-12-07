@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { semantic } from '@grasdouble/lufa_design-system';
 
 const meta = {
-    title: '1. Foundation/Colors/Semantic',
+    title: '1. Tokens/Colors',
     parameters: {
         layout: 'padded',
     },
-    tags: ['autodocs'],
+    tags: [],
 } satisfies Meta;
 
 export default meta;

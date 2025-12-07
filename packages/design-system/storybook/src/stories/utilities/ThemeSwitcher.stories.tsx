@@ -3,7 +3,7 @@ import { Button, Input, Card, Badge, Alert, Typography } from '@grasdouble/lufa_
 import { ThemeSwitcher } from '../../components/ThemeSwitcher';
 
 const meta = {
-    title: '1. Foundation/Theme Switcher',
+    title: '8. Utilities/Theme Switcher',
     component: ThemeSwitcher,
     parameters: {
         layout: 'fullscreen',
@@ -53,7 +53,7 @@ All existing components will automatically work with your new theme!
             },
         },
     },
-    tags: ['autodocs'],
+    tags: [],
 } satisfies Meta;
 
 export default meta;

@@ -9,6 +9,7 @@ import { radius } from "../dist/radius.js";
 import { shadows } from "../dist/shadows.js";
 import { zIndex } from "../dist/zIndex.js";
 import { breakpoints } from "../dist/breakpoints.js";
+import { maxWidth } from "../dist/maxWidth.js";
 import typography from "../dist/typography.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -17,68 +18,75 @@ const distDir = resolve(__dirname, "../dist");
 
 mkdirSync(distDir, { recursive: true });
 
-let css = ":root {\n";
+// Generate Lufa-prefixed tokens
+let lufaCss = ":root {\n";
 
-// Semantic Colors
-css += "  /* Semantic Colors */\n";
+// Semantic Colors with lufa prefix
+lufaCss += "  /* Semantic Colors */\n";
 for (const [category, colors] of Object.entries(semantic)) {
   for (const [shade, value] of Object.entries(colors)) {
-    css += `  --color-${category}-${shade}: ${value};\n`;
+    lufaCss += `  --lufa-color-${category}-${shade}: ${value};\n`;
   }
 }
 
-// Spacing
-css += "\n  /* Spacing */\n";
+// Spacing with lufa prefix
+lufaCss += "\n  /* Spacing */\n";
 for (const [key, value] of Object.entries(spacing)) {
-  css += `  --spacing-${key}: ${value};\n`;
+  lufaCss += `  --lufa-spacing-${key}: ${value};\n`;
 }
 
-// Radius
-css += "\n  /* Border Radius */\n";
+// Radius with lufa prefix
+lufaCss += "\n  /* Border Radius */\n";
 for (const [key, value] of Object.entries(radius)) {
-  css += `  --radius-${key}: ${value};\n`;
+  lufaCss += `  --lufa-radius-${key}: ${value};\n`;
 }
 
-// Shadows
-css += "\n  /* Shadows */\n";
+// Shadows with lufa prefix
+lufaCss += "\n  /* Shadows */\n";
 for (const [key, value] of Object.entries(shadows)) {
-  css += `  --shadow-${key}: ${value};\n`;
+  lufaCss += `  --lufa-shadow-${key}: ${value};\n`;
 }
 
-// Z-Index
-css += "\n  /* Z-Index */\n";
+// Z-Index with lufa prefix
+lufaCss += "\n  /* Z-Index */\n";
 for (const [key, value] of Object.entries(zIndex)) {
-  css += `  --z-index-${key}: ${value};\n`;
+  lufaCss += `  --lufa-z-index-${key}: ${value};\n`;
 }
 
-// Breakpoints
-css += "\n  /* Breakpoints */\n";
+// Breakpoints with lufa prefix
+lufaCss += "\n  /* Breakpoints */\n";
 for (const [key, value] of Object.entries(breakpoints)) {
-  css += `  --breakpoint-${key}: ${value};\n`;
+  lufaCss += `  --lufa-breakpoint-${key}: ${value};\n`;
 }
 
-// Typography
-css += "\n  /* Typography - Font Sizes */\n";
+// Max Width with lufa prefix
+lufaCss += "\n  /* Max Width */\n";
+for (const [key, value] of Object.entries(maxWidth)) {
+  lufaCss += `  --lufa-max-width-${key}: ${value};\n`;
+}
+
+// Typography with lufa prefix
+lufaCss += "\n  /* Typography - Font Sizes */\n";
 for (const [key, value] of Object.entries(typography.fontSize)) {
-  css += `  --font-size-${key}: ${value};\n`;
+  lufaCss += `  --lufa-font-size-${key}: ${value};\n`;
 }
 
-css += "\n  /* Typography - Line Heights */\n";
+lufaCss += "\n  /* Typography - Line Heights */\n";
 for (const [key, value] of Object.entries(typography.lineHeight)) {
-  css += `  --line-height-${key}: ${value};\n`;
+  lufaCss += `  --lufa-line-height-${key}: ${value};\n`;
 }
 
-css += "\n  /* Typography - Font Weights */\n";
+lufaCss += "\n  /* Typography - Font Weights */\n";
 for (const [key, value] of Object.entries(typography.fontWeight)) {
-  css += `  --font-weight-${key}: ${value};\n`;
+  lufaCss += `  --lufa-font-weight-${key}: ${value};\n`;
 }
 
-css += "\n  /* Typography - Letter Spacing */\n";
+lufaCss += "\n  /* Typography - Letter Spacing */\n";
 for (const [key, value] of Object.entries(typography.letterSpacing)) {
-  css += `  --letter-spacing-${key}: ${value};\n`;
+  lufaCss += `  --lufa-letter-spacing-${key}: ${value};\n`;
 }
 
-css += "}\n";
+lufaCss += "}\n";
 
-writeFileSync(resolve(distDir, "tokens.css"), css);
+writeFileSync(resolve(distDir, "tokens.css"), lufaCss);
 console.log("✅ Generated tokens.css");

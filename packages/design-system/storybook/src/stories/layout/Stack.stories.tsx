@@ -23,7 +23,7 @@ const meta = {
             },
         },
     },
-    tags: ['autodocs'],
+    tags: [],
     argTypes: {
         gap: {
             control: 'select',

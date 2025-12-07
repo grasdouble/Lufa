@@ -13,7 +13,7 @@ const meta = {
             },
         },
     },
-    tags: ['autodocs'],
+    tags: [],
     argTypes: {
         max: {
             control: 'number',

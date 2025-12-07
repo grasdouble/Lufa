@@ -9,6 +9,7 @@
  * 
  * Organized by category with blank lines for visual separation:
  * - Spacing utilities
+ * - Max width utilities 
  * - Border radius utilities
  * - Shadow/elevation utilities
  * - Typography (font sizes and weights)
@@ -30,6 +31,19 @@
     --spacing-5xl: var(--lufa-spacing-5xl);
     --spacing-6xl: var(--lufa-spacing-6xl);
     --spacing-7xl: var(--lufa-spacing-7xl);
+
+    --max-width-sm: var(--lufa-max-width-sm);
+    --max-width-md: var(--lufa-max-width-md);
+    --max-width-lg: var(--lufa-max-width-lg);
+    --max-width-xl: var(--lufa-max-width-xl);
+    --max-width-2xl: var(--lufa-max-width-2xl);
+    --max-width-3xl: var(--lufa-max-width-3xl);
+    --max-width-4xl: var(--lufa-max-width-4xl);
+    --max-width-5xl: var(--lufa-max-width-5xl);
+    --max-width-6xl: var(--lufa-max-width-6xl);
+    --max-width-7xl: var(--lufa-max-width-7xl);
+    --max-width-full: var(--lufa-max-width-full);
+    --max-width-none: var(--lufa-max-width-none);
 
     --radius-none: var(--lufa-radius-none);
     --radius-sm: var(--lufa-radius-xs);
