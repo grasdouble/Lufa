@@ -218,13 +218,13 @@ const ComponentPreview: React.FC<{ colors: ThemeColors }> = ({ colors }) => {
             <div style={{ marginBottom: '24px' }}>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#171717' }}>Buttons</h3>
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                    <Button variant="primary" size="medium">
+                    <Button color="primary" size="medium">
                         Primary Button
                     </Button>
-                    <Button variant="secondary" size="medium">
+                    <Button color="secondary" size="medium">
                         Secondary
                     </Button>
-                    <Button variant="danger" size="medium">
+                    <Button color="danger" size="medium">
                         Danger
                     </Button>
                 </div>
@@ -235,7 +235,7 @@ const ComponentPreview: React.FC<{ colors: ThemeColors }> = ({ colors }) => {
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                     <Badge variant="success">Success</Badge>
                     <Badge variant="warning">Warning</Badge>
-                    <Badge variant="error">Error</Badge>
+                    <Badge variant="danger">Error</Badge>
                     <Badge variant="info">Info</Badge>
                 </div>
             </div>
