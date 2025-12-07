@@ -9,6 +9,8 @@
     "mf:dev": "concurrently \"pnpm --filter @grasdouble/lufa_microfrontend_main-container run dev\" \"pnpm --filter @grasdouble/lufa_microfrontend_home run dev\"",
     "mf:buildAndPreview": "pnpm --filter @grasdouble/lufa_microfrontend_main-container run buildAndPreview",
     "--DesignSystem--": "",
+    "build:lufa:ds:primitives": "pnpm --filter @grasdouble/lufa_design-system-primitives run build",
+    "build:lufa:ds:tokens": "pnpm --filter @grasdouble/lufa_design-system-tokens run build",
     "build:lufa:ds": "pnpm --filter @grasdouble/lufa_design-system run build",
     "build:lufa:ds:storybook": "pnpm --filter @grasdouble/lufa_design-system-storybook run build",
     "build:lufa:ds:documentation": "pnpm --filter @grasdouble/lufa_design-system-documentation run build",

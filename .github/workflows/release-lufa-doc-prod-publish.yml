@@ -43,15 +43,23 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Step 5: Build Lufa Documentation
-      - name: Build Design System
+      # Step 5: Build Lufa Design System Primitives
+      - name: Build Lufa Design System Primitives
+        run: pnpm build:lufa:ds:primitives
+
+      # Step 6: Build Lufa Design System Tokens
+      - name: Build Lufa Design System Tokens
+        run: pnpm build:lufa:ds:tokens
+
+      # Step 7: Build Lufa Design System
+      - name: Build Lufa Design System
         run: pnpm build:lufa:ds
 
-      # Step 6: Build Lufa Documentation
-      - name: Build Lufa Documentation
+      # Step 8: Build Lufa Design System Documentation
+      - name: Build Lufa Design System Documentation
         run: pnpm build:lufa:ds:documentation
 
-      # Step 7: Deploy to GitHub Pages
+      # Step 9: Deploy to GitHub Pages
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
