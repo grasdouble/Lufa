@@ -27,8 +27,8 @@ Learn about the core design tokens that power Lufa.
 
 Browse our collection of accessible React components.
 
-- **[Button](./components/button)** - Primary interaction component
-- **[Card](./components/card)** - Content container
+- **[Button](./components/forms/button)** - Primary interaction component
+- **[Card](./components/display/card)** - Content container
 - **[Typography](./components/typography)** - Text display component
 - [View all components →](./components/overview)
 

@@ -82,57 +82,64 @@ const config: Config = {
           label: "GitHub",
           position: "right",
         },
-        {
-          href: "/storybook",
-          label: "Storybook",
-          position: "right",
-        },
       ],
     },
     footer: {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Documentation",
           items: [
             {
-              label: "Tutorial",
+              label: "Getting Started",
               to: "/docs/intro",
             },
-          ],
-        },
-        {
-          title: "Community",
-          items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              label: "Installation",
+              to: "/docs/getting-started/installation",
             },
             {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "X",
-              href: "https://x.com/docusaurus",
+              label: "Components",
+              to: "/docs/components/overview",
             },
           ],
         },
         {
-          title: "More",
+          title: "Foundations",
           items: [
             {
-              label: "Blog",
-              to: "/blog",
+              label: "Colors",
+              to: "/docs/foundations/colors",
             },
+            {
+              label: "Typography",
+              to: "/docs/foundations/typography",
+            },
+            {
+              label: "Spacing",
+              to: "/docs/foundations/spacing",
+            },
+          ],
+        },
+        {
+          title: "Resources",
+          items: [
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/grasdouble/Lufa",
+            },
+            {
+              label: "Contributing",
+              to: "/docs/guides/contributing",
+            },
+            {
+              label: "Accessibility",
+              to: "/docs/accessibility",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Grasdouble.`,
     },
     prism: {
       theme: prismThemes.github,

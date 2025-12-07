@@ -30,6 +30,16 @@ const sidebars: SidebarsConfig = {
           label: "Layout",
           items: ["components/layout/placeholder", "components/layout/stack"],
         },
+        {
+          type: "category",
+          label: "Display",
+          items: ["components/display/card"],
+        },
+        {
+          type: "category",
+          label: "Forms",
+          items: ["components/forms/button"],
+        },
       ],
     },
   ],
