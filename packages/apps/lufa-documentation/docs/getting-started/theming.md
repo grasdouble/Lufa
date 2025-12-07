@@ -85,4 +85,4 @@ All CSS variables are prefixed with `--lufa-` to avoid conflicts:
 - `--lufa-radius-*` - Border radius tokens
 - `--lufa-shadow-*` - Shadow tokens
 
-[View all design tokens →](../foundations/colors)
+[View all design tokens →](../tokens/colors)

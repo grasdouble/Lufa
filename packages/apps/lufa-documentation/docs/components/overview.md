@@ -168,4 +168,4 @@ Explore interactive examples in [Storybook](http://localhost:6006).
 - [Getting Started →](../getting-started/installation)
 - [Usage Guide →](../getting-started/usage)
 - [Theming →](../getting-started/theming)
-- [Design Foundations →](../foundations/colors)
+- [Design Foundations →](../tokens/colors)

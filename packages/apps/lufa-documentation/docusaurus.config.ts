@@ -109,15 +109,15 @@ const config: Config = {
           items: [
             {
               label: "Colors",
-              to: "/docs/foundations/colors",
+              to: "/docs/tokens/colors",
             },
             {
               label: "Typography",
-              to: "/docs/foundations/typography",
+              to: "/docs/tokens/typography",
             },
             {
               label: "Spacing",
-              to: "/docs/foundations/spacing",
+              to: "/docs/tokens/spacing",
             },
           ],
         },

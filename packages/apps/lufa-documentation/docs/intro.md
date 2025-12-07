@@ -18,10 +18,10 @@ Get up and running with Lufa Design System in minutes.
 
 Learn about the core design tokens that power Lufa.
 
-- **[Colors](./foundations/colors)** - Semantic color system with dark mode support
-- **[Typography](./foundations/typography)** - Type scale and font system
-- **[Spacing](./foundations/spacing)** - Standardized spacing scale
-- **[Shadows](./foundations/shadows)** - Elevation and depth system
+- **[Colors](./tokens/colors)** - Semantic color system with dark mode support
+- **[Typography](./tokens/typography)** - Type scale and font system
+- **[Spacing](./tokens/spacing)** - Standardized spacing scale
+- **[Shadows](./tokens/shadows)** - Elevation and depth system
 
 ## Components
 

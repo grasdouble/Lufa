@@ -253,7 +253,7 @@ Override the rendered element:
 
 ## Related
 
-- [Typography Foundation →](../foundations/typography)
-- [Colors Foundation →](../foundations/colors)
+- [Typography Foundation →](../tokens/typography)
+- [Colors Foundation →](../tokens/colors)
 - [Button Component →](./forms/button)
 - [Card Component →](./display/card)
