@@ -1,5 +1,5 @@
 {
-    "name": "@grasdouble/lufa_apps_storybook",
+    "name": "@grasdouble/lufa_design-system-storybook",
     "version": "0.2.1",
     "type": "module",
     "scripts": {

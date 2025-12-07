@@ -15,7 +15,7 @@ registerApplication({
 });
 
 registerApplication({
-    name: '@grasdouble/lufa_apps_storybook',
+    name: '@grasdouble/lufa_design-system-storybook',
     app: async () => {
         // Create a false module to encapsulate your storybook application
         return {

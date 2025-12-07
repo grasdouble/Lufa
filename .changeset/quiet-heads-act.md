@@ -1,5 +1,5 @@
 ---
-"@grasdouble/lufa_apps_documentation": patch
+"@grasdouble/lufa_design-system-documentation": patch
 ---
 
 Fix build

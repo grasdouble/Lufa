@@ -1,5 +1,5 @@
 ---
-"@grasdouble/lufa_apps_storybook": minor
+"@grasdouble/lufa_design-system-storybook": minor
 "@grasdouble/lufa_design-system": minor
 ---
 

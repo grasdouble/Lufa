@@ -1,4 +1,4 @@
-# @grasdouble/lufa_apps_storybook
+# @grasdouble/lufa_design-system-storybook
 
 ## 0.2.1
 
