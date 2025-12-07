@@ -103,9 +103,6 @@ importers:
       '@storybook/react-vite':
         specifier: ^10.1.2
         version: 10.1.2(esbuild@0.27.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rollup@4.53.3)(storybook@10.1.2(@testing-library/dom@10.4.0)(prettier@3.7.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(typescript@5.9.3)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.39.0)(tsx@4.21.0)(yaml@2.7.0))(webpack@5.103.0(esbuild@0.27.0))
-      '@tailwindcss/vite':
-        specifier: ^4.1.17
-        version: 4.1.17(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.39.0)(tsx@4.21.0)(yaml@2.7.0))
       '@types/react':
         specifier: ^19.2.7
         version: 19.2.7
@@ -127,15 +124,9 @@ importers:
       prettier:
         specifier: ^3.7.3
         version: 3.7.3
-      prettier-plugin-tailwindcss:
-        specifier: ^0.7.1
-        version: 0.7.1(prettier@3.7.3)
       storybook:
         specifier: ^10.1.2
         version: 10.1.2(@testing-library/dom@10.4.0)(prettier@3.7.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      tailwindcss:
-        specifier: ^4.1.17
-        version: 4.1.17
       typescript:
         specifier: ^5.9.3
         version: 5.9.3

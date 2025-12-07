@@ -1,36 +1,37 @@
-@reference '../../tailwind.css';
+/* Container for select and button variants */
+.container,
+.buttonGroup {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--lufa-spacing-sm);
+}
 
-@layer components {
-    /* Container for select and button variants */
-    .container,
-    .buttonGroup {
-        @apply gap-sm inline-flex items-center;
-    }
+/* Select variant - native select styled to match design system */
+.select {
+    padding: var(--lufa-spacing-sm) var(--lufa-spacing-base);
+    border: 1px solid var(--lufa-color-border-default);
+    background-color: var(--lufa-color-background-primary);
+    color: var(--lufa-color-text-primary);
+    border-radius: var(--lufa-radius-md);
+    cursor: pointer;
+    transition: all 200ms;
+}
 
-    /* Select variant - native select styled to match design system */
-    .select {
-        @apply px-base py-sm;
-        @apply border-border-default bg-background-primary border;
-        @apply text-text-primary;
-        border-radius: var(--radius-md);
-        @apply cursor-pointer transition-all duration-200;
-    }
+.select:hover {
+    border-color: var(--lufa-color-border-medium);
+}
 
-    .select:hover {
-        @apply border-border-medium;
-    }
+.select:focus {
+    outline: 2px solid var(--lufa-color-interactive-focus);
+    outline-offset: 2px;
+}
 
-    .select:focus {
-        @apply outline-2;
-        outline-color: var(--color-interactive-focus);
-    }
-
-    /* Tabs variant - container for tab buttons */
-    .tabs {
-        @apply gap-xs inline-flex;
-        @apply bg-background-secondary;
-        @apply border-border-default border;
-        border-radius: var(--radius-lg);
-        @apply p-xs;
-    }
+/* Tabs variant - container for tab buttons */
+.tabs {
+    display: inline-flex;
+    gap: var(--lufa-spacing-xs);
+    background-color: var(--lufa-color-background-secondary);
+    border: 1px solid var(--lufa-color-border-default);
+    border-radius: var(--lufa-radius-lg);
+    padding: var(--lufa-spacing-xs);
 }
