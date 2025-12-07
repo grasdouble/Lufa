@@ -19,8 +19,8 @@ export type { TypographyProps } from './components/Typography';
 // ============================================
 export * from './components/layout/Stack';
 export * from './components/layout/Placeholder';
+export * from './components/layout/Divider';
 // export { Container } from "./components/layout/Container";
-// export { Divider } from "./components/layout/Divider";
 // export { Grid } from "./components/layout/Grid";
 // export { Layout } from "./components/layout/Layout";
 // export { Space } from "./components/layout/Space";
