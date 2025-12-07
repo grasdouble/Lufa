@@ -1,0 +1,68 @@
+name: Release:Lufa:Doc-Prod-Publish
+description: |
+  This workflow publishes the Lufa Documentation to GitHub Pages for the main branch.
+  It is manually triggered.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+  actions: none
+  checks: none
+  issues: none
+  packages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
+jobs:
+  publish-lufa-documentation-to-prod:
+    runs-on: ubuntu-latest
+    environment: lufa-documentation
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      # Step 3: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "23"
+          cache: "pnpm"
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Step 5: Build Lufa Documentation
+      - name: Build Design System
+        run: pnpm build:lufa:ds
+
+      # Step 6: Build Lufa Documentation
+      - name: Build Lufa Documentation
+        run: pnpm build:lufa:ds:documentation
+
+      # Step 7: Deploy to GitHub Pages
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.STORYBOOK_FTP_URL }}
+          port: ${{ secrets.STORYBOOK_FTP_PORT }}
+          protocol: ${{ secrets.STORYBOOK_FTP_PROTOCOL }}
+          username: ${{ secrets.STORYBOOK_FTP_LOGIN }}
+          password: ${{ secrets.STORYBOOK_FTP_PWD }}
+          local-dir: ./packages/design-system/documentation/build/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/cgi-bin/**
