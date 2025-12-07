@@ -37,7 +37,7 @@
     }
 
     .variant-square {
-        border-radius: var(--radius-lg);
+        @apply rounded-lg;
     }
 
     .variant-count {

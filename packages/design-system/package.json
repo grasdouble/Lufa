@@ -8,15 +8,8 @@
         "build:types": "tsc --emitDeclarationOnly",
         "prettier:fix": "prettier --write .",
         "build": "vite build",
-        "preview": "vite preview",
-        "generate:colors": "tsx scripts/generate-colors-css.ts",
-        "generate:spacing": "tsx scripts/generate-spacing-css.ts",
-        "generate:radius": "tsx scripts/generate-radius-css.ts",
-        "generate:shadows": "tsx scripts/generate-shadows-css.ts",
-        "generate:zindex": "tsx scripts/generate-zindex-css.ts",
-        "generate:breakpoints": "tsx scripts/generate-breakpoints-css.ts",
-        "generate:typography": "tsx scripts/generate-typography-css.ts",
-        "generate:foundation": "tsx scripts/generate-foundation-css.ts"
+        "dev": "vite build --watch",
+        "preview": "vite preview"
     },
     "private": false,
     "publishConfig": {
@@ -58,6 +51,8 @@
         "vite-tsconfig-paths": "^5.1.4"
     },
     "dependencies": {
+        "@grasdouble/lufa_design-system-tokens": "workspace:^",
+        "@grasdouble/lufa_design-system-primitives": "workspace:^",
         "@headlessui/react": "^2.2.9",
         "@heroicons/react": "^2.2.0",
         "clsx": "^2.1.1"

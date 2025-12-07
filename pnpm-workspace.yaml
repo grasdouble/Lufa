@@ -2,7 +2,10 @@ packages:
   - packages/apps/*
   - packages/cdn/*
   - packages/config/*
+  - packages/design-system-primitives
+  - packages/design-system-tokens
+  - packages/design-system-themes
   - packages/design-system
   - packages/microfrontend/*
   - packages/plugins/vite/*
-  - packages/poc/single-spa-vite-esm/*
+  - packages/poc/*

@@ -87,6 +87,17 @@ export default defineConfig(({ command, mode, isPreview }) => {
                         return output;
                     },
                 },
+                rollupOptions: {
+                    output: {
+                        assetFileNames: (assetInfo) => {
+                            // Keep tailwind.css as tailwind.css in dist
+                            if (assetInfo.name === 'tailwind.css') {
+                                return 'tailwind.css';
+                            }
+                            return '[name][extname]';
+                        },
+                    },
+                },
             },
         };
     };

@@ -1,16 +1,7 @@
-import './tailwind.css';
-import './foundation/colors.css';
-import './foundation/typography.css';
-import './foundation/spacing.css';
-import './foundation/radius.css';
-import './foundation/shadows.css';
-import './foundation/zIndex.css';
-import './foundation/breakpoints.css';
-
 // ============================================
-// FOUNDATION (Design Tokens)
+// DESIGN TOKENS
 // ============================================
-export * from './foundation';
+export * from '@grasdouble/lufa_design-system-tokens';
 
 // ============================================
 // UTILITIES (Development Tools)
@@ -114,7 +105,6 @@ export * from './components/feedback/Spinner';
 // ============================================
 // UTILITIES
 // ============================================
-export * from './components/utility/ThemeSwitcher';
 // export { Icon } from "./components/utilities/Icon";
 // export { Typography } from "./components/utilities/Typography";
 // export { Text } from "./components/utilities/Text";

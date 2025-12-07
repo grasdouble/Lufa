@@ -1,0 +1,54 @@
+{
+    "name": "@grasdouble/lufa_apps_storybook",
+    "version": "0.2.1",
+    "type": "module",
+    "scripts": {
+        "dev": "storybook dev -p 6006 --no-open",
+        "preview": "storybook dev -p 6006 --no-open --docs",
+        "build": "storybook build --docs",
+        "lint": "eslint ."
+    },
+    "private": false,
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://npm.pkg.github.com"
+    },
+    "files": [
+        "storybook-static",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "dependencies": {
+        "@grasdouble/lufa_design-system": "workspace:^",
+        "@grasdouble/lufa_design-system-tokens": "workspace:^",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0"
+    },
+    "devDependencies": {
+        "@grasdouble/lufa_config_eslint": "workspace:^",
+        "@grasdouble/lufa_config_prettier": "workspace:^",
+        "@grasdouble/lufa_config_tsconfig": "workspace:^",
+        "@storybook/addon-docs": "^10.1.2",
+        "@storybook/addon-themes": "^10.1.2",
+        "@storybook/react-vite": "^10.1.2",
+        "@tailwindcss/vite": "^4.1.17",
+        "@types/react": "^19.2.7",
+        "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react": "^5.1.1",
+        "eslint": "^9.39.1",
+        "eslint-plugin-storybook": "10.1.2",
+        "globals": "^16.5.0",
+        "prettier": "^3.7.3",
+        "prettier-plugin-tailwindcss": "^0.7.1",
+        "storybook": "^10.1.2",
+        "tailwindcss": "^4.1.17",
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.48.0",
+        "vite": "^7.2.4"
+    },
+    "eslintConfig": {
+        "extends": [
+            "plugin:storybook/recommended"
+        ]
+    }
+}

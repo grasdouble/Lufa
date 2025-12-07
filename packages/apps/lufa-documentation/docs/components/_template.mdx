@@ -1,0 +1,413 @@
+---
+sidebar_position: 99
+draft: true
+---
+
+import { ComponentName, Typography } from "@grasdouble/lufa_design-system";
+import { StorybookEmbed } from "@site/src/components/StorybookEmbed";
+
+# ComponentName
+
+Brief description of the component in one sentence. Explain what it does and its primary use case.
+
+## Overview
+
+Detailed description of the component. Explain:
+
+- What problem it solves
+- Key features and capabilities
+- When to use it
+- Design philosophy
+
+## Live Demo
+
+<div
+  style={{
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "24px",
+  }}
+>
+  <ComponentName>Default Example</ComponentName>
+</div>
+
+## Installation
+
+The ComponentName component is part of the Lufa Design System:
+
+```tsx
+import { ComponentName } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<ComponentName>Basic Example</ComponentName>
+```
+
+## Props
+
+| Prop       | Type                                 | Default     | Description                             |
+| ---------- | ------------------------------------ | ----------- | --------------------------------------- |
+| `children` | `ReactNode`                          | -           | Content to display inside the component |
+| `variant`  | `'primary' \| 'secondary' \| 'text'` | `'primary'` | Visual style variant                    |
+| `size`     | `'small' \| 'medium' \| 'large'`     | `'medium'`  | Size of the component                   |
+| `disabled` | `boolean`                            | `false`     | Whether the component is disabled       |
+
+## Variants
+
+### Visual Variants
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Primary (Default)
+    </Typography>
+    <ComponentName variant="primary">Primary Variant</ComponentName>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Secondary
+    </Typography>
+    <ComponentName variant="secondary">Secondary Variant</ComponentName>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Text
+    </Typography>
+    <ComponentName variant="text">Text Variant</ComponentName>
+  </div>
+</div>
+
+```tsx
+<ComponentName variant="primary">Primary Variant</ComponentName>
+<ComponentName variant="secondary">Secondary Variant</ComponentName>
+<ComponentName variant="text">Text Variant</ComponentName>
+```
+
+### Size Variants
+
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "16px",
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <ComponentName size="small">Small</ComponentName>
+  <ComponentName size="medium">Medium</ComponentName>
+  <ComponentName size="large">Large</ComponentName>
+</div>
+
+```tsx
+<ComponentName size="small">Small</ComponentName>
+<ComponentName size="medium">Medium</ComponentName>
+<ComponentName size="large">Large</ComponentName>
+```
+
+## States
+
+### Interactive States
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Default
+    </Typography>
+    <ComponentName>Default State</ComponentName>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Hover (hover over to see)
+    </Typography>
+    <ComponentName>Hover State</ComponentName>
+  </div>
+  <div>
+    <Typography
+      variant="label"
+      weight="semibold"
+      style={{ marginBottom: "8px" }}
+    >
+      Disabled
+    </Typography>
+    <ComponentName disabled>Disabled State</ComponentName>
+  </div>
+</div>
+
+```tsx
+<ComponentName>Default State</ComponentName>
+<ComponentName disabled>Disabled State</ComponentName>
+```
+
+## Examples
+
+### Example 1: Common Use Case
+
+Description of the example and when to use it.
+
+<div
+  style={{
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <ComponentName>Example Content</ComponentName>
+</div>
+
+```tsx
+<ComponentName>Example Content</ComponentName>
+```
+
+### Example 2: Advanced Use Case
+
+Description of a more complex example.
+
+<div
+  style={{
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <ComponentName variant="secondary" size="large">
+    Advanced Example
+  </ComponentName>
+</div>
+
+```tsx
+<ComponentName variant="secondary" size="large">
+  Advanced Example
+</ComponentName>
+```
+
+## Composition
+
+### With Other Components
+
+Show how this component works with other components from the design system.
+
+**Important:** Always use actual components from `@grasdouble/lufa_design-system` in examples. Do not recreate components with plain HTML/CSS in the documentation.
+
+<div
+  style={{
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  {/* Example combining with Stack or other components from the design system */}
+</div>
+
+```tsx
+// Example code for composition using actual design system components
+import {
+  ComponentName,
+  Stack,
+  OtherComponent,
+} from "@grasdouble/lufa_design-system";
+
+<Stack direction="horizontal" gap="normal">
+  <ComponentName>First</ComponentName>
+  <OtherComponent>Second</OtherComponent>
+</Stack>;
+```
+
+## Use Cases
+
+### 1. Primary Use Case
+
+Description of the most common use case.
+
+<div
+  style={{
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <ComponentName>Use Case Example</ComponentName>
+</div>
+
+```tsx
+<ComponentName>Use Case Example</ComponentName>
+```
+
+### 2. Secondary Use Case
+
+Description of another common use case.
+
+<div
+  style={{
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+    marginBottom: "16px",
+  }}
+>
+  <ComponentName>Another Example</ComponentName>
+</div>
+
+```tsx
+<ComponentName>Another Example</ComponentName>
+```
+
+## Styling
+
+The ComponentName component includes:
+
+### Base Styles
+
+- List of base CSS properties
+- Typography settings
+- Spacing and padding
+- Colors and backgrounds
+- Transitions and animations
+
+### CSS Variables
+
+The component uses the following CSS variables that can be customized:
+
+- `--component-background`: Background color
+- `--component-text-color`: Text color
+- `--component-border-radius`: Border radius
+- `--component-padding`: Internal padding
+
+### Customization
+
+Override styles using CSS or inline styles:
+
+```tsx
+<ComponentName style={{ backgroundColor: "#custom" }}>
+  Custom Styled Component
+</ComponentName>
+```
+
+## Accessibility
+
+Accessibility features and considerations:
+
+- **Keyboard Navigation**: List supported keyboard shortcuts (Tab, Enter, Space, Arrow keys, etc.)
+- **ARIA Attributes**: List ARIA attributes used (role, aria-label, aria-disabled, etc.)
+- **Screen Readers**: How the component is announced to screen readers
+- **Focus Management**: How focus is handled
+- **Color Contrast**: Meets WCAG AA/AAA standards
+
+### Keyboard Shortcuts
+
+| Key           | Action                           |
+| ------------- | -------------------------------- |
+| `Tab`         | Move focus to/from the component |
+| `Enter/Space` | Activate the component           |
+| `Escape`      | Close/cancel (if applicable)     |
+
+## Best Practices
+
+### Do ✅
+
+- List of recommended practices
+- When to use this component
+- How to use it effectively
+- Accessibility considerations
+
+### Don't ❌
+
+- List of anti-patterns
+- Common mistakes to avoid
+- When NOT to use this component
+- Accessibility pitfalls
+
+## API Reference
+
+### ComponentName Props
+
+Complete API documentation with all props, types, and defaults.
+
+```typescript
+interface ComponentNameProps {
+  children?: ReactNode;
+  variant?: "primary" | "secondary" | "text";
+  size?: "small" | "medium" | "large";
+  disabled?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+}
+```
+
+## Interactive Playground
+
+Explore ComponentName interactively in Storybook with live controls:
+
+<StorybookEmbed storyId="category-componentname--default" height={400} />
+
+Try different variants:
+
+<StorybookEmbed
+  storyId="category-componentname--variant-example"
+  height={300}
+/>
+
+## Related Components
+
+List only components that are **actually used** in this documentation (in examples, composition patterns, or use cases):
+
+- **[ComponentA](./component-a)** - Brief description of how it's used with ComponentName
+- **[ComponentB](./component-b)** - Brief description of how it's used with ComponentName
+- **[ComponentC](./component-c)** - Brief description of how it's used with ComponentName
+
+## Resources
+
+- [Design Guidelines](#) - Link to Figma or design specs
+- [Storybook](http://localhost:6006/?path=/story/component-name) - Interactive component playground
+- [GitHub](https://github.com/grasdouble/Lufa) - Source code
+- [Accessibility Guidelines](https://www.w3.org/WAI/WCAG21/quickref/) - WCAG standards

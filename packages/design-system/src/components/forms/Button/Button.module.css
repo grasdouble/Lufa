@@ -5,7 +5,7 @@
     .button {
         @apply inline-flex items-center justify-center gap-2;
         @apply font-medium;
-        border-radius: var(--radius-lg);
+        @apply rounded-lg;
         @apply transition-all duration-200;
         @apply focus-visible:outline-2 focus-visible:outline-offset-2;
         @apply disabled:cursor-not-allowed;

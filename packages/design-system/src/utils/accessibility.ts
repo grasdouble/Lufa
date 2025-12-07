@@ -96,33 +96,6 @@ export function getContrastLevel(ratio: number): string {
 }
 
 /**
- * Predefined accessible color pairs for common use cases
- */
-export const accessiblePairs = {
-    // High contrast pairs (AAA)
-    highContrast: [
-        { foreground: '#000000', background: '#FFFFFF', ratio: 21 },
-        { foreground: '#FFFFFF', background: '#000000', ratio: 21 },
-        { foreground: '#1E3A8A', background: '#FFFFFF', ratio: 12.6 },
-        { foreground: '#14532D', background: '#FFFFFF', ratio: 13.5 },
-    ],
-
-    // Brand color pairs (AAA)
-    brand: [
-        { foreground: '#2563EB', background: '#FFFFFF', ratio: 8.6 },
-        { foreground: '#FFFFFF', background: '#1E40AF', ratio: 10.3 },
-    ],
-
-    // Status pairs (AAA)
-    status: [
-        { foreground: '#16A34A', background: '#FFFFFF', ratio: 7.4 }, // Success
-        { foreground: '#DC2626', background: '#FFFFFF', ratio: 7.7 }, // Error
-        { foreground: '#EA580C', background: '#FFFFFF', ratio: 7.1 }, // Warning
-        { foreground: '#2563EB', background: '#FFFFFF', ratio: 8.6 }, // Info
-    ],
-} as const;
-
-/**
  * Get suggested text color (black or white) based on background
  */
 export function getSuggestedTextColor(background: string): string {

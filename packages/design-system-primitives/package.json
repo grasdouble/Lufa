@@ -1,0 +1,31 @@
+{
+    "name": "@grasdouble/lufa_design-system-primitives",
+    "version": "0.1.0",
+  "license": "CC-BY-NC-4.0",
+  "type": "module",
+  "description": "Lufa Design System - Primitive color tokens",
+  "scripts": {
+    "build": "tsc && node scripts/generate-css.js",
+    "dev": "tsc --watch"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./primitives.css": "./dist/primitives.css"
+  },
+  "devDependencies": {
+    "@grasdouble/lufa_config_tsconfig": "workspace:^",
+    "typescript": "^5.9.3"
+  }
+}
