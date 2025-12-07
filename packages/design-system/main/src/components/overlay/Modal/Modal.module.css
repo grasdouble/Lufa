@@ -3,7 +3,7 @@
 @layer components {
     .backdrop {
         @apply fixed inset-0;
-        z-index: var(--lufa-z-index-modal);
+        z-index: var(--lufa-z-index-modal, 1000);
         @apply bg-background-overlay;
         @apply flex items-center justify-center;
         @apply p-base;
