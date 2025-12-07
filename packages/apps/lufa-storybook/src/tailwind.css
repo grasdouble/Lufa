@@ -1,5 +1,5 @@
 /* Import the design system styles which include Tailwind CSS */
-@import '@grasdouble/lufa_design-system-foundation/foundation.css';
+@import '@grasdouble/lufa_design-system-tokens/tokens.css';
 @import '@grasdouble/lufa_design-system/style.css';
 
 #storybook-root {

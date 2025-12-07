@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React, { useState } from 'react';
 import { Button } from '@grasdouble/lufa_design-system';
 import { Badge } from '@grasdouble/lufa_design-system';
