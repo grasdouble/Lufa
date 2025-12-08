@@ -28,7 +28,11 @@ const sidebars: SidebarsConfig = {
         {
           type: "category",
           label: "Layout",
-          items: ["components/layout/placeholder", "components/layout/stack"],
+          items: [
+            "components/layout/placeholder",
+            "components/layout/stack",
+            "components/layout/divider",
+          ],
         },
         {
           type: "category",
