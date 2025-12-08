@@ -1,7 +1,8 @@
 packages:
-  - packages/plugins/*
+  - packages/plugins/vite/*
   - packages/cdn/*
   - packages/config/*
   - packages/design-system/*
   - packages/apps/*
+  - packages/apps/microfrontend/*
   - packages/poc/*

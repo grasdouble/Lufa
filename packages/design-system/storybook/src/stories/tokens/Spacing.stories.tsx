@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { spacing } from '@grasdouble/lufa_design-system';
 
 const meta = {
-    title: '1. Foundation/Spacing',
+    title: '1. Tokens/Spacing',
     parameters: {
         layout: 'padded',
     },
-    tags: ['autodocs'],
+    tags: [],
 } satisfies Meta;
 
 export default meta;

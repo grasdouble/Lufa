@@ -1,3 +1,11 @@
 # Outdated Dependencies Report
 
-No outdated dependency
+┌───────────────────────────────┬─────────┬────────┬────────────────────────────────┐
+│ Package                       │ Current │ Latest │ Dependents                     │
+├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ eslint-plugin-storybook (dev) │ 10.1.2  │ 10.1.4 │ @grasdouble/lufa_design-       │
+│                               │         │        │ system-storybook               │
+├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ typescript (dev)              │ 5.6.3   │ 5.9.3  │ @grasdouble/lufa_design-       │
+│                               │         │        │ system-documentation           │
+└───────────────────────────────┴─────────┴────────┴────────────────────────────────┘

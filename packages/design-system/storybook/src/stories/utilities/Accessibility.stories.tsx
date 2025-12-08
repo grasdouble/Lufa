@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { getContrastRatio, meetsWCAG, getContrastLevel, getSuggestedTextColor, WCAG_STANDARDS } from '@grasdouble/lufa_design-system';
 
 const meta = {
-    title: '0. Getting Started/Accessibility',
+    title: '8. Utilities/Accessibility',
     parameters: {
         layout: 'padded',
     },
-    tags: ['autodocs'],
+    tags: [],
 } satisfies Meta;
 
 export default meta;

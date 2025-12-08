@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Typography } from '@grasdouble/lufa_design-system';
 
 const meta = {
-    title: '1. Foundation/Typography',
+    title: '1. Tokens/Typography',
     component: Typography,
     parameters: {
         layout: 'padded',
@@ -13,7 +13,7 @@ const meta = {
             },
         },
     },
-    tags: ['autodocs'],
+    tags: [],
     argTypes: {
         variant: {
             control: 'select',

@@ -8,12 +8,12 @@ import { Input } from '@grasdouble/lufa_design-system';
 import { getContrastRatio, meetsWCAG } from '@grasdouble/lufa_design-system';
 
 const meta = {
-    title: '1. Foundation/Theme Generator',
+    title: '8. Utilities/Theme Generator',
     parameters: {
         layout: 'fullscreen',
         controls: { disable: true },
     },
-    tags: ['autodocs'],
+    tags: [],
 } satisfies Meta;
 
 export default meta;
