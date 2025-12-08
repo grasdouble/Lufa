@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/lufa_poc_design-system-tokens-sd",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Lufa Design System tokens using Style Dictionary",
   "type": "module",
   "main": "./dist/index.js",
