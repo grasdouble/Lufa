@@ -1,5 +1,27 @@
 # @grasdouble/lufa_design-system-storybook
 
+## 0.3.0
+
+### Minor Changes
+
+- c4e20b6: Add Theme generator
+- dba64f6: Add fundation, implement tailwind theme, update and add components
+- 1d9de21: Add divider component
+- 6c4eb34: Improve stories + add story for colors
+
+### Patch Changes
+
+- 6af7149: follow changes in design-system
+- 7def2ef: Remove tailwind dependency
+- d4b9e09: Clean and fix storybook
+- Updated dependencies [6af7149]
+- Updated dependencies [dba64f6]
+- Updated dependencies [6c4eb34]
+- Updated dependencies [1d9de21]
+- Updated dependencies [d4b9e09]
+  - @grasdouble/lufa_design-system-tokens@0.1.0
+  - @grasdouble/lufa_design-system@0.2.0
+
 ## 0.2.1
 
 ### Patch Changes

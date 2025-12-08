@@ -1,5 +1,17 @@
 # @grasdouble/lufa_microfrontend_home
 
+## 0.2.3
+
+### Patch Changes
+
+- 925f313: Update link to storybook and add link to lufa doc
+- Updated dependencies [6af7149]
+- Updated dependencies [dba64f6]
+- Updated dependencies [6c4eb34]
+- Updated dependencies [1d9de21]
+- Updated dependencies [d4b9e09]
+  - @grasdouble/lufa_design-system@0.2.0
+
 ## 0.2.2
 
 ### Patch Changes
