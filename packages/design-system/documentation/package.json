@@ -23,17 +23,17 @@
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
     "@grasdouble/lufa_design-system": "workspace:^",
     "@grasdouble/lufa_design-system-tokens": "workspace:^",
-    "@mdx-js/react": "^3.0.0",
-    "clsx": "^2.0.0",
-    "prism-react-renderer": "^2.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@mdx-js/react": "^3.1.1",
+    "clsx": "^2.1.1",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
-    "typescript": "~5.6.2"
+    "typescript": "~5.6.3"
   },
   "browserslist": {
     "production": [
