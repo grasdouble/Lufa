@@ -15,12 +15,20 @@ function App() {
                 </h1>
                 <Stack direction="horizontal">
                     <a
-                        href="https://storybook.sebastien-lemouillour.fr"
+                        href="https://lufa-design.sebastien-lemouillour.fr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={clsx(styles.link, styles.design)}
+                    >
+                        Lufa Design System (WIP)
+                    </a>
+                    <a
+                        href="https://lufa-storybook.sebastien-lemouillour.fr"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={clsx(styles.link, styles.storybook)}
                     >
-                        Storybook (WIP)
+                        Lufa Storybook (WIP)
                     </a>
                     <a
                         href="https://github.com/grasdouble/Lufa"

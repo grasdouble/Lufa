@@ -39,6 +39,10 @@
         @apply bg-pink-600;
     }
 
+    .design {
+        @apply bg-green-600;
+    }
+
     .github {
         @apply bg-purple-600;
     }
