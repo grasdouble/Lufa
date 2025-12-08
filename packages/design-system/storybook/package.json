@@ -7,7 +7,7 @@
         "build": "storybook build",
         "lint": "eslint ."
     },
-    "private": false,
+    "private": true,
     "publishConfig": {
         "access": "public",
         "registry": "https://npm.pkg.github.com"
