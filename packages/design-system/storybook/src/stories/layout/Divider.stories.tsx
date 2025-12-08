@@ -4,7 +4,7 @@ import { Divider, Placeholder, Stack, semantic } from '@grasdouble/lufa_design-s
 const meta = {
     title: '2. Layout/Divider',
     component: Divider,
-    tags: ['autodocs'],
+    tags: [],
     parameters: {
         layout: 'padded',
         docs: {

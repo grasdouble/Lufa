@@ -154,7 +154,7 @@ pnpm build
    const meta: Meta<typeof NewComponent> = {
      title: "Components/NewComponent",
      component: NewComponent,
-     tags: ["autodocs"],
+     tags: [],
    };
 
    export default meta;
@@ -270,25 +270,6 @@ Include:
 - Usage examples
 - Accessibility notes
 - Best practices
-
-### Storybook Documentation
-
-Use Storybook's autodocs feature:
-
-```tsx
-const meta: Meta<typeof NewComponent> = {
-  title: "Components/NewComponent",
-  component: NewComponent,
-  tags: ["autodocs"],
-  argTypes: {
-    variant: {
-      control: "select",
-      options: ["default", "primary"],
-      description: "Component variant",
-    },
-  },
-};
-```
 
 ## Submitting Changes
 
