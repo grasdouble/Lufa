@@ -20,7 +20,7 @@
     "./ocean.css": "./dist/ocean.css",
     "./forest.css": "./dist/forest.css"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@grasdouble/lufa_design-system-tokens": "workspace:^"
   }
 }

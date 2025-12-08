@@ -40,10 +40,8 @@
         "vite-plugin-externalize-deps": "^0.10.0"
     },
     "dependencies": {
+        "@grasdouble/lufa_design-system": "workspace:^",
         "import-map-overrides": "^6.1.0",
         "single-spa": "^6.0.3"
-    },
-    "peerDependencies": {
-        "@grasdouble/lufa_design-system": "workspace:^"
     }
 }
