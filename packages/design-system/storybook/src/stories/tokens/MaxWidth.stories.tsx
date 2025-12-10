@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { maxWidth } from '@grasdouble/lufa_design-system';
+import { maxWidth } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
     title: '1. Tokens/Max Width',

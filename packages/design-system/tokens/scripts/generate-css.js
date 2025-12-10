@@ -11,6 +11,9 @@ import { zIndex } from "../dist/tokens/zIndex.js";
 import { breakpoints } from "../dist/tokens/breakpoints.js";
 import { maxWidth } from "../dist/tokens/maxWidth.js";
 import typography from "../dist/tokens/typography.js";
+import { container } from "../dist/tokens/container.js";
+import { transition } from "../dist/tokens/transition.js";
+import { blur } from "../dist/tokens/blur.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -84,6 +87,24 @@ for (const [key, value] of Object.entries(typography.fontWeight)) {
 lufaCss += "\n  /* Typography - Letter Spacing */\n";
 for (const [key, value] of Object.entries(typography.letterSpacing)) {
   lufaCss += `  --lufa-letter-spacing-${key}: ${value};\n`;
+}
+
+// Container with lufa prefix
+lufaCss += "\n  /* Container */\n";
+for (const [key, value] of Object.entries(container)) {
+  lufaCss += `  --lufa-container-${key}: ${value};\n`;
+}
+
+// Transition with lufa prefix
+lufaCss += "\n  /* Transition */\n";
+for (const [key, value] of Object.entries(transition)) {
+  lufaCss += `  --lufa-transition-${key}: ${value};\n`;
+}
+
+// Blur with lufa prefix
+lufaCss += "\n  /* Blur */\n";
+for (const [key, value] of Object.entries(blur)) {
+  lufaCss += `  --lufa-blur-${key}: ${value};\n`;
 }
 
 lufaCss += "}\n";

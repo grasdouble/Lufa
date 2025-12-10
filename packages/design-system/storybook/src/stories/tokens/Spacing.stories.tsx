@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { spacing } from '@grasdouble/lufa_design-system';
+import { spacing } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
     title: '1. Tokens/Spacing',
@@ -71,9 +71,9 @@ export const Overview: Story = {
                             style={{
                                 flex: '0 0 auto',
                                 height: '40px',
-                                width: value === '0' ? '2px' : value,
+                                width: value === '0px' ? '2px' : value,
                                 backgroundColor: '#2563EB',
-                                border: value === '0' ? '1px solid #2563EB' : 'none',
+                                border: value === '0px' ? '1px solid #2563EB' : 'none',
                             }}
                         />
                         <div style={{ marginLeft: '16px', color: '#737373', fontSize: '13px' }}>

@@ -7,7 +7,7 @@
         @apply px-sm py-xxs;
         @apply rounded-md;
         @apply ring-1 ring-inset;
-        @apply transition-colors duration-150;
+        @apply duration-fast transition-colors;
     }
 
     /* Sizes */

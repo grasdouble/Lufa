@@ -5,6 +5,7 @@
         @apply fixed inset-0;
         z-index: var(--lufa-z-index-modal, 1000);
         @apply bg-background-overlay;
+        @apply backdrop-blur-sm;
         @apply flex items-center justify-center;
         @apply p-base;
         animation: fadeIn 200ms ease-out;
@@ -71,7 +72,7 @@
         @apply p-1;
         @apply rounded-md;
         @apply hover:bg-background-secondary;
-        @apply transition-colors duration-200;
+        @apply duration-fast transition-colors;
         @apply cursor-pointer border-none bg-transparent;
         @apply text-text-tertiary hover:text-text-primary;
     }

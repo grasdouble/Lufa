@@ -3,7 +3,7 @@
 @layer components {
     .card {
         @apply rounded-lg;
-        @apply transition-all duration-200;
+        @apply duration-base transition-all;
         @apply bg-background-primary;
     }
 
@@ -22,6 +22,12 @@
 
     .variantFilled {
         @apply bg-background-secondary;
+    }
+
+    .variantGlass {
+        @apply bg-background-primary/80;
+        @apply backdrop-blur-sm;
+        @apply border-border-light border;
     }
 
     /* Padding */

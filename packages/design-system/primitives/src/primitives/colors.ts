@@ -22,177 +22,296 @@
  * Light tints (50-200) work symmetrically on dark backgrounds.
  */
 export const colors = {
-  neutral: {
-    0: "#FFFFFF", // White
-    50: "#FAFAFA", // Nearly white (~1.1:1 on white, AAA on black)
-    100: "#F5F5F5", // Light gray (~1.2:1 on white, AAA on black)
-    200: "#E5E5E5", // Lighter gray (~1.4:1 on white, AAA on black)
-    300: "#D4D4D4", // Light-medium gray (~1.8:1 on white, AAA on black)
-    400: "#A3A3A3", // Medium gray (~2.8:1 on white, AA large text)
-    500: "#737373", // Medium-dark gray (~4.6:1 on white, AA normal text)
-    600: "#525252", // Dark gray (~7:1 on white, AAA normal text)
-    700: "#404040", // Darker gray (~9:1 on white, AAA)
-    800: "#262626", // Very dark gray (~13:1 on white, AAA)
-    900: "#171717", // Nearly black (~16:1 on white, AAA)
-    950: "#0A0A0A", // Almost black (~19:1 on white, AAA)
-    1000: "#000000", // Pure black (21:1 on white, AAA)
-  },
-  blue: {
-    50: "#EFF6FF", // Very light blue (~1.05:1 on white, AAA on black)
-    100: "#DBEAFE", // Lighter blue (~1.2:1 on white, AAA on black)
-    200: "#BFDBFE", // Light blue (~1.5:1 on white, AAA on black)
-    300: "#93C5FD", // Light-medium blue (~2:1 on white, AAA on black)
-    400: "#60A5FA", // Medium blue (~2.8:1 on white, AA large text)
-    500: "#3B82F6", // Blue (~3.5:1 on white, AA large text only)
-    600: "#2563EB", // Dark blue (~5.1:1 on white, AA normal text)
-    700: "#1D4ED8", // Darker blue (~6.7:1 on white, AA+ normal text)
-    800: "#1E40AF", // Very dark blue (~9:1 on white, AAA)
-    900: "#1E3A8A", // Nearly black blue (~11:1 on white, AAA)
-    950: "#172554", // Almost black blue (~14:1 on white, AAA)
-  },
-  green: {
-    50: "#F0FDF4", // Very light green (~1.03:1 on white, AAA on black)
-    100: "#DCFCE7", // Lighter green (~1.15:1 on white, AAA on black)
-    200: "#BBF7D0", // Light green (~1.4:1 on white, AAA on black)
-    300: "#86EFAC", // Light-medium green (~1.9:1 on white, AAA on black)
-    400: "#4ADE80", // Medium green (~2.3:1 on white, AA large text)
-    500: "#22C55E", // Green (~2.5:1 on white, AA large text only)
-    600: "#16A34A", // Dark green (~4.2:1 on white, AA- normal text)
-    700: "#15803D", // Darker green (~6.2:1 on white, AA normal text)
-    800: "#166534", // Very dark green (~8.5:1 on white, AAA)
-    900: "#14532D", // Nearly black green (~11:1 on white, AAA)
-    950: "#052E16", // Almost black green (~15:1 on white, AAA)
+  red: {
+    50: "oklch(97.1% 0.013 17.38)",
+    100: "oklch(94.2% 0.027 17.717)",
+    200: "oklch(89.6% 0.055 16.054)",
+    300: "oklch(82.1% 0.106 14.428)",
+    400: "oklch(71.8% 0.175 22.216)",
+    500: "oklch(62.8% 0.228 27.325)",
+    600: "oklch(54.3% 0.224 27.677)",
+    700: "oklch(45.7% 0.194 29.234)",
+    800: "oklch(40.1% 0.162 27.804)",
+    900: "oklch(35.8% 0.133 25.479)",
+    950: "oklch(25.1% 0.09 27.38)",
   },
   orange: {
-    50: "#FFF7ED", // Very light orange (~1.02:1 on white, AAA on black)
-    100: "#FFEDD5", // Lighter orange (~1.1:1 on white, AAA on black)
-    200: "#FED7AA", // Light orange (~1.35:1 on white, AAA on black)
-    300: "#FDBA74", // Light-medium orange (~1.7:1 on white, AAA on black)
-    400: "#FB923C", // Medium orange (~2.3:1 on white, AA large text)
-    500: "#F97316", // Orange (~2.8:1 on white, AA large text only)
-    600: "#EA580C", // Dark orange (~4.5:1 on white, AA normal text)
-    700: "#C2410C", // Darker orange (~6.8:1 on white, AA+ normal text)
-    800: "#9A3412", // Very dark orange (~9.5:1 on white, AAA)
-    900: "#7C2D12", // Nearly black orange (~11.5:1 on white, AAA)
-    950: "#431407", // Almost black orange (~15:1 on white, AAA)
-  },
-  red: {
-    50: "#FEF2F2", // Very light red (~1.03:1 on white, AAA on black)
-    100: "#FEE2E2", // Lighter red (~1.15:1 on white, AAA on black)
-    200: "#FECACA", // Light red (~1.4:1 on white, AAA on black)
-    300: "#FCA5A5", // Light-medium red (~1.9:1 on white, AAA on black)
-    400: "#F87171", // Medium red (~2.6:1 on white, AA large text)
-    500: "#EF4444", // Red (~3.4:1 on white, AA large text only)
-    600: "#DC2626", // Dark red (~5.3:1 on white, AA normal text)
-    700: "#B91C1C", // Darker red (~7.5:1 on white, AAA)
-    800: "#991B1B", // Very dark red (~9.8:1 on white, AAA)
-    900: "#7F1D1D", // Nearly black red (~11.5:1 on white, AAA)
-    950: "#450A0A", // Almost black red (~15:1 on white, AAA)
-  },
-  purple: {
-    50: "#FAF5FF", // Very light purple (~1.02:1 on white, AAA on black)
-    100: "#F3E8FF", // Lighter purple (~1.1:1 on white, AAA on black)
-    200: "#E9D5FF", // Light purple (~1.3:1 on white, AAA on black)
-    300: "#D8B4FE", // Light-medium purple (~1.7:1 on white, AAA on black)
-    400: "#C084FC", // Medium purple (~2.5:1 on white, AA large text)
-    500: "#A855F7", // Purple (~3.8:1 on white, AA large text only)
-    600: "#9333EA", // Dark purple (~5:1 on white, AA normal text)
-    700: "#7E22CE", // Darker purple (~7.2:1 on white, AAA)
-    800: "#6B21A8", // Very dark purple (~9.5:1 on white, AAA)
-    900: "#581C87", // Nearly black purple (~11.8:1 on white, AAA)
-    950: "#3B0764", // Almost black purple (~14.5:1 on white, AAA)
-  },
-  teal: {
-    50: "#F0FDFA", // Very light teal (~1.02:1 on white, AAA on black)
-    100: "#CCFBF1", // Lighter teal (~1.2:1 on white, AAA on black)
-    200: "#99F6E4", // Light teal (~1.6:1 on white, AAA on black)
-    300: "#5EEAD4", // Light-medium teal (~2.1:1 on white, AA large text)
-    400: "#2DD4BF", // Medium teal (~2.8:1 on white, AA large text)
-    500: "#14B8A6", // Teal (~3.6:1 on white, AA large text only)
-    600: "#0D9488", // Dark teal (~5.2:1 on white, AA normal text)
-    700: "#0F766E", // Darker teal (~6.8:1 on white, AA+ normal text)
-    800: "#115E59", // Very dark teal (~9:1 on white, AAA)
-    900: "#134E4A", // Nearly black teal (~10.5:1 on white, AAA)
-    950: "#042F2E", // Almost black teal (~14:1 on white, AAA)
-  },
-  yellow: {
-    50: "#FEFCE8", // Very light yellow (~1.03:1 on white, AAA on black)
-    100: "#FEF9C3", // Lighter yellow (~1.15:1 on white, AAA on black)
-    200: "#FEF08A", // Light yellow (~1.4:1 on white, AAA on black)
-    300: "#FDE047", // Light-medium yellow (~1.7:1 on white, AAA on black)
-    400: "#FACC15", // Medium yellow (~1.9:1 on white, AA large text)
-    500: "#EAB308", // Yellow (~2.2:1 on white, AA large text only)
-    600: "#CA8A04", // Dark yellow (~4.2:1 on white, AA- normal text)
-    700: "#A16207", // Darker yellow (~6.5:1 on white, AA normal text)
-    800: "#854D0E", // Very dark yellow (~8.5:1 on white, AAA)
-    900: "#713F12", // Nearly black yellow (~10:1 on white, AAA)
-    950: "#422006", // Almost black yellow (~13.5:1 on white, AAA)
-  },
-  pink: {
-    50: "#FDF2F8", // Very light pink (~1.02:1 on white, AAA on black)
-    100: "#FCE7F3", // Lighter pink (~1.12:1 on white, AAA on black)
-    200: "#FBCFE8", // Light pink (~1.35:1 on white, AAA on black)
-    300: "#F9A8D4", // Light-medium pink (~1.8:1 on white, AAA on black)
-    400: "#F472B6", // Medium pink (~2.5:1 on white, AA large text)
-    500: "#EC4899", // Pink (~3.5:1 on white, AA large text only)
-    600: "#DB2777", // Dark pink (~5.5:1 on white, AA normal text)
-    700: "#BE185D", // Darker pink (~7.8:1 on white, AAA)
-    800: "#9F1239", // Very dark pink (~10:1 on white, AAA)
-    900: "#831843", // Nearly black pink (~11.8:1 on white, AAA)
-    950: "#500724", // Almost black pink (~14.5:1 on white, AAA)
-  },
-  indigo: {
-    50: "#EEF2FF", // Very light indigo (~1.04:1 on white, AAA on black)
-    100: "#E0E7FF", // Lighter indigo (~1.18:1 on white, AAA on black)
-    200: "#C7D2FE", // Light indigo (~1.5:1 on white, AAA on black)
-    300: "#A5B4FC", // Light-medium indigo (~2.1:1 on white, AA large text)
-    400: "#818CF8", // Medium indigo (~3:1 on white, AA large text)
-    500: "#6366F1", // Indigo (~4.2:1 on white, AA- normal text)
-    600: "#4F46E5", // Dark indigo (~6:1 on white, AA normal text)
-    700: "#4338CA", // Darker indigo (~8:1 on white, AAA)
-    800: "#3730A3", // Very dark indigo (~10.5:1 on white, AAA)
-    900: "#312E81", // Nearly black indigo (~12.5:1 on white, AAA)
-    950: "#1E1B4B", // Almost black indigo (~15:1 on white, AAA)
-  },
-  cyan: {
-    50: "#ECFEFF", // Very light cyan (~1.02:1 on white, AAA on black)
-    100: "#CFFAFE", // Lighter cyan (~1.15:1 on white, AAA on black)
-    200: "#A5F3FC", // Light cyan (~1.45:1 on white, AAA on black)
-    300: "#67E8F9", // Light-medium cyan (~1.9:1 on white, AAA on black)
-    400: "#22D3EE", // Medium cyan (~2.5:1 on white, AA large text)
-    500: "#06B6D4", // Cyan (~3.5:1 on white, AA large text only)
-    600: "#0891B2", // Dark cyan (~5.5:1 on white, AA normal text)
-    700: "#0E7490", // Darker cyan (~7.2:1 on white, AAA)
-    800: "#155E75", // Very dark cyan (~9.5:1 on white, AAA)
-    900: "#164E63", // Nearly black cyan (~11.2:1 on white, AAA)
-    950: "#083344", // Almost black cyan (~14.5:1 on white, AAA)
-  },
-  lime: {
-    50: "#F7FEE7", // Very light lime (~1.03:1 on white, AAA on black)
-    100: "#ECFCCB", // Lighter lime (~1.2:1 on white, AAA on black)
-    200: "#D9F99D", // Light lime (~1.5:1 on white, AAA on black)
-    300: "#BEF264", // Light-medium lime (~1.8:1 on white, AAA on black)
-    400: "#A3E635", // Medium lime (~2.1:1 on white, AA large text)
-    500: "#84CC16", // Lime (~2.6:1 on white, AA large text only)
-    600: "#65A30D", // Dark lime (~4.8:1 on white, AA normal text)
-    700: "#4D7C0F", // Darker lime (~7:1 on white, AAA)
-    800: "#3F6212", // Very dark lime (~9.5:1 on white, AAA)
-    900: "#365314", // Nearly black lime (~11.2:1 on white, AAA)
-    950: "#1A2E05", // Almost black lime (~14.8:1 on white, AAA)
+    50: "oklch(97.6% 0.013 70.36)",
+    100: "oklch(94.6% 0.032 72.177)",
+    200: "oklch(88.3% 0.074 66.29)",
+    300: "oklch(80.3% 0.121 62.683)",
+    400: "oklch(70.5% 0.171 55.934)",
+    500: "oklch(66.1% 0.195 48.584)",
+    600: "oklch(57.6% 0.189 41.656)",
+    700: "oklch(48.4% 0.159 40.033)",
+    800: "oklch(40.7% 0.131 39.315)",
+    900: "oklch(35.5% 0.107 39.842)",
+    950: "oklch(24.6% 0.072 38.884)",
   },
   amber: {
-    50: "#FFFBEB", // Very light amber (~1.02:1 on white, AAA on black)
-    100: "#FEF3C7", // Lighter amber (~1.12:1 on white, AAA on black)
-    200: "#FDE68A", // Light amber (~1.35:1 on white, AAA on black)
-    300: "#FCD34D", // Light-medium amber (~1.6:1 on white, AAA on black)
-    400: "#FBBF24", // Medium amber (~1.9:1 on white, AA large text)
-    500: "#F59E0B", // Amber (~2.4:1 on white, AA large text only)
-    600: "#D97706", // Dark amber (~4.5:1 on white, AA normal text)
-    700: "#B45309", // Darker amber (~6.8:1 on white, AA+ normal text)
-    800: "#92400E", // Very dark amber (~9.2:1 on white, AAA)
-    900: "#78350F", // Nearly black amber (~11:1 on white, AAA)
-    950: "#451A03", // Almost black amber (~14.5:1 on white, AAA)
+    50: "oklch(98.8% 0.016 95.294)",
+    100: "oklch(96.1% 0.046 95.851)",
+    200: "oklch(91.2% 0.102 95.277)",
+    300: "oklch(86.4% 0.148 92.924)",
+    400: "oklch(80.7% 0.177 89.366)",
+    500: "oklch(73.6% 0.184 79.515)",
+    600: "oklch(63.7% 0.165 61.106)",
+    700: "oklch(54.1% 0.144 54.976)",
+    800: "oklch(45.8% 0.121 51.576)",
+    900: "oklch(40.1% 0.102 50.406)",
+    950: "oklch(28.1% 0.069 48.838)",
   },
+  yellow: {
+    50: "oklch(98.9% 0.019 102.212)",
+    100: "oklch(96.9% 0.053 102.212)",
+    200: "oklch(93.3% 0.113 101.199)",
+    300: "oklch(89.6% 0.173 99.574)",
+    400: "oklch(84.5% 0.199 96.797)",
+    500: "oklch(75.2% 0.184 91.936)",
+    600: "oklch(62.5% 0.157 78.797)",
+    700: "oklch(52.2% 0.13 68.337)",
+    800: "oklch(45.1% 0.109 62.801)",
+    900: "oklch(39.9% 0.093 60.023)",
+    950: "oklch(28.3% 0.063 56.366)",
+  },
+  lime: {
+    50: "oklch(98.3% 0.027 120.757)",
+    100: "oklch(96.5% 0.065 120.796)",
+    200: "oklch(91.9% 0.132 120.601)",
+    300: "oklch(86.5% 0.205 120.989)",
+    400: "oklch(81.5% 0.241 122.082)",
+    500: "oklch(74.9% 0.232 126.393)",
+    600: "oklch(61.3% 0.189 128.274)",
+    700: "oklch(49.1% 0.148 128.207)",
+    800: "oklch(41.5% 0.118 127.713)",
+    900: "oklch(37.1% 0.099 127.945)",
+    950: "oklch(25.8% 0.066 128.146)",
+  },
+  green: {
+    50: "oklch(97.3% 0.024 155.826)",
+    100: "oklch(94.8% 0.051 156.743)",
+    200: "oklch(90.3% 0.099 155.882)",
+    300: "oklch(84.3% 0.155 155.995)",
+    400: "oklch(76.5% 0.197 154.811)",
+    500: "oklch(69.7% 0.195 150.161)",
+    600: "oklch(60.1% 0.172 149.578)",
+    700: "oklch(51.2% 0.141 149.433)",
+    800: "oklch(43.5% 0.114 150.069)",
+    900: "oklch(37.8% 0.092 150.952)",
+    950: "oklch(26.5% 0.061 152.535)",
+  },
+  emerald: {
+    50: "oklch(97.9% 0.021 166.113)",
+    100: "oklch(95% 0.052 163.051)",
+    200: "oklch(90.5% 0.093 164.15)",
+    300: "oklch(84.5% 0.143 164.978)",
+    400: "oklch(76.5% 0.177 163.223)",
+    500: "oklch(69.6% 0.17 162.48)",
+    600: "oklch(59.6% 0.145 163.225)",
+    700: "oklch(50.8% 0.118 165.612)",
+    800: "oklch(43.2% 0.095 166.913)",
+    900: "oklch(37.8% 0.077 168.94)",
+    950: "oklch(26.2% 0.051 172.552)",
+  },
+  teal: {
+    50: "oklch(97.7% 0.019 180.801)",
+    100: "oklch(95.3% 0.046 175.402)",
+    200: "oklch(90.8% 0.088 175.323)",
+    300: "oklch(84.5% 0.139 177.189)",
+    400: "oklch(76.3% 0.166 178.281)",
+    500: "oklch(69.3% 0.156 180.107)",
+    600: "oklch(58.8% 0.131 181.072)",
+    700: "oklch(49.6% 0.106 182.503)",
+    800: "oklch(41.7% 0.084 184.704)",
+    900: "oklch(36.7% 0.069 186.391)",
+    950: "oklch(25.8% 0.046 189.783)",
+  },
+  cyan: {
+    50: "oklch(98% 0.015 200.873)",
+    100: "oklch(95.5% 0.037 200.364)",
+    200: "oklch(90.7% 0.079 200.083)",
+    300: "oklch(83.6% 0.138 202.007)",
+    400: "oklch(74.9% 0.174 206.116)",
+    500: "oklch(68.3% 0.154 215.864)",
+    600: "oklch(57.5% 0.13 221.549)",
+    700: "oklch(48.6% 0.106 224.548)",
+    800: "oklch(41.1% 0.084 226.368)",
+    900: "oklch(36.4% 0.069 228.344)",
+    950: "oklch(26.7% 0.048 233.586)",
+  },
+  sky: {
+    50: "oklch(97.7% 0.013 236.62)",
+    100: "oklch(95.1% 0.026 236.824)",
+    200: "oklch(90.1% 0.058 230.902)",
+    300: "oklch(82.8% 0.111 230.318)",
+    400: "oklch(74.6% 0.16 232.661)",
+    500: "oklch(68.5% 0.169 237.323)",
+    600: "oklch(58.8% 0.158 241.966)",
+    700: "oklch(50% 0.134 242.749)",
+    800: "oklch(44.3% 0.11 240.79)",
+    900: "oklch(39.1% 0.09 240.876)",
+    950: "oklch(29.3% 0.066 243.157)",
+  },
+  blue: {
+    50: "oklch(97.1% 0.014 254.604)",
+    100: "oklch(93.9% 0.03 254.624)",
+    200: "oklch(88.3% 0.062 254.671)",
+    300: "oklch(80.3% 0.109 254.832)",
+    400: "oklch(70.5% 0.163 257.365)",
+    500: "oklch(61.6% 0.199 262.881)",
+    600: "oklch(54.3% 0.212 266.994)",
+    700: "oklch(47% 0.202 267.568)",
+    800: "oklch(40.9% 0.171 268.344)",
+    900: "oklch(36.9% 0.144 269.287)",
+    950: "oklch(27.6% 0.104 270.925)",
+  },
+  indigo: {
+    50: "oklch(96.3% 0.015 272.314)",
+    100: "oklch(93.4% 0.033 272.325)",
+    200: "oklch(87.1% 0.067 272.388)",
+    300: "oklch(78.1% 0.115 272.628)",
+    400: "oklch(67.5% 0.167 274.294)",
+    500: "oklch(58.7% 0.21 276.828)",
+    600: "oklch(51.5% 0.228 277.121)",
+    700: "oklch(45.4% 0.212 277.358)",
+    800: "oklch(39.6% 0.183 277.678)",
+    900: "oklch(35.2% 0.154 278.254)",
+    950: "oklch(26.7% 0.113 279.746)",
+  },
+  violet: {
+    50: "oklch(96.9% 0.016 293.756)",
+    100: "oklch(94.3% 0.029 294.588)",
+    200: "oklch(89.4% 0.057 293.283)",
+    300: "oklch(81.1% 0.111 293.571)",
+    400: "oklch(70.2% 0.183 293.541)",
+    500: "oklch(60.6% 0.25 292.717)",
+    600: "oklch(54.1% 0.281 293.009)",
+    700: "oklch(49.1% 0.27 292.581)",
+    800: "oklch(43.2% 0.232 292.759)",
+    900: "oklch(38% 0.189 293.745)",
+    950: "oklch(28.3% 0.141 291.089)",
+  },
+  purple: {
+    50: "oklch(97.9% 0.014 302.321)",
+    100: "oklch(94.8% 0.032 302.71)",
+    200: "oklch(89.8% 0.067 301.406)",
+    300: "oklch(81.8% 0.127 300.313)",
+    400: "oklch(71.2% 0.204 298.474)",
+    500: "oklch(62.2% 0.268 295.754)",
+    600: "oklch(55.7% 0.283 294.408)",
+    700: "oklch(49.3% 0.263 293.571)",
+    800: "oklch(43.4% 0.226 293.887)",
+    900: "oklch(38.1% 0.184 294.996)",
+    950: "oklch(28.9% 0.144 294.996)",
+  },
+  fuchsia: {
+    50: "oklch(97.7% 0.017 320.058)",
+    100: "oklch(95.2% 0.037 318.852)",
+    200: "oklch(90.3% 0.076 319.62)",
+    300: "oklch(83.3% 0.145 321.434)",
+    400: "oklch(74% 0.238 322.16)",
+    500: "oklch(66.7% 0.295 322.15)",
+    600: "oklch(59.1% 0.293 322.896)",
+    700: "oklch(51.8% 0.253 323.949)",
+    800: "oklch(45.2% 0.211 324.591)",
+    900: "oklch(40.1% 0.17 325.612)",
+    950: "oklch(29.3% 0.136 325.661)",
+  },
+  pink: {
+    50: "oklch(96.8% 0.014 343.198)",
+    100: "oklch(94% 0.029 342.684)",
+    200: "oklch(88.7% 0.063 340.952)",
+    300: "oklch(80.3% 0.125 336.879)",
+    400: "oklch(70.5% 0.196 334.585)",
+    500: "oklch(62.8% 0.242 0.775)",
+    600: "oklch(54.8% 0.243 3.797)",
+    700: "oklch(47.2% 0.214 4.673)",
+    800: "oklch(40.1% 0.176 5.308)",
+    900: "oklch(36% 0.145 5.873)",
+    950: "oklch(26.1% 0.106 7.331)",
+  },
+  rose: {
+    50: "oklch(96.9% 0.015 12.422)",
+    100: "oklch(94.1% 0.03 12.58)",
+    200: "oklch(89.2% 0.058 10.001)",
+    300: "oklch(81% 0.117 11.638)",
+    400: "oklch(71.2% 0.194 13.428)",
+    500: "oklch(64.5% 0.246 16.439)",
+    600: "oklch(58.6% 0.253 17.585)",
+    700: "oklch(51.4% 0.222 16.935)",
+    800: "oklch(45.5% 0.188 13.697)",
+    900: "oklch(41% 0.159 10.272)",
+    950: "oklch(27.1% 0.105 12.094)",
+  },
+  slate: {
+    50: "oklch(98.4% 0.003 247.858)",
+    100: "oklch(96.8% 0.007 247.896)",
+    200: "oklch(92.9% 0.013 255.508)",
+    300: "oklch(86.9% 0.022 252.894)",
+    400: "oklch(70.4% 0.04 256.788)",
+    500: "oklch(55.4% 0.046 257.417)",
+    600: "oklch(44.6% 0.043 257.281)",
+    700: "oklch(37.2% 0.044 257.287)",
+    800: "oklch(27.9% 0.041 260.031)",
+    900: "oklch(20.8% 0.042 265.755)",
+    950: "oklch(12.9% 0.042 264.695)",
+  },
+  gray: {
+    50: "oklch(98.5% 0.002 247.839)",
+    100: "oklch(96.7% 0.003 264.542)",
+    200: "oklch(92.8% 0.006 264.531)",
+    300: "oklch(87.2% 0.01 258.338)",
+    400: "oklch(70.7% 0.022 261.325)",
+    500: "oklch(55.1% 0.027 264.364)",
+    600: "oklch(44.6% 0.03 256.802)",
+    700: "oklch(37.3% 0.034 259.733)",
+    800: "oklch(27.8% 0.033 256.848)",
+    900: "oklch(21% 0.034 264.665)",
+    950: "oklch(13% 0.028 261.692)",
+  },
+  zinc: {
+    50: "oklch(98.5% 0 0)",
+    100: "oklch(96.7% 0.001 286.375)",
+    200: "oklch(92% 0.004 286.32)",
+    300: "oklch(87.1% 0.006 286.286)",
+    400: "oklch(70.5% 0.015 286.067)",
+    500: "oklch(55.2% 0.016 285.938)",
+    600: "oklch(44.2% 0.017 285.786)",
+    700: "oklch(37% 0.013 285.805)",
+    800: "oklch(27.4% 0.006 286.033)",
+    900: "oklch(21% 0.006 285.885)",
+    950: "oklch(14.1% 0.005 285.823)",
+  },
+  neutral: {
+    0: "oklch(100% 0 0)",
+    50: "oklch(98.5% 0 0)",
+    100: "oklch(96.7% 0 0)",
+    200: "oklch(92% 0 0)",
+    300: "oklch(87.1% 0 0)",
+    400: "oklch(70.5% 0 0)",
+    500: "oklch(55.2% 0 0)",
+    600: "oklch(44.2% 0 0)",
+    700: "oklch(37% 0 0)",
+    800: "oklch(27.4% 0 0)",
+    900: "oklch(21% 0 0)",
+    950: "oklch(14.1% 0 0)",
+    1000: "oklch(0% 0 0)",
+  },
+  stone: {
+    50: "oklch(98.5% 0.001 106.423)",
+    100: "oklch(97% 0.001 106.424)",
+    200: "oklch(92.3% 0.003 48.717)",
+    300: "oklch(86.9% 0.005 56.366)",
+    400: "oklch(70.9% 0.01 56.259)",
+    500: "oklch(55.3% 0.013 58.071)",
+    600: "oklch(44.4% 0.011 73.639)",
+    700: "oklch(37.4% 0.01 67.558)",
+    800: "oklch(26.8% 0.007 34.298)",
+    900: "oklch(21.6% 0.006 56.043)",
+    950: "oklch(14.7% 0.004 49.25)",
+  },
+  black: "oklch(0% 0 0)",
+  white: "oklch(100% 0 0)",
 } as const;
 
 export type PrimitiveColor = keyof typeof colors;

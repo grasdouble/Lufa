@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Placeholder, semantic } from '@grasdouble/lufa_design-system';
+import { Placeholder, colors } from '@grasdouble/lufa_design-system';
 
 const meta = {
     title: '2. Layout/Placeholder',
@@ -126,19 +126,19 @@ export const ColorVariants: Story = {
             </div>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Interactive (Blue)</h3>
-                <Placeholder color={semantic.interactive.default}>Solid Blue</Placeholder>
+                <Placeholder color={colors.interactive.default}>Solid Blue</Placeholder>
             </div>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Success (Green)</h3>
-                <Placeholder color={semantic.success.default}>Solid Green</Placeholder>
+                <Placeholder color={colors.success.default}>Solid Green</Placeholder>
             </div>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Error (Red)</h3>
-                <Placeholder color={semantic.error.default}>Solid Red</Placeholder>
+                <Placeholder color={colors.error.default}>Solid Red</Placeholder>
             </div>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Warning (Orange)</h3>
-                <Placeholder color={semantic.warning.default}>Solid Orange</Placeholder>
+                <Placeholder color={colors.warning.default}>Solid Orange</Placeholder>
             </div>
         </div>
     ),
@@ -149,25 +149,25 @@ export const GradientVariants: Story = {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '400px' }}>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Blue to Purple</h3>
-                <Placeholder colorFrom={semantic.interactive.default} colorTo={semantic.brand.secondary}>
+                <Placeholder colorFrom={colors.interactive.default} colorTo={colors.brand.secondary}>
                     Blue → Purple
                 </Placeholder>
             </div>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Green to Teal</h3>
-                <Placeholder colorFrom={semantic.success.default} colorTo="#14B8A6">
+                <Placeholder colorFrom={colors.success.default} colorTo="#14B8A6">
                     Green → Teal
                 </Placeholder>
             </div>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Orange to Red</h3>
-                <Placeholder colorFrom={semantic.warning.default} colorTo={semantic.error.default}>
+                <Placeholder colorFrom={colors.warning.default} colorTo={colors.error.default}>
                     Orange → Red
                 </Placeholder>
             </div>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Purple to Pink</h3>
-                <Placeholder colorFrom={semantic.brand.secondary} colorTo="#EC4899">
+                <Placeholder colorFrom={colors.brand.secondary} colorTo="#EC4899">
                     Purple → Pink
                 </Placeholder>
             </div>
@@ -184,31 +184,31 @@ export const GradientVariants: Story = {
 export const CombinedVariants: Story = {
     render: () => (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-            <Placeholder height="small" width="small" color={semantic.interactive.default}>
+            <Placeholder height="small" width="small" color={colors.interactive.default}>
                 Small × Small
             </Placeholder>
-            <Placeholder height="small" width="medium" color={semantic.success.default}>
+            <Placeholder height="small" width="medium" color={colors.success.default}>
                 Small × Medium
             </Placeholder>
-            <Placeholder height="small" width="large" color={semantic.error.default}>
+            <Placeholder height="small" width="large" color={colors.error.default}>
                 Small × Large
             </Placeholder>
-            <Placeholder height="medium" width="small" color={semantic.brand.secondary}>
+            <Placeholder height="medium" width="small" color={colors.brand.secondary}>
                 Medium × Small
             </Placeholder>
-            <Placeholder height="medium" width="medium" color={semantic.info.default}>
+            <Placeholder height="medium" width="medium" color={colors.info.default}>
                 Medium × Medium
             </Placeholder>
-            <Placeholder height="medium" width="large" color={semantic.warning.default}>
+            <Placeholder height="medium" width="large" color={colors.warning.default}>
                 Medium × Large
             </Placeholder>
-            <Placeholder height="large" width="small" color={semantic.interactive.hover}>
+            <Placeholder height="large" width="small" color={colors.interactive.hover}>
                 Large × Small
             </Placeholder>
-            <Placeholder height="large" width="medium" color={semantic.success.hover}>
+            <Placeholder height="large" width="medium" color={colors.success.hover}>
                 Large × Medium
             </Placeholder>
-            <Placeholder height="large" width="large" color={semantic.warning.default}>
+            <Placeholder height="large" width="large" color={colors.warning.default}>
                 Large × Large
             </Placeholder>
         </div>
@@ -227,15 +227,15 @@ export const LayoutExample: Story = {
         >
             <h2 style={{ marginBottom: '16px' }}>Dashboard Layout Example</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <Placeholder height="small" width="full" color={semantic.interactive.default}>
+                <Placeholder height="small" width="full" color={colors.interactive.default}>
                     Header - Small Height, Full Width
                 </Placeholder>
                 <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '16px' }}>
-                    <Placeholder height="full" width="full" color={semantic.brand.secondary}>
+                    <Placeholder height="full" width="full" color={colors.brand.secondary}>
                         Sidebar
                     </Placeholder>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                        <Placeholder height="medium" width="full" color={semantic.success.light}>
+                        <Placeholder height="medium" width="full" color={colors.success.light}>
                             Content Area
                         </Placeholder>
                         <div
@@ -245,19 +245,19 @@ export const LayoutExample: Story = {
                                 gap: '16px',
                             }}
                         >
-                            <Placeholder height="small" color={semantic.warning.light}>
+                            <Placeholder height="small" color={colors.warning.light}>
                                 Card 1
                             </Placeholder>
-                            <Placeholder height="small" color={semantic.warning.light}>
+                            <Placeholder height="small" color={colors.warning.light}>
                                 Card 2
                             </Placeholder>
-                            <Placeholder height="small" color={semantic.warning.light}>
+                            <Placeholder height="small" color={colors.warning.light}>
                                 Card 3
                             </Placeholder>
                         </div>
                     </div>
                 </div>
-                <Placeholder height="small" width="full" color={semantic.text.secondary}>
+                <Placeholder height="small" width="full" color={colors.text.secondary}>
                     Footer - Small Height, Full Width
                 </Placeholder>
             </div>

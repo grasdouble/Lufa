@@ -68,7 +68,7 @@
         @apply p-1;
         @apply rounded-md;
         @apply hover:bg-black/5;
-        @apply transition-colors duration-200;
+        @apply duration-base transition-colors;
         @apply cursor-pointer border-none bg-transparent;
     }
 
