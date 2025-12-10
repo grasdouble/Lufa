@@ -10,7 +10,7 @@
  */
 
 /* Import design system tokens (CSS custom properties like --lufa-spacing-*, --lufa-color-*, etc.) */
-@import '@grasdouble/lufa_design-system-tokens/tokens.css';
+@import '@grasdouble/lufa_design-system-tokens/styles.css';
 
 /* Import pre-compiled component styles from the design system */
 @import '@grasdouble/lufa_design-system/style.css';

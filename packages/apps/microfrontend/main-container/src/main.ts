@@ -24,7 +24,7 @@ registerApplication({
                 // Create an iframe to encapsulate the storybook application
                 const iframe = document.createElement('iframe');
                 iframe.id = 'storybook-iframe'; // Add an ID for easier unmounting
-                iframe.src = 'https://storybook.sebastien-lemouillour.fr';
+                iframe.src = 'https://lufa-storybook.sebastien-lemouillour.fr';
                 iframe.style.width = '100%';
                 iframe.style.height = '100vh';
                 iframe.style.border = 'none';

@@ -5,7 +5,8 @@
   "type": "module",
   "description": "Lufa Design System - Primitive color tokens",
   "scripts": {
-    "build": "tsc && node scripts/generate-css.js",
+    "clean": "rm -rf dist",
+    "build": "pnpm clean && tsc && node scripts/generate-css.js",
     "dev": "tsc --watch"
   },
   "private": false,
@@ -22,7 +23,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./primitives.css": "./dist/primitives.css"
+    "./styles.css": "./dist/styles.css"
   },
   "devDependencies": {
     "@grasdouble/lufa_config_tsconfig": "workspace:^",

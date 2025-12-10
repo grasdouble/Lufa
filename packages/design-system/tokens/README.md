@@ -27,7 +27,7 @@ const bodyFontSize = typography.fontSize.body;
 ### CSS
 
 ```css
-@import "@grasdouble/lufa_design-system-tokens/tokens.css";
+@import "@grasdouble/lufa_design-system-tokens/styles.css";
 
 .my-element {
   color: var(--color-primary-base);

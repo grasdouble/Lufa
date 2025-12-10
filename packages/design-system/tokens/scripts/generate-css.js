@@ -3,14 +3,14 @@ import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
 // Import foundation tokens
-import { semantic } from "../dist/colors-semantic.js";
-import { spacing } from "../dist/spacing.js";
-import { radius } from "../dist/radius.js";
-import { shadows } from "../dist/shadows.js";
-import { zIndex } from "../dist/zIndex.js";
-import { breakpoints } from "../dist/breakpoints.js";
-import { maxWidth } from "../dist/maxWidth.js";
-import typography from "../dist/typography.js";
+import { colors } from "../dist/tokens/colors.js";
+import { spacing } from "../dist/tokens/spacing.js";
+import { radius } from "../dist/tokens/radius.js";
+import { shadows } from "../dist/tokens/shadows.js";
+import { zIndex } from "../dist/tokens/zIndex.js";
+import { breakpoints } from "../dist/tokens/breakpoints.js";
+import { maxWidth } from "../dist/tokens/maxWidth.js";
+import typography from "../dist/tokens/typography.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -21,10 +21,10 @@ mkdirSync(distDir, { recursive: true });
 // Generate Lufa-prefixed tokens
 let lufaCss = ":root {\n";
 
-// Semantic Colors with lufa prefix
-lufaCss += "  /* Semantic Colors */\n";
-for (const [category, colors] of Object.entries(semantic)) {
-  for (const [shade, value] of Object.entries(colors)) {
+// Colors with lufa prefix
+lufaCss += "  /* Colors */\n";
+for (const [category, shades] of Object.entries(colors)) {
+  for (const [shade, value] of Object.entries(shades)) {
     lufaCss += `  --lufa-color-${category}-${shade}: ${value};\n`;
   }
 }
@@ -88,5 +88,5 @@ for (const [key, value] of Object.entries(typography.letterSpacing)) {
 
 lufaCss += "}\n";
 
-writeFileSync(resolve(distDir, "tokens.css"), lufaCss);
-console.log("✅ Generated tokens.css");
+writeFileSync(resolve(distDir, "styles.css"), lufaCss);
+console.log("✅ Generated styles.css");
