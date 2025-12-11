@@ -2,7 +2,7 @@
  * Border Radius Tokens
  *
  * Semantic naming for border radius values.
- * References primitive radius scale for consistent foundation.
+ * References primitive radius scale for consistent token.
  */
 
 import { radius as primitiveRadius } from "@grasdouble/lufa_design-system-primitives";

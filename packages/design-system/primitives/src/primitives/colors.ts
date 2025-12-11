@@ -1,7 +1,7 @@
 /**
  * Base color palette scales with WCAG 2.1 contrast ratios.
  *
- * SCOPE: Global - Foundation for all color usage in the system
+ * SCOPE: Global - Tokens for all color usage in the system
  *
  * COMMON USE CASES:
  * - Text colors (600-900 on light backgrounds)

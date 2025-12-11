@@ -17,7 +17,7 @@ export const MaxWidth: Story = {
         <div style={{ padding: '20px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>MaxWidth Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px', maxWidth: '768px' }}>
-                Foundation max-width values for content containers. Optimal reading width is 576-768px (45-75 characters per
+                Tokens max-width values for content containers. Optimal reading width is 576-768px (45-75 characters per
                 line).
             </p>
 
@@ -56,7 +56,7 @@ export const Sizes: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Size Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation size values for element dimensions. Includes WCAG minimum 44px touch target.
+                Tokens size values for element dimensions. Includes WCAG minimum 44px touch target.
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'flex-end' }}>
@@ -110,7 +110,7 @@ export const Grid: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Grid Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation grid values for columns and gutters. 12-column grid is industry standard.
+                Tokens grid values for columns and gutters. 12-column grid is industry standard.
             </p>
 
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Columns</h2>
@@ -187,7 +187,7 @@ export const AspectRatio: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>AspectRatio Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation aspect-ratio values for media containers and responsive images.
+                Tokens aspect-ratio values for media containers and responsive images.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }}>
@@ -230,7 +230,7 @@ export const Blur: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Blur Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation blur values for backdrop-filter effects. Use for frosted glass overlays and modern UI.
+                Tokens blur values for backdrop-filter effects. Use for frosted glass overlays and modern UI.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
@@ -279,7 +279,7 @@ export const ZIndex: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Z-Index Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation z-index values for stacking order. Use 10-unit increments to prevent conflicts.
+                Tokens z-index values for stacking order. Use 10-unit increments to prevent conflicts.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

@@ -2,7 +2,7 @@
  * Z-Index Tokens
  *
  * Semantic naming for z-index stacking values.
- * References primitive z-index scale for consistent foundation.
+ * References primitive z-index scale for consistent token.
  */
 
 import { zIndex as primitiveZIndex } from "@grasdouble/lufa_design-system-primitives";

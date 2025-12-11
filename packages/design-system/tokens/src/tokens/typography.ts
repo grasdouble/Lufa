@@ -2,7 +2,7 @@
  * Typography Tokens
  *
  * Semantic naming for typography values.
- * References primitive typography scale for consistent foundation.
+ * References primitive typography scale for consistent token.
  */
 
 import { typography as primitiveTypography } from "@grasdouble/lufa_design-system-primitives";

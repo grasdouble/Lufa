@@ -228,4 +228,4 @@ If CSS variables appear as plain text:
 - [Learn about usage patterns →](./usage)
 - [Explore theming options →](./theming)
 - [Browse all components →](../components/overview)
-- [Understand design foundations →](../tokens/colors)
+- [Understand design Tokens →](../tokens/colors)

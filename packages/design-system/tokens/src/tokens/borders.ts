@@ -2,7 +2,7 @@
  * Border Tokens
  *
  * Semantic naming for border widths.
- * References primitive border scale for consistent foundation.
+ * References primitive border scale for consistent token.
  */
 
 import { borders as primitiveBorders } from "@grasdouble/lufa_design-system-primitives";

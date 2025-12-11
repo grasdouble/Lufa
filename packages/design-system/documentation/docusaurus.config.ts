@@ -105,7 +105,7 @@ const config: Config = {
           ],
         },
         {
-          title: "Foundations",
+          title: "Tokens",
           items: [
             {
               label: "Colors",

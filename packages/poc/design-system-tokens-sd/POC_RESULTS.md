@@ -344,7 +344,7 @@ The benefits (multi-platform, industry standard) don't currently outweigh the co
 
 The Style Dictionary proof of concept successfully demonstrates a viable alternative approach to token management. While technically sound, the current TypeScript approach remains more suitable for Lufa's web-focused needs.
 
-**This POC provides a solid foundation for future migration if requirements change.**
+**This POC provides a solid token for future migration if requirements change.**
 
 ---
 

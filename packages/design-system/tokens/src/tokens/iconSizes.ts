@@ -2,7 +2,7 @@
  * Icon Size Tokens
  *
  * Standardized icon dimensions for consistent visual hierarchy.
- * References primitive size scale for consistent foundation.
+ * References primitive size scale for consistent token.
  *
  * WCAG 2.1 Accessibility:
  * - Icon buttons: Minimum 44x44px touch target (WCAG 2.5.5 Target Size)

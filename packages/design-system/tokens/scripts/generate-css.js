@@ -2,7 +2,7 @@ import { writeFileSync, mkdirSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
-// Import foundation tokens
+// Import token tokens
 import { colors } from "../dist/tokens/colors.js";
 import { spacing } from "../dist/tokens/spacing.js";
 import { radius } from "../dist/tokens/radius.js";

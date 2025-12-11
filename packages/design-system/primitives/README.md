@@ -10,7 +10,7 @@ pnpm add @grasdouble/lufa_design-system-primitives
 
 ## Philosophy
 
-Primitives use **pure numeric scales** (0-9) for consistent foundation values. They are intentionally non-semantic—use `@grasdouble/lufa_design-system-tokens` for semantic names like `sm`, `md`, `lg`.
+Primitives use **pure numeric scales** (0-9) for consistent token values. They are intentionally non-semantic—use `@grasdouble/lufa_design-system-tokens` for semantic names like `sm`, `md`, `lg`.
 
 ## How to consume
 

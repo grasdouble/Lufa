@@ -3,7 +3,7 @@
  *
  * Standardized maximum widths for components like modals, containers, and content areas.
  * These tokens define the maximum width constraints used across the design system.
- * References primitive maxWidth scale for consistent foundation.
+ * References primitive maxWidth scale for consistent token.
  *
  * @example
  * ```tsx

@@ -17,7 +17,7 @@ export const FontFamilies: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Typography Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation typography values. WCAG requires minimum 16px for body text, 1.5 line-height for paragraphs, and
+                Token typography values. WCAG requires minimum 16px for body text, 1.5 line-height for paragraphs, and
                 0.12em letter spacing.
             </p>
 

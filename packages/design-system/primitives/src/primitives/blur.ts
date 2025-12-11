@@ -2,7 +2,7 @@
  * Blur Primitives
  *
  * Raw blur values for backdrop-filter and filter effects.
- * These primitives provide the foundation for frosted glass effects, overlays, and modern UI.
+ * These primitives provide the token for frosted glass effects, overlays, and modern UI.
  *
  * SCOPE: Global - applies to backdrop filters, image effects, overlays
  *

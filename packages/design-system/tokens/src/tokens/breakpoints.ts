@@ -2,7 +2,7 @@
  * Breakpoint Tokens
  *
  * Standardized breakpoints for responsive design.
- * References primitive breakpoint scale for consistent foundation.
+ * References primitive breakpoint scale for consistent token.
  */
 
 import { breakpoints as primitiveBreakpoints } from "@grasdouble/lufa_design-system-primitives";

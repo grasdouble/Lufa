@@ -2,7 +2,7 @@
  * Easing Tokens
  *
  * Semantic naming for animation/transition easing curves.
- * References primitive easing scale for consistent foundation.
+ * References primitive easing scale for consistent token.
  */
 
 import { easing as primitiveEasing } from "@grasdouble/lufa_design-system-primitives";

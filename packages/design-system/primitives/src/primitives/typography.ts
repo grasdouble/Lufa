@@ -3,7 +3,7 @@
  * Font sizes use pixel values; weights use numeric values; line-height and letter-spacing
  * use descriptive names that indicate the visual effect (tight, body, relaxed, etc.).
  *
- * SCOPE: Global - Foundation for all text rendering
+ * SCOPE: Global - Tokens for all text rendering
  *
  * COMMON USE CASES:
  * - fontFamily.sans: Body text, UI elements (most common)

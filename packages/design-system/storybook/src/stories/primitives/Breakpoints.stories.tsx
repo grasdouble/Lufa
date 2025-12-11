@@ -18,7 +18,7 @@ export const AllBreakpoints: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Breakpoint Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation breakpoint values for responsive design. Follow mobile-first approach: these represent minimum
+                Tokens breakpoint values for responsive design. Follow mobile-first approach: these represent minimum
                 widths for each breakpoint.
             </p>
 

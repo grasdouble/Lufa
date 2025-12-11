@@ -17,7 +17,7 @@ export const AllSpacing: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Spacing Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation spacing values using 4px/8px rhythm. Use these for margins, padding, and gaps across all components.
+                Token spacing values using 4px/8px rhythm. Use these for margins, padding, and gaps across all components.
                 Touch targets require minimum 44px (spacing[32] padding or spacing[24] separation).
             </p>
 

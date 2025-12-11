@@ -1,23 +1,23 @@
 /**
  * Aspect ratio primitives with descriptive keys indicating the visual shape.
- * Keys describe the ratio type (square, widescreen, portrait, etc.), not usage context.
- * Tokens layer adds semantic meaning for specific use cases (e.g., 'heroImage', 'thumbnail').
+ * Keys describe the ratio type, not usage context. This allows flexibility for
+ * different token layers to add semantic meaning based on their specific needs.
  *
- * SCOPE: Global - Used for media containers and responsive images
+ * SCOPE: Global - Primitives for media containers and responsive images
  *
- * COMMON USE CASES:
- * - square (1:1): Avatars, profile images, social media posts
- * - traditionalPhotoMonitor (4:3): Classic photos, presentations
- * - classicPhotography (3:2): Photography, landscape images
- * - widescreenVideo (16:9): YouTube videos, hero images, modern displays
- * - ultrawide (21:9): Cinematic content, banner images
- * - vertical (9:16): Mobile stories, vertical videos
- * - portraitPhoto (2:3): Portrait photography
- * - portraitDisplay (3:4): Traditional portrait displays
+ * RATIOS:
+ * - square: 1 / 1 - Equal width and height
+ * - traditionalPhotoMonitor: 4 / 3 - Classic displays and presentations
+ * - classicPhotography: 3 / 2 - Traditional photography format
+ * - widescreenVideo: 16 / 9 - Modern video and display standard
+ * - ultrawide: 21 / 9 - Cinematic widescreen format
+ * - vertical: 9 / 16 - Vertical video format
+ * - portraitPhoto: 2 / 3 - Portrait photography format
+ * - portraitDisplay: 3 / 4 - Traditional portrait display format
  *
- * LAYOUT STRATEGY:
- * Use aspect-ratio CSS property to prevent layout shift during image loading.
- * Choose ratios that match your content source for best results.
+ * USAGE:
+ * These primitives can be referenced directly or mapped to semantic tokens.
+ * Use with CSS aspect-ratio property to prevent layout shift during media loading.
  */
 export const aspectRatio = {
   square: "1 / 1", // Square

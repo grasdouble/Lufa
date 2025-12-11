@@ -2,7 +2,7 @@
  * Shadow Tokens
  *
  * Semantic naming for shadow values.
- * References primitive shadow scale for consistent foundation.
+ * References primitive shadow scale for consistent token.
  * Follows Material Design elevation principles.
  */
 

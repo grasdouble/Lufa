@@ -3,7 +3,7 @@
  *
  * Standardized spacing values for consistent layouts.
  * Based on 4px/8px grid system for optimal visual rhythm.
- * References primitive spacing scale for consistent foundation.
+ * References primitive spacing scale for consistent token.
  */
 
 import { spacing as primitiveSpacing } from "@grasdouble/lufa_design-system-primitives";

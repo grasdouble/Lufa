@@ -2,7 +2,7 @@
  * Timing Tokens
  *
  * Semantic naming for animation/transition durations.
- * References primitive timing scale for consistent foundation.
+ * References primitive timing scale for consistent token.
  */
 
 import { timing as primitiveTiming } from "@grasdouble/lufa_design-system-primitives";

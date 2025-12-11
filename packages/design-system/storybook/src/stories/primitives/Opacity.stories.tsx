@@ -17,7 +17,7 @@ export const AllOpacity: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Opacity Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation opacity values for transparency. CAUTION: Opacity reduces effective contrast - verify WCAG
+                Token opacity values for transparency. CAUTION: Opacity reduces effective contrast - verify WCAG
                 compliance when using opacity on text.
             </p>
 

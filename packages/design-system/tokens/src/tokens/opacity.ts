@@ -2,7 +2,7 @@
  * Opacity Tokens
  *
  * Semantic naming for opacity values.
- * References primitive opacity scale for consistent foundation.
+ * References primitive opacity scale for consistent token.
  *
  * WCAG 2.1 Accessibility:
  * - Use with caution on text and interactive elements

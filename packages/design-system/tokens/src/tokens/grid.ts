@@ -2,7 +2,7 @@
  * Grid Tokens
  *
  * Semantic grid system configurations for responsive layouts.
- * References primitive grid scale for consistent foundation.
+ * References primitive grid scale for consistent token.
  *
  * Grid System Guidelines:
  * - Use 12-column grid for maximum flexibility

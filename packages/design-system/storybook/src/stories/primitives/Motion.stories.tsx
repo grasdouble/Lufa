@@ -17,7 +17,7 @@ export const Timing: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Motion Primitives - Timing</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation timing values for animations. Keep interactions under 400ms to feel responsive. Combine with easing
+                Tokens timing values for animations. Keep interactions under 400ms to feel responsive. Combine with easing
                 curves for natural motion.
             </p>
 
@@ -95,7 +95,7 @@ export const Easing: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Motion Primitives - Easing</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation easing curve values. Prefer easeOut for most UI transitions - it feels most natural.
+                Token easing curve values. Prefer easeOut for most UI transitions - it feels most natural.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>

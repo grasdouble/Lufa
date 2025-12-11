@@ -2,7 +2,7 @@
  * Size Tokens
  *
  * Semantic naming for generic sizing values.
- * References primitive size scale for consistent foundation.
+ * References primitive size scale for consistent token.
  */
 
 import { sizes as primitiveSizes } from "@grasdouble/lufa_design-system-primitives";

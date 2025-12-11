@@ -1,6 +1,6 @@
 # @grasdouble/lufa_design-system-themes
 
-Theme variants for the Lufa Design System. Provides alternative color schemes that override foundation tokens.
+Theme variants for the Lufa Design System. Provides alternative color schemes that override token tokens.
 
 ## Installation
 
@@ -72,7 +72,7 @@ function App() {
 
 ## How Themes Work
 
-Themes override CSS custom properties defined by the foundation package:
+Themes override CSS custom properties defined by the token package:
 
 - `--color-text-*` - Text colors
 - `--color-background-*` - Background colors

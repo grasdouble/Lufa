@@ -2,7 +2,7 @@
  * Aspect Ratio Tokens
  *
  * Semantic aspect ratios for media containers, images, and videos.
- * References primitive aspect ratio scale for consistent foundation.
+ * References primitive aspect ratio scale for consistent token.
  *
  * Usage Guidelines:
  * - Use for responsive images and video containers

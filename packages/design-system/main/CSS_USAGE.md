@@ -116,7 +116,7 @@ Or create your own theme:
 ```css
 @import '@grasdouble/lufa_design-system-tokens/styles.css';
 
-/* Override foundation variables */
+/* Override token variables */
 :root {
     --lufa-color-interactive-default: #ff6b6b;
     --lufa-radius-lg: 16px;

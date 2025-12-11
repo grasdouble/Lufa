@@ -17,7 +17,7 @@ export const AllRadius: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Radius Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation border-radius values for consistent corner rounding. Choose 1-2 values as your primary scale for
+                Token border-radius values for consistent corner rounding. Choose 1-2 values as your primary scale for
                 brand consistency.
             </p>
 

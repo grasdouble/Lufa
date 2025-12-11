@@ -17,7 +17,7 @@ export const AllBorders: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Border Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Foundation border widths and styles. WCAG requires minimum 2px thickness for focus indicators and 3:1 contrast
+                token border widths and styles. WCAG requires minimum 2px thickness for focus indicators and 3:1 contrast
                 for borders.
             </p>
 
