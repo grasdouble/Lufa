@@ -36,6 +36,12 @@ export type { BlurTokens } from "./tokens/effects/blur.js";
 export { opacity } from "./tokens/effects/opacity.js";
 export type { OpacityTokens as OpacityToken } from "./tokens/effects/opacity.js";
 
+export { cursor } from "./tokens/effects/cursor.js";
+export type { CursorTokens } from "./tokens/effects/cursor.js";
+
+export { transform } from "./tokens/effects/transform.js";
+export type { TransformTokens } from "./tokens/effects/transform.js";
+
 // ============================================================================
 // ELEVATION
 // ============================================================================
@@ -50,6 +56,9 @@ export type { ZIndexTokens } from "./tokens/elevation/zIndex.js";
 // ============================================================================
 export { iconSizes } from "./tokens/icon/iconSizes.js";
 export type { IconSizesTokens } from "./tokens/icon/iconSizes.js";
+
+export { iconStrokes } from "./tokens/icon/iconStrokes.js";
+export type { IconStrokesTokens } from "./tokens/icon/iconStrokes.js";
 
 // ============================================================================
 // LAYOUT
@@ -69,6 +78,12 @@ export type { AspectRatio as AspectRatioToken } from "./tokens/layout/aspectRati
 export { container } from "./tokens/layout/container.js";
 export type { Container as ContainerToken } from "./tokens/layout/container.js";
 
+export { dimensions } from "./tokens/layout/dimensions.js";
+export type { DimensionsTokens } from "./tokens/layout/dimensions.js";
+
+export { minWidth } from "./tokens/layout/minWidth.js";
+export type { MinWidthTokens } from "./tokens/layout/minWidth.js";
+
 // ============================================================================
 // MOTION
 // ============================================================================
@@ -77,6 +92,9 @@ export type { EasingTokens } from "./tokens/motion/easing.js";
 
 export { timing } from "./tokens/motion/timing.js";
 export type { TimingTokens } from "./tokens/motion/timing.js";
+
+export { advancedDuration } from "./tokens/motion/advancedDuration.js";
+export type { AdvancedDurationTokens } from "./tokens/motion/advancedDuration.js";
 
 export { transition } from "./tokens/motion/transition.js";
 export type { TransitionToken } from "./tokens/motion/transition.js";
@@ -114,3 +132,5 @@ export { letterSpacings } from "./tokens/typography/letterSpacing.js";
 export type { LetterSpacingsTokens } from "./tokens/typography/letterSpacing.js";
 export { typographyScales } from "./tokens/typography/typography.js";
 export type { TypographyScalesTokens } from "./tokens/typography/typography.js";
+export { measure } from "./tokens/typography/measure.js";
+export type { MeasureTokens } from "./tokens/typography/measure.js";

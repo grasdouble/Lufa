@@ -14,6 +14,8 @@ import { colors } from "../dist/tokens/color/colors.js";
 // Effects
 import { blur } from "../dist/tokens/effects/blur.js";
 import { opacity } from "../dist/tokens/effects/opacity.js";
+import { cursor } from "../dist/tokens/effects/cursor.js";
+import { transform } from "../dist/tokens/effects/transform.js";
 
 // Elevation
 import { shadows } from "../dist/tokens/elevation/shadows.js";
@@ -21,17 +23,21 @@ import { zIndex } from "../dist/tokens/elevation/zIndex.js";
 
 // Icon
 import { iconSizes } from "../dist/tokens/icon/iconSizes.js";
+import { iconStrokes } from "../dist/tokens/icon/iconStrokes.js";
 
 // Layout
 import { breakpoints } from "../dist/tokens/layout/breakpoints.js";
 import { grid } from "../dist/tokens/layout/grid.js";
 import { aspectRatio } from "../dist/tokens/layout/aspectRatio.js";
 import { container } from "../dist/tokens/layout/container.js";
+import { dimensions } from "../dist/tokens/layout/dimensions.js";
+import { minWidth } from "../dist/tokens/layout/minWidth.js";
 
 // Motion
 import { easing } from "../dist/tokens/motion/easing.js";
 import { timing } from "../dist/tokens/motion/timing.js";
 import { transition } from "../dist/tokens/motion/transition.js";
+import { advancedDuration } from "../dist/tokens/motion/advancedDuration.js";
 
 // Space
 import { spacings } from "../dist/tokens/space/spacing.js";
@@ -44,6 +50,7 @@ import { fontSizes } from "../dist/tokens/typography/fontSize.js";
 import { fontWeights } from "../dist/tokens/typography/fontWeight.js";
 import { lineHeights } from "../dist/tokens/typography/lineHeight.js";
 import { letterSpacings } from "../dist/tokens/typography/letterSpacing.js";
+import { measure } from "../dist/tokens/typography/measure.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -147,6 +154,18 @@ const opacityEntries = processTokens(opacity).map(([k, v]) => ({
 }));
 tokenCategories.push({ name: "Opacity", count: opacityEntries.length });
 
+const cursorEntries = processTokens(cursor).map(([k, v]) => ({
+  name: `cursor-${toKebab(k)}`,
+  value: v,
+}));
+tokenCategories.push({ name: "Cursor", count: cursorEntries.length });
+
+const transformEntries = processTokens(transform).map(([k, v]) => ({
+  name: `transform-${toKebab(k)}`,
+  value: v,
+}));
+tokenCategories.push({ name: "Transform", count: transformEntries.length });
+
 // ============================================================================
 // ELEVATION
 // ============================================================================
@@ -170,6 +189,12 @@ const iconSizeEntries = processTokens(iconSizes).map(([k, v]) => ({
   value: v,
 }));
 tokenCategories.push({ name: "Icon Sizes", count: iconSizeEntries.length });
+
+const iconStrokeEntries = processTokens(iconStrokes).map(([k, v]) => ({
+  name: `icon-stroke-${toKebab(k)}`,
+  value: v,
+}));
+tokenCategories.push({ name: "Icon Strokes", count: iconStrokeEntries.length });
 
 // ============================================================================
 // LAYOUT
@@ -207,6 +232,18 @@ const containerEntries = processTokens(container).map(([k, v]) => ({
 }));
 tokenCategories.push({ name: "Container", count: containerEntries.length });
 
+const dimensionsEntries = processTokens(dimensions).map(([k, v]) => ({
+  name: `dimensions-${toKebab(k)}`,
+  value: v,
+}));
+tokenCategories.push({ name: "Dimensions", count: dimensionsEntries.length });
+
+const minWidthEntries = processTokens(minWidth).map(([k, v]) => ({
+  name: `min-width-${toKebab(k)}`,
+  value: v,
+}));
+tokenCategories.push({ name: "Min Width", count: minWidthEntries.length });
+
 // ============================================================================
 // MOTION
 // ============================================================================
@@ -227,6 +264,17 @@ const transitionEntries = processTokens(transition).map(([k, v]) => ({
   value: v,
 }));
 tokenCategories.push({ name: "Transition", count: transitionEntries.length });
+
+const advancedDurationEntries = processTokens(advancedDuration).map(
+  ([k, v]) => ({
+    name: `advanced-duration-${toKebab(k)}`,
+    value: v,
+  })
+);
+tokenCategories.push({
+  name: "Advanced Duration",
+  count: advancedDurationEntries.length,
+});
 
 // ============================================================================
 // SPACE
@@ -288,6 +336,12 @@ tokenCategories.push({
   count: letterSpacingEntries.length,
 });
 
+const measureEntries = processTokens(measure).map(([k, v]) => ({
+  name: `measure-${toKebab(k)}`,
+  value: v,
+}));
+tokenCategories.push({ name: "Measure", count: measureEntries.length });
+
 // Calculate total tokens
 const totalTokens = tokenCategories.reduce((sum, cat) => sum + cat.count, 0);
 
@@ -306,17 +360,23 @@ css += generateSection("BORDER - Radius", radiusEntries);
 css += generateSection("COLOR - Semantic Colors", colorEntries);
 css += generateSection("EFFECTS - Blur", blurEntries);
 css += generateSection("EFFECTS - Opacity", opacityEntries);
+css += generateSection("EFFECTS - Cursor", cursorEntries);
+css += generateSection("EFFECTS - Transform", transformEntries);
 css += generateSection("ELEVATION - Shadows", shadowEntries);
 css += generateSection("ELEVATION - Z-Index", zIndexEntries);
 css += generateSection("ICON - Sizes", iconSizeEntries);
+css += generateSection("ICON - Strokes", iconStrokeEntries);
 css += generateSection("LAYOUT - Breakpoints", breakpointEntries);
 css += generateSection("LAYOUT - Grid Columns", gridColumnEntries);
 css += generateSection("LAYOUT - Grid Gutters", gridGutterEntries);
 css += generateSection("LAYOUT - Aspect Ratio", aspectRatioEntries);
 css += generateSection("LAYOUT - Container", containerEntries);
+css += generateSection("LAYOUT - Dimensions", dimensionsEntries);
+css += generateSection("LAYOUT - Min Width", minWidthEntries);
 css += generateSection("MOTION - Easing", easingEntries);
 css += generateSection("MOTION - Timing", timingEntries);
 css += generateSection("MOTION - Transition", transitionEntries);
+css += generateSection("MOTION - Advanced Duration", advancedDurationEntries);
 css += generateSection("SPACE - Spacing", spacingEntries);
 css += generateSection("SPACE - Sizes", sizeEntries);
 css += generateSection("SPACE - Max Width", maxWidthEntries);
@@ -325,6 +385,7 @@ css += generateSection("TYPOGRAPHY - Font Sizes", fontSizeEntries);
 css += generateSection("TYPOGRAPHY - Font Weights", fontWeightEntries);
 css += generateSection("TYPOGRAPHY - Line Heights", lineHeightEntries);
 css += generateSection("TYPOGRAPHY - Letter Spacings", letterSpacingEntries);
+css += generateSection("TYPOGRAPHY - Measure", measureEntries);
 
 css += "}\n";
 

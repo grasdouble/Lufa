@@ -42,8 +42,10 @@ export const spacing = {
   48: "48px", // Recommended for primary touch targets
   56: "56px",
   64: "64px", // Generous spacing for section separation
+  72: "72px",
   80: "80px",
   96: "96px",
+  120: "120px",
   128: "128px",
 } as const;
 
