@@ -1,69 +1,116 @@
-export { colors } from "./tokens/colors.js";
-export type { ColorCategory, ColorToken } from "./tokens/colors.js";
+/**
+ * Design System Tokens
+ *
+ * Semantic layer that maps primitive values to intent-based names.
+ * Organized by category for better discoverability and maintainability.
+ */
 
-export { spacing } from "./tokens/spacing.js";
-export type { SpacingToken } from "./tokens/spacing.js";
+// ============================================================================
+// BORDER
+// ============================================================================
+export { borderWidths } from "./tokens/border/borderWidth.js";
+export type { BorderWidthsTokens } from "./tokens/border/borderWidth.js";
 
-export { radius } from "./tokens/radius.js";
-export type { RadiusToken } from "./tokens/radius.js";
+export { borderStyles } from "./tokens/border/borderStyle.js";
+export type { BorderStylesTokens } from "./tokens/border/borderStyle.js";
 
-export { shadows } from "./tokens/shadows.js";
-export type { ShadowToken } from "./tokens/shadows.js";
+export { radius } from "./tokens/border/radius.js";
+export type { RadiusTokens as RadiusToken } from "./tokens/border/radius.js";
 
-export { opacity } from "./tokens/opacity.js";
-export type { OpacityToken } from "./tokens/opacity.js";
-
-export { borders } from "./tokens/borders.js";
-export type { BorderWidthToken, BorderStyleToken } from "./tokens/borders.js";
-
-export { sizes } from "./tokens/sizes.js";
-export type { SizeToken } from "./tokens/sizes.js";
-
-export { timing } from "./tokens/timing.js";
-export type { TimingToken } from "./tokens/timing.js";
-
-export { easing } from "./tokens/easing.js";
-export type { EasingToken } from "./tokens/easing.js";
-
-export { motion, getTransition } from "./tokens/motion.js";
-export type { MotionToken } from "./tokens/motion.js";
-
-export { focus, getFocusStyle } from "./tokens/focus.js";
-export type { FocusToken } from "./tokens/focus.js";
-
-export { iconSizes } from "./tokens/iconSizes.js";
-export type { IconSizeToken } from "./tokens/iconSizes.js";
-
-export { grid } from "./tokens/grid.js";
-export type { GridColumnToken, GridGutterToken } from "./tokens/grid.js";
-
-export { aspectRatio } from "./tokens/aspectRatio.js";
-export type { AspectRatioToken } from "./tokens/aspectRatio.js";
-
-export { zIndex } from "./tokens/zIndex.js";
-export type { ZIndexToken } from "./tokens/zIndex.js";
-
-export { breakpoints } from "./tokens/breakpoints.js";
-export type { BreakpointToken } from "./tokens/breakpoints.js";
-
-export { maxWidth } from "./tokens/maxWidth.js";
-export type { MaxWidthToken } from "./tokens/maxWidth.js";
-
-export { default as typography } from "./tokens/typography.js";
+// ============================================================================
+// COLOR
+// ============================================================================
+export { colors } from "./tokens/color/colors.js";
 export type {
-  FontFamilyToken,
-  FontSizeToken,
-  LineHeightToken,
-  FontWeightToken,
-  LetterSpacingToken,
-  TypographyScaleToken,
-} from "./tokens/typography.js";
+  Colors,
+  ColorsCategoriesTokens,
+  ColorsToken,
+} from "./tokens/color/colors.js";
 
-export { container } from "./tokens/container.js";
-export type { ContainerKey, ContainerValue } from "./tokens/container.js";
+// ============================================================================
+// EFFECTS
+// ============================================================================
+export { blur } from "./tokens/effects/blur.js";
+export type { BlurTokens } from "./tokens/effects/blur.js";
 
-export { transition } from "./tokens/transition.js";
-export type { TransitionKey, TransitionValue } from "./tokens/transition.js";
+export { opacity } from "./tokens/effects/opacity.js";
+export type { OpacityTokens as OpacityToken } from "./tokens/effects/opacity.js";
 
-export { blur } from "./tokens/blur.js";
-export type { BlurKey, BlurValue } from "./tokens/blur.js";
+// ============================================================================
+// ELEVATION
+// ============================================================================
+export { shadows } from "./tokens/elevation/shadows.js";
+export type { ShadowsTokens } from "./tokens/elevation/shadows.js";
+
+export { zIndex } from "./tokens/elevation/zIndex.js";
+export type { ZIndexTokens } from "./tokens/elevation/zIndex.js";
+
+// ============================================================================
+// ICON
+// ============================================================================
+export { iconSizes } from "./tokens/icon/iconSizes.js";
+export type { IconSizesTokens } from "./tokens/icon/iconSizes.js";
+
+// ============================================================================
+// LAYOUT
+// ============================================================================
+export { breakpoints } from "./tokens/layout/breakpoints.js";
+export type { BreakpointsTokens } from "./tokens/layout/breakpoints.js";
+
+export { grid } from "./tokens/layout/grid.js";
+export type {
+  GridColumn as GridColumnToken,
+  GridGutter as GridGutterToken,
+} from "./tokens/layout/grid.js";
+
+export { aspectRatio } from "./tokens/layout/aspectRatio.js";
+export type { AspectRatio as AspectRatioToken } from "./tokens/layout/aspectRatio.js";
+
+export { container } from "./tokens/layout/container.js";
+export type { Container as ContainerToken } from "./tokens/layout/container.js";
+
+// ============================================================================
+// MOTION
+// ============================================================================
+export { easing } from "./tokens/motion/easing.js";
+export type { EasingTokens } from "./tokens/motion/easing.js";
+
+export { timing } from "./tokens/motion/timing.js";
+export type { TimingTokens } from "./tokens/motion/timing.js";
+
+export { transition } from "./tokens/motion/transition.js";
+export type { TransitionToken } from "./tokens/motion/transition.js";
+
+export { motion, getTransition } from "./tokens/motion/motion.js";
+export type { MotionToken } from "./tokens/motion/motion.js";
+
+export { focus, getFocusStyle } from "./tokens/motion/focus.js";
+export type { Focus as FocusToken } from "./tokens/motion/focus.js";
+
+// ============================================================================
+// SPACE
+// ============================================================================
+export { spacings } from "./tokens/space/spacing.js";
+export type { SpacingsTokens } from "./tokens/space/spacing.js";
+
+export { sizes } from "./tokens/space/sizes.js";
+export type { SizesTokens } from "./tokens/space/sizes.js";
+
+export { maxWidths } from "./tokens/space/maxWidth.js";
+export type { MaxWidthsTokens } from "./tokens/space/maxWidth.js";
+
+// ============================================================================
+// TYPOGRAPHY
+// ============================================================================
+export { fontFamilies } from "./tokens/typography/fontFamily.js";
+export type { FontFamiliesTokens } from "./tokens/typography/fontFamily.js";
+export { fontSizes } from "./tokens/typography/fontSize.js";
+export type { FontSizesTokens } from "./tokens/typography/fontSize.js";
+export { fontWeights } from "./tokens/typography/fontWeight.js";
+export type { FontWeightsTokens } from "./tokens/typography/fontWeight.js";
+export { lineHeights } from "./tokens/typography/lineHeight.js";
+export type { LineHeightsTokens } from "./tokens/typography/lineHeight.js";
+export { letterSpacings } from "./tokens/typography/letterSpacing.js";
+export type { LetterSpacingsTokens } from "./tokens/typography/letterSpacing.js";
+export { typographyScales } from "./tokens/typography/typography.js";
+export type { TypographyScalesTokens } from "./tokens/typography/typography.js";

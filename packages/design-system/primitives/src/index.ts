@@ -79,8 +79,8 @@ export type { Timing, TimingKey } from "./motion/timing.js";
 export { aspectRatio } from "./space/aspectRatio.js";
 export type { AspectRatio, AspectRatioKey } from "./space/aspectRatio.js";
 
-export { maxWidth } from "./space/maxWidth.js";
-export type { MaxWidth, MaxWidthKey } from "./space/maxWidth.js";
+export { maxWidths } from "./space/maxWidth.js";
+export type { MaxWidths, MaxWidthsKey } from "./space/maxWidth.js";
 
 export { sizes } from "./space/sizes.js";
 export type { Sizes, SizesKey } from "./space/sizes.js";
