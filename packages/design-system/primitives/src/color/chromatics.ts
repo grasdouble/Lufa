@@ -1,27 +1,4 @@
-/**
- * Base color palette scales with WCAG 2.1 contrast ratios.
- *
- * SCOPE: Global - Tokens for all color usage in the system
- *
- * COMMON USE CASES:
- * - Text colors (600-900 on light backgrounds)
- * - Background colors (50-200 for surfaces)
- * - Interactive states (hover, active, disabled)
- * - Status indicators (success, warning, error)
- * - Brand colors and theming
- * - Charts and data visualization
- *
- * Scale guidelines (on white background):
- * - Shades 50-300: Low contrast (~1-2:1), AAA on black/dark backgrounds
- * - Shades 400: Medium contrast (~2.5-3:1), AA large text only
- * - Shades 500: Medium-high contrast (~2.5-4:1), AA large text only
- * - Shades 600: High contrast (~4.5-6:1), AA normal text
- * - Shades 700+: Very high contrast (≥7:1), AAA normal text
- *
- * Higher numbers are darker. Combine with semantic tokens to ensure proper contrast.
- * Light tints (50-200) work symmetrically on dark backgrounds.
- */
-export const colors = {
+export const colorChromatics = {
   red: {
     50: "oklch(97.1% 0.013 17.38)",
     100: "oklch(94.2% 0.027 17.717)",
@@ -243,76 +220,7 @@ export const colors = {
     900: "oklch(41% 0.159 10.272)",
     950: "oklch(27.1% 0.105 12.094)",
   },
-  slate: {
-    50: "oklch(98.4% 0.003 247.858)",
-    100: "oklch(96.8% 0.007 247.896)",
-    200: "oklch(92.9% 0.013 255.508)",
-    300: "oklch(86.9% 0.022 252.894)",
-    400: "oklch(70.4% 0.04 256.788)",
-    500: "oklch(55.4% 0.046 257.417)",
-    600: "oklch(44.6% 0.043 257.281)",
-    700: "oklch(37.2% 0.044 257.287)",
-    800: "oklch(27.9% 0.041 260.031)",
-    900: "oklch(20.8% 0.042 265.755)",
-    950: "oklch(12.9% 0.042 264.695)",
-  },
-  gray: {
-    50: "oklch(98.5% 0.002 247.839)",
-    100: "oklch(96.7% 0.003 264.542)",
-    200: "oklch(92.8% 0.006 264.531)",
-    300: "oklch(87.2% 0.01 258.338)",
-    400: "oklch(70.7% 0.022 261.325)",
-    500: "oklch(55.1% 0.027 264.364)",
-    600: "oklch(44.6% 0.03 256.802)",
-    700: "oklch(37.3% 0.034 259.733)",
-    800: "oklch(27.8% 0.033 256.848)",
-    900: "oklch(21% 0.034 264.665)",
-    950: "oklch(13% 0.028 261.692)",
-  },
-  zinc: {
-    50: "oklch(98.5% 0 0)",
-    100: "oklch(96.7% 0.001 286.375)",
-    200: "oklch(92% 0.004 286.32)",
-    300: "oklch(87.1% 0.006 286.286)",
-    400: "oklch(70.5% 0.015 286.067)",
-    500: "oklch(55.2% 0.016 285.938)",
-    600: "oklch(44.2% 0.017 285.786)",
-    700: "oklch(37% 0.013 285.805)",
-    800: "oklch(27.4% 0.006 286.033)",
-    900: "oklch(21% 0.006 285.885)",
-    950: "oklch(14.1% 0.005 285.823)",
-  },
-  neutral: {
-    0: "oklch(100% 0 0)",
-    50: "oklch(98.5% 0 0)",
-    100: "oklch(96.7% 0 0)",
-    200: "oklch(92% 0 0)",
-    300: "oklch(87.1% 0 0)",
-    400: "oklch(70.5% 0 0)",
-    500: "oklch(55.2% 0 0)",
-    600: "oklch(44.2% 0 0)",
-    700: "oklch(37% 0 0)",
-    800: "oklch(27.4% 0 0)",
-    900: "oklch(21% 0 0)",
-    950: "oklch(14.1% 0 0)",
-    1000: "oklch(0% 0 0)",
-  },
-  stone: {
-    50: "oklch(98.5% 0.001 106.423)",
-    100: "oklch(97% 0.001 106.424)",
-    200: "oklch(92.3% 0.003 48.717)",
-    300: "oklch(86.9% 0.005 56.366)",
-    400: "oklch(70.9% 0.01 56.259)",
-    500: "oklch(55.3% 0.013 58.071)",
-    600: "oklch(44.4% 0.011 73.639)",
-    700: "oklch(37.4% 0.01 67.558)",
-    800: "oklch(26.8% 0.007 34.298)",
-    900: "oklch(21.6% 0.006 56.043)",
-    950: "oklch(14.7% 0.004 49.25)",
-  },
-  black: "oklch(0% 0 0)",
-  white: "oklch(100% 0 0)",
 } as const;
 
-export type PrimitiveColor = keyof typeof colors;
-export type PrimitiveShade = keyof typeof colors.neutral;
+export type ColorChromatics = typeof colorChromatics;
+export type ColorChromaticsKey = keyof ColorChromatics;

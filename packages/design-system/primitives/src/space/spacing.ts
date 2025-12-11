@@ -29,13 +29,22 @@ export const spacing = {
   0: "0px",
   2: "2px",
   4: "4px",
+  6: "6px",
   8: "8px",
+  10: "10px",
   12: "12px", // Minimum for small element padding
   16: "16px", // Minimum for text content padding
+  20: "20px",
   24: "24px", // Minimum spacing between touch targets
+  28: "28px",
   32: "32px", // Comfortable touch target padding
+  40: "40px",
   48: "48px", // Recommended for primary touch targets
+  56: "56px",
   64: "64px", // Generous spacing for section separation
+  80: "80px",
+  96: "96px",
+  128: "128px",
 } as const;
 
 export type Spacing = typeof spacing;
