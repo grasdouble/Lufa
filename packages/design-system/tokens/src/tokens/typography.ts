@@ -25,18 +25,26 @@ export const fontSize = {
   sm: primitiveTypography.fontSize[14],
   /** 16px - Base/body text (WCAG minimum) */
   base: primitiveTypography.fontSize[16],
-  /** 20px - Large text */
-  lg: primitiveTypography.fontSize[20],
-  /** 24px - Extra large */
-  xl: primitiveTypography.fontSize[24],
-  /** 32px - 2x large */
-  "2xl": primitiveTypography.fontSize[32],
-  /** 40px - 3x large */
-  "3xl": primitiveTypography.fontSize[40],
-  /** 48px - 4x large */
-  "4xl": primitiveTypography.fontSize[48],
-  /** 64px - 5x large */
-  "5xl": primitiveTypography.fontSize[64],
+  /** 18px - Large body text */
+  lg: primitiveTypography.fontSize[18],
+  /** 20px - Extra large text */
+  xl: primitiveTypography.fontSize[20],
+  /** 24px - 2x large */
+  "2xl": primitiveTypography.fontSize[24],
+  /** 30px - 3x large */
+  "3xl": primitiveTypography.fontSize[30],
+  /** 36px - 4x large */
+  "4xl": primitiveTypography.fontSize[36],
+  /** 48px - 5x large */
+  "5xl": primitiveTypography.fontSize[48],
+  /** 60px - 6x large */
+  "6xl": primitiveTypography.fontSize[60],
+  /** 72px - 7x large */
+  "7xl": primitiveTypography.fontSize[72],
+  /** 96px - 8x large */
+  "8xl": primitiveTypography.fontSize[96],
+  /** 128px - 9x large */
+  "9xl": primitiveTypography.fontSize[128],
 } as const;
 
 export type FontSizeToken = keyof typeof fontSize;
@@ -104,37 +112,37 @@ export type LetterSpacingToken = keyof typeof letterSpacing;
  */
 export const typographyScale = {
   h1: {
-    fontSize: fontSize["5xl"],
+    fontSize: fontSize["6xl"],
     lineHeight: lineHeight.tight,
     fontWeight: fontWeight.bold,
     letterSpacing: letterSpacing.tight,
   },
   h2: {
-    fontSize: fontSize["4xl"],
+    fontSize: fontSize["5xl"],
     lineHeight: lineHeight.tight,
     fontWeight: fontWeight.bold,
     letterSpacing: letterSpacing.tight,
   },
   h3: {
-    fontSize: fontSize["3xl"],
+    fontSize: fontSize["4xl"],
     lineHeight: lineHeight.snug,
     fontWeight: fontWeight.semibold,
     letterSpacing: letterSpacing.normal,
   },
   h4: {
-    fontSize: fontSize["2xl"],
+    fontSize: fontSize["3xl"],
     lineHeight: lineHeight.snug,
     fontWeight: fontWeight.semibold,
     letterSpacing: letterSpacing.normal,
   },
   h5: {
-    fontSize: fontSize.xl,
+    fontSize: fontSize["2xl"],
     lineHeight: lineHeight.base,
     fontWeight: fontWeight.semibold,
     letterSpacing: letterSpacing.normal,
   },
   h6: {
-    fontSize: fontSize.lg,
+    fontSize: fontSize.xl,
     lineHeight: lineHeight.base,
     fontWeight: fontWeight.semibold,
     letterSpacing: letterSpacing.normal,

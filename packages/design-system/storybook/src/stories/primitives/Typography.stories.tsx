@@ -282,7 +282,7 @@ export const UsageExamples: Story = {
                     <h3
                         style={{
                             fontFamily: typography.fontFamily.sans,
-                            fontSize: typography.fontSize[32],
+                            fontSize: typography.fontSize[30],
                             fontWeight: typography.fontWeight[700],
                             lineHeight: typography.lineHeight.heading,
                             letterSpacing: typography.letterSpacing.heading,

@@ -19,16 +19,20 @@
  * NOTE: For element-level dimensions <384px, use sizes primitive instead.
  */
 export const maxWidth = {
-  384: "384px",
-  448: "448px",
-  512: "512px",
-  576: "576px",
-  672: "672px",
-  768: "768px",
-  896: "896px",
-  1024: "1024px",
-  1152: "1152px",
-  1280: "1280px",
+  256: "16rem", // 256px - 3xs container
+  288: "18rem", // 288px - 2xs container
+  384: "24rem", // 384px
+  448: "28rem", // 448px
+  512: "32rem", // 512px
+  576: "36rem", // 576px
+  640: "40rem", // 640px - xs container
+  672: "42rem", // 672px - 2xl container
+  768: "48rem", // 768px - sm/3xl container
+  896: "56rem", // 896px - 4xl container
+  1024: "64rem", // 1024px - md/5xl container
+  1152: "72rem", // 1152px - 6xl container
+  1280: "80rem", // 1280px - lg/7xl container
+  1440: "90rem", // 1440px - xl container
   full: "100%",
   none: "none",
 } as const;
