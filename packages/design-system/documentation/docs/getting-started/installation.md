@@ -63,7 +63,7 @@ function App() {
 
 You can use design tokens (CSS variables) in your custom styles:
 
-```css title="src/styles.css"
+```css title="src/style.css"
 .my-component {
   color: var(--lufa-color-text-primary);
   background-color: var(--lufa-color-background-primary);

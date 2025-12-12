@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Placeholder, color } from '@grasdouble/lufa_design-system';
+import { Placeholder, tokens } from '@grasdouble/lufa_design-system';
+
+const { color } = tokens;
 
 const meta = {
     title: '2. Layout/Placeholder',

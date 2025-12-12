@@ -5,7 +5,7 @@
  */
 
 /* Import Lufa Design System CSS */
-@import "@grasdouble/lufa_design-system-tokens/styles.css"; /* Design tokens (CSS variables) */
+@import "@grasdouble/lufa_design-system-tokens/style.css"; /* Design tokens (CSS variables) */
 @import "@grasdouble/lufa_design-system/style.css"; /* Component styles */
 
 /* You can override the default Infima variables here. */

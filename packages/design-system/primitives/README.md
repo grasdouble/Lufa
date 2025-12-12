@@ -61,7 +61,7 @@ const modalWidth = maxWidth[600]; // "37.5rem"
 ### CSS Custom Properties
 
 ```css
-@import "@grasdouble/lufa_design-system-primitives/styles.css";
+@import "@grasdouble/lufa_design-system-primitives/style.css";
 
 .my-element {
   /* Spacing: --lufa-primitive-spacing-{pixels} */
@@ -183,4 +183,4 @@ Instead of abstract scales (0-9), primitives use the actual value:
 pnpm --filter @grasdouble/lufa_design-system-primitives build
 ```
 
-Build compiles TypeScript and generates `dist/styles.css` with all primitive CSS custom properties.
+Build compiles TypeScript and generates `dist/style.css` with all primitive CSS custom properties.

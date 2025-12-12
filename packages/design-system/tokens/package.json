@@ -22,7 +22,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles.css": "./dist/styles.css"
+    "./style.css": "./dist/style.css"
   },
   "dependencies": {
     "@grasdouble/lufa_design-system-primitives": "workspace:^"

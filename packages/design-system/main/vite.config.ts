@@ -47,6 +47,7 @@ export default defineConfig(({ command, mode, isPreview }) => {
                     entryRoot: 'src',
                     tsconfigPath: './tsconfig.build.json',
                     rollupTypes: false,
+                    insertTypesEntry: true,
                     outDir: 'dist',
                     exclude: ['**/*.test.*'],
                 }),
@@ -85,17 +86,6 @@ export default defineConfig(({ command, mode, isPreview }) => {
                             throw new Error('format not managed');
                         }
                         return output;
-                    },
-                },
-                rollupOptions: {
-                    output: {
-                        assetFileNames: (assetInfo) => {
-                            // Keep tailwind.css as tailwind.css in dist
-                            if (assetInfo.name === 'tailwind.css') {
-                                return 'tailwind.css';
-                            }
-                            return '[name][extname]';
-                        },
                     },
                 },
             },

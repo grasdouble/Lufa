@@ -134,10 +134,10 @@ for (const category of sortedCategories) {
 css += "}\n";
 
 // Write CSS file
-writeFileSync(resolve(distDir, "styles.css"), css);
+writeFileSync(resolve(distDir, "style.css"), css);
 
 // Log summary
-console.log("✅ Generated styles.css");
+console.log("✅ Generated style.css");
 console.log(`📊 Total tokens: ${allTokens.length}`);
 console.log(`📁 Categories: ${sortedCategories.length}`);
 

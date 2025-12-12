@@ -1,5 +1,3 @@
-@import '@grasdouble/lufa_design-system-tokens/styles.css';
-
 /* Text Colors */
 @theme {
     --color-text-primary: var(--lufa-color-text-primary);

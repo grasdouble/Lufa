@@ -23,7 +23,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles.css": "./dist/styles.css"
+    "./style.css": "./dist/style.css"
   },
   "devDependencies": {
     "@grasdouble/lufa_config_tsconfig": "workspace:^",

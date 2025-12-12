@@ -389,10 +389,10 @@ css += generateSection("TYPOGRAPHY - Measure", measureEntries);
 
 css += "}\n";
 
-writeFileSync(resolve(distDir, "styles.css"), css);
+writeFileSync(resolve(distDir, "style.css"), css);
 
 // Log detailed summary
-console.log("✅ Generated styles.css");
+console.log("✅ Generated style.css");
 console.log(`📊 Total tokens: ${totalTokens}`);
 console.log(`📁 Categories: ${tokenCategories.length}`);
 

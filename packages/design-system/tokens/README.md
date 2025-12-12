@@ -53,7 +53,7 @@ const hoverCursor = cursor.pointer;
 ### CSS Custom Properties
 
 ```css
-@import "@grasdouble/lufa_design-system-tokens/styles.css";
+@import "@grasdouble/lufa_design-system-tokens/style.css";
 
 .my-element {
   /* Colors: --lufa-color-{category}-{variant} */

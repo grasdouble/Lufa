@@ -5,6 +5,7 @@ import sharedConfig from '@grasdouble/lufa_config_prettier/prettier.config.mjs';
  */
 const config = {
     ...sharedConfig,
+    plugins: ['prettier-plugin-tailwindcss', ...sharedConfig.plugins],
 };
 
 export default config;
