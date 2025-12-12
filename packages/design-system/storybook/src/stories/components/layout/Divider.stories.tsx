@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Divider, Placeholder, Stack, color } from '@grasdouble/lufa_design-system';
+import { Divider, Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
 
-
+const { color } = tokens;
 
 const meta = {
     title: '2. Layout/Divider',
@@ -11,7 +11,8 @@ const meta = {
         layout: 'padded',
         docs: {
             description: {
-                component: 'A simple separator to group content. Supports labels, horizontal or vertical orientation, and solid or dashed styles.',
+                component:
+                    'A simple separator to group content. Supports labels, horizontal or vertical orientation, and solid or dashed styles.',
             },
         },
     },

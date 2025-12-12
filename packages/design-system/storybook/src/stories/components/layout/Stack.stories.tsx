@@ -8,8 +8,10 @@ import {
     STACK_PADDING,
     STACK_WRAP,
     Placeholder,
-    color
+    tokens,
 } from '@grasdouble/lufa_design-system';
+
+const { color } = tokens;
 
 const meta = {
     title: '2. Layout/Stack',

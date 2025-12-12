@@ -4,7 +4,7 @@ sidebar_position: 1
 
 import {
   Placeholder,
-  semantic,
+  tokens,
   Stack,
   STACK_DIRECTION,
   STACK_GAP,
@@ -276,7 +276,9 @@ Override the default violet gradient with any valid CSS color:
     >
       Solid - Interactive
     </Typography>
-    <Placeholder color={semantic.interactive.default}>Solid Blue</Placeholder>
+    <Placeholder color={tokens.color.interactive.default}>
+      Solid Blue
+    </Placeholder>
   </div>
   <div>
     <Typography
@@ -286,7 +288,7 @@ Override the default violet gradient with any valid CSS color:
     >
       Solid - Success
     </Typography>
-    <Placeholder color={semantic.success.default}>Solid Green</Placeholder>
+    <Placeholder color={tokens.color.success.default}>Solid Green</Placeholder>
   </div>
   <div>
     <Typography
@@ -296,7 +298,7 @@ Override the default violet gradient with any valid CSS color:
     >
       Solid - Error
     </Typography>
-    <Placeholder color={semantic.error.default}>Solid Red</Placeholder>
+    <Placeholder color={tokens.color.error.default}>Solid Red</Placeholder>
   </div>
   <div>
     <Typography
@@ -307,8 +309,8 @@ Override the default violet gradient with any valid CSS color:
       Gradient - Blue to Purple
     </Typography>
     <Placeholder
-      colorFrom={semantic.interactive.default}
-      colorTo={semantic.brand.secondary}
+      colorFrom={tokens.color.interactive.default}
+      colorTo={tokens.color.brand.secondary}
     >
       Custom Gradient
     </Placeholder>
@@ -321,7 +323,7 @@ Override the default violet gradient with any valid CSS color:
     >
       Gradient - Green to Teal
     </Typography>
-    <Placeholder colorFrom={semantic.success.default} colorTo="#14B8A6">
+    <Placeholder colorFrom={tokens.color.success.default} colorTo="#14B8A6">
       Green → Teal
     </Placeholder>
   </div>
@@ -334,19 +336,19 @@ import { semantic } from '@grasdouble/lufa_design-system';
 <Placeholder>Default Gradient</Placeholder>
 
 // Solid colors using semantic tokens
-<Placeholder color={semantic.interactive.default}>Solid Blue</Placeholder>
-<Placeholder color={semantic.success.default}>Solid Green</Placeholder>
-<Placeholder color={semantic.error.default}>Solid Red</Placeholder>
-<Placeholder color={semantic.warning.default}>Solid Orange</Placeholder>
+<Placeholder color={tokens.color.interactive.default}>Solid Blue</Placeholder>
+<Placeholder color={tokens.color.success.default}>Solid Green</Placeholder>
+<Placeholder color={tokens.color.error.default}>Solid Red</Placeholder>
+<Placeholder color={tokens.color.warning.default}>Solid Orange</Placeholder>
 
 // Custom gradients
-<Placeholder colorFrom={semantic.interactive.default} colorTo={semantic.brand.secondary}>
+<Placeholder colorFrom={tokens.color.interactive.default} colorTo={tokens.color.brand.secondary}>
   Blue to Purple
 </Placeholder>
-<Placeholder colorFrom={semantic.success.default} colorTo="#14B8A6">
+<Placeholder colorFrom={tokens.color.success.default} colorTo="#14B8A6">
   Green to Teal
 </Placeholder>
-<Placeholder colorFrom={semantic.warning.default} colorTo={semantic.error.default}>
+<Placeholder colorFrom={tokens.color.warning.default} colorTo={tokens.color.error.default}>
   Orange to Red
 </Placeholder>
 
@@ -380,7 +382,7 @@ Mix height and width variants for precise control:
     <Placeholder
       height="medium"
       width="full"
-      color={semantic.interactive.default}
+      color={tokens.color.interactive.default}
     >
       Medium × Full Width
     </Placeholder>

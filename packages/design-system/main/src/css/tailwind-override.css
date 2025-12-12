@@ -259,13 +259,14 @@
 }
 
 /* Lufa Breakpoints - Override Tailwind breakpoints */
+/* Note: Media queries cannot use CSS variables, so we use static values */
 @theme {
-    --breakpoint-xs: var(--lufa-primitive-breakpoint-480);
-    --breakpoint-sm: var(--lufa-primitive-breakpoint-768);
-    --breakpoint-md: var(--lufa-primitive-breakpoint-1024);
-    --breakpoint-lg: var(--lufa-primitive-breakpoint-1280);
-    --breakpoint-xl: var(--lufa-primitive-breakpoint-1440);
-    --breakpoint-2xl: var(--lufa-primitive-breakpoint-1920);
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 1024px;
+    --breakpoint-lg: 1280px;
+    --breakpoint-xl: 1440px;
+    --breakpoint-2xl: 1920px;
 }
 
 /* Lufa Containers - Override Tailwind containers */

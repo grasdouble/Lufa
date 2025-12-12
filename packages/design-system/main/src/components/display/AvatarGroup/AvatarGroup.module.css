@@ -1,4 +1,4 @@
-@reference '../../../tailwind.css';
+@reference '../../../style.css';
 
 @layer components {
     .container {

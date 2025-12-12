@@ -1,7 +1,0 @@
-@import 'tailwindcss';
-
-/* https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
-@custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *));
-
-@import './css/tailwind-override.css';
-@import './css/theme.css';
