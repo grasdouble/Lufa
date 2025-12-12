@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { breakpoints } from '@grasdouble/lufa_design-system-tokens';
+import { breakpoint } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
     title: '1. Tokens/Breakpoints',
@@ -18,11 +18,11 @@ export const AllBreakpoints: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Breakpoint Tokens</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Standardized responsive breakpoints for mobile-first design. Use min-width media queries.
+                Standardized responsive breakpoint for mobile-first design. Use min-width media queries.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {Object.entries(breakpoints).map(([key, value]) => (
+                {Object.entries(breakpoint).map(([key, value]) => (
                     <div
                         key={key}
                         style={{
@@ -36,7 +36,7 @@ export const AllBreakpoints: Story = {
                             border: '1px solid #E5E5E5',
                         }}
                     >
-                        <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>breakpoints.{key}</div>
+                        <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>breakpoint.{key}</div>
                         <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
                         <div style={{ fontSize: '12px', color: '#737373' }}>
                             {key === 'xs' && 'Mobile landscape (480px+)'}
@@ -80,14 +80,14 @@ export const AllBreakpoints: Story = {
 }
 
 /* Tablet and up */
-@media (min-width: ${breakpoints.md}) {
+@media (min-width: ${breakpoint.md}) {
   .element {
     width: 50%;
   }
 }
 
 /* Desktop and up */
-@media (min-width: ${breakpoints.lg}) {
+@media (min-width: ${breakpoint.lg}) {
   .element {
     width: 33.333%;
   }
@@ -110,12 +110,12 @@ export const ResponsiveDemo: Story = {
 
         const getActiveBreakpoint = () => {
             const widthNum = currentWidth;
-            if (widthNum >= parseInt(breakpoints['2xl'])) return '2xl';
-            if (widthNum >= parseInt(breakpoints.xl)) return 'xl';
-            if (widthNum >= parseInt(breakpoints.lg)) return 'lg';
-            if (widthNum >= parseInt(breakpoints.md)) return 'md';
-            if (widthNum >= parseInt(breakpoints.sm)) return 'sm';
-            if (widthNum >= parseInt(breakpoints.xs)) return 'xs';
+            if (widthNum >= parseInt(breakpoint['2xl'])) return '2xl';
+            if (widthNum >= parseInt(breakpoint.xl)) return 'xl';
+            if (widthNum >= parseInt(breakpoint.lg)) return 'lg';
+            if (widthNum >= parseInt(breakpoint.md)) return 'md';
+            if (widthNum >= parseInt(breakpoint.sm)) return 'sm';
+            if (widthNum >= parseInt(breakpoint.xs)) return 'xs';
             return 'mobile';
         };
 
@@ -146,7 +146,7 @@ export const ResponsiveDemo: Story = {
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                    {Object.entries(breakpoints).map(([key, value]) => {
+                    {Object.entries(breakpoint).map(([key, value]) => {
                         const isActive =
                             activeBreakpoint === key ||
                             (activeBreakpoint === '2xl' && ['2xl', 'xl', 'lg', 'md', 'sm', 'xs'].includes(key)) ||
@@ -171,7 +171,7 @@ export const ResponsiveDemo: Story = {
                                 }}
                             >
                                 <div>
-                                    <span style={{ fontFamily: 'monospace', fontWeight: '600' }}>breakpoints.{key}</span>
+                                    <span style={{ fontFamily: 'monospace', fontWeight: '600' }}>breakpoint.{key}</span>
                                     <span style={{ marginLeft: '12px', fontFamily: 'monospace', fontSize: '14px', opacity: 0.8 }}>
                                         ({value})
                                     </span>
@@ -195,8 +195,8 @@ export const ResponsiveDemo: Story = {
                     <ul style={{ margin: 0, paddingLeft: '20px', color: '#78350F', fontSize: '14px' }}>
                         <li>Design mobile-first: start with smallest screen, enhance for larger</li>
                         <li>Test at actual breakpoint values, not just approximate sizes</li>
-                        <li>Consider content reflow between breakpoints</li>
-                        <li>Ensure touch targets remain ≥44px at all breakpoints</li>
+                        <li>Consider content reflow between breakpoint</li>
+                        <li>Ensure touch targets remain ≥44px at all breakpoint</li>
                         <li>Test on real devices, not just browser DevTools</li>
                     </ul>
                 </div>

@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Divider, Placeholder, Stack, colors } from '@grasdouble/lufa_design-system';
+import { Divider, Placeholder, Stack, color } from '@grasdouble/lufa_design-system';
+
+
 
 const meta = {
     title: '2. Layout/Divider',
@@ -66,18 +68,18 @@ export const Playground: Story = {
         if (isVertical) {
             return (
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', height: '140px' }}>
-                    <Placeholder color={colors.interactive.default}>Left</Placeholder>
+                    <Placeholder color={color.interactive.default}>Left</Placeholder>
                     <Divider {...args} length="100%" />
-                    <Placeholder color={colors.interactive.default}>Right</Placeholder>
+                    <Placeholder color={color.interactive.default}>Right</Placeholder>
                 </div>
             );
         }
 
         return (
             <div style={{ width: '100%' }}>
-                <Placeholder color={colors.interactive.default}>Add content here to see spacing in context.</Placeholder>
+                <Placeholder color={color.interactive.default}>Add content here to see spacing in context.</Placeholder>
                 <Divider {...args} />
-                <Placeholder color={colors.interactive.default}>Add content here to see spacing in context.</Placeholder>
+                <Placeholder color={color.interactive.default}>Add content here to see spacing in context.</Placeholder>
             </div>
         );
     },
@@ -88,8 +90,8 @@ export const WithLabel: Story = {
         <div style={{ width: '100%' }}>
             <Divider label="Upcoming" />
             <Stack direction="vertical" gap="normal" padding="none">
-                <Placeholder color={colors.interactive.default}>Item A</Placeholder>
-                <Placeholder color={colors.interactive.default}>Item B</Placeholder>
+                <Placeholder color={color.interactive.default}>Item A</Placeholder>
+                <Placeholder color={color.interactive.default}>Item B</Placeholder>
             </Stack>
         </div>
     ),
@@ -98,9 +100,9 @@ export const WithLabel: Story = {
 export const Orientation: Story = {
     render: () => (
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', height: '120px' }}>
-            <Placeholder color={colors.interactive.default}>Left</Placeholder>
+            <Placeholder color={color.interactive.default}>Left</Placeholder>
             <Divider orientation="vertical" length="80%" />
-            <Placeholder color={colors.interactive.default}>Right</Placeholder>
+            <Placeholder color={color.interactive.default}>Right</Placeholder>
         </div>
     ),
 };
@@ -118,13 +120,13 @@ export const Spacing: Story = {
     render: () => (
         <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <Divider label="No margin" spacing="none" />
-            <Placeholder color={colors.interactive.default}>Add content here to see spacing in context.</Placeholder>
+            <Placeholder color={color.interactive.default}>Add content here to see spacing in context.</Placeholder>
             <Divider label="Small" spacing="sm" />
-            <Placeholder color={colors.interactive.default}>Add content here to see spacing in context.</Placeholder>
+            <Placeholder color={color.interactive.default}>Add content here to see spacing in context.</Placeholder>
             <Divider label="Medium" spacing="md" />
-            <Placeholder color={colors.interactive.default}>Add content here to see spacing in context.</Placeholder>
+            <Placeholder color={color.interactive.default}>Add content here to see spacing in context.</Placeholder>
             <Divider label="Large" spacing="lg" />
-            <Placeholder color={colors.interactive.default}>Add content here to see spacing in context.</Placeholder>
+            <Placeholder color={color.interactive.default}>Add content here to see spacing in context.</Placeholder>
         </div>
     ),
 };
@@ -133,7 +135,7 @@ export const CustomLength: Story = {
     render: () => (
         <div style={{ width: '100%' }}>
             <Divider label="400px wide" length="400px" />
-            <div style={{ marginTop: '16px', color: colors.text.secondary }}>The divider above is constrained to 400px.</div>
+            <div style={{ marginTop: '16px', color: color.text.secondary }}>The divider above is constrained to 400px.</div>
         </div>
     ),
 };

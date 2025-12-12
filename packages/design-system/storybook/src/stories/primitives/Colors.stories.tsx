@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { colors as primitiveColors } from '@grasdouble/lufa_design-system-primitives';
+import { colorChromatic, colorNeutral } from '@grasdouble/lufa_design-system-primitives';
+
+// Combine chromatic and neutral colors into one object
+const primitiveColors = { ...colorChromatic, ...colorNeutral };
 
 const meta = {
     title: '0. Primitives/Colors',

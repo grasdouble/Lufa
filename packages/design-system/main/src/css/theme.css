@@ -141,3 +141,49 @@
     --transition-duration-base: 250ms;
     --transition-duration-slow: 400ms;
 }
+
+/* Lufa Cursors */
+@theme {
+    --cursor-pointer: var(--lufa-cursor-pointer);
+    --cursor-grab: var(--lufa-cursor-grab);
+    --cursor-grabbing: var(--lufa-cursor-grabbing);
+    --cursor-move: var(--lufa-cursor-move);
+    --cursor-not-allowed: var(--lufa-cursor-not-allowed);
+    --cursor-help: var(--lufa-cursor-help);
+    --cursor-wait: var(--lufa-cursor-wait);
+}
+
+/* Lufa Transforms */
+@theme {
+    --transform-hover-lift: var(--lufa-transform-hover-lift);
+    --transform-hover-lift-more: var(--lufa-transform-hover-lift-more);
+    --transform-pressed: var(--lufa-transform-pressed-down);
+    --transform-scale-up: var(--lufa-transform-scale-up);
+    --transform-scale-down: var(--lufa-transform-scale-down);
+}
+
+/* Lufa Dimensions */
+@theme {
+    --height-navbar: var(--lufa-dimensions-navbar-height-default);
+    --height-navbar-compact: var(--lufa-dimensions-navbar-height-compact);
+    --height-navbar-large: var(--lufa-dimensions-navbar-height-large);
+    --height-button: var(--lufa-dimensions-button-height-default);
+    --height-button-sm: var(--lufa-dimensions-button-height-small);
+    --height-button-lg: var(--lufa-dimensions-button-height-large);
+    --height-input: var(--lufa-dimensions-input-height-default);
+    --height-input-sm: var(--lufa-dimensions-input-height-small);
+    --height-input-lg: var(--lufa-dimensions-input-height-large);
+    --width-sidebar: var(--lufa-dimensions-sidebar-width-default);
+    --width-sidebar-collapsed: var(--lufa-dimensions-sidebar-width-collapsed);
+    --width-modal-sm: var(--lufa-dimensions-modal-width-small);
+    --width-modal: var(--lufa-dimensions-modal-width-default);
+    --width-modal-lg: var(--lufa-dimensions-modal-width-large);
+}
+
+/* Lufa Content Measure (optimal line lengths) */
+@theme {
+    --measure-narrow: var(--lufa-measure-narrow);
+    --measure-default: var(--lufa-measure-default);
+    --measure-comfortable: var(--lufa-measure-comfortable);
+    --measure-wide: var(--lufa-measure-wide);
+}

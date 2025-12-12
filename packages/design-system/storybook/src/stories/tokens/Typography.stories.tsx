@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { typography } from '@grasdouble/lufa_design-system-tokens';
+import { fontSize, lineHeight, fontWeight, letterSpacing } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
     title: '1. Tokens/Typography Tokens',
@@ -21,7 +21,7 @@ export const FontSizes: Story = {
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                {Object.entries(typography.fontSize).map(([key, value]) => (
+                {Object.entries(fontSize).map(([key, value]) => (
                     <div
                         key={key}
                         style={{
@@ -52,7 +52,7 @@ export const LineHeights: Story = {
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                {Object.entries(typography.lineHeight).map(([key, value]) => (
+                {Object.entries(lineHeight).map(([key, value]) => (
                     <div
                         key={key}
                         style={{
@@ -86,7 +86,7 @@ export const FontWeights: Story = {
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-                {Object.entries(typography.fontWeight).map(([key, value]) => (
+                {Object.entries(fontWeight).map(([key, value]) => (
                     <div
                         key={key}
                         style={{
@@ -116,7 +116,7 @@ export const LetterSpacing: Story = {
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                {Object.entries(typography.letterSpacing).map(([key, value]) => (
+                {Object.entries(letterSpacing).map(([key, value]) => (
                     <div
                         key={key}
                         style={{
@@ -138,50 +138,50 @@ export const LetterSpacing: Story = {
     ),
 };
 
-export const TypographyScale: Story = {
-    render: () => (
-        <div style={{ padding: '20px', maxWidth: '1400px' }}>
-            <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Typography Scale Presets</h1>
-            <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Pre-configured typography styles combining font size, line height, weight, and letter spacing.
-            </p>
+// export const TypographyScale: Story = {
+//     render: () => (
+//         <div style={{ padding: '20px', maxWidth: '1400px' }}>
+//             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Typography Scale Presets</h1>
+//             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+//                 Pre-configured typography styles combining font size, line height, weight, and letter spacing.
+//             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                {Object.entries(typography.typographyScale).map(([key, value]) => {
-                    const scale = value as { fontSize: string; lineHeight: number; fontWeight: number; letterSpacing: string };
-                    return (
-                    <div
-                        key={key}
-                        style={{
-                            padding: '24px',
-                            backgroundColor: '#FAFAFA',
-                            borderRadius: '8px',
-                            border: '1px solid #E5E5E5',
-                        }}
-                    >
-                        <div style={{ marginBottom: '16px' }}>
-                            <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px', marginBottom: '8px' }}>
-                                typographyScale.{key}
-                            </div>
-                            <div style={{ fontFamily: 'monospace', fontSize: '11px', color: '#737373' }}>
-                                fontSize: {String(scale.fontSize)} | lineHeight: {String(scale.lineHeight)} | fontWeight: {String(scale.fontWeight)} |
-                                letterSpacing: {String(scale.letterSpacing)}
-                            </div>
-                        </div>
-                        <div
-                            style={{
-                                fontSize: scale.fontSize,
-                                lineHeight: scale.lineHeight,
-                                fontWeight: scale.fontWeight,
-                                letterSpacing: scale.letterSpacing,
-                            }}
-                        >
-                            {key.startsWith('h') ? `${key.toUpperCase()}: Heading Example` : `${key}: Body text example with proper spacing`}
-                        </div>
-                    </div>
-                    );
-                })}
-            </div>
-        </div>
-    ),
-};
+//             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+//                 {Object.entries(typography.typographyScale).map(([key, value]) => {
+//                     const scale = value as { fontSize: string; lineHeight: number; fontWeight: number; letterSpacing: string };
+//                     return (
+//                     <div
+//                         key={key}
+//                         style={{
+//                             padding: '24px',
+//                             backgroundColor: '#FAFAFA',
+//                             borderRadius: '8px',
+//                             border: '1px solid #E5E5E5',
+//                         }}
+//                     >
+//                         <div style={{ marginBottom: '16px' }}>
+//                             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px', marginBottom: '8px' }}>
+//                                 typographyScale.{key}
+//                             </div>
+//                             <div style={{ fontFamily: 'monospace', fontSize: '11px', color: '#737373' }}>
+//                                 fontSize: {String(scale.fontSize)} | lineHeight: {String(scale.lineHeight)} | fontWeight: {String(scale.fontWeight)} |
+//                                 letterSpacing: {String(scale.letterSpacing)}
+//                             </div>
+//                         </div>
+//                         <div
+//                             style={{
+//                                 fontSize: scale.fontSize,
+//                                 lineHeight: scale.lineHeight,
+//                                 fontWeight: scale.fontWeight,
+//                                 letterSpacing: scale.letterSpacing,
+//                             }}
+//                         >
+//                             {key.startsWith('h') ? `${key.toUpperCase()}: Heading Example` : `${key}: Body text example with proper spacing`}
+//                         </div>
+//                     </div>
+//                     );
+//                 })}
+//             </div>
+//         </div>
+//     ),
+// };

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { sizes } from '@grasdouble/lufa_design-system-primitives';
+import { size } from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
     title: '0. Primitives/Sizes',
@@ -24,7 +24,7 @@ export const AllSizes: Story = {
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {Object.entries(sizes).map(([key, value]) => {
+                {Object.entries(size).map(([key, value]) => {
                     const sizeNum = Number(key);
                     const isTouchTarget = sizeNum === 44;
                     
@@ -43,7 +43,7 @@ export const AllSizes: Story = {
                             }}
                         >
                             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>
-                                sizes[{key}]
+                                size[{key}]
                             </div>
                             <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>
                                 {value}
@@ -141,8 +141,8 @@ export const UsageExamples: Story = {
                     <div key={size} style={{ textAlign: 'center' }}>
                         <div
                             style={{
-                                width: sizes[size as keyof typeof sizes],
-                                height: sizes[size as keyof typeof sizes],
+                                width: size[size as keyof typeof size],
+                                height: size[size as keyof typeof size],
                                 backgroundColor: '#3B82F6',
                                 borderRadius: '8px',
                                 marginBottom: '8px',
@@ -159,7 +159,7 @@ export const UsageExamples: Story = {
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '32px' }}>
                 <button
                     style={{
-                        height: sizes[32],
+                        height: size[32],
                         padding: '0 16px',
                         backgroundColor: '#3B82F6',
                         color: 'white',
@@ -173,7 +173,7 @@ export const UsageExamples: Story = {
                 </button>
                 <button
                     style={{
-                        height: sizes[44],
+                        height: size[44],
                         padding: '0 20px',
                         backgroundColor: '#2563EB',
                         color: 'white',
@@ -187,7 +187,7 @@ export const UsageExamples: Story = {
                 </button>
                 <button
                     style={{
-                        height: sizes[48],
+                        height: size[48],
                         padding: '0 24px',
                         backgroundColor: '#1D4ED8',
                         color: 'white',
@@ -209,8 +209,8 @@ export const UsageExamples: Story = {
                     <div key={size} style={{ textAlign: 'center' }}>
                         <div
                             style={{
-                                width: sizes[size as keyof typeof sizes],
-                                height: sizes[size as keyof typeof sizes],
+                                width: size[size as keyof typeof size],
+                                height: size[size as keyof typeof size],
                                 backgroundColor: '#3B82F6',
                                 borderRadius: '50%',
                                 marginBottom: '8px',
@@ -237,7 +237,7 @@ export const UsageExamples: Story = {
                     type="text"
                     placeholder="Small input (32px height)"
                     style={{
-                        height: sizes[32],
+                        height: size[32],
                         padding: '0 12px',
                         border: '1px solid #D1D5DB',
                         borderRadius: '6px',
@@ -248,7 +248,7 @@ export const UsageExamples: Story = {
                     type="text"
                     placeholder="Medium input (44px height) ✓ WCAG"
                     style={{
-                        height: sizes[44],
+                        height: size[44],
                         padding: '0 16px',
                         border: '2px solid #2563EB',
                         borderRadius: '6px',
@@ -259,7 +259,7 @@ export const UsageExamples: Story = {
                     type="text"
                     placeholder="Large input (48px height)"
                     style={{
-                        height: sizes[48],
+                        height: size[48],
                         padding: '0 16px',
                         border: '1px solid #D1D5DB',
                         borderRadius: '6px',

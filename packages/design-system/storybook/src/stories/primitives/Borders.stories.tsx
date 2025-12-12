@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { borders } from '@grasdouble/lufa_design-system-primitives';
+import { borderWidth, borderStyle } from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
     title: '0. Primitives/Borders',
@@ -23,7 +23,7 @@ export const AllBorders: Story = {
 
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Border Widths</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {Object.entries(borders.width).map(([key, value]) => (
+                {Object.entries(borderWidth).map(([key, value]) => (
                     <div
                         key={key}
                         style={{
@@ -68,7 +68,7 @@ export const AllBorders: Story = {
 
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Border Styles</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {Object.entries(borders.style).map(([key, value]) => (
+                {Object.entries(borderStyle).map(([key, value]) => (
                     <div
                         key={key}
                         style={{
@@ -146,7 +146,7 @@ export const UsageExamples: Story = {
                         <div
                             style={{
                                 padding: '20px',
-                                border: `${borders.width[1]} ${borders.style.solid} #E5E5E5`,
+                                border: `${borderWidth[1]} ${borderStyle.solid} #E5E5E5`,
                                 borderRadius: '8px',
                                 minWidth: '200px',
                             }}
@@ -157,7 +157,7 @@ export const UsageExamples: Story = {
                         <div
                             style={{
                                 padding: '20px',
-                                border: `${borders.width[2]} ${borders.style.solid} #3B82F6`,
+                                border: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
                                 borderRadius: '8px',
                                 minWidth: '200px',
                             }}
@@ -175,11 +175,11 @@ export const UsageExamples: Story = {
                             style={{
                                 padding: '12px 24px',
                                 backgroundColor: 'white',
-                                border: `${borders.width[2]} ${borders.style.solid} #3B82F6`,
+                                border: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
                                 borderRadius: '6px',
                                 fontWeight: '500',
                                 cursor: 'pointer',
-                                outline: `${borders.width[2]} ${borders.style.solid} #3B82F6`,
+                                outline: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
                                 outlineOffset: '2px',
                             }}
                         >
@@ -189,11 +189,11 @@ export const UsageExamples: Story = {
                             style={{
                                 padding: '12px 24px',
                                 backgroundColor: 'white',
-                                border: `${borders.width[3]} ${borders.style.solid} #3B82F6`,
+                                border: `${borderWidth[3]} ${borderStyle.solid} #3B82F6`,
                                 borderRadius: '6px',
                                 fontWeight: '500',
                                 cursor: 'pointer',
-                                outline: `${borders.width[3]} ${borders.style.solid} #3B82F6`,
+                                outline: `${borderWidth[3]} ${borderStyle.solid} #3B82F6`,
                                 outlineOffset: '2px',
                             }}
                         >
@@ -210,7 +210,7 @@ export const UsageExamples: Story = {
                             placeholder="Default state (1px)"
                             style={{
                                 padding: '12px',
-                                border: `${borders.width[1]} ${borders.style.solid} #E5E5E5`,
+                                border: `${borderWidth[1]} ${borderStyle.solid} #E5E5E5`,
                                 borderRadius: '6px',
                                 fontSize: '14px',
                             }}
@@ -220,7 +220,7 @@ export const UsageExamples: Story = {
                             placeholder="Focus state (2px)"
                             style={{
                                 padding: '12px',
-                                border: `${borders.width[2]} ${borders.style.solid} #3B82F6`,
+                                border: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
                                 borderRadius: '6px',
                                 fontSize: '14px',
                             }}
@@ -230,7 +230,7 @@ export const UsageExamples: Story = {
                             placeholder="Error state (2px)"
                             style={{
                                 padding: '12px',
-                                border: `${borders.width[2]} ${borders.style.solid} #EF4444`,
+                                border: `${borderWidth[2]} ${borderStyle.solid} #EF4444`,
                                 borderRadius: '6px',
                                 fontSize: '14px',
                             }}
@@ -242,11 +242,11 @@ export const UsageExamples: Story = {
                     <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '16px' }}>Dividers</h3>
                     <div style={{ maxWidth: '600px' }}>
                         <div style={{ padding: '16px 0' }}>Section 1</div>
-                        <div style={{ borderTop: `${borders.width[1]} ${borders.style.solid} #E5E5E5` }} />
+                        <div style={{ borderTop: `${borderWidth[1]} ${borderStyle.solid} #E5E5E5` }} />
                         <div style={{ padding: '16px 0' }}>Section 2</div>
-                        <div style={{ borderTop: `${borders.width[1]} ${borders.style.dashed} #E5E5E5` }} />
+                        <div style={{ borderTop: `${borderWidth[1]} ${borderStyle.dashed} #E5E5E5` }} />
                         <div style={{ padding: '16px 0' }}>Section 3 (editable)</div>
-                        <div style={{ borderTop: `${borders.width[1]} ${borders.style.dotted} #E5E5E5` }} />
+                        <div style={{ borderTop: `${borderWidth[1]} ${borderStyle.dotted} #E5E5E5` }} />
                         <div style={{ padding: '16px 0' }}>Section 4 (subtle)</div>
                     </div>
                 </div>

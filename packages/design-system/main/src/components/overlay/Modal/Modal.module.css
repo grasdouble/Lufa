@@ -42,15 +42,18 @@
 
     /* Sizes */
     .sizeSmall {
-        @apply w-full max-w-md;
+        @apply w-full;
+        max-width: var(--lufa-token-max-width-modal-sm);
     }
 
     .sizeMedium {
-        @apply w-full max-w-2xl;
+        @apply w-full;
+        max-width: var(--lufa-token-max-width-modal);
     }
 
     .sizeLarge {
-        @apply w-full max-w-4xl;
+        @apply w-full;
+        max-width: var(--lufa-token-max-width-modal-lg);
     }
 
     .sizeFullscreen {
@@ -73,8 +76,9 @@
         @apply rounded-md;
         @apply hover:bg-background-secondary;
         @apply duration-fast transition-colors;
-        @apply cursor-pointer border-none bg-transparent;
+        @apply border-none bg-transparent;
         @apply text-text-tertiary hover:text-text-primary;
+        cursor: var(--lufa-token-cursor-pointer);
     }
 
     .closeButton svg {

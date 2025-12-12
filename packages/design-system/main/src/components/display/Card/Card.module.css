@@ -50,11 +50,11 @@
     /* Interactive states */
     .hoverable:hover {
         @apply shadow-lg;
-        @apply -translate-y-0.5;
+        transform: var(--lufa-token-transform-hover-lift);
     }
 
     .clickable {
-        @apply cursor-pointer;
+        cursor: var(--lufa-token-cursor-pointer);
     }
 
     /* Header */

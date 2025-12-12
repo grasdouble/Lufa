@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { shadows } from '@grasdouble/lufa_design-system-primitives';
+import { shadow } from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
     title: '0. Primitives/Shadows',
@@ -22,7 +22,7 @@ export const AllShadows: Story = {
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-                {Object.entries(shadows).map(([key, value]) => (
+                {Object.entries(shadow).map(([key, value]) => (
                     <div key={key} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                         <div
                             style={{
@@ -102,7 +102,7 @@ export const UsageExamples: Story = {
                                 padding: '20px',
                                 backgroundColor: 'white',
                                 borderRadius: '12px',
-                                boxShadow: shadows.sm,
+                                boxShadow: shadow.sm,
                             }}
                         >
                             <div style={{ fontWeight: '600', marginBottom: '8px' }}>Card with sm shadow</div>
@@ -113,7 +113,7 @@ export const UsageExamples: Story = {
                                 padding: '20px',
                                 backgroundColor: 'white',
                                 borderRadius: '12px',
-                                boxShadow: shadows.md,
+                                boxShadow: shadow.md,
                             }}
                         >
                             <div style={{ fontWeight: '600', marginBottom: '8px' }}>Card with md shadow</div>
@@ -134,11 +134,11 @@ export const UsageExamples: Story = {
                                 borderRadius: '8px',
                                 fontWeight: '500',
                                 cursor: 'pointer',
-                                boxShadow: shadows.sm,
+                                boxShadow: shadow.sm,
                                 transition: 'box-shadow 150ms',
                             }}
-                            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = shadows.md)}
-                            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = shadows.sm)}
+                            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = shadow.md)}
+                            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = shadow.sm)}
                         >
                             Hover Me
                         </button>
@@ -148,11 +148,11 @@ export const UsageExamples: Story = {
                                 backgroundColor: 'white',
                                 borderRadius: '8px',
                                 cursor: 'pointer',
-                                boxShadow: shadows.md,
+                                boxShadow: shadow.md,
                                 transition: 'box-shadow 150ms',
                             }}
-                            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = shadows.lg)}
-                            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = shadows.md)}
+                            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = shadow.lg)}
+                            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = shadow.md)}
                         >
                             <div style={{ fontWeight: '600', marginBottom: '4px' }}>Interactive Card</div>
                             <div style={{ fontSize: '14px', color: '#737373' }}>Hover to see elevation change</div>
@@ -167,7 +167,7 @@ export const UsageExamples: Story = {
                             width: '240px',
                             backgroundColor: 'white',
                             borderRadius: '8px',
-                            boxShadow: shadows.lg,
+                            boxShadow: shadow.lg,
                             overflow: 'hidden',
                         }}
                     >
@@ -188,7 +188,7 @@ export const UsageExamples: Story = {
                         ))}
                     </div>
                     <p style={{ marginTop: '12px', fontSize: '14px', color: '#737373' }}>
-                        Uses shadows.lg for clear separation from page
+                        Uses shadow.lg for clear separation from page
                     </p>
                 </div>
 
@@ -200,7 +200,7 @@ export const UsageExamples: Story = {
                             padding: '32px',
                             backgroundColor: 'white',
                             borderRadius: '16px',
-                            boxShadow: shadows.xl,
+                            boxShadow: shadow.xl,
                         }}
                     >
                         <h4 style={{ margin: '0 0 16px 0', fontSize: '24px', fontWeight: '600' }}>Confirm Action</h4>
@@ -237,7 +237,7 @@ export const UsageExamples: Story = {
                         </div>
                     </div>
                     <p style={{ marginTop: '12px', fontSize: '14px', color: '#737373' }}>
-                        Uses shadows.xl for strong elevation above page content
+                        Uses shadow.xl for strong elevation above page content
                     </p>
                 </div>
 
@@ -253,16 +253,16 @@ export const UsageExamples: Story = {
                             borderRadius: '50%',
                             fontSize: '24px',
                             cursor: 'pointer',
-                            boxShadow: shadows['2xl'],
+                            boxShadow: shadow['2xl'],
                             transition: 'box-shadow 150ms',
                         }}
-                        onMouseEnter={(e) => (e.currentTarget.style.boxShadow = shadows['3xl'])}
-                        onMouseLeave={(e) => (e.currentTarget.style.boxShadow = shadows['2xl'])}
+                        onMouseEnter={(e) => (e.currentTarget.style.boxShadow = shadow['3xl'])}
+                        onMouseLeave={(e) => (e.currentTarget.style.boxShadow = shadow['2xl'])}
                     >
                         +
                     </button>
                     <p style={{ marginTop: '12px', fontSize: '14px', color: '#737373' }}>
-                        Uses shadows.2xl for prominent floating appearance
+                        Uses shadow.2xl for prominent floating appearance
                     </p>
                 </div>
 
@@ -277,7 +277,7 @@ export const UsageExamples: Story = {
                                     height: `${80 + (level === 'none' ? 0 : ['xs', 'sm', 'md', 'lg', 'xl'].indexOf(level) * 20)}px`,
                                     backgroundColor: 'white',
                                     borderRadius: '8px',
-                                    boxShadow: shadows[level as keyof typeof shadows],
+                                    boxShadow: shadow[level as keyof typeof shadow],
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',

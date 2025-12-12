@@ -61,6 +61,9 @@ export const AllSpacing: Story = {
                                 {key === '32' && 'Comfortable touch padding'}
                                 {key === '48' && 'Primary action spacing'}
                                 {key === '64' && 'Section separation'}
+                                {key === '72' && 'Large section spacing'}
+                                {key === '96' && 'Page section separation'}
+                                {key === '120' && 'Major layout spacing'}
                             </div>
                         </div>
                     </div>

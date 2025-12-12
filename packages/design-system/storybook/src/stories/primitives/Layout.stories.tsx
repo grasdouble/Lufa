@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { maxWidth, sizes, grid, aspectRatio, blur, zIndex } from '@grasdouble/lufa_design-system-primitives';
+import { maxWidth, size, grid, aspectRatio, blur, zIndex } from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
     title: '0. Primitives/Layout',
@@ -18,7 +18,7 @@ export const MaxWidth: Story = {
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>MaxWidth Primitives</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px', maxWidth: '768px' }}>
                 Tokens max-width values for content containers. Optimal reading width is 576-768px (45-75 characters per
-                line).
+                line). Includes component-specific widths (320-600px) and layout widths (768-1440px).
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -60,7 +60,7 @@ export const Sizes: Story = {
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'flex-end' }}>
-                {Object.entries(sizes).map(([key, value]) => (
+                {Object.entries(size).map(([key, value]) => (
                     <div key={key} style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
                         <div
                             style={{
@@ -98,7 +98,7 @@ export const Sizes: Story = {
             >
                 <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>WCAG Touch Target</h3>
                 <p style={{ margin: 0, lineHeight: '1.6' }}>
-                    <strong>sizes[44]</strong> (44px) is the WCAG 2.5.5 minimum touch target size for interactive elements.
+                    <strong>size[44]</strong> (44px) is the WCAG 2.5.5 minimum touch target size for interactive elements.
                 </p>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { breakpoints } from '@grasdouble/lufa_design-system-primitives';
+import { breakpoint } from '@grasdouble/lufa_design-system-primitives';
 import React from 'react';
 
 const meta = {
@@ -23,7 +23,7 @@ export const AllBreakpoints: Story = {
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {Object.entries(breakpoints).map(([key, value]) => (
+                {Object.entries(breakpoint).map(([key, value]) => (
                     <div
                         key={key}
                         style={{
@@ -38,7 +38,7 @@ export const AllBreakpoints: Story = {
                         }}
                     >
                         <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>
-                            breakpoints[{key}]
+                            breakpoint[{key}]
                         </div>
                         <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
                         <div style={{ fontSize: '12px', color: '#737373' }}>

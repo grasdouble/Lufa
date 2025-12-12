@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { shadows, radius } from '@grasdouble/lufa_design-system-tokens';
+import { shadow, radius } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
     title: '1. Tokens/Shadows & Radius',
@@ -28,7 +28,7 @@ export const ShadowTokens: Story = {
                     marginBottom: '40px',
                 }}
             >
-                {Object.entries(shadows).map(([key, value]) => (
+                {Object.entries(shadow).map(([key, value]) => (
                     <div key={key}>
                         <div
                             style={{
@@ -64,7 +64,7 @@ export const ShadowTokens: Story = {
                                 wordBreak: 'break-all',
                             }}
                         >
-                            shadows.{key}
+                            shadow.{key}
                         </div>
                     </div>
                 ))}
@@ -83,9 +83,9 @@ export const ShadowTokens: Story = {
                 >
                     <div
                         style={{ color: '#737373', marginBottom: '12px' }}
-                    >{`import { shadows } from '@grasdouble/lufa_design-system';`}</div>
+                    >{`import { shadow } from '@grasdouble/lufa_design-system';`}</div>
                     <div>
-                        <span style={{ color: '#E5C07B' }}>boxShadow</span>: shadows.md
+                        <span style={{ color: '#E5C07B' }}>boxShadow</span>: shadow.md
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@ export const CombinedExample: Story = {
     render: () => (
         <div style={{ padding: '20px', maxWidth: '800px' }}>
             <h2 style={{ marginBottom: '24px' }}>Shadows & Radius Combined</h2>
-            <p style={{ marginBottom: '32px', color: '#737373' }}>Examples showing shadows and border radius working together</p>
+            <p style={{ marginBottom: '32px', color: '#737373' }}>Examples showing shadow and border radius working together</p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
                 <div>
@@ -180,12 +180,12 @@ export const CombinedExample: Story = {
                             padding: '24px',
                             backgroundColor: '#FFFFFF',
                             borderRadius: radius.lg,
-                            boxShadow: shadows.md,
+                            boxShadow: shadow.md,
                         }}
                     >
                         <h4 style={{ margin: 0, marginBottom: '8px', fontSize: '18px', fontWeight: 600 }}>Card Title</h4>
                         <p style={{ margin: 0, color: '#737373', fontSize: '14px' }}>
-                            This card uses shadows.md and radius.lg for a subtle elevated appearance.
+                            This card uses shadow.md and radius.lg for a subtle elevated appearance.
                         </p>
                     </div>
                 </div>
@@ -199,7 +199,7 @@ export const CombinedExample: Story = {
                             color: '#FFFFFF',
                             border: 'none',
                             borderRadius: radius.base,
-                            boxShadow: shadows.sm,
+                            boxShadow: shadow.sm,
                             cursor: 'pointer',
                             fontSize: '14px',
                             fontWeight: 600,
@@ -207,7 +207,7 @@ export const CombinedExample: Story = {
                     >
                         Elevated Button
                     </button>
-                    <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>radius.base + shadows.sm</p>
+                    <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>radius.base + shadow.sm</p>
                 </div>
 
                 <div>
@@ -217,13 +217,13 @@ export const CombinedExample: Story = {
                             padding: '32px',
                             backgroundColor: '#FFFFFF',
                             borderRadius: radius.xl,
-                            boxShadow: shadows.xl,
+                            boxShadow: shadow.xl,
                             maxWidth: '400px',
                         }}
                     >
                         <h4 style={{ margin: 0, marginBottom: '16px', fontSize: '20px', fontWeight: 600 }}>Dialog Title</h4>
                         <p style={{ margin: 0, marginBottom: '24px', color: '#737373', fontSize: '14px' }}>
-                            Large shadows and radius create strong visual separation for modals.
+                            Large shadow and radius create strong visual separation for modals.
                         </p>
                         <div style={{ display: 'flex', gap: '12px' }}>
                             <button
@@ -254,7 +254,7 @@ export const CombinedExample: Story = {
                             </button>
                         </div>
                     </div>
-                    <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>radius.xl + shadows.xl</p>
+                    <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>radius.xl + shadow.xl</p>
                 </div>
             </div>
         </div>

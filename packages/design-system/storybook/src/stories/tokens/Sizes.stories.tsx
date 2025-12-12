@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { sizes } from '@grasdouble/lufa_design-system-tokens';
+import { size } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
     title: '1. Tokens/Sizes',
@@ -21,7 +21,7 @@ export const AllSizes: Story = {
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {Object.entries(sizes).map(([key, value]) => {
+                {Object.entries(size).map(([key, value]) => {
                     const isTouchTarget = key === 'touchTarget';
 
                     return (
@@ -38,7 +38,7 @@ export const AllSizes: Story = {
                                 border: isTouchTarget ? '2px solid #2563EB' : '1px solid #E5E5E5',
                             }}
                         >
-                            <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>sizes.{key}</div>
+                            <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>size.{key}</div>
                             <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <div
@@ -81,7 +81,7 @@ export const AllSizes: Story = {
                 <div style={{ fontWeight: '600', marginBottom: '8px', color: '#1E40AF' }}>WCAG 2.5.5 Target Size</div>
                 <div style={{ fontSize: '14px', color: '#1E3A8A' }}>
                     Interactive elements should have a minimum touch target of 44×44px to ensure accessibility on touch devices.
-                    Use sizes.touchTarget or larger for all interactive elements.
+                    Use size.touchTarget or larger for all interactive elements.
                 </div>
             </div>
         </div>
@@ -97,12 +97,12 @@ export const UsageExamples: Story = {
             <div style={{ marginBottom: '40px' }}>
                 <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Icons</h2>
                 <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-                    {['xs', 'sm', 'md', 'lg', 'xl'].map((size) => (
-                        <div key={size} style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
+                    {['xs', 'sm', 'md', 'lg', 'xl'].map((siz) => (
+                        <div key={siz} style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
                             <div
                                 style={{
-                                    width: sizes[size as keyof typeof sizes],
-                                    height: sizes[size as keyof typeof sizes],
+                                    width: size[siz as keyof typeof size],
+                                    height: size[siz as keyof typeof size],
                                     backgroundColor: '#3B82F6',
                                     borderRadius: '4px',
                                     display: 'flex',
@@ -114,7 +114,7 @@ export const UsageExamples: Story = {
                             >
                                 ★
                             </div>
-                            <span style={{ fontSize: '12px', fontFamily: 'monospace' }}>{size}</span>
+                            <span style={{ fontSize: '12px', fontFamily: 'monospace' }}>{siz}</span>
                         </div>
                     ))}
                 </div>
@@ -124,11 +124,11 @@ export const UsageExamples: Story = {
             <div style={{ marginBottom: '40px' }}>
                 <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Buttons</h2>
                 <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-                    {['md', 'touchTarget', 'lg'].map((size) => (
+                    {['md', 'touchTarget', 'lg'].map((siz) => (
                         <button
-                            key={size}
+                            key={siz}
                             style={{
-                                height: sizes[size as keyof typeof sizes],
+                                height: size[siz as keyof typeof size],
                                 padding: '0 24px',
                                 backgroundColor: '#3B82F6',
                                 color: 'white',
@@ -139,7 +139,7 @@ export const UsageExamples: Story = {
                                 cursor: 'pointer',
                             }}
                         >
-                            {size}
+                            {siz}
                         </button>
                     ))}
                 </div>
@@ -149,12 +149,12 @@ export const UsageExamples: Story = {
             <div style={{ marginBottom: '40px' }}>
                 <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Avatars</h2>
                 <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-                    {['sm', 'md', 'lg', 'xl', '2xl'].map((size) => (
-                        <div key={size} style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
+                    {['sm', 'md', 'lg', 'xl', '2xl'].map((siz) => (
+                        <div key={siz} style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
                             <div
                                 style={{
-                                    width: sizes[size as keyof typeof sizes],
-                                    height: sizes[size as keyof typeof sizes],
+                                    width: size[siz as keyof typeof size],
+                                    height: size[siz as keyof typeof size],
                                     backgroundColor: '#10B981',
                                     borderRadius: '50%',
                                     display: 'flex',
@@ -166,7 +166,7 @@ export const UsageExamples: Story = {
                             >
                                 A
                             </div>
-                            <span style={{ fontSize: '12px', fontFamily: 'monospace' }}>{size}</span>
+                            <span style={{ fontSize: '12px', fontFamily: 'monospace' }}>{siz}</span>
                         </div>
                     ))}
                 </div>
@@ -176,13 +176,13 @@ export const UsageExamples: Story = {
             <div>
                 <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Form Inputs</h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
-                    {['md', 'touchTarget', 'lg'].map((size) => (
+                    {['md', 'touchTarget', 'lg'].map((siz) => (
                         <input
-                            key={size}
+                            key={siz}
                             type="text"
-                            placeholder={`Input with ${size} height`}
+                            placeholder={`Input with ${siz} height`}
                             style={{
-                                height: sizes[size as keyof typeof sizes],
+                                height: size[siz as keyof typeof size],
                                 padding: '0 16px',
                                 border: '1px solid #D1D5DB',
                                 borderRadius: '6px',

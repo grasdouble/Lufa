@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { iconSizes } from '@grasdouble/lufa_design-system-tokens';
+import { iconSize } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
     title: '1. Tokens/Icon Sizes',
@@ -22,7 +22,7 @@ export const AllIconSizes: Story = {
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
-                {Object.entries(iconSizes).map(([key, value]) => {
+                {Object.entries(iconSize).map(([key, value]) => {
                     const isTouchTarget = key === 'lg';
 
                     return (
@@ -41,7 +41,7 @@ export const AllIconSizes: Story = {
                         >
                             <div style={{ textAlign: 'center' }}>
                                 <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px', marginBottom: '4px' }}>
-                                    iconSizes.{key}
+                                    iconSize.{key}
                                 </div>
                                 <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
                             </div>
@@ -87,7 +87,7 @@ export const AllIconSizes: Story = {
             >
                 <div style={{ fontWeight: '600', marginBottom: '8px', color: '#1E40AF' }}>Icon Button Guidelines</div>
                 <ul style={{ margin: 0, paddingLeft: '20px', color: '#1E3A8A', fontSize: '14px' }}>
-                    <li>Icon-only buttons must have minimum 44×44px touch target (use iconSizes.lg or larger)</li>
+                    <li>Icon-only buttons must have minimum 44×44px touch target (use iconSize.lg or larger)</li>
                     <li>Ensure sufficient color contrast: 3:1 for non-text content (WCAG 1.4.11)</li>
                     <li>Provide accessible labels with aria-label for icon-only buttons</li>
                     <li>Add adequate spacing between multiple icon buttons (minimum 24px)</li>
@@ -111,8 +111,8 @@ export const UsageExamples: Story = {
                             key={size}
                             aria-label={`${size} icon button`}
                             style={{
-                                width: iconSizes[size as keyof typeof iconSizes],
-                                height: iconSizes[size as keyof typeof iconSizes],
+                                width: iconSize[size as keyof typeof iconSize],
+                                height: iconSize[size as keyof typeof iconSize],
                                 backgroundColor: '#3B82F6',
                                 color: 'white',
                                 border: 'none',
@@ -121,7 +121,7 @@ export const UsageExamples: Story = {
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 cursor: 'pointer',
-                                fontSize: `calc(${iconSizes[size as keyof typeof iconSizes]} * 0.5)`,
+                                fontSize: `calc(${iconSize[size as keyof typeof iconSize]} * 0.5)`,
                             }}
                             title={`${size} size`}
                         >
@@ -141,8 +141,8 @@ export const UsageExamples: Story = {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '16px' }}>
                         <span
                             style={{
-                                width: iconSizes.xs,
-                                height: iconSizes.xs,
+                                width: iconSize.xs,
+                                height: iconSize.xs,
                                 backgroundColor: '#10B981',
                                 borderRadius: '50%',
                                 display: 'inline-flex',
@@ -159,8 +159,8 @@ export const UsageExamples: Story = {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '18px' }}>
                         <span
                             style={{
-                                width: iconSizes.sm,
-                                height: iconSizes.sm,
+                                width: iconSize.sm,
+                                height: iconSize.sm,
                                 backgroundColor: '#3B82F6',
                                 borderRadius: '4px',
                                 display: 'inline-flex',
@@ -194,8 +194,8 @@ export const UsageExamples: Story = {
                             key={label}
                             aria-label={label}
                             style={{
-                                width: iconSizes.md,
-                                height: iconSizes.md,
+                                width: iconSize.md,
+                                height: iconSize.md,
                                 backgroundColor: 'transparent',
                                 color: 'white',
                                 border: 'none',
@@ -234,8 +234,8 @@ export const UsageExamples: Story = {
                         >
                             <div
                                 style={{
-                                    width: iconSizes['2xl'],
-                                    height: iconSizes['2xl'],
+                                    width: iconSize['2xl'],
+                                    height: iconSize['2xl'],
                                     backgroundColor: ['#3B82F6', '#10B981', '#F59E0B'][index],
                                     borderRadius: '12px',
                                     display: 'flex',
@@ -249,7 +249,7 @@ export const UsageExamples: Story = {
                                 {['⚡', '🔒', '✓'][index]}
                             </div>
                             <div style={{ fontWeight: '600', marginBottom: '4px' }}>{feature}</div>
-                            <div style={{ fontSize: '12px', color: '#737373' }}>Using iconSizes.2xl</div>
+                            <div style={{ fontSize: '12px', color: '#737373' }}>Using iconSize.2xl</div>
                         </div>
                     ))}
                 </div>

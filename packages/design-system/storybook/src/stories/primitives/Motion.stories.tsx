@@ -17,8 +17,9 @@ export const Timing: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Motion Primitives - Timing</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Tokens timing values for animations. Keep interactions under 400ms to feel responsive. Combine with easing
-                curves for natural motion.
+                Tokens timing values for animations. Keep interactions under 400ms to feel responsive. Extended timings
+                (500-1000ms) available for complex animations and page transitions. Combine with easing curves for natural
+                motion.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -59,11 +60,18 @@ export const Timing: Story = {
                             </button>
                             <span style={{ fontSize: '12px', color: '#737373' }}>
                                 {key === '0' && 'Instant (no animation)'}
+                                {key === '50' && 'Ultra-fast micro-interactions'}
+                                {key === '75' && 'Fast micro-interactions'}
                                 {key === '100' && 'Micro-interactions'}
                                 {key === '150' && 'Quick transitions'}
+                                {key === '200' && 'Snappy transitions'}
                                 {key === '250' && 'Standard transitions'}
+                                {key === '300' && 'Comfortable transitions'}
                                 {key === '400' && 'Emphasized transitions'}
+                                {key === '500' && 'Deliberate animations'}
                                 {key === '600' && 'Dramatic animations'}
+                                {key === '800' && 'Extended animations'}
+                                {key === '1000' && 'Very long animations'}
                             </span>
                         </div>
                     </div>

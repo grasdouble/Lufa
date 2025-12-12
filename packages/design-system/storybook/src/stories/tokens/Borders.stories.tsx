@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { borders } from '@grasdouble/lufa_design-system-tokens';
-import { colors } from '@grasdouble/lufa_design-system-tokens';
+import { borderWidth, borderStyle } from '@grasdouble/lufa_design-system-tokens';
+import { color } from '@grasdouble/lufa_design-system';
 
 const meta = {
     title: '1. Tokens/Borders',
@@ -29,7 +29,7 @@ export const BorderWidths: Story = {
                     marginBottom: '40px',
                 }}
             >
-                {Object.entries(borders.width).map(([key, value]) => (
+                {Object.entries(borderWidth).map(([key, value]) => (
                     <div key={key}>
                         <div
                             style={{
@@ -63,7 +63,7 @@ export const BorderWidths: Story = {
             >
                 <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>WCAG 2.1 Requirements</h3>
                 <p style={{ margin: '0', color: '#737373', fontSize: '14px', lineHeight: '1.6' }}>
-                    <strong>Focus Indicators:</strong> Must be at least 2px thick (borders.width.thin) and have sufficient contrast
+                    <strong>Focus Indicators:</strong> Must be at least 2px thick (borderWidth.thin) and have sufficient contrast
                     (3:1 minimum) to meet WCAG 2.4.7 Focus Visible.
                 </p>
             </div>
@@ -87,7 +87,7 @@ export const BorderStyles: Story = {
                     marginBottom: '40px',
                 }}
             >
-                {Object.entries(borders.style).map(([key, value]) => (
+                {Object.entries(borderStyle).map(([key, value]) => (
                     <div key={key}>
                         <div
                             style={{
@@ -127,7 +127,7 @@ export const UsageExamples: Story = {
                         placeholder="Default (hairline)"
                         style={{
                             padding: '10px 12px',
-                            border: `${borders.width.hairline} ${borders.style.solid} #D1D5DB`,
+                            border: `${borderWidth.hairline} ${borderStyle.solid} #D1D5DB`,
                             borderRadius: '6px',
                             fontSize: '14px',
                         }}
@@ -137,7 +137,7 @@ export const UsageExamples: Story = {
                         placeholder="Focus (3px for visibility)"
                         style={{
                             padding: '10px 12px',
-                            border: `${borders.width.focus} ${borders.style.solid} #3B82F6`,
+                            border: `${borderWidth.focus} ${borderStyle.solid} #3B82F6`,
                             borderRadius: '6px',
                             fontSize: '14px',
                             outline: 'none',
@@ -148,7 +148,7 @@ export const UsageExamples: Story = {
                         placeholder="Error (thin)"
                         style={{
                             padding: '10px 12px',
-                            border: `${borders.width.thin} ${borders.style.solid} ${colors.error.default}`,
+                            border: `${borderWidth.thin} ${borderStyle.solid} ${color.error.default}`,
                             borderRadius: '6px',
                             fontSize: '14px',
                         }}
@@ -162,7 +162,7 @@ export const UsageExamples: Story = {
                     <div
                         style={{
                             padding: '20px',
-                            border: `${borders.width.hairline} ${borders.style.solid} #E5E5E5`,
+                            border: `${borderWidth.hairline} ${borderStyle.solid} #E5E5E5`,
                             borderRadius: '8px',
                         }}
                     >
@@ -172,7 +172,7 @@ export const UsageExamples: Story = {
                     <div
                         style={{
                             padding: '20px',
-                            border: `${borders.width.thin} ${borders.style.solid} #3B82F6`,
+                            border: `${borderWidth.thin} ${borderStyle.solid} #3B82F6`,
                             borderRadius: '8px',
                         }}
                     >
@@ -182,7 +182,7 @@ export const UsageExamples: Story = {
                     <div
                         style={{
                             padding: '20px',
-                            border: `${borders.width.thick} ${borders.style.dashed} #737373`,
+                            border: `${borderWidth.thick} ${borderStyle.dashed} #737373`,
                             borderRadius: '8px',
                         }}
                     >
@@ -195,13 +195,13 @@ export const UsageExamples: Story = {
             <div>
                 <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '16px' }}>Dividers</h3>
                 <div>
-                    <div style={{ padding: '12px 0', borderBottom: `${borders.width.hairline} ${borders.style.solid} #E5E5E5` }}>
+                    <div style={{ padding: '12px 0', borderBottom: `${borderWidth.hairline} ${borderStyle.solid} #E5E5E5` }}>
                         Hairline divider
                     </div>
-                    <div style={{ padding: '12px 0', borderBottom: `${borders.width.thin} ${borders.style.solid} #D1D5DB` }}>
+                    <div style={{ padding: '12px 0', borderBottom: `${borderWidth.thin} ${borderStyle.solid} #D1D5DB` }}>
                         Thin divider
                     </div>
-                    <div style={{ padding: '12px 0', borderBottom: `${borders.width.hairline} ${borders.style.dashed} #D1D5DB` }}>
+                    <div style={{ padding: '12px 0', borderBottom: `${borderWidth.hairline} ${borderStyle.dashed} #D1D5DB` }}>
                         Dashed divider
                     </div>
                 </div>

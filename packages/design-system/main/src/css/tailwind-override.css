@@ -270,19 +270,19 @@
 
 /* Lufa Containers - Override Tailwind containers */
 @theme {
-    --container-3xs: var(--lufa-primitive-maxWidth-256);
-    --container-2xs: var(--lufa-primitive-maxWidth-288);
-    --container-xs: var(--lufa-primitive-maxWidth-640);
-    --container-sm: var(--lufa-primitive-maxWidth-768);
-    --container-md: var(--lufa-primitive-maxWidth-1024);
-    --container-lg: var(--lufa-primitive-maxWidth-1280);
-    --container-xl: var(--lufa-primitive-maxWidth-1440);
-    --container-2xl: var(--lufa-primitive-maxWidth-672);
-    --container-3xl: var(--lufa-primitive-maxWidth-768);
-    --container-4xl: var(--lufa-primitive-maxWidth-896);
-    --container-5xl: var(--lufa-primitive-maxWidth-1024);
-    --container-6xl: var(--lufa-primitive-maxWidth-1152);
-    --container-7xl: var(--lufa-primitive-maxWidth-1280);
+    --container-3xs: var(--lufa-primitive-max-width-256);
+    --container-2xs: var(--lufa-primitive-max-width-288);
+    --container-xs: var(--lufa-primitive-max-width-640);
+    --container-sm: var(--lufa-primitive-max-width-768);
+    --container-md: var(--lufa-primitive-max-width-1024);
+    --container-lg: var(--lufa-primitive-max-width-1280);
+    --container-xl: var(--lufa-primitive-max-width-1440);
+    --container-2xl: var(--lufa-primitive-max-width-672);
+    --container-3xl: var(--lufa-primitive-max-width-768);
+    --container-4xl: var(--lufa-primitive-max-width-896);
+    --container-5xl: var(--lufa-primitive-max-width-1024);
+    --container-6xl: var(--lufa-primitive-max-width-1152);
+    --container-7xl: var(--lufa-primitive-max-width-1280);
 }
 
 /* Lufa Typography - Font Sizes - Override Tailwind */
