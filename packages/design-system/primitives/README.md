@@ -1,6 +1,6 @@
 # @grasdouble/lufa_design-system-primitives
 
-Non-semantic design primitives for the Lufa Design System (palette, typography, spacing, motion, etc.).
+Non-semantic design primitives for the Lufa Design System. Raw foundational values using pixel/millisecond values as keys for clarity and precision.
 
 ## Installation
 
@@ -10,135 +10,172 @@ pnpm add @grasdouble/lufa_design-system-primitives
 
 ## Philosophy
 
-Primitives use **pure numeric scales** (0-9) for consistent token values. They are intentionally non-semantic—use `@grasdouble/lufa_design-system-tokens` for semantic names like `sm`, `md`, `lg`.
+Primitives use **actual values as keys** (e.g., `spacing[16]`, `timing[150]`, `fontSize[24]`) for maximum clarity and predictability. They are intentionally non-semantic—use `@grasdouble/lufa_design-system-tokens` for semantic names like `compact`, `default`, `large`.
 
-## How to consume
+## Usage
 
-### TypeScript / JavaScript
+### TypeScript/JavaScript
 
-```ts
+```typescript
 import {
-  primitives,
-  colors,
   spacing,
-  borders,
-  typography,
+  timing,
+  borderWidth,
+  fontSize,
+  fontWeight,
+  iconSize,
+  iconStroke,
+  maxWidth,
+  radius,
+  shadow,
 } from "@grasdouble/lufa_design-system-primitives";
-import type {
-  PrimitiveColor,
-  PrimitiveShade,
-} from "@grasdouble/lufa_design-system-primitives";
 
-// Color palettes with numeric shades
-const primaryBlue = colors.blue[600]; // '#2563EB'
+// Spacing uses pixel values as keys
+const padding = spacing[16]; // "16px"
+const margin = spacing[24]; // "24px"
+const gap = spacing[72]; // "72px"
 
-// Numeric spacing scale
-const gapMd = spacing[5]; // '16px'
+// Timing uses millisecond values as keys
+const transition = timing[150]; // "150ms"
+const animation = timing[400]; // "400ms"
 
-// Numeric border widths
-const focusBorder = borders.width[3]; // '3px'
+// Border widths use pixel values
+const border = borderWidth[1]; // "1px"
+const focusBorder = borderWidth[3]; // "3px"
 
-// Typography with numeric scales
-const bodySize = typography.fontSize[2]; // '16px'
-const normalWeight = typography.fontWeight[3]; // 400
-const baseLineHeight = typography.lineHeight[3]; // 1.5
+// Typography uses pixel/numeric values
+const body = fontSize[16]; // "1rem" (16px)
+const heading = fontSize[24]; // "1.5rem" (24px)
+const bold = fontWeight[700]; // 700
 
-// Type narrowing
-type ColorName = PrimitiveColor; // 'neutral' | 'blue' | 'green' | ...
-type Shade = PrimitiveShade; // 0 | 50 | 100 | ... | 950 | 1000
+// Icons use pixel sizes
+const iconSmall = iconSize[16]; // 16
+const iconDefault = iconSize[24]; // 24
+const iconStrokeDefault = iconStroke["1-5"]; // 1.5
+
+// Layout uses pixel values (in rem)
+const containerWidth = maxWidth[768]; // "48rem"
+const modalWidth = maxWidth[600]; // "37.5rem"
 ```
 
-### CSS (custom properties)
+### CSS Custom Properties
 
 ```css
-@import "@grasdouble/lufa_design-system-tokens/styles.css";
+@import "@grasdouble/lufa_design-system-primitives/styles.css";
 
 .my-element {
-  /* Colors: --lufa-primitive-{color}-{shade} */
-  color: var(--lufa-primitive-blue-600);
-  background: var(--lufa-primitive-neutral-50);
+  /* Spacing: --lufa-primitive-spacing-{pixels} */
+  padding: var(--lufa-primitive-spacing-16);
+  margin: var(--lufa-primitive-spacing-24);
+  gap: var(--lufa-primitive-spacing-8);
 
-  /* Spacing: --lufa-primitive-spacing-{0-9} */
-  padding: var(--lufa-primitive-spacing-5);
-  gap: var(--lufa-primitive-spacing-3);
+  /* Timing: --lufa-primitive-timing-{milliseconds} */
+  transition-duration: var(--lufa-primitive-timing-150);
 
-  /* Borders: --lufa-primitive-borders-width-{0-4} */
-  border-width: var(--lufa-primitive-borders-width-2);
+  /* Border: --lufa-primitive-border-width-{pixels} */
+  border-width: var(--lufa-primitive-border-width-1);
 
-  /* Typography: --lufa-primitive-typography-font-size-{0-8} */
-  font-size: var(--lufa-primitive-typography-font-size-2);
-  font-weight: var(--lufa-primitive-typography-font-weight-3);
-  line-height: var(--lufa-primitive-typography-line-height-3);
+  /* Typography: --lufa-primitive-font-size-{pixels} */
+  font-size: var(--lufa-primitive-font-size-16);
+  font-weight: var(--lufa-primitive-font-weight-700);
+
+  /* Layout: --lufa-primitive-max-width-{pixels} */
+  max-width: var(--lufa-primitive-max-width-768);
+
+  /* Radius: --lufa-primitive-radius-{pixels} */
+  border-radius: var(--lufa-primitive-radius-8);
+
+  /* Icons: --lufa-primitive-icon-size-{pixels} */
+  width: var(--lufa-primitive-icon-size-24);
+  height: var(--lufa-primitive-icon-size-24);
 }
 ```
 
-## Primitive categories
+## Primitive Categories
 
-All primitives use **numeric scales** for consistency:
+### 🎨 **Border** (17 tokens)
 
-### Colors (0-1000 neutral, 50-950 chromatic)
+- **borderWidth** (6) - `0`, `1`, `2`, `3`, `4`, `8` (pixels)
+- **borderStyle** (5) - `solid`, `dashed`, `dotted`, `double`, `none`
+- **radius** (10) - `0`, `2`, `4`, `6`, `8`, `12`, `16`, `24`, `32`, `9999` (pixels)
 
-- **Palettes**: neutral, blue, green, orange, red, purple, teal, yellow, pink, indigo
-- **WCAG guidance**: Shades 50-300 (AAA on dark), 400-500 (AA large text), 600+ (AA normal text), 700+ (AAA)
-- **Scale**: neutral[0-1000], chromatic[50-950]
+### 🌈 **Color** (246 tokens)
 
-### Typography (numeric scales)
+- **colorChromatic** (187) - 11 color palettes × 17 shades each
+  - Palettes: `blue`, `green`, `orange`, `red`, `purple`, `teal`, `yellow`, `pink`, `indigo`, `cyan`, `lime`
+  - Shades: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950` + variants
+- **colorNeutral** (59) - Gray scale from `0` (black) to `1000` (white)
+  - Full range: `0`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`, `1000` + variants
 
-- **fontSize**: 0-8 (12px → 64px)
-- **fontWeight**: 0-8 (100 → 900)
-- **lineHeight**: 0-5 (1.0 → 1.8)
-- **letterSpacing**: 0-5 (-0.02em → 0.08em)
-- **fontFamily**: sans, serif, mono
+### ✨ **Effects** (14 tokens)
 
-### Spacing (0-9)
+- **blur** (7) - `4`, `8`, `12`, `16`, `24`, `40`, `64` (pixels)
+- **opacity** (7) - `0`, `10`, `25`, `50`, `75`, `90`, `100` (percentage)
 
-- **Scale**: 0px, 2px, 4px, 8px, 12px, 16px, 24px, 32px, 48px, 64px
-- **Rhythm**: 4px/8px based
-- **Touch targets**: spacing[7-8] for comfortable touch areas
+### 📐 **Elevation** (20 tokens)
 
-### Sizes (0-9)
+- **shadow** (10) - `xs`, `sm`, `md`, `base`, `lg`, `xl`, `2xl`, `inner`, `none`, `focus`
+- **zIndex** (10) - `0`, `10`, `20`, `30`, `40`, `50`, `100`, `500`, `900`, `9999`
 
-- **Scale**: 0-9 (0px → 192px)
-- **Touch target**: sizes[4] = 44px (WCAG minimum)
+### 🔷 **Icon** (11 tokens)
 
-### Borders (numeric width scale)
+- **iconSize** (7) - `12`, `16`, `20`, `24`, `32`, `40`, `48` (pixels)
+- **iconStroke** (4) - `"1"`, `"1-5"`, `"2"`, `"2-5"` (stroke width for SVG icons)
 
-- **width**: 0-4 (0px → 4px)
-- **Focus**: width[2-3] meet WCAG 2.4.7 (2px minimum)
-- **style**: solid, dashed
+### 📏 **Layout** (20 tokens)
 
-### Radius (0-9)
+- **breakpoint** (6) - `480`, `768`, `1024`, `1280`, `1440`, `1920` (pixels)
+- **grid.columns** (8) - `1` to `12`
+- **grid.gutters** (6) - `0`, `8`, `16`, `24`, `32`, `48` (pixels)
+- **aspectRatio** (8) - Common ratios (`square`, `video`, `portrait`, `ultraWide`, etc.)
 
-- **Scale**: 0-9 (0px → 9999px for pills)
+### 🎬 **Motion** (17 tokens)
 
-### Shadows (0-6)
+- **easing** (4) - `linear`, `ease-in`, `ease-out`, `ease-in-out` (cubic-bezier curves)
+- **timing** (13) - `0`, `50`, `75`, `100`, `150`, `200`, `250`, `300`, `400`, `500`, `600`, `800`, `1000` (milliseconds)
 
-- **Scale**: 0-6 (none → large elevation)
-- **WCAG**: Not sole visual indicator (1.4.1)
+### 📦 **Space** (60 tokens)
 
-### Opacity (0-100)
+- **spacing** (21) - `0`, `2`, `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `28`, `32`, `40`, `48`, `56`, `64`, `72`, `80`, `96`, `120`, `128` (pixels)
+- **size** (10) - `0`, `4`, `8`, `16`, `32`, `44`, `64`, `96`, `128`, `192` (pixels for component sizes)
+- **maxWidth** (23) - `256`, `288`, `320`, `360`, `384`, `400`, `448`, `512`, `576`, `600`, `640`, `672`, `768`, `800`, `896`, `960`, `1024`, `1152`, `1200`, `1280`, `1440` + `full`, `none` (pixels/rem)
 
-- **Scale**: 0, 10, 25, 50, 75, 90, 100
-- **Warning**: < 90 may violate WCAG contrast on text
+### ✍️ **Typography** (42 tokens)
 
-### Timing (0-5)
+- **fontFamily** (3) - `sans`, `serif`, `mono`
+- **fontSize** (13) - `12`, `14`, `16`, `18`, `20`, `24`, `30`, `36`, `48`, `60`, `72`, `96`, `128` (pixels/rem)
+- **fontWeight** (9) - `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`
+- **lineHeight** (6) - `1`, `1.2`, `1.35`, `1.5`, `1.65`, `1.8`
+- **letterSpacing** (6) - `-0.02em`, `-0.01em`, `0em`, `0.01em`, `0.04em`, `0.08em`
+- **fontFamily** (3) - `sans`, `serif`, `mono`
 
-- **Scale**: 0-5 (0ms → 600ms)
-- **Range**: 100-600ms for interactions
+## Total: 448 Primitive Tokens
 
-### Z-Index (0-9)
+All primitives use **actual measurement values as keys** for maximum clarity and predictability. They serve as the foundation for semantic tokens in `@grasdouble/lufa_design-system-tokens`.
 
-- **Scale**: 0, 10, 20, 30, 40, 50, 100, 500, 900, 9999
-- **Ladder**: Controlled stacking order
+## Key Principles
 
-### Easing
+### 📏 **Value-as-Key Pattern**
 
-- **Types**: easeIn, easeOut, easeInOut, gentle
-- **Values**: cubic-bezier curves
+Instead of abstract scales (0-9), primitives use the actual value:
 
-### Breakpoints
+- ✅ `spacing[16]` = "16px"
+- ✅ `timing[150]` = "150ms"
+- ✅ `fontSize[24]` = "1.5rem"
+- ❌ ~~`spacing[3]` = "16px"~~ (old pattern)
 
-- **Scale**: xs (480px), sm (768px), md (1024px), lg (1280px), xl (1440px), 2xl (1920px)
+### 🎯 **WCAG Compliance Built-in**
+
+- **Touch Targets**: `spacing[32]`, `spacing[48]` for WCAG 2.5.5
+- **Focus Indicators**: `borderWidth[2]` minimum, `borderWidth[3]` recommended (WCAG 2.4.7)
+- **Font Sizes**: `fontSize[16]` minimum for body text (WCAG 1.4.4)
+- **Icons**: `iconSize[24]` minimum for touch targets
+
+### 🔄 **Rhythm & Scale**
+
+- **Spacing**: 4px/8px rhythm (2, 4, 8, 12, 16, 24, 32, 48, 64...)
+- **Timing**: 50ms increments for small, 100ms+ for standard (50, 75, 100, 150, 200, 250...)
+- **Typography**: Modular scale based on 16px base
 
 ## Build
 
@@ -146,4 +183,4 @@ All primitives use **numeric scales** for consistency:
 pnpm --filter @grasdouble/lufa_design-system-primitives build
 ```
 
-Build compiles TypeScript and regenerates `dist/primitives.css` via `scripts/generate-css.js`.
+Build compiles TypeScript and generates `dist/styles.css` with all primitive CSS custom properties.
