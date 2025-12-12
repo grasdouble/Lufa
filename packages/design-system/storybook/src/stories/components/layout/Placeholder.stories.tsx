@@ -149,7 +149,7 @@ export const GradientVariants: Story = {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '400px' }}>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Blue to Purple</h3>
-                <Placeholder colorFrom={color.interactive.default} colorTo={colors.brand.secondary}>
+                <Placeholder colorFrom={color.interactive.default} colorTo={color.brand.secondary}>
                     Blue → Purple
                 </Placeholder>
             </div>
