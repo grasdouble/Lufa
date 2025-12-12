@@ -2,10 +2,7 @@
  * Lufa Design System - Main CSS Entry
  * This file consolidates all CSS including primitives, tokens, and Tailwind
  */
-@layer theme, base, components, utilities;
-@import 'tailwindcss/theme.css' layer(theme);
-/* @import 'tailwindcss/preflight.css' layer(base); */
-@import 'tailwindcss/utilities.css' layer(utilities);
+@import 'tailwindcss';
 
 /* Import primitives and tokens CSS variables */
 @import '@grasdouble/lufa_design-system-primitives/style.css';

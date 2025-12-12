@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { borderWidth, borderStyle } from '@grasdouble/lufa_design-system-tokens';
-import { color } from '@grasdouble/lufa_design-system';
+import { tokens } from '@grasdouble/lufa_design-system';
+
+const { color } = tokens;
 
 const meta = {
     title: '1. Tokens/Borders',
@@ -63,8 +65,8 @@ export const BorderWidths: Story = {
             >
                 <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>WCAG 2.1 Requirements</h3>
                 <p style={{ margin: '0', color: '#737373', fontSize: '14px', lineHeight: '1.6' }}>
-                    <strong>Focus Indicators:</strong> Must be at least 2px thick (borderWidth.thin) and have sufficient contrast
-                    (3:1 minimum) to meet WCAG 2.4.7 Focus Visible.
+                    <strong>Focus Indicators:</strong> Must be at least 2px thick (borderWidth.thin) and have sufficient contrast (3:1
+                    minimum) to meet WCAG 2.4.7 Focus Visible.
                 </p>
             </div>
         </div>
@@ -198,9 +200,7 @@ export const UsageExamples: Story = {
                     <div style={{ padding: '12px 0', borderBottom: `${borderWidth.hairline} ${borderStyle.solid} #E5E5E5` }}>
                         Hairline divider
                     </div>
-                    <div style={{ padding: '12px 0', borderBottom: `${borderWidth.thin} ${borderStyle.solid} #D1D5DB` }}>
-                        Thin divider
-                    </div>
+                    <div style={{ padding: '12px 0', borderBottom: `${borderWidth.thin} ${borderStyle.solid} #D1D5DB` }}>Thin divider</div>
                     <div style={{ padding: '12px 0', borderBottom: `${borderWidth.hairline} ${borderStyle.dashed} #D1D5DB` }}>
                         Dashed divider
                     </div>
