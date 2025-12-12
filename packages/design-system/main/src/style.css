@@ -2,14 +2,9 @@
  * Lufa Design System - Main CSS Entry
  * This file consolidates all CSS including primitives, tokens, and Tailwind
  */
-@import 'tailwindcss';
 
 /* Import primitives and tokens CSS variables */
 @import '@grasdouble/lufa_design-system-primitives/style.css';
 @import '@grasdouble/lufa_design-system-tokens/style.css';
 
-/* https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
-@custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *));
-
-@import './css/tailwind-override.css';
-@import './css/theme.css';
+@import './tailwind.css';

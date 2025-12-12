@@ -56,13 +56,7 @@ export const Divider = ({
           }[align]
         : undefined;
 
-    const wrapperClassName = clsx(
-        styles.divider,
-        isHorizontal ? styles.horizontal : styles.vertical,
-        spacingClass,
-        alignClass,
-        className
-    );
+    const wrapperClassName = clsx(styles.divider, isHorizontal ? styles.horizontal : styles.vertical, spacingClass, alignClass, className);
 
     const lineClassName = clsx(
         styles.line,

@@ -1,4 +1,4 @@
-@reference '../../../style.css';
+@reference '../../../tailwind.css';
 
 @layer components {
     .badge {
