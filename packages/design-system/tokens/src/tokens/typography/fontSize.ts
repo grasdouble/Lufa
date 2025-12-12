@@ -44,36 +44,35 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html|WCAG 2.1 - Visual Presentation}
  */
 
-import { fontSizes as primitiveFontSizes } from "@grasdouble/lufa_design-system-primitives";
+import { fontSize as primitiveFontSize } from "@grasdouble/lufa_design-system-primitives";
 
-export const fontSizes = {
+export const fontSize = {
   /** 12px - Extra small text (secondary labels only) */
-  xs: primitiveFontSizes[12],
+  xs: primitiveFontSize[12],
   /** 14px - Small text (captions, metadata) */
-  sm: primitiveFontSizes[14],
+  sm: primitiveFontSize[14],
   /** 16px - Base/body text (WCAG minimum) */
-  base: primitiveFontSizes[16],
+  base: primitiveFontSize[16],
   /** 18px - Large body text */
-  lg: primitiveFontSizes[18],
+  lg: primitiveFontSize[18],
   /** 20px - Extra large text */
-  xl: primitiveFontSizes[20],
+  xl: primitiveFontSize[20],
   /** 24px - 2x large */
-  "2xl": primitiveFontSizes[24],
+  "2xl": primitiveFontSize[24],
   /** 30px - 3x large */
-  "3xl": primitiveFontSizes[30],
+  "3xl": primitiveFontSize[30],
   /** 36px - 4x large */
-  "4xl": primitiveFontSizes[36],
+  "4xl": primitiveFontSize[36],
   /** 48px - 5x large */
-  "5xl": primitiveFontSizes[48],
+  "5xl": primitiveFontSize[48],
   /** 60px - 6x large */
-  "6xl": primitiveFontSizes[60],
+  "6xl": primitiveFontSize[60],
   /** 72px - 7x large */
-  "7xl": primitiveFontSizes[72],
+  "7xl": primitiveFontSize[72],
   /** 96px - 8x large */
-  "8xl": primitiveFontSizes[96],
+  "8xl": primitiveFontSize[96],
   /** 128px - 9x large */
-  "9xl": primitiveFontSizes[128],
+  "9xl": primitiveFontSize[128],
 } as const;
 
-export type FontSizes = typeof fontSizes;
-export type FontSizesTokens = keyof FontSizes;
+export type FontSize = keyof typeof fontSize;

@@ -58,5 +58,4 @@ export const aspectRatio = {
   portraitDisplay: primitiveAspectRatio.portraitDisplay,
 } as const;
 
-export type AspectRatio = typeof aspectRatio;
-export type AspectRatioTokens = keyof AspectRatio;
+export type AspectRatio = keyof typeof aspectRatio;

@@ -1,4 +1,4 @@
-export const colorNeutrals = {
+export const colorNeutral = {
   slate: {
     50: "oklch(98.4% 0.003 247.858)",
     100: "oklch(96.8% 0.007 247.896)",
@@ -70,5 +70,5 @@ export const colorNeutrals = {
   white: "oklch(100% 0 0)",
 } as const;
 
-export type ColorNeutrals = typeof colorNeutrals;
-export type ColorNeutralsKey = keyof ColorNeutrals;
+export type ColorNeutral = keyof typeof colorNeutral;
+export type ColorNeutralValue = (typeof colorNeutral)[ColorNeutral];

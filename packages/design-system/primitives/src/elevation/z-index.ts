@@ -34,5 +34,4 @@ export const zIndex = {
   9999: 9999,
 } as const;
 
-export type ZIndex = typeof zIndex;
-export type ZIndexKey = keyof ZIndex;
+export type ZIndex = keyof typeof zIndex;

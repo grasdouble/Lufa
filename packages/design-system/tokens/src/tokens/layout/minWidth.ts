@@ -18,7 +18,7 @@
 
 import {
   spacing as primitiveSpacing,
-  maxWidths as primitiveMaxWidths,
+  maxWidth as primitiveMaxWidths,
 } from "@grasdouble/lufa_design-system-primitives";
 
 export const minWidth = {
@@ -45,5 +45,4 @@ export const minWidth = {
   maxContent: "max-content",
 } as const;
 
-export type MinWidth = typeof minWidth;
-export type MinWidthTokens = keyof MinWidth;
+export type MinWidth = keyof typeof minWidth;

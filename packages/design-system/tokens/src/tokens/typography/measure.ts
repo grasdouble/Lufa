@@ -24,5 +24,4 @@ export const measure = {
   extraWide: "80ch", // Maximum readable width
 } as const;
 
-export type Measure = typeof measure;
-export type MeasureTokens = keyof Measure;
+export type Measure = keyof typeof measure;

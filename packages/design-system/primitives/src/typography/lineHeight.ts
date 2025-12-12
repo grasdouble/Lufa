@@ -18,7 +18,7 @@
  * - Higher line-height improves readability for dyslexic users
  * - Unitless values scale proportionally with font size
  */
-export const lineHeights = {
+export const lineHeight = {
   tight: 1.0,
   heading: 1.2, // Headings only - below WCAG minimum for body text
   display: 1.35, // Large text only - below WCAG minimum for body text
@@ -27,5 +27,4 @@ export const lineHeights = {
   dyslexia: 1.8, // Maximum spacing for improved dyslexia-friendly reading
 } as const;
 
-export type LineHeights = typeof lineHeights;
-export type LineHeightsKey = keyof LineHeights;
+export type LineHeight = keyof typeof lineHeight;

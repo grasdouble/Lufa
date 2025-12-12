@@ -16,7 +16,7 @@
  * - Combine with color and text labels for clarity
  * - Test dotted/dashed borders at different zoom levels
  */
-export const borderStyles = {
+export const borderStyle = {
   solid: "solid",
   dashed: "dashed",
   dotted: "dotted",
@@ -24,5 +24,4 @@ export const borderStyles = {
   none: "none",
 } as const;
 
-export type BorderStyles = typeof borderStyles;
-export type BorderStylesKey = keyof BorderStyles;
+export type BorderStyle = keyof typeof borderStyle;

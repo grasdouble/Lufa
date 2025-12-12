@@ -53,5 +53,4 @@ export const timing = {
   deliberate: primitiveTiming[600],
 } as const;
 
-export type Timing = typeof timing;
-export type TimingTokens = keyof Timing;
+export type Timing = keyof typeof timing;

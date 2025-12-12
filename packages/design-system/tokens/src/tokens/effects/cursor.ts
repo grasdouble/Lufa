@@ -37,5 +37,4 @@ export const cursor = {
   resizeDiagonal2: "nesw-resize",
 } as const;
 
-export type Cursor = typeof cursor;
-export type CursorTokens = keyof Cursor;
+export type Cursor = keyof typeof cursor;

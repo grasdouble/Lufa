@@ -50,5 +50,4 @@ export const transform = {
   pressedDown: "translateY(1px) scale(0.98)", // Pressed/active state
 } as const;
 
-export type Transform = typeof transform;
-export type TransformTokens = keyof Transform;
+export type Transform = keyof typeof transform;

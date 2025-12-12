@@ -33,5 +33,4 @@ export const opacity = {
   100: "1", // Full opacity
 } as const;
 
-export type Opacity = typeof opacity;
-export type OpacityKey = keyof Opacity;
+export type Opacity = keyof typeof opacity;

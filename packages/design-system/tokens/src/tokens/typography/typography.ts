@@ -38,10 +38,10 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html|WCAG 2.1 - Text Spacing}
  */
 
-import { fontSizes } from "./fontSize.js";
-import { fontWeights } from "./fontWeight.js";
-import { lineHeights } from "./lineHeight.js";
-import { letterSpacings } from "./letterSpacing.js";
+import { fontSize } from "./fontSize.js";
+import { fontWeight } from "./fontWeight.js";
+import { lineHeight } from "./lineHeight.js";
+import { letterSpacing } from "./letterSpacing.js";
 
 /**
  * Typography scale presets
@@ -66,85 +66,84 @@ import { letterSpacings } from "./letterSpacing.js";
  * - caption: 12px, base - Captions, metadata
  * - label: 14px, base, medium - Form labels, UI text
  */
-export const typographyScales = {
+export const typographyScale = {
   /** H1 - 60px, tight, bold (hero headings) */
   h1: {
-    fontSizes: fontSizes["6xl"],
-    lineHeights: lineHeights.tight,
-    fontWeights: fontWeights.bold,
-    letterSpacings: letterSpacings.tight,
+    fontSize: fontSize["6xl"],
+    lineHeight: lineHeight.tight,
+    fontWeight: fontWeight.bold,
+    letterSpacing: letterSpacing.tight,
   },
   /** H2 - 48px, tight, bold (page titles) */
   h2: {
-    fontSizes: fontSizes["5xl"],
-    lineHeights: lineHeights.tight,
-    fontWeights: fontWeights.bold,
-    letterSpacings: letterSpacings.tight,
+    fontSize: fontSize["5xl"],
+    lineHeight: lineHeight.tight,
+    fontWeight: fontWeight.bold,
+    letterSpacing: letterSpacing.tight,
   },
   /** H3 - 36px, snug, semibold (section headings) */
   h3: {
-    fontSizes: fontSizes["4xl"],
-    lineHeights: lineHeights.snug,
-    fontWeights: fontWeights.semibold,
-    letterSpacings: letterSpacings.normal,
+    fontSize: fontSize["4xl"],
+    lineHeight: lineHeight.snug,
+    fontWeight: fontWeight.semibold,
+    letterSpacing: letterSpacing.normal,
   },
   /** H4 - 30px, snug, semibold (subsection headings) */
   h4: {
-    fontSizes: fontSizes["3xl"],
-    lineHeights: lineHeights.snug,
-    fontWeights: fontWeights.semibold,
-    letterSpacings: letterSpacings.normal,
+    fontSize: fontSize["3xl"],
+    lineHeight: lineHeight.snug,
+    fontWeight: fontWeight.semibold,
+    letterSpacing: letterSpacing.normal,
   },
   /** H5 - 24px, base, semibold (component headings) */
   h5: {
-    fontSizes: fontSizes["2xl"],
-    lineHeights: lineHeights.base,
-    fontWeights: fontWeights.semibold,
-    letterSpacings: letterSpacings.normal,
+    fontSize: fontSize["2xl"],
+    lineHeight: lineHeight.base,
+    fontWeight: fontWeight.semibold,
+    letterSpacing: letterSpacing.normal,
   },
   /** H6 - 20px, base, semibold (small headings) */
   h6: {
-    fontSizes: fontSizes.xl,
-    lineHeights: lineHeights.base,
-    fontWeights: fontWeights.semibold,
-    letterSpacings: letterSpacings.normal,
+    fontSize: fontSize.xl,
+    lineHeight: lineHeight.base,
+    fontWeight: fontWeight.semibold,
+    letterSpacing: letterSpacing.normal,
   },
   /** Body Large - 18px, relaxed (lead paragraphs) */
   bodyLarge: {
-    fontSizes: fontSizes.lg,
-    lineHeights: lineHeights.relaxed,
-    fontWeights: fontWeights.regular,
-    letterSpacings: letterSpacings.normal,
+    fontSize: fontSize.lg,
+    lineHeight: lineHeight.relaxed,
+    fontWeight: fontWeight.regular,
+    letterSpacing: letterSpacing.normal,
   },
   /** Body - 16px, relaxed (default body text, WCAG compliant) */
   body: {
-    fontSizes: fontSizes.base,
-    lineHeights: lineHeights.relaxed,
-    fontWeights: fontWeights.regular,
-    letterSpacings: letterSpacings.normal,
+    fontSize: fontSize.base,
+    lineHeight: lineHeight.relaxed,
+    fontWeight: fontWeight.regular,
+    letterSpacing: letterSpacing.normal,
   },
   /** Body Small - 14px, relaxed (secondary body text) */
   bodySmall: {
-    fontSizes: fontSizes.sm,
-    lineHeights: lineHeights.relaxed,
-    fontWeights: fontWeights.regular,
-    letterSpacings: letterSpacings.normal,
+    fontSize: fontSize.sm,
+    lineHeight: lineHeight.relaxed,
+    fontWeight: fontWeight.regular,
+    letterSpacing: letterSpacing.normal,
   },
   /** Caption - 12px, base (captions, metadata) */
   caption: {
-    fontSizes: fontSizes.xs,
-    lineHeights: lineHeights.base,
-    fontWeights: fontWeights.regular,
-    letterSpacings: letterSpacings.normal,
+    fontSize: fontSize.xs,
+    lineHeight: lineHeight.base,
+    fontWeight: fontWeight.regular,
+    letterSpacing: letterSpacing.normal,
   },
   /** Label - 14px, base, medium (form labels, UI text) */
   label: {
-    fontSizes: fontSizes.sm,
-    lineHeights: lineHeights.base,
-    fontWeights: fontWeights.medium,
-    letterSpacings: letterSpacings.normal,
+    fontSize: fontSize.sm,
+    lineHeight: lineHeight.base,
+    fontWeight: fontWeight.medium,
+    letterSpacing: letterSpacing.normal,
   },
 } as const;
 
-export type TypographyScales = typeof typographyScales;
-export type TypographyScalesTokens = keyof TypographyScales;
+export type TypographyScale = keyof typeof typographyScale;

@@ -27,22 +27,21 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/reflow.html|WCAG 2.1 - Reflow}
  */
 
-import { breakpoints as primitiveBreakpoints } from "@grasdouble/lufa_design-system-primitives";
+import { breakpoint as primitiveBreakpoint } from "@grasdouble/lufa_design-system-primitives";
 
-export const breakpoints = {
+export const breakpoint = {
   /** Mobile - 480px and up */
-  xs: primitiveBreakpoints[480],
+  xs: primitiveBreakpoint[480],
   /** Small tablet - 768px and up */
-  sm: primitiveBreakpoints[768],
+  sm: primitiveBreakpoint[768],
   /** Tablet - 1024px and up */
-  md: primitiveBreakpoints[1024],
+  md: primitiveBreakpoint[1024],
   /** Desktop - 1280px and up */
-  lg: primitiveBreakpoints[1280],
+  lg: primitiveBreakpoint[1280],
   /** Large desktop - 1440px and up */
-  xl: primitiveBreakpoints[1440],
+  xl: primitiveBreakpoint[1440],
   /** Extra large desktop - 1920px and up */
-  "2xl": primitiveBreakpoints[1920],
+  "2xl": primitiveBreakpoint[1920],
 } as const;
 
-export type Breakpoints = typeof breakpoints;
-export type BreakpointsTokens = keyof Breakpoints;
+export type Breakpoint = keyof typeof breakpoint;

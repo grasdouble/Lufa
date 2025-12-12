@@ -38,5 +38,4 @@ export const blur = {
   40: "40px",
 } as const;
 
-export type BlurKey = keyof typeof blur;
-export type BlurValue = (typeof blur)[BlurKey];
+export type Blur = keyof typeof blur;

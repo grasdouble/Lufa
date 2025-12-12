@@ -39,8 +39,6 @@ export const grid = {
   },
 } as const;
 
-export type GridColumns = typeof grid.columns;
-export type GridColumnKey = keyof GridColumns;
-export type GridGutters = typeof grid.gutters;
-export type GridGutterKey = keyof GridGutters;
-export type Grid = typeof grid;
+export type GridColumns = keyof typeof grid.columns;
+
+export type GridGutters = keyof typeof grid.gutters;

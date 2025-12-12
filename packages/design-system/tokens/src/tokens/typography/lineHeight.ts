@@ -39,22 +39,21 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html|WCAG 2.1 - Visual Presentation}
  */
 
-import { lineHeights as primitiveLineHeights } from "@grasdouble/lufa_design-system-primitives";
+import { lineHeight as primitiveLineHeight } from "@grasdouble/lufa_design-system-primitives";
 
-export const lineHeights = {
+export const lineHeight = {
   /** 1.0 - None (avoid for text) */
-  none: primitiveLineHeights.tight,
+  none: primitiveLineHeight.tight,
   /** 1.2 - Tight (headings only) */
-  tight: primitiveLineHeights.heading,
+  tight: primitiveLineHeight.heading,
   /** 1.35 - Snug (large text only) */
-  snug: primitiveLineHeights.display,
+  snug: primitiveLineHeight.display,
   /** 1.5 - Base (WCAG minimum for body) */
-  base: primitiveLineHeights.body,
+  base: primitiveLineHeight.body,
   /** 1.65 - Relaxed (enhanced readability) */
-  relaxed: primitiveLineHeights.reading,
+  relaxed: primitiveLineHeight.reading,
   /** 1.8 - Loose (dyslexia-friendly) */
-  loose: primitiveLineHeights.dyslexia,
+  loose: primitiveLineHeight.dyslexia,
 } as const;
 
-export type LineHeights = typeof lineHeights;
-export type LineHeightsTokens = keyof LineHeights;
+export type LineHeight = keyof typeof lineHeight;

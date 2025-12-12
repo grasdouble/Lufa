@@ -20,11 +20,10 @@
  * - System fallbacks maintain readability during font loading
  * - Test font legibility across sizes and weights
  */
-export const fontFamilies = {
+export const fontFamily = {
   sans: "'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif",
   serif: "'Canela', 'Cormorant Garamond', Georgia, serif",
   mono: "'JetBrains Mono', 'SFMono-Regular', Menlo, monospace",
 } as const;
 
-export type FontFamilies = typeof fontFamilies;
-export type FontFamiliesKey = keyof FontFamilies;
+export type FontFamily = keyof typeof fontFamily;

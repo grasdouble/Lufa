@@ -16,7 +16,7 @@
  *
  * NOTE: For container/layout widths >192px, use maxWidth primitive instead.
  */
-export const sizes = {
+export const size = {
   0: "0px",
   16: "16px",
   24: "24px",
@@ -29,5 +29,4 @@ export const sizes = {
   192: "192px",
 } as const;
 
-export type Sizes = typeof sizes;
-export type SizesKey = keyof Sizes;
+export type Size = keyof typeof size;

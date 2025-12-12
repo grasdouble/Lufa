@@ -24,5 +24,4 @@ export const easing = {
   gentle: "cubic-bezier(0.33, 1, 0.68, 1)",
 } as const;
 
-export type Easing = typeof easing;
-export type EasingKey = keyof Easing;
+export type Easing = keyof typeof easing;

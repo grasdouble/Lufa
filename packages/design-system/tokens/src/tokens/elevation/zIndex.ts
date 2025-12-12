@@ -37,5 +37,4 @@ export const zIndex = {
   max: primitiveZIndex[9999],
 } as const;
 
-export type ZIndex = typeof zIndex;
-export type ZIndexTokens = keyof ZIndex;
+export type ZIndex = keyof typeof zIndex;

@@ -36,5 +36,4 @@ export const radius = {
   full: primitiveRadius[9999],
 } as const;
 
-export type Radius = typeof radius;
-export type RadiusTokens = keyof Radius;
+export type Radius = keyof typeof radius;

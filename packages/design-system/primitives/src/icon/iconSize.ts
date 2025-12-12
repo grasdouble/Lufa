@@ -18,7 +18,7 @@
  * - Use 32px+ for primary actions on mobile devices
  * - Ensure adequate spacing between interactive icons
  */
-export const iconSizes = {
+export const iconSize = {
   12: 12,
   16: 16,
   20: 20,
@@ -28,5 +28,4 @@ export const iconSizes = {
   48: 48,
 } as const;
 
-export type IconSizes = typeof iconSizes;
-export type IconSizesKey = keyof IconSizes;
+export type IconSize = keyof typeof iconSize;

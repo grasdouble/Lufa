@@ -15,7 +15,7 @@
 
 import { spacing as primitiveSpacing } from "@grasdouble/lufa_design-system-primitives";
 
-export const spacings = {
+export const spacing = {
   /** 0px - No spacing */
   none: primitiveSpacing[0],
   /** 2px - Minimal spacing */
@@ -56,5 +56,4 @@ export const spacings = {
   "5xl": primitiveSpacing[128],
 } as const;
 
-export type Spacings = typeof spacings;
-export type SpacingsTokens = keyof Spacings;
+export type Spacing = keyof typeof spacing;

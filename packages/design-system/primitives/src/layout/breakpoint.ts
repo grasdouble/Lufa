@@ -19,7 +19,7 @@
  * - 1440px: Large desktop
  * - 1920px: Extra large desktop
  */
-export const breakpoints = {
+export const breakpoint = {
   480: "480px",
   768: "768px",
   1024: "1024px",
@@ -28,5 +28,4 @@ export const breakpoints = {
   1920: "1920px",
 } as const;
 
-export type Breakpoints = typeof breakpoints;
-export type BreakpointKey = keyof Breakpoints;
+export type Breakpoint = keyof typeof breakpoint;

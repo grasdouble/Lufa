@@ -72,6 +72,4 @@ export const transition = {
   none: "none",
 } as const;
 
-export type TransitionToken = keyof typeof transition;
-
-export default transition;
+export type Transition = keyof typeof transition;

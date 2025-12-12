@@ -1,4 +1,4 @@
-export const fontSizes = {
+export const fontSize = {
   12: "0.75rem", // xs - 12px - Secondary labels only - not for primary content
   14: "0.875rem", // sm - 14px - Captions, metadata - use sparingly
   16: "1rem", // base - 16px - WCAG recommended minimum for body text
@@ -14,5 +14,4 @@ export const fontSizes = {
   128: "8rem", // 9xl - 128px - Massive display (hero sections)
 } as const;
 
-export type FontSizes = typeof fontSizes;
-export type FontSizesKey = keyof FontSizes;
+export type FontSize = keyof typeof fontSize;

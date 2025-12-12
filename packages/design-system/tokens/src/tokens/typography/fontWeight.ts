@@ -38,28 +38,27 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html|WCAG 2.1 - Visual Presentation}
  */
 
-import { fontWeights as primitiveFontWeights } from "@grasdouble/lufa_design-system-primitives";
+import { fontWeight as primitiveFontWeight } from "@grasdouble/lufa_design-system-primitives";
 
-export const fontWeights = {
+export const fontWeight = {
   /** 100 - Thin (avoid for small text) */
-  thin: primitiveFontWeights[100],
+  thin: primitiveFontWeight[100],
   /** 200 - Extra light (avoid for small text) */
-  extraLight: primitiveFontWeights[200],
+  extraLight: primitiveFontWeight[200],
   /** 300 - Light */
-  light: primitiveFontWeights[300],
+  light: primitiveFontWeight[300],
   /** 400 - Regular (WCAG minimum) */
-  regular: primitiveFontWeights[400],
+  regular: primitiveFontWeight[400],
   /** 500 - Medium */
-  medium: primitiveFontWeights[500],
+  medium: primitiveFontWeight[500],
   /** 600 - Semibold */
-  semibold: primitiveFontWeights[600],
+  semibold: primitiveFontWeight[600],
   /** 700 - Bold */
-  bold: primitiveFontWeights[700],
+  bold: primitiveFontWeight[700],
   /** 800 - Extra bold */
-  extraBold: primitiveFontWeights[800],
+  extraBold: primitiveFontWeight[800],
   /** 900 - Black */
-  black: primitiveFontWeights[900],
+  black: primitiveFontWeight[900],
 } as const;
 
-export type FontWeights = typeof fontWeights;
-export type FontWeightsTokens = keyof FontWeights;
+export type FontWeight = keyof typeof fontWeight;

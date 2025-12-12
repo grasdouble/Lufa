@@ -19,7 +19,7 @@
  * - Test thin weights with actual font rendering, not screenshots
  * - Consider font-weight in contrast calculations
  */
-export const fontWeights = {
+export const fontWeight = {
   100: 100, // Avoid for text < 20px
   200: 200, // Avoid for text < 20px
   300: 300, // Use cautiously, may reduce legibility at small sizes
@@ -31,5 +31,4 @@ export const fontWeights = {
   900: 900,
 } as const;
 
-export type FontWeights = typeof fontWeights;
-export type FontWeightsKey = keyof FontWeights;
+export type FontWeight = keyof typeof fontWeight;

@@ -18,7 +18,7 @@
  * - Use readable/dyslexia for accessible reading experiences
  * - Test with actual text content, not Lorem Ipsum
  */
-export const letterSpacings = {
+export const letterSpacing = {
   tight: "-0.02em",
   heading: "-0.01em", // Headings only - avoid for body text
   normal: "0em",
@@ -27,5 +27,4 @@ export const letterSpacings = {
   dyslexia: "0.08em",
 } as const;
 
-export type LetterSpacings = typeof letterSpacings;
-export type LetterSpacingsKey = keyof LetterSpacings;
+export type LetterSpacing = keyof typeof letterSpacing;

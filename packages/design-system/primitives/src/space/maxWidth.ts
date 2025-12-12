@@ -18,7 +18,7 @@
  *
  * NOTE: For element-level dimensions <384px, use sizes primitive instead.
  */
-export const maxWidths = {
+export const maxWidth = {
   256: "16rem", // 256px - 3xs container
   288: "18rem", // 288px - 2xs container
   320: "20rem", // 320px - xs container
@@ -44,5 +44,4 @@ export const maxWidths = {
   none: "none",
 } as const;
 
-export type MaxWidths = typeof maxWidths;
-export type MaxWidthsKey = keyof MaxWidths;
+export type MaxWidth = keyof typeof maxWidth;

@@ -32,5 +32,4 @@ export const opacity = {
   full: primitiveOpacity[100],
 } as const;
 
-export type Opacity = typeof opacity;
-export type OpacityTokens = keyof Opacity;
+export type Opacity = keyof typeof opacity;

@@ -16,32 +16,31 @@
  * - Maintain sufficient contrast on elevated surfaces (WCAG 1.4.3)
  */
 
-import { shadows as primitiveShadows } from "@grasdouble/lufa_design-system-primitives";
+import { shadow as primitiveShadow } from "@grasdouble/lufa_design-system-primitives";
 
-export const shadows = {
+export const shadow = {
   /** No shadow (flat) */
-  none: primitiveShadows.none,
+  none: primitiveShadow.none,
   /** 0px 1px 2px - Subtle depth (border alternative) */
-  xs: primitiveShadows.xs,
+  xs: primitiveShadow.xs,
   /** 0px 1px 3px - Small elevation (hover states) */
-  sm: primitiveShadows.sm,
+  sm: primitiveShadow.sm,
   /** 0px 4px 6px - Medium elevation (cards, buttons) */
-  md: primitiveShadows.md,
+  md: primitiveShadow.md,
   /** 0px 10px 15px - Large elevation (dropdowns, popovers) */
-  lg: primitiveShadows.lg,
+  lg: primitiveShadow.lg,
   /** 0px 20px 25px - Extra large elevation (modals, dialogs) */
-  xl: primitiveShadows.xl,
+  xl: primitiveShadow.xl,
   /** 0px 25px 50px - Huge elevation (floating actions) */
-  "2xl": primitiveShadows["2xl"],
+  "2xl": primitiveShadow["2xl"],
   /** 0px 30px 60px - Very huge elevation (hero sections) */
-  "3xl": primitiveShadows["3xl"],
+  "3xl": primitiveShadow["3xl"],
   /** 0px 35px 70px - Extreme elevation (dramatic emphasis) */
-  "4xl": primitiveShadows["4xl"],
+  "4xl": primitiveShadow["4xl"],
   /** 0px 40px 80px - Maximum elevation (use sparingly) */
-  "5xl": primitiveShadows["5xl"],
+  "5xl": primitiveShadow["5xl"],
   /** Inset shadow for inner depth */
   inner: "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
 } as const;
 
-export type Shadows = typeof shadows;
-export type ShadowsTokens = keyof Shadows;
+export type Shadow = keyof typeof shadow;

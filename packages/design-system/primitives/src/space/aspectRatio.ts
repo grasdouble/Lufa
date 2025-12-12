@@ -30,5 +30,4 @@ export const aspectRatio = {
   portraitDisplay: "3 / 4", // Portrait display
 } as const;
 
-export type AspectRatio = typeof aspectRatio;
-export type AspectRatioKey = keyof AspectRatio;
+export type AspectRatio = keyof typeof aspectRatio;

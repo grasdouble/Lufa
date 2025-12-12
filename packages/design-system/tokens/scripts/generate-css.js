@@ -4,12 +4,12 @@ import { fileURLToPath } from "url";
 
 // Import token tokens - using new organized structure
 // Border
-import { borderWidths } from "../dist/tokens/border/borderWidth.js";
-import { borderStyles } from "../dist/tokens/border/borderStyle.js";
+import { borderWidth } from "../dist/tokens/border/borderWidth.js";
+import { borderStyle } from "../dist/tokens/border/borderStyle.js";
 import { radius } from "../dist/tokens/border/radius.js";
 
 // Color
-import { colors } from "../dist/tokens/color/colors.js";
+import { color } from "../dist/tokens/color/colors.js";
 
 // Effects
 import { blur } from "../dist/tokens/effects/blur.js";
@@ -18,19 +18,19 @@ import { cursor } from "../dist/tokens/effects/cursor.js";
 import { transform } from "../dist/tokens/effects/transform.js";
 
 // Elevation
-import { shadows } from "../dist/tokens/elevation/shadows.js";
+import { shadow } from "../dist/tokens/elevation/shadow.js";
 import { zIndex } from "../dist/tokens/elevation/zIndex.js";
 
 // Icon
-import { iconSizes } from "../dist/tokens/icon/iconSizes.js";
-import { iconStrokes } from "../dist/tokens/icon/iconStrokes.js";
+import { iconSize } from "../dist/tokens/icon/iconSize.js";
+import { iconStroke } from "../dist/tokens/icon/iconStroke.js";
 
 // Layout
-import { breakpoints } from "../dist/tokens/layout/breakpoints.js";
+import { breakpoint } from "../dist/tokens/layout/breakpoint.js";
 import { grid } from "../dist/tokens/layout/grid.js";
 import { aspectRatio } from "../dist/tokens/layout/aspectRatio.js";
 import { container } from "../dist/tokens/layout/container.js";
-import { dimensions } from "../dist/tokens/layout/dimensions.js";
+import { dimension } from "../dist/tokens/layout/dimension.js";
 import { minWidth } from "../dist/tokens/layout/minWidth.js";
 
 // Motion
@@ -40,16 +40,16 @@ import { transition } from "../dist/tokens/motion/transition.js";
 import { advancedDuration } from "../dist/tokens/motion/advancedDuration.js";
 
 // Space
-import { spacings } from "../dist/tokens/space/spacing.js";
-import { sizes } from "../dist/tokens/space/sizes.js";
-import { maxWidths } from "../dist/tokens/space/maxWidth.js";
+import { spacing } from "../dist/tokens/space/spacing.js";
+import { size } from "../dist/tokens/space/size.js";
+import { maxWidth } from "../dist/tokens/space/maxWidth.js";
 
 // Typography
-import { fontFamilies } from "../dist/tokens/typography/fontFamily.js";
-import { fontSizes } from "../dist/tokens/typography/fontSize.js";
-import { fontWeights } from "../dist/tokens/typography/fontWeight.js";
-import { lineHeights } from "../dist/tokens/typography/lineHeight.js";
-import { letterSpacings } from "../dist/tokens/typography/letterSpacing.js";
+import { fontFamily } from "../dist/tokens/typography/fontFamily.js";
+import { fontSize } from "../dist/tokens/typography/fontSize.js";
+import { fontWeight } from "../dist/tokens/typography/fontWeight.js";
+import { lineHeight } from "../dist/tokens/typography/lineHeight.js";
+import { letterSpacing } from "../dist/tokens/typography/letterSpacing.js";
 import { measure } from "../dist/tokens/typography/measure.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -109,7 +109,7 @@ const tokenCategories = [];
 // ============================================================================
 // BORDER
 // ============================================================================
-const borderWidthEntries = processTokens(borderWidths).map(([k, v]) => ({
+const borderWidthEntries = processTokens(borderWidth).map(([k, v]) => ({
   name: `border-width-${toKebab(k)}`,
   value: v,
 }));
@@ -118,7 +118,7 @@ tokenCategories.push({
   count: borderWidthEntries.length,
 });
 
-const borderStyleEntries = processTokens(borderStyles).map(([k, v]) => ({
+const borderStyleEntries = processTokens(borderStyle).map(([k, v]) => ({
   name: `border-style-${toKebab(k)}`,
   value: v,
 }));
@@ -136,7 +136,7 @@ tokenCategories.push({ name: "Border Radius", count: radiusEntries.length });
 // ============================================================================
 // COLOR
 // ============================================================================
-const colorEntries = processNestedTokens(colors, "color");
+const colorEntries = processNestedTokens(color, "color");
 tokenCategories.push({ name: "Colors", count: colorEntries.length });
 
 // ============================================================================
@@ -169,7 +169,7 @@ tokenCategories.push({ name: "Transform", count: transformEntries.length });
 // ============================================================================
 // ELEVATION
 // ============================================================================
-const shadowEntries = processTokens(shadows).map(([k, v]) => ({
+const shadowEntries = processTokens(shadow).map(([k, v]) => ({
   name: `shadow-${toKebab(k)}`,
   value: v,
 }));
@@ -184,13 +184,13 @@ tokenCategories.push({ name: "Z-Index", count: zIndexEntries.length });
 // ============================================================================
 // ICON
 // ============================================================================
-const iconSizeEntries = processTokens(iconSizes).map(([k, v]) => ({
+const iconSizeEntries = processTokens(iconSize).map(([k, v]) => ({
   name: `icon-size-${toKebab(k)}`,
   value: v,
 }));
 tokenCategories.push({ name: "Icon Sizes", count: iconSizeEntries.length });
 
-const iconStrokeEntries = processTokens(iconStrokes).map(([k, v]) => ({
+const iconStrokeEntries = processTokens(iconStroke).map(([k, v]) => ({
   name: `icon-stroke-${toKebab(k)}`,
   value: v,
 }));
@@ -199,7 +199,7 @@ tokenCategories.push({ name: "Icon Strokes", count: iconStrokeEntries.length });
 // ============================================================================
 // LAYOUT
 // ============================================================================
-const breakpointEntries = processTokens(breakpoints).map(([k, v]) => ({
+const breakpointEntries = processTokens(breakpoint).map(([k, v]) => ({
   name: `breakpoint-${toKebab(k)}`,
   value: v,
 }));
@@ -232,7 +232,7 @@ const containerEntries = processTokens(container).map(([k, v]) => ({
 }));
 tokenCategories.push({ name: "Container", count: containerEntries.length });
 
-const dimensionsEntries = processTokens(dimensions).map(([k, v]) => ({
+const dimensionsEntries = processTokens(dimension).map(([k, v]) => ({
   name: `dimensions-${toKebab(k)}`,
   value: v,
 }));
@@ -279,19 +279,19 @@ tokenCategories.push({
 // ============================================================================
 // SPACE
 // ============================================================================
-const spacingEntries = processTokens(spacings).map(([k, v]) => ({
+const spacingEntries = processTokens(spacing).map(([k, v]) => ({
   name: `spacing-${toKebab(k)}`,
   value: v,
 }));
 tokenCategories.push({ name: "Spacing", count: spacingEntries.length });
 
-const sizeEntries = processTokens(sizes).map(([k, v]) => ({
+const sizeEntries = processTokens(size).map(([k, v]) => ({
   name: `size-${toKebab(k)}`,
   value: v,
 }));
 tokenCategories.push({ name: "Sizes", count: sizeEntries.length });
 
-const maxWidthEntries = processTokens(maxWidths).map(([k, v]) => ({
+const maxWidthEntries = processTokens(maxWidth).map(([k, v]) => ({
   name: `max-width-${toKebab(k)}`,
   value: v,
 }));
@@ -300,7 +300,7 @@ tokenCategories.push({ name: "Max Width", count: maxWidthEntries.length });
 // ============================================================================
 // TYPOGRAPHY
 // ============================================================================
-const fontFamilyEntries = processTokens(fontFamilies).map(([k, v]) => ({
+const fontFamilyEntries = processTokens(fontFamily).map(([k, v]) => ({
   name: `font-family-${toKebab(k)}`,
   value: v,
 }));
@@ -309,25 +309,25 @@ tokenCategories.push({
   count: fontFamilyEntries.length,
 });
 
-const fontSizeEntries = processTokens(fontSizes).map(([k, v]) => ({
+const fontSizeEntries = processTokens(fontSize).map(([k, v]) => ({
   name: `font-size-${toKebab(k)}`,
   value: v,
 }));
 tokenCategories.push({ name: "Font Sizes", count: fontSizeEntries.length });
 
-const fontWeightEntries = processTokens(fontWeights).map(([k, v]) => ({
+const fontWeightEntries = processTokens(fontWeight).map(([k, v]) => ({
   name: `font-weight-${toKebab(k)}`,
   value: v,
 }));
 tokenCategories.push({ name: "Font Weights", count: fontWeightEntries.length });
 
-const lineHeightEntries = processTokens(lineHeights).map(([k, v]) => ({
+const lineHeightEntries = processTokens(lineHeight).map(([k, v]) => ({
   name: `line-height-${toKebab(k)}`,
   value: v,
 }));
 tokenCategories.push({ name: "Line Heights", count: lineHeightEntries.length });
 
-const letterSpacingEntries = processTokens(letterSpacings).map(([k, v]) => ({
+const letterSpacingEntries = processTokens(letterSpacing).map(([k, v]) => ({
   name: `letter-spacing-${toKebab(k)}`,
   value: v,
 }));

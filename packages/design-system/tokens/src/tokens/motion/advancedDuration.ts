@@ -37,5 +37,4 @@ export const advancedDuration = {
   staggerExtraLarge: primitiveTiming[200], // Extra large stagger
 } as const;
 
-export type AdvancedDuration = typeof advancedDuration;
-export type AdvancedDurationTokens = keyof AdvancedDuration;
+export type AdvancedDuration = keyof typeof advancedDuration;

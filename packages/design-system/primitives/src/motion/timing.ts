@@ -36,5 +36,4 @@ export const timing = {
   1000: "1000ms",
 } as const;
 
-export type Timing = typeof timing;
-export type TimingKey = keyof Timing;
+export type Timing = keyof typeof timing;

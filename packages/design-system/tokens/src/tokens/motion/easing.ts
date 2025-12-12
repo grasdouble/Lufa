@@ -46,5 +46,4 @@ export const easing = {
   gentle: primitiveEasing.gentle,
 } as const;
 
-export type Easing = typeof easing;
-export type EasingTokens = keyof Easing;
+export type Easing = keyof typeof easing;

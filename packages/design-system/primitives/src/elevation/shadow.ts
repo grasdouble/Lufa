@@ -23,7 +23,7 @@
  * - Shadows should not be the only visual indicator (WCAG 1.4.1 Use of Color)
  * - Maintain sufficient contrast on elevated surfaces (WCAG 1.4.3)
  */
-export const shadows = {
+export const shadow = {
   none: "none",
   xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
   sm: "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
@@ -36,5 +36,4 @@ export const shadows = {
   "5xl": "0 40px 80px -25px rgb(0 0 0 / 0.4)",
 } as const;
 
-export type Shadows = typeof shadows;
-export type ShadowsKey = keyof Shadows;
+export type Shadow = keyof typeof shadow;

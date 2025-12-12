@@ -16,10 +16,10 @@
 
 import {
   spacing as primitiveSpacing,
-  maxWidths as primitiveMaxWidths,
+  maxWidth as primitiveMaxWidth,
 } from "@grasdouble/lufa_design-system-primitives";
 
-export const dimensions = {
+export const dimension = {
   // Navigation heights
   navbarHeightCompact: primitiveSpacing[48],
   navbarHeightDefault: primitiveSpacing[64],
@@ -27,8 +27,8 @@ export const dimensions = {
 
   // Sidebar widths
   sidebarWidthCollapsed: primitiveSpacing[64],
-  sidebarWidthDefault: primitiveMaxWidths[256],
-  sidebarWidthWide: primitiveMaxWidths[320],
+  sidebarWidthDefault: primitiveMaxWidth[256],
+  sidebarWidthWide: primitiveMaxWidth[320],
 
   // Footer heights
   footerHeightCompact: primitiveSpacing[48],
@@ -47,14 +47,13 @@ export const dimensions = {
 
   // Card/Panel minimum widths
   cardMinWidth: "280px", // Custom value between 256 and 288
-  cardDefaultWidth: primitiveMaxWidths[360],
+  cardDefaultWidth: primitiveMaxWidth[360],
 
   // Modal widths
-  modalWidthSmall: primitiveMaxWidths[400],
-  modalWidthDefault: primitiveMaxWidths[600],
-  modalWidthLarge: primitiveMaxWidths[800],
-  modalWidthFullWidth: primitiveMaxWidths[1200],
+  modalWidthSmall: primitiveMaxWidth[400],
+  modalWidthDefault: primitiveMaxWidth[600],
+  modalWidthLarge: primitiveMaxWidth[800],
+  modalWidthFullWidth: primitiveMaxWidth[1200],
 } as const;
 
-export type Dimensions = typeof dimensions;
-export type DimensionsTokens = keyof Dimensions;
+export type Dimension = keyof typeof dimension;

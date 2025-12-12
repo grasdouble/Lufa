@@ -49,5 +49,4 @@ export const spacing = {
   128: "128px",
 } as const;
 
-export type Spacing = typeof spacing;
-export type SpacingKey = keyof Spacing;
+export type Spacing = keyof typeof spacing;

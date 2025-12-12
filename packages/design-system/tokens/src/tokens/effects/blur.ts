@@ -35,5 +35,4 @@ export const blur = {
   max: primitiveBlur[40],
 } as const;
 
-export type Blur = typeof blur;
-export type BlurTokens = keyof Blur;
+export type Blur = keyof typeof blur;

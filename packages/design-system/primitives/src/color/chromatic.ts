@@ -1,4 +1,4 @@
-export const colorChromatics = {
+export const colorChromatic = {
   red: {
     50: "oklch(97.1% 0.013 17.38)",
     100: "oklch(94.2% 0.027 17.717)",
@@ -222,5 +222,5 @@ export const colorChromatics = {
   },
 } as const;
 
-export type ColorChromatics = typeof colorChromatics;
-export type ColorChromaticsKey = keyof ColorChromatics;
+export type ColorChromatic = keyof typeof colorChromatic;
+export type ColorChromaticValue = (typeof colorChromatic)[ColorChromatic];

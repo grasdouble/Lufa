@@ -11,24 +11,23 @@
  * - Use adequate spacing between interactive icons
  */
 
-import { iconSizes as primitiveIconSizes } from "@grasdouble/lufa_design-system-primitives";
+import { iconSize as primitiveIconSize } from "@grasdouble/lufa_design-system-primitives";
 
-export const iconSizes = {
+export const iconSize = {
   /** 12px - Tiny icons (dense UI, inline indicators) */
-  "2xs": primitiveIconSizes[12],
+  "2xs": primitiveIconSize[12],
   /** 16px - Extra small icons (inline with text) */
-  xs: primitiveIconSizes[16],
+  xs: primitiveIconSize[16],
   /** 20px - Small icons (compact UI) */
-  sm: primitiveIconSizes[20],
+  sm: primitiveIconSize[20],
   /** 24px - Medium icons (default, navigation, toolbars) */
-  md: primitiveIconSizes[24],
+  md: primitiveIconSize[24],
   /** 32px - Large icons (prominent actions) */
-  lg: primitiveIconSizes[32],
+  lg: primitiveIconSize[32],
   /** 40px - Extra large icons (hero sections) */
-  xl: primitiveIconSizes[40],
+  xl: primitiveIconSize[40],
   /** 48px - 2x large icons (display, landing pages) */
-  "2xl": primitiveIconSizes[48],
+  "2xl": primitiveIconSize[48],
 } as const;
 
-export type IconSizes = typeof iconSizes;
-export type IconSizesTokens = keyof IconSizes;
+export type IconSize = keyof typeof iconSize;

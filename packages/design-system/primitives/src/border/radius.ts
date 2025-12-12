@@ -29,5 +29,4 @@ export const radius = {
   9999: "9999px", // For pill/fully rounded shapes
 } as const;
 
-export type Radius = typeof radius;
-export type RadiusKey = keyof Radius;
+export type Radius = keyof typeof radius;

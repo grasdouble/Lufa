@@ -32,16 +32,15 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html|WCAG 2.1 - Visual Presentation}
  */
 
-import { fontFamilies as primitiveFontFamilies } from "@grasdouble/lufa_design-system-primitives";
+import { fontFamily as primitiveFontFamily } from "@grasdouble/lufa_design-system-primitives";
 
-export const fontFamilies = {
+export const fontFamily = {
   /** Sans-serif - Primary font family for UI and body text */
-  sans: primitiveFontFamilies.sans,
+  sans: primitiveFontFamily.sans,
   /** Serif - Editorial and heading font for articles */
-  serif: primitiveFontFamilies.serif,
+  serif: primitiveFontFamily.serif,
   /** Monospace - Code and technical content */
-  mono: primitiveFontFamilies.mono,
+  mono: primitiveFontFamily.mono,
 } as const;
 
-export type FontFamilies = typeof fontFamilies;
-export type FontFamiliesTokens = keyof FontFamilies;
+export type FontFamily = keyof typeof fontFamily;

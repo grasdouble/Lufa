@@ -101,7 +101,7 @@ export const motion = {
   },
 } as const;
 
-export type MotionToken = keyof typeof motion;
+export type Motion = keyof typeof motion;
 
 /**
  * Helper to generate CSS transition string from motion token
@@ -118,9 +118,7 @@ export type MotionToken = keyof typeof motion;
  * };
  * ```
  */
-export const getTransition = (motionKey: MotionToken): string => {
+export const getTransition = (motionKey: Motion): string => {
   const m = motion[motionKey];
   return `${m.properties} ${m.duration} ${m.easing}`;
 };
-
-export default motion;
