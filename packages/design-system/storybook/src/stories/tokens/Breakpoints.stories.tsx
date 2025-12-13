@@ -195,8 +195,8 @@ export const ResponsiveDemo: Story = {
                     <ul style={{ margin: 0, paddingLeft: '20px', color: '#78350F', fontSize: '14px' }}>
                         <li>Design mobile-first: start with smallest screen, enhance for larger</li>
                         <li>Test at actual breakpoint values, not just approximate sizes</li>
-                        <li>Consider content reflow between breakpoint</li>
-                        <li>Ensure touch targets remain ≥44px at all breakpoint</li>
+                        <li>Consider content reflow between breakpoints</li>
+                        <li>Ensure touch targets remain ≥44px at all breakpoints</li>
                         <li>Test on real devices, not just browser DevTools</li>
                     </ul>
                 </div>
