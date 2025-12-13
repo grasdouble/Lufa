@@ -1,0 +1,52 @@
+/**
+ * Reusable reset utilities for components
+ * Each component imports only what it needs
+ */
+
+/* Button reset utility */
+@utility reset-button {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    cursor: pointer;
+}
+
+/* Input/Textarea reset utility */
+@utility reset-input {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+/* Heading reset utility */
+@utility reset-heading {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+/* List reset utility */
+@utility reset-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Image reset utility */
+@utility reset-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

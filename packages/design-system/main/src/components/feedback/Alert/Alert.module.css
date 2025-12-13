@@ -54,8 +54,8 @@
     }
 
     .title {
+        @apply reset-heading;
         @apply mb-1 text-sm font-semibold;
-        @apply m-0;
     }
 
     .message {
@@ -64,12 +64,12 @@
 
     /* Close button */
     .closeButton {
+        @apply reset-button;
         @apply ml-auto shrink-0;
         @apply p-1;
         @apply rounded-md;
         @apply hover:bg-black/5;
-        @apply transition-colors duration-200;
-        @apply cursor-pointer border-none bg-transparent;
+        @apply duration-base transition-colors;
     }
 
     .closeButton svg {

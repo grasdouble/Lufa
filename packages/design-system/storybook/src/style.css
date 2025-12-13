@@ -1,0 +1,12 @@
+/**
+ * Storybook-specific styles
+ * 
+ * Note: The design system's CSS is imported in .storybook/preview.tsx
+ * This file only contains Storybook-specific overrides and utilities.
+ */
+@import '@grasdouble/lufa_design-system/style.css';
+/* Storybook-specific styles */
+#storybook-root {
+    height: 100%;
+    width: 100%;
+}

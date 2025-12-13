@@ -9,7 +9,7 @@ LUFA is a mono repo without a lens except to satisfy its owner.
 It's composed to:
 
 - a design system (almost, there are only a few components)
-- a storybook (to play with components of the design system, accessible with the url [www.sebastien-lemouillour.fr/storybook](https://www.sebastien-lemouillour.fr/storybook))
+- a storybook (to play with components of the design system, accessible with the url [lufa-storybook.sebastien-lemouillour.fr](https://lufa-storybook.sebastien-lemouillour.fr))
 - a backpack of shared config (eslint, typescript, ...)
 - a todo list (just in case I have ideas but not time to test them)
 - a doc folder (it's not a promise, but I will try to document things interesting for me)

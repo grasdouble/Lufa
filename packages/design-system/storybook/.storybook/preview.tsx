@@ -3,7 +3,9 @@ import { withThemeByClassName, withThemeByDataAttribute } from '@storybook/addon
 
 import { Breakpoints } from './breakpoints';
 
-import '../src/tailwind.css';
+// Import design system compiled CSS (includes all component styles)
+// Import storybook-specific styles
+import '../src/style.css';
 
 const storybookViewports: Parameters['viewport']['options'] = {};
 Object.entries(Breakpoints).forEach(([viewport, value]) => {
@@ -21,7 +23,7 @@ const parameters: Parameters = {
     options: {
         // @ts-expect-error TS7006: implicit any is intentional (storybook doesn't accept type here)
         storySort: (a, b) => {
-            // First sort by title (category) to maintain numeric order (1. Foundation, 2. Layout, etc.)
+            // First sort by title (category) to maintain numeric order (1. Tokens, 2. Layout, etc.)
             const titleCompare = a.title.localeCompare(b.title, undefined, { numeric: true });
             if (titleCompare !== 0) return titleCompare;
 

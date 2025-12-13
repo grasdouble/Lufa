@@ -5,7 +5,8 @@
   "type": "module",
   "description": "Lufa Design System - Semantic design tokens (colors, spacing, typography, etc.)",
   "scripts": {
-    "build": "tsc && node scripts/generate-css.js"
+    "clean": "rm -rf dist",
+    "build": "pnpm clean && tsc && node scripts/generate-css.js"
   },
   "private": false,
   "publishConfig": {
@@ -21,7 +22,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./tokens.css": "./dist/tokens.css"
+    "./style.css": "./dist/style.css"
   },
   "dependencies": {
     "@grasdouble/lufa_design-system-primitives": "workspace:^"

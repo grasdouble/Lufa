@@ -14,7 +14,7 @@ Get up and running with Lufa Design System in minutes.
 - **[Usage](./getting-started/usage)** - Start using components in your project
 - **[Theming](./getting-started/theming)** - Customize colors, typography, and more
 
-## Foundations
+## Tokens
 
 Learn about the core design tokens that power Lufa.
 

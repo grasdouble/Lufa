@@ -5,7 +5,7 @@
 ### Minor Changes
 
 - c4e20b6: Add Theme generator
-- dba64f6: Add fundation, implement tailwind theme, update and add components
+- dba64f6: Add token, implement tailwind theme, update and add components
 - 1d9de21: Add divider component
 - 6c4eb34: Improve stories + add story for colors
 

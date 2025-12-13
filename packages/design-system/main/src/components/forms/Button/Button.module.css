@@ -1,28 +1,36 @@
 @reference '../../../tailwind.css';
 
 @layer components {
-    /* Base button styles */
+    /* Base button styles with reset */
     .button {
+        @apply reset-button;
         @apply inline-flex items-center justify-center gap-2;
         @apply font-medium;
         @apply rounded-lg;
-        @apply transition-all duration-200;
+        @apply duration-fast transition-all;
         @apply focus-visible:outline-2 focus-visible:outline-offset-2;
-        @apply disabled:cursor-not-allowed;
         @apply border border-transparent;
+        cursor: var(--lufa-token-cursor-pointer);
+    }
+
+    .button:disabled {
+        cursor: var(--lufa-token-cursor-not-allowed);
     }
 
     /* Sizes */
     .sizeSmall {
-        @apply px-sm py-xs text-sm;
+        @apply px-md text-sm;
+        height: var(--lufa-token-height-button-sm);
     }
 
     .sizeMedium {
-        @apply px-base py-sm text-base;
+        @apply px-xl text-base;
+        height: var(--lufa-token-height-button);
     }
 
     .sizeLarge {
-        @apply px-xl py-md text-lg;
+        @apply px-2xl text-lg;
+        height: var(--lufa-token-height-button-lg);
     }
 
     /* Full width */

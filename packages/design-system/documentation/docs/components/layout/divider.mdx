@@ -9,8 +9,9 @@ import {
   STACK_DIRECTION,
   STACK_GAP,
   Typography,
-  semantic,
+  tokens,
 } from "@grasdouble/lufa_design-system";
+
 import { StorybookEmbed } from "@site/src/components/StorybookEmbed";
 
 # Divider
@@ -81,8 +82,8 @@ import { Divider } from "@grasdouble/lufa_design-system";
 >
   <Divider label="Upcoming" />
   <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-    <Placeholder color={semantic.interactive.default}>Item A</Placeholder>
-    <Placeholder color={semantic.interactive.default}>Item B</Placeholder>
+    <Placeholder color={tokens.color.interactive.default}>Item A</Placeholder>
+    <Placeholder color={tokens.color.interactive.default}>Item B</Placeholder>
   </Stack>
 </div>
 
@@ -104,9 +105,9 @@ import { Divider } from "@grasdouble/lufa_design-system";
     alignItems: "center",
   }}
 >
-  <Placeholder color={semantic.interactive.default}>Left</Placeholder>
+  <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
   <Divider orientation="vertical" length="80%" />
-  <Placeholder color={semantic.interactive.default}>Right</Placeholder>
+  <Placeholder color={tokens.color.interactive.default}>Right</Placeholder>
 </div>
 
 ```tsx
@@ -207,9 +208,9 @@ import { Divider } from "@grasdouble/lufa_design-system";
     alignItems: "center",
   }}
 >
-  <Placeholder color={semantic.interactive.default}>Summary</Placeholder>
+  <Placeholder color={tokens.color.interactive.default}>Summary</Placeholder>
   <Divider orientation="vertical" length="100%" />
-  <Placeholder color={semantic.interactive.default}>Details</Placeholder>
+  <Placeholder color={tokens.color.interactive.default}>Details</Placeholder>
 </div>
 
 ```tsx
@@ -235,9 +236,11 @@ Use Divider inside Stack to separate logical groups while keeping consistent spa
   }}
 >
   <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-    <Placeholder color={semantic.interactive.default}>Overview</Placeholder>
+    <Placeholder color={tokens.color.interactive.default}>Overview</Placeholder>
     <Divider label="Settings" />
-    <Placeholder color={semantic.interactive.default}>Preferences</Placeholder>
+    <Placeholder color={tokens.color.interactive.default}>
+      Preferences
+    </Placeholder>
   </Stack>
 </div>
 

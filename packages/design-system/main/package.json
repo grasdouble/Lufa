@@ -21,10 +21,14 @@
         "README.md",
         "CHANGELOG.md"
     ],
+    "main": "./dist/lufa-ui.mjs",
+    "module": "./dist/lufa-ui.mjs",
+    "types": "./dist/index.d.ts",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
-            "import": "./dist/lufa-ui.mjs"
+            "import": "./dist/lufa-ui.mjs",
+            "default": "./dist/lufa-ui.mjs"
         },
         "./style.css": "./dist/style.css"
     },

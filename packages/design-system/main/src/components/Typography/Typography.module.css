@@ -2,7 +2,7 @@
 
 @layer components {
     .typography {
-        @apply m-0;
+        @apply reset-heading;
     }
 
     /* Variants - Using CSS variables from typography tokens */
@@ -53,6 +53,7 @@
         line-height: var(--lufa-typography-body-line-height);
         font-weight: var(--lufa-typography-body-font-weight);
         letter-spacing: var(--lufa-typography-body-letter-spacing);
+        max-width: var(--lufa-token-measure-default);
     }
 
     .variant-bodyLarge {
@@ -60,6 +61,7 @@
         line-height: var(--lufa-typography-body-large-line-height);
         font-weight: var(--lufa-typography-body-large-font-weight);
         letter-spacing: var(--lufa-typography-body-large-letter-spacing);
+        max-width: var(--lufa-token-measure-comfortable);
     }
 
     .variant-bodySmall {

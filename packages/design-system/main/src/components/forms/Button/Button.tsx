@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react';
+import clsx from 'clsx';
 import styles from './Button.module.css';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -63,7 +64,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             large: styles.sizeLarge,
         }[size];
 
-        const classNames = [
+        const classNames = clsx(
             styles.button,
             variantClass,
             colorClass,
@@ -71,17 +72,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             fullWidth && styles.fullWidth,
             loading && styles.loading,
             disabled && styles.disabled,
-            className,
-        ]
-            .filter(Boolean)
-            .join(' ');
-
-        const buttonClassName = classNames;
+            className
+        );
 
         const content = children || label;
 
         return (
-            <button ref={ref} className={buttonClassName} disabled={disabled || loading} {...props}>
+            <button ref={ref} className={classNames} disabled={disabled || loading} {...props}>
                 {loading && (
                     <span className={styles.spinner}>
                         <svg className={styles.spinnerIcon} fill="none" viewBox="0 0 24 24">

@@ -22,7 +22,9 @@
     }
 
     .input {
-        @apply w-full transition-all duration-200;
+        @apply reset-input;
+        @apply w-full;
+        @apply duration-base transition-all;
         @apply rounded-md;
         @apply text-text-primary placeholder:text-text-tertiary;
         @apply focus:ring-interactive-focus focus:ring-2 focus:ring-offset-0 focus:outline-none;
@@ -30,15 +32,18 @@
 
     /* Sizes */
     .sizeSmall {
-        @apply px-sm py-xs text-sm;
+        @apply px-sm text-sm;
+        height: var(--lufa-token-height-input-sm);
     }
 
     .sizeMedium {
-        @apply px-base py-sm text-base;
+        @apply px-base text-base;
+        height: var(--lufa-token-height-input);
     }
 
     .sizeLarge {
-        @apply px-lg py-md text-lg;
+        @apply px-lg text-lg;
+        height: var(--lufa-token-height-input-lg);
     }
 
     /* Variants */
@@ -59,7 +64,8 @@
     }
 
     .disabled {
-        @apply bg-background-secondary text-text-disabled cursor-not-allowed;
+        @apply bg-background-secondary text-text-disabled;
+        cursor: var(--lufa-token-cursor-not-allowed);
         @apply hover:border-border-default;
     }
 

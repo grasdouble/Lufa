@@ -63,7 +63,7 @@ function App() {
 
 You can use design tokens (CSS variables) in your custom styles:
 
-```css title="src/styles.css"
+```css title="src/style.css"
 .my-component {
   color: var(--lufa-color-text-primary);
   background-color: var(--lufa-color-background-primary);
@@ -228,4 +228,4 @@ If CSS variables appear as plain text:
 - [Learn about usage patterns →](./usage)
 - [Explore theming options →](./theming)
 - [Browse all components →](../components/overview)
-- [Understand design foundations →](../tokens/colors)
+- [Understand design Tokens →](../tokens/colors)

@@ -7,7 +7,7 @@
         @apply rounded-lg;
         @apply px-4;
         @apply text-sm font-medium text-white;
-        @apply transition-all duration-200;
+        @apply duration-base transition-all;
         @apply shadow-sm;
 
         /* Default background with gradient */

@@ -1,0 +1,467 @@
+@import '@grasdouble/lufa_design-system-primitives/style.css';
+
+/* Override Tailwind defaults with our design system primitives */
+/* Font Families */
+@theme {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+/* Lufa Colors - Override Tailwind color palettes */
+@theme {
+    --color-red-50: var(--lufa-primitive-color-chromatic-red-50);
+    --color-red-100: var(--lufa-primitive-color-chromatic-red-100);
+    --color-red-200: var(--lufa-primitive-color-chromatic-red-200);
+    --color-red-300: var(--lufa-primitive-color-chromatic-red-300);
+    --color-red-400: var(--lufa-primitive-color-chromatic-red-400);
+    --color-red-500: var(--lufa-primitive-color-chromatic-red-500);
+    --color-red-600: var(--lufa-primitive-color-chromatic-red-600);
+    --color-red-700: var(--lufa-primitive-color-chromatic-red-700);
+    --color-red-800: var(--lufa-primitive-color-chromatic-red-800);
+    --color-red-900: var(--lufa-primitive-color-chromatic-red-900);
+    --color-red-950: var(--lufa-primitive-color-chromatic-red-950);
+    --color-orange-50: var(--lufa-primitive-color-chromatic-orange-50);
+    --color-orange-100: var(--lufa-primitive-color-chromatic-orange-100);
+    --color-orange-200: var(--lufa-primitive-color-chromatic-orange-200);
+    --color-orange-300: var(--lufa-primitive-color-chromatic-orange-300);
+    --color-orange-400: var(--lufa-primitive-color-chromatic-orange-400);
+    --color-orange-500: var(--lufa-primitive-color-chromatic-orange-500);
+    --color-orange-600: var(--lufa-primitive-color-chromatic-orange-600);
+    --color-orange-700: var(--lufa-primitive-color-chromatic-orange-700);
+    --color-orange-800: var(--lufa-primitive-color-chromatic-orange-800);
+    --color-orange-900: var(--lufa-primitive-color-chromatic-orange-900);
+    --color-orange-950: var(--lufa-primitive-color-chromatic-orange-950);
+    --color-amber-50: var(--lufa-primitive-color-chromatic-amber-50);
+    --color-amber-100: var(--lufa-primitive-color-chromatic-amber-100);
+    --color-amber-200: var(--lufa-primitive-color-chromatic-amber-200);
+    --color-amber-300: var(--lufa-primitive-color-chromatic-amber-300);
+    --color-amber-400: var(--lufa-primitive-color-chromatic-amber-400);
+    --color-amber-500: var(--lufa-primitive-color-chromatic-amber-500);
+    --color-amber-600: var(--lufa-primitive-color-chromatic-amber-600);
+    --color-amber-700: var(--lufa-primitive-color-chromatic-amber-700);
+    --color-amber-800: var(--lufa-primitive-color-chromatic-amber-800);
+    --color-amber-900: var(--lufa-primitive-color-chromatic-amber-900);
+    --color-amber-950: var(--lufa-primitive-color-chromatic-amber-950);
+    --color-yellow-50: var(--lufa-primitive-color-chromatic-yellow-50);
+    --color-yellow-100: var(--lufa-primitive-color-chromatic-yellow-100);
+    --color-yellow-200: var(--lufa-primitive-color-chromatic-yellow-200);
+    --color-yellow-300: var(--lufa-primitive-color-chromatic-yellow-300);
+    --color-yellow-400: var(--lufa-primitive-color-chromatic-yellow-400);
+    --color-yellow-500: var(--lufa-primitive-color-chromatic-yellow-500);
+    --color-yellow-600: var(--lufa-primitive-color-chromatic-yellow-600);
+    --color-yellow-700: var(--lufa-primitive-color-chromatic-yellow-700);
+    --color-yellow-800: var(--lufa-primitive-color-chromatic-yellow-800);
+    --color-yellow-900: var(--lufa-primitive-color-chromatic-yellow-900);
+    --color-yellow-950: var(--lufa-primitive-color-chromatic-yellow-950);
+    --color-lime-50: var(--lufa-primitive-color-chromatic-lime-50);
+    --color-lime-100: var(--lufa-primitive-color-chromatic-lime-100);
+    --color-lime-200: var(--lufa-primitive-color-chromatic-lime-200);
+    --color-lime-300: var(--lufa-primitive-color-chromatic-lime-300);
+    --color-lime-400: var(--lufa-primitive-color-chromatic-lime-400);
+    --color-lime-500: var(--lufa-primitive-color-chromatic-lime-500);
+    --color-lime-600: var(--lufa-primitive-color-chromatic-lime-600);
+    --color-lime-700: var(--lufa-primitive-color-chromatic-lime-700);
+    --color-lime-800: var(--lufa-primitive-color-chromatic-lime-800);
+    --color-lime-900: var(--lufa-primitive-color-chromatic-lime-900);
+    --color-lime-950: var(--lufa-primitive-color-chromatic-lime-950);
+    --color-green-50: var(--lufa-primitive-color-chromatic-green-50);
+    --color-green-100: var(--lufa-primitive-color-chromatic-green-100);
+    --color-green-200: var(--lufa-primitive-color-chromatic-green-200);
+    --color-green-300: var(--lufa-primitive-color-chromatic-green-300);
+    --color-green-400: var(--lufa-primitive-color-chromatic-green-400);
+    --color-green-500: var(--lufa-primitive-color-chromatic-green-500);
+    --color-green-600: var(--lufa-primitive-color-chromatic-green-600);
+    --color-green-700: var(--lufa-primitive-color-chromatic-green-700);
+    --color-green-800: var(--lufa-primitive-color-chromatic-green-800);
+    --color-green-900: var(--lufa-primitive-color-chromatic-green-900);
+    --color-green-950: var(--lufa-primitive-color-chromatic-green-950);
+    --color-emerald-50: var(--lufa-primitive-color-chromatic-emerald-50);
+    --color-emerald-100: var(--lufa-primitive-color-chromatic-emerald-100);
+    --color-emerald-200: var(--lufa-primitive-color-chromatic-emerald-200);
+    --color-emerald-300: var(--lufa-primitive-color-chromatic-emerald-300);
+    --color-emerald-400: var(--lufa-primitive-color-chromatic-emerald-400);
+    --color-emerald-500: var(--lufa-primitive-color-chromatic-emerald-500);
+    --color-emerald-600: var(--lufa-primitive-color-chromatic-emerald-600);
+    --color-emerald-700: var(--lufa-primitive-color-chromatic-emerald-700);
+    --color-emerald-800: var(--lufa-primitive-color-chromatic-emerald-800);
+    --color-emerald-900: var(--lufa-primitive-color-chromatic-emerald-900);
+    --color-emerald-950: var(--lufa-primitive-color-chromatic-emerald-950);
+    --color-teal-50: var(--lufa-primitive-color-chromatic-teal-50);
+    --color-teal-100: var(--lufa-primitive-color-chromatic-teal-100);
+    --color-teal-200: var(--lufa-primitive-color-chromatic-teal-200);
+    --color-teal-300: var(--lufa-primitive-color-chromatic-teal-300);
+    --color-teal-400: var(--lufa-primitive-color-chromatic-teal-400);
+    --color-teal-500: var(--lufa-primitive-color-chromatic-teal-500);
+    --color-teal-600: var(--lufa-primitive-color-chromatic-teal-600);
+    --color-teal-700: var(--lufa-primitive-color-chromatic-teal-700);
+    --color-teal-800: var(--lufa-primitive-color-chromatic-teal-800);
+    --color-teal-900: var(--lufa-primitive-color-chromatic-teal-900);
+    --color-teal-950: var(--lufa-primitive-color-chromatic-teal-950);
+    --color-cyan-50: var(--lufa-primitive-color-chromatic-cyan-50);
+    --color-cyan-100: var(--lufa-primitive-color-chromatic-cyan-100);
+    --color-cyan-200: var(--lufa-primitive-color-chromatic-cyan-200);
+    --color-cyan-300: var(--lufa-primitive-color-chromatic-cyan-300);
+    --color-cyan-400: var(--lufa-primitive-color-chromatic-cyan-400);
+    --color-cyan-500: var(--lufa-primitive-color-chromatic-cyan-500);
+    --color-cyan-600: var(--lufa-primitive-color-chromatic-cyan-600);
+    --color-cyan-700: var(--lufa-primitive-color-chromatic-cyan-700);
+    --color-cyan-800: var(--lufa-primitive-color-chromatic-cyan-800);
+    --color-cyan-900: var(--lufa-primitive-color-chromatic-cyan-900);
+    --color-cyan-950: var(--lufa-primitive-color-chromatic-cyan-950);
+    --color-sky-50: var(--lufa-primitive-color-chromatic-sky-50);
+    --color-sky-100: var(--lufa-primitive-color-chromatic-sky-100);
+    --color-sky-200: var(--lufa-primitive-color-chromatic-sky-200);
+    --color-sky-300: var(--lufa-primitive-color-chromatic-sky-300);
+    --color-sky-400: var(--lufa-primitive-color-chromatic-sky-400);
+    --color-sky-500: var(--lufa-primitive-color-chromatic-sky-500);
+    --color-sky-600: var(--lufa-primitive-color-chromatic-sky-600);
+    --color-sky-700: var(--lufa-primitive-color-chromatic-sky-700);
+    --color-sky-800: var(--lufa-primitive-color-chromatic-sky-800);
+    --color-sky-900: var(--lufa-primitive-color-chromatic-sky-900);
+    --color-sky-950: var(--lufa-primitive-color-chromatic-sky-950);
+    --color-blue-50: var(--lufa-primitive-color-chromatic-blue-50);
+    --color-blue-100: var(--lufa-primitive-color-chromatic-blue-100);
+    --color-blue-200: var(--lufa-primitive-color-chromatic-blue-200);
+    --color-blue-300: var(--lufa-primitive-color-chromatic-blue-300);
+    --color-blue-400: var(--lufa-primitive-color-chromatic-blue-400);
+    --color-blue-500: var(--lufa-primitive-color-chromatic-blue-500);
+    --color-blue-600: var(--lufa-primitive-color-chromatic-blue-600);
+    --color-blue-700: var(--lufa-primitive-color-chromatic-blue-700);
+    --color-blue-800: var(--lufa-primitive-color-chromatic-blue-800);
+    --color-blue-900: var(--lufa-primitive-color-chromatic-blue-900);
+    --color-blue-950: var(--lufa-primitive-color-chromatic-blue-950);
+    --color-indigo-50: var(--lufa-primitive-color-chromatic-indigo-50);
+    --color-indigo-100: var(--lufa-primitive-color-chromatic-indigo-100);
+    --color-indigo-200: var(--lufa-primitive-color-chromatic-indigo-200);
+    --color-indigo-300: var(--lufa-primitive-color-chromatic-indigo-300);
+    --color-indigo-400: var(--lufa-primitive-color-chromatic-indigo-400);
+    --color-indigo-500: var(--lufa-primitive-color-chromatic-indigo-500);
+    --color-indigo-600: var(--lufa-primitive-color-chromatic-indigo-600);
+    --color-indigo-700: var(--lufa-primitive-color-chromatic-indigo-700);
+    --color-indigo-800: var(--lufa-primitive-color-chromatic-indigo-800);
+    --color-indigo-900: var(--lufa-primitive-color-chromatic-indigo-900);
+    --color-indigo-950: var(--lufa-primitive-color-chromatic-indigo-950);
+    --color-violet-50: var(--lufa-primitive-color-chromatic-violet-50);
+    --color-violet-100: var(--lufa-primitive-color-chromatic-violet-100);
+    --color-violet-200: var(--lufa-primitive-color-chromatic-violet-200);
+    --color-violet-300: var(--lufa-primitive-color-chromatic-violet-300);
+    --color-violet-400: var(--lufa-primitive-color-chromatic-violet-400);
+    --color-violet-500: var(--lufa-primitive-color-chromatic-violet-500);
+    --color-violet-600: var(--lufa-primitive-color-chromatic-violet-600);
+    --color-violet-700: var(--lufa-primitive-color-chromatic-violet-700);
+    --color-violet-800: var(--lufa-primitive-color-chromatic-violet-800);
+    --color-violet-900: var(--lufa-primitive-color-chromatic-violet-900);
+    --color-violet-950: var(--lufa-primitive-color-chromatic-violet-950);
+    --color-purple-50: var(--lufa-primitive-color-chromatic-purple-50);
+    --color-purple-100: var(--lufa-primitive-color-chromatic-purple-100);
+    --color-purple-200: var(--lufa-primitive-color-chromatic-purple-200);
+    --color-purple-300: var(--lufa-primitive-color-chromatic-purple-300);
+    --color-purple-400: var(--lufa-primitive-color-chromatic-purple-400);
+    --color-purple-500: var(--lufa-primitive-color-chromatic-purple-500);
+    --color-purple-600: var(--lufa-primitive-color-chromatic-purple-600);
+    --color-purple-700: var(--lufa-primitive-color-chromatic-purple-700);
+    --color-purple-800: var(--lufa-primitive-color-chromatic-purple-800);
+    --color-purple-900: var(--lufa-primitive-color-chromatic-purple-900);
+    --color-purple-950: var(--lufa-primitive-color-chromatic-purple-950);
+    --color-fuchsia-50: var(--lufa-primitive-color-chromatic-fuchsia-50);
+    --color-fuchsia-100: var(--lufa-primitive-color-chromatic-fuchsia-100);
+    --color-fuchsia-200: var(--lufa-primitive-color-chromatic-fuchsia-200);
+    --color-fuchsia-300: var(--lufa-primitive-color-chromatic-fuchsia-300);
+    --color-fuchsia-400: var(--lufa-primitive-color-chromatic-fuchsia-400);
+    --color-fuchsia-500: var(--lufa-primitive-color-chromatic-fuchsia-500);
+    --color-fuchsia-600: var(--lufa-primitive-color-chromatic-fuchsia-600);
+    --color-fuchsia-700: var(--lufa-primitive-color-chromatic-fuchsia-700);
+    --color-fuchsia-800: var(--lufa-primitive-color-chromatic-fuchsia-800);
+    --color-fuchsia-900: var(--lufa-primitive-color-chromatic-fuchsia-900);
+    --color-fuchsia-950: var(--lufa-primitive-color-chromatic-fuchsia-950);
+    --color-pink-50: var(--lufa-primitive-color-chromatic-pink-50);
+    --color-pink-100: var(--lufa-primitive-color-chromatic-pink-100);
+    --color-pink-200: var(--lufa-primitive-color-chromatic-pink-200);
+    --color-pink-300: var(--lufa-primitive-color-chromatic-pink-300);
+    --color-pink-400: var(--lufa-primitive-color-chromatic-pink-400);
+    --color-pink-500: var(--lufa-primitive-color-chromatic-pink-500);
+    --color-pink-600: var(--lufa-primitive-color-chromatic-pink-600);
+    --color-pink-700: var(--lufa-primitive-color-chromatic-pink-700);
+    --color-pink-800: var(--lufa-primitive-color-chromatic-pink-800);
+    --color-pink-900: var(--lufa-primitive-color-chromatic-pink-900);
+    --color-pink-950: var(--lufa-primitive-color-chromatic-pink-950);
+    --color-rose-50: var(--lufa-primitive-color-chromatic-rose-50);
+    --color-rose-100: var(--lufa-primitive-color-chromatic-rose-100);
+    --color-rose-200: var(--lufa-primitive-color-chromatic-rose-200);
+    --color-rose-300: var(--lufa-primitive-color-chromatic-rose-300);
+    --color-rose-400: var(--lufa-primitive-color-chromatic-rose-400);
+    --color-rose-500: var(--lufa-primitive-color-chromatic-rose-500);
+    --color-rose-600: var(--lufa-primitive-color-chromatic-rose-600);
+    --color-rose-700: var(--lufa-primitive-color-chromatic-rose-700);
+    --color-rose-800: var(--lufa-primitive-color-chromatic-rose-800);
+    --color-rose-900: var(--lufa-primitive-color-chromatic-rose-900);
+    --color-rose-950: var(--lufa-primitive-color-chromatic-rose-950);
+    --color-slate-50: var(--lufa-primitive-color-neutral-slate-50);
+    --color-slate-100: var(--lufa-primitive-color-neutral-slate-100);
+    --color-slate-200: var(--lufa-primitive-color-neutral-slate-200);
+    --color-slate-300: var(--lufa-primitive-color-neutral-slate-300);
+    --color-slate-400: var(--lufa-primitive-color-neutral-slate-400);
+    --color-slate-500: var(--lufa-primitive-color-neutral-slate-500);
+    --color-slate-600: var(--lufa-primitive-color-neutral-slate-600);
+    --color-slate-700: var(--lufa-primitive-color-neutral-slate-700);
+    --color-slate-800: var(--lufa-primitive-color-neutral-slate-800);
+    --color-slate-900: var(--lufa-primitive-color-neutral-slate-900);
+    --color-slate-950: var(--lufa-primitive-color-neutral-slate-950);
+    --color-gray-50: var(--lufa-primitive-color-neutral-gray-50);
+    --color-gray-100: var(--lufa-primitive-color-neutral-gray-100);
+    --color-gray-200: var(--lufa-primitive-color-neutral-gray-200);
+    --color-gray-300: var(--lufa-primitive-color-neutral-gray-300);
+    --color-gray-400: var(--lufa-primitive-color-neutral-gray-400);
+    --color-gray-500: var(--lufa-primitive-color-neutral-gray-500);
+    --color-gray-600: var(--lufa-primitive-color-neutral-gray-600);
+    --color-gray-700: var(--lufa-primitive-color-neutral-gray-700);
+    --color-gray-800: var(--lufa-primitive-color-neutral-gray-800);
+    --color-gray-900: var(--lufa-primitive-color-neutral-gray-900);
+    --color-gray-950: var(--lufa-primitive-color-neutral-gray-950);
+    --color-zinc-50: var(--lufa-primitive-color-neutral-zinc-50);
+    --color-zinc-100: var(--lufa-primitive-color-neutral-zinc-100);
+    --color-zinc-200: var(--lufa-primitive-color-neutral-zinc-200);
+    --color-zinc-300: var(--lufa-primitive-color-neutral-zinc-300);
+    --color-zinc-400: var(--lufa-primitive-color-neutral-zinc-400);
+    --color-zinc-500: var(--lufa-primitive-color-neutral-zinc-500);
+    --color-zinc-600: var(--lufa-primitive-color-neutral-zinc-600);
+    --color-zinc-700: var(--lufa-primitive-color-neutral-zinc-700);
+    --color-zinc-800: var(--lufa-primitive-color-neutral-zinc-800);
+    --color-zinc-900: var(--lufa-primitive-color-neutral-zinc-900);
+    --color-zinc-950: var(--lufa-primitive-color-neutral-zinc-950);
+    --color-neutral-50: var(--lufa-primitive-color-neutral-neutral-50);
+    --color-neutral-100: var(--lufa-primitive-color-neutral-neutral-100);
+    --color-neutral-200: var(--lufa-primitive-color-neutral-neutral-200);
+    --color-neutral-300: var(--lufa-primitive-color-neutral-neutral-300);
+    --color-neutral-400: var(--lufa-primitive-color-neutral-neutral-400);
+    --color-neutral-500: var(--lufa-primitive-color-neutral-neutral-500);
+    --color-neutral-600: var(--lufa-primitive-color-neutral-neutral-600);
+    --color-neutral-700: var(--lufa-primitive-color-neutral-neutral-700);
+    --color-neutral-800: var(--lufa-primitive-color-neutral-neutral-800);
+    --color-neutral-900: var(--lufa-primitive-color-neutral-neutral-900);
+    --color-neutral-950: var(--lufa-primitive-color-neutral-neutral-950);
+    --color-stone-50: var(--lufa-primitive-color-neutral-stone-50);
+    --color-stone-100: var(--lufa-primitive-color-neutral-stone-100);
+    --color-stone-200: var(--lufa-primitive-color-neutral-stone-200);
+    --color-stone-300: var(--lufa-primitive-color-neutral-stone-300);
+    --color-stone-400: var(--lufa-primitive-color-neutral-stone-400);
+    --color-stone-500: var(--lufa-primitive-color-neutral-stone-500);
+    --color-stone-600: var(--lufa-primitive-color-neutral-stone-600);
+    --color-stone-700: var(--lufa-primitive-color-neutral-stone-700);
+    --color-stone-800: var(--lufa-primitive-color-neutral-stone-800);
+    --color-stone-900: var(--lufa-primitive-color-neutral-stone-900);
+    --color-stone-950: var(--lufa-primitive-color-neutral-stone-950);
+    --color-black: #000;
+    --color-white: #fff;
+}
+
+/* Lufa Breakpoints - Override Tailwind breakpoints */
+/* Note: Media queries cannot use CSS variables, so we use static values */
+@theme {
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 1024px;
+    --breakpoint-lg: 1280px;
+    --breakpoint-xl: 1440px;
+    --breakpoint-2xl: 1920px;
+}
+
+/* Lufa Containers - Override Tailwind containers */
+@theme {
+    --container-3xs: var(--lufa-primitive-max-width-256);
+    --container-2xs: var(--lufa-primitive-max-width-288);
+    --container-xs: var(--lufa-primitive-max-width-640);
+    --container-sm: var(--lufa-primitive-max-width-768);
+    --container-md: var(--lufa-primitive-max-width-1024);
+    --container-lg: var(--lufa-primitive-max-width-1280);
+    --container-xl: var(--lufa-primitive-max-width-1440);
+    --container-2xl: var(--lufa-primitive-max-width-672);
+    --container-3xl: var(--lufa-primitive-max-width-768);
+    --container-4xl: var(--lufa-primitive-max-width-896);
+    --container-5xl: var(--lufa-primitive-max-width-1024);
+    --container-6xl: var(--lufa-primitive-max-width-1152);
+    --container-7xl: var(--lufa-primitive-max-width-1280);
+}
+
+/* Lufa Typography - Font Sizes - Override Tailwind */
+@theme {
+    --text-xs: var(--lufa-primitive-font-size-12);
+    --text-xs--line-height: var(--lufa-primitive-line-height-body); /* 1.5 - Readable for small text */
+    --text-sm: var(--lufa-primitive-font-size-14);
+    --text-sm--line-height: var(--lufa-primitive-line-height-body); /* 1.5 - Readable for small text */
+    --text-base: var(--lufa-primitive-font-size-16);
+    --text-base--line-height: var(--lufa-primitive-line-height-body); /* 1.5 - WCAG minimum for body text */
+    --text-lg: var(--lufa-primitive-font-size-18);
+    --text-lg--line-height: var(--lufa-primitive-line-height-body); /* 1.5 - Still body-like */
+    --text-xl: var(--lufa-primitive-font-size-20);
+    --text-xl--line-height: var(--lufa-primitive-line-height-display); /* 1.35 - Transitioning to display */
+    --text-2xl: var(--lufa-primitive-font-size-24);
+    --text-2xl--line-height: var(--lufa-primitive-line-height-display); /* 1.35 - Display text */
+    --text-3xl: var(--lufa-primitive-font-size-30);
+    --text-3xl--line-height: var(--lufa-primitive-line-height-heading); /* 1.2 - Heading proportions */
+    --text-4xl: var(--lufa-primitive-font-size-36);
+    --text-4xl--line-height: var(--lufa-primitive-line-height-heading); /* 1.2 - Heading proportions */
+    --text-5xl: var(--lufa-primitive-font-size-48);
+    --text-5xl--line-height: var(--lufa-primitive-line-height-heading); /* 1.2 - Large heading */
+    --text-6xl: var(--lufa-primitive-font-size-60);
+    --text-6xl--line-height: var(--lufa-primitive-line-height-tight); /* 1.0 - Display/hero text */
+    --text-7xl: var(--lufa-primitive-font-size-72);
+    --text-7xl--line-height: var(--lufa-primitive-line-height-tight); /* 1.0 - Display/hero text */
+    --text-8xl: var(--lufa-primitive-font-size-96);
+    --text-8xl--line-height: var(--lufa-primitive-line-height-tight); /* 1.0 - Massive display */
+    --text-9xl: var(--lufa-primitive-font-size-128);
+    --text-9xl--line-height: var(--lufa-primitive-line-height-tight); /* 1.0 - Massive display */
+}
+
+/* Lufa Font Weights - Override Tailwind */
+@theme {
+    --font-weight-thin: var(--lufa-primitive-font-weight-100);
+    --font-weight-extralight: var(--lufa-primitive-font-weight-200);
+    --font-weight-light: var(--lufa-primitive-font-weight-300);
+    --font-weight-normal: var(--lufa-primitive-font-weight-400);
+    --font-weight-medium: var(--lufa-primitive-font-weight-500);
+    --font-weight-semibold: var(--lufa-primitive-font-weight-600);
+    --font-weight-bold: var(--lufa-primitive-font-weight-700);
+    --font-weight-extrabold: var(--lufa-primitive-font-weight-800);
+    --font-weight-black: var(--lufa-primitive-font-weight-900);
+}
+
+/* Lufa Letter Spacing - Override Tailwind tracking */
+@theme {
+    --tracking-tighter: var(--lufa-primitive-letter-spacing-tight);
+    --tracking-tight: var(--lufa-primitive-letter-spacing-heading);
+    --tracking-normal: var(--lufa-primitive-letter-spacing-normal);
+    --tracking-wide: var(--lufa-primitive-letter-spacing-relaxed);
+    --tracking-wider: var(--lufa-primitive-letter-spacing-readable);
+    --tracking-widest: var(--lufa-primitive-letter-spacing-dyslexia);
+}
+
+/* Lufa Line Heights - Override Tailwind leading */
+@theme {
+    --leading-tight: var(--lufa-primitive-line-height-tight);
+    --leading-snug: var(--lufa-primitive-line-height-heading);
+    --leading-normal: var(--lufa-primitive-line-height-body);
+    --leading-relaxed: var(--lufa-primitive-line-height-reading);
+    --leading-loose: var(--lufa-primitive-line-height-dyslexia);
+}
+
+/* Lufa Border Radius - Override Tailwind */
+@theme {
+    --radius-xs: var(--lufa-primitive-radius-2);
+    --radius-sm: var(--lufa-primitive-radius-4);
+    --radius-md: var(--lufa-primitive-radius-6);
+    --radius-lg: var(--lufa-primitive-radius-8);
+    --radius-xl: var(--lufa-primitive-radius-12);
+    --radius-2xl: var(--lufa-primitive-radius-16);
+    --radius-3xl: var(--lufa-primitive-radius-24);
+    --radius-4xl: var(--lufa-primitive-radius-32);
+}
+
+/* Lufa Shadows - Override Tailwind */
+@theme {
+    --shadow-2xs: var(--lufa-primitive-shadow-xs);
+    --shadow-xs: var(--lufa-primitive-shadow-xs);
+    --shadow-sm: var(--lufa-primitive-shadow-sm);
+    --shadow-md: var(--lufa-primitive-shadow-md);
+    --shadow-lg: var(--lufa-primitive-shadow-lg);
+    --shadow-xl: var(--lufa-primitive-shadow-xl);
+    --shadow-2xl: var(--lufa-primitive-shadow-2xl);
+}
+
+/* Lufa Inner Shadows - Override Tailwind */
+@theme {
+    --inset-shadow-2xs: var(--lufa-primitive-shadow-xs);
+    --inset-shadow-xs: var(--lufa-primitive-shadow-xs);
+    --inset-shadow-sm: var(--lufa-primitive-shadow-sm);
+}
+
+/* Lufa Blur - Override Tailwind */
+@theme {
+    --blur-xs: var(--lufa-primitive-blur-4);
+    --blur-sm: var(--lufa-primitive-blur-8);
+    --blur-md: var(--lufa-primitive-blur-12);
+    --blur-lg: var(--lufa-primitive-blur-16);
+    --blur-xl: var(--lufa-primitive-blur-24);
+    --blur-2xl: var(--lufa-primitive-blur-40);
+    --blur-3xl: 64px;
+}
+
+/* Keep Tailwind drop shadows for compatibility */
+@theme {
+    --drop-shadow-xs: 0 1px 1px rgb(0 0 0 / 0.05);
+    --drop-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.15);
+    --drop-shadow-md: 0 3px 3px rgb(0 0 0 / 0.12);
+    --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
+    --drop-shadow-xl: 0 9px 7px rgb(0 0 0 / 0.1);
+    --drop-shadow-2xl: 0 25px 25px rgb(0 0 0 / 0.15);
+}
+
+/* Keep Tailwind text shadows for compatibility */
+@theme {
+    --text-shadow-2xs: 0px 1px 0px rgb(0 0 0 / 0.15);
+    --text-shadow-xs: 0px 1px 1px rgb(0 0 0 / 0.2);
+    --text-shadow-sm: 0px 1px 0px rgb(0 0 0 / 0.075), 0px 1px 1px rgb(0 0 0 / 0.075), 0px 2px 2px rgb(0 0 0 / 0.075);
+    --text-shadow-md: 0px 1px 1px rgb(0 0 0 / 0.1), 0px 1px 2px rgb(0 0 0 / 0.1), 0px 2px 4px rgb(0 0 0 / 0.1);
+    --text-shadow-lg: 0px 1px 2px rgb(0 0 0 / 0.1), 0px 3px 2px rgb(0 0 0 / 0.1), 0px 4px 8px rgb(0 0 0 / 0.1);
+}
+
+/* Keep Tailwind perspective for compatibility */
+@theme {
+    --perspective-dramatic: 100px;
+    --perspective-near: 300px;
+    --perspective-normal: 500px;
+    --perspective-midrange: 800px;
+    --perspective-distant: 1200px;
+}
+
+/* Keep Tailwind aspect ratio */
+@theme {
+    --aspect-video: 16 / 9;
+}
+
+/* Lufa Easing - Override Tailwind */
+@theme {
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Keep Tailwind animations */
+@theme {
+    --animate-spin: spin 1s linear infinite;
+    --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-bounce: bounce 1s infinite;
+}
+
+@theme {
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes ping {
+        75%,
+        100% {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+    @keyframes pulse {
+        50% {
+            opacity: 0.5;
+        }
+    }
+    @keyframes bounce {
+        0%,
+        100% {
+            transform: translateY(-25%);
+            animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+            transform: none;
+            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+    }
+}

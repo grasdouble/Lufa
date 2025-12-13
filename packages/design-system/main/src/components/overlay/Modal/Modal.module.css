@@ -5,6 +5,7 @@
         @apply fixed inset-0;
         z-index: var(--lufa-z-index-modal, 1000);
         @apply bg-background-overlay;
+        @apply backdrop-blur-sm;
         @apply flex items-center justify-center;
         @apply p-base;
         animation: fadeIn 200ms ease-out;
@@ -41,15 +42,18 @@
 
     /* Sizes */
     .sizeSmall {
-        @apply w-full max-w-md;
+        @apply w-full;
+        max-width: var(--lufa-token-max-width-modal-sm);
     }
 
     .sizeMedium {
-        @apply w-full max-w-2xl;
+        @apply w-full;
+        max-width: var(--lufa-token-max-width-modal);
     }
 
     .sizeLarge {
-        @apply w-full max-w-4xl;
+        @apply w-full;
+        max-width: var(--lufa-token-max-width-modal-lg);
     }
 
     .sizeFullscreen {
@@ -63,17 +67,18 @@
     }
 
     .title {
+        @apply reset-heading;
         @apply text-text-primary text-xl font-semibold;
-        @apply m-0;
     }
 
     .closeButton {
+        @apply reset-button;
         @apply p-1;
         @apply rounded-md;
         @apply hover:bg-background-secondary;
-        @apply transition-colors duration-200;
-        @apply cursor-pointer border-none bg-transparent;
+        @apply duration-fast transition-colors;
         @apply text-text-tertiary hover:text-text-primary;
+        cursor: var(--lufa-token-cursor-pointer);
     }
 
     .closeButton svg {
