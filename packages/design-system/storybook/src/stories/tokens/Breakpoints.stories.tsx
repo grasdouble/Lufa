@@ -18,7 +18,7 @@ export const AllBreakpoints: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Breakpoint Tokens</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Standardized responsive breakpoint for mobile-first design. Use min-width media queries.
+                Standardized responsive breakpoints for mobile-first design. Use min-width media queries.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -195,8 +195,8 @@ export const ResponsiveDemo: Story = {
                     <ul style={{ margin: 0, paddingLeft: '20px', color: '#78350F', fontSize: '14px' }}>
                         <li>Design mobile-first: start with smallest screen, enhance for larger</li>
                         <li>Test at actual breakpoint values, not just approximate sizes</li>
-                        <li>Consider content reflow between breakpoint</li>
-                        <li>Ensure touch targets remain ≥44px at all breakpoint</li>
+                        <li>Consider content reflow between breakpoints</li>
+                        <li>Ensure touch targets remain ≥44px at all breakpoints</li>
                         <li>Test on real devices, not just browser DevTools</li>
                     </ul>
                 </div>
