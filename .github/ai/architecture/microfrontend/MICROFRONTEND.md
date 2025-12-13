@@ -22,9 +22,9 @@ The Lufa microfrontend architecture uses Single-SPA to orchestrate multiple inde
 │  - Provides import-map-overrides (dev)                  │
 │  - Mounts Storybook iframe (/storybook)                 │
 └─────────────────────────────────────────────────────────┘
-                           ↓
+                          ↓
          ┌────────────────┴────────────────┐
-         ↓                                  ↓
+         ↓                                 ↓
 ┌──────────────────┐              ┌──────────────────┐
 │  Home Parcel     │              │  Other Parcels   │
 │  - Landing page  │              │  - Future apps   │
