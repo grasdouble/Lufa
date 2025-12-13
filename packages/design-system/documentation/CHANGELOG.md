@@ -1,5 +1,19 @@
 # @grasdouble/lufa_design-system-documentation
 
+## 0.2.0
+
+### Minor Changes
+
+- 501cf5f: Rework how primitive, tokens and ds is working + align storybook and docusaurus
+
+### Patch Changes
+
+- Updated dependencies [501cf5f]
+- Updated dependencies [501cf5f]
+  - @grasdouble/lufa_design-system-tokens@0.2.0
+  - @grasdouble/lufa_design-system@0.3.0
+  - @grasdouble/lufa_config_prettier@0.1.2
+
 ## 0.1.0
 
 ### Minor Changes

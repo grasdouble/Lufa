@@ -1,5 +1,11 @@
 # @grasdouble/lufa_config_prettier
 
+## 0.1.2
+
+### Patch Changes
+
+- 501cf5f: small fixes
+
 ## 0.1.1
 
 ### Patch Changes
