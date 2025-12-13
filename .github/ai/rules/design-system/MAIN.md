@@ -98,7 +98,7 @@ export type { ComponentNameProps } from "./ComponentName";
 
 **CRITICAL**: All components MUST apply appropriate reset utilities.
 
-See: [`../../architecture/DESIGN_SYSTEM_CSS.md`](../../architecture/DESIGN_SYSTEM_CSS.md)
+See: [`../../architecture/design-system/CSS.md`](../../architecture/design-system/CSS.md)
 
 **Reset Utilities**:
 
