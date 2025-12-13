@@ -23,6 +23,14 @@ I started a lot of projects (some still available on Github), but most of them h
 After doing this conclusion, I decided to bring together all the new projects in a mono-repository.
 It will help me keep an eye on the oldest projects and keep them up to date.
 
+## 🤖 For AI Assistants
+
+Comprehensive AI documentation is available to help you understand and contribute to this project efficiently:
+
+- **Start here**: [.github/AI_README.md](.github/AI_README.md) - Main entry point
+- **Quick lookup**: [.github/ai/QUICK_REFERENCE.md](.github/ai/QUICK_REFERENCE.md) - Fast task-oriented guide
+- **Context summary**: [.github/AI_CONTEXT.md](.github/AI_CONTEXT.md) - Key facts in one place
+
 ## License
 
 This project is under license [Creative Commons Attribution-NonCommercial 4.0 International License](LICENSE.md)
