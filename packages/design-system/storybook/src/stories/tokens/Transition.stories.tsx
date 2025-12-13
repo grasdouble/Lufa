@@ -184,52 +184,51 @@ export const InteractiveExamples: Story = {
                         {isModalOpen ? 'Close Modal' : 'Open Modal'}
                     </button>
 
-                    {isModalOpen && (
+                    <div
+                        style={{
+                            position: 'fixed',
+                            inset: 0,
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            display: isModalOpen ? 'flex' : 'none',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            zIndex: 50,
+                            opacity: isModalOpen ? 1 : 0,
+                            transition: transition.base,
+                            pointerEvents: isModalOpen ? 'auto' : 'none',
+                        }}
+                        onClick={() => setIsModalOpen(false)}
+                    >
                         <div
+                            onClick={(e) => e.stopPropagation()}
                             style={{
-                                position: 'fixed',
-                                inset: 0,
-                                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                zIndex: 50,
-                                opacity: isModalOpen ? 1 : 0,
+                                backgroundColor: 'white',
+                                padding: '32px',
+                                borderRadius: '12px',
+                                maxWidth: '400px',
                                 transition: transition.base,
+                                transform: isModalOpen ? 'scale(1)' : 'scale(0.95)',
                             }}
-                            onClick={() => setIsModalOpen(false)}
                         >
-                            <div
-                                onClick={(e) => e.stopPropagation()}
+                            <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px' }}>Example Modal</h3>
+                            <p style={{ color: '#6B7280', marginBottom: '20px' }}>
+                                This modal uses transition.base for a smooth open/close animation.
+                            </p>
+                            <button
+                                onClick={() => setIsModalOpen(false)}
                                 style={{
-                                    backgroundColor: 'white',
-                                    padding: '32px',
-                                    borderRadius: '12px',
-                                    maxWidth: '400px',
-                                    transition: transition.base,
-                                    transform: isModalOpen ? 'scale(1)' : 'scale(0.95)',
+                                    padding: '10px 20px',
+                                    backgroundColor: '#3B82F6',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '6px',
+                                    cursor: 'pointer',
                                 }}
                             >
-                                <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px' }}>Example Modal</h3>
-                                <p style={{ color: '#6B7280', marginBottom: '20px' }}>
-                                    This modal uses transition.base for a smooth open/close animation.
-                                </p>
-                                <button
-                                    onClick={() => setIsModalOpen(false)}
-                                    style={{
-                                        padding: '10px 20px',
-                                        backgroundColor: '#3B82F6',
-                                        color: 'white',
-                                        border: 'none',
-                                        borderRadius: '6px',
-                                        cursor: 'pointer',
-                                    }}
-                                >
-                                    Close
-                                </button>
-                            </div>
+                                Close
+                            </button>
                         </div>
-                    )}
+                    </div>
                     <p style={{ marginTop: '12px', fontSize: '12px', color: '#737373' }}>Using transition.base for modal animations</p>
                 </div>
 
