@@ -85,7 +85,7 @@ export const AllSemantic: Story = {
 
             <SemanticColorCard title="Info Colors" color={color.info} description="Colors for informational states" />
 
-            <SemanticColorCard title="Brand Colors" color={color.brand} description="Primary and secondary brand color" />
+            <SemanticColorCard title="Brand Colors" color={color.brand} description="Primary and secondary brand colors" />
 
             <SemanticColorCard
                 title="Surface Colors"
@@ -262,7 +262,7 @@ export const StatusColors: Story = {
 export const BrandColors: Story = {
     render: () => (
         <div style={{ padding: '20px' }}>
-            <SemanticColorCard title="Brand Colors" color={color.brand} description="Primary and secondary brand color" />
+            <SemanticColorCard title="Brand Colors" color={color.brand} description="Primary and secondary brand colors" />
             <div style={{ padding: '20px', backgroundColor: '#FFFFFF', borderRadius: '8px', marginTop: '24px' }}>
                 <h4 style={{ marginBottom: '16px' }}>Brand Button Examples</h4>
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
