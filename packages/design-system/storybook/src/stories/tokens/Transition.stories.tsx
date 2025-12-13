@@ -189,11 +189,12 @@ export const InteractiveExamples: Story = {
                             position: 'fixed',
                             inset: 0,
                             backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                            display: isModalOpen ? 'flex' : 'none',
+                            display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             zIndex: 50,
                             opacity: isModalOpen ? 1 : 0,
+                            visibility: isModalOpen ? 'visible' : 'hidden',
                             transition: transition.base,
                             pointerEvents: isModalOpen ? 'auto' : 'none',
                         }}
