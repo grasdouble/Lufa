@@ -1,5 +1,13 @@
 # @grasdouble/lufa_microfrontend_main-container
 
+## 0.6.3
+
+### Patch Changes
+
+- 501cf5f: small fixes
+- Updated dependencies [501cf5f]
+  - @grasdouble/lufa_design-system@0.3.0
+
 ## 0.6.2
 
 ### Patch Changes

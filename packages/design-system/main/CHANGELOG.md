@@ -1,5 +1,17 @@
 # @grasdouble/lufa_design-system
 
+## 0.3.0
+
+### Minor Changes
+
+- 501cf5f: Rework how primitive, tokens and ds is working + align storybook and docusaurus
+
+### Patch Changes
+
+- Updated dependencies [501cf5f]
+  - @grasdouble/lufa_design-system-primitives@0.2.0
+  - @grasdouble/lufa_design-system-tokens@0.2.0
+
 ## 0.2.0
 
 ### Minor Changes
@@ -14,8 +26,8 @@
 - d4b9e09: Clean and fix storybook
 - Updated dependencies [6af7149]
 - Updated dependencies [d4b9e09]
-    - @grasdouble/lufa_design-system-primitives@0.1.0
-    - @grasdouble/lufa_design-system-tokens@0.1.0
+  - @grasdouble/lufa_design-system-primitives@0.1.0
+  - @grasdouble/lufa_design-system-tokens@0.1.0
 
 ## 0.1.2
 
@@ -42,8 +54,9 @@
 
 - cddcb85: Restart the DS using as a reference the DS shared by Github (Primer)
   First components added:
-    - Placeholder
-    - Stack
+
+  - Placeholder
+  - Stack
 
 - 263a062: Add StackItem
 
