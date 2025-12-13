@@ -6,6 +6,7 @@
     }
 
     .avatar {
+        @apply reset-image;
         @apply ring-background-primary ring-2;
         @apply object-cover;
     }

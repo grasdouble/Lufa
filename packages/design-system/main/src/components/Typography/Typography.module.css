@@ -2,7 +2,7 @@
 
 @layer components {
     .typography {
-        @apply m-0;
+        @apply reset-heading;
     }
 
     /* Variants - Using CSS variables from typography tokens */

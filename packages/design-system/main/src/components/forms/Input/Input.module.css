@@ -22,6 +22,7 @@
     }
 
     .input {
+        @apply reset-input;
         @apply w-full;
         @apply duration-base transition-all;
         @apply rounded-md;

@@ -67,16 +67,16 @@
     }
 
     .title {
+        @apply reset-heading;
         @apply text-text-primary text-xl font-semibold;
-        @apply m-0;
     }
 
     .closeButton {
+        @apply reset-button;
         @apply p-1;
         @apply rounded-md;
         @apply hover:bg-background-secondary;
         @apply duration-fast transition-colors;
-        @apply border-none bg-transparent;
         @apply text-text-tertiary hover:text-text-primary;
         cursor: var(--lufa-token-cursor-pointer);
     }

@@ -1,8 +1,9 @@
 @reference '../../../tailwind.css';
 
 @layer components {
-    /* Base button styles */
+    /* Base button styles with reset */
     .button {
+        @apply reset-button;
         @apply inline-flex items-center justify-center gap-2;
         @apply font-medium;
         @apply rounded-lg;

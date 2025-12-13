@@ -1,10 +1,26 @@
-@layer theme, base, components, utilities;
-@import 'tailwindcss/theme.css' layer(theme);
-/* @import 'tailwindcss/preflight.css' layer(base); */
+/* Standard Tailwind layers */
+@layer base, components, utilities;
+
+/* Tailwind core */
+@import 'tailwindcss/theme.css' layer(base);
 @import 'tailwindcss/utilities.css' layer(utilities);
 
-/* https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
+/* Component reset utilities - components import what they need */
+@import './css/component-resets.css';
+
+/* Minimal global reset - only essential for Tailwind to work */
+@layer base {
+    * {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: currentColor;
+    }
+}
+
+/* Dark mode variant */
 @custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *));
 
+/* Tailwind overrides & theme */
 @import './css/tailwind-override.css';
 @import './css/theme.css';
