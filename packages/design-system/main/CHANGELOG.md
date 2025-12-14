@@ -1,5 +1,14 @@
 # @grasdouble/lufa_design-system
 
+## 0.3.1
+
+### Patch Changes
+
+- 93819d3: fix how to manage color on primitive
+- Updated dependencies [93819d3]
+  - @grasdouble/lufa_design-system-primitives@0.2.1
+  - @grasdouble/lufa_design-system-tokens@0.2.1
+
 ## 0.3.0
 
 ### Minor Changes
