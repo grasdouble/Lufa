@@ -4,298 +4,144 @@ AI INSTRUCTIONS:
 1. Replace all [placeholders] with actual content
 2. Remove sections that don't apply to your workflow
 3. Add additional sections if needed for workflow-specific details
-4. Keep the same section order for consistency across documentation
-5. Delete this instruction comment when done
-
-REQUIRED SECTIONS:
-- Title and brief description
-- Overview, Purpose, Trigger
-- Input Parameters (even if "none")
-- Permissions, Workflow Steps, Runner Configuration
-- Usage, Expected Output
-- Troubleshooting, Best Practices, Maintenance
-
-OPTIONAL SECTIONS (include if applicable):
-- Concurrency, What Happens Next
-- When to Use [Feature], Related Actions, Version Control
+4. Delete this instruction comment when done
 
 FORMATTING:
-- Use # for title, ## for main sections, ### for subsections
+- Use # for title, ## for main sections
 - Use code blocks with ```yaml for snippets
-- Use `` for inline code, commands, file names, values
-- Use **bold** for emphasis in best practices and troubleshooting
+- Use `` for inline code, commands, file names
 - Keep tables aligned for readability
 - Include actual console output examples
 -->
 
 # [Workflow Name]
 
-<!-- Brief one-sentence description of what this workflow does -->
-
-[A brief description of the workflow's main purpose and functionality.]
+[Brief description of what this workflow does]
 
 ## Overview
 
-<!-- Detailed description of what the workflow does, when it runs, and its role in the project -->
+[Detailed explanation of purpose and role in CI/CD]
 
-[Detailed explanation of the workflow's purpose, context, and how it fits into the project's CI/CD pipeline.]
+**Purpose**:
 
-### Purpose
-
-<!-- List the key objectives this workflow accomplishes -->
-
-- [Objective 1]
-- [Objective 2]
-- [Objective 3]
-- [Objective 4]
+- [objective 1]
+- [objective 2]
+- [objective 3]
 
 ## Trigger
-
-<!-- Describe when and how the workflow is triggered -->
-
-This workflow runs on the following events:
 
 ```yaml
 on:
   [trigger_type]:
-    # Add specific trigger configuration
+    # specific config
 ```
 
-**When it runs:**
+**Runs on**:
 
-- [Condition 1]
-- [Condition 2]
-- [Condition 3]
+- [condition 1]
+- [condition 2]
 
-<!-- If workflow_dispatch, describe how to trigger manually -->
+## Inputs
 
-## Input Parameters
+_If no inputs: "No input parameters. Automatically [detects/operates on] [context]."_
 
-<!-- If workflow has input parameters, document them in a table -->
-<!-- If no inputs, state: "This workflow has no input parameters. It [automatically detects/operates on] [context]." -->
-
-| Input        | Type     | Required | Default     | Options/Values | Description                   |
-| ------------ | -------- | -------- | ----------- | -------------- | ----------------------------- |
-| `input-name` | `choice` | Yes/No   | `"default"` | value1, value2 | [Description of what it does] |
+| Input    | Type     | Required | Default     | Options    | Description   |
+| -------- | -------- | -------- | ----------- | ---------- | ------------- |
+| `input1` | `choice` | Yes/No   | `"default"` | val1, val2 | [description] |
 
 ## Permissions
 
-<!-- Document all permissions required by the workflow -->
-<!-- Use a table format showing permission, access level, and purpose -->
+| Permission      | Level           | Purpose |
+| --------------- | --------------- | ------- |
+| `contents`      | none/read/write | [why]   |
+| `packages`      | none/read/write | [why]   |
+| `pull-requests` | none/read/write | [why]   |
 
-| Permission            | Access Level    | Purpose                                               |
-| --------------------- | --------------- | ----------------------------------------------------- |
-| `contents`            | none/read/write | [Why this permission is needed] [Explanation if none] |
-| `packages`            | none/read/write | [Why this permission is needed] [Explanation if none] |
-| `pull-requests`       | none/read/write | [Why this permission is needed] [Explanation if none] |
-| `issues`              | none/read/write | [Why this permission is needed] [Explanation if none] |
-| `actions`             | none/read/write | [Why this permission is needed] [Explanation if none] |
-| `checks`              | none/read/write | [Why this permission is needed] [Explanation if none] |
-| `deployments`         | none/read/write | [Why this permission is needed] [Explanation if none] |
-| `repository-projects` | none/read/write | [Why this permission is needed] [Explanation if none] |
-| `security-events`     | none/read/write | [Why this permission is needed] [Explanation if none] |
-| `statuses`            | none/read/write | [Why this permission is needed] [Explanation if none] |
+## Steps
 
-## Workflow Steps
-
-<!-- Document each step in detail with YAML snippet and explanation -->
-
-### 1. [Step Name]
+**1. [Step Name]**:
 
 ```yaml
-- name: [Step name from workflow]
-  uses: [action@version] # or run: [command]
+- uses: [action@version]
   with:
-    parameter: value
+    param: value
 ```
 
-[Explanation of what this step does and why it's needed]
+[What it does]
 
-<!-- Add bullet points if step performs multiple operations -->
-
-- [Sub-operation 1]
-- [Sub-operation 2]
-
-### 2. [Step Name]
+**2. [Step Name]**:
 
 ```yaml
-- name: [Step name from workflow]
-  run: |
-    [command]
+- run: [command]
 ```
 
-[Explanation of what this step does]
-
-<!-- Continue for all steps in the workflow -->
+[What it does]
 
 ## Concurrency
 
-<!-- If workflow has concurrency configuration, document it -->
-<!-- If no concurrency controls, omit this section -->
+_If applicable:_
 
 ```yaml
 concurrency:
-  group: [group pattern]
+  group: [pattern]
   cancel-in-progress: [true/false]
 ```
 
-- [Explanation of concurrency group]
-- [Explanation of cancel-in-progress behavior]
+[Explanation]
 
-## Runner Configuration
-
-<!-- Document the runner configuration -->
+## Runner
 
 ```yaml
-runs-on:
-  group: [runner group]
-  labels: [runner labels]
+runs-on: [runner-type]
 ```
 
-[Explanation of runner choice and resource requirements]
+[Why this runner]
 
 ## Usage
 
-<!-- Provide step-by-step instructions for using the workflow -->
+**Scenario 1**:
 
-### [Usage Scenario 1]
+1. [step] → [step] → [expected outcome]
 
-1. [Step 1]
-2. [Step 2]
-3. [Step 3]
-4. [Expected outcome]
+**Scenario 2**:
 
-### [Usage Scenario 2]
+1. [step] → [expected outcome]
 
-<!-- If applicable, provide alternative usage scenarios -->
+## Output
 
-1. [Step 1]
-2. [Step 2]
-3. [Expected outcome]
-
-<!-- If workflow includes commands to run locally, provide them -->
-
-### [Related Commands/Tools]
-
-```bash
-# [Description]
-[command to run]
-
-# [Description]
-[command to run]
-```
-
-## Expected Output
-
-<!-- Document what users should expect to see after the workflow runs -->
-
-### [Success Scenario 1]
-
-[Description of successful outcome]
+**Success**:
 
 ```
-[Example console output or summary]
+[example output]
 ```
 
-### [Success Scenario 2]
-
-<!-- If applicable -->
+**Failure**:
 
 ```
-[Example console output]
+[example error]
 ```
 
-### [Failure Scenario]
+## Next Steps
 
-```
-[Example error output]
-```
+After success:
 
-## What Happens Next
+1. [outcome]
+2. [next action]
 
-<!-- Optional section: Describe what happens after successful workflow execution -->
+## Debug
 
-After successful execution:
-
-1. [Outcome 1]
-2. [Outcome 2]
-3. [Outcome 3]
-4. [Next steps for user]
-
-## When to Use [Feature]
-
-<!-- Optional section: If workflow has special features or bypass mechanisms, document when to use them -->
-
-[Description of when to use specific features]
-
-**Use for:**
-
-- [Use case 1]
-- [Use case 2]
-
-**Do NOT use for:**
-
-- [Anti-pattern 1]
-- [Anti-pattern 2]
-
-## Related Actions
-
-<!-- List related workflows, actions, or documentation -->
-
-- `[action-name]` - [Description and link]
-- `.github/workflows/[workflow-file]` - [Description]
-
-## Troubleshooting
-
-<!-- Document common issues and their solutions -->
-
-### [Problem Title]
-
-**Problem**: [Description of the problem]
-
-**Solution**:
-
-- [Solution step 1]
-- [Solution step 2]
-- [Solution step 3]
-
-### [Problem Title]
-
-**Problem**: [Description of the problem]
-
-**Solution**:
-
-- [Solution step 1]
-- [Solution step 2]
-
-<!-- Add more troubleshooting sections as needed -->
+| Problem | Solution |
+| ------- | -------- |
+| [issue] | [fix]    |
+| [issue] | [fix]    |
 
 ## Best Practices
 
-<!-- Provide recommendations for using the workflow effectively -->
+- [practice 1]
+- [practice 2]
+- [practice 3]
 
-1. **[Practice 1]** - [Explanation]
-2. **[Practice 2]** - [Explanation]
-3. **[Practice 3]** - [Explanation]
-4. **[Practice 4]** - [Explanation]
-5. **[Practice 5]** - [Explanation]
+## Links
 
-## Maintenance
-
-<!-- Document maintenance-related information -->
-
-- **Dependencies**:
-  - `[action-name@version]` - [Description]
-  - `[action-name@version]` - [Description]
-- **[Configuration Item]**: [Details]
-- **[Configuration Item]**: [Details]
-- **Update Strategy**: [How to keep the workflow updated]
-- **Testing**: [How to test changes to the workflow]
-
-## Version Control
-
-<!-- Optional section: Document version control specifics if relevant -->
-
-- [Version control detail 1]
-- [Version control detail 2]
-- [Version control detail 3]
+- [Related Action](../actions/[action]/README.md)
+- [Related Workflow](.github/workflows/[file].yml)

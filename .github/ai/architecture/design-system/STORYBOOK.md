@@ -1,434 +1,184 @@
-# Storybook Architecture
+# Storybook
 
-> **Last Updated**: December 13, 2025  
-> **Package**: `@grasdouble/lufa_design-system-storybook`  
-> **Location**: `packages/design-system/storybook/`  
-> **Version**: Storybook 10.1.4
+Package: `@grasdouble/lufa_design-system-storybook`
+Location: packages/design-system/storybook/
+Updated: 2025-12-13
+Version: 0.4.0 (Storybook 10.1.4)
+URL: https://lufa-storybook.sebastien-lemouillour.fr
 
-## Overview
+## Stats
 
-Storybook serves as the interactive component documentation and development environment for the Lufa Design System. It provides a sandbox for building, testing, and documenting components in isolation.
+- 9 story categories (Tokens, Layout, Forms, Display, Feedback, Overlay, Patterns, Primitives, Utilities)
+- Dual theme support (light/dark)
+- Dependencies: 3 runtime (design-system, tokens, primitives), React 19
 
-**Live Deployment**: [lufa-storybook.sebastien-lemouillour.fr](https://lufa-storybook.sebastien-lemouillour.fr)
-
-> **Development Guide**: See [../../rules/design-system/STORYBOOK.md](../../rules/design-system/STORYBOOK.md) for story writing guidelines
-
-## Architecture
-
-### Package Structure
+## Structure
 
 ```
 packages/design-system/storybook/
-├── .storybook/                 # Configuration
-│   ├── main.ts                # Core Storybook config
-│   ├── preview.tsx            # Global decorators & parameters
-│   └── breakpoints.ts         # Viewport definitions
-│
+├── .storybook/
+│ ├── main.ts Storybook config
+│ ├── preview.tsx Decorators, theme, viewports
+│ └── breakpoints.ts Custom viewports
 ├── src/
-│   ├── stories/               # Story files
-│   │   ├── components/       # Component stories (organized by category)
-│   │   │   ├── display/     # Display component stories
-│   │   │   ├── feedback/    # Feedback component stories
-│   │   │   ├── forms/       # Form component stories
-│   │   │   ├── layout/      # Layout component stories
-│   │   │   ├── overlay/     # Overlay component stories
-│   │   │   └── patterns/    # Pattern stories
-│   │   ├── primitives/       # Primitive documentation stories
-│   │   ├── tokens/           # Design token stories
-│   │   └── utilities/        # Utility documentation
-│   ├── components/           # Storybook-specific helper components
-│   └── style.css             # Storybook-specific styles
-│
-├── storybook-static/          # Build output
-├── package.json
-└── vite.config.ts
+│ ├── stories/
+│ │ ├── components/ Component stories by category
+│ │ ├── primitives/ Primitive docs
+│ │ └── tokens/ Token visualization
+│ └── style.css Storybook styles
+└── storybook-static/ Build output
 ```
 
-### Technology Stack
+## Tech Stack
 
-- **Storybook**: v10.1.4
-- **Framework**: `@storybook/react-vite`
-- **Addons**:
-  - `@storybook/addon-themes` - Theme switching (light/dark)
-  - `@storybook/addon-docs` - Auto-generated documentation
-- **Build Tool**: Vite 7
+| Layer     | Technology                | Purpose                      |
+| --------- | ------------------------- | ---------------------------- |
+| Framework | Storybook 10.1            | Component playground         |
+| Builder   | @storybook/react-vite 7.2 | Vite-based build             |
+| Addons    | addon-themes              | Light/dark theme switching   |
+| Addons    | addon-docs                | Auto-generated documentation |
+| Language  | TypeScript 5.9            | Type-safe stories            |
 
-## Story Organization
+## Key Concepts
 
-### Naming Convention
+**Story Organization**: Numeric prefixes control display order
 
-Stories are organized with numeric prefixes for consistent ordering:
-
-```
-1. Tokens/           # Design tokens (colors, spacing, etc.)
-2. Layout/           # Layout components
-3. Forms/            # Form components
-4. Display/          # Display components
-5. Feedback/         # Feedback components
-6. Overlay/          # Overlay components
-7. Patterns/         # Composite patterns
-8. Primitives/       # CSS primitives
-9. Utilities/        # Utility documentation
+```ts
+"1. Tokens/Colors"
+"2. Layout/Container"
+"3. Forms/Button"
 ```
 
-### Story File Structure
+**Playground Pattern**: First story is always interactive playground
 
-Each component story follows this pattern:
-
-```typescript
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ComponentName } from "@grasdouble/lufa_design-system";
-
-const meta = {
-  title: "3. Forms/ComponentName",
-  component: ComponentName,
-  parameters: {
-    layout: "centered",
-    docs: {
-      description: {
-        component: "Component description",
-      },
-    },
-  },
-  tags: [],
-  argTypes: {
-    // Prop documentation
-  },
-} satisfies Meta<typeof ComponentName>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-// First story is always "Playground"
-export const Playground: Story = {
-  args: {
-    /* default props */
-  },
-};
-
-// Additional variant stories
-export const Variant1: Story = {
-  /* ... */
-};
-export const Variant2: Story = {
-  /* ... */
-};
+```ts
+export const Playground: Story = { args: { /_ editable _/ } };
+export const Primary: Story = { /_ fixed example _/ };
 ```
 
-## Configuration
+**Dual Theme**: Data attribute + class name strategy
 
-### Main Configuration (.storybook/main.ts)
+```ts
 
-```typescript
-const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-
-  addons: ["@storybook/addon-themes", "@storybook/addon-docs"],
-
-  framework: {
-    name: "@storybook/react-vite",
-    options: {},
-  },
-
-  typescript: {
-    reactDocgen: "react-docgen-typescript",
-  },
-};
+<div data-theme="dark" class="theme-dark">...</div>
 ```
 
-**Key Features**:
+## Config
 
-- **Auto-discovery**: Finds all `.stories.tsx` files
-- **TypeScript support**: Full type extraction for props
-- **React-docgen**: Automatic prop documentation
+**.storybook/main.ts**: Auto-discovery, React-docgen, Vite builder
 
-### Preview Configuration (.storybook/preview.tsx)
-
-#### Theme Support
-
-Dual theme system (light/dark) using two strategies:
-
-1. **Data attribute**: `data-theme="dark|light"`
-2. **Class name**: `class="theme-dark|theme-light"`
-
-```typescript
-const decorators = [
-  withThemeByDataAttribute({
-    themes: { light: "light", dark: "dark" },
-    defaultTheme: "light",
-    attributeName: "data-theme",
-  }),
-  withThemeByClassName({
-    themes: { light: "light", dark: "dark" },
-    defaultTheme: "light",
-  }),
-];
-```
-
-#### Viewport Configuration
-
-Custom viewports matching design system breakpoints:
-
-```typescript
-storybookViewports = {
-  mobile: { width: "375px" },
-  tablet: { width: "768px" },
-  desktop: { width: "1024px" },
-  wide: { width: "1280px" },
-};
-```
-
-#### Story Sorting
-
-Custom sort algorithm:
-
-1. **Category order**: Numeric prefixes (1. Tokens, 2. Layout, etc.)
-2. **Playground first**: Within each component, "Playground" story appears first
-3. **Alphabetical**: Other stories sorted alphabetically
-
-```typescript
-storySort: (a, b) => {
-  // Sort by category (numeric)
-  const titleCompare = a.title.localeCompare(b.title, { numeric: true });
-  if (titleCompare !== 0) return titleCompare;
-
-  // Playground always first
-  if (a.name === "Playground") return -1;
-  if (b.name === "Playground") return 1;
-
-  // Alphabetical for others
-  return a.id.localeCompare(b.id);
-};
-```
-
-## Dark Mode Implementation
-
-Custom decorator handles dark mode backgrounds:
-
-```typescript
-export const hackDecoratorDarkMode: Decorator = (story, context) => {
-  const isDarkMode = context?.globals?.theme === "dark";
-  const darkColor = "#333";
-  const lightColor = "#ffffff";
-
-  // Apply background to docs mode
-  const styleContentForDocs = `
-    .docs-story {
-      background-color: ${isDarkMode ? darkColor : lightColor};
-    }`;
-
-  // Apply background to story canvas
-  const styleContentForStories = `
-    .dark,
-    [data-theme="dark"] {
-      background-color: #333;
-    }`;
-
-  return (
-    <>
-      <style>{styleContentForDocs}</style>
-      <style>{styleContentForStories}</style>
-      {story(context)}
-    </>
-  );
-};
-```
-
-## Dependencies
-
-### Runtime Dependencies
-
-```json
+**.storybook/preview.tsx**:
+```ts
 {
-  "@grasdouble/lufa_design-system": "workspace:^",
-  "@grasdouble/lufa_design-system-tokens": "workspace:^",
-  "@grasdouble/lufa_design-system-primitives": "workspace:^",
-  "react": "^19.2.1",
-  "react-dom": "^19.2.1"
+decorators: [withThemeByDataAttribute, withThemeByClassName],
+viewports: { mobile: 375px, tablet: 768px, desktop: 1024px, wide: 1280px },
+storySort: (a, b) => /_ Playground first, then alphabetical _/
 }
 ```
 
-**All design system packages** are imported from workspace for live development.
+## Build
 
-### Dev Dependencies
-
-```json
-{
-  "storybook": "^10.1.4",
-  "@storybook/react-vite": "^10.1.4",
-  "@storybook/addon-docs": "^10.1.4",
-  "@storybook/addon-themes": "^10.1.4",
-  "vite": "^7.2.6"
-}
-```
-
-## Build & Deployment
-
-### Development Server
-
+**Dev**:
 ```bash
 pnpm dev
-# Runs on http://localhost:6006
-# --no-open flag prevents auto-opening browser
 ```
+Steps: Start Vite → Watch stories → Serve on :6006
+Output: Hot-reload server (no build output)
 
-**Hot Reload**: Changes to design system components trigger automatic reload.
-
-### Production Build
-
+**Prod**:
 ```bash
 pnpm build
 ```
+Steps: Bundle stories → Optimize assets → Generate HTML
+Output: storybook-static/ (static HTML/CSS/JS)
+Deploy: Upload to https://lufa-storybook.sebastien-lemouillour.fr
 
-**Output**: `storybook-static/` directory containing:
+## Dependencies
 
-- Static HTML/CSS/JS files
-- All component documentation
-- Search index
-- Asset files
+**Runtime**: `@grasdouble/lufa_design-system`, `@grasdouble/lufa_design-system-tokens`, `@grasdouble/lufa_design-system-primitives`, `react@19.2`, `react-dom@19.2`
+**Dev**: `storybook@10.1.4`, `@storybook/react-vite`, `@storybook/addon-docs`, `@storybook/addon-themes`, `vite@7.2`
 
-### Deployment Flow
+Purpose:
 
-1. Build Storybook: `pnpm build`
-2. Deploy `storybook-static/` to static hosting
-3. Accessible at: [lufa-storybook.sebastien-lemouillour.fr](https://lufa-storybook.sebastien-lemouillour.fr)
+- design-system: Components to document
+- tokens/primitives: Design values visualization
+- React 19: Component runtime
+- Storybook addons: Theme switching, docs generation
 
-## Story Categories
+## Integration
 
-### 1. Tokens
-
-Visual documentation of design tokens:
-
-- Colors (primitives + semantic)
-- Typography scale
-- Spacing system
-- Shadows & borders
-- Breakpoints
-- Motion & transitions
-
-### 2-7. Components
-
-Interactive component documentation:
-
-- **Layout**: Container, Grid, Stack, Divider
-- **Forms**: Button, Input, Select, Checkbox, Radio
-- **Display**: Card, Badge, Avatar, Typography, Image
-- **Feedback**: Alert, Toast, Progress, Spinner
-- **Overlay**: Modal, Dropdown, Tooltip, Popover
-- **Patterns**: Form layouts, navigation patterns
-
-### 8. Primitives
-
-Documentation of CSS primitives (custom properties)
-
-### 9. Utilities
-
-Helper functions and utility documentation
-
-## Integration Points
-
-### Design System
-
-Storybook imports the **compiled** design system package:
-
-```typescript
-import { Button, Card, ... } from '@grasdouble/lufa_design-system';
+**Import Components**:
+```tsx
+import { Button } from '@grasdouble/lufa_design-system';
 import '@grasdouble/lufa_design-system/style.css';
+
+export const Playground: Story = { render: () => <Button>Click</Button> };
 ```
 
-**Workflow**:
+Flow: Import from workspace → Hot-reload on changes → Preview in Storybook
 
-1. Make changes to design system components
-2. Design system rebuilds (watch mode: `pnpm dev`)
-3. Storybook detects changes and hot-reloads
+**Theme Switching**:
+```tsx
+// Toolbar theme switcher sets both
 
-### Documentation Site
+<div data-theme="dark" class="theme-dark">
+  <Button>Themed</Button>
+</div>
+```
 
-Storybook complements the Docusaurus documentation site:
+Flow: Click theme in toolbar → Decorator applies attributes → CSS variables switch
 
-- **Storybook**: Interactive playground, visual testing
-- **Docusaurus**: Guides, tutorials, architecture docs
+**Story Sorting**:
+```ts
+storySort: (a, b) => {
+if (a.name === "Playground") return -1; // Playground first
+return a.id.localeCompare(b.id);
+}
+```
 
-## Best Practices
+Flow: Story file exports → Storybook loads → Sort applied → Sidebar updated
 
-### Story Organization
+## Workflows
 
-✅ **Do**:
+**Add Story**:
 
-- Use numeric prefixes for categories
-- Put "Playground" story first
-- Document all props with argTypes
-- Include component descriptions
+1. Create `src/stories/components/{category}/{Name}.stories.tsx` - Story file
+2. Export meta with title `"{number}. {Category}/{Name}"` - Metadata
+3. Export `Playground` story with args - Interactive example
+4. Run `pnpm dev` - Preview in browser
 
-❌ **Don't**:
+**Test Themes**:
 
-- Mix story categories
-- Skip prop documentation
-- Use ambiguous story names
+1. Open story in Storybook - Navigate to component
+2. Click theme switcher in toolbar - Toggle light/dark
+3. Verify component appearance - Visual check
 
-### Theme Testing
+## Decisions
 
-✅ **Do**:
+- **Numeric prefixes**: Control sidebar order | Why: Consistent navigation | Trade-off: Harder to rename categories
+- **Dual theme strategy**: data-attribute + className | Why: Support both CSS approaches | Trade-off: Redundant attributes
+- **Workspace dependencies**: Import from monorepo | Why: Live hot-reload during dev | Trade-off: Requires design-system built first
+- **Playground pattern**: First story editable | Why: Clear interactive example | Trade-off: Naming convention must be followed
 
-- Test components in both light and dark modes
-- Use theme switcher in toolbar
-- Verify color contrast
+## Deployment
 
-❌ **Don't**:
+Target: Static hosting
+URL: https://lufa-storybook.sebastien-lemouillour.fr
+Method: `pnpm build` → Upload storybook-static/
+CI/CD: Manual build and deploy
 
-- Hardcode theme-specific colors
-- Assume default theme
+## Debug
 
-### Performance
+| Issue                  | Fix                                                |
+| ---------------------- | -------------------------------------------------- |
+| Story not appearing    | Check filename ends in `.stories.tsx`              |
+| Dark mode broken       | Verify component uses CSS custom properties        |
+| Slow build             | Clear cache: `rm -rf node_modules/.cache`          |
+| TypeScript errors      | Check `Meta<typeof Component>` type matches export |
+| Hot-reload not working | Rebuild design-system package in watch mode        |
 
-✅ **Do**:
+## Links
 
-- Lazy load heavy components
-- Optimize story asset sizes
-- Use code splitting
-
-❌ **Don't**:
-
-- Import entire icon libraries
-- Load unnecessary dependencies
-
-## Troubleshooting
-
-### Common Issues
-
-**Issue**: Stories not appearing
-
-- **Solution**: Check file naming (must end in `.stories.tsx`)
-- **Solution**: Verify story export syntax
-
-**Issue**: Dark mode not working
-
-- **Solution**: Ensure component uses CSS custom properties
-- **Solution**: Check theme decorator configuration
-
-**Issue**: Slow build times
-
-- **Solution**: Clear Storybook cache: `rm -rf node_modules/.cache`
-- **Solution**: Optimize story imports
-
-**Issue**: TypeScript errors in stories
-
-- **Solution**: Verify `Meta` and `StoryObj` types are correct
-- **Solution**: Check component prop types match story args
-
-## Future Enhancements
-
-Potential additions:
-
-- `@storybook/addon-interactions` - Interaction testing
-- `@storybook/addon-a11y` - Accessibility testing
-- `@chromatic-com/storybook` - Visual regression testing
-- Component tests using `@storybook/experimental-addon-test`
-
----
-
-**Related Documentation**:
-
-- [Development Rules](../../rules/design-system/STORYBOOK.md) - How to write stories
-- [Design System Overview](./DESIGN_SYSTEM.md) - Parent architecture
-- [Main Package](./MAIN.md) - Component architecture
+- [Development Rules](../../rules/design-system/STORYBOOK.md)
+- [Design System Overview](./DESIGN_SYSTEM.md)
+- [Main Package](./MAIN.md)

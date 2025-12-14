@@ -5,111 +5,108 @@
  * They provide intent-based naming for easier usage and better maintainability.
  */
 
-import {
-  colorChromatic as primitiveColorChromatic,
-  colorNeutral as primitiveColorNeutral,
-} from "@grasdouble/lufa_design-system-primitives";
+import { color as primitiveColor } from "@grasdouble/lufa_design-system-primitives";
 
 export const color = {
   // Text primitiveColors
   text: {
-    primary: primitiveColorNeutral.neutral[900], // Main text color (AAA)
-    secondary: primitiveColorNeutral.neutral[700], // Secondary text (AAA)
-    tertiary: primitiveColorNeutral.neutral[600], // Tertiary text (AAA)
-    disabled: primitiveColorNeutral.neutral[400], // Disabled text
-    inverse: primitiveColorNeutral.neutral[0], // Text on dark backgrounds
-    link: primitiveColorChromatic.blue[600], // Link text (AAA)
-    linkHover: primitiveColorChromatic.blue[700], // Link hover state
+    primary: primitiveColor.neutral.neutral[900], // Main text color (AAA)
+    secondary: primitiveColor.neutral.neutral[700], // Secondary text (AAA)
+    tertiary: primitiveColor.neutral.neutral[600], // Tertiary text (AAA)
+    disabled: primitiveColor.neutral.neutral[400], // Disabled text
+    inverse: primitiveColor.neutral.neutral[0], // Text on dark backgrounds
+    link: primitiveColor.chromatic.blue[600], // Link text (AAA)
+    linkHover: primitiveColor.chromatic.blue[700], // Link hover state
   },
 
   // Background primitiveColors
   background: {
-    primary: primitiveColorNeutral.neutral[0], // Main background
-    secondary: primitiveColorNeutral.neutral[50], // Secondary background
-    tertiary: primitiveColorNeutral.neutral[100], // Tertiary background
-    inverse: primitiveColorNeutral.neutral[900], // Dark background
+    primary: primitiveColor.neutral.neutral[0], // Main background
+    secondary: primitiveColor.neutral.neutral[50], // Secondary background
+    tertiary: primitiveColor.neutral.neutral[100], // Tertiary background
+    inverse: primitiveColor.neutral.neutral[900], // Dark background
     overlay: "rgba(0, 0, 0, 0.5)", // Modal/overlay background
   },
 
   // Border primitiveColors
   border: {
-    default: primitiveColorNeutral.neutral[300], // Default borders
-    light: primitiveColorNeutral.neutral[200], // Light borders
-    medium: primitiveColorNeutral.neutral[400], // Medium borders
-    strong: primitiveColorNeutral.neutral[600], // Strong borders
-    focus: primitiveColorChromatic.blue[500], // Focus state borders
+    default: primitiveColor.neutral.neutral[300], // Default borders
+    light: primitiveColor.neutral.neutral[200], // Light borders
+    medium: primitiveColor.neutral.neutral[400], // Medium borders
+    strong: primitiveColor.neutral.neutral[600], // Strong borders
+    focus: primitiveColor.chromatic.blue[500], // Focus state borders
   },
 
   // Interactive states
   interactive: {
-    default: primitiveColorChromatic.blue[600], // Default interactive (AAA)
-    hover: primitiveColorChromatic.blue[700], // Hover state
-    active: primitiveColorChromatic.blue[800], // Active/pressed state
-    disabled: primitiveColorNeutral.neutral[300], // Disabled state
-    focus: primitiveColorChromatic.blue[500], // Focus state
+    default: primitiveColor.chromatic.blue[600], // Default interactive (AAA)
+    hover: primitiveColor.chromatic.blue[700], // Hover state
+    active: primitiveColor.chromatic.blue[800], // Active/pressed state
+    disabled: primitiveColor.neutral.neutral[300], // Disabled state
+    focus: primitiveColor.chromatic.blue[500], // Focus state
   },
 
   // Status primitiveColors - Success
   success: {
-    default: primitiveColorChromatic.green[600], // Success color (AAA)
-    hover: primitiveColorChromatic.green[700], // Success hover
-    active: primitiveColorChromatic.green[800], // Success active
-    light: primitiveColorChromatic.green[50], // Success background light
-    lighter: primitiveColorChromatic.green[100], // Success background lighter
-    border: primitiveColorChromatic.green[300], // Success border
-    text: primitiveColorChromatic.green[700], // Success text
+    default: primitiveColor.chromatic.green[600], // Success color (AAA)
+    hover: primitiveColor.chromatic.green[700], // Success hover
+    active: primitiveColor.chromatic.green[800], // Success active
+    light: primitiveColor.chromatic.green[50], // Success background light
+    lighter: primitiveColor.chromatic.green[100], // Success background lighter
+    border: primitiveColor.chromatic.green[300], // Success border
+    text: primitiveColor.chromatic.green[700], // Success text
   },
 
   // Status primitiveColors - Warning
   warning: {
-    default: primitiveColorChromatic.orange[600], // Warning color (AAA)
-    hover: primitiveColorChromatic.orange[700], // Warning hover
-    active: primitiveColorChromatic.orange[800], // Warning active
-    light: primitiveColorChromatic.orange[50], // Warning background light
-    lighter: primitiveColorChromatic.orange[100], // Warning background lighter
-    border: primitiveColorChromatic.orange[300], // Warning border
-    text: primitiveColorChromatic.orange[700], // Warning text
+    default: primitiveColor.chromatic.orange[600], // Warning color (AAA)
+    hover: primitiveColor.chromatic.orange[700], // Warning hover
+    active: primitiveColor.chromatic.orange[800], // Warning active
+    light: primitiveColor.chromatic.orange[50], // Warning background light
+    lighter: primitiveColor.chromatic.orange[100], // Warning background lighter
+    border: primitiveColor.chromatic.orange[300], // Warning border
+    text: primitiveColor.chromatic.orange[700], // Warning text
   },
 
   // Status primitiveColors - Error/Danger
   error: {
-    default: primitiveColorChromatic.red[600], // Error color (AAA)
-    hover: primitiveColorChromatic.red[700], // Error hover
-    active: primitiveColorChromatic.red[800], // Error active
-    light: primitiveColorChromatic.red[50], // Error background light
-    lighter: primitiveColorChromatic.red[100], // Error background lighter
-    border: primitiveColorChromatic.red[300], // Error border
-    text: primitiveColorChromatic.red[700], // Error text
+    default: primitiveColor.chromatic.red[600], // Error color (AAA)
+    hover: primitiveColor.chromatic.red[700], // Error hover
+    active: primitiveColor.chromatic.red[800], // Error active
+    light: primitiveColor.chromatic.red[50], // Error background light
+    lighter: primitiveColor.chromatic.red[100], // Error background lighter
+    border: primitiveColor.chromatic.red[300], // Error border
+    text: primitiveColor.chromatic.red[700], // Error text
   },
 
   // Status primitiveColors - Info
   info: {
-    default: primitiveColorChromatic.blue[600], // Info color (AAA)
-    hover: primitiveColorChromatic.blue[700], // Info hover
-    active: primitiveColorChromatic.blue[800], // Info active
-    light: primitiveColorChromatic.blue[50], // Info background light
-    lighter: primitiveColorChromatic.blue[100], // Info background lighter
-    border: primitiveColorChromatic.blue[300], // Info border
-    text: primitiveColorChromatic.blue[700], // Info text
+    default: primitiveColor.chromatic.blue[600], // Info color (AAA)
+    hover: primitiveColor.chromatic.blue[700], // Info hover
+    active: primitiveColor.chromatic.blue[800], // Info active
+    light: primitiveColor.chromatic.blue[50], // Info background light
+    lighter: primitiveColor.chromatic.blue[100], // Info background lighter
+    border: primitiveColor.chromatic.blue[300], // Info border
+    text: primitiveColor.chromatic.blue[700], // Info text
   },
 
   // Brand primitiveColors
   brand: {
-    primary: primitiveColorChromatic.blue[600], // Primary brand color
-    primaryHover: primitiveColorChromatic.blue[700], // Primary hover
-    primaryActive: primitiveColorChromatic.blue[800], // Primary active
-    secondary: primitiveColorChromatic.purple[600], // Secondary brand color
-    secondaryHover: primitiveColorChromatic.purple[700], // Secondary hover
-    secondaryActive: primitiveColorChromatic.purple[800], // Secondary active
-    accent: primitiveColorChromatic.teal[600], // Accent color
+    primary: primitiveColor.chromatic.blue[600], // Primary brand color
+    primaryHover: primitiveColor.chromatic.blue[700], // Primary hover
+    primaryActive: primitiveColor.chromatic.blue[800], // Primary active
+    secondary: primitiveColor.chromatic.purple[600], // Secondary brand color
+    secondaryHover: primitiveColor.chromatic.purple[700], // Secondary hover
+    secondaryActive: primitiveColor.chromatic.purple[800], // Secondary active
+    accent: primitiveColor.chromatic.teal[600], // Accent color
   },
 
   // Surface primitiveColors (for cards, panels, etc.)
   surface: {
-    default: primitiveColorNeutral.neutral[0], // Default surface
-    raised: primitiveColorNeutral.neutral[50], // Slightly raised surface
-    overlay: primitiveColorNeutral.neutral[100], // Overlay surface
-    inverse: primitiveColorNeutral.neutral[900], // Dark surface
+    default: primitiveColor.neutral.neutral[0], // Default surface
+    raised: primitiveColor.neutral.neutral[50], // Slightly raised surface
+    overlay: primitiveColor.neutral.neutral[100], // Overlay surface
+    inverse: primitiveColor.neutral.neutral[900], // Dark surface
   },
 
   // Shadow primitiveColors

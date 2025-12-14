@@ -1,313 +1,172 @@
-# CSS Architecture & Preflight Management
+# CSS
 
-**For AI Assistants**: This document explains how CSS resets and Tailwind preflight are managed in the Lufa Design System.
+Package: `@grasdouble/lufa_design-system`
+Location: packages/design-system/main/src/css/
+Updated: 2025-12-13
+Tailwind: 4.1.17
 
-## Overview
+## Stats
 
-The Lufa Design System uses a **component-level reset strategy** instead of global Tailwind preflight to avoid conflicts with host applications (especially Docusaurus and other frameworks that have their own CSS).
+- Component-level reset strategy (no global preflight)
+- 5 reset utilities (button, input, heading, list, image)
+- ~165 KB uncompressed CSS bundle (~22 KB gzipped)
 
-## Why No Global Preflight?
+## Structure
 
-Tailwind's preflight is a comprehensive CSS reset that normalizes browser styles. However, when used in a design system library:
+```
+packages/design-system/main/src/
+├── tailwind.css                Minimal global reset
+├── css/
+│   └── component-resets.css    Custom reset utilities
+└── components/
+    └── **/Component.module.css Component styles
+```
 
-1. **It breaks host application styles**: Global resets like `h1 { font-size: 2em; margin: 0; }` override the host app's typography
-2. **CSS layers don't provide selector scoping**: Using `@layer` only controls cascade order, not selector specificity
-3. **Framework conflicts**: Docusaurus, Next.js, and other frameworks have their own resets that conflict
+## Tech Stack
 
-## Architecture
+| Layer        | Technology        | Purpose                     |
+| ------------ | ----------------- | --------------------------- |
+| Framework    | Tailwind CSS 4.1  | Utility-first CSS           |
+| Build        | @tailwindcss/vite | Vite plugin for TW v4       |
+| Architecture | CSS Modules       | Scoped component styles     |
+| Layers       | @layer            | base, components, utilities |
 
-### 1. Minimal Global Reset
+## Key Concepts
 
-Located in [`src/tailwind.css`](src/tailwind.css):
+**Component-Level Resets**: Each component applies reset locally, no global preflight
 
 ```css
-@layer base {
-    * {
-        box-sizing: border-box;
-        border-width: 0;
-        border-style: solid;
-        border-color: currentColor;
-    }
+.button {
+  @apply reset-button; /* Component-specific reset */
+  @apply bg-blue-500; /* Component styles */
 }
 ```
 
-This provides only the **essential** reset needed for Tailwind utilities to work correctly:
+**Minimal Global Reset**: Only essentials for Tailwind utilities
 
-- `box-sizing: border-box` - Required for width/height utilities
-- Border defaults - Required for border utilities
+```css
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: currentColor;
+  }
+}
+```
 
-**Do NOT add more global resets here** - it will break host applications.
-
-### 2. Component-Level Reset Utilities
-
-Custom utilities are defined in [`src/css/component-resets.css`](src/css/component-resets.css):
+**Reset Utilities**: Custom `@utility` for common elements
 
 ```css
 @utility reset-button {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: inherit;
-    color: inherit;
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
-    background-image: none;
-    border: 0;
-    cursor: pointer;
-}
-
-@utility reset-input {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: inherit;
-    color: inherit;
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
-    background-image: none;
-    border: 0;
-}
-
-@utility reset-heading {
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    padding: 0;
-}
-
-@utility reset-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-@utility reset-image {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  font-family: inherit;
+  font-size: 100%;
+  /* ... browser reset */
 }
 ```
 
-### 3. Applying Resets in Components
+## Config
 
-Each component applies the appropriate reset utility in its CSS module:
+**tailwind.css**: Imports primitives → tokens → component-resets, minimal base layer
 
-**Example: Button Component** ([`src/components/Button/Button.module.css`](src/components/Button/Button.module.css))
+**component-resets.css**: 5 utilities (button, input, heading, list, image)
+
+**Component.module.css**: Uses `@reference '../../../tailwind.css'` and `@layer components`
+
+## Build
+
+**Process**: Vite → @tailwindcss/vite → Bundle CSS → Extract to dist/style.css
+
+**Output**:
+
+- dist/style.css (~165 KB uncompressed, ~22 KB gzipped)
+- Contains: Base layer, component styles, utilities, primitives, tokens
+
+## Dependencies
+
+**Build**: `@tailwindcss/vite@4.1.17`, `tailwindcss@4.1.17`, `postcss@8.5`
+
+Purpose:
+
+- @tailwindcss/vite: Tailwind v4 integration
+- tailwindcss: Core CSS framework
+- postcss: CSS processing
+
+## Integration
+
+**In Component**:
 
 ```css
 @layer components {
-    @reference '../../../tailwind.css';
+  @reference '../../../tailwind.css';
 
-    .button {
-        @apply reset-button;
-        @apply inline-flex items-center justify-center;
-        @apply rounded-md font-medium transition-colors;
-        /* ... rest of styles */
-    }
-}
-```
-
-**Example: Typography Component** ([`src/components/Typography/Typography.module.css`](src/components/Typography/Typography.module.css))
-
-```css
-@layer components {
-    @reference '../../../tailwind.css';
-
-    .heading {
-        @apply reset-heading;
-        @apply font-bold text-gray-900 dark:text-gray-100;
-        /* ... rest of styles */
-    }
-}
-```
-
-**Example: Input Component** ([`src/components/Input/Input.module.css`](src/components/Input/Input.module.css))
-
-```css
-@layer components {
-    @reference '../../../tailwind.css';
-
-    .input {
-        @apply reset-input;
-        @apply w-full rounded-md border px-3 py-2;
-        /* ... rest of styles */
-    }
-}
-```
-
-## Guidelines for New Components
-
-When creating a new component:
-
-1. **Identify the base HTML element**: `<button>`, `<input>`, `<h1>`, `<ul>`, `<img>`, etc.
-
-2. **Choose the appropriate reset utility**:
-    - Buttons: `@apply reset-button`
-    - Inputs/textareas/selects: `@apply reset-input`
-    - Headings (h1-h6): `@apply reset-heading`
-    - Lists (ul, ol): `@apply reset-list`
-    - Images: `@apply reset-image`
-
-3. **Apply it first in the component's CSS module**:
-
-    ```css
-    @layer components {
-        @reference '../../../tailwind.css';
-
-        .myComponent {
-            @apply reset-button; /* or appropriate reset */
-            @apply /* your styles */;
-        }
-    }
-    ```
-
-4. **Create a new reset utility if needed**: If you're working with an element type not covered (e.g., tables, forms), add a new `@utility` in `component-resets.css`
-
-## What NOT to Do
-
-❌ **Don't enable Tailwind preflight globally**:
-
-```css
-/* DON'T DO THIS */
-@import 'tailwindcss/preflight' layer(base);
-```
-
-❌ **Don't add element-level resets in tailwind.css**:
-
-```css
-/* DON'T DO THIS */
-@layer base {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin: 0;
-        font-weight: inherit;
-    }
-}
-```
-
-❌ **Don't rely on cascade without explicit resets**:
-
-```css
-/* DON'T DO THIS */
-.myButton {
-    /* Missing reset - will inherit browser styles */
+  .button {
+    @apply reset-button; /* Reset first */
     @apply bg-blue-500 text-white;
+  }
 }
 ```
 
-✅ **Do apply component-level resets**:
+Flow: Component imports .module.css → Vite processes → Tailwind applies → Output to dist/
 
-```css
-/* DO THIS */
-.myButton {
-    @apply reset-button;
-    @apply bg-blue-500 text-white;
-}
+**In Host App**:
+
+```tsx
+import { Button } from "@grasdouble/lufa_design-system";
+import "@grasdouble/lufa_design-system/style.css"; // No conflicts
 ```
 
-## CSS Layer Structure
+Flow: Import CSS → No global resets → Host app styles intact → Component styles scoped
 
-The design system uses standard Tailwind layers:
+## Workflows
 
-```css
-@layer base {
-    /* Minimal global reset only */
-}
+**Create Component**:
 
-@layer components {
-    /* All component styles */
-}
+1. Create `Component.module.css` - Scoped styles
+2. Add `@layer components { @reference '../../../tailwind.css'; }` - Setup
+3. Apply reset: `.component { @apply reset-{type}; }` - Reset browser styles
+4. Add styles: `@apply ...` - Component appearance
 
-@layer utilities {
-    /* Tailwind utilities + custom utilities */
-}
-```
+**Add Reset Utility**:
 
-Component CSS modules use `@layer components` and `@reference '../../../tailwind.css'` to ensure proper cascade order.
+1. Edit `src/css/component-resets.css` - Add new `@utility`
+2. Define reset properties - Browser defaults to neutralize
+3. Apply in components: `@apply reset-{name}` - Use in modules
 
-## Testing Integration
+## Decisions
 
-After making CSS changes:
+- **No global preflight**: Component resets only | Why: Avoid host app conflicts (Docusaurus, Next.js) | Trade-off: Must apply reset in every component
+- **5 preset resets**: Common elements covered | Why: Consistency, DRY | Trade-off: May need custom resets for new elements
+- **CSS Modules**: Scoped component styles | Why: No global namespace pollution | Trade-off: More verbose imports
+- **@layer system**: base/components/utilities | Why: Predictable cascade order | Trade-off: Must understand layer precedence
 
-1. **Build the design system**:
+## Debug
 
-    ```bash
-    cd packages/design-system/main
-    pnpm build
-    ```
+| Issue                             | Fix                                                   |
+| --------------------------------- | ----------------------------------------------------- |
+| Host app styles broken            | Remove global resets from tailwind.css base layer     |
+| Component inherits browser styles | Add `@apply reset-{type}` to component module         |
+| Tailwind classes not working      | Check `@reference '../../../tailwind.css'` exists     |
+| CSS bundle too large              | Verify tree-shaking enabled, check for unused imports |
+| Docusaurus integration fails      | Clear cache: `cd documentation && pnpm clear`         |
 
-2. **Clear Docusaurus cache** (important!):
+## Best Practices
 
-    ```bash
-    cd packages/design-system/documentation
-    pnpm clear
-    ```
+**Do**:
 
-3. **Start Docusaurus**:
+- Apply reset utility first in component
+- Use component-level resets, not global
+- Test in host apps (Docusaurus, Storybook)
+- Keep base layer minimal
 
-    ```bash
-    pnpm start
-    ```
+**Don't**:
 
-4. **Verify**:
-    - Components render correctly
-    - No "Module not found" errors
-    - Docusaurus typography/styles are not broken
-    - Design system components look correct
+- Enable global Tailwind preflight
+- Add element resets in base layer
+- Rely on cascade without explicit resets
+- Import `tailwindcss/preflight` layer
 
-## Build Output
+## Links
 
-The final CSS bundle (`dist/style.css`) should be around:
-
-- **~165 kB** uncompressed
-- **~22 kB** gzipped
-
-This includes:
-
-- Tailwind base utilities
-- Custom reset utilities
-- All component styles
-- Primitive CSS variables
-- Token overrides
-
-## Common Issues
-
-### "Module not found: @grasdouble/lufa_design-system"
-
-**Solution**: Clear Docusaurus cache
-
-```bash
-cd packages/design-system/documentation
-pnpm clear
-pnpm start
-```
-
-### Docusaurus styles are broken
-
-**Cause**: Too much global reset in `tailwind.css`
-
-**Solution**: Remove global element resets, use component-level utilities only
-
-### Component doesn't reset properly
-
-**Cause**: Missing reset utility application
-
-**Solution**: Add `@apply reset-{type}` as the first line in the component's base class
-
-## Files Reference
-
-- [`src/tailwind.css`](src/tailwind.css) - Main CSS orchestration, minimal global reset
-- [`src/css/component-resets.css`](src/css/component-resets.css) - Custom reset utilities
-- [`src/components/*/Component.module.css`](src/components/) - Component styles with resets applied
-- [`vite.config.ts`](vite.config.ts) - Build configuration
-- [`package.json`](package.json) - Package exports (`main`, `module`, `types`, `exports`)
-
----
-
-**Last Updated**: December 13, 2025  
-**Tailwind CSS Version**: 4.1.17  
-**Architecture**: Component-level resets, no global preflight
+- [Main Package](./MAIN.md)
+- [Design System Overview](./DESIGN_SYSTEM.md)

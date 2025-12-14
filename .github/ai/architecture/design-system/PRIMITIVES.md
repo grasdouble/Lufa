@@ -1,233 +1,144 @@
-# Design System Primitives Architecture
+# Primitives
 
-> **Last Updated**: December 13, 2025  
-> **Package**: `@grasdouble/lufa_design-system-primitives`  
-> **Location**: `packages/design-system/primitives/`
+Package: @grasdouble/lufa_design-system-primitives
+Location: packages/design-system/primitives/
+Updated: 2025-12-13
 
-## Overview
+## Stats
 
-The Primitives package contains foundational CSS variables that form the base layer of the Lufa Design System. These are raw values without semantic meaning - think of them as a color palette or ruler before deciding what each color or measurement represents.
+- 448 tokens total
+- 23 categories
+- 246 color tokens (OKLCH)
+- No runtime dependencies
+- TypeScript → JS + CSS dual export
 
-## Philosophy
-
-**Primitives vs Tokens**:
-
-- **Primitives**: Raw values (`--lufa-primitive-color-chromatic-blue-500: #3b82f6`)
-- **Tokens**: Semantic meaning (`--lufa-token-color-interactive-primary: var(--lufa-primitive-color-chromatic-blue-500)`)
-
-This separation allows:
-
-1. **Consistency**: All values defined in one place
-2. **Flexibility**: Change semantic meaning without touching primitives
-3. **Scalability**: Add new primitives without affecting tokens
-4. **Maintainability**: Clear separation of concerns
-
-## Package Architecture
+## Structure
 
 ```
-packages/design-system/primitives/
-├── src/
-│   └── primitives.css      # Single CSS file with all primitives
-├── package.json            # Published to GitHub Packages
-├── vite.config.ts          # Build configuration
-└── README.md
+src/
+├── index.ts
+├── border/           borderWidth, borderStyle, radius
+├── color/            chromatic (17×11), neutral (11)
+├── effects/          blur, opacity
+├── elevation/        shadow, zIndex
+├── icon/             iconSize, iconStroke
+├── layout/           breakpoint, gridColumns
+├── motion/           timing, easing
+├── space/            spacing, aspectRatio, maxWidth, size
+└── typography/       fontFamily, fontSize, fontWeight, lineHeight, letterSpacing
+
+dist/ (build output)
+├── style.css         448 CSS variables, --lufa-primitive-* prefix
+├── index.js + .d.ts  ES modules
+└── [categories]/     Individual modules
 ```
 
-**Build Output**:
+## Tokens
 
+| Category        | Export | Count                                                                                                                                               | Values |
+| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| color.chromatic | 187    | red,orange,amber,yellow,lime,green,emerald,teal,cyan,sky,blue,indigo,violet,purple,fuchsia,pink,rose × [50,100,200,300,400,500,600,700,800,900,950] |
+| color.neutral   | 59     | [50,100,200,300,400,500,600,700,800,900,950]                                                                                                        |
+| spacing         | 21     | [0,0.5,1,1.5,2,2.5,3,3.5,4,5,6,7,8,9,10,11,12,14,16,20,24,28,32,36,40,44,48,52,56,60,64,72,80,96]                                                   |
+| fontSize        | 13     | xs,sm,base,lg,xl,2xl,3xl,4xl,5xl,6xl,7xl,8xl,9xl                                                                                                    |
+| gridColumns     | 14     | 1-12,none,subgrid                                                                                                                                   |
+| timing          | 13     | 75,100,150,200,300,500,700,1000                                                                                                                     |
+| radius          | 10     | none,sm,base,md,lg,xl,2xl,3xl,full                                                                                                                  |
+| shadow          | 10     | xs,sm,base,md,lg,xl,2xl,inner,none                                                                                                                  |
+| size            | 10     | Various                                                                                                                                             |
+| zIndex          | 10     | 0,10,20,30,40,50,auto                                                                                                                               |
+| fontWeight      | 9      | thin,extralight,light,normal,medium,semibold,bold,extrabold,black                                                                                   |
+| aspectRatio     | 8      | square,traditionalPhotoMonitor,classicPhotography,widescreenVideo,ultrawide,vertical,portraitPhoto,portraitDisplay                                  |
+| blur            | 7      | none,4,8,12,16,24,40                                                                                                                                |
+| iconSize        | 7      | xs,sm,base,md,lg,xl                                                                                                                                 |
+| opacity         | 7      | 0,5,10,20,25,30,40,50,60,70,75,80,90,95,100                                                                                                         |
+| breakpoint      | 6      | sm,md,lg,xl,2xl                                                                                                                                     |
+| borderWidth     | 6      | 0,1,2,4,8                                                                                                                                           |
+| letterSpacing   | 6      | tighter,tight,normal,wide,wider,widest                                                                                                              |
+| lineHeight      | 6      | none,tight,snug,normal,relaxed,loose                                                                                                                |
+| borderStyle     | 5      | solid,dashed,dotted,double,none                                                                                                                     |
+| easing          | 4      | linear,in,out,inOut                                                                                                                                 |
+| iconStroke      | 4      | 1,1.5,2,2.5,3                                                                                                                                       |
+| fontFamily      | 3      | sans,serif,mono                                                                                                                                     |
+
+## Import
+
+**TS**:
+
+```typescript
+import {
+  color,
+  spacing,
+  fontSize,
+} from "@grasdouble/lufa_design-system-primitives";
+color.chromatic.blue[500]; // "oklch(63.68% 0.267 259.79)"
 ```
-dist/
-├── primitives.css          # Bundled CSS variables
-└── primitives.css.map      # Source map
-```
 
-## Primitive Categories
-
-### 1. Color Primitives
-
-**Chromatic Colors**: `--lufa-primitive-color-chromatic-{color}-{shade}`
-
-Shades: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
-
-**Available Colors**:
-
-- blue, red, green, yellow, purple, pink, orange, teal, cyan, indigo
-
-**Example**:
+**CSS**:
 
 ```css
-:root {
-  --lufa-primitive-color-chromatic-blue-50: #eff6ff;
-  --lufa-primitive-color-chromatic-blue-500: #3b82f6;
-  --lufa-primitive-color-chromatic-blue-900: #1e3a8a;
+@import "@grasdouble/lufa_design-system-primitives/style.css";
+color: var(--lufa-primitive-color-chromatic-blue-500);
+```
+
+**Exports**:
+
+```json
+{
+  ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+  "./style.css": "./dist/style.css"
 }
 ```
 
-**Achromatic Colors**: `--lufa-primitive-color-achromatic-{shade}`
-
-Grayscale from white (50) to black (950)
-
-### 2. Typography Primitives
-
-**Font Families**:
-
-```css
---lufa-primitive-font-family-sans: system-ui, -apple-system, sans-serif;
---lufa-primitive-font-family-mono: "Courier New", monospace;
-```
-
-**Font Sizes** (`--lufa-primitive-font-size-{size}`):
-
-- xs, sm, base, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl
-
-**Font Weights** (`--lufa-primitive-font-weight-{weight}`):
-
-- thin, light, normal, medium, semibold, bold, extrabold, black
-
-**Line Heights** (`--lufa-primitive-line-height-{size}`):
-
-- tight, normal, relaxed, loose
-
-### 3. Spacing Primitives
-
-**Format**: `--lufa-primitive-spacing-{value}`
-
-Values: 0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80, 96, 128
-
-**Example**:
-
-```css
---lufa-primitive-spacing-0: 0;
---lufa-primitive-spacing-16: 1rem; /* 16px */
---lufa-primitive-spacing-64: 4rem; /* 64px */
-```
-
-### 4. Shadow Primitives
-
-**Format**: `--lufa-primitive-shadow-{size}`
-
-Sizes: sm, md, lg, xl, 2xl
-
-**Example**:
-
-```css
---lufa-primitive-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
---lufa-primitive-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-```
-
-### 5. Breakpoint Primitives
-
-**Format**: `--lufa-primitive-breakpoint-{size}`
-
-```css
---lufa-primitive-breakpoint-sm: 640px;
---lufa-primitive-breakpoint-md: 768px;
---lufa-primitive-breakpoint-lg: 1024px;
---lufa-primitive-breakpoint-xl: 1280px;
---lufa-primitive-breakpoint-2xl: 1536px;
-```
-
-## Usage
-
-### In Tokens Package
-
-```typescript
-// packages/design-system/tokens/src/tokens.ts
-export const colorTokens = {
-  interactive: {
-    primary: "var(--lufa-primitive-color-chromatic-blue-500)",
-  },
-};
-```
-
-### In Components
-
-Components should **NOT** use primitives directly. Always use tokens:
-
-```tsx
-// ❌ DON'T
-<Button style={{ color: 'var(--lufa-primitive-color-chromatic-blue-500)' }} />
-
-// ✅ DO
-<Button className="text-interactive-primary" />
-// Uses token: --lufa-token-color-interactive-primary
-```
-
-### In Tailwind Config
-
-Primitives are mapped to Tailwind utilities via tokens.
-
-## Relationship with Tokens
-
-```
-Primitives (Raw Values)
-         ↓
-    Tokens (Semantic)
-         ↓
-   Tailwind Utilities
-         ↓
-     Components
-```
-
-**Example Flow**:
-
-1. Primitive: `--lufa-primitive-color-chromatic-blue-500: #3b82f6`
-2. Token: `--lufa-token-color-interactive-primary: var(--lufa-primitive-color-chromatic-blue-500)`
-3. Tailwind: `text-interactive-primary` → `color: var(--lufa-token-color-interactive-primary)`
-4. Component: `<Button className="text-interactive-primary">Click</Button>`
-
-## Build Process
+## Build
 
 ```bash
-cd packages/design-system/primitives
-pnpm build
+pnpm clean && tsc && node scripts/generate-css.js
 ```
 
-**Output**: Bundled CSS file with all variables published to GitHub Packages
+Steps: Remove dist → Compile TS → Generate CSS
+Time: ~2-3s
+Output: index.js (448 exports) + style.css (448 variables)
 
-## Dependencies
+## Flow
 
-- **Consumed by**: `@grasdouble/lufa_design-system-tokens`
-- **Consumed by**: `@grasdouble/lufa_design-system` (main package)
-- **Build tool**: Vite
+```
+TS src/ → tsc → dist/index.js → generate-css.js → dist/style.css → Tokens → Tailwind → Components
+```
 
-## Design Decisions
+## Integration
 
-### Why CSS Variables?
+**Tokens**: `import { color }` → map to semantic names
+**Main**: CSS imported globally
+**Tailwind**: Uses tokens (not primitives)
+**Components**: NEVER import primitives directly
 
-1. **Runtime theming**: Can be changed dynamically
-2. **Browser support**: Widely supported
-3. **Performance**: No JavaScript overhead
-4. **Flexibility**: Works with any CSS approach
+## Workflow
 
-### Why Separate Package?
+Add: Edit src/ → `pnpm build` → verify dist/
+Modify: Update src/ → build → test consumers → version (PATCH/MINOR)
+Release: changeset → version → build → push → CI publish
 
-1. **Modularity**: Can be updated independently
-2. **Reusability**: Can be consumed by non-React projects
-3. **Performance**: Import only what you need
-4. **Versioning**: Independent semantic versioning
+## Decisions
 
-### Naming Convention
+- TS-first: Type safety, dual export | Trade-off: Build step
+- OKLCH: Perceptual uniformity, wide gamut | Trade-off: Browser support (Chrome 111+)
+- Separate pkg: Independent versioning | Trade-off: More packages
+- Auto CSS: JS/CSS parity | Trade-off: Script maintenance
 
-**Format**: `--lufa-primitive-{category}-{subcategory?}-{value}`
+## Debug
 
-**Rules**:
+| Issue                    | Fix                                                  |
+| ------------------------ | ---------------------------------------------------- |
+| CSS vars missing         | Check import, run build                              |
+| TS import fails          | `pnpm add @grasdouble/lufa_design-system-primitives` |
+| New primitive not in CSS | Run `pnpm build`                                     |
+| OKLCH not rendering      | Chrome 111+, Firefox 113+, Safari 16.4+              |
 
-- Prefix: Always `--lufa-primitive-`
-- Case: lowercase kebab-case
-- Descriptive: Full words, no abbreviations
-- Hierarchical: Category → Subcategory → Value
+## Links
 
-**Examples**:
-
-- ✅ `--lufa-primitive-color-chromatic-blue-500`
-- ✅ `--lufa-primitive-spacing-16`
-- ✅ `--lufa-primitive-font-family-sans`
-- ❌ `--blue` (no prefix, not namespaced)
-- ❌ `--lufa-prim-col-b-5` (abbreviated)
-
-## Related Documentation
-
-- **Development Rules**: [`rules/design-system/PRIMITIVES.md`](../../rules/design-system/PRIMITIVES.md)
-- **Tokens Architecture**: [`TOKENS.md`](./TOKENS.md)
-- **CSS Architecture**: [`CSS.md`](./CSS.md)
+- [Rules](../../rules/design-system/PRIMITIVES.md)
+- [Tokens](./TOKENS.md)
+- [CSS](./CSS.md)
+- [Main](./MAIN.md)
+- [Tailwind](../../configuration/design-system/TAILWIND.md)

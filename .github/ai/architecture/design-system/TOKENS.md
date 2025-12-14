@@ -1,350 +1,175 @@
-# Design System Tokens Architecture
+# Tokens
 
-> **Last Updated**: December 13, 2025  
-> **Package**: `@grasdouble/lufa_design-system-tokens`  
-> **Location**: `packages/design-system/tokens/`
+Package: `@grasdouble/lufa_design-system-tokens`
+Location: packages/design-system/tokens/
+Updated: 2025-12-13
+Version: 0.2.0
 
-## Overview
+## Stats
 
-The Tokens package transforms raw primitives into semantic, purpose-driven values. While primitives define "what colors exist", tokens define "what colors mean" in the context of your application.
+- ~2100 lines TypeScript
+- 9 token categories (color, border, space, typography, layout, motion, effects, elevation, icon)
+- Dual export: JS + CSS
+- Dependencies: 1 runtime (`@grasdouble/lufa_design-system-primitives`)
 
-## Philosophy
-
-**Semantic Abstraction**:
-
-- Primitive: `--lufa-primitive-color-chromatic-blue-500` (raw blue)
-- Token: `--lufa-token-color-interactive-primary` (button color)
-
-This allows changing the entire theme by modifying token mappings without touching components.
-
-## Package Architecture
+## Structure
 
 ```
 packages/design-system/tokens/
 ├── src/
-│   ├── tokens.ts           # Token definitions (JS objects)
-│   ├── types.ts            # TypeScript type definitions
-│   ├── index.ts            # Main export
-│   └── tokens.css          # CSS custom properties (generated)
-├── package.json
-├── tsconfig.json
-└── vite.config.ts
+│   ├── tokens/
+│   │   ├── color/          text, background, border, interactive, status
+│   │   ├── border/         radius, width, style
+│   │   ├── space/          semantic spacing (xs, sm, md, lg, xl)
+│   │   ├── typography/     fontSize, fontWeight, lineHeight, letterSpacing
+│   │   ├── layout/         dimension, breakpoint, container, grid, aspectRatio
+│   │   ├── motion/         easing, duration, transition, focus
+│   │   ├── effects/        shadows, blur
+│   │   ├── elevation/      z-index layers
+│   │   └── icon/           sizes
+│   └── index.ts            re-exports all tokens
+├── scripts/
+│   └── generate-css.js     TS→CSS conversion
+└── package.json
 ```
 
-**Build Outputs**:
+## Tech Stack
 
-```
-dist/
-├── index.js                # ESM bundle
-├── index.d.ts              # TypeScript declarations
-└── tokens.css              # CSS variables
-```
+| Layer    | Technology | Purpose                |
+| -------- | ---------- | ---------------------- |
+| Language | TypeScript | Type safety + exports  |
+| Build    | tsc        | JS compilation         |
+| CSS Gen  | Node.js    | CSS custom properties  |
+| Format   | ESM        | Modern module standard |
 
-## Token Structure
+## Key Concepts
 
-### Dual Format
+**Semantic Abstraction**: Primitives define values (blue-500), tokens define purpose (interactive-primary)
 
-Tokens are exported in **two formats**:
+```ts
+// Primitive
+color.chromatic.blue[500]; // raw blue
 
-**1. TypeScript/JavaScript**:
-
-```typescript
-export const colorTokens = {
-  interactive: {
-    primary: "var(--lufa-primitive-color-chromatic-blue-500)",
-    "primary-hover": "var(--lufa-primitive-color-chromatic-blue-600)",
-  },
-};
+// Token
+color.interactive.primary; // button color (references primitive)
 ```
 
-**2. CSS Variables**:
+**Dual Export**: Same token in JS and CSS
+
+```ts
+export const color = { text: { primary: primitiveColor.neutral[900] } };
+```
 
 ```css
 :root {
-  --lufa-token-color-interactive-primary: var(
-    --lufa-primitive-color-chromatic-blue-500
-  );
-  --lufa-token-color-interactive-primary-hover: var(
-    --lufa-primitive-color-chromatic-blue-600
-  );
+  --lufa-token-color-text-primary: var(--lufa-primitive-color-neutral-900);
 }
 ```
 
-### Token Categories
+## Config
 
-#### 1. Color Tokens
+**tsconfig.json**: `composite: true`, `declaration: true`, ESM output
 
-**Interactive Colors** (buttons, links, actions):
+**package.json**:
 
-```typescript
-interactive: {
-  primary: "var(--lufa-primitive-color-chromatic-blue-500)",
-  "primary-hover": "var(--lufa-primitive-color-chromatic-blue-600)",
-  "primary-active": "var(--lufa-primitive-color-chromatic-blue-700)",
-  "primary-disabled": "var(--lufa-primitive-color-achromatic-300)",
+```json
+"exports": {
+  ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+  "./style.css": "./dist/style.css"
 }
 ```
 
-**Text Colors**:
+## Build
 
-```typescript
-text: {
-  primary: "var(--lufa-primitive-color-achromatic-900)",
-  secondary: "var(--lufa-primitive-color-achromatic-600)",
-  tertiary: "var(--lufa-primitive-color-achromatic-500)",
-  inverse: "var(--lufa-primitive-color-achromatic-50)",
-}
-```
+**Dev**: N/A (tokens are static, no dev server)
 
-**Background Colors**:
-
-```typescript
-background: {
-  primary: "var(--lufa-primitive-color-achromatic-50)",
-  secondary: "var(--lufa-primitive-color-achromatic-100)",
-  elevated: "var(--lufa-primitive-color-achromatic-0)",
-}
-```
-
-**Status Colors**:
-
-```typescript
-status: {
-  success: "var(--lufa-primitive-color-chromatic-green-500)",
-  warning: "var(--lufa-primitive-color-chromatic-yellow-500)",
-  error: "var(--lufa-primitive-color-chromatic-red-500)",
-  info: "var(--lufa-primitive-color-chromatic-blue-500)",
-}
-```
-
-#### 2. Typography Tokens
-
-```typescript
-typography: {
-  h1: {
-    fontSize: "var(--lufa-primitive-font-size-5xl)",
-    fontWeight: "var(--lufa-primitive-font-weight-bold)",
-    lineHeight: "var(--lufa-primitive-line-height-tight)",
-  },
-  body: {
-    fontSize: "var(--lufa-primitive-font-size-base)",
-    fontWeight: "var(--lufa-primitive-font-weight-normal)",
-    lineHeight: "var(--lufa-primitive-line-height-normal)",
-  },
-}
-```
-
-#### 3. Spacing Tokens
-
-```typescript
-spacing: {
-  xs: "var(--lufa-primitive-spacing-4)",
-  sm: "var(--lufa-primitive-spacing-8)",
-  md: "var(--lufa-primitive-spacing-16)",
-  lg: "var(--lufa-primitive-spacing-24)",
-  xl: "var(--lufa-primitive-spacing-32)",
-}
-```
-
-#### 4. Layout Tokens
-
-```typescript
-layout: {
-  containerWidth: "var(--lufa-primitive-breakpoint-xl)",
-  gutter: "var(--lufa-primitive-spacing-16)",
-  headerHeight: "var(--lufa-primitive-spacing-64)",
-}
-```
-
-## Usage
-
-### In TypeScript/React
-
-```typescript
-import {
-  colorTokens,
-  typographyTokens,
-} from "@grasdouble/lufa_design-system-tokens";
-
-const buttonStyle = {
-  color: colorTokens.interactive.primary,
-  fontSize: typographyTokens.body.fontSize,
-};
-```
-
-### In Tailwind Configuration
-
-Tokens are mapped to Tailwind utilities:
-
-```typescript
-// tailwind.config.js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        "interactive-primary": "var(--lufa-token-color-interactive-primary)",
-        "text-primary": "var(--lufa-token-color-text-primary)",
-      },
-    },
-  },
-};
-```
-
-Usage in components:
-
-```tsx
-<Button className="bg-interactive-primary text-white" />
-```
-
-### In CSS
-
-```css
-@import "@grasdouble/lufa_design-system-tokens/tokens.css";
-
-.button {
-  background: var(--lufa-token-color-interactive-primary);
-  color: var(--lufa-token-color-text-inverse);
-}
-```
-
-## Relationship with Primitives
-
-```
-┌─────────────────────────────────────────────────┐
-│             Primitives Package                  │
-│  (Raw values: colors, spacing, typography)      │
-└────────────────┬────────────────────────────────┘
-                 ↓ imports
-┌─────────────────────────────────────────────────┐
-│               Tokens Package                    │
-│  (Semantic mapping: primary, success, etc.)     │
-└────────────────┬────────────────────────────────┘
-                 ↓ consumed by
-┌─────────────────────────────────────────────────┐
-│           Tailwind Configuration                │
-│        (Utility classes generation)             │
-└────────────────┬────────────────────────────────┘
-                 ↓ used in
-┌─────────────────────────────────────────────────┐
-│              Components                         │
-│     (className="bg-interactive-primary")        │
-└─────────────────────────────────────────────────┘
-```
-
-## Type Safety
-
-```typescript
-// types.ts
-export interface ColorTokens {
-  interactive: {
-    primary: string;
-    "primary-hover": string;
-    "primary-active": string;
-  };
-  text: {
-    primary: string;
-    secondary: string;
-  };
-}
-
-export interface TypographyTokens {
-  h1: {
-    fontSize: string;
-    fontWeight: string;
-    lineHeight: string;
-  };
-}
-```
-
-Benefits:
-
-- **Autocomplete** in IDEs
-- **Type checking** prevents typos
-- **Documentation** via types
-
-## Build Process
+**Prod**:
 
 ```bash
-cd packages/design-system/tokens
 pnpm build
 ```
 
-Vite bundles:
-
-1. TypeScript → JavaScript (ESM)
-2. Type declarations
-3. CSS custom properties
+Steps: Clean dist → tsc (TS→JS) → generate-css.js (JS→CSS)
+Output: dist/index.js, dist/index.d.ts, dist/style.css
+Format: ESM, TypeScript declarations, CSS variables
 
 ## Dependencies
 
-**Imports**:
+**Runtime**: `@grasdouble/lufa_design-system-primitives`
+**Dev**: `typescript`, `@grasdouble/lufa_config_tsconfig`
 
-- `@grasdouble/lufa_design-system-primitives` (required)
+Purpose:
 
-**Imported By**:
+- primitives: Source for all token values (color, spacing, typography, etc.)
 
-- `@grasdouble/lufa_design-system` (main package)
-- Tailwind configuration
-- Component libraries
+## Integration
 
-## Design Decisions
+**In TypeScript/React**:
 
-### Why Both JS and CSS?
+```ts
+import { color, space } from "@grasdouble/lufa_design-system-tokens";
+const style = { color: color.text.primary, padding: space.md };
+```
 
-**JavaScript Export**:
+Flow: Import token → Use in JS object → Apply to component
 
-- Type safety in TypeScript
-- Dynamic theming logic
-- IDE autocomplete
+**In Tailwind**:
 
-**CSS Export**:
+```js
+// tailwind.config.js
+colors: { 'text-primary': 'var(--lufa-token-color-text-primary)' }
+```
 
-- Direct use in stylesheets
-- Framework agnostic
-- Standard CSS custom properties
+```tsx
+<div className="text-text-primary" />
+```
 
-### Token Naming
+Flow: Map token to utility → Use className → CSS variable resolved
 
-**Format**: `--lufa-token-{category}-{subcategory}-{variant?}`
-
-**Examples**:
-
-- `--lufa-token-color-interactive-primary`
-- `--lufa-token-spacing-md`
-- `--lufa-token-typography-h1-fontSize`
-
-**Rules**:
-
-- Semantic, not descriptive (`primary` not `blue`)
-- Hierarchical structure
-- Consistent casing (kebab-case)
-
-### Theming Strategy
-
-Change theme by remapping tokens:
+**In CSS**:
 
 ```css
-/* Light theme (default) */
-:root {
-  --lufa-token-color-text-primary: var(--lufa-primitive-color-achromatic-900);
-  --lufa-token-color-background-primary: var(
-    --lufa-primitive-color-achromatic-50
-  );
-}
-
-/* Dark theme */
-[data-theme="dark"] {
-  --lufa-token-color-text-primary: var(--lufa-primitive-color-achromatic-50);
-  --lufa-token-color-background-primary: var(
-    --lufa-primitive-color-achromatic-900
-  );
+@import "@grasdouble/lufa_design-system-tokens/style.css";
+.button {
+  color: var(--lufa-token-color-interactive-primary);
 }
 ```
 
-Components automatically adapt without changes.
+Flow: Import CSS → Reference variable → Resolved to primitive value
 
-## Related Documentation
+## Workflows
 
-- **Development Rules**: [`rules/design-system/TOKENS.md`](../../rules/design-system/TOKENS.md)
-- **Primitives Architecture**: [`PRIMITIVES.md`](./PRIMITIVES.md)
-- **Design System Overview**: [`DESIGN_SYSTEM.md`](./DESIGN_SYSTEM.md)
+**Add Token**:
+
+1. Edit `src/tokens/{category}/{file}.ts` - Add JS export
+2. Run `pnpm build` - Regenerate CSS
+3. Verify `dist/style.css` - CSS variable exists
+4. Update types if needed - Interface modification
+
+**Change Mapping**:
+
+1. Edit token file - Change primitive reference
+2. Build - Regenerate outputs
+3. No component changes needed - Semantic abstraction benefit
+
+## Decisions
+
+- **Dual JS+CSS export**: JS for type safety/React | CSS for framework-agnostic | Trade-off: Build complexity
+- **Semantic naming**: `primary` not `blue` | Why: Theme changes without component edits | Trade-off: Abstraction layer to learn
+- **Single primitives dependency**: All values from one source | Why: Consistency guarantee | Trade-off: Tight coupling
+- **9 token categories**: Comprehensive coverage | Why: All design aspects tokenized | Trade-off: Large API surface
+
+## Debug
+
+| Issue                  | Fix                                                      |
+| ---------------------- | -------------------------------------------------------- |
+| Token undefined in CSS | Run `pnpm build`, check `generate-css.js` includes token |
+| Type error on import   | Check `dist/index.d.ts` exists, rebuild if missing       |
+| Token value incorrect  | Verify primitive import, check mapping in source file    |
+| CSS not loading        | Import `@.../tokens/style.css` before use                |
+
+## Links
+
+- [Development Rules](../../rules/design-system/TOKENS.md)
+- [Primitives](./PRIMITIVES.md)
+- [Design System](./DESIGN_SYSTEM.md)

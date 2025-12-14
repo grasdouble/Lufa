@@ -1,239 +1,166 @@
-# Design System Architecture
+# Design System
 
-> **Last Updated**: December 13, 2025  
-> **Package Location**: `packages/design-system/`
+Location: packages/design-system/
+Updated: 2025-12-13
 
-## Overview
+## Stats
 
-The Lufa Design System is a comprehensive collection of reusable React 19 components, design tokens, and primitives built with TypeScript and Tailwind CSS v4. It's structured as a monorepo within the main Lufa workspace.
+- 5 packages (main, primitives, tokens, storybook, documentation)
+- React 19 + TypeScript + Tailwind CSS 4
+- 2 deployment URLs (Storybook, Docusaurus)
 
-## Package Structure
+## Structure
 
 ```
 packages/design-system/
-├── main/                   # Core design system package
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── css/          # CSS utilities and resets
-│   │   ├── utils/        # Utility functions
-│   │   └── index.ts      # Main export
-│   ├── dist/             # Build output
-│   └── package.json      # @grasdouble/lufa_design-system
-│
-├── primitives/            # Base CSS primitives
-│   ├── src/
-│   │   └── primitives.css
-│   └── package.json      # @grasdouble/lufa_design-system-primitives
-│
-├── tokens/               # Design tokens
-│   ├── src/
-│   │   └── tokens.ts    # TypeScript-based tokens
-│   └── package.json     # @grasdouble/lufa_design-system-tokens
-│
-├── storybook/           # Component documentation
-│   ├── stories/
-│   ├── .storybook/
-│   └── package.json     # @grasdouble/lufa_design-system-storybook
-│
-└── documentation/       # Docusaurus site
-    ├── docs/
-    ├── src/
-    └── package.json     # @grasdouble/lufa_design-system-documentation
+├── main/                   Core components (Button, Card, etc.)
+│   └── @grasdouble/lufa_design-system
+├── primitives/            CSS variables (colors, spacing, typography)
+│   └── @grasdouble/lufa_design-system-primitives
+├── tokens/                Semantic tokens (primary, success, etc.)
+│   └── @grasdouble/lufa_design-system-tokens
+├── storybook/             Component playground
+│   └── @grasdouble/lufa_design-system-storybook
+└── documentation/         Docusaurus docs site
+    └── @grasdouble/lufa_design-system-documentation
 ```
 
-## Core Packages
+## Tech Stack
 
-### 1. Main (`@grasdouble/lufa_design-system`)
+| Package       | Tech                   | Purpose                 |
+| ------------- | ---------------------- | ----------------------- |
+| main          | React 19, Vite, TW 4   | Components + CSS bundle |
+| primitives    | CSS, TypeScript        | Raw design values       |
+| tokens        | TypeScript, Node       | Semantic abstraction    |
+| storybook     | Storybook 10.1, Vite   | Interactive docs        |
+| documentation | Docusaurus 3.9, Rspack | Static documentation    |
 
-> **Detailed Architecture**: See [MAIN.md](./MAIN.md) for complete package architecture
+## Key Concepts
 
-**Purpose**: Core design system package that exports all components
+**Layer Architecture**: Primitives → Tokens → Components
 
-**Technology Stack**:
-
-- React 19
-- TypeScript
-- Tailwind CSS v4 (CSS-first configuration)
-- Vite for building
-
-**Key Features**:
-
-- Component-level CSS resets (no global preflight)
-- Dark mode support via CSS variables
-- Module CSS for scoped styles
-- Exports components, primitives, and tokens
-
-**Exports**:
-
-```typescript
-// Components
-import { Button, Card, Typography, Input, ... } from '@grasdouble/lufa_design-system';
-
-// Primitives
-import { primitives } from '@grasdouble/lufa_design-system';
-
-// Tokens
-import { tokens } from '@grasdouble/lufa_design-system';
-
-// CSS
-import '@grasdouble/lufa_design-system/style.css';
+```
+primitives: color.chromatic.blue[500] = "oklch(0.6 0.24 258)"
+tokens: color.interactive.primary = primitives.color.chromatic.blue[500]
+components: Button uses tokens.color.interactive.primary
 ```
 
-**Build Output**:
+**Component-Level Resets**: No global preflight, each component applies reset
 
-- `dist/lufa-ui.mjs` (~145 KB)
-- `dist/style.css` (~167 KB, 23 KB gzipped)
-- `dist/index.d.ts` (TypeScript declarations)
+```css
+.button {
+  @apply reset-button; /* then styles */
+}
+```
 
-### 2. Primitives (`@grasdouble/lufa_design-system-primitives`)
+**Dual Export**: Components in JS, styles in CSS
 
-**Purpose**: Base CSS variables and primitive styles
+```ts
+import { Button } from "@grasdouble/lufa_design-system";
+import "@grasdouble/lufa_design-system/style.css";
+```
 
-**Contents**:
+## Config
 
-- Color primitives (`--lufa-primitive-color-*`)
-- Spacing primitives
-- Typography primitives
-- Shadow primitives
-- Breakpoint primitives
+**main/vite.config.ts**: Library mode, React externalized, CSS bundled
 
-**Usage**: Automatically bundled into main package's CSS
-
-### 3. Tokens (`@grasdouble/lufa_design-system-tokens`)
-
-**Purpose**: Semantic design tokens built on top of primitives
-
-**Technology**: TypeScript-based token system
-
-**Token Categories**:
-
-- Colors (chromatic, achromatic, semantic)
-- Typography (font sizes, weights, line heights)
-- Spacing (padding, margin, gap)
-- Shadows
-- Z-index values
-
-**Export Format**: TypeScript objects and CSS variables
-
-### 4. Storybook (`@grasdouble/lufa_design-system-storybook`)
-
-> **Detailed Architecture**: See [STORYBOOK.md](./STORYBOOK.md) for complete Storybook architecture
-
-**Purpose**: Interactive component documentation and testing
-
-**Deployed at**: [lufa-storybook.sebastien-lemouillour.fr](https://lufa-storybook.sebastien-lemouillour.fr)
-
-**Technology**: Storybook 10.1.4 with React-Vite framework
-
-**Features**:
-
-- Component playground with live prop editing
-- Auto-generated props documentation
-- Dark/light theme switching
-- Custom viewport testing
-- Story categorization system
-- Visual documentation for tokens and primitives
-
-**Story Organization**:
-
-- Tokens, Layout, Forms, Display, Feedback, Overlay, Patterns
-- Numeric prefixes for consistent ordering
-- "Playground" story as default for each component
-
-### 5. Documentation (`@grasdouble/lufa_design-system-documentation`)
-
-**Purpose**: Comprehensive design system documentation site
-
-**Technology**: Docusaurus 3.9.2 with Rspack
-
-**Deployed at**: [lufa-design.sebastien-lemouillour.fr](https://lufa-design.sebastien-lemouillour.fr)
-
-**Content**:
-
-- Getting started guides
-- Component usage examples
-- Token documentation
-- Architecture explanations
-- Contributing guidelines
-
-## Architecture Decisions
-
-### CSS Strategy
-
-**Component-Level Resets**: Uses custom `@utility` directives instead of global Tailwind preflight to avoid conflicts with host applications.
-
-See: [`DESIGN_SYSTEM_CSS.md`](DESIGN_SYSTEM_CSS.md) for detailed CSS architecture.
-
-### Build Strategy
-
-**Vite Library Mode**: Main package builds as ES module with:
-
-- Single CSS bundle including primitives
-- TypeScript declarations via `vite-plugin-dts`
-- Tree-shakeable exports
-
-### Token System
-
-**TypeScript-First**: Tokens are defined in TypeScript and exported as:
-
-- TypeScript objects for programmatic use
-- CSS variables for styling
-
-### Monorepo Dependencies
+**Dependency Chain**:
 
 ```
 main → primitives (CSS import)
-main → tokens (TypeScript import)
-storybook → main (component import)
-documentation → main (component import)
+main → tokens (TS import)
+storybook → main
+documentation → main
 ```
 
-## Development Workflow
+## Build
 
-1. **Primitives**: Define CSS variables in `primitives/`
-2. **Tokens**: Create semantic tokens in `tokens/`
-3. **Components**: Build components in `main/src/components/`
-4. **Documentation**: Document in Storybook and Docusaurus
-5. **Build**: `pnpm build` in main package
-6. **Deploy**: Storybook and Docusaurus automatically deploy on merge
+**main**: `pnpm build` → dist/lufa-ui.mjs (145KB) + dist/style.css (165KB)
 
-## Technology Stack
+**storybook**: `pnpm build` → storybook-static/ → lufa-storybook.sebastien-lemouillour.fr
 
-- **React**: 19.2.1
-- **TypeScript**: ~5.6.3
-- **Tailwind CSS**: 4.1.17
-- **Vite**: 7.2.6
-- **Storybook**: 8.x
-- **Docusaurus**: 3.9.2
-- **Package Manager**: pnpm 10.8.1
+**documentation**: `pnpm build` → build/ → lufa-design.sebastien-lemouillour.fr
 
-## Integration Points
+## Dependencies
 
-### With Microfrontends
+**main Runtime**: primitives, tokens, @headlessui/react, @heroicons/react, clsx
+**main Peer**: react@^19.1.0
+**main Dev**: Vite, @tailwindcss/vite, @vitejs/plugin-react
 
-Design system is consumed by microfrontends via:
+## Integration
 
-- NPM package import
-- CDN for production
-- Direct import in development
+**In App**:
 
-### With Host Applications
+```tsx
+import { Button, Card } from "@grasdouble/lufa_design-system";
+import "@grasdouble/lufa_design-system/style.css";
 
-Designed to work seamlessly with:
+<Card>
+  <Button>Click</Button>
+</Card>;
+```
 
-- Next.js
-- Docusaurus
-- Single-SPA applications
-- Any React 19 application
+**In Microfrontend** (CDN):
 
-**Key**: Component-level resets prevent CSS conflicts
+```json
+{
+  "imports": { "@grasdouble/lufa_design-system": "https://cdn.../lufa-ui.mjs" }
+}
+```
 
-## References
+Flow: Publish to GitHub Packages → Autobuild → CDN → Import map
 
-- **Global Architecture**: [`GLOBAL.md`](GLOBAL.md)
-- **CSS Architecture**: [`DESIGN_SYSTEM_CSS.md`](DESIGN_SYSTEM_CSS.md)
-- **Development Rules**: [`../rules/design-system/`](../rules/design-system/)
+**In Storybook**:
 
----
+```ts
+import { Button } from "@grasdouble/lufa_design-system";
+export const Playground: Story = { render: () => <Button>Test</Button> };
+```
 
-**Last Updated**: December 13, 2025
+## Workflows
+
+**Add Component**:
+
+1. Create in `main/src/components/{category}/{Name}/` - Component files
+2. Apply reset in `.module.css` - Component styles
+3. Export from category index - Public API
+4. Document in Storybook - Create .stories.tsx
+5. Build main package - Generate dist files
+
+**Update Tokens**:
+
+1. Edit `tokens/src/tokens/{category}/` - Token definitions
+2. Build tokens - Regenerate JS + CSS
+3. Build main - Bundle updated tokens
+4. Verify in Storybook - Visual check
+
+## Decisions
+
+- **Monorepo**: All packages in one workspace | Why: Shared dependencies, atomic updates | Trade-off: Larger repo, complex builds
+- **Component resets**: Local not global | Why: Host app compatibility | Trade-off: Reset in every component
+- **TypeScript tokens**: TS-first approach | Why: Type safety, IDE support | Trade-off: Build step required
+- **React 19**: Latest version | Why: Modern features, performance | Trade-off: Not compatible with React 18
+
+## Deployment
+
+**Storybook**: https://lufa-storybook.sebastien-lemouillour.fr
+**Docs**: https://lufa-design.sebastien-lemouillour.fr
+**Package**: GitHub Packages (@grasdouble/lufa_design-system)
+**CDN**: cdn.sebastien-lemouillour.fr/@grasdouble/...
+
+## Debug
+
+| Issue                     | Fix                                                 |
+| ------------------------- | --------------------------------------------------- |
+| Styles conflict with host | Verify component-level resets, check for global CSS |
+| Types not found           | Build primitives/tokens first, then main            |
+| Storybook not updating    | Rebuild main package in watch mode                  |
+| Docusaurus CSS broken     | Clear cache: `cd documentation && pnpm clear`       |
+
+## Links
+
+- [Main Package](./MAIN.md)
+- [Primitives](./PRIMITIVES.md)
+- [Tokens](./TOKENS.md)
+- [Storybook](./STORYBOOK.md)
+- [CSS Architecture](./CSS.md)

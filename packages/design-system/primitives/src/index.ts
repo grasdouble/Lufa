@@ -13,11 +13,8 @@ export type { Radius } from "./border/radius.js";
 // ============================================================================
 // COLOR
 // ============================================================================
-export { colorChromatic } from "./color/chromatic.js";
-export type { ColorChromatic } from "./color/chromatic.js";
-
-export { colorNeutral } from "./color/neutral.js";
-export type { ColorNeutral } from "./color/neutral.js";
+export { color } from "./color/index.js";
+export type { Color } from "./color/index.js";
 
 // ============================================================================
 // EFFECTS

@@ -1,14 +1,31 @@
 # How to Update AI Documentation
 
-> 📝 **For AI Agents**: Step-by-step workflows for maintaining and updating documentation.
+AI agent workflows for maintaining documentation.
 
-## 🔄 Common Update Workflows
+## Format Rules
 
-### 1. Document a GitHub Workflow
+| Element       | Format         | Example                                  |
+| ------------- | -------------- | ---------------------------------------- |
+| Stats         | Bullet list    | `- Dev Port: 5173`                       |
+| Tech Stack    | Table          | `Framework \| React 19`                  |
+| Code Examples | Single example | One lifecycle hook, not all              |
+| Decisions     | Compact table  | `What \| Why: reason \| Trade-off: cost` |
+| Debug         | Table          | `Issue \| Solution \| Command`           |
 
-**Trigger**: New workflow file created in `.github/workflows/`
+Rules: Tables over prose, code over explanation, facts only, 1 example per concept, zero decorative text.
 
-**Process**:
+## Update Workflows
+
+| Task                     | Trigger                                       | Output                             |
+| ------------------------ | --------------------------------------------- | ---------------------------------- |
+| Document GitHub Workflow | New file in `.github/workflows/`              | `.github/workflows/{name}.md`      |
+| Document GitHub Action   | New action in `.github/actions/`              | `.github/actions/{name}/README.md` |
+| Update Architecture      | New package, structure change, major refactor | `architecture/{TOPIC}.md`          |
+| Update Development Rules | New conventions, package-specific guidelines  | `rules/{category}/{PACKAGE}.md`    |
+| Create Architecture Doc  | New major system or architectural change      | `architecture/{TOPIC}.md`          |
+| Create Rules Doc         | New package needs development guidelines      | `rules/{category}/{PACKAGE}.md`    |
+
+### Workflow: Document GitHub Workflow
 
 ```
 1. Open templates/GITHUB_WORKFLOW_DOC.template.md
@@ -19,26 +36,14 @@
 6. Save as .github/workflows/{name}.md
 ```
 
-**Example**:
-
 ```bash
-# User: "Document the release-changeset workflow"
-
-# Step 1-2: Read template
+# Example: Document release-changeset workflow
 cat .github/ai/meta/templates/GITHUB_WORKFLOW_DOC.template.md
-
-# Step 3: Read actual workflow
 cat .github/workflows/release-changeset.yml
-
-# Step 4-6: Fill template and save
-# (create .github/workflows/release-changeset.md)
+# Fill template and save to .github/workflows/release-changeset.md
 ```
 
-### 2. Document a GitHub Action
-
-**Trigger**: New custom action created in `.github/actions/`
-
-**Process**:
+### Workflow: Document GitHub Action
 
 ```
 1. Open templates/GITHUB_ACTION_DOC.template.md
@@ -48,11 +53,7 @@ cat .github/workflows/release-changeset.yml
 5. Save as .github/actions/{name}/README.md
 ```
 
-### 3. Update Architecture Documentation
-
-**Trigger**: New package added, structure changed, major refactor
-
-**Process**:
+### Workflow: Update Architecture Documentation
 
 ```
 1. Read prompts/ARCHITECTURE_UPDATE_PROMPTS.md
@@ -63,43 +64,25 @@ cat .github/workflows/release-changeset.yml
 6. Update "Last Updated" date
 ```
 
-**Investigation Commands**:
-
 ```bash
-# List all packages
+# Investigation commands
 ls -R packages/
-
-# Get package names
 find packages -name "package.json" -not -path "*/node_modules/*" -exec jq -r '.name' {} \;
-
-# Check workspace config
 cat pnpm-workspace.yaml
-
-# View package details
 cat packages/{PATH}/package.json | jq
 ```
 
-**Example**:
-
 ```bash
-# User: "Update architecture with new microfrontend package"
-
-# Investigate
+# Example: Add new microfrontend package
 ls packages/apps/microfrontend/
 cat packages/apps/microfrontend/new-app/package.json
-
-# Update
 # 1. Open architecture/GLOBAL.md or architecture/MICROFRONTEND.md
 # 2. Add new package to structure tree
 # 3. Add description to relevant section
 # 4. Update "Last Updated" date
 ```
 
-### 4. Update Development Rules
-
-**Trigger**: New conventions, new package-specific guidelines
-
-**Process**:
+### Workflow: Update Development Rules
 
 ```
 1. Read prompts/DEVELOPMENT_GUIDELINES_UPDATE_PROMPTS.md
@@ -109,11 +92,8 @@ cat packages/apps/microfrontend/new-app/package.json
 5. Update "Last Updated" date
 ```
 
-**Example**:
-
 ```bash
-# User: "Add guidelines for creating new design system components"
-
+# Example: Add design system component guidelines
 # Update rules/design-system/MAIN.md
 # 1. Add new section "Creating Components"
 # 2. Include step-by-step process
@@ -121,11 +101,7 @@ cat packages/apps/microfrontend/new-app/package.json
 # 4. Update date
 ```
 
-### 5. Create New Architecture Document
-
-**Trigger**: New major system or significant architectural change
-
-**Process**:
+### Workflow: Create New Architecture Document
 
 ```
 1. Copy templates/ARCHITECTURE.template.md
@@ -137,11 +113,7 @@ cat packages/apps/microfrontend/new-app/package.json
 7. Save to architecture/{TOPIC}.md
 ```
 
-### 6. Create New Rules Document
-
-**Trigger**: New package needs development guidelines
-
-**Process**:
+### Workflow: Create New Rules Document
 
 ```
 1. Copy templates/DEVELOPMENT_GUIDELINES.template.md
@@ -152,73 +124,48 @@ cat packages/apps/microfrontend/new-app/package.json
 6. Save to rules/{category}/{PACKAGE}.md
 ```
 
-## 🔍 Investigation Commands Reference
+## Investigation Commands
 
 ### Project Structure
 
 ```bash
-# View all packages
 ls -R packages/
-
-# Workspace configuration
 cat pnpm-workspace.yaml
-
-# Root package.json
 cat package.json | jq
 ```
 
 ### Package Information
 
 ```bash
-# All package names
 find packages -name "package.json" -not -path "*/node_modules/*" -exec jq -r '.name' {} \;
-
-# Specific package details
 cat packages/{PATH}/package.json | jq '.version, .scripts, .dependencies'
-
-# Package scripts
 cat packages/{PATH}/package.json | jq '.scripts'
 ```
 
 ### Workflows and Actions
 
 ```bash
-# List workflows
 ls -la .github/workflows/
-
-# List actions
 ls -la .github/actions/
-
-# Read workflow
 cat .github/workflows/{name}.yml
 ```
 
 ### Configuration Files
 
 ```bash
-# Find all tsconfig files
 find packages -name "tsconfig.json" -not -path "*/node_modules/*"
-
-# ESLint configs
 find packages/config -name "*eslint*"
-
-# Prettier configs
 find packages/config -name "*prettier*"
 ```
 
 ### Dependencies
 
 ```bash
-# Root dependencies
 cat package.json | jq '.dependencies, .devDependencies'
-
-# Workspace dependencies
 grep "workspace:" packages/*/package.json
 ```
 
-## ✅ Quality Checklist
-
-Before finalizing any documentation update:
+## Quality Checklist
 
 - [ ] All `[placeholders]` replaced with real data
 - [ ] All package names match package.json
@@ -228,10 +175,11 @@ Before finalizing any documentation update:
 - [ ] "Last Updated" date is current
 - [ ] Code examples are from actual codebase
 - [ ] No template instructions visible
+- [ ] Compact format used (tables, code, no prose)
 - [ ] Markdown formatting is correct
 - [ ] Information is accurate and verified
 
-## 🎯 Decision Tree
+## Decision Tree
 
 ```
 Need to update docs?
@@ -253,69 +201,33 @@ Need to update docs?
    └─→ Create new architecture doc from template
 ```
 
-## 💡 Best Practices
+## Best Practices
 
-### Do's ✅
+| Do                                                             | Don't                                               |
+| -------------------------------------------------------------- | --------------------------------------------------- |
+| Start with investigation - Run commands to gather facts        | Don't guess - Always verify package names, paths    |
+| Use templates - They ensure consistency                        | Don't leave placeholders - Replace all `[brackets]` |
+| Follow compact format - Tables and code blocks, not paragraphs | Don't write prose - Use tables and code blocks      |
+| Verify everything - Test commands, check paths                 | Don't break links - Verify all file references      |
+| Link, don't duplicate - Reference existing docs                | Don't duplicate - Link to single source of truth    |
+| Be specific - Use concrete examples from codebase              | Don't skip investigation - Gather real data first   |
+| Update dates - Always update "Last Updated"                    | Don't leave TODOs - Complete all sections           |
+| Remove instructions - Clean up template comments               | Don't forget dates - Update "Last Updated"          |
 
-- **Start with investigation** - Run commands to gather facts
-- **Use templates** - They ensure consistency
-- **Verify everything** - Test commands, check paths
-- **Link, don't duplicate** - Reference existing docs
-- **Be specific** - Use concrete examples from codebase
-- **Update dates** - Always update "Last Updated"
-- **Remove instructions** - Clean up template comments
+## Regular Maintenance
 
-### Don'ts ❌
+| Period           | Tasks                                                                                                                 |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Weekly           | Review recent PRs for architecture changes, Check for new packages in workspace, Verify all links still work          |
+| Monthly          | Update dependency versions in docs, Review and update code examples, Check for outdated information                   |
+| On Major Changes | Update architecture docs immediately, Create new rules docs if needed, Update QUICK_REFERENCE.md if structure changes |
 
-- **Don't guess** - Always verify package names, paths
-- **Don't leave placeholders** - Replace all `[brackets]`
-- **Don't break links** - Verify all file references
-- **Don't duplicate** - Link to single source of truth
-- **Don't skip investigation** - Gather real data first
-- **Don't leave TODOs** - Complete all sections
-- **Don't forget dates** - Update "Last Updated"
+## Troubleshooting
 
-## 🔄 Regular Maintenance
-
-### Weekly
-
-- Review recent PRs for architecture changes
-- Check for new packages in workspace
-- Verify all links still work
-
-### Monthly
-
-- Update dependency versions in docs
-- Review and update code examples
-- Check for outdated information
-
-### On Major Changes
-
-- Update architecture docs immediately
-- Create new rules docs if needed
-- Update QUICK_REFERENCE.md if structure changes
-
-## 🆘 Troubleshooting
-
-### "I don't know where to document this"
-
-1. Check [`QUICK_REFERENCE.md`](../QUICK_REFERENCE.md)
-2. Read [`README.md`](README.md) for doc types
-3. If still unclear, ask user for clarification
-
-### "Template has missing information"
-
-1. Run investigation commands
-2. Read relevant source files
-3. Check package.json and configs
-4. Look at similar existing documentation
-
-### "Information conflicts between sources"
-
-1. Trust code over documentation
-2. Verify with `cat package.json`, `ls`, etc.
-3. Update old documentation to match reality
+| Issue                                 | Solution                                                                                                                                         |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Don't know where to document this     | 1. Check `QUICK_REFERENCE.md`<br>2. Read `README.md` for doc types<br>3. If still unclear, ask user for clarification                            |
+| Template has missing information      | 1. Run investigation commands<br>2. Read relevant source files<br>3. Check package.json and configs<br>4. Look at similar existing documentation |
+| Information conflicts between sources | 1. Trust code over documentation<br>2. Verify with `cat package.json`, `ls`, etc.<br>3. Update old documentation to match reality                |
 
 ---
-
-**Last Updated**: December 13, 2025
