@@ -1,0 +1,42 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .aspectRatio {
+        @apply w-full;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .content {
+        position: absolute;
+        inset: 0;
+        min-width: 0;
+        min-height: 0;
+    }
+
+    .ratio-square {
+        aspect-ratio: var(--lufa-aspect-ratio-square);
+    }
+    .ratio-traditional {
+        aspect-ratio: var(--lufa-aspect-ratio-traditional);
+    }
+    .ratio-photo {
+        aspect-ratio: var(--lufa-aspect-ratio-photo);
+    }
+    .ratio-video {
+        aspect-ratio: var(--lufa-aspect-ratio-video);
+    }
+    .ratio-ultrawide {
+        aspect-ratio: var(--lufa-aspect-ratio-ultrawide);
+    }
+    .ratio-vertical {
+        aspect-ratio: var(--lufa-aspect-ratio-vertical);
+    }
+    .ratio-portrait {
+        aspect-ratio: var(--lufa-aspect-ratio-portrait);
+    }
+    .ratio-portraitDisplay {
+        aspect-ratio: var(--lufa-aspect-ratio-portrait-display);
+    }
+}
+
