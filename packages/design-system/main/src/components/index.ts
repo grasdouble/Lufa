@@ -11,7 +11,7 @@ export * from './layout/Stack';
 export * from './layout/Placeholder';
 export * from './layout/Divider';
 export * from './layout/Container';
-// export { Grid } from "./layout/Grid";
+export * from './layout/Grid';
 // export { Layout } from "./layout/Layout";
 // export { Space } from "./layout/Space";
 // export { AspectRatio } from "./layout/AspectRatio";
