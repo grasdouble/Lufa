@@ -1,5 +1,11 @@
 # @grasdouble/lufa_design-system-primitives
 
+## 0.2.1
+
+### Patch Changes
+
+- 93819d3: fix how to manage color on primitive
+
 ## 0.2.0
 
 ### Minor Changes
