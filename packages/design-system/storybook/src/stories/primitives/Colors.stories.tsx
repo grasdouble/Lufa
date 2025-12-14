@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { colorChromatic, colorNeutral } from '@grasdouble/lufa_design-system-primitives';
+import { color } from '@grasdouble/lufa_design-system-primitives';
 
 // Combine chromatic and neutral colors into one object
-const primitiveColors = { ...colorChromatic, ...colorNeutral };
+const primitiveColors = { ...color.chromatic, ...color.neutral };
 
 const meta = {
     title: '0. Primitives/Colors',
@@ -43,9 +43,7 @@ const ColorScaleTable = ({ name, shades }: { name: string; shades: Record<string
                         <div style={{ fontFamily: 'monospace', fontSize: '14px' }}>
                             --lufa-primitive-{name}-{shade}
                         </div>
-                        <div style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: '600' }}>
-                            {value}
-                        </div>
+                        <div style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: '600' }}>{value}</div>
                     </div>
                 );
             })}
@@ -58,8 +56,8 @@ export const AllColors: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>All Primitive Colors</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Complete set of primitive color scales in OKLCH format. Includes 22 chromatic colors and 5 neutral scales, all
-                optimized for WCAG 2.1 contrast ratios.
+                Complete set of primitive color scales in OKLCH format. Includes 22 chromatic colors and 5 neutral scales, all optimized for
+                WCAG 2.1 contrast ratios.
             </p>
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Neutrals</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px' }}>
@@ -68,7 +66,7 @@ export const AllColors: Story = {
                 <ColorScaleTable name="zinc" shades={primitiveColors.zinc} />
                 <ColorScaleTable name="neutral" shades={primitiveColors.neutral} />
                 <ColorScaleTable name="stone" shades={primitiveColors.stone} />
-                </div>
+            </div>
 
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Chromatic Colors</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
@@ -133,8 +131,8 @@ export const Neutrals: Story = {
         <div style={{ padding: '20px', maxWidth: '1400px' }}>
             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Neutral Colors</h1>
             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-                Achromatic color scales for text, backgrounds, and borders. Neutral includes extended range (0-1000) for pure white
-                and black.
+                Achromatic color scales for text, backgrounds, and borders. Neutral includes extended range (0-1000) for pure white and
+                black.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
@@ -200,10 +198,10 @@ export const Chromatic: Story = {
 
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Green Colors</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-            <ColorScaleTable name="lime" shades={primitiveColors.lime} />
-            <ColorScaleTable name="green" shades={primitiveColors.green} />
-            <ColorScaleTable name="emerald" shades={primitiveColors.emerald} />
-            <ColorScaleTable name="teal" shades={primitiveColors.teal} />
+                <ColorScaleTable name="lime" shades={primitiveColors.lime} />
+                <ColorScaleTable name="green" shades={primitiveColors.green} />
+                <ColorScaleTable name="emerald" shades={primitiveColors.emerald} />
+                <ColorScaleTable name="teal" shades={primitiveColors.teal} />
             </div>
 
             <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Blue Colors</h2>

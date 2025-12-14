@@ -101,10 +101,10 @@ const modalWidth = maxWidth[600]; // "37.5rem"
 
 ### 🌈 **Color** (246 tokens)
 
-- **colorChromatic** (187) - 11 color palettes × 17 shades each
+- **chromatic** (187) - 11 color palettes × 17 shades each
   - Palettes: `blue`, `green`, `orange`, `red`, `purple`, `teal`, `yellow`, `pink`, `indigo`, `cyan`, `lime`
   - Shades: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950` + variants
-- **colorNeutral** (59) - Gray scale from `0` (black) to `1000` (white)
+- **neutral** (59) - Gray scale from `0` (black) to `1000` (white)
   - Full range: `0`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`, `1000` + variants
 
 ### ✨ **Effects** (14 tokens)
