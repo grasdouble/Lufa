@@ -12,7 +12,7 @@ export * from './layout/Placeholder';
 export * from './layout/Divider';
 export * from './layout/Container';
 export * from './layout/Grid';
-// export { Layout } from "./layout/Layout";
+export * from './layout/Layout';
 // export { Space } from "./layout/Space";
 // export { AspectRatio } from "./layout/AspectRatio";
 // export { Center } from "./layout/Center";
