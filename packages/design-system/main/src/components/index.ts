@@ -15,8 +15,8 @@ export * from './layout/Grid';
 export * from './layout/Layout';
 export * from './layout/Space';
 export * from './layout/AspectRatio';
-// export { Center } from "./layout/Center";
-// export { Flex } from "./layout/Flex";
+export * from './layout/Center';
+export * from './layout/Flex';
 
 // ============================================
 // NAVIGATION
