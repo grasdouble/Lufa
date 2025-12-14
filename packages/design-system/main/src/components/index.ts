@@ -13,7 +13,7 @@ export * from './layout/Divider';
 export * from './layout/Container';
 export * from './layout/Grid';
 export * from './layout/Layout';
-// export { Space } from "./layout/Space";
+export * from './layout/Space';
 // export { AspectRatio } from "./layout/AspectRatio";
 // export { Center } from "./layout/Center";
 // export { Flex } from "./layout/Flex";

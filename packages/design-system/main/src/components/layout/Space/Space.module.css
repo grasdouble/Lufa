@@ -1,0 +1,22 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .space {
+        --lufa-space-size: var(--lufa-spacing-md);
+        flex: 0 0 auto;
+    }
+
+    .vertical {
+        display: block;
+        height: var(--lufa-space-size);
+        width: 100%;
+    }
+
+    .horizontal {
+        display: inline-block;
+        width: var(--lufa-space-size);
+        height: 1px;
+        vertical-align: middle;
+    }
+}
+
