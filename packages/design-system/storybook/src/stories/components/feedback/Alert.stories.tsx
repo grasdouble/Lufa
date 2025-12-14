@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Alert } from '@grasdouble/lufa_design-system';
+import { Alert, Button, tokens } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+const { color } = tokens;
 
 const meta = {
     title: '5. Feedback/Alert',
@@ -57,7 +59,7 @@ export const Variants: Story = {
     ),
 };
 
-export const WithTitle: Story = {
+export const Ttitle: Story = {
     render: () => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <Alert variant="info" title="Information">
@@ -109,19 +111,9 @@ export const Closable: Story = {
                         </Alert>
                     )}
                     {!alerts.info && !alerts.success && !alerts.warning && !alerts.error && (
-                        <button
-                            onClick={() => setAlerts({ info: true, success: true, warning: true, error: true })}
-                            style={{
-                                padding: '8px 16px',
-                                background: '#8B5CF6',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '6px',
-                                cursor: 'pointer',
-                            }}
-                        >
+                        <Button onClick={() => setAlerts({ info: true, success: true, warning: true, error: true })}>
                             Reset All Alerts
-                        </button>
+                        </Button>
                     )}
                 </div>
             );
@@ -141,7 +133,7 @@ export const LongContent: Story = {
     ),
 };
 
-export const WithCustomIcon: Story = {
+export const CustomIcon: Story = {
     args: {
         variant: 'success',
         title: 'Custom Icon',
@@ -186,9 +178,10 @@ export const UsageExamples: Story = {
                     Use keyboard shortcuts to navigate faster. Press{' '}
                     <code
                         style={{
-                            background: '#e5e5e5',
+                            background: color.background.secondary,
+                            border: `1px solid ${color.border.light}`,
                             padding: '2px 6px',
-                            borderRadius: '4px',
+                            borderRadius: '6px',
                         }}
                     >
                         Ctrl+K

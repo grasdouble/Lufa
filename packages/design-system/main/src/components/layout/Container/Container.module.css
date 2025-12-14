@@ -1,0 +1,110 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .container {
+        @apply w-full;
+    }
+
+    .align-center {
+        @apply mx-auto;
+    }
+
+    .align-start {
+        @apply ml-0 mr-auto;
+    }
+
+    .align-end {
+        @apply ml-auto mr-0;
+    }
+
+    .size-xs {
+        max-width: var(--lufa-container-xs);
+    }
+
+    .size-sm {
+        max-width: var(--lufa-container-sm);
+    }
+
+    .size-md {
+        max-width: var(--lufa-container-md);
+    }
+
+    .size-lg {
+        max-width: var(--lufa-container-lg);
+    }
+
+    .size-xl {
+        max-width: var(--lufa-container-xl);
+    }
+
+    .size-full {
+        max-width: var(--lufa-container-full);
+    }
+
+    .size-fluid {
+        max-width: var(--lufa-container-fluid);
+    }
+
+    .paddingX-none {
+        @apply px-none;
+    }
+    .paddingX-xxs {
+        @apply px-xxs;
+    }
+    .paddingX-xs {
+        @apply px-xs;
+    }
+    .paddingX-sm {
+        @apply px-sm;
+    }
+    .paddingX-md {
+        @apply px-md;
+    }
+    .paddingX-base {
+        @apply px-base;
+    }
+    .paddingX-lg {
+        @apply px-lg;
+    }
+    .paddingX-xl {
+        @apply px-xl;
+    }
+    .paddingX-2xl {
+        @apply px-2xl;
+    }
+    .paddingX-3xl {
+        @apply px-3xl;
+    }
+
+    .paddingY-none {
+        @apply py-none;
+    }
+    .paddingY-xxs {
+        @apply py-xxs;
+    }
+    .paddingY-xs {
+        @apply py-xs;
+    }
+    .paddingY-sm {
+        @apply py-sm;
+    }
+    .paddingY-md {
+        @apply py-md;
+    }
+    .paddingY-base {
+        @apply py-base;
+    }
+    .paddingY-lg {
+        @apply py-lg;
+    }
+    .paddingY-xl {
+        @apply py-xl;
+    }
+    .paddingY-2xl {
+        @apply py-2xl;
+    }
+    .paddingY-3xl {
+        @apply py-3xl;
+    }
+}
+

@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Input } from '@grasdouble/lufa_design-system';
+import { Button, Input, tokens } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+const { color } = tokens;
 
 const meta = {
     title: '3. Forms/Input',
@@ -40,7 +42,7 @@ export const Playground: Story = {
     },
 };
 
-export const WithLabel: Story = {
+export const Label: Story = {
     args: {
         label: 'Email Address',
         placeholder: 'you@example.com',
@@ -57,7 +59,7 @@ export const Required: Story = {
     },
 };
 
-export const Sizes: Story = {
+export const Size: Story = {
     render: () => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
             <Input size="small" label="Small" placeholder="Small input" />
@@ -67,7 +69,7 @@ export const Sizes: Story = {
     ),
 };
 
-export const Variants: Story = {
+export const Variant: Story = {
     render: () => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
             <Input variant="outlined" label="Outlined" placeholder="Outlined variant (default)" />
@@ -76,7 +78,7 @@ export const Variants: Story = {
     ),
 };
 
-export const WithError: Story = {
+export const Error: Story = {
     args: {
         label: 'Email',
         value: 'invalid-email',
@@ -84,7 +86,7 @@ export const WithError: Story = {
     },
 };
 
-export const WithHelperText: Story = {
+export const HelperText: Story = {
     args: {
         label: 'Password',
         type: 'password',
@@ -109,7 +111,7 @@ export const FullWidth: Story = {
     },
 };
 
-export const WithStartAdornment: Story = {
+export const StartAdornment: Story = {
     args: {
         label: 'Search',
         placeholder: 'Search...',
@@ -125,15 +127,15 @@ export const WithStartAdornment: Story = {
     },
 };
 
-export const WithEndAdornment: Story = {
+export const EndAdornment: Story = {
     args: {
         label: 'Website',
         placeholder: 'example',
-        endAdornment: <span style={{ color: '#666', fontSize: '14px' }}>.com</span>,
+        endAdornment: <span style={{ color: color.text.secondary, fontSize: '14px' }}>.com</span>,
     },
 };
 
-export const PasswordToggle: Story = {
+export const PasswordFieldExample: Story = {
     render: () => {
         const PasswordInput = () => {
             const [showPassword, setShowPassword] = useState(false);
@@ -153,7 +155,7 @@ export const PasswordToggle: Story = {
                                 cursor: 'pointer',
                                 padding: 0,
                                 display: 'flex',
-                                color: '#666',
+                                color: color.text.secondary,
                             }}
                         >
                             {showPassword ? (
@@ -191,27 +193,20 @@ export const FormExample: Story = {
             style={{ maxWidth: '500px', display: 'flex', flexDirection: 'column', gap: '16px' }}
             onSubmit={(e) => {
                 e.preventDefault();
-                alert('Form submitted!');
             }}
         >
             <Input label="Full Name" placeholder="John Doe" required fullWidth />
             <Input label="Email" type="email" placeholder="john@example.com" required fullWidth />
             <Input label="Phone" type="tel" placeholder="+1 (555) 123-4567" fullWidth />
             <Input label="Website" type="url" placeholder="https://example.com" helperText="Optional" fullWidth />
-            <button
-                type="submit"
-                style={{
-                    padding: '10px 20px',
-                    background: '#8B5CF6',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '6px',
-                    cursor: 'pointer',
-                    fontSize: '16px',
-                }}
-            >
-                Submit
-            </button>
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
+                <Button type="reset" variant="outlined" color="secondary">
+                    Reset
+                </Button>
+                <Button type="submit" variant="solid" color="primary">
+                    Submit
+                </Button>
+            </div>
         </form>
     ),
 };

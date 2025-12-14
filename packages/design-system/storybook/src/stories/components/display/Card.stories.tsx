@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Card, Button } from '@grasdouble/lufa_design-system';
+import { Button, Card, Placeholder, tokens } from '@grasdouble/lufa_design-system';
+
+const { color } = tokens;
 
 const meta = {
     title: '4. Display/Card',
@@ -54,7 +56,7 @@ export const Playground: Story = {
     },
 };
 
-export const WithTitle: Story = {
+export const Ttile: Story = {
     args: {
         title: 'Card Title',
         subtitle: 'Optional subtitle or description',
@@ -81,7 +83,7 @@ export const Variants: Story = {
     ),
 };
 
-export const PaddingSizes: Story = {
+export const Padding: Story = {
     render: () => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <Card padding="none" title="No Padding">
@@ -100,15 +102,15 @@ export const PaddingSizes: Story = {
     ),
 };
 
-export const WithFooter: Story = {
+export const Footer: Story = {
     args: {
         title: 'Card with Actions',
         subtitle: 'This card has footer actions',
         children: 'Card content that describes something interesting.',
         footer: (
             <div style={{ display: 'flex', gap: '8px' }}>
-                <Button variant="solid" label="Primary" />
-                <Button variant="text" label="Cancel" />
+                <Button variant="solid">Primary</Button>
+                <Button variant="text">Cancel</Button>
             </div>
         ),
     },
@@ -135,7 +137,7 @@ export const Clickable: Story = {
         <Card
             variant="elevated"
             hoverable
-            onClick={() => alert('Card clicked!')}
+            onClick={() => console.log('Card clicked')}
             title="Clickable Card"
             subtitle="Click anywhere on this card"
         >
@@ -144,7 +146,7 @@ export const Clickable: Story = {
     ),
 };
 
-export const ProductCards: Story = {
+export const UsageExamples: Story = {
     render: () => (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
             <Card
@@ -153,20 +155,18 @@ export const ProductCards: Story = {
                 padding="none"
                 footer={
                     <div style={{ padding: '16px' }}>
-                        <Button variant="solid" style={{ width: '100%' }}>
+                        <Button variant="solid" fullWidth>
                             Add to Cart
                         </Button>
                     </div>
                 }
             >
-                <img
-                    src="https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Product+1"
-                    alt="Product"
-                    style={{ width: '100%', display: 'block' }}
-                />
+                <Placeholder height="large" width="full" color={color.interactive.default}>
+                    Product image
+                </Placeholder>
                 <div style={{ padding: '16px' }}>
                     <h3 style={{ margin: '0 0 8px 0' }}>Product Name</h3>
-                    <p style={{ margin: 0, color: '#666' }}>$99.99</p>
+                    <p style={{ margin: 0, color: color.text.secondary }}>$99.99</p>
                 </div>
             </Card>
             <Card
@@ -175,18 +175,16 @@ export const ProductCards: Story = {
                 padding="none"
                 footer={
                     <div style={{ padding: '16px' }}>
-                        <Button variant="solid" label="Add to Cart" />
+                        <Button variant="solid">Add to Cart</Button>
                     </div>
                 }
             >
-                <img
-                    src="https://via.placeholder.com/300x200/10B981/FFFFFF?text=Product+2"
-                    alt="Product"
-                    style={{ width: '100%', display: 'block' }}
-                />
+                <Placeholder height="large" width="full" color={color.success.default}>
+                    Product image
+                </Placeholder>
                 <div style={{ padding: '16px' }}>
                     <h3 style={{ margin: '0 0 8px 0' }}>Another Product</h3>
-                    <p style={{ margin: 0, color: '#666' }}>$149.99</p>
+                    <p style={{ margin: 0, color: color.text.secondary }}>$149.99</p>
                 </div>
             </Card>
             <Card
@@ -195,18 +193,16 @@ export const ProductCards: Story = {
                 padding="none"
                 footer={
                     <div style={{ padding: '16px' }}>
-                        <Button variant="solid" label="Add to Cart" />
+                        <Button variant="solid">Add to Cart</Button>
                     </div>
                 }
             >
-                <img
-                    src="https://via.placeholder.com/300x200/EF4444/FFFFFF?text=Product+3"
-                    alt="Product"
-                    style={{ width: '100%', display: 'block' }}
-                />
+                <Placeholder height="large" width="full" color={color.error.default}>
+                    Product image
+                </Placeholder>
                 <div style={{ padding: '16px' }}>
                     <h3 style={{ margin: '0 0 8px 0' }}>Premium Item</h3>
-                    <p style={{ margin: 0, color: '#666' }}>$249.99</p>
+                    <p style={{ margin: 0, color: color.text.secondary }}>$249.99</p>
                 </div>
             </Card>
         </div>
