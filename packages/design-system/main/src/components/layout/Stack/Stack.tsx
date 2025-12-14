@@ -2,17 +2,10 @@ import clsx from 'clsx';
 import styles from './Stack.module.css';
 
 import { ReactNode } from 'react';
-import {
-    STACK_ALIGN,
-    STACK_DIRECTION,
-    STACK_GAP,
-    STACK_JUSTIFY,
-    STACK_PADDING,
-    STACK_WRAP,
-} from './Stack.constants';
+import { STACK_ALIGN, STACK_DIRECTION, STACK_GAP, STACK_JUSTIFY, STACK_PADDING, STACK_WRAP } from './Stack.constants';
 
 export interface StackProps {
-    children: ReactNode;
+    children?: ReactNode;
     gap?: keyof typeof STACK_GAP;
     direction?: keyof typeof STACK_DIRECTION;
     align?: keyof typeof STACK_ALIGN;

@@ -61,50 +61,63 @@ export const Ratio: Story = {
                 <div>
                     <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>landscape & square</div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', gap: '16px' }}>
-                        {([ASPECT_RATIO.square, ASPECT_RATIO.traditional, ASPECT_RATIO.photo, ASPECT_RATIO.video, ASPECT_RATIO.ultrawide] as const).map(
-                            (ratio) => (
+                        {(
+                            [
+                                ASPECT_RATIO.square,
+                                ASPECT_RATIO.traditional,
+                                ASPECT_RATIO.photo,
+                                ASPECT_RATIO.video,
+                                ASPECT_RATIO.ultrawide,
+                            ] as const
+                        ).map((ratio) => (
+                            <div
+                                key={ratio}
+                                style={{
+                                    backgroundColor: color.background.secondary,
+                                    borderRadius: '12px',
+                                    padding: '16px',
+                                }}
+                            >
                                 <div
-                                    key={ratio}
                                     style={{
-                                        backgroundColor: color.background.secondary,
-                                        borderRadius: '12px',
-                                        padding: '16px',
+                                        display: 'flex',
+                                        alignItems: 'baseline',
+                                        justifyContent: 'space-between',
+                                        marginBottom: '12px',
                                     }}
                                 >
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '12px' }}>
-                                        <div style={{ fontFamily: 'monospace', color: color.text.secondary }}>ratio: {ratio}</div>
-                                        <div style={{ fontFamily: 'monospace', color: color.text.tertiary, fontSize: '12px' }}>
-                                            {aspectRatio[ratio]}
-                                        </div>
+                                    <div style={{ fontFamily: 'monospace', color: color.text.secondary }}>ratio: {ratio}</div>
+                                    <div style={{ fontFamily: 'monospace', color: color.text.tertiary, fontSize: '12px' }}>
+                                        {aspectRatio[ratio]}
                                     </div>
-                                    <AspectRatio
-                                        ratio={ratio}
+                                </div>
+                                <AspectRatio
+                                    ratio={ratio}
+                                    style={{
+                                        borderRadius: '12px',
+                                        outline: `1px solid ${color.border.light}`,
+                                        backgroundColor: color.background.primary,
+                                    }}
+                                >
+                                    <div
                                         style={{
-                                            borderRadius: '12px',
-                                            outline: `1px solid ${color.border.light}`,
-                                            backgroundColor: color.background.primary,
+                                            width: '100%',
+                                            height: '100%',
+                                            backgroundImage: `linear-gradient(135deg, ${color.interactive.default} 0%, ${color.brand.secondary} 100%)`,
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            color: color.text.inverse,
+                                            fontFamily: 'monospace',
+                                            fontSize: '12px',
+                                            fontWeight: 700,
                                         }}
                                     >
-                                        <div
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                                backgroundImage: `linear-gradient(135deg, ${color.interactive.default} 0%, ${color.brand.secondary} 100%)`,
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                color: color.text.inverse,
-                                                fontFamily: 'monospace',
-                                                fontSize: '12px',
-                                                fontWeight: 700,
-                                            }}
-                                        >
-                                            {aspectRatio[ratio]}
-                                        </div>
-                                    </AspectRatio>
-                                </div>
-                            )
-                        )}
+                                        {aspectRatio[ratio]}
+                                    </div>
+                                </AspectRatio>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
@@ -120,7 +133,14 @@ export const Ratio: Story = {
                                     padding: '16px',
                                 }}
                             >
-                                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '12px' }}>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'baseline',
+                                        justifyContent: 'space-between',
+                                        marginBottom: '12px',
+                                    }}
+                                >
                                     <div style={{ fontFamily: 'monospace', color: color.text.secondary }}>ratio: {ratio}</div>
                                     <div style={{ fontFamily: 'monospace', color: color.text.tertiary, fontSize: '12px' }}>
                                         {aspectRatio[ratio]}

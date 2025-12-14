@@ -2,44 +2,27 @@
 sidebar_position: 1
 ---
 
-import {
-  Button,
-  Stack,
-  STACK_DIRECTION,
-  Typography,
-} from "@grasdouble/lufa_design-system";
-import { StorybookEmbed } from "@site/src/components/StorybookEmbed";
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/forms/button";
+import { Button } from "@grasdouble/lufa_design-system";
 
 # Button
 
-A versatile button component for triggering actions and navigation with multiple variants, sizes, and states.
+A versatile button component for actions and navigation. Supports variants, colors, sizes, icons, and loading/disabled states.
 
 ## Overview
 
-Buttons are interactive elements that users can click or tap to perform actions. The Button component provides:
+Use `Button` for primary actions, secondary actions, and links that should look like buttons.
 
-- Multiple visual variants (primary, secondary, outline, ghost)
-- Three size options for different contexts
-- Built-in loading and disabled states
-- Full accessibility support with keyboard navigation
-- Flexible composition with icons and custom content
+- Style via `variant` and `color`
+- Size via `size` and layout via `fullWidth`
+- Async states via `loading` and `disabled`
+- Icons via `startIcon` / `endIcon`
 
 ## Live Demo
 
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "24px",
-  }}
->
-  <Button variant="primary">Click Me</Button>
-</div>
+<LiveDemo />
 
 ## Installation
-
-The Button component is part of the Lufa Design System:
 
 ```tsx
 import { Button } from "@grasdouble/lufa_design-system";
@@ -48,311 +31,32 @@ import { Button } from "@grasdouble/lufa_design-system";
 ## Basic Usage
 
 ```tsx
-<Button variant="primary">Primary Button</Button>
+<Button>Action</Button>
+
+<Button variant="outlined">Secondary action</Button>
 ```
 
 ## Props
 
-| Prop        | Type                                               | Default     | Description                       |
-| ----------- | -------------------------------------------------- | ----------- | --------------------------------- |
-| `variant`   | `'primary' \| 'secondary' \| 'outline' \| 'ghost'` | `'primary'` | Visual style variant              |
-| `size`      | `'sm' \| 'md' \| 'lg'`                             | `'md'`      | Button size                       |
-| `disabled`  | `boolean`                                          | `false`     | Disable button interactions       |
-| `loading`   | `boolean`                                          | `false`     | Show loading state                |
-| `fullWidth` | `boolean`                                          | `false`     | Make button full width            |
-| `onClick`   | `(event: React.MouseEvent) => void`                | -           | Click handler                     |
-| `type`      | `'button' \| 'submit' \| 'reset'`                  | `'button'`  | Button type attribute             |
-| `children`  | `ReactNode`                                        | -           | Button content (text, icons, etc) |
+| Prop        | Type                                                     | Default    | Description                                   |
+| ----------- | -------------------------------------------------------- | ---------- | --------------------------------------------- |
+| `children`  | `ReactNode`                                              | -          | Button content (text, icons, etc.)            |
+| `label`     | `string`                                                 | -          | Deprecated (use `children`)                   |
+| `variant`   | `'solid' \| 'outlined' \| 'text' \| 'ghost' \| 'link'`    | `'solid'`  | Visual style variant                          |
+| `color`     | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger'` | `'primary'` | Color scheme                                  |
+| `size`      | `'small' \| 'medium' \| 'large'`                         | `'medium'` | Size                                          |
+| `fullWidth` | `boolean`                                                | `false`    | Make button full width                        |
+| `loading`   | `boolean`                                                | `false`    | Show loading state (also disables the button) |
+| `disabled`  | `boolean`                                                | `false`    | Disable interactions                          |
+| `startIcon` | `ReactNode`                                              | -          | Icon before content                           |
+| `endIcon`   | `ReactNode`                                              | -          | Icon after content                            |
+| `onClick`   | `(event: React.MouseEvent<HTMLButtonElement>) => void`   | -          | Click handler                                 |
+| `type`      | `'button' \| 'submit' \| 'reset'`                        | `'button'` | Button type attribute                         |
 
 ## Variants
 
-### Visual Variants
+<Variants />
 
-<div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "16px",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <div>
-    <Typography
-      variant="label"
-      weight="semibold"
-      style={{ marginBottom: "8px" }}
-    >
-      Primary (Default)
-    </Typography>
-    <Button variant="primary">Primary Button</Button>
-  </div>
-  <div>
-    <Typography
-      variant="label"
-      weight="semibold"
-      style={{ marginBottom: "8px" }}
-    >
-      Secondary
-    </Typography>
-    <Button variant="secondary">Secondary Button</Button>
-  </div>
-  <div>
-    <Typography
-      variant="label"
-      weight="semibold"
-      style={{ marginBottom: "8px" }}
-    >
-      Outline
-    </Typography>
-    <Button variant="outline">Outline Button</Button>
-  </div>
-  <div>
-    <Typography
-      variant="label"
-      weight="semibold"
-      style={{ marginBottom: "8px" }}
-    >
-      Ghost
-    </Typography>
-    <Button variant="ghost">Ghost Button</Button>
-  </div>
-</div>
+## Examples
 
-```tsx
-<Button variant="primary">Primary Button</Button>
-<Button variant="secondary">Secondary Button</Button>
-<Button variant="outline">Outline Button</Button>
-<Button variant="ghost">Ghost Button</Button>
-```
-
-**Usage Guidelines:**
-
-- **Primary**: Main call-to-action (limit one per section)
-- **Secondary**: Supporting actions that complement the primary
-- **Outline**: Less prominent actions or dense interfaces
-- **Ghost**: Tertiary actions or minimalist designs
-
-## Size Variants
-
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "16px",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Button size="sm">Small</Button>
-  <Button size="md">Medium</Button>
-  <Button size="lg">Large</Button>
-</div>
-
-```tsx
-<Button size="sm">Small</Button>
-<Button size="md">Medium</Button> {/* Default */}
-<Button size="lg">Large</Button>
-```
-
-**Size Specifications:**
-
-- **Small (sm)**: Compact buttons for tight spaces
-- **Medium (md)**: Default size for most use cases
-- **Large (lg)**: Prominent actions or touch-friendly interfaces
-
-## States
-
-### Disabled State
-
-<div
-  style={{
-    display: "flex",
-    gap: "16px",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Button variant="primary" disabled>
-    Disabled Primary
-  </Button>
-  <Button variant="secondary" disabled>
-    Disabled Secondary
-  </Button>
-  <Button variant="outline" disabled>
-    Disabled Outline
-  </Button>
-</div>
-
-```tsx
-<Button variant="primary" disabled>
-  Disabled Button
-</Button>
-```
-
-### Loading State
-
-<div
-  style={{
-    display: "flex",
-    gap: "16px",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Button variant="primary" loading>
-    Loading...
-  </Button>
-  <Button variant="secondary" loading>
-    Processing
-  </Button>
-</div>
-
-```tsx
-<Button variant="primary" loading>
-  Loading...
-</Button>
-```
-
-### Full Width
-
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Button variant="primary" fullWidth>
-    Full Width Button
-  </Button>
-</div>
-
-```tsx
-<Button variant="primary" fullWidth>
-  Full Width Button
-</Button>
-```
-
-## Common Patterns
-
-### Button Group
-
-<div
-  style={{
-    display: "flex",
-    gap: "8px",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Button variant="outline">Cancel</Button>
-  <Button variant="primary">Save</Button>
-</div>
-
-```tsx
-<div style={{ display: "flex", gap: "var(--lufa-spacing-sm)" }}>
-  <Button variant="outline">Cancel</Button>
-  <Button variant="primary">Save</Button>
-</div>
-```
-
-### With Stack Component
-
-```tsx
-<Stack direction={STACK_DIRECTION.HORIZONTAL} gap="sm">
-  <Button variant="outline">Cancel</Button>
-  <Button variant="primary">Confirm</Button>
-</Stack>
-```
-
-### Form Submit
-
-```tsx
-<form onSubmit={handleSubmit}>
-  <Input label="Name" />
-  <Stack direction={STACK_DIRECTION.HORIZONTAL} gap="sm">
-    <Button type="button" variant="ghost" onClick={handleReset}>
-      Reset
-    </Button>
-    <Button type="submit" variant="primary">
-      Submit
-    </Button>
-  </Stack>
-</form>
-```
-
-### Async Action with Loading
-
-```tsx
-function SubmitButton() {
-  const [loading, setLoading] = React.useState(false);
-
-  const handleClick = async () => {
-    setLoading(true);
-    try {
-      await submitForm();
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <Button variant="primary" loading={loading} onClick={handleClick}>
-      {loading ? "Submitting..." : "Submit"}
-    </Button>
-  );
-}
-```
-
-## Accessibility
-
-The Button component follows accessibility best practices:
-
-- Uses semantic `<button>` element
-- Supports keyboard navigation (Enter and Space keys)
-- Properly handles disabled state (non-interactive, aria-disabled)
-- Includes focus-visible indicator for keyboard users
-- Loading state announced to screen readers
-- Maintains adequate touch target size (44×44px minimum)
-
-## Best Practices
-
-### Do
-
-✅ Use clear, action-oriented labels ("Save", "Delete", "Continue")
-✅ Limit to one primary button per section
-✅ Place primary action on the right in button groups
-✅ Use consistent sizing within a context
-✅ Provide visual feedback for interactive states
-
-### Don't
-
-❌ Use vague labels like "Click here" or "OK"
-❌ Use too many primary buttons (creates confusion)
-❌ Make buttons too small to tap on mobile (< 44px)
-❌ Use buttons for navigation (use links instead)
-❌ Disable buttons without explanation
-
-## Related Components
-
-- [Stack](../layout/stack) - Layout component for button groups
-- [Typography](../typography) - Text component for labels
-- [Card](../display/card) - Container that often includes buttons
-
-## Storybook
-
-Explore interactive examples and all button variations:
-
-<StorybookEmbed storyId="components-button--default" />
+<Examples />

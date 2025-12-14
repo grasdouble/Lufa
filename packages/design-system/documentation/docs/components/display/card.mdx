@@ -2,51 +2,27 @@
 sidebar_position: 1
 ---
 
-import {
-  Card,
-  Button,
-  Typography,
-  Stack,
-  STACK_DIRECTION,
-} from "@grasdouble/lufa_design-system";
-import { StorybookEmbed } from "@site/src/components/StorybookEmbed";
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/display/card";
+import { Card } from "@grasdouble/lufa_design-system";
 
 # Card
 
-A flexible container component for grouping related content with consistent styling and elevation.
+A flexible container component for grouping related content. Supports a title/subtitle header, optional footer actions, multiple visual variants, and padding sizes.
 
 ## Overview
 
-Cards are surface components that display content and actions about a single subject. The Card component provides:
+Use `Card` to group related information and actions into a clear surface.
 
-- Clean, consistent container styling
-- Optional elevated shadow for depth
-- Interactive variant with hover effects
-- Flexible composition with any content
-- Responsive padding and spacing
-- Accessible clickable areas when interactive
+- Header support via `title` / `subtitle`
+- Footer slot via `footer` (actions, meta, etc.)
+- Visual styles via `variant` and spacing via `padding`
+- Interactive affordance via `hoverable` + `onClick`
 
 ## Live Demo
 
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "24px",
-  }}
->
-  <Card>
-    <Typography variant="h3">Example Card</Typography>
-    <Typography variant="body1">
-      Cards are versatile containers for grouping related content.
-    </Typography>
-  </Card>
-</div>
+<LiveDemo />
 
 ## Installation
-
-The Card component is part of the Lufa Design System:
 
 ```tsx
 import { Card } from "@grasdouble/lufa_design-system";
@@ -55,368 +31,29 @@ import { Card } from "@grasdouble/lufa_design-system";
 ## Basic Usage
 
 ```tsx
-<Card>
-  <Typography variant="h3">Card Title</Typography>
-  <Typography variant="body1">Card content goes here.</Typography>
+<Card title="Title" subtitle="Optional subtitle">
+  Content goes here.
 </Card>
 ```
 
 ## Props
 
-| Prop          | Type                  | Default | Description                               |
-| ------------- | --------------------- | ------- | ----------------------------------------- |
-| `children`    | `ReactNode`           | -       | Card content                              |
-| `elevated`    | `boolean`             | `false` | Apply elevated shadow for more prominence |
-| `interactive` | `boolean`             | `false` | Add hover effects and cursor pointer      |
-| `onClick`     | `() => void`          | -       | Click handler (requires `interactive`)    |
-| `className`   | `string`              | -       | Additional CSS classes                    |
-| `style`       | `React.CSSProperties` | -       | Inline styles                             |
+| Prop       | Type                                          | Default     | Description                          |
+| ---------- | --------------------------------------------- | ----------- | ------------------------------------ |
+| `children` | `ReactNode`                                   | -           | Card content                         |
+| `title`    | `string`                                      | -           | Card title (header)                  |
+| `subtitle` | `string`                                      | -           | Card subtitle/description (header)   |
+| `footer`   | `ReactNode`                                   | -           | Footer slot (actions, meta, etc.)    |
+| `variant`  | `'default' \| 'elevated' \| 'outlined' \| 'filled'` | `'default'` | Visual variant                       |
+| `padding`  | `'none' \| 'small' \| 'medium' \| 'large'`    | `'medium'`  | Padding size                         |
+| `hoverable`| `boolean`                                     | `false`     | Add hover affordance                 |
+| `onClick`  | `() => void`                                  | -           | Click handler (makes card clickable) |
+| `className`| `string`                                      | -           | Additional CSS classes               |
 
 ## Variants
 
-### Default Card
+<Variants />
 
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Card>
-    <Typography variant="h4">Default Card</Typography>
-    <Typography variant="body2">
-      A simple card with default styling and subtle shadow.
-    </Typography>
-  </Card>
-</div>
+## Examples
 
-```tsx
-<Card>
-  <Typography variant="h4">Default Card</Typography>
-  <Typography variant="body2">A simple card with default styling.</Typography>
-</Card>
-```
-
-### Elevated Card
-
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Card elevated>
-    <Typography variant="h4">Elevated Card</Typography>
-    <Typography variant="body2">
-      Card with increased shadow for more prominence.
-    </Typography>
-  </Card>
-</div>
-
-```tsx
-<Card elevated>
-  <Typography variant="h4">Elevated Card</Typography>
-  <Typography variant="body2">
-    Card with increased shadow for more prominence.
-  </Typography>
-</Card>
-```
-
-### Interactive Card
-
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Card interactive onClick={() => alert("Card clicked!")}>
-    <Typography variant="h4">Interactive Card</Typography>
-    <Typography variant="body2">
-      This card is clickable and shows hover effects. Click to try!
-    </Typography>
-  </Card>
-</div>
-
-```tsx
-<Card interactive onClick={() => console.log("Card clicked")}>
-  <Typography variant="h4">Interactive Card</Typography>
-  <Typography variant="body2">
-    This card is clickable and shows hover effects.
-  </Typography>
-</Card>
-```
-
-## Common Patterns
-
-### Card with Action Button
-
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Card>
-    <Stack direction={STACK_DIRECTION.VERTICAL} gap="md">
-      <Typography variant="h3">Welcome</Typography>
-      <Typography variant="body1">
-        Get started with Lufa Design System by exploring our components.
-      </Typography>
-      <Stack direction={STACK_DIRECTION.HORIZONTAL} gap="sm">
-        <Button variant="primary">Get Started</Button>
-        <Button variant="outline">Learn More</Button>
-      </Stack>
-    </Stack>
-  </Card>
-</div>
-
-```tsx
-<Card>
-  <Stack direction={STACK_DIRECTION.VERTICAL} gap="md">
-    <Typography variant="h3">Welcome</Typography>
-    <Typography variant="body1">
-      Get started with Lufa Design System.
-    </Typography>
-    <Stack direction={STACK_DIRECTION.HORIZONTAL} gap="sm">
-      <Button variant="primary">Get Started</Button>
-      <Button variant="outline">Learn More</Button>
-    </Stack>
-  </Stack>
-</Card>
-```
-
-### Stats Card
-
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Card>
-    <Typography variant="h2">1,234</Typography>
-    <Typography
-      variant="caption"
-      style={{ color: "var(--lufa-color-text-secondary)" }}
-    >
-      Total Users
-    </Typography>
-    <Typography variant="body2" style={{ color: "var(--lufa-color-success)" }}>
-      +12% from last month
-    </Typography>
-  </Card>
-</div>
-
-```tsx
-<Card>
-  <Typography variant="h2">1,234</Typography>
-  <Typography
-    variant="caption"
-    style={{ color: "var(--lufa-color-text-secondary)" }}
-  >
-    Total Users
-  </Typography>
-  <Typography variant="body2" style={{ color: "var(--lufa-color-success)" }}>
-    +12% from last month
-  </Typography>
-</Card>
-```
-
-### Media Card
-
-```tsx
-<Card>
-  <img
-    src="/image.jpg"
-    alt="Description"
-    style={{
-      width: "100%",
-      borderRadius: "var(--lufa-radius-md) var(--lufa-radius-md) 0 0",
-    }}
-  />
-  <Stack
-    direction={STACK_DIRECTION.VERTICAL}
-    gap="sm"
-    style={{ padding: "var(--lufa-spacing-lg)" }}
-  >
-    <Typography variant="h4">Image Title</Typography>
-    <Typography variant="body2">Description text goes here.</Typography>
-    <Button variant="primary">Learn More</Button>
-  </Stack>
-</Card>
-```
-
-### Card Grid Layout
-
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <div
-    style={{
-      display: "grid",
-      gap: "16px",
-      gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    }}
-  >
-    <Card>
-      <Typography variant="h4">Card 1</Typography>
-      <Typography variant="body2">Content here</Typography>
-    </Card>
-    <Card>
-      <Typography variant="h4">Card 2</Typography>
-      <Typography variant="body2">Content here</Typography>
-    </Card>
-    <Card>
-      <Typography variant="h4">Card 3</Typography>
-      <Typography variant="body2">Content here</Typography>
-    </Card>
-  </div>
-</div>
-
-```tsx
-<div
-  style={{
-    display: "grid",
-    gap: "var(--lufa-spacing-lg)",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-  }}
->
-  <Card>
-    <Typography variant="h4">Card 1</Typography>
-    <Typography variant="body2">Content here</Typography>
-  </Card>
-  <Card>
-    <Typography variant="h4">Card 2</Typography>
-    <Typography variant="body2">Content here</Typography>
-  </Card>
-  <Card>
-    <Typography variant="h4">Card 3</Typography>
-    <Typography variant="body2">Content here</Typography>
-  </Card>
-</div>
-```
-
-### List Card
-
-```tsx
-<Card>
-  <Typography variant="h4" style={{ marginBottom: "var(--lufa-spacing-md)" }}>
-    Recent Activity
-  </Typography>
-  <Stack direction={STACK_DIRECTION.VERTICAL} gap="sm">
-    <Typography variant="body2">User signed up</Typography>
-    <Typography variant="body2">New order received</Typography>
-    <Typography variant="body2">Payment processed</Typography>
-  </Stack>
-</Card>
-```
-
-## Customization
-
-### Custom Styles
-
-You can customize cards using inline styles or CSS variables:
-
-```tsx
-<Card
-  style={{
-    backgroundColor: "var(--lufa-color-background-secondary)",
-    border: "2px solid var(--lufa-color-primary)",
-    padding: "var(--lufa-spacing-xl)",
-  }}
->
-  <Typography variant="h4">Custom Card</Typography>
-</Card>
-```
-
-### Responsive Padding
-
-```tsx
-<Card
-  style={{
-    padding: "var(--lufa-spacing-md)",
-    "@media (min-width: 768px)": {
-      padding: "var(--lufa-spacing-xl)",
-    },
-  }}
->
-  <Typography variant="h4">Responsive Card</Typography>
-</Card>
-```
-
-## Accessibility
-
-The Card component follows accessibility best practices:
-
-- Uses semantic HTML elements
-- Supports keyboard navigation when interactive
-- Interactive cards have proper ARIA attributes
-- Focus-visible indicator for keyboard users
-- Adequate clickable area for interactive cards
-- Screen reader announces clickable cards appropriately
-
-## Best Practices
-
-### Do
-
-✅ Group related content together
-✅ Use consistent padding and spacing
-✅ Keep card content focused and concise
-✅ Use cards to create visual hierarchy
-✅ Maintain readable line length inside cards
-
-### Don't
-
-❌ Nest cards too deeply (max 1-2 levels)
-❌ Overuse elevated or interactive variants
-❌ Make cards too wide (maintain ~65-75 characters per line)
-❌ Use cards for every piece of content
-❌ Mix too many card styles on one page
-
-## Design Tokens
-
-Cards use the following design tokens:
-
-```css
-/* Background */
-background-color: var(--lufa-color-background-primary);
-
-/* Border */
-border: 1px solid var(--lufa-color-border-primary);
-border-radius: var(--lufa-radius-md);
-
-/* Shadow */
-box-shadow: var(--lufa-shadow-sm); /* default */
-box-shadow: var(--lufa-shadow-md); /* elevated */
-
-/* Spacing */
-padding: var(--lufa-spacing-lg);
-```
-
-## Related Components
-
-- [Button](../forms/button) - Action buttons often used in cards
-- [Typography](../typography) - Text components for card content
-- [Stack](../layout/stack) - Layout component for card content
-
-## Storybook
-
-Explore interactive examples and all card variations:
-
-<StorybookEmbed storyId="components-card--default" />
+<Examples />

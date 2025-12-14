@@ -3,8 +3,17 @@ sidebar_position: 99
 draft: true
 ---
 
-import { ComponentName, Typography } from "@grasdouble/lufa_design-system";
-import { StorybookEmbed } from "@site/src/components/StorybookEmbed";
+import {
+  /**
+   * Prefer extracting larger demo blocks into a dedicated file:
+   * `packages/design-system/documentation/src/dsExamples/{category}/componentName.tsx`
+   */
+  LiveDemo,
+  Variants,
+  Examples,
+} from "../../../src/dsExamples/{category}/componentName";
+
+import { ComponentName } from "@grasdouble/lufa_design-system";
 
 # ComponentName
 
@@ -21,16 +30,7 @@ Detailed description of the component. Explain:
 
 ## Live Demo
 
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "24px",
-  }}
->
-  <ComponentName>Default Example</ComponentName>
-</div>
+<LiveDemo />
 
 ## Installation
 
@@ -57,50 +57,7 @@ import { ComponentName } from "@grasdouble/lufa_design-system";
 
 ## Variants
 
-### Visual Variants
-
-<div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "16px",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <div>
-    <Typography
-      variant="label"
-      weight="semibold"
-      style={{ marginBottom: "8px" }}
-    >
-      Primary (Default)
-    </Typography>
-    <ComponentName variant="primary">Primary Variant</ComponentName>
-  </div>
-  <div>
-    <Typography
-      variant="label"
-      weight="semibold"
-      style={{ marginBottom: "8px" }}
-    >
-      Secondary
-    </Typography>
-    <ComponentName variant="secondary">Secondary Variant</ComponentName>
-  </div>
-  <div>
-    <Typography
-      variant="label"
-      weight="semibold"
-      style={{ marginBottom: "8px" }}
-    >
-      Text
-    </Typography>
-    <ComponentName variant="text">Text Variant</ComponentName>
-  </div>
-</div>
+<Variants />
 
 ```tsx
 <ComponentName variant="primary">Primary Variant</ComponentName>
@@ -186,47 +143,7 @@ import { ComponentName } from "@grasdouble/lufa_design-system";
 
 ## Examples
 
-### Example 1: Common Use Case
-
-Description of the example and when to use it.
-
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <ComponentName>Example Content</ComponentName>
-</div>
-
-```tsx
-<ComponentName>Example Content</ComponentName>
-```
-
-### Example 2: Advanced Use Case
-
-Description of a more complex example.
-
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <ComponentName variant="secondary" size="large">
-    Advanced Example
-  </ComponentName>
-</div>
-
-```tsx
-<ComponentName variant="secondary" size="large">
-  Advanced Example
-</ComponentName>
-```
+<Examples />
 
 ## Composition
 
@@ -383,19 +300,6 @@ interface ComponentNameProps {
   onClick?: () => void;
 }
 ```
-
-## Interactive Playground
-
-Explore ComponentName interactively in Storybook with live controls:
-
-<StorybookEmbed storyId="category-componentname--default" height={400} />
-
-Try different variants:
-
-<StorybookEmbed
-  storyId="category-componentname--variant-example"
-  height={300}
-/>
 
 ## Related Components
 

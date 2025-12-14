@@ -1,0 +1,58 @@
+---
+sidebar_position: 1
+---
+
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/feedback/alert";
+import { Alert } from "@grasdouble/lufa_design-system";
+
+# Alert
+
+Inline feedback message for communicating information, success, warning, or error states.
+
+## Overview
+
+Use `Alert` to highlight important information and status changes near the relevant content.
+
+- Severity via `variant` (`info`, `success`, `warning`, `error`)
+- Optional title via `title`
+- Optional close button via `closable` + `onClose`
+- Optional icon override via `icon`
+
+## Live Demo
+
+<LiveDemo />
+
+## Installation
+
+```tsx
+import { Alert } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Alert variant="success" title="Saved">
+  Your changes have been saved.
+</Alert>
+```
+
+## Props
+
+| Prop       | Type                                   | Default  | Description                 |
+| ---------- | -------------------------------------- | -------- | --------------------------- |
+| `children` | `ReactNode`                            | -        | Alert message content       |
+| `title`    | `string`                               | -        | Optional title              |
+| `variant`  | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'` | Severity / style variant    |
+| `closable` | `boolean`                              | `false`  | Shows a close button        |
+| `onClose`  | `() => void`                           | -        | Close handler               |
+| `icon`     | `ReactNode`                            | -        | Custom icon (overrides default) |
+| `className`| `string`                               | -        | Additional CSS classes      |
+
+## Variants
+
+<Variants />
+
+## Examples
+
+<Examples />
+

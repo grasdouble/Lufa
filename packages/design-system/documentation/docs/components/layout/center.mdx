@@ -1,0 +1,54 @@
+---
+sidebar_position: 9
+---
+
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/center";
+import { Center } from "@grasdouble/lufa_design-system";
+
+# Center
+
+Centers children horizontally, vertically, or both using flex (optionally inline).
+
+## Overview
+
+Use `Center` to quickly center content inside a region, without writing custom flex CSS.
+
+- Control axis via `axis` (`horizontal`, `vertical`, `both`)
+- Use `minHeight` to make vertical centering visible
+- Use `inline` when you need centering inside inline flow (`inline-flex`)
+
+## Live Demo
+
+<LiveDemo />
+
+## Installation
+
+```tsx
+import { Center } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Center axis="both" minHeight={240}>
+  <div>Centered</div>
+</Center>
+```
+
+## Props
+
+| Prop        | Type                                   | Default  | Description                               |
+| ----------- | -------------------------------------- | -------- | ----------------------------------------- |
+| `axis`      | `'both' \| 'horizontal' \| 'vertical'` | `'both'` | Which axis to center on                   |
+| `inline`    | `boolean`                              | `false`  | Uses `inline-flex` instead of `flex`      |
+| `minHeight` | `number \| string`                     | -        | Optional minimum height for the container |
+| `as`        | `'div' \| 'span' \| 'section' \| 'main' \| 'article'` | `'div'` | Render element                            |
+| `children`  | `ReactNode`                            | -        | Content                                   |
+
+## Variants
+
+<Variants />
+
+## Examples
+
+<Examples />

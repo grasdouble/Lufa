@@ -1,0 +1,53 @@
+---
+sidebar_position: 4
+---
+
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/container";
+import { Container } from "@grasdouble/lufa_design-system";
+
+# Container
+
+A page-level layout container with token-based max widths, alignment, and optional padding.
+
+## Overview
+
+Use `Container` to keep content aligned to a readable max width, while still supporting full-bleed and fluid layouts when needed.
+
+- Semantic wrapper via `as` (`main`, `section`, `article`, …)
+- Width presets via `size` (`xs` → `xl`, plus `full` and `fluid`)
+- Horizontal alignment via `align` (when constrained)
+- Token-based `paddingX` / `paddingY`
+
+## Live Demo
+
+<LiveDemo />
+
+## Installation
+
+```tsx
+import { Container } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Container size="md">Content</Container>
+```
+
+## Props
+
+| Prop       | Type                                                                                                                                     | Default    | Description                           |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------- |
+| `as`       | `'div' \| 'main' \| 'section' \| 'article' \| 'header' \| 'footer' \| 'aside' \| 'nav'`                                                 | `'div'`    | Semantic HTML element                 |
+| `size`     | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| 'fluid'`                                                                              | `'xl'`     | Max-width constraint                  |
+| `align`    | `'start' \| 'center' \| 'end'`                                                                                                           | `'center'` | Horizontal alignment when constrained |
+| `paddingX` | `'none' \| 'xxs' \| 'xs' \| 'sm' \| 'md' \| 'base' \| 'lg' \| 'xl' \| '2xl' \| '3xl'`                                                   | `'base'`   | Horizontal padding (token)            |
+| `paddingY` | `'none' \| 'xxs' \| 'xs' \| 'sm' \| 'md' \| 'base' \| 'lg' \| 'xl' \| '2xl' \| '3xl'`                                                   | `'none'`   | Vertical padding (token)              |
+
+## Variants
+
+<Variants />
+
+## Examples
+
+<Examples />

@@ -1,0 +1,67 @@
+---
+sidebar_position: 10
+---
+
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/flex";
+import { Flex, FLEX_ALIGN, FLEX_DIRECTION, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE } from "@grasdouble/lufa_design-system";
+
+# Flex
+
+Generic flex container with alignment, wrapping, and token-friendly gaps.
+
+## Overview
+
+Use `Flex` for one-off flex layouts where you want a simple, declarative API instead of custom CSS.
+
+- Direction via `direction` (row/column)
+- Alignment via `align` / `justify`
+- Wrapping via `wrap`
+- Token-backed spacing via `gap`
+- Optional inline layout via `inline`
+
+## Live Demo
+
+<LiveDemo />
+
+## Installation
+
+```tsx
+import { Flex, FLEX_DIRECTION, FLEX_ALIGN, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Flex
+  direction={FLEX_DIRECTION.row}
+  align={FLEX_ALIGN.center}
+  justify={FLEX_JUSTIFY.between}
+  wrap={FLEX_WRAP.wrap}
+  gap={SPACE_SIZE.md}
+>
+  <div />
+  <div />
+  <div />
+</Flex>
+```
+
+## Props
+
+| Prop        | Type                                                 | Default     | Description                          |
+| ----------- | ---------------------------------------------------- | ----------- | ------------------------------------ |
+| `as`        | `'div' \| 'span' \| 'section' \| 'nav' \| 'header' \| 'footer' \| 'main' \| 'article'` | `'div'` | Render element |
+| `inline`    | `boolean`                                            | `false`     | Uses `inline-flex` instead of `flex` |
+| `direction` | `keyof typeof FLEX_DIRECTION`                        | `'row'`     | Flex direction                       |
+| `align`     | `keyof typeof FLEX_ALIGN`                            | `'stretch'` | Cross-axis alignment                 |
+| `justify`   | `keyof typeof FLEX_JUSTIFY`                          | `'start'`   | Main-axis distribution               |
+| `wrap`      | `keyof typeof FLEX_WRAP`                             | `'nowrap'`  | Wrapping behavior                    |
+| `gap`       | `keyof typeof SPACE_SIZE \| number \| string`        | `'md'`      | Gap between items                    |
+| `children`  | `ReactNode`                                          | -           | Content                              |
+
+## Variants
+
+<Variants />
+
+## Examples
+
+<Examples />

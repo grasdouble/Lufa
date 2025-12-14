@@ -1,0 +1,59 @@
+---
+sidebar_position: 4
+---
+
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/display/badge";
+import { Badge } from "@grasdouble/lufa_design-system";
+
+# Badge
+
+Compact label component for tags, statuses, and counters. Supports multiple color variants, sizes, dots, and pill shape.
+
+## Overview
+
+Use `Badge` to surface small bits of information, such as state, category, or counts.
+
+- Variants via `variant` (`default`, `primary`, `success`, `warning`, `danger`, `info`)
+- Sizes via `size` (`sm`, `md`, `lg`)
+- Optional dot indicator via `dot`
+- Optional pill shape via `rounded`
+
+## Live Demo
+
+<LiveDemo />
+
+## Installation
+
+```tsx
+import { Badge } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Badge variant="primary">New</Badge>
+
+<Badge variant="success" dot rounded>
+  Synced
+</Badge>
+```
+
+## Props
+
+| Prop      | Type                                                   | Default     | Description                   |
+| --------- | ------------------------------------------------------ | ----------- | ----------------------------- |
+| `children`| `ReactNode`                                            | -           | Badge content                 |
+| `label`   | `string`                                               | -           | Deprecated (use `children`)   |
+| `size`    | `'sm' \| 'md' \| 'lg'`                                 | `'md'`      | Badge size                    |
+| `variant` | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'default'` | Color variant                 |
+| `dot`     | `boolean`                                              | `false`     | Shows a dot indicator         |
+| `rounded` | `boolean`                                              | `false`     | Makes the badge pill-shaped   |
+
+## Variants
+
+<Variants />
+
+## Examples
+
+<Examples />
+

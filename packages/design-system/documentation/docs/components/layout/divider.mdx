@@ -2,17 +2,8 @@
 sidebar_position: 3
 ---
 
-import {
-  Divider,
-  Placeholder,
-  Stack,
-  STACK_DIRECTION,
-  STACK_GAP,
-  Typography,
-  tokens,
-} from "@grasdouble/lufa_design-system";
-
-import { StorybookEmbed } from "@site/src/components/StorybookEmbed";
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/divider";
+import { Divider } from "@grasdouble/lufa_design-system";
 
 # Divider
 
@@ -20,24 +11,18 @@ A lightweight separator for grouping content. Supports horizontal and vertical o
 
 ## Overview
 
-Divider creates a visual break between sections of content. It can render a centered label, align the label to start or end, switch to a vertical orientation for side-by-side layouts, and choose between solid or dashed rules. Use Divider to clarify hierarchy and transitions in pages, cards, and panels without adding heavy visual weight.
+Use `Divider` to visually separate sections of content without adding heavy visual weight.
+
+- Horizontal (default) or vertical via `orientation`
+- Optional label via `label` + alignment via `align`
+- Solid/dashed line style via `variant`
+- Built-in outer spacing via `spacing`, optional constraint via `length`
 
 ## Live Demo
 
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "24px",
-  }}
->
-  <Divider label="Section title" />
-</div>
+<LiveDemo />
 
 ## Installation
-
-The Divider component is part of the Lufa Design System:
 
 ```tsx
 import { Divider } from "@grasdouble/lufa_design-system";
@@ -61,251 +46,14 @@ import { Divider } from "@grasdouble/lufa_design-system";
 | `orientation` | `'horizontal' \| 'vertical'`     | `'horizontal'` | Direction of the divider                                        |
 | `variant`     | `'solid' \| 'dashed'`            | `'solid'`      | Line style                                                      |
 | `align`       | `'start' \| 'center' \| 'end'`   | `'center'`     | Label alignment for horizontal dividers                         |
-| `spacing`     | `'none' \| 'sm' \| 'md' \| 'lg'` | `'md'`         | Vertical margin applied around the divider                      |
+| `spacing`     | `'none' \| 'sm' \| 'md' \| 'lg'` | `'md'`         | Outer spacing (margin) applied around the divider               |
 | `length`      | `number \| string`               | -              | Constrain width (horizontal) or height (vertical). Accepts px/% |
 | `className`   | `string`                         | -              | Additional CSS classes                                          |
 
 ## Variants
 
-### Labeled Divider
-
-<div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Divider label="Upcoming" />
-  <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-    <Placeholder color={tokens.color.interactive.default}>Item A</Placeholder>
-    <Placeholder color={tokens.color.interactive.default}>Item B</Placeholder>
-  </Stack>
-</div>
-
-```tsx
-<Divider label="Upcoming" />
-```
-
-### Orientation
-
-<div
-  style={{
-    display: "flex",
-    gap: "16px",
-    height: "160px",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-    alignItems: "center",
-  }}
->
-  <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
-  <Divider orientation="vertical" length="80%" />
-  <Placeholder color={tokens.color.interactive.default}>Right</Placeholder>
-</div>
-
-```tsx
-// Vertical divider between columns
-<div style={{ display: "flex", alignItems: "center", gap: 16, height: 160 }}>
-  <ColumnA />
-  <Divider orientation="vertical" length="100%" />
-  <ColumnB />
-</div>
-```
-
-### Line Style
-
-<div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Divider label="Solid" variant="solid" />
-  <Divider label="Dashed" variant="dashed" />
-</div>
-
-```tsx
-<Divider variant="solid" />
-<Divider variant="dashed" />
-```
-
-### Spacing
-
-<div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "8px",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Divider label="No margin" spacing="none" />
-  <Divider label="Small" spacing="sm" />
-  <Divider label="Medium" spacing="md" />
-  <Divider label="Large" spacing="lg" />
-</div>
-
-```tsx
-<Divider spacing="none" />
-<Divider spacing="sm" />
-<Divider spacing="md" />
-<Divider spacing="lg" />
-```
+<Variants />
 
 ## Examples
 
-### Example 1: Section Break
-
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Typography variant="h4" weight="semibold">
-    Profile
-  </Typography>
-  <Divider spacing="sm" />
-  <Typography variant="body1">
-    Add personal information, contact details, and preferences.
-  </Typography>
-</div>
-
-```tsx
-<Typography variant="h4">Profile</Typography>
-<Divider spacing="sm" />
-<Typography>Personal information goes here.</Typography>
-```
-
-### Example 2: Vertical Split
-
-<div
-  style={{
-    display: "flex",
-    gap: "16px",
-    height: "160px",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-    alignItems: "center",
-  }}
->
-  <Placeholder color={tokens.color.interactive.default}>Summary</Placeholder>
-  <Divider orientation="vertical" length="100%" />
-  <Placeholder color={tokens.color.interactive.default}>Details</Placeholder>
-</div>
-
-```tsx
-<div style={{ display: "flex", alignItems: "center", gap: 16, height: 160 }}>
-  <SummaryPanel />
-  <Divider orientation="vertical" length="100%" />
-  <DetailsPanel />
-</div>
-```
-
-## Composition
-
-### With Stack and Placeholder
-
-Use Divider inside Stack to separate logical groups while keeping consistent spacing.
-
-<div
-  style={{
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "8px",
-    marginBottom: "16px",
-  }}
->
-  <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-    <Placeholder color={tokens.color.interactive.default}>Overview</Placeholder>
-    <Divider label="Settings" />
-    <Placeholder color={tokens.color.interactive.default}>
-      Preferences
-    </Placeholder>
-  </Stack>
-</div>
-
-```tsx
-<Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-  <Placeholder>Overview</Placeholder>
-  <Divider label="Settings" />
-  <Placeholder>Preferences</Placeholder>
-</Stack>
-```
-
-## Use Cases
-
-### 1. Section Headlines
-
-Break long forms or pages into smaller, scannable sections with labeled dividers.
-
-### 2. Split Layouts
-
-Use vertical dividers to separate columns inside dashboards, cards, or toolbars.
-
-## Styling
-
-Divider uses semantic border tokens for subtle separation and inherits text color for labels.
-
-- **Base styles**: horizontal or vertical rule with `border-border-light`, optional label with medium font weight.
-- **Line styles**: `variant="solid"` (default) or `variant="dashed"` apply corresponding border styles.
-- **Spacing**: `spacing` adds vertical margin around the divider (`none`, `sm`, `md`, `lg`).
-- **Customization**: Extend with `className` or wrap in your own container to control width/height via `length`.
-
-## Accessibility
-
-- Renders `role="separator"` with `aria-orientation` to convey direction to assistive tech.
-- Labels are plain text; include meaningful copy when using `label`.
-- Not keyboard focusable by default; keep interactive controls outside the divider itself.
-- Ensure sufficient color contrast between the rule and its background.
-
-## Best Practices
-
-### Do ✅
-
-- Use labels to clarify transitions between major sections.
-- Constrain `length` when the divider should not span the full container.
-- Choose `variant="dashed"` for lighter separation in dense layouts.
-
-### Don't ❌
-
-- Rely on Divider alone to communicate critical state (pair with text/icons).
-- Overuse vertical dividers in narrow layouts where they add visual clutter.
-
-## API Reference
-
-```typescript
-export interface DividerProps {
-  label?: ReactNode;
-  orientation?: "horizontal" | "vertical";
-  align?: "start" | "center" | "end";
-  variant?: "solid" | "dashed";
-  spacing?: "none" | "sm" | "md" | "lg";
-  length?: number | string;
-  className?: string;
-}
-```
-
-## Related Components
-
-- **[Stack](./stack)** — Use to arrange groups separated by dividers.
-- **[Placeholder](./placeholder)** — Handy for composing layout examples with Divider.
+<Examples />

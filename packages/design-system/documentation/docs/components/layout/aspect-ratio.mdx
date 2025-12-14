@@ -1,0 +1,56 @@
+---
+sidebar_position: 8
+---
+
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/aspectRatio";
+import { AspectRatio, ASPECT_RATIO } from "@grasdouble/lufa_design-system";
+
+# AspectRatio
+
+Media container that preserves aspect ratio (token presets or custom ratios).
+
+## Overview
+
+Use `AspectRatio` to reserve space for media (images, video, previews) while keeping the layout stable.
+
+- Presets via `ASPECT_RATIO` (token-backed)
+- Custom ratios via `ratio` (number or CSS ratio string like `"16 / 9"`)
+- Works for responsive media, thumbnails, and cards
+
+## Live Demo
+
+<LiveDemo />
+
+## Installation
+
+```tsx
+import { AspectRatio, ASPECT_RATIO } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<AspectRatio ratio={ASPECT_RATIO.video}>
+  <img alt="..." />
+</AspectRatio>
+
+<AspectRatio ratio="3 / 1">
+  <div />
+</AspectRatio>
+```
+
+## Props
+
+| Prop    | Type                                                     | Default   | Description                  |
+| ------- | -------------------------------------------------------- | --------- | ---------------------------- |
+| `as`    | `'div' \| 'figure'`                                      | `'div'`   | Render element               |
+| `ratio` | `keyof typeof ASPECT_RATIO \| number \| string`          | `'video'` | Ratio preset or custom value |
+| `children` | `ReactNode`                                           | -         | Content                      |
+
+## Variants
+
+<Variants />
+
+## Examples
+
+<Examples />

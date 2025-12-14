@@ -1,0 +1,55 @@
+---
+sidebar_position: 5
+---
+
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/grid";
+import { Grid, GRID_COLUMNS, GRID_GUTTER } from "@grasdouble/lufa_design-system";
+
+# Grid
+
+A token-driven CSS grid layout with semantic column and gutter presets.
+
+## Overview
+
+Use `Grid` for simple, consistent CSS grid layouts without hand-tuning column counts or gaps.
+
+- `columns` defines the grid template (token preset)
+- `gutter` defines the gap between items (token preset)
+- Works well for card lists, dashboards, and responsive sections
+
+## Live Demo
+
+<LiveDemo />
+
+## Installation
+
+```tsx
+import { Grid, GRID_COLUMNS, GRID_GUTTER } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Grid columns={GRID_COLUMNS.quad} gutter={GRID_GUTTER.md}>
+  <div />
+  <div />
+  <div />
+  <div />
+</Grid>
+```
+
+## Props
+
+| Prop      | Type                                                         | Default    | Description                |
+| --------- | ------------------------------------------------------------ | ---------- | -------------------------- |
+| `columns` | `keyof typeof GRID_COLUMNS`                                  | `'twelve'` | Number of columns (token)  |
+| `gutter`  | `keyof typeof GRID_GUTTER`                                   | `'md'`     | Gap between grid items     |
+| `children`| `ReactNode`                                                  | -          | Grid items                  |
+
+## Variants
+
+<Variants />
+
+## Examples
+
+<Examples />

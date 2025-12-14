@@ -1,0 +1,58 @@
+---
+sidebar_position: 7
+---
+
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/space";
+import { Space, SPACE_DIRECTION, SPACE_SIZE } from "@grasdouble/lufa_design-system";
+
+# Space
+
+A simple spacer element for adding fixed vertical or horizontal space (token-based by default).
+
+## Overview
+
+Use `Space` when you need explicit spacing between elements, especially in places where you don’t want to restructure markup (e.g. inside a text flow or between inline blocks).
+
+- Vertical or horizontal spacing via `direction`
+- Token preset or custom values via `size`
+- Render element control via `as` (`div`/`span`)
+
+## Live Demo
+
+<LiveDemo />
+
+## Installation
+
+```tsx
+import { Space, SPACE_DIRECTION, SPACE_SIZE } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<div>Before</div>
+<Space size={SPACE_SIZE.lg} />
+<div>After</div>
+
+<div style={{ display: "flex", alignItems: "center" }}>
+  <div>Left</div>
+  <Space direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.md} />
+  <div>Right</div>
+</div>
+```
+
+## Props
+
+| Prop        | Type                                                 | Default      | Description      |
+| ----------- | ---------------------------------------------------- | ------------ | ---------------- |
+| `as`        | `'div' \| 'span'`                                    | `'div'`      | Render element   |
+| `direction` | `keyof typeof SPACE_DIRECTION`                       | `'vertical'` | Spacer direction |
+| `size`      | `keyof typeof SPACE_SIZE \| number \| string`        | `'md'`       | Spacer size      |
+
+## Variants
+
+<Variants />
+
+## Examples
+
+<Examples />

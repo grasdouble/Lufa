@@ -1,0 +1,53 @@
+---
+sidebar_position: 2
+---
+
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/feedback/spinner";
+import { Spinner } from "@grasdouble/lufa_design-system";
+
+# Spinner
+
+Loading indicator for async content and background operations.
+
+## Overview
+
+Use `Spinner` to communicate that the UI is busy and work is in progress.
+
+- Size via `size` (`small`, `medium`, `large`)
+- Visual style via `mode` (`A` or `B`)
+
+## Live Demo
+
+<LiveDemo />
+
+## Installation
+
+```tsx
+import { Spinner } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Spinner />
+
+<Spinner size="small" />
+
+<Spinner mode="B" />
+```
+
+## Props
+
+| Prop   | Type                           | Default    | Description            |
+| ------ | ------------------------------ | ---------- | ---------------------- |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Spinner size           |
+| `mode` | `'A' \| 'B'`                   | `'A'`      | Visual style           |
+
+## Variants
+
+<Variants />
+
+## Examples
+
+<Examples />
+
