@@ -1,0 +1,56 @@
+---
+sidebar_position: 6
+---
+
+import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/layout";
+import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from "@grasdouble/lufa_design-system";
+
+# Layout
+
+A page-level scaffold using CSS grid areas: Header / Sidebar / Content / Footer.
+
+## Overview
+
+Use `Layout` to build app shells with a consistent structure. It provides a grid-based scaffold and exposes compound slots for the common regions.
+
+- Optional sidebar via `sidebar` and `sidebarPosition`
+- Configurable spacing via `gap`
+- Compound components: `Layout.Header`, `Layout.Sidebar`, `Layout.Content`, `Layout.Footer`
+
+## Live Demo
+
+<LiveDemo />
+
+## Installation
+
+```tsx
+import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Layout sidebar gap={LAYOUT_GAP.md}>
+  <Layout.Header>...</Layout.Header>
+  <Layout.Sidebar>...</Layout.Sidebar>
+  <Layout.Content>...</Layout.Content>
+  <Layout.Footer>...</Layout.Footer>
+</Layout>
+```
+
+## Props
+
+| Prop              | Type                                     | Default     | Description                                 |
+| ----------------- | ---------------------------------------- | ----------- | ------------------------------------------- |
+| `sidebar`         | `boolean`                                | `false`     | Enables the sidebar area                    |
+| `sidebarPosition` | `keyof typeof LAYOUT_SIDEBAR_POSITION`   | `'left'`    | Sidebar placement (when sidebar is enabled) |
+| `sidebarWidth`    | `keyof typeof LAYOUT_SIDEBAR_WIDTH`      | `'default'` | Sidebar width preset (when enabled)         |
+| `gap`             | `keyof typeof LAYOUT_GAP`                | `'md'`      | Gap between layout areas                    |
+
+## Variants
+
+<Variants />
+
+## Examples
+
+<Examples />

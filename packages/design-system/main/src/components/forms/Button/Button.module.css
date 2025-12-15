@@ -252,7 +252,8 @@
     }
 
     .spinnerIcon {
-        @apply h-5 w-5 animate-spin;
+        @apply h-5 w-5;
+        animation: var(--animate-spin);
     }
 
     .spinnerCircle {

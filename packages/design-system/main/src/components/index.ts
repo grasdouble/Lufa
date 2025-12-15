@@ -10,13 +10,13 @@ export type { TypographyProps } from './Typography';
 export * from './layout/Stack';
 export * from './layout/Placeholder';
 export * from './layout/Divider';
-// export { Container } from "./layout/Container";
-// export { Grid } from "./layout/Grid";
-// export { Layout } from "./layout/Layout";
-// export { Space } from "./layout/Space";
-// export { AspectRatio } from "./layout/AspectRatio";
-// export { Center } from "./layout/Center";
-// export { Flex } from "./layout/Flex";
+export * from './layout/Container';
+export * from './layout/Grid';
+export * from './layout/Layout';
+export * from './layout/Space';
+export * from './layout/AspectRatio';
+export * from './layout/Center';
+export * from './layout/Flex';
 
 // ============================================
 // NAVIGATION

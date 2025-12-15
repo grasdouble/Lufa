@@ -1,0 +1,30 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .center {
+        min-width: 0;
+    }
+
+    .block {
+        display: flex;
+        @apply w-full;
+    }
+
+    .inline {
+        display: inline-flex;
+        @apply w-auto;
+    }
+
+    .axisBoth {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .axisHorizontal {
+        justify-content: center;
+    }
+
+    .axisVertical {
+        align-items: center;
+    }
+}

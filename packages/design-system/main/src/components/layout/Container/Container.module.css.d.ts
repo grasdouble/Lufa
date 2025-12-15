@@ -1,0 +1,35 @@
+declare const styles: {
+    readonly container: string;
+    readonly 'align-center': string;
+    readonly 'align-start': string;
+    readonly 'align-end': string;
+    readonly 'size-xs': string;
+    readonly 'size-sm': string;
+    readonly 'size-md': string;
+    readonly 'size-lg': string;
+    readonly 'size-xl': string;
+    readonly 'size-full': string;
+    readonly 'size-fluid': string;
+    readonly 'paddingX-none': string;
+    readonly 'paddingX-xxs': string;
+    readonly 'paddingX-xs': string;
+    readonly 'paddingX-sm': string;
+    readonly 'paddingX-md': string;
+    readonly 'paddingX-base': string;
+    readonly 'paddingX-lg': string;
+    readonly 'paddingX-xl': string;
+    readonly 'paddingX-2xl': string;
+    readonly 'paddingX-3xl': string;
+    readonly 'paddingY-none': string;
+    readonly 'paddingY-xxs': string;
+    readonly 'paddingY-xs': string;
+    readonly 'paddingY-sm': string;
+    readonly 'paddingY-md': string;
+    readonly 'paddingY-base': string;
+    readonly 'paddingY-lg': string;
+    readonly 'paddingY-xl': string;
+    readonly 'paddingY-2xl': string;
+    readonly 'paddingY-3xl': string;
+};
+export default styles;
+

@@ -63,19 +63,19 @@ export const Playground: Story = {
     },
 };
 
-export const HeightVariants: Story = {
+export const Height: Story = {
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '400px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '420px' }}>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Small (40px)</h3>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Small</h3>
                 <Placeholder height="small">Small Height</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Medium (80px) - Default</h3>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Medium (default)</h3>
                 <Placeholder height="medium">Medium Height</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Large (128px)</h3>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Large</h3>
                 <Placeholder height="large">Large Height</Placeholder>
             </div>
             <div>
@@ -92,23 +92,23 @@ export const HeightVariants: Story = {
     ),
 };
 
-export const WidthVariants: Story = {
+export const Width: Story = {
     render: () => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Auto (min-width: 96px)</h3>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Auto</h3>
                 <Placeholder width="auto">Auto</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Small (128px)</h3>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Small</h3>
                 <Placeholder width="small">Small Width</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Medium (240px)</h3>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Medium</h3>
                 <Placeholder width="medium">Medium Width</Placeholder>
             </div>
             <div>
-                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Large (384px)</h3>
+                <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Large</h3>
                 <Placeholder width="large">Large Width</Placeholder>
             </div>
             <div>
@@ -119,9 +119,9 @@ export const WidthVariants: Story = {
     ),
 };
 
-export const ColorVariants: Story = {
+export const Color: Story = {
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '400px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '420px' }}>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Default (Violet Gradient)</h3>
                 <Placeholder>Default Gradient</Placeholder>
@@ -146,9 +146,9 @@ export const ColorVariants: Story = {
     ),
 };
 
-export const GradientVariants: Story = {
+export const ColorGradient: Story = {
     render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '400px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '420px' }}>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Blue to Purple</h3>
                 <Placeholder colorFrom={color.interactive.default} colorTo={color.brand.secondary}>
@@ -157,7 +157,7 @@ export const GradientVariants: Story = {
             </div>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Green to Teal</h3>
-                <Placeholder colorFrom={color.success.default} colorTo="#14B8A6">
+                <Placeholder colorFrom={color.success.default} colorTo={color.info.default}>
                     Green → Teal
                 </Placeholder>
             </div>
@@ -169,13 +169,13 @@ export const GradientVariants: Story = {
             </div>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Purple to Pink</h3>
-                <Placeholder colorFrom={color.brand.secondary} colorTo="#EC4899">
+                <Placeholder colorFrom={color.brand.secondary} colorTo={color.brand.accent}>
                     Purple → Pink
                 </Placeholder>
             </div>
             <div>
                 <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Dark to Light</h3>
-                <Placeholder colorFrom="#1F2937" colorTo="#9CA3AF">
+                <Placeholder colorFrom={color.background.inverse} colorTo={color.background.secondary}>
                     Dark → Light
                 </Placeholder>
             </div>
@@ -183,7 +183,7 @@ export const GradientVariants: Story = {
     ),
 };
 
-export const CombinedVariants: Story = {
+export const CombinedWithAndHeight: Story = {
     render: () => (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
             <Placeholder height="small" width="small" color={color.interactive.default}>

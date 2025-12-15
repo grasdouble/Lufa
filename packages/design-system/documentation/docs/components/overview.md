@@ -29,6 +29,55 @@ Flexible container for grouping related content.
 </Card>
 ```
 
+#### [Avatar](./display/avatar)
+
+Profile image component with size/shape variants and optional status indicator.
+
+```tsx
+<Avatar src="/image.jpg" alt="Jane Doe" status="online" />
+```
+
+#### [AvatarGroup](./display/avatar-group)
+
+Overlapped set of avatars with an optional “+N” count when truncated.
+
+```tsx
+<AvatarGroup max={3}>
+  <Avatar src="/a.jpg" />
+  <Avatar src="/b.jpg" />
+  <Avatar src="/c.jpg" />
+  <Avatar src="/d.jpg" />
+</AvatarGroup>
+```
+
+#### [Badge](./display/badge)
+
+Compact label for statuses, tags, and counters.
+
+```tsx
+<Badge variant="success" dot rounded>
+  Synced
+</Badge>
+```
+
+#### [Alert](./feedback/alert)
+
+Inline feedback message for communicating info, success, warning, or error states.
+
+```tsx
+<Alert variant="warning" title="Heads up">
+  Please double-check your input.
+</Alert>
+```
+
+#### [Spinner](./feedback/spinner)
+
+Loading indicator for async content and background operations.
+
+```tsx
+<Spinner size="small" />
+```
+
 #### [Typography](./typography)
 
 Text display component with semantic variants.
@@ -42,9 +91,16 @@ Text display component with semantic variants.
 
 ### Layout Components
 
-- **Card** - Content containers
-- **Grid** - (Coming soon) Layout grid system
-- **Stack** - (Coming soon) Vertical/horizontal stacking
+- **Container** - Page-level max-width container
+- **Grid** - Token-driven grid system
+- **Layout** - Page scaffold (header/sidebar/content/footer)
+- **Stack** - Vertical/horizontal stacking
+- **Divider** - Section separators
+- **Placeholder** - Prototyping blocks
+- **Space** - Simple spacer utility
+- **AspectRatio** - Media ratio container
+- **Center** - Flex centering helper
+- **Flex** - Generic flex container
 
 ### Form Components
 
@@ -65,6 +121,13 @@ Text display component with semantic variants.
 - **Alert** - (Coming soon) Status messages
 - **Toast** - (Coming soon) Notifications
 - **Spinner** - (Coming soon) Loading indicator
+
+### Display Components
+
+- **Card** - Surface container
+- **Avatar** - Profile image
+- **AvatarGroup** - Group of avatars with count
+- **Badge** - Label / status indicator
 
 ### Navigation Components
 
