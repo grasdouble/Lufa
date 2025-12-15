@@ -3,9 +3,15 @@
 ┌───────────────────────────────┬─────────┬────────┬────────────────────────────────┐
 │ Package                       │ Current │ Latest │ Dependents                     │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ eslint-plugin-storybook (dev) │ 10.1.2  │ 10.1.4 │ @grasdouble/lufa_design-       │
+│ eslint-plugin-storybook (dev) │ 10.1.2  │ 10.1.8 │ @grasdouble/lufa_design-       │
 │                               │         │        │ system-storybook               │
 ├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
 │ typescript (dev)              │ 5.6.3   │ 5.9.3  │ @grasdouble/lufa_design-       │
 │                               │         │        │ system-documentation           │
+├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ @types/node (dev)             │ 24.10.4 │ 25.0.2 │ @grasdouble/cdn_autobuild-     │
+│                               │         │        │ server,                        │
+│                               │         │        │ @grasdouble/lufa_design-system │
+├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
+│ vite-tsconfig-paths (dev)     │ 5.1.4   │ 6.0.0  │ @grasdouble/lufa_design-system │
 └───────────────────────────────┴─────────┴────────┴────────────────────────────────┘

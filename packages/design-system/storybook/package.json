@@ -19,29 +19,29 @@
     ],
     "dependencies": {
         "@grasdouble/lufa_design-system": "workspace:^",
-        "@grasdouble/lufa_design-system-tokens": "workspace:^",
         "@grasdouble/lufa_design-system-primitives": "workspace:^",
-        "react": "^19.2.1",
-        "react-dom": "^19.2.1"
+        "@grasdouble/lufa_design-system-tokens": "workspace:^",
+        "react": "^19.2.3",
+        "react-dom": "^19.2.3"
     },
     "devDependencies": {
         "@grasdouble/lufa_config_eslint": "workspace:^",
         "@grasdouble/lufa_config_prettier": "workspace:^",
         "@grasdouble/lufa_config_tsconfig": "workspace:^",
-        "@storybook/addon-docs": "^10.1.4",
-        "@storybook/addon-themes": "^10.1.4",
-        "@storybook/react-vite": "^10.1.4",
+        "@storybook/addon-docs": "^10.1.8",
+        "@storybook/addon-themes": "^10.1.8",
+        "@storybook/react-vite": "^10.1.8",
         "@types/react": "^19.2.7",
         "@types/react-dom": "^19.2.3",
-        "@vitejs/plugin-react": "^5.1.1",
-        "eslint": "^9.39.1",
+        "@vitejs/plugin-react": "^5.1.2",
+        "eslint": "^9.39.2",
         "eslint-plugin-storybook": "10.1.2",
         "globals": "^16.5.0",
         "prettier": "^3.7.4",
-        "storybook": "^10.1.4",
+        "storybook": "^10.1.8",
         "typescript": "^5.9.3",
-        "typescript-eslint": "^8.48.1",
-        "vite": "^7.2.6"
+        "typescript-eslint": "^8.49.0",
+        "vite": "^7.2.7"
     },
     "eslintConfig": {
         "extends": [
