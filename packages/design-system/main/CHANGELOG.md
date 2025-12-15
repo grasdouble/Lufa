@@ -1,5 +1,11 @@
 # @grasdouble/lufa_design-system
 
+## 0.4.0
+
+### Minor Changes
+
+- 48c857f: Add missing layout components with documentation
+
 ## 0.3.1
 
 ### Patch Changes
