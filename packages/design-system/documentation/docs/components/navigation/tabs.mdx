@@ -1,0 +1,125 @@
+---
+sidebar_position: 7
+---
+
+import {
+  LiveDemo,
+  Type,
+  TabPosition,
+  Size,
+  ActiveKey,
+  DefaultActiveKey,
+  Items,
+  SettingsTabsExample,
+  ProductDetailsTabsExample,
+} from "../../../src/dsExamples/navigation/tabs";
+import { Tabs } from "@grasdouble/lufa_design-system";
+
+# Tabs
+
+Switchable views for grouping related content.
+
+## Overview
+
+Use `Tabs` when you need to organize related content into switchable panels.
+
+- Define tabs via `items` (label + optional icon/disabled + panel content)
+- Choose a visual style with `type`
+- Control placement with `tabPosition`
+- Use controlled (`activeKey` + `onChange`) or uncontrolled (`defaultActiveKey`) mode
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Tabs } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Tabs
+  items={[
+    { key: "tab1", label: "Tab 1", children: <div>Content 1</div> },
+    { key: "tab2", label: "Tab 2", children: <div>Content 2</div> },
+    { key: "tab3", label: "Tab 3", children: <div>Content 3</div> },
+  ]}
+/>;
+```
+
+## Props
+
+| Prop               | Type                                     | Default    | Description                           |
+| ------------------ | ---------------------------------------- | ---------- | ------------------------------------- |
+| `items`            | `TabItem[]`                              | -          | Array of tab items                    |
+| `activeKey`        | `string`                                 | -          | Active tab key (controlled)           |
+| `defaultActiveKey` | `string`                                 | -          | Default active tab key (uncontrolled) |
+| `onChange`         | `(key: string) => void`                  | -          | Tab change handler                    |
+| `type`             | `'line' \| 'card' \| 'pill'`             | `'line'`   | Tab visual type                       |
+| `tabPosition`      | `'top' \| 'bottom' \| 'left' \| 'right'` | `'top'`    | Tab position                          |
+| `size`             | `'small' \| 'medium' \| 'large'`         | `'medium'` | Size variant                          |
+| `className`        | `string`                                 | -          | Additional CSS class                  |
+
+### TabItem
+
+| Property   | Type        | Description                  |
+| ---------- | ----------- | ---------------------------- |
+| `key`      | `string`    | Unique identifier            |
+| `label`    | `string`    | Tab label                    |
+| `children` | `ReactNode` | Tab content (optional)       |
+| `icon`     | `ReactNode` | Icon before label (optional) |
+| `disabled` | `boolean`   | Disabled state (optional)    |
+
+## Variants
+
+### type
+
+<Type />
+
+### tabPosition
+
+<TabPosition />
+
+### size
+
+<Size />
+
+### activeKey / onChange
+
+<ActiveKey />
+
+### defaultActiveKey
+
+<DefaultActiveKey />
+
+### items
+
+<Items />
+
+## Best Practices
+
+### Do ✅
+
+- Use short labels (1–2 words) and keep the number of tabs reasonable
+- Prefer `type="card"` for settings pages and `type="line"` for content sections
+- Use disabled tabs to communicate unavailable sections (and explain why in the UI)
+
+### Don't ❌
+
+- Don’t use tabs to hide critical information required to complete a task
+- Don’t mix navigation (route changes) and in-page tabs without clear UX cues
+- Don’t overload tab panels with long-form content (consider separate pages)
+
+## Accessibility
+
+- Tabs use `role="tablist"`, `role="tab"` and `role="tabpanel"` with ARIA relationships.
+- Keyboard navigation supports Arrow keys (next/previous), Home (first) and End (last).
+- Disabled tabs are skipped by keyboard navigation and are not focusable.
+
+## Examples of usage
+
+<SettingsTabsExample />
+<ProductDetailsTabsExample />

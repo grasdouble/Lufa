@@ -2,7 +2,14 @@
 sidebar_position: 7
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/space";
+import {
+  LiveDemo,
+  Direction,
+  Size,
+  As,
+  InlineTextExample,
+  SectionSeparatorExample,
+} from "../../../src/dsExamples/layout/space";
 import { Space, SPACE_DIRECTION, SPACE_SIZE } from "@grasdouble/lufa_design-system";
 
 # Space
@@ -11,17 +18,18 @@ A simple spacer element for adding fixed vertical or horizontal space (token-bas
 
 ## Overview
 
-Use `Space` when you need explicit spacing between elements, especially in places where you don’t want to restructure markup (e.g. inside a text flow or between inline blocks).
+Use `Space` when you need…
 
+- Explicit spacing without changing layout structure
 - Vertical or horizontal spacing via `direction`
-- Token preset or custom values via `size`
+- Token presets or custom values via `size`
 - Render element control via `as` (`div`/`span`)
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Space, SPACE_DIRECTION, SPACE_SIZE } from "@grasdouble/lufa_design-system";
@@ -49,10 +57,41 @@ import { Space, SPACE_DIRECTION, SPACE_SIZE } from "@grasdouble/lufa_design-syst
 | `direction` | `keyof typeof SPACE_DIRECTION`                       | `'vertical'` | Spacer direction |
 | `size`      | `keyof typeof SPACE_SIZE \| number \| string`        | `'md'`       | Spacer size      |
 
+Also supports standard element props (for example `className`, `style`, `aria-label`, …).
+
 ## Variants
 
-<Variants />
+### direction
 
-## Examples
+<Direction />
 
-<Examples />
+### size
+
+<Size />
+
+### as
+
+<As />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Space` for small, explicit gaps where changing markup isn’t worth it
+- Prefer token sizes (`SPACE_SIZE`) for consistent rhythm
+- Use `as="span"` for inline spacing in text
+
+### Don't ❌
+
+- Don’t overuse spacers for layout; prefer `Stack`, `Flex`, or `Grid`
+- Don’t rely on `Space` for semantic separation; it’s purely visual/layout
+
+## Accessibility
+
+- `Space` defaults to `aria-hidden`, and should be treated as decorative.
+- Avoid using `Space` to create “click targets” or interactive spacing; use padding/margins on interactive elements instead.
+
+## Examples of usage
+
+<InlineTextExample />
+<SectionSeparatorExample />

@@ -1,0 +1,118 @@
+---
+sidebar_position: 6
+---
+
+import {
+  LiveDemo,
+  Direction,
+  Size,
+  Current,
+  OnChange,
+  Items,
+  CheckoutProgressStepsExample,
+  VerticalSidebarStepsExample,
+} from "../../../src/dsExamples/navigation/steps";
+import { Steps } from "@grasdouble/lufa_design-system";
+
+# Steps
+
+Progress indicator for multi-step flows.
+
+## Overview
+
+Use `Steps` when you need to display progress through a multi-step flow.
+
+- Steps are defined by `items` (title, optional description/icon/status)
+- The active step is controlled by `current` (0-indexed)
+- Layout is controlled by `direction` (horizontal/vertical)
+- Provide `onChange` to make steps clickable
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Steps } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Steps
+  current={1}
+  items={[
+    { title: "Account" },
+    { title: "Verification" },
+    { title: "Profile" },
+    { title: "Done" },
+  ]}
+/>;
+```
+
+## Props
+
+| Prop        | Type                         | Default        | Description                                |
+| ----------- | ---------------------------- | -------------- | ------------------------------------------ |
+| `items`     | `StepItem[]`                 | -              | Array of step items                        |
+| `current`   | `number`                     | `0`            | Current step index (0-indexed)             |
+| `direction` | `'horizontal' \| 'vertical'` | `'horizontal'` | Steps direction                            |
+| `size`      | `'small' \| 'default'`       | `'default'`    | Size variant                               |
+| `className` | `string`                     | -              | Additional CSS class                       |
+| `onChange`  | `(current: number) => void`  | -              | Step click handler (makes steps clickable) |
+
+### StepItem
+
+| Property      | Type                                         | Description                       |
+| ------------- | -------------------------------------------- | --------------------------------- |
+| `title`       | `string`                                     | Step title                        |
+| `description` | `string`                                     | Step description (optional)       |
+| `icon`        | `ReactNode`                                  | Custom icon (optional)            |
+| `status`      | `'wait' \| 'process' \| 'finish' \| 'error'` | Manual status override (optional) |
+
+## Variants
+
+### direction
+
+<Direction />
+
+### size
+
+<Size />
+
+### current
+
+<Current />
+
+### onChange
+
+<OnChange />
+
+### items
+
+<Items />
+
+## Best Practices
+
+### Do ✅
+
+- Keep titles short and meaningful (1–2 words) and use `description` for extra context
+- Use the vertical `direction` for dense sidebars or long step descriptions
+- Use `onChange` only when users are allowed to navigate non-linearly
+
+### Don't ❌
+
+- Don’t make steps clickable if earlier steps contain required validation
+- Don’t overload steps with long text (prefer descriptions or move detail into the page content)
+- Don’t rely on color alone to communicate status (pair with text and icons when relevant)
+
+## Accessibility
+
+- When `onChange` is provided, steps behave like buttons and support keyboard activation via Enter/Space.
+- Ensure the surrounding UI provides context (e.g. heading “Checkout progress”) and that step titles are descriptive.
+
+## Examples of usage
+
+<CheckoutProgressStepsExample />
+<VerticalSidebarStepsExample />

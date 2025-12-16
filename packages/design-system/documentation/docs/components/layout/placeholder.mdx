@@ -3,33 +3,36 @@ sidebar_position: 1
 ---
 
 import {
-  Spacing,
   LiveDemo,
   Height,
   Width,
-  CustomColors,
-  CombinedVariants,
-  DashboardLayout,
-  FormLayout,
-  PrototypeLayout,
-  SpacingVisualization,
+  Color,
+  Gradient,
+  DashboardLayoutExample,
+  FormLayoutExample,
+  PrototypeLayoutExample,
+  HeightWidthMatrixExample,
 } from "../../../src/dsExamples/layout/placeholder";
+import { Placeholder } from "@grasdouble/lufa_design-system";
 
 # Placeholder
 
-A versatile placeholder component used for layout spacing, visual structure, and prototyping. Features customizable height, width, and color variants with smooth transitions and modern styling.
+Layout placeholder block for prototyping and spacing.
 
 ## Overview
 
-The Placeholder component is designed to help developers quickly prototype layouts, visualize component positioning, and maintain consistent spacing during development. It features a gradient background by default, customizable dimensions, and smooth hover effects.
+Use `Placeholder` when you need…
+
+- A quick visual block while prototyping layouts
+- Control over `height` and `width`
+- A solid `color` or a gradient via `colorFrom` / `colorTo`
+- A label via `children`
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
-
-The Placeholder component is part of the Lufa Design System:
+## Import
 
 ```tsx
 import { Placeholder } from "@grasdouble/lufa_design-system";
@@ -38,7 +41,7 @@ import { Placeholder } from "@grasdouble/lufa_design-system";
 ## Basic Usage
 
 ```tsx
-<Placeholder>Default Placeholder</Placeholder>
+<Placeholder>Placeholder</Placeholder>
 ```
 
 ## Props
@@ -52,292 +55,45 @@ import { Placeholder } from "@grasdouble/lufa_design-system";
 | `height`    | `'small' \| 'medium' \| 'large' \| 'auto' \| 'full'` | `'medium'` | Height variant of the placeholder            |
 | `width`     | `'auto' \| 'small' \| 'medium' \| 'large' \| 'full'` | `'auto'`   | Width variant of the placeholder             |
 
-## Height Variants
+## Variants
 
-The Placeholder component supports five height options:
+### height
 
 <Height />
 
-```tsx
-// Small height (40px)
-<Placeholder height="small">Small Height</Placeholder>
-
-// Medium height (80px) - Default
-<Placeholder height="medium">Medium Height</Placeholder>
-
-// Large height (128px)
-<Placeholder height="large">Large Height</Placeholder>
-
-// Auto height (adjusts to content with min-height: 40px)
-<Placeholder height="auto">
-  Auto height adjusts to content
-  <br />
-  Multiple lines supported
-</Placeholder>
-
-// Full height (100% of parent container)
-<Placeholder height="full">Full Height</Placeholder>
-```
-
-### Height Specifications
-
-- **Small**: `40px` (h-10)
-- **Medium**: `80px` (h-20) - Default
-- **Large**: `128px` (h-32)
-- **Auto**: Content-based with `min-height: 40px`
-- **Full**: `100%` of parent container
-
-## Width Variants
-
-The Placeholder component supports five width options:
+### width
 
 <Width />
 
-```tsx
-// Auto width (min-width: 96px)
-<Placeholder width="auto">Auto</Placeholder>
+### color
 
-// Small width (128px)
-<Placeholder width="small">Small Width</Placeholder>
+<Color />
 
-// Medium width (240px)
-<Placeholder width="medium">Medium Width</Placeholder>
+### colorFrom / colorTo
 
-// Large width (384px)
-<Placeholder width="large">Large Width</Placeholder>
-
-// Full width (100% of parent container)
-<Placeholder width="full">Full Width</Placeholder>
-```
-
-### Width Specifications
-
-- **Auto**: Content-based with `min-width: 96px` - Default
-- **Small**: `128px` (w-32)
-- **Medium**: `240px` (w-60)
-- **Large**: `384px` (w-96)
-- **Full**: `100%` of parent container
-
-## Custom Colors
-
-Override the default violet gradient with any valid CSS color:
-
-<CustomColors />
-
-```tsx
-import { semantic } from '@grasdouble/lufa_design-system';
-
-// Default gradient
-<Placeholder>Default Gradient</Placeholder>
-
-// Solid colors using semantic tokens
-<Placeholder color={tokens.color.interactive.default}>Solid Blue</Placeholder>
-<Placeholder color={tokens.color.success.default}>Solid Green</Placeholder>
-<Placeholder color={tokens.color.error.default}>Solid Red</Placeholder>
-<Placeholder color={tokens.color.warning.default}>Solid Orange</Placeholder>
-
-// Custom gradients
-<Placeholder colorFrom={tokens.color.interactive.default} colorTo={tokens.color.brand.secondary}>
-  Blue to Purple
-</Placeholder>
-<Placeholder colorFrom={tokens.color.success.default} colorTo="#14B8A6">
-  Green to Teal
-</Placeholder>
-<Placeholder colorFrom={tokens.color.warning.default} colorTo={tokens.color.error.default}>
-  Orange to Red
-</Placeholder>
-
-// Custom hex gradients
-<Placeholder colorFrom="#3b82f6" colorTo="#8b5cf6">Blue to Purple</Placeholder>
-<Placeholder colorFrom="#10b981" colorTo="#14B8A6">Green to Teal</Placeholder>
-```
-
-## Combined Variants
-
-Mix height and width variants for precise control:
-
-<CombinedVariants />
-
-```tsx
-<Placeholder height="small" width="large" color="#8b5cf6">
-  Small Height × Large Width
-</Placeholder>
-
-<Placeholder height="large" width="small" color="#f59e0b">
-  Large Height × Small Width
-</Placeholder>
-
-<Placeholder height="medium" width="full">
-  Medium Height × Full Width
-</Placeholder>
-```
-
-## Styling
-
-The Placeholder component includes:
-
-### Base Styles
-
-- Flexbox display with centered content
-- Large border radius (--radius-lg)
-- Small shadow (--shadow-sm)
-- Horizontal padding (16px)
-- Small font size with medium weight
-- White text color
-- Smooth transitions (200ms)
-
-### Default Gradient
-
-```css
-background: linear-gradient(to bottom right, violet-500, violet-600);
-```
-
-With hover state:
-
-```css
-background: linear-gradient(to bottom right, violet-600, violet-700);
-```
-
-### Custom Color Override
-
-When a `color` prop is provided, it overrides the gradient with a solid color:
-
-```tsx
-<Placeholder color="#3b82f6">Solid blue background</Placeholder>
-```
-
-## Accessibility
-
-The Placeholder component is primarily a development and prototyping tool:
-
-- **Not for production UI**: Replace with actual components before shipping
-- **No semantic meaning**: Uses a plain `div` element
-- **No ARIA attributes**: Not intended for interactive use
-- **Visual only**: Content is for developer reference during prototyping
-
-If you need placeholder content in production (like skeleton screens), consider creating a dedicated loading component with proper accessibility attributes.
+<Gradient />
 
 ## Best Practices
 
 ### Do ✅
 
-- Use for rapid prototyping and layout visualization
-- Use color coding to distinguish different component types
-- Combine with Stack for spacing demonstrations
-- Replace with actual components before production
+- Use `Placeholder` to sketch layout and spacing quickly during development
+- Use `height="auto"` when you want the placeholder to grow with its content
+- Prefer token colors (`tokens.color.*`) when demonstrating examples
 
 ### Don't ❌
 
-- Don't ship Placeholder components to production
-- Don't use for interactive elements (use Button, Link, etc.)
-- Don't rely on for final styling (implement proper components)
-- Don't use as skeleton loading screens without accessibility improvements
+- Don’t ship `Placeholder` in production UI unless it’s intentional (it’s meant for prototyping)
+- Don’t use placeholders as a replacement for a skeleton/loading state component
 
-## Layout Examples
+## Accessibility
 
-### Prototype Layouts
+- `Placeholder` is a decorative/prototyping element; avoid using it for meaningful content in production.
+- If you use it to represent a UI region temporarily, ensure the real component will have appropriate semantics and labels.
 
-<PrototypeLayout />
+## Examples of usage
 
-```tsx
-import {
-  Placeholder,
-  Stack,
-  STACK_DIRECTION,
-  STACK_GAP,
-} from "@grasdouble/lufa_design-system";
-
-<Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-  <Placeholder height="small" width="full" color="#2563eb">
-    Navigation Bar
-  </Placeholder>
-
-  <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
-    <Stack.Item basis="300px">
-      <Placeholder height="large" color="#7c3aed">
-        Sidebar Menu
-      </Placeholder>
-    </Stack.Item>
-
-    <Stack.Item grow>
-      <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-        <Placeholder height="large" color="#10b981">
-          Hero Section
-        </Placeholder>
-
-        <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
-          <Stack.Item grow>
-            <Placeholder height="medium" color="#f59e0b">
-              Card 1
-            </Placeholder>
-          </Stack.Item>
-          <Stack.Item grow>
-            <Placeholder height="medium" color="#f59e0b">
-              Card 2
-            </Placeholder>
-          </Stack.Item>
-          <Stack.Item grow>
-            <Placeholder height="medium" color="#f59e0b">
-              Card 3
-            </Placeholder>
-          </Stack.Item>
-        </Stack>
-
-        <Placeholder height="medium" width="full" color="#6b7280">
-          Content Area
-        </Placeholder>
-      </Stack>
-    </Stack.Item>
-  </Stack>
-
-  <Placeholder height="small" width="full" color="#1f2937">
-    Footer
-  </Placeholder>
-</Stack>;
-```
-
-### Form Layout
-
-<FormLayout />
-
-```tsx
-import {
-  Placeholder
-  Stack,
-  STACK_DIRECTION,
-  STACK_GAP,
-  STACK_JUSTIFY,
-} from "@grasdouble/lufa_design-system";
-
-<Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-  <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
-    <Stack.Item grow>
-      <Placeholder color={"#6366f1"}>First Name</Placeholder>
-    </Stack.Item>
-    <Stack.Item grow>
-      <Placeholder color={"#6366f1"}>Last Name</Placeholder>
-    </Stack.Item>
-  </Stack>
-
-  <Placeholder color={"#6366f1"}>Email</Placeholder>
-  <Placeholder color={"#6366f1"}>Message</Placeholder>
-
-  <Stack
-    direction={STACK_DIRECTION.horizontal}
-    gap={STACK_GAP.normal}
-    justify={STACK_JUSTIFY.end}
-  >
-    <Placeholder color={"#a3a3a3"}>Cancel</Placeholder>
-    <Placeholder color={"#3b82f6"}>Submit</Placeholder>
-  </Stack>
-</Stack>;
-```
-
-## Related Components
-
-- **[Stack](./stack)** - Layout component that works well with Placeholder for spacing visualization
-
-## Resources
-
-- [Storybook](http://localhost:6006/?path=/story/2-layout-placeholder) - Full interactive component playground
-- [GitHub](https://github.com/grasdouble/Lufa) - Source code
+<DashboardLayoutExample />
+<FormLayoutExample />
+<PrototypeLayoutExample />
+<HeightWidthMatrixExample />

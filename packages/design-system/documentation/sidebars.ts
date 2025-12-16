@@ -53,6 +53,24 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "category",
+          label: "Typography",
+          items: ["components/typography"],
+        },
+        {
+          type: "category",
+          label: "Navigation",
+          items: [
+            "components/navigation/anchor",
+            "components/navigation/breadcrumb",
+            "components/navigation/link",
+            "components/navigation/menu",
+            "components/navigation/pagination",
+            "components/navigation/steps",
+            "components/navigation/tabs",
+          ],
+        },
+        {
+          type: "category",
           label: "Feedback",
           items: ["components/feedback/alert", "components/feedback/spinner"],
         },

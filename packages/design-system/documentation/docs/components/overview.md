@@ -15,7 +15,7 @@ Explore the complete collection of components in the Lufa Design System.
 Interactive buttons for actions and navigation with multiple variants.
 
 ```tsx
-<Button variant="primary">Click Me</Button>
+<Button variant="solid" color="primary">Click Me</Button>
 ```
 
 #### [Card](./display/card)
@@ -25,7 +25,7 @@ Flexible container for grouping related content.
 ```tsx
 <Card>
   <Typography variant="h3">Title</Typography>
-  <Typography variant="body1">Content</Typography>
+  <Typography variant="body">Content</Typography>
 </Card>
 ```
 
@@ -39,7 +39,7 @@ Profile image component with size/shape variants and optional status indicator.
 
 #### [AvatarGroup](./display/avatar-group)
 
-Overlapped set of avatars with an optional “+N” count when truncated.
+Overlapped set of avatars with an optional "+N" count when truncated.
 
 ```tsx
 <AvatarGroup max={3}>
@@ -84,7 +84,7 @@ Text display component with semantic variants.
 
 ```tsx
 <Typography variant="h1">Heading</Typography>
-<Typography variant="body1">Body text</Typography>
+<Typography variant="body">Body text</Typography>
 ```
 
 ## Component Categories
@@ -118,9 +118,9 @@ Text display component with semantic variants.
 
 ### Feedback Components
 
-- **Alert** - (Coming soon) Status messages
+- **Alert** - Status messages
+- **Spinner** - Loading indicator
 - **Toast** - (Coming soon) Notifications
-- **Spinner** - (Coming soon) Loading indicator
 
 ### Display Components
 
@@ -131,9 +131,9 @@ Text display component with semantic variants.
 
 ### Navigation Components
 
-- **Link** - (Coming soon) Navigation links
-- **Menu** - (Coming soon) Navigation menus
-- **Tabs** - (Coming soon) Tabbed navigation
+- **Link** - Navigation links
+- **Menu** - Navigation menus
+- **Tabs** - Tabbed navigation
 
 ## Component Features
 
@@ -188,10 +188,10 @@ function App() {
   return (
     <Card>
       <Typography variant="h2">Welcome</Typography>
-      <Typography variant="body1">
+      <Typography variant="body">
         Start building with Lufa components.
       </Typography>
-      <Button variant="primary">Get Started</Button>
+      <Button variant="solid" color="primary">Get Started</Button>
     </Card>
   );
 }

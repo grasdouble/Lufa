@@ -2,7 +2,13 @@
 sidebar_position: 5
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/grid";
+import {
+  LiveDemo,
+  Columns,
+  Gutter,
+  DashboardCardsExample,
+  ImageGalleryExample,
+} from "../../../src/dsExamples/layout/grid";
 import { Grid, GRID_COLUMNS, GRID_GUTTER } from "@grasdouble/lufa_design-system";
 
 # Grid
@@ -11,17 +17,18 @@ A token-driven CSS grid layout with semantic column and gutter presets.
 
 ## Overview
 
-Use `Grid` for simple, consistent CSS grid layouts without hand-tuning column counts or gaps.
+Use `Grid` when you need…
 
-- `columns` defines the grid template (token preset)
-- `gutter` defines the gap between items (token preset)
-- Works well for card lists, dashboards, and responsive sections
+- A simple, consistent CSS grid without custom templates
+- Column presets via `columns`
+- Gap presets via `gutter`
+- Layouts like card lists, dashboards, and galleries
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Grid, GRID_COLUMNS, GRID_GUTTER } from "@grasdouble/lufa_design-system";
@@ -46,10 +53,37 @@ import { Grid, GRID_COLUMNS, GRID_GUTTER } from "@grasdouble/lufa_design-system"
 | `gutter`  | `keyof typeof GRID_GUTTER`                                   | `'md'`     | Gap between grid items     |
 | `children`| `ReactNode`                                                  | -          | Grid items                  |
 
+Also supports standard `div` props (for example `className`, `style`, `aria-label`, …).
+
 ## Variants
 
-<Variants />
+### columns
 
-## Examples
+<Columns />
 
-<Examples />
+### gutter
+
+<Gutter />
+
+## Best Practices
+
+### Do ✅
+
+- Use token presets (`GRID_COLUMNS`, `GRID_GUTTER`) for consistent layout rhythm
+- Combine `Grid` with `Container` to keep wide layouts readable
+- Use `gutter="none"` for dense layouts only when spacing is handled elsewhere
+
+### Don't ❌
+
+- Don’t use `Grid` for 1D layouts; prefer `Flex`/`Stack`
+- Don’t mix inconsistent gutters across similar grids in the same view
+
+## Accessibility
+
+- `Grid` is layout-only; accessibility depends on its children.
+- Ensure interactive grid items have clear focus states and accessible labels.
+
+## Examples of usage
+
+<DashboardCardsExample />
+<ImageGalleryExample />

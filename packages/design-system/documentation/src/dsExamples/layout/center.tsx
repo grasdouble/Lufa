@@ -3,15 +3,21 @@ import { Center, Placeholder, Spinner, Stack, tokens } from "@grasdouble/lufa_de
 
 const { color } = tokens;
 
-const Frame = ({ children }: { children: React.ReactNode }) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: "20px",
-      backgroundColor: "#f5f5f5",
+      backgroundColor: color.background.secondary,
+      color: color.text.primary,
       borderRadius: "8px",
       marginBottom: "16px",
     }}
   >
+    {title ? (
+      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+        {title}
+      </div>
+    ) : null}
     {children}
   </div>
 );
@@ -36,61 +42,110 @@ const Panel = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const LiveDemo = () => (
-  <Frame>
+  <Frame title="live demo">
     <Center axis="both" minHeight={200} style={{ borderRadius: 12, border: `1px solid ${color.border.light}`, background: "#fff" }}>
       <Spinner />
     </Center>
   </Frame>
 );
 
+export const Axis = () => (
+  <Frame title="axis">
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 16 }}>
+      {([
+        { axis: "horizontal", label: "horizontal" },
+        { axis: "vertical", label: "vertical" },
+        { axis: "both", label: "both" },
+      ] as const).map(({ axis, label }) => (
+        <div key={axis}>
+          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+            axis: {label}
+          </div>
+          <Panel>
+            <Center axis={axis} minHeight={160}>
+              <Placeholder color={color.interactive.default} width="auto">
+                Content
+              </Placeholder>
+            </Center>
+          </Panel>
+        </div>
+      ))}
+    </div>
+  </Frame>
+);
+
+export const Inline = () => (
+  <Frame title="inline">
+    <div style={{ lineHeight: 1.9, color: color.text.primary }}>
+      Text before
+      <Center
+        as="span"
+        inline
+        axis="vertical"
+        style={{ marginInline: 8, padding: "2px 10px", borderRadius: 999, background: color.background.secondary }}
+      >
+        <span style={{ fontFamily: "monospace", fontSize: 12 }}>badge</span>
+      </Center>
+      text after (same line)
+    </div>
+  </Frame>
+);
+
+export const MinHeight = () => (
+  <Frame title="minHeight">
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 16 }}>
+      {[120, 220].map((minHeight) => (
+        <div key={minHeight}>
+          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+            minHeight: {minHeight}px
+          </div>
+          <Panel>
+            <Center axis="both" minHeight={minHeight}>
+              <Placeholder color={color.interactive.default} width="auto">
+                Content
+              </Placeholder>
+            </Center>
+          </Panel>
+        </div>
+      ))}
+    </div>
+  </Frame>
+);
+
+export const As = () => (
+  <Frame title="as">
+    <Stack direction="vertical" gap="normal">
+      {([
+        { as: "div", label: 'as="div"' },
+        { as: "section", label: 'as="section"' },
+        { as: "main", label: 'as="main"' },
+        { as: "article", label: 'as="article"' },
+      ] as const).map(({ as, label }) => (
+        <Center
+          key={as}
+          as={as}
+          axis="both"
+          minHeight={96}
+          style={{ borderRadius: 12, border: `1px solid ${color.border.light}`, background: "#fff" }}
+        >
+          <span style={{ fontFamily: "monospace", fontSize: 12, color: color.text.secondary }}>{label}</span>
+        </Center>
+      ))}
+    </Stack>
+  </Frame>
+);
+
 export const Variants = () => (
   <>
-    <Frame>
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
-        axis
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 16 }}>
-        {([
-          { axis: "horizontal", label: "horizontal" },
-          { axis: "vertical", label: "vertical" },
-          { axis: "both", label: "both" },
-        ] as const).map(({ axis, label }) => (
-          <div key={axis}>
-            <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
-              axis: {label}
-            </div>
-            <Panel>
-              <Center axis={axis} minHeight={160}>
-                <Placeholder color={color.interactive.default} width="auto">
-                  Content
-                </Placeholder>
-              </Center>
-            </Panel>
-          </div>
-        ))}
-      </div>
-    </Frame>
-
-    <Frame>
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
-        inline (inside text flow)
-      </div>
-      <div style={{ lineHeight: 1.9, color: color.text.primary }}>
-        Text before
-        <Center as="span" inline axis="vertical" style={{ marginInline: 8, padding: "2px 10px", borderRadius: 999, background: color.background.secondary }}>
-          <span style={{ fontFamily: "monospace", fontSize: 12 }}>badge</span>
-        </Center>
-        text after (same line)
-      </div>
-    </Frame>
+    <Axis />
+    <Inline />
+    <MinHeight />
+    <As />
   </>
 );
 
-export const Examples = () => (
-  <Frame>
-    <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
-      loading panel
-    </div>
+export const LoadingPanelExample = () => (
+  <Frame title="loading panel">
     <Panel>
       <Center axis="both" minHeight={200}>
         <Stack direction="vertical" gap="normal" align="center">
@@ -102,3 +157,22 @@ export const Examples = () => (
   </Frame>
 );
 
+export const EmptyStateExample = () => (
+  <Frame title="empty state">
+    <div style={{ borderRadius: 12, border: `1px dashed ${color.border.light}`, background: "#fff" }}>
+      <Center axis="both" minHeight={220} style={{ padding: 16 }}>
+        <Stack direction="vertical" gap="condensed" align="center">
+          <div style={{ fontWeight: 700, color: color.text.primary }}>No results</div>
+          <div style={{ color: color.text.secondary, fontSize: 12 }}>Try changing your filters.</div>
+        </Stack>
+      </Center>
+    </div>
+  </Frame>
+);
+
+export const Examples = () => (
+  <>
+    <LoadingPanelExample />
+    <EmptyStateExample />
+  </>
+);

@@ -1,0 +1,92 @@
+---
+sidebar_position: 1
+---
+
+import {
+  LiveDemo,
+  Variant,
+  Color,
+  Icons,
+  StickyInPageNavExample,
+  ExternalLinkExample,
+} from "../../../src/dsExamples/navigation/anchor";
+import { Anchor } from "@grasdouble/lufa_design-system";
+
+# Anchor
+
+In-page navigation link for jumping to a section on the same page.
+
+## Overview
+
+Use `Anchor` when you need…
+
+- In-page navigation (jump to a section)
+- Visual variants via `variant`
+- Color variants via `color`
+- Optional `startIcon` / `endIcon`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Anchor } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Anchor href="#section-id">Jump to section</Anchor>
+```
+
+## Props
+
+| Prop        | Type                                    | Default     | Description                              |
+| ----------- | --------------------------------------- | ----------- | ---------------------------------------- |
+| `children`  | `ReactNode`                             | -           | Anchor content                           |
+| `variant`   | `'default' \| 'underline' \| 'subtle'`  | `'default'` | Visual style variant                     |
+| `color`     | `'primary' \| 'secondary' \| 'inherit'` | `'primary'` | Color scheme                             |
+| `startIcon` | `ReactNode`                             | -           | Icon before content                      |
+| `endIcon`   | `ReactNode`                             | -           | Icon after content                       |
+| `href`      | `string`                                | -           | Target anchor link (e.g. `#section-id`)  |
+
+Also supports standard anchor props (for example `target`, `rel`, `className`, `aria-*`, …).
+
+## Variants
+
+### variant
+
+<Variant />
+
+### color
+
+<Color />
+
+### startIcon / endIcon
+
+<Icons />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Anchor` for in-page navigation (`href="#id"`) when the destination exists on the page
+- Use `variant="underline"` when you want stronger link affordance
+- Use `target="_blank"` + `rel="noreferrer"` (or `noopener`) for external links
+
+### Don't ❌
+
+- Don’t use anchors as buttons for actions; use `Button` for actions
+- Don’t link to missing IDs; it creates a broken experience
+
+## Accessibility
+
+- Provide clear link text (“Jump to Features” instead of “Click here”).
+- If the link opens a new tab/window, consider indicating that in text or via an accessible label.
+
+## Examples of usage
+
+<StickyInPageNavExample />
+<ExternalLinkExample />

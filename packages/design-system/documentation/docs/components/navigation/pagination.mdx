@@ -1,0 +1,104 @@
+---
+sidebar_position: 5
+---
+
+import {
+  LiveDemo,
+  Size,
+  ShowQuickJumper,
+  ShowSizeChanger,
+  PrevNextText,
+  TableFooterPaginationExample,
+  LargeDatasetPaginationExample,
+} from "../../../src/dsExamples/navigation/pagination";
+import { Pagination } from "@grasdouble/lufa_design-system";
+
+# Pagination
+
+Page navigation control for long lists and tables.
+
+## Overview
+
+Use `Pagination` when you need to navigate through a dataset by pages.
+
+- Controlled by `current` (1-indexed) and `onChange`
+- Computes pages based on `total` and `pageSize`
+- Optional quick jump (`showQuickJumper`) and page size selector (`showSizeChanger`)
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Pagination } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+const [currentPage, setCurrentPage] = useState(1);
+
+<Pagination current={currentPage} total={100} pageSize={10} onChange={setCurrentPage} />;
+```
+
+## Props
+
+| Prop               | Type                             | Default             | Description                                      |
+| ------------------ | -------------------------------- | ------------------- | ------------------------------------------------ |
+| `current`          | `number`                         | -                   | Current page number (1-indexed)                  |
+| `total`            | `number`                         | -                   | Total number of items                            |
+| `pageSize`         | `number`                         | `10`                | Number of items per page                         |
+| `onChange`         | `(page: number) => void`         | -                   | Called when the page changes                     |
+| `showQuickJumper`  | `boolean`                        | `false`             | Show an input to jump to a specific page         |
+| `showSizeChanger`  | `boolean`                        | `false`             | Show a page size selector                        |
+| `pageSizeOptions`  | `number[]`                       | `[10, 20, 50, 100]` | Options displayed in the page size selector      |
+| `onPageSizeChange` | `(pageSize: number) => void`     | -                   | Called when the page size changes                |
+| `size`             | `'small' \| 'medium' \| 'large'` | `'medium'`          | Visual size of buttons and controls              |
+| `className`        | `string`                         | -                   | Additional CSS class                             |
+| `prevText`         | `ReactNode`                      | `'←'`               | Custom previous button content (icon/text)       |
+| `nextText`         | `ReactNode`                      | `'→'`               | Custom next button content (icon/text)           |
+
+## Variants
+
+### size
+
+<Size />
+
+### showQuickJumper
+
+<ShowQuickJumper />
+
+### showSizeChanger
+
+<ShowSizeChanger />
+
+### prevText / nextText
+
+<PrevNextText />
+
+## Best Practices
+
+### Do ✅
+
+- Keep `current` controlled and update it in `onChange`
+- Use `showSizeChanger` for tables and long lists where page size is user-controlled
+- Use `showQuickJumper` for large datasets where jumping is common
+
+### Don't ❌
+
+- Don’t use Pagination for small lists (prefer “load more” or show all items)
+- Don’t hide the total context (pair it with “Showing X–Y of Z” when possible)
+- Don’t use ambiguous `prevText` / `nextText` when icons alone are unclear for your audience
+
+## Accessibility
+
+- The pagination is wrapped in a `nav` with `aria-label="Pagination"`.
+- The active page uses `aria-current="page"`.
+- Previous/Next buttons include `aria-label` attributes; if you pass custom `prevText` / `nextText`, keep the UI content clear.
+
+## Examples of usage
+
+<TableFooterPaginationExample />
+<LargeDatasetPaginationExample />

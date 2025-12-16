@@ -2,7 +2,15 @@
 sidebar_position: 2
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/display/avatar";
+import {
+  LiveDemo,
+  Size,
+  Variant,
+  Status,
+  StatusPosition,
+  CommentHeaderExample,
+  CountAvatarExample,
+} from "../../../src/dsExamples/display/avatar";
 import { Avatar } from "@grasdouble/lufa_design-system";
 
 # Avatar
@@ -11,18 +19,18 @@ Profile image component with size and shape variants, optional status indicator,
 
 ## Overview
 
-Use `Avatar` to represent a user or entity in lists, comments, headers, or assignments.
+Use `Avatar` when you need…
 
+- A consistent visual identifier for a person or entity
 - Sizes via `size` (`xs` → `xl`)
-- Shapes via `variant` (`circle`, `square`)
-- Status indicator via `status` and `statusPosition`
-- Count display via `variant="count"` + `count`
+- Shapes or special rendering via `variant` (`circle`, `square`, `count`)
+- A presence indicator via `status` and `statusPosition`
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Avatar } from "@grasdouble/lufa_design-system";
@@ -50,11 +58,46 @@ import { Avatar } from "@grasdouble/lufa_design-system";
 | `statusPosition` | `'top' \| 'bottom'`                               | `'bottom'` | Status indicator position                |
 | `count`          | `string \| number`                                | -          | Count text (only for `variant="count"`)  |
 
+Also supports standard element props (for example `className`, `style`, `aria-label`, …).
+
 ## Variants
 
-<Variants />
+### size
 
-## Examples
+<Size />
 
-<Examples />
+### variant
 
+<Variant />
+
+### status
+
+<Status />
+
+### statusPosition
+
+<StatusPosition />
+
+## Best Practices
+
+### Do ✅
+
+- Provide meaningful `alt` text for real user images
+- Use `status="none"` (or omit `status`) when presence is unknown
+- Use `variant="count"` for overflow indicators (not as a user avatar)
+
+### Don't ❌
+
+- Don’t use `variant="count"` with user `src`/`alt`; it’s a different semantic
+- Don’t rely on status color alone to convey critical information
+
+## Accessibility
+
+- Ensure `alt` describes the person/entity when the image conveys information.
+- Use `alt=""` when the avatar is purely decorative and adjacent text already identifies the person.
+- The status indicator is visual; consider complementary text when status is important.
+
+## Examples of usage
+
+<CommentHeaderExample />
+<CountAvatarExample />

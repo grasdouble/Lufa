@@ -1,0 +1,97 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .menu {
+        @apply w-full;
+    }
+
+    .list {
+        @apply reset-list;
+        @apply flex flex-col gap-1;
+    }
+
+    .listItem {
+        @apply list-none;
+        @apply flex;
+    }
+
+    .item {
+        @apply flex items-center gap-2;
+        @apply rounded-md px-4 py-2;
+        @apply transition-all duration-200;
+        @apply cursor-pointer;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .item:hover:not(.disabled) {
+        @apply bg-background-secondary;
+    }
+
+    .selected {
+        @apply bg-interactive-default text-text-inverse;
+        @apply font-medium;
+    }
+
+    .selected:hover {
+        @apply bg-interactive-hover;
+    }
+
+    .disabled {
+        @apply cursor-not-allowed opacity-50;
+    }
+
+    .icon {
+        @apply inline-flex items-center text-base;
+    }
+
+    .label {
+        @apply flex-1;
+    }
+
+    .arrow {
+        @apply inline-flex items-center text-sm;
+        @apply transition-transform duration-200;
+    }
+
+    .arrowOpen {
+        @apply rotate-90;
+    }
+
+    .submenu {
+        @apply reset-list;
+        @apply flex flex-col gap-1;
+        @apply mt-1 ml-6;
+    }
+
+    /* Modes */
+    .modeVertical .list {
+        @apply flex-col;
+    }
+
+    .modeHorizontal .list {
+        @apply flex-row flex-wrap items-center;
+    }
+
+    .modeHorizontal .item {
+        @apply px-3 py-2;
+        @apply h-10;
+    }
+
+    .modeInline .list {
+        @apply flex-col;
+    }
+
+    .modeInline .submenu {
+        @apply ml-4 border-l-2 border-border-light pl-4;
+    }
+
+    /* Themes */
+    .themeLight {
+        @apply bg-background-primary text-text-secondary;
+    }
+
+    .themeDark {
+        @apply bg-background-inverse text-text-inverse;
+    }
+}

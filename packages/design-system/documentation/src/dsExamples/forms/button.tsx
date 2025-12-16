@@ -3,6 +3,25 @@ import { Button, Stack, tokens } from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+  <div
+    style={{
+      padding: "20px",
+      backgroundColor: color.background.secondary,
+      color: color.text.primary,
+      borderRadius: "8px",
+      marginBottom: "16px",
+    }}
+  >
+    {title ? (
+      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+        {title}
+      </div>
+    ) : null}
+    {children}
+  </div>
+);
+
 const SearchIcon = () => (
   <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
     <path
@@ -24,32 +43,15 @@ const ArrowRightIcon = () => (
 );
 
 export const LiveDemo = () => (
-  <div
-    style={{
-      padding: "20px",
-      backgroundColor: "#f5f5f5",
-      borderRadius: "8px",
-      marginBottom: "24px",
-    }}
-  >
+  <Frame title="live demo">
     <Button variant="solid" color="primary">
       Click Me
     </Button>
-  </div>
+  </Frame>
 );
 
-export const Variants = () => (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      gap: "16px",
-      padding: "20px",
-      backgroundColor: "#f5f5f5",
-      borderRadius: "8px",
-      marginBottom: "16px",
-    }}
-  >
+export const Variant = () => (
+  <Frame title="variant">
     <Stack direction="horizontal" gap="normal" wrap="wrap">
       <Button variant="solid" color="primary">
         Solid
@@ -67,7 +69,11 @@ export const Variants = () => (
         Link
       </Button>
     </Stack>
+  </Frame>
+);
 
+export const Color = () => (
+  <Frame title="color">
     <Stack direction="horizontal" gap="normal" wrap="wrap">
       <Button variant="solid" color="primary">
         Primary
@@ -85,40 +91,55 @@ export const Variants = () => (
         Danger
       </Button>
     </Stack>
+  </Frame>
+);
 
+export const Size = () => (
+  <Frame title="size">
     <Stack direction="horizontal" gap="normal" wrap="wrap" align="center">
       <Button size="small">Small</Button>
       <Button size="medium">Medium</Button>
       <Button size="large">Large</Button>
     </Stack>
-  </div>
+  </Frame>
 );
 
-export const Examples = () => (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      gap: "16px",
-      padding: "20px",
-      backgroundColor: "#f5f5f5",
-      borderRadius: "8px",
-      marginBottom: "16px",
-    }}
-  >
+export const Icons = () => (
+  <Frame title="startIcon / endIcon">
     <Stack direction="horizontal" gap="normal" wrap="wrap" align="center">
       <Button startIcon={<SearchIcon />}>Search</Button>
       <Button endIcon={<ArrowRightIcon />}>Continue</Button>
+    </Stack>
+  </Frame>
+);
+
+export const Loading = () => (
+  <Frame title="loading">
+    <Stack direction="horizontal" gap="normal" wrap="wrap" align="center">
       <Button variant="outlined" loading>
         Loading
       </Button>
-      <Button disabled>Disabled</Button>
     </Stack>
+  </Frame>
+);
 
+export const Disabled = () => (
+  <Frame title="disabled">
+    <Stack direction="horizontal" gap="normal" wrap="wrap" align="center">
+      <Button disabled>Disabled</Button>
+      <Button variant="outlined" disabled>
+        Disabled outlined
+      </Button>
+      <Button variant="text" disabled>
+        Disabled text
+      </Button>
+    </Stack>
+  </Frame>
+);
+
+export const FullWidth = () => (
+  <Frame title="fullWidth">
     <div style={{ maxWidth: 420, width: "100%" }}>
-      <div style={{ fontFamily: "monospace", color: color.text.secondary, marginBottom: 8 }}>
-        fullWidth
-      </div>
       <Stack direction="vertical" gap="normal">
         <Button fullWidth variant="solid">
           Full width
@@ -128,6 +149,53 @@ export const Examples = () => (
         </Button>
       </Stack>
     </div>
-  </div>
+  </Frame>
 );
 
+export const FormSubmitExample = () => (
+  <Frame title="form submit">
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        console.log("Submitted");
+      }}
+      style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}
+    >
+      <Button type="submit" variant="solid" color="primary">
+        Save
+      </Button>
+      <Button type="reset" variant="text" color="secondary">
+        Reset
+      </Button>
+    </form>
+  </Frame>
+);
+
+export const ButtonGroupExample = () => (
+  <Frame title="actions row">
+    <Stack direction="horizontal" gap="normal" wrap="wrap" align="center">
+      <Button variant="solid">Primary</Button>
+      <Button variant="outlined">Secondary</Button>
+      <Button variant="text">Cancel</Button>
+    </Stack>
+  </Frame>
+);
+
+export const Variants = () => (
+  <>
+    <Variant />
+    <Color />
+    <Size />
+    <Icons />
+    <Loading />
+    <Disabled />
+    <FullWidth />
+  </>
+);
+
+export const Examples = () => (
+  <>
+    <FormSubmitExample />
+    <ButtonGroupExample />
+  </>
+);

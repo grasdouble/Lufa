@@ -1,0 +1,105 @@
+---
+sidebar_position: 3
+---
+
+import {
+  LiveDemo,
+  Variant,
+  Color,
+  Size,
+  Icons,
+  External,
+  InlineTextExample,
+  ButtonRowExample,
+} from "../../../src/dsExamples/navigation/link";
+import { Link } from "@grasdouble/lufa_design-system";
+
+# Link
+
+Navigation link for internal routes and external destinations.
+
+## Overview
+
+Use `Link` when you need…
+
+- Navigation to internal pages or external URLs
+- Visual variants via `variant`
+- Color variants via `color`
+- Button-like styling via `variant="button"` + `size`
+- Safe external handling via `external` (adds `rel` + `target="_blank"`)
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Link } from "@grasdouble/lufa_design-system";
+```
+
+## Basic Usage
+
+```tsx
+<Link href="/about">About</Link>
+```
+
+## Props
+
+| Prop        | Type                                                                          | Default     | Description                              |
+| ----------- | ----------------------------------------------------------------------------- | ----------- | ---------------------------------------- |
+| `children`  | `ReactNode`                                                                   | -           | Link content                             |
+| `variant`   | `'default' \| 'underline' \| 'button'`                                        | `'default'` | Visual style variant                     |
+| `color`     | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'inherit'` | `'primary'` | Color scheme                             |
+| `size`      | `'small' \| 'medium' \| 'large'`                                              | `'medium'`  | Size variant                             |
+| `external`  | `boolean`                                                                     | `false`     | External link indicator                  |
+| `startIcon` | `ReactNode`                                                                   | -           | Icon before content                      |
+| `endIcon`   | `ReactNode`                                                                   | -           | Icon after content                       |
+| `href`      | `string`                                                                      | -           | Link URL                                 |
+| `target`    | `string`                                                                      | -           | Link target attribute                    |
+| `rel`       | `string`                                                                      | -           | Link rel attribute                       |
+
+## Variants
+
+### variant
+
+<Variant />
+
+### color
+
+<Color />
+
+### size
+
+<Size />
+
+### startIcon / endIcon
+
+<Icons />
+
+### external
+
+<External />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Link` for navigation (use `Button` for actions)
+- Use `external` for outbound links to ensure safe `rel` + `target`
+- Keep link text descriptive and scannable
+
+### Don't ❌
+
+- Don’t nest links inside links
+- Don’t use `variant="button"` for destructive actions without an appropriate `color`
+
+## Accessibility
+
+- Ensure link text is meaningful (“View billing settings” vs “Click here”).
+- If a link opens a new tab/window, consider indicating that (visually or via accessible text).
+
+## Examples of usage
+
+<InlineTextExample />
+<ButtonRowExample />

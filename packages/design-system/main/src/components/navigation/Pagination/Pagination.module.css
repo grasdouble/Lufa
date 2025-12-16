@@ -1,0 +1,98 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .pagination {
+        @apply flex flex-wrap items-center gap-4;
+    }
+
+    .nav {
+        @apply flex items-center gap-1;
+    }
+
+    .button {
+        @apply reset-button;
+        @apply inline-flex items-center justify-center;
+        @apply border border-gray-300 dark:border-gray-600;
+        @apply rounded-md;
+        @apply transition-all duration-200;
+        @apply min-w-8;
+    }
+
+    .button:hover:not(:disabled) {
+        @apply bg-gray-100 dark:bg-gray-800;
+        @apply border-interactive-hover;
+    }
+
+    .button:disabled {
+        @apply cursor-not-allowed opacity-50;
+    }
+
+    .page {
+        @apply text-gray-700 dark:text-gray-300;
+    }
+
+    .active {
+        @apply bg-interactive-default text-white;
+        @apply border-interactive-default;
+        @apply font-medium;
+    }
+
+    .active:hover {
+        @apply bg-interactive-hover;
+        @apply border-interactive-hover;
+    }
+
+    .prev,
+    .next {
+        @apply font-bold;
+    }
+
+    .ellipsis {
+        @apply inline-flex items-center justify-center;
+        @apply text-gray-500 dark:text-gray-500;
+        @apply min-w-8;
+    }
+
+    .sizeChanger {
+        @apply flex items-center gap-2;
+    }
+
+    .select {
+        @apply reset-input;
+        @apply rounded-md px-3 py-1.5;
+        @apply border border-gray-300 dark:border-gray-600;
+        @apply bg-white dark:bg-gray-800;
+        @apply text-gray-900 dark:text-gray-100;
+        @apply cursor-pointer;
+    }
+
+    .quickJumper {
+        @apply flex items-center gap-2;
+        @apply text-sm text-gray-700 dark:text-gray-300;
+    }
+
+    .input {
+        @apply reset-input;
+        @apply w-16 rounded-md px-2 py-1;
+        @apply border border-gray-300 dark:border-gray-600;
+        @apply bg-white dark:bg-gray-800;
+        @apply text-gray-900 dark:text-gray-100;
+        @apply text-center;
+    }
+
+    /* Sizes */
+    .sizeSmall .button {
+        @apply px-2 py-1 text-sm;
+        @apply min-w-7;
+    }
+
+    .sizeMedium .button {
+        @apply px-3 py-1.5 text-base;
+        @apply min-w-8;
+    }
+
+    .sizeLarge .button {
+        @apply px-4 py-2 text-lg;
+        @apply min-w-10;
+    }
+}

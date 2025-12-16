@@ -2,7 +2,18 @@
 sidebar_position: 3
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/divider";
+import {
+  LiveDemo,
+  Orientation,
+  Variant,
+  Align,
+  Spacing,
+  Length,
+  Label,
+  BetweenContentExample,
+  VerticalSplitExample,
+  ListSectionExample,
+} from "../../../src/dsExamples/layout/divider";
 import { Divider } from "@grasdouble/lufa_design-system";
 
 # Divider
@@ -11,18 +22,19 @@ A lightweight separator for grouping content. Supports horizontal and vertical o
 
 ## Overview
 
-Use `Divider` to visually separate sections of content without adding heavy visual weight.
+Use `Divider` when you need…
 
-- Horizontal (default) or vertical via `orientation`
-- Optional label via `label` + alignment via `align`
-- Solid/dashed line style via `variant`
-- Built-in outer spacing via `spacing`, optional constraint via `length`
+- A subtle separator between content blocks
+- Orientation control via `orientation` (horizontal/vertical)
+- An optional label via `label` + alignment via `align`
+- A solid/dashed line style via `variant`
+- Built-in outer spacing via `spacing` and optional constraint via `length`
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Divider } from "@grasdouble/lufa_design-system";
@@ -52,8 +64,50 @@ import { Divider } from "@grasdouble/lufa_design-system";
 
 ## Variants
 
-<Variants />
+### orientation
 
-## Examples
+<Orientation />
 
-<Examples />
+### variant
+
+<Variant />
+
+### align
+
+<Align />
+
+### spacing
+
+<Spacing />
+
+### length
+
+<Length />
+
+### label
+
+<Label />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Divider` to separate content groups without adding extra UI chrome
+- Use labels sparingly to clarify group meaning (e.g. “Upcoming”, “Or”)
+- Prefer `orientation="vertical"` only in clearly columnar layouts
+
+### Don't ❌
+
+- Don’t use dividers as a substitute for spacing; use layout primitives for spacing first
+- Don’t stack many labeled dividers; it becomes noisy
+
+## Accessibility
+
+- `Divider` renders `role="separator"` and sets `aria-orientation`.
+- Provide a meaningful `label` only when it helps understanding; decorative separators don’t need labels.
+
+## Examples of usage
+
+<BetweenContentExample />
+<VerticalSplitExample />
+<ListSectionExample />
