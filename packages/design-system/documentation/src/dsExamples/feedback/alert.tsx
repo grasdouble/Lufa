@@ -3,15 +3,21 @@ import { Alert, Badge, Button, Stack, tokens } from "@grasdouble/lufa_design-sys
 
 const { color } = tokens;
 
-const Frame = ({ children }: { children: React.ReactNode }) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: "20px",
-      backgroundColor: "#f5f5f5",
+      backgroundColor: color.background.secondary,
+      color: color.text.primary,
       borderRadius: "8px",
       marginBottom: "16px",
     }}
   >
+    {title ? (
+      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+        {title}
+      </div>
+    ) : null}
     {children}
   </div>
 );
@@ -37,15 +43,15 @@ const InlineIcon = ({ label }: { label: string }) => (
 );
 
 export const LiveDemo = () => (
-  <Frame>
+  <Frame title="live demo">
     <Alert title="Saved" variant="success">
       Your changes have been saved.
     </Alert>
   </Frame>
 );
 
-export const Variants = () => (
-  <Frame>
+export const Variant = () => (
+  <Frame title="variant">
     <Stack direction="vertical" gap="normal">
       <Alert title="Info" variant="info">
         This is an informational message.
@@ -63,42 +69,63 @@ export const Variants = () => (
   </Frame>
 );
 
-export const Examples = () => (
-  <>
-    <Frame>
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
-        closable
-      </div>
-      <Alert
-        title="Trial expires soon"
-        variant="warning"
-        closable
-        onClose={() => console.log("Alert closed")}
-      >
-        Upgrade your plan to keep access to premium features.
-      </Alert>
-    </Frame>
+export const Closable = () => (
+  <Frame title="closable">
+    <Alert title="Trial expires soon" variant="warning" closable onClose={() => console.log("Alert closed")}>
+      Upgrade your plan to keep access to premium features.
+    </Alert>
+  </Frame>
+);
 
-    <Frame>
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
-        custom icon + action
-      </div>
-      <Alert
-        title="New message"
-        variant="info"
-        icon={<InlineIcon label="!" />}
-      >
-        <Stack direction="vertical" gap="condensed">
-          <div>Support replied to your ticket.</div>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-            <Badge variant="info" rounded>
-              Ticket #1284
-            </Badge>
-            <Button variant="link">Open</Button>
-          </div>
-        </Stack>
-      </Alert>
-    </Frame>
+export const Icon = () => (
+  <Frame title="icon">
+    <Alert title="New message" variant="info" icon={<InlineIcon label="!" />}>
+      Support replied to your ticket.
+    </Alert>
+  </Frame>
+);
+
+export const ClosableWithActionExample = () => (
+  <Frame title="closable + action">
+    <Alert title="Trial expires soon" variant="warning" closable onClose={() => console.log("Alert closed")}>
+      <Stack direction="vertical" gap="condensed">
+        <div>Upgrade your plan to keep access to premium features.</div>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+          <Button variant="solid">Upgrade</Button>
+          <Button variant="text">Later</Button>
+        </div>
+      </Stack>
+    </Alert>
+  </Frame>
+);
+
+export const CustomIconWithMetaExample = () => (
+  <Frame title="custom icon + meta">
+    <Alert title="New message" variant="info" icon={<InlineIcon label="!" />}>
+      <Stack direction="vertical" gap="condensed">
+        <div>Support replied to your ticket.</div>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+          <Badge variant="info" rounded>
+            Ticket #1284
+          </Badge>
+          <Button variant="link">Open</Button>
+        </div>
+      </Stack>
+    </Alert>
+  </Frame>
+);
+
+export const Variants = () => (
+  <>
+    <Variant />
+    <Closable />
+    <Icon />
   </>
 );
 
+export const Examples = () => (
+  <>
+    <ClosableWithActionExample />
+    <CustomIconWithMetaExample />
+  </>
+);

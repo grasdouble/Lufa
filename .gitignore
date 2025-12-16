@@ -31,3 +31,7 @@ storybook-static
 
 # outputs
 dist
+
+# IDE artifacts
+.dependencygraph/
+

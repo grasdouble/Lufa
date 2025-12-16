@@ -2,7 +2,14 @@
 sidebar_position: 1
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/feedback/alert";
+import {
+  LiveDemo,
+  Variant,
+  Closable,
+  Icon,
+  ClosableWithActionExample,
+  CustomIconWithMetaExample,
+} from "../../../src/dsExamples/feedback/alert";
 import { Alert } from "@grasdouble/lufa_design-system";
 
 # Alert
@@ -11,18 +18,19 @@ Inline feedback message for communicating information, success, warning, or erro
 
 ## Overview
 
-Use `Alert` to highlight important information and status changes near the relevant content.
+Use `Alert` when you need…
 
-- Severity via `variant` (`info`, `success`, `warning`, `error`)
-- Optional title via `title`
-- Optional close button via `closable` + `onClose`
-- Optional icon override via `icon`
+- A concise inline message near relevant content
+- Severity styling via `variant` (`info`, `success`, `warning`, `error`)
+- An optional title via `title`
+- A dismiss action via `closable` + `onClose`
+- A custom icon via `icon`
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Alert } from "@grasdouble/lufa_design-system";
@@ -50,9 +58,38 @@ import { Alert } from "@grasdouble/lufa_design-system";
 
 ## Variants
 
-<Variants />
+### variant
 
-## Examples
+<Variant />
 
-<Examples />
+### closable
 
+<Closable />
+
+### icon
+
+<Icon />
+
+## Best Practices
+
+### Do ✅
+
+- Keep messages concise and action-oriented
+- Use `title` to summarize the state, and keep the body for details
+- Provide `onClose` when `closable` is enabled (and ensure dismissing doesn’t hide critical information)
+
+### Don't ❌
+
+- Don’t use alerts for long-form content; prefer a dedicated section or page
+- Don’t stack too many alerts; it becomes noise
+
+## Accessibility
+
+- `Alert` uses `role="alert"`; use it for important messages that need attention.
+- Ensure action buttons inside the alert are keyboard accessible and clearly labeled.
+- Don’t rely on icon/color alone; the text should convey the meaning.
+
+## Examples of usage
+
+<ClosableWithActionExample />
+<CustomIconWithMetaExample />

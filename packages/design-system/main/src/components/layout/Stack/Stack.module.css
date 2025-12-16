@@ -74,7 +74,7 @@
     .padding-condensed {
         @apply p-2;
     }
-    .paddin-normal {
+    .padding-normal {
         @apply p-4;
     }
     .padding-spacious {

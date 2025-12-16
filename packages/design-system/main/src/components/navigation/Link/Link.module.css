@@ -1,0 +1,120 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+    .link {
+        @apply inline-flex items-center gap-1;
+        @apply transition-colors duration-200;
+        @apply cursor-pointer;
+        text-decoration: none;
+    }
+
+    /* Variants */
+    .variantDefault {
+        @apply no-underline;
+        @apply hover:underline;
+    }
+
+    .variantUnderline {
+        @apply underline underline-offset-4;
+    }
+
+    .variantButton {
+        @apply no-underline;
+        @apply rounded-md px-4 py-2;
+        @apply font-medium;
+    }
+
+    /* Colors */
+    .colorPrimary {
+        @apply text-interactive-default;
+        @apply hover:text-interactive-hover;
+    }
+
+    .colorPrimary.variantButton {
+        @apply bg-interactive-default text-white;
+        @apply hover:bg-interactive-hover;
+    }
+
+    .colorSecondary {
+        @apply text-gray-600 dark:text-gray-400;
+        @apply hover:text-gray-900 dark:hover:text-gray-100;
+    }
+
+    .colorSecondary.variantButton {
+        @apply bg-gray-200 text-gray-900;
+        @apply hover:bg-gray-300;
+        @apply dark:bg-gray-700 dark:text-gray-100;
+        @apply dark:hover:bg-gray-600;
+    }
+
+    .colorSuccess {
+        @apply text-success-default;
+        @apply hover:text-success-hover;
+    }
+
+    .colorSuccess.variantButton {
+        @apply bg-success-default text-white;
+        @apply hover:bg-success-hover;
+    }
+
+    .colorWarning {
+        @apply text-warning-default;
+        @apply hover:text-warning-hover;
+    }
+
+    .colorWarning.variantButton {
+        @apply bg-warning-default text-white;
+        @apply hover:bg-warning-hover;
+    }
+
+    .colorDanger {
+        @apply text-error-default;
+        @apply hover:text-error-hover;
+    }
+
+    .colorDanger.variantButton {
+        @apply bg-error-default text-white;
+        @apply hover:bg-error-hover;
+    }
+
+    .colorInherit {
+        @apply text-inherit;
+        @apply hover:opacity-80;
+    }
+
+    /* Sizes */
+    .sizeSmall {
+        @apply text-sm;
+    }
+
+    .sizeMedium {
+        @apply text-base;
+    }
+
+    .sizeLarge {
+        @apply text-lg;
+    }
+
+    .sizeSmall.variantButton {
+        @apply px-3 py-1.5 text-sm;
+    }
+
+    .sizeMedium.variantButton {
+        @apply px-4 py-2 text-base;
+    }
+
+    .sizeLarge.variantButton {
+        @apply px-5 py-2.5 text-lg;
+    }
+
+    /* Icons */
+    .startIcon,
+    .endIcon,
+    .externalIcon {
+        @apply inline-flex items-center;
+    }
+
+    .externalIcon {
+        @apply text-xs opacity-70;
+    }
+}

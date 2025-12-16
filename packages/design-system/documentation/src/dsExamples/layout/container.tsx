@@ -3,21 +3,27 @@ import { Container, Placeholder, Stack, tokens } from "@grasdouble/lufa_design-s
 
 const { color, spacing } = tokens;
 
-const Frame = ({ children }: { children: React.ReactNode }) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: "20px",
-      backgroundColor: "#f5f5f5",
+      backgroundColor: color.background.secondary,
+      color: color.text.primary,
       borderRadius: "8px",
       marginBottom: "16px",
     }}
   >
+    {title ? (
+      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+        {title}
+      </div>
+    ) : null}
     {children}
   </div>
 );
 
 export const LiveDemo = () => (
-  <Frame>
+  <Frame title="live demo">
     <Container
       size="md"
       paddingY="md"
@@ -35,20 +41,53 @@ export const LiveDemo = () => (
   </Frame>
 );
 
-export const Variants = () => (
-  <>
-    <Frame>
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
-        size
-      </div>
-      <Stack direction="vertical" gap="normal">
-        {(["xs", "sm", "md", "lg", "xl", "full", "fluid"] as const).map((size) => (
-          <div key={size}>
-            <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
-              size: {size}
-            </div>
+export const Size = () => (
+  <Frame title="size">
+    <Stack direction="vertical" gap="normal">
+      {(["xs", "sm", "md", "lg", "xl", "full", "fluid"] as const).map((size) => (
+        <div key={size}>
+          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+            size: {size}
+          </div>
+          <Container
+            size={size}
+            paddingY="sm"
+            style={{
+              border: `1px solid ${color.border.light}`,
+              borderRadius: 12,
+              background: "#fff",
+            }}
+          >
+            <Placeholder color={color.interactive.default}>Content</Placeholder>
+          </Container>
+        </div>
+      ))}
+    </Stack>
+    <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12, marginTop: 12 }}>
+      Tokens: spacing.base → {spacing.base}
+    </div>
+  </Frame>
+);
+
+export const Align = () => (
+  <Frame title="align (with a constrained container)">
+    <Stack direction="vertical" gap="normal">
+      {(["start", "center", "end"] as const).map((align) => (
+        <div key={align}>
+          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+            align: {align}
+          </div>
+          <div
+            style={{
+              padding: 12,
+              borderRadius: 12,
+              background: color.background.secondary,
+              outline: `1px dashed ${color.border.light}`,
+            }}
+          >
             <Container
-              size={size}
+              size="sm"
+              align={align}
               paddingY="sm"
               style={{
                 border: `1px solid ${color.border.light}`,
@@ -56,103 +95,132 @@ export const Variants = () => (
                 background: "#fff",
               }}
             >
-              <Placeholder color={color.interactive.default}>Content</Placeholder>
+              <Placeholder color={color.interactive.default}>Aligned</Placeholder>
             </Container>
           </div>
-        ))}
-      </Stack>
-    </Frame>
+        </div>
+      ))}
+    </Stack>
+  </Frame>
+);
 
-    <Frame>
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
-        align (with a constrained container)
-      </div>
-      <Stack direction="vertical" gap="normal">
-        {(["start", "center", "end"] as const).map((align) => (
-          <div key={align}>
-            <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
-              align: {align}
-            </div>
+export const PaddingX = () => (
+  <Frame title="paddingX">
+    <Stack direction="vertical" gap="normal">
+      {(["none", "base", "lg"] as const).map((paddingX) => (
+        <div key={paddingX}>
+          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+            paddingX: {paddingX}
+          </div>
+          <Container
+            size="md"
+            paddingX={paddingX}
+            paddingY="none"
+            style={{
+              border: `1px solid ${color.border.light}`,
+              borderRadius: 12,
+              background: "#fff",
+            }}
+          >
             <div
               style={{
-                padding: 12,
-                borderRadius: 12,
-                background: color.background.secondary,
+                height: 48,
+                borderRadius: 10,
                 outline: `1px dashed ${color.border.light}`,
+                background: color.background.secondary,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontFamily: "monospace",
+                fontSize: 12,
+                color: color.text.secondary,
               }}
             >
-              <Container
-                size="sm"
-                align={align}
-                paddingY="sm"
-                style={{
-                  border: `1px solid ${color.border.light}`,
-                  borderRadius: 12,
-                  background: "#fff",
-                }}
-              >
-                <Placeholder color={color.interactive.default}>Aligned</Placeholder>
-              </Container>
+              inner content area
             </div>
-          </div>
-        ))}
-      </Stack>
-    </Frame>
+          </Container>
+        </div>
+      ))}
+    </Stack>
+  </Frame>
+);
 
-    <Frame>
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
-        paddingX / paddingY
-      </div>
-      <Stack direction="vertical" gap="normal">
-        {([
-          { paddingX: "none", paddingY: "none" },
-          { paddingX: "base", paddingY: "none" },
-          { paddingX: "base", paddingY: "lg" },
-        ] as const).map(({ paddingX, paddingY }) => (
-          <div key={`${paddingX}-${paddingY}`}>
-            <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
-              paddingX: {paddingX} • paddingY: {paddingY}
-            </div>
-            <Container
-              size="md"
-              paddingX={paddingX}
-              paddingY={paddingY}
+export const PaddingY = () => (
+  <Frame title="paddingY">
+    <Stack direction="vertical" gap="normal">
+      {(["none", "sm", "lg"] as const).map((paddingY) => (
+        <div key={paddingY}>
+          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+            paddingY: {paddingY}
+          </div>
+          <Container
+            size="md"
+            paddingX="base"
+            paddingY={paddingY}
+            style={{
+              border: `1px solid ${color.border.light}`,
+              borderRadius: 12,
+              background: "#fff",
+            }}
+          >
+            <div
               style={{
-                border: `1px solid ${color.border.light}`,
-                borderRadius: 12,
-                background: "#fff",
+                height: 48,
+                borderRadius: 10,
+                outline: `1px dashed ${color.border.light}`,
+                background: color.background.secondary,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontFamily: "monospace",
+                fontSize: 12,
+                color: color.text.secondary,
               }}
             >
-              <div
-                style={{
-                  height: 48,
-                  borderRadius: 10,
-                  outline: `1px dashed ${color.border.light}`,
-                  background: color.background.secondary,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontFamily: "monospace",
-                  fontSize: 12,
-                  color: color.text.secondary,
-                }}
-              >
-                inner content area
-              </div>
-            </Container>
-          </div>
-        ))}
-      </Stack>
-    </Frame>
+              inner content area
+            </div>
+          </Container>
+        </div>
+      ))}
+    </Stack>
+  </Frame>
+);
 
-    <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>
-      Tokens: spacing.base → {spacing.base}
-    </div>
+export const As = () => (
+  <Frame title="as">
+    <Stack direction="vertical" gap="normal">
+      {([
+        { as: "div", label: 'as="div"' },
+        { as: "main", label: 'as="main"' },
+        { as: "section", label: 'as="section"' },
+        { as: "article", label: 'as="article"' },
+      ] as const).map(({ as, label }) => (
+        <Container
+          key={as}
+          as={as}
+          size="md"
+          paddingY="sm"
+          style={{ border: `1px solid ${color.border.light}`, borderRadius: 12, background: "#fff" }}
+        >
+          <div style={{ fontFamily: "monospace", fontSize: 12, color: color.text.secondary }}>{label}</div>
+        </Container>
+      ))}
+    </Stack>
+  </Frame>
+);
+
+export const Variants = () => (
+  <>
+    <Size />
+    <Align />
+    <PaddingX />
+    <PaddingY />
+    <As />
   </>
 );
 
-export const Examples = () => (
-  <Frame>
+export const PageLayoutExample = () => (
+  <Frame title="page layout">
     <Stack direction="vertical" gap="normal">
       <Container as="main" size="lg" paddingY="lg">
         <Stack direction="vertical" gap="normal">
@@ -168,3 +236,22 @@ export const Examples = () => (
   </Frame>
 );
 
+export const MixedBleedExample = () => (
+  <Frame title="mixed full-bleed + constrained">
+    <Stack direction="vertical" gap="normal">
+      <Container size="full" paddingY="sm" style={{ background: "#fff", borderRadius: 12, outline: `1px solid ${color.border.light}` }}>
+        <Placeholder color={color.background.secondary}>Full-bleed section</Placeholder>
+      </Container>
+      <Container size="md" paddingY="sm" style={{ background: "#fff", borderRadius: 12, outline: `1px solid ${color.border.light}` }}>
+        <Placeholder color={color.interactive.default}>Constrained content</Placeholder>
+      </Container>
+    </Stack>
+  </Frame>
+);
+
+export const Examples = () => (
+  <>
+    <PageLayoutExample />
+    <MixedBleedExample />
+  </>
+);

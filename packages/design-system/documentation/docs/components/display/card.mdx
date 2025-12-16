@@ -2,27 +2,35 @@
 sidebar_position: 1
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/display/card";
+import {
+  LiveDemo,
+  Variant,
+  Padding,
+  Interactive,
+  FooterActionsExample,
+  ClickableCardExample,
+} from "../../../src/dsExamples/display/card";
 import { Card } from "@grasdouble/lufa_design-system";
 
 # Card
 
-A flexible container component for grouping related content. Supports a title/subtitle header, optional footer actions, multiple visual variants, and padding sizes.
+Flexible container for grouping related content and actions.
 
 ## Overview
 
-Use `Card` to group related information and actions into a clear surface.
+Use `Card` when you need…
 
-- Header support via `title` / `subtitle`
-- Footer slot via `footer` (actions, meta, etc.)
-- Visual styles via `variant` and spacing via `padding`
-- Interactive affordance via `hoverable` + `onClick`
+- A clear surface to group related content and actions
+- An optional header via `title` / `subtitle`
+- An optional footer via `footer` (actions, meta, etc.)
+- Visual styling via `variant` and spacing via `padding`
+- An interactive affordance via `hoverable` + `onClick`
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Card } from "@grasdouble/lufa_design-system";
@@ -52,8 +60,38 @@ import { Card } from "@grasdouble/lufa_design-system";
 
 ## Variants
 
-<Variants />
+### variant
 
-## Examples
+<Variant />
 
-<Examples />
+### padding
+
+<Padding />
+
+### interactive (hoverable / onClick)
+
+<Interactive />
+
+## Best Practices
+
+### Do ✅
+
+- Use `title` / `subtitle` to provide structure for dense content
+- Use `footer` for actions or meta information, not for primary content
+- Use `hoverable` only when the card is actually interactive or needs an affordance
+
+### Don't ❌
+
+- Don’t overload cards with too many actions; prefer a clear primary action
+- Don’t rely on `onClick` alone to convey navigation; include an explicit link/button when possible
+
+## Accessibility
+
+- `Card` renders a `div`; it is not interactive by default.
+- If you use `onClick`, ensure the interaction is accessible (keyboard access and clear focus/hover behavior). Prefer placing a real `button`/`a` inside the card for the primary action.
+- Keep text contrast sufficient for the chosen `variant`.
+
+## Examples of usage
+
+<FooterActionsExample />
+<ClickableCardExample />

@@ -2,7 +2,16 @@
 sidebar_position: 4
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/container";
+import {
+  LiveDemo,
+  Size,
+  Align,
+  PaddingX,
+  PaddingY,
+  As,
+  PageLayoutExample,
+  MixedBleedExample,
+} from "../../../src/dsExamples/layout/container";
 import { Container } from "@grasdouble/lufa_design-system";
 
 # Container
@@ -11,9 +20,10 @@ A page-level layout container with token-based max widths, alignment, and option
 
 ## Overview
 
-Use `Container` to keep content aligned to a readable max width, while still supporting full-bleed and fluid layouts when needed.
+Use `Container` when you need…
 
-- Semantic wrapper via `as` (`main`, `section`, `article`, …)
+- A readable max-width for page content
+- A semantic wrapper via `as` (`main`, `section`, `article`, …)
 - Width presets via `size` (`xs` → `xl`, plus `full` and `fluid`)
 - Horizontal alignment via `align` (when constrained)
 - Token-based `paddingX` / `paddingY`
@@ -22,7 +32,7 @@ Use `Container` to keep content aligned to a readable max width, while still sup
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Container } from "@grasdouble/lufa_design-system";
@@ -44,10 +54,49 @@ import { Container } from "@grasdouble/lufa_design-system";
 | `paddingX` | `'none' \| 'xxs' \| 'xs' \| 'sm' \| 'md' \| 'base' \| 'lg' \| 'xl' \| '2xl' \| '3xl'`                                                   | `'base'`   | Horizontal padding (token)            |
 | `paddingY` | `'none' \| 'xxs' \| 'xs' \| 'sm' \| 'md' \| 'base' \| 'lg' \| 'xl' \| '2xl' \| '3xl'`                                                   | `'none'`   | Vertical padding (token)              |
 
+Also supports standard element props (for example `className`, `style`, `aria-label`, …).
+
 ## Variants
 
-<Variants />
+### size
 
-## Examples
+<Size />
 
-<Examples />
+### align
+
+<Align />
+
+### paddingX
+
+<PaddingX />
+
+### paddingY
+
+<PaddingY />
+
+### as
+
+<As />
+
+## Best Practices
+
+### Do ✅
+
+- Use `size="xl"` (default) for standard page content
+- Use `size="full"` for full-bleed sections, and pair it with a nested constrained `Container` if needed
+- Use semantic `as` values for meaningful regions (`main`, `header`, `footer`, …)
+
+### Don't ❌
+
+- Don’t use `Container` as a general spacing utility; prefer `Stack`/layout primitives for spacing
+- Don’t over-constrain nested containers; keep hierarchy simple
+
+## Accessibility
+
+- `Container` is layout-only; accessibility depends on semantics and children.
+- Prefer semantic `as` values when the container represents a landmark region (e.g. `main`, `nav`, `header`, `footer`).
+
+## Examples of usage
+
+<PageLayoutExample />
+<MixedBleedExample />

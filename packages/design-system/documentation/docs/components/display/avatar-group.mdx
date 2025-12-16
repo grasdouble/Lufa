@@ -2,29 +2,35 @@
 sidebar_position: 3
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/display/avatarGroup";
+import {
+  LiveDemo,
+  Max,
+  Size,
+  ProjectCardHeaderExample,
+  InlineAssigneesExample,
+} from "../../../src/dsExamples/display/avatarGroup";
 import { AvatarGroup } from "@grasdouble/lufa_design-system";
 
 # AvatarGroup
 
-Displays multiple avatars with overlap and an optional “+N” count when the list is truncated.
+Displays multiple avatars with overlap and an optional "+N" count when the list is truncated.
 
 ## Overview
 
-Use `AvatarGroup` to represent a set of people (team members, assignees, participants).
+Use `AvatarGroup` when you need…
 
-- Overlapped layout for compact representation
-- Apply a shared `size` to all children
-- Limit displayed avatars with `max` and show a trailing count avatar
+- A compact representation of multiple people (overlap)
+- A shared `size` applied to all child avatars
+- A `max` limit with a trailing `+N` count for long lists
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
-import { AvatarGroup, Avatar } from "@grasdouble/lufa_design-system";
+import { Avatar, AvatarGroup } from "@grasdouble/lufa_design-system";
 ```
 
 ## Basic Usage
@@ -40,17 +46,44 @@ import { AvatarGroup, Avatar } from "@grasdouble/lufa_design-system";
 
 ## Props
 
-| Prop      | Type                                   | Default | Description                                       |
-| --------- | -------------------------------------- | ------- | ------------------------------------------------- |
-| `children`| `ReactNode`                             | -       | Avatars to render                                 |
-| `max`     | `number`                                | -       | Maximum avatars displayed before showing `+N`      |
-| `size`    | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`  | `'md'`  | Applies a size to all child avatars (if unset)     |
+| Prop       | Type                                   | Default | Description                                    |
+| ---------- | -------------------------------------- | ------- | ---------------------------------------------- |
+| `children` | `ReactNode`                            | -       | Avatars to render                              |
+| `max`      | `number`                               | -       | Maximum avatars displayed before showing `+N`  |
+| `size`     | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'`  | Applies a size to all child avatars (if unset) |
+
+Also supports standard `div` props (for example `className`, `style`, `aria-label`, …).
 
 ## Variants
 
-<Variants />
+### max
 
-## Examples
+<Max />
 
-<Examples />
+### size
 
+<Size />
+
+## Best Practices
+
+### Do ✅
+
+- Use `max` when the available space is constrained
+- Keep children as `Avatar` components so `size` can be applied consistently
+- Ensure each avatar has meaningful `alt` text (or `alt=""` if decorative)
+
+### Don't ❌
+
+- Don’t use `AvatarGroup` as the only way to convey identity; pair it with names when needed
+- Don’t mix arbitrary children; layout and sizing is optimized for avatars
+
+## Accessibility
+
+- `AvatarGroup` is a `div`; provide an accessible name with `aria-label`/`aria-labelledby` when needed.
+- Ensure `Avatar` images have appropriate `alt` text.
+- If avatars are interactive, use focusable elements (buttons/links) and ensure a visible focus state.
+
+## Examples of usage
+
+<ProjectCardHeaderExample />
+<InlineAssigneesExample />

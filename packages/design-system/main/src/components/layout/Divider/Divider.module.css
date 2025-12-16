@@ -10,7 +10,7 @@
     }
 
     .vertical {
-        @apply min-h-lg flex flex-col items-center justify-center;
+        @apply min-h-lg flex h-1 flex-col items-center justify-center;
     }
 
     .line {

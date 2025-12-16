@@ -2,7 +2,18 @@
 sidebar_position: 2
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/stack";
+import {
+  LiveDemo,
+  Direction,
+  Gap,
+  Align,
+  Justify,
+  Wrap,
+  Padding,
+  ItemGrow,
+  ToolbarExample,
+  WrappingChipsExample,
+} from "../../../src/dsExamples/layout/stack";
 import { Stack, STACK_DIRECTION, STACK_GAP } from "@grasdouble/lufa_design-system";
 
 # Stack
@@ -11,12 +22,13 @@ A flexible layout primitive for arranging children in a horizontal or vertical s
 
 ## Overview
 
-Use `Stack` to build consistent flex-based layouts with a tokenized API.
+Use `Stack` when you need…
 
+- A consistent flex layout with tokenized options
 - Direction via `direction` (`vertical` default, or `horizontal`)
 - Spacing via `gap`, plus `align`/`justify` distribution
-- Responsive layouts via `wrap`
-- Use `Stack.Item` for per-item growth via `grow`
+- Wrapping via `wrap` for responsive rows
+- Per-item growth via `Stack.Item` + `grow`
 
 ## Live Demo
 
@@ -77,8 +89,53 @@ import {
 
 ## Variants
 
-<Variants />
+### direction
 
-## Examples
+<Direction />
 
-<Examples />
+### gap
+
+<Gap />
+
+### align
+
+<Align />
+
+### justify
+
+<Justify />
+
+### wrap
+
+<Wrap />
+
+### padding
+
+<Padding />
+
+### Stack.Item grow
+
+<ItemGrow />
+
+## Best Practices
+
+### Do ✅
+
+- Prefer `Stack` for 1D layouts (rows/columns) and use `Grid` for 2D layouts
+- Use `gap` for spacing instead of margins on children
+- Use `Stack.Item grow` to create “fill” areas (e.g. a search field between left/right groups)
+
+### Don't ❌
+
+- Don’t use `Stack` as a substitute for semantic structure; choose appropriate HTML elements for content
+- Don’t nest many stacks when a single `Grid`/`Layout` would be clearer
+
+## Accessibility
+
+- `Stack` renders a `div`; semantics come from its children.
+- Ensure interactive children have visible focus states and sufficient spacing for touch targets.
+
+## Examples of usage
+
+<ToolbarExample />
+<WrappingChipsExample />

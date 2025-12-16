@@ -2,7 +2,18 @@
 sidebar_position: 10
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/flex";
+import {
+  LiveDemo,
+  Direction,
+  Align,
+  Justify,
+  Wrap,
+  Gap,
+  Inline,
+  As,
+  ToolbarExample,
+  ResponsiveCardRowExample,
+} from "../../../src/dsExamples/layout/flex";
 import { Flex, FLEX_ALIGN, FLEX_DIRECTION, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE } from "@grasdouble/lufa_design-system";
 
 # Flex
@@ -11,19 +22,20 @@ Generic flex container with alignment, wrapping, and token-friendly gaps.
 
 ## Overview
 
-Use `Flex` for one-off flex layouts where you want a simple, declarative API instead of custom CSS.
+Use `Flex` when you need…
 
+- A simple declarative flex layout without custom CSS
 - Direction via `direction` (row/column)
 - Alignment via `align` / `justify`
 - Wrapping via `wrap`
 - Token-backed spacing via `gap`
-- Optional inline layout via `inline`
+- Inline layout via `inline`
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Flex, FLEX_DIRECTION, FLEX_ALIGN, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE } from "@grasdouble/lufa_design-system";
@@ -58,10 +70,57 @@ import { Flex, FLEX_DIRECTION, FLEX_ALIGN, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE }
 | `gap`       | `keyof typeof SPACE_SIZE \| number \| string`        | `'md'`      | Gap between items                    |
 | `children`  | `ReactNode`                                          | -           | Content                              |
 
+Also supports standard element props (for example `className`, `style`, `aria-label`, …).
+
 ## Variants
 
-<Variants />
+### direction
 
-## Examples
+<Direction />
 
-<Examples />
+### align
+
+<Align />
+
+### justify
+
+<Justify />
+
+### wrap
+
+<Wrap />
+
+### gap
+
+<Gap />
+
+### inline
+
+<Inline />
+
+### as
+
+<As />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Flex` for small, localized layouts (toolbars, rows, small grids)
+- Use `gap` instead of manual margins between children
+- Prefer wrapping (`wrap="wrap"`) for responsive rows of chips/cards
+
+### Don't ❌
+
+- Don’t use `Flex` for complex page layouts; prefer dedicated layout components (e.g. `Container`, grids)
+- Don’t rely on `Flex` to fix sizing issues; set widths/min-widths intentionally
+
+## Accessibility
+
+- `Flex` is layout-only; accessibility depends on semantics and children.
+- Use `as` to choose an appropriate semantic element when the container is a landmark (`nav`, `header`, …).
+
+## Examples of usage
+
+<ToolbarExample />
+<ResponsiveCardRowExample />

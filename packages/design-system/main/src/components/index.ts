@@ -21,13 +21,20 @@ export * from './layout/Flex';
 // ============================================
 // NAVIGATION
 // ============================================
-// export { Anchor } from "./navigation/Anchor";
-// export { Breadcrumb } from "./navigation/Breadcrumb";
-// export { Link } from "./navigation/Link";
-// export { Menu } from "./navigation/Menu";
-// export { Pagination } from "./navigation/Pagination";
-// export { Steps } from "./navigation/Steps";
-// export { Tabs } from "./navigation/Tabs";
+export { Anchor } from './navigation/Anchor';
+export type { AnchorProps } from './navigation/Anchor';
+export { Breadcrumb } from './navigation/Breadcrumb';
+export type { BreadcrumbProps, BreadcrumbItem } from './navigation/Breadcrumb';
+export { Link } from './navigation/Link';
+export type { LinkProps } from './navigation/Link';
+export { Menu } from './navigation/Menu';
+export type { MenuProps, MenuItem } from './navigation/Menu';
+export { Pagination } from './navigation/Pagination';
+export type { PaginationProps } from './navigation/Pagination';
+export { Steps } from './navigation/Steps';
+export type { StepsProps, StepItem } from './navigation/Steps';
+export { Tabs } from './navigation/Tabs';
+export type { TabsProps, TabItem } from './navigation/Tabs';
 
 // ============================================
 // FORMS (Data Entry)

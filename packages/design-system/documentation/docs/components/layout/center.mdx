@@ -2,7 +2,15 @@
 sidebar_position: 9
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/center";
+import {
+  LiveDemo,
+  Axis,
+  Inline,
+  MinHeight,
+  As,
+  LoadingPanelExample,
+  EmptyStateExample,
+} from "../../../src/dsExamples/layout/center";
 import { Center } from "@grasdouble/lufa_design-system";
 
 # Center
@@ -11,17 +19,18 @@ Centers children horizontally, vertically, or both using flex (optionally inline
 
 ## Overview
 
-Use `Center` to quickly center content inside a region, without writing custom flex CSS.
+Use `Center` when you need…
 
-- Control axis via `axis` (`horizontal`, `vertical`, `both`)
-- Use `minHeight` to make vertical centering visible
-- Use `inline` when you need centering inside inline flow (`inline-flex`)
+- Quick centering without custom flex CSS
+- Axis control via `axis` (`horizontal`, `vertical`, `both`)
+- Vertical centering via `minHeight`
+- Inline flow support via `inline` (`inline-flex`)
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Center } from "@grasdouble/lufa_design-system";
@@ -45,10 +54,45 @@ import { Center } from "@grasdouble/lufa_design-system";
 | `as`        | `'div' \| 'span' \| 'section' \| 'main' \| 'article'` | `'div'` | Render element                            |
 | `children`  | `ReactNode`                            | -        | Content                                   |
 
+Also supports standard element props (for example `className`, `style`, `aria-label`, …).
+
 ## Variants
 
-<Variants />
+### axis
 
-## Examples
+<Axis />
 
-<Examples />
+### inline
+
+<Inline />
+
+### minHeight
+
+<MinHeight />
+
+### as
+
+<As />
+
+## Best Practices
+
+### Do ✅
+
+- Use `minHeight` when demonstrating or requiring vertical centering
+- Use `inline` + `as="span"` when centering content inside text flow
+- Prefer semantic `as` values (`main`, `section`, `article`) when the container has meaning
+
+### Don't ❌
+
+- Don’t use `Center` for complex layouts; use `Stack`/grid instead
+- Don’t rely on `Center` to “fix” spacing issues; ensure container sizing is intentional
+
+## Accessibility
+
+- `Center` is purely layout; accessibility depends on its children.
+- Use an appropriate `as` element for semantics when the container represents a meaningful region.
+
+## Examples of usage
+
+<LoadingPanelExample />
+<EmptyStateExample />

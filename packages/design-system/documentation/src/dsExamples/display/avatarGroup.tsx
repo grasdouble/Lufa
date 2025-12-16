@@ -3,15 +3,21 @@ import { Avatar, AvatarGroup, Badge, Stack, tokens } from "@grasdouble/lufa_desi
 
 const { color } = tokens;
 
-const Frame = ({ children }: { children: React.ReactNode }) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: "20px",
-      backgroundColor: "#f5f5f5",
+      backgroundColor: color.background.secondary,
+      color: color.text.primary,
       borderRadius: "8px",
       marginBottom: "16px",
     }}
   >
+    {title ? (
+      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+        {title}
+      </div>
+    ) : null}
     {children}
   </div>
 );
@@ -35,7 +41,7 @@ const Team = ({ size = "md", max }: { size?: "xs" | "sm" | "md" | "lg" | "xl"; m
 );
 
 export const LiveDemo = () => (
-  <Frame>
+  <Frame title="live demo">
     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
         <Team max={4} />
@@ -48,47 +54,38 @@ export const LiveDemo = () => (
   </Frame>
 );
 
-export const Variants = () => (
-  <>
-    <Frame>
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
-        max
-      </div>
-      <Stack direction="vertical" gap="normal">
-        {[undefined, 2, 3, 4].map((max) => (
-          <div key={String(max)} style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <Team max={max as number | undefined} />
-            <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>
-              max: {max ?? "—"}
-            </div>
+export const Max = () => (
+  <Frame title="max">
+    <Stack direction="vertical" gap="normal">
+      {[undefined, 2, 3, 4].map((max) => (
+        <div key={String(max)} style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <Team max={max as number | undefined} />
+          <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>
+            max: {max ?? "—"}
           </div>
-        ))}
-      </Stack>
-    </Frame>
-
-    <Frame>
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
-        size
-      </div>
-      <Stack direction="vertical" gap="normal">
-        {(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
-          <div key={size} style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <Team size={size} max={4} />
-            <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>
-              size: {size}
-            </div>
-          </div>
-        ))}
-      </Stack>
-    </Frame>
-  </>
+        </div>
+      ))}
+    </Stack>
+  </Frame>
 );
 
-export const Examples = () => (
-  <Frame>
-    <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
-      project card header
-    </div>
+export const Size = () => (
+  <Frame title="size">
+    <Stack direction="vertical" gap="normal">
+      {(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
+        <div key={size} style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <Team size={size} max={4} />
+          <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>
+            size: {size}
+          </div>
+        </div>
+      ))}
+    </Stack>
+  </Frame>
+);
+
+export const ProjectCardHeaderExample = () => (
+  <Frame title="project card header">
     <div
       style={{
         borderRadius: 12,
@@ -110,3 +107,31 @@ export const Examples = () => (
   </Frame>
 );
 
+export const InlineAssigneesExample = () => (
+  <Frame title="inline assignees">
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        <div style={{ color: color.text.primary, fontWeight: 700 }}>Bug triage</div>
+        <div style={{ color: color.text.secondary, fontSize: 12 }}>Assignees</div>
+      </div>
+      <Team max={4} size="sm" />
+    </div>
+  </Frame>
+);
+
+export const Example1 = ProjectCardHeaderExample;
+export const Example2 = InlineAssigneesExample;
+
+export const Variants = () => (
+  <>
+    <Max />
+    <Size />
+  </>
+);
+
+export const Examples = () => (
+  <>
+    <ProjectCardHeaderExample />
+    <InlineAssigneesExample />
+  </>
+);

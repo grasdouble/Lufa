@@ -2,7 +2,15 @@
 sidebar_position: 6
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/layout/layout";
+import {
+  LiveDemo,
+  Sidebar,
+  SidebarPosition,
+  SidebarWidth,
+  Gap,
+  AppShellExample,
+  ContentOnlyExample,
+} from "../../../src/dsExamples/layout/layout";
 import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from "@grasdouble/lufa_design-system";
 
 # Layout
@@ -11,17 +19,18 @@ A page-level scaffold using CSS grid areas: Header / Sidebar / Content / Footer.
 
 ## Overview
 
-Use `Layout` to build app shells with a consistent structure. It provides a grid-based scaffold and exposes compound slots for the common regions.
+Use `Layout` when you need…
 
-- Optional sidebar via `sidebar` and `sidebarPosition`
-- Configurable spacing via `gap`
+- A consistent app shell scaffold (header/sidebar/content/footer)
+- An optional sidebar via `sidebar`, `sidebarPosition`, `sidebarWidth`
+- Spacing between areas via `gap`
 - Compound components: `Layout.Header`, `Layout.Sidebar`, `Layout.Content`, `Layout.Footer`
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from "@grasdouble/lufa_design-system";
@@ -47,10 +56,45 @@ import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } fro
 | `sidebarWidth`    | `keyof typeof LAYOUT_SIDEBAR_WIDTH`      | `'default'` | Sidebar width preset (when enabled)         |
 | `gap`             | `keyof typeof LAYOUT_GAP`                | `'md'`      | Gap between layout areas                    |
 
+Also supports standard `div` props (for example `className`, `style`, `aria-label`, …).
+
 ## Variants
 
-<Variants />
+### sidebar
 
-## Examples
+<Sidebar />
 
-<Examples />
+### sidebarPosition
+
+<SidebarPosition />
+
+### sidebarWidth
+
+<SidebarWidth />
+
+### gap
+
+<Gap />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Layout` for page-level scaffolds (not small widgets)
+- Keep `Layout.Header`/`Sidebar`/`Content`/`Footer` in a consistent order for readability
+- Use the sidebar only for navigation or secondary context, not primary content
+
+### Don't ❌
+
+- Don’t nest multiple `Layout` components; prefer `Container` + other layout primitives inside `Layout.Content`
+- Don’t rely on `gap="none"` unless the inner areas provide their own spacing
+
+## Accessibility
+
+- `Layout` is a layout container; semantics come from the elements inside (e.g. use `header`, `nav`, `main`, `footer` where appropriate within the slots).
+- Ensure landmarks are unique per page (only one `main`, etc.).
+
+## Examples of usage
+
+<AppShellExample />
+<ContentOnlyExample />

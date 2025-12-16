@@ -2,7 +2,13 @@
 sidebar_position: 2
 ---
 
-import { LiveDemo, Variants, Examples } from "../../../src/dsExamples/feedback/spinner";
+import {
+  LiveDemo,
+  Size,
+  Mode,
+  CenteredLoadingPanelExample,
+  InlineLoadingExample,
+} from "../../../src/dsExamples/feedback/spinner";
 import { Spinner } from "@grasdouble/lufa_design-system";
 
 # Spinner
@@ -11,16 +17,17 @@ Loading indicator for async content and background operations.
 
 ## Overview
 
-Use `Spinner` to communicate that the UI is busy and work is in progress.
+Use `Spinner` when you need…
 
-- Size via `size` (`small`, `medium`, `large`)
+- A clear “loading” indicator for async content
+- Size control via `size` (`small`, `medium`, `large`)
 - Visual style via `mode` (`A` or `B`)
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Spinner } from "@grasdouble/lufa_design-system";
@@ -45,9 +52,33 @@ import { Spinner } from "@grasdouble/lufa_design-system";
 
 ## Variants
 
-<Variants />
+### size
 
-## Examples
+<Size />
 
-<Examples />
+### mode
 
+<Mode />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Spinner` near the UI region that’s loading (or inside a placeholder)
+- Prefer `size="small"` for inline/background operations
+- Pair with text when the wait may be long (e.g. “Fetching data…”)
+
+### Don't ❌
+
+- Don’t block the entire page for small, localized actions
+- Don’t show spinners without context for long operations; add status text or progress when possible
+
+## Accessibility
+
+- Spinner uses `role="status"` with `aria-live="polite"` and `aria-label="Loading"`.
+- If multiple spinners can appear at once, consider providing more specific accessible labels in the surrounding UI (e.g. “Loading comments”).
+
+## Examples of usage
+
+<CenteredLoadingPanelExample />
+<InlineLoadingExample />

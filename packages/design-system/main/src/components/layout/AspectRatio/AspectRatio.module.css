@@ -3,6 +3,7 @@
 @layer components {
     .aspectRatio {
         @apply w-full;
+        @apply reset-figure;
         position: relative;
         overflow: hidden;
     }
@@ -39,4 +40,3 @@
         aspect-ratio: var(--lufa-aspect-ratio-portrait-display);
     }
 }
-
