@@ -1,5 +1,16 @@
 # @grasdouble/lufa_design-system-storybook
 
+## 0.6.0
+
+### Minor Changes
+
+- 1f24429: Add navigation components and improve documentation
+
+### Patch Changes
+
+- Updated dependencies [1f24429]
+  - @grasdouble/lufa_design-system@0.5.0
+
 ## 0.5.0
 
 ### Minor Changes
