@@ -1,5 +1,11 @@
 # @grasdouble/lufa_design-system
 
+## 0.5.0
+
+### Minor Changes
+
+- 1f24429: Add navigation components and improve documentation
+
 ## 0.4.0
 
 ### Minor Changes

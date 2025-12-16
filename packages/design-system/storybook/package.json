@@ -1,6 +1,6 @@
 {
     "name": "@grasdouble/lufa_design-system-storybook",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "type": "module",
     "scripts": {
         "dev": "storybook dev -p 6006 --no-open",
