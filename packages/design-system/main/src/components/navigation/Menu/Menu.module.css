@@ -83,7 +83,7 @@
     }
 
     .modeInline .submenu {
-        @apply ml-4 border-l-2 border-border-light pl-4;
+        @apply border-border-light ml-4 border-l-2 pl-4;
     }
 
     /* Themes */

@@ -1,32 +1,39 @@
 {
-  "name": "@grasdouble/lufa_design-system-primitives",
-  "version": "0.2.1",
-  "license": "CC-BY-NC-4.0",
-  "type": "module",
-  "description": "Lufa Design System - Primitive color tokens",
-  "scripts": {
-    "clean": "rm -rf dist",
-    "build": "pnpm clean && tsc && node scripts/generate-css.js",
-    "dev": "tsc --watch"
-  },
-  "private": false,
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+    "name": "@grasdouble/lufa_design-system-primitives",
+    "version": "0.2.1",
+    "license": "CC-BY-NC-4.0",
+    "type": "module",
+    "description": "Lufa Design System - Primitive color tokens",
+    "scripts": {
+        "lint": "eslint ./src",
+        "clean": "rm -rf dist",
+        "build": "pnpm clean && tsc && tsx scripts/generate-css.ts",
+        "dev": "tsc --watch"
     },
-    "./style.css": "./dist/style.css"
-  },
-  "devDependencies": {
-    "@grasdouble/lufa_config_tsconfig": "workspace:^",
-    "typescript": "^5.9.3"
-  }
+    "private": false,
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://npm.pkg.github.com"
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./style.css": "./dist/style.css"
+    },
+    "devDependencies": {
+        "@grasdouble/lufa_config_tsconfig": "workspace:^",
+        "@grasdouble/lufa_config_prettier": "workspace:^",
+        "@grasdouble/lufa_config_eslint": "workspace:^",
+        "@types/node": "^24.10.4",
+        "prettier": "^3.7.4",
+        "eslint": "^9.39.2",
+        "tsx": "^4.19.2",
+        "typescript": "^5.9.3"
+    }
 }

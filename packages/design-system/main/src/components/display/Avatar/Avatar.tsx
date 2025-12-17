@@ -36,13 +36,20 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
     ) => {
         const isCountVariant = variant === 'count';
 
-        const avatarClasses = [styles.avatar, styles[`size-${size}`], styles[`variant-${variant}`], className].filter(Boolean).join(' ');
+        const avatarClasses = [
+            styles.avatar,
+            styles[`size-${size}` as keyof typeof styles],
+            styles[`variant-${variant}` as keyof typeof styles],
+            className,
+        ]
+            .filter(Boolean)
+            .join(' ');
 
         const statusClasses = [
             styles.status,
-            styles[`status-${status}`],
-            styles[`status-size-${size}`],
-            styles[`status-position-${statusPosition}`],
+            styles[`status-${status}` as keyof typeof styles],
+            styles[`status-size-${size}` as keyof typeof styles],
+            styles[`status-position-${statusPosition}` as keyof typeof styles],
             variant === 'square' ? styles['status-square'] : '',
         ]
             .filter(Boolean)

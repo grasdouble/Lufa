@@ -1,11 +1,10 @@
 {
-  "extends": "@grasdouble/lufa_config_tsconfig/base.json",
-  "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "declaration": true,
-    "declarationMap": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "scripts"]
+    "extends": "@grasdouble/lufa_config_tsconfig/react-library.json",
+    "include": ["src/**/*"],
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "types": ["node"]
+    },
+    "exclude": ["dist", "build", "node_modules", "scripts"]
 }

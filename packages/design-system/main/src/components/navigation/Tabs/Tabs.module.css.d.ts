@@ -1,0 +1,20 @@
+declare const styles: {
+    readonly tabs: string;
+    readonly tabList: string;
+    readonly tab: string;
+    readonly tabActive: string;
+    readonly tabDisabled: string;
+    readonly icon: string;
+    readonly tabContent: string;
+    readonly typeLine: string;
+    readonly typeCard: string;
+    readonly typePill: string;
+    readonly positionTop: string;
+    readonly positionBottom: string;
+    readonly positionLeft: string;
+    readonly positionRight: string;
+    readonly sizeSmall: string;
+    readonly sizeMedium: string;
+    readonly sizeLarge: string;
+};
+export default styles;

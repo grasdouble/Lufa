@@ -26,12 +26,12 @@ export const Stack = ({
     return (
         <div
             className={clsx(
-                styles[`gap-${gap}`],
-                styles[`direction-${direction}`],
-                styles[`align-${align}`],
-                styles[`wrap-${wrap}`],
-                styles[`justify-${justify}`],
-                styles[`padding-${padding}`]
+                styles[`gap-${gap}` as keyof typeof styles],
+                styles[`direction-${direction}` as keyof typeof styles],
+                styles[`align-${align}` as keyof typeof styles],
+                styles[`wrap-${wrap}` as keyof typeof styles],
+                styles[`justify-${justify}` as keyof typeof styles],
+                styles[`padding-${padding}` as keyof typeof styles]
             )}
         >
             {children}

@@ -1,34 +1,41 @@
 {
-  "name": "@grasdouble/lufa_design-system-tokens",
-  "version": "0.2.1",
-  "license": "CC-BY-NC-4.0",
-  "type": "module",
-  "description": "Lufa Design System - Semantic design tokens (colors, spacing, typography, etc.)",
-  "scripts": {
-    "clean": "rm -rf dist",
-    "build": "pnpm clean && tsc && node scripts/generate-css.js"
-  },
-  "private": false,
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+    "name": "@grasdouble/lufa_design-system-tokens",
+    "version": "0.2.1",
+    "license": "CC-BY-NC-4.0",
+    "type": "module",
+    "description": "Lufa Design System - Semantic design tokens (colors, spacing, typography, etc.)",
+    "scripts": {
+        "lint": "eslint .",
+        "clean": "rm -rf dist",
+        "build": "pnpm clean && tsc && tsx scripts/generate-css.ts"
     },
-    "./style.css": "./dist/style.css"
-  },
-  "dependencies": {
-    "@grasdouble/lufa_design-system-primitives": "workspace:^"
-  },
-  "devDependencies": {
-    "@grasdouble/lufa_config_tsconfig": "workspace:^",
-    "typescript": "^5.9.3"
-  }
+    "private": false,
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://npm.pkg.github.com"
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./style.css": "./dist/style.css"
+    },
+    "dependencies": {
+        "@grasdouble/lufa_design-system-primitives": "workspace:^"
+    },
+    "devDependencies": {
+        "@grasdouble/lufa_config_eslint": "workspace:^",
+        "@grasdouble/lufa_config_prettier": "workspace:^",
+        "@grasdouble/lufa_config_tsconfig": "workspace:^",
+        "@types/node": "^24.10.4",
+        "eslint": "^9.39.2",
+        "prettier": "^3.7.4",
+        "tsx": "^4.21.0",
+        "typescript": "^5.9.3"
+    }
 }

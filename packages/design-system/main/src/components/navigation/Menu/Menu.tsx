@@ -63,12 +63,7 @@ export const Menu = ({ items, selectedKey, mode = 'vertical', theme = 'light', c
         const isOpen = openKeys.includes(item.key);
         const isSelected = selectedKey === item.key;
 
-        const itemClassNames = clsx(
-            styles.item,
-            isSelected && styles.selected,
-            item.disabled && styles.disabled,
-            hasChildren && styles.hasChildren
-        );
+        const itemClassNames = clsx(styles.item, isSelected && styles.selected, item.disabled && styles.disabled);
 
         const content = (
             <>
@@ -102,7 +97,7 @@ export const Menu = ({ items, selectedKey, mode = 'vertical', theme = 'light', c
                 )}
 
                 {hasChildren && isOpen && (
-                    <ul className={clsx(styles.submenu, styles[`level${level + 1}`])}>
+                    <ul className={clsx(styles.submenu, styles[`level${level + 1}` as keyof typeof styles])}>
                         {item.children!.map((child) => renderMenuItem(child, level + 1))}
                     </ul>
                 )}

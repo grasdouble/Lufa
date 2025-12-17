@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "lint": "eslint ./src",
-        "build:types": "tsc --emitDeclarationOnly",
+        "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly --outDir dist",
         "prettier:fix": "prettier --write .",
         "build": "vite build",
         "dev": "vite build --watch",
