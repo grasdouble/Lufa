@@ -1,5 +1,13 @@
 # @grasdouble/cdn_autobuild-server
 
+## 0.3.2
+
+### Patch Changes
+
+- 6c972e8: fix: prettier config
+- 412c362: fix(chore): add missing prettier and eslint config + add a script prettier in package.json
+- b101244: fix(chore): eslint config + fix new issues
+
 ## 0.3.1
 
 ### Patch Changes

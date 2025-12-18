@@ -1,5 +1,14 @@
 # @grasdouble/lufa_design-system-primitives
 
+## 0.2.2
+
+### Patch Changes
+
+- 6c972e8: fix: prettier config
+- 57df928: chore: update lint and tsconfig
+- 412c362: fix(chore): add missing prettier and eslint config + add a script prettier in package.json
+- b101244: fix(chore): eslint config + fix new issues
+
 ## 0.2.1
 
 ### Patch Changes

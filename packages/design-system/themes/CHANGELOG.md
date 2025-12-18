@@ -1,5 +1,19 @@
 # @grasdouble/lufa_design-system-themes
 
+## 0.2.1
+
+### Patch Changes
+
+- 6c972e8: fix: prettier config
+- 57df928: chore: update lint and tsconfig
+- 412c362: fix(chore): add missing prettier and eslint config + add a script prettier in package.json
+- b101244: fix(chore): eslint config + fix new issues
+- Updated dependencies [6c972e8]
+- Updated dependencies [57df928]
+- Updated dependencies [412c362]
+- Updated dependencies [b101244]
+  - @grasdouble/lufa_design-system-tokens@0.2.2
+
 ## 0.2.0
 
 ### Minor Changes

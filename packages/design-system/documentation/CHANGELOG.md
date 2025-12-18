@@ -1,5 +1,18 @@
 # @grasdouble/lufa_design-system-documentation
 
+## 0.4.1
+
+### Patch Changes
+
+- 6c972e8: fix: prettier config
+- 412c362: fix(chore): add missing prettier and eslint config + add a script prettier in package.json
+- Updated dependencies [6c972e8]
+- Updated dependencies [57df928]
+- Updated dependencies [412c362]
+- Updated dependencies [b101244]
+  - @grasdouble/lufa_design-system-tokens@0.2.2
+  - @grasdouble/lufa_design-system@0.5.1
+
 ## 0.4.0
 
 ### Minor Changes

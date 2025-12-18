@@ -1,5 +1,13 @@
 # @grasdouble/lufa_config_tsconfig
 
+## 0.1.1
+
+### Patch Changes
+
+- 6c972e8: fix: prettier config
+- 57df928: chore: update lint and tsconfig
+- 412c362: fix(chore): add missing prettier and eslint config + add a script prettier in package.json
+
 ## 0.1.0
 
 ### Minor Changes
