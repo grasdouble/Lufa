@@ -18,12 +18,12 @@
  * - Combine with high-contrast colors for optimal accessibility
  */
 export const borderWidth = {
-  0: "0px",
-  1: "1px",
-  2: "2px", // WCAG 2.4.7 minimum for focus indicators
-  3: "3px", // Recommended for clear focus visibility
-  4: "4px",
-  8: "8px",
+  0: '0px',
+  1: '1px',
+  2: '2px', // WCAG 2.4.7 minimum for focus indicators
+  3: '3px', // Recommended for clear focus visibility
+  4: '4px',
+  8: '8px',
 } as const;
 
 export type BorderWidth = keyof typeof borderWidth;

@@ -59,13 +59,13 @@ const distDir = resolve(__dirname, '../dist');
 mkdirSync(distDir, { recursive: true });
 
 interface TokenEntry {
-    name: string;
-    value: string | number;
+  name: string;
+  value: string | number;
 }
 
 interface TokenCategory {
-    name: string;
-    count: number;
+  name: string;
+  count: number;
 }
 
 /**
@@ -73,44 +73,44 @@ interface TokenCategory {
  * Handles numeric keys properly
  */
 const toKebab = (segment: string | number): string =>
-    String(segment)
-        .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-        .replace(/_/g, '-')
-        .toLowerCase();
+  String(segment)
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .replace(/_/g, '-')
+    .toLowerCase();
 
 /**
  * Process tokens object and return entries in their original order
  */
 const processTokens = (obj: Record<string, unknown>): [string, unknown][] => {
-    return Object.entries(obj);
+  return Object.entries(obj);
 };
 
 /**
  * Process nested object (like grid or colors) and return formatted entries
  */
 const processNestedTokens = (obj: Record<string, Record<string, unknown>>, prefix: string): TokenEntry[] => {
-    const entries: TokenEntry[] = [];
-    for (const [category, values] of Object.entries(obj)) {
-        const categoryEntries = processTokens(values);
-        for (const [key, value] of categoryEntries) {
-            entries.push({
-                name: `${prefix}-${toKebab(category)}-${toKebab(key)}`,
-                value: value as string | number,
-            });
-        }
+  const entries: TokenEntry[] = [];
+  for (const [category, values] of Object.entries(obj)) {
+    const categoryEntries = processTokens(values);
+    for (const [key, value] of categoryEntries) {
+      entries.push({
+        name: `${prefix}-${toKebab(category)}-${toKebab(key)}`,
+        value: value as string | number,
+      });
     }
-    return entries;
+  }
+  return entries;
 };
 
 /**
  * Generate CSS section with proper formatting
  */
 const generateSection = (title: string, entries: TokenEntry[]): string => {
-    let css = `\n  /* ${title} */\n`;
-    for (const { name, value } of entries) {
-        css += `  --lufa-${name}: ${value};\n`;
-    }
-    return css;
+  let css = `\n  /* ${title} */\n`;
+  for (const { name, value } of entries) {
+    css += `  --lufa-${name}: ${value};\n`;
+  }
+  return css;
 };
 
 // Collect all tokens with metadata
@@ -120,26 +120,26 @@ const tokenCategories: TokenCategory[] = [];
 // BORDER
 // ============================================================================
 const borderWidthEntries: TokenEntry[] = processTokens(borderWidth as Record<string, unknown>).map(([k, v]) => ({
-    name: `border-width-${toKebab(k)}`,
-    value: v as string | number,
+  name: `border-width-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({
-    name: 'Border Widths',
-    count: borderWidthEntries.length,
+  name: 'Border Widths',
+  count: borderWidthEntries.length,
 });
 
 const borderStyleEntries: TokenEntry[] = processTokens(borderStyle as Record<string, unknown>).map(([k, v]) => ({
-    name: `border-style-${toKebab(k)}`,
-    value: v as string | number,
+  name: `border-style-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({
-    name: 'Border Styles',
-    count: borderStyleEntries.length,
+  name: 'Border Styles',
+  count: borderStyleEntries.length,
 });
 
 const radiusEntries: TokenEntry[] = processTokens(radius as Record<string, unknown>).map(([k, v]) => ({
-    name: `radius-${toKebab(k)}`,
-    value: v as string | number,
+  name: `radius-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Border Radius', count: radiusEntries.length });
 
@@ -153,26 +153,26 @@ tokenCategories.push({ name: 'Colors', count: colorEntries.length });
 // EFFECTS
 // ============================================================================
 const blurEntries: TokenEntry[] = processTokens(blur as Record<string, unknown>).map(([k, v]) => ({
-    name: `blur-${toKebab(k)}`,
-    value: v as string | number,
+  name: `blur-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Blur', count: blurEntries.length });
 
 const opacityEntries: TokenEntry[] = processTokens(opacity as Record<string, unknown>).map(([k, v]) => ({
-    name: `opacity-${toKebab(k)}`,
-    value: v as string | number,
+  name: `opacity-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Opacity', count: opacityEntries.length });
 
 const cursorEntries: TokenEntry[] = processTokens(cursor as Record<string, unknown>).map(([k, v]) => ({
-    name: `cursor-${toKebab(k)}`,
-    value: v as string | number,
+  name: `cursor-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Cursor', count: cursorEntries.length });
 
 const transformEntries: TokenEntry[] = processTokens(transform as Record<string, unknown>).map(([k, v]) => ({
-    name: `transform-${toKebab(k)}`,
-    value: v as string | number,
+  name: `transform-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Transform', count: transformEntries.length });
 
@@ -180,14 +180,14 @@ tokenCategories.push({ name: 'Transform', count: transformEntries.length });
 // ELEVATION
 // ============================================================================
 const shadowEntries: TokenEntry[] = processTokens(shadow as Record<string, unknown>).map(([k, v]) => ({
-    name: `shadow-${toKebab(k)}`,
-    value: v as string | number,
+  name: `shadow-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Shadows', count: shadowEntries.length });
 
 const zIndexEntries: TokenEntry[] = processTokens(zIndex as Record<string, unknown>).map(([k, v]) => ({
-    name: `z-index-${toKebab(k)}`,
-    value: v as string | number,
+  name: `z-index-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Z-Index', count: zIndexEntries.length });
 
@@ -195,14 +195,14 @@ tokenCategories.push({ name: 'Z-Index', count: zIndexEntries.length });
 // ICON
 // ============================================================================
 const iconSizeEntries: TokenEntry[] = processTokens(iconSize as Record<string, unknown>).map(([k, v]) => ({
-    name: `icon-size-${toKebab(k)}`,
-    value: v as string | number,
+  name: `icon-size-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Icon Sizes', count: iconSizeEntries.length });
 
 const iconStrokeEntries: TokenEntry[] = processTokens(iconStroke as Record<string, unknown>).map(([k, v]) => ({
-    name: `icon-stroke-${toKebab(k)}`,
-    value: v as string | number,
+  name: `icon-stroke-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Icon Strokes', count: iconStrokeEntries.length });
 
@@ -210,47 +210,51 @@ tokenCategories.push({ name: 'Icon Strokes', count: iconStrokeEntries.length });
 // LAYOUT
 // ============================================================================
 const breakpointEntries: TokenEntry[] = processTokens(breakpoint as Record<string, unknown>).map(([k, v]) => ({
-    name: `breakpoint-${toKebab(k)}`,
-    value: v as string | number,
+  name: `breakpoint-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Breakpoints', count: breakpointEntries.length });
 
-const gridColumnEntries: TokenEntry[] = processTokens((grid as { columns: Record<string, unknown> }).columns).map(([k, v]) => ({
+const gridColumnEntries: TokenEntry[] = processTokens((grid as { columns: Record<string, unknown> }).columns).map(
+  ([k, v]) => ({
     name: `grid-columns-${toKebab(k)}`,
     value: v as string | number,
-}));
+  })
+);
 tokenCategories.push({ name: 'Grid Columns', count: gridColumnEntries.length });
 
-const gridGutterEntries: TokenEntry[] = processTokens((grid as { gutters: Record<string, unknown> }).gutters).map(([k, v]) => ({
+const gridGutterEntries: TokenEntry[] = processTokens((grid as { gutters: Record<string, unknown> }).gutters).map(
+  ([k, v]) => ({
     name: `grid-gutter-${toKebab(k)}`,
     value: v as string | number,
-}));
+  })
+);
 tokenCategories.push({ name: 'Grid Gutters', count: gridGutterEntries.length });
 
 const aspectRatioEntries: TokenEntry[] = processTokens(aspectRatio as Record<string, unknown>).map(([k, v]) => ({
-    name: `aspect-ratio-${toKebab(k)}`,
-    value: v as string | number,
+  name: `aspect-ratio-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({
-    name: 'Aspect Ratio',
-    count: aspectRatioEntries.length,
+  name: 'Aspect Ratio',
+  count: aspectRatioEntries.length,
 });
 
 const containerEntries: TokenEntry[] = processTokens(container as Record<string, unknown>).map(([k, v]) => ({
-    name: `container-${toKebab(k)}`,
-    value: v as string | number,
+  name: `container-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Container', count: containerEntries.length });
 
 const dimensionsEntries: TokenEntry[] = processTokens(dimension as Record<string, unknown>).map(([k, v]) => ({
-    name: `dimensions-${toKebab(k)}`,
-    value: v as string | number,
+  name: `dimensions-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Dimensions', count: dimensionsEntries.length });
 
 const minWidthEntries: TokenEntry[] = processTokens(minWidth as Record<string, unknown>).map(([k, v]) => ({
-    name: `min-width-${toKebab(k)}`,
-    value: v as string | number,
+  name: `min-width-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Min Width', count: minWidthEntries.length });
 
@@ -258,50 +262,52 @@ tokenCategories.push({ name: 'Min Width', count: minWidthEntries.length });
 // MOTION
 // ============================================================================
 const easingEntries: TokenEntry[] = processTokens(easing as Record<string, unknown>).map(([k, v]) => ({
-    name: `easing-${toKebab(k)}`,
-    value: v as string | number,
+  name: `easing-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Easing', count: easingEntries.length });
 
 const timingEntries: TokenEntry[] = processTokens(timing as Record<string, unknown>).map(([k, v]) => ({
-    name: `timing-${toKebab(k)}`,
-    value: v as string | number,
+  name: `timing-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Timing', count: timingEntries.length });
 
 const transitionEntries: TokenEntry[] = processTokens(transition as Record<string, unknown>).map(([k, v]) => ({
-    name: `transition-${toKebab(k)}`,
-    value: v as string | number,
+  name: `transition-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Transition', count: transitionEntries.length });
 
-const advancedDurationEntries: TokenEntry[] = processTokens(advancedDuration as Record<string, unknown>).map(([k, v]) => ({
+const advancedDurationEntries: TokenEntry[] = processTokens(advancedDuration as Record<string, unknown>).map(
+  ([k, v]) => ({
     name: `advanced-duration-${toKebab(k)}`,
     value: v as string | number,
-}));
+  })
+);
 tokenCategories.push({
-    name: 'Advanced Duration',
-    count: advancedDurationEntries.length,
+  name: 'Advanced Duration',
+  count: advancedDurationEntries.length,
 });
 
 // ============================================================================
 // SPACE
 // ============================================================================
 const spacingEntries: TokenEntry[] = processTokens(spacing as Record<string, unknown>).map(([k, v]) => ({
-    name: `spacing-${toKebab(k)}`,
-    value: v as string | number,
+  name: `spacing-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Spacing', count: spacingEntries.length });
 
 const sizeEntries: TokenEntry[] = processTokens(size as Record<string, unknown>).map(([k, v]) => ({
-    name: `size-${toKebab(k)}`,
-    value: v as string | number,
+  name: `size-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Sizes', count: sizeEntries.length });
 
 const maxWidthEntries: TokenEntry[] = processTokens(maxWidth as Record<string, unknown>).map(([k, v]) => ({
-    name: `max-width-${toKebab(k)}`,
-    value: v as string | number,
+  name: `max-width-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Max Width', count: maxWidthEntries.length });
 
@@ -309,44 +315,44 @@ tokenCategories.push({ name: 'Max Width', count: maxWidthEntries.length });
 // TYPOGRAPHY
 // ============================================================================
 const fontFamilyEntries: TokenEntry[] = processTokens(fontFamily as Record<string, unknown>).map(([k, v]) => ({
-    name: `font-family-${toKebab(k)}`,
-    value: v as string | number,
+  name: `font-family-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({
-    name: 'Font Families',
-    count: fontFamilyEntries.length,
+  name: 'Font Families',
+  count: fontFamilyEntries.length,
 });
 
 const fontSizeEntries: TokenEntry[] = processTokens(fontSize as Record<string, unknown>).map(([k, v]) => ({
-    name: `font-size-${toKebab(k)}`,
-    value: v as string | number,
+  name: `font-size-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Font Sizes', count: fontSizeEntries.length });
 
 const fontWeightEntries: TokenEntry[] = processTokens(fontWeight as Record<string, unknown>).map(([k, v]) => ({
-    name: `font-weight-${toKebab(k)}`,
-    value: v as string | number,
+  name: `font-weight-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Font Weights', count: fontWeightEntries.length });
 
 const lineHeightEntries: TokenEntry[] = processTokens(lineHeight as Record<string, unknown>).map(([k, v]) => ({
-    name: `line-height-${toKebab(k)}`,
-    value: v as string | number,
+  name: `line-height-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Line Heights', count: lineHeightEntries.length });
 
 const letterSpacingEntries: TokenEntry[] = processTokens(letterSpacing as Record<string, unknown>).map(([k, v]) => ({
-    name: `letter-spacing-${toKebab(k)}`,
-    value: v as string | number,
+  name: `letter-spacing-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({
-    name: 'Letter Spacings',
-    count: letterSpacingEntries.length,
+  name: 'Letter Spacings',
+  count: letterSpacingEntries.length,
 });
 
 const measureEntries: TokenEntry[] = processTokens(measure as Record<string, unknown>).map(([k, v]) => ({
-    name: `measure-${toKebab(k)}`,
-    value: v as string | number,
+  name: `measure-${toKebab(k)}`,
+  value: v as string | number,
 }));
 tokenCategories.push({ name: 'Measure', count: measureEntries.length });
 
@@ -406,5 +412,5 @@ console.log(`📁 Categories: ${tokenCategories.length}`);
 
 console.log('\n📈 Tokens by category:');
 tokenCategories.forEach(({ name, count }) => {
-    console.log(`   ${name}: ${count}`.padEnd(40, ' '));
+  console.log(`   ${name}: ${count}`.padEnd(40, ' '));
 });

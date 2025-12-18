@@ -5,11 +5,9 @@
 ### Using Git Hooks
 
 1. **Create a `commit-msg` hook file:**
-
    - Create a file named `commit-msg` in the `.git/hooks/` directory of your project.
 
 2. **Add a validation script in the `commit-msg` file:**
-
    - Use the following script to validate commit prefixes:
 
      ```bash
@@ -123,8 +121,8 @@
    if (!prefixPattern.test(prTitle)) {
      fail(
        `The PR title must start with one of the following prefixes: ${prefixes.join(
-         ", "
-       )}. Example: "fix: fix an important bug".`
+         ", ",
+       )}. Example: "fix: fix an important bug".`,
      );
    }
    ```

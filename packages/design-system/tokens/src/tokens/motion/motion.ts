@@ -53,51 +53,51 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/three-flashes.html|WCAG 2.1 - Three Flashes}
  */
 
-import { timing as primitiveTiming } from "@grasdouble/lufa_design-system-primitives";
-import { easing } from "./easing.js";
+import { timing as primitiveTiming } from '@grasdouble/lufa_design-system-primitives';
+import { easing } from './easing.js';
 
 export const motion = {
   /** Fade in/out transition - tooltips, alerts, overlays */
   fade: {
     duration: primitiveTiming[150], // 150ms
     easing: easing.easeOut,
-    properties: "opacity",
+    properties: 'opacity',
   },
   /** Scale transition - modals, popovers, zoom effects */
   scale: {
     duration: primitiveTiming[250], // 250ms
     easing: easing.easeInOut,
-    properties: "transform, opacity",
+    properties: 'transform, opacity',
   },
   /** Slide transition - drawers, tooltips, dropdowns */
   slide: {
     duration: primitiveTiming[250], // 250ms
     easing: easing.easeOut,
-    properties: "transform, opacity",
+    properties: 'transform, opacity',
   },
   /** Color transition - hover states, theme changes */
   color: {
     duration: primitiveTiming[150], // 150ms
     easing: easing.easeInOut,
-    properties: "color, background-color, border-color",
+    properties: 'color, background-color, border-color',
   },
   /** All properties transition - general purpose */
   all: {
     duration: primitiveTiming[150], // 150ms
     easing: easing.easeInOut,
-    properties: "all",
+    properties: 'all',
   },
   /** Collapse/expand transition - accordions, sections */
   collapse: {
     duration: primitiveTiming[400], // 400ms
     easing: easing.gentle,
-    properties: "height, opacity",
+    properties: 'height, opacity',
   },
   /** Smooth scroll behavior - anchor links, scroll-to-top */
   scroll: {
     duration: primitiveTiming[400], // 400ms
     easing: easing.gentle,
-    properties: "scroll-behavior",
+    properties: 'scroll-behavior',
   },
 } as const;
 

@@ -4,207 +4,207 @@ import { Button, Card, Placeholder, tokens } from '@grasdouble/lufa_design-syste
 const { color } = tokens;
 
 const meta = {
-    title: '4. Display/Card',
-    component: Card,
-    parameters: {
-        layout: 'padded',
-        docs: {
-            description: {
-                component:
-                    'A versatile card component for displaying content in a container with optional header, footer, and various visual styles.',
-            },
-        },
+  title: '4. Display/Card',
+  component: Card,
+  parameters: {
+    layout: 'padded',
+    docs: {
+      description: {
+        component:
+          'A versatile card component for displaying content in a container with optional header, footer, and various visual styles.',
+      },
     },
-    tags: [],
-    argTypes: {
-        variant: {
-            control: 'select',
-            options: ['default', 'elevated', 'outlined', 'filled'],
-            description: 'Visual style variant',
-        },
-        padding: {
-            control: 'select',
-            options: ['none', 'small', 'medium', 'large'],
-            description: 'Internal padding size',
-        },
-        hoverable: {
-            control: 'boolean',
-            description: 'Adds hover effect',
-        },
-        title: {
-            control: 'text',
-            description: 'Card title',
-        },
-        subtitle: {
-            control: 'text',
-            description: 'Card subtitle',
-        },
-        children: {
-            control: 'text',
-            description: 'Card content',
-        },
+  },
+  tags: [],
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['default', 'elevated', 'outlined', 'filled'],
+      description: 'Visual style variant',
     },
+    padding: {
+      control: 'select',
+      options: ['none', 'small', 'medium', 'large'],
+      description: 'Internal padding size',
+    },
+    hoverable: {
+      control: 'boolean',
+      description: 'Adds hover effect',
+    },
+    title: {
+      control: 'text',
+      description: 'Card title',
+    },
+    subtitle: {
+      control: 'text',
+      description: 'Card subtitle',
+    },
+    children: {
+      control: 'text',
+      description: 'Card content',
+    },
+  },
 } satisfies Meta<typeof Card>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-    args: {
-        title: 'Card Title',
-        children: 'This is a basic card with default styling.',
-    },
+  args: {
+    title: 'Card Title',
+    children: 'This is a basic card with default styling.',
+  },
 };
 
 export const Ttile: Story = {
-    args: {
-        title: 'Card Title',
-        subtitle: 'Optional subtitle or description',
-        children: 'Card content goes here. Any React elements can be added as children.',
-    },
+  args: {
+    title: 'Card Title',
+    subtitle: 'Optional subtitle or description',
+    children: 'Card content goes here. Any React elements can be added as children.',
+  },
 };
 
 export const Variants: Story = {
-    render: () => (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
-            <Card variant="default" title="Default">
-                Standard card with border
-            </Card>
-            <Card variant="elevated" title="Elevated">
-                Card with shadow elevation
-            </Card>
-            <Card variant="outlined" title="Outlined">
-                Card with thicker border
-            </Card>
-            <Card variant="filled" title="Filled">
-                Card with background fill
-            </Card>
-        </div>
-    ),
+  render: () => (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
+      <Card variant="default" title="Default">
+        Standard card with border
+      </Card>
+      <Card variant="elevated" title="Elevated">
+        Card with shadow elevation
+      </Card>
+      <Card variant="outlined" title="Outlined">
+        Card with thicker border
+      </Card>
+      <Card variant="filled" title="Filled">
+        Card with background fill
+      </Card>
+    </div>
+  ),
 };
 
 export const Padding: Story = {
-    render: () => (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <Card padding="none" title="No Padding">
-                Content with no padding
-            </Card>
-            <Card padding="small" title="Small Padding">
-                Content with small padding
-            </Card>
-            <Card padding="medium" title="Medium Padding">
-                Content with medium padding (default)
-            </Card>
-            <Card padding="large" title="Large Padding">
-                Content with large padding
-            </Card>
-        </div>
-    ),
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <Card padding="none" title="No Padding">
+        Content with no padding
+      </Card>
+      <Card padding="small" title="Small Padding">
+        Content with small padding
+      </Card>
+      <Card padding="medium" title="Medium Padding">
+        Content with medium padding (default)
+      </Card>
+      <Card padding="large" title="Large Padding">
+        Content with large padding
+      </Card>
+    </div>
+  ),
 };
 
 export const Footer: Story = {
-    args: {
-        title: 'Card with Actions',
-        subtitle: 'This card has footer actions',
-        children: 'Card content that describes something interesting.',
-        footer: (
-            <div style={{ display: 'flex', gap: '8px' }}>
-                <Button variant="solid">Primary</Button>
-                <Button variant="text">Cancel</Button>
-            </div>
-        ),
-    },
+  args: {
+    title: 'Card with Actions',
+    subtitle: 'This card has footer actions',
+    children: 'Card content that describes something interesting.',
+    footer: (
+      <div style={{ display: 'flex', gap: '8px' }}>
+        <Button variant="solid">Primary</Button>
+        <Button variant="text">Cancel</Button>
+      </div>
+    ),
+  },
 };
 
 export const Hoverable: Story = {
-    render: () => (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-            <Card variant="elevated" hoverable title="Hover Me">
-                This card has hover effects
-            </Card>
-            <Card variant="elevated" hoverable title="Interactive">
-                Hover to see elevation increase
-            </Card>
-            <Card variant="elevated" hoverable title="Click Ready">
-                Can be combined with onClick
-            </Card>
-        </div>
-    ),
+  render: () => (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+      <Card variant="elevated" hoverable title="Hover Me">
+        This card has hover effects
+      </Card>
+      <Card variant="elevated" hoverable title="Interactive">
+        Hover to see elevation increase
+      </Card>
+      <Card variant="elevated" hoverable title="Click Ready">
+        Can be combined with onClick
+      </Card>
+    </div>
+  ),
 };
 
 export const Clickable: Story = {
-    render: () => (
-        <Card
-            variant="elevated"
-            hoverable
-            onClick={() => console.log('Card clicked')}
-            title="Clickable Card"
-            subtitle="Click anywhere on this card"
-        >
-            This card has an onClick handler. Notice the cursor changes to pointer when you hover.
-        </Card>
-    ),
+  render: () => (
+    <Card
+      variant="elevated"
+      hoverable
+      onClick={() => console.log('Card clicked')}
+      title="Clickable Card"
+      subtitle="Click anywhere on this card"
+    >
+      This card has an onClick handler. Notice the cursor changes to pointer when you hover.
+    </Card>
+  ),
 };
 
 export const UsageExamples: Story = {
-    render: () => (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-            <Card
-                variant="elevated"
-                hoverable
-                padding="none"
-                footer={
-                    <div style={{ padding: '16px' }}>
-                        <Button variant="solid" fullWidth>
-                            Add to Cart
-                        </Button>
-                    </div>
-                }
-            >
-                <Placeholder height="large" width="full" color={color.interactive.default}>
-                    Product image
-                </Placeholder>
-                <div style={{ padding: '16px' }}>
-                    <h3 style={{ margin: '0 0 8px 0' }}>Product Name</h3>
-                    <p style={{ margin: 0, color: color.text.secondary }}>$99.99</p>
-                </div>
-            </Card>
-            <Card
-                variant="elevated"
-                hoverable
-                padding="none"
-                footer={
-                    <div style={{ padding: '16px' }}>
-                        <Button variant="solid">Add to Cart</Button>
-                    </div>
-                }
-            >
-                <Placeholder height="large" width="full" color={color.success.default}>
-                    Product image
-                </Placeholder>
-                <div style={{ padding: '16px' }}>
-                    <h3 style={{ margin: '0 0 8px 0' }}>Another Product</h3>
-                    <p style={{ margin: 0, color: color.text.secondary }}>$149.99</p>
-                </div>
-            </Card>
-            <Card
-                variant="elevated"
-                hoverable
-                padding="none"
-                footer={
-                    <div style={{ padding: '16px' }}>
-                        <Button variant="solid">Add to Cart</Button>
-                    </div>
-                }
-            >
-                <Placeholder height="large" width="full" color={color.error.default}>
-                    Product image
-                </Placeholder>
-                <div style={{ padding: '16px' }}>
-                    <h3 style={{ margin: '0 0 8px 0' }}>Premium Item</h3>
-                    <p style={{ margin: 0, color: color.text.secondary }}>$249.99</p>
-                </div>
-            </Card>
+  render: () => (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+      <Card
+        variant="elevated"
+        hoverable
+        padding="none"
+        footer={
+          <div style={{ padding: '16px' }}>
+            <Button variant="solid" fullWidth>
+              Add to Cart
+            </Button>
+          </div>
+        }
+      >
+        <Placeholder height="large" width="full" color={color.interactive.default}>
+          Product image
+        </Placeholder>
+        <div style={{ padding: '16px' }}>
+          <h3 style={{ margin: '0 0 8px 0' }}>Product Name</h3>
+          <p style={{ margin: 0, color: color.text.secondary }}>$99.99</p>
         </div>
-    ),
+      </Card>
+      <Card
+        variant="elevated"
+        hoverable
+        padding="none"
+        footer={
+          <div style={{ padding: '16px' }}>
+            <Button variant="solid">Add to Cart</Button>
+          </div>
+        }
+      >
+        <Placeholder height="large" width="full" color={color.success.default}>
+          Product image
+        </Placeholder>
+        <div style={{ padding: '16px' }}>
+          <h3 style={{ margin: '0 0 8px 0' }}>Another Product</h3>
+          <p style={{ margin: 0, color: color.text.secondary }}>$149.99</p>
+        </div>
+      </Card>
+      <Card
+        variant="elevated"
+        hoverable
+        padding="none"
+        footer={
+          <div style={{ padding: '16px' }}>
+            <Button variant="solid">Add to Cart</Button>
+          </div>
+        }
+      >
+        <Placeholder height="large" width="full" color={color.error.default}>
+          Product image
+        </Placeholder>
+        <div style={{ padding: '16px' }}>
+          <h3 style={{ margin: '0 0 8px 0' }}>Premium Item</h3>
+          <p style={{ margin: 0, color: color.text.secondary }}>$249.99</p>
+        </div>
+      </Card>
+    </div>
+  ),
 };

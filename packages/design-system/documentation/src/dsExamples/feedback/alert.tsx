@@ -1,9 +1,21 @@
 import React from "react";
-import { Alert, Badge, Button, Stack, tokens } from "@grasdouble/lufa_design-system";
+import {
+  Alert,
+  Badge,
+  Button,
+  Stack,
+  tokens,
+} from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +26,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -71,7 +89,12 @@ export const Variant = () => (
 
 export const Closable = () => (
   <Frame title="closable">
-    <Alert title="Trial expires soon" variant="warning" closable onClose={() => console.log("Alert closed")}>
+    <Alert
+      title="Trial expires soon"
+      variant="warning"
+      closable
+      onClose={() => console.log("Alert closed")}
+    >
       Upgrade your plan to keep access to premium features.
     </Alert>
   </Frame>
@@ -87,10 +110,22 @@ export const Icon = () => (
 
 export const ClosableWithActionExample = () => (
   <Frame title="closable + action">
-    <Alert title="Trial expires soon" variant="warning" closable onClose={() => console.log("Alert closed")}>
+    <Alert
+      title="Trial expires soon"
+      variant="warning"
+      closable
+      onClose={() => console.log("Alert closed")}
+    >
       <Stack direction="vertical" gap="condensed">
         <div>Upgrade your plan to keep access to premium features.</div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            flexWrap: "wrap",
+          }}
+        >
           <Button variant="solid">Upgrade</Button>
           <Button variant="text">Later</Button>
         </div>
@@ -104,7 +139,14 @@ export const CustomIconWithMetaExample = () => (
     <Alert title="New message" variant="info" icon={<InlineIcon label="!" />}>
       <Stack direction="vertical" gap="condensed">
         <div>Support replied to your ticket.</div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            flexWrap: "wrap",
+          }}
+        >
           <Badge variant="info" rounded>
             Ticket #1284
           </Badge>

@@ -1,9 +1,20 @@
 import React from "react";
-import { Container, Placeholder, Stack, tokens } from "@grasdouble/lufa_design-system";
+import {
+  Container,
+  Placeholder,
+  Stack,
+  tokens,
+} from "@grasdouble/lufa_design-system";
 
 const { color, spacing } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +25,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -44,26 +61,43 @@ export const LiveDemo = () => (
 export const Size = () => (
   <Frame title="size">
     <Stack direction="vertical" gap="normal">
-      {(["xs", "sm", "md", "lg", "xl", "full", "fluid"] as const).map((size) => (
-        <div key={size}>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
-            size: {size}
+      {(["xs", "sm", "md", "lg", "xl", "full", "fluid"] as const).map(
+        (size) => (
+          <div key={size}>
+            <div
+              style={{
+                fontFamily: "monospace",
+                color: color.text.tertiary,
+                marginBottom: 8,
+              }}
+            >
+              size: {size}
+            </div>
+            <Container
+              size={size}
+              paddingY="sm"
+              style={{
+                border: `1px solid ${color.border.light}`,
+                borderRadius: 12,
+                background: "#fff",
+              }}
+            >
+              <Placeholder color={color.interactive.default}>
+                Content
+              </Placeholder>
+            </Container>
           </div>
-          <Container
-            size={size}
-            paddingY="sm"
-            style={{
-              border: `1px solid ${color.border.light}`,
-              borderRadius: 12,
-              background: "#fff",
-            }}
-          >
-            <Placeholder color={color.interactive.default}>Content</Placeholder>
-          </Container>
-        </div>
-      ))}
+        ),
+      )}
     </Stack>
-    <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12, marginTop: 12 }}>
+    <div
+      style={{
+        fontFamily: "monospace",
+        color: color.text.tertiary,
+        fontSize: 12,
+        marginTop: 12,
+      }}
+    >
       Tokens: spacing.base → {spacing.base}
     </div>
   </Frame>
@@ -74,7 +108,13 @@ export const Align = () => (
     <Stack direction="vertical" gap="normal">
       {(["start", "center", "end"] as const).map((align) => (
         <div key={align}>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
             align: {align}
           </div>
           <div
@@ -95,7 +135,9 @@ export const Align = () => (
                 background: "#fff",
               }}
             >
-              <Placeholder color={color.interactive.default}>Aligned</Placeholder>
+              <Placeholder color={color.interactive.default}>
+                Aligned
+              </Placeholder>
             </Container>
           </div>
         </div>
@@ -109,7 +151,13 @@ export const PaddingX = () => (
     <Stack direction="vertical" gap="normal">
       {(["none", "base", "lg"] as const).map((paddingX) => (
         <div key={paddingX}>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
             paddingX: {paddingX}
           </div>
           <Container
@@ -150,7 +198,13 @@ export const PaddingY = () => (
     <Stack direction="vertical" gap="normal">
       {(["none", "sm", "lg"] as const).map((paddingY) => (
         <div key={paddingY}>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
             paddingY: {paddingY}
           </div>
           <Container
@@ -189,20 +243,34 @@ export const PaddingY = () => (
 export const As = () => (
   <Frame title="as">
     <Stack direction="vertical" gap="normal">
-      {([
-        { as: "div", label: 'as="div"' },
-        { as: "main", label: 'as="main"' },
-        { as: "section", label: 'as="section"' },
-        { as: "article", label: 'as="article"' },
-      ] as const).map(({ as, label }) => (
+      {(
+        [
+          { as: "div", label: 'as="div"' },
+          { as: "main", label: 'as="main"' },
+          { as: "section", label: 'as="section"' },
+          { as: "article", label: 'as="article"' },
+        ] as const
+      ).map(({ as, label }) => (
         <Container
           key={as}
           as={as}
           size="md"
           paddingY="sm"
-          style={{ border: `1px solid ${color.border.light}`, borderRadius: 12, background: "#fff" }}
+          style={{
+            border: `1px solid ${color.border.light}`,
+            borderRadius: 12,
+            background: "#fff",
+          }}
         >
-          <div style={{ fontFamily: "monospace", fontSize: 12, color: color.text.secondary }}>{label}</div>
+          <div
+            style={{
+              fontFamily: "monospace",
+              fontSize: 12,
+              color: color.text.secondary,
+            }}
+          >
+            {label}
+          </div>
         </Container>
       ))}
     </Stack>
@@ -224,7 +292,9 @@ export const PageLayoutExample = () => (
     <Stack direction="vertical" gap="normal">
       <Container as="main" size="lg" paddingY="lg">
         <Stack direction="vertical" gap="normal">
-          <Placeholder color={color.interactive.default}>Main content</Placeholder>
+          <Placeholder color={color.interactive.default}>
+            Main content
+          </Placeholder>
           <Placeholder color={color.background.secondary}>Section</Placeholder>
           <Placeholder color={color.background.secondary}>Section</Placeholder>
         </Stack>
@@ -239,11 +309,31 @@ export const PageLayoutExample = () => (
 export const MixedBleedExample = () => (
   <Frame title="mixed full-bleed + constrained">
     <Stack direction="vertical" gap="normal">
-      <Container size="full" paddingY="sm" style={{ background: "#fff", borderRadius: 12, outline: `1px solid ${color.border.light}` }}>
-        <Placeholder color={color.background.secondary}>Full-bleed section</Placeholder>
+      <Container
+        size="full"
+        paddingY="sm"
+        style={{
+          background: "#fff",
+          borderRadius: 12,
+          outline: `1px solid ${color.border.light}`,
+        }}
+      >
+        <Placeholder color={color.background.secondary}>
+          Full-bleed section
+        </Placeholder>
       </Container>
-      <Container size="md" paddingY="sm" style={{ background: "#fff", borderRadius: 12, outline: `1px solid ${color.border.light}` }}>
-        <Placeholder color={color.interactive.default}>Constrained content</Placeholder>
+      <Container
+        size="md"
+        paddingY="sm"
+        style={{
+          background: "#fff",
+          borderRadius: 12,
+          outline: `1px solid ${color.border.light}`,
+        }}
+      >
+        <Placeholder color={color.interactive.default}>
+          Constrained content
+        </Placeholder>
       </Container>
     </Stack>
   </Frame>

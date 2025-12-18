@@ -11,7 +11,13 @@ import {
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -22,7 +28,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -76,9 +88,23 @@ export const LiveDemo = () => (
 
 export const Sidebar = () => (
   <Frame title="sidebar">
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 16 }}>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+        gap: 16,
+      }}
+    >
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>sidebar: false</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          sidebar: false
+        </div>
         <Shell gap={LAYOUT_GAP.sm}>
           <Layout.Header>
             <Placeholder color={color.interactive.default}>Header</Placeholder>
@@ -92,7 +118,15 @@ export const Sidebar = () => (
       </div>
 
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>sidebar: true</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          sidebar: true
+        </div>
         <Shell sidebar gap={LAYOUT_GAP.sm}>
           <Layout.Header>
             <Placeholder color={color.interactive.default}>Header</Placeholder>
@@ -116,14 +150,29 @@ export const Sidebar = () => (
 export const SidebarPosition = () => (
   <Frame title="sidebarPosition">
     <Stack direction="vertical" gap="normal">
-      {([LAYOUT_SIDEBAR_POSITION.left, LAYOUT_SIDEBAR_POSITION.right] as const).map((sidebarPosition) => (
+      {(
+        [LAYOUT_SIDEBAR_POSITION.left, LAYOUT_SIDEBAR_POSITION.right] as const
+      ).map((sidebarPosition) => (
         <div key={sidebarPosition}>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
             sidebarPosition: {sidebarPosition}
           </div>
-          <Shell sidebar sidebarPosition={sidebarPosition} sidebarWidth={LAYOUT_SIDEBAR_WIDTH.default} gap={LAYOUT_GAP.md}>
+          <Shell
+            sidebar
+            sidebarPosition={sidebarPosition}
+            sidebarWidth={LAYOUT_SIDEBAR_WIDTH.default}
+            gap={LAYOUT_GAP.md}
+          >
             <Layout.Header>
-              <Placeholder color={color.interactive.default}>Header</Placeholder>
+              <Placeholder color={color.interactive.default}>
+                Header
+              </Placeholder>
             </Layout.Header>
             <Layout.Sidebar>
               <Placeholder color={color.background.secondary} height="large">
@@ -145,14 +194,33 @@ export const SidebarPosition = () => (
 export const SidebarWidth = () => (
   <Frame title="sidebarWidth">
     <Stack direction="vertical" gap="normal">
-      {([LAYOUT_SIDEBAR_WIDTH.collapsed, LAYOUT_SIDEBAR_WIDTH.default, LAYOUT_SIDEBAR_WIDTH.wide] as const).map((sidebarWidth) => (
+      {(
+        [
+          LAYOUT_SIDEBAR_WIDTH.collapsed,
+          LAYOUT_SIDEBAR_WIDTH.default,
+          LAYOUT_SIDEBAR_WIDTH.wide,
+        ] as const
+      ).map((sidebarWidth) => (
         <div key={sidebarWidth}>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
             sidebarWidth: {sidebarWidth}
           </div>
-          <Shell sidebar sidebarPosition={LAYOUT_SIDEBAR_POSITION.left} sidebarWidth={sidebarWidth} gap={LAYOUT_GAP.md}>
+          <Shell
+            sidebar
+            sidebarPosition={LAYOUT_SIDEBAR_POSITION.left}
+            sidebarWidth={sidebarWidth}
+            gap={LAYOUT_GAP.md}
+          >
             <Layout.Header>
-              <Placeholder color={color.interactive.default}>Header</Placeholder>
+              <Placeholder color={color.interactive.default}>
+                Header
+              </Placeholder>
             </Layout.Header>
             <Layout.Sidebar>
               <Placeholder color={color.background.secondary} height="large">
@@ -174,14 +242,24 @@ export const SidebarWidth = () => (
 export const Gap = () => (
   <Frame title="gap">
     <Stack direction="vertical" gap="normal">
-      {([LAYOUT_GAP.none, LAYOUT_GAP.sm, LAYOUT_GAP.md, LAYOUT_GAP.lg] as const).map((gap) => (
+      {(
+        [LAYOUT_GAP.none, LAYOUT_GAP.sm, LAYOUT_GAP.md, LAYOUT_GAP.lg] as const
+      ).map((gap) => (
         <div key={gap}>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
             gap: {gap}
           </div>
           <Shell sidebar gap={gap}>
             <Layout.Header>
-              <Placeholder color={color.interactive.default}>Header</Placeholder>
+              <Placeholder color={color.interactive.default}>
+                Header
+              </Placeholder>
             </Layout.Header>
             <Layout.Sidebar>
               <Placeholder color={color.background.secondary} height="large">
@@ -194,7 +272,9 @@ export const Gap = () => (
               </Placeholder>
             </Layout.Content>
             <Layout.Footer>
-              <Placeholder color={color.background.secondary}>Footer</Placeholder>
+              <Placeholder color={color.background.secondary}>
+                Footer
+              </Placeholder>
             </Layout.Footer>
           </Shell>
         </div>
@@ -220,7 +300,9 @@ export const AppShellExample = () => (
       </Layout.Header>
       <Layout.Sidebar>
         <Stack direction="vertical" gap="normal">
-          <Placeholder color={color.background.secondary}>Dashboard</Placeholder>
+          <Placeholder color={color.background.secondary}>
+            Dashboard
+          </Placeholder>
           <Placeholder color={color.background.secondary}>Projects</Placeholder>
           <Placeholder color={color.background.secondary}>Settings</Placeholder>
         </Stack>
@@ -253,7 +335,9 @@ export const ContentOnlyExample = () => (
           <Placeholder color={color.background.secondary} height="large">
             Content
           </Placeholder>
-          <Placeholder color={color.background.secondary}>Secondary section</Placeholder>
+          <Placeholder color={color.background.secondary}>
+            Secondary section
+          </Placeholder>
         </Stack>
       </Layout.Content>
     </Shell>

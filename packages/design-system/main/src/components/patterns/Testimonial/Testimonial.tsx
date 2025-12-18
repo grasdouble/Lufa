@@ -1,6 +1,6 @@
-import { TestimonialOne } from "./variants/TestimonialOne";
-import { TestimonialThree } from "./variants/TestimonialThree";
-import { TestimonialTwo } from "./variants/TestimonialTwo";
+import { TestimonialOne } from './variants/TestimonialOne';
+import { TestimonialThree } from './variants/TestimonialThree';
+import { TestimonialTwo } from './variants/TestimonialTwo';
 
 export type TestimonialStyleProps = {
   imgUrl: string;
@@ -13,13 +13,7 @@ type TestimonialProps = TestimonialStyleProps & {
   style: number;
 };
 
-export const Testimonial = ({
-  imgUrl,
-  testimonial,
-  from,
-  position,
-  style = 1,
-}: TestimonialProps) => {
+export const Testimonial = ({ imgUrl, testimonial, from, position, style = 1 }: TestimonialProps) => {
   switch (style) {
     case 1:
       return <TestimonialOne {...{ imgUrl, testimonial, from, position }} />;

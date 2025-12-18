@@ -3,7 +3,13 @@ import { Badge, Stack, tokens } from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +20,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -24,7 +36,14 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
 
 export const LiveDemo = () => (
   <Frame title="live demo">
-    <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: 10,
+        alignItems: "center",
+        flexWrap: "wrap",
+      }}
+    >
       <Badge variant="primary" rounded>
         New
       </Badge>
@@ -40,8 +59,17 @@ export const LiveDemo = () => (
 
 export const Variant = () => (
   <Frame title="variant">
-    <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
-      {(["default", "primary", "success", "warning", "danger", "info"] as const).map((variant) => (
+    <div
+      style={{
+        display: "flex",
+        gap: 10,
+        alignItems: "center",
+        flexWrap: "wrap",
+      }}
+    >
+      {(
+        ["default", "primary", "success", "warning", "danger", "info"] as const
+      ).map((variant) => (
         <Badge key={variant} variant={variant} rounded>
           {variant}
         </Badge>
@@ -52,7 +80,14 @@ export const Variant = () => (
 
 export const Size = () => (
   <Frame title="size">
-    <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: 10,
+        alignItems: "center",
+        flexWrap: "wrap",
+      }}
+    >
       {(["sm", "md", "lg"] as const).map((size) => (
         <Badge key={size} size={size} variant="primary" rounded>
           {size}
@@ -64,7 +99,14 @@ export const Size = () => (
 
 export const Dot = () => (
   <Frame title="dot">
-    <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: 10,
+        alignItems: "center",
+        flexWrap: "wrap",
+      }}
+    >
       <Badge variant="success" dot>
         Synced
       </Badge>
@@ -80,7 +122,14 @@ export const Dot = () => (
 
 export const Rounded = () => (
   <Frame title="rounded">
-    <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: 10,
+        alignItems: "center",
+        flexWrap: "wrap",
+      }}
+    >
       <Badge variant="info">default radius</Badge>
       <Badge variant="info" rounded>
         rounded
@@ -104,19 +153,37 @@ export const Variants = () => (
 export const StatusListExample = () => (
   <Frame title="status list">
     <Stack direction="vertical" gap="condensed">
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
         <div style={{ color: color.text.primary }}>Payments</div>
         <Badge variant="success" dot rounded>
           Healthy
         </Badge>
       </div>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
         <div style={{ color: color.text.primary }}>Webhooks</div>
         <Badge variant="warning" dot rounded>
           Delayed
         </Badge>
       </div>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
         <div style={{ color: color.text.primary }}>Fraud checks</div>
         <Badge variant="danger" dot rounded>
           Action required
@@ -134,7 +201,14 @@ export const NavigationCountExample = () => (
         { label: "Mentions", count: 3, variant: "info" as const },
         { label: "Archived", count: 0, variant: "default" as const },
       ].map(({ label, count, variant }) => (
-        <div key={label} style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div
+          key={label}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           <div style={{ color: color.text.primary }}>{label}</div>
           {count > 0 ? (
             <Badge variant={variant} rounded>

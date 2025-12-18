@@ -37,7 +37,7 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html|WCAG 2.1 - Non-text Content}
  */
 
-import { aspectRatio as primitiveAspectRatio } from "@grasdouble/lufa_design-system-primitives";
+import { aspectRatio as primitiveAspectRatio } from '@grasdouble/lufa_design-system-primitives';
 
 export const aspectRatio = {
   /** 1:1 - Square (profile pictures, thumbnails) */

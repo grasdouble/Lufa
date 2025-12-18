@@ -18,10 +18,10 @@
  * - Combine with timing primitives for complete animations
  */
 export const easing = {
-  easeIn: "cubic-bezier(0.4, 0, 1, 1)",
-  easeOut: "cubic-bezier(0, 0, 0.2, 1)",
-  easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
-  gentle: "cubic-bezier(0.33, 1, 0.68, 1)",
+  easeIn: 'cubic-bezier(0.4, 0, 1, 1)',
+  easeOut: 'cubic-bezier(0, 0, 0.2, 1)',
+  easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
+  gentle: 'cubic-bezier(0.33, 1, 0.68, 1)',
 } as const;
 
 export type Easing = keyof typeof easing;

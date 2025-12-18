@@ -3,7 +3,13 @@ import { Menu, Stack, tokens } from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +20,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -57,15 +69,39 @@ export const Mode = () => (
   <Frame title="mode">
     <Stack gap="spacious">
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>vertical (default)</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          vertical (default)
+        </div>
         <Menu mode="vertical" items={menuItems} selectedKey="products" />
       </div>
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>horizontal</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          horizontal
+        </div>
         <Menu mode="horizontal" items={menuItems} selectedKey="about" />
       </div>
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>inline</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          inline
+        </div>
         <Menu mode="inline" items={menuItems} selectedKey="contact" />
       </div>
     </Stack>
@@ -74,13 +110,35 @@ export const Mode = () => (
 
 export const Theme = () => (
   <Frame title="theme">
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 16 }}>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+        gap: 16,
+      }}
+    >
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>light</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          light
+        </div>
         <Menu theme="light" items={menuItems} selectedKey="home" />
       </div>
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>dark</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          dark
+        </div>
         <Menu theme="dark" items={menuItems} selectedKey="home" />
       </div>
     </div>
@@ -92,8 +150,19 @@ export const SelectedKey = () => {
 
   return (
     <Frame title="selectedKey / onSelect">
-      <Menu items={menuItems} selectedKey={selectedKey} onSelect={setSelectedKey} />
-      <div style={{ marginTop: 12, fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>
+      <Menu
+        items={menuItems}
+        selectedKey={selectedKey}
+        onSelect={setSelectedKey}
+      />
+      <div
+        style={{
+          marginTop: 12,
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          fontSize: 12,
+        }}
+      >
         selectedKey: {selectedKey}
       </div>
     </Frame>

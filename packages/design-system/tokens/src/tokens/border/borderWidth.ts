@@ -11,7 +11,7 @@
  * - 3px recommended for better visibility
  */
 
-import { borderWidth as primitiveBorderWidth } from "@grasdouble/lufa_design-system-primitives";
+import { borderWidth as primitiveBorderWidth } from '@grasdouble/lufa_design-system-primitives';
 
 export const borderWidth = {
   /** 0px - No border */

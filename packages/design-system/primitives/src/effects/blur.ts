@@ -29,13 +29,13 @@
  * - Test with screen readers to ensure content isn't hidden
  */
 export const blur = {
-  none: "0px",
-  4: "4px",
-  8: "8px",
-  12: "12px",
-  16: "16px",
-  24: "24px",
-  40: "40px",
+  none: '0px',
+  4: '4px',
+  8: '8px',
+  12: '12px',
+  16: '16px',
+  24: '24px',
+  40: '40px',
 } as const;
 
 export type Blur = keyof typeof blur;

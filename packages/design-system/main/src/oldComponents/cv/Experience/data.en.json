@@ -100,10 +100,7 @@
         "title": "Talend Management Console (TMC)",
         "client": "Talend",
         "description": "As Senior Frontend Engineer, I worked on the Talend Management Console. I had to fix bugs and develop new features on those applications. Now as Principal Frontend Engineer, I'm working more on technical architecture and code quality to keep the project up to date with the standards and I continue to participate on the design of the new features.",
-        "role": [
-          { "title": "Senior Frontend Engineer" },
-          { "title": "Principal Frontend Engineer" }
-        ],
+        "role": [{ "title": "Senior Frontend Engineer" }, { "title": "Principal Frontend Engineer" }],
         "period": "2017 - current"
       }
     ],

@@ -39,7 +39,7 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html|WCAG 2.1 - Resize Text}
  */
 
-import { maxWidth as primitiveMaxWidth } from "@grasdouble/lufa_design-system-primitives";
+import { maxWidth as primitiveMaxWidth } from '@grasdouble/lufa_design-system-primitives';
 
 export const container = {
   /** Extra small - 384px (narrow forms, alerts) */

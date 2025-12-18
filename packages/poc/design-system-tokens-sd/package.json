@@ -29,5 +29,6 @@
     "design-tokens",
     "design-system",
     "style-dictionary"
-  ]
+  ],
+  "license": "MIT"
 }

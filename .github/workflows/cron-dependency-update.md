@@ -36,18 +36,18 @@ This workflow has no input parameters. It reads the repository secret `PAT_DEPEN
 
 ## Permissions
 
-| Permission            | Access Level | Purpose                                                                 |
-| --------------------- | ------------ | ----------------------------------------------------------------------- |
-| `contents`            | write        | Commit and push dependency updates and the regenerated report           |
-| `packages`            | read         | Authenticate against GitHub Packages while installing dependencies      |
-| `actions`             | none         | Not required; explicitly disabled                                       |
-| `checks`              | none         | Not required; explicitly disabled                                       |
-| `deployments`         | none         | Not required; explicitly disabled                                       |
-| `issues`              | none         | Not required; explicitly disabled                                       |
-| `pull-requests`       | none         | Not required; explicitly disabled                                       |
-| `repository-projects` | none         | Not required; explicitly disabled                                       |
-| `security-events`     | none         | Not required; explicitly disabled                                       |
-| `statuses`            | none         | Not required; explicitly disabled                                       |
+| Permission            | Access Level | Purpose                                                            |
+| --------------------- | ------------ | ------------------------------------------------------------------ |
+| `contents`            | write        | Commit and push dependency updates and the regenerated report      |
+| `packages`            | read         | Authenticate against GitHub Packages while installing dependencies |
+| `actions`             | none         | Not required; explicitly disabled                                  |
+| `checks`              | none         | Not required; explicitly disabled                                  |
+| `deployments`         | none         | Not required; explicitly disabled                                  |
+| `issues`              | none         | Not required; explicitly disabled                                  |
+| `pull-requests`       | none         | Not required; explicitly disabled                                  |
+| `repository-projects` | none         | Not required; explicitly disabled                                  |
+| `security-events`     | none         | Not required; explicitly disabled                                  |
+| `statuses`            | none         | Not required; explicitly disabled                                  |
 
 ## Workflow Steps
 

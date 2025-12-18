@@ -189,7 +189,6 @@ git push origin feat/your-feature-name
 
 1. **Open a Pull Request** on GitHub
 2. **Fill out the PR template** with:
-
    - Description of changes
    - Related issue numbers (if applicable)
    - Screenshots (for UI changes)

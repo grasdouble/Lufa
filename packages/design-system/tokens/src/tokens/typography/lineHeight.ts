@@ -39,7 +39,7 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html|WCAG 2.1 - Visual Presentation}
  */
 
-import { lineHeight as primitiveLineHeight } from "@grasdouble/lufa_design-system-primitives";
+import { lineHeight as primitiveLineHeight } from '@grasdouble/lufa_design-system-primitives';
 
 export const lineHeight = {
   /** 1.0 - None (avoid for text) */

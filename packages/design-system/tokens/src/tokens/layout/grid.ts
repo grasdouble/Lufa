@@ -42,7 +42,7 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/reflow.html|WCAG 2.1 - Reflow}
  */
 
-import { grid as primitiveGrid } from "@grasdouble/lufa_design-system-primitives";
+import { grid as primitiveGrid } from '@grasdouble/lufa_design-system-primitives';
 
 export const grid = {
   columns: {

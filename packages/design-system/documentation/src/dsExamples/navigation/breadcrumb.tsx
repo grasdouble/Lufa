@@ -3,7 +3,13 @@ import { Breadcrumb, Stack, tokens } from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +20,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -40,7 +52,13 @@ export const Size = () => (
     <Stack gap="spacious">
       {(["small", "medium", "large"] as const).map((size) => (
         <div key={size}>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
             size: {size}
           </div>
           <Breadcrumb
@@ -62,7 +80,13 @@ export const Separator = () => (
     <Stack gap="spacious">
       {(["/", "›", "→"] as const).map((separator) => (
         <div key={separator}>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
             separator: {JSON.stringify(separator)}
           </div>
           <Breadcrumb
@@ -88,8 +112,14 @@ export const ProductHierarchyExample = () => (
         { label: "E-commerce", href: "/ecommerce" },
         { label: "Products", href: "/ecommerce/products" },
         { label: "Electronics", href: "/ecommerce/products/electronics" },
-        { label: "Computers", href: "/ecommerce/products/electronics/computers" },
-        { label: "Laptops", href: "/ecommerce/products/electronics/computers/laptops" },
+        {
+          label: "Computers",
+          href: "/ecommerce/products/electronics/computers",
+        },
+        {
+          label: "Laptops",
+          href: "/ecommerce/products/electronics/computers/laptops",
+        },
         { label: "Current Product" },
       ]}
     />

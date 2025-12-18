@@ -1,97 +1,97 @@
 @reference '../../../tailwind.css';
 
 @layer components {
-    .container {
-        @apply inline-flex flex-col;
-    }
+  .container {
+    @apply inline-flex flex-col;
+  }
 
-    .fullWidth {
-        @apply w-full;
-    }
+  .fullWidth {
+    @apply w-full;
+  }
 
-    .label {
-        @apply text-text-primary mb-1 block text-sm font-medium;
-    }
+  .label {
+    @apply text-text-primary mb-1 block text-sm font-medium;
+  }
 
-    .required {
-        @apply text-error-default ml-1;
-    }
+  .required {
+    @apply text-error-default ml-1;
+  }
 
-    .inputWrapper {
-        @apply relative flex items-center;
-    }
+  .inputWrapper {
+    @apply relative flex items-center;
+  }
 
-    .input {
-        @apply reset-input;
-        @apply w-full;
-        @apply duration-base transition-all;
-        @apply rounded-md;
-        @apply text-text-primary placeholder:text-text-tertiary;
-        @apply focus:ring-interactive-focus focus:ring-2 focus:ring-offset-0 focus:outline-none;
-    }
+  .input {
+    @apply reset-input;
+    @apply w-full;
+    @apply duration-base transition-all;
+    @apply rounded-md;
+    @apply text-text-primary placeholder:text-text-tertiary;
+    @apply focus:ring-interactive-focus focus:ring-2 focus:ring-offset-0 focus:outline-none;
+  }
 
-    /* Sizes */
-    .sizeSmall {
-        @apply px-sm text-sm;
-        height: var(--lufa-token-height-input-sm);
-    }
+  /* Sizes */
+  .sizeSmall {
+    @apply px-sm text-sm;
+    height: var(--lufa-token-height-input-sm);
+  }
 
-    .sizeMedium {
-        @apply px-base text-base;
-        height: var(--lufa-token-height-input);
-    }
+  .sizeMedium {
+    @apply px-base text-base;
+    height: var(--lufa-token-height-input);
+  }
 
-    .sizeLarge {
-        @apply px-lg text-lg;
-        height: var(--lufa-token-height-input-lg);
-    }
+  .sizeLarge {
+    @apply px-lg text-lg;
+    height: var(--lufa-token-height-input-lg);
+  }
 
-    /* Variants */
-    .variantOutlined {
-        @apply border-border-default bg-background-primary border;
-        @apply hover:border-border-medium;
-    }
+  /* Variants */
+  .variantOutlined {
+    @apply border-border-default bg-background-primary border;
+    @apply hover:border-border-medium;
+  }
 
-    .variantFilled {
-        @apply bg-background-secondary border-none;
-        @apply hover:bg-background-tertiary;
-    }
+  .variantFilled {
+    @apply bg-background-secondary border-none;
+    @apply hover:bg-background-tertiary;
+  }
 
-    /* States */
-    .error {
-        @apply border-error-border;
-        @apply focus:ring-error-default;
-    }
+  /* States */
+  .error {
+    @apply border-error-border;
+    @apply focus:ring-error-default;
+  }
 
-    .disabled {
-        @apply bg-background-secondary text-text-disabled;
-        cursor: var(--lufa-token-cursor-not-allowed);
-        @apply hover:border-border-default;
-    }
+  .disabled {
+    @apply bg-background-secondary text-text-disabled;
+    cursor: var(--lufa-token-cursor-not-allowed);
+    @apply hover:border-border-default;
+  }
 
-    /* Adornments */
-    .hasStartAdornment {
-        @apply pl-10;
-    }
+  /* Adornments */
+  .hasStartAdornment {
+    @apply pl-10;
+  }
 
-    .hasEndAdornment {
-        @apply pr-10;
-    }
+  .hasEndAdornment {
+    @apply pr-10;
+  }
 
-    .startAdornment {
-        @apply text-text-tertiary absolute left-3 flex items-center;
-    }
+  .startAdornment {
+    @apply text-text-tertiary absolute left-3 flex items-center;
+  }
 
-    .endAdornment {
-        @apply text-text-tertiary absolute right-3 flex items-center;
-    }
+  .endAdornment {
+    @apply text-text-tertiary absolute right-3 flex items-center;
+  }
 
-    /* Helper/Error text */
-    .helperText {
-        @apply text-text-secondary mt-1 text-sm;
-    }
+  /* Helper/Error text */
+  .helperText {
+    @apply text-text-secondary mt-1 text-sm;
+  }
 
-    .errorText {
-        @apply text-error-text mt-1 text-sm;
-    }
+  .errorText {
+    @apply text-error-text mt-1 text-sm;
+  }
 }

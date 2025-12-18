@@ -20,14 +20,14 @@
  * Use with CSS aspect-ratio property to prevent layout shift during media loading.
  */
 export const aspectRatio = {
-  square: "1 / 1", // Square
-  traditionalPhotoMonitor: "4 / 3", // Traditional photo/monitor
-  classicPhotography: "3 / 2", // Classic photography
-  widescreenVideo: "16 / 9", // Widescreen video
-  ultrawide: "21 / 9", // Ultrawide
-  vertical: "9 / 16", // Vertical video (stories)
-  portraitPhoto: "2 / 3", // Portrait photo
-  portraitDisplay: "3 / 4", // Portrait display
+  square: '1 / 1', // Square
+  traditionalPhotoMonitor: '4 / 3', // Traditional photo/monitor
+  classicPhotography: '3 / 2', // Classic photography
+  widescreenVideo: '16 / 9', // Widescreen video
+  ultrawide: '21 / 9', // Ultrawide
+  vertical: '9 / 16', // Vertical video (stories)
+  portraitPhoto: '2 / 3', // Portrait photo
+  portraitDisplay: '3 / 4', // Portrait display
 } as const;
 
 export type AspectRatio = keyof typeof aspectRatio;

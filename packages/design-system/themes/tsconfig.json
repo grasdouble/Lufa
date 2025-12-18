@@ -1,9 +1,9 @@
 {
-    "extends": "@grasdouble/lufa_config_tsconfig/react-library.json",
-    "include": ["scripts/**/*"],
-    "compilerOptions": {
-        "outDir": "./dist",
-        "types": ["node"]
-    },
-    "exclude": ["dist", "build", "node_modules", "scripts"]
+  "extends": "@grasdouble/lufa_config_tsconfig/react-library.json",
+  "include": ["scripts/**/*"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "types": ["node"]
+  },
+  "exclude": ["dist", "build", "node_modules", "scripts"]
 }

@@ -1,180 +1,180 @@
 @reference '../../../tailwind.css';
 
 @layer components {
-    .steps {
-        @apply flex;
-    }
+  .steps {
+    @apply flex;
+  }
 
-    .step {
-        @apply flex items-start;
-        @apply relative flex-1;
-    }
+  .step {
+    @apply flex items-start;
+    @apply relative flex-1;
+  }
 
-    .clickable {
-        @apply cursor-pointer;
-    }
+  .clickable {
+    @apply cursor-pointer;
+  }
 
-    .clickable:hover .stepIcon {
-        @apply scale-110;
-    }
+  .clickable:hover .stepIcon {
+    @apply scale-110;
+  }
 
-    .stepIcon {
-        @apply flex items-center justify-center;
-        @apply rounded-full;
-        @apply transition-all duration-200;
-        @apply shrink-0;
-    }
+  .stepIcon {
+    @apply flex items-center justify-center;
+    @apply rounded-full;
+    @apply transition-all duration-200;
+    @apply shrink-0;
+  }
 
-    .stepNumber,
-    .customIcon {
-        @apply inline-flex items-center justify-center;
-    }
+  .stepNumber,
+  .customIcon {
+    @apply inline-flex items-center justify-center;
+  }
 
-    .stepContent {
-        @apply flex flex-col;
-    }
+  .stepContent {
+    @apply flex flex-col;
+  }
 
-    .stepTitle {
-        @apply font-medium;
-    }
+  .stepTitle {
+    @apply font-medium;
+  }
 
-    .stepDescription {
-        @apply text-sm;
-        @apply mt-1;
-    }
+  .stepDescription {
+    @apply text-sm;
+    @apply mt-1;
+  }
 
-    .stepConnector {
-        @apply absolute;
-        @apply bg-gray-300 dark:bg-gray-600;
-        @apply transition-colors duration-200;
-    }
+  .stepConnector {
+    @apply absolute;
+    @apply bg-gray-300 dark:bg-gray-600;
+    @apply transition-colors duration-200;
+  }
 
-    /* Direction: Horizontal */
-    .directionHorizontal {
-        @apply flex-row;
-    }
+  /* Direction: Horizontal */
+  .directionHorizontal {
+    @apply flex-row;
+  }
 
-    .directionHorizontal .step {
-        @apply flex-col items-center;
-        @apply text-center;
-    }
+  .directionHorizontal .step {
+    @apply flex-col items-center;
+    @apply text-center;
+  }
 
-    .directionHorizontal .stepContent {
-        @apply mt-2;
-    }
+  .directionHorizontal .stepContent {
+    @apply mt-2;
+  }
 
-    .directionHorizontal .stepConnector {
-        @apply top-4;
-        @apply left-[calc(50%+1.5rem)];
-        @apply right-[calc(-50%+1.5rem)];
-        @apply h-0.5;
-    }
+  .directionHorizontal .stepConnector {
+    @apply top-4;
+    @apply left-[calc(50%+1.5rem)];
+    @apply right-[calc(-50%+1.5rem)];
+    @apply h-0.5;
+  }
 
-    /* Direction: Vertical */
-    .directionVertical {
-        @apply flex-col;
-    }
+  /* Direction: Vertical */
+  .directionVertical {
+    @apply flex-col;
+  }
 
-    .directionVertical .step {
-        @apply flex-row;
-        @apply pb-8;
-    }
+  .directionVertical .step {
+    @apply flex-row;
+    @apply pb-8;
+  }
 
-    .directionVertical .step:last-child {
-        @apply pb-0;
-    }
+  .directionVertical .step:last-child {
+    @apply pb-0;
+  }
 
-    .directionVertical .stepContent {
-        @apply ml-4;
-    }
+  .directionVertical .stepContent {
+    @apply ml-4;
+  }
 
-    .directionVertical .stepConnector {
-        @apply left-4;
-        @apply top-8;
-        @apply bottom-0;
-        @apply w-0.5;
-    }
+  .directionVertical .stepConnector {
+    @apply left-4;
+    @apply top-8;
+    @apply bottom-0;
+    @apply w-0.5;
+  }
 
-    /* Sizes */
-    .sizeDefault .stepIcon {
-        @apply h-8 w-8;
-        @apply text-base;
-    }
+  /* Sizes */
+  .sizeDefault .stepIcon {
+    @apply h-8 w-8;
+    @apply text-base;
+  }
 
-    .sizeSmall .stepIcon {
-        @apply h-6 w-6;
-        @apply text-sm;
-    }
+  .sizeSmall .stepIcon {
+    @apply h-6 w-6;
+    @apply text-sm;
+  }
 
-    .sizeSmall .stepTitle {
-        @apply text-sm;
-    }
+  .sizeSmall .stepTitle {
+    @apply text-sm;
+  }
 
-    .sizeSmall .stepDescription {
-        @apply text-xs;
-    }
+  .sizeSmall .stepDescription {
+    @apply text-xs;
+  }
 
-    /* Status: Wait */
-    .statusWait .stepIcon {
-        @apply bg-gray-200 dark:bg-gray-700;
-        @apply text-gray-500 dark:text-gray-400;
-        @apply border-2 border-gray-300 dark:border-gray-600;
-    }
+  /* Status: Wait */
+  .statusWait .stepIcon {
+    @apply bg-gray-200 dark:bg-gray-700;
+    @apply text-gray-500 dark:text-gray-400;
+    @apply border-2 border-gray-300 dark:border-gray-600;
+  }
 
-    .statusWait .stepTitle {
-        @apply text-gray-500 dark:text-gray-400;
-    }
+  .statusWait .stepTitle {
+    @apply text-gray-500 dark:text-gray-400;
+  }
 
-    .statusWait .stepDescription {
-        @apply text-gray-400 dark:text-gray-500;
-    }
+  .statusWait .stepDescription {
+    @apply text-gray-400 dark:text-gray-500;
+  }
 
-    /* Status: Process */
-    .statusProcess .stepIcon {
-        @apply bg-interactive-default;
-        @apply text-white;
-        @apply border-interactive-default border-2;
-    }
+  /* Status: Process */
+  .statusProcess .stepIcon {
+    @apply bg-interactive-default;
+    @apply text-white;
+    @apply border-interactive-default border-2;
+  }
 
-    .statusProcess .stepTitle {
-        @apply text-gray-900 dark:text-gray-100;
-    }
+  .statusProcess .stepTitle {
+    @apply text-gray-900 dark:text-gray-100;
+  }
 
-    .statusProcess .stepDescription {
-        @apply text-gray-600 dark:text-gray-400;
-    }
+  .statusProcess .stepDescription {
+    @apply text-gray-600 dark:text-gray-400;
+  }
 
-    /* Status: Finish */
-    .statusFinish .stepIcon {
-        @apply bg-success-default;
-        @apply text-white;
-        @apply border-success-default border-2;
-    }
+  /* Status: Finish */
+  .statusFinish .stepIcon {
+    @apply bg-success-default;
+    @apply text-white;
+    @apply border-success-default border-2;
+  }
 
-    .statusFinish .stepTitle {
-        @apply text-gray-900 dark:text-gray-100;
-    }
+  .statusFinish .stepTitle {
+    @apply text-gray-900 dark:text-gray-100;
+  }
 
-    .statusFinish .stepDescription {
-        @apply text-gray-600 dark:text-gray-400;
-    }
+  .statusFinish .stepDescription {
+    @apply text-gray-600 dark:text-gray-400;
+  }
 
-    .statusFinish .stepConnector {
-        @apply bg-success-default;
-    }
+  .statusFinish .stepConnector {
+    @apply bg-success-default;
+  }
 
-    /* Status: Error */
-    .statusError .stepIcon {
-        @apply bg-error-default;
-        @apply text-white;
-        @apply border-error-default border-2;
-    }
+  /* Status: Error */
+  .statusError .stepIcon {
+    @apply bg-error-default;
+    @apply text-white;
+    @apply border-error-default border-2;
+  }
 
-    .statusError .stepTitle {
-        @apply text-error-default;
-    }
+  .statusError .stepTitle {
+    @apply text-error-default;
+  }
 
-    .statusError .stepDescription {
-        @apply text-error-default;
-    }
+  .statusError .stepDescription {
+    @apply text-error-default;
+  }
 }

@@ -3,7 +3,13 @@ import { Link, Stack, tokens } from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +20,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -44,17 +56,41 @@ export const Variant = () => (
   <Frame title="variant">
     <Stack gap="spacious">
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>default</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          default
+        </div>
         <Link href="/page">Default link</Link>
       </div>
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>underline</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          underline
+        </div>
         <Link variant="underline" href="/page">
           Underlined link
         </Link>
       </div>
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>button</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          button
+        </div>
         <Link variant="button" href="/page">
           Button link
         </Link>
@@ -105,7 +141,13 @@ export const Size = () => (
 );
 
 const ArrowRightIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    aria-hidden
+  >
     <path
       fillRule="evenodd"
       d="M10.293 3.293a1 1 0 011.414 0l6 6a.997.997 0 01.083.094 1 1 0 010 1.226.997.997 0 01-.083.094l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"

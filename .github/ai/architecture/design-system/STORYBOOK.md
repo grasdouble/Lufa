@@ -44,9 +44,9 @@ packages/design-system/storybook/
 **Story Organization**: Numeric prefixes control display order
 
 ```ts
-"1. Tokens/Colors"
-"2. Layout/Container"
-"3. Forms/Button"
+"1. Tokens/Colors";
+"2. Layout/Container";
+"3. Forms/Button";
 ```
 
 **Playground Pattern**: First story is always interactive playground
@@ -68,6 +68,7 @@ export const Primary: Story = { /_ fixed example _/ };
 **.storybook/main.ts**: Auto-discovery, React-docgen, Vite builder
 
 **.storybook/preview.tsx**:
+
 ```ts
 {
 decorators: [withThemeByDataAttribute, withThemeByClassName],
@@ -79,16 +80,20 @@ storySort: (a, b) => /_ Playground first, then alphabetical _/
 ## Build
 
 **Dev**:
+
 ```bash
 pnpm dev
 ```
+
 Steps: Start Vite → Watch stories → Serve on :6006
 Output: Hot-reload server (no build output)
 
 **Prod**:
+
 ```bash
 pnpm build
 ```
+
 Steps: Bundle stories → Optimize assets → Generate HTML
 Output: storybook-static/ (static HTML/CSS/JS)
 Deploy: Upload to https://lufa-storybook.sebastien-lemouillour.fr
@@ -108,9 +113,10 @@ Purpose:
 ## Integration
 
 **Import Components**:
+
 ```tsx
-import { Button } from '@grasdouble/lufa_design-system';
-import '@grasdouble/lufa_design-system/style.css';
+import { Button } from "@grasdouble/lufa_design-system";
+import "@grasdouble/lufa_design-system/style.css";
 
 export const Playground: Story = { render: () => <Button>Click</Button> };
 ```
@@ -118,6 +124,7 @@ export const Playground: Story = { render: () => <Button>Click</Button> };
 Flow: Import from workspace → Hot-reload on changes → Preview in Storybook
 
 **Theme Switching**:
+
 ```tsx
 // Toolbar theme switcher sets both
 
@@ -129,11 +136,12 @@ Flow: Import from workspace → Hot-reload on changes → Preview in Storybook
 Flow: Click theme in toolbar → Decorator applies attributes → CSS variables switch
 
 **Story Sorting**:
+
 ```ts
 storySort: (a, b) => {
-if (a.name === "Playground") return -1; // Playground first
-return a.id.localeCompare(b.id);
-}
+  if (a.name === "Playground") return -1; // Playground first
+  return a.id.localeCompare(b.id);
+};
 ```
 
 Flow: Story file exports → Storybook loads → Sort applied → Sidebar updated

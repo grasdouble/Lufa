@@ -32,7 +32,7 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html|WCAG 2.1 - Visual Presentation}
  */
 
-import { fontFamily as primitiveFontFamily } from "@grasdouble/lufa_design-system-primitives";
+import { fontFamily as primitiveFontFamily } from '@grasdouble/lufa_design-system-primitives';
 
 export const fontFamily = {
   /** Sans-serif - Primary font family for UI and body text */

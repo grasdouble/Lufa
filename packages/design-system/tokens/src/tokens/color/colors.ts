@@ -5,7 +5,7 @@
  * They provide intent-based naming for easier usage and better maintainability.
  */
 
-import { color as primitiveColor } from "@grasdouble/lufa_design-system-primitives";
+import { color as primitiveColor } from '@grasdouble/lufa_design-system-primitives';
 
 export const color = {
   // Text primitiveColors
@@ -25,7 +25,7 @@ export const color = {
     secondary: primitiveColor.neutral.neutral[50], // Secondary background
     tertiary: primitiveColor.neutral.neutral[100], // Tertiary background
     inverse: primitiveColor.neutral.neutral[900], // Dark background
-    overlay: "rgba(0, 0, 0, 0.5)", // Modal/overlay background
+    overlay: 'rgba(0, 0, 0, 0.5)', // Modal/overlay background
   },
 
   // Border primitiveColors
@@ -111,10 +111,10 @@ export const color = {
 
   // Shadow primitiveColors
   shadow: {
-    small: "rgba(0, 0, 0, 0.05)", // Small shadow
-    medium: "rgba(0, 0, 0, 0.1)", // Medium shadow
-    large: "rgba(0, 0, 0, 0.15)", // Large shadow
-    extraLarge: "rgba(0, 0, 0, 0.2)", // Extra large shadow
+    small: 'rgba(0, 0, 0, 0.05)', // Small shadow
+    medium: 'rgba(0, 0, 0, 0.1)', // Medium shadow
+    large: 'rgba(0, 0, 0, 0.15)', // Large shadow
+    extraLarge: 'rgba(0, 0, 0, 0.2)', // Extra large shadow
   },
 } as const;
 

@@ -30,10 +30,10 @@
 
          fs.writeFileSync("licenses.json", JSON.stringify(licenseMap, null, 2));
          console.log(
-           "Licenses have been successfully checked and grouped. See licenses.json for details."
+           "Licenses have been successfully checked and grouped. See licenses.json for details.",
          );
        }
-     }
+     },
    );
    ```
 

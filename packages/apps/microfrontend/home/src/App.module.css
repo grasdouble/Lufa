@@ -1,58 +1,58 @@
 @reference "tailwindcss";
 
 @layer components {
-    .lufa-home {
-        @apply flex;
-        @apply justify-center;
-        @apply items-center;
-        @apply h-screen;
-        @apply bg-[#101010];
-        @apply m-0;
-        @apply text-white;
-    }
+  .lufa-home {
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+    @apply h-screen;
+    @apply bg-[#101010];
+    @apply m-0;
+    @apply text-white;
+  }
 
-    .centered-image {
-        @apply w-72;
-        @apply h-72;
-        @apply mb-5;
-    }
+  .centered-image {
+    @apply w-72;
+    @apply h-72;
+    @apply mb-5;
+  }
 
-    .centered-message {
-        @apply text-center;
-        @apply text-2xl;
-        @apply font-bold;
-        @apply mb-5;
-    }
+  .centered-message {
+    @apply text-center;
+    @apply text-2xl;
+    @apply font-bold;
+    @apply mb-5;
+  }
 
-    .link {
-        @apply no-underline;
-        @apply text-lg;
-        @apply font-bold;
-        @apply px-5 py-2.5;
-        @apply rounded-md;
-        @apply text-white;
-        @apply opacity-80;
-        @apply transition;
-    }
+  .link {
+    @apply no-underline;
+    @apply text-lg;
+    @apply font-bold;
+    @apply px-5 py-2.5;
+    @apply rounded-md;
+    @apply text-white;
+    @apply opacity-80;
+    @apply transition;
+  }
 
-    .storybook {
-        @apply bg-pink-600;
-    }
+  .storybook {
+    @apply bg-pink-600;
+  }
 
-    .design {
-        @apply bg-green-600;
-    }
+  .design {
+    @apply bg-green-600;
+  }
 
-    .github {
-        @apply bg-purple-600;
-    }
+  .github {
+    @apply bg-purple-600;
+  }
 
-    .linkedin {
-        @apply bg-blue-500;
-    }
+  .linkedin {
+    @apply bg-blue-500;
+  }
 
-    .link:hover {
-        @apply scale-105;
-        @apply opacity-100;
-    }
+  .link:hover {
+    @apply scale-105;
+    @apply opacity-100;
+  }
 }

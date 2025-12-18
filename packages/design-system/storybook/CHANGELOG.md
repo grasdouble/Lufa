@@ -96,7 +96,6 @@
 
 - cddcb85: Restart the DS using as a reference the DS shared by Github (Primer)
   First components added:
-
   - Placeholder
   - Stack
 

@@ -17,16 +17,16 @@
  * NOTE: For container/layout widths >192px, use maxWidth primitive instead.
  */
 export const size = {
-  0: "0px",
-  16: "16px",
-  24: "24px",
-  32: "32px",
-  44: "44px", // WCAG 2.5.5 minimum touch target
-  48: "48px",
-  64: "64px",
-  96: "96px",
-  128: "128px",
-  192: "192px",
+  0: '0px',
+  16: '16px',
+  24: '24px',
+  32: '32px',
+  44: '44px', // WCAG 2.5.5 minimum touch target
+  48: '48px',
+  64: '64px',
+  96: '96px',
+  128: '128px',
+  192: '192px',
 } as const;
 
 export type Size = keyof typeof size;

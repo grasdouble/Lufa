@@ -1,67 +1,67 @@
 {
-    "name": "@grasdouble/lufa_design-system",
-    "version": "0.5.0",
-    "license": "CC-BY-NC-4.0",
-    "type": "module",
-    "scripts": {
-        "lint": "eslint ./src",
-        "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly --outDir dist",
-        "prettier:fix": "prettier --write .",
-        "build": "vite build",
-        "dev": "vite build --watch",
-        "preview": "vite preview"
+  "name": "@grasdouble/lufa_design-system",
+  "version": "0.5.0",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/lufa-ui.mjs",
+      "default": "./dist/lufa-ui.mjs"
     },
-    "private": false,
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://npm.pkg.github.com"
-    },
-    "files": [
-        "dist",
-        "README.md",
-        "CHANGELOG.md"
-    ],
-    "main": "./dist/lufa-ui.mjs",
-    "module": "./dist/lufa-ui.mjs",
-    "types": "./dist/index.d.ts",
-    "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/lufa-ui.mjs",
-            "default": "./dist/lufa-ui.mjs"
-        },
-        "./style.css": "./dist/style.css"
-    },
-    "devDependencies": {
-        "@grasdouble/lufa_config_eslint": "workspace:^",
-        "@grasdouble/lufa_config_prettier": "workspace:^",
-        "@grasdouble/lufa_config_tsconfig": "workspace:^",
-        "@tailwindcss/vite": "^4.1.18",
-        "@types/node": "^24.10.4",
-        "@types/react": "^19.2.7",
-        "@types/react-dom": "^19.2.3",
-        "@vitejs/plugin-react": "^5.1.2",
-        "eslint": "^9.39.2",
-        "postcss": "^8.5.6",
-        "prettier": "^3.7.4",
-        "prettier-plugin-tailwindcss": "^0.7.2",
-        "tailwindcss": "^4.1.18",
-        "tsx": "^4.21.0",
-        "typescript": "^5.9.3",
-        "vite": "^7.2.7",
-        "vite-plugin-compression": "^0.5.1",
-        "vite-plugin-dts": "^4.5.4",
-        "vite-plugin-externalize-deps": "^0.10.0",
-        "vite-tsconfig-paths": "^5.1.4"
-    },
-    "dependencies": {
-        "@grasdouble/lufa_design-system-primitives": "workspace:^",
-        "@grasdouble/lufa_design-system-tokens": "workspace:^",
-        "@headlessui/react": "^2.2.9",
-        "@heroicons/react": "^2.2.0",
-        "clsx": "^2.1.1"
-    },
-    "peerDependencies": {
-        "react": "^19.1.0"
-    }
+    "./style.css": "./dist/style.css"
+  },
+  "main": "./dist/lufa-ui.mjs",
+  "module": "./dist/lufa-ui.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly --outDir dist",
+    "dev": "vite build --watch",
+    "lint": "eslint ./src",
+    "prettier:fix": "prettier --write .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@grasdouble/lufa_design-system-primitives": "workspace:^",
+    "@grasdouble/lufa_design-system-tokens": "workspace:^",
+    "@headlessui/react": "^2.2.9",
+    "@heroicons/react": "^2.2.0",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@grasdouble/lufa_config_eslint": "workspace:^",
+    "@grasdouble/lufa_config_prettier": "workspace:^",
+    "@grasdouble/lufa_config_tsconfig": "workspace:^",
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/node": "^24.10.4",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
+    "eslint": "^9.39.2",
+    "postcss": "^8.5.6",
+    "prettier": "^3.7.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "tailwindcss": "^4.1.18",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.7",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-externalize-deps": "^0.10.0",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "peerDependencies": {
+    "react": "^19.1.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  }
 }

@@ -1,9 +1,21 @@
 import React from "react";
-import { Center, Placeholder, Spinner, Stack, tokens } from "@grasdouble/lufa_design-system";
+import {
+  Center,
+  Placeholder,
+  Spinner,
+  Stack,
+  tokens,
+} from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +26,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -34,8 +52,26 @@ const Panel = ({ children }: { children: React.ReactNode }) => (
     }}
   >
     <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-      <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: color.border.light }} />
-      <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: 1, background: color.border.light }} />
+      <div
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: 0,
+          bottom: 0,
+          width: 1,
+          background: color.border.light,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: 0,
+          right: 0,
+          height: 1,
+          background: color.border.light,
+        }}
+      />
     </div>
     {children}
   </div>
@@ -43,7 +79,15 @@ const Panel = ({ children }: { children: React.ReactNode }) => (
 
 export const LiveDemo = () => (
   <Frame title="live demo">
-    <Center axis="both" minHeight={200} style={{ borderRadius: 12, border: `1px solid ${color.border.light}`, background: "#fff" }}>
+    <Center
+      axis="both"
+      minHeight={200}
+      style={{
+        borderRadius: 12,
+        border: `1px solid ${color.border.light}`,
+        background: "#fff",
+      }}
+    >
       <Spinner />
     </Center>
   </Frame>
@@ -51,14 +95,28 @@ export const LiveDemo = () => (
 
 export const Axis = () => (
   <Frame title="axis">
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 16 }}>
-      {([
-        { axis: "horizontal", label: "horizontal" },
-        { axis: "vertical", label: "vertical" },
-        { axis: "both", label: "both" },
-      ] as const).map(({ axis, label }) => (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+        gap: 16,
+      }}
+    >
+      {(
+        [
+          { axis: "horizontal", label: "horizontal" },
+          { axis: "vertical", label: "vertical" },
+          { axis: "both", label: "both" },
+        ] as const
+      ).map(({ axis, label }) => (
         <div key={axis}>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
             axis: {label}
           </div>
           <Panel>
@@ -82,7 +140,12 @@ export const Inline = () => (
         as="span"
         inline
         axis="vertical"
-        style={{ marginInline: 8, padding: "2px 10px", borderRadius: 999, background: color.background.secondary }}
+        style={{
+          marginInline: 8,
+          padding: "2px 10px",
+          borderRadius: 999,
+          background: color.background.secondary,
+        }}
       >
         <span style={{ fontFamily: "monospace", fontSize: 12 }}>badge</span>
       </Center>
@@ -93,10 +156,22 @@ export const Inline = () => (
 
 export const MinHeight = () => (
   <Frame title="minHeight">
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 16 }}>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+        gap: 16,
+      }}
+    >
       {[120, 220].map((minHeight) => (
         <div key={minHeight}>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
             minHeight: {minHeight}px
           </div>
           <Panel>
@@ -115,20 +190,34 @@ export const MinHeight = () => (
 export const As = () => (
   <Frame title="as">
     <Stack direction="vertical" gap="normal">
-      {([
-        { as: "div", label: 'as="div"' },
-        { as: "section", label: 'as="section"' },
-        { as: "main", label: 'as="main"' },
-        { as: "article", label: 'as="article"' },
-      ] as const).map(({ as, label }) => (
+      {(
+        [
+          { as: "div", label: 'as="div"' },
+          { as: "section", label: 'as="section"' },
+          { as: "main", label: 'as="main"' },
+          { as: "article", label: 'as="article"' },
+        ] as const
+      ).map(({ as, label }) => (
         <Center
           key={as}
           as={as}
           axis="both"
           minHeight={96}
-          style={{ borderRadius: 12, border: `1px solid ${color.border.light}`, background: "#fff" }}
+          style={{
+            borderRadius: 12,
+            border: `1px solid ${color.border.light}`,
+            background: "#fff",
+          }}
         >
-          <span style={{ fontFamily: "monospace", fontSize: 12, color: color.text.secondary }}>{label}</span>
+          <span
+            style={{
+              fontFamily: "monospace",
+              fontSize: 12,
+              color: color.text.secondary,
+            }}
+          >
+            {label}
+          </span>
         </Center>
       ))}
     </Stack>
@@ -150,7 +239,9 @@ export const LoadingPanelExample = () => (
       <Center axis="both" minHeight={200}>
         <Stack direction="vertical" gap="normal" align="center">
           <Spinner />
-          <div style={{ color: color.text.secondary, fontSize: 12 }}>Loading…</div>
+          <div style={{ color: color.text.secondary, fontSize: 12 }}>
+            Loading…
+          </div>
         </Stack>
       </Center>
     </Panel>
@@ -159,11 +250,21 @@ export const LoadingPanelExample = () => (
 
 export const EmptyStateExample = () => (
   <Frame title="empty state">
-    <div style={{ borderRadius: 12, border: `1px dashed ${color.border.light}`, background: "#fff" }}>
+    <div
+      style={{
+        borderRadius: 12,
+        border: `1px dashed ${color.border.light}`,
+        background: "#fff",
+      }}
+    >
       <Center axis="both" minHeight={220} style={{ padding: 16 }}>
         <Stack direction="vertical" gap="condensed" align="center">
-          <div style={{ fontWeight: 700, color: color.text.primary }}>No results</div>
-          <div style={{ color: color.text.secondary, fontSize: 12 }}>Try changing your filters.</div>
+          <div style={{ fontWeight: 700, color: color.text.primary }}>
+            No results
+          </div>
+          <div style={{ color: color.text.secondary, fontSize: 12 }}>
+            Try changing your filters.
+          </div>
         </Stack>
       </Center>
     </div>

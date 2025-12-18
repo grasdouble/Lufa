@@ -2,7 +2,7 @@
   "name": "@grasdouble/lufa_config_eslint",
   "version": "0.1.2",
   "main": "index.js",
-  "license": "CC-BY-NC-4.0",
+  "license": "MIT",
   "private": false,
   "publishConfig": {
     "access": "public",

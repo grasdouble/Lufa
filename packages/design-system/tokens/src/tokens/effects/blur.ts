@@ -16,7 +16,7 @@
  * - Maintain WCAG AA contrast ratios (4.5:1 for text)
  */
 
-import { blur as primitiveBlur } from "@grasdouble/lufa_design-system-primitives";
+import { blur as primitiveBlur } from '@grasdouble/lufa_design-system-primitives';
 
 export const blur = {
   /** 0px - No blur */

@@ -24,13 +24,13 @@
  * - opacity[90-100]: Safe for text if base color meets WCAG requirements
  */
 export const opacity = {
-  0: "0", // Invisible
-  10: "0.1", // Subtle tint/overlay - decorative only
-  25: "0.25", // Light overlay - never for text
-  50: "0.5", // WARNING: Likely fails WCAG for text - backgrounds only
-  75: "0.75", // CAUTION: Verify contrast ratios for text usage
-  90: "0.9", // Safe for text if base color meets WCAG
-  100: "1", // Full opacity
+  0: '0', // Invisible
+  10: '0.1', // Subtle tint/overlay - decorative only
+  25: '0.25', // Light overlay - never for text
+  50: '0.5', // WARNING: Likely fails WCAG for text - backgrounds only
+  75: '0.75', // CAUTION: Verify contrast ratios for text usage
+  90: '0.9', // Safe for text if base color meets WCAG
+  100: '1', // Full opacity
 } as const;
 
 export type Opacity = keyof typeof opacity;

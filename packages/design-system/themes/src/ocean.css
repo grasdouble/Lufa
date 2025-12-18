@@ -4,84 +4,84 @@
  */
 
 :root[data-theme='ocean'] {
-    /* Text colors */
-    --color-text-primary: #0c4a6e;
-    --color-text-secondary: #075985;
-    --color-text-tertiary: #0891b2;
-    --color-text-disabled: #94a3b8;
-    --color-text-inverse: #f0f9ff;
-    --color-text-link: #0284c7;
-    --color-text-linkHover: #0369a1;
+  /* Text colors */
+  --color-text-primary: #0c4a6e;
+  --color-text-secondary: #075985;
+  --color-text-tertiary: #0891b2;
+  --color-text-disabled: #94a3b8;
+  --color-text-inverse: #f0f9ff;
+  --color-text-link: #0284c7;
+  --color-text-linkHover: #0369a1;
 
-    /* Background colors */
-    --color-background-primary: #ffffff;
-    --color-background-secondary: #f0f9ff;
-    --color-background-tertiary: #e0f2fe;
-    --color-background-inverse: #0c4a6e;
-    --color-background-overlay: rgba(12, 74, 110, 0.5);
+  /* Background colors */
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f0f9ff;
+  --color-background-tertiary: #e0f2fe;
+  --color-background-inverse: #0c4a6e;
+  --color-background-overlay: rgba(12, 74, 110, 0.5);
 
-    /* Border colors */
-    --color-border-default: #7dd3fc;
-    --color-border-light: #bae6fd;
-    --color-border-medium: #38bdf8;
-    --color-border-strong: #0284c7;
-    --color-border-focus: #0ea5e9;
+  /* Border colors */
+  --color-border-default: #7dd3fc;
+  --color-border-light: #bae6fd;
+  --color-border-medium: #38bdf8;
+  --color-border-strong: #0284c7;
+  --color-border-focus: #0ea5e9;
 
-    /* Interactive colors */
-    --color-interactive-default: #0284c7;
-    --color-interactive-hover: #0369a1;
-    --color-interactive-active: #075985;
-    --color-interactive-disabled: #cbd5e1;
-    --color-interactive-focus: #0ea5e9;
+  /* Interactive colors */
+  --color-interactive-default: #0284c7;
+  --color-interactive-hover: #0369a1;
+  --color-interactive-active: #075985;
+  --color-interactive-disabled: #cbd5e1;
+  --color-interactive-focus: #0ea5e9;
 
-    /* Success colors */
-    --color-success-default: #059669;
-    --color-success-hover: #047857;
-    --color-success-active: #065f46;
-    --color-success-light: #d1fae5;
-    --color-success-lighter: #ecfdf5;
-    --color-success-border: #6ee7b7;
-    --color-success-text: #047857;
+  /* Success colors */
+  --color-success-default: #059669;
+  --color-success-hover: #047857;
+  --color-success-active: #065f46;
+  --color-success-light: #d1fae5;
+  --color-success-lighter: #ecfdf5;
+  --color-success-border: #6ee7b7;
+  --color-success-text: #047857;
 
-    /* Warning colors */
-    --color-warning-default: #d97706;
-    --color-warning-hover: #b45309;
-    --color-warning-active: #92400e;
-    --color-warning-light: #fef3c7;
-    --color-warning-lighter: #fffbeb;
-    --color-warning-border: #fbbf24;
-    --color-warning-text: #b45309;
+  /* Warning colors */
+  --color-warning-default: #d97706;
+  --color-warning-hover: #b45309;
+  --color-warning-active: #92400e;
+  --color-warning-light: #fef3c7;
+  --color-warning-lighter: #fffbeb;
+  --color-warning-border: #fbbf24;
+  --color-warning-text: #b45309;
 
-    /* Error colors */
-    --color-error-default: #dc2626;
-    --color-error-hover: #b91c1c;
-    --color-error-active: #991b1b;
-    --color-error-light: #fee2e2;
-    --color-error-lighter: #fef2f2;
-    --color-error-border: #fca5a5;
-    --color-error-text: #b91c1c;
+  /* Error colors */
+  --color-error-default: #dc2626;
+  --color-error-hover: #b91c1c;
+  --color-error-active: #991b1b;
+  --color-error-light: #fee2e2;
+  --color-error-lighter: #fef2f2;
+  --color-error-border: #fca5a5;
+  --color-error-text: #b91c1c;
 
-    /* Info colors */
-    --color-info-default: #0891b2;
-    --color-info-hover: #0e7490;
-    --color-info-active: #155e75;
-    --color-info-light: #cffafe;
-    --color-info-lighter: #ecfeff;
-    --color-info-border: #67e8f9;
-    --color-info-text: #0e7490;
+  /* Info colors */
+  --color-info-default: #0891b2;
+  --color-info-hover: #0e7490;
+  --color-info-active: #155e75;
+  --color-info-light: #cffafe;
+  --color-info-lighter: #ecfeff;
+  --color-info-border: #67e8f9;
+  --color-info-text: #0e7490;
 
-    /* Brand colors */
-    --color-brand-primary: #0284c7;
-    --color-brand-primaryHover: #0369a1;
-    --color-brand-primaryActive: #075985;
-    --color-brand-secondary: #0891b2;
-    --color-brand-secondaryHover: #0e7490;
-    --color-brand-secondaryActive: #155e75;
-    --color-brand-accent: #06b6d4;
+  /* Brand colors */
+  --color-brand-primary: #0284c7;
+  --color-brand-primaryHover: #0369a1;
+  --color-brand-primaryActive: #075985;
+  --color-brand-secondary: #0891b2;
+  --color-brand-secondaryHover: #0e7490;
+  --color-brand-secondaryActive: #155e75;
+  --color-brand-accent: #06b6d4;
 
-    /* Surface colors */
-    --color-surface-default: #ffffff;
-    --color-surface-raised: #f0f9ff;
-    --color-surface-overlay: #e0f2fe;
-    --color-surface-inverse: #0c4a6e;
+  /* Surface colors */
+  --color-surface-default: #ffffff;
+  --color-surface-raised: #f0f9ff;
+  --color-surface-overlay: #e0f2fe;
+  --color-surface-inverse: #0c4a6e;
 }

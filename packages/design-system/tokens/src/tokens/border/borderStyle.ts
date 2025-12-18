@@ -11,7 +11,7 @@
  * - Combine with color and text labels for clarity
  */
 
-import { borderStyle as primitiveBorderStyle } from "@grasdouble/lufa_design-system-primitives";
+import { borderStyle as primitiveBorderStyle } from '@grasdouble/lufa_design-system-primitives';
 
 export const borderStyle = {
   /** Solid line (default) */

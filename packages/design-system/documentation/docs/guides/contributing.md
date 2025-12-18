@@ -245,7 +245,7 @@ describe("NewComponent", () => {
 
   it("applies variant class", () => {
     const { container } = render(
-      <NewComponent variant="primary">Test</NewComponent>
+      <NewComponent variant="primary">Test</NewComponent>,
     );
     expect(container.firstChild).toHaveClass("primary");
   });

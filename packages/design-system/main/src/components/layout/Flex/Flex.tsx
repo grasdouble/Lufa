@@ -9,67 +9,66 @@ export type FlexGap = keyof typeof SPACE_SIZE | number | string;
 type FlexElement = 'div' | 'span' | 'section' | 'nav' | 'header' | 'footer' | 'main' | 'article';
 
 export interface FlexProps extends HTMLAttributes<HTMLElement> {
-    /** The HTML element to render */
-    as?: FlexElement;
-    /** Use `inline-flex` instead of `flex` */
-    inline?: boolean;
-    direction?: keyof typeof FLEX_DIRECTION;
-    align?: keyof typeof FLEX_ALIGN;
-    justify?: keyof typeof FLEX_JUSTIFY;
-    wrap?: keyof typeof FLEX_WRAP;
-    /** Gap between items (token key, px number, or CSS length string) */
-    gap?: FlexGap;
-    children?: ReactNode;
+  /** The HTML element to render */
+  as?: FlexElement;
+  /** Use `inline-flex` instead of `flex` */
+  inline?: boolean;
+  direction?: keyof typeof FLEX_DIRECTION;
+  align?: keyof typeof FLEX_ALIGN;
+  justify?: keyof typeof FLEX_JUSTIFY;
+  wrap?: keyof typeof FLEX_WRAP;
+  /** Gap between items (token key, px number, or CSS length string) */
+  gap?: FlexGap;
+  children?: ReactNode;
 }
 
 const toGapValue = (value: FlexGap | undefined) => {
-    if (value === undefined) return undefined;
-    if (typeof value === 'number') return `${value}px`;
-    if (typeof value === 'string' && value in SPACE_SIZE) return `var(--lufa-spacing-${value})`;
-    return value;
+  if (value === undefined) return undefined;
+  if (typeof value === 'number') return `${value}px`;
+  if (typeof value === 'string' && value in SPACE_SIZE) return `var(--lufa-spacing-${value})`;
+  return value;
 };
 
 /** Generic flex container with token-friendly gap */
 export const Flex = forwardRef<HTMLElement, FlexProps>(
-    (
-        {
-            as = 'div',
-            inline = false,
-            direction = FLEX_DIRECTION.row,
-            align = FLEX_ALIGN.stretch,
-            justify = FLEX_JUSTIFY.start,
-            wrap = FLEX_WRAP.nowrap,
-            gap = 'md',
-            className,
-            style,
-            children,
-            ...props
-        },
-        ref
-    ) => {
-        const Component = as as ElementType;
-        const gapValue = toGapValue(gap);
+  (
+    {
+      as = 'div',
+      inline = false,
+      direction = FLEX_DIRECTION.row,
+      align = FLEX_ALIGN.stretch,
+      justify = FLEX_JUSTIFY.start,
+      wrap = FLEX_WRAP.nowrap,
+      gap = 'md',
+      className,
+      style,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const Component = as as ElementType;
+    const gapValue = toGapValue(gap);
 
-        return (
-            <Component
-                ref={ref as React.Ref<HTMLElement>}
-                className={clsx(
-                    styles.flex,
-                    inline ? styles.inline : styles.block,
-                    styles[`direction-${direction}`],
-                    styles[`align-${align}`],
-                    styles[`justify-${justify}`],
-                    styles[`wrap-${wrap}`],
-                    className
-                )}
-                style={{ ...style, ['--lufa-flex-gap' as string]: gapValue }}
-                {...props}
-            >
-                {children}
-            </Component>
-        );
-    }
+    return (
+      <Component
+        ref={ref as React.Ref<HTMLElement>}
+        className={clsx(
+          styles.flex,
+          inline ? styles.inline : styles.block,
+          styles[`direction-${direction}`],
+          styles[`align-${align}`],
+          styles[`justify-${justify}`],
+          styles[`wrap-${wrap}`],
+          className
+        )}
+        style={{ ...style, ['--lufa-flex-gap' as string]: gapValue }}
+        {...props}
+      >
+        {children}
+      </Component>
+    );
+  }
 );
 
 Flex.displayName = 'Flex';
-

@@ -15,7 +15,9 @@ Explore the complete collection of components in the Lufa Design System.
 Interactive buttons for actions and navigation with multiple variants.
 
 ```tsx
-<Button variant="solid" color="primary">Click Me</Button>
+<Button variant="solid" color="primary">
+  Click Me
+</Button>
 ```
 
 #### [Card](./display/card)
@@ -191,7 +193,9 @@ function App() {
       <Typography variant="body">
         Start building with Lufa components.
       </Typography>
-      <Button variant="solid" color="primary">Get Started</Button>
+      <Button variant="solid" color="primary">
+        Get Started
+      </Button>
     </Card>
   );
 }

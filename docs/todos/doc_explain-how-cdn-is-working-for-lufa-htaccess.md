@@ -7,8 +7,8 @@
     Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS" env=is_allowed_origin
     Header always set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept" env=is_allowed_origin
     Header always set Access-Control-Allow-Credentials "true" env=is_allowed_origin
-</IfModule>
 
+</IfModule>
 
 <IfModule mod_mime.c>
     AddType application/javascript .mjs

@@ -19,9 +19,9 @@ pnpm add @grasdouble/lufa_design-system-themes
 
 ```css
 /* Import a theme */
-@import "@grasdouble/lufa_design-system-themes/ocean.css";
+@import '@grasdouble/lufa_design-system-themes/ocean.css';
 /* or */
-@import "@grasdouble/lufa_design-system-themes/forest.css";
+@import '@grasdouble/lufa_design-system-themes/forest.css';
 ```
 
 ### Apply Theme
@@ -43,7 +43,7 @@ Themes work by setting the `data-theme` attribute:
 ### JavaScript/React
 
 ```tsx
-import "@grasdouble/lufa_design-system-themes/ocean.css";
+import '@grasdouble/lufa_design-system-themes/ocean.css';
 
 function App() {
   return <div data-theme="ocean">{/* Your app content */}</div>;
@@ -53,17 +53,17 @@ function App() {
 ### Dynamic Theme Switching
 
 ```tsx
-import { useState } from "react";
-import "@grasdouble/lufa_design-system-themes/ocean.css";
-import "@grasdouble/lufa_design-system-themes/forest.css";
+import { useState } from 'react';
+import '@grasdouble/lufa_design-system-themes/ocean.css';
+import '@grasdouble/lufa_design-system-themes/forest.css';
 
 function App() {
-  const [theme, setTheme] = useState("ocean");
+  const [theme, setTheme] = useState('ocean');
 
   return (
     <div data-theme={theme}>
-      <button onClick={() => setTheme("ocean")}>Ocean</button>
-      <button onClick={() => setTheme("forest")}>Forest</button>
+      <button onClick={() => setTheme('ocean')}>Ocean</button>
+      <button onClick={() => setTheme('forest')}>Forest</button>
       {/* Your app content */}
     </div>
   );

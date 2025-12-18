@@ -1,9 +1,11 @@
 {
+  "editor.defaultFormatter": "prettier.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.configPath": "./packages/config/prettier/prettier.config.mjs",
   "files.associations": {
     "*.css": "tailwindcss"
   },
   "editor.quickSuggestions": {
     "strings": "on"
-  },
-  "editor.formatOnSave": true
+  }
 }

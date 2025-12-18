@@ -28,7 +28,7 @@ import {
   maxWidth,
   radius,
   shadow,
-} from "@grasdouble/lufa_design-system-primitives";
+} from '@grasdouble/lufa_design-system-primitives';
 
 // Spacing uses pixel values as keys
 const padding = spacing[16]; // "16px"
@@ -51,7 +51,7 @@ const bold = fontWeight[700]; // 700
 // Icons use pixel sizes
 const iconSmall = iconSize[16]; // 16
 const iconDefault = iconSize[24]; // 24
-const iconStrokeDefault = iconStroke["1-5"]; // 1.5
+const iconStrokeDefault = iconStroke['1-5']; // 1.5
 
 // Layout uses pixel values (in rem)
 const containerWidth = maxWidth[768]; // "48rem"
@@ -61,7 +61,7 @@ const modalWidth = maxWidth[600]; // "37.5rem"
 ### CSS Custom Properties
 
 ```css
-@import "@grasdouble/lufa_design-system-primitives/style.css";
+@import '@grasdouble/lufa_design-system-primitives/style.css';
 
 .my-element {
   /* Spacing: --lufa-primitive-spacing-{pixels} */

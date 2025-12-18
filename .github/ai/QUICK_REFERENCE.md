@@ -41,7 +41,7 @@
 
 | Type                 | Template                                                                                           |
 | -------------------- | -------------------------------------------------------------------------------------------------- |
-| 🏭️ Architecture     | [`meta/templates/ARCHITECTURE.template.md`](meta/templates/ARCHITECTURE.template.md)               |
+| 🏭️ Architecture      | [`meta/templates/ARCHITECTURE.template.md`](meta/templates/ARCHITECTURE.template.md)               |
 | 📋 Development rules | [`meta/templates/RULES.template.md`](meta/templates/RULES.template.md)                             |
 | ⚙️ GitHub Action     | [`meta/templates/GITHUB_ACTION_DOC.template.md`](meta/templates/GITHUB_ACTION_DOC.template.md)     |
 | 🔄 GitHub Workflow   | [`meta/templates/GITHUB_WORKFLOW_DOC.template.md`](meta/templates/GITHUB_WORKFLOW_DOC.template.md) |

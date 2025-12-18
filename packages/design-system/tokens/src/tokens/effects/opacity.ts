@@ -13,7 +13,7 @@
  * - Avoid opacity < 0.9 on text to maintain WCAG compliance
  */
 
-import { opacity as primitiveOpacity } from "@grasdouble/lufa_design-system-primitives";
+import { opacity as primitiveOpacity } from '@grasdouble/lufa_design-system-primitives';
 
 export const opacity = {
   /** 0 - Fully transparent (invisible) */

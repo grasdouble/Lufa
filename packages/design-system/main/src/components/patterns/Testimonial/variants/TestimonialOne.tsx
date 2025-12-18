@@ -1,11 +1,6 @@
-import { TestimonialStyleProps } from "../Testimonial";
+import { TestimonialStyleProps } from '../Testimonial';
 
-export const TestimonialOne = ({
-  imgUrl,
-  testimonial,
-  from,
-  position,
-}: TestimonialStyleProps) => (
+export const TestimonialOne = ({ imgUrl, testimonial, from, position }: TestimonialStyleProps) => (
   <section className="bg-white pt-24 pb-16 sm:pt-32 sm:pb-24 xl:pb-32 dark:bg-gray-900">
     <div className="bg-gray-900 pb-20 sm:pb-24 xl:pb-0 dark:bg-white">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
@@ -36,9 +31,7 @@ export const TestimonialOne = ({
               <p>{testimonial}</p>
             </blockquote>
             <figcaption className="mt-8 text-base">
-              <div className="font-semibold text-white dark:text-gray-900">
-                {from}
-              </div>
+              <div className="font-semibold text-white dark:text-gray-900">{from}</div>
               <div className="mt-1 text-gray-400">{position}</div>
             </figcaption>
           </figure>

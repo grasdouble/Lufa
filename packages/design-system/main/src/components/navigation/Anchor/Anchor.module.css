@@ -1,46 +1,46 @@
 @reference '../../../tailwind.css';
 
 @layer components {
-    .anchor {
-        @apply inline-flex items-center gap-1;
-        @apply transition-colors duration-200;
-        @apply cursor-pointer;
-        text-decoration: none;
-    }
+  .anchor {
+    @apply inline-flex items-center gap-1;
+    @apply transition-colors duration-200;
+    @apply cursor-pointer;
+    text-decoration: none;
+  }
 
-    /* Variants */
-    .variantDefault {
-        @apply no-underline;
-    }
+  /* Variants */
+  .variantDefault {
+    @apply no-underline;
+  }
 
-    .variantUnderline {
-        @apply underline underline-offset-4;
-    }
+  .variantUnderline {
+    @apply underline underline-offset-4;
+  }
 
-    .variantSubtle {
-        @apply no-underline opacity-70;
-        @apply hover:opacity-100;
-    }
+  .variantSubtle {
+    @apply no-underline opacity-70;
+    @apply hover:opacity-100;
+  }
 
-    /* Colors */
-    .colorPrimary {
-        @apply text-interactive-default;
-        @apply hover:text-interactive-hover;
-    }
+  /* Colors */
+  .colorPrimary {
+    @apply text-interactive-default;
+    @apply hover:text-interactive-hover;
+  }
 
-    .colorSecondary {
-        @apply text-gray-600 dark:text-gray-400;
-        @apply hover:text-gray-900 dark:hover:text-gray-100;
-    }
+  .colorSecondary {
+    @apply text-gray-600 dark:text-gray-400;
+    @apply hover:text-gray-900 dark:hover:text-gray-100;
+  }
 
-    .colorInherit {
-        @apply text-inherit;
-        @apply hover:opacity-80;
-    }
+  .colorInherit {
+    @apply text-inherit;
+    @apply hover:opacity-80;
+  }
 
-    /* Icons */
-    .startIcon,
-    .endIcon {
-        @apply inline-flex items-center;
-    }
+  /* Icons */
+  .startIcon,
+  .endIcon {
+    @apply inline-flex items-center;
+  }
 }

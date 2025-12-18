@@ -289,7 +289,7 @@ export function CustomCard({ children, className }) {
       className={cn(
         "@utility preflight", // Apply CSS reset
         "p-6 rounded-lg bg-white shadow-lg",
-        className
+        className,
       )}
     >
       {children}
@@ -489,7 +489,7 @@ test("mount creates root", async () => {
   await mount();
 
   expect(
-    document.getElementById("lufa-container")?.childNodes.length
+    document.getElementById("lufa-container")?.childNodes.length,
   ).toBeGreaterThan(0);
 
   await unmount();

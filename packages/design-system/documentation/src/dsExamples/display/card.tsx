@@ -1,9 +1,21 @@
 import React from "react";
-import { Button, Card, Stack, Typography, tokens } from "@grasdouble/lufa_design-system";
+import {
+  Button,
+  Card,
+  Stack,
+  Typography,
+  tokens,
+} from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +26,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -110,7 +128,13 @@ export const Interactive = () => (
           <Typography variant="bodySmall" color="secondary">
             Click the card.
           </Typography>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              fontSize: 12,
+            }}
+          >
             (Check console)
           </div>
         </Stack>
@@ -152,7 +176,13 @@ export const ClickableCardExample = () => (
         <Typography variant="body" color="secondary">
           Combine hoverable and onClick for interactive cards.
         </Typography>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            fontSize: 12,
+          }}
+        >
           (Check console)
         </div>
       </Stack>

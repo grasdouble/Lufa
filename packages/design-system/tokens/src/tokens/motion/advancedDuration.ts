@@ -19,15 +19,15 @@
  * - Consider using these values in delays rather than durations
  */
 
-import { timing as primitiveTiming } from "@grasdouble/lufa_design-system-primitives";
+import { timing as primitiveTiming } from '@grasdouble/lufa_design-system-primitives';
 
 export const advancedDuration = {
   // Extended durations for complex animations
   moderate: primitiveTiming[800], // Moderate animations
   leisurely: primitiveTiming[1000], // 1 second - Leisurely animations
-  extended: "1500ms", // 1.5 seconds - Extended animations
-  long: "2000ms", // 2 seconds - Long animations
-  veryLong: "3000ms", // 3 seconds - Very long animations
+  extended: '1500ms', // 1.5 seconds - Extended animations
+  long: '2000ms', // 2 seconds - Long animations
+  veryLong: '3000ms', // 3 seconds - Very long animations
 
   // Stagger delays for sequential animations
   staggerTiny: primitiveTiming[50], // Minimal stagger

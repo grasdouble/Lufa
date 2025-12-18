@@ -1,11 +1,11 @@
 @reference '../../../tailwind.css';
 
 @layer components {
-    .container {
-        @apply flex items-center;
-    }
+  .container {
+    @apply flex items-center;
+  }
 
-    .avatar {
-        @apply -ml-3 first:ml-0;
-    }
+  .avatar {
+    @apply -ml-3 first:ml-0;
+  }
 }

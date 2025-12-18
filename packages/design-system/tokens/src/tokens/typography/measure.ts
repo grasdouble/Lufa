@@ -17,11 +17,11 @@
  */
 
 export const measure = {
-  narrow: "45ch", // Minimum comfortable reading width
-  default: "60ch", // Optimal reading width
-  comfortable: "66ch", // Comfortable reading width
-  wide: "75ch", // Wide content, technical docs
-  extraWide: "80ch", // Maximum readable width
+  narrow: '45ch', // Minimum comfortable reading width
+  default: '60ch', // Optimal reading width
+  comfortable: '66ch', // Comfortable reading width
+  wide: '75ch', // Wide content, technical docs
+  extraWide: '80ch', // Maximum readable width
 } as const;
 
 export type Measure = keyof typeof measure;

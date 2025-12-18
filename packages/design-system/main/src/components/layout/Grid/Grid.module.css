@@ -1,55 +1,54 @@
 @reference '../../../tailwind.css';
 
 @layer components {
-    .grid {
-        @apply w-full;
-        display: grid;
-    }
+  .grid {
+    @apply w-full;
+    display: grid;
+  }
 
-    /* Columns */
-    .columns-single {
-        grid-template-columns: repeat(var(--lufa-grid-columns-single), minmax(0, 1fr));
-    }
-    .columns-double {
-        grid-template-columns: repeat(var(--lufa-grid-columns-double), minmax(0, 1fr));
-    }
-    .columns-triple {
-        grid-template-columns: repeat(var(--lufa-grid-columns-triple), minmax(0, 1fr));
-    }
-    .columns-quad {
-        grid-template-columns: repeat(var(--lufa-grid-columns-quad), minmax(0, 1fr));
-    }
-    .columns-six {
-        grid-template-columns: repeat(var(--lufa-grid-columns-six), minmax(0, 1fr));
-    }
-    .columns-eight {
-        grid-template-columns: repeat(var(--lufa-grid-columns-eight), minmax(0, 1fr));
-    }
-    .columns-twelve {
-        grid-template-columns: repeat(var(--lufa-grid-columns-twelve), minmax(0, 1fr));
-    }
-    .columns-sixteen {
-        grid-template-columns: repeat(var(--lufa-grid-columns-sixteen), minmax(0, 1fr));
-    }
+  /* Columns */
+  .columns-single {
+    grid-template-columns: repeat(var(--lufa-grid-columns-single), minmax(0, 1fr));
+  }
+  .columns-double {
+    grid-template-columns: repeat(var(--lufa-grid-columns-double), minmax(0, 1fr));
+  }
+  .columns-triple {
+    grid-template-columns: repeat(var(--lufa-grid-columns-triple), minmax(0, 1fr));
+  }
+  .columns-quad {
+    grid-template-columns: repeat(var(--lufa-grid-columns-quad), minmax(0, 1fr));
+  }
+  .columns-six {
+    grid-template-columns: repeat(var(--lufa-grid-columns-six), minmax(0, 1fr));
+  }
+  .columns-eight {
+    grid-template-columns: repeat(var(--lufa-grid-columns-eight), minmax(0, 1fr));
+  }
+  .columns-twelve {
+    grid-template-columns: repeat(var(--lufa-grid-columns-twelve), minmax(0, 1fr));
+  }
+  .columns-sixteen {
+    grid-template-columns: repeat(var(--lufa-grid-columns-sixteen), minmax(0, 1fr));
+  }
 
-    /* Gutters */
-    .gutter-none {
-        gap: var(--lufa-grid-gutter-none);
-    }
-    .gutter-xs {
-        gap: var(--lufa-grid-gutter-xs);
-    }
-    .gutter-sm {
-        gap: var(--lufa-grid-gutter-sm);
-    }
-    .gutter-md {
-        gap: var(--lufa-grid-gutter-md);
-    }
-    .gutter-lg {
-        gap: var(--lufa-grid-gutter-lg);
-    }
-    .gutter-xl {
-        gap: var(--lufa-grid-gutter-xl);
-    }
+  /* Gutters */
+  .gutter-none {
+    gap: var(--lufa-grid-gutter-none);
+  }
+  .gutter-xs {
+    gap: var(--lufa-grid-gutter-xs);
+  }
+  .gutter-sm {
+    gap: var(--lufa-grid-gutter-sm);
+  }
+  .gutter-md {
+    gap: var(--lufa-grid-gutter-md);
+  }
+  .gutter-lg {
+    gap: var(--lufa-grid-gutter-lg);
+  }
+  .gutter-xl {
+    gap: var(--lufa-grid-gutter-xl);
+  }
 }
-

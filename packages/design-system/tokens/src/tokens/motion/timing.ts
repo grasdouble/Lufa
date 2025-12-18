@@ -36,7 +36,7 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html|WCAG 2.1 - Pause, Stop, Hide}
  */
 
-import { timing as primitiveTiming } from "@grasdouble/lufa_design-system-primitives";
+import { timing as primitiveTiming } from '@grasdouble/lufa_design-system-primitives';
 
 export const timing = {
   /** 0ms - Instant (no animation) */

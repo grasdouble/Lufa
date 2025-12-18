@@ -3,7 +3,13 @@ import { Steps, Stack, Button, tokens } from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +20,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -61,11 +73,27 @@ export const Direction = () => (
   <Frame title="direction">
     <Stack gap="spacious">
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>horizontal (default)</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          horizontal (default)
+        </div>
         <Steps items={basicSteps} current={1} />
       </div>
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>vertical</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          vertical
+        </div>
         <Steps direction="vertical" items={basicSteps} current={2} />
       </div>
     </Stack>
@@ -76,11 +104,27 @@ export const Size = () => (
   <Frame title="size">
     <Stack gap="spacious">
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>default</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          default
+        </div>
         <Steps items={basicSteps} current={1} />
       </div>
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>small</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          small
+        </div>
         <Steps size="small" items={basicSteps} current={1} />
       </div>
     </Stack>
@@ -91,15 +135,39 @@ export const Current = () => (
   <Frame title="current">
     <Stack gap="spacious">
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>current: 0</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          current: 0
+        </div>
         <Steps items={basicSteps} current={0} />
       </div>
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>current: 2</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          current: 2
+        </div>
         <Steps items={basicSteps} current={2} />
       </div>
       <div>
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>current: 3</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            marginBottom: 8,
+          }}
+        >
+          current: 3
+        </div>
         <Steps items={basicSteps} current={3} />
       </div>
     </Stack>
@@ -111,8 +179,14 @@ export const OnChange = () => {
 
   return (
     <Frame title="onChange (clickable steps)">
-      <Steps items={basicSteps} current={clickableCurrent} onChange={setClickableCurrent} />
-      <div style={{ marginTop: 16, color: color.text.secondary }}>Current: {clickableCurrent}</div>
+      <Steps
+        items={basicSteps}
+        current={clickableCurrent}
+        onChange={setClickableCurrent}
+      />
+      <div style={{ marginTop: 16, color: color.text.secondary }}>
+        Current: {clickableCurrent}
+      </div>
     </Frame>
   );
 };
@@ -142,17 +216,41 @@ export const Items = () => {
   ];
 
   const stepsWithIcons = [
-    { title: "Account", description: "Create your profile", icon: <span aria-hidden>👤</span> },
-    { title: "Shipping", description: "Delivery details", icon: <span aria-hidden>🚚</span> },
-    { title: "Payment", description: "Choose a method", icon: <span aria-hidden>💳</span> },
-    { title: "Review", description: "Confirm everything", icon: <span aria-hidden>✅</span> },
+    {
+      title: "Account",
+      description: "Create your profile",
+      icon: <span aria-hidden>👤</span>,
+    },
+    {
+      title: "Shipping",
+      description: "Delivery details",
+      icon: <span aria-hidden>🚚</span>,
+    },
+    {
+      title: "Payment",
+      description: "Choose a method",
+      icon: <span aria-hidden>💳</span>,
+    },
+    {
+      title: "Review",
+      description: "Confirm everything",
+      icon: <span aria-hidden>✅</span>,
+    },
   ];
 
   return (
     <Frame title="items (title / description / icon / status)">
       <Stack gap="spacious">
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>title + description</div>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            title + description
+          </div>
           <Steps
             items={[
               { title: "Account", description: "Create your profile" },
@@ -164,11 +262,27 @@ export const Items = () => {
           />
         </div>
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>custom icons</div>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            custom icons
+          </div>
           <Steps items={stepsWithIcons} current={2} />
         </div>
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>manual status</div>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            manual status
+          </div>
           <Steps items={stepsWithStatus} />
         </div>
       </Stack>
@@ -180,7 +294,12 @@ export const CheckoutProgressStepsExample = () => (
   <Frame title="checkout progress">
     <Steps
       current={2}
-      items={[{ title: "Cart" }, { title: "Shipping" }, { title: "Payment" }, { title: "Review" }]}
+      items={[
+        { title: "Cart" },
+        { title: "Shipping" },
+        { title: "Payment" },
+        { title: "Review" },
+      ]}
     />
   </Frame>
 );

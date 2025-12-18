@@ -1,5 +1,5 @@
-import { type Chromatic, chromatic } from "./chromatic.js";
-import { type Neutral, neutral } from "./neutral.js";
+import { type Chromatic, chromatic } from './chromatic.js';
+import { type Neutral, neutral } from './neutral.js';
 
 export const color = {
   chromatic,

@@ -1,11 +1,6 @@
-import { TestimonialStyleProps } from "../Testimonial";
+import { TestimonialStyleProps } from '../Testimonial';
 
-export const TestimonialThree = ({
-  imgUrl,
-  testimonial,
-  from,
-  position,
-}: TestimonialStyleProps) => (
+export const TestimonialThree = ({ imgUrl, testimonial, from, position }: TestimonialStyleProps) => (
   <section className="isolate overflow-hidden bg-white px-6 lg:px-8">
     <div className="relative mx-auto max-w-2xl py-24 sm:py-32 lg:max-w-[56rem]">
       <div className="absolute top-0 left-1/2 -z-10 h-[50rem] w-[90rem] -translate-x-2/4 bg-[radial-gradient(50%_100%_at_top,theme(colors.indigo.100),white)] opacity-20 lg:left-36"></div>
@@ -29,11 +24,7 @@ export const TestimonialThree = ({
           </blockquote>
         </div>
         <div className="col-end-1 w-16 lg:row-span-4 lg:w-72">
-          <img
-            className="rounded-xl bg-indigo-50 lg:rounded-3xl"
-            src={imgUrl}
-            alt=""
-          />
+          <img className="rounded-xl bg-indigo-50 lg:rounded-3xl" src={imgUrl} alt="" />
         </div>
         <figcaption className="text-base lg:col-start-1 lg:row-start-3">
           <div className="font-semibold text-gray-900">{from}</div>

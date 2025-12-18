@@ -12,7 +12,7 @@
  * - Avoid z-index wars by following this hierarchy
  */
 
-import { zIndex as primitiveZIndex } from "@grasdouble/lufa_design-system-primitives";
+import { zIndex as primitiveZIndex } from '@grasdouble/lufa_design-system-primitives';
 
 export const zIndex = {
   /** 0 - Normal content layer (default) */

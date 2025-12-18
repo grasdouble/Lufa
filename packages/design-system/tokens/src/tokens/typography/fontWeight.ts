@@ -38,7 +38,7 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html|WCAG 2.1 - Visual Presentation}
  */
 
-import { fontWeight as primitiveFontWeight } from "@grasdouble/lufa_design-system-primitives";
+import { fontWeight as primitiveFontWeight } from '@grasdouble/lufa_design-system-primitives';
 
 export const fontWeight = {
   /** 100 - Thin (avoid for small text) */

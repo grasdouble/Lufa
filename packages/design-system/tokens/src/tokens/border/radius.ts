@@ -11,7 +11,7 @@
  * Common combinations: sm + lg, or md + xl
  */
 
-import { radius as primitiveRadius } from "@grasdouble/lufa_design-system-primitives";
+import { radius as primitiveRadius } from '@grasdouble/lufa_design-system-primitives';
 
 export const radius = {
   /** 0px - No rounding (sharp corners) */
@@ -29,9 +29,9 @@ export const radius = {
   /** 16px - Extra large rounding */
   xl: primitiveRadius[16],
   /** 24px - Very large rounding (hero sections) */
-  "2xl": primitiveRadius[24],
+  '2xl': primitiveRadius[24],
   /** 32px - Huge rounding (feature cards) */
-  "3xl": primitiveRadius[32],
+  '3xl': primitiveRadius[32],
   /** 9999px - Fully rounded (pills, badges, avatars) */
   full: primitiveRadius[9999],
 } as const;

@@ -27,7 +27,7 @@ import {
   transition,
   cursor,
   dimension,
-} from "@grasdouble/lufa_design-system-tokens";
+} from '@grasdouble/lufa_design-system-tokens';
 
 // Semantic color tokens
 const primaryText = color.text.primary;
@@ -53,7 +53,7 @@ const hoverCursor = cursor.pointer;
 ### CSS Custom Properties
 
 ```css
-@import "@grasdouble/lufa_design-system-tokens/style.css";
+@import '@grasdouble/lufa_design-system-tokens/style.css';
 
 .my-element {
   /* Colors: --lufa-color-{category}-{variant} */

@@ -15,6 +15,6 @@ exec("pnpm outdated -r", (err, stdout, stderr) => {
         return;
       }
       console.log("Report generated successfully.");
-    }
+    },
   );
 });

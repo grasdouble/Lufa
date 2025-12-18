@@ -3,7 +3,13 @@ import { Tabs, Stack, tokens } from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +20,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -61,16 +73,55 @@ export const Type = () => {
     <Frame title="type">
       <Stack gap="spacious">
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>line (default)</div>
-          <Tabs type="line" items={tabItems} activeKey={activeKeyLine} onChange={setActiveKeyLine} />
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            line (default)
+          </div>
+          <Tabs
+            type="line"
+            items={tabItems}
+            activeKey={activeKeyLine}
+            onChange={setActiveKeyLine}
+          />
         </div>
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>card</div>
-          <Tabs type="card" items={tabItems} activeKey={activeKeyCard} onChange={setActiveKeyCard} />
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            card
+          </div>
+          <Tabs
+            type="card"
+            items={tabItems}
+            activeKey={activeKeyCard}
+            onChange={setActiveKeyCard}
+          />
         </div>
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>pill</div>
-          <Tabs type="pill" items={tabItems} activeKey={activeKeyPill} onChange={setActiveKeyPill} />
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            pill
+          </div>
+          <Tabs
+            type="pill"
+            items={tabItems}
+            activeKey={activeKeyPill}
+            onChange={setActiveKeyPill}
+          />
         </div>
       </Stack>
     </Frame>
@@ -100,27 +151,79 @@ export const TabPosition = () => {
     <Frame title="tabPosition">
       <Stack gap="spacious">
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>top (default)</div>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            top (default)
+          </div>
           <div style={panelBoxStyle}>
-            <Tabs tabPosition="top" items={tabItems} activeKey={activeTop} onChange={setActiveTop} />
+            <Tabs
+              tabPosition="top"
+              items={tabItems}
+              activeKey={activeTop}
+              onChange={setActiveTop}
+            />
           </div>
         </div>
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>bottom</div>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            bottom
+          </div>
           <div style={panelBoxStyle}>
-            <Tabs tabPosition="bottom" items={tabItems} activeKey={activeBottom} onChange={setActiveBottom} />
+            <Tabs
+              tabPosition="bottom"
+              items={tabItems}
+              activeKey={activeBottom}
+              onChange={setActiveBottom}
+            />
           </div>
         </div>
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>left</div>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            left
+          </div>
           <div style={leftRightBoxStyle}>
-            <Tabs tabPosition="left" items={tabItems} activeKey={activeLeft} onChange={setActiveLeft} />
+            <Tabs
+              tabPosition="left"
+              items={tabItems}
+              activeKey={activeLeft}
+              onChange={setActiveLeft}
+            />
           </div>
         </div>
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>right</div>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            right
+          </div>
           <div style={leftRightBoxStyle}>
-            <Tabs tabPosition="right" items={tabItems} activeKey={activeRight} onChange={setActiveRight} />
+            <Tabs
+              tabPosition="right"
+              items={tabItems}
+              activeKey={activeRight}
+              onChange={setActiveRight}
+            />
           </div>
         </div>
       </Stack>
@@ -137,16 +240,55 @@ export const Size = () => {
     <Frame title="size">
       <Stack gap="spacious">
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>small</div>
-          <Tabs size="small" items={tabItems} activeKey={activeSmall} onChange={setActiveSmall} />
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            small
+          </div>
+          <Tabs
+            size="small"
+            items={tabItems}
+            activeKey={activeSmall}
+            onChange={setActiveSmall}
+          />
         </div>
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>medium (default)</div>
-          <Tabs size="medium" items={tabItems} activeKey={activeMedium} onChange={setActiveMedium} />
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            medium (default)
+          </div>
+          <Tabs
+            size="medium"
+            items={tabItems}
+            activeKey={activeMedium}
+            onChange={setActiveMedium}
+          />
         </div>
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>large</div>
-          <Tabs size="large" items={tabItems} activeKey={activeLarge} onChange={setActiveLarge} />
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            large
+          </div>
+          <Tabs
+            size="large"
+            items={tabItems}
+            activeKey={activeLarge}
+            onChange={setActiveLarge}
+          />
         </div>
       </Stack>
     </Frame>
@@ -159,7 +301,9 @@ export const ActiveKey = () => {
   return (
     <Frame title="activeKey / onChange (controlled)">
       <Tabs items={tabItems} activeKey={activeKey} onChange={setActiveKey} />
-      <div style={{ marginTop: 12, color: color.text.secondary }}>Active tab: {activeKey}</div>
+      <div style={{ marginTop: 12, color: color.text.secondary }}>
+        Active tab: {activeKey}
+      </div>
     </Frame>
   );
 };
@@ -215,7 +359,9 @@ export const SettingsTabsExample = () => {
       children: (
         <Stack gap="condensed">
           <div style={{ fontWeight: 600 }}>Profile settings</div>
-          <div style={{ color: color.text.secondary }}>Update your public information.</div>
+          <div style={{ color: color.text.secondary }}>
+            Update your public information.
+          </div>
         </Stack>
       ),
     },
@@ -225,7 +371,9 @@ export const SettingsTabsExample = () => {
       children: (
         <Stack gap="condensed">
           <div style={{ fontWeight: 600 }}>Security</div>
-          <div style={{ color: color.text.secondary }}>Manage password and 2FA.</div>
+          <div style={{ color: color.text.secondary }}>
+            Manage password and 2FA.
+          </div>
         </Stack>
       ),
     },
@@ -235,7 +383,9 @@ export const SettingsTabsExample = () => {
       children: (
         <Stack gap="condensed">
           <div style={{ fontWeight: 600 }}>Notifications</div>
-          <div style={{ color: color.text.secondary }}>Choose what we email you.</div>
+          <div style={{ color: color.text.secondary }}>
+            Choose what we email you.
+          </div>
         </Stack>
       ),
     },
@@ -243,7 +393,12 @@ export const SettingsTabsExample = () => {
 
   return (
     <Frame title="settings panel">
-      <Tabs type="card" items={items} activeKey={activeKey} onChange={setActiveKey} />
+      <Tabs
+        type="card"
+        items={items}
+        activeKey={activeKey}
+        onChange={setActiveKey}
+      />
     </Frame>
   );
 };
@@ -255,7 +410,9 @@ export const ProductDetailsTabsExample = () => {
     {
       key: "details",
       label: "Details",
-      children: <div style={{ padding: 16 }}>Product details and description.</div>,
+      children: (
+        <div style={{ padding: 16 }}>Product details and description.</div>
+      ),
     },
     {
       key: "specs",
@@ -265,13 +422,20 @@ export const ProductDetailsTabsExample = () => {
     {
       key: "reviews",
       label: "Reviews",
-      children: <div style={{ padding: 16 }}>Customer reviews and ratings.</div>,
+      children: (
+        <div style={{ padding: 16 }}>Customer reviews and ratings.</div>
+      ),
     },
   ];
 
   return (
     <Frame title="product details">
-      <Tabs type="line" items={items} activeKey={activeKey} onChange={setActiveKey} />
+      <Tabs
+        type="line"
+        items={items}
+        activeKey={activeKey}
+        onChange={setActiveKey}
+      />
     </Frame>
   );
 };

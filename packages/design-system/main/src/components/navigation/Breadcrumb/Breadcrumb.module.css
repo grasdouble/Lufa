@@ -1,55 +1,55 @@
 @reference '../../../tailwind.css';
 
 @layer components {
-    .breadcrumb {
-        @apply w-full;
-    }
+  .breadcrumb {
+    @apply w-full;
+  }
 
-    .list {
-        @apply reset-list;
-        @apply flex flex-wrap items-baseline gap-1;
-    }
+  .list {
+    @apply reset-list;
+    @apply flex flex-wrap items-baseline gap-1;
+  }
 
-    .item {
-        @apply flex items-baseline gap-1;
-    }
+  .item {
+    @apply flex items-baseline gap-1;
+  }
 
-    .link {
-        @apply inline-flex items-center gap-1;
-        @apply text-interactive-default;
-        @apply hover:text-interactive-hover hover:underline;
-        @apply transition-colors duration-200;
-        text-decoration: none;
-    }
+  .link {
+    @apply inline-flex items-center gap-1;
+    @apply text-interactive-default;
+    @apply hover:text-interactive-hover hover:underline;
+    @apply transition-colors duration-200;
+    text-decoration: none;
+  }
 
-    .text {
-        @apply inline-flex items-center gap-1;
-        @apply text-text-secondary;
-    }
+  .text {
+    @apply inline-flex items-center gap-1;
+    @apply text-text-secondary;
+  }
 
-    .current {
-        @apply font-medium text-text-primary;
-    }
+  .current {
+    @apply font-medium text-text-primary;
+  }
 
-    .separator {
-        @apply text-text-tertiary;
-        @apply select-none;
-    }
+  .separator {
+    @apply text-text-tertiary;
+    @apply select-none;
+  }
 
-    .icon {
-        @apply inline-flex items-center;
-    }
+  .icon {
+    @apply inline-flex items-center;
+  }
 
-    /* Sizes */
-    .sizeSmall {
-        @apply text-sm;
-    }
+  /* Sizes */
+  .sizeSmall {
+    @apply text-sm;
+  }
 
-    .sizeMedium {
-        @apply text-base;
-    }
+  .sizeMedium {
+    @apply text-base;
+  }
 
-    .sizeLarge {
-        @apply text-lg;
-    }
+  .sizeLarge {
+    @apply text-lg;
+  }
 }

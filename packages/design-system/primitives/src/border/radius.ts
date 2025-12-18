@@ -17,16 +17,16 @@
  * Choose 1-2 radius values as your primary scale for brand consistency.
  */
 export const radius = {
-  0: "0px",
-  2: "2px",
-  4: "4px",
-  6: "6px",
-  8: "8px",
-  12: "12px",
-  16: "16px",
-  24: "24px",
-  32: "32px",
-  9999: "9999px", // For pill/fully rounded shapes
+  0: '0px',
+  2: '2px',
+  4: '4px',
+  6: '6px',
+  8: '8px',
+  12: '12px',
+  16: '16px',
+  24: '24px',
+  32: '32px',
+  9999: '9999px', // For pill/fully rounded shapes
 } as const;
 
 export type Radius = keyof typeof radius;

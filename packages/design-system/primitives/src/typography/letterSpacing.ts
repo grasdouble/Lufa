@@ -19,12 +19,12 @@
  * - Test with actual text content, not Lorem Ipsum
  */
 export const letterSpacing = {
-  tight: "-0.02em",
-  heading: "-0.01em", // Headings only - avoid for body text
-  normal: "0em",
-  relaxed: "0.01em",
-  readable: "0.04em", // Improved readability for users with dyslexia
-  dyslexia: "0.08em",
+  tight: '-0.02em',
+  heading: '-0.01em', // Headings only - avoid for body text
+  normal: '0em',
+  relaxed: '0.01em',
+  readable: '0.04em', // Improved readability for users with dyslexia
+  dyslexia: '0.08em',
 } as const;
 
 export type LetterSpacing = keyof typeof letterSpacing;

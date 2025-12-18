@@ -21,19 +21,19 @@
  * WCAG 2.2.1: Timing adjustable for users who need more time.
  */
 export const timing = {
-  0: "0ms",
-  50: "50ms",
-  75: "75ms",
-  100: "100ms",
-  150: "150ms",
-  200: "200ms",
-  250: "250ms",
-  300: "300ms",
-  400: "400ms",
-  500: "500ms",
-  600: "600ms",
-  800: "800ms",
-  1000: "1000ms",
+  0: '0ms',
+  50: '50ms',
+  75: '75ms',
+  100: '100ms',
+  150: '150ms',
+  200: '200ms',
+  250: '250ms',
+  300: '300ms',
+  400: '400ms',
+  500: '500ms',
+  600: '600ms',
+  800: '800ms',
+  1000: '1000ms',
 } as const;
 
 export type Timing = keyof typeof timing;

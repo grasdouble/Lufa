@@ -30,10 +30,10 @@
  * NOTE: Keys use dashes instead of dots (1-5 instead of 1.5) for CSS compatibility
  */
 export const iconStroke = {
-  "1": 1, // Thin
-  "1-5": 1.5, // Regular (default)
-  "2": 2, // Bold
-  "2-5": 2.5, // Extra bold
+  '1': 1, // Thin
+  '1-5': 1.5, // Regular (default)
+  '2': 2, // Bold
+  '2-5': 2.5, // Extra bold
 } as const;
 
 export type IconStroke = keyof typeof iconStroke;

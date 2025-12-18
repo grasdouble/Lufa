@@ -17,11 +17,11 @@
  * - Test dotted/dashed borders at different zoom levels
  */
 export const borderStyle = {
-  solid: "solid",
-  dashed: "dashed",
-  dotted: "dotted",
-  double: "double",
-  none: "none",
+  solid: 'solid',
+  dashed: 'dashed',
+  dotted: 'dotted',
+  double: 'double',
+  none: 'none',
 } as const;
 
 export type BorderStyle = keyof typeof borderStyle;

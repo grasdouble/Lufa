@@ -2,7 +2,7 @@ import { Stack as StackCore } from './Stack';
 import { StackItem } from './StackItem';
 
 export const Stack = Object.assign(StackCore, {
-    Item: StackItem,
+  Item: StackItem,
 });
 
 export * from './Stack.constants';

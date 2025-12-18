@@ -1,21 +1,23 @@
 {
-    "name": "@grasdouble/lufa_config_prettier",
-    "version": "0.1.2",
-    "description": "",
-    "main": "index.js",
-    "license": "CC-BY-NC-4.0",
-    "private": false,
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://npm.pkg.github.com"
-    },
-    "files": [
-        "prettier.config.mjs",
-        "README.md",
-        "CHANGELOG.md"
-    ],
-    "dependencies": {},
-    "peerDependencies": {
-        "prettier": "^3.7.3"
-    }
+  "name": "@grasdouble/lufa_config_prettier",
+  "version": "0.1.2",
+  "private": false,
+  "description": "",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "prettier.config.mjs",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "dependencies": {
+    "prettier-plugin-packagejson": "^2.5.20"
+  },
+  "peerDependencies": {
+    "prettier": "^3.7.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  }
 }

@@ -51,10 +51,10 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/focus-appearance.html|WCAG 2.4.11 - Focus Appearance}
  */
 
-import { borderWidth } from "../border/borderWidth.js";
-import { borderStyle } from "../border/borderStyle.js";
-import { color } from "../color/colors.js";
-import { radius } from "../border/radius.js";
+import { borderWidth } from '../border/borderWidth.js';
+import { borderStyle } from '../border/borderStyle.js';
+import { color } from '../color/colors.js';
+import { radius } from '../border/radius.js';
 
 export const focus = {
   /** Default focus ring - solid outline (most UI elements) */
@@ -62,7 +62,7 @@ export const focus = {
     width: borderWidth.thin, // 2px
     style: borderStyle.solid,
     color: color.border.focus,
-    offset: "2px",
+    offset: '2px',
     radius: radius.sm,
   },
   /** Thick focus ring - high visibility (critical actions) */
@@ -70,7 +70,7 @@ export const focus = {
     width: borderWidth.focus, // 3px
     style: borderStyle.solid,
     color: color.border.focus,
-    offset: "2px",
+    offset: '2px',
     radius: radius.sm,
   },
   /** Inset focus ring - contained within element (form inputs) */
@@ -78,7 +78,7 @@ export const focus = {
     width: borderWidth.thin, // 2px
     style: borderStyle.solid,
     color: color.border.focus,
-    offset: "-2px",
+    offset: '-2px',
     radius: radius.sm,
   },
   /** Focus ring with shadow - elevated appearance (cards, modals) */
@@ -86,8 +86,8 @@ export const focus = {
     width: borderWidth.thin, // 2px
     style: borderStyle.solid,
     color: color.border.focus,
-    offset: "0px",
-    shadow: "0 0 0 3px rgb(37 99 235 / 0.2)", // Blue with transparency
+    offset: '0px',
+    shadow: '0 0 0 3px rgb(37 99 235 / 0.2)', // Blue with transparency
     radius: radius.sm,
   },
   /** Inverse focus ring - for dark backgrounds (dark mode) */
@@ -95,7 +95,7 @@ export const focus = {
     width: borderWidth.thin, // 2px
     style: borderStyle.solid,
     color: color.text.inverse,
-    offset: "2px",
+    offset: '2px',
     radius: radius.sm,
   },
 } as const;
@@ -121,7 +121,7 @@ export type Focus = keyof typeof focus;
 export const getFocusStyle = (focusKey: Focus): string => {
   const f = focus[focusKey];
   let style = `outline: ${f.width} ${f.style} ${f.color}; outline-offset: ${f.offset};`;
-  if ("shadow" in f && f.shadow) {
+  if ('shadow' in f && f.shadow) {
     style += ` box-shadow: ${f.shadow};`;
   }
   return style;

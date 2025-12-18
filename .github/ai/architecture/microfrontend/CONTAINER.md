@@ -146,7 +146,7 @@ registerApplication({
 // In browser console or import-map-overrides UI
 localStorage.setItem(
   "import-map-override:@grasdouble/lufa_microfrontend_home",
-  "http://localhost:4101/src/parcel.jsx"
+  "http://localhost:4101/src/parcel.jsx",
 );
 ```
 

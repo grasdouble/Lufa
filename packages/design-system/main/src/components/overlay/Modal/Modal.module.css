@@ -1,100 +1,100 @@
 @reference '../../../tailwind.css';
 
 @layer components {
-    .backdrop {
-        @apply fixed inset-0;
-        z-index: var(--lufa-z-index-modal, 1000);
-        @apply bg-background-overlay;
-        @apply backdrop-blur-sm;
-        @apply flex items-center justify-center;
-        @apply p-base;
-        animation: fadeIn 200ms ease-out;
-    }
+  .backdrop {
+    @apply fixed inset-0;
+    z-index: var(--lufa-z-index-modal, 1000);
+    @apply bg-background-overlay;
+    @apply backdrop-blur-sm;
+    @apply flex items-center justify-center;
+    @apply p-base;
+    animation: fadeIn 200ms ease-out;
+  }
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
     }
+    to {
+      opacity: 1;
+    }
+  }
 
-    .modal {
-        @apply rounded-lg;
-        @apply shadow-2xl;
-        @apply bg-background-primary;
-        @apply flex flex-col;
-        @apply max-h-[90vh];
-        animation: slideIn 200ms ease-out;
-    }
+  .modal {
+    @apply rounded-lg;
+    @apply shadow-2xl;
+    @apply bg-background-primary;
+    @apply flex flex-col;
+    @apply max-h-[90vh];
+    animation: slideIn 200ms ease-out;
+  }
 
-    @keyframes slideIn {
-        from {
-            transform: translateY(-20px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
     }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 
-    /* Sizes */
-    .sizeSmall {
-        @apply w-full;
-        max-width: var(--lufa-token-max-width-modal-sm);
-    }
+  /* Sizes */
+  .sizeSmall {
+    @apply w-full;
+    max-width: var(--lufa-token-max-width-modal-sm);
+  }
 
-    .sizeMedium {
-        @apply w-full;
-        max-width: var(--lufa-token-max-width-modal);
-    }
+  .sizeMedium {
+    @apply w-full;
+    max-width: var(--lufa-token-max-width-modal);
+  }
 
-    .sizeLarge {
-        @apply w-full;
-        max-width: var(--lufa-token-max-width-modal-lg);
-    }
+  .sizeLarge {
+    @apply w-full;
+    max-width: var(--lufa-token-max-width-modal-lg);
+  }
 
-    .sizeFullscreen {
-        @apply h-full w-full max-w-none rounded-none;
-    }
+  .sizeFullscreen {
+    @apply h-full w-full max-w-none rounded-none;
+  }
 
-    /* Header */
-    .header {
-        @apply flex items-center justify-between;
-        @apply border-border-default p-xl border-b;
-    }
+  /* Header */
+  .header {
+    @apply flex items-center justify-between;
+    @apply border-border-default p-xl border-b;
+  }
 
-    .title {
-        @apply reset-heading;
-        @apply text-text-primary text-xl font-semibold;
-    }
+  .title {
+    @apply reset-heading;
+    @apply text-text-primary text-xl font-semibold;
+  }
 
-    .closeButton {
-        @apply reset-button;
-        @apply p-1;
-        @apply rounded-md;
-        @apply hover:bg-background-secondary;
-        @apply duration-fast transition-colors;
-        @apply text-text-tertiary hover:text-text-primary;
-        cursor: var(--lufa-token-cursor-pointer);
-    }
+  .closeButton {
+    @apply reset-button;
+    @apply p-1;
+    @apply rounded-md;
+    @apply hover:bg-background-secondary;
+    @apply duration-fast transition-colors;
+    @apply text-text-tertiary hover:text-text-primary;
+    cursor: var(--lufa-token-cursor-pointer);
+  }
 
-    .closeButton svg {
-        @apply h-5 w-5;
-    }
+  .closeButton svg {
+    @apply h-5 w-5;
+  }
 
-    /* Content */
-    .content {
-        @apply p-xl;
-        @apply overflow-y-auto;
-        @apply text-text-secondary;
-    }
+  /* Content */
+  .content {
+    @apply p-xl;
+    @apply overflow-y-auto;
+    @apply text-text-secondary;
+  }
 
-    /* Footer */
-    .footer {
-        @apply border-border-default p-xl border-t;
-        @apply gap-sm flex items-center justify-end;
-    }
+  /* Footer */
+  .footer {
+    @apply border-border-default p-xl border-t;
+    @apply gap-sm flex items-center justify-end;
+  }
 }

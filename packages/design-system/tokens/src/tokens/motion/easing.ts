@@ -33,7 +33,7 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html|WCAG 2.1 - Animation from Interactions}
  */
 
-import { easing as primitiveEasing } from "@grasdouble/lufa_design-system-primitives";
+import { easing as primitiveEasing } from '@grasdouble/lufa_design-system-primitives';
 
 export const easing = {
   /** Ease in - Gentle acceleration (elements entering) */

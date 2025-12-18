@@ -38,10 +38,10 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html|WCAG 2.1 - Text Spacing}
  */
 
-import { fontSize } from "./fontSize.js";
-import { fontWeight } from "./fontWeight.js";
-import { lineHeight } from "./lineHeight.js";
-import { letterSpacing } from "./letterSpacing.js";
+import { fontSize } from './fontSize.js';
+import { fontWeight } from './fontWeight.js';
+import { lineHeight } from './lineHeight.js';
+import { letterSpacing } from './letterSpacing.js';
 
 /**
  * Typography scale presets
@@ -69,35 +69,35 @@ import { letterSpacing } from "./letterSpacing.js";
 export const typographyScale = {
   /** H1 - 60px, tight, bold (hero headings) */
   h1: {
-    fontSize: fontSize["6xl"],
+    fontSize: fontSize['6xl'],
     lineHeight: lineHeight.tight,
     fontWeight: fontWeight.bold,
     letterSpacing: letterSpacing.tight,
   },
   /** H2 - 48px, tight, bold (page titles) */
   h2: {
-    fontSize: fontSize["5xl"],
+    fontSize: fontSize['5xl'],
     lineHeight: lineHeight.tight,
     fontWeight: fontWeight.bold,
     letterSpacing: letterSpacing.tight,
   },
   /** H3 - 36px, snug, semibold (section headings) */
   h3: {
-    fontSize: fontSize["4xl"],
+    fontSize: fontSize['4xl'],
     lineHeight: lineHeight.snug,
     fontWeight: fontWeight.semibold,
     letterSpacing: letterSpacing.normal,
   },
   /** H4 - 30px, snug, semibold (subsection headings) */
   h4: {
-    fontSize: fontSize["3xl"],
+    fontSize: fontSize['3xl'],
     lineHeight: lineHeight.snug,
     fontWeight: fontWeight.semibold,
     letterSpacing: letterSpacing.normal,
   },
   /** H5 - 24px, base, semibold (component headings) */
   h5: {
-    fontSize: fontSize["2xl"],
+    fontSize: fontSize['2xl'],
     lineHeight: lineHeight.base,
     fontWeight: fontWeight.semibold,
     letterSpacing: letterSpacing.normal,

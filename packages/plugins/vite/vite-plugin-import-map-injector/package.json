@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "description": "",
   "main": "index.mjs",
-  "license": "CC-BY-NC-4.0",
+  "license": "MIT",
   "private": false,
   "publishConfig": {
     "access": "public",

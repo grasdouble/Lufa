@@ -3,7 +3,13 @@ import { Avatar, Badge, Stack, tokens } from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +20,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -40,7 +52,11 @@ const UserLabel = ({ name, role }: { name: string; role: string }) => (
 export const LiveDemo = () => (
   <Frame title="live demo">
     <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-      <Avatar src={svgAvatar("SL", color.interactive.default)} alt="Profile picture" status="online" />
+      <Avatar
+        src={svgAvatar("SL", color.interactive.default)}
+        alt="Profile picture"
+        status="online"
+      />
       <UserLabel name="Sébastien" role="Admin" />
       <Badge variant="success" rounded>
         Online
@@ -51,11 +67,33 @@ export const LiveDemo = () => (
 
 export const Size = () => (
   <Frame title="size">
-    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12 }}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+        gap: 12,
+      }}
+    >
       {(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
-        <div key={size} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <Avatar size={size} src={svgAvatar(size.toUpperCase(), color.brand.secondary)} alt={`Avatar size ${size}`} />
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>{size}</div>
+        <div
+          key={size}
+          style={{ display: "flex", alignItems: "center", gap: 8 }}
+        >
+          <Avatar
+            size={size}
+            src={svgAvatar(size.toUpperCase(), color.brand.secondary)}
+            alt={`Avatar size ${size}`}
+          />
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              fontSize: 12,
+            }}
+          >
+            {size}
+          </div>
         </div>
       ))}
     </div>
@@ -64,18 +102,59 @@ export const Size = () => (
 
 export const Variant = () => (
   <Frame title="variant">
-    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 16 }}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+        gap: 16,
+      }}
+    >
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <Avatar variant="circle" src={svgAvatar("C", color.interactive.default)} alt="Circle avatar" status="away" />
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>circle</div>
+        <Avatar
+          variant="circle"
+          src={svgAvatar("C", color.interactive.default)}
+          alt="Circle avatar"
+          status="away"
+        />
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            fontSize: 12,
+          }}
+        >
+          circle
+        </div>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <Avatar variant="square" src={svgAvatar("S", color.brand.secondary)} alt="Square avatar" status="busy" />
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>square</div>
+        <Avatar
+          variant="square"
+          src={svgAvatar("S", color.brand.secondary)}
+          alt="Square avatar"
+          status="busy"
+        />
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            fontSize: 12,
+          }}
+        >
+          square
+        </div>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
         <Avatar variant="count" count="+12" />
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>count</div>
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            fontSize: 12,
+          }}
+        >
+          count
+        </div>
       </div>
     </div>
   </Frame>
@@ -83,27 +162,87 @@ export const Variant = () => (
 
 export const Status = () => (
   <Frame title="status">
-    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 16 }}>
-      {(["online", "offline", "away", "busy", "none"] as const).map((status) => (
-        <div key={status} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <Avatar src={svgAvatar(status.slice(0, 1).toUpperCase(), color.interactive.default)} alt={`Status ${status}`} status={status} />
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>{status}</div>
-        </div>
-      ))}
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+        gap: 16,
+      }}
+    >
+      {(["online", "offline", "away", "busy", "none"] as const).map(
+        (status) => (
+          <div
+            key={status}
+            style={{ display: "flex", alignItems: "center", gap: 10 }}
+          >
+            <Avatar
+              src={svgAvatar(
+                status.slice(0, 1).toUpperCase(),
+                color.interactive.default,
+              )}
+              alt={`Status ${status}`}
+              status={status}
+            />
+            <div
+              style={{
+                fontFamily: "monospace",
+                color: color.text.tertiary,
+                fontSize: 12,
+              }}
+            >
+              {status}
+            </div>
+          </div>
+        ),
+      )}
     </div>
   </Frame>
 );
 
 export const StatusPosition = () => (
   <Frame title="statusPosition">
-    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 16 }}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+        gap: 16,
+      }}
+    >
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <Avatar src={svgAvatar("T", color.brand.secondary)} alt="Status position top" status="online" statusPosition="top" />
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>top</div>
+        <Avatar
+          src={svgAvatar("T", color.brand.secondary)}
+          alt="Status position top"
+          status="online"
+          statusPosition="top"
+        />
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            fontSize: 12,
+          }}
+        >
+          top
+        </div>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <Avatar src={svgAvatar("B", color.brand.secondary)} alt="Status position bottom" status="online" statusPosition="bottom" />
-        <div style={{ fontFamily: "monospace", color: color.text.tertiary, fontSize: 12 }}>bottom</div>
+        <Avatar
+          src={svgAvatar("B", color.brand.secondary)}
+          alt="Status position bottom"
+          status="online"
+          statusPosition="bottom"
+        />
+        <div
+          style={{
+            fontFamily: "monospace",
+            color: color.text.tertiary,
+            fontSize: 12,
+          }}
+        >
+          bottom
+        </div>
       </div>
     </div>
   </Frame>
@@ -112,17 +251,30 @@ export const StatusPosition = () => (
 export const CommentHeaderExample = () => (
   <Frame title="comment header">
     <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-      <Avatar src={svgAvatar("JD", color.interactive.default)} status="online" />
+      <Avatar
+        src={svgAvatar("JD", color.interactive.default)}
+        status="online"
+      />
       <div style={{ flex: 1 }}>
-        <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 6 }}>
-          <div style={{ fontWeight: 600, color: color.text.primary }}>Jane Doe</div>
+        <div
+          style={{
+            display: "flex",
+            gap: 10,
+            alignItems: "center",
+            marginBottom: 6,
+          }}
+        >
+          <div style={{ fontWeight: 600, color: color.text.primary }}>
+            Jane Doe
+          </div>
           <Badge variant="info" rounded>
             Moderator
           </Badge>
           <div style={{ color: color.text.tertiary, fontSize: 12 }}>2h ago</div>
         </div>
         <div style={{ color: color.text.secondary }}>
-          Avatar works well as a leading element for comments, activity feeds, and list rows.
+          Avatar works well as a leading element for comments, activity feeds,
+          and list rows.
         </div>
       </div>
     </div>
@@ -131,7 +283,14 @@ export const CommentHeaderExample = () => (
 
 export const CountAvatarExample = () => (
   <Frame title="overflow count">
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 16,
+      }}
+    >
       <UserLabel name="Reviewers" role="5 people" />
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
         <Avatar src={svgAvatar("AL", color.interactive.default)} alt="Alice" />

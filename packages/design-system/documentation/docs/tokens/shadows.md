@@ -13,11 +13,11 @@ Lufa provides a set of elevation tokens that create consistent depth across your
 ### Shadow Tokens
 
 ```css
---lufa-shadow-xs: /* Subtle shadow for subtle elevation */
---lufa-shadow-sm: /* Small shadow for cards and buttons */
---lufa-shadow-md: /* Medium shadow for dropdowns */
---lufa-shadow-lg: /* Large shadow for modals */
---lufa-shadow-xl: /* Extra large shadow for overlays */
+--lufa-shadow-xs: /* Subtle shadow for subtle elevation */ --lufa-shadow-sm:
+  /* Small shadow for cards and buttons */
+  --lufa-shadow-md: /* Medium shadow for dropdowns */
+  --lufa-shadow-lg: /* Large shadow for modals */
+  --lufa-shadow-xl: /* Extra large shadow for overlays */;
 ```
 
 ## Elevation Levels
@@ -148,7 +148,9 @@ Use shadows to establish visual hierarchy:
 /* Use transform for better performance on hover */
 .button {
   box-shadow: var(--lufa-shadow-sm);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .button:hover {

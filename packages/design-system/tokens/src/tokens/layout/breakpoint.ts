@@ -27,7 +27,7 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/reflow.html|WCAG 2.1 - Reflow}
  */
 
-import { breakpoint as primitiveBreakpoint } from "@grasdouble/lufa_design-system-primitives";
+import { breakpoint as primitiveBreakpoint } from '@grasdouble/lufa_design-system-primitives';
 
 export const breakpoint = {
   /** Mobile - 480px and up */
@@ -41,7 +41,7 @@ export const breakpoint = {
   /** Large desktop - 1440px and up */
   xl: primitiveBreakpoint[1440],
   /** Extra large desktop - 1920px and up */
-  "2xl": primitiveBreakpoint[1920],
+  '2xl': primitiveBreakpoint[1920],
 } as const;
 
 export type Breakpoint = keyof typeof breakpoint;

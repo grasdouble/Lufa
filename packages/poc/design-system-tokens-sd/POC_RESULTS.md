@@ -14,7 +14,6 @@ This proof of concept demonstrates using [Style Dictionary v5](https://github.co
 ### ✅ What Was Built
 
 1. **Token Definitions in JSON Format**
-
    - `tokens/colors.json` - Primitive and semantic color tokens
    - `tokens/spacing.json` - Spacing scale
    - `tokens/typography.json` - Font families, sizes, weights, line heights
@@ -22,13 +21,11 @@ This proof of concept demonstrates using [Style Dictionary v5](https://github.co
    - `tokens/shadows.json` - Box shadow definitions
 
 2. **Style Dictionary Configuration**
-
    - Multi-platform build setup (CSS, JSON, JS)
    - Automatic token reference resolution
    - Transform groups for different output formats
 
 3. **Generated Outputs**
-
    - `dist/tokens.css` - CSS custom properties (~9 KB)
    - `dist/tokens.json` - Flat JSON format
    - `dist/tokens.js` - ES6 module exports
@@ -74,7 +71,8 @@ Single source generates three formats:
   --color-semantic-interactive-default: #3b82f6;
   --spacing-md: 16px;
   --radius-lg: 12px;
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 ```
 
@@ -137,26 +135,22 @@ platforms: {
 ### Strengths Discovered
 
 1. **Token Reference Resolution**
-
    - Automatic resolution of `{token.path}` references
    - Can output CSS with `var()` references for better performance
    - Clear error messages when references are broken
 
 2. **Configuration-Driven**
-
    - Declarative configuration vs imperative scripts
    - Easy to understand platform setup
    - Minimal boilerplate code
 
 3. **Built-in Transforms**
-
    - Automatic naming convention conversions
    - Color format transformations (hex, rgb, hsl)
    - Unit conversions (px, rem, em)
    - Size transformations
 
 4. **Type Support**
-
    - JSON schema supports `"type": "color"`, `"type": "spacing"`, etc.
    - Enables type-specific transformations
    - Better token validation
@@ -169,7 +163,6 @@ platforms: {
 ### Challenges Encountered
 
 1. **Style Dictionary v5 API Changes**
-
    - v5 introduced breaking changes from v4
    - New API uses `new StyleDictionary()` constructor pattern
    - Configuration is now programmatic rather than CLI-based
@@ -177,20 +170,17 @@ platforms: {
    - Better for programmatic control, but requires migration from v4
 
 2. **TypeScript Integration**
-
    - Generated JavaScript files don't include TypeScript definitions
    - Had to disable re-exports in index.ts
    - Would need custom format for `.d.ts` generation
 
 3. **Learning Curve**
-
    - Style Dictionary API requires learning
    - Configuration syntax different from typical JS/TS patterns
    - Team would need time to adopt
    - v5 API is more powerful but more complex than v4
 
 4. **CSS Variable Prefixes**
-
    - Default naming doesn't include custom prefix (e.g., `--lufa-`)
    - Would need custom name transform
    - Current output: `--color-semantic-*` vs desired: `--lufa-color-semantic-*`

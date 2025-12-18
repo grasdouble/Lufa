@@ -16,7 +16,7 @@
  * - Maintain sufficient contrast on elevated surfaces (WCAG 1.4.3)
  */
 
-import { shadow as primitiveShadow } from "@grasdouble/lufa_design-system-primitives";
+import { shadow as primitiveShadow } from '@grasdouble/lufa_design-system-primitives';
 
 export const shadow = {
   /** No shadow (flat) */
@@ -32,15 +32,15 @@ export const shadow = {
   /** 0px 20px 25px - Extra large elevation (modals, dialogs) */
   xl: primitiveShadow.xl,
   /** 0px 25px 50px - Huge elevation (floating actions) */
-  "2xl": primitiveShadow["2xl"],
+  '2xl': primitiveShadow['2xl'],
   /** 0px 30px 60px - Very huge elevation (hero sections) */
-  "3xl": primitiveShadow["3xl"],
+  '3xl': primitiveShadow['3xl'],
   /** 0px 35px 70px - Extreme elevation (dramatic emphasis) */
-  "4xl": primitiveShadow["4xl"],
+  '4xl': primitiveShadow['4xl'],
   /** 0px 40px 80px - Maximum elevation (use sparingly) */
-  "5xl": primitiveShadow["5xl"],
+  '5xl': primitiveShadow['5xl'],
   /** Inset shadow for inner depth */
-  inner: "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+  inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
 } as const;
 
 export type Shadow = keyof typeof shadow;

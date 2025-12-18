@@ -54,10 +54,7 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html|WCAG 2.1 - Animation from Interactions}
  */
 
-import {
-  timing as primitiveTiming,
-  easing as primitiveEasing,
-} from "@grasdouble/lufa_design-system-primitives";
+import { timing as primitiveTiming, easing as primitiveEasing } from '@grasdouble/lufa_design-system-primitives';
 
 export const transition = {
   /** Fast - 150ms (micro-interactions, hovers) */
@@ -69,7 +66,7 @@ export const transition = {
   /** Colors - 150ms (color changes only) */
   colors: `color ${primitiveTiming[150]} ${primitiveEasing.easeInOut}, background-color ${primitiveTiming[150]} ${primitiveEasing.easeInOut}, border-color ${primitiveTiming[150]} ${primitiveEasing.easeInOut}`,
   /** None - disable transitions (reduced motion) */
-  none: "none",
+  none: 'none',
 } as const;
 
 export type Transition = keyof typeof transition;

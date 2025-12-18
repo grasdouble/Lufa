@@ -3,7 +3,13 @@ import { Pagination, Stack, tokens } from "@grasdouble/lufa_design-system";
 
 const { color } = tokens;
 
-const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
+const Frame = ({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) => (
   <div
     style={{
       padding: "20px",
@@ -14,7 +20,13 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
     }}
   >
     {title ? (
-      <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 12 }}>
+      <div
+        style={{
+          fontFamily: "monospace",
+          color: color.text.tertiary,
+          marginBottom: 12,
+        }}
+      >
         {title}
       </div>
     ) : null}
@@ -47,7 +59,15 @@ export const Size = () => {
     <Frame title="size">
       <Stack gap="spacious">
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>small</div>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            small
+          </div>
           <Pagination
             size="small"
             current={currentSmall}
@@ -57,7 +77,15 @@ export const Size = () => {
           />
         </div>
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>medium (default)</div>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            medium (default)
+          </div>
           <Pagination
             current={currentMedium}
             total={100}
@@ -66,7 +94,15 @@ export const Size = () => {
           />
         </div>
         <div>
-          <div style={{ fontFamily: "monospace", color: color.text.tertiary, marginBottom: 8 }}>large</div>
+          <div
+            style={{
+              fontFamily: "monospace",
+              color: color.text.tertiary,
+              marginBottom: 8,
+            }}
+          >
+            large
+          </div>
           <Pagination
             size="large"
             current={currentLarge}
@@ -167,7 +203,13 @@ export const LargeDatasetPaginationExample = () => {
 
   return (
     <Frame title="large dataset">
-      <Pagination current={current} total={500} pageSize={10} onChange={setCurrent} showQuickJumper />
+      <Pagination
+        current={current}
+        total={500}
+        pageSize={10}
+        onChange={setCurrent}
+        showQuickJumper
+      />
     </Frame>
   );
 };

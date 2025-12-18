@@ -14,10 +14,7 @@
  * - Values based on spacing and maxWidths primitives
  */
 
-import {
-  spacing as primitiveSpacing,
-  maxWidth as primitiveMaxWidth,
-} from "@grasdouble/lufa_design-system-primitives";
+import { spacing as primitiveSpacing, maxWidth as primitiveMaxWidth } from '@grasdouble/lufa_design-system-primitives';
 
 export const dimension = {
   // Navigation heights
@@ -46,7 +43,7 @@ export const dimension = {
   inputHeightLarge: primitiveSpacing[48],
 
   // Card/Panel minimum widths
-  cardMinWidth: "280px", // Custom value between 256 and 288
+  cardMinWidth: '280px', // Custom value between 256 and 288
   cardDefaultWidth: primitiveMaxWidth[360],
 
   // Modal widths

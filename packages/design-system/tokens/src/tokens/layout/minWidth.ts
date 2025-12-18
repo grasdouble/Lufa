@@ -16,10 +16,7 @@
  * - Test on mobile devices for usability
  */
 
-import {
-  spacing as primitiveSpacing,
-  maxWidth as primitiveMaxWidths,
-} from "@grasdouble/lufa_design-system-primitives";
+import { spacing as primitiveSpacing, maxWidth as primitiveMaxWidths } from '@grasdouble/lufa_design-system-primitives';
 
 export const minWidth = {
   // Button/Control minimums
@@ -27,22 +24,22 @@ export const minWidth = {
   inputMin: primitiveSpacing[120],
 
   // Content minimums
-  cardMin: "240px", // Custom value between 256 and 288 primitives
-  sidebarMin: "200px", // Custom value
+  cardMin: '240px', // Custom value between 256 and 288 primitives
+  sidebarMin: '200px', // Custom value
 
   // Component minimums
-  xs: "280px", // Custom value between 256 and 288
+  xs: '280px', // Custom value between 256 and 288
   sm: primitiveMaxWidths[320],
-  md: "480px", // Custom value between 448 and 512
+  md: '480px', // Custom value between 448 and 512
   lg: primitiveMaxWidths[640],
   xl: primitiveMaxWidths[768],
 
   // Special values
-  none: "0",
+  none: '0',
   full: primitiveMaxWidths.full,
-  fitContent: "fit-content",
-  minContent: "min-content",
-  maxContent: "max-content",
+  fitContent: 'fit-content',
+  minContent: 'min-content',
+  maxContent: 'max-content',
 } as const;
 
 export type MinWidth = keyof typeof minWidth;

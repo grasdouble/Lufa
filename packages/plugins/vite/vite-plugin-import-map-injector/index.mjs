@@ -20,31 +20,31 @@ export default function importMapPlugin({
 
       if (fs.existsSync(extImportMapPath)) {
         extImportMapContent = JSON.parse(
-          fs.readFileSync(extImportMapPath, "utf-8")
+          fs.readFileSync(extImportMapPath, "utf-8"),
         );
       } else {
         console.warn(
-          `[vite-plugin-importmap-injector] ⚠️ import-map for externals not found: ${extImportMapPath}`
+          `[vite-plugin-importmap-injector] ⚠️ import-map for externals not found: ${extImportMapPath}`,
         );
       }
 
       if (fs.existsSync(prodImportMapPath)) {
         prodImportMapContent = JSON.parse(
-          fs.readFileSync(prodImportMapPath, "utf-8")
+          fs.readFileSync(prodImportMapPath, "utf-8"),
         );
       } else {
         console.warn(
-          `[vite-plugin-importmap-injector] ⚠️ import-map for production not found: ${prodImportMapPath}`
+          `[vite-plugin-importmap-injector] ⚠️ import-map for production not found: ${prodImportMapPath}`,
         );
       }
 
       if (isDev && fs.existsSync(devImportMapPath)) {
         devImportMapContent = JSON.parse(
-          fs.readFileSync(devImportMapPath, "utf-8")
+          fs.readFileSync(devImportMapPath, "utf-8"),
         );
       } else if (isDev) {
         console.warn(
-          `[vite-plugin-importmap-injector] ⚠️ import-map for development not found: ${devImportMapPath}`
+          `[vite-plugin-importmap-injector] ⚠️ import-map for development not found: ${devImportMapPath}`,
         );
       }
 
@@ -63,7 +63,7 @@ export default function importMapPlugin({
         `<script type="importmap">${JSON.stringify(
           extImportMapContent,
           null,
-          2
+          2,
         )}</script>`,
       ];
 
@@ -72,8 +72,8 @@ export default function importMapPlugin({
           `<script type="importmap" overridable="true">${JSON.stringify(
             mergedImportMap,
             null,
-            2
-          )}</script>`
+            2,
+          )}</script>`,
         );
       }
 
