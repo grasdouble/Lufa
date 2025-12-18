@@ -1,24 +1,25 @@
-import express, { type Request, type Response, type NextFunction } from 'express';
-import path from 'path';
-import fs from 'fs-extra';
 import os from 'os';
-
+import path from 'path';
+import type { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
+import express from 'express';
+import fs from 'fs-extra';
 
 import '@dotenvx/dotenvx/config';
 
+import type { ExtractedParams, LoadLibraryResult, PackageJson } from './types.js';
+import type { ExtractParamsProps } from './utils.js';
 import { CorsError, corsOptions, getRateLimiter, ipBlockMiddleware, unblockIPsAfterTimeout } from './security.js';
-import { extractParams, ExtractParamsProps, loadLibrary, sendEntry } from './utils.js';
-import { ExtractedParams, LoadLibraryResult, PackageJson } from './types.js';
+import { extractParams, loadLibrary, sendEntry } from './utils.js';
 
 const app: express.Application = express();
 // Enable trust proxy to get proper IPs behind proxies
 app.set('trust proxy', true);
 
 // TMP and CDN directories
-const PORT = process.env.PORT || 3000;
-const TMP_DIR = process.env.TMP_DIR || path.join(os.tmpdir(), 'tmp_cdn');
-const CDN_DIR = process.env.CDN_DIR || path.join(os.tmpdir(), 'cdn');
+const PORT = process.env.PORT ?? 3000;
+const TMP_DIR = process.env.TMP_DIR ?? path.join(os.tmpdir(), 'tmp_cdn');
+const CDN_DIR = process.env.CDN_DIR ?? path.join(os.tmpdir(), 'cdn');
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('Environment variable GITHUB_TOKEN is required but not defined.');
 }
@@ -30,7 +31,7 @@ const limiter = getRateLimiter(blockedIPs);
 
 // Route to unblock the IP of the user making the request
 app.get('/unblock-ip', (req: Request, res: Response): void => {
-  const clientIP = req.ip || req.connection.remoteAddress;
+  const clientIP = req.ip ?? req.socket.remoteAddress;
 
   if (clientIP && blockedIPs.has(clientIP)) {
     // Delete the IP from the blocked IP list

@@ -1,12 +1,14 @@
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from 'react';
+
 import styles from './Center.module.css';
 
 export type CenterAxis = 'both' | 'horizontal' | 'vertical';
 
 type CenterElement = 'div' | 'span' | 'section' | 'main' | 'article';
 
-export interface CenterProps extends HTMLAttributes<HTMLElement> {
+export type CenterProps = {
   /** The HTML element to render */
   as?: CenterElement;
   /** Which axis to center on */
@@ -16,7 +18,7 @@ export interface CenterProps extends HTMLAttributes<HTMLElement> {
   /** Optional min-height for the container (CSS length) */
   minHeight?: number | string;
   children?: ReactNode;
-}
+} & HTMLAttributes<HTMLElement>;
 
 const toCssLength = (value?: string | number) => {
   if (value === undefined) return undefined;

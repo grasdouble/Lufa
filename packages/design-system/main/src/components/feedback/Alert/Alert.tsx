@@ -1,7 +1,8 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+
 import styles from './Alert.module.css';
 
-export interface AlertProps {
+export type AlertProps = {
   /** Alert content */
   children: ReactNode;
   /** Alert title */
@@ -16,7 +17,7 @@ export interface AlertProps {
   icon?: ReactNode;
   /** Additional CSS classes */
   className?: string;
-}
+};
 
 export const Alert = ({
   children,
@@ -77,7 +78,7 @@ export const Alert = ({
 
   return (
     <div className={alertClassName} role="alert">
-      <div className={styles.iconWrapper}>{icon || defaultIcon}</div>
+      <div className={styles.iconWrapper}>{icon ?? defaultIcon}</div>
       <div className={styles.content}>
         {title && <h4 className={styles.title}>{title}</h4>}
         <div className={styles.message}>{children}</div>

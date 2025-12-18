@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+
 import { Button, Typography } from '@grasdouble/lufa_design-system';
+
 import styles from './ThemeSwitcher.module.css';
 
 export type Theme = 'default' | 'ocean' | 'forest';
 
-export interface ThemeSwitcherProps {
+export type ThemeSwitcherProps = {
   /**
    * Default theme to use
    * @default 'default'
@@ -24,7 +26,7 @@ export interface ThemeSwitcherProps {
    * @default true
    */
   showLabel?: boolean;
-}
+};
 
 /**
  * ThemeSwitcher component allows users to switch between different color themes.

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { timing, easing } from '@grasdouble/lufa_design-system-primitives';
+
+import { easing, timing } from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Motion',
@@ -275,7 +276,7 @@ export const CombinedExamples: Story = {
               const modal = e.currentTarget.nextElementSibling as HTMLElement;
               modal.style.opacity = modal.style.opacity === '1' ? '0' : '1';
               modal.style.pointerEvents = modal.style.opacity === '1' ? 'auto' : 'none';
-              const content = modal.querySelector('[data-modal-content]') as HTMLElement;
+              const content = modal.querySelector('[data-modal-content]')!;
               if (content) {
                 content.style.transform = modal.style.opacity === '1' ? 'scale(1)' : 'scale(0.95)';
               }
@@ -309,7 +310,7 @@ export const CombinedExamples: Story = {
               if (e.target === e.currentTarget) {
                 e.currentTarget.style.opacity = '0';
                 e.currentTarget.style.pointerEvents = 'none';
-                const content = e.currentTarget.querySelector('[data-modal-content]') as HTMLElement;
+                const content = e.currentTarget.querySelector('[data-modal-content]')!;
                 if (content) {
                   content.style.transform = 'scale(0.95)';
                 }
@@ -334,11 +335,11 @@ export const CombinedExamples: Story = {
               </p>
               <button
                 onClick={(e) => {
-                  const modal = e.currentTarget.closest('[style*="position: fixed"]') as HTMLElement;
+                  const modal = e.currentTarget.closest('[style*="position: fixed"]')!;
                   if (modal) {
                     modal.style.opacity = '0';
                     modal.style.pointerEvents = 'none';
-                    const content = modal.querySelector('[data-modal-content]') as HTMLElement;
+                    const content = modal.querySelector('[data-modal-content]')!;
                     if (content) {
                       content.style.transform = 'scale(0.95)';
                     }

@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button, Input, Card, Badge, Alert, Typography } from '@grasdouble/lufa_design-system';
+
+import { Alert, Badge, Button, Card, Input, Typography } from '@grasdouble/lufa_design-system';
+
 import { ThemeSwitcher } from '../../components/ThemeSwitcher';
 
 const meta = {
@@ -73,7 +75,7 @@ export const Interactive: Story = {
 
       {/* Theme Switcher - Centered */}
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
-        <ThemeSwitcher variant="tabs" showLabel={true} />
+        <ThemeSwitcher variant="tabs" showLabel />
       </div>
 
       {/* Component Showcase */}

@@ -1,55 +1,47 @@
-import { writeFileSync, mkdirSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { borderStyle } from '../dist/tokens/border/borderStyle.js';
 // Import token tokens - using new organized structure
 // Border
 import { borderWidth } from '../dist/tokens/border/borderWidth.js';
-import { borderStyle } from '../dist/tokens/border/borderStyle.js';
 import { radius } from '../dist/tokens/border/radius.js';
-
 // Color
 import { color } from '../dist/tokens/color/colors.js';
-
 // Effects
 import { blur } from '../dist/tokens/effects/blur.js';
-import { opacity } from '../dist/tokens/effects/opacity.js';
 import { cursor } from '../dist/tokens/effects/cursor.js';
+import { opacity } from '../dist/tokens/effects/opacity.js';
 import { transform } from '../dist/tokens/effects/transform.js';
-
 // Elevation
 import { shadow } from '../dist/tokens/elevation/shadow.js';
 import { zIndex } from '../dist/tokens/elevation/zIndex.js';
-
 // Icon
 import { iconSize } from '../dist/tokens/icon/iconSize.js';
 import { iconStroke } from '../dist/tokens/icon/iconStroke.js';
-
+import { aspectRatio } from '../dist/tokens/layout/aspectRatio.js';
 // Layout
 import { breakpoint } from '../dist/tokens/layout/breakpoint.js';
-import { grid } from '../dist/tokens/layout/grid.js';
-import { aspectRatio } from '../dist/tokens/layout/aspectRatio.js';
 import { container } from '../dist/tokens/layout/container.js';
 import { dimension } from '../dist/tokens/layout/dimension.js';
+import { grid } from '../dist/tokens/layout/grid.js';
 import { minWidth } from '../dist/tokens/layout/minWidth.js';
-
+import { advancedDuration } from '../dist/tokens/motion/advancedDuration.js';
 // Motion
 import { easing } from '../dist/tokens/motion/easing.js';
 import { timing } from '../dist/tokens/motion/timing.js';
 import { transition } from '../dist/tokens/motion/transition.js';
-import { advancedDuration } from '../dist/tokens/motion/advancedDuration.js';
-
+import { maxWidth } from '../dist/tokens/space/maxWidth.js';
+import { size } from '../dist/tokens/space/size.js';
 // Space
 import { spacing } from '../dist/tokens/space/spacing.js';
-import { size } from '../dist/tokens/space/size.js';
-import { maxWidth } from '../dist/tokens/space/maxWidth.js';
-
 // Typography
 import { fontFamily } from '../dist/tokens/typography/fontFamily.js';
 import { fontSize } from '../dist/tokens/typography/fontSize.js';
 import { fontWeight } from '../dist/tokens/typography/fontWeight.js';
-import { lineHeight } from '../dist/tokens/typography/lineHeight.js';
 import { letterSpacing } from '../dist/tokens/typography/letterSpacing.js';
+import { lineHeight } from '../dist/tokens/typography/lineHeight.js';
 import { measure } from '../dist/tokens/typography/measure.js';
 
 const __filename = fileURLToPath(import.meta.url);

@@ -1,5 +1,7 @@
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from 'react';
+
 import styles from './Container.module.css';
 
 export type ContainerSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full' | 'fluid';
@@ -8,7 +10,7 @@ export type ContainerSpacing = 'none' | 'xxs' | 'xs' | 'sm' | 'md' | 'base' | 'l
 
 type ContainerElement = 'div' | 'main' | 'section' | 'article' | 'header' | 'footer' | 'aside' | 'nav';
 
-export interface ContainerProps extends HTMLAttributes<HTMLElement> {
+export type ContainerProps = {
   /** The HTML element to render */
   as?: ContainerElement;
   /** Max-width constraint */
@@ -21,7 +23,7 @@ export interface ContainerProps extends HTMLAttributes<HTMLElement> {
   paddingY?: ContainerSpacing;
   /** Content */
   children?: ReactNode;
-}
+} & HTMLAttributes<HTMLElement>;
 
 /** Layout container with token-based max widths and optional padding */
 export const Container = forwardRef<HTMLElement, ContainerProps>(

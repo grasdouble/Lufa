@@ -1,13 +1,15 @@
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from 'react';
+
 import styles from './Layout.module.css';
 
 type HeaderElement = 'header' | 'div';
 
-export interface LayoutHeaderProps extends HTMLAttributes<HTMLElement> {
+export type LayoutHeaderProps = {
   as?: HeaderElement;
   children?: ReactNode;
-}
+} & HTMLAttributes<HTMLElement>;
 
 export const LayoutHeader = forwardRef<HTMLElement, LayoutHeaderProps>(
   ({ as = 'header', className, ...props }, ref) => {

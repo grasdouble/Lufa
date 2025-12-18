@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Container, Grid, GRID_COLUMNS, GRID_GUTTER, Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
 import { Fragment } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+
+import { Container, Grid, GRID_COLUMNS, GRID_GUTTER, Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
@@ -56,7 +57,7 @@ export const Playground: Story = {
 export const Columns: Story = {
   render: () => (
     <Stack direction="vertical" gap="spacious">
-      {(Object.values(GRID_COLUMNS) as Array<keyof typeof GRID_COLUMNS>).map((columns) => (
+      {Object.values(GRID_COLUMNS).map((columns) => (
         <div key={columns}>
           <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>
             columns: {columns}
@@ -86,7 +87,7 @@ export const Columns: Story = {
 export const Gutters: Story = {
   render: () => (
     <Stack direction="vertical" gap="spacious">
-      {(Object.values(GRID_GUTTER) as Array<keyof typeof GRID_GUTTER>).map((gutter) => (
+      {Object.values(GRID_GUTTER).map((gutter) => (
         <div key={gutter}>
           <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>
             gutter: {gutter}

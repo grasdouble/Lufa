@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button, Container, Stack, tokens } from '@grasdouble/lufa_design-system';
 import { Fragment } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+
+import { Button, Container, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 

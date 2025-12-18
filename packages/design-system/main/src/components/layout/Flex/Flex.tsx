@@ -1,14 +1,16 @@
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from 'react';
-import styles from './Flex.module.css';
-import { FLEX_ALIGN, FLEX_DIRECTION, FLEX_JUSTIFY, FLEX_WRAP } from './Flex.constants';
-import { SPACE_SIZE } from '../Space/Space.constants';
 
-export type FlexGap = keyof typeof SPACE_SIZE | number | string;
+import { SPACE_SIZE } from '../Space/Space.constants';
+import { FLEX_ALIGN, FLEX_DIRECTION, FLEX_JUSTIFY, FLEX_WRAP } from './Flex.constants';
+import styles from './Flex.module.css';
+
+export type FlexGap = keyof typeof SPACE_SIZE | number;
 
 type FlexElement = 'div' | 'span' | 'section' | 'nav' | 'header' | 'footer' | 'main' | 'article';
 
-export interface FlexProps extends HTMLAttributes<HTMLElement> {
+export type FlexProps = {
   /** The HTML element to render */
   as?: FlexElement;
   /** Use `inline-flex` instead of `flex` */
@@ -20,7 +22,7 @@ export interface FlexProps extends HTMLAttributes<HTMLElement> {
   /** Gap between items (token key, px number, or CSS length string) */
   gap?: FlexGap;
   children?: ReactNode;
-}
+} & HTMLAttributes<HTMLElement>;
 
 const toGapValue = (value: FlexGap | undefined) => {
   if (value === undefined) return undefined;

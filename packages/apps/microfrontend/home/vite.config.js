@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { externalizeDeps } from 'vite-plugin-externalize-deps';
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
+import { externalizeDeps } from 'vite-plugin-externalize-deps';
 
 export default defineConfig({
   plugins: [

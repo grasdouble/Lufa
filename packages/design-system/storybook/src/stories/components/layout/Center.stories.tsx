@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import {
   Button,
   Card,
@@ -7,8 +8,8 @@ import {
   Placeholder,
   Spinner,
   Stack,
-  Typography,
   tokens,
+  Typography,
 } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;

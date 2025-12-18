@@ -1,9 +1,10 @@
 import path from 'path';
+import escapeHtml from 'escape-html';
 import fs from 'fs-extra';
 import pacote from 'pacote';
 import sanitize from 'sanitize-filename';
-import escapeHtml from 'escape-html';
-import { PackageJson } from './types.js';
+
+import type { PackageJson } from './types.js';
 
 // Generates a clear file name, with @ and / preserved
 const makePackageDirName = (pkg: string, version: string) => `${pkg}@${version}`;
@@ -124,10 +125,10 @@ export const sendEntry = async ({ exportPath, cdnPkgPath, fullName }: SendEntryP
   const pkgJson: PackageJson = await fs.readJson(path.join(cdnPkgPath, 'package.json'));
 
   const entry =
-    (typeof pkgJson.exports?.[exportPath] === 'object' && pkgJson.exports?.[exportPath]?.import) ||
-    (typeof pkgJson.exports?.[exportPath] === 'object' && pkgJson.exports?.[exportPath]?.default) ||
-    pkgJson.exports?.[exportPath] ||
-    pkgJson.module ||
+    (typeof pkgJson.exports?.[exportPath] === 'object' && pkgJson.exports?.[exportPath]?.import) ??
+    (typeof pkgJson.exports?.[exportPath] === 'object' && pkgJson.exports?.[exportPath]?.default) ??
+    pkgJson.exports?.[exportPath] ??
+    pkgJson.module ??
     pkgJson.main;
   if (typeof entry !== 'string') {
     return {

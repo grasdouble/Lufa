@@ -1,7 +1,9 @@
-import { forwardRef, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+
 import styles from './Avatar.module.css';
 
-export interface AvatarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'src'> {
+export type AvatarProps = {
   /** Image source URL (not used for count variant) */
   src?: string;
   /** Alternative text for the image */
@@ -16,7 +18,7 @@ export interface AvatarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'src'>
   statusPosition?: 'top' | 'bottom';
   /** Count text to display (only for count variant) */
   count?: string | number;
-}
+} & Omit<HTMLAttributes<HTMLDivElement>, 'src'>;
 
 /** Modern Avatar component for displaying user profile images with status indicators or count */
 export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(

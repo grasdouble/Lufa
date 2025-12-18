@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { shadow, radius } from '@grasdouble/lufa_design-system-tokens';
+
+import { radius, shadow } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Shadows & Radius',

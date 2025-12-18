@@ -1,15 +1,18 @@
-import { forwardRef, HTMLAttributes, Children, cloneElement, isValidElement } from 'react';
-import styles from './AvatarGroup.module.css';
-import { Avatar, AvatarProps } from '../Avatar';
+import type { HTMLAttributes } from 'react';
+import { Children, cloneElement, forwardRef, isValidElement } from 'react';
 
-export interface AvatarGroupProps extends HTMLAttributes<HTMLDivElement> {
+import type { AvatarProps } from '../Avatar';
+import { Avatar } from '../Avatar';
+import styles from './AvatarGroup.module.css';
+
+export type AvatarGroupProps = {
   /** Maximum number of avatars to display before showing count */
   max?: number;
   /** Children should be Avatar components */
   children: React.ReactNode;
   /** Avatar size (applies to all avatars) */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-}
+} & HTMLAttributes<HTMLDivElement>;
 
 /** Container component for displaying multiple avatars with overlap and optional count */
 export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
@@ -27,8 +30,8 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
           if (isValidElement<AvatarProps>(child)) {
             return cloneElement(child, {
               key: index,
-              size: child.props.size || size,
-              className: [child.props.className || '', styles.avatar].filter(Boolean).join(' '),
+              size: child.props.size ?? size,
+              className: [child.props.className ?? '', styles.avatar].filter(Boolean).join(' '),
             });
           }
           return child;

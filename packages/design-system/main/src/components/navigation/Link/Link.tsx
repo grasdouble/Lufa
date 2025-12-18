@@ -1,8 +1,10 @@
-import { forwardRef, AnchorHTMLAttributes, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
+
 import styles from './Link.module.css';
 
-export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export type LinkProps = {
   /** Link content */
   children?: ReactNode;
   /** Visual variant */
@@ -17,7 +19,7 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   endIcon?: ReactNode;
   /** External link indicator */
   external?: boolean;
-}
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 /**
  * Link component for navigation to different pages or external URLs

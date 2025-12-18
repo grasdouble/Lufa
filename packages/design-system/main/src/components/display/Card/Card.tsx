@@ -1,7 +1,8 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+
 import styles from './Card.module.css';
 
-export interface CardProps {
+export type CardProps = {
   /** Card content */
   children: ReactNode;
   /** Card title */
@@ -20,7 +21,7 @@ export interface CardProps {
   onClick?: () => void;
   /** Additional CSS classes */
   className?: string;
-}
+};
 
 export const Card = ({
   children,
@@ -58,7 +59,7 @@ export const Card = ({
 
   return (
     <div className={cardClassName} onClick={onClick}>
-      {(title || subtitle) && (
+      {(title ?? subtitle) && (
         <div className={styles.header}>
           {title && <h3 className={styles.title}>{title}</h3>}
           {subtitle && <p className={styles.subtitle}>{subtitle}</p>}

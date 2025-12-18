@@ -1,7 +1,9 @@
-import { InputHTMLAttributes, forwardRef } from 'react';
+import type { InputHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+
 import styles from './Input.module.css';
 
-export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+export type InputProps = {
   /** Label text */
   label?: string;
   /** Error message */
@@ -18,7 +20,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   startAdornment?: React.ReactNode;
   /** Right icon/element */
   endAdornment?: React.ReactNode;
-}
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
@@ -77,7 +79,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <input ref={ref} className={inputClassName} disabled={disabled} {...props} />
           {endAdornment && <div className={styles.endAdornment}>{endAdornment}</div>}
         </div>
-        {(error || helperText) && <p className={error ? styles.errorText : styles.helperText}>{error || helperText}</p>}
+        {(error ?? helperText) && <p className={error ? styles.errorText : styles.helperText}>{error ?? helperText}</p>}
       </div>
     );
   }

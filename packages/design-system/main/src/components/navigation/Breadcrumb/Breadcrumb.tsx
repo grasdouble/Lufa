@@ -1,17 +1,18 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
+
 import styles from './Breadcrumb.module.css';
 
-export interface BreadcrumbItem {
+export type BreadcrumbItem = {
   /** Label to display */
   label: string;
   /** Link URL (optional for current/last item) */
   href?: string;
   /** Icon before label */
   icon?: ReactNode;
-}
+};
 
-export interface BreadcrumbProps {
+export type BreadcrumbProps = {
   /** Array of breadcrumb items */
   items: BreadcrumbItem[];
   /** Custom separator */
@@ -20,7 +21,7 @@ export interface BreadcrumbProps {
   size?: 'small' | 'medium' | 'large';
   /** Additional CSS class */
   className?: string;
-}
+};
 
 /**
  * Breadcrumb component for hierarchical navigation

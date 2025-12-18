@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Steps, Stack, Button, tokens } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+
+import { Button, Stack, Steps, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import { maxWidth } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
@@ -41,12 +42,12 @@ export const Overview: Story = {
           </div>
           <div style={{ marginLeft: '20px', marginBottom: '8px' }}>
             <span style={{ color: '#E5C07B' }}>maxWidth</span>: maxWidth['2xl'],{' '}
-            <span style={{ color: '#737373' }}>{`// 42rem (672px)`}</span>
+            <span style={{ color: '#737373' }}>// 42rem (672px)</span>
           </div>
           <div>
             <span style={{ color: '#98C379' }}>{'}'}</span>;
           </div>
-          <div style={{ marginTop: '16px', color: '#737373' }}>{`// Or using CSS variables:`}</div>
+          <div style={{ marginTop: '16px', color: '#737373' }}>// Or using CSS variables:</div>
           <div style={{ marginTop: '8px' }}>
             <span style={{ color: '#E5C07B' }}>max-width</span>: <span style={{ color: '#98C379' }}>var</span>
             <span style={{ color: '#E06C75' }}>(--lufa-max-width-2xl)</span>;

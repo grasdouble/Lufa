@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import { Badge } from '@grasdouble/lufa_design-system';
 
 const meta = {

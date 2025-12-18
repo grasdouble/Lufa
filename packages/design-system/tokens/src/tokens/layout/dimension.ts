@@ -14,7 +14,7 @@
  * - Values based on spacing and maxWidths primitives
  */
 
-import { spacing as primitiveSpacing, maxWidth as primitiveMaxWidth } from '@grasdouble/lufa_design-system-primitives';
+import { maxWidth as primitiveMaxWidth, spacing as primitiveSpacing } from '@grasdouble/lufa_design-system-primitives';
 
 export const dimension = {
   // Navigation heights

@@ -1,6 +1,6 @@
 import type { CorsOptions } from 'cors';
+import type { NextFunction, Request, Response } from 'express';
 import rateLimit from 'express-rate-limit';
-import { type Request, type Response, type NextFunction } from 'express';
 
 // List of allowed domains
 export const whitelist: string[] = ['https://sebastien-lemouillour.fr', 'https://www.sebastien-lemouillour.fr'];
@@ -35,7 +35,7 @@ export const corsOptions: CorsOptions = {
 export const ipBlockMiddleware =
   (blockedIPs: Set<string>) =>
   (req: Request, res: Response, next: NextFunction): void => {
-    const clientIP = req.headers['x-forwarded-for']?.toString() || req.ip || 'unknown';
+    const clientIP = req.headers['x-forwarded-for']?.toString() ?? req.ip ?? 'unknown';
     if (blockedIPs.has(clientIP)) {
       res.status(403).json({ error: `Your IP ${clientIP} is blocked due to excessive requests.` });
       return;
@@ -48,9 +48,9 @@ export const getRateLimiter = (blockedIPs: Set<string>) =>
   rateLimit({
     windowMs: 10 * 60 * 1000, // 10 minutes
     max: 1000, // Allow 1000 requests per 10 minutes
-    keyGenerator: (req: Request) => req.ip || req.connection.remoteAddress || 'unknown',
+    keyGenerator: (req: Request) => req.ip ?? req.socket.remoteAddress ?? 'unknown',
     handler: (req: Request, res: Response) => {
-      const clientIP = req.ip || req.connection.remoteAddress;
+      const clientIP = req.ip ?? req.socket.remoteAddress;
 
       if (clientIP) {
         blockedIPs.add(clientIP); // Block the IP after exceeding the rate limit

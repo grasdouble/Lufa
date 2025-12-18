@@ -1,11 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
 import React, { useState } from 'react';
-import { Button } from '@grasdouble/lufa_design-system';
-import { Badge } from '@grasdouble/lufa_design-system';
-import { Alert } from '@grasdouble/lufa_design-system';
-import { Card } from '@grasdouble/lufa_design-system';
-import { Input } from '@grasdouble/lufa_design-system';
-import { getContrastRatio, meetsWCAG } from '@grasdouble/lufa_design-system';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+
+import { Alert, Badge, Button, Card, getContrastRatio, Input, meetsWCAG } from '@grasdouble/lufa_design-system';
 
 const meta = {
   title: '8. Utilities/Theme Generator',
@@ -19,7 +15,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-interface ThemeColors {
+type ThemeColors = {
   name: string;
   interactive: string;
   text: string;
@@ -27,7 +23,7 @@ interface ThemeColors {
   success: string;
   warning: string;
   error: string;
-}
+};
 
 const ColorPicker = ({
   label,
@@ -207,9 +203,7 @@ const ComponentPreview: React.FC<{ colors: ThemeColors }> = ({ colors }) => {
 
     return () => {
       // Cleanup style element on unmount
-      if (styleElement && styleElement.parentNode) {
-        styleElement.parentNode.removeChild(styleElement);
-      }
+      styleElement?.parentNode?.removeChild(styleElement);
     };
   }, [colors]);
 
@@ -386,7 +380,7 @@ export const Generator: Story = {
     const cssCode = generateThemeCSS(colors);
 
     const copyToClipboard = () => {
-      navigator.clipboard.writeText(cssCode);
+      void navigator.clipboard.writeText(cssCode);
       alert('CSS copied to clipboard!');
     };
 

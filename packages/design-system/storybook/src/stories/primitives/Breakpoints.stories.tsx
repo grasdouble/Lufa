@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { breakpoint } from '@grasdouble/lufa_design-system-primitives';
 import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+
+import { breakpoint } from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Breakpoints',

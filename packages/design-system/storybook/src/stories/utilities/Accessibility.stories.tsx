@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import {
-  getContrastRatio,
-  meetsWCAG,
   getContrastLevel,
+  getContrastRatio,
   getSuggestedTextColor,
+  meetsWCAG,
   WCAG_STANDARDS,
 } from '@grasdouble/lufa_design-system';
 

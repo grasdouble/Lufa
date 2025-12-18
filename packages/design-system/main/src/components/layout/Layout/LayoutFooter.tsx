@@ -1,13 +1,15 @@
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from 'react';
+
 import styles from './Layout.module.css';
 
 type FooterElement = 'footer' | 'div';
 
-export interface LayoutFooterProps extends HTMLAttributes<HTMLElement> {
+export type LayoutFooterProps = {
   as?: FooterElement;
   children?: ReactNode;
-}
+} & HTMLAttributes<HTMLElement>;
 
 export const LayoutFooter = forwardRef<HTMLElement, LayoutFooterProps>(
   ({ as = 'footer', className, ...props }, ref) => {

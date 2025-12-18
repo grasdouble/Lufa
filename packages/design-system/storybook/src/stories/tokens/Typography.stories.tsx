@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fontSize, lineHeight, fontWeight, letterSpacing } from '@grasdouble/lufa_design-system-tokens';
+
+import { fontSize, fontWeight, letterSpacing, lineHeight } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Typography Tokens',

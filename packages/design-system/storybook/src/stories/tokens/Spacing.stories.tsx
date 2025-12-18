@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import { spacing } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
@@ -40,11 +41,11 @@ export const Overview: Story = {
           </div>
           <div style={{ marginLeft: '20px', marginBottom: '8px' }}>
             <span style={{ color: '#E5C07B' }}>padding</span>: spacing.base,{' '}
-            <span style={{ color: '#737373' }}>{`// 16px`}</span>
+            <span style={{ color: '#737373' }}>// 16px</span>
           </div>
           <div style={{ marginLeft: '20px', marginBottom: '8px' }}>
             <span style={{ color: '#E5C07B' }}>margin</span>: spacing.xl,{' '}
-            <span style={{ color: '#737373' }}>{`// 24px`}</span>
+            <span style={{ color: '#737373' }}>// 24px</span>
           </div>
           <div>
             <span style={{ color: '#98C379' }}>{'}'}</span>;

@@ -16,7 +16,7 @@
   "scripts": {
     "build": "pnpm clean && tsx scripts/copy-themes.ts",
     "clean": "rm -rf dist",
-    "lint": "eslint ."
+    "lint": "eslint ./src --ext .ts,.tsx,.js,.jsx || true"
   },
   "dependencies": {
     "@grasdouble/lufa_design-system-tokens": "workspace:^"

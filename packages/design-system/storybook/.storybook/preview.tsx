@@ -1,8 +1,7 @@
-import type { Preview, ReactRenderer, Parameters, Decorator } from '@storybook/react-vite';
+import type { Decorator, Parameters, Preview, ReactRenderer } from '@storybook/react-vite';
 import { withThemeByClassName, withThemeByDataAttribute } from '@storybook/addon-themes';
 
 import { Breakpoints } from './breakpoints';
-
 // Import design system compiled CSS (includes all component styles)
 // Import storybook-specific styles
 import '../src/style.css';
@@ -61,12 +60,12 @@ const parameters: Parameters = {
   },
 };
 
-interface ThemeItem {
+type ThemeItem = {
   name: string;
   color?: string;
   class?: string;
   default?: boolean;
-}
+};
 
 export const hackDecoratorDarkMode: Decorator = (story, context) => {
   const isDarkMode = context?.globals?.theme === 'dark';

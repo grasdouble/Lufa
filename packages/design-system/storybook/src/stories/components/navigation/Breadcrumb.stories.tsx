@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import { Breadcrumb, Container, Stack } from '@grasdouble/lufa_design-system';
 
 const meta = {

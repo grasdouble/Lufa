@@ -1,9 +1,11 @@
+import type { HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
-import { forwardRef, HTMLAttributes } from 'react';
-import styles from './Layout.module.css';
-import { LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from './Layout.constants';
 
-export interface LayoutProps extends HTMLAttributes<HTMLDivElement> {
+import { LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from './Layout.constants';
+import styles from './Layout.module.css';
+
+export type LayoutProps = {
   /** Enables the sidebar column and area */
   sidebar?: boolean;
   /** Sidebar placement (when sidebar is enabled) */
@@ -12,7 +14,7 @@ export interface LayoutProps extends HTMLAttributes<HTMLDivElement> {
   sidebarWidth?: keyof typeof LAYOUT_SIDEBAR_WIDTH;
   /** Gap between areas */
   gap?: keyof typeof LAYOUT_GAP;
-}
+} & HTMLAttributes<HTMLDivElement>;
 
 /** Page-level layout scaffold using CSS grid areas (Header/Sidebar/Content/Footer) */
 export const Layout = forwardRef<HTMLDivElement, LayoutProps>(

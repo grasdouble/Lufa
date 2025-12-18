@@ -16,7 +16,7 @@
  * - Test on mobile devices for usability
  */
 
-import { spacing as primitiveSpacing, maxWidth as primitiveMaxWidths } from '@grasdouble/lufa_design-system-primitives';
+import { maxWidth as primitiveMaxWidths, spacing as primitiveSpacing } from '@grasdouble/lufa_design-system-primitives';
 
 export const minWidth = {
   // Button/Control minimums

@@ -73,7 +73,7 @@ export function meetsWCAG(
   foreground: string,
   background: string,
   level: 'AA' | 'AAA' = 'AA',
-  isLargeText: boolean = false
+  isLargeText = false
 ): boolean {
   const ratio = getContrastRatio(foreground, background);
   const requirement = isLargeText ? WCAG_STANDARDS[level].largeText : WCAG_STANDARDS[level].normalText;

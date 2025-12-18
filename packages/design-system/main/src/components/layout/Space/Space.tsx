@@ -1,21 +1,23 @@
+import type { ElementType, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
-import { ElementType, forwardRef, HTMLAttributes } from 'react';
-import styles from './Space.module.css';
-import { SPACE_DIRECTION, SPACE_SIZE } from './Space.constants';
 
-export type SpaceSize = keyof typeof SPACE_SIZE | number | string;
+import { SPACE_DIRECTION, SPACE_SIZE } from './Space.constants';
+import styles from './Space.module.css';
+
+export type SpaceSize = keyof typeof SPACE_SIZE | number;
 export type SpaceDirection = keyof typeof SPACE_DIRECTION;
 
 type SpaceElement = 'div' | 'span';
 
-export interface SpaceProps extends HTMLAttributes<HTMLElement> {
+export type SpaceProps = {
   /** The HTML element to render */
   as?: SpaceElement;
   /** Spacer direction */
   direction?: SpaceDirection;
   /** Spacer size (token key, px number, or CSS length string) */
   size?: SpaceSize;
-}
+} & HTMLAttributes<HTMLElement>;
 
 const toCssLength = (value: SpaceSize | undefined) => {
   if (value === undefined) return undefined;

@@ -1,7 +1,9 @@
-import { ReactNode, useEffect } from 'react';
+import type { ReactNode } from 'react';
+import { useEffect } from 'react';
+
 import styles from './Modal.module.css';
 
-export interface ModalProps {
+export type ModalProps = {
   /** Modal content */
   children: ReactNode;
   /** Whether modal is visible */
@@ -20,7 +22,7 @@ export interface ModalProps {
   closeOnEscape?: boolean;
   /** Additional CSS classes */
   className?: string;
-}
+};
 
 export const Modal = ({
   children,

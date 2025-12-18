@@ -1,7 +1,9 @@
-import { forwardRef, HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
+
 import styles from './Badge.module.css';
 
-export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
+export type BadgeProps = {
   /** Badge content - text or any React elements */
   children?: ReactNode;
   /** Deprecated: Use children instead */
@@ -14,7 +16,7 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   dot?: boolean;
   /** Makes badge rounded (pill shape) */
   rounded?: boolean;
-}
+} & HTMLAttributes<HTMLSpanElement>;
 
 /** Modern Badge component for labels, tags, and status indicators */
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
@@ -22,7 +24,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
     { children, label, size = 'md', variant = 'default', dot = false, rounded = false, className = '', ...props },
     ref
   ) => {
-    const content = children || label;
+    const content = children ?? label;
 
     const badgeClasses = [
       styles.badge,

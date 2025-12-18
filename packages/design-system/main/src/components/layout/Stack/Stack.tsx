@@ -1,10 +1,10 @@
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
+
+import { STACK_ALIGN, STACK_DIRECTION, STACK_GAP, STACK_JUSTIFY, STACK_PADDING, STACK_WRAP } from './Stack.constants';
 import styles from './Stack.module.css';
 
-import { ReactNode } from 'react';
-import { STACK_ALIGN, STACK_DIRECTION, STACK_GAP, STACK_JUSTIFY, STACK_PADDING, STACK_WRAP } from './Stack.constants';
-
-export interface StackProps {
+export type StackProps = {
   children?: ReactNode;
   gap?: keyof typeof STACK_GAP;
   direction?: keyof typeof STACK_DIRECTION;
@@ -12,7 +12,7 @@ export interface StackProps {
   wrap?: keyof typeof STACK_WRAP;
   justify?: keyof typeof STACK_JUSTIFY;
   padding?: keyof typeof STACK_PADDING;
-}
+};
 
 export const Stack = ({
   gap = STACK_GAP.normal,

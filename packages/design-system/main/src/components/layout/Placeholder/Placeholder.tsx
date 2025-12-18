@@ -1,7 +1,8 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+
 import styles from './Placeholder.module.css';
 
-export interface PlaceholderProps {
+export type PlaceholderProps = {
   children?: ReactNode;
   /** Background color (any valid CSS color) - creates solid background */
   color?: string;
@@ -13,7 +14,7 @@ export interface PlaceholderProps {
   height?: 'small' | 'medium' | 'large' | 'auto' | 'full';
   /** Width variant */
   width?: 'auto' | 'small' | 'medium' | 'large' | 'full';
-}
+};
 
 export const Placeholder = ({
   children,

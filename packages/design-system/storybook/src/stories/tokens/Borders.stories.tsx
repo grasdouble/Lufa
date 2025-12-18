@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { borderWidth, borderStyle } from '@grasdouble/lufa_design-system-tokens';
+
 import { tokens } from '@grasdouble/lufa_design-system';
+import { borderStyle, borderWidth } from '@grasdouble/lufa_design-system-tokens';
 
 const { color } = tokens;
 

@@ -1,6 +1,5 @@
 /** Not Found page */
 import { Badge } from '../../../components/display/Badge';
-
 import dataEN from './data.en.json';
 
 export const Experience = () => {

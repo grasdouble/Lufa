@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import { fontFamily, fontSize, fontWeight, letterSpacing, lineHeight } from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
@@ -349,7 +350,7 @@ export const UsageExamples: Story = {
             color: '#D1D5DB',
           }}
         >
-          <div style={{ marginBottom: '8px', color: '#9CA3AF' }}>{'// Code example'}</div>
+          <div style={{ marginBottom: '8px', color: '#9CA3AF' }}>// Code example</div>
           <div>
             <span style={{ color: '#F472B6' }}>const</span> message <span style={{ color: '#F472B6' }}>=</span>{' '}
             <span style={{ color: '#A78BFA' }}>"Hello World"</span>;

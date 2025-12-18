@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { maxWidth, size, grid, aspectRatio, blur, zIndex } from '@grasdouble/lufa_design-system-primitives';
+
+import { aspectRatio, blur, grid, maxWidth, size, zIndex } from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Layout',

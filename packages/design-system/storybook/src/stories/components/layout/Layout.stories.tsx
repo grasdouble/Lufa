@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import {
   Container,
   Layout,
@@ -157,7 +158,7 @@ export const SidebarWidths: Story = {
   render: () => (
     <Container size="xl" paddingX="none">
       <Stack direction="vertical" gap="spacious">
-        {(Object.values(LAYOUT_SIDEBAR_WIDTH) as Array<keyof typeof LAYOUT_SIDEBAR_WIDTH>).map((width) => (
+        {Object.values(LAYOUT_SIDEBAR_WIDTH).map((width) => (
           <Layout
             key={width}
             sidebar

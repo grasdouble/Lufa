@@ -1,4 +1,6 @@
-import { LifeCycles, registerApplication, start } from 'single-spa';
+import type { LifeCycles } from 'single-spa';
+import { registerApplication, start } from 'single-spa';
+
 import 'import-map-overrides';
 import '@grasdouble/lufa_design-system/style.css';
 
@@ -16,9 +18,9 @@ registerApplication({
 
 registerApplication({
   name: '@grasdouble/lufa_design-system-storybook',
-  app: async () => {
+  app: () => {
     // Create a false module to encapsulate your storybook application
-    return {
+    return Promise.resolve({
       bootstrap: (): Promise<void> => Promise.resolve(),
       mount: (): Promise<void> => {
         // Create an iframe to encapsulate the storybook application
@@ -42,7 +44,7 @@ registerApplication({
         }
         return Promise.resolve();
       },
-    };
+    });
   },
   activeWhen: ['/storybook'], // Active when the URL is /storybook
 });

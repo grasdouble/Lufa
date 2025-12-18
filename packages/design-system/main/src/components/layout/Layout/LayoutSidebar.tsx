@@ -1,13 +1,15 @@
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from 'react';
+
 import styles from './Layout.module.css';
 
 type SidebarElement = 'aside' | 'div' | 'nav';
 
-export interface LayoutSidebarProps extends HTMLAttributes<HTMLElement> {
+export type LayoutSidebarProps = {
   as?: SidebarElement;
   children?: ReactNode;
-}
+} & HTMLAttributes<HTMLElement>;
 
 export const LayoutSidebar = forwardRef<HTMLElement, LayoutSidebarProps>(
   ({ as = 'aside', className, ...props }, ref) => {

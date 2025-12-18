@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import { color } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {

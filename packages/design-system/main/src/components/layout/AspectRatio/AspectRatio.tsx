@@ -1,20 +1,22 @@
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from 'react';
-import styles from './AspectRatio.module.css';
-import { ASPECT_RATIO } from './AspectRatio.constants';
 
-export type AspectRatioValue = keyof typeof ASPECT_RATIO | number | string;
+import { ASPECT_RATIO } from './AspectRatio.constants';
+import styles from './AspectRatio.module.css';
+
+export type AspectRatioValue = keyof typeof ASPECT_RATIO | number;
 
 type AspectRatioElement = 'div' | 'figure';
 
-export interface AspectRatioProps extends HTMLAttributes<HTMLElement> {
+export type AspectRatioProps = {
   /** The HTML element to render */
   as?: AspectRatioElement;
   /** Aspect ratio (token key, number ratio, or CSS ratio string like "16 / 9") */
   ratio?: AspectRatioValue;
   /** Content */
   children?: ReactNode;
-}
+} & HTMLAttributes<HTMLElement>;
 
 const isTokenRatio = (ratio: AspectRatioValue): ratio is keyof typeof ASPECT_RATIO =>
   typeof ratio === 'string' && ratio in ASPECT_RATIO;

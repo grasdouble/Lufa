@@ -1,8 +1,10 @@
-import { ReactNode, useId, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
+import { useId, useRef, useState } from 'react';
 import clsx from 'clsx';
+
 import styles from './Tabs.module.css';
 
-export interface TabItem {
+export type TabItem = {
   /** Unique key for the tab */
   key: string;
   /** Tab label */
@@ -13,9 +15,9 @@ export interface TabItem {
   icon?: ReactNode;
   /** Disabled state */
   disabled?: boolean;
-}
+};
 
-export interface TabsProps {
+export type TabsProps = {
   /** Array of tab items */
   items: TabItem[];
   /** Active tab key */
@@ -32,7 +34,7 @@ export interface TabsProps {
   size?: 'small' | 'medium' | 'large';
   /** Additional CSS class */
   className?: string;
-}
+};
 
 /**
  * Tabs component for organizing content into separate views
@@ -50,9 +52,9 @@ export const Tabs = ({
 }: TabsProps) => {
   const instanceId = useId();
   const tabButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
-  const [internalActiveKey, setInternalActiveKey] = useState(defaultActiveKey || items[0]?.key);
+  const [internalActiveKey, setInternalActiveKey] = useState(defaultActiveKey ?? items[0]?.key);
 
-  const activeKey = controlledActiveKey !== undefined ? controlledActiveKey : internalActiveKey;
+  const activeKey = controlledActiveKey ?? internalActiveKey;
 
   const getTabId = (key: string) => `${instanceId}-tab-${key}`;
   const getPanelId = (key: string) => `${instanceId}-panel-${key}`;

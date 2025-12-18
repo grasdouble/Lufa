@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import { breakpoint } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {

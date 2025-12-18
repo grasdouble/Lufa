@@ -40,8 +40,8 @@
 
 import { fontSize } from './fontSize.js';
 import { fontWeight } from './fontWeight.js';
-import { lineHeight } from './lineHeight.js';
 import { letterSpacing } from './letterSpacing.js';
+import { lineHeight } from './lineHeight.js';
 
 /**
  * Typography scale presets

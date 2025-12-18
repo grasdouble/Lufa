@@ -3,10 +3,13 @@ import lufaReactConfig from '@grasdouble/lufa_config_eslint/react.mjs';
 export default [
   ...lufaReactConfig,
   {
-    files: ['scripts/**/*.{js,mjs,cjs,ts}'],
+    ignores: ['scripts/**'],
+  },
+  {
     languageOptions: {
-      globals: {
-        console: 'readonly',
+      parserOptions: {
+        project: './tsconfig.json',
+        tsconfigRootDir: import.meta.dirname,
       },
     },
   },

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { borderWidth, borderStyle } from '@grasdouble/lufa_design-system-primitives';
+
+import { borderStyle, borderWidth } from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Borders',

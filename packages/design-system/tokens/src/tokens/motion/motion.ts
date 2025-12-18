@@ -54,6 +54,7 @@
  */
 
 import { timing as primitiveTiming } from '@grasdouble/lufa_design-system-primitives';
+
 import { easing } from './easing.js';
 
 export const motion = {

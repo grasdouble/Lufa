@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './Spinner.module.css';
 import clsx from 'clsx';
+
+import styles from './Spinner.module.css';
 
 type SpinnerProps = {
   size?: 'small' | 'medium' | 'large';
@@ -8,7 +9,7 @@ type SpinnerProps = {
 };
 
 const spinners = {
-  A: <path d="M25 5a20 20 0 1 1-20 20" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"></path>,
+  A: <path d="M25 5a20 20 0 1 1-20 20" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />,
   B: (
     <circle
       cx="25"
@@ -19,7 +20,7 @@ const spinners = {
       strokeWidth="4"
       strokeDasharray="31.4 31.4"
       strokeLinecap="round"
-    ></circle>
+    />
   ),
 };
 

@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Modal, Button } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+
+import { Button, Modal } from '@grasdouble/lufa_design-system';
 
 const meta = {
   title: '6. Overlay/Modal',

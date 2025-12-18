@@ -1,9 +1,11 @@
-import { forwardRef, HTMLAttributes, ReactNode, ElementType } from 'react';
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
+
 import styles from './Typography.module.css';
 
 type TypographyElement = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'label' | 'div';
 
-export interface TypographyProps extends HTMLAttributes<HTMLElement> {
+export type TypographyProps = {
   /** The HTML element to render */
   as?: TypographyElement;
   /** Visual style variant */
@@ -16,12 +18,12 @@ export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   color?: 'primary' | 'secondary' | 'tertiary' | 'inverse' | 'error' | 'success' | 'warning';
   /** Children content */
   children: ReactNode;
-}
+} & HTMLAttributes<HTMLElement>;
 
 /** Typography component for consistent text styling */
 export const Typography = forwardRef<HTMLElement, TypographyProps>(
   ({ as, variant = 'body', weight, align, color = 'primary', className = '', children, ...props }, ref) => {
-    const Component = (as || getDefaultElement(variant)) as ElementType;
+    const Component = (as ?? getDefaultElement(variant)) as ElementType;
 
     const typographyClasses = [
       styles.typography,

@@ -1,8 +1,10 @@
-import { ReactNode, useState } from 'react';
+import type { ReactNode } from 'react';
+import { useState } from 'react';
 import clsx from 'clsx';
+
 import styles from './Menu.module.css';
 
-export interface MenuItem {
+export type MenuItem = {
   /** Unique key for the menu item */
   key: string;
   /** Label to display */
@@ -17,9 +19,9 @@ export interface MenuItem {
   disabled?: boolean;
   /** Submenu items */
   children?: MenuItem[];
-}
+};
 
-export interface MenuProps {
+export type MenuProps = {
   /** Array of menu items */
   items: MenuItem[];
   /** Selected menu item key */
@@ -32,7 +34,7 @@ export interface MenuProps {
   className?: string;
   /** Selection change handler */
   onSelect?: (key: string) => void;
-}
+};
 
 /**
  * Menu component for navigation and action lists
@@ -65,7 +67,7 @@ export const Menu = ({
     }
   };
 
-  const renderMenuItem = (item: MenuItem, level: number = 0) => {
+  const renderMenuItem = (item: MenuItem, level = 0) => {
     const hasChildren = item.children && item.children.length > 0;
     const isOpen = openKeys.includes(item.key);
     const isSelected = selectedKey === item.key;

@@ -6,6 +6,7 @@ declare const styles: {
   readonly links: string;
   readonly link: string;
   readonly storybook: string;
+  readonly design: string;
   readonly github: string;
   readonly linkedin: string;
 };

@@ -1,8 +1,9 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
+
 import styles from './Pagination.module.css';
 
-export interface PaginationProps {
+export type PaginationProps = {
   /** Current page number (1-indexed) */
   current: number;
   /** Total number of items */
@@ -27,7 +28,7 @@ export interface PaginationProps {
   prevText?: ReactNode;
   /** Custom next button text */
   nextText?: ReactNode;
-}
+};
 
 /**
  * Pagination component for navigating through pages

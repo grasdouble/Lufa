@@ -19,14 +19,14 @@ Tokens provide **semantic, intent-based naming** on top of primitives. They map 
 ```typescript
 import {
   color,
-  spacing,
+  cursor,
+  dimension,
   fontSize,
   fontWeight,
   radius,
   shadow,
+  spacing,
   transition,
-  cursor,
-  dimension,
 } from '@grasdouble/lufa_design-system-tokens';
 
 // Semantic color tokens

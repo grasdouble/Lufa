@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import {
+  Placeholder,
   Stack,
   STACK_ALIGN,
   STACK_DIRECTION,
@@ -7,7 +9,6 @@ import {
   STACK_JUSTIFY,
   STACK_PADDING,
   STACK_WRAP,
-  Placeholder,
   tokens,
 } from '@grasdouble/lufa_design-system';
 

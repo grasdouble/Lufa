@@ -6,11 +6,11 @@
  */
 const config = {
   // Plugins
-  plugins: ['prettier-plugin-packagejson'],
+  plugins: ['@ianvs/prettier-plugin-sort-imports', 'prettier-plugin-packagejson'],
 
   // Code style - industry standards compatible with ESLint
   printWidth: 120, // Standard: 80-120 (120 for modern wide screens)
-  tabWidth: 2, // Match common JavaScript/TypeScript convention
+  tabWidth: 2, // Standard: 2 spaces per tab
   useTabs: false, // Standard: spaces over tabs
   semi: true, // Standard: always use semicolons
   singleQuote: true, // Standard: single quotes for strings
@@ -23,6 +23,24 @@ const config = {
   htmlWhitespaceSensitivity: 'css', // Standard: respect CSS display property
   endOfLine: 'lf', // Standard: Unix line endings (consistent across platforms)
   embeddedLanguageFormatting: 'auto', // Standard: auto-format embedded code
+
+  // Import sorting configuration
+  importOrder: [
+    '<TYPES>^(react|react-dom)$', // React types first
+    '^react$', // React first
+    '^react-dom$', // React DOM second
+    '<TYPES>', // Other type imports
+    '<THIRD_PARTY_MODULES>', // External dependencies
+    '', // Empty line
+    '<TYPES>^@grasdouble/(.*)$', // Internal types from monorepo
+    '^@grasdouble/(.*)$', // Internal packages from monorepo
+    '', // Empty line
+    '<TYPES>^[.]', // Relative type imports
+    '^[./]', // Relative imports
+  ],
+  importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
+  importOrderTypeScriptVersion: '5.0.0',
+  importOrderCaseSensitive: false,
 };
 
 export default config;

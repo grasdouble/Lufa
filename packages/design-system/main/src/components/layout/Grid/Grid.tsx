@@ -1,16 +1,18 @@
+import type { HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
-import { forwardRef, HTMLAttributes, ReactNode } from 'react';
-import styles from './Grid.module.css';
-import { GRID_COLUMNS, GRID_GUTTER } from './Grid.constants';
 
-export interface GridProps extends HTMLAttributes<HTMLDivElement> {
+import { GRID_COLUMNS, GRID_GUTTER } from './Grid.constants';
+import styles from './Grid.module.css';
+
+export type GridProps = {
   /** Grid content */
   children?: ReactNode;
   /** Number of columns (semantic tokens) */
   columns?: keyof typeof GRID_COLUMNS;
   /** Spacing between grid items */
   gutter?: keyof typeof GRID_GUTTER;
-}
+} & HTMLAttributes<HTMLDivElement>;
 
 /** Token-driven grid layout (CSS grid) */
 export const Grid = forwardRef<HTMLDivElement, GridProps>(

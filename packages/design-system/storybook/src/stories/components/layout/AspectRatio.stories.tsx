@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { AspectRatio, ASPECT_RATIO, Container, Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
+
+import { ASPECT_RATIO, AspectRatio, Container, Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color, aspectRatio } = tokens;
 

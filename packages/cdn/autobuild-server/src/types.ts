@@ -1,4 +1,4 @@
-export interface PackageJson {
+export type PackageJson = {
   name: string;
   version: string;
   type?: 'module' | 'commonjs';
@@ -6,18 +6,18 @@ export interface PackageJson {
   module?: string;
   exports?: Record<string, string | { import?: string; default?: string }>;
   peerDependencies?: Record<string, string>;
-}
+};
 
-export interface ExtractedParams {
+export type ExtractedParams = {
   scope?: string;
   exportPath?: string;
   fullName: string;
   dirName: string;
   cdnPkgPath: string;
   tmpPkgPath: string;
-}
+};
 
-export interface LoadLibraryResult {
+export type LoadLibraryResult = {
   status: number;
   message: string;
-}
+};

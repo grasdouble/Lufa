@@ -20,6 +20,7 @@
     "build": "esbuild src/index.ts --bundle --outfile=dist/index.mjs --platform=node --format=esm --external:esbuild",
     "build:cjs": "esbuild src/index.ts --bundle --outfile=dist/index.cjs --platform=node --external:esbuild",
     "dev": "dotenvx run --env-file=.env.development --env-file=.env -- nodemon --exec tsx src/index.ts",
+    "lint": "eslint",
     "start": "dotenvx run --env-file=.env.production --env-file=.env -- node dist/index.cjs"
   },
   "dependencies": {

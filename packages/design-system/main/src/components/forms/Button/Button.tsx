@@ -1,8 +1,10 @@
-import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
+
 import styles from './Button.module.css';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export type ButtonProps = {
   /** Button content - can be text, icons, or any React elements */
   children?: ReactNode;
   /** Deprecated: Use children instead. Label text for the button */
@@ -21,7 +23,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   startIcon?: ReactNode;
   /** Icon after text */
   endIcon?: ReactNode;
-}
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 /** Modern Button component with flexible content and variants */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -75,10 +77,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       className
     );
 
-    const content = children || label;
+    const content = children ?? label;
 
     return (
-      <button ref={ref} className={classNames} disabled={disabled || loading} {...props}>
+      <button ref={ref} className={classNames} disabled={disabled ?? loading} {...props}>
         {loading && (
           <span className={styles.spinner}>
             <svg className={styles.spinnerIcon} fill="none" viewBox="0 0 24 24">

@@ -1,8 +1,10 @@
-import { forwardRef, AnchorHTMLAttributes, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
+
 import styles from './Anchor.module.css';
 
-export interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export type AnchorProps = {
   /** Anchor content */
   children?: ReactNode;
   /** Visual variant */
@@ -13,7 +15,7 @@ export interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   startIcon?: ReactNode;
   /** Icon after text */
   endIcon?: ReactNode;
-}
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 /**
  * Anchor component for in-page navigation using anchor links

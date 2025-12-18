@@ -54,7 +54,7 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html|WCAG 2.1 - Animation from Interactions}
  */
 
-import { timing as primitiveTiming, easing as primitiveEasing } from '@grasdouble/lufa_design-system-primitives';
+import { easing as primitiveEasing, timing as primitiveTiming } from '@grasdouble/lufa_design-system-primitives';
 
 export const transition = {
   /** Fast - 150ms (micro-interactions, hovers) */

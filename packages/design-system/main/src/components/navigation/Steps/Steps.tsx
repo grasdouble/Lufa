@@ -1,8 +1,9 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
+
 import styles from './Steps.module.css';
 
-export interface StepItem {
+export type StepItem = {
   /** Step title */
   title: string;
   /** Step description */
@@ -11,9 +12,9 @@ export interface StepItem {
   icon?: ReactNode;
   /** Step status */
   status?: 'wait' | 'process' | 'finish' | 'error';
-}
+};
 
-export interface StepsProps {
+export type StepsProps = {
   /** Array of step items */
   items: StepItem[];
   /** Current step index (0-indexed) */
@@ -26,7 +27,7 @@ export interface StepsProps {
   className?: string;
   /** Step click handler */
   onChange?: (current: number) => void;
-}
+};
 
 /**
  * Steps component for displaying progress through a sequence

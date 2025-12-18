@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { motion, timing, easing } from '@grasdouble/lufa_design-system-tokens';
+
+import { easing, motion, timing } from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Motion',

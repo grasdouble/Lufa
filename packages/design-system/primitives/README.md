@@ -18,8 +18,6 @@ Primitives use **actual values as keys** (e.g., `spacing[16]`, `timing[150]`, `f
 
 ```typescript
 import {
-  spacing,
-  timing,
   borderWidth,
   fontSize,
   fontWeight,
@@ -28,6 +26,8 @@ import {
   maxWidth,
   radius,
   shadow,
+  spacing,
+  timing,
 } from '@grasdouble/lufa_design-system-primitives';
 
 // Spacing uses pixel values as keys

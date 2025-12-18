@@ -1,5 +1,6 @@
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
-import { ReactNode } from 'react';
+
 import styles from './Divider.module.css';
 
 export type DividerOrientation = 'horizontal' | 'vertical';
@@ -7,7 +8,7 @@ export type DividerVariant = 'solid' | 'dashed';
 export type DividerAlign = 'start' | 'center' | 'end';
 export type DividerSpacing = 'none' | 'sm' | 'md' | 'lg';
 
-export interface DividerProps {
+export type DividerProps = {
   /** Optional label rendered between the lines */
   label?: ReactNode;
   /** Divider direction */
@@ -22,7 +23,7 @@ export interface DividerProps {
   className?: string;
   /** Limit the rendered length (width for horizontal, height for vertical) */
   length?: number | string;
-}
+};
 
 const toCssLength = (value?: string | number) => {
   if (value === undefined) return undefined;

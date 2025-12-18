@@ -51,10 +51,10 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/focus-appearance.html|WCAG 2.4.11 - Focus Appearance}
  */
 
-import { borderWidth } from '../border/borderWidth.js';
 import { borderStyle } from '../border/borderStyle.js';
-import { color } from '../color/colors.js';
+import { borderWidth } from '../border/borderWidth.js';
 import { radius } from '../border/radius.js';
+import { color } from '../color/colors.js';
 
 export const focus = {
   /** Default focus ring - solid outline (most UI elements) */
