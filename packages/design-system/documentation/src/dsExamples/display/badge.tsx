@@ -1,28 +1,23 @@
-import React from "react";
-import { Badge, Stack, tokens } from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Badge, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -38,10 +33,10 @@ export const LiveDemo = () => (
   <Frame title="live demo">
     <div
       style={{
-        display: "flex",
+        display: 'flex',
         gap: 10,
-        alignItems: "center",
-        flexWrap: "wrap",
+        alignItems: 'center',
+        flexWrap: 'wrap',
       }}
     >
       <Badge variant="primary" rounded>
@@ -61,15 +56,13 @@ export const Variant = () => (
   <Frame title="variant">
     <div
       style={{
-        display: "flex",
+        display: 'flex',
         gap: 10,
-        alignItems: "center",
-        flexWrap: "wrap",
+        alignItems: 'center',
+        flexWrap: 'wrap',
       }}
     >
-      {(
-        ["default", "primary", "success", "warning", "danger", "info"] as const
-      ).map((variant) => (
+      {(['default', 'primary', 'success', 'warning', 'danger', 'info'] as const).map((variant) => (
         <Badge key={variant} variant={variant} rounded>
           {variant}
         </Badge>
@@ -82,13 +75,13 @@ export const Size = () => (
   <Frame title="size">
     <div
       style={{
-        display: "flex",
+        display: 'flex',
         gap: 10,
-        alignItems: "center",
-        flexWrap: "wrap",
+        alignItems: 'center',
+        flexWrap: 'wrap',
       }}
     >
-      {(["sm", "md", "lg"] as const).map((size) => (
+      {(['sm', 'md', 'lg'] as const).map((size) => (
         <Badge key={size} size={size} variant="primary" rounded>
           {size}
         </Badge>
@@ -101,10 +94,10 @@ export const Dot = () => (
   <Frame title="dot">
     <div
       style={{
-        display: "flex",
+        display: 'flex',
         gap: 10,
-        alignItems: "center",
-        flexWrap: "wrap",
+        alignItems: 'center',
+        flexWrap: 'wrap',
       }}
     >
       <Badge variant="success" dot>
@@ -124,10 +117,10 @@ export const Rounded = () => (
   <Frame title="rounded">
     <div
       style={{
-        display: "flex",
+        display: 'flex',
         gap: 10,
-        alignItems: "center",
-        flexWrap: "wrap",
+        alignItems: 'center',
+        flexWrap: 'wrap',
       }}
     >
       <Badge variant="info">default radius</Badge>
@@ -155,9 +148,9 @@ export const StatusListExample = () => (
     <Stack direction="vertical" gap="condensed">
       <div
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
       >
         <div style={{ color: color.text.primary }}>Payments</div>
@@ -167,9 +160,9 @@ export const StatusListExample = () => (
       </div>
       <div
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
       >
         <div style={{ color: color.text.primary }}>Webhooks</div>
@@ -179,9 +172,9 @@ export const StatusListExample = () => (
       </div>
       <div
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
       >
         <div style={{ color: color.text.primary }}>Fraud checks</div>
@@ -197,16 +190,16 @@ export const NavigationCountExample = () => (
   <Frame title="navigation count">
     <Stack direction="vertical" gap="condensed">
       {[
-        { label: "Inbox", count: 12, variant: "primary" as const },
-        { label: "Mentions", count: 3, variant: "info" as const },
-        { label: "Archived", count: 0, variant: "default" as const },
+        { label: 'Inbox', count: 12, variant: 'primary' as const },
+        { label: 'Mentions', count: 3, variant: 'info' as const },
+        { label: 'Archived', count: 0, variant: 'default' as const },
       ].map(({ label, count, variant }) => (
         <div
           key={label}
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
           }}
         >
           <div style={{ color: color.text.primary }}>{label}</div>

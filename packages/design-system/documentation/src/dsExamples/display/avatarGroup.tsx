@@ -1,34 +1,23 @@
-import React from "react";
-import {
-  Avatar,
-  AvatarGroup,
-  Badge,
-  Stack,
-  tokens,
-} from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Avatar, AvatarGroup, Badge, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -48,27 +37,13 @@ const svgAvatar = (text: string, background: string) => {
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 };
 
-const Team = ({
-  size = "md",
-  max,
-}: {
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
-  max?: number;
-}) => (
+const Team = ({ size = 'md', max }: { size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'; max?: number }) => (
   <AvatarGroup size={size} max={max}>
-    <Avatar
-      src={svgAvatar("AL", color.interactive.default)}
-      alt="Alice"
-      status="online"
-    />
-    <Avatar
-      src={svgAvatar("BO", color.brand.secondary)}
-      alt="Bob"
-      status="away"
-    />
-    <Avatar src={svgAvatar("CH", "#0ea5e9")} alt="Chris" status="offline" />
-    <Avatar src={svgAvatar("DE", "#f97316")} alt="Denise" status="busy" />
-    <Avatar src={svgAvatar("EV", "#10b981")} alt="Eve" status="online" />
+    <Avatar src={svgAvatar('AL', color.interactive.default)} alt="Alice" status="online" />
+    <Avatar src={svgAvatar('BO', color.brand.secondary)} alt="Bob" status="away" />
+    <Avatar src={svgAvatar('CH', '#0ea5e9')} alt="Chris" status="offline" />
+    <Avatar src={svgAvatar('DE', '#f97316')} alt="Denise" status="busy" />
+    <Avatar src={svgAvatar('EV', '#10b981')} alt="Eve" status="online" />
   </AvatarGroup>
 );
 
@@ -76,13 +51,13 @@ export const LiveDemo = () => (
   <Frame title="live demo">
     <div
       style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         gap: 16,
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
         <Team max={4} />
         <div style={{ color: color.text.secondary }}>Design team</div>
       </div>
@@ -97,19 +72,16 @@ export const Max = () => (
   <Frame title="max">
     <Stack direction="vertical" gap="normal">
       {[undefined, 2, 3, 4].map((max) => (
-        <div
-          key={String(max)}
-          style={{ display: "flex", alignItems: "center", gap: 12 }}
-        >
+        <div key={String(max)} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <Team max={max as number | undefined} />
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               fontSize: 12,
             }}
           >
-            max: {max ?? "—"}
+            max: {max ?? '—'}
           </div>
         </div>
       ))}
@@ -120,15 +92,12 @@ export const Max = () => (
 export const Size = () => (
   <Frame title="size">
     <Stack direction="vertical" gap="normal">
-      {(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
-        <div
-          key={size}
-          style={{ display: "flex", alignItems: "center", gap: 12 }}
-        >
+      {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
+        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <Team size={size} max={4} />
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               fontSize: 12,
             }}
@@ -146,22 +115,18 @@ export const ProjectCardHeaderExample = () => (
     <div
       style={{
         borderRadius: 12,
-        background: "#fff",
+        background: '#fff',
         border: `1px solid ${color.border.light}`,
         padding: 16,
-        display: "flex",
-        justifyContent: "space-between",
+        display: 'flex',
+        justifyContent: 'space-between',
         gap: 16,
-        alignItems: "center",
+        alignItems: 'center',
       }}
     >
-      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-        <div style={{ color: color.text.primary, fontWeight: 700 }}>
-          Website Redesign
-        </div>
-        <div style={{ color: color.text.secondary, fontSize: 12 }}>
-          Assigned
-        </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+        <div style={{ color: color.text.primary, fontWeight: 700 }}>Website Redesign</div>
+        <div style={{ color: color.text.secondary, fontSize: 12 }}>Assigned</div>
       </div>
       <Team max={3} />
     </div>
@@ -172,19 +137,15 @@ export const InlineAssigneesExample = () => (
   <Frame title="inline assignees">
     <div
       style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         gap: 16,
       }}
     >
-      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-        <div style={{ color: color.text.primary, fontWeight: 700 }}>
-          Bug triage
-        </div>
-        <div style={{ color: color.text.secondary, fontSize: 12 }}>
-          Assignees
-        </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+        <div style={{ color: color.text.primary, fontWeight: 700 }}>Bug triage</div>
+        <div style={{ color: color.text.secondary, fontSize: 12 }}>Assignees</div>
       </div>
       <Team max={4} size="sm" />
     </div>

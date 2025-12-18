@@ -36,7 +36,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 23
-          cache: "pnpm"
+          cache: 'pnpm'
 
       # Configure npm for GitHub Registry
       - name: Configure npm for GitHub Registry
@@ -56,9 +56,9 @@ jobs:
       - name: Run Changesets Action
         uses: changesets/action@v1
         with:
-          publish: "pnpm changeset publish" # The command to run to publish the packages
-          title: "Release: New Version Updates" # The title for the changeset commit
-          commit: "Release new versions" # The commit message for the changeset commit
+          publish: 'pnpm changeset publish' # The command to run to publish the packages
+          title: 'Release: New Version Updates' # The title for the changeset commit
+          commit: 'Release new versions' # The commit message for the changeset commit
           setupGitUser: true # Set this to true if you want to set up the git user for the action
           version: pnpm changeset version # The command to run to bump the version
           createGithubReleases: true # Set this to true if you want to create a GitHub release

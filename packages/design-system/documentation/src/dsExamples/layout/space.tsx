@@ -1,35 +1,23 @@
-import React from "react";
-import {
-  Placeholder,
-  Space,
-  SPACE_DIRECTION,
-  SPACE_SIZE,
-  Stack,
-  tokens,
-} from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Placeholder, Space, SPACE_DIRECTION, SPACE_SIZE, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color, spacing } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -61,7 +49,7 @@ export const LiveDemo = () => (
     <div
       style={{
         marginTop: 12,
-        fontFamily: "monospace",
+        fontFamily: 'monospace',
         color: color.text.tertiary,
         fontSize: 12,
       }}
@@ -75,15 +63,15 @@ export const Direction = () => (
   <Frame title="direction">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
         gap: 16,
       }}
     >
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -91,28 +79,22 @@ export const Direction = () => (
           vertical
         </div>
         <Placeholder color={color.interactive.default}>Before</Placeholder>
-        <VisibleSpace
-          direction={SPACE_DIRECTION.vertical}
-          size={SPACE_SIZE.md}
-        />
+        <VisibleSpace direction={SPACE_DIRECTION.vertical} size={SPACE_SIZE.md} />
         <Placeholder color={color.interactive.default}>After</Placeholder>
       </div>
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
         >
           horizontal
         </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
           <Placeholder color={color.interactive.default}>Left</Placeholder>
-          <VisibleSpace
-            direction={SPACE_DIRECTION.horizontal}
-            size={SPACE_SIZE.md}
-          />
+          <VisibleSpace direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.md} />
           <Placeholder color={color.interactive.default}>Right</Placeholder>
         </div>
       </div>
@@ -127,7 +109,7 @@ export const Size = () => (
         <div key={size}>
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
@@ -143,7 +125,7 @@ export const Size = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -164,7 +146,7 @@ export const As = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -178,7 +160,7 @@ export const As = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -187,14 +169,10 @@ export const As = () => (
         </div>
         <div style={{ lineHeight: 1.9, color: color.text.primary }}>
           Pay now
-          <Space
-            as="span"
-            direction={SPACE_DIRECTION.horizontal}
-            size={SPACE_SIZE.sm}
-          />
+          <Space as="span" direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.sm} />
           <span
             style={{
-              padding: "2px 10px",
+              padding: '2px 10px',
               borderRadius: 999,
               background: color.background.secondary,
               outline: `1px solid ${color.border.light}`,
@@ -202,11 +180,7 @@ export const As = () => (
           >
             badge
           </span>
-          <Space
-            as="span"
-            direction={SPACE_DIRECTION.horizontal}
-            size={SPACE_SIZE.sm}
-          />
+          <Space as="span" direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.sm} />
           or later
         </div>
       </div>
@@ -226,14 +200,10 @@ export const InlineTextExample = () => (
   <Frame title='inline spacing (as="span")'>
     <div style={{ lineHeight: 1.9, color: color.text.primary }}>
       Pay now
-      <Space
-        as="span"
-        direction={SPACE_DIRECTION.horizontal}
-        size={SPACE_SIZE.sm}
-      />
+      <Space as="span" direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.sm} />
       <span
         style={{
-          padding: "2px 10px",
+          padding: '2px 10px',
           borderRadius: 999,
           background: color.background.secondary,
           outline: `1px solid ${color.border.light}`,
@@ -241,11 +211,7 @@ export const InlineTextExample = () => (
       >
         badge
       </span>
-      <Space
-        as="span"
-        direction={SPACE_DIRECTION.horizontal}
-        size={SPACE_SIZE.sm}
-      />
+      <Space as="span" direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.sm} />
       or later
     </div>
   </Frame>

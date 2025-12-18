@@ -52,11 +52,11 @@ cd packages/apps/microfrontend/{parcel-name}
 
 ```javascript
 // vite.config.js
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { externalizeDeps } from "vite-plugin-externalize-deps";
-import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
+import { externalizeDeps } from 'vite-plugin-externalize-deps';
 
 export default defineConfig({
   plugins: [
@@ -66,15 +66,15 @@ export default defineConfig({
     externalizeDeps({
       deps: true, // Externalize all deps (loaded via import map)
       peerDeps: false,
-      except: ["clsx"], // Bundle lightweight utilities
+      except: ['clsx'], // Bundle lightweight utilities
     }),
   ],
 
   build: {
     lib: {
-      entry: "src/parcel.tsx",
-      formats: ["es"],
-      fileName: () => "{parcel-name}.mjs",
+      entry: 'src/parcel.tsx',
+      formats: ['es'],
+      fileName: () => '{parcel-name}.mjs',
     },
     minify: false,
     sourcemap: true,
@@ -133,8 +133,9 @@ export const unmount = async (): Promise<void> => {
 
 ```tsx
 // src/App.tsx
-import React from "react";
-import { Button, Card } from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Button, Card } from '@grasdouble/lufa_design-system';
 
 export default function App() {
   return (
@@ -201,7 +202,7 @@ Changes in parcel automatically reload in main-container (no page refresh).
 
 ```typescript
 export const bootstrap = async () => {
-  console.log("Initializing analytics...");
+  console.log('Initializing analytics...');
   // Initialize once
   return Promise.resolve();
 };
@@ -266,7 +267,7 @@ export const unmount = async () => {
 ### Using Design System
 
 ```tsx
-import { Button, Card, Input } from "@grasdouble/lufa_design-system";
+import { Button, Card, Input } from '@grasdouble/lufa_design-system';
 
 export function MyComponent() {
   return (
@@ -281,15 +282,15 @@ export function MyComponent() {
 ### Custom Components
 
 ```tsx
-import { cn } from "@grasdouble/lufa_design-system";
+import { cn } from '@grasdouble/lufa_design-system';
 
 export function CustomCard({ children, className }) {
   return (
     <div
       className={cn(
-        "@utility preflight", // Apply CSS reset
-        "p-6 rounded-lg bg-white shadow-lg",
-        className,
+        '@utility preflight', // Apply CSS reset
+        'p-6 rounded-lg bg-white shadow-lg',
+        className
       )}
     >
       {children}
@@ -305,7 +306,7 @@ export function CustomCard({ children, className }) {
 ```javascript
 // tailwind.config.js (if custom styles needed)
 export default {
-  content: ["./src/**/*.{ts,tsx}"],
+  content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       // Custom styles
@@ -347,7 +348,7 @@ externalizeDeps({
 ```javascript
 externalizeDeps({
   deps: true,
-  except: ["clsx"], // Bundle this
+  except: ['clsx'], // Bundle this
 });
 ```
 
@@ -474,23 +475,21 @@ test("renders component", () => {
 Test Single-SPA lifecycle:
 
 ```typescript
-import { bootstrap, mount, unmount } from "./parcel";
+import { bootstrap, mount, unmount } from './parcel';
 
-test("lifecycle functions exist", () => {
+test('lifecycle functions exist', () => {
   expect(bootstrap).toBeDefined();
   expect(mount).toBeDefined();
   expect(unmount).toBeDefined();
 });
 
-test("mount creates root", async () => {
+test('mount creates root', async () => {
   document.body.innerHTML = '<div id="lufa-container"></div>';
 
   await bootstrap();
   await mount();
 
-  expect(
-    document.getElementById("lufa-container")?.childNodes.length,
-  ).toBeGreaterThan(0);
+  expect(document.getElementById('lufa-container')?.childNodes.length).toBeGreaterThan(0);
 
   await unmount();
 });
@@ -511,7 +510,7 @@ test("mount creates root", async () => {
 
 ```javascript
 // In browser console
-System.import("@grasdouble/lufa_microfrontend_home")
+System.import('@grasdouble/lufa_microfrontend_home')
   .then((module) => console.log(module))
   .catch((err) => console.error(err));
 ```
@@ -543,7 +542,7 @@ externalizeDeps({
 
 ```javascript
 // Check if CSS injected
-const styles = document.querySelectorAll("style");
+const styles = document.querySelectorAll('style');
 console.log(styles);
 ```
 
@@ -614,7 +613,7 @@ entry: 'src/parcel.tsx',
 
 ```typescript
 // Parcel expects #specific-container but uses #lufa-container
-const container = document.getElementById("specific-container");
+const container = document.getElementById('specific-container');
 ```
 
 **Fix**: Always use `#lufa-container` (standard)

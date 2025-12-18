@@ -1,15 +1,15 @@
-import StyleDictionary from "style-dictionary";
+import StyleDictionary from 'style-dictionary';
 
 const sd = new StyleDictionary({
-  source: ["tokens/**/*.json"],
+  source: ['tokens/**/*.json'],
   platforms: {
     css: {
-      transformGroup: "css",
-      buildPath: "dist/",
+      transformGroup: 'css',
+      buildPath: 'dist/',
       files: [
         {
-          destination: "tokens.css",
-          format: "css/variables",
+          destination: 'tokens.css',
+          format: 'css/variables',
           options: {
             outputReferences: true,
           },
@@ -17,22 +17,22 @@ const sd = new StyleDictionary({
       ],
     },
     json: {
-      transformGroup: "js",
-      buildPath: "dist/",
+      transformGroup: 'js',
+      buildPath: 'dist/',
       files: [
         {
-          destination: "tokens.json",
-          format: "json/flat",
+          destination: 'tokens.json',
+          format: 'json/flat',
         },
       ],
     },
     js: {
-      transformGroup: "js",
-      buildPath: "dist/",
+      transformGroup: 'js',
+      buildPath: 'dist/',
       files: [
         {
-          destination: "tokens.js",
-          format: "javascript/es6",
+          destination: 'tokens.js',
+          format: 'javascript/es6',
         },
       ],
     },

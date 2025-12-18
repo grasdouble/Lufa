@@ -29,15 +29,15 @@ packages/design-system/tokens/
 ```typescript
 export const colorTokens = {
   interactive: {
-    primary: "var(--lufa-primitive-color-chromatic-blue-500)",
-    "primary-hover": "var(--lufa-primitive-color-chromatic-blue-600)",
+    primary: 'var(--lufa-primitive-color-chromatic-blue-500)',
+    'primary-hover': 'var(--lufa-primitive-color-chromatic-blue-600)',
   },
   text: {
-    primary: "var(--lufa-primitive-color-achromatic-900)",
-    secondary: "var(--lufa-primitive-color-achromatic-600)",
+    primary: 'var(--lufa-primitive-color-achromatic-900)',
+    secondary: 'var(--lufa-primitive-color-achromatic-600)',
   },
   error: {
-    default: "var(--lufa-primitive-color-chromatic-red-500)",
+    default: 'var(--lufa-primitive-color-chromatic-red-500)',
   },
 };
 ```
@@ -47,9 +47,9 @@ export const colorTokens = {
 ```typescript
 export const typographyTokens = {
   h1: {
-    fontSize: "var(--lufa-primitive-font-size-5xl)",
-    fontWeight: "var(--lufa-primitive-font-weight-bold)",
-    lineHeight: "var(--lufa-primitive-line-height-tight)",
+    fontSize: 'var(--lufa-primitive-font-size-5xl)',
+    fontWeight: 'var(--lufa-primitive-font-weight-bold)',
+    lineHeight: 'var(--lufa-primitive-line-height-tight)',
   },
 };
 ```
@@ -58,9 +58,9 @@ export const typographyTokens = {
 
 ```typescript
 export const spacingTokens = {
-  sm: "var(--lufa-primitive-spacing-8)",
-  md: "var(--lufa-primitive-spacing-16)",
-  lg: "var(--lufa-primitive-spacing-24)",
+  sm: 'var(--lufa-primitive-spacing-8)',
+  md: 'var(--lufa-primitive-spacing-16)',
+  lg: 'var(--lufa-primitive-spacing-24)',
 };
 ```
 
@@ -70,14 +70,14 @@ export const spacingTokens = {
 
 ```typescript
 export const newTokenCategory = {
-  tokenName: "var(--lufa-primitive-{category}-{value})",
+  tokenName: 'var(--lufa-primitive-{category}-{value})',
 };
 ```
 
 ### 2. Export in index.ts
 
 ```typescript
-export { newTokenCategory } from "./tokens";
+export { newTokenCategory } from './tokens';
 ```
 
 ### 3. Add TypeScript Types
@@ -98,7 +98,7 @@ pnpm build
 ### In TypeScript
 
 ```typescript
-import { colorTokens } from "@grasdouble/lufa_design-system-tokens";
+import { colorTokens } from '@grasdouble/lufa_design-system-tokens';
 
 const primaryColor = colorTokens.interactive.primary;
 ```

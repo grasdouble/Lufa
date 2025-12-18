@@ -44,8 +44,8 @@ Lufa uses a standardized spacing scale based on a 4px baseline grid.
 ```tsx
 <div
   style={{
-    padding: "var(--lufa-spacing-md)",
-    gap: "var(--lufa-spacing-sm)",
+    padding: 'var(--lufa-spacing-md)',
+    gap: 'var(--lufa-spacing-sm)',
   }}
 >
   <Button>Action</Button>

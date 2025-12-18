@@ -18,8 +18,8 @@ When registering an application in SingleSPA, you use the `registerApplication` 
 
 ```javascript
 registerApplication({
-  name: "@org/app-home",
-  app: () => System.import("@org/app-home"),
+  name: '@org/app-home',
+  app: () => System.import('@org/app-home'),
   activeWhen: () => true, // This activates the app on all routes
 });
 ```
@@ -34,9 +34,9 @@ To ensure the application is only active on `/`, update the `activeWhen` functio
 
 ```javascript
 registerApplication({
-  name: "@org/app-home",
-  app: () => System.import("@org/app-home"),
-  activeWhen: (location) => location.pathname === "/", // Active only on "/"
+  name: '@org/app-home',
+  app: () => System.import('@org/app-home'),
+  activeWhen: (location) => location.pathname === '/', // Active only on "/"
 });
 ```
 
@@ -44,9 +44,9 @@ If you want the application to be active on `/` and its sub-routes (e.g., `/abou
 
 ```javascript
 registerApplication({
-  name: "@org/app-home",
-  app: () => System.import("@org/app-home"),
-  activeWhen: (location) => location.pathname.startsWith("/"),
+  name: '@org/app-home',
+  app: () => System.import('@org/app-home'),
+  activeWhen: (location) => location.pathname.startsWith('/'),
 });
 ```
 
@@ -54,9 +54,9 @@ For an application that should only be active on `/doc`:
 
 ```javascript
 registerApplication({
-  name: "@org/app-doc",
-  app: () => System.import("@org/app-doc"),
-  activeWhen: (location) => location.pathname.startsWith("/doc"),
+  name: '@org/app-doc',
+  app: () => System.import('@org/app-doc'),
+  activeWhen: (location) => location.pathname.startsWith('/doc'),
 });
 ```
 
@@ -79,18 +79,18 @@ To see which applications are active for a given route, use the **SingleSPA Insp
 Here’s an example configuration for two microfrontends:
 
 ```javascript
-import { registerApplication, start } from "single-spa";
+import { registerApplication, start } from 'single-spa';
 
 registerApplication({
-  name: "@org/app-home",
-  app: () => System.import("@org/app-home"),
-  activeWhen: (location) => location.pathname === "/", // Active only on "/"
+  name: '@org/app-home',
+  app: () => System.import('@org/app-home'),
+  activeWhen: (location) => location.pathname === '/', // Active only on "/"
 });
 
 registerApplication({
-  name: "@org/app-doc",
-  app: () => System.import("@org/app-doc"),
-  activeWhen: (location) => location.pathname.startsWith("/doc"), // Active only on "/doc"
+  name: '@org/app-doc',
+  app: () => System.import('@org/app-doc'),
+  activeWhen: (location) => location.pathname.startsWith('/doc'), // Active only on "/doc"
 });
 
 start();

@@ -1,28 +1,23 @@
-import React, { useState } from "react";
-import { Steps, Stack, Button, tokens } from "@grasdouble/lufa_design-system";
+import React, { useState } from 'react';
+
+import { Button, Stack, Steps, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -35,10 +30,10 @@ const Frame = ({
 );
 
 const basicSteps = [
-  { title: "Step 1", description: "Choose your plan" },
-  { title: "Step 2", description: "Enter your details" },
-  { title: "Step 3", description: "Complete payment" },
-  { title: "Step 4", description: "Confirmation" },
+  { title: 'Step 1', description: 'Choose your plan' },
+  { title: 'Step 2', description: 'Enter your details' },
+  { title: 'Step 3', description: 'Complete payment' },
+  { title: 'Step 4', description: 'Confirmation' },
 ];
 
 export const LiveDemo = () => {
@@ -47,19 +42,14 @@ export const LiveDemo = () => {
   return (
     <Frame title="live demo">
       <Steps items={basicSteps} current={current} />
-      <div style={{ marginTop: "24px", display: "flex", gap: "8px" }}>
-        <Button
-          onClick={() => setCurrent(Math.max(0, current - 1))}
-          disabled={current === 0}
-        >
+      <div style={{ marginTop: '24px', display: 'flex', gap: '8px' }}>
+        <Button onClick={() => setCurrent(Math.max(0, current - 1))} disabled={current === 0}>
           Previous
         </Button>
         <Button
           variant="solid"
           color="primary"
-          onClick={() =>
-            setCurrent(Math.min(basicSteps.length - 1, current + 1))
-          }
+          onClick={() => setCurrent(Math.min(basicSteps.length - 1, current + 1))}
           disabled={current === basicSteps.length - 1}
         >
           Next
@@ -75,7 +65,7 @@ export const Direction = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -87,7 +77,7 @@ export const Direction = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -106,7 +96,7 @@ export const Size = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -118,7 +108,7 @@ export const Size = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -137,7 +127,7 @@ export const Current = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -149,7 +139,7 @@ export const Current = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -161,7 +151,7 @@ export const Current = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -179,14 +169,8 @@ export const OnChange = () => {
 
   return (
     <Frame title="onChange (clickable steps)">
-      <Steps
-        items={basicSteps}
-        current={clickableCurrent}
-        onChange={setClickableCurrent}
-      />
-      <div style={{ marginTop: 16, color: color.text.secondary }}>
-        Current: {clickableCurrent}
-      </div>
+      <Steps items={basicSteps} current={clickableCurrent} onChange={setClickableCurrent} />
+      <div style={{ marginTop: 16, color: color.text.secondary }}>Current: {clickableCurrent}</div>
     </Frame>
   );
 };
@@ -194,46 +178,46 @@ export const OnChange = () => {
 export const Items = () => {
   const stepsWithStatus = [
     {
-      title: "Completed",
-      description: "This step is done",
-      status: "finish" as const,
+      title: 'Completed',
+      description: 'This step is done',
+      status: 'finish' as const,
     },
     {
-      title: "In Progress",
-      description: "Currently working",
-      status: "process" as const,
+      title: 'In Progress',
+      description: 'Currently working',
+      status: 'process' as const,
     },
     {
-      title: "Error Occurred",
-      description: "Something went wrong",
-      status: "error" as const,
+      title: 'Error Occurred',
+      description: 'Something went wrong',
+      status: 'error' as const,
     },
     {
-      title: "Waiting",
-      description: "Not started yet",
-      status: "wait" as const,
+      title: 'Waiting',
+      description: 'Not started yet',
+      status: 'wait' as const,
     },
   ];
 
   const stepsWithIcons = [
     {
-      title: "Account",
-      description: "Create your profile",
+      title: 'Account',
+      description: 'Create your profile',
       icon: <span aria-hidden>👤</span>,
     },
     {
-      title: "Shipping",
-      description: "Delivery details",
+      title: 'Shipping',
+      description: 'Delivery details',
       icon: <span aria-hidden>🚚</span>,
     },
     {
-      title: "Payment",
-      description: "Choose a method",
+      title: 'Payment',
+      description: 'Choose a method',
       icon: <span aria-hidden>💳</span>,
     },
     {
-      title: "Review",
-      description: "Confirm everything",
+      title: 'Review',
+      description: 'Confirm everything',
       icon: <span aria-hidden>✅</span>,
     },
   ];
@@ -244,7 +228,7 @@ export const Items = () => {
         <div>
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
@@ -253,10 +237,10 @@ export const Items = () => {
           </div>
           <Steps
             items={[
-              { title: "Account", description: "Create your profile" },
-              { title: "Verification", description: "Confirm your email" },
-              { title: "Profile", description: "Add personal details" },
-              { title: "Done", description: "You're ready" },
+              { title: 'Account', description: 'Create your profile' },
+              { title: 'Verification', description: 'Confirm your email' },
+              { title: 'Profile', description: 'Add personal details' },
+              { title: 'Done', description: "You're ready" },
             ]}
             current={1}
           />
@@ -264,7 +248,7 @@ export const Items = () => {
         <div>
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
@@ -276,7 +260,7 @@ export const Items = () => {
         <div>
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
@@ -292,15 +276,7 @@ export const Items = () => {
 
 export const CheckoutProgressStepsExample = () => (
   <Frame title="checkout progress">
-    <Steps
-      current={2}
-      items={[
-        { title: "Cart" },
-        { title: "Shipping" },
-        { title: "Payment" },
-        { title: "Review" },
-      ]}
-    />
+    <Steps current={2} items={[{ title: 'Cart' }, { title: 'Shipping' }, { title: 'Payment' }, { title: 'Review' }]} />
   </Frame>
 );
 
@@ -310,9 +286,9 @@ export const VerticalSidebarStepsExample = () => (
       direction="vertical"
       current={1}
       items={[
-        { title: "Profile", description: "Personal information" },
-        { title: "Security", description: "Password & 2FA" },
-        { title: "Notifications", description: "Email preferences" },
+        { title: 'Profile', description: 'Personal information' },
+        { title: 'Security', description: 'Password & 2FA' },
+        { title: 'Notifications', description: 'Email preferences' },
       ]}
     />
   </Frame>

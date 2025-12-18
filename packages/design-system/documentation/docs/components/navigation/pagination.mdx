@@ -2,16 +2,17 @@
 sidebar_position: 5
 ---
 
+import { Pagination } from '@grasdouble/lufa_design-system';
+
 import {
+  LargeDatasetPaginationExample,
   LiveDemo,
-  Size,
+  PrevNextText,
   ShowQuickJumper,
   ShowSizeChanger,
-  PrevNextText,
+  Size,
   TableFooterPaginationExample,
-  LargeDatasetPaginationExample,
-} from "../../../src/dsExamples/navigation/pagination";
-import { Pagination } from "@grasdouble/lufa_design-system";
+} from '../../../src/dsExamples/navigation/pagination';
 
 # Pagination
 
@@ -32,7 +33,7 @@ Use `Pagination` when you need to navigate through a dataset by pages.
 ## Import
 
 ```tsx
-import { Pagination } from "@grasdouble/lufa_design-system";
+import { Pagination } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -45,20 +46,20 @@ const [currentPage, setCurrentPage] = useState(1);
 
 ## Props
 
-| Prop               | Type                             | Default             | Description                                      |
-| ------------------ | -------------------------------- | ------------------- | ------------------------------------------------ |
-| `current`          | `number`                         | -                   | Current page number (1-indexed)                  |
-| `total`            | `number`                         | -                   | Total number of items                            |
-| `pageSize`         | `number`                         | `10`                | Number of items per page                         |
-| `onChange`         | `(page: number) => void`         | -                   | Called when the page changes                     |
-| `showQuickJumper`  | `boolean`                        | `false`             | Show an input to jump to a specific page         |
-| `showSizeChanger`  | `boolean`                        | `false`             | Show a page size selector                        |
-| `pageSizeOptions`  | `number[]`                       | `[10, 20, 50, 100]` | Options displayed in the page size selector      |
-| `onPageSizeChange` | `(pageSize: number) => void`     | -                   | Called when the page size changes                |
-| `size`             | `'small' \| 'medium' \| 'large'` | `'medium'`          | Visual size of buttons and controls              |
-| `className`        | `string`                         | -                   | Additional CSS class                             |
-| `prevText`         | `ReactNode`                      | `'←'`               | Custom previous button content (icon/text)       |
-| `nextText`         | `ReactNode`                      | `'→'`               | Custom next button content (icon/text)           |
+| Prop               | Type                             | Default             | Description                                 |
+| ------------------ | -------------------------------- | ------------------- | ------------------------------------------- |
+| `current`          | `number`                         | -                   | Current page number (1-indexed)             |
+| `total`            | `number`                         | -                   | Total number of items                       |
+| `pageSize`         | `number`                         | `10`                | Number of items per page                    |
+| `onChange`         | `(page: number) => void`         | -                   | Called when the page changes                |
+| `showQuickJumper`  | `boolean`                        | `false`             | Show an input to jump to a specific page    |
+| `showSizeChanger`  | `boolean`                        | `false`             | Show a page size selector                   |
+| `pageSizeOptions`  | `number[]`                       | `[10, 20, 50, 100]` | Options displayed in the page size selector |
+| `onPageSizeChange` | `(pageSize: number) => void`     | -                   | Called when the page size changes           |
+| `size`             | `'small' \| 'medium' \| 'large'` | `'medium'`          | Visual size of buttons and controls         |
+| `className`        | `string`                         | -                   | Additional CSS class                        |
+| `prevText`         | `ReactNode`                      | `'←'`               | Custom previous button content (icon/text)  |
+| `nextText`         | `ReactNode`                      | `'→'`               | Custom next button content (icon/text)      |
 
 ## Variants
 

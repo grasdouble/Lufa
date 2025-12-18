@@ -112,8 +112,9 @@ Flow: Component imports .module.css → Vite processes → Tailwind applies → 
 **In Host App**:
 
 ```tsx
-import { Button } from "@grasdouble/lufa_design-system";
-import "@grasdouble/lufa_design-system/style.css"; // No conflicts
+import { Button } from '@grasdouble/lufa_design-system';
+
+import '@grasdouble/lufa_design-system/style.css'; // No conflicts
 ```
 
 Flow: Import CSS → No global resets → Host app styles intact → Component styles scoped

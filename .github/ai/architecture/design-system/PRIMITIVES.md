@@ -66,18 +66,15 @@ dist/ (build output)
 **TS**:
 
 ```typescript
-import {
-  color,
-  spacing,
-  fontSize,
-} from "@grasdouble/lufa_design-system-primitives";
+import { color, fontSize, spacing } from '@grasdouble/lufa_design-system-primitives';
+
 color.chromatic.blue[500]; // "oklch(63.68% 0.267 259.79)"
 ```
 
 **CSS**:
 
 ```css
-@import "@grasdouble/lufa_design-system-primitives/style.css";
+@import '@grasdouble/lufa_design-system-primitives/style.css';
 color: var(--lufa-primitive-color-chromatic-blue-500);
 ```
 

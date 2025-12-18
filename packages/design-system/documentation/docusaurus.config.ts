@@ -1,14 +1,13 @@
-import { themes as prismThemes } from "prism-react-renderer";
-import type { Config } from "@docusaurus/types";
-import type * as Preset from "@docusaurus/preset-classic";
+import type * as Preset from '@docusaurus/preset-classic';
+import type { Config } from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "Lufa Design System",
-  tagline:
-    "A modern, accessible design system built with React and Tailwind CSS",
-  favicon: "img/favicon.ico",
+  title: 'Lufa Design System',
+  tagline: 'A modern, accessible design system built with React and Tailwind CSS',
+  favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -19,40 +18,39 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: "https://lufa-ds.grasdouble.com",
+  url: 'https://lufa-ds.grasdouble.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "grasdouble", // Usually your GitHub org/user name.
-  projectName: "Lufa", // Usually your repo name.
+  organizationName: 'grasdouble', // Usually your GitHub org/user name.
+  projectName: 'Lufa', // Usually your repo name.
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   presets: [
     [
-      "classic",
+      'classic',
       {
         docs: {
-          sidebarPath: "./sidebars.ts",
-          editUrl:
-            "https://github.com/grasdouble/Lufa/tree/main/packages/apps/lufa-documentation/",
+          sidebarPath: './sidebars.ts',
+          editUrl: 'https://github.com/grasdouble/Lufa/tree/main/packages/apps/lufa-documentation/',
           sidebarCollapsible: true,
           sidebarCollapsed: false,
         },
         blog: false, // Disable blog for design system docs
         theme: {
-          customCss: "./src/css/custom.css",
+          customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
     ],
@@ -60,81 +58,81 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "Lufa Design System",
+      title: 'Lufa Design System',
       logo: {
-        alt: "Lufa Logo",
-        src: "img/logo.svg",
+        alt: 'Lufa Logo',
+        src: 'img/logo.svg',
       },
       items: [
         {
-          type: "docSidebar",
-          sidebarId: "docs",
-          position: "left",
-          label: "Documentation",
+          type: 'docSidebar',
+          sidebarId: 'docs',
+          position: 'left',
+          label: 'Documentation',
         },
         {
-          href: "https://github.com/grasdouble/Lufa",
-          label: "GitHub",
-          position: "right",
+          href: 'https://github.com/grasdouble/Lufa',
+          label: 'GitHub',
+          position: 'right',
         },
       ],
     },
     footer: {
-      style: "dark",
+      style: 'dark',
       links: [
         {
-          title: "Documentation",
+          title: 'Documentation',
           items: [
             {
-              label: "Getting Started",
-              to: "/docs/intro",
+              label: 'Getting Started',
+              to: '/docs/intro',
             },
             {
-              label: "Installation",
-              to: "/docs/getting-started/installation",
+              label: 'Installation',
+              to: '/docs/getting-started/installation',
             },
             {
-              label: "Components",
-              to: "/docs/components/overview",
+              label: 'Components',
+              to: '/docs/components/overview',
             },
           ],
         },
         {
-          title: "Tokens",
+          title: 'Tokens',
           items: [
             {
-              label: "Colors",
-              to: "/docs/tokens/colors",
+              label: 'Colors',
+              to: '/docs/tokens/colors',
             },
             {
-              label: "Typography",
-              to: "/docs/tokens/typography",
+              label: 'Typography',
+              to: '/docs/tokens/typography',
             },
             {
-              label: "Spacing",
-              to: "/docs/tokens/spacing",
+              label: 'Spacing',
+              to: '/docs/tokens/spacing',
             },
           ],
         },
         {
-          title: "Resources",
+          title: 'Resources',
           items: [
             {
-              label: "GitHub",
-              href: "https://github.com/grasdouble/Lufa",
+              label: 'GitHub',
+              href: 'https://github.com/grasdouble/Lufa',
             },
             {
-              label: "Contributing",
-              to: "/docs/guides/contributing",
+              label: 'Contributing',
+              to: '/docs/guides/contributing',
             },
             {
-              label: "Accessibility",
-              to: "/docs/accessibility",
+              label: 'Accessibility',
+              to: '/docs/accessibility',
             },
           ],
         },

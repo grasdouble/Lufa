@@ -2,17 +2,18 @@
 sidebar_position: 6
 ---
 
+import { Steps } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Direction,
-  Size,
-  Current,
-  OnChange,
-  Items,
   CheckoutProgressStepsExample,
+  Current,
+  Direction,
+  Items,
+  LiveDemo,
+  OnChange,
+  Size,
   VerticalSidebarStepsExample,
-} from "../../../src/dsExamples/navigation/steps";
-import { Steps } from "@grasdouble/lufa_design-system";
+} from '../../../src/dsExamples/navigation/steps';
 
 # Steps
 
@@ -34,21 +35,13 @@ Use `Steps` when you need to display progress through a multi-step flow.
 ## Import
 
 ```tsx
-import { Steps } from "@grasdouble/lufa_design-system";
+import { Steps } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
 
 ```tsx
-<Steps
-  current={1}
-  items={[
-    { title: "Account" },
-    { title: "Verification" },
-    { title: "Profile" },
-    { title: "Done" },
-  ]}
-/>;
+<Steps current={1} items={[{ title: 'Account' }, { title: 'Verification' }, { title: 'Profile' }, { title: 'Done' }]} />
 ```
 
 ## Props

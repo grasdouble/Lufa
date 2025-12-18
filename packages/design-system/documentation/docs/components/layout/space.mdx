@@ -2,15 +2,16 @@
 sidebar_position: 7
 ---
 
+import { Space, SPACE_DIRECTION, SPACE_SIZE } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Direction,
-  Size,
   As,
+  Direction,
   InlineTextExample,
+  LiveDemo,
   SectionSeparatorExample,
-} from "../../../src/dsExamples/layout/space";
-import { Space, SPACE_DIRECTION, SPACE_SIZE } from "@grasdouble/lufa_design-system";
+  Size,
+} from '../../../src/dsExamples/layout/space';
 
 # Space
 
@@ -32,7 +33,7 @@ Use `Space` when you need…
 ## Import
 
 ```tsx
-import { Space, SPACE_DIRECTION, SPACE_SIZE } from "@grasdouble/lufa_design-system";
+import { Space, SPACE_DIRECTION, SPACE_SIZE } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -51,11 +52,11 @@ import { Space, SPACE_DIRECTION, SPACE_SIZE } from "@grasdouble/lufa_design-syst
 
 ## Props
 
-| Prop        | Type                                                 | Default      | Description      |
-| ----------- | ---------------------------------------------------- | ------------ | ---------------- |
-| `as`        | `'div' \| 'span'`                                    | `'div'`      | Render element   |
-| `direction` | `keyof typeof SPACE_DIRECTION`                       | `'vertical'` | Spacer direction |
-| `size`      | `keyof typeof SPACE_SIZE \| number \| string`        | `'md'`       | Spacer size      |
+| Prop        | Type                                          | Default      | Description      |
+| ----------- | --------------------------------------------- | ------------ | ---------------- |
+| `as`        | `'div' \| 'span'`                             | `'div'`      | Render element   |
+| `direction` | `keyof typeof SPACE_DIRECTION`                | `'vertical'` | Spacer direction |
+| `size`      | `keyof typeof SPACE_SIZE \| number \| string` | `'md'`       | Spacer size      |
 
 Also supports standard element props (for example `className`, `style`, `aria-label`, …).
 

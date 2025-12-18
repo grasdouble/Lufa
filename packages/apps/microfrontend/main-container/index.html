@@ -1,35 +1,35 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Lufa Micro-Frontend</title>
-    </head>
-    <body>
-        <import-map-overrides-full show-when-local-storage="devtools"></import-map-overrides-full>
-        <div id="lufa-container"></div>
-        <script type="module">
-            const isDevMode = localStorage.getItem('devtools') === 'true';
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lufa Micro-Frontend</title>
+  </head>
+  <body>
+    <import-map-overrides-full show-when-local-storage="devtools"></import-map-overrides-full>
+    <div id="lufa-container"></div>
+    <script type="module">
+      const isDevMode = localStorage.getItem('devtools') === 'true';
 
-            if (isDevMode) {
-                import('/src/main.js').catch((err) => {
-                    console.error('Failed to load main.js in dev mode:', err);
-                });
-            } else {
-                fetch('https://cdn.sebastien-lemouillour.fr/importMap.json')
-                    .then((res) => res.json())
-                    .then((importMap) => {
-                        const script = document.createElement('script');
-                        script.type = 'overridable-importmap';
-                        script.textContent = JSON.stringify(importMap, null, 2);
-                        document.head.appendChild(script);
-                    })
-                    .then(() => import('/src/main.js'))
-                    .catch((err) => {
-                        console.error('Failed to load import map or main.js:', err);
-                    });
-            }
-        </script>
-    </body>
+      if (isDevMode) {
+        import('/src/main.js').catch((err) => {
+          console.error('Failed to load main.js in dev mode:', err);
+        });
+      } else {
+        fetch('https://cdn.sebastien-lemouillour.fr/importMap.json')
+          .then((res) => res.json())
+          .then((importMap) => {
+            const script = document.createElement('script');
+            script.type = 'overridable-importmap';
+            script.textContent = JSON.stringify(importMap, null, 2);
+            document.head.appendChild(script);
+          })
+          .then(() => import('/src/main.js'))
+          .catch((err) => {
+            console.error('Failed to load import map or main.js:', err);
+          });
+      }
+    </script>
+  </body>
 </html>

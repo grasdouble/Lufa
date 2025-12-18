@@ -98,17 +98,14 @@ pnpm build
 
    ```tsx
    // NewComponent.tsx
-   import styles from "./NewComponent.module.css";
+   import styles from './NewComponent.module.css';
 
    export interface NewComponentProps {
-     variant?: "default" | "primary";
+     variant?: 'default' | 'primary';
      children: React.ReactNode;
    }
 
-   export function NewComponent({
-     variant = "default",
-     children,
-   }: NewComponentProps) {
+   export function NewComponent({ variant = 'default', children }: NewComponentProps) {
      return <div className={styles[variant]}>{children}</div>;
    }
    ```
@@ -132,27 +129,28 @@ pnpm build
 
    ```tsx
    // index.ts
-   export { NewComponent } from "./NewComponent";
-   export type { NewComponentProps } from "./NewComponent";
+   export { NewComponent } from './NewComponent';
+   export type { NewComponentProps } from './NewComponent';
    ```
 
 5. **Add to main export**:
 
    ```tsx
    // packages/design-system/src/index.ts
-   export { NewComponent } from "./components/NewComponent";
-   export type { NewComponentProps } from "./components/NewComponent";
+   export { NewComponent } from './components/NewComponent';
+   export type { NewComponentProps } from './components/NewComponent';
    ```
 
 6. **Create Storybook story**:
 
    ```tsx
    // packages/apps/lufa-storybook/src/stories/NewComponent.stories.tsx
-   import type { Meta, StoryObj } from "@storybook/react";
-   import { NewComponent } from "@grasdouble/lufa_design-system";
+   import type { Meta, StoryObj } from '@storybook/react';
+
+   import { NewComponent } from '@grasdouble/lufa_design-system';
 
    const meta: Meta<typeof NewComponent> = {
-     title: "Components/NewComponent",
+     title: 'Components/NewComponent',
      component: NewComponent,
      tags: [],
    };
@@ -162,7 +160,7 @@ pnpm build
 
    export const Default: Story = {
      args: {
-       children: "New Component",
+       children: 'New Component',
      },
    };
    ```
@@ -234,20 +232,19 @@ pnpm test:coverage
 ### Writing Tests
 
 ```tsx
-import { render, screen } from "@testing-library/react";
-import { NewComponent } from "./NewComponent";
+import { render, screen } from '@testing-library/react';
 
-describe("NewComponent", () => {
-  it("renders children", () => {
+import { NewComponent } from './NewComponent';
+
+describe('NewComponent', () => {
+  it('renders children', () => {
     render(<NewComponent>Test</NewComponent>);
-    expect(screen.getByText("Test")).toBeInTheDocument();
+    expect(screen.getByText('Test')).toBeInTheDocument();
   });
 
-  it("applies variant class", () => {
-    const { container } = render(
-      <NewComponent variant="primary">Test</NewComponent>,
-    );
-    expect(container.firstChild).toHaveClass("primary");
+  it('applies variant class', () => {
+    const { container } = render(<NewComponent variant="primary">Test</NewComponent>);
+    expect(container.firstChild).toHaveClass('primary');
   });
 });
 ```

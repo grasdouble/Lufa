@@ -71,8 +71,7 @@ Single source generates three formats:
   --color-semantic-interactive-default: #3b82f6;
   --spacing-md: 16px;
   --radius-lg: 12px;
-  --shadow-md:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 ```
 
@@ -89,9 +88,9 @@ Single source generates three formats:
 **JavaScript Output:**
 
 ```javascript
-export const ColorPrimitiveBlue500 = "#3b82f6";
-export const ColorSemanticInteractiveDefault = "#3b82f6";
-export const SpacingMd = "16px";
+export const ColorPrimitiveBlue500 = '#3b82f6';
+export const ColorSemanticInteractiveDefault = '#3b82f6';
+export const SpacingMd = '16px';
 ```
 
 #### 3. Automatic Naming Conventions

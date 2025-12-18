@@ -2,19 +2,20 @@
 sidebar_position: 10
 ---
 
+import { Flex, FLEX_ALIGN, FLEX_DIRECTION, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Direction,
   Align,
-  Justify,
-  Wrap,
+  As,
+  Direction,
   Gap,
   Inline,
-  As,
-  ToolbarExample,
+  Justify,
+  LiveDemo,
   ResponsiveCardRowExample,
-} from "../../../src/dsExamples/layout/flex";
-import { Flex, FLEX_ALIGN, FLEX_DIRECTION, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE } from "@grasdouble/lufa_design-system";
+  ToolbarExample,
+  Wrap,
+} from '../../../src/dsExamples/layout/flex';
 
 # Flex
 
@@ -38,7 +39,7 @@ Use `Flex` when you need…
 ## Import
 
 ```tsx
-import { Flex, FLEX_DIRECTION, FLEX_ALIGN, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE } from "@grasdouble/lufa_design-system";
+import { Flex, FLEX_ALIGN, FLEX_DIRECTION, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -59,16 +60,16 @@ import { Flex, FLEX_DIRECTION, FLEX_ALIGN, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE }
 
 ## Props
 
-| Prop        | Type                                                 | Default     | Description                          |
-| ----------- | ---------------------------------------------------- | ----------- | ------------------------------------ |
-| `as`        | `'div' \| 'span' \| 'section' \| 'nav' \| 'header' \| 'footer' \| 'main' \| 'article'` | `'div'` | Render element |
-| `inline`    | `boolean`                                            | `false`     | Uses `inline-flex` instead of `flex` |
-| `direction` | `keyof typeof FLEX_DIRECTION`                        | `'row'`     | Flex direction                       |
-| `align`     | `keyof typeof FLEX_ALIGN`                            | `'stretch'` | Cross-axis alignment                 |
-| `justify`   | `keyof typeof FLEX_JUSTIFY`                          | `'start'`   | Main-axis distribution               |
-| `wrap`      | `keyof typeof FLEX_WRAP`                             | `'nowrap'`  | Wrapping behavior                    |
-| `gap`       | `keyof typeof SPACE_SIZE \| number \| string`        | `'md'`      | Gap between items                    |
-| `children`  | `ReactNode`                                          | -           | Content                              |
+| Prop        | Type                                                                                   | Default     | Description                          |
+| ----------- | -------------------------------------------------------------------------------------- | ----------- | ------------------------------------ |
+| `as`        | `'div' \| 'span' \| 'section' \| 'nav' \| 'header' \| 'footer' \| 'main' \| 'article'` | `'div'`     | Render element                       |
+| `inline`    | `boolean`                                                                              | `false`     | Uses `inline-flex` instead of `flex` |
+| `direction` | `keyof typeof FLEX_DIRECTION`                                                          | `'row'`     | Flex direction                       |
+| `align`     | `keyof typeof FLEX_ALIGN`                                                              | `'stretch'` | Cross-axis alignment                 |
+| `justify`   | `keyof typeof FLEX_JUSTIFY`                                                            | `'start'`   | Main-axis distribution               |
+| `wrap`      | `keyof typeof FLEX_WRAP`                                                               | `'nowrap'`  | Wrapping behavior                    |
+| `gap`       | `keyof typeof SPACE_SIZE \| number \| string`                                          | `'md'`      | Gap between items                    |
+| `children`  | `ReactNode`                                                                            | -           | Content                              |
 
 Also supports standard element props (for example `className`, `style`, `aria-label`, …).
 

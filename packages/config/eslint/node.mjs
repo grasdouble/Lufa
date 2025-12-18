@@ -1,14 +1,14 @@
-import globals from "globals";
+import globals from 'globals';
 
-import basicConfig from "./basic.mjs";
+import basicConfig from './basic.mjs';
 
 export default [
   ...basicConfig,
   {
-    files: ["**/*.{js,mjs,cjs}"],
+    files: ['**/*.{js,mjs,cjs}'],
     languageOptions: {
       ecmaVersion: 2022,
-      sourceType: "module",
+      sourceType: 'module',
       globals: {
         ...globals.node,
         ...globals.es2021,
@@ -16,8 +16,8 @@ export default [
     },
     rules: {
       // Node.js best practices
-      "no-console": "off", // Console is expected in Node
-      "no-process-exit": "warn",
+      'no-console': 'off', // Console is expected in Node
+      'no-process-exit': 'warn',
     },
   },
 ];

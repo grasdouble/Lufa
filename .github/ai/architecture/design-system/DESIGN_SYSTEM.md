@@ -56,8 +56,9 @@ components: Button uses tokens.color.interactive.primary
 **Dual Export**: Components in JS, styles in CSS
 
 ```ts
-import { Button } from "@grasdouble/lufa_design-system";
-import "@grasdouble/lufa_design-system/style.css";
+import { Button } from '@grasdouble/lufa_design-system';
+
+import '@grasdouble/lufa_design-system/style.css';
 ```
 
 ## Config
@@ -92,8 +93,9 @@ documentation → main
 **In App**:
 
 ```tsx
-import { Button, Card } from "@grasdouble/lufa_design-system";
-import "@grasdouble/lufa_design-system/style.css";
+import { Button, Card } from '@grasdouble/lufa_design-system';
+
+import '@grasdouble/lufa_design-system/style.css';
 
 <Card>
   <Button>Click</Button>

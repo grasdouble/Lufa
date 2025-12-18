@@ -2,15 +2,16 @@
 sidebar_position: 1
 ---
 
+import { Anchor } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Variant,
   Color,
-  Icons,
-  StickyInPageNavExample,
   ExternalLinkExample,
-} from "../../../src/dsExamples/navigation/anchor";
-import { Anchor } from "@grasdouble/lufa_design-system";
+  Icons,
+  LiveDemo,
+  StickyInPageNavExample,
+  Variant,
+} from '../../../src/dsExamples/navigation/anchor';
 
 # Anchor
 
@@ -32,7 +33,7 @@ Use `Anchor` when you need…
 ## Import
 
 ```tsx
-import { Anchor } from "@grasdouble/lufa_design-system";
+import { Anchor } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -43,14 +44,14 @@ import { Anchor } from "@grasdouble/lufa_design-system";
 
 ## Props
 
-| Prop        | Type                                    | Default     | Description                              |
-| ----------- | --------------------------------------- | ----------- | ---------------------------------------- |
-| `children`  | `ReactNode`                             | -           | Anchor content                           |
-| `variant`   | `'default' \| 'underline' \| 'subtle'`  | `'default'` | Visual style variant                     |
-| `color`     | `'primary' \| 'secondary' \| 'inherit'` | `'primary'` | Color scheme                             |
-| `startIcon` | `ReactNode`                             | -           | Icon before content                      |
-| `endIcon`   | `ReactNode`                             | -           | Icon after content                       |
-| `href`      | `string`                                | -           | Target anchor link (e.g. `#section-id`)  |
+| Prop        | Type                                    | Default     | Description                             |
+| ----------- | --------------------------------------- | ----------- | --------------------------------------- |
+| `children`  | `ReactNode`                             | -           | Anchor content                          |
+| `variant`   | `'default' \| 'underline' \| 'subtle'`  | `'default'` | Visual style variant                    |
+| `color`     | `'primary' \| 'secondary' \| 'inherit'` | `'primary'` | Color scheme                            |
+| `startIcon` | `ReactNode`                             | -           | Icon before content                     |
+| `endIcon`   | `ReactNode`                             | -           | Icon after content                      |
+| `href`      | `string`                                | -           | Target anchor link (e.g. `#section-id`) |
 
 Also supports standard anchor props (for example `target`, `rel`, `className`, `aria-*`, …).
 

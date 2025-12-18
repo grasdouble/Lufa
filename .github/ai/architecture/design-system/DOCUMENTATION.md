@@ -50,7 +50,7 @@ packages/design-system/documentation/
 **MDX Integration**: Markdown with embedded React components
 
 ```mdx
-import { Button } from "@grasdouble/lufa_design-system";
+import { Button } from '@grasdouble/lufa_design-system';
 
 # Button Component
 
@@ -134,8 +134,9 @@ Purpose:
 sidebar_position: 1
 ---
 
-import { Button, Card } from "@grasdouble/lufa_design-system";
-import "@grasdouble/lufa_design-system/style.css";
+import { Button, Card } from '@grasdouble/lufa_design-system';
+
+import '@grasdouble/lufa_design-system/style.css';
 
 # Button
 

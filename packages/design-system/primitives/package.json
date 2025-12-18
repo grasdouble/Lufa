@@ -20,15 +20,18 @@
     "build": "pnpm clean && tsc && tsx scripts/generate-css.ts",
     "clean": "rm -rf dist",
     "dev": "tsc --watch",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "prettier": "prettier --write ."
   },
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_prettier": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@types/node": "^24.10.4",
     "eslint": "^9.39.2",
     "prettier": "^3.7.4",
+    "prettier-plugin-packagejson": "^2.5.20",
     "tsx": "^4.19.2",
     "typescript": "^5.9.3"
   },

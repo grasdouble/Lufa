@@ -1,28 +1,23 @@
-import React, { useState } from "react";
-import { Menu, Stack, tokens } from "@grasdouble/lufa_design-system";
+import React, { useState } from 'react';
+
+import { Menu, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -35,28 +30,28 @@ const Frame = ({
 );
 
 const menuItems = [
-  { key: "home", label: "Home", href: "/" },
-  { key: "products", label: "Products", href: "/products" },
-  { key: "about", label: "About", href: "/about" },
-  { key: "contact", label: "Contact", href: "/contact" },
+  { key: 'home', label: 'Home', href: '/' },
+  { key: 'products', label: 'Products', href: '/products' },
+  { key: 'about', label: 'About', href: '/about' },
+  { key: 'contact', label: 'Contact', href: '/contact' },
 ];
 
 const menuWithSubmenu = [
-  { key: "home", label: "Home", href: "/" },
+  { key: 'home', label: 'Home', href: '/' },
   {
-    key: "products",
-    label: "Products",
+    key: 'products',
+    label: 'Products',
     children: [
       {
-        key: "electronics",
-        label: "Electronics",
-        href: "/products/electronics",
+        key: 'electronics',
+        label: 'Electronics',
+        href: '/products/electronics',
       },
-      { key: "clothing", label: "Clothing", href: "/products/clothing" },
-      { key: "books", label: "Books", href: "/products/books" },
+      { key: 'clothing', label: 'Clothing', href: '/products/clothing' },
+      { key: 'books', label: 'Books', href: '/products/books' },
     ],
   },
-  { key: "about", label: "About", href: "/about" },
+  { key: 'about', label: 'About', href: '/about' },
 ];
 
 export const LiveDemo = () => (
@@ -71,7 +66,7 @@ export const Mode = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -83,7 +78,7 @@ export const Mode = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -95,7 +90,7 @@ export const Mode = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -112,15 +107,15 @@ export const Theme = () => (
   <Frame title="theme">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
         gap: 16,
       }}
     >
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -132,7 +127,7 @@ export const Theme = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -146,19 +141,15 @@ export const Theme = () => (
 );
 
 export const SelectedKey = () => {
-  const [selectedKey, setSelectedKey] = useState("home");
+  const [selectedKey, setSelectedKey] = useState('home');
 
   return (
     <Frame title="selectedKey / onSelect">
-      <Menu
-        items={menuItems}
-        selectedKey={selectedKey}
-        onSelect={setSelectedKey}
-      />
+      <Menu items={menuItems} selectedKey={selectedKey} onSelect={setSelectedKey} />
       <div
         style={{
           marginTop: 12,
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           fontSize: 12,
         }}

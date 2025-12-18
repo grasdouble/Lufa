@@ -2,16 +2,17 @@
 sidebar_position: 9
 ---
 
+import { Center } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Axis,
-  Inline,
-  MinHeight,
   As,
-  LoadingPanelExample,
+  Axis,
   EmptyStateExample,
-} from "../../../src/dsExamples/layout/center";
-import { Center } from "@grasdouble/lufa_design-system";
+  Inline,
+  LiveDemo,
+  LoadingPanelExample,
+  MinHeight,
+} from '../../../src/dsExamples/layout/center';
 
 # Center
 
@@ -33,7 +34,7 @@ Use `Center` when you need…
 ## Import
 
 ```tsx
-import { Center } from "@grasdouble/lufa_design-system";
+import { Center } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -46,13 +47,13 @@ import { Center } from "@grasdouble/lufa_design-system";
 
 ## Props
 
-| Prop        | Type                                   | Default  | Description                               |
-| ----------- | -------------------------------------- | -------- | ----------------------------------------- |
-| `axis`      | `'both' \| 'horizontal' \| 'vertical'` | `'both'` | Which axis to center on                   |
-| `inline`    | `boolean`                              | `false`  | Uses `inline-flex` instead of `flex`      |
-| `minHeight` | `number \| string`                     | -        | Optional minimum height for the container |
-| `as`        | `'div' \| 'span' \| 'section' \| 'main' \| 'article'` | `'div'` | Render element                            |
-| `children`  | `ReactNode`                            | -        | Content                                   |
+| Prop        | Type                                                  | Default  | Description                               |
+| ----------- | ----------------------------------------------------- | -------- | ----------------------------------------- |
+| `axis`      | `'both' \| 'horizontal' \| 'vertical'`                | `'both'` | Which axis to center on                   |
+| `inline`    | `boolean`                                             | `false`  | Uses `inline-flex` instead of `flex`      |
+| `minHeight` | `number \| string`                                    | -        | Optional minimum height for the container |
+| `as`        | `'div' \| 'span' \| 'section' \| 'main' \| 'article'` | `'div'`  | Render element                            |
+| `children`  | `ReactNode`                                           | -        | Content                                   |
 
 Also supports standard element props (for example `className`, `style`, `aria-label`, …).
 

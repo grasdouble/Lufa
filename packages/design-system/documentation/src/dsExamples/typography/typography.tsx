@@ -1,21 +1,17 @@
-import React from "react";
-import {
-  Card,
-  Stack,
-  Typography,
-  tokens,
-} from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Card, Stack, tokens, Typography } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
 const Frame = ({ children }: { children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {children}
@@ -41,7 +37,7 @@ export const Variants = () => (
     <Frame>
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -58,7 +54,7 @@ export const Variants = () => (
     <Frame>
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -85,7 +81,7 @@ export const Examples = () => (
     <Frame>
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -105,7 +101,7 @@ export const Examples = () => (
     <Frame>
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}

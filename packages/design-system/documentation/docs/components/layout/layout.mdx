@@ -2,16 +2,17 @@
 sidebar_position: 6
 ---
 
+import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from '@grasdouble/lufa_design-system';
+
 import {
+  AppShellExample,
+  ContentOnlyExample,
+  Gap,
   LiveDemo,
   Sidebar,
   SidebarPosition,
   SidebarWidth,
-  Gap,
-  AppShellExample,
-  ContentOnlyExample,
-} from "../../../src/dsExamples/layout/layout";
-import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from "@grasdouble/lufa_design-system";
+} from '../../../src/dsExamples/layout/layout';
 
 # Layout
 
@@ -33,7 +34,7 @@ Use `Layout` when you need…
 ## Import
 
 ```tsx
-import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from "@grasdouble/lufa_design-system";
+import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -49,12 +50,12 @@ import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } fro
 
 ## Props
 
-| Prop              | Type                                     | Default     | Description                                 |
-| ----------------- | ---------------------------------------- | ----------- | ------------------------------------------- |
-| `sidebar`         | `boolean`                                | `false`     | Enables the sidebar area                    |
-| `sidebarPosition` | `keyof typeof LAYOUT_SIDEBAR_POSITION`   | `'left'`    | Sidebar placement (when sidebar is enabled) |
-| `sidebarWidth`    | `keyof typeof LAYOUT_SIDEBAR_WIDTH`      | `'default'` | Sidebar width preset (when enabled)         |
-| `gap`             | `keyof typeof LAYOUT_GAP`                | `'md'`      | Gap between layout areas                    |
+| Prop              | Type                                   | Default     | Description                                 |
+| ----------------- | -------------------------------------- | ----------- | ------------------------------------------- |
+| `sidebar`         | `boolean`                              | `false`     | Enables the sidebar area                    |
+| `sidebarPosition` | `keyof typeof LAYOUT_SIDEBAR_POSITION` | `'left'`    | Sidebar placement (when sidebar is enabled) |
+| `sidebarWidth`    | `keyof typeof LAYOUT_SIDEBAR_WIDTH`    | `'default'` | Sidebar width preset (when enabled)         |
+| `gap`             | `keyof typeof LAYOUT_GAP`              | `'md'`      | Gap between layout areas                    |
 
 Also supports standard `div` props (for example `className`, `style`, `aria-label`, …).
 

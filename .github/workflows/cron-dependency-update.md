@@ -20,7 +20,7 @@ This workflow runs on the following events:
 ```yaml
 on:
   schedule:
-    - cron: "0 0 * * 1" # Run every Monday at midnight
+    - cron: '0 0 * * 1' # Run every Monday at midnight
   workflow_dispatch:
 ```
 
@@ -67,7 +67,7 @@ Checks out the repository to make workflow files available for subsequent steps.
   uses: ./.github/actions/dependency-update
   with:
     PAT_DEPENDENCY_CHECK_UPDATE: ${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}
-    SETUP_VERSION_FILE: ".tool-versions"
+    SETUP_VERSION_FILE: '.tool-versions'
 ```
 
 Runs the composite action to:

@@ -1,34 +1,23 @@
-import React from "react";
-import {
-  Button,
-  Card,
-  Stack,
-  Typography,
-  tokens,
-} from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Button, Card, Stack, tokens, Typography } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -54,9 +43,9 @@ export const Variant = () => (
   <Frame title="variant">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-        gap: "16px",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+        gap: '16px',
       }}
     >
       <Card variant="default" title="Default">
@@ -86,7 +75,7 @@ export const Variant = () => (
 export const Padding = () => (
   <Frame title="padding">
     <Stack direction="vertical" gap="normal">
-      {(["none", "small", "medium", "large"] as const).map((padding) => (
+      {(['none', 'small', 'medium', 'large'] as const).map((padding) => (
         <Card
           key={padding}
           padding={padding}
@@ -118,19 +107,14 @@ export const Interactive = () => (
         </Typography>
       </Card>
 
-      <Card
-        title="Clickable"
-        subtitle="hoverable + onClick"
-        hoverable
-        onClick={() => console.log("Card clicked")}
-      >
+      <Card title="Clickable" subtitle="hoverable + onClick" hoverable onClick={() => console.log('Card clicked')}>
         <Stack direction="vertical" gap="normal">
           <Typography variant="bodySmall" color="secondary">
             Click the card.
           </Typography>
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               fontSize: 12,
             }}
@@ -150,7 +134,7 @@ export const FooterActionsExample = () => (
       title="Card with actions"
       subtitle="Footer actions"
       footer={
-        <div style={{ display: "flex", gap: 8 }}>
+        <div style={{ display: 'flex', gap: 8 }}>
           <Button variant="solid">Primary</Button>
           <Button variant="text">Cancel</Button>
         </div>
@@ -168,7 +152,7 @@ export const ClickableCardExample = () => (
     <Card
       variant="elevated"
       hoverable
-      onClick={() => console.log("Card clicked")}
+      onClick={() => console.log('Card clicked')}
       title="Clickable"
       subtitle="hoverable + onClick"
     >
@@ -178,7 +162,7 @@ export const ClickableCardExample = () => (
         </Typography>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             fontSize: 12,
           }}

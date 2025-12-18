@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+
 import {
   Placeholder,
   Stack,
@@ -9,30 +10,24 @@ import {
   STACK_PADDING,
   STACK_WRAP,
   tokens,
-} from "@grasdouble/lufa_design-system";
+} from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -58,8 +53,8 @@ export const Direction = () => (
   <Frame title="direction">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
         gap: 16,
       }}
     >
@@ -67,13 +62,13 @@ export const Direction = () => (
         style={{
           borderRadius: 12,
           border: `1px solid ${color.border.light}`,
-          background: "#fff",
+          background: '#fff',
           padding: 12,
         }}
       >
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -90,13 +85,13 @@ export const Direction = () => (
         style={{
           borderRadius: 12,
           border: `1px solid ${color.border.light}`,
-          background: "#fff",
+          background: '#fff',
           padding: 12,
         }}
       >
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -117,16 +112,16 @@ export const Gap = () => (
   <Frame title="gap">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
         gap: 16,
       }}
     >
       {(
         [
-          { gap: STACK_GAP.condensed, label: "condensed" },
-          { gap: STACK_GAP.normal, label: "normal" },
-          { gap: STACK_GAP.spacious, label: "spacious" },
+          { gap: STACK_GAP.condensed, label: 'condensed' },
+          { gap: STACK_GAP.normal, label: 'normal' },
+          { gap: STACK_GAP.spacious, label: 'spacious' },
         ] as const
       ).map(({ gap, label }) => (
         <div
@@ -134,13 +129,13 @@ export const Gap = () => (
           style={{
             borderRadius: 12,
             border: `1px solid ${color.border.light}`,
-            background: "#fff",
+            background: '#fff',
             padding: 12,
           }}
         >
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
@@ -164,15 +159,11 @@ export const Align = () => (
       style={{
         borderRadius: 12,
         border: `1px solid ${color.border.light}`,
-        background: "#fff",
+        background: '#fff',
         padding: 12,
       }}
     >
-      <Stack
-        direction={STACK_DIRECTION.horizontal}
-        gap={STACK_GAP.normal}
-        align={STACK_ALIGN.center}
-      >
+      <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} align={STACK_ALIGN.center}>
         <Placeholder color={color.background.secondary} height="small">
           A
         </Placeholder>
@@ -185,7 +176,7 @@ export const Align = () => (
       </Stack>
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           fontSize: 12,
           marginTop: 10,
@@ -202,9 +193,9 @@ export const Justify = () => (
     <Stack direction="vertical" gap="normal">
       {(
         [
-          { justify: STACK_JUSTIFY.start, label: "start" },
-          { justify: STACK_JUSTIFY["space-between"], label: "space-between" },
-          { justify: STACK_JUSTIFY["space-evenly"], label: "space-evenly" },
+          { justify: STACK_JUSTIFY.start, label: 'start' },
+          { justify: STACK_JUSTIFY['space-between'], label: 'space-between' },
+          { justify: STACK_JUSTIFY['space-evenly'], label: 'space-evenly' },
         ] as const
       ).map(({ justify, label }) => (
         <div
@@ -212,13 +203,13 @@ export const Justify = () => (
           style={{
             borderRadius: 12,
             border: `1px solid ${color.border.light}`,
-            background: "#fff",
+            background: '#fff',
             padding: 12,
           }}
         >
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
@@ -246,7 +237,7 @@ export const Wrap = () => (
       style={{
         borderRadius: 12,
         border: `1px solid ${color.border.light}`,
-        background: "#fff",
+        background: '#fff',
         padding: 12,
       }}
     >
@@ -264,7 +255,7 @@ export const Wrap = () => (
       </Stack>
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           fontSize: 12,
           marginTop: 10,
@@ -280,16 +271,16 @@ export const Padding = () => (
   <Frame title="padding">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
         gap: 16,
       }}
     >
       {(
         [
-          { padding: STACK_PADDING.none, label: "none" },
-          { padding: STACK_PADDING.normal, label: "normal" },
-          { padding: STACK_PADDING.spacious, label: "spacious" },
+          { padding: STACK_PADDING.none, label: 'none' },
+          { padding: STACK_PADDING.normal, label: 'normal' },
+          { padding: STACK_PADDING.spacious, label: 'spacious' },
         ] as const
       ).map(({ padding, label }) => (
         <div
@@ -297,20 +288,16 @@ export const Padding = () => (
           style={{
             borderRadius: 12,
             border: `1px solid ${color.border.light}`,
-            background: "#fff",
+            background: '#fff',
           }}
         >
-          <Stack
-            direction={STACK_DIRECTION.vertical}
-            gap={STACK_GAP.condensed}
-            padding={padding}
-          >
+          <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.condensed} padding={padding}>
             <Placeholder color={color.background.secondary}>Item</Placeholder>
             <Placeholder color={color.background.secondary}>Item</Placeholder>
           </Stack>
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               fontSize: 12,
               padding: 12,
@@ -331,15 +318,11 @@ export const ItemGrow = () => (
       style={{
         borderRadius: 12,
         border: `1px solid ${color.border.light}`,
-        background: "#fff",
+        background: '#fff',
         padding: 12,
       }}
     >
-      <Stack
-        direction={STACK_DIRECTION.horizontal}
-        gap={STACK_GAP.condensed}
-        align={STACK_ALIGN.center}
-      >
+      <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed} align={STACK_ALIGN.center}>
         <Placeholder color={color.background.secondary} width="auto">
           Left
         </Placeholder>
@@ -374,21 +357,17 @@ export const ToolbarExample = () => (
       style={{
         borderRadius: 12,
         border: `1px solid ${color.border.light}`,
-        background: "#fff",
+        background: '#fff',
         padding: 12,
       }}
     >
       <Stack
         direction={STACK_DIRECTION.horizontal}
         align={STACK_ALIGN.center}
-        justify={STACK_JUSTIFY["space-between"]}
+        justify={STACK_JUSTIFY['space-between']}
         gap={STACK_GAP.normal}
       >
-        <Stack
-          direction={STACK_DIRECTION.horizontal}
-          align={STACK_ALIGN.center}
-          gap={STACK_GAP.condensed}
-        >
+        <Stack direction={STACK_DIRECTION.horizontal} align={STACK_ALIGN.center} gap={STACK_GAP.condensed}>
           <Placeholder color={color.interactive.default} width="auto">
             Logo
           </Placeholder>
@@ -396,11 +375,7 @@ export const ToolbarExample = () => (
             Search
           </Placeholder>
         </Stack>
-        <Stack
-          direction={STACK_DIRECTION.horizontal}
-          align={STACK_ALIGN.center}
-          gap={STACK_GAP.condensed}
-        >
+        <Stack direction={STACK_DIRECTION.horizontal} align={STACK_ALIGN.center} gap={STACK_GAP.condensed}>
           <Placeholder color={color.background.secondary} width="auto">
             Help
           </Placeholder>
@@ -421,26 +396,13 @@ export const WrappingChipsExample = () => (
       wrap={STACK_WRAP.wrap}
       align={STACK_ALIGN.start}
     >
-      {[
-        "Design",
-        "Dev",
-        "Marketing",
-        "Ops",
-        "Finance",
-        "QA",
-        "Support",
-        "Security",
-        "Legal",
-        "Product",
-      ].map((label) => (
-        <Placeholder
-          key={label}
-          color={color.background.secondary}
-          width="auto"
-        >
-          {label}
-        </Placeholder>
-      ))}
+      {['Design', 'Dev', 'Marketing', 'Ops', 'Finance', 'QA', 'Support', 'Security', 'Legal', 'Product'].map(
+        (label) => (
+          <Placeholder key={label} color={color.background.secondary} width="auto">
+            {label}
+          </Placeholder>
+        )
+      )}
     </Stack>
   </Frame>
 );

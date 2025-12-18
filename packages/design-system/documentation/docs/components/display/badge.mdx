@@ -2,16 +2,17 @@
 sidebar_position: 4
 ---
 
+import { Badge } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Variant,
-  Size,
   Dot,
-  Rounded,
-  StatusListExample,
+  LiveDemo,
   NavigationCountExample,
-} from "../../../src/dsExamples/display/badge";
-import { Badge } from "@grasdouble/lufa_design-system";
+  Rounded,
+  Size,
+  StatusListExample,
+  Variant,
+} from '../../../src/dsExamples/display/badge';
 
 # Badge
 
@@ -34,7 +35,7 @@ Use `Badge` when you need…
 ## Import
 
 ```tsx
-import { Badge } from "@grasdouble/lufa_design-system";
+import { Badge } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -49,14 +50,14 @@ import { Badge } from "@grasdouble/lufa_design-system";
 
 ## Props
 
-| Prop      | Type                                                   | Default     | Description                   |
-| --------- | ------------------------------------------------------ | ----------- | ----------------------------- |
-| `children`| `ReactNode`                                            | -           | Badge content                 |
-| `label`   | `string`                                               | -           | Deprecated (use `children`)   |
-| `size`    | `'sm' \| 'md' \| 'lg'`                                 | `'md'`      | Badge size                    |
-| `variant` | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'default'` | Color variant                 |
-| `dot`     | `boolean`                                              | `false`     | Shows a dot indicator         |
-| `rounded` | `boolean`                                              | `false`     | Makes the badge pill-shaped   |
+| Prop       | Type                                                                     | Default     | Description                 |
+| ---------- | ------------------------------------------------------------------------ | ----------- | --------------------------- |
+| `children` | `ReactNode`                                                              | -           | Badge content               |
+| `label`    | `string`                                                                 | -           | Deprecated (use `children`) |
+| `size`     | `'sm' \| 'md' \| 'lg'`                                                   | `'md'`      | Badge size                  |
+| `variant`  | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'default'` | Color variant               |
+| `dot`      | `boolean`                                                                | `false`     | Shows a dot indicator       |
+| `rounded`  | `boolean`                                                                | `false`     | Makes the badge pill-shaped |
 
 Also supports standard `span` props (for example `className`, `style`, `aria-label`, …).
 

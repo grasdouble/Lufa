@@ -13,8 +13,9 @@ After [installing](./installation) the design system, you can start using compon
 ### Importing Components
 
 ```tsx
-import { Button, Card, Typography } from "@grasdouble/lufa_design-system";
-import "@grasdouble/lufa_design-system/style.css";
+import { Button, Card, Typography } from '@grasdouble/lufa_design-system';
+
+import '@grasdouble/lufa_design-system/style.css';
 ```
 
 ### Using Components
@@ -25,10 +26,8 @@ function App() {
     <div className="p-4">
       <Typography variant="h1">Welcome to Lufa</Typography>
       <Card>
-        <Typography variant="body1">
-          This is a card component with typography inside.
-        </Typography>
-        <Button variant="primary" onClick={() => alert("Clicked!")}>
+        <Typography variant="body1">This is a card component with typography inside.</Typography>
+        <Button variant="primary" onClick={() => alert('Clicked!')}>
           Click Me
         </Button>
       </Card>
@@ -88,8 +87,7 @@ You can use CSS custom properties (CSS variables) directly in your styles:
 <Card>
   <Typography variant="h3">Card Title</Typography>
   <Typography variant="body2">
-    Card content goes here. Cards are flexible containers that can hold any
-    content.
+    Card content goes here. Cards are flexible containers that can hold any content.
   </Typography>
   <Button variant="primary">Action</Button>
 </Card>
@@ -110,10 +108,7 @@ All Lufa components are built with accessibility in mind:
 Lufa Design System is written in TypeScript and provides full type definitions:
 
 ```tsx
-import type {
-  ButtonProps,
-  TypographyProps,
-} from "@grasdouble/lufa_design-system";
+import type { ButtonProps, TypographyProps } from '@grasdouble/lufa_design-system';
 
 const MyButton: React.FC<ButtonProps> = (props) => {
   return <Button {...props} />;

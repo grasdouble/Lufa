@@ -5,12 +5,12 @@
 1. **Create the file `check-licenses.js` at the root of the monorepo with the following content:**
 
    ```javascript name=check-licenses.js
-   const licenseChecker = require("license-checker");
-   const fs = require("fs");
+   const licenseChecker = require('license-checker');
+   const fs = require('fs');
 
    licenseChecker.init(
      {
-       start: ".", // Start at the root of the monorepo
+       start: '.', // Start at the root of the monorepo
        json: true,
      },
      function (err, packages) {
@@ -28,12 +28,10 @@
            licenseMap[license].push(pkg);
          });
 
-         fs.writeFileSync("licenses.json", JSON.stringify(licenseMap, null, 2));
-         console.log(
-           "Licenses have been successfully checked and grouped. See licenses.json for details.",
-         );
+         fs.writeFileSync('licenses.json', JSON.stringify(licenseMap, null, 2));
+         console.log('Licenses have been successfully checked and grouped. See licenses.json for details.');
        }
-     },
+     }
    );
    ```
 
@@ -64,7 +62,7 @@
          - name: Set up Node.js
            uses: actions/setup-node@v4
            with:
-             node-version: "23"
+             node-version: '23'
 
          - name: Install dependencies
            run: npm install license-checker

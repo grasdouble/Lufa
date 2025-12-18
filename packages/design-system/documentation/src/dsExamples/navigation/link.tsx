@@ -1,28 +1,23 @@
-import React from "react";
-import { Link, Stack, tokens } from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Link, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -38,14 +33,13 @@ export const LiveDemo = () => (
   <Frame title="live demo">
     <Stack gap="condensed">
       <p>
-        Visit our <Link href="/products">products page</Link> to see our latest
-        offerings.
+        Visit our <Link href="/products">products page</Link> to see our latest offerings.
       </p>
       <p>
-        Check out the{" "}
+        Check out the{' '}
         <Link href="https://github.com" external>
           GitHub repository
-        </Link>{" "}
+        </Link>{' '}
         for more information.
       </p>
     </Stack>
@@ -58,7 +52,7 @@ export const Variant = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -70,7 +64,7 @@ export const Variant = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -84,7 +78,7 @@ export const Variant = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -117,7 +111,7 @@ export const Color = () => (
       <Link color="danger" href="/page">
         Danger link
       </Link>
-      <Link color="inherit" href="/page" style={{ color: "#e91e63" }}>
+      <Link color="inherit" href="/page" style={{ color: '#e91e63' }}>
         Inherit color
       </Link>
     </Stack>
@@ -141,13 +135,7 @@ export const Size = () => (
 );
 
 const ArrowRightIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-    aria-hidden
-  >
+  <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
     <path
       fillRule="evenodd"
       d="M10.293 3.293a1 1 0 011.414 0l6 6a.997.997 0 01.083.094 1 1 0 010 1.226.997.997 0 01-.083.094l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -188,7 +176,7 @@ export const External = () => (
 export const InlineTextExample = () => (
   <Frame title="inline text">
     <p>
-      Read the <Link href="/docs">documentation</Link> to get started, or{" "}
+      Read the <Link href="/docs">documentation</Link> to get started, or{' '}
       <Link href="https://example.com" external>
         visit the website
       </Link>

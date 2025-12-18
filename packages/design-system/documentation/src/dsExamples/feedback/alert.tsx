@@ -1,34 +1,23 @@
-import React from "react";
-import {
-  Alert,
-  Badge,
-  Button,
-  Stack,
-  tokens,
-} from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Alert, Badge, Button, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -43,15 +32,15 @@ const Frame = ({
 const InlineIcon = ({ label }: { label: string }) => (
   <span
     style={{
-      display: "inline-flex",
+      display: 'inline-flex',
       width: 20,
       height: 20,
-      alignItems: "center",
-      justifyContent: "center",
+      alignItems: 'center',
+      justifyContent: 'center',
       borderRadius: 6,
       background: color.background.secondary,
       outline: `1px solid ${color.border.light}`,
-      fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+      fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
       fontSize: 12,
       color: color.text.secondary,
     }}
@@ -89,12 +78,7 @@ export const Variant = () => (
 
 export const Closable = () => (
   <Frame title="closable">
-    <Alert
-      title="Trial expires soon"
-      variant="warning"
-      closable
-      onClose={() => console.log("Alert closed")}
-    >
+    <Alert title="Trial expires soon" variant="warning" closable onClose={() => console.log('Alert closed')}>
       Upgrade your plan to keep access to premium features.
     </Alert>
   </Frame>
@@ -110,20 +94,15 @@ export const Icon = () => (
 
 export const ClosableWithActionExample = () => (
   <Frame title="closable + action">
-    <Alert
-      title="Trial expires soon"
-      variant="warning"
-      closable
-      onClose={() => console.log("Alert closed")}
-    >
+    <Alert title="Trial expires soon" variant="warning" closable onClose={() => console.log('Alert closed')}>
       <Stack direction="vertical" gap="condensed">
         <div>Upgrade your plan to keep access to premium features.</div>
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
+            display: 'flex',
+            alignItems: 'center',
             gap: 8,
-            flexWrap: "wrap",
+            flexWrap: 'wrap',
           }}
         >
           <Button variant="solid">Upgrade</Button>
@@ -141,10 +120,10 @@ export const CustomIconWithMetaExample = () => (
         <div>Support replied to your ticket.</div>
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
+            display: 'flex',
+            alignItems: 'center',
             gap: 8,
-            flexWrap: "wrap",
+            flexWrap: 'wrap',
           }}
         >
           <Badge variant="info" rounded>

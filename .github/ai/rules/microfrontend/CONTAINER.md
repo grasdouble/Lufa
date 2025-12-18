@@ -33,13 +33,13 @@
 
 ```typescript
 // packages/apps/microfrontend/main-container/src/main.ts
-import { registerApplication, start } from "single-spa";
+import { registerApplication, start } from 'single-spa';
 
 // Add new registration
 registerApplication({
-  name: "@grasdouble/lufa_microfrontend_{parcel-name}",
-  app: () => System.import("@grasdouble/lufa_microfrontend_{parcel-name}"),
-  activeWhen: (location) => location.pathname.startsWith("/route"),
+  name: '@grasdouble/lufa_microfrontend_{parcel-name}',
+  app: () => System.import('@grasdouble/lufa_microfrontend_{parcel-name}'),
+  activeWhen: (location) => location.pathname.startsWith('/route'),
 });
 
 start();
@@ -83,7 +83,7 @@ Most parcels share `#lufa-container`.
 ### Exact Route Match
 
 ```typescript
-activeWhen: (location) => location.pathname === "/exact-route";
+activeWhen: (location) => location.pathname === '/exact-route';
 ```
 
 **Use for**: Single-page routes (home, about, contact)
@@ -91,7 +91,7 @@ activeWhen: (location) => location.pathname === "/exact-route";
 ### Prefix Match
 
 ```typescript
-activeWhen: (location) => location.pathname.startsWith("/blog");
+activeWhen: (location) => location.pathname.startsWith('/blog');
 ```
 
 **Use for**: Section routes with sub-routes (/blog, /blog/post-1, etc.)
@@ -99,7 +99,7 @@ activeWhen: (location) => location.pathname.startsWith("/blog");
 ### Multiple Routes
 
 ```typescript
-activeWhen: ["/route1", "/route2", "/route3"];
+activeWhen: ['/route1', '/route2', '/route3'];
 ```
 
 **Use for**: Multiple exact matches
@@ -109,7 +109,7 @@ activeWhen: ["/route1", "/route2", "/route3"];
 ```typescript
 activeWhen: (location) => {
   const path = location.pathname;
-  return path === "/" || path.startsWith("/home");
+  return path === '/' || path.startsWith('/home');
 };
 ```
 
@@ -170,17 +170,18 @@ Later maps override earlier ones.
 ### Current Setup
 
 ```javascript
-import { defineConfig } from "vite";
-import importMapInjectorPlugin from "@grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector";
-import reactPreamblePlugin from "@grasdouble/lufa_plugin_vite_vite-plugin-react-preamble";
-import { externalizeDeps } from "vite-plugin-externalize-deps";
+import { defineConfig } from 'vite';
+import { externalizeDeps } from 'vite-plugin-externalize-deps';
+
+import importMapInjectorPlugin from '@grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector';
+import reactPreamblePlugin from '@grasdouble/lufa_plugin_vite_vite-plugin-react-preamble';
 
 export default defineConfig({
   plugins: [
     importMapInjectorPlugin({
-      extImportMap: "src/importMapExternal.json",
-      devImportMap: "src/importMap.dev.json",
-      prodImportMap: "src/importMap.json",
+      extImportMap: 'src/importMapExternal.json',
+      devImportMap: 'src/importMap.dev.json',
+      prodImportMap: 'src/importMap.json',
     }),
     externalizeDeps({
       deps: false,
@@ -194,7 +195,7 @@ export default defineConfig({
     hmr: true,
   },
   build: {
-    target: "esnext",
+    target: 'esnext',
     modulePreload: false,
   },
 });
@@ -236,7 +237,7 @@ pnpm dev
 ### Enable Import Map Overrides
 
 ```javascript
-localStorage.devtools = "true";
+localStorage.devtools = 'true';
 ```
 
 Reload page → Override UI appears in bottom-right.
@@ -309,7 +310,7 @@ console.log(singleSpa.getAppNames());
 
 ```javascript
 // Check overrides
-import("import-map-overrides").then((m) => console.log(m.getOverrideMap()));
+import('import-map-overrides').then((m) => console.log(m.getOverrideMap()));
 ```
 
 ### React Loaded Twice
@@ -348,7 +349,7 @@ server: {
 
 ```typescript
 // src/main.ts
-import "@grasdouble/lufa_design-system/style.css";
+import '@grasdouble/lufa_design-system/style.css';
 ```
 
 Loads global design system styles.
@@ -366,7 +367,7 @@ body {
 Import in `main.ts`:
 
 ```typescript
-import "./global.css";
+import './global.css';
 ```
 
 ## Testing
@@ -382,19 +383,19 @@ import "./global.css";
 
 ```typescript
 // tests/routing.test.ts
-import { getAppNames, getAppStatus } from "single-spa";
+import { getAppNames, getAppStatus } from 'single-spa';
 
-test("home parcel registered", () => {
+test('home parcel registered', () => {
   const apps = getAppNames();
-  expect(apps).toContain("@grasdouble/lufa_microfrontend_home");
+  expect(apps).toContain('@grasdouble/lufa_microfrontend_home');
 });
 
 test('home parcel mounts at "/"', async () => {
-  window.location.pathname = "/";
+  window.location.pathname = '/';
   await new Promise((resolve) => setTimeout(resolve, 100));
 
-  const status = getAppStatus("@grasdouble/lufa_microfrontend_home");
-  expect(status).toBe("MOUNTED");
+  const status = getAppStatus('@grasdouble/lufa_microfrontend_home');
+  expect(status).toBe('MOUNTED');
 });
 ```
 
@@ -427,13 +428,13 @@ Development overrides won't work.
 
 ```typescript
 // DON'T
-app: () => import("http://localhost:4101/src/parcel.tsx");
+app: () => import('http://localhost:4101/src/parcel.tsx');
 ```
 
 **Fix**: Use `System.import()` with package name:
 
 ```typescript
-app: () => System.import("@grasdouble/lufa_microfrontend_home");
+app: () => System.import('@grasdouble/lufa_microfrontend_home');
 ```
 
 ### ❌ Missing Container Element

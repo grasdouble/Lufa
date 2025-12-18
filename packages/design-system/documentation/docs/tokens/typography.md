@@ -13,16 +13,14 @@ Our typography system is based on a modular scale that ensures visual hierarchy 
 ### Headings
 
 ```css
---lufa-text-h1: /* 2.5rem / 40px */ --lufa-text-h2: /* 2rem / 32px */
-  --lufa-text-h3: /* 1.75rem / 28px */ --lufa-text-h4: /* 1.5rem / 24px */
-  --lufa-text-h5: /* 1.25rem / 20px */ --lufa-text-h6: /* 1rem / 16px */;
+--lufa-text-h1: /* 2.5rem / 40px */ --lufa-text-h2: /* 2rem / 32px */ --lufa-text-h3: /* 1.75rem / 28px */
+  --lufa-text-h4: /* 1.5rem / 24px */ --lufa-text-h5: /* 1.25rem / 20px */ --lufa-text-h6: /* 1rem / 16px */;
 ```
 
 ### Body Text
 
 ```css
---lufa-text-body1: /* 1rem / 16px - Primary body text */ --lufa-text-body2:
-  /* 0.875rem / 14px - Secondary body text */;
+--lufa-text-body1: /* 1rem / 16px - Primary body text */ --lufa-text-body2: /* 0.875rem / 14px - Secondary body text */;
 ```
 
 ### Small Text
@@ -35,16 +33,13 @@ Our typography system is based on a modular scale that ensures visual hierarchy 
 ## Font Families
 
 ```css
---lufa-font-sans: /* System font stack for body text */ --lufa-font-mono:
-  /* Monospace font for code */;
+--lufa-font-sans: /* System font stack for body text */ --lufa-font-mono: /* Monospace font for code */;
 ```
 
 ### Default Font Stack
 
 ```css
---lufa-font-sans:
-  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-  Cantarell, sans-serif;
+--lufa-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 ```
 
 ## Font Weights

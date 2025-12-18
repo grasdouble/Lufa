@@ -2,18 +2,19 @@
 sidebar_position: 7
 ---
 
+import { Tabs } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Type,
-  TabPosition,
-  Size,
   ActiveKey,
   DefaultActiveKey,
   Items,
-  SettingsTabsExample,
+  LiveDemo,
   ProductDetailsTabsExample,
-} from "../../../src/dsExamples/navigation/tabs";
-import { Tabs } from "@grasdouble/lufa_design-system";
+  SettingsTabsExample,
+  Size,
+  TabPosition,
+  Type,
+} from '../../../src/dsExamples/navigation/tabs';
 
 # Tabs
 
@@ -35,7 +36,7 @@ Use `Tabs` when you need to organize related content into switchable panels.
 ## Import
 
 ```tsx
-import { Tabs } from "@grasdouble/lufa_design-system";
+import { Tabs } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -43,11 +44,11 @@ import { Tabs } from "@grasdouble/lufa_design-system";
 ```tsx
 <Tabs
   items={[
-    { key: "tab1", label: "Tab 1", children: <div>Content 1</div> },
-    { key: "tab2", label: "Tab 2", children: <div>Content 2</div> },
-    { key: "tab3", label: "Tab 3", children: <div>Content 3</div> },
+    { key: 'tab1', label: 'Tab 1', children: <div>Content 1</div> },
+    { key: 'tab2', label: 'Tab 2', children: <div>Content 2</div> },
+    { key: 'tab3', label: 'Tab 3', children: <div>Content 3</div> },
   ]}
-/>;
+/>
 ```
 
 ## Props

@@ -1,34 +1,23 @@
-import React from "react";
-import {
-  Center,
-  Placeholder,
-  Spinner,
-  Stack,
-  tokens,
-} from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Center, Placeholder, Spinner, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -45,17 +34,17 @@ const Panel = ({ children }: { children: React.ReactNode }) => (
     style={{
       borderRadius: 12,
       border: `1px solid ${color.border.light}`,
-      background: "#fff",
+      background: '#fff',
       minHeight: 160,
       padding: 12,
-      position: "relative",
+      position: 'relative',
     }}
   >
-    <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+    <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
       <div
         style={{
-          position: "absolute",
-          left: "50%",
+          position: 'absolute',
+          left: '50%',
           top: 0,
           bottom: 0,
           width: 1,
@@ -64,8 +53,8 @@ const Panel = ({ children }: { children: React.ReactNode }) => (
       />
       <div
         style={{
-          position: "absolute",
-          top: "50%",
+          position: 'absolute',
+          top: '50%',
           left: 0,
           right: 0,
           height: 1,
@@ -85,7 +74,7 @@ export const LiveDemo = () => (
       style={{
         borderRadius: 12,
         border: `1px solid ${color.border.light}`,
-        background: "#fff",
+        background: '#fff',
       }}
     >
       <Spinner />
@@ -97,22 +86,22 @@ export const Axis = () => (
   <Frame title="axis">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
         gap: 16,
       }}
     >
       {(
         [
-          { axis: "horizontal", label: "horizontal" },
-          { axis: "vertical", label: "vertical" },
-          { axis: "both", label: "both" },
+          { axis: 'horizontal', label: 'horizontal' },
+          { axis: 'vertical', label: 'vertical' },
+          { axis: 'both', label: 'both' },
         ] as const
       ).map(({ axis, label }) => (
         <div key={axis}>
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
@@ -142,12 +131,12 @@ export const Inline = () => (
         axis="vertical"
         style={{
           marginInline: 8,
-          padding: "2px 10px",
+          padding: '2px 10px',
           borderRadius: 999,
           background: color.background.secondary,
         }}
       >
-        <span style={{ fontFamily: "monospace", fontSize: 12 }}>badge</span>
+        <span style={{ fontFamily: 'monospace', fontSize: 12 }}>badge</span>
       </Center>
       text after (same line)
     </div>
@@ -158,8 +147,8 @@ export const MinHeight = () => (
   <Frame title="minHeight">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
         gap: 16,
       }}
     >
@@ -167,7 +156,7 @@ export const MinHeight = () => (
         <div key={minHeight}>
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
@@ -192,10 +181,10 @@ export const As = () => (
     <Stack direction="vertical" gap="normal">
       {(
         [
-          { as: "div", label: 'as="div"' },
-          { as: "section", label: 'as="section"' },
-          { as: "main", label: 'as="main"' },
-          { as: "article", label: 'as="article"' },
+          { as: 'div', label: 'as="div"' },
+          { as: 'section', label: 'as="section"' },
+          { as: 'main', label: 'as="main"' },
+          { as: 'article', label: 'as="article"' },
         ] as const
       ).map(({ as, label }) => (
         <Center
@@ -206,12 +195,12 @@ export const As = () => (
           style={{
             borderRadius: 12,
             border: `1px solid ${color.border.light}`,
-            background: "#fff",
+            background: '#fff',
           }}
         >
           <span
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               fontSize: 12,
               color: color.text.secondary,
             }}
@@ -239,9 +228,7 @@ export const LoadingPanelExample = () => (
       <Center axis="both" minHeight={200}>
         <Stack direction="vertical" gap="normal" align="center">
           <Spinner />
-          <div style={{ color: color.text.secondary, fontSize: 12 }}>
-            Loading…
-          </div>
+          <div style={{ color: color.text.secondary, fontSize: 12 }}>Loading…</div>
         </Stack>
       </Center>
     </Panel>
@@ -254,17 +241,13 @@ export const EmptyStateExample = () => (
       style={{
         borderRadius: 12,
         border: `1px dashed ${color.border.light}`,
-        background: "#fff",
+        background: '#fff',
       }}
     >
       <Center axis="both" minHeight={220} style={{ padding: 16 }}>
         <Stack direction="vertical" gap="condensed" align="center">
-          <div style={{ fontWeight: 700, color: color.text.primary }}>
-            No results
-          </div>
-          <div style={{ color: color.text.secondary, fontSize: 12 }}>
-            Try changing your filters.
-          </div>
+          <div style={{ fontWeight: 700, color: color.text.primary }}>No results</div>
+          <div style={{ color: color.text.secondary, fontSize: 12 }}>Try changing your filters.</div>
         </Stack>
       </Center>
     </div>

@@ -1,8 +1,8 @@
 {
   "name": "@grasdouble/lufa_config_tsconfig",
   "version": "0.1.0",
-  "license": "MIT",
   "private": false,
+  "license": "MIT",
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com"

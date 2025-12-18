@@ -127,8 +127,9 @@ Purpose:
 **In React App**:
 
 ```tsx
-import { Button, Card } from "@grasdouble/lufa_design-system";
-import "@grasdouble/lufa_design-system/style.css";
+import { Button, Card } from '@grasdouble/lufa_design-system';
+
+import '@grasdouble/lufa_design-system/style.css';
 
 <Card>
   <Button>Click</Button>
@@ -140,7 +141,8 @@ Flow: Import component → Import CSS → Use component
 **In Storybook**:
 
 ```tsx
-import { Button } from "@grasdouble/lufa_design-system";
+import { Button } from '@grasdouble/lufa_design-system';
+
 export default { component: Button };
 ```
 

@@ -53,16 +53,16 @@ pnpm add @grasdouble/lufa_design-system-tokens-sd
 ### Import CSS Variables
 
 ```css
-@import "@grasdouble/lufa_design-system-tokens-sd/tokens.css";
+@import '@grasdouble/lufa_design-system-tokens-sd/tokens.css';
 ```
 
 ### Import JavaScript/TypeScript
 
 ```typescript
-import tokens from "@grasdouble/lufa_design-system-tokens-sd/tokens.json";
+import tokens from '@grasdouble/lufa_design-system-tokens-sd/tokens.json';
 
 // Use tokens
-console.log(tokens["color-semantic-interactive-default"]); // #3b82f6
+console.log(tokens['color-semantic-interactive-default']); // #3b82f6
 ```
 
 ## Token Structure

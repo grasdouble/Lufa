@@ -1,28 +1,23 @@
-import React from "react";
-import { Button, Stack, tokens } from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Button, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -35,13 +30,7 @@ const Frame = ({
 );
 
 const SearchIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    fill="currentColor"
-    viewBox="0 0 20 20"
-    aria-hidden
-  >
+  <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
     <path
       fillRule="evenodd"
       d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
@@ -51,13 +40,7 @@ const SearchIcon = () => (
 );
 
 const ArrowRightIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-    aria-hidden
-  >
+  <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
     <path
       fillRule="evenodd"
       d="M10.293 3.293a1 1 0 011.414 0l6 6a.997.997 0 01.083.094 1 1 0 010 1.226.997.997 0 01-.083.094l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -163,7 +146,7 @@ export const Disabled = () => (
 
 export const FullWidth = () => (
   <Frame title="fullWidth">
-    <div style={{ maxWidth: 420, width: "100%" }}>
+    <div style={{ maxWidth: 420, width: '100%' }}>
       <Stack direction="vertical" gap="normal">
         <Button fullWidth variant="solid">
           Full width
@@ -181,13 +164,13 @@ export const FormSubmitExample = () => (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        console.log("Submitted");
+        console.log('Submitted');
       }}
       style={{
-        display: "flex",
-        alignItems: "center",
+        display: 'flex',
+        alignItems: 'center',
         gap: 10,
-        flexWrap: "wrap",
+        flexWrap: 'wrap',
       }}
     >
       <Button type="submit" variant="solid" color="primary">

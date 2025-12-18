@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+
 import {
   Flex,
   FLEX_ALIGN,
@@ -9,30 +10,24 @@ import {
   SPACE_SIZE,
   Stack,
   tokens,
-} from "@grasdouble/lufa_design-system";
+} from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -46,12 +41,7 @@ const Frame = ({
 
 export const LiveDemo = () => (
   <Frame title="live demo">
-    <Flex
-      align={FLEX_ALIGN.center}
-      justify={FLEX_JUSTIFY.between}
-      wrap={FLEX_WRAP.wrap}
-      gap={SPACE_SIZE.sm}
-    >
+    <Flex align={FLEX_ALIGN.center} justify={FLEX_JUSTIFY.between} wrap={FLEX_WRAP.wrap} gap={SPACE_SIZE.sm}>
       {Array.from({ length: 6 }).map((_, i) => (
         <Placeholder key={i} color={color.interactive.default} width="auto">
           Item {i + 1}
@@ -65,8 +55,8 @@ export const Direction = () => (
   <Frame title="direction">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
         gap: 16,
       }}
     >
@@ -74,13 +64,13 @@ export const Direction = () => (
         style={{
           borderRadius: 12,
           border: `1px solid ${color.border.light}`,
-          background: "#fff",
+          background: '#fff',
           padding: 12,
         }}
       >
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -103,13 +93,13 @@ export const Direction = () => (
         style={{
           borderRadius: 12,
           border: `1px solid ${color.border.light}`,
-          background: "#fff",
+          background: '#fff',
           padding: 12,
         }}
       >
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -136,16 +126,16 @@ export const Align = () => (
   <Frame title="align">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
         gap: 16,
       }}
     >
       {(
         [
-          { align: FLEX_ALIGN.start, label: "start" },
-          { align: FLEX_ALIGN.center, label: "center" },
-          { align: FLEX_ALIGN.end, label: "end" },
+          { align: FLEX_ALIGN.start, label: 'start' },
+          { align: FLEX_ALIGN.center, label: 'center' },
+          { align: FLEX_ALIGN.end, label: 'end' },
         ] as const
       ).map(({ align, label }) => (
         <div
@@ -153,13 +143,13 @@ export const Align = () => (
           style={{
             borderRadius: 12,
             border: `1px solid ${color.border.light}`,
-            background: "#fff",
+            background: '#fff',
             padding: 12,
           }}
         >
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
@@ -174,26 +164,14 @@ export const Align = () => (
               padding: 12,
             }}
           >
-            <Flex align={align} gap={SPACE_SIZE.sm} style={{ height: "100%" }}>
-              <Placeholder
-                color={color.background.secondary}
-                width="auto"
-                height="large"
-              >
+            <Flex align={align} gap={SPACE_SIZE.sm} style={{ height: '100%' }}>
+              <Placeholder color={color.background.secondary} width="auto" height="large">
                 A
               </Placeholder>
-              <Placeholder
-                color={color.interactive.default}
-                width="auto"
-                height="medium"
-              >
+              <Placeholder color={color.interactive.default} width="auto" height="medium">
                 B
               </Placeholder>
-              <Placeholder
-                color={color.background.secondary}
-                width="auto"
-                height="small"
-              >
+              <Placeholder color={color.background.secondary} width="auto" height="small">
                 C
               </Placeholder>
             </Flex>
@@ -209,9 +187,9 @@ export const Justify = () => (
     <Stack direction="vertical" gap="normal">
       {(
         [
-          { justify: FLEX_JUSTIFY.start, label: "start" },
-          { justify: FLEX_JUSTIFY.between, label: "between" },
-          { justify: FLEX_JUSTIFY.evenly, label: "evenly" },
+          { justify: FLEX_JUSTIFY.start, label: 'start' },
+          { justify: FLEX_JUSTIFY.between, label: 'between' },
+          { justify: FLEX_JUSTIFY.evenly, label: 'evenly' },
         ] as const
       ).map(({ justify, label }) => (
         <div
@@ -219,13 +197,13 @@ export const Justify = () => (
           style={{
             borderRadius: 12,
             border: `1px solid ${color.border.light}`,
-            background: "#fff",
+            background: '#fff',
             padding: 12,
           }}
         >
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
@@ -255,13 +233,13 @@ export const Wrap = () => (
       style={{
         borderRadius: 12,
         border: `1px solid ${color.border.light}`,
-        background: "#fff",
+        background: '#fff',
         padding: 12,
       }}
     >
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 8,
         }}
@@ -286,13 +264,13 @@ export const Gap = () => (
         style={{
           borderRadius: 12,
           border: `1px solid ${color.border.light}`,
-          background: "#fff",
+          background: '#fff',
           padding: 12,
         }}
       >
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -315,13 +293,13 @@ export const Gap = () => (
         style={{
           borderRadius: 12,
           border: `1px solid ${color.border.light}`,
-          background: "#fff",
+          background: '#fff',
           padding: 12,
         }}
       >
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -344,13 +322,13 @@ export const Gap = () => (
         style={{
           borderRadius: 12,
           border: `1px solid ${color.border.light}`,
-          background: "#fff",
+          background: '#fff',
           padding: 12,
         }}
       >
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -377,15 +355,10 @@ export const Inline = () => (
   <Frame title="inline">
     <div style={{ lineHeight: 1.9, color: color.text.primary }}>
       Text before
-      <Flex
-        inline
-        gap={SPACE_SIZE.xs}
-        align={FLEX_ALIGN.center}
-        style={{ marginInline: 8 }}
-      >
+      <Flex inline gap={SPACE_SIZE.xs} align={FLEX_ALIGN.center} style={{ marginInline: 8 }}>
         <span
           style={{
-            padding: "2px 10px",
+            padding: '2px 10px',
             borderRadius: 999,
             background: color.background.secondary,
           }}
@@ -394,7 +367,7 @@ export const Inline = () => (
         </span>
         <span
           style={{
-            padding: "2px 10px",
+            padding: '2px 10px',
             borderRadius: 999,
             background: color.background.secondary,
           }}
@@ -412,10 +385,10 @@ export const As = () => (
     <Stack direction="vertical" gap="normal">
       {(
         [
-          { as: "div", label: 'as="div"' },
-          { as: "nav", label: 'as="nav"' },
-          { as: "header", label: 'as="header"' },
-          { as: "footer", label: 'as="footer"' },
+          { as: 'div', label: 'as="div"' },
+          { as: 'nav', label: 'as="nav"' },
+          { as: 'header', label: 'as="header"' },
+          { as: 'footer', label: 'as="footer"' },
         ] as const
       ).map(({ as, label }) => (
         <Flex
@@ -427,13 +400,13 @@ export const As = () => (
           style={{
             borderRadius: 12,
             border: `1px solid ${color.border.light}`,
-            background: "#fff",
+            background: '#fff',
             padding: 12,
           }}
         >
           <span
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               fontSize: 12,
               color: color.text.secondary,
             }}
@@ -467,15 +440,11 @@ export const ToolbarExample = () => (
       style={{
         borderRadius: 12,
         border: `1px solid ${color.border.light}`,
-        background: "#fff",
+        background: '#fff',
         padding: 12,
       }}
     >
-      <Flex
-        align={FLEX_ALIGN.center}
-        justify={FLEX_JUSTIFY.between}
-        gap={SPACE_SIZE.md}
-      >
+      <Flex align={FLEX_ALIGN.center} justify={FLEX_JUSTIFY.between} gap={SPACE_SIZE.md}>
         <Flex align={FLEX_ALIGN.center} gap={SPACE_SIZE.sm}>
           <Placeholder color={color.interactive.default} width="auto">
             Logo
@@ -500,7 +469,7 @@ export const ToolbarExample = () => (
 export const ResponsiveCardRowExample = () => (
   <Frame title="responsive card row (wrap)">
     <Flex wrap={FLEX_WRAP.wrap} gap={SPACE_SIZE.md}>
-      {["Card A", "Card B", "Card C", "Card D", "Card E"].map((label) => (
+      {['Card A', 'Card B', 'Card C', 'Card D', 'Card E'].map((label) => (
         <div key={label} style={{ width: 220 }}>
           <Placeholder color={color.background.secondary} height="large">
             {label}

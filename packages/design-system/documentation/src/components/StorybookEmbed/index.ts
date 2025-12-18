@@ -1,2 +1,2 @@
-export { StorybookEmbed } from "./StorybookEmbed";
-export type { StorybookEmbedProps } from "./StorybookEmbed";
+export { StorybookEmbed } from './StorybookEmbed';
+export type { StorybookEmbedProps } from './StorybookEmbed';

@@ -174,13 +174,13 @@ All Lufa components share these characteristics:
 ### Import Components
 
 ```tsx
-import { Button, Card, Typography } from "@grasdouble/lufa_design-system";
+import { Button, Card, Typography } from '@grasdouble/lufa_design-system';
 ```
 
 ### Import Styles
 
 ```tsx
-import "@grasdouble/lufa_design-system/style.css";
+import '@grasdouble/lufa_design-system/style.css';
 ```
 
 ### Use in Your App
@@ -190,9 +190,7 @@ function App() {
   return (
     <Card>
       <Typography variant="h2">Welcome</Typography>
-      <Typography variant="body">
-        Start building with Lufa components.
-      </Typography>
+      <Typography variant="body">Start building with Lufa components.</Typography>
       <Button variant="solid" color="primary">
         Get Started
       </Button>

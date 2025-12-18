@@ -106,7 +106,7 @@ pnpm build
 Primitives are automatically imported by `main/src/tailwind.css`:
 
 ```css
-@import "@grasdouble/lufa_design-system-primitives/dist/primitives.css";
+@import '@grasdouble/lufa_design-system-primitives/dist/primitives.css';
 ```
 
 ## 🔗 Usage in Tokens
@@ -117,8 +117,8 @@ Primitives are referenced by semantic tokens:
 // packages/design-system/tokens/src/tokens.ts
 export const tokens = {
   color: {
-    primary: "var(--lufa-primitive-color-chromatic-blue-500)",
-    text: "var(--lufa-primitive-color-achromatic-900)",
+    primary: 'var(--lufa-primitive-color-chromatic-blue-500)',
+    text: 'var(--lufa-primitive-color-achromatic-900)',
   },
 };
 ```

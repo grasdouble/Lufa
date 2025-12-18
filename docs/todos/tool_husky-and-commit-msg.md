@@ -61,24 +61,12 @@
 5. **Create a Commitlint configuration file (`commitlint.config.js`):**
    ```javascript
    module.exports = {
-     extends: ["@commitlint/config-conventional"],
+     extends: ['@commitlint/config-conventional'],
      rules: {
-       "type-enum": [
+       'type-enum': [
          2,
-         "always",
-         [
-           "build",
-           "chore",
-           "ci",
-           "docs",
-           "feat",
-           "fix",
-           "perf",
-           "refactor",
-           "revert",
-           "style",
-           "test",
-         ],
+         'always',
+         ['build', 'chore', 'ci', 'docs', 'feat', 'fix', 'perf', 'refactor', 'revert', 'style', 'test'],
        ],
      },
    };
@@ -97,32 +85,20 @@
 2. **Create a `Dangerfile.js`:**
 
    ```javascript
-   const { message, fail } = require("danger");
+   const { message, fail } = require('danger');
 
    // List of allowed prefixes
-   const prefixes = [
-     "fix",
-     "feat",
-     "chore",
-     "docs",
-     "style",
-     "refactor",
-     "perf",
-     "test",
-     "build",
-     "ci",
-     "revert",
-   ];
+   const prefixes = ['fix', 'feat', 'chore', 'docs', 'style', 'refactor', 'perf', 'test', 'build', 'ci', 'revert'];
 
    // Check the PR title
    const prTitle = danger.github.pr.title;
-   const prefixPattern = new RegExp(`^(${prefixes.join("|")}):`);
+   const prefixPattern = new RegExp(`^(${prefixes.join('|')}):`);
 
    if (!prefixPattern.test(prTitle)) {
      fail(
        `The PR title must start with one of the following prefixes: ${prefixes.join(
-         ", ",
-       )}. Example: "fix: fix an important bug".`,
+         ', '
+       )}. Example: "fix: fix an important bug".`
      );
    }
    ```
@@ -176,24 +152,12 @@
 
    ```javascript
    module.exports = {
-     extends: ["@commitlint/config-conventional"],
+     extends: ['@commitlint/config-conventional'],
      rules: {
-       "type-enum": [
+       'type-enum': [
          2,
-         "always",
-         [
-           "build",
-           "chore",
-           "ci",
-           "docs",
-           "feat",
-           "fix",
-           "perf",
-           "refactor",
-           "revert",
-           "style",
-           "test",
-         ],
+         'always',
+         ['build', 'chore', 'ci', 'docs', 'feat', 'fix', 'perf', 'refactor', 'revert', 'style', 'test'],
        ],
      },
    };

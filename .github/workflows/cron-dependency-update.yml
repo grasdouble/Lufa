@@ -2,7 +2,7 @@ name: Cron:Dependency-Update
 
 on:
   schedule:
-    - cron: "0 0 * * 1" # Run every Monday at midnight
+    - cron: '0 0 * * 1' # Run every Monday at midnight
   workflow_dispatch:
 
 permissions:
@@ -28,4 +28,4 @@ jobs:
         uses: ./.github/actions/dependency-update
         with:
           PAT_DEPENDENCY_CHECK_UPDATE: ${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}
-          SETUP_VERSION_FILE: ".tool-versions"
+          SETUP_VERSION_FILE: '.tool-versions'

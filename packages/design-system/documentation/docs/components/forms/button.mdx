@@ -2,19 +2,20 @@
 sidebar_position: 1
 ---
 
+import { Button } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Variant,
-  Color,
-  Size,
-  Icons,
-  Loading,
-  Disabled,
-  FullWidth,
-  FormSubmitExample,
   ButtonGroupExample,
-} from "../../../src/dsExamples/forms/button";
-import { Button } from "@grasdouble/lufa_design-system";
+  Color,
+  Disabled,
+  FormSubmitExample,
+  FullWidth,
+  Icons,
+  LiveDemo,
+  Loading,
+  Size,
+  Variant,
+} from '../../../src/dsExamples/forms/button';
 
 # Button
 
@@ -37,7 +38,7 @@ Use `Button` when you need…
 ## Import
 
 ```tsx
-import { Button } from "@grasdouble/lufa_design-system";
+import { Button } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -50,20 +51,20 @@ import { Button } from "@grasdouble/lufa_design-system";
 
 ## Props
 
-| Prop        | Type                                                     | Default    | Description                                   |
-| ----------- | -------------------------------------------------------- | ---------- | --------------------------------------------- |
-| `children`  | `ReactNode`                                              | -          | Button content (text, icons, etc.)            |
-| `label`     | `string`                                                 | -          | Deprecated (use `children`)                   |
-| `variant`   | `'solid' \| 'outlined' \| 'text' \| 'ghost' \| 'link'`    | `'solid'`  | Visual style variant                          |
+| Prop        | Type                                                             | Default     | Description                                   |
+| ----------- | ---------------------------------------------------------------- | ----------- | --------------------------------------------- |
+| `children`  | `ReactNode`                                                      | -           | Button content (text, icons, etc.)            |
+| `label`     | `string`                                                         | -           | Deprecated (use `children`)                   |
+| `variant`   | `'solid' \| 'outlined' \| 'text' \| 'ghost' \| 'link'`           | `'solid'`   | Visual style variant                          |
 | `color`     | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger'` | `'primary'` | Color scheme                                  |
-| `size`      | `'small' \| 'medium' \| 'large'`                         | `'medium'` | Size                                          |
-| `fullWidth` | `boolean`                                                | `false`    | Make button full width                        |
-| `loading`   | `boolean`                                                | `false`    | Show loading state (also disables the button) |
-| `disabled`  | `boolean`                                                | `false`    | Disable interactions                          |
-| `startIcon` | `ReactNode`                                              | -          | Icon before content                           |
-| `endIcon`   | `ReactNode`                                              | -          | Icon after content                            |
-| `onClick`   | `(event: React.MouseEvent<HTMLButtonElement>) => void`   | -          | Click handler                                 |
-| `type`      | `'button' \| 'submit' \| 'reset'`                        | `'button'` | Button type attribute                         |
+| `size`      | `'small' \| 'medium' \| 'large'`                                 | `'medium'`  | Size                                          |
+| `fullWidth` | `boolean`                                                        | `false`     | Make button full width                        |
+| `loading`   | `boolean`                                                        | `false`     | Show loading state (also disables the button) |
+| `disabled`  | `boolean`                                                        | `false`     | Disable interactions                          |
+| `startIcon` | `ReactNode`                                                      | -           | Icon before content                           |
+| `endIcon`   | `ReactNode`                                                      | -           | Icon after content                            |
+| `onClick`   | `(event: React.MouseEvent<HTMLButtonElement>) => void`           | -           | Click handler                                 |
+| `type`      | `'button' \| 'submit' \| 'reset'`                                | `'button'`  | Button type attribute                         |
 
 Also supports standard `button` props (for example `className`, `aria-*`, …).
 

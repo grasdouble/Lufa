@@ -20,7 +20,7 @@ All design tokens are exposed as CSS custom properties with the `--lufa-` prefix
 }
 
 /* Dark mode overrides */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --lufa-color-background-primary: #1a1a1a;
   --lufa-color-text-primary: #ffffff;
 }
@@ -35,7 +35,7 @@ All design tokens are exposed as CSS custom properties with the `--lufa-` prefix
   --lufa-typography-h1-line-height: 1.1;
 
   /* Override font family */
-  --lufa-font-family-base: "Your Font", sans-serif;
+  --lufa-font-family-base: 'Your Font', sans-serif;
 }
 ```
 
@@ -71,8 +71,8 @@ Lufa ships with built-in theme variants:
 
 ```tsx
 // Import a theme variant
-import "@grasdouble/lufa_design-system/themes/ocean.css";
-import "@grasdouble/lufa_design-system/themes/forest.css";
+import '@grasdouble/lufa_design-system/themes/ocean.css';
+import '@grasdouble/lufa_design-system/themes/forest.css';
 ```
 
 ## Available Variables

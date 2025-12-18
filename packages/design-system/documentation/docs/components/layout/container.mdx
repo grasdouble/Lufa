@@ -2,17 +2,18 @@
 sidebar_position: 4
 ---
 
+import { Container } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Size,
   Align,
+  As,
+  LiveDemo,
+  MixedBleedExample,
   PaddingX,
   PaddingY,
-  As,
   PageLayoutExample,
-  MixedBleedExample,
-} from "../../../src/dsExamples/layout/container";
-import { Container } from "@grasdouble/lufa_design-system";
+  Size,
+} from '../../../src/dsExamples/layout/container';
 
 # Container
 
@@ -35,7 +36,7 @@ Use `Container` when you need…
 ## Import
 
 ```tsx
-import { Container } from "@grasdouble/lufa_design-system";
+import { Container } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -46,13 +47,13 @@ import { Container } from "@grasdouble/lufa_design-system";
 
 ## Props
 
-| Prop       | Type                                                                                                                                     | Default    | Description                           |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------- |
-| `as`       | `'div' \| 'main' \| 'section' \| 'article' \| 'header' \| 'footer' \| 'aside' \| 'nav'`                                                 | `'div'`    | Semantic HTML element                 |
-| `size`     | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| 'fluid'`                                                                              | `'xl'`     | Max-width constraint                  |
-| `align`    | `'start' \| 'center' \| 'end'`                                                                                                           | `'center'` | Horizontal alignment when constrained |
-| `paddingX` | `'none' \| 'xxs' \| 'xs' \| 'sm' \| 'md' \| 'base' \| 'lg' \| 'xl' \| '2xl' \| '3xl'`                                                   | `'base'`   | Horizontal padding (token)            |
-| `paddingY` | `'none' \| 'xxs' \| 'xs' \| 'sm' \| 'md' \| 'base' \| 'lg' \| 'xl' \| '2xl' \| '3xl'`                                                   | `'none'`   | Vertical padding (token)              |
+| Prop       | Type                                                                                    | Default    | Description                           |
+| ---------- | --------------------------------------------------------------------------------------- | ---------- | ------------------------------------- |
+| `as`       | `'div' \| 'main' \| 'section' \| 'article' \| 'header' \| 'footer' \| 'aside' \| 'nav'` | `'div'`    | Semantic HTML element                 |
+| `size`     | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full' \| 'fluid'`                             | `'xl'`     | Max-width constraint                  |
+| `align`    | `'start' \| 'center' \| 'end'`                                                          | `'center'` | Horizontal alignment when constrained |
+| `paddingX` | `'none' \| 'xxs' \| 'xs' \| 'sm' \| 'md' \| 'base' \| 'lg' \| 'xl' \| '2xl' \| '3xl'`   | `'base'`   | Horizontal padding (token)            |
+| `paddingY` | `'none' \| 'xxs' \| 'xs' \| 'sm' \| 'md' \| 'base' \| 'lg' \| 'xl' \| '2xl' \| '3xl'`   | `'none'`   | Vertical padding (token)              |
 
 Also supports standard element props (for example `className`, `style`, `aria-label`, …).
 

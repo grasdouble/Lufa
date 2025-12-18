@@ -17,43 +17,36 @@ Our color system is built on semantic naming rather than literal colors. This me
 Used for primary actions, links, and emphasis.
 
 ```css
---lufa-color-primary: /* Brand primary color */ --lufa-color-primary-hover:
-  /* Hover state */
+--lufa-color-primary: /* Brand primary color */ --lufa-color-primary-hover: /* Hover state */
   --lufa-color-primary-active: /* Active/pressed state */;
 ```
 
 ### Background Colors
 
 ```css
---lufa-color-background-primary: /* Main background */ --lufa-color-background-secondary:
-  /* Secondary surfaces */
+--lufa-color-background-primary: /* Main background */ --lufa-color-background-secondary: /* Secondary surfaces */
   --lufa-color-background-tertiary: /* Tertiary surfaces */;
 ```
 
 ### Text Colors
 
 ```css
---lufa-color-text-primary: /* Primary text */ --lufa-color-text-secondary:
-  /* Secondary text */
-  --lufa-color-text-tertiary: /* Disabled/subtle text */
-  --lufa-color-text-inverse: /* Text on dark backgrounds */;
+--lufa-color-text-primary: /* Primary text */ --lufa-color-text-secondary: /* Secondary text */
+  --lufa-color-text-tertiary: /* Disabled/subtle text */ --lufa-color-text-inverse: /* Text on dark backgrounds */;
 ```
 
 ### Border Colors
 
 ```css
---lufa-color-border-primary: /* Default borders */ --lufa-color-border-secondary:
-  /* Subtle borders */
+--lufa-color-border-primary: /* Default borders */ --lufa-color-border-secondary: /* Subtle borders */
   --lufa-color-border-focus: /* Focus indicators */;
 ```
 
 ### Semantic Colors
 
 ```css
---lufa-color-success: /* Success states */ --lufa-color-warning:
-  /* Warning states */
-  --lufa-color-error: /* Error states */
-  --lufa-color-info: /* Informational states */;
+--lufa-color-success: /* Success states */ --lufa-color-warning: /* Warning states */
+  --lufa-color-error: /* Error states */ --lufa-color-info: /* Informational states */;
 ```
 
 ## Using Colors
@@ -61,7 +54,7 @@ Used for primary actions, links, and emphasis.
 ### In Components
 
 ```tsx
-import { Button } from "@grasdouble/lufa_design-system";
+import { Button } from '@grasdouble/lufa_design-system';
 
 // Component variants automatically use semantic colors
 <Button variant="primary">Primary</Button>;
@@ -82,8 +75,8 @@ import { Button } from "@grasdouble/lufa_design-system";
 ```tsx
 <div
   style={{
-    color: "var(--lufa-color-text-primary)",
-    backgroundColor: "var(--lufa-color-background-primary)",
+    color: 'var(--lufa-color-text-primary)',
+    backgroundColor: 'var(--lufa-color-background-primary)',
   }}
 >
   Content

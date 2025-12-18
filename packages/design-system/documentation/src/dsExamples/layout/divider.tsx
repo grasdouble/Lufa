@@ -1,33 +1,23 @@
-import React from "react";
-import {
-  Divider,
-  Placeholder,
-  Stack,
-  tokens,
-} from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Divider, Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -49,9 +39,7 @@ export const Orientation = () => (
   <Frame title="orientation">
     <Stack direction="vertical" gap="normal">
       <Divider label="horizontal" orientation="horizontal" />
-      <div
-        style={{ display: "flex", alignItems: "center", gap: 16, height: 120 }}
-      >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16, height: 120 }}>
         <Placeholder color={color.background.secondary}>Left</Placeholder>
         <Divider orientation="vertical" variant="solid" length="70%" />
         <Placeholder color={color.background.secondary}>Right</Placeholder>
@@ -105,9 +93,7 @@ export const Length = () => (
   <Frame title="length">
     <Stack direction="vertical" gap="normal">
       <Divider label='length="60%"' length="60%" />
-      <div
-        style={{ display: "flex", alignItems: "center", gap: 16, height: 160 }}
-      >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16, height: 160 }}>
         <Placeholder color={color.background.secondary}>Left</Placeholder>
         <Divider orientation="vertical" variant="dashed" length="70%" />
         <Placeholder color={color.background.secondary}>Right</Placeholder>
@@ -121,9 +107,7 @@ export const Label = () => (
     <Stack direction="vertical" gap="condensed">
       <Divider />
       <Divider label="Details" />
-      <Divider
-        label={<span style={{ color: color.text.primary }}>Custom node</span>}
-      />
+      <Divider label={<span style={{ color: color.text.primary }}>Custom node</span>} />
     </Stack>
   </Frame>
 );
@@ -141,7 +125,7 @@ export const Variants = () => (
 
 export const BetweenContentExample = () => (
   <Frame title="between content">
-    <div style={{ width: "100%" }}>
+    <div style={{ width: '100%' }}>
       <Placeholder color={color.interactive.default}>Context</Placeholder>
       <Divider label="Between" spacing="sm" />
       <Placeholder color={color.interactive.default}>Context</Placeholder>
@@ -153,10 +137,10 @@ export const VerticalSplitExample = () => (
   <Frame title="vertical split">
     <div
       style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "16px",
-        height: "160px",
+        display: 'flex',
+        alignItems: 'center',
+        gap: '16px',
+        height: '160px',
       }}
     >
       <Placeholder color={color.interactive.default}>Left</Placeholder>

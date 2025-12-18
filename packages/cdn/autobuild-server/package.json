@@ -21,6 +21,7 @@
     "build:cjs": "esbuild src/index.ts --bundle --outfile=dist/index.cjs --platform=node --external:esbuild",
     "dev": "dotenvx run --env-file=.env.development --env-file=.env -- nodemon --exec tsx src/index.ts",
     "lint": "eslint",
+    "prettier": "prettier --write .",
     "start": "dotenvx run --env-file=.env.production --env-file=.env -- node dist/index.cjs"
   },
   "dependencies": {
@@ -37,6 +38,7 @@
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_prettier": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@types/cors": "^2.8.19",
     "@types/escape-html": "^1.0.4",
     "@types/express": "^5.0.6",
@@ -47,6 +49,7 @@
     "eslint": "^9.39.2",
     "nodemon": "^3.1.11",
     "prettier": "^3.7.4",
+    "prettier-plugin-packagejson": "^2.5.20",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.49.0"

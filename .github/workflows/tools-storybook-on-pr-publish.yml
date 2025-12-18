@@ -37,8 +37,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "23"
-          cache: "pnpm"
+          node-version: '23'
+          cache: 'pnpm'
 
       # Step 4: Install dependencies
       - name: Install dependencies
@@ -60,7 +60,7 @@ jobs:
           publish_dir: ./packages/apps/storybook/storybook-static
           publish_branch: gh-pages
           destination_dir: pr-${{ github.event.pull_request.number }}
-          cname: ""
+          cname: ''
 
       - name: Add comment with Storybook link
         uses: peter-evans/create-or-update-comment@v4

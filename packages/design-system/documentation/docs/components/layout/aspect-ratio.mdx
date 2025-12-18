@@ -2,15 +2,16 @@
 sidebar_position: 8
 ---
 
+import { ASPECT_RATIO, AspectRatio } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  TokenRatios,
-  CustomRatios,
   As,
   CardThumbnailsExample,
+  CustomRatios,
+  LiveDemo,
   MediaHeroExample,
-} from "../../../src/dsExamples/layout/aspectRatio";
-import { AspectRatio, ASPECT_RATIO } from "@grasdouble/lufa_design-system";
+  TokenRatios,
+} from '../../../src/dsExamples/layout/aspectRatio';
 
 # AspectRatio
 
@@ -32,7 +33,7 @@ Use `AspectRatio` when you need…
 ## Import
 
 ```tsx
-import { AspectRatio, ASPECT_RATIO } from "@grasdouble/lufa_design-system";
+import { ASPECT_RATIO, AspectRatio } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -49,11 +50,11 @@ import { AspectRatio, ASPECT_RATIO } from "@grasdouble/lufa_design-system";
 
 ## Props
 
-| Prop    | Type                                                     | Default   | Description                  |
-| ------- | -------------------------------------------------------- | --------- | ---------------------------- |
-| `as`    | `'div' \| 'figure'`                                      | `'div'`   | Render element               |
-| `ratio` | `keyof typeof ASPECT_RATIO \| number \| string`          | `'video'` | Ratio preset or custom value |
-| `children` | `ReactNode`                                           | -         | Content                      |
+| Prop       | Type                                            | Default   | Description                  |
+| ---------- | ----------------------------------------------- | --------- | ---------------------------- |
+| `as`       | `'div' \| 'figure'`                             | `'div'`   | Render element               |
+| `ratio`    | `keyof typeof ASPECT_RATIO \| number \| string` | `'video'` | Ratio preset or custom value |
+| `children` | `ReactNode`                                     | -         | Content                      |
 
 Also supports standard element props (for example `className`, `style`, `aria-label`, …).
 
@@ -91,5 +92,6 @@ Also supports standard element props (for example `className`, `style`, `aria-la
 - If using `as="figure"`, consider pairing it with a caption in your UI.
 
 ## Examples of usage
+
 <CardThumbnailsExample />
 <MediaHeroExample />

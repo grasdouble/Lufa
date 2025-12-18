@@ -2,19 +2,20 @@
 sidebar_position: 2
 ---
 
+import { Stack, STACK_DIRECTION, STACK_GAP } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
+  Align,
   Direction,
   Gap,
-  Align,
-  Justify,
-  Wrap,
-  Padding,
   ItemGrow,
+  Justify,
+  LiveDemo,
+  Padding,
   ToolbarExample,
+  Wrap,
   WrappingChipsExample,
-} from "../../../src/dsExamples/layout/stack";
-import { Stack, STACK_DIRECTION, STACK_GAP } from "@grasdouble/lufa_design-system";
+} from '../../../src/dsExamples/layout/stack';
 
 # Stack
 
@@ -39,13 +40,13 @@ Use `Stack` when you need…
 ```tsx
 import {
   Stack,
+  STACK_ALIGN,
   STACK_DIRECTION,
   STACK_GAP,
-  STACK_ALIGN,
-  STACK_WRAP,
   STACK_JUSTIFY,
   STACK_PADDING,
-} from "@grasdouble/lufa_design-system";
+  STACK_WRAP,
+} from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage

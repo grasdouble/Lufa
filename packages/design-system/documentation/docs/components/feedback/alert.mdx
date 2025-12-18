@@ -2,15 +2,16 @@
 sidebar_position: 1
 ---
 
+import { Alert } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Variant,
   Closable,
-  Icon,
   ClosableWithActionExample,
   CustomIconWithMetaExample,
-} from "../../../src/dsExamples/feedback/alert";
-import { Alert } from "@grasdouble/lufa_design-system";
+  Icon,
+  LiveDemo,
+  Variant,
+} from '../../../src/dsExamples/feedback/alert';
 
 # Alert
 
@@ -33,7 +34,7 @@ Use `Alert` when you need…
 ## Import
 
 ```tsx
-import { Alert } from "@grasdouble/lufa_design-system";
+import { Alert } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -46,15 +47,15 @@ import { Alert } from "@grasdouble/lufa_design-system";
 
 ## Props
 
-| Prop       | Type                                   | Default  | Description                 |
-| ---------- | -------------------------------------- | -------- | --------------------------- |
-| `children` | `ReactNode`                            | -        | Alert message content       |
-| `title`    | `string`                               | -        | Optional title              |
-| `variant`  | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'` | Severity / style variant    |
-| `closable` | `boolean`                              | `false`  | Shows a close button        |
-| `onClose`  | `() => void`                           | -        | Close handler               |
-| `icon`     | `ReactNode`                            | -        | Custom icon (overrides default) |
-| `className`| `string`                               | -        | Additional CSS classes      |
+| Prop        | Type                                          | Default  | Description                     |
+| ----------- | --------------------------------------------- | -------- | ------------------------------- |
+| `children`  | `ReactNode`                                   | -        | Alert message content           |
+| `title`     | `string`                                      | -        | Optional title                  |
+| `variant`   | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'` | Severity / style variant        |
+| `closable`  | `boolean`                                     | `false`  | Shows a close button            |
+| `onClose`   | `() => void`                                  | -        | Close handler                   |
+| `icon`      | `ReactNode`                                   | -        | Custom icon (overrides default) |
+| `className` | `string`                                      | -        | Additional CSS classes          |
 
 ## Variants
 

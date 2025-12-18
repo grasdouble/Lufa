@@ -68,24 +68,19 @@ export const unmount = async (): Promise<void> => {
 ## Config
 
 ```javascript
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { externalizeDeps } from "vite-plugin-externalize-deps";
-import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
+import { externalizeDeps } from 'vite-plugin-externalize-deps';
 
 export default defineConfig({
-  plugins: [
-    react(),
-    cssInjectedByJsPlugin(),
-    tailwindcss(),
-    externalizeDeps({ deps: true, except: ["clsx"] }),
-  ],
+  plugins: [react(), cssInjectedByJsPlugin(), tailwindcss(), externalizeDeps({ deps: true, except: ['clsx'] })],
   build: {
     lib: {
-      entry: "src/parcel.tsx",
-      formats: ["es"],
-      fileName: () => "home.mjs",
+      entry: 'src/parcel.tsx',
+      formats: ['es'],
+      fileName: () => 'home.mjs',
     },
     minify: false,
     sourcemap: true,

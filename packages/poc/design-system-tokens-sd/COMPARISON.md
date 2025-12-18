@@ -137,7 +137,7 @@ dist/
 #### TypeScript - Manual Composition
 
 ```typescript
-import { primitives } from "./primitives";
+import { primitives } from './primitives';
 
 export const semantic = {
   interactive: {

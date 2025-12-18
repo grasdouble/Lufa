@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export interface StorybookEmbedProps {
   /** Story ID from Storybook (e.g., "2-layout-stack--default") */
@@ -23,22 +23,20 @@ export const StorybookEmbed: React.FC<StorybookEmbedProps> = ({
   storyId,
   height = 500,
   showControls = false,
-  storybookUrl = "http://localhost:6006",
+  storybookUrl = 'http://localhost:6006',
 }) => {
-  const iframeSrc = `${storybookUrl}/iframe.html?id=${storyId}&viewMode=story${
-    showControls ? "" : "&args=&globals="
-  }`;
+  const iframeSrc = `${storybookUrl}/iframe.html?id=${storyId}&viewMode=story${showControls ? '' : '&args=&globals='}`;
 
-  const heightValue = typeof height === "number" ? `${height}px` : height;
+  const heightValue = typeof height === 'number' ? `${height}px` : height;
 
   return (
     <div
       style={{
-        width: "100%",
-        marginBottom: "24px",
-        border: "1px solid #e5e7eb",
-        borderRadius: "8px",
-        overflow: "hidden",
+        width: '100%',
+        marginBottom: '24px',
+        border: '1px solid #e5e7eb',
+        borderRadius: '8px',
+        overflow: 'hidden',
       }}
     >
       <iframe
@@ -46,8 +44,8 @@ export const StorybookEmbed: React.FC<StorybookEmbedProps> = ({
         width="100%"
         height={heightValue}
         style={{
-          border: "none",
-          display: "block",
+          border: 'none',
+          display: 'block',
         }}
         title={`Storybook: ${storyId}`}
       />

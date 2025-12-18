@@ -44,9 +44,9 @@ packages/design-system/storybook/
 **Story Organization**: Numeric prefixes control display order
 
 ```ts
-"1. Tokens/Colors";
-"2. Layout/Container";
-"3. Forms/Button";
+'1. Tokens/Colors';
+'2. Layout/Container';
+'3. Forms/Button';
 ```
 
 **Playground Pattern**: First story is always interactive playground
@@ -115,8 +115,9 @@ Purpose:
 **Import Components**:
 
 ```tsx
-import { Button } from "@grasdouble/lufa_design-system";
-import "@grasdouble/lufa_design-system/style.css";
+import { Button } from '@grasdouble/lufa_design-system';
+
+import '@grasdouble/lufa_design-system/style.css';
 
 export const Playground: Story = { render: () => <Button>Click</Button> };
 ```
@@ -139,7 +140,7 @@ Flow: Click theme in toolbar → Decorator applies attributes → CSS variables 
 
 ```ts
 storySort: (a, b) => {
-  if (a.name === "Playground") return -1; // Playground first
+  if (a.name === 'Playground') return -1; // Playground first
   return a.id.localeCompare(b.id);
 };
 ```

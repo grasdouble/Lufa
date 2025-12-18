@@ -2,32 +2,25 @@
   "name": "@grasdouble/lufa",
   "private": true,
   "scripts": {
-    "--ALL--": "",
     "build:all": "pnpm --filter @grasdouble/* run build",
-    "lint:all": "pnpm --filter @grasdouble/* run lint",
-    "--Microfrontends--": "",
-    "mf:dev": "concurrently \"pnpm --filter @grasdouble/lufa_microfrontend_main-container run dev\" \"pnpm --filter @grasdouble/lufa_microfrontend_home run dev\"",
-    "mf:buildAndPreview": "pnpm --filter @grasdouble/lufa_microfrontend_main-container run buildAndPreview",
-    "--DesignSystem--": "",
-    "build:lufa:ds:primitives": "pnpm --filter @grasdouble/lufa_design-system-primitives run build",
-    "build:lufa:ds:tokens": "pnpm --filter @grasdouble/lufa_design-system-tokens run build",
-    "build:lufa:ds": "pnpm --filter @grasdouble/lufa_design-system run build",
-    "build:lufa:ds:storybook": "pnpm --filter @grasdouble/lufa_design-system-storybook run build",
-    "build:lufa:ds:documentation": "pnpm --filter @grasdouble/lufa_design-system-documentation run build",
-    "dev:design-system": "pnpm --filter @grasdouble/lufa_design-system run build -w",
-    "--APPs--": "",
     "build:apps:storybook": "pnpm --filter @grasdouble/lufa_design-system-storybook run build",
+    "build:lufa:ds": "pnpm --filter @grasdouble/lufa_design-system run build",
+    "build:lufa:ds:documentation": "pnpm --filter @grasdouble/lufa_design-system-documentation run build",
+    "build:lufa:ds:primitives": "pnpm --filter @grasdouble/lufa_design-system-primitives run build",
+    "build:lufa:ds:storybook": "pnpm --filter @grasdouble/lufa_design-system-storybook run build",
+    "build:lufa:ds:tokens": "pnpm --filter @grasdouble/lufa_design-system-tokens run build",
     "dev:apps:storybook": "concurrently \"pnpm dev:design-system\" \"pnpm --filter @grasdouble/lufa_design-system-storybook run dev\"",
     "dev:apps:web": "pnpm --filter @grasdouble/lufa_apps_web run dev",
-    "--POCs--": "",
-    "--CI/CD--": "",
-    "generate-outdated-report": "node .github/actions/dependency-update/generateOutdatedReport.js"
+    "dev:design-system": "pnpm --filter @grasdouble/lufa_design-system run build -w",
+    "generate-outdated-report": "node .github/actions/dependency-update/generateOutdatedReport.js",
+    "lint:all": "pnpm --filter @grasdouble/* run lint",
+    "mf:buildAndPreview": "pnpm --filter @grasdouble/lufa_microfrontend_main-container run buildAndPreview",
+    "mf:dev": "concurrently \"pnpm --filter @grasdouble/lufa_microfrontend_main-container run dev\" \"pnpm --filter @grasdouble/lufa_microfrontend_home run dev\"",
+    "prettier:all": "pnpm --filter @grasdouble/* run prettier"
   },
-  "packageManager": "pnpm@10.8.1",
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
-    "concurrently": "^9.2.1",
-    "prettier": "^3.7.4",
-    "prettier-plugin-packagejson": "^2.5.20"
-  }
+    "concurrently": "^9.2.1"
+  },
+  "packageManager": "pnpm@10.8.1"
 }

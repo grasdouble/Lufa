@@ -28,16 +28,17 @@ packages/design-system/storybook/
 ### Basic Story
 
 ```typescript
-import type { Meta, StoryObj } from "@storybook/react";
-import { ComponentName } from "@grasdouble/lufa_design-system";
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { ComponentName } from '@grasdouble/lufa_design-system';
 
 const meta: Meta<typeof ComponentName> = {
-  title: "Components/{Category}/ComponentName",
+  title: 'Components/{Category}/ComponentName',
   component: ComponentName,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 };
 
 export default meta;
@@ -45,14 +46,14 @@ type Story = StoryObj<typeof ComponentName>;
 
 export const Default: Story = {
   args: {
-    children: "Content",
+    children: 'Content',
   },
 };
 
 export const Primary: Story = {
   args: {
     ...Default.args,
-    variant: "primary",
+    variant: 'primary',
   },
 };
 ```

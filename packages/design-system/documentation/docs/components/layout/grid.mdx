@@ -2,14 +2,15 @@
 sidebar_position: 5
 ---
 
+import { Grid, GRID_COLUMNS, GRID_GUTTER } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
   Columns,
-  Gutter,
   DashboardCardsExample,
+  Gutter,
   ImageGalleryExample,
-} from "../../../src/dsExamples/layout/grid";
-import { Grid, GRID_COLUMNS, GRID_GUTTER } from "@grasdouble/lufa_design-system";
+  LiveDemo,
+} from '../../../src/dsExamples/layout/grid';
 
 # Grid
 
@@ -31,7 +32,7 @@ Use `Grid` when you need…
 ## Import
 
 ```tsx
-import { Grid, GRID_COLUMNS, GRID_GUTTER } from "@grasdouble/lufa_design-system";
+import { Grid, GRID_COLUMNS, GRID_GUTTER } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -47,11 +48,11 @@ import { Grid, GRID_COLUMNS, GRID_GUTTER } from "@grasdouble/lufa_design-system"
 
 ## Props
 
-| Prop      | Type                                                         | Default    | Description                |
-| --------- | ------------------------------------------------------------ | ---------- | -------------------------- |
-| `columns` | `keyof typeof GRID_COLUMNS`                                  | `'twelve'` | Number of columns (token)  |
-| `gutter`  | `keyof typeof GRID_GUTTER`                                   | `'md'`     | Gap between grid items     |
-| `children`| `ReactNode`                                                  | -          | Grid items                  |
+| Prop       | Type                        | Default    | Description               |
+| ---------- | --------------------------- | ---------- | ------------------------- |
+| `columns`  | `keyof typeof GRID_COLUMNS` | `'twelve'` | Number of columns (token) |
+| `gutter`   | `keyof typeof GRID_GUTTER`  | `'md'`     | Gap between grid items    |
+| `children` | `ReactNode`                 | -          | Grid items                |
 
 Also supports standard `div` props (for example `className`, `style`, `aria-label`, …).
 

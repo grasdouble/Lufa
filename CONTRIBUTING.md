@@ -290,14 +290,10 @@ export interface ButtonProps {
   /** Click handler */
   onClick: () => void;
   /** Visual variant */
-  variant?: "primary" | "secondary" | "outline";
+  variant?: 'primary' | 'secondary' | 'outline';
 }
 
-export const Button = ({
-  label,
-  onClick,
-  variant = "primary",
-}: ButtonProps) => {
+export const Button = ({ label, onClick, variant = 'primary' }: ButtonProps) => {
   // Implementation
 };
 ```

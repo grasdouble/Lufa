@@ -90,8 +90,8 @@ ComponentName.displayName = "ComponentName";
 **index.ts**:
 
 ```typescript
-export { ComponentName } from "./ComponentName";
-export type { ComponentNameProps } from "./ComponentName";
+export { ComponentName } from './ComponentName';
+export type { ComponentNameProps } from './ComponentName';
 ```
 
 ### 3. CSS Reset Requirements
@@ -123,8 +123,8 @@ Add to `src/components/index.ts`:
 
 ```typescript
 // Category
-export { ComponentName } from "./{category}/ComponentName";
-export type { ComponentNameProps } from "./{category}/ComponentName";
+export { ComponentName } from './{category}/ComponentName';
+export type { ComponentNameProps } from './{category}/ComponentName';
 ```
 
 ### 5. Testing in Storybook
@@ -132,16 +132,17 @@ export type { ComponentNameProps } from "./{category}/ComponentName";
 Create story in `packages/design-system/storybook/stories/`:
 
 ```typescript
-import type { Meta, StoryObj } from "@storybook/react";
-import { ComponentName } from "@grasdouble/lufa_design-system";
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { ComponentName } from '@grasdouble/lufa_design-system';
 
 const meta: Meta<typeof ComponentName> = {
-  title: "Components/{Category}/ComponentName",
+  title: 'Components/{Category}/ComponentName',
   component: ComponentName,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 };
 
 export default meta;
@@ -149,7 +150,7 @@ type Story = StoryObj<typeof ComponentName>;
 
 export const Default: Story = {
   args: {
-    children: "Component content",
+    children: 'Component content',
   },
 };
 ```
@@ -214,10 +215,10 @@ Use `dark:` variant automatically:
 ```typescript
 export interface ComponentProps extends HTMLAttributes<HTMLElement> {
   /** Required props with description */
-  variant: "default" | "primary";
+  variant: 'default' | 'primary';
 
   /** Optional props with default value */
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
 
   /** Custom prop types */
   onCustomEvent?: (value: string) => void;
@@ -243,8 +244,8 @@ Component.displayName = "Component";
 Export both component and types:
 
 ```typescript
-export { Component } from "./Component";
-export type { ComponentProps } from "./Component";
+export { Component } from './Component';
+export type { ComponentProps } from './Component';
 ```
 
 ## 🔧 Build & Test
@@ -351,7 +352,7 @@ Create MDX file in `packages/design-system/documentation/docs/components/`:
 sidebar_position: 1
 ---
 
-import { ComponentName } from "@grasdouble/lufa_design-system";
+import { ComponentName } from '@grasdouble/lufa_design-system';
 
 # ComponentName
 

@@ -1,11 +1,15 @@
 {
   "name": "@grasdouble/lufa_poc_design-system-tokens-sd",
   "version": "0.2.0",
-  "description": "Lufa Design System tokens using Style Dictionary",
-  "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "private": false,
+  "description": "Lufa Design System tokens using Style Dictionary",
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "style-dictionary"
+  ],
+  "license": "MIT",
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -14,6 +18,8 @@
     "./tokens.css": "./dist/tokens.css",
     "./tokens.json": "./dist/tokens.json"
   },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -24,11 +30,5 @@
   "devDependencies": {
     "style-dictionary": "^5.1.1",
     "typescript": "^5.9.3"
-  },
-  "keywords": [
-    "design-tokens",
-    "design-system",
-    "style-dictionary"
-  ],
-  "license": "MIT"
+  }
 }

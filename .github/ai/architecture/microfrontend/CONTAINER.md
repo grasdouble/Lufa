@@ -46,13 +46,14 @@ packages/apps/microfrontend/main-container/
 ### Single-SPA Registration
 
 ```typescript
-import { registerApplication, start } from "single-spa";
-import "import-map-overrides";
+import { registerApplication, start } from 'single-spa';
+
+import 'import-map-overrides';
 
 registerApplication({
-  name: "@grasdouble/lufa_microfrontend_home",
-  app: () => import("@grasdouble/lufa_microfrontend_home"),
-  activeWhen: (location) => location.pathname === "/",
+  name: '@grasdouble/lufa_microfrontend_home',
+  app: () => import('@grasdouble/lufa_microfrontend_home'),
+  activeWhen: (location) => location.pathname === '/',
 });
 
 start();
@@ -61,7 +62,7 @@ start();
 ### Import Map Overrides
 
 ```javascript
-localStorage.devtools = "true"; // Enable UI in browser
+localStorage.devtools = 'true'; // Enable UI in browser
 ```
 
 ## Config
@@ -69,19 +70,20 @@ localStorage.devtools = "true"; // Enable UI in browser
 **vite.config.js**:
 
 ```javascript
-import { defineConfig } from "vite";
-import importMapInjectorPlugin from "@grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector";
+import { defineConfig } from 'vite';
+
+import importMapInjectorPlugin from '@grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector';
 
 export default defineConfig({
   plugins: [
     importMapInjectorPlugin({
-      extImportMap: "src/importMapExternal.json",
-      devImportMap: "src/importMap.dev.json",
-      prodImportMap: "src/importMap.json",
+      extImportMap: 'src/importMapExternal.json',
+      devImportMap: 'src/importMap.dev.json',
+      prodImportMap: 'src/importMap.json',
     }),
   ],
   server: { port: 5173, cors: true, hmr: true },
-  build: { target: "esnext", modulePreload: false },
+  build: { target: 'esnext', modulePreload: false },
 });
 ```
 
@@ -134,9 +136,9 @@ pnpm build # Output: dist/index.html + assets/
 
 ```typescript
 registerApplication({
-  name: "@grasdouble/lufa_microfrontend_blog",
-  app: () => import("@grasdouble/lufa_microfrontend_blog"),
-  activeWhen: (location) => location.pathname.startsWith("/blog"),
+  name: '@grasdouble/lufa_microfrontend_blog',
+  app: () => import('@grasdouble/lufa_microfrontend_blog'),
+  activeWhen: (location) => location.pathname.startsWith('/blog'),
 });
 ```
 
@@ -144,10 +146,7 @@ registerApplication({
 
 ```javascript
 // In browser console or import-map-overrides UI
-localStorage.setItem(
-  "import-map-override:@grasdouble/lufa_microfrontend_home",
-  "http://localhost:4101/src/parcel.jsx",
-);
+localStorage.setItem('import-map-override:@grasdouble/lufa_microfrontend_home', 'http://localhost:4101/src/parcel.jsx');
 ```
 
 ## Workflows

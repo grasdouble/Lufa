@@ -5,22 +5,22 @@ inputs:
   {
     PAT_DEPENDENCY_CHECK_UPDATE:
       {
-        description: "Personal Access Token with permissions to read and write packages.",
+        description: 'Personal Access Token with permissions to read and write packages.',
         required: true,
-        default: "",
+        default: '',
       },
     SETUP_VERSION_FILE:
       {
-        description: "File version to use during setup (package.json, .nvmrc, .node-version, .tool-versions).",
+        description: 'File version to use during setup (package.json, .nvmrc, .node-version, .tool-versions).',
         required: false,
-        default: "",
+        default: '',
       },
   }
 
 outputs: {}
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Checkout repository
       uses: actions/checkout@v5
@@ -38,7 +38,7 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version-file: ${{ inputs.SETUP_VERSION_FILE }}
-        cache: "pnpm"
+        cache: 'pnpm'
 
     - name: Install dependencies
       shell: bash

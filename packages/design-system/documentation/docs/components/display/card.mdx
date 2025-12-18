@@ -2,15 +2,16 @@
 sidebar_position: 1
 ---
 
+import { Card } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Variant,
-  Padding,
-  Interactive,
-  FooterActionsExample,
   ClickableCardExample,
-} from "../../../src/dsExamples/display/card";
-import { Card } from "@grasdouble/lufa_design-system";
+  FooterActionsExample,
+  Interactive,
+  LiveDemo,
+  Padding,
+  Variant,
+} from '../../../src/dsExamples/display/card';
 
 # Card
 
@@ -33,7 +34,7 @@ Use `Card` when you need…
 ## Import
 
 ```tsx
-import { Card } from "@grasdouble/lufa_design-system";
+import { Card } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -46,17 +47,17 @@ import { Card } from "@grasdouble/lufa_design-system";
 
 ## Props
 
-| Prop       | Type                                          | Default     | Description                          |
-| ---------- | --------------------------------------------- | ----------- | ------------------------------------ |
-| `children` | `ReactNode`                                   | -           | Card content                         |
-| `title`    | `string`                                      | -           | Card title (header)                  |
-| `subtitle` | `string`                                      | -           | Card subtitle/description (header)   |
-| `footer`   | `ReactNode`                                   | -           | Footer slot (actions, meta, etc.)    |
-| `variant`  | `'default' \| 'elevated' \| 'outlined' \| 'filled'` | `'default'` | Visual variant                       |
-| `padding`  | `'none' \| 'small' \| 'medium' \| 'large'`    | `'medium'`  | Padding size                         |
-| `hoverable`| `boolean`                                     | `false`     | Add hover affordance                 |
-| `onClick`  | `() => void`                                  | -           | Click handler (makes card clickable) |
-| `className`| `string`                                      | -           | Additional CSS classes               |
+| Prop        | Type                                                | Default     | Description                          |
+| ----------- | --------------------------------------------------- | ----------- | ------------------------------------ |
+| `children`  | `ReactNode`                                         | -           | Card content                         |
+| `title`     | `string`                                            | -           | Card title (header)                  |
+| `subtitle`  | `string`                                            | -           | Card subtitle/description (header)   |
+| `footer`    | `ReactNode`                                         | -           | Footer slot (actions, meta, etc.)    |
+| `variant`   | `'default' \| 'elevated' \| 'outlined' \| 'filled'` | `'default'` | Visual variant                       |
+| `padding`   | `'none' \| 'small' \| 'medium' \| 'large'`          | `'medium'`  | Padding size                         |
+| `hoverable` | `boolean`                                           | `false`     | Add hover affordance                 |
+| `onClick`   | `() => void`                                        | -           | Click handler (makes card clickable) |
+| `className` | `string`                                            | -           | Additional CSS classes               |
 
 ## Variants
 

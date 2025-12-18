@@ -2,15 +2,16 @@
 sidebar_position: 4
 ---
 
+import { Menu } from '@grasdouble/lufa_design-system';
+
 import {
+  HeaderNavExample,
   LiveDemo,
   Mode,
-  Theme,
   SelectedKey,
   SubmenuExample,
-  HeaderNavExample,
-} from "../../../src/dsExamples/navigation/menu";
-import { Menu } from "@grasdouble/lufa_design-system";
+  Theme,
+} from '../../../src/dsExamples/navigation/menu';
 
 # Menu
 
@@ -33,7 +34,7 @@ Use `Menu` when you need…
 ## Import
 
 ```tsx
-import { Menu } from "@grasdouble/lufa_design-system";
+import { Menu } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -41,11 +42,11 @@ import { Menu } from "@grasdouble/lufa_design-system";
 ```tsx
 <Menu
   items={[
-    { key: "home", label: "Home", href: "/" },
-    { key: "products", label: "Products", href: "/products" },
-    { key: "about", label: "About", href: "/about" },
+    { key: 'home', label: 'Home', href: '/' },
+    { key: 'products', label: 'Products', href: '/products' },
+    { key: 'about', label: 'About', href: '/about' },
   ]}
-/>;
+/>
 ```
 
 ## Props

@@ -34,7 +34,7 @@ yarn add @grasdouble/lufa_design-system
 Import the design system CSS in your application's entry point:
 
 ```tsx title="src/main.tsx"
-import "@grasdouble/lufa_design-system/style.css";
+import '@grasdouble/lufa_design-system/style.css';
 ```
 
 This includes all component styles and design tokens (CSS variables) needed by the design system.
@@ -44,15 +44,13 @@ This includes all component styles and design tokens (CSS variables) needed by t
 Import and use components in your React application:
 
 ```tsx title="src/App.tsx"
-import { Button, Card, Typography } from "@grasdouble/lufa_design-system";
+import { Button, Card, Typography } from '@grasdouble/lufa_design-system';
 
 function App() {
   return (
     <Card>
       <Typography variant="h1">Welcome to Lufa</Typography>
-      <Typography variant="body1">
-        A modern, accessible design system.
-      </Typography>
+      <Typography variant="body1">A modern, accessible design system.</Typography>
       <Button variant="primary">Get Started</Button>
     </Card>
   );
@@ -78,8 +76,8 @@ Or with inline styles:
 ```tsx
 <div
   style={{
-    padding: "var(--lufa-spacing-lg)",
-    backgroundColor: "var(--lufa-color-background-secondary)",
+    padding: 'var(--lufa-spacing-lg)',
+    backgroundColor: 'var(--lufa-color-background-secondary)',
   }}
 >
   Content
@@ -91,10 +89,7 @@ Or with inline styles:
 Lufa Design System is written in TypeScript and provides full type definitions. TypeScript will automatically detect component props and provide IntelliSense:
 
 ```tsx
-import type {
-  ButtonProps,
-  TypographyProps,
-} from "@grasdouble/lufa_design-system";
+import type { ButtonProps, TypographyProps } from '@grasdouble/lufa_design-system';
 
 // Full type safety and autocompletion
 const MyButton: React.FC<ButtonProps> = (props) => {
@@ -109,15 +104,17 @@ const MyButton: React.FC<ButtonProps> = (props) => {
 Lufa works out of the box with Vite. Just import the CSS and components:
 
 ```tsx title="src/main.tsx"
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "@grasdouble/lufa_design-system/style.css";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+import '@grasdouble/lufa_design-system/style.css';
+
+import App from './App';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 ```
 
@@ -126,13 +123,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 Import the CSS in your root layout or `_app.tsx`:
 
 ```tsx title="app/layout.tsx"
-import "@grasdouble/lufa_design-system/style.css";
+import '@grasdouble/lufa_design-system/style.css';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>{children}</body>
@@ -146,16 +139,18 @@ export default function RootLayout({
 Import the CSS in `src/index.tsx`:
 
 ```tsx title="src/index.tsx"
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "@grasdouble/lufa_design-system/style.css";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-const root = ReactDOM.createRoot(document.getElementById("root")!);
+import '@grasdouble/lufa_design-system/style.css';
+
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 ```
 
@@ -174,16 +169,14 @@ No special build configuration is required. Lufa Design System:
 Create a simple test component to verify everything is working:
 
 ```tsx title="src/Test.tsx"
-import { Button, Typography } from "@grasdouble/lufa_design-system";
+import { Button, Typography } from '@grasdouble/lufa_design-system';
 
 export function Test() {
   return (
-    <div style={{ padding: "var(--lufa-spacing-xl)" }}>
+    <div style={{ padding: 'var(--lufa-spacing-xl)' }}>
       <Typography variant="h2">Lufa Design System</Typography>
-      <Typography variant="body1">
-        If you can see this styled text and button, installation is successful!
-      </Typography>
-      <Button variant="primary" onClick={() => alert("It works!")}>
+      <Typography variant="body1">If you can see this styled text and button, installation is successful!</Typography>
+      <Button variant="primary" onClick={() => alert('It works!')}>
         Click Me
       </Button>
     </div>
@@ -200,7 +193,7 @@ If component styles aren't appearing:
 1. Verify you've imported the CSS file:
 
    ```tsx
-   import "@grasdouble/lufa_design-system/style.css";
+   import '@grasdouble/lufa_design-system/style.css';
    ```
 
 2. Check the import is at the top level of your application (before any component imports)

@@ -1,28 +1,23 @@
-import React from "react";
-import { Placeholder, Stack, tokens } from "@grasdouble/lufa_design-system";
+import React from 'react';
+
+import { Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -46,7 +41,7 @@ export const Height = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -58,7 +53,7 @@ export const Height = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -70,7 +65,7 @@ export const Height = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -82,7 +77,7 @@ export const Height = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -107,7 +102,7 @@ export const Width = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -119,7 +114,7 @@ export const Width = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -131,7 +126,7 @@ export const Width = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -143,7 +138,7 @@ export const Width = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -155,7 +150,7 @@ export const Width = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -172,15 +167,15 @@ export const Color = () => (
   <Frame title="color">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)',
         gap: 16,
       }}
     >
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -192,7 +187,7 @@ export const Color = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -204,7 +199,7 @@ export const Color = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -216,7 +211,7 @@ export const Color = () => (
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -233,32 +228,29 @@ export const Gradient = () => (
   <Frame title="colorFrom / colorTo">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)',
         gap: 16,
       }}
     >
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
         >
           blue → purple
         </div>
-        <Placeholder
-          colorFrom={color.interactive.default}
-          colorTo={color.brand.secondary}
-        >
+        <Placeholder colorFrom={color.interactive.default} colorTo={color.brand.secondary}>
           Custom Gradient
         </Placeholder>
       </div>
       <div>
         <div
           style={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             color: color.text.tertiary,
             marginBottom: 8,
           }}
@@ -284,8 +276,8 @@ export const HeightWidthMatrixExample = () => (
   <Frame title="height × width">
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)',
         gap: 16,
       }}
     >
@@ -295,12 +287,8 @@ export const HeightWidthMatrixExample = () => (
       <Placeholder height="large" width="small" color="#f59e0b">
         Large × Small
       </Placeholder>
-      <div style={{ gridColumn: "1 / -1" }}>
-        <Placeholder
-          height="medium"
-          width="full"
-          color={color.interactive.default}
-        >
+      <div style={{ gridColumn: '1 / -1' }}>
+        <Placeholder height="medium" width="full" color={color.interactive.default}>
           Medium × Full Width
         </Placeholder>
       </div>
@@ -312,44 +300,44 @@ export const CombinedVariants = HeightWidthMatrixExample;
 
 export const DashboardLayoutExample = () => (
   <Frame title="dashboard layout">
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       {/* Header */}
-      <Placeholder height="small" width="full" color={"#3b82f6"}>
+      <Placeholder height="small" width="full" color="#3b82f6">
         Header
       </Placeholder>
 
       {/* Main content with sidebar */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "200px 1fr",
-          gap: "16px",
+          display: 'grid',
+          gridTemplateColumns: '200px 1fr',
+          gap: '16px',
         }}
       >
-        <Placeholder height="full" color={"#8b5cf6"}>
+        <Placeholder height="full" color="#8b5cf6">
           Sidebar
         </Placeholder>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-          <Placeholder height="medium" width="full" color={"#10b981"}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <Placeholder height="medium" width="full" color="#10b981">
             Content Area
           </Placeholder>
 
           {/* Card grid */}
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "16px",
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '16px',
             }}
           >
-            <Placeholder height="small" color={"#f59e0b"}>
+            <Placeholder height="small" color="#f59e0b">
               Card 1
             </Placeholder>
-            <Placeholder height="small" color={"#f59e0b"}>
+            <Placeholder height="small" color="#f59e0b">
               Card 2
             </Placeholder>
-            <Placeholder height="small" color={"#f59e0b"}>
+            <Placeholder height="small" color="#f59e0b">
               Card 3
             </Placeholder>
           </div>
@@ -357,7 +345,7 @@ export const DashboardLayoutExample = () => (
       </div>
 
       {/* Footer */}
-      <Placeholder height="small" width="full" color={"#525252"}>
+      <Placeholder height="small" width="full" color="#525252">
         Footer
       </Placeholder>
     </div>
@@ -368,22 +356,22 @@ export const DashboardLayout = DashboardLayoutExample;
 
 export const FormLayoutExample = () => (
   <Frame title="form layout">
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      <div style={{ display: "flex", gap: "16px" }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <div style={{ display: 'flex', gap: '16px' }}>
         <div style={{ flex: 1 }}>
-          <Placeholder color={"#6366f1"}>First Name</Placeholder>
+          <Placeholder color="#6366f1">First Name</Placeholder>
         </div>
         <div style={{ flex: 1 }}>
-          <Placeholder color={"#6366f1"}>Last Name</Placeholder>
+          <Placeholder color="#6366f1">Last Name</Placeholder>
         </div>
       </div>
 
-      <Placeholder color={"#6366f1"}>Email</Placeholder>
-      <Placeholder color={"#6366f1"}>Message</Placeholder>
+      <Placeholder color="#6366f1">Email</Placeholder>
+      <Placeholder color="#6366f1">Message</Placeholder>
 
-      <div style={{ display: "flex", gap: "16px", justifyContent: "flex-end" }}>
-        <Placeholder color={"#a3a3a3"}>Cancel</Placeholder>
-        <Placeholder color={"#3b82f6"}>Submit</Placeholder>
+      <div style={{ display: 'flex', gap: '16px', justifyContent: 'flex-end' }}>
+        <Placeholder color="#a3a3a3">Cancel</Placeholder>
+        <Placeholder color="#3b82f6">Submit</Placeholder>
       </div>
     </div>
   </Frame>
@@ -398,21 +386,19 @@ export const PrototypeLayoutExample = () => (
         Navigation Bar
       </Placeholder>
 
-      <div
-        style={{ display: "grid", gridTemplateColumns: "300px 1fr", gap: 16 }}
-      >
+      <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: 16 }}>
         <Placeholder height="large" color="#7c3aed">
           Sidebar Menu
         </Placeholder>
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <Placeholder height="large" color="#10b981">
             Hero Section
           </Placeholder>
 
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
               gap: 16,
             }}
           >

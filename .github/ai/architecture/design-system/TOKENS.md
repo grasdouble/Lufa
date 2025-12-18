@@ -107,7 +107,8 @@ Purpose:
 **In TypeScript/React**:
 
 ```ts
-import { color, space } from "@grasdouble/lufa_design-system-tokens";
+import { color, space } from '@grasdouble/lufa_design-system-tokens';
+
 const style = { color: color.text.primary, padding: space.md };
 ```
 
@@ -129,7 +130,7 @@ Flow: Map token to utility → Use className → CSS variable resolved
 **In CSS**:
 
 ```css
-@import "@grasdouble/lufa_design-system-tokens/style.css";
+@import '@grasdouble/lufa_design-system-tokens/style.css';
 .button {
   color: var(--lufa-token-color-interactive-primary);
 }

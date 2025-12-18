@@ -32,7 +32,7 @@ Create MDX file in `docs/components/{category}/{component}.mdx`:
 sidebar_position: 1
 ---
 
-import { ComponentName } from "@grasdouble/lufa_design-system";
+import { ComponentName } from '@grasdouble/lufa_design-system';
 
 # ComponentName
 

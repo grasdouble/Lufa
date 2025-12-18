@@ -13,10 +13,8 @@ Lufa provides a set of elevation tokens that create consistent depth across your
 ### Shadow Tokens
 
 ```css
---lufa-shadow-xs: /* Subtle shadow for subtle elevation */ --lufa-shadow-sm:
-  /* Small shadow for cards and buttons */
-  --lufa-shadow-md: /* Medium shadow for dropdowns */
-  --lufa-shadow-lg: /* Large shadow for modals */
+--lufa-shadow-xs: /* Subtle shadow for subtle elevation */ --lufa-shadow-sm: /* Small shadow for cards and buttons */
+  --lufa-shadow-md: /* Medium shadow for dropdowns */ --lufa-shadow-lg: /* Large shadow for modals */
   --lufa-shadow-xl: /* Extra large shadow for overlays */;
 ```
 
@@ -119,7 +117,7 @@ Add depth on interaction:
 ### With React Components
 
 ```tsx
-<Card style={{ boxShadow: "var(--lufa-shadow-md)" }}>
+<Card style={{ boxShadow: 'var(--lufa-shadow-md)' }}>
   <Typography variant="h3">Elevated Card</Typography>
 </Card>
 ```

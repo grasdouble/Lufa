@@ -29,7 +29,7 @@ FORMATTING:
 - uses: ./.github/actions/[action-dir]
   with:
     input1: ${{ [value] }}
-    input2: "[value]"
+    input2: '[value]'
 ```
 
 **With Optional Inputs**:
@@ -39,7 +39,7 @@ FORMATTING:
   id: [step-id]
   with:
     input1: ${{ [value] }}
-    optional_input: "[value]"
+    optional_input: '[value]'
 ```
 
 ## Inputs

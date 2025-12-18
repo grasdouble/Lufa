@@ -12,7 +12,8 @@
   "scripts": {
     "build": "storybook build",
     "dev": "storybook dev -p 6006 --no-open",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prettier": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [
@@ -30,6 +31,7 @@
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_prettier": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@storybook/addon-docs": "^10.1.8",
     "@storybook/addon-themes": "^10.1.8",
     "@storybook/react-vite": "^10.1.8",
@@ -40,6 +42,7 @@
     "eslint-plugin-storybook": "10.1.2",
     "globals": "^16.5.0",
     "prettier": "^3.7.4",
+    "prettier-plugin-packagejson": "^2.5.20",
     "storybook": "^10.1.8",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.49.0",

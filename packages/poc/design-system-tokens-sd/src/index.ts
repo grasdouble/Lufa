@@ -13,4 +13,4 @@
 // - import '@grasdouble/lufa_design-system-tokens-sd/tokens.css'
 // - import * as tokens from '@grasdouble/lufa_design-system-tokens-sd/tokens.js'
 
-export const version = "0.1.0";
+export const version = '0.1.0';

@@ -1,13 +1,9 @@
 {
   "name": "@grasdouble/lufa_config_eslint",
   "version": "0.1.2",
-  "main": "index.js",
-  "license": "MIT",
   "private": false,
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
-  },
+  "license": "MIT",
+  "main": "index.js",
   "files": [
     "basic.mjs",
     "node.mjs",
@@ -26,5 +22,9 @@
   },
   "peerDependencies": {
     "eslint": "^9.22.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   }
 }

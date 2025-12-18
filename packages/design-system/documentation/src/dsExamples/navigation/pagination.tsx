@@ -1,28 +1,23 @@
-import React, { useState } from "react";
-import { Pagination, Stack, tokens } from "@grasdouble/lufa_design-system";
+import React, { useState } from 'react';
+
+import { Pagination, Stack, tokens } from '@grasdouble/lufa_design-system';
 
 const { color } = tokens;
 
-const Frame = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
+const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: "20px",
+      padding: '20px',
       backgroundColor: color.background.secondary,
       color: color.text.primary,
-      borderRadius: "8px",
-      marginBottom: "16px",
+      borderRadius: '8px',
+      marginBottom: '16px',
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: "monospace",
+          fontFamily: 'monospace',
           color: color.text.tertiary,
           marginBottom: 12,
         }}
@@ -39,13 +34,8 @@ export const LiveDemo = () => {
 
   return (
     <Frame title="live demo">
-      <Pagination
-        current={current}
-        total={100}
-        pageSize={10}
-        onChange={setCurrent}
-      />
-      <p style={{ marginTop: "16px" }}>Current page: {current}</p>
+      <Pagination current={current} total={100} pageSize={10} onChange={setCurrent} />
+      <p style={{ marginTop: '16px' }}>Current page: {current}</p>
     </Frame>
   );
 };
@@ -61,55 +51,38 @@ export const Size = () => {
         <div>
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
           >
             small
           </div>
-          <Pagination
-            size="small"
-            current={currentSmall}
-            total={100}
-            pageSize={10}
-            onChange={setCurrentSmall}
-          />
+          <Pagination size="small" current={currentSmall} total={100} pageSize={10} onChange={setCurrentSmall} />
         </div>
         <div>
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
           >
             medium (default)
           </div>
-          <Pagination
-            current={currentMedium}
-            total={100}
-            pageSize={10}
-            onChange={setCurrentMedium}
-          />
+          <Pagination current={currentMedium} total={100} pageSize={10} onChange={setCurrentMedium} />
         </div>
         <div>
           <div
             style={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               color: color.text.tertiary,
               marginBottom: 8,
             }}
           >
             large
           </div>
-          <Pagination
-            size="large"
-            current={currentLarge}
-            total={100}
-            pageSize={10}
-            onChange={setCurrentLarge}
-          />
+          <Pagination size="large" current={currentLarge} total={100} pageSize={10} onChange={setCurrentLarge} />
         </div>
       </Stack>
     </Frame>
@@ -121,13 +94,7 @@ export const ShowQuickJumper = () => {
 
   return (
     <Frame title="showQuickJumper">
-      <Pagination
-        current={current}
-        total={100}
-        pageSize={10}
-        onChange={setCurrent}
-        showQuickJumper
-      />
+      <Pagination current={current} total={100} pageSize={10} onChange={setCurrent} showQuickJumper />
     </Frame>
   );
 };
@@ -147,7 +114,7 @@ export const ShowSizeChanger = () => {
         onPageSizeChange={setPageSize}
         pageSizeOptions={[10, 20, 50, 100]}
       />
-      <p style={{ marginTop: "16px" }}>
+      <p style={{ marginTop: '16px' }}>
         Page: {current} • Page size: {pageSize}
       </p>
     </Frame>
@@ -203,13 +170,7 @@ export const LargeDatasetPaginationExample = () => {
 
   return (
     <Frame title="large dataset">
-      <Pagination
-        current={current}
-        total={500}
-        pageSize={10}
-        onChange={setCurrent}
-        showQuickJumper
-      />
+      <Pagination current={current} total={500} pageSize={10} onChange={setCurrent} showQuickJumper />
     </Frame>
   );
 };

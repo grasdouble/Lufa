@@ -2,16 +2,17 @@
 sidebar_position: 2
 ---
 
+import { Avatar } from '@grasdouble/lufa_design-system';
+
 import {
-  LiveDemo,
-  Size,
-  Variant,
-  Status,
-  StatusPosition,
   CommentHeaderExample,
   CountAvatarExample,
-} from "../../../src/dsExamples/display/avatar";
-import { Avatar } from "@grasdouble/lufa_design-system";
+  LiveDemo,
+  Size,
+  Status,
+  StatusPosition,
+  Variant,
+} from '../../../src/dsExamples/display/avatar';
 
 # Avatar
 
@@ -33,7 +34,7 @@ Use `Avatar` when you need…
 ## Import
 
 ```tsx
-import { Avatar } from "@grasdouble/lufa_design-system";
+import { Avatar } from '@grasdouble/lufa_design-system';
 ```
 
 ## Basic Usage
@@ -48,15 +49,15 @@ import { Avatar } from "@grasdouble/lufa_design-system";
 
 ## Props
 
-| Prop             | Type                                              | Default    | Description                              |
-| ---------------- | ------------------------------------------------- | ---------- | ---------------------------------------- |
-| `src`            | `string`                                          | -          | Image URL                                |
-| `alt`            | `string`                                          | `"Avatar"` | Alternative text                         |
-| `size`           | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`             | `'md'`     | Avatar size                              |
-| `variant`        | `'circle' \| 'square' \| 'count'`                 | `'circle'` | Shape / rendering variant                |
-| `status`         | `'online' \| 'offline' \| 'away' \| 'busy' \| 'none'` | `'none'` | Status indicator (not for `count`)       |
-| `statusPosition` | `'top' \| 'bottom'`                               | `'bottom'` | Status indicator position                |
-| `count`          | `string \| number`                                | -          | Count text (only for `variant="count"`)  |
+| Prop             | Type                                                  | Default    | Description                             |
+| ---------------- | ----------------------------------------------------- | ---------- | --------------------------------------- |
+| `src`            | `string`                                              | -          | Image URL                               |
+| `alt`            | `string`                                              | `"Avatar"` | Alternative text                        |
+| `size`           | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`                | `'md'`     | Avatar size                             |
+| `variant`        | `'circle' \| 'square' \| 'count'`                     | `'circle'` | Shape / rendering variant               |
+| `status`         | `'online' \| 'offline' \| 'away' \| 'busy' \| 'none'` | `'none'`   | Status indicator (not for `count`)      |
+| `statusPosition` | `'top' \| 'bottom'`                                   | `'bottom'` | Status indicator position               |
+| `count`          | `string \| number`                                    | -          | Count text (only for `variant="count"`) |
 
 Also supports standard element props (for example `className`, `style`, `aria-label`, …).
 
