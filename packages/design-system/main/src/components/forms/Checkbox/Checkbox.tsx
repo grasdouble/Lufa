@@ -1,5 +1,5 @@
 import type { InputHTMLAttributes } from 'react';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 import clsx from 'clsx';
 
 import styles from './Checkbox.module.css';
@@ -34,6 +34,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     },
     ref
   ) => {
+    const internalRef = useRef<HTMLInputElement>(null);
+    const checkboxRef = (ref as React.RefObject<HTMLInputElement>) ?? internalRef;
+
+    useEffect(() => {
+      if (checkboxRef.current) {
+        checkboxRef.current.indeterminate = indeterminate;
+      }
+    }, [indeterminate, checkboxRef]);
     const sizeClass = {
       small: styles.sizeSmall,
       medium: styles.sizeMedium,
@@ -64,7 +72,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       <div className={containerClassName}>
         <label className={clsx(styles.labelWrapper, disabled && styles.disabledLabel)}>
           <input
-            ref={ref}
+            ref={checkboxRef}
             type="checkbox"
             className={checkboxClassName}
             disabled={disabled}
