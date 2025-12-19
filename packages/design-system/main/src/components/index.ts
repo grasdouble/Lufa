@@ -41,10 +41,14 @@ export type { TabsProps, TabItem } from './navigation/Tabs';
 // ============================================
 export { Button } from './forms/Button';
 export * from './forms/Input';
-// export { AutoComplete } from "./forms/AutoComplete";
-// export { Checkbox } from "./forms/Checkbox";
-// export { ColorPicker } from "./forms/ColorPicker";
-// export { DatePicker } from "./forms/DatePicker";
+export { AutoComplete } from './forms/AutoComplete';
+export type { AutoCompleteProps, AutoCompleteOption } from './forms/AutoComplete';
+export { Checkbox } from './forms/Checkbox';
+export type { CheckboxProps } from './forms/Checkbox';
+export { ColorPicker } from './forms/ColorPicker';
+export type { ColorPickerProps } from './forms/ColorPicker';
+export { DatePicker } from './forms/DatePicker';
+export type { DatePickerProps } from './forms/DatePicker';
 // export { Form } from "./forms/Form";
 // export { InputNumber } from "./forms/InputNumber";
 // export { Radio } from "./forms/Radio";

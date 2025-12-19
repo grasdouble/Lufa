@@ -1,0 +1,92 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+  .container {
+    @apply inline-flex flex-col;
+  }
+
+  .fullWidth {
+    @apply w-full;
+  }
+
+  .label {
+    @apply text-text-primary mb-1 block text-sm font-medium;
+  }
+
+  .required {
+    @apply text-error-default ml-1;
+  }
+
+  .wrapper {
+    @apply flex items-center gap-2;
+    @apply border-border-default bg-background-primary border rounded-md;
+    @apply px-sm;
+    @apply duration-base transition-all;
+    @apply hover:border-border-medium;
+  }
+
+  /* Sizes */
+  .sizeSmall {
+    height: var(--lufa-token-height-input-sm);
+  }
+
+  .sizeMedium {
+    height: var(--lufa-token-height-input);
+  }
+
+  .sizeLarge {
+    height: var(--lufa-token-height-input-lg);
+  }
+
+  /* States */
+  .error {
+    @apply border-error-border;
+  }
+
+  .disabled {
+    @apply bg-background-secondary;
+    cursor: var(--lufa-token-cursor-not-allowed);
+    @apply hover:border-border-default;
+  }
+
+  /* Preview */
+  .preview {
+    @apply w-8 h-8 rounded border-border-light border-2 shrink-0;
+  }
+
+  /* Color input (native picker) */
+  .colorInput {
+    @apply opacity-0 w-0 h-0 absolute;
+  }
+
+  /* Text input */
+  .textInput {
+    @apply reset-input;
+    @apply flex-1 bg-transparent;
+    @apply text-text-primary placeholder:text-text-tertiary;
+    @apply focus:outline-none;
+    @apply text-sm font-mono;
+  }
+
+  .textInput:disabled {
+    @apply text-text-disabled;
+    cursor: var(--lufa-token-cursor-not-allowed);
+  }
+
+  .wrapper:has(.textInput:focus) {
+    @apply ring-interactive-focus ring-2 ring-offset-0;
+  }
+
+  .wrapper.error:has(.textInput:focus) {
+    @apply ring-error-default;
+  }
+
+  /* Helper/Error text */
+  .helperText {
+    @apply text-text-secondary mt-1 text-sm;
+  }
+
+  .errorText {
+    @apply text-error-text mt-1 text-sm;
+  }
+}

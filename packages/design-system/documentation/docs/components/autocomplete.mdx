@@ -1,0 +1,85 @@
+---
+sidebar_position: 10
+---
+
+import { AutoComplete } from '@grasdouble/lufa_design-system';
+
+# AutoComplete
+
+An autocomplete input component that provides suggestions as users type.
+
+## Overview
+
+Use `AutoComplete` when you need to:
+
+- Help users find options from a large list
+- Provide search functionality with suggestions
+- Enable keyboard navigation through options
+- Filter options based on user input
+
+## Import
+
+```tsx
+import { AutoComplete } from '@grasdouble/lufa_design-system';
+import type { AutoCompleteOption } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+const options = [
+  { value: 'us', label: 'United States' },
+  { value: 'uk', label: 'United Kingdom' },
+  { value: 'ca', label: 'Canada' },
+];
+
+<AutoComplete
+  label="Select Country"
+  placeholder="Type to search..."
+  options={options}
+  onSelect={(option) => console.log(option)}
+/>
+```
+
+## Props
+
+| Prop            | Type                                                    | Default      | Description                              |
+| --------------- | ------------------------------------------------------- | ------------ | ---------------------------------------- |
+| `label`         | `string`                                                | -            | Label text above the input               |
+| `options`       | `AutoCompleteOption[]`                                  | `[]`         | Array of options to display              |
+| `size`          | `'small' \| 'medium' \| 'large'`                        | `'medium'`   | Size of the input                        |
+| `variant`       | `'outlined' \| 'filled'`                                | `'outlined'` | Visual style variant                     |
+| `fullWidth`     | `boolean`                                               | `false`      | Makes the input take full container width|
+| `onSelect`      | `(option: AutoCompleteOption) => void`                  | -            | Callback when an option is selected      |
+| `filterOption`  | `(option: AutoCompleteOption, input: string) => boolean`| -            | Custom filter function                   |
+| `error`         | `string`                                                | -            | Error message to display                 |
+| `helperText`    | `string`                                                | -            | Helper text below the input              |
+| `disabled`      | `boolean`                                               | `false`      | Disables the input                       |
+| `required`      | `boolean`                                               | `false`      | Marks the field as required              |
+| `startAdornment`| `ReactNode`                                             | -            | Element to display at the start of input |
+| `endAdornment`  | `ReactNode`                                             | -            | Element to display at the end of input   |
+
+## Best Practices
+
+### Do ✅
+
+- Use clear, concise option labels
+- Provide helpful placeholder text
+- Enable keyboard navigation (ArrowUp, ArrowDown, Enter, Escape)
+- Show the most relevant options first
+- Use helper text to guide users
+
+### Don't ❌
+
+- Don't use for fewer than 5 options (use Select instead)
+- Don't disable keyboard navigation
+- Avoid using without a label for accessibility
+- Don't make option labels too long
+
+## Accessibility
+
+- Uses native input for screen reader support
+- Supports keyboard navigation (Arrow keys, Enter, Escape)
+- Includes proper ARIA attributes
+- Label is associated with the input using `htmlFor`
+- Error states are announced to screen readers
