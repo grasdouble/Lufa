@@ -6,6 +6,7 @@
 
 **New to this project?** Start here:
 
+- 🤖 [`copilot-instructions.md`](copilot-instructions.md) - GitHub Copilot instructions
 - 📋 [`ai/QUICK_REFERENCE.md`](ai/QUICK_REFERENCE.md) - Fast task-oriented lookup
 - ⚡ [`AI_CONTEXT.md`](AI_CONTEXT.md) - Essential facts in one place
 
