@@ -39,6 +39,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Step 5: Run lint
+      # Step 5: Build packages (needed for type checking)
+      - name: Build packages
+        run: pnpm build:all
+
+      # Step 6: Run lint
       - name: Run lint
         run: pnpm lint:all
