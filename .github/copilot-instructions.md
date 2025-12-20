@@ -1,4 +1,6 @@
-# GitHub Copilot Instructions for Lufa
+# Instructions for AI Assistants
+
+> 🤖 **Single Entry Point**: This is the main guide for all AI assistants working on the Lufa monorepo.
 
 ## Project Overview
 
@@ -6,13 +8,13 @@ Lufa is a personal pnpm monorepo containing a design system, microfrontend appli
 
 **Tech Stack**: React 19, TypeScript, Tailwind CSS v4, Vite 7, Single-SPA, pnpm workspaces
 
-## 📚 Essential Documentation
+## 📚 Navigation Guide
 
-Before making changes, consult these AI documentation files:
+**Choose your path based on what you need:**
 
-- **[.github/AI_README.md](.github/AI_README.md)** - Main entry point with full navigation
-- **[.github/AI_CONTEXT.md](.github/AI_CONTEXT.md)** - Essential facts and quick reference
-- **[.github/ai/QUICK_REFERENCE.md](.github/ai/QUICK_REFERENCE.md)** - Fast task-oriented lookup
+- 📋 **Quick task lookup** → [ai/QUICK_REFERENCE.md](ai/QUICK_REFERENCE.md) - Fast shortcuts by task type
+- 🏗️ **Understand architecture** → [AI_README.md](AI_README.md) - Complete navigation to architecture & rules docs  
+- ⚡ **Get context fast** → [AI_CONTEXT.md](AI_CONTEXT.md) - Key facts, tech stack, file locations
 
 ## 🏗️ Repository Structure
 
@@ -32,128 +34,53 @@ packages/
 └── poc/                        # Proof of concepts
 ```
 
-## 🛠️ Common Commands
+## 🛠️ Essential Commands
 
-### Development
+**Development:**
 ```bash
-# Microfrontend development (container + home parcel)
-pnpm mf:dev
-
-# Design system + Storybook
-pnpm dev:apps:storybook
-
-# Design system watch mode
-pnpm dev:design-system
+pnpm mf:dev                 # Microfrontend (container + home)
+pnpm dev:apps:storybook     # Design system + Storybook
+pnpm dev:design-system      # Design system watch mode
 ```
 
-### Build
+**Build (order matters):**
 ```bash
-# Build all packages
-pnpm build:all
-
-# Build design system
-pnpm build:lufa:ds
-
-# Build primitives first, then tokens, then main
-pnpm build:lufa:ds:primitives
-pnpm build:lufa:ds:tokens
-pnpm build:lufa:ds
+pnpm build:lufa:ds:primitives  # 1. CSS primitives first
+pnpm build:lufa:ds:tokens      # 2. Then tokens
+pnpm build:lufa:ds             # 3. Then main design system
+pnpm build:all                 # Or build everything
 ```
 
-### Quality
+**Quality & Versioning:**
 ```bash
-# Lint all packages
-pnpm lint:all
-
-# Format all packages
-pnpm prettier:all
-```
-
-### Versioning
-```bash
-# Create changeset for version bump
-pnpm changeset
-
-# Apply version bumps
-pnpm changeset version
+pnpm lint:all              # Lint all packages
+pnpm prettier:all          # Format all packages
+pnpm changeset             # Create changeset (required before merge!)
 ```
 
 ## 📋 Key Conventions
 
-### Package Names
-Use format: `@grasdouble/lufa_[category]_[name]`
+- **Package naming**: `@grasdouble/lufa_[category]_[name]`
+- **Internal deps**: Always use `workspace:^`
+- **Changesets**: Required for version-tracked packages before merging
+- **Component structure**: `ComponentName/ComponentName.tsx` + `.module.css` + `index.ts`
 
-Examples:
-- `@grasdouble/lufa_design-system`
-- `@grasdouble/lufa_microfrontend_home`
-- `@grasdouble/lufa_config_eslint`
+## 🎯 Common Tasks
 
-### Component Structure
-```
-ComponentName/
-├── ComponentName.tsx
-├── ComponentName.module.css
-└── index.ts
-```
+**Working on design system?**
+1. Adding component → [ai/rules/design-system/MAIN.md](ai/rules/design-system/MAIN.md)
+2. Modifying CSS primitives → [ai/rules/design-system/PRIMITIVES.md](ai/rules/design-system/PRIMITIVES.md)
+3. Understanding architecture → [ai/architecture/design-system/DESIGN_SYSTEM.md](ai/architecture/design-system/DESIGN_SYSTEM.md)
 
-### Internal Dependencies
-Always use workspace protocol: `workspace:^`
+**Working on microfrontends?**
+1. Understanding architecture → [ai/architecture/microfrontend/MICROFRONTEND.md](ai/architecture/microfrontend/MICROFRONTEND.md)
+2. Modifying container → [ai/rules/microfrontend/CONTAINER.md](ai/rules/microfrontend/CONTAINER.md)
+3. Creating parcel → [ai/rules/microfrontend/PARCEL.md](ai/rules/microfrontend/PARCEL.md)
 
-### Changesets
-**Always create changesets** for version-tracked packages before merging changes.
+## ⚠️ Critical Rules
 
-## 🎯 Task-Specific Guidelines
-
-### Adding a Component
-1. Read [.github/ai/rules/design-system/MAIN.md](.github/ai/rules/design-system/MAIN.md)
-2. Create component in `packages/design-system/main/src/components/`
-3. Export in `packages/design-system/main/src/index.ts`
-4. Add Storybook story
-5. Build and test: `pnpm build:lufa:ds`
-
-### Modifying CSS Primitives
-1. Read [.github/ai/rules/design-system/PRIMITIVES.md](.github/ai/rules/design-system/PRIMITIVES.md)
-2. Edit `packages/design-system/primitives/src/primitives.css`
-3. Build: `pnpm build:lufa:ds:primitives`
-4. Rebuild main: `pnpm build:lufa:ds`
-
-### Working with Microfrontends
-1. Read [.github/ai/architecture/microfrontend/MICROFRONTEND.md](.github/ai/architecture/microfrontend/MICROFRONTEND.md)
-2. For container changes: [.github/ai/rules/microfrontend/CONTAINER.md](.github/ai/rules/microfrontend/CONTAINER.md)
-3. For parcel creation: [.github/ai/rules/microfrontend/PARCEL.md](.github/ai/rules/microfrontend/PARCEL.md)
-
-## ⚙️ Build Order Dependencies
-
-**Important**: Build in this order to avoid errors:
-
-1. Primitives (`build:lufa:ds:primitives`)
-2. Tokens (`build:lufa:ds:tokens`)
-3. Main design system (`build:lufa:ds`)
-4. Storybook/Documentation (if needed)
-
-## 🚀 Deployment Flow
-
-1. Create changeset: `pnpm changeset`
-2. Merge PR to main
-3. Version bump PR created automatically
-4. Merge version PR → publish to GitHub Packages
-5. Autobuild server uploads to CDN
-6. Import maps updated
-
-## 🔍 Finding Information
-
-**Need to understand architecture?** → [.github/ai/architecture/GLOBAL.md](.github/ai/architecture/GLOBAL.md)
-
-**Need to work on design system?** → [.github/ai/architecture/design-system/DESIGN_SYSTEM.md](.github/ai/architecture/design-system/DESIGN_SYSTEM.md)
-
-**Need to work on microfrontend?** → [.github/ai/architecture/microfrontend/MICROFRONTEND.md](.github/ai/architecture/microfrontend/MICROFRONTEND.md)
-
-**Need to update documentation?** → [.github/ai/meta/HOW_TO_UPDATE.md](.github/ai/meta/HOW_TO_UPDATE.md)
-
-## ⚠️ Important Notes
-
-- ✅ Externalize shared dependencies in parcels (react, react-dom, design-system)
-- ✅ Test in Storybook before deploying components
+- ❌ **Never** skip changeset creation for versioned packages
+- ❌ **Never** build main design system before primitives and tokens
+- ✅ **Always** externalize shared deps in parcels (react, react-dom, design-system)
+- ✅ **Always** test in Storybook before deploying components
 - ✅ Use import map overrides for local microfrontend development
-- ❌ Never skip changeset creation for versioned packages
-- ❌ Don't build main design system before primitives and tokens

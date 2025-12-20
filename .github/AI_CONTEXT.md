@@ -1,6 +1,8 @@
 # AI Context Summary
 
-> ⚡ **Quick Reference**: Essential project facts for fast AI agent onboarding
+> ⚡ **Detailed Reference**: Comprehensive project facts and locations for AI agents
+
+**Looking for quick start?** Go back to [copilot-instructions.md](copilot-instructions.md)
 
 ## 🎯 Project Identity
 
@@ -81,8 +83,15 @@ pnpm mf:dev                     # Start container + home parcel
 pnpm dev:design-system          # Watch mode build
 pnpm dev:apps:storybook         # Design system + Storybook
 
-# Build all packages
-pnpm build:all
+# Build (order: primitives → tokens → main)
+pnpm build:lufa:ds:primitives
+pnpm build:lufa:ds:tokens
+pnpm build:lufa:ds
+pnpm build:all                  # Or build everything
+
+# Quality
+pnpm lint:all
+pnpm prettier:all
 
 # Versioning
 pnpm changeset                  # Create changeset
@@ -133,13 +142,13 @@ ComponentName/
 
 ## 🚀 Quick Start Tasks
 
-| Task                        | Steps                                                                               |
+| Task                        | Documentation                                                                       |
 | --------------------------- | ----------------------------------------------------------------------------------- |
-| **Understand architecture** | Read [ai/architecture/GLOBAL.md](ai/architecture/GLOBAL.md)                         |
-| **Add component**           | Follow [ai/rules/design-system/MAIN.md](ai/rules/design-system/MAIN.md)             |
-| **Modify primitives**       | Follow [ai/rules/design-system/PRIMITIVES.md](ai/rules/design-system/PRIMITIVES.md) |
-| **Create parcel**           | Follow [ai/rules/microfrontend/PARCEL.md](ai/rules/microfrontend/PARCEL.md)         |
-| **Update docs**             | See [ai/meta/HOW_TO_UPDATE.md](ai/meta/HOW_TO_UPDATE.md)                            |
+| **Understand architecture** | [ai/architecture/GLOBAL.md](ai/architecture/GLOBAL.md)                              |
+| **Add component**           | [ai/rules/design-system/MAIN.md](ai/rules/design-system/MAIN.md)                   |
+| **Modify primitives**       | [ai/rules/design-system/PRIMITIVES.md](ai/rules/design-system/PRIMITIVES.md)       |
+| **Create parcel**           | [ai/rules/microfrontend/PARCEL.md](ai/rules/microfrontend/PARCEL.md)               |
+| **Update docs**             | [ai/meta/HOW_TO_UPDATE.md](ai/meta/HOW_TO_UPDATE.md)                               |
 
 ## ⚠️ Important Notes
 

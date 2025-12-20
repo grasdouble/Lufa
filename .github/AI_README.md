@@ -1,14 +1,8 @@
-# AI Assistant Entry Point
+# AI Documentation Navigation
 
-> 🤖 **For AI Agents**: This is your starting point for understanding and contributing to the Lufa monorepo.
+> 📐 **Architecture & Rules**: Detailed documentation for understanding and working with specific parts of the codebase.
 
-## 🎯 Quick Navigation
-
-**New to this project?** Start here:
-
-- 🤖 [`copilot-instructions.md`](copilot-instructions.md) - GitHub Copilot instructions
-- 📋 [`ai/QUICK_REFERENCE.md`](ai/QUICK_REFERENCE.md) - Fast task-oriented lookup
-- ⚡ [`AI_CONTEXT.md`](AI_CONTEXT.md) - Essential facts in one place
+**Looking for quick start?** Go back to [copilot-instructions.md](copilot-instructions.md)
 
 ## 📐 Architecture Documentation
 
