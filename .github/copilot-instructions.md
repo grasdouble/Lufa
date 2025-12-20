@@ -13,7 +13,7 @@ Lufa is a personal pnpm monorepo containing a design system, microfrontend appli
 **Choose your path based on what you need:**
 
 - 📋 **Quick task lookup** → [ai/QUICK_REFERENCE.md](ai/QUICK_REFERENCE.md) - Fast shortcuts by task type
-- 🏗️ **Understand architecture** → [AI_README.md](AI_README.md) - Complete navigation to architecture & rules docs  
+- 🏗️ **Understand architecture** → [AI_README.md](AI_README.md) - Complete navigation to architecture & rules docs
 - ⚡ **Get context fast** → [AI_CONTEXT.md](AI_CONTEXT.md) - Key facts, tech stack, file locations
 
 ## 🏗️ Repository Structure
