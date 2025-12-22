@@ -17,7 +17,6 @@
   "scripts": {
     "build": "vite build",
     "build:watch": "vite build -w",
-    "buildAndPreview": "vite build && vite preview",
     "dev": "vite",
     "lint": "eslint .",
     "prettier": "prettier --write .",
