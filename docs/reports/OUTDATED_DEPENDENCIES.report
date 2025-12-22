@@ -1,17 +1,24 @@
 # Outdated Dependencies Report
 
-┌───────────────────────────────┬─────────┬────────┬────────────────────────────────┐
-│ Package                       │ Current │ Latest │ Dependents                     │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ eslint-plugin-storybook (dev) │ 10.1.2  │ 10.1.8 │ @grasdouble/lufa_design-       │
-│                               │         │        │ system-storybook               │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ typescript (dev)              │ 5.6.3   │ 5.9.3  │ @grasdouble/lufa_design-       │
-│                               │         │        │ system-documentation           │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ @types/node (dev)             │ 24.10.4 │ 25.0.2 │ @grasdouble/cdn_autobuild-     │
-│                               │         │        │ server,                        │
-│                               │         │        │ @grasdouble/lufa_design-system │
-├───────────────────────────────┼─────────┼────────┼────────────────────────────────┤
-│ vite-tsconfig-paths (dev)     │ 5.1.4   │ 6.0.0  │ @grasdouble/lufa_design-system │
-└───────────────────────────────┴─────────┴────────┴────────────────────────────────┘
+┌───────────────────────────────┬─────────┬─────────┬────────────────────────────────┐
+│ Package                       │ Current │ Latest  │ Dependents                     │
+├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
+│ eslint-plugin-storybook (dev) │ 10.1.2  │ 10.1.10 │ @grasdouble/lufa_design-       │
+│                               │         │         │ system-storybook               │
+├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
+│ typescript (dev)              │ 5.6.3   │ 5.9.3   │ @grasdouble/lufa_design-       │
+│                               │         │         │ system-documentation           │
+├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
+│ @types/node (dev)             │ 24.10.4 │ 25.0.3  │ @grasdouble/cdn_autobuild-     │
+│                               │         │         │ server,                        │
+│                               │         │         │ @grasdouble/lufa_design-       │
+│                               │         │         │ system,                        │
+│                               │         │         │ @grasdouble/lufa_design-       │
+│                               │         │         │ system-primitives,             │
+│                               │         │         │ @grasdouble/lufa_design-       │
+│                               │         │         │ system-themes,                 │
+│                               │         │         │ @grasdouble/lufa_design-       │
+│                               │         │         │ system-tokens                  │
+├───────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
+│ vite-tsconfig-paths (dev)     │ 5.1.4   │ 6.0.3   │ @grasdouble/lufa_design-system │
+└───────────────────────────────┴─────────┴─────────┴────────────────────────────────┘
