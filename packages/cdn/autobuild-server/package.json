@@ -22,7 +22,7 @@
     "dev": "dotenvx run --env-file=.env.development --env-file=.env -- nodemon --exec tsx src/index.ts",
     "lint": "eslint",
     "prettier": "prettier --write .",
-    "start": "dotenvx run --env-file=.env.production --env-file=.env -- node dist/index.cjs"
+    "preview": "dotenvx run --env-file=.env.production --env-file=.env -- node dist/index.cjs"
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.51.2",
