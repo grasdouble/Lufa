@@ -2,6 +2,24 @@
 
 Monorepo for the Lufa platform, including microfrontends, design system packages, shared config, Vite plugins, and supporting tooling.
 
+---
+
+## Copilot & AI Usage
+
+Lufa supports AI-assisted development with [GitHub Copilot](.github/copilot-instructions.md) and agentic workflows.
+
+- See `.github/copilot-instructions.md` for project-wide Copilot usage, quick start, and troubleshooting.
+- Context-specific rules for design system, React, Tailwind, and testing are in `.github/instructions/`.
+
+### Quick Start for Copilot
+
+- Use TypeScript, React, and Tailwind CSS as the default stack.
+- Write and run tests for all new code (Vitest for unit, Playwright for E2E).
+- Use semantic, accessible, and token-based styling.
+- Reference the navigation table in `.github/copilot-instructions.md` for context-specific rules.
+
+---
+
 ## Requirements
 
 - Node.js 24.9.0 (see .tool-versions)
@@ -142,3 +160,4 @@ Changesets is configured for versioning and publishing (`pnpm changeset`).
 - License: [LICENSE.md](LICENSE.md)
 - Workspace definition: [pnpm-workspace.yaml](pnpm-workspace.yaml)
 - Root package scripts: [package.json](package.json)
+- Copilot & AI instructions: [.github/copilot-instructions.md](.github/copilot-instructions.md)
