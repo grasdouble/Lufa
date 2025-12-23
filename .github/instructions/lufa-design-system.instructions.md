@@ -7,6 +7,8 @@ applyTo: 'packages/design-system/**/*.{ts,tsx,js,jsx,css}'
 
 Guidelines for developing and maintaining the Lufa Design System, including primitives, tokens, components, and documentation.
 
+> 💡 **Need help?** Use the **"Dev - Lufa Design System"** agent for interactive guidance on building, reviewing, or refactoring components. The agent includes TDD workflow handoffs and complete code templates.
+
 ## System Overview
 
 The Lufa Design System follows a three-layer architecture:
@@ -540,6 +542,8 @@ export const Input = ({
 
 ## Resources
 
+### Official Documentation
+
 - [React Documentation](https://react.dev)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
@@ -547,3 +551,11 @@ export const Input = ({
 - [WCAG Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
 - [Inclusive Components](https://inclusive-components.design/)
 - [A11y Project Checklist](https://www.a11yproject.com/checklist/)
+
+### Lufa Resources
+
+- **Agent**: Use `Dev - Lufa Design System` agent for interactive help
+  - Path: `.github/agents/lufa-design-system-expert.agent.md`
+  - Includes TDD workflow, templates, and quality checklists
+- **Instructions**: This file (auto-applied to design system files)
+- **Project Docs**: See `docs/` folder and AGENTS.md for project-wide guidance
