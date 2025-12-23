@@ -44,20 +44,28 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Step 5: Build Design System
-      - name: Build Design System
-        run: pnpm build:design-system
+      # Step 5: Build Lufa Design System Primitives
+      - name: Build Lufa Design System Primitives
+        run: pnpm ds:primitives:build
 
-      # Step 6: Build Storybook
+      # Step 6: Build Lufa Design System Tokens
+      - name: Build Lufa Design System Tokens
+        run: pnpm ds:tokens:build
+
+      # Step 7: Build Lufa Design System
+      - name: Build Lufa Design System
+        run: pnpm ds:main:build
+
+      # Step 8: Build Storybook
       - name: Build Storybook
-        run: pnpm build:apps:storybook
+        run: pnpm ds:storybook:build
 
-      # Step 7: Deploy to GitHub Pages
+      # Step 9: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./packages/apps/storybook/storybook-static
+          publish_dir: ./packages/design-system/storybook/storybook-static
           publish_branch: gh-pages
           destination_dir: pr-${{ github.event.pull_request.number }}
           cname: ''

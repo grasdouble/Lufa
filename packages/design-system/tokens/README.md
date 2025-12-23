@@ -1,6 +1,13 @@
+[← Back to Design System Overview](../README.md)
+
 # @grasdouble/lufa_design-system-tokens
 
-Semantic design tokens for the Lufa Design System. Provides purpose-based design decisions mapped from primitives for colors, spacing, typography, motion, and more.
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](../../LICENSE.md)
+
+> Semantic design tokens for the Lufa Design System. Provides purpose-based design decisions mapped from primitives for colors, spacing, typography, motion, and more.
+
+**Part of the [Lufa Design System](../README.md)** - Layer 2: Semantic Tokens
 
 ## Installation
 

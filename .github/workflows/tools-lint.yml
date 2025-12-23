@@ -41,8 +41,8 @@ jobs:
 
       # Step 5: Build packages (needed for type checking)
       - name: Build packages
-        run: pnpm build:all
+        run: pnpm all:build
 
       # Step 6: Run lint
       - name: Run lint
-        run: pnpm lint:all
+        run: pnpm all:lint

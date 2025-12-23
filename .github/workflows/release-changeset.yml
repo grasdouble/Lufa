@@ -50,7 +50,7 @@ jobs:
 
       # Build all packages
       - name: Build All packages
-        run: pnpm build:all
+        run: pnpm all:build
 
       # Publish the release or pre-release
       - name: Run Changesets Action
