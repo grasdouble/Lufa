@@ -30,7 +30,7 @@ tools:
     'web/githubRepo',
     'todo',
   ]
-name: 'GPT 5 Beast Mode'
+name: 'Dev - GPT 5 Beast Mode'
 ---
 
 # Operating principles

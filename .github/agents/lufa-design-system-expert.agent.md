@@ -1,6 +1,6 @@
 ---
 description: 'Expert in Lufa Design System architecture, tokens, primitives, and component development with React, TypeScript, and Tailwind CSS'
-name: 'Lufa Design System Expert'
+name: 'Dev -Lufa Design System Expert'
 tools:
   [
     'search/changes',

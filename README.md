@@ -1,163 +1,251 @@
-# Lufa Monorepo
+<div align="center">
 
-Monorepo for the Lufa platform, including microfrontends, design system packages, shared config, Vite plugins, and supporting tooling.
+<img src="./images/Lufa_Logo.png" alt="Lufa Logo" height="120" />
 
----
+# Lufa
 
-## Copilot & AI Usage
+[![Node version](https://img.shields.io/badge/Node.js-24.9.0-339933?style=flat-square&logo=node.js)](https://nodejs.org)
+[![pnpm](https://img.shields.io/badge/pnpm-10.26.x-F69220?style=flat-square&logo=pnpm)](https://pnpm.io)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE.md)
 
-Lufa supports AI-assisted development with [GitHub Copilot](.github/copilot-instructions.md) and agentic workflows.
+_A personal learning platform for building modern web applications with microfrontends and design systems_
 
-- See `.github/copilot-instructions.md` for project-wide Copilot usage, quick start, and troubleshooting.
-- Context-specific rules for design system, React, Tailwind, and testing are in `.github/instructions/`.
+[Getting Started](#getting-started) • [Architecture](#architecture) • [Development](#development) • [Documentation](#documentation)
 
-### Quick Start for Copilot
-
-- Use TypeScript, React, and Tailwind CSS as the default stack.
-- Write and run tests for all new code (Vitest for unit, Playwright for E2E).
-- Use semantic, accessible, and token-based styling.
-- Reference the navigation table in `.github/copilot-instructions.md` for context-specific rules.
+</div>
 
 ---
 
-## Requirements
+## Overview
 
-- Node.js 24.9.0 (see .tool-versions)
-- pnpm 10.26.x (monorepo uses pnpm workspaces)
+Lufa is a personal learning monorepo for exploring and building modern web applications. It serves as a centralized place to experiment with microfrontend architecture, design systems, and modern development practices using Single-SPA, React, and TypeScript.
 
-## Install
+### Key Features
 
-```sh
+- **Microfrontend Architecture** - Learn and experiment with Single-SPA orchestration
+- **Design System** - Build and refine a component library with primitives, tokens, and theming
+- **Developer Experience** - Fast HMR with Vite, TypeScript strict mode, AI-assisted development
+- **Build Tools** - Custom Vite plugins for import maps and React preamble injection
+- **CDN Infrastructure** - Experimental auto-build server for dynamic asset delivery
+- **Shared Configuration** - Reusable ESLint, Prettier, and TypeScript configs across projects
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js 24.9.0](https://nodejs.org) (see `.tool-versions`)
+- [pnpm 10.26.x](https://pnpm.io) or later
+
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/grasdouble/Lufa.git
+cd Lufa
+
+# Install dependencies
 pnpm install
+
+# Build all packages
+pnpm all:build
+
+# Start development servers
+pnpm app:mf:dev        # Microfrontends
+pnpm ds:storybook:dev  # Design system Storybook
 ```
 
-## Workspace layout
+Visit `http://localhost:3000` for microfrontends and `http://localhost:6006` for Storybook.
 
-| Path                        | Description                                                                              |
-| --------------------------- | ---------------------------------------------------------------------------------------- |
-| packages/apps/microfrontend | Main container and Home microfrontends                                                   |
-| packages/design-system      | Core design system packages (main library, primitives, tokens, storybook, documentation) |
-| packages/plugins/vite       | Internal Vite plugins                                                                    |
-| packages/config             | Shared linting, prettier, and tsconfig presets                                           |
-| packages/cdn                | CDN-related tooling (autobuild server)                                                   |
-| packages/poc                | Proofs of concept                                                                        |
-| docs                        | Guides, POCs, and reports                                                                |
+## Architecture
 
-## Common scripts (root)
+### Monorepo Structure
 
-### All Packages
-
-```sh
-pnpm all:build        # Build all @grasdouble/* packages
-pnpm all:lint         # Lint all packages
-pnpm all:prettier     # Format all packages
+```
+packages/
+├── apps/microfrontend/     # Single-SPA applications
+│   ├── main-container/     # Root orchestrator
+│   └── home/               # Home page microfrontend
+├── design-system/          # Component library
+│   ├── main/               # React components
+│   ├── primitives/         # Foundation values
+│   ├── tokens/             # Semantic design tokens
+│   ├── themes/             # Theme variants
+│   ├── storybook/          # Component explorer
+│   └── documentation/      # Docusaurus docs
+├── cdn/                    # CDN infrastructure
+│   └── autobuild-server/   # Dynamic asset builder
+├── plugins/vite/           # Custom Vite plugins
+│   ├── import-map-injector/
+│   └── react-preamble/
+├── config/                 # Shared configurations
+│   ├── eslint/
+│   ├── prettier/
+│   └── tsconfig/
+└── poc/                    # Proof of concepts
 ```
 
-### Applications (Microfrontends)
+### Technology Stack
 
-```sh
-pnpm app:mf:dev       # Run microfrontends in dev (main-container + home)
-pnpm app:mf:build     # Build both microfrontends
-pnpm app:mf:preview   # Preview both microfrontends
+| Category               | Technology                  |
+| ---------------------- | --------------------------- |
+| **Microfrontends**     | Single-SPA, React 18+       |
+| **Build Tool**         | Vite 5.x                    |
+| **Testing**            | Vitest, Playwright          |
+| **Styling**            | Tailwind CSS, Design Tokens |
+| **Documentation**      | Storybook 8, Docusaurus 3   |
+| **Version Management** | Changesets                  |
+
+## Development
+
+### Common Commands
+
+#### Development Workflow
+
+```bash
+# Run all microfrontends
+pnpm app:mf:dev
+
+# Run design system with Storybook
+pnpm ds:all:dev
+
+# Run individual package
+pnpm --filter @grasdouble/lufa_design-system dev
 ```
 
-### CDN (Autobuild Server)
+#### Building
 
-```sh
-pnpm cdn:autobuild-server:build    # Build autobuild server (ESM + CJS)
-pnpm cdn:autobuild-server:dev      # Run autobuild server in dev mode
-pnpm cdn:autobuild-server:lint     # Lint autobuild server
-pnpm cdn:autobuild-server:prettier # Format autobuild server
-pnpm cdn:autobuild-server:preview  # Preview autobuild server
+```bash
+# Build everything
+pnpm all:build
+
+# Build specific package
+pnpm --filter @grasdouble/lufa_microfrontend_home build
 ```
+
+#### Code Quality
+
+```bash
+# Lint all packages
+pnpm all:lint
+
+# Format all packages
+pnpm all:prettier
+
+# Generate dependency report
+pnpm tools:generate-outdated-report
+```
+
+### Package Development
+
+Working on a specific package:
+
+```bash
+# Navigate to package
+cd packages/design-system/main
+
+# Install dependencies (if needed)
+pnpm install
+
+# Run development mode
+pnpm dev
+
+# Build
+pnpm build
+
+# Test
+pnpm test
+```
+
+### AI-Assisted Development
+
+Lufa includes comprehensive AI assistance with GitHub Copilot:
+
+- [Copilot Instructions](.github/copilot-instructions.md) - Project-wide guidelines
+- [Context-Specific Rules](.github/instructions/) - Technology-specific instructions
+- [Agents](.github/agents/) - Specialized workflows (TDD, refactoring)
+
+**Quick Start for Copilot:**
+
+- Use TypeScript, React, and Tailwind CSS as defaults
+- Write tests for all new code (Vitest for unit, Playwright for E2E)
+- Follow accessibility guidelines (WCAG 2.1 AA)
+- Use semantic, token-based styling
+
+## Documentation
 
 ### Design System
 
-#### All packages
+- **[Storybook](packages/design-system/storybook/)** - Interactive component explorer
+- **[Documentation Site](packages/design-system/documentation/)** - Comprehensive guides
+- **[Primitives](packages/design-system/primitives/)** - Non-semantic foundation values
+- **[Tokens](packages/design-system/tokens/)** - Semantic design decisions
+- **[Themes](packages/design-system/themes/)** - Alternative color schemes
 
-```sh
-pnpm ds:all:dev   # Run design system, storybook and documentation in dev mode
-pnpm ds:all:lint  # Lint all design system packages
-pnpm ds:all:prettier # Format all design system packages
-```
+### Microfrontends
 
-#### Main Package
+- **[Architecture Overview](packages/apps/microfrontend/)** - Microfrontend concepts
+- **[Main Container](packages/apps/microfrontend/main-container/)** - Root orchestrator
+- **[Home](packages/apps/microfrontend/home/)** - Example microfrontend
 
-```sh
-pnpm ds:main:build    # Build design system main package
-pnpm ds:main:dev      # Run design system main package in dev mode
-pnpm ds:main:lint     # Lint design system main package
-pnpm ds:main:prettier # Format design system main package
-```
+### Guides
 
-#### Storybook
+- **[How to use Changesets](docs/howto/How-to-use-changeset-in-Lufa.md)** - Version management
+- **[POCs](docs/POCs.md)** - Proof of concepts and experiments
+- **[Contributing](CONTRIBUTING.md)** - Contribution guidelines
 
-```sh
-pnpm ds:storybook:build    # Build Storybook
-pnpm ds:storybook:dev      # Storybook dev server
-pnpm ds:storybook:lint     # Lint Storybook
-pnpm ds:storybook:prettier # Format Storybook
-```
+## Package Naming
 
-#### Documentation
+All packages use the `@grasdouble/` scope:
 
-```sh
-pnpm ds:documentation:build    # Build documentation
-pnpm ds:documentation:dev      # Docusaurus docs dev server
-pnpm ds:documentation:lint     # Lint documentation
-pnpm ds:documentation:prettier # Format documentation
-```
+- `@grasdouble/lufa_design-system*` - Design system packages
+- `@grasdouble/lufa_microfrontend_*` - Microfrontend applications
+- `@grasdouble/lufa_config_*` - Configuration presets
+- `@grasdouble/cdn_*` - CDN tooling
 
-#### Tokens
+Use pnpm filter syntax for specific packages:
 
-```sh
-pnpm ds:tokens:build    # Build design tokens
-pnpm ds:tokens:lint     # Lint design tokens
-pnpm ds:tokens:prettier # Format design tokens
-```
-
-#### Primitives
-
-```sh
-pnpm ds:primitives:build    # Build design primitives
-pnpm ds:primitives:lint     # Lint design primitives
-pnpm ds:primitives:prettier # Format design primitives
-```
-
-### Plugins
-
-```sh
-pnpm plugin:vite:lint     # Lint Vite plugins
-pnpm plugin:vite:prettier # Format Vite plugins
-```
-
-### Tools
-
-```sh
-pnpm tools:generate-outdated-report # Generate dependency report
-```
-
-## Package naming
-
-Packages follow the scope `@grasdouble/*`. Use pnpm filter syntax when working on a single package, for example:
-
-```sh
+```bash
 pnpm --filter @grasdouble/lufa_design-system run dev
+pnpm --filter "@grasdouble/lufa_config_*" run lint
 ```
 
-## Releases
+## Versioning and Releases
 
-Changesets is configured for versioning and publishing (`pnpm changeset`).
+Lufa uses [Changesets](https://github.com/changesets/changesets) for version management:
+
+```bash
+# Create a changeset
+pnpm changeset
+
+# Version packages
+pnpm changeset version
+
+# Publish packages
+pnpm changeset publish
+```
+
+See [How to use Changesets in Lufa](docs/howto/How-to-use-changeset-in-Lufa.md) for detailed instructions.
 
 ## Contributing
 
-- Install dependencies with pnpm install
-- Use pnpm scripts above for build, lint, and formatting
-- Keep changes scoped to the relevant package using pnpm filters
+This is a personal learning project, but contributions and suggestions are welcome! Please see:
 
-## Links
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
+- [Copilot Instructions](.github/copilot-instructions.md) - Development standards
+- [TODOs](docs/todos/) - Planned improvements
 
-- License: [LICENSE.md](LICENSE.md)
-- Workspace definition: [pnpm-workspace.yaml](pnpm-workspace.yaml)
-- Root package scripts: [package.json](package.json)
-- Copilot & AI instructions: [.github/copilot-instructions.md](.github/copilot-instructions.md)
+## Resources
+
+- **Workspace:** [pnpm-workspace.yaml](pnpm-workspace.yaml)
+- **Scripts:** [package.json](package.json)
+- **License:** [MIT](LICENSE.md)
+
+---
+
+<div align="center">
+
+Made with ❤️ by Sebastien Le Mouillour ([@noofreuuuh](https://github.com/noofreuuuh))
+
+
+</div>

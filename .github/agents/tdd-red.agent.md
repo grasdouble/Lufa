@@ -1,6 +1,6 @@
 ---
 description: 'Guide test-first development by writing failing tests that describe desired behaviour from GitHub issue context before implementation exists.'
-name: 'TDD Red Phase - Write Failing Tests First'
+name: 'Test - TDD Red Phase - Write Failing Tests First'
 tools:
   [
     'edit/editFiles',

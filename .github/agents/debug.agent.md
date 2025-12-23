@@ -1,4 +1,5 @@
 ---
+name: 'Dev - Debug Agent'
 description: 'Debug your application to find and fix a bug'
 tools:
   [

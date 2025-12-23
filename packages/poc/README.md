@@ -1,4 +1,4 @@
-<!-- 
+<!--
 ## AI Assistant Instructions
 
 🤖 **Note for AI Assistants (GitHub Copilot, etc.)**
@@ -13,6 +13,7 @@ This directory contains Proof of Concept (POC) implementations and experimental 
 ## Purpose
 
 This folder is dedicated to:
+
 - Testing new ideas and approaches
 - Experimenting with different implementations
 - Prototyping features before integration into the main codebase
@@ -22,9 +23,8 @@ This folder is dedicated to:
 ⚠️ **For Experimentation Only**
 
 The code in this directory is:
+
 - Not meant for production use
 - Subject to change or removal without notice
 - May not follow the same coding standards as the main project
 - Used solely for research and development purposes
-
-

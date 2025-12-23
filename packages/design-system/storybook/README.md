@@ -1,35 +1,104 @@
-# React + TypeScript + Vite
+[← Back to Design System Overview](../README.md)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Lufa Design System Storybook
 
-Currently, two official plugins are available:
+[![Storybook](https://img.shields.io/badge/Storybook-8.x-FF4785?style=flat-square&logo=storybook)](https://storybook.js.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](../../LICENSE.md)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Interactive component explorer and documentation for the Lufa Design System
 
-## Expanding the ESLint configuration
+**Part of the [Lufa Design System](../README.md)** - Component Explorer & Testing
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Overview
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+This Storybook instance serves as the primary documentation and testing environment for all Lufa Design System components. It provides an interactive playground for developers and designers to explore, test, and understand component behavior.
+
+### What's Inside
+
+- **Component Catalog** - Browse all available components with live examples
+- **Interactive Controls** - Test components with different props in real-time
+- **Accessibility Testing** - Built-in a11y auditing for WCAG compliance
+- **Theme Switching** - Preview components in light/dark and custom themes
+- **Code Examples** - Copy-paste ready code snippets
+- **Documentation** - Inline docs with MDX support
+
+## Development
+
+```bash
+# Start Storybook dev server
+pnpm ds:storybook:dev
+
+# Build Storybook for production
+pnpm ds:storybook:build
+
+# Lint stories
+pnpm ds:storybook:lint
+
+# Format stories
+pnpm ds:storybook:prettier
 ```
+
+## Writing Stories
+
+Add stories alongside components or in the `stories/` directory:
+
+```tsx
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { Button } from '@grasdouble/lufa_design-system';
+
+const meta: Meta<typeof Button> = {
+  title: 'Components/Button',
+  component: Button,
+  tags: ['autodocs'],
+};
+
+export default meta;
+type Story = StoryObj<typeof Button>;
+
+export const Primary: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Click me',
+  },
+};
+```
+
+## Addons
+
+Installed Storybook addons:
+
+- **@storybook/addon-essentials** - Essential addons bundle
+- **@storybook/addon-interactions** - Test user interactions
+- **@storybook/addon-a11y** - Accessibility testing
+- **@storybook/addon-themes** - Theme switcher
+
+## Deployment
+
+Storybook is automatically deployed on pull requests and merges to main.
+
+## Related
+
+- [Design System](../main/) - Component library
+- [Design Tokens](../tokens/) - Semantic tokens
+- [Documentation](../documentation/) - Docusaurus docs
+
+## Contributing
+
+See [CONTRIBUTING.md](../../../CONTRIBUTING.md) and [design system instructions](../../../.github/instructions/lufa-design-system.instructions.md) for development guidelines.
+// Optionally, add this for stylistic rules
+...tseslint.configs.stylisticTypeChecked,
+],
+languageOptions: {
+// other options...
+parserOptions: {
+project: ['./tsconfig.node.json', './tsconfig.app.json'],
+tsconfigRootDir: import.meta.dirname,
+},
+},
+});
+
+````
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
@@ -51,4 +120,4 @@ export default tseslint.config({
     ...reactDom.configs.recommended.rules,
   },
 });
-```
+````

@@ -1,6 +1,6 @@
 ---
 description: 'Refactor and optimize Tailwind CSS implementations following utility-first best practices and design system consistency.'
-name: 'Tailwind CSS Refactor - Optimize & Standardize'
+name: 'Dev - Tailwind CSS Refactor - Optimize & Standardize'
 tools:
   [
     'edit/editFiles',

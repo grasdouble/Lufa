@@ -1,6 +1,6 @@
 ---
 description: 'Testing mode for Playwright tests'
-name: 'Playwright Tester Mode'
+name: 'Test - Playwright Tester Mode'
 tools:
   [
     'search/changes',
