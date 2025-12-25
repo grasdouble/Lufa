@@ -1,6 +1,12 @@
+[← Back to Design System Overview](../README.md)
+
 # @grasdouble/lufa_design-system-themes
 
-Theme variants for the Lufa Design System. Provides alternative color schemes that override token tokens.
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](../../LICENSE.md)
+
+> Theme variants for the Lufa Design System. Provides alternative color schemes that override token values.
+
+**Part of the [Lufa Design System](../README.md)** - Pre-built Theme Variants
 
 ## Installation
 

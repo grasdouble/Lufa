@@ -1,6 +1,13 @@
+[← Back to Design System Overview](../README.md)
+
 # @grasdouble/lufa_design-system-primitives
 
-Non-semantic design primitives for the Lufa Design System. Raw foundational values using pixel/millisecond values as keys for clarity and precision.
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](../../LICENSE.md)
+
+> Non-semantic design primitives for the Lufa Design System. Raw foundational values using pixel/millisecond values as keys for clarity and precision.
+
+**Part of the [Lufa Design System](../README.md)** - Layer 1: Primitives
 
 ## Installation
 
