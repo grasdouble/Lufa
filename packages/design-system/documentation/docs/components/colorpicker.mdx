@@ -1,0 +1,114 @@
+---
+sidebar_position: 12
+---
+
+import { ColorPicker } from '@grasdouble/lufa_design-system';
+
+# ColorPicker
+
+A color picker component that allows users to select colors with a visual preview.
+
+## Overview
+
+Use `ColorPicker` when you need to:
+
+- Allow users to select colors visually
+- Provide both color picker and manual hex input
+- Show a live preview of the selected color
+- Enable customization of themes or styles
+
+## Import
+
+```tsx
+import { ColorPicker } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<ColorPicker
+  label="Pick a color"
+  defaultValue="#3b82f6"
+  onColorChange={(color) => console.log(color)}
+/>
+```
+
+## Props
+
+| Prop             | Type                                | Default    | Description                             |
+| ---------------- | ----------------------------------- | ---------- | --------------------------------------- |
+| `label`          | `string`                            | -          | Label text above the input              |
+| `size`           | `'small' \| 'medium' \| 'large'`    | `'medium'` | Size of the input                       |
+| `fullWidth`      | `boolean`                           | `false`    | Makes the input take full container width|
+| `showPreview`    | `boolean`                           | `true`     | Shows color preview swatch              |
+| `onColorChange`  | `(color: string) => void`           | -          | Callback when color changes             |
+| `error`          | `string`                            | -          | Error message to display                |
+| `helperText`     | `string`                            | -          | Helper text below the input             |
+| `disabled`       | `boolean`                           | `false`    | Disables the input                      |
+| `required`       | `boolean`                           | `false`    | Marks the field as required             |
+| `value`          | `string`                            | `'#000000'`| Controlled color value (hex format)     |
+| `defaultValue`   | `string`                            | -          | Default color value (uncontrolled)      |
+
+## Best Practices
+
+### Do ✅
+
+- Use clear labels to indicate what the color is for
+- Provide a default value when possible
+- Show the color preview for better user feedback
+- Use helper text to explain color requirements
+- Validate hex color format
+
+### Don't ❌
+
+- Don't hide the preview unless necessary
+- Avoid using without a label for accessibility
+- Don't forget to handle color change callbacks
+- Avoid using for complex color selection (consider a custom picker)
+
+## Accessibility
+
+- Uses native color input for broad support
+- Label is properly associated with the input
+- Keyboard accessible via Tab navigation
+- Focus states are clearly visible
+- Error states are announced to screen readers
+- Color preview is marked as decorative (aria-hidden)
+
+## Examples
+
+### With Preview
+
+```tsx
+const [color, setColor] = useState('#3b82f6');
+
+<ColorPicker
+  label="Brand Color"
+  value={color}
+  onColorChange={(newColor) => setColor(newColor)}
+  showPreview={true}
+/>
+```
+
+### Multiple Colors
+
+```tsx
+<Stack direction="vertical" gap="normal">
+  <ColorPicker label="Primary Color" defaultValue="#3b82f6" />
+  <ColorPicker label="Secondary Color" defaultValue="#8b5cf6" />
+  <ColorPicker label="Accent Color" defaultValue="#f59e0b" />
+</Stack>
+```
+
+### Form Integration
+
+```tsx
+<form onSubmit={handleSubmit}>
+  <ColorPicker
+    label="Theme Color"
+    required
+    helperText="Choose your preferred theme color"
+    onColorChange={(color) => setFormData({ ...formData, themeColor: color })}
+  />
+</form>
+```
