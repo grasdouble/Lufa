@@ -6,72 +6,326 @@ on:
 
 permissions:
   contents: read
-  pull-requests: read
-  actions: none
-  checks: none
-  deployments: none
-  issues: none
-  packages: none
-  repository-projects: none
-  security-events: none
-  statuses: none
+  pull-requests: write
+  id-token: write
 
 jobs:
-  check-changeset:
+  validate-changesets:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the code
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
 
-      # Check if the PR has the 'skipChangeset' label
-      - name: Check for skipChangeset label
-        id: check-label
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .tool-versions
+          cache: 'pnpm'
+
+      - name: Derive workspace package globs from pnpm-workspace.yaml
+        id: workspace-globs
+        run: |
+          echo "Deriving package globs from pnpm-workspace.yaml"
+          if [ ! -f pnpm-workspace.yaml ]; then
+            echo "pnpm-workspace.yaml not found; falling back to packages/**"
+            echo "files=packages/**" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Extract lines beginning with '-' under the packages section
+          globs=$(grep -E '^\s*-\s+' pnpm-workspace.yaml | sed -E 's/^\s*-\s+//' | tr -d '\r')
+          # Ensure recursive matching for changed-files by appending '/**' to each glob
+          processed_globs=$(printf "%s\n" "$globs" | sed -E 's#$#/**#')
+
+          if [ -z "$globs" ]; then
+            echo "No globs found; falling back to packages/**"
+            echo "files=packages/**" >> $GITHUB_OUTPUT
+          else
+            printf "files<<EOF\n%s\nEOF\n" "$processed_globs" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Show derived workspace globs
+        run: |
+          echo "Resolved workspace globs from pnpm-workspace.yaml:"
+          while IFS= read -r line; do
+            if [ -n "$line" ]; then
+              echo " - $line"
+            fi
+          done <<< "${{ steps.workspace-globs.outputs.files }}"
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v45
+        with:
+          base_sha: ${{ github.event.pull_request.base.sha }}
+          sha: ${{ github.event.pull_request.head.sha }}
+          files: ${{ steps.workspace-globs.outputs.files }}
+          files_ignore: |
+            **/*.md
+            **/*.adoc
+
+      - name: Get changed changeset files
+        id: changed-changesets
+        uses: tj-actions/changed-files@v45
+        with:
+          base_sha: ${{ github.event.pull_request.base.sha }}
+          sha: ${{ github.event.pull_request.head.sha }}
+          files: |
+            .changeset/*.md
+          files_ignore: |
+            .changeset/README.md
+
+      - name: Detect modified packages
+        id: detect-packages
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          echo "Detecting modified packages..."
+
+          # Initialize arrays
+          declare -A packages_map
+          modified_packages=()
+
+          # Read changed files
+          IFS=' ' read -ra CHANGED_FILES <<< "${{ steps.changed-files.outputs.all_changed_files }}"
+
+          # Extract package names from changed files
+          for file in "${CHANGED_FILES[@]}"; do
+            # Extract package path supporting 3-, 2-, and 1-segment structures under packages/
+            # Examples:
+            #  - packages/apps/microfrontend/home/...        -> 3 segments (apps/microfrontend/home)
+            #  - packages/design-system/main/...             -> 2 segments (design-system/main)
+            #  - packages/config/eslint/...                  -> 2 segments (config/eslint)
+            #  - packages/some-package/...                   -> 1 segment (some-package)
+            if [[ $file =~ ^packages/([^/]+)/([^/]+)/([^/]+)/ ]]; then
+              # 3-segment use case: packages/<type>/<category>/<name>
+              package_type="${BASH_REMATCH[1]}"
+              category="${BASH_REMATCH[2]}"
+              package_name="${BASH_REMATCH[3]}"
+              package_path="packages/${package_type}/${category}/${package_name}"
+            elif [[ $file =~ ^packages/([^/]+)/([^/]+)/ ]]; then
+              # 2-segment use case: packages/<type>/<name>
+              package_type="${BASH_REMATCH[1]}"
+              package_name="${BASH_REMATCH[2]}"
+              package_path="packages/${package_type}/${package_name}"
+            elif [[ $file =~ ^packages/([^/]+)/ ]]; then
+              # 1-segment use case: packages/<name>
+              single_segment="${BASH_REMATCH[1]}"
+              package_path="packages/${single_segment}"
+            else
+              # Not a path we care about for package detection
+              continue
+            fi
+
+            # Check if package.json exists
+            if [ -f "${package_path}/package.json" ]; then
+              # Extract npm package name from package.json
+              npm_name=$(node -p "require('./${package_path}/package.json').name" 2>/dev/null || echo "")
+              if [ -n "$npm_name" ]; then
+                packages_map["$npm_name"]=1
+              fi
+            fi
+          done
+
+          # Convert to array
+          for package in "${!packages_map[@]}"; do
+            modified_packages+=("$package")
+          done
+
+          # Sort and output
+          IFS=$'\n' sorted_packages=($(sort <<<"${modified_packages[*]}"))
+          unset IFS
+
+          echo "Modified packages:"
+          printf '%s\n' "${sorted_packages[@]}"
+
+          # Export as JSON array for next steps (compact to single line)
+          json_array=$(printf '%s\n' "${sorted_packages[@]}" | jq -R . | jq -s -c .)
+          echo "packages=${json_array}" >> $GITHUB_OUTPUT
+          echo "count=${#sorted_packages[@]}" >> $GITHUB_OUTPUT
+
+      - name: Check changesets
+        id: check-changesets
+        if: steps.detect-packages.outputs.count > 0
+        run: |
+          echo "Checking changeset files in this PR..."
+
+          # Read modified packages
+          modified_packages='${{ steps.detect-packages.outputs.packages }}'
+
+          # Get changeset files from this PR only
+          changeset_files="${{ steps.changed-changesets.outputs.all_changed_files }}"
+
+          if [ -z "$changeset_files" ]; then
+            echo "No changeset files found in this PR!"
+            echo "missing_packages=${modified_packages}" >> $GITHUB_OUTPUT
+            missing_count=$(echo "$modified_packages" | jq 'length')
+            echo "missing_count=${missing_count}" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "Changeset files in PR: $changeset_files"
+
+          # Extract packages mentioned in changesets
+          declare -A changeset_packages
+
+          for changeset_file in $changeset_files; do
+            echo "Reading changeset file: $changeset_file"
+            while IFS= read -r line; do
+              if [[ $line =~ ^[\"\'](@?[a-zA-Z0-9@/_-]+)[\"\']:[[:space:]]*(major|minor|patch) ]]; then
+                package_name="${BASH_REMATCH[1]}"
+                changeset_packages["$package_name"]=1
+                echo "Found in changeset: $package_name"
+              fi
+            done < "$changeset_file"
+          done
+
+          # Compare and collect missing packages
+          missing_packages=()
+          while IFS= read -r package; do
+            if [ -z "${changeset_packages[$package]}" ]; then
+              echo "Missing changeset for: $package"
+              missing_packages+=("$package")
+            else
+              echo "Found changeset for: $package"
+            fi
+          done < <(echo "$modified_packages" | jq -r '.[]')
+
+          # Export missing packages as JSON
+          if [ ${#missing_packages[@]} -gt 0 ]; then
+            missing_json=$(printf '%s\n' "${missing_packages[@]}" | jq -R . | jq -s -c .)
+            echo "missing_packages=${missing_json}" >> $GITHUB_OUTPUT
+            echo "missing_count=${#missing_packages[@]}" >> $GITHUB_OUTPUT
+          else
+            echo "missing_packages=[]" >> $GITHUB_OUTPUT
+            echo "missing_count=0" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Comment when no packages modified
+        if: steps.changed-files.outputs.any_changed == 'false' || steps.detect-packages.outputs.count == 0
         uses: actions/github-script@v7
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const labels = await github.rest.issues.listLabelsOnIssue({
+            const COMMENT_MARKER = '<!-- changeset-validation-comment -->';
+
+            const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: context.payload.pull_request.number,
+              issue_number: context.issue.number,
             });
-            const hasSkipChangeset = labels.data.some(label => label.name === 'skipChangeset');
-            if (hasSkipChangeset) {
-              core.info("✅ 'skipChangeset' label found. Skipping changeset check.");
-              return 'true';
+
+            const existingComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes(COMMENT_MARKER)
+            );
+
+            const body = COMMENT_MARKER + '\n' +
+              `## ✅ No Changeset Needed\n\n` +
+              `No packages were modified in this PR. No changeset is required.`;
+
+            if (existingComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existingComment.id,
+                body: body
+              });
             } else {
-              core.info("❌ 'skipChangeset' label not found. Proceeding with changeset check.");
-              return 'false';
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body
+              });
             }
-          result-encoding: string
 
-      # Stop the job if the 'skipChangeset' label is present
-      - name: Skip if bypass is true
-        if: steps.check-label.outputs.result == 'true'
-        run: |
-          echo "Skipping changeset check because 'skipChangeset' label is present."
-          exit 0
+      - name: Manage PR comments
+        if: steps.detect-packages.outputs.count > 0
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const missingCount = parseInt('${{ steps.check-changesets.outputs.missing_count }}');
+            const missingPackages = ${{ steps.check-changesets.outputs.missing_packages }};
+            const modifiedPackages = ${{ steps.detect-packages.outputs.packages }};
 
-      # Get the list of modified files in the PR
-      - name: Get list of modified files
-        if: steps.check-label.outputs.result == 'false'
-        id: files
-        run: |
-          git fetch origin ${{ github.event.pull_request.base.ref }}
-          git diff --name-only origin/${{ github.event.pull_request.base.ref }} > files.txt
-          echo "files<<EOF" >> $GITHUB_ENV
-          cat files.txt >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+            const COMMENT_MARKER = '<!-- changeset-validation-comment -->';
 
-      # Check if a changeset file exists in the modified files
-      - name: Check for changeset
-        if: steps.check-label.outputs.result == 'false'
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const existingComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes(COMMENT_MARKER)
+            );
+
+            let body = COMMENT_MARKER + '\n';
+
+            if (missingCount > 0) {
+              const missingList = missingPackages.map(pkg => `- \`${pkg}\``).join('\n');
+              const allPackagesList = modifiedPackages.map(pkg => {
+                const hasMissing = missingPackages.includes(pkg);
+                return `- ${hasMissing ? '❌' : '✅'} \`${pkg}\``;
+              }).join('\n');
+              
+              body += `## ⚠️ Changeset Validation Failed\n\n`;
+              body += `The following packages have been modified but are **not included in any changeset**:\n\n`;
+              body += `${missingList}\n\n`;
+              body += `### What you need to do:\n\n`;
+              body += `1. Run \`pnpm changeset\` to create a new changeset\n`;
+              body += `2. Select the modified packages that need version bumps\n`;
+              body += `3. Choose the appropriate version bump (major, minor, or patch)\n`;
+              body += `4. Write a clear description of the changes\n`;
+              body += `5. Commit the generated changeset file\n\n`;
+              body += `### All modified packages:\n\n`;
+              body += `${allPackagesList}\n\n`;
+              body += `### Why is this important?\n\n`;
+              body += `Changesets ensure that:\n`;
+              body += `- All package changes are properly versioned\n`;
+              body += `- Changelogs are automatically generated\n`;
+              body += `- Dependent packages are updated correctly\n`;
+              body += `- Release notes are comprehensive\n\n`;
+              body += `### Need help?\n\n`;
+              body += `- [Changesets documentation](https://github.com/changesets/changesets)\n`;
+              body += `- See [docs/Tools/PNPM.adoc](../blob/develop/docs/Tools/PNPM.adoc) for workspace guidelines`;
+            } else {
+              const packagesList = modifiedPackages.map(pkg => `- ✅ \`${pkg}\``).join('\n');
+              body += `## ✅ Changeset Validation Passed\n\n`;
+              body += `All modified packages are included in changesets. Great job!\n\n`;
+              body += `### Modified packages:\n\n`;
+              body += `${packagesList}\n\n`;
+              body += `Changesets found for all modified packages.`;
+            }
+
+            if (existingComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existingComment.id,
+                body: body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body
+              });
+            }
+
+      - name: Fail if changesets are missing
+        if: steps.check-changesets.outputs.missing_count > 0
         run: |
-          if ! grep -q "^.changeset/" <<< "$files"; then
-            echo "❌ No changeset file found in this PR."
-            echo "Please add a changeset file to describe your changes."
-            exit 1
-          else
-            echo "✅ Changeset file found."
-          fi
+          echo "::error::Missing changesets for ${{ steps.check-changesets.outputs.missing_count }} package(s)"
+          echo "Please create changesets for all modified packages by running: pnpm changeset"
+          exit 1

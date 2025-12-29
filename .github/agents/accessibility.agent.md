@@ -306,8 +306,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 20 }
+      - uses: actions/setup-node@v6
+        with: { node-version-file: .tool-versions }
       - run: npm ci
       - run: npm run build --if-present
       # in CI Example
