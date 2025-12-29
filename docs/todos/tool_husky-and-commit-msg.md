@@ -124,9 +124,9 @@
            uses: actions/checkout@v4
 
          - name: Setup Node.js
-           uses: actions/setup-node@v4
+           uses: actions/setup-node@v6
            with:
-             node-version: 23
+             node-version-file: .tool-versions
 
          - name: Install pnpm
            run: npm install -g pnpm
