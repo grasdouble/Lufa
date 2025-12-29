@@ -35,9 +35,9 @@ jobs:
 
       # Step 3: Set up Node.js
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '23'
+          node-version-file: .tool-versions
           cache: 'pnpm'
 
       # Step 4: Install dependencies
