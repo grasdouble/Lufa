@@ -296,15 +296,13 @@ jobs:
               body += `- Dependent packages are updated correctly\n`;
               body += `- Release notes are comprehensive\n\n`;
               body += `### Need help?\n\n`;
-              body += `- [Changesets documentation](https://github.com/changesets/changesets)\n`;
-              body += `- See [docs/Tools/PNPM.adoc](../blob/develop/docs/Tools/PNPM.adoc) for workspace guidelines`;
+              body += `- [Changesets documentation](https://github.com/changesets/changesets)`;
             } else {
               const packagesList = modifiedPackages.map(pkg => `- ✅ \`${pkg}\``).join('\n');
               body += `## ✅ Changeset Validation Passed\n\n`;
               body += `All modified packages are included in changesets. Great job!\n\n`;
               body += `### Modified packages:\n\n`;
               body += `${packagesList}\n\n`;
-              body += `Changesets found for all modified packages.`;
             }
 
             if (existingComment) {
