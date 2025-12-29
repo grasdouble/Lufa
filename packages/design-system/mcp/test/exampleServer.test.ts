@@ -6,7 +6,7 @@ import { createLufaDesignSystemMcpServer } from '../src/server/lufaDesignSystemM
 let transport: any;
 
 beforeAll(() => {
-  const result = createLufaDesignSystemMcpServer(8090);
+  const result = createLufaDesignSystemMcpServer();
   transport = result.transport;
 });
 
