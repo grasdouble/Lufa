@@ -29,19 +29,42 @@ jobs:
           node-version-file: .tool-versions
           cache: 'pnpm'
 
+      - name: Derive workspace package globs from pnpm-workspace.yaml
+        id: workspace-globs
+        run: |
+          echo "Deriving package globs from pnpm-workspace.yaml"
+          if [ ! -f pnpm-workspace.yaml ]; then
+            echo "pnpm-workspace.yaml not found; falling back to packages/**"
+            echo "files=packages/**" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Extract lines beginning with '-' under the packages section
+          globs=$(grep -E '^\s*-\s+' pnpm-workspace.yaml | sed -E 's/^\s*-\s+//' | tr -d '\r')
+
+          if [ -z "$globs" ]; then
+            echo "No globs found; falling back to packages/**"
+            echo "files=packages/**" >> $GITHUB_OUTPUT
+          else
+            printf "files<<EOF\n%s\nEOF\n" "$globs" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Show derived workspace globs (temporary)
+        run: |
+          echo "Resolved workspace globs from pnpm-workspace.yaml:"
+          while IFS= read -r line; do
+            if [ -n "$line" ]; then
+              echo " - $line"
+            fi
+          done <<< "${{ steps.workspace-globs.outputs.files }}"
+
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v45
         with:
           base_sha: ${{ github.event.pull_request.base.sha }}
           sha: ${{ github.event.pull_request.head.sha }}
-          files: |
-            packages/plugins/**
-            packages/cdn/**
-            packages/config/**
-            packages/design-system/**
-            packages/apps/**
-            packages/poc/**
+          files: ${{ steps.workspace-globs.outputs.files }}
           files_ignore: |
             **/*.md
             **/*.adoc
@@ -72,20 +95,38 @@ jobs:
 
           # Extract package names from changed files
           for file in "${CHANGED_FILES[@]}"; do
-            # Extract package path (packages/*/package-name/)
-            if [[ $file =~ ^packages/([^/]+)/([^/]+)/ ]]; then
+            # Extract package path supporting 3-, 2-, and 1-segment structures under packages/
+            # Examples:
+            #  - packages/apps/microfrontend/home/...        -> 3 segments (apps/microfrontend/home)
+            #  - packages/design-system/main/...             -> 2 segments (design-system/main)
+            #  - packages/config/eslint/...                  -> 2 segments (config/eslint)
+            #  - packages/some-package/...                   -> 1 segment (some-package)
+            if [[ $file =~ ^packages/([^/]+)/([^/]+)/([^/]+)/ ]]; then
+              # 3-segment use case: packages/<type>/<category>/<name>
               package_type="${BASH_REMATCH[1]}"
               category="${BASH_REMATCH[2]}"
               package_name="${BASH_REMATCH[3]}"
-              package_path="${package_type}/${category}/${package_name}"
-              
-              # Check if package.json exists
-              if [ -f "${package_path}/package.json" ]; then
-                # Extract npm package name from package.json
-                npm_name=$(node -p "require('./${package_path}/package.json').name" 2>/dev/null || echo "")
-                if [ -n "$npm_name" ]; then
-                  packages_map["$npm_name"]=1
-                fi
+              package_path="packages/${package_type}/${category}/${package_name}"
+            elif [[ $file =~ ^packages/([^/]+)/([^/]+)/ ]]; then
+              # 2-segment use case: packages/<type>/<name>
+              package_type="${BASH_REMATCH[1]}"
+              package_name="${BASH_REMATCH[2]}"
+              package_path="packages/${package_type}/${package_name}"
+            elif [[ $file =~ ^packages/([^/]+)/ ]]; then
+              # 1-segment use case: packages/<name>
+              single_segment="${BASH_REMATCH[1]}"
+              package_path="packages/${single_segment}"
+            else
+              # Not a path we care about for package detection
+              continue
+            fi
+
+            # Check if package.json exists
+            if [ -f "${package_path}/package.json" ]; then
+              # Extract npm package name from package.json
+              npm_name=$(node -p "require('./${package_path}/package.json').name" 2>/dev/null || echo "")
+              if [ -n "$npm_name" ]; then
+                packages_map["$npm_name"]=1
               fi
             fi
           done
