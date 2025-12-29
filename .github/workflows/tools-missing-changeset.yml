@@ -41,15 +41,17 @@ jobs:
 
           # Extract lines beginning with '-' under the packages section
           globs=$(grep -E '^\s*-\s+' pnpm-workspace.yaml | sed -E 's/^\s*-\s+//' | tr -d '\r')
+          # Ensure recursive matching for changed-files by appending '/**' to each glob
+          processed_globs=$(printf "%s\n" "$globs" | sed -E 's#$#/**#')
 
           if [ -z "$globs" ]; then
             echo "No globs found; falling back to packages/**"
             echo "files=packages/**" >> $GITHUB_OUTPUT
           else
-            printf "files<<EOF\n%s\nEOF\n" "$globs" >> "$GITHUB_OUTPUT"
+            printf "files<<EOF\n%s\nEOF\n" "$processed_globs" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Show derived workspace globs (temporary)
+      - name: Show derived workspace globs
         run: |
           echo "Resolved workspace globs from pnpm-workspace.yaml:"
           while IFS= read -r line; do
