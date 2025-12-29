@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethereal Currents - Generative Art</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lora:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --anthropic-dark: #141413;
+        --anthropic-light: #faf9f5;
+        --anthropic-mid-gray: #b0aea5;
+        --anthropic-light-gray: #e8e6dc;
+        --anthropic-orange: #d97757;
+        --anthropic-blue: #6a9bcc;
+        --anthropic-green: #788c5d;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, var(--anthropic-light) 0%, #f5f3ee 100%);
+        min-height: 100vh;
+        color: var(--anthropic-dark);
+      }
+
+      .container {
+        display: flex;
+        min-height: 100vh;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .sidebar {
+        width: 320px;
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(20, 20, 19, 0.1);
+        overflow-y: auto;
+      }
+
+      .sidebar h1 {
+        font-family: 'Lora', serif;
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--anthropic-dark);
+        margin-bottom: 8px;
+      }
+
+      .sidebar .subtitle {
+        color: var(--anthropic-mid-gray);
+        font-size: 14px;
+        margin-bottom: 32px;
+        line-height: 1.4;
+      }
+
+      .control-section {
+        margin-bottom: 32px;
+      }
+
+      .control-section h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--anthropic-dark);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .control-section h3::before {
+        content: '•';
+        color: var(--anthropic-orange);
+        font-weight: bold;
+      }
+
+      .seed-display {
+        width: 100%;
+        background: var(--anthropic-light);
+        padding: 12px;
+        border-radius: 8px;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        margin-bottom: 12px;
+        border: 1px solid var(--anthropic-light-gray);
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .seed-input {
+        width: 100%;
+        background: var(--anthropic-light);
+        padding: 12px;
+        border-radius: 8px;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        margin-bottom: 8px;
+        border: 1px solid var(--anthropic-light-gray);
+        text-align: center;
+      }
+
+      .seed-input:focus {
+        outline: none;
+        border-color: var(--anthropic-orange);
+        box-shadow: 0 0 0 2px rgba(217, 119, 87, 0.1);
+        background: white;
+      }
+
+      .seed-controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .jump-controls {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .jump-controls input {
+        flex: 1;
+      }
+
+      .jump-controls button {
+        flex: 0 0 auto;
+      }
+
+      .control-group {
+        margin-bottom: 20px;
+      }
+
+      .control-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--anthropic-dark);
+        margin-bottom: 8px;
+      }
+
+      .control-group input[type='range'] {
+        width: 100%;
+        height: 6px;
+        background: var(--anthropic-light-gray);
+        border-radius: 3px;
+        outline: none;
+        -webkit-appearance: none;
+      }
+
+      .control-group input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        background: var(--anthropic-orange);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .control-group input[type='range']::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 0 4px rgba(217, 119, 87, 0.1);
+      }
+
+      .value-display {
+        display: inline-block;
+        min-width: 50px;
+        text-align: right;
+        font-family: 'Courier New', monospace;
+        font-size: 13px;
+        color: var(--anthropic-mid-gray);
+        margin-top: 4px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px 16px;
+        background: var(--anthropic-dark);
+        color: var(--anthropic-light);
+        border: none;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      button:hover {
+        background: var(--anthropic-orange);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(217, 119, 87, 0.3);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      button.secondary {
+        background: var(--anthropic-light-gray);
+        color: var(--anthropic-dark);
+      }
+
+      button.secondary:hover {
+        background: var(--anthropic-mid-gray);
+        color: white;
+      }
+
+      .main-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #canvas-container {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(20, 20, 19, 0.15);
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <h1>Ethereal Currents</h1>
+        <p class="subtitle">Flow field particle system revealing invisible forces</p>
+
+        <div class="control-section">
+          <h3>Seed</h3>
+          <div class="seed-display" id="seed-display">12345</div>
+          <div class="seed-controls">
+            <button onclick="previousSeed()">← Previous</button>
+            <button onclick="nextSeed()">Next →</button>
+          </div>
+          <button onclick="randomizeSeed()" style="margin-top: 8px">🎲 Random</button>
+          <div class="jump-controls">
+            <input type="number" id="jump-seed" class="seed-input" placeholder="Enter seed..." />
+            <button onclick="jumpToSeed()">Go</button>
+          </div>
+        </div>
+
+        <div class="control-section">
+          <h3>Parameters</h3>
+
+          <div class="control-group">
+            <label>Particle Count <span class="value-display" id="particleCount-value">3000</span></label>
+            <input
+              type="range"
+              id="particleCount"
+              min="500"
+              max="8000"
+              step="500"
+              value="3000"
+              oninput="updateParam('particleCount', this.value)"
+            />
+          </div>
+
+          <div class="control-group">
+            <label>Flow Speed <span class="value-display" id="flowSpeed-value">2.5</span></label>
+            <input
+              type="range"
+              id="flowSpeed"
+              min="0.5"
+              max="5"
+              step="0.1"
+              value="2.5"
+              oninput="updateParam('flowSpeed', this.value)"
+            />
+          </div>
+
+          <div class="control-group">
+            <label>Noise Scale <span class="value-display" id="noiseScale-value">0.003</span></label>
+            <input
+              type="range"
+              id="noiseScale"
+              min="0.001"
+              max="0.01"
+              step="0.0005"
+              value="0.003"
+              oninput="updateParam('noiseScale', this.value)"
+            />
+          </div>
+
+          <div class="control-group">
+            <label>Noise Strength <span class="value-display" id="noiseStrength-value">4</span></label>
+            <input
+              type="range"
+              id="noiseStrength"
+              min="1"
+              max="8"
+              step="0.5"
+              value="4"
+              oninput="updateParam('noiseStrength', this.value)"
+            />
+          </div>
+
+          <div class="control-group">
+            <label>Trail Alpha <span class="value-display" id="trailAlpha-value">15</span></label>
+            <input
+              type="range"
+              id="trailAlpha"
+              min="3"
+              max="30"
+              step="1"
+              value="15"
+              oninput="updateParam('trailAlpha', this.value)"
+            />
+          </div>
+
+          <div class="control-group">
+            <label>Color Speed <span class="value-display" id="colorSpeed-value">0.5</span></label>
+            <input
+              type="range"
+              id="colorSpeed"
+              min="0.1"
+              max="2"
+              step="0.1"
+              value="0.5"
+              oninput="updateParam('colorSpeed', this.value)"
+            />
+          </div>
+        </div>
+
+        <div class="control-section">
+          <h3>Actions</h3>
+          <button onclick="regenerate()">↻ Regenerate</button>
+          <button onclick="resetParams()" class="secondary" style="margin-top: 8px">Reset Parameters</button>
+          <button onclick="downloadImage()" class="secondary" style="margin-top: 8px">💾 Download PNG</button>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div id="canvas-container"></div>
+      </div>
+    </div>
+
+    <script>
+      let params = {
+        seed: 12345,
+        particleCount: 3000,
+        flowSpeed: 2.5,
+        noiseScale: 0.003,
+        noiseStrength: 4,
+        trailAlpha: 15,
+        colorSpeed: 0.5,
+      };
+
+      const defaultParams = { ...params };
+
+      class Particle {
+        constructor() {
+          this.reset();
+        }
+
+        reset() {
+          this.pos = createVector(random(width), random(height));
+          this.vel = createVector(0, 0);
+          this.acc = createVector(0, 0);
+          this.maxSpeed = params.flowSpeed;
+          this.hue = random(360);
+          this.alpha = 255;
+          this.life = random(100, 300);
+          this.maxLife = this.life;
+        }
+
+        update() {
+          // Get flow field force
+          let angle =
+            noise(this.pos.x * params.noiseScale, this.pos.y * params.noiseScale, frameCount * 0.001) *
+            TWO_PI *
+            params.noiseStrength;
+
+          let force = p5.Vector.fromAngle(angle);
+          force.mult(0.3);
+          this.acc.add(force);
+
+          this.vel.add(this.acc);
+          this.vel.limit(this.maxSpeed);
+          this.pos.add(this.vel);
+          this.acc.mult(0);
+
+          // Update color based on velocity
+          let speed = this.vel.mag();
+          this.hue += params.colorSpeed;
+          if (this.hue > 360) this.hue -= 360;
+
+          // Age
+          this.life--;
+          this.alpha = map(this.life, 0, this.maxLife, 0, 255);
+
+          // Wrap edges
+          if (this.pos.x < 0) this.pos.x = width;
+          if (this.pos.x > width) this.pos.x = 0;
+          if (this.pos.y < 0) this.pos.y = height;
+          if (this.pos.y > height) this.pos.y = 0;
+
+          // Reset if dead
+          if (this.life <= 0) {
+            this.reset();
+          }
+        }
+
+        show() {
+          let speed = this.vel.mag();
+          let brightness = map(speed, 0, this.maxSpeed, 40, 100);
+          let saturation = map(speed, 0, this.maxSpeed, 60, 100);
+
+          strokeWeight(3);
+          stroke(this.hue, saturation, brightness, this.alpha);
+          point(this.pos.x, this.pos.y);
+        }
+      }
+
+      let particles = [];
+      let canvasSize = 800;
+
+      function setup() {
+        const canvas = createCanvas(canvasSize, canvasSize);
+        canvas.parent('canvas-container');
+        colorMode(HSB, 360, 100, 100, 255);
+        background(250, 0, 98);
+        regenerate();
+      }
+
+      function draw() {
+        // Add subtle fade trail effect
+        fill(250, 0, 98, params.trailAlpha);
+        noStroke();
+        rect(0, 0, width, height);
+
+        // Update and draw particles
+        for (let particle of particles) {
+          particle.update();
+          particle.show();
+        }
+      }
+
+      function regenerate() {
+        randomSeed(params.seed);
+        noiseSeed(params.seed);
+
+        // Clear canvas
+        background(250, 0, 98);
+
+        // Recreate particles
+        particles = [];
+        for (let i = 0; i < params.particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function updateParam(param, value) {
+        params[param] = parseFloat(value);
+        document.getElementById(param + '-value').textContent = value;
+
+        if (param === 'particleCount') {
+          regenerate();
+        } else if (param === 'flowSpeed') {
+          for (let p of particles) {
+            p.maxSpeed = params.flowSpeed;
+          }
+        }
+      }
+
+      function resetParams() {
+        params = { ...defaultParams };
+
+        document.getElementById('particleCount').value = params.particleCount;
+        document.getElementById('particleCount-value').textContent = params.particleCount;
+
+        document.getElementById('flowSpeed').value = params.flowSpeed;
+        document.getElementById('flowSpeed-value').textContent = params.flowSpeed;
+
+        document.getElementById('noiseScale').value = params.noiseScale;
+        document.getElementById('noiseScale-value').textContent = params.noiseScale;
+
+        document.getElementById('noiseStrength').value = params.noiseStrength;
+        document.getElementById('noiseStrength-value').textContent = params.noiseStrength;
+
+        document.getElementById('trailAlpha').value = params.trailAlpha;
+        document.getElementById('trailAlpha-value').textContent = params.trailAlpha;
+
+        document.getElementById('colorSpeed').value = params.colorSpeed;
+        document.getElementById('colorSpeed-value').textContent = params.colorSpeed;
+
+        regenerate();
+      }
+
+      function updateSeedDisplay() {
+        document.getElementById('seed-display').textContent = params.seed;
+      }
+
+      function previousSeed() {
+        params.seed = Math.max(1, params.seed - 1);
+        updateSeedDisplay();
+        regenerate();
+      }
+
+      function nextSeed() {
+        params.seed++;
+        updateSeedDisplay();
+        regenerate();
+      }
+
+      function randomizeSeed() {
+        params.seed = Math.floor(Math.random() * 999999) + 1;
+        updateSeedDisplay();
+        regenerate();
+      }
+
+      function jumpToSeed() {
+        const input = document.getElementById('jump-seed');
+        const newSeed = parseInt(input.value);
+        if (!isNaN(newSeed) && newSeed > 0) {
+          params.seed = newSeed;
+          updateSeedDisplay();
+          regenerate();
+          input.value = '';
+        }
+      }
+
+      function downloadImage() {
+        saveCanvas('ethereal-currents-' + params.seed, 'png');
+      }
+
+      document.getElementById('jump-seed').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          jumpToSeed();
+        }
+      });
+    </script>
+  </body>
+</html>
