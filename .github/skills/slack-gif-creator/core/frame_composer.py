@@ -7,8 +7,6 @@ together to create animation frames.
 """
 
 from typing import Optional
-
-import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 
