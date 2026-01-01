@@ -191,6 +191,7 @@ Lufa includes comprehensive AI assistance with GitHub Copilot:
 ### Guides
 
 - **[How to use Changesets](docs/howto/How-to-use-changeset-in-Lufa.md)** - Version management
+- **[Dependabot Guide](.github/dependabot.md)** - Automated dependency updates
 - **[POCs](docs/POCs.md)** - Proof of concepts and experiments
 - **[Contributing](CONTRIBUTING.md)** - Contribution guidelines
 
@@ -246,6 +247,5 @@ This is a personal learning project, but contributions and suggestions are welco
 <div align="center">
 
 Made with ❤️ by Sebastien Le Mouillour ([@noofreuuuh](https://github.com/noofreuuuh))
-
 
 </div>

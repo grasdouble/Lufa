@@ -1,0 +1,964 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyperdrive Bloom - Algorithmic Art</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"
+      integrity="sha512-bcfltY+lNLlNxz38yBBm/HLaUB1gTV6I0e+fahbF9pS6roIdzUytozWdnFV8ZnM6cSAG5EbmO0ag0a/fLZSG4Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lora:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Anthropic Brand Colors */
+      :root {
+        --anthropic-dark: #141413;
+        --anthropic-light: #faf9f5;
+        --anthropic-mid-gray: #b0aea5;
+        --anthropic-light-gray: #e8e6dc;
+        --anthropic-orange: #d97757;
+        --anthropic-blue: #6a9bcc;
+        --anthropic-green: #788c5d;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #000000 0%, #0a0a14 100%);
+        min-height: 100vh;
+        color: var(--anthropic-light);
+      }
+
+      .container {
+        display: flex;
+        min-height: 100vh;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 320px;
+        flex-shrink: 0;
+        background: rgba(20, 20, 19, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        overflow-x: hidden;
+        border: 1px solid rgba(106, 155, 204, 0.2);
+      }
+
+      .sidebar h1 {
+        font-family: 'Lora', serif;
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--anthropic-light);
+        margin-bottom: 8px;
+      }
+
+      .sidebar .subtitle {
+        color: var(--anthropic-mid-gray);
+        font-size: 14px;
+        margin-bottom: 32px;
+        line-height: 1.4;
+      }
+
+      /* Control Sections */
+      .control-section {
+        margin-bottom: 32px;
+      }
+
+      .control-section h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--anthropic-light);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .control-section h3::before {
+        content: '•';
+        color: var(--anthropic-blue);
+        font-weight: bold;
+      }
+
+      /* Seed Controls */
+      .seed-input {
+        width: 100%;
+        background: rgba(250, 249, 245, 0.1);
+        padding: 12px;
+        border-radius: 8px;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        margin-bottom: 12px;
+        border: 1px solid rgba(106, 155, 204, 0.3);
+        text-align: center;
+        color: var(--anthropic-light);
+      }
+
+      .seed-input:focus {
+        outline: none;
+        border-color: var(--anthropic-blue);
+        box-shadow: 0 0 0 2px rgba(106, 155, 204, 0.2);
+        background: rgba(250, 249, 245, 0.15);
+      }
+
+      .seed-controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .regen-button {
+        margin-bottom: 0;
+      }
+
+      /* Parameter Controls */
+      .control-group {
+        margin-bottom: 20px;
+      }
+
+      .control-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--anthropic-light);
+        margin-bottom: 8px;
+      }
+
+      .param-description {
+        font-size: 12px;
+        color: var(--anthropic-mid-gray);
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+
+      .number-input {
+        width: 100%;
+        background: rgba(250, 249, 245, 0.1);
+        padding: 8px 10px;
+        border-radius: 6px;
+        font-family: 'Courier New', monospace;
+        font-size: 13px;
+        border: 1px solid rgba(106, 155, 204, 0.3);
+        color: var(--anthropic-light);
+      }
+
+      .number-input:focus {
+        outline: none;
+        border-color: var(--anthropic-blue);
+        box-shadow: 0 0 0 2px rgba(106, 155, 204, 0.2);
+        background: rgba(250, 249, 245, 0.15);
+      }
+
+      .slider-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .slider-container input[type='range'] {
+        flex: 1;
+      }
+
+      input[type='range'] {
+        width: 100%;
+        height: 4px;
+        background: rgba(106, 155, 204, 0.2);
+        border-radius: 2px;
+        outline: none;
+        -webkit-appearance: none;
+      }
+
+      input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        background: var(--anthropic-blue);
+        cursor: pointer;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      input[type='range']::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        background: var(--anthropic-blue);
+        cursor: pointer;
+        border-radius: 50%;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .value-display {
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+        color: var(--anthropic-blue);
+        min-width: 60px;
+        text-align: right;
+      }
+
+      /* Color Pickers */
+      .color-group {
+        margin-bottom: 16px;
+      }
+
+      .color-group label {
+        display: block;
+        font-size: 12px;
+        color: var(--anthropic-mid-gray);
+        margin-bottom: 4px;
+      }
+
+      .color-description {
+        font-size: 12px;
+        color: var(--anthropic-mid-gray);
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+
+      .color-picker-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .color-picker-container input[type='color'] {
+        width: 32px;
+        height: 32px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background: none;
+        padding: 0;
+      }
+
+      .color-value {
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+        color: var(--anthropic-mid-gray);
+      }
+
+      /* Buttons */
+      button,
+      .button {
+        background: var(--anthropic-blue);
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      button:hover,
+      .button:hover {
+        background: #5a8ab0;
+        transform: translateY(-1px);
+      }
+
+      button:active,
+      .button:active {
+        transform: translateY(0);
+      }
+
+      .button.secondary {
+        background: var(--anthropic-orange);
+      }
+
+      .button.secondary:hover {
+        background: #c86641;
+      }
+
+      .button.tertiary {
+        background: var(--anthropic-green);
+      }
+
+      .button.tertiary:hover {
+        background: #6b7b52;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 8px;
+      }
+
+      .button-row .button {
+        flex: 1;
+      }
+
+      /* Canvas Area */
+      .main-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #canvas-container {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow:
+          0 20px 60px rgba(0, 0, 0, 0.8),
+          0 0 80px rgba(106, 155, 204, 0.3),
+          inset 0 0 20px rgba(106, 155, 204, 0.1);
+        border: 2px solid rgba(106, 155, 204, 0.4);
+      }
+
+      /* Loading State */
+      .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: var(--anthropic-mid-gray);
+      }
+
+      /* Responsive - Stack on mobile */
+      @media (max-width: 600px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+        }
+
+        .main-content {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Control Sidebar -->
+      <div class="sidebar">
+        <!-- Headers (CUSTOMIZE THIS FOR YOUR ART) -->
+        <h1>Hyperdrive Bloom</h1>
+        <div class="subtitle">Seeded starlines collapsing into a navigational tunnel of light.</div>
+
+        <!-- Seed Section (ALWAYS KEEP THIS) -->
+        <div class="control-section">
+          <h3>Seed</h3>
+          <input type="number" id="seed-input" class="seed-input" onchange="updateSeed()" />
+          <div class="seed-controls">
+            <button class="button" onclick="previousSeed()">← Prev</button>
+            <button class="button" onclick="nextSeed()">Next →</button>
+          </div>
+          <button class="button regen-button" onclick="randomSeedAndUpdate()">↻ Random</button>
+        </div>
+
+        <!-- Parameters Section (CUSTOMIZE THIS FOR YOUR ART) -->
+        <div class="control-section">
+          <h3>Parameters</h3>
+
+          <!-- Star Count -->
+          <div class="control-group">
+            <label>Star Count</label>
+            <div class="param-description">How many stars populate the tunnel.</div>
+            <div class="slider-container">
+              <input
+                type="range"
+                id="starCount"
+                min="1"
+                max="1200"
+                step="50"
+                oninput="updateParam('starCount', this.value)"
+              />
+              <span class="value-display" id="starCount-value"></span>
+            </div>
+          </div>
+
+          <!-- Warp Speed -->
+          <div class="control-group">
+            <label>Warp Speed</label>
+            <div class="param-description">Star travel speed through the tunnel.</div>
+            <div class="slider-container">
+              <input type="range" id="speed" min="1" max="12" step="0.5" oninput="updateParam('speed', this.value)" />
+              <span class="value-display" id="speed-value"></span>
+            </div>
+          </div>
+
+          <!-- Depth Range -->
+          <div class="control-group">
+            <label>Depth Range</label>
+            <div class="param-description">How far the starfield extends into the scene.</div>
+            <div class="slider-container">
+              <input
+                type="range"
+                id="depth"
+                min="600"
+                max="2200"
+                step="50"
+                oninput="updateParam('depth', this.value)"
+              />
+              <span class="value-display" id="depth-value"></span>
+            </div>
+          </div>
+
+          <!-- Streak Length -->
+          <div class="control-group">
+            <label>Streak Length</label>
+            <div class="param-description">Length of the light trails for each star.</div>
+            <div class="slider-container">
+              <input
+                type="range"
+                id="streakLength"
+                min="6"
+                max="14"
+                step="2"
+                oninput="updateParam('streakLength', this.value)"
+              />
+              <span class="value-display" id="streakLength-value"></span>
+            </div>
+          </div>
+
+          <!-- Acceleration -->
+          <div class="control-group">
+            <label>Acceleration</label>
+            <div class="param-description">How quickly speed ramps up from a slow start.</div>
+            <div class="slider-container">
+              <input
+                type="range"
+                id="acceleration"
+                min="0"
+                max="1.5"
+                step="0.05"
+                oninput="updateParam('acceleration', this.value)"
+              />
+              <span class="value-display" id="acceleration-value"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colors Section (OPTIONAL - CUSTOMIZE OR REMOVE) -->
+        <div class="control-section">
+          <h3>Colors</h3>
+
+          <!-- Color 1 -->
+          <div class="color-group">
+            <label>Void</label>
+            <div class="color-description">Background space color.</div>
+            <div class="color-picker-container">
+              <input type="color" id="color1" onchange="updateColor('color1', this.value)" />
+              <span class="color-value" id="color1-value"></span>
+            </div>
+          </div>
+
+          <!-- Color 2 -->
+          <div class="color-group">
+            <label>Core Glow</label>
+            <div class="color-description">Bright core light for near-center stars.</div>
+            <div class="color-picker-container">
+              <input type="color" id="color2" onchange="updateColor('color2', this.value)" />
+              <span class="color-value" id="color2-value"></span>
+            </div>
+          </div>
+
+          <!-- Extra Star Colors -->
+          <div class="color-group">
+            <label>Extra Star Colors</label>
+            <div class="color-description">Add more star hues (0 = single color).</div>
+            <div class="slider-container">
+              <input
+                type="range"
+                id="extraColorCount"
+                min="0"
+                max="6"
+                step="1"
+                oninput="updateColorCount(this.value)"
+              />
+              <span class="value-display" id="extraColorCount-value"></span>
+            </div>
+          </div>
+
+          <div id="extra-color-controls"></div>
+        </div>
+
+        <!-- Actions Section (ALWAYS KEEP THIS) -->
+        <div class="control-section">
+          <h3>Actions</h3>
+          <div class="button-row">
+            <button class="button secondary" onclick="randomizeParameters()">Randomize</button>
+            <button class="button tertiary" onclick="resetParameters()">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Canvas Area -->
+      <main class="main-content">
+        <div id="canvas-container">
+          <div class="loading">Initializing generative art...</div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // ═══════════════════════════════════════════════════════════════════════
+      // GENERATIVE ART PARAMETERS - CUSTOMIZE FOR YOUR ALGORITHM
+      // ═══════════════════════════════════════════════════════════════════════
+
+      const DEFAULT_SEED = 12345;
+      const DEFAULT_STAR_COUNT = 50;
+      const DEFAULT_SPEED = 6;
+      const DEFAULT_DEPTH = 1400;
+      const DEFAULT_STREAK_LENGTH = 12;
+      const DEFAULT_ACCELERATION = 0.6;
+      const DEFAULT_EXTRA_COLOR_COUNT = 0;
+      const DEFAULT_COLOR_PALETTE = ['#070b12', '#fef3d0'];
+
+      const config = {
+        seed: DEFAULT_SEED,
+        starCount: DEFAULT_STAR_COUNT,
+        speed: DEFAULT_SPEED,
+        depth: DEFAULT_DEPTH,
+        streakLength: DEFAULT_STREAK_LENGTH,
+        acceleration: DEFAULT_ACCELERATION,
+        extraColorCount: DEFAULT_EXTRA_COLOR_COUNT,
+        extraColors: [],
+        colorPalette: [...DEFAULT_COLOR_PALETTE],
+      };
+
+      const defaultConfig = {
+        ...config,
+        colorPalette: [...DEFAULT_COLOR_PALETTE],
+        extraColors: [...config.extraColors],
+      }; // Store defaults for reset
+
+      // Render constants
+      const CANVAS_SIZE = 900;
+      const PROJECTION_SCALE_FACTOR = 0.5;
+      const SPREAD_SCALE = 1.2;
+      const FADE_STREAK_MIN = 6;
+      const FADE_STREAK_MAX = 14;
+      const FADE_ALPHA_MAX = 24;
+      const FADE_ALPHA_MIN = 8;
+
+      // Motion and timing
+      const BASE_TWIST = 0.6;
+      const BASE_FOCUS = 0.9;
+      const TWIST_RATE_SCALE = 0.002;
+      const TWIST_OFFSET = 0.07;
+      const NOISE_DRIFT_SCALE = 6;
+      const NOISE_DRIFT_RATE = 0.0015;
+      const SPEED_RAMP_FRAMES = 300;
+      const SPEED_RAMP_START = 0.2;
+      const SPEED_RAMP_MULTIPLIER = 2.5;
+
+      // Star rendering
+      const STAR_SIZE_MIN = 0.6;
+      const STAR_SIZE_MAX = 1.6;
+      const PULSE_BASE = 0.85;
+      const PULSE_RANGE = 0.15;
+      const PULSE_SPEED = 0.012;
+      const ALPHA_NEAR = 220;
+      const ALPHA_FAR = 60;
+      const TRAIL_SCALE_FACTOR = 0.08;
+      const STROKE_WEIGHT_NEAR = 2.6;
+      const STROKE_WEIGHT_FAR = 0.3;
+      const HEAD_ALPHA_BOOST = 40;
+      const HEAD_SIZE = 2.2;
+
+      // ═══════════════════════════════════════════════════════════════════════
+      // P5.JS GENERATIVE ART ALGORITHM - REPLACE WITH YOUR VISION
+      // ═══════════════════════════════════════════════════════════════════════
+
+      let stars = [];
+      let projectionScale = 600;
+      let elapsedFrames = 0;
+
+      function setup() {
+        let canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+        canvas.parent('canvas-container');
+        pixelDensity(1);
+        projectionScale = min(width, height) * PROJECTION_SCALE_FACTOR;
+
+        initializeSystem();
+
+        // Remove loading message
+        document.querySelector('.loading').style.display = 'none';
+      }
+
+      function initializeSystem() {
+        // Seed the randomness for reproducibility
+        randomSeed(config.seed);
+        noiseSeed(config.seed);
+        elapsedFrames = 0;
+
+        // Clear stars and recreate
+        stars = [];
+        for (let i = 0; i < config.starCount; i++) {
+          stars.push(new Star(i));
+        }
+
+        // Clear background
+        background(color(config.colorPalette[0]));
+      }
+
+      function draw() {
+        let fade = map(config.streakLength, FADE_STREAK_MIN, FADE_STREAK_MAX, FADE_ALPHA_MAX, FADE_ALPHA_MIN);
+        let bg = color(config.colorPalette[0]);
+        bg.setAlpha(fade);
+        background(bg);
+
+        elapsedFrames += 1;
+        let rampProgress = constrain(elapsedFrames / SPEED_RAMP_FRAMES, 0, 1);
+        let easedProgress = 1 - pow(1 - rampProgress, 3);
+        let speedFactor = lerp(SPEED_RAMP_START, 1 + config.acceleration * SPEED_RAMP_MULTIPLIER, easedProgress);
+        let effectiveSpeed = config.speed * speedFactor;
+
+        push();
+        translate(width / 2, height / 2);
+        strokeCap(ROUND);
+
+        let starPalette = [color(config.colorPalette[1]), ...config.extraColors.map((value) => color(value))];
+
+        for (let i = 0; i < stars.length; i++) {
+          stars[i].update(effectiveSpeed);
+          stars[i].render(starPalette);
+        }
+        pop();
+      }
+
+      function sampleStarColor(depthT, palette) {
+        if (palette.length <= 1) {
+          return palette[0];
+        }
+        let scaled = depthT * (palette.length - 1);
+        let index = floor(scaled);
+        let nextIndex = min(index + 1, palette.length - 1);
+        let blend = scaled - index;
+        return lerpColor(palette[index], palette[nextIndex], blend);
+      }
+
+      // ═══════════════════════════════════════════════════════════════════════
+      // PARTICLE SYSTEM - CUSTOMIZE FOR YOUR ALGORITHM
+      // ═══════════════════════════════════════════════════════════════════════
+
+      class Star {
+        constructor(index) {
+          this.index = index;
+          this.phase = random(TWO_PI);
+          this.noiseOffset = random(1000);
+          this.reset(true);
+        }
+
+        reset(initial = false) {
+          let angle = random(TWO_PI);
+          let radius = pow(random(), 1 / BASE_FOCUS);
+          let spread = projectionScale * SPREAD_SCALE;
+
+          this.x = cos(angle) * radius * spread;
+          this.y = sin(angle) * radius * spread;
+          this.z = initial ? random(1, config.depth) : config.depth;
+          this.pz = this.z;
+          this.size = random(STAR_SIZE_MIN, STAR_SIZE_MAX);
+        }
+
+        update(speed) {
+          this.pz = this.z;
+          this.z -= speed;
+
+          if (this.z < 1) {
+            this.reset();
+          }
+        }
+
+        render(starPalette) {
+          let twistRate = BASE_TWIST * TWIST_RATE_SCALE;
+          let twist = twistRate * frameCount + this.index * TWIST_OFFSET;
+          let cosT = cos(twist);
+          let sinT = sin(twist);
+
+          let drift = (noise(this.noiseOffset, frameCount * NOISE_DRIFT_RATE) - 0.5) * NOISE_DRIFT_SCALE;
+          let fx = (this.x + drift) * BASE_FOCUS;
+          let fy = (this.y - drift) * BASE_FOCUS;
+
+          let rx = fx * cosT - fy * sinT;
+          let ry = fx * sinT + fy * cosT;
+
+          let sx = (rx / this.z) * projectionScale;
+          let sy = (ry / this.z) * projectionScale;
+          let px = (rx / this.pz) * projectionScale;
+          let py = (ry / this.pz) * projectionScale;
+
+          let depthT = constrain(map(this.z, 1, config.depth, 0, 1), 0, 1);
+          let starColor = sampleStarColor(depthT, starPalette);
+          let strokeColor = color(starColor);
+          let pulse = PULSE_BASE + PULSE_RANGE * sin(frameCount * PULSE_SPEED + this.phase);
+          let alpha = map(this.z, 1, config.depth, ALPHA_NEAR, ALPHA_FAR) * pulse;
+          strokeColor.setAlpha(alpha);
+
+          let trailScale = config.streakLength * TRAIL_SCALE_FACTOR;
+          let tx = sx - (sx - px) * trailScale;
+          let ty = sy - (sy - py) * trailScale;
+
+          stroke(strokeColor);
+          strokeWeight(map(this.z, 1, config.depth, STROKE_WEIGHT_NEAR, STROKE_WEIGHT_FAR) * this.size);
+          line(tx, ty, sx, sy);
+
+          noStroke();
+          let headColor = color(starColor);
+          headColor.setAlpha(min(255, alpha + HEAD_ALPHA_BOOST));
+          fill(headColor);
+          ellipse(sx, sy, HEAD_SIZE * this.size, HEAD_SIZE * this.size);
+        }
+      }
+
+      // ═══════════════════════════════════════════════════════════════════════
+      // UI CONTROL HANDLERS - CUSTOMIZE FOR YOUR PARAMETERS
+      // ═══════════════════════════════════════════════════════════════════════
+
+      const intParams = new Set(['starCount', 'depth', 'streakLength']);
+      const oneDecimalParams = new Set(['speed']);
+      const twoDecimalParams = new Set(['acceleration']);
+
+      function formatParamValue(paramName, value) {
+        if (intParams.has(paramName)) {
+          return String(Math.round(value));
+        }
+        if (oneDecimalParams.has(paramName)) {
+          return Number(value).toFixed(1);
+        }
+        if (twoDecimalParams.has(paramName)) {
+          return Number(value).toFixed(2);
+        }
+        return String(value);
+      }
+
+      function updateParam(paramName, value) {
+        let numericValue = Number(value);
+        if (intParams.has(paramName)) {
+          numericValue = Math.round(numericValue);
+        }
+
+        config[paramName] = numericValue;
+        document.getElementById(`${paramName}-value`).textContent = formatParamValue(paramName, numericValue);
+        initializeSystem();
+      }
+
+      function updateColor(colorId, value) {
+        let colorIndex = { color1: 0, color2: 1 }[colorId];
+        config.colorPalette[colorIndex] = value;
+        document.getElementById(`${colorId}-value`).textContent = value;
+        initializeSystem();
+      }
+
+      const defaultExtraColors = ['#5cc9ff', '#f05d5e', '#f0b34c', '#7ad77b', '#d97757', '#6a9bcc'];
+
+      function getDefaultExtraColor(index) {
+        return defaultExtraColors[index % defaultExtraColors.length];
+      }
+
+      function renderExtraColorControls() {
+        let container = document.getElementById('extra-color-controls');
+        if (!container) {
+          return;
+        }
+
+        let html = '';
+        for (let i = 0; i < config.extraColors.length; i++) {
+          let colorValue = config.extraColors[i];
+          html += `
+            <div class="color-group">
+              <label>Star Color ${i + 1}</label>
+              <div class="color-description">Additional star hue blended by depth.</div>
+              <div class="color-picker-container">
+                <input type="color" id="extraColor-${i}" value="${colorValue}" onchange="updateExtraColor(${i}, this.value)" />
+                <span class="color-value" id="extraColor-${i}-value">${colorValue}</span>
+              </div>
+            </div>
+          `;
+        }
+        container.innerHTML = html;
+      }
+
+      function syncExtraColorUI() {
+        let input = document.getElementById('extraColorCount');
+        if (input) {
+          input.value = config.extraColorCount;
+        }
+        let valueDisplay = document.getElementById('extraColorCount-value');
+        if (valueDisplay) {
+          valueDisplay.textContent = String(config.extraColorCount);
+        }
+        renderExtraColorControls();
+      }
+
+      function updateColorCount(value) {
+        let count = parseInt(value, 10);
+        if (Number.isNaN(count) || count < 0) {
+          count = 0;
+        }
+        config.extraColorCount = count;
+        let valueDisplay = document.getElementById('extraColorCount-value');
+        if (valueDisplay) {
+          valueDisplay.textContent = String(config.extraColorCount);
+        }
+
+        if (config.extraColors.length < count) {
+          for (let i = config.extraColors.length; i < count; i++) {
+            config.extraColors.push(getDefaultExtraColor(i));
+          }
+        } else if (config.extraColors.length > count) {
+          config.extraColors = config.extraColors.slice(0, count);
+        }
+
+        syncExtraColorUI();
+        initializeSystem();
+      }
+
+      function updateExtraColor(index, value) {
+        config.extraColors[index] = value;
+        let label = document.getElementById(`extraColor-${index}-value`);
+        if (label) {
+          label.textContent = value;
+        }
+        initializeSystem();
+      }
+
+      function randomHexColor() {
+        return `#${Math.floor(Math.random() * 0xffffff)
+          .toString(16)
+          .padStart(6, '0')}`;
+      }
+
+      function updateAllUIElements() {
+        updateSeedDisplay();
+
+        const paramMappings = [
+          ['starCount', config.starCount],
+          ['speed', config.speed],
+          ['depth', config.depth],
+          ['streakLength', config.streakLength],
+          ['acceleration', config.acceleration],
+        ];
+
+        paramMappings.forEach(([paramName, value]) => {
+          const inputElement = document.getElementById(paramName);
+          if (inputElement) {
+            inputElement.value = value;
+          }
+
+          const valueElement = document.getElementById(`${paramName}-value`);
+          if (valueElement) {
+            valueElement.textContent = formatParamValue(paramName, value);
+          }
+        });
+
+        const color1Input = document.getElementById('color1');
+        if (color1Input) {
+          color1Input.value = config.colorPalette[0];
+        }
+        const color1Value = document.getElementById('color1-value');
+        if (color1Value) {
+          color1Value.textContent = config.colorPalette[0];
+        }
+
+        const color2Input = document.getElementById('color2');
+        if (color2Input) {
+          color2Input.value = config.colorPalette[1];
+        }
+        const color2Value = document.getElementById('color2-value');
+        if (color2Value) {
+          color2Value.textContent = config.colorPalette[1];
+        }
+
+        syncExtraColorUI();
+      }
+
+      function randomizeParameters() {
+        config.starCount = Math.floor(Math.random() * 21) * 100 + 400;
+        config.speed = Math.floor(Math.random() * 23) * 0.5 + 1;
+        config.depth = Math.floor(Math.random() * 33) * 50 + 600;
+        config.streakLength = Math.floor(Math.random() * 5) * 2 + 6;
+        config.acceleration = Math.round(Math.random() * 30) / 20;
+        config.extraColorCount = Math.floor(Math.random() * 6);
+        // config.colorPalette = [randomHexColor(), randomHexColor()];
+        config.extraColors = [];
+        for (let i = 0; i < config.extraColorCount; i++) {
+          config.extraColors.push(randomHexColor());
+        }
+
+        updateAllUIElements();
+
+        initializeSystem();
+      }
+
+      // ═══════════════════════════════════════════════════════════════════════
+      // SEED CONTROL FUNCTIONS - ALWAYS KEEP THESE
+      // ═══════════════════════════════════════════════════════════════════════
+
+      function updateSeedDisplay() {
+        document.getElementById('seed-input').value = config.seed;
+      }
+
+      function updateSeed() {
+        let input = document.getElementById('seed-input');
+        let newSeed = parseInt(input.value);
+        if (newSeed && newSeed > 0) {
+          config.seed = newSeed;
+          initializeSystem();
+        } else {
+          // Reset to current seed if invalid
+          updateSeedDisplay();
+        }
+      }
+
+      function previousSeed() {
+        config.seed = Math.max(1, config.seed - 1);
+        updateSeedDisplay();
+        initializeSystem();
+      }
+
+      function nextSeed() {
+        config.seed = config.seed + 1;
+        updateSeedDisplay();
+        initializeSystem();
+      }
+
+      function randomSeedAndUpdate() {
+        config.seed = Math.floor(Math.random() * 999999) + 1;
+        updateSeedDisplay();
+        initializeSystem();
+      }
+
+      function resetParameters() {
+        Object.assign(config, defaultConfig);
+        config.colorPalette = [...defaultConfig.colorPalette];
+        config.extraColors = [...defaultConfig.extraColors];
+
+        updateAllUIElements();
+        initializeSystem();
+      }
+
+      // Initialize UI on load
+      window.addEventListener('load', function () {
+        updateAllUIElements();
+      });
+    </script>
+  </body>
+</html>

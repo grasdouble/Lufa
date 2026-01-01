@@ -1,0 +1,58 @@
+version: 2
+updates:
+  # Enable version updates for npm (pnpm)
+  # This will handle all workspace packages automatically
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'Europe/Paris'
+    # Group all minor and patch updates together
+    groups:
+      development-dependencies:
+        dependency-type: 'development'
+        update-types:
+          - 'minor'
+          - 'patch'
+      production-dependencies:
+        dependency-type: 'production'
+        update-types:
+          - 'minor'
+          - 'patch'
+    open-pull-requests-limit: 5
+    # Use 'increase' as recommended for pnpm workspaces: it preserves existing semver ranges and only bumps
+    # the resolved versions instead of rewriting the range expressions.
+    versioning-strategy: increase
+    commit-message:
+      prefix: 'chore(deps)'
+      include: 'scope'
+    labels:
+      - 'dependencies'
+      - 'automated'
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'Europe/Paris'
+    groups:
+      github-actions:
+        patterns:
+          - '*'
+        update-types:
+          - 'minor'
+          - 'patch'
+          - 'major'
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: 'chore(ci)'
+      include: 'scope'
+    labels:
+      - 'ci/cd'
+      - 'dependencies'
+      - 'automated'
