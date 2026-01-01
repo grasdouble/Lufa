@@ -1,0 +1,101 @@
+---
+sidebar_position: 11
+---
+
+import { Checkbox } from '@grasdouble/lufa_design-system';
+
+# Checkbox
+
+A checkbox component for boolean inputs and multi-selection.
+
+## Overview
+
+Use `Checkbox` when you need to:
+
+- Enable users to select one or more options from a set
+- Toggle a single option on or off
+- Show an indeterminate state for partial selections
+- Provide accessible form controls
+
+## Import
+
+```tsx
+import { Checkbox } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Checkbox label="Accept terms and conditions" />
+```
+
+## Props
+
+| Prop            | Type                                                         | Default     | Description                             |
+| --------------- | ------------------------------------------------------------ | ----------- | --------------------------------------- |
+| `label`         | `string`                                                     | -           | Label text for the checkbox             |
+| `size`          | `'small' \| 'medium' \| 'large'`                             | `'medium'`  | Size of the checkbox                    |
+| `color`         | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger'` | `'primary'` | Color scheme                            |
+| `indeterminate` | `boolean`                                                    | `false`     | Shows indeterminate state               |
+| `error`         | `string`                                                     | -           | Error message to display                |
+| `helperText`    | `string`                                                     | -           | Helper text below the checkbox          |
+| `disabled`      | `boolean`                                                    | `false`     | Disables the checkbox                   |
+| `required`      | `boolean`                                                    | `false`     | Marks the field as required             |
+| `checked`       | `boolean`                                                    | -           | Controlled checked state                |
+| `defaultChecked`| `boolean`                                                    | -           | Default checked state (uncontrolled)    |
+| `onChange`      | `(event: ChangeEvent<HTMLInputElement>) => void`             | -           | Callback when checked state changes     |
+
+## Best Practices
+
+### Do ✅
+
+- Use clear, actionable label text
+- Group related checkboxes together
+- Use indeterminate state for "select all" scenarios
+- Provide helper text for complex options
+- Ensure checkboxes are large enough to tap on mobile
+
+### Don't ❌
+
+- Don't use checkboxes for mutually exclusive options (use Radio instead)
+- Avoid using without a label for accessibility
+- Don't nest checkboxes too deeply
+- Avoid using too many checkboxes in a single group
+
+## Accessibility
+
+- Uses semantic `<input type="checkbox">` element
+- Label is properly associated with the input
+- Supports keyboard navigation (Space to toggle)
+- Focus states are clearly visible
+- Error states are announced to screen readers
+- Indeterminate state is properly communicated
+
+## Examples
+
+### Checkbox Group
+
+```tsx
+const [selected, setSelected] = useState([]);
+
+<Stack direction="vertical" gap="compact">
+  <Checkbox label="Email notifications" />
+  <Checkbox label="SMS notifications" />
+  <Checkbox label="Push notifications" />
+</Stack>
+```
+
+### Indeterminate State
+
+```tsx
+const [checked, setChecked] = useState([false, false, false]);
+const allChecked = checked.every(Boolean);
+const isIndeterminate = checked.some(Boolean) && !allChecked;
+
+<Checkbox
+  label="Select all"
+  checked={allChecked}
+  indeterminate={isIndeterminate}
+  onChange={(e) => setChecked([e.target.checked, e.target.checked, e.target.checked])}
+/>
+```
