@@ -1,5 +1,22 @@
 # @grasdouble/lufa_microfrontend_home
 
+## 0.2.7
+
+### Patch Changes
+
+- 6c972e8: fix: prettier config
+- 2d37fc0: Update dependencies
+- 4d0893b: Update scripts and README files
+- 412c362: fix(chore): add missing prettier and eslint config + add a script prettier in package.json
+- b101244: fix(chore): eslint config + fix new issues
+- Updated dependencies [6c972e8]
+- Updated dependencies [2d37fc0]
+- Updated dependencies [4d0893b]
+- Updated dependencies [57df928]
+- Updated dependencies [412c362]
+- Updated dependencies [b101244]
+  - @grasdouble/lufa_design-system@0.5.1
+
 ## 0.2.6
 
 ### Patch Changes
