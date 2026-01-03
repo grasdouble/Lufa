@@ -1,0 +1,64 @@
+@layer components {
+  /* ========================================
+     GHOST VARIANT - Using CSS Variables
+     ======================================== */
+
+  .variantGhost {
+    @apply border-transparent;
+    color: var(--btn-color);
+  }
+
+  .variantGhost:is(
+    :focus-visible:not(:disabled),
+    :hover:not(:disabled),
+    [data-test-state='focus'],
+    [data-test-state='hover']
+  ) {
+    background: var(--btn-bg-hover);
+    transform: scale(1.02);
+  }
+
+  .variantGhost:disabled {
+    color: var(--btn-color-disabled);
+  }
+
+  .variantGhost:is(:focus-visible, [data-test-state='focus']) {
+    outline: var(--btn-outline);
+  }
+
+  /* Ghost Colors - Variable Assignments */
+  .variantGhost.colorPrimary {
+    --btn-color: theme(colors.interactive.default);
+    --btn-bg-hover: theme(colors.interactive.focus);
+    --btn-color-disabled: theme(colors.interactive.disabled);
+    --btn-outline: 1px solid theme(colors.interactive.focus);
+  }
+
+  .variantGhost.colorSecondary {
+    --btn-color: theme(colors.text.secondary);
+    --btn-bg-hover: theme(colors.background.tertiary);
+    --btn-color-disabled: theme(colors.text.disabled);
+    --btn-outline: 1px solid theme(colors.text.secondary);
+  }
+
+  .variantGhost.colorSuccess {
+    --btn-color: theme(colors.success.text);
+    --btn-bg-hover: theme(colors.success.light);
+    --btn-color-disabled: theme(colors.success.lighter);
+    --btn-outline: 1px solid theme(colors.success.default);
+  }
+
+  .variantGhost.colorWarning {
+    --btn-color: theme(colors.warning.text);
+    --btn-bg-hover: theme(colors.warning.light);
+    --btn-color-disabled: theme(colors.warning.lighter);
+    --btn-outline: 1px solid theme(colors.warning.default);
+  }
+
+  .variantGhost.colorDanger {
+    --btn-color: theme(colors.error.text);
+    --btn-bg-hover: theme(colors.error.light);
+    --btn-color-disabled: theme(colors.error.lighter);
+    --btn-outline: 1px solid theme(colors.error.default);
+  }
+}

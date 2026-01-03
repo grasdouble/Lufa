@@ -1,0 +1,113 @@
+@reference '../../../../tailwind.css';
+
+@layer components {
+  /* ========================================
+     Base Button Styles & States
+     ======================================== */
+
+  .button {
+    /* Reset & Layout */
+    @apply reset-button;
+    @apply inline-flex items-center justify-center gap-2;
+    @apply relative overflow-hidden;
+
+    /* Typography */
+    @apply font-semibold;
+
+    /* Visual */
+    @apply rounded-xl;
+    @apply border-2 border-transparent;
+    @apply shadow-sm;
+
+    /* Animation */
+    @apply transition-all duration-200 ease-out;
+
+    /* Interaction */
+    cursor: var(--lufa-token-cursor-pointer);
+    transform: translateY(0);
+  }
+
+  .button:active:not(:disabled) {
+    transform: translateY(1px) scale(0.98);
+  }
+
+  .button:disabled,
+  .button.disabled {
+    cursor: var(--lufa-token-cursor-not-allowed);
+    @apply opacity-65;
+    filter: grayscale(20%) brightness(0.6);
+  }
+
+  /* ========================================
+     Layout & Content
+     ======================================== */
+
+  .fullWidth {
+    @apply w-full;
+  }
+
+  /* ========================================
+     Loading State
+     ======================================== */
+
+  .loading {
+    @apply cursor-wait opacity-70;
+  }
+
+  .loading .content {
+    @apply opacity-0;
+  }
+
+  /* ========================================
+     Icons & Content
+     ======================================== */
+
+  .startIcon,
+  .endIcon {
+    @apply inline-flex shrink-0;
+  }
+
+  .content {
+    @apply inline-flex items-center;
+  }
+
+  /* ========================================
+     Spinner
+     ======================================== */
+
+  .spinner {
+    @apply absolute inset-0 flex items-center justify-center;
+  }
+
+  .spinnerIcon {
+    @apply h-5 w-5;
+    animation: var(--animate-spin);
+  }
+
+  .spinnerCircle {
+    @apply opacity-25;
+  }
+
+  .spinnerPath {
+    @apply opacity-75;
+  }
+
+  /* ========================================
+     Button Sizes
+     ======================================== */
+
+  .sizeSmall {
+    @apply px-md text-sm;
+    height: var(--lufa-token-height-button-sm);
+  }
+
+  .sizeMedium {
+    @apply px-xl text-base;
+    height: var(--lufa-token-height-button);
+  }
+
+  .sizeLarge {
+    @apply px-2xl text-lg;
+    height: var(--lufa-token-height-button-lg);
+  }
+}
