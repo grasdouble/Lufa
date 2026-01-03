@@ -1,0 +1,14 @@
+/**
+ * Button Component Styles
+ * 
+ * Organized by responsibility:
+ * - base: Core button styles, reset, animations, states, and sizes
+ * - variant-*: Individual visual variants (solid, outlined, text, ghost, link)
+ */
+
+@import './base.module.css';
+@import './variant-solid.module.css';
+@import './variant-outlined.module.css';
+@import './variant-text.module.css';
+@import './variant-ghost.module.css';
+@import './variant-link.module.css';
