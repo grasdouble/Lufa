@@ -2,6 +2,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import type { TokenEntry } from './utils/token-helpers.js';
 import { borderStyle } from '../dist/tokens/border/borderStyle.js';
 // Import token tokens - using new organized structure
 // Border
@@ -43,6 +44,7 @@ import { fontWeight } from '../dist/tokens/typography/fontWeight.js';
 import { letterSpacing } from '../dist/tokens/typography/letterSpacing.js';
 import { lineHeight } from '../dist/tokens/typography/lineHeight.js';
 import { measure } from '../dist/tokens/typography/measure.js';
+import { generateSection, processNestedTokens, processTokens, toKebab } from './utils/token-helpers.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -50,60 +52,10 @@ const distDir = resolve(__dirname, '../dist');
 
 mkdirSync(distDir, { recursive: true });
 
-interface TokenEntry {
-  name: string;
-  value: string | number;
-}
-
 interface TokenCategory {
   name: string;
   count: number;
 }
-
-/**
- * Convert camelCase or PascalCase to kebab-case
- * Handles numeric keys properly
- */
-const toKebab = (segment: string | number): string =>
-  String(segment)
-    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-    .replace(/_/g, '-')
-    .toLowerCase();
-
-/**
- * Process tokens object and return entries in their original order
- */
-const processTokens = (obj: Record<string, unknown>): [string, unknown][] => {
-  return Object.entries(obj);
-};
-
-/**
- * Process nested object (like grid or colors) and return formatted entries
- */
-const processNestedTokens = (obj: Record<string, Record<string, unknown>>, prefix: string): TokenEntry[] => {
-  const entries: TokenEntry[] = [];
-  for (const [category, values] of Object.entries(obj)) {
-    const categoryEntries = processTokens(values);
-    for (const [key, value] of categoryEntries) {
-      entries.push({
-        name: `${prefix}-${toKebab(category)}-${toKebab(key)}`,
-        value: value as string | number,
-      });
-    }
-  }
-  return entries;
-};
-
-/**
- * Generate CSS section with proper formatting
- */
-const generateSection = (title: string, entries: TokenEntry[]): string => {
-  let css = `\n  /* ${title} */\n`;
-  for (const { name, value } of entries) {
-    css += `  --lufa-${name}: ${value};\n`;
-  }
-  return css;
-};
 
 // Collect all tokens with metadata
 const tokenCategories: TokenCategory[] = [];

@@ -17,9 +17,10 @@
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm clean && tsc && tsx scripts/generate-css.ts",
+    "build": "pnpm clean && tsc && tsx scripts/generate-css.ts && tsx scripts/generate-color-map.ts",
     "clean": "rm -rf dist",
     "dev": "tsc --watch",
+    "generate-color-map": "tsx scripts/generate-color-map.ts",
     "lint": "eslint ./src",
     "prettier": "prettier --write ."
   },

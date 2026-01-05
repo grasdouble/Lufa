@@ -2,19 +2,15 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import type { Token } from './utils/token-helpers.js';
 import * as primitives from '../dist/index.js';
+import { extractTokens } from './utils/token-helpers.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const distDir = resolve(__dirname, '../dist');
 
 mkdirSync(distDir, { recursive: true });
-
-interface Token {
-  name: string;
-  value: string | number;
-  path: string[];
-}
 
 interface GroupedTokens {
   [category: string]: Token[];
@@ -24,32 +20,6 @@ interface CategoryStat {
   name: string;
   count: number;
 }
-
-/**
- * Convert camelCase or PascalCase to kebab-case
- * Handles numeric keys properly
- */
-const toKebab = (segment: string | number): string =>
-  String(segment)
-    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-    .replace(/_/g, '-')
-    .toLowerCase();
-
-/**
- * Recursively traverse primitives object and extract all tokens
- */
-const appendTokens = (object: Record<string, unknown>, path: string[] = [], tokens: Token[] = []): Token[] => {
-  for (const [key, value] of Object.entries(object)) {
-    const nextPath = [...path, toKebab(key)];
-    if (value && typeof value === 'object' && !Array.isArray(value)) {
-      appendTokens(value as Record<string, unknown>, nextPath, tokens);
-    } else {
-      tokens.push({ name: nextPath.join('-'), value: value as string | number, path: [...path, key] });
-    }
-  }
-
-  return tokens;
-};
 
 /**
  * Group tokens by their top-level category for organized CSS output
@@ -121,7 +91,7 @@ const getCategoryName = (key: string): string => {
 };
 
 // Extract all tokens
-const allTokens: Token[] = appendTokens(primitives as Record<string, unknown>);
+const allTokens: Token[] = extractTokens(primitives as Record<string, unknown>);
 const groupedTokens: GroupedTokens = groupTokensByCategory(allTokens);
 
 // Generate CSS with organized sections

@@ -1,0 +1,76 @@
+{
+  "name": "@grasdouble/lufa_plugin_vscode_lufa-color-preview",
+  "displayName": "Lufa Color Preview",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Color decorators for Lufa design tokens",
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grasdouble/Lufa.git",
+    "directory": "packages/plugins/vscode/vscode-lufa-colors"
+  },
+  "publisher": "grasdouble",
+  "main": "./dist/extension.js",
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "build-and-install": "pnpm run build && ./scripts/package.sh --install",
+    "build-and-no-install": "pnpm run build && ./scripts/package.sh",
+    "copy-color-maps": "./scripts/copy-color-maps.sh",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "watch": "node esbuild.mjs --watch"
+  },
+  "contributes": {
+    "configuration": {
+      "title": "Lufa Color Preview",
+      "properties": {
+        "lufaColorPreview.primitivesMapPath": {
+          "type": "string",
+          "description": "Optional: Path to the primitives color map JSON (relative to workspace root or absolute). If not set, the bundled primitives map is used."
+        },
+        "lufaColorPreview.tokensMapPath": {
+          "type": "string",
+          "description": "Optional: Path to the tokens color map JSON (relative to workspace root or absolute). If not set, the bundled tokens map is used."
+        },
+        "lufaColorPreview.debug": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable debug logging for failed color parsing."
+        }
+      }
+    }
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "dependencies": {
+    "culori": "^4.0.1"
+  },
+  "devDependencies": {
+    "@grasdouble/lufa_config_eslint": "workspace:^",
+    "@grasdouble/lufa_config_prettier": "workspace:^",
+    "@secretlint/secretlint-rule-no-dotenv": "^11.2.5",
+    "@secretlint/secretlint-rule-preset-recommend": "^11.2.5",
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.90.0",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vscode/vsce": "^3.7.1",
+    "esbuild": "^0.27.2",
+    "eslint": "^9.18.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  }
+}
