@@ -11,8 +11,10 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "lufaColorPreview.primitivesMapPath": "packages/design-system/primitives/dist/primitives-colors.map.json",
-  "lufaColorPreview.tokensMapPath": "packages/design-system/tokens/dist/tokens-colors.map.json",
-  "lufaColorPreview.debug": true,
+  "lufaColorPreview": {
+    "primitivesMapPath": "./packages/design-system/primitives/dist/primitives-colors.map.json",
+    "tokensMapPath": "./packages/design-system/tokens/dist/tokens-colors.map.json",
+    "debug": false
+  },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }

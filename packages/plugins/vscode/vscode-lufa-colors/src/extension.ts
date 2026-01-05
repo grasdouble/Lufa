@@ -3,8 +3,8 @@ import { isAbsolute, join } from 'node:path';
 import { converter } from 'culori';
 import * as vscode from 'vscode';
 
-import bundledPrimitivesMap from './default-primitives-colors.map.json';
-import bundledTokensMap from './default-tokens-colors.map.json';
+import bundledPrimitivesMap from './defaultMap/default-primitives-colors.map.json';
+import bundledTokensMap from './defaultMap/default-tokens-colors.map.json';
 
 type PrimitivesColorMap = {
   version: number;
@@ -25,6 +25,12 @@ type ColorMap = {
   generatedAt?: string;
   css: Record<string, string>;
   paths: Record<string, string>;
+};
+
+type LufaColorPreviewConfig = {
+  primitivesMapPath?: string;
+  tokensMapPath?: string;
+  debug?: boolean;
 };
 
 const isValidPrimitivesMap = (data: unknown): data is PrimitivesColorMap => {
@@ -78,9 +84,40 @@ const isPathInWorkspace = (path: string): boolean => {
   return folders.some((folder) => path.startsWith(folder.uri.fsPath));
 };
 
-const getPrimitivesMapPath = (): string | null => {
+const readObjectConfig = (): LufaColorPreviewConfig => {
+  const raw = vscode.workspace.getConfiguration().get<unknown>('lufaColorPreview');
+  if (!raw || typeof raw !== 'object') return {};
+  const value = raw as Record<string, unknown>;
+  return {
+    primitivesMapPath: typeof value.primitivesMapPath === 'string' ? value.primitivesMapPath : undefined,
+    tokensMapPath: typeof value.tokensMapPath === 'string' ? value.tokensMapPath : undefined,
+    debug: typeof value.debug === 'boolean' ? value.debug : undefined,
+  };
+};
+
+const readFlatConfig = (): LufaColorPreviewConfig => {
   const config = vscode.workspace.getConfiguration('lufaColorPreview');
-  const configured = config.get<string>('primitivesMapPath');
+  return {
+    primitivesMapPath: config.get<string>('primitivesMapPath'),
+    tokensMapPath: config.get<string>('tokensMapPath'),
+    debug: config.get<boolean>('debug'),
+  };
+};
+
+const getLufaConfig = (): LufaColorPreviewConfig => {
+  const objectConfig = readObjectConfig();
+  const flatConfig = readFlatConfig();
+  return {
+    primitivesMapPath: objectConfig.primitivesMapPath ?? flatConfig.primitivesMapPath,
+    tokensMapPath: objectConfig.tokensMapPath ?? flatConfig.tokensMapPath,
+    debug: objectConfig.debug ?? flatConfig.debug,
+  };
+};
+
+const isDebugEnabled = (): boolean => getLufaConfig().debug ?? false;
+
+const getPrimitivesMapPath = (): string | null => {
+  const configured = getLufaConfig().primitivesMapPath;
 
   if (!configured) return null;
 
@@ -101,8 +138,7 @@ const getPrimitivesMapPath = (): string | null => {
 };
 
 const getTokensMapPath = (): string | null => {
-  const config = vscode.workspace.getConfiguration('lufaColorPreview');
-  const configured = config.get<string>('tokensMapPath');
+  const configured = getLufaConfig().tokensMapPath;
 
   if (!configured) return null;
 
@@ -135,7 +171,12 @@ const loadPrimitivesMap = (primitivesPath: string | null): PrimitivesColorMap | 
   try {
     const stat = statSync(primitivesPath);
     if (cachedPrimitivesPath === primitivesPath && cachedPrimitivesMtime === stat.mtimeMs && cachedMap?.paths) {
-      return { version: cachedMap.version, generatedAt: cachedMap.generatedAt, paths: cachedMap.paths };
+      return {
+        version: cachedMap.version,
+        generatedAt: cachedMap.generatedAt,
+        paths: cachedMap.paths,
+        css: cachedMap.css,
+      };
     }
 
     const raw = readFileSync(primitivesPath, 'utf8');
@@ -256,8 +297,7 @@ const addColor = (
 ): void => {
   const rgb = toRgb(value);
   if (!rgb) {
-    const config = vscode.workspace.getConfiguration('lufaColorPreview');
-    const debug = config.get<boolean>('debug') ?? false;
+    const debug = isDebugEnabled();
     if (debug && outputChannel) {
       outputChannel.appendLine(`lufa: Failed to parse color: "${value}"${tokenName ? ` (token: ${tokenName})` : ''}`);
     }
@@ -347,15 +387,9 @@ export function activate(context: vscode.ExtensionContext): void {
   // Re-setup watcher when configuration changes
   context.subscriptions.push(
     vscode.workspace.onDidChangeConfiguration((e) => {
-      if (
-        e.affectsConfiguration('lufaColorPreview.mapPath') ||
-        e.affectsConfiguration('lufaColorPreview.primitivesMapPath') ||
-        e.affectsConfiguration('lufaColorPreview.tokensMapPath')
-      ) {
+      if (e.affectsConfiguration('lufaColorPreview')) {
         logOnce('lufa: Configuration changed, re-initializing color map watchers');
         cachedMap = null;
-        cachedMtime = 0;
-        cachedPath = null;
         cachedPrimitivesMtime = 0;
         cachedPrimitivesPath = null;
         cachedTokensMtime = 0;
@@ -370,8 +404,7 @@ export function activate(context: vscode.ExtensionContext): void {
       const map = loadColorMap();
       if (!map) return [];
 
-      const config = vscode.workspace.getConfiguration('lufaColorPreview');
-      const debug = config.get<boolean>('debug') ?? false;
+      const debug = isDebugEnabled();
 
       if (debug && outputChannel) {
         outputChannel.appendLine(`\nlufa: === Processing ${document.fileName} ===`);

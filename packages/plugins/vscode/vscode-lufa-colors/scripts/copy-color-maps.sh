@@ -10,8 +10,8 @@ PACKAGE_DIR="$(dirname "$SCRIPT_DIR")"
 PRIMITIVES_SRC="$PACKAGE_DIR/../../../design-system/primitives/dist/primitives-colors.map.json"
 TOKENS_SRC="$PACKAGE_DIR/../../../design-system/tokens/dist/tokens-colors.map.json"
 
-PRIMITIVES_DEST="$PACKAGE_DIR/src/default-primitives-colors.map.json"
-TOKENS_DEST="$PACKAGE_DIR/src/default-tokens-colors.map.json"
+PRIMITIVES_DEST="$PACKAGE_DIR/src/defaultMap/default-primitives-colors.map.json"
+TOKENS_DEST="$PACKAGE_DIR/src/defaultMap/default-tokens-colors.map.json"
 
 echo "Copying color maps from design system packages..."
 

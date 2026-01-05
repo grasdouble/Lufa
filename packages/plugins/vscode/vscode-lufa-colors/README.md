@@ -86,6 +86,17 @@ The extension supports two separate color maps for better separation of concerns
 
 ```json
 {
+  "lufaColorPreview": {
+    "primitivesMapPath": "packages/design-system/primitives/dist/primitives-colors.map.json",
+    "tokensMapPath": "packages/design-system/tokens/dist/tokens-colors.map.json"
+  }
+}
+```
+
+Legacy flat keys are still supported:
+
+```json
+{
   "lufaColorPreview.primitivesMapPath": "packages/design-system/primitives/dist/primitives-colors.map.json",
   "lufaColorPreview.tokensMapPath": "packages/design-system/tokens/dist/tokens-colors.map.json"
 }
@@ -114,7 +125,9 @@ Enable debug logging to troubleshoot issues:
 
 ```json
 {
-  "lufaColorPreview.debug": true
+  "lufaColorPreview": {
+    "debug": true
+  }
 }
 ```
 

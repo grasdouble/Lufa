@@ -56,7 +56,7 @@ async function main() {
     'dist',
     'primitives-colors.map.json'
   );
-  const primitivesDefaultPath = join(__dirname, 'src', 'default-primitives-colors.map.json');
+  const primitivesDefaultPath = join(__dirname, 'src/defaultMap', 'default-primitives-colors.map.json');
   const primitivesMapPath = existsSync(primitivesBuiltPath) ? primitivesBuiltPath : primitivesDefaultPath;
 
   const tokensBuiltPath = join(
@@ -69,7 +69,7 @@ async function main() {
     'dist',
     'tokens-colors.map.json'
   );
-  const tokensDefaultPath = join(__dirname, 'src', 'default-tokens-colors.map.json');
+  const tokensDefaultPath = join(__dirname, 'src/defaultMap', 'default-tokens-colors.map.json');
   const tokensMapPath = existsSync(tokensBuiltPath) ? tokensBuiltPath : tokensDefaultPath;
 
   if (!existsSync(primitivesMapPath)) {
@@ -78,7 +78,7 @@ async function main() {
     );
     console.warn('    Or run: ./scripts/copy-color-maps.sh to update default files');
   } else {
-    cpSync(primitivesMapPath, join(__dirname, 'dist', 'default-primitives-colors.map.json'));
+    cpSync(primitivesMapPath, join(__dirname, 'dist/defaultMap', 'default-primitives-colors.map.json'));
     console.log(
       `✓ Copied primitives map from: ${primitivesMapPath === primitivesBuiltPath ? 'built package' : 'default file'}`
     );
@@ -88,7 +88,7 @@ async function main() {
     console.warn('⚠️  Tokens color map not found. Run: pnpm --filter @grasdouble/lufa_design-system-tokens build');
     console.warn('    Or run: ./scripts/copy-color-maps.sh to update default files');
   } else {
-    cpSync(tokensMapPath, join(__dirname, 'dist', 'default-tokens-colors.map.json'));
+    cpSync(tokensMapPath, join(__dirname, 'dist/defaultMap', 'default-tokens-colors.map.json'));
     console.log(`✓ Copied tokens map from: ${tokensMapPath === tokensBuiltPath ? 'built package' : 'default file'}`);
   }
 
