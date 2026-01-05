@@ -1,15 +1,15 @@
 import { describe, expect, it } from 'vitest';
 
 // Type definitions for testing
-type ColorMap = {
+type TokenMap = {
   version: number;
   generatedAt?: string;
   css: Record<string, string>;
   paths: Record<string, string>;
 };
 
-// Helper function to validate color map (extracted from extension.ts)
-const isValidColorMap = (data: unknown): data is ColorMap => {
+// Helper function to validate token map (extracted from extension.ts)
+const isValidMap = (data: unknown): data is TokenMap => {
   if (typeof data !== 'object' || data === null) return false;
   const map = data as Record<string, unknown>;
   return (
@@ -22,8 +22,8 @@ const isValidColorMap = (data: unknown): data is ColorMap => {
   );
 };
 
-describe('Color Map Validation', () => {
-  it('should validate correct color map structure', () => {
+describe('Token Map Validation', () => {
+  it('should validate correct map structure', () => {
     const validMap = {
       version: 1,
       generatedAt: '2026-01-04',
@@ -31,7 +31,7 @@ describe('Color Map Validation', () => {
       paths: { 'primitives.color.chromatic.blue[500]': 'oklch(60% 0.15 250)' },
     };
 
-    expect(isValidColorMap(validMap)).toBe(true);
+    expect(isValidMap(validMap)).toBe(true);
   });
 
   it('should validate map without generatedAt', () => {
@@ -41,7 +41,7 @@ describe('Color Map Validation', () => {
       paths: {},
     };
 
-    expect(isValidColorMap(validMap)).toBe(true);
+    expect(isValidMap(validMap)).toBe(true);
   });
 
   it('should reject map without version', () => {
@@ -50,7 +50,7 @@ describe('Color Map Validation', () => {
       paths: {},
     };
 
-    expect(isValidColorMap(invalidMap)).toBe(false);
+    expect(isValidMap(invalidMap)).toBe(false);
   });
 
   it('should reject map without css', () => {
@@ -59,7 +59,7 @@ describe('Color Map Validation', () => {
       paths: {},
     };
 
-    expect(isValidColorMap(invalidMap)).toBe(false);
+    expect(isValidMap(invalidMap)).toBe(false);
   });
 
   it('should reject map without paths', () => {
@@ -68,14 +68,14 @@ describe('Color Map Validation', () => {
       css: {},
     };
 
-    expect(isValidColorMap(invalidMap)).toBe(false);
+    expect(isValidMap(invalidMap)).toBe(false);
   });
 
   it('should reject null or non-object', () => {
-    expect(isValidColorMap(null)).toBe(false);
-    expect(isValidColorMap('string')).toBe(false);
-    expect(isValidColorMap(123)).toBe(false);
-    expect(isValidColorMap([])).toBe(false);
+    expect(isValidMap(null)).toBe(false);
+    expect(isValidMap('string')).toBe(false);
+    expect(isValidMap(123)).toBe(false);
+    expect(isValidMap([])).toBe(false);
   });
 });
 
@@ -141,5 +141,23 @@ describe('Regex Patterns', () => {
     expect(matches).toHaveLength(2);
     expect(matches[0][0]).toBe('primitives.color.chromatic.blue[400]');
     expect(matches[1][0]).toBe('primitives.color.neutral.gray[700]');
+  });
+
+  it('should match tokens.color paths', () => {
+    const tokenPathRe = /\b(?:tokens\.color|tokenColor)(?:\.[a-zA-Z_][a-zA-Z0-9_]*)+/g;
+    const text = 'const color = tokens.color.text.primary;';
+    const matches = [...text.matchAll(tokenPathRe)];
+
+    expect(matches).toHaveLength(1);
+    expect(matches[0][0]).toBe('tokens.color.text.primary');
+  });
+
+  it('should match legacy tokenColor paths', () => {
+    const tokenPathRe = /\b(?:tokens\.color|tokenColor)(?:\.[a-zA-Z_][a-zA-Z0-9_]*)+/g;
+    const text = 'const color = tokenColor.text.primary;';
+    const matches = [...text.matchAll(tokenPathRe)];
+
+    expect(matches).toHaveLength(1);
+    expect(matches[0][0]).toBe('tokenColor.text.primary');
   });
 });

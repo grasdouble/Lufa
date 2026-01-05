@@ -19,7 +19,7 @@
     "build-and-install": "pnpm run build && ./scripts/package.sh --install",
     "build-and-no-install": "pnpm run build && ./scripts/package.sh",
     "clean": "rm -rf dist",
-    "copy-color-maps": "./scripts/copy-color-maps.sh",
+    "copy-maps": "./scripts/copy-maps.sh",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
@@ -40,11 +40,11 @@
           "properties": {
             "primitivesMapPath": {
               "type": "string",
-              "description": "Optional: Path to the primitives color map JSON (relative to workspace root or absolute). If not set, the bundled primitives map is used."
+              "description": "Optional: Path to the primitives map JSON (relative to workspace root or absolute). If not set, the bundled primitives map is used."
             },
             "tokensMapPath": {
               "type": "string",
-              "description": "Optional: Path to the tokens color map JSON (relative to workspace root or absolute). If not set, the bundled tokens map is used."
+              "description": "Optional: Path to the tokens map JSON (relative to workspace root or absolute). If not set, the bundled tokens map is used."
             },
             "debug": {
               "type": "boolean",

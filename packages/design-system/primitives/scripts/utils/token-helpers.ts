@@ -23,6 +23,45 @@ export const toKebab = (segment: string | number): string =>
     .replace(/_/g, '-')
     .toLowerCase();
 
+type NaturalPart = string | number;
+
+const splitForNaturalSort = (value: string): NaturalPart[] => {
+  return value
+    .split(/(\d+)/)
+    .filter(Boolean)
+    .map((part) => (/^\d+$/.test(part) ? Number(part) : part));
+};
+
+export const naturalCompare = (left: string, right: string): number => {
+  if (left === right) return 0;
+  const leftParts = splitForNaturalSort(left);
+  const rightParts = splitForNaturalSort(right);
+  const length = Math.min(leftParts.length, rightParts.length);
+
+  for (let index = 0; index < length; index += 1) {
+    const leftPart = leftParts[index];
+    const rightPart = rightParts[index];
+    if (leftPart === rightPart) continue;
+    if (typeof leftPart === 'number' && typeof rightPart === 'number') {
+      return leftPart - rightPart;
+    }
+    return String(leftPart).localeCompare(String(rightPart));
+  }
+
+  return leftParts.length - rightParts.length;
+};
+
+export const sortByNaturalKey = <T>(items: T[], getKey: (item: T) => string): T[] => {
+  return items
+    .map((item, index) => ({ item, index }))
+    .sort((left, right) => {
+      const order = naturalCompare(getKey(left.item), getKey(right.item));
+      if (order !== 0) return order;
+      return left.index - right.index;
+    })
+    .map(({ item }) => item);
+};
+
 /**
  * Convert path segments to dot notation path with bracket notation for numeric keys
  * Example: ['color', 'red', '500'] -> 'color.red[500]'

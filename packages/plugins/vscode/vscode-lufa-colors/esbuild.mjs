@@ -1,4 +1,4 @@
-import { cpSync, existsSync, readFileSync } from 'node:fs';
+import { cpSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import esbuild from 'esbuild';
@@ -42,8 +42,8 @@ async function main() {
     plugins: [esbuildProblemMatcherPlugin],
   });
 
-  // Copy color map JSON files to dist (needed for both watch and build)
-  console.log('Copying color map files...');
+  // Copy map JSON files to dist (needed for both watch and build)
+  console.log('Copying map files...');
 
   // Prefer built packages, fallback to default files in src/
   const primitivesBuiltPath = join(
@@ -54,9 +54,9 @@ async function main() {
     'design-system',
     'primitives',
     'dist',
-    'primitives-colors.map.json'
+    'primitives.map.json'
   );
-  const primitivesDefaultPath = join(__dirname, 'src/defaultMap', 'default-primitives-colors.map.json');
+  const primitivesDefaultPath = join(__dirname, 'src/defaultMap', 'default-primitives.map.json');
   const primitivesMapPath = existsSync(primitivesBuiltPath) ? primitivesBuiltPath : primitivesDefaultPath;
 
   const tokensBuiltPath = join(
@@ -67,28 +67,28 @@ async function main() {
     'design-system',
     'tokens',
     'dist',
-    'tokens-colors.map.json'
+    'tokens.map.json'
   );
-  const tokensDefaultPath = join(__dirname, 'src/defaultMap', 'default-tokens-colors.map.json');
+  const tokensDefaultPath = join(__dirname, 'src/defaultMap', 'default-tokens.map.json');
   const tokensMapPath = existsSync(tokensBuiltPath) ? tokensBuiltPath : tokensDefaultPath;
 
   if (!existsSync(primitivesMapPath)) {
     console.warn(
-      '⚠️  Primitives color map not found. Run: pnpm --filter @grasdouble/lufa_design-system-primitives build'
+      '⚠️  Primitives map not found. Run: pnpm --filter @grasdouble/lufa_design-system-primitives build'
     );
-    console.warn('    Or run: ./scripts/copy-color-maps.sh to update default files');
+    console.warn('    Or run: ./scripts/copy-maps.sh to update default files');
   } else {
-    cpSync(primitivesMapPath, join(__dirname, 'dist/defaultMap', 'default-primitives-colors.map.json'));
+    cpSync(primitivesMapPath, join(__dirname, 'dist/defaultMap', 'default-primitives.map.json'));
     console.log(
       `✓ Copied primitives map from: ${primitivesMapPath === primitivesBuiltPath ? 'built package' : 'default file'}`
     );
   }
 
   if (!existsSync(tokensMapPath)) {
-    console.warn('⚠️  Tokens color map not found. Run: pnpm --filter @grasdouble/lufa_design-system-tokens build');
-    console.warn('    Or run: ./scripts/copy-color-maps.sh to update default files');
+    console.warn('⚠️  Tokens map not found. Run: pnpm --filter @grasdouble/lufa_design-system-tokens build');
+    console.warn('    Or run: ./scripts/copy-maps.sh to update default files');
   } else {
-    cpSync(tokensMapPath, join(__dirname, 'dist/defaultMap', 'default-tokens-colors.map.json'));
+    cpSync(tokensMapPath, join(__dirname, 'dist/defaultMap', 'default-tokens.map.json'));
     console.log(`✓ Copied tokens map from: ${tokensMapPath === tokensBuiltPath ? 'built package' : 'default file'}`);
   }
 

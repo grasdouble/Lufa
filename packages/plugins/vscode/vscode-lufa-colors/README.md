@@ -1,15 +1,16 @@
 # Lufa Color Preview (VSCode Extension)
 
-This extension shows color decorators for Lufa tokens in TypeScript and CSS files. It comes with **bundled color maps** for both primitives and tokens, so it works out of the box without any build step!
+This extension shows color decorators for Lufa tokens in TypeScript and CSS files, plus hover previews for non-color tokens. It comes with **bundled maps** for primitives and tokens, so it works out of the box without any build step!
 
 ## Features
 
-- **Bundled color maps**: The extension includes the latest primitive and token color maps, no setup required
-- **Separate data sources**: Primitive colors from `@grasdouble/lufa_design-system-primitives`, token colors from `@grasdouble/lufa_design-system-tokens`
+- **Bundled maps**: The extension includes the latest primitive and token maps, no setup required
+- **Separate data sources**: Primitive and token maps from `@grasdouble/lufa_design-system-primitives` and `@grasdouble/lufa_design-system-tokens`
 - **CSS support**: Shows colors for `--lufa-color-*` variables (both in `var()` usage and declarations)
 - **TypeScript support**: Shows colors for `primitives.color.*.*[*]` references
-- **Custom maps**: Optionally use custom color maps from your workspace
-- **Auto-reload**: Automatically detects and reloads when custom color maps change
+- **Token value hovers**: Shows values for spacing, radius, typography, motion, etc. on hover
+- **Custom maps**: Optionally use custom maps from your workspace
+- **Auto-reload**: Automatically detects and reloads when custom maps change
 - **Security**: Validates custom file paths to ensure they're within workspace
 - **Debug mode**: Comprehensive logging for troubleshooting
 
@@ -49,9 +50,9 @@ pnpm run build && ./scripts/package.sh --install
 
 **Note:** The packaging script temporarily renames the package for VS Code compatibility while keeping your scoped npm package name (`@grasdouble/lufa_plugin_vscode_lufa-color-preview`).
 
-## Update the Bundled Color Maps
+## Update the Bundled Maps
 
-The extension includes default color maps in `src/` that are used as fallback. To update these with the latest tokens and primitives:
+The extension includes default maps in `src/defaultMap/` that are used as fallback. To update these with the latest tokens and primitives:
 
 ```bash
 # From repo root, build both packages
@@ -59,7 +60,7 @@ pnpm --filter @grasdouble/lufa_design-system-primitives build
 pnpm --filter @grasdouble/lufa_design-system-tokens build
 
 # From the extension directory, copy the new maps
-pnpm copy-color-maps
+pnpm copy-maps
 
 # Rebuild the extension
 pnpm run build
@@ -69,7 +70,7 @@ Or use the helper script directly:
 
 ```bash
 # From the extension directory
-./scripts/copy-color-maps.sh
+./scripts/copy-maps.sh
 ```
 
 The build process will automatically:
@@ -78,17 +79,19 @@ The build process will automatically:
 2. Fall back to the default maps in `src/` if the packages aren't built
 3. Show warnings if neither is available
 
+This copies maps (which include colors and all other token types).
+
 ## Configuration
 
-### Custom Color Maps (Optional)
+### Custom Maps (Optional)
 
-The extension supports two separate color maps for better separation of concerns:
+The extension supports separate primitive and token maps:
 
 ```json
 {
   "lufaColorPreview": {
-    "primitivesMapPath": "packages/design-system/primitives/dist/primitives-colors.map.json",
-    "tokensMapPath": "packages/design-system/tokens/dist/tokens-colors.map.json"
+    "primitivesMapPath": "packages/design-system/primitives/dist/primitives.map.json",
+    "tokensMapPath": "packages/design-system/tokens/dist/tokens.map.json"
   }
 }
 ```
@@ -97,27 +100,19 @@ Legacy flat keys are still supported:
 
 ```json
 {
-  "lufaColorPreview.primitivesMapPath": "packages/design-system/primitives/dist/primitives-colors.map.json",
-  "lufaColorPreview.tokensMapPath": "packages/design-system/tokens/dist/tokens-colors.map.json"
-}
-```
-
-**Legacy single-file support** is still available for backward compatibility:
-
-```json
-{
-  "lufaColorPreview.mapPath": "path/to/legacy/colors.map.json"
+  "lufaColorPreview.primitivesMapPath": "packages/design-system/primitives/dist/primitives.map.json",
+  "lufaColorPreview.tokensMapPath": "packages/design-system/tokens/dist/tokens.map.json"
 }
 ```
 
 The path can be:
 
-- Relative to workspace root: `"packages/design-system/tokens/dist/tokens-colors.map.json"`
-- Absolute: `"/Users/you/project/tokens-colors.map.json"`
+- Relative to workspace root: `"packages/design-system/tokens/dist/tokens.map.json"`
+- Absolute: `"/Users/you/project/tokens.map.json"`
 
 If custom maps are not found, the extension falls back to the bundled maps.
 
-**Note:** The extension will automatically watch the custom color map files for changes and reload colors when files are updated.
+**Note:** The extension will automatically watch the custom map files for changes and reload when files are updated.
 
 ### Debug Mode
 
@@ -137,8 +132,9 @@ Then check the "Lufa Color Preview" output channel: View → Output → Select "
 
 1. The extension registers a `DocumentColorProvider` for CSS, SCSS, PostCSS, TypeScript, and TypeScript React files
 2. It uses regex patterns to find Lufa color tokens in your code
-3. For each token, it looks up the OKLCH color value in the color map
+3. For each token, it looks up the OKLCH color value in the map
 4. It converts OKLCH to RGB and displays a color decorator in the editor
+5. It registers a `HoverProvider` to show values for `--lufa-*`, `tokens.*`, and `primitives.*` references
 
 ## Supported Token Formats
 
@@ -163,6 +159,25 @@ const color2 = primitives.color.neutral.neutral[900];
 const color3 = primitives.color.chromatic.blue[100];
 ```
 
+### Hover Value Examples (Any Token Type)
+
+```css
+/* CSS variables */
+padding: var(--lufa-spacing-base);
+border-radius: var(--lufa-radius-md);
+```
+
+```typescript
+// Tokens namespace
+const gap = tokens.spacing.base;
+const compact = tokens.spacing['sm-md'];
+const border = tokens.borderWidth.thin;
+
+// Primitives namespace
+const scale = primitives.spacing[16];
+const opacity = primitives.opacity[60];
+```
+
 ## Troubleshooting
 
 **No colors showing up?**
@@ -170,33 +185,33 @@ const color3 = primitives.color.chromatic.blue[100];
 1. Make sure you're in the Extension Development Host (launched with F5), not the main VSCode window
 2. Enable debug mode and check the Output panel for "Lufa Color Preview"
 3. Verify your token syntax matches the supported formats above
-4. Check that the bundled default maps exist in `src/` directory
+4. Check that the bundled default maps exist in `src/defaultMap/`
 
 **Colors are outdated?**
 
-1. Update the default maps: `pnpm copy-color-maps` (after building the design system packages)
+1. Update the default maps: `pnpm copy-maps` (after building the design system packages)
 2. Rebuild the extension: `pnpm run build`
 3. Reload the Extension Development Host
 4. If using custom map paths, the extension automatically reloads when files change
 
-**Build warnings about missing color maps?**
+**Build warnings about missing maps?**
 
 The build process uses a smart fallback system:
 
 1. **First choice**: Uses built packages from `design-system/primitives/dist` and `design-system/tokens/dist`
-2. **Fallback**: Uses default maps from `src/default-*.map.json`
+2. **Fallback**: Uses default maps from `src/defaultMap/default-*.map.json`
 3. **Warning**: Shows if neither is available
 
 If you see warnings, either:
 
 - Build the design system packages: `pnpm --filter @grasdouble/lufa_design-system-{primitives,tokens} build`
-- Or update the default maps: `pnpm copy-color-maps`
+- Or update the default maps: `pnpm copy-maps`
 
-**Custom color map not loading?**
+**Custom map not loading?**
 
 1. Check the file path in settings is correct (relative to workspace root or absolute)
 2. Enable debug mode to see detailed error messages
-3. Verify the color map has the correct JSON structure (see How It Works section)
+3. Verify the map has the correct JSON structure (see How It Works section)
 4. Ensure the path is within your workspace for security reasons
 
 ## Development
@@ -224,7 +239,7 @@ pnpm format
 ### Build Configuration
 
 - **Source**: `src/extension.ts`
-- **Bundled map**: `src/default-colors.map.json`
-- **Build output**: `dist/extension.js`, `dist/default-colors.map.json`
+- **Bundled maps**: `src/defaultMap/default-primitives.map.json`, `src/defaultMap/default-tokens.map.json`
+- **Build output**: `dist/extension.js`
 - **TypeScript**: 5.9.3, targeting ES2020
 - **Packaging**: vsce 3.7.1 with secretlint validation (requires `publicHoistPattern[]=*secretlint*` in root `.npmrc`)

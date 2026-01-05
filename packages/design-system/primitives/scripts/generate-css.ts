@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 import type { Token } from './utils/token-helpers.js';
 import * as primitives from '../dist/index.js';
-import { extractTokens } from './utils/token-helpers.js';
+import { extractTokens, sortByNaturalKey } from './utils/token-helpers.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -37,21 +37,7 @@ const groupTokensByCategory = (tokens: Token[]): GroupedTokens => {
 
   // Sort tokens within each category
   for (const category of Object.keys(grouped)) {
-    grouped[category].sort((a, b) => {
-      // Try to parse the last segment as a number for better sorting
-      const aLast = a.path[a.path.length - 1];
-      const bLast = b.path[b.path.length - 1];
-      const aNum = parseFloat(aLast);
-      const bNum = parseFloat(bLast);
-
-      // If both are numbers, sort numerically
-      if (!isNaN(aNum) && !isNaN(bNum)) {
-        return aNum - bNum;
-      }
-
-      // Otherwise, sort alphabetically by full token name
-      return a.name.localeCompare(b.name);
-    });
+    grouped[category] = sortByNaturalKey(grouped[category], (token) => token.name);
   }
 
   return grouped;
