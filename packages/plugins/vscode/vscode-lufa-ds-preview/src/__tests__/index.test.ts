@@ -64,19 +64,30 @@ vi.mock('vscode', () => ({
     registerHoverProvider: vscodeMocks.registerHoverProvider,
   },
   MarkdownString: class {
-    appendMarkdown() {}
+    appendMarkdown(markdown: string) {
+      void markdown;
+      return this;
+    }
   },
   Hover: class {
-    constructor() {}
+    constructor(...args: unknown[]) {
+      void args;
+    }
   },
   Color: class {
-    constructor() {}
+    constructor(...args: unknown[]) {
+      void args;
+    }
   },
   Range: class {
-    constructor() {}
+    constructor(...args: unknown[]) {
+      void args;
+    }
   },
   ColorInformation: class {
-    constructor() {}
+    constructor(...args: unknown[]) {
+      void args;
+    }
   },
 }));
 

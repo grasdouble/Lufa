@@ -149,7 +149,7 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
       cachedPrimitivesMtime = stat.mtimeMs;
       logOnce(`lufa: Loaded primitives map from ${primitivesPath} (version ${parsed.version})`);
 
-      return parsed as TokenMap;
+      return parsed;
     } catch (error) {
       cachedPrimitivesPath = primitivesPath;
       cachedPrimitivesMtime = 0;
@@ -200,7 +200,7 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
       cachedTokensMtime = stat.mtimeMs;
       logOnce(`lufa: Loaded tokens map from ${tokensPath} (version ${parsed.version})`);
 
-      return parsed as TokenMap;
+      return parsed;
     } catch (error) {
       cachedTokensPath = tokensPath;
       cachedTokensMtime = 0;
