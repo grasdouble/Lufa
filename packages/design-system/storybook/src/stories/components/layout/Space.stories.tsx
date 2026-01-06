@@ -9,10 +9,10 @@ import {
   Stack,
   tokens,
 } from '@grasdouble/lufa_design-system';
-import { color as primitiveColor } from '@grasdouble/lufa_design-system-primitives';
+import * as primitives from '@grasdouble/lufa_design-system-primitives';
 
 const { color, spacing } = tokens;
-const { chromatic } = primitiveColor;
+const { chromatic } = primitives.color;
 
 const meta = {
   title: '2. Layout/Space',

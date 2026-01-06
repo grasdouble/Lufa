@@ -1,5 +1,13 @@
 # @grasdouble/lufa_config_prettier
 
+## 0.1.3
+
+### Patch Changes
+
+- 6c972e8: fix: prettier config
+- 4d0893b: Update scripts and README files
+- b101244: fix(chore): eslint config + fix new issues
+
 ## 0.1.2
 
 ### Patch Changes

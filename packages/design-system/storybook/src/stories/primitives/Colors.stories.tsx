@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { color } from '@grasdouble/lufa_design-system-primitives';
-
-// Combine chromatic and neutral colors into one object
-const primitiveColors = { ...color.chromatic, ...color.neutral };
+import * as primitives from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Colors',
@@ -62,32 +59,32 @@ export const AllColors: Story = {
       </p>
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Neutrals</h2>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px' }}>
-        <ColorScaleTable name="slate" shades={primitiveColors.slate} />
-        <ColorScaleTable name="gray" shades={primitiveColors.gray} />
-        <ColorScaleTable name="zinc" shades={primitiveColors.zinc} />
-        <ColorScaleTable name="neutral" shades={primitiveColors.neutral} />
-        <ColorScaleTable name="stone" shades={primitiveColors.stone} />
+        <ColorScaleTable name="slate" shades={primitives.color.neutral.slate} />
+        <ColorScaleTable name="gray" shades={primitives.color.neutral.gray} />
+        <ColorScaleTable name="zinc" shades={primitives.color.neutral.zinc} />
+        <ColorScaleTable name="neutral" shades={primitives.color.neutral.neutral} />
+        <ColorScaleTable name="stone" shades={primitives.color.neutral.stone} />
       </div>
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Chromatic Colors</h2>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-        <ColorScaleTable name="red" shades={primitiveColors.red} />
-        <ColorScaleTable name="orange" shades={primitiveColors.orange} />
-        <ColorScaleTable name="amber" shades={primitiveColors.amber} />
-        <ColorScaleTable name="yellow" shades={primitiveColors.yellow} />
-        <ColorScaleTable name="lime" shades={primitiveColors.lime} />
-        <ColorScaleTable name="green" shades={primitiveColors.green} />
-        <ColorScaleTable name="emerald" shades={primitiveColors.emerald} />
-        <ColorScaleTable name="teal" shades={primitiveColors.teal} />
-        <ColorScaleTable name="cyan" shades={primitiveColors.cyan} />
-        <ColorScaleTable name="sky" shades={primitiveColors.sky} />
-        <ColorScaleTable name="blue" shades={primitiveColors.blue} />
-        <ColorScaleTable name="indigo" shades={primitiveColors.indigo} />
-        <ColorScaleTable name="violet" shades={primitiveColors.violet} />
-        <ColorScaleTable name="purple" shades={primitiveColors.purple} />
-        <ColorScaleTable name="fuchsia" shades={primitiveColors.fuchsia} />
-        <ColorScaleTable name="pink" shades={primitiveColors.pink} />
-        <ColorScaleTable name="rose" shades={primitiveColors.rose} />
+        <ColorScaleTable name="red" shades={primitives.color.chromatic.red} />
+        <ColorScaleTable name="orange" shades={primitives.color.chromatic.orange} />
+        <ColorScaleTable name="amber" shades={primitives.color.chromatic.amber} />
+        <ColorScaleTable name="yellow" shades={primitives.color.chromatic.yellow} />
+        <ColorScaleTable name="lime" shades={primitives.color.chromatic.lime} />
+        <ColorScaleTable name="green" shades={primitives.color.chromatic.green} />
+        <ColorScaleTable name="emerald" shades={primitives.color.chromatic.emerald} />
+        <ColorScaleTable name="teal" shades={primitives.color.chromatic.teal} />
+        <ColorScaleTable name="cyan" shades={primitives.color.chromatic.cyan} />
+        <ColorScaleTable name="sky" shades={primitives.color.chromatic.sky} />
+        <ColorScaleTable name="blue" shades={primitives.color.chromatic.blue} />
+        <ColorScaleTable name="indigo" shades={primitives.color.chromatic.indigo} />
+        <ColorScaleTable name="violet" shades={primitives.color.chromatic.violet} />
+        <ColorScaleTable name="purple" shades={primitives.color.chromatic.purple} />
+        <ColorScaleTable name="fuchsia" shades={primitives.color.chromatic.fuchsia} />
+        <ColorScaleTable name="pink" shades={primitives.color.chromatic.pink} />
+        <ColorScaleTable name="rose" shades={primitives.color.chromatic.rose} />
       </div>
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>
         Pure Black & White
@@ -99,14 +96,16 @@ export const AllColors: Story = {
             gridTemplateColumns: '1fr auto',
             gap: '16px',
             padding: '12px 16px',
-            backgroundColor: primitiveColors.black,
+            backgroundColor: primitives.color.neutral.black,
             color: '#ffffff',
             borderRadius: '4px',
             alignItems: 'center',
           }}
         >
           <div style={{ fontFamily: 'monospace', fontSize: '14px' }}>base-display-color-black</div>
-          <div style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: '600' }}>{primitiveColors.black}</div>
+          <div style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: '600' }}>
+            {primitives.color.neutral.black}
+          </div>
         </div>
         <div
           style={{
@@ -114,7 +113,7 @@ export const AllColors: Story = {
             gridTemplateColumns: '1fr auto',
             gap: '16px',
             padding: '12px 16px',
-            backgroundColor: primitiveColors.white,
+            backgroundColor: primitives.color.neutral.white,
             color: '#000000',
             borderRadius: '4px',
             alignItems: 'center',
@@ -122,7 +121,9 @@ export const AllColors: Story = {
           }}
         >
           <div style={{ fontFamily: 'monospace', fontSize: '14px' }}>base-display-color-white</div>
-          <div style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: '600' }}>{primitiveColors.white}</div>
+          <div style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: '600' }}>
+            {primitives.color.neutral.white}
+          </div>
         </div>
       </div>
     </div>
@@ -139,11 +140,11 @@ export const Neutrals: Story = {
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-        <ColorScaleTable name="slate" shades={primitiveColors.slate} />
-        <ColorScaleTable name="gray" shades={primitiveColors.gray} />
-        <ColorScaleTable name="zinc" shades={primitiveColors.zinc} />
-        <ColorScaleTable name="neutral" shades={primitiveColors.neutral} />
-        <ColorScaleTable name="stone" shades={primitiveColors.stone} />
+        <ColorScaleTable name="slate" shades={primitives.color.neutral.slate} />
+        <ColorScaleTable name="gray" shades={primitives.color.neutral.gray} />
+        <ColorScaleTable name="zinc" shades={primitives.color.neutral.zinc} />
+        <ColorScaleTable name="neutral" shades={primitives.color.neutral.neutral} />
+        <ColorScaleTable name="stone" shades={primitives.color.neutral.stone} />
       </div>
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>
         Pure Black & White
@@ -155,14 +156,16 @@ export const Neutrals: Story = {
             gridTemplateColumns: '1fr auto',
             gap: '16px',
             padding: '12px 16px',
-            backgroundColor: primitiveColors.black,
+            backgroundColor: primitives.color.neutral.black,
             color: '#ffffff',
             borderRadius: '4px',
             alignItems: 'center',
           }}
         >
           <div style={{ fontFamily: 'monospace', fontSize: '14px' }}>base-display-color-black</div>
-          <div style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: '600' }}>{primitiveColors.black}</div>
+          <div style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: '600' }}>
+            {primitives.color.neutral.black}
+          </div>
         </div>
         <div
           style={{
@@ -170,7 +173,7 @@ export const Neutrals: Story = {
             gridTemplateColumns: '1fr auto',
             gap: '16px',
             padding: '12px 16px',
-            backgroundColor: primitiveColors.white,
+            backgroundColor: primitives.color.neutral.white,
             color: '#000000',
             borderRadius: '4px',
             alignItems: 'center',
@@ -178,7 +181,9 @@ export const Neutrals: Story = {
           }}
         >
           <div style={{ fontFamily: 'monospace', fontSize: '14px' }}>base-display-color-white</div>
-          <div style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: '600' }}>{primitiveColors.white}</div>
+          <div style={{ fontFamily: 'monospace', fontSize: '14px', fontWeight: '600' }}>
+            {primitives.color.neutral.white}
+          </div>
         </div>
       </div>
     </div>
@@ -196,37 +201,37 @@ export const Chromatic: Story = {
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Warm Colors</h2>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-        <ColorScaleTable name="red" shades={primitiveColors.red} />
-        <ColorScaleTable name="orange" shades={primitiveColors.orange} />
-        <ColorScaleTable name="amber" shades={primitiveColors.amber} />
-        <ColorScaleTable name="yellow" shades={primitiveColors.yellow} />
+        <ColorScaleTable name="red" shades={primitives.color.chromatic.red} />
+        <ColorScaleTable name="orange" shades={primitives.color.chromatic.orange} />
+        <ColorScaleTable name="amber" shades={primitives.color.chromatic.amber} />
+        <ColorScaleTable name="yellow" shades={primitives.color.chromatic.yellow} />
       </div>
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Green Colors</h2>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-        <ColorScaleTable name="lime" shades={primitiveColors.lime} />
-        <ColorScaleTable name="green" shades={primitiveColors.green} />
-        <ColorScaleTable name="emerald" shades={primitiveColors.emerald} />
-        <ColorScaleTable name="teal" shades={primitiveColors.teal} />
+        <ColorScaleTable name="lime" shades={primitives.color.chromatic.lime} />
+        <ColorScaleTable name="green" shades={primitives.color.chromatic.green} />
+        <ColorScaleTable name="emerald" shades={primitives.color.chromatic.emerald} />
+        <ColorScaleTable name="teal" shades={primitives.color.chromatic.teal} />
       </div>
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Blue Colors</h2>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-        <ColorScaleTable name="cyan" shades={primitiveColors.cyan} />
-        <ColorScaleTable name="sky" shades={primitiveColors.sky} />
-        <ColorScaleTable name="blue" shades={primitiveColors.blue} />
-        <ColorScaleTable name="indigo" shades={primitiveColors.indigo} />
+        <ColorScaleTable name="cyan" shades={primitives.color.chromatic.cyan} />
+        <ColorScaleTable name="sky" shades={primitives.color.chromatic.sky} />
+        <ColorScaleTable name="blue" shades={primitives.color.chromatic.blue} />
+        <ColorScaleTable name="indigo" shades={primitives.color.chromatic.indigo} />
       </div>
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>
         Purple & Pink Colors
       </h2>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-        <ColorScaleTable name="violet" shades={primitiveColors.violet} />
-        <ColorScaleTable name="purple" shades={primitiveColors.purple} />
-        <ColorScaleTable name="fuchsia" shades={primitiveColors.fuchsia} />
-        <ColorScaleTable name="pink" shades={primitiveColors.pink} />
-        <ColorScaleTable name="rose" shades={primitiveColors.rose} />
+        <ColorScaleTable name="violet" shades={primitives.color.chromatic.violet} />
+        <ColorScaleTable name="purple" shades={primitives.color.chromatic.purple} />
+        <ColorScaleTable name="fuchsia" shades={primitives.color.chromatic.fuchsia} />
+        <ColorScaleTable name="pink" shades={primitives.color.chromatic.pink} />
+        <ColorScaleTable name="rose" shades={primitives.color.chromatic.rose} />
       </div>
     </div>
   ),
@@ -330,31 +335,31 @@ export const ContrastGuide: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: primitiveColors.blue[100],
+              backgroundColor: primitives.color.chromatic.blue[100],
               borderRadius: '8px',
               minWidth: '200px',
             }}
           >
-            <div style={{ color: primitiveColors.blue[950], fontWeight: '600' }}>Blue 950 on Blue 100</div>
-            <div style={{ fontSize: '12px', color: primitiveColors.blue[800] }}>AAA Compliant</div>
+            <div style={{ color: primitives.color.chromatic.blue[950], fontWeight: '600' }}>Blue 950 on Blue 100</div>
+            <div style={{ fontSize: '12px', color: primitives.color.chromatic.blue[800] }}>AAA Compliant</div>
           </div>
           <div
             style={{
               padding: '16px',
-              backgroundColor: primitiveColors.blue[50],
+              backgroundColor: primitives.color.chromatic.blue[50],
               borderRadius: '8px',
               minWidth: '200px',
             }}
           >
-            <div style={{ color: primitiveColors.blue[900], fontWeight: '600' }}>Blue 900 on Blue 50</div>
-            <div style={{ fontSize: '12px', color: primitiveColors.blue[700] }}>AAA Compliant</div>
+            <div style={{ color: primitives.color.chromatic.blue[900], fontWeight: '600' }}>Blue 900 on Blue 50</div>
+            <div style={{ fontSize: '12px', color: primitives.color.chromatic.blue[700] }}>AAA Compliant</div>
           </div>
           <div style={{ padding: '16px', backgroundColor: 'white', borderRadius: '8px', minWidth: '200px' }}>
-            <div style={{ color: primitiveColors.blue[700], fontWeight: '600' }}>Blue 700 on White</div>
-            <div style={{ fontSize: '12px', color: primitiveColors.blue[600] }}>AAA Compliant</div>
+            <div style={{ color: primitives.color.chromatic.blue[700], fontWeight: '600' }}>Blue 700 on White</div>
+            <div style={{ fontSize: '12px', color: primitives.color.chromatic.blue[600] }}>AAA Compliant</div>
           </div>
           <div style={{ padding: '16px', backgroundColor: 'white', borderRadius: '8px', minWidth: '200px' }}>
-            <div style={{ color: primitiveColors.blue[600], fontWeight: '600' }}>Blue 600 on White</div>
+            <div style={{ color: primitives.color.chromatic.blue[600], fontWeight: '600' }}>Blue 600 on White</div>
             <div style={{ fontSize: '12px', color: '#737373' }}>AA Compliant</div>
           </div>
         </div>

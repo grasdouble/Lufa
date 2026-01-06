@@ -11,5 +11,10 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
+  "lufaDsPreview": {
+    "debug": false,
+    "primitivesMapPath": "./packages/design-system/primitives/dist/primitives.map.json",
+    "tokensMapPath": "./packages/design-system/tokens/dist/tokens.map.json"
+  },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }
