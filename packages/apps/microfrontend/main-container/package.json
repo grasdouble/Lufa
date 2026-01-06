@@ -1,7 +1,7 @@
 {
   "name": "@grasdouble/lufa_microfrontend_main-container",
   "version": "0.6.6",
-  "private": false,
+  "private": true,
   "license": "MIT",
   "type": "module",
   "files": [
