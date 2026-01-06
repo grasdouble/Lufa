@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/cdn_autobuild-server",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": false,
   "description": "Self-fed CDN from npm packages",
   "type": "module",

@@ -1,5 +1,13 @@
 # @grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector
 
+## 0.2.2
+
+### Patch Changes
+
+- 6c972e8: fix: prettier config
+- 4d0893b: Update scripts and README files
+- 412c362: fix(chore): add missing prettier and eslint config + add a script prettier in package.json
+
 ## 0.2.1
 
 ### Patch Changes
