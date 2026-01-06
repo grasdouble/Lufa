@@ -1,3 +1,6 @@
+/**
+ * Type declarations for the culori dependency used by the extension.
+ */
 declare module 'culori' {
   /**
    * RGB color representation with values in the range [0, 1]

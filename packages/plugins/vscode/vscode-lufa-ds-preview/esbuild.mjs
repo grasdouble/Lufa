@@ -91,7 +91,7 @@ const copyMapsPlugin = {
 
 async function main() {
   const ctx = await esbuild.context({
-    entryPoints: ['src/extension.ts'],
+    entryPoints: ['src/index.ts'],
     bundle: true,
     format: 'cjs',
     minify: production,

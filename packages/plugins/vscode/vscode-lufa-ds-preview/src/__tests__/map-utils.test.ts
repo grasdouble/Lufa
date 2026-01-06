@@ -1,37 +1,6 @@
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-
-// Type definitions for testing
-type TokenMap = {
-  version: number;
-  generatedAt?: string;
-  css: Record<string, string>;
-  paths: Record<string, string>;
-};
-
-// Helper function to validate token map (extracted from extension.ts)
-const isValidMap = (data: unknown): data is TokenMap => {
-  if (typeof data !== 'object' || data === null) return false;
-  const map = data as Record<string, unknown>;
-  return (
-    typeof map.version === 'number' &&
-    (map.generatedAt === undefined || typeof map.generatedAt === 'string') &&
-    typeof map.css === 'object' &&
-    map.css !== null &&
-    typeof map.paths === 'object' &&
-    map.paths !== null
-  );
-};
-
-const getEmbeddedMapPath = (
-  extensionRootPath: string | null,
-  mapFile: string,
-  exists: (path: string) => boolean
-): string | null => {
-  if (!extensionRootPath) return null;
-  const embeddedPath = join(extensionRootPath, 'dist', 'maps', mapFile);
-  return exists(embeddedPath) ? embeddedPath : null;
-};
+import { getEmbeddedMapPath, isValidMap } from '../map-utils';
 
 describe('Token Map Validation', () => {
   it('should validate correct map structure', () => {
