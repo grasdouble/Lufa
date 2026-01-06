@@ -1,8 +1,16 @@
 packages:
   - packages/plugins/vite/*
+  - packages/plugins/vscode/*
   - packages/cdn/*
   - packages/config/*
   - packages/design-system/*
   - packages/apps/*
   - packages/apps/microfrontend/*
   - packages/poc/*
+
+hoist: false
+preferWorkspacePackages: true
+
+publicHoistPattern:
+  - '*secretlint*'
+  - '@storybook/react-vite'
