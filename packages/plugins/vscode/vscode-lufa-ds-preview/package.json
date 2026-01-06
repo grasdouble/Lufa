@@ -2,7 +2,7 @@
   "name": "@grasdouble/lufa_plugin_vscode_lufa-ds-preview",
   "displayName": "Lufa DS Preview",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "description": "Token previews and decorators for the Lufa design system",
   "categories": [
     "Other"
@@ -83,5 +83,9 @@
   },
   "engines": {
     "vscode": "^1.90.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   }
 }
