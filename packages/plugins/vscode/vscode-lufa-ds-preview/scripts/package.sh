@@ -26,15 +26,15 @@ rm -f *.vsix
 cp package.json package.json.bak
 node -e "
 const pkg = require('./package.json');
-pkg.name = 'lufa-color-preview';
+pkg.name = 'lufa-ds-preview';
 require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));
 "
 
 # Package with vsce
-npx vsce package --no-dependencies
+pnpm exec vsce package --no-dependencies
 
 # Check if VSIX was created
-if [ -f "lufa-color-preview-0.1.0.vsix" ]; then
+if [ -f "lufa-ds-preview-0.1.0.vsix" ]; then
   echo "✅ VSIX file found"
 else
   echo "❌ VSIX file not found after packaging"
@@ -43,14 +43,14 @@ fi
 # Restore original package.json
 mv package.json.bak package.json
 
-if [ -f "lufa-color-preview-0.1.0.vsix" ]; then
-  echo "✅ Package created successfully: lufa-color-preview-0.1.0.vsix"
+if [ -f "lufa-ds-preview-0.1.0.vsix" ]; then
+  echo "✅ Package created successfully: lufa-ds-preview-0.1.0.vsix"
   
   # Install if requested
   if [ "$INSTALL" = true ]; then
     echo ""
     echo "🔧 Installing extension locally..."
-    code --install-extension lufa-color-preview-0.1.0.vsix --force
+    code --install-extension lufa-ds-preview-0.1.0.vsix --force
     echo "✅ Extension installed successfully!"
     echo ""
     echo "🔄 Reload VS Code to activate the extension"

@@ -11,10 +11,10 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "lufaColorPreview": {
+  "lufaDsPreview": {
+    "debug": false,
     "primitivesMapPath": "./packages/design-system/primitives/dist/primitives.map.json",
-    "tokensMapPath": "./packages/design-system/tokens/dist/tokens.map.json",
-    "debug": true
+    "tokensMapPath": "./packages/design-system/tokens/dist/tokens.map.json"
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }

@@ -1,16 +1,16 @@
 {
-  "name": "@grasdouble/lufa_plugin_vscode_lufa-color-preview",
-  "displayName": "Lufa Color Preview",
+  "name": "@grasdouble/lufa_plugin_vscode_lufa-ds-preview",
+  "displayName": "Lufa DS Preview",
   "version": "0.1.0",
   "private": true,
-  "description": "Color decorators for Lufa design tokens",
+  "description": "Token previews and decorators for the Lufa design system",
   "categories": [
     "Other"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/grasdouble/Lufa.git",
-    "directory": "packages/plugins/vscode/vscode-lufa-colors"
+    "directory": "packages/plugins/vscode/vscode-lufa-ds-preview"
   },
   "publisher": "grasdouble",
   "main": "./dist/extension.js",
@@ -19,7 +19,6 @@
     "build-and-install": "pnpm run build && ./scripts/package.sh --install",
     "build-and-no-install": "pnpm run build && ./scripts/package.sh",
     "clean": "rm -rf dist",
-    "copy-maps": "./scripts/copy-maps.sh",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
@@ -32,19 +31,19 @@
   },
   "contributes": {
     "configuration": {
-      "title": "Lufa Color Preview",
+      "title": "Lufa DS Preview",
       "properties": {
-        "lufaColorPreview": {
+        "lufaDsPreview": {
           "type": "object",
-          "description": "Configuration for Lufa Color Preview.",
+          "description": "Configuration for Lufa DS Preview.",
           "properties": {
             "primitivesMapPath": {
               "type": "string",
-              "description": "Optional: Path to the primitives map JSON (relative to workspace root or absolute). If not set, the bundled primitives map is used."
+              "description": "Optional: Path to the primitives map JSON (relative to workspace root or absolute). If not set, the packaged primitives map is used."
             },
             "tokensMapPath": {
               "type": "string",
-              "description": "Optional: Path to the tokens map JSON (relative to workspace root or absolute). If not set, the bundled tokens map is used."
+              "description": "Optional: Path to the tokens map JSON (relative to workspace root or absolute). If not set, the packaged tokens map is used."
             },
             "debug": {
               "type": "boolean",
@@ -63,6 +62,8 @@
     "onStartupFinished"
   ],
   "dependencies": {
+    "@grasdouble/lufa_design-system-primitives": "workspace:^",
+    "@grasdouble/lufa_design-system-tokens": "workspace:^",
     "culori": "^4.0.1"
   },
   "devDependencies": {

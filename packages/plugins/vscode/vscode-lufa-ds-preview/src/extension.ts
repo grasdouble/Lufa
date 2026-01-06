@@ -1,10 +1,14 @@
-import { readFileSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, statSync } from 'node:fs';
 import { isAbsolute, join } from 'node:path';
 import { converter } from 'culori';
 import * as vscode from 'vscode';
-
-import bundledPrimitivesMap from './defaultMap/default-primitives.map.json';
-import bundledTokensMap from './defaultMap/default-tokens.map.json';
+import {
+  createCssVarDirectRe,
+  createCssVarInVarRe,
+  createPrimitivePathRe,
+  createTokenPathRe,
+  tokenHoverRe,
+} from './patterns';
 
 type TokenMap = {
   version: number;
@@ -13,7 +17,7 @@ type TokenMap = {
   paths: Record<string, string>;
 };
 
-type LufaColorPreviewConfig = {
+type LufaPreviewConfig = {
   primitivesMapPath?: string;
   tokensMapPath?: string;
   debug?: boolean;
@@ -43,6 +47,7 @@ let outputChannel: vscode.OutputChannel | null = null;
 let lastStatus: string | null = null;
 let primitivesWatcher: vscode.FileSystemWatcher | null = null;
 let tokensWatcher: vscode.FileSystemWatcher | null = null;
+let extensionRootPath: string | null = null;
 
 const logOnce = (message: string): void => {
   if (!outputChannel) return;
@@ -76,8 +81,8 @@ const resolveConfiguredPath = (configured: string | undefined, label: string): s
   return resolvedPath;
 };
 
-const readObjectConfig = (): LufaColorPreviewConfig => {
-  const raw = vscode.workspace.getConfiguration().get<unknown>('lufaColorPreview');
+const readObjectConfig = (): LufaPreviewConfig => {
+  const raw = vscode.workspace.getConfiguration().get<unknown>('lufaDsPreview');
   if (!raw || typeof raw !== 'object') return {};
   const value = raw as Record<string, unknown>;
   return {
@@ -87,8 +92,8 @@ const readObjectConfig = (): LufaColorPreviewConfig => {
   };
 };
 
-const readFlatConfig = (): LufaColorPreviewConfig => {
-  const config = vscode.workspace.getConfiguration('lufaColorPreview');
+const readFlatConfig = (): LufaPreviewConfig => {
+  const config = vscode.workspace.getConfiguration('lufaDsPreview');
   return {
     primitivesMapPath: config.get<string>('primitivesMapPath'),
     tokensMapPath: config.get<string>('tokensMapPath'),
@@ -96,7 +101,7 @@ const readFlatConfig = (): LufaColorPreviewConfig => {
   };
 };
 
-const getLufaConfig = (): LufaColorPreviewConfig => {
+const getLufaPreviewConfig = (): LufaPreviewConfig => {
   const objectConfig = readObjectConfig();
   const flatConfig = readFlatConfig();
   return {
@@ -106,22 +111,37 @@ const getLufaConfig = (): LufaColorPreviewConfig => {
   };
 };
 
-const isDebugEnabled = (): boolean => getLufaConfig().debug ?? false;
+const isDebugEnabled = (): boolean => getLufaPreviewConfig().debug ?? false;
+
+const getEmbeddedMapPath = (mapFile: string): string | null => {
+  if (!extensionRootPath) return null;
+  const embeddedPath = join(extensionRootPath, 'dist', 'maps', mapFile);
+  return existsSync(embeddedPath) ? embeddedPath : null;
+};
+
+const getPackagedPrimitivesMapPath = (): string | null => {
+  return getEmbeddedMapPath('primitives.map.json');
+};
+
+const getPackagedTokensMapPath = (): string | null => {
+  return getEmbeddedMapPath('tokens.map.json');
+};
 
 const getPrimitivesMapPath = (): string | null => {
-  return resolveConfiguredPath(getLufaConfig().primitivesMapPath, 'primitives map');
+  const configured = getLufaPreviewConfig().primitivesMapPath;
+  const resolved = configured ? resolveConfiguredPath(configured, 'primitives map') : null;
+  return resolved ?? getPackagedPrimitivesMapPath();
 };
 
 const getTokensMapPath = (): string | null => {
-  return resolveConfiguredPath(getLufaConfig().tokensMapPath, 'tokens map');
+  const configured = getLufaPreviewConfig().tokensMapPath;
+  const resolved = configured ? resolveConfiguredPath(configured, 'tokens map') : null;
+  return resolved ?? getPackagedTokensMapPath();
 };
 
 const loadPrimitivesMap = (primitivesPath: string | null): TokenMap | null => {
   if (!primitivesPath) {
-    if (isValidMap(bundledPrimitivesMap)) {
-      return bundledPrimitivesMap;
-    }
-    logOnce('lufa: Bundled primitives map is invalid');
+    logOnce('lufa: No primitives map path available.');
     return null;
   }
 
@@ -146,8 +166,8 @@ const loadPrimitivesMap = (primitivesPath: string | null): TokenMap | null => {
     if (!isValidMap(parsed)) {
       cachedPrimitivesPath = primitivesPath;
       cachedPrimitivesMtime = 0;
-      logOnce(`lufa: Invalid primitives map structure at ${primitivesPath}. Using bundled map.`);
-      return bundledPrimitivesMap as TokenMap;
+      logOnce(`lufa: Invalid primitives map structure at ${primitivesPath}.`);
+      return null;
     }
 
     cachedPrimitivesPath = primitivesPath;
@@ -160,21 +180,20 @@ const loadPrimitivesMap = (primitivesPath: string | null): TokenMap | null => {
     cachedPrimitivesMtime = 0;
 
     if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-      logOnce(`lufa: Primitives map not found at ${primitivesPath}. Using bundled map.`);
+      logOnce(
+        `lufa: Primitives map not found at ${primitivesPath}. Build @grasdouble/lufa_design-system-primitives or set lufaDsPreview.primitivesMapPath.`
+      );
     } else {
       const errorMsg = error instanceof Error ? error.message : String(error);
-      logOnce(`lufa: Error loading primitives map: ${errorMsg}. Using bundled map.`);
+      logOnce(`lufa: Error loading primitives map: ${errorMsg}.`);
     }
-    return bundledPrimitivesMap as TokenMap;
+    return null;
   }
 };
 
 const loadTokensMap = (tokensPath: string | null): TokenMap | null => {
   if (!tokensPath) {
-    if (isValidMap(bundledTokensMap)) {
-      return bundledTokensMap;
-    }
-    logOnce('lufa: Bundled tokens map is invalid');
+    logOnce('lufa: No tokens map path available.');
     return null;
   }
 
@@ -195,8 +214,8 @@ const loadTokensMap = (tokensPath: string | null): TokenMap | null => {
     if (!isValidMap(parsed)) {
       cachedTokensPath = tokensPath;
       cachedTokensMtime = 0;
-      logOnce(`lufa: Invalid tokens map structure at ${tokensPath}. Using bundled map.`);
-      return bundledTokensMap as TokenMap;
+      logOnce(`lufa: Invalid tokens map structure at ${tokensPath}.`);
+      return null;
     }
 
     cachedTokensPath = tokensPath;
@@ -209,21 +228,38 @@ const loadTokensMap = (tokensPath: string | null): TokenMap | null => {
     cachedTokensMtime = 0;
 
     if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-      logOnce(`lufa: Tokens map not found at ${tokensPath}. Using bundled map.`);
+      logOnce(
+        `lufa: Tokens map not found at ${tokensPath}. Build @grasdouble/lufa_design-system-tokens or set lufaDsPreview.tokensMapPath.`
+      );
     } else {
       const errorMsg = error instanceof Error ? error.message : String(error);
-      logOnce(`lufa: Error loading tokens map: ${errorMsg}. Using bundled map.`);
+      logOnce(`lufa: Error loading tokens map: ${errorMsg}.`);
     }
-    return bundledTokensMap as TokenMap;
+    return null;
   }
 };
 
 const loadValuesMap = (): TokenMap | null => {
-  const primitivesPath = getPrimitivesMapPath();
-  const tokensPath = getTokensMapPath();
+  const config = getLufaPreviewConfig();
+  const configuredPrimitivesPath = config.primitivesMapPath
+    ? resolveConfiguredPath(config.primitivesMapPath, 'primitives map')
+    : null;
+  const configuredTokensPath = config.tokensMapPath ? resolveConfiguredPath(config.tokensMapPath, 'tokens map') : null;
+  const packagedPrimitivesPath = getPackagedPrimitivesMapPath();
+  const packagedTokensPath = getPackagedTokensMapPath();
 
-  const primitivesMap = loadPrimitivesMap(primitivesPath);
-  const tokensMap = loadTokensMap(tokensPath);
+  let primitivesMap = loadPrimitivesMap(configuredPrimitivesPath ?? packagedPrimitivesPath);
+  let tokensMap = loadTokensMap(configuredTokensPath ?? packagedTokensPath);
+
+  if (!primitivesMap && configuredPrimitivesPath && packagedPrimitivesPath) {
+    logOnce(`lufa: Falling back to packaged primitives map at ${packagedPrimitivesPath}.`);
+    primitivesMap = loadPrimitivesMap(packagedPrimitivesPath);
+  }
+
+  if (!tokensMap && configuredTokensPath && packagedTokensPath) {
+    logOnce(`lufa: Falling back to packaged tokens map at ${packagedTokensPath}.`);
+    tokensMap = loadTokensMap(packagedTokensPath);
+  }
 
   if (!primitivesMap || !tokensMap) {
     logOnce('lufa: Failed to load primitives or tokens map');
@@ -238,8 +274,8 @@ const loadValuesMap = (): TokenMap | null => {
   };
 
   cachedValuesMap = mergedMap;
-  if (!primitivesPath && !tokensPath) {
-    logOnce('lufa: Using bundled maps');
+  if (!config.primitivesMapPath && !config.tokensMapPath) {
+    logOnce('lufa: Using packaged maps from the extension bundle');
   }
 
   return mergedMap;
@@ -267,9 +303,6 @@ const addColor = (
   colors.push(new vscode.ColorInformation(range, color));
 };
 
-const tokenHoverRe =
-  /--lufa-[a-zA-Z0-9-]+|(?:tokens|primitives|tokenColor)\.[A-Za-z_$][A-Za-z0-9_$]*(?:\.(?:[A-Za-z_$][A-Za-z0-9_$]*)|\[(?:\d+|["'][^"']+["'])\])+/;
-
 const addQuoteVariants = (value: string, candidates: Set<string>): void => {
   if (value.includes('["')) {
     candidates.add(value.replace(/\["([^"]+)"\]/g, "['$1']"));
@@ -288,9 +321,6 @@ const getPathCandidates = (path: string): string[] => {
   };
 
   addCandidate(path);
-  if (path.startsWith('tokenColor.')) {
-    addCandidate(`tokens.color.${path.slice('tokenColor.'.length)}`);
-  }
 
   return [...candidates];
 };
@@ -341,7 +371,7 @@ const setupMapWatcher = (context: vscode.ExtensionContext): void => {
         cachedValuesMap = null;
         cachedPrimitivesMtime = 0;
         cachedPrimitivesPath = null;
-        logOnce(`lufa: Primitives map deleted: ${primitivesMapPath}. Falling back to bundled map.`);
+        logOnce(`lufa: Primitives map deleted: ${primitivesMapPath}.`);
       });
 
       context.subscriptions.push(primitivesWatcher);
@@ -370,7 +400,7 @@ const setupMapWatcher = (context: vscode.ExtensionContext): void => {
         cachedValuesMap = null;
         cachedTokensMtime = 0;
         cachedTokensPath = null;
-        logOnce(`lufa: Tokens map deleted: ${tokensMapPath}. Falling back to bundled map.`);
+        logOnce(`lufa: Tokens map deleted: ${tokensMapPath}.`);
       });
 
       context.subscriptions.push(tokensWatcher);
@@ -383,7 +413,8 @@ const setupMapWatcher = (context: vscode.ExtensionContext): void => {
 };
 
 export function activate(context: vscode.ExtensionContext): void {
-  outputChannel = vscode.window.createOutputChannel('Lufa Color Preview');
+  outputChannel = vscode.window.createOutputChannel('Lufa DS Preview');
+  extensionRootPath = context.extensionPath;
   outputChannel.appendLine('lufa: Extension activated.');
   context.subscriptions.push(outputChannel);
 
@@ -393,7 +424,7 @@ export function activate(context: vscode.ExtensionContext): void {
   // Re-setup watcher when configuration changes
   context.subscriptions.push(
     vscode.workspace.onDidChangeConfiguration((e) => {
-      if (e.affectsConfiguration('lufaColorPreview')) {
+      if (e.affectsConfiguration('lufaDsPreview')) {
         logOnce('lufa: Configuration changed, re-initializing map watchers');
         cachedValuesMap = null;
         cachedPrimitivesMtime = 0;
@@ -425,8 +456,8 @@ export function activate(context: vscode.ExtensionContext): void {
       // Match CSS color variables in TWO places:
       // 1. Inside var() usage: var(--lufa-color-...) or var(--lufa-primitive-...)
       // 2. Direct declarations: --lufa-color-*: ... or --lufa-primitive-*: ...
-      const cssVarInVarRe = /var\(\s*(--lufa-(?:color|primitive)-[a-zA-Z0-9-]+)\s*(?:,[^)]+)?\)/gi;
-      const cssVarDirectRe = /(--lufa-(?:color|primitive)-[a-zA-Z0-9-]+)(?=\s*:)/gi;
+      const cssVarInVarRe = createCssVarInVarRe();
+      const cssVarDirectRe = createCssVarDirectRe();
 
       // Match var() usages
       for (const match of text.matchAll(cssVarInVarRe)) {
@@ -466,9 +497,9 @@ export function activate(context: vscode.ExtensionContext): void {
       // Pattern: primitives.color.{category}.{name}[{number}] where category is chromatic/neutral
       // Important: \d+ matches one or more digits (including 0, 50, 500, etc.)
       // Word boundary ensures we don't match partial expressions
-      const primitivePathRe = /\bprimitives.color\.(?:chromatic|neutral)\.[a-zA-Z_][a-zA-Z0-9_]*\[\d+\]/g;
-      // Match token color paths: tokens.color.text.primary or tokenColor.background.primary
-      const tokenPathRe = /\b(?:tokens\.color|tokenColor)(?:\.[a-zA-Z_][a-zA-Z0-9_]*)+/g;
+      const primitivePathRe = createPrimitivePathRe();
+      // Match token color paths: tokens.color.text.primary
+      const tokenPathRe = createTokenPathRe();
 
       if (debug && outputChannel) {
         const allMatches = [...text.matchAll(primitivePathRe)];
@@ -493,7 +524,7 @@ export function activate(context: vscode.ExtensionContext): void {
 
       if (debug && outputChannel) {
         const allTokenMatches = [...text.matchAll(tokenPathRe)];
-        outputChannel.appendLine(`lufa:   Found ${allTokenMatches.length} tokenColor references`);
+        outputChannel.appendLine(`lufa:   Found ${allTokenMatches.length} token color references`);
       }
 
       for (const match of text.matchAll(tokenPathRe)) {
@@ -559,6 +590,7 @@ export function deactivate(): void {
   tokensWatcher = null;
   outputChannel?.dispose();
   outputChannel = null;
+  extensionRootPath = null;
   cachedValuesMap = null;
   cachedPrimitivesMtime = 0;
   cachedPrimitivesPath = null;

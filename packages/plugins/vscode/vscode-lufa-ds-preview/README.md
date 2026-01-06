@@ -1,11 +1,11 @@
-# Lufa Color Preview (VSCode Extension)
+# Lufa DS Preview (VSCode Extension)
 
-This extension shows color decorators for Lufa tokens in TypeScript and CSS files, plus hover previews for non-color tokens. It comes with **bundled maps** for primitives and tokens, so it works out of the box without any build step!
+This extension shows color decorators for Lufa tokens in TypeScript and CSS files, plus hover previews for non-color tokens. It ships with **packaged maps** copied from the primitives and tokens packages at build time, so it works out of the box without any extra configuration!
 
 ## Features
 
-- **Bundled maps**: The extension includes the latest primitive and token maps, no setup required
-- **Separate data sources**: Primitive and token maps from `@grasdouble/lufa_design-system-primitives` and `@grasdouble/lufa_design-system-tokens`
+- **Packaged maps**: The extension bundles map JSON files from `@grasdouble/lufa_design-system-primitives` and `@grasdouble/lufa_design-system-tokens`
+- **Separate data sources**: Primitive and token maps from their respective design-system packages
 - **CSS support**: Shows colors for `--lufa-color-*` variables (both in `var()` usage and declarations)
 - **TypeScript support**: Shows colors for `primitives.color.*.*[*]` references
 - **Token value hovers**: Shows values for spacing, radius, typography, motion, etc. on hover
@@ -48,38 +48,24 @@ pnpm run build-and-install
 pnpm run build && ./scripts/package.sh --install
 ```
 
-**Note:** The packaging script temporarily renames the package for VS Code compatibility while keeping your scoped npm package name (`@grasdouble/lufa_plugin_vscode_lufa-color-preview`).
+**Note:** The packaging script temporarily renames the package for VS Code compatibility while keeping your scoped npm package name (`@grasdouble/lufa_plugin_vscode_lufa-ds-preview`). The build step copies the design-system map files into `dist/maps`, and they are included in the VSIX.
 
-## Update the Bundled Maps
+## Update the Packaged Maps
 
-The extension includes default maps in `src/defaultMap/` that are used as fallback. To update these with the latest tokens and primitives:
+The extension bundles map files into `dist/maps` during its build, using the design-system packages as the source.
+
+To update them locally in this monorepo:
 
 ```bash
 # From repo root, build both packages
 pnpm --filter @grasdouble/lufa_design-system-primitives build
 pnpm --filter @grasdouble/lufa_design-system-tokens build
 
-# From the extension directory, copy the new maps
-pnpm copy-maps
-
-# Rebuild the extension
+# Rebuild the extension (copies map files into dist/maps)
 pnpm run build
 ```
 
-Or use the helper script directly:
-
-```bash
-# From the extension directory
-./scripts/copy-maps.sh
-```
-
-The build process will automatically:
-
-1. First try to use the built maps from the design system packages
-2. Fall back to the default maps in `src/` if the packages aren't built
-3. Show warnings if neither is available
-
-This copies maps (which include colors and all other token types).
+If you publish a VSIX, rebuild the extension after updating the design-system packages so the bundled maps are current.
 
 ## Configuration
 
@@ -89,19 +75,10 @@ The extension supports separate primitive and token maps:
 
 ```json
 {
-  "lufaColorPreview": {
+  "lufaDsPreview": {
     "primitivesMapPath": "packages/design-system/primitives/dist/primitives.map.json",
     "tokensMapPath": "packages/design-system/tokens/dist/tokens.map.json"
   }
-}
-```
-
-Legacy flat keys are still supported:
-
-```json
-{
-  "lufaColorPreview.primitivesMapPath": "packages/design-system/primitives/dist/primitives.map.json",
-  "lufaColorPreview.tokensMapPath": "packages/design-system/tokens/dist/tokens.map.json"
 }
 ```
 
@@ -110,7 +87,7 @@ The path can be:
 - Relative to workspace root: `"packages/design-system/tokens/dist/tokens.map.json"`
 - Absolute: `"/Users/you/project/tokens.map.json"`
 
-If custom maps are not found, the extension falls back to the bundled maps.
+If custom maps are not found, the extension falls back to the packaged maps.
 
 **Note:** The extension will automatically watch the custom map files for changes and reload when files are updated.
 
@@ -120,13 +97,13 @@ Enable debug logging to troubleshoot issues:
 
 ```json
 {
-  "lufaColorPreview": {
+  "lufaDsPreview": {
     "debug": true
   }
 }
 ```
 
-Then check the "Lufa Color Preview" output channel: View → Output → Select "Lufa Color Preview" from the dropdown.
+Then check the "Lufa DS Preview" output channel: View → Output → Select "Lufa DS Preview" from the dropdown.
 
 ## How It Works
 
@@ -183,29 +160,21 @@ const opacity = primitives.opacity[60];
 **No colors showing up?**
 
 1. Make sure you're in the Extension Development Host (launched with F5), not the main VSCode window
-2. Enable debug mode and check the Output panel for "Lufa Color Preview"
+2. Enable debug mode and check the Output panel for "Lufa DS Preview"
 3. Verify your token syntax matches the supported formats above
-4. Check that the bundled default maps exist in `src/defaultMap/`
+4. Check that the packaged maps exist under `dist/maps/*.map.json` (or the fallback `node_modules/@grasdouble/lufa_design-system-*/dist`)
 
 **Colors are outdated?**
 
-1. Update the default maps: `pnpm copy-maps` (after building the design system packages)
+1. Build the design system packages: `pnpm --filter @grasdouble/lufa_design-system-{primitives,tokens} build`
 2. Rebuild the extension: `pnpm run build`
 3. Reload the Extension Development Host
 4. If using custom map paths, the extension automatically reloads when files change
 
-**Build warnings about missing maps?**
+**Missing maps?**
 
-The build process uses a smart fallback system:
-
-1. **First choice**: Uses built packages from `design-system/primitives/dist` and `design-system/tokens/dist`
-2. **Fallback**: Uses default maps from `src/defaultMap/default-*.map.json`
-3. **Warning**: Shows if neither is available
-
-If you see warnings, either:
-
-- Build the design system packages: `pnpm --filter @grasdouble/lufa_design-system-{primitives,tokens} build`
-- Or update the default maps: `pnpm copy-maps`
+- Build the design system packages so `dist/*.map.json` exists
+- Or point the extension at a custom map path via settings
 
 **Custom map not loading?**
 
@@ -239,7 +208,7 @@ pnpm format
 ### Build Configuration
 
 - **Source**: `src/extension.ts`
-- **Bundled maps**: `src/defaultMap/default-primitives.map.json`, `src/defaultMap/default-tokens.map.json`
+- **Packaged maps**: `dist/maps/primitives.map.json`, `dist/maps/tokens.map.json` (fallback: `node_modules/@grasdouble/lufa_design-system-*/dist/*.map.json`)
 - **Build output**: `dist/extension.js`
 - **TypeScript**: 5.9.3, targeting ES2020
 - **Packaging**: vsce 3.7.1 with secretlint validation (requires `publicHoistPattern[]=*secretlint*` in root `.npmrc`)
