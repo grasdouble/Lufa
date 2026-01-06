@@ -1,7 +1,7 @@
 {
   "name": "@grasdouble/lufa_plugin_vscode_lufa-ds-preview",
   "displayName": "Lufa DS Preview",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "description": "Token previews and decorators for the Lufa design system",
   "categories": [
