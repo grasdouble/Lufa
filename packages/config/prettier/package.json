@@ -4,7 +4,15 @@
   "private": false,
   "description": "",
   "license": "MIT",
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./prettier.config.mjs"
+    },
+    "./prettier.config.mjs": {
+      "import": "./prettier.config.mjs"
+    }
+  },
+  "main": "prettier.config.mjs",
   "files": [
     "prettier.config.mjs",
     "README.md",
