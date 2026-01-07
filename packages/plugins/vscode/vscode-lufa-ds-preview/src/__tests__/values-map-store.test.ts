@@ -49,7 +49,7 @@ const primitivesMap = {
   version: 1,
   generatedAt: '2026-01-04',
   css: {
-    '--lufa-primitive-color-primary': 'rgb(255 0 0)',
+    '--lufa-color-primary': 'rgb(255 0 0)',
   },
   paths: {
     'primitives.color.chromatic.red[500]': 'rgb(255 0 0)',
@@ -59,7 +59,7 @@ const primitivesMap = {
 const tokensMap = {
   version: 3,
   css: {
-    '--lufa-token-color-secondary': 'rgb(0 255 0)',
+    '--lufa-color-secondary': 'rgb(0 255 0)',
   },
   paths: {
     'tokens.color.text.primary': 'rgb(0 0 255)',
@@ -106,8 +106,8 @@ describe('createValuesMapStore', () => {
     expect(map?.version).toBe(3);
     expect(map?.generatedAt).toBe('2026-01-04');
     expect(map?.css).toEqual({
-      '--lufa-primitive-color-primary': 'rgb(255 0 0)',
-      '--lufa-token-color-secondary': 'rgb(0 255 0)',
+      '--lufa-color-primary': 'rgb(255 0 0)',
+      '--lufa-color-secondary': 'rgb(0 255 0)',
     });
     expect(map?.paths).toEqual({
       'primitives.color.chromatic.red[500]': 'rgb(255 0 0)',

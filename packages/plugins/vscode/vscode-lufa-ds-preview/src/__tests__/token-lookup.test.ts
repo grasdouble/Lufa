@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { getPathCandidates, lookupValue, resolveTokenValueFromMap } from '../reference-resolver';
+import { getPathCandidates, lookupValue, resolveTokenValueFromMap } from '../token-lookup';
 
 const createMap = () => ({
   version: 1,
   css: {
-    '--lufa-token-color-primary': 'oklch(50% 0.1 200)',
+    '--lufa-color-primary': 'oklch(50% 0.1 200)',
   },
   paths: {
     'tokens.color["primary"]': 'oklch(60% 0.12 210)',
@@ -38,7 +38,7 @@ describe('lookupValue', () => {
 
 describe('resolveTokenValueFromMap', () => {
   it('should resolve CSS variables', () => {
-    const value = resolveTokenValueFromMap('--lufa-token-color-primary', createMap());
+    const value = resolveTokenValueFromMap('--lufa-color-primary', createMap());
     expect(value).toBe('oklch(50% 0.1 200)');
   });
 

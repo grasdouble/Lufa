@@ -8,14 +8,11 @@
   "editor.quickSuggestions": {
     "strings": "on"
   },
-  "editor.suggest.showColors": true,
-  "editor.suggest.showIcons": true,
-  "editor.suggest.showDetails": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
   "lufaDsPreview": {
-    "debug": true,
+    "debug": false,
     "primitivesMapPath": "./packages/design-system/primitives/dist/primitives.map.json",
     "tokensMapPath": "./packages/design-system/tokens/dist/tokens.map.json"
   },

@@ -63,33 +63,33 @@ const hoverCursor = cursor.pointer;
 @import '@grasdouble/lufa_design-system-tokens/style.css';
 
 .my-element {
-  /* Colors: --lufa-token-color-{category}-{variant} */
-  color: var(--lufa-token-color-text-primary);
-  background: var(--lufa-token-color-background-success);
-  border-color: var(--lufa-token-color-border-default);
+  /* Colors: --lufa-color-{category}-{variant} */
+  color: var(--lufa-color-text-primary);
+  background: var(--lufa-color-background-success);
+  border-color: var(--lufa-color-border-default);
 
-  /* Spacing: --lufa-token-spacing-{size} */
-  padding: var(--lufa-token-spacing-default);
-  margin: var(--lufa-token-spacing-compact);
-  gap: var(--lufa-token-spacing-comfortable);
+  /* Spacing: --lufa-spacing-{size} */
+  padding: var(--lufa-spacing-default);
+  margin: var(--lufa-spacing-compact);
+  gap: var(--lufa-spacing-comfortable);
 
-  /* Typography: --lufa-token-{property}-{variant} */
-  font-size: var(--lufa-token-font-size-h1);
-  font-weight: var(--lufa-token-font-weight-bold);
-  line-height: var(--lufa-token-line-height-base);
+  /* Typography: --lufa-{property}-{variant} */
+  font-size: var(--lufa-font-size-h1);
+  font-weight: var(--lufa-font-weight-bold);
+  line-height: var(--lufa-line-height-base);
 
-  /* Layout: --lufa-token-{category}-{variant} */
-  border-radius: var(--lufa-token-radius-base);
-  box-shadow: var(--lufa-token-shadow-md);
+  /* Layout: --lufa-{category}-{variant} */
+  border-radius: var(--lufa-radius-base);
+  box-shadow: var(--lufa-shadow-md);
 
-  /* Dimensions: --lufa-token-dimensions-{component}-{size} */
-  height: var(--lufa-token-dimensions-navbar-height-default);
-  width: var(--lufa-token-dimensions-modal-width-default);
+  /* Dimensions: --lufa-dimensions-{component}-{size} */
+  height: var(--lufa-dimensions-navbar-height-default);
+  width: var(--lufa-dimensions-modal-width-default);
 
-  /* Motion: --lufa-token-{property}-{variant} */
-  transition: var(--lufa-token-transition-fast);
-  cursor: var(--lufa-token-cursor-pointer);
-  transform: var(--lufa-token-transform-hover-lift);
+  /* Motion: --lufa-{property}-{variant} */
+  transition: var(--lufa-transition-fast);
+  cursor: var(--lufa-cursor-pointer);
+  transform: var(--lufa-transform-hover-lift);
 }
 ```
 

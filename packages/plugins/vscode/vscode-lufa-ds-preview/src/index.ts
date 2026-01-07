@@ -2,7 +2,7 @@
  * VS Code extension entry point wiring activation, providers, and lifecycle.
  */
 import * as vscode from 'vscode';
-import { createCompletionProvider, createDocumentColorProvider, createHoverProvider } from './preview-providers';
+import { createDocumentColorProvider, createHoverProvider } from './providers';
 import { createValuesMapStore } from './values-map-store';
 import type { ValuesMapStore } from './values-map-store';
 
@@ -58,10 +58,6 @@ export function activate(context: vscode.ExtensionContext): void {
     loadValuesMap: () => mapStore?.loadValuesMap() ?? null,
   });
 
-  const completionProvider = createCompletionProvider({
-    loadValuesMap: () => mapStore?.loadValuesMap() ?? null,
-  });
-
   const selector: vscode.DocumentSelector = [
     { scheme: 'file', language: 'css' },
     { scheme: 'file', language: 'scss' },
@@ -73,9 +69,6 @@ export function activate(context: vscode.ExtensionContext): void {
 
   context.subscriptions.push(vscode.languages.registerColorProvider(selector, provider));
   context.subscriptions.push(vscode.languages.registerHoverProvider(selector, hoverProvider));
-  context.subscriptions.push(
-    vscode.languages.registerCompletionItemProvider(selector, completionProvider, '-', '.', '[', '"', "'")
-  );
 }
 
 /**
