@@ -16,6 +16,7 @@ const vscodeMocks = vi.hoisted(() => {
 
   const registerColorProvider = vi.fn(() => ({ dispose: vi.fn() }));
   const registerHoverProvider = vi.fn(() => ({ dispose: vi.fn() }));
+  const registerCompletionItemProvider = vi.fn(() => ({ dispose: vi.fn() }));
   const onDidChangeConfiguration = vi.fn(() => ({ dispose: vi.fn() }));
   const createFileSystemWatcher = vi.fn(() => ({
     onDidChange: vi.fn(),
@@ -31,6 +32,7 @@ const vscodeMocks = vi.hoisted(() => {
     createOutputChannel.mockClear();
     registerColorProvider.mockClear();
     registerHoverProvider.mockClear();
+    registerCompletionItemProvider.mockClear();
     onDidChangeConfiguration.mockClear();
     createFileSystemWatcher.mockClear();
     getConfiguration.mockClear();
@@ -41,6 +43,7 @@ const vscodeMocks = vi.hoisted(() => {
     createOutputChannel,
     registerColorProvider,
     registerHoverProvider,
+    registerCompletionItemProvider,
     onDidChangeConfiguration,
     createFileSystemWatcher,
     getConfiguration,
@@ -62,6 +65,7 @@ vi.mock('vscode', () => ({
   languages: {
     registerColorProvider: vscodeMocks.registerColorProvider,
     registerHoverProvider: vscodeMocks.registerHoverProvider,
+    registerCompletionItemProvider: vscodeMocks.registerCompletionItemProvider,
   },
   MarkdownString: class {
     appendMarkdown(markdown: string) {
@@ -115,6 +119,7 @@ describe('extension activation', () => {
     expect(vscodeMocks.createOutputChannel).toHaveBeenCalledWith('Lufa DS Preview');
     expect(vscodeMocks.registerColorProvider).toHaveBeenCalledTimes(1);
     expect(vscodeMocks.registerHoverProvider).toHaveBeenCalledTimes(1);
+    expect(vscodeMocks.registerCompletionItemProvider).toHaveBeenCalledTimes(1);
 
     const expectedSelector = [
       { scheme: 'file', language: 'css' },
@@ -127,12 +132,15 @@ describe('extension activation', () => {
 
     const [colorSelector, colorProvider] = vscodeMocks.registerColorProvider.mock.calls[0];
     const [hoverSelector, hoverProvider] = vscodeMocks.registerHoverProvider.mock.calls[0];
+    const [completionSelector, completionProvider] = vscodeMocks.registerCompletionItemProvider.mock.calls[0];
 
     expect(colorSelector).toEqual(expectedSelector);
     expect(hoverSelector).toEqual(expectedSelector);
+    expect(completionSelector).toEqual(expectedSelector);
     expect(typeof colorProvider.provideDocumentColors).toBe('function');
     expect(typeof hoverProvider.provideHover).toBe('function');
-    expect(context.subscriptions.length).toBe(4);
+    expect(typeof completionProvider.provideCompletionItems).toBe('function');
+    expect(context.subscriptions.length).toBe(5);
   });
 
   it('should dispose the output channel on deactivate', () => {
