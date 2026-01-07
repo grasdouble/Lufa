@@ -102,34 +102,38 @@ jobs:
             #  - packages/design-system/main/...             -> 2 segments (design-system/main)
             #  - packages/config/eslint/...                  -> 2 segments (config/eslint)
             #  - packages/some-package/...                   -> 1 segment (some-package)
+            # Fallback to shorter paths when a deeper segment isn't a package.
+            candidates=()
             if [[ $file =~ ^packages/([^/]+)/([^/]+)/([^/]+)/ ]]; then
-              # 3-segment use case: packages/<type>/<category>/<name>
               package_type="${BASH_REMATCH[1]}"
               category="${BASH_REMATCH[2]}"
               package_name="${BASH_REMATCH[3]}"
-              package_path="packages/${package_type}/${category}/${package_name}"
+              candidates+=("packages/${package_type}/${category}/${package_name}")
+              candidates+=("packages/${package_type}/${category}")
+              candidates+=("packages/${package_type}")
             elif [[ $file =~ ^packages/([^/]+)/([^/]+)/ ]]; then
-              # 2-segment use case: packages/<type>/<name>
               package_type="${BASH_REMATCH[1]}"
               package_name="${BASH_REMATCH[2]}"
-              package_path="packages/${package_type}/${package_name}"
+              candidates+=("packages/${package_type}/${package_name}")
+              candidates+=("packages/${package_type}")
             elif [[ $file =~ ^packages/([^/]+)/ ]]; then
-              # 1-segment use case: packages/<name>
               single_segment="${BASH_REMATCH[1]}"
-              package_path="packages/${single_segment}"
+              candidates+=("packages/${single_segment}")
             else
               # Not a path we care about for package detection
               continue
             fi
 
-            # Check if package.json exists
-            if [ -f "${package_path}/package.json" ]; then
-              # Extract npm package name from package.json
-              npm_name=$(node -p "require('./${package_path}/package.json').name" 2>/dev/null || echo "")
-              if [ -n "$npm_name" ]; then
-                packages_map["$npm_name"]=1
+            for package_path in "${candidates[@]}"; do
+              if [ -f "${package_path}/package.json" ]; then
+                # Extract npm package name from package.json
+                npm_name=$(node -p "require('./${package_path}/package.json').name" 2>/dev/null || echo "")
+                if [ -n "$npm_name" ]; then
+                  packages_map["$npm_name"]=1
+                fi
+                break
               fi
-            fi
+            done
           done
 
           # Convert to array
