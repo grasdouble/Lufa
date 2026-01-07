@@ -7,6 +7,8 @@ export interface TokenEntry {
   value: string | number;
 }
 
+const TOKEN_CSS_PREFIX = '--lufa-token-';
+
 /**
  * Check if a string represents a numeric key
  */
@@ -80,7 +82,7 @@ export const flattenPaths = (obj: Record<string, unknown>, segments: string[], o
 export const generateSection = (title: string, entries: TokenEntry[]): string => {
   let css = `\n  /* ${title} */\n`;
   for (const { name, value } of entries) {
-    css += `  --lufa-${name}: ${value};\n`;
+    css += `  ${TOKEN_CSS_PREFIX}${name}: ${value};\n`;
   }
   return css;
 };

@@ -4,10 +4,10 @@
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { isAbsolute, join } from 'node:path';
 import * as vscode from 'vscode';
-import { mergePreviewConfig, parseFlatConfig, parseObjectConfig } from './config-utils';
-import { getEmbeddedMapPath, isValidMap } from './map-utils';
-import type { LufaPreviewConfig } from './config-utils';
-import type { TokenMap } from './map-utils';
+import { mergePreviewConfig, parseFlatConfig, parseObjectConfig } from './preview-config';
+import { getEmbeddedMapPath, isValidMap } from './values-map';
+import type { LufaPreviewConfig } from './preview-config';
+import type { TokenMap } from './values-map';
 
 type ValuesMapStore = {
   loadValuesMap: () => TokenMap | null;
@@ -20,15 +20,18 @@ type ValuesMapStore = {
 
 type LogOnce = (message: string) => void;
 
+type MapCacheState = {
+  path: string | null;
+  mtime: number;
+};
+
 /**
  * Create a map store for loading and watching token maps with caching.
  */
 const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
   let cachedValuesMap: TokenMap | null = null;
-  let cachedPrimitivesPath: string | null = null;
-  let cachedPrimitivesMtime = 0;
-  let cachedTokensPath: string | null = null;
-  let cachedTokensMtime = 0;
+  const primitivesCache: MapCacheState = { path: null, mtime: 0 };
+  const tokensCache: MapCacheState = { path: null, mtime: 0 };
   let primitivesWatcher: vscode.FileSystemWatcher | null = null;
   let tokensWatcher: vscode.FileSystemWatcher | null = null;
   let extensionRootPath: string | null = null;
@@ -47,6 +50,26 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
    * Check whether debug logging is enabled.
    */
   const isDebugEnabled = (): boolean => getLufaPreviewConfig().debug ?? false;
+
+  const resetMapCache = (cache: MapCacheState): void => {
+    cache.path = null;
+    cache.mtime = 0;
+  };
+
+  const invalidateMapCache = (cache: MapCacheState): void => {
+    cachedValuesMap = null;
+    resetMapCache(cache);
+  };
+
+  const getCachedMapSnapshot = (): TokenMap | null => {
+    if (!cachedValuesMap) return null;
+    return {
+      version: cachedValuesMap.version,
+      generatedAt: cachedValuesMap.generatedAt,
+      paths: cachedValuesMap.paths,
+      css: cachedValuesMap.css,
+    };
+  };
 
   /**
    * Ensure a path is within a workspace folder to avoid unsafe access.
@@ -111,111 +134,62 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
     return resolved ?? getPackagedTokensMapPath();
   };
 
+  type MapLoadOptions = {
+    label: 'primitives' | 'tokens';
+    mapPath: string | null;
+    cache: MapCacheState;
+    notFoundHint: string;
+  };
+
   /**
-   * Load and validate the primitives map with caching and logging.
+   * Load and validate a map with caching and logging.
    */
-  const loadPrimitivesMap = (primitivesPath: string | null): TokenMap | null => {
-    if (!primitivesPath) {
-      logOnce('lufa: No primitives map path available.');
+  const loadMap = ({ label, mapPath, cache, notFoundHint }: MapLoadOptions): TokenMap | null => {
+    if (!mapPath) {
+      logOnce(`lufa: No ${label} map path available.`);
       return null;
     }
 
+    const labelTitle = `${label[0].toUpperCase()}${label.slice(1)}`;
+
     try {
-      const stat = statSync(primitivesPath);
-      if (
-        cachedPrimitivesPath === primitivesPath &&
-        cachedPrimitivesMtime === stat.mtimeMs &&
-        cachedValuesMap?.paths
-      ) {
-        return {
-          version: cachedValuesMap.version,
-          generatedAt: cachedValuesMap.generatedAt,
-          paths: cachedValuesMap.paths,
-          css: cachedValuesMap.css,
-        };
+      const stat = statSync(mapPath);
+      if (cache.path === mapPath && cache.mtime === stat.mtimeMs && cachedValuesMap?.paths) {
+        return getCachedMapSnapshot();
       }
 
-      const raw = readFileSync(primitivesPath, 'utf8');
+      const raw = readFileSync(mapPath, 'utf8');
       const parsed: unknown = JSON.parse(raw);
 
       if (!isValidMap(parsed)) {
-        cachedPrimitivesPath = primitivesPath;
-        cachedPrimitivesMtime = 0;
-        logOnce(`lufa: Invalid primitives map structure at ${primitivesPath}.`);
+        cache.path = mapPath;
+        cache.mtime = 0;
+        logOnce(`lufa: Invalid ${label} map structure at ${mapPath}.`);
         return null;
       }
 
-      cachedPrimitivesPath = primitivesPath;
-      cachedPrimitivesMtime = stat.mtimeMs;
-      logOnce(`lufa: Loaded primitives map from ${primitivesPath} (version ${parsed.version})`);
+      cache.path = mapPath;
+      cache.mtime = stat.mtimeMs;
+      logOnce(`lufa: Loaded ${label} map from ${mapPath} (version ${parsed.version})`);
 
       return parsed;
     } catch (error) {
-      cachedPrimitivesPath = primitivesPath;
-      cachedPrimitivesMtime = 0;
+      cache.path = mapPath;
+      cache.mtime = 0;
 
       if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-        logOnce(
-          `lufa: Primitives map not found at ${primitivesPath}. Build @grasdouble/lufa_design-system-primitives or set lufaDsPreview.primitivesMapPath.`
-        );
+        logOnce(`lufa: ${labelTitle} map not found at ${mapPath}. ${notFoundHint}`);
       } else {
         const errorMsg = error instanceof Error ? error.message : String(error);
-        logOnce(`lufa: Error loading primitives map: ${errorMsg}.`);
+        logOnce(`lufa: Error loading ${label} map: ${errorMsg}.`);
       }
       return null;
     }
   };
 
-  /**
-   * Load and validate the tokens map with caching and logging.
-   */
-  const loadTokensMap = (tokensPath: string | null): TokenMap | null => {
-    if (!tokensPath) {
-      logOnce('lufa: No tokens map path available.');
-      return null;
-    }
-
-    try {
-      const stat = statSync(tokensPath);
-      if (cachedTokensPath === tokensPath && cachedTokensMtime === stat.mtimeMs && cachedValuesMap?.paths) {
-        return {
-          version: cachedValuesMap.version,
-          generatedAt: cachedValuesMap.generatedAt,
-          paths: cachedValuesMap.paths,
-          css: cachedValuesMap.css,
-        };
-      }
-
-      const raw = readFileSync(tokensPath, 'utf8');
-      const parsed: unknown = JSON.parse(raw);
-
-      if (!isValidMap(parsed)) {
-        cachedTokensPath = tokensPath;
-        cachedTokensMtime = 0;
-        logOnce(`lufa: Invalid tokens map structure at ${tokensPath}.`);
-        return null;
-      }
-
-      cachedTokensPath = tokensPath;
-      cachedTokensMtime = stat.mtimeMs;
-      logOnce(`lufa: Loaded tokens map from ${tokensPath} (version ${parsed.version})`);
-
-      return parsed;
-    } catch (error) {
-      cachedTokensPath = tokensPath;
-      cachedTokensMtime = 0;
-
-      if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-        logOnce(
-          `lufa: Tokens map not found at ${tokensPath}. Build @grasdouble/lufa_design-system-tokens or set lufaDsPreview.tokensMapPath.`
-        );
-      } else {
-        const errorMsg = error instanceof Error ? error.message : String(error);
-        logOnce(`lufa: Error loading tokens map: ${errorMsg}.`);
-      }
-      return null;
-    }
-  };
+  const primitivesNotFoundHint =
+    'Build @grasdouble/lufa_design-system-primitives or set lufaDsPreview.primitivesMapPath.';
+  const tokensNotFoundHint = 'Build @grasdouble/lufa_design-system-tokens or set lufaDsPreview.tokensMapPath.';
 
   /**
    * Load and merge primitives/tokens maps into a single values map.
@@ -229,17 +203,37 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
     const packagedPrimitivesPath = getPackagedPrimitivesMapPath();
     const packagedTokensPath = getPackagedTokensMapPath();
 
-    let primitivesMap = loadPrimitivesMap(configuredPrimitivesPath ?? packagedPrimitivesPath);
-    let tokensMap = loadTokensMap(configuredTokensPath ?? packagedTokensPath);
+    let primitivesMap = loadMap({
+      label: 'primitives',
+      mapPath: configuredPrimitivesPath ?? packagedPrimitivesPath,
+      cache: primitivesCache,
+      notFoundHint: primitivesNotFoundHint,
+    });
+    let tokensMap = loadMap({
+      label: 'tokens',
+      mapPath: configuredTokensPath ?? packagedTokensPath,
+      cache: tokensCache,
+      notFoundHint: tokensNotFoundHint,
+    });
 
     if (!primitivesMap && configuredPrimitivesPath && packagedPrimitivesPath) {
       logOnce(`lufa: Falling back to packaged primitives map at ${packagedPrimitivesPath}.`);
-      primitivesMap = loadPrimitivesMap(packagedPrimitivesPath);
+      primitivesMap = loadMap({
+        label: 'primitives',
+        mapPath: packagedPrimitivesPath,
+        cache: primitivesCache,
+        notFoundHint: primitivesNotFoundHint,
+      });
     }
 
     if (!tokensMap && configuredTokensPath && packagedTokensPath) {
       logOnce(`lufa: Falling back to packaged tokens map at ${packagedTokensPath}.`);
-      tokensMap = loadTokensMap(packagedTokensPath);
+      tokensMap = loadMap({
+        label: 'tokens',
+        mapPath: packagedTokensPath,
+        cache: tokensCache,
+        notFoundHint: tokensNotFoundHint,
+      });
     }
 
     if (!primitivesMap || !tokensMap) {
@@ -267,10 +261,8 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
    */
   const resetAllCache = (): void => {
     cachedValuesMap = null;
-    cachedPrimitivesMtime = 0;
-    cachedPrimitivesPath = null;
-    cachedTokensMtime = 0;
-    cachedTokensPath = null;
+    resetMapCache(primitivesCache);
+    resetMapCache(tokensCache);
   };
 
   /**
@@ -292,61 +284,46 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
 
     disposeWatchers();
 
-    if (primitivesMapPath) {
-      try {
-        primitivesWatcher = vscode.workspace.createFileSystemWatcher(primitivesMapPath);
+    const setupMapWatcher = (
+      label: 'primitives' | 'tokens',
+      mapPath: string | null,
+      cache: MapCacheState,
+      setWatcher: (watcher: vscode.FileSystemWatcher | null) => void
+    ): void => {
+      if (!mapPath) return;
 
-        const handlePrimitivesChange = () => {
-          cachedValuesMap = null;
-          cachedPrimitivesMtime = 0;
-          cachedPrimitivesPath = null;
-          logOnce(`lufa: Primitives map changed, cache invalidated: ${primitivesMapPath}`);
+      const labelTitle = `${label[0].toUpperCase()}${label.slice(1)}`;
+
+      try {
+        const watcher = vscode.workspace.createFileSystemWatcher(mapPath);
+
+        const handleChange = () => {
+          invalidateMapCache(cache);
+          logOnce(`lufa: ${labelTitle} map changed, cache invalidated: ${mapPath}`);
         };
 
-        primitivesWatcher.onDidChange(handlePrimitivesChange);
-        primitivesWatcher.onDidCreate(handlePrimitivesChange);
-        primitivesWatcher.onDidDelete(() => {
-          cachedValuesMap = null;
-          cachedPrimitivesMtime = 0;
-          cachedPrimitivesPath = null;
-          logOnce(`lufa: Primitives map deleted: ${primitivesMapPath}.`);
+        watcher.onDidChange(handleChange);
+        watcher.onDidCreate(handleChange);
+        watcher.onDidDelete(() => {
+          invalidateMapCache(cache);
+          logOnce(`lufa: ${labelTitle} map deleted: ${mapPath}.`);
         });
 
-        context.subscriptions.push(primitivesWatcher);
-        logOnce(`lufa: Watching primitives map for changes: ${primitivesMapPath}`);
+        setWatcher(watcher);
+        context.subscriptions.push(watcher);
+        logOnce(`lufa: Watching ${label} map for changes: ${mapPath}`);
       } catch (error) {
         const errorMsg = error instanceof Error ? error.message : String(error);
-        logOnce(`lufa: Failed to setup primitives file watcher: ${errorMsg}`);
+        logOnce(`lufa: Failed to setup ${label} file watcher: ${errorMsg}`);
       }
-    }
+    };
 
-    if (tokensMapPath) {
-      try {
-        tokensWatcher = vscode.workspace.createFileSystemWatcher(tokensMapPath);
-
-        const handleTokensChange = () => {
-          cachedValuesMap = null;
-          cachedTokensMtime = 0;
-          cachedTokensPath = null;
-          logOnce(`lufa: Tokens map changed, cache invalidated: ${tokensMapPath}`);
-        };
-
-        tokensWatcher.onDidChange(handleTokensChange);
-        tokensWatcher.onDidCreate(handleTokensChange);
-        tokensWatcher.onDidDelete(() => {
-          cachedValuesMap = null;
-          cachedTokensMtime = 0;
-          cachedTokensPath = null;
-          logOnce(`lufa: Tokens map deleted: ${tokensMapPath}.`);
-        });
-
-        context.subscriptions.push(tokensWatcher);
-        logOnce(`lufa: Watching tokens map for changes: ${tokensMapPath}`);
-      } catch (error) {
-        const errorMsg = error instanceof Error ? error.message : String(error);
-        logOnce(`lufa: Failed to setup tokens file watcher: ${errorMsg}`);
-      }
-    }
+    setupMapWatcher('primitives', primitivesMapPath, primitivesCache, (watcher) => {
+      primitivesWatcher = watcher;
+    });
+    setupMapWatcher('tokens', tokensMapPath, tokensCache, (watcher) => {
+      tokensWatcher = watcher;
+    });
   };
 
   /**
