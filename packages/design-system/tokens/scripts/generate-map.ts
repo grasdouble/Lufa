@@ -41,7 +41,7 @@ const flattenPaths = (obj: unknown, segments: string[], out: Record<string, stri
 
 const parseCssVariables = (cssText: string): Record<string, string> => {
   const css: Record<string, string> = {};
-  const varRe = /(--lufa-[a-z0-9-]+)\s*:\s*([^;]+);/gi;
+  const varRe = /(--lufa-token-[a-z0-9-]+)\s*:\s*([^;]+);/gi;
   let match: RegExpExecArray | null = null;
   while ((match = varRe.exec(cssText)) !== null) {
     css[match[1]] = match[2].trim();

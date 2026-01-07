@@ -1,13 +1,13 @@
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { getEmbeddedMapPath, isValidMap } from '../map-utils';
+import { getEmbeddedMapPath, isValidMap } from '../values-map';
 
 describe('Token Map Validation', () => {
   it('should validate correct map structure', () => {
     const validMap = {
       version: 1,
       generatedAt: '2026-01-04',
-      css: { '--lufa-color-primary': 'oklch(50% 0.1 200)' },
+      css: { '--lufa-token-color-primary': 'oklch(50% 0.1 200)' },
       paths: { 'primitives.color.chromatic.blue[500]': 'oklch(60% 0.15 250)' },
     };
 

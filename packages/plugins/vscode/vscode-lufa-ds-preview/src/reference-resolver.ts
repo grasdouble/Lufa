@@ -1,17 +1,20 @@
 /**
  * Utilities for resolving token values from maps and handling path variants.
  */
-import type { TokenMap } from './map-utils';
+import type { TokenMap } from './values-map';
+
+const toSingleQuotedPath = (value: string): string => value.replace(/\["([^"]+)"\]/g, "['$1']");
+const toDoubleQuotedPath = (value: string): string => value.replace(/\['([^']+)'\]/g, '["$1"]');
 
 /**
  * Add single-quote/double-quote path variants to a candidate set.
  */
 const addQuoteVariants = (value: string, candidates: Set<string>): void => {
   if (value.includes('["')) {
-    candidates.add(value.replace(/\["([^"]+)"\]/g, "['$1']"));
+    candidates.add(toSingleQuotedPath(value));
   }
   if (value.includes("['")) {
-    candidates.add(value.replace(/\['([^']+)'\]/g, '["$1"]'));
+    candidates.add(toDoubleQuotedPath(value));
   }
 };
 
@@ -44,12 +47,12 @@ const lookupValue = (map: Record<string, string> | undefined, keys: string[]): s
 };
 
 /**
- * Resolve a token or CSS variable from the provided values map.
+ * Resolve a token path or Lufa CSS variable from the provided values map.
  */
 const resolveTokenValueFromMap = (tokenText: string, valuesMap: TokenMap | null): string | null => {
   if (!valuesMap) return null;
 
-  if (tokenText.startsWith('--lufa-')) {
+  if (tokenText.startsWith('--lufa-token-') || tokenText.startsWith('--lufa-primitive-')) {
     return lookupValue(valuesMap.css, [tokenText]) ?? null;
   }
 
@@ -57,4 +60,4 @@ const resolveTokenValueFromMap = (tokenText: string, valuesMap: TokenMap | null)
   return lookupValue(valuesMap.paths, candidates) ?? null;
 };
 
-export { getPathCandidates, lookupValue, resolveTokenValueFromMap };
+export { getPathCandidates, lookupValue, resolveTokenValueFromMap, toDoubleQuotedPath, toSingleQuotedPath };

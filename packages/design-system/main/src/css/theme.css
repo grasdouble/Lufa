@@ -1,135 +1,135 @@
 /* Text Colors */
 @theme {
-  --color-text-primary: var(--lufa-color-text-primary);
-  --color-text-secondary: var(--lufa-color-text-secondary);
-  --color-text-tertiary: var(--lufa-color-text-tertiary);
-  --color-text-disabled: var(--lufa-color-text-disabled);
-  --color-text-inverse: var(--lufa-color-text-inverse);
-  --color-text-link: var(--lufa-color-text-link);
-  --color-text-link-hover: var(--lufa-color-text-linkHover);
+  --color-text-primary: var(--lufa-token-color-text-primary);
+  --color-text-secondary: var(--lufa-token-color-text-secondary);
+  --color-text-tertiary: var(--lufa-token-color-text-tertiary);
+  --color-text-disabled: var(--lufa-token-color-text-disabled);
+  --color-text-inverse: var(--lufa-token-color-text-inverse);
+  --color-text-link: var(--lufa-token-color-text-link);
+  --color-text-link-hover: var(--lufa-token-color-text-link-hover);
 }
 
 /* Background Colors */
 @theme {
-  --color-background-primary: var(--lufa-color-background-primary);
-  --color-background-secondary: var(--lufa-color-background-secondary);
-  --color-background-tertiary: var(--lufa-color-background-tertiary);
-  --color-background-inverse: var(--lufa-color-background-inverse);
-  --color-background-overlay: var(--lufa-color-background-overlay);
+  --color-background-primary: var(--lufa-token-color-background-primary);
+  --color-background-secondary: var(--lufa-token-color-background-secondary);
+  --color-background-tertiary: var(--lufa-token-color-background-tertiary);
+  --color-background-inverse: var(--lufa-token-color-background-inverse);
+  --color-background-overlay: var(--lufa-token-color-background-overlay);
 }
 
 /* Border Colors */
 @theme {
-  --color-border-default: var(--lufa-color-border-default);
-  --color-border-light: var(--lufa-color-border-light);
-  --color-border-medium: var(--lufa-color-border-medium);
-  --color-border-strong: var(--lufa-color-border-strong);
-  --color-border-focus: var(--lufa-color-border-focus);
+  --color-border-default: var(--lufa-token-color-border-default);
+  --color-border-light: var(--lufa-token-color-border-light);
+  --color-border-medium: var(--lufa-token-color-border-medium);
+  --color-border-strong: var(--lufa-token-color-border-strong);
+  --color-border-focus: var(--lufa-token-color-border-focus);
 }
 
 /* Interactive Colors */
 @theme {
-  --color-interactive-default: var(--lufa-color-interactive-default);
-  --color-interactive-hover: var(--lufa-color-interactive-hover);
-  --color-interactive-active: var(--lufa-color-interactive-active);
-  --color-interactive-disabled: var(--lufa-color-interactive-disabled);
-  --color-interactive-focus: var(--lufa-color-interactive-focus);
+  --color-interactive-default: var(--lufa-token-color-interactive-default);
+  --color-interactive-hover: var(--lufa-token-color-interactive-hover);
+  --color-interactive-active: var(--lufa-token-color-interactive-active);
+  --color-interactive-disabled: var(--lufa-token-color-interactive-disabled);
+  --color-interactive-focus: var(--lufa-token-color-interactive-focus);
 }
 
 /* Success Colors */
 @theme {
-  --color-success-default: var(--lufa-color-success-default);
-  --color-success-hover: var(--lufa-color-success-hover);
-  --color-success-active: var(--lufa-color-success-active);
-  --color-success-light: var(--lufa-color-success-light);
-  --color-success-lighter: var(--lufa-color-success-lighter);
-  --color-success-border: var(--lufa-color-success-border);
-  --color-success-text: var(--lufa-color-success-text);
+  --color-success-default: var(--lufa-token-color-success-default);
+  --color-success-hover: var(--lufa-token-color-success-hover);
+  --color-success-active: var(--lufa-token-color-success-active);
+  --color-success-light: var(--lufa-token-color-success-light);
+  --color-success-lighter: var(--lufa-token-color-success-lighter);
+  --color-success-border: var(--lufa-token-color-success-border);
+  --color-success-text: var(--lufa-token-color-success-text);
 }
 
 /* Warning Colors */
 @theme {
-  --color-warning-default: var(--lufa-color-warning-default);
-  --color-warning-hover: var(--lufa-color-warning-hover);
-  --color-warning-active: var(--lufa-color-warning-active);
-  --color-warning-light: var(--lufa-color-warning-light);
-  --color-warning-lighter: var(--lufa-color-warning-lighter);
-  --color-warning-border: var(--lufa-color-warning-border);
-  --color-warning-text: var(--lufa-color-warning-text);
+  --color-warning-default: var(--lufa-token-color-warning-default);
+  --color-warning-hover: var(--lufa-token-color-warning-hover);
+  --color-warning-active: var(--lufa-token-color-warning-active);
+  --color-warning-light: var(--lufa-token-color-warning-light);
+  --color-warning-lighter: var(--lufa-token-color-warning-lighter);
+  --color-warning-border: var(--lufa-token-color-warning-border);
+  --color-warning-text: var(--lufa-token-color-warning-text);
 }
 
 /* Error Colors */
 @theme {
-  --color-error-default: var(--lufa-color-error-default);
-  --color-error-hover: var(--lufa-color-error-hover);
-  --color-error-active: var(--lufa-color-error-active);
-  --color-error-light: var(--lufa-color-error-light);
-  --color-error-lighter: var(--lufa-color-error-lighter);
-  --color-error-border: var(--lufa-color-error-border);
-  --color-error-text: var(--lufa-color-error-text);
+  --color-error-default: var(--lufa-token-color-error-default);
+  --color-error-hover: var(--lufa-token-color-error-hover);
+  --color-error-active: var(--lufa-token-color-error-active);
+  --color-error-light: var(--lufa-token-color-error-light);
+  --color-error-lighter: var(--lufa-token-color-error-lighter);
+  --color-error-border: var(--lufa-token-color-error-border);
+  --color-error-text: var(--lufa-token-color-error-text);
 }
 
 /* Info Colors */
 @theme {
-  --color-info-default: var(--lufa-color-info-default);
-  --color-info-hover: var(--lufa-color-info-hover);
-  --color-info-active: var(--lufa-color-info-active);
-  --color-info-light: var(--lufa-color-info-light);
-  --color-info-lighter: var(--lufa-color-info-lighter);
-  --color-info-border: var(--lufa-color-info-border);
-  --color-info-text: var(--lufa-color-info-text);
+  --color-info-default: var(--lufa-token-color-info-default);
+  --color-info-hover: var(--lufa-token-color-info-hover);
+  --color-info-active: var(--lufa-token-color-info-active);
+  --color-info-light: var(--lufa-token-color-info-light);
+  --color-info-lighter: var(--lufa-token-color-info-lighter);
+  --color-info-border: var(--lufa-token-color-info-border);
+  --color-info-text: var(--lufa-token-color-info-text);
 }
 
 /* Brand Colors */
 @theme {
-  --color-brand-primary: var(--lufa-color-brand-primary);
-  --color-brand-primary-hover: var(--lufa-color-brand-primaryHover);
-  --color-brand-primary-active: var(--lufa-color-brand-primaryActive);
-  --color-brand-secondary: var(--lufa-color-brand-secondary);
-  --color-brand-secondary-hover: var(--lufa-color-brand-secondaryHover);
-  --color-brand-secondary-active: var(--lufa-color-brand-secondaryActive);
-  --color-brand-accent: var(--lufa-color-brand-accent);
+  --color-brand-primary: var(--lufa-token-color-brand-primary);
+  --color-brand-primary-hover: var(--lufa-token-color-brand-primary-hover);
+  --color-brand-primary-active: var(--lufa-token-color-brand-primary-active);
+  --color-brand-secondary: var(--lufa-token-color-brand-secondary);
+  --color-brand-secondary-hover: var(--lufa-token-color-brand-secondary-hover);
+  --color-brand-secondary-active: var(--lufa-token-color-brand-secondary-active);
+  --color-brand-accent: var(--lufa-token-color-brand-accent);
 }
 
 /* Surface Colors */
 @theme {
-  --color-surface-default: var(--lufa-color-surface-default);
-  --color-surface-raised: var(--lufa-color-surface-raised);
-  --color-surface-overlay: var(--lufa-color-surface-overlay);
-  --color-surface-inverse: var(--lufa-color-surface-inverse);
+  --color-surface-default: var(--lufa-token-color-surface-default);
+  --color-surface-raised: var(--lufa-token-color-surface-raised);
+  --color-surface-overlay: var(--lufa-token-color-surface-overlay);
+  --color-surface-inverse: var(--lufa-token-color-surface-inverse);
 }
 
 /* Shadow / Elevation Colors */
 @theme {
-  --color-shadow-small: var(--lufa-color-shadow-small);
-  --color-shadow-medium: var(--lufa-color-shadow-medium);
-  --color-shadow-large: var(--lufa-color-shadow-large);
-  --color-shadow-extra-large: var(--lufa-color-shadow-extraLarge);
+  --color-shadow-small: var(--lufa-token-color-shadow-small);
+  --color-shadow-medium: var(--lufa-token-color-shadow-medium);
+  --color-shadow-large: var(--lufa-token-color-shadow-large);
+  --color-shadow-extra-large: var(--lufa-token-color-shadow-extra-large);
 }
 
 /* Semantic Colors */
 @theme {
-  --color-primary: var(--lufa-color-interactive-default);
-  --color-secondary: var(--lufa-color-text-secondary);
-  --color-success: var(--lufa-color-success-default);
-  --color-warning: var(--lufa-color-warning-default);
-  --color-danger: var(--lufa-color-error-default);
-  --color-error: var(--lufa-color-error-default);
-  --color-info: var(--lufa-color-info-default);
+  --color-primary: var(--lufa-token-color-interactive-default);
+  --color-secondary: var(--lufa-token-color-text-secondary);
+  --color-success: var(--lufa-token-color-success-default);
+  --color-warning: var(--lufa-token-color-warning-default);
+  --color-danger: var(--lufa-token-color-error-default);
+  --color-error: var(--lufa-token-color-error-default);
+  --color-info: var(--lufa-token-color-info-default);
 }
 
 /* Lufa Spacing */
 @theme {
-  --spacing-none: var(--lufa-spacing-none);
-  --spacing-xxs: var(--lufa-spacing-xxs);
-  --spacing-xs: var(--lufa-spacing-xs);
-  --spacing-sm: var(--lufa-spacing-sm);
-  --spacing-md: var(--lufa-spacing-md);
-  --spacing-base: var(--lufa-spacing-base);
-  --spacing-lg: var(--lufa-spacing-lg);
-  --spacing-xl: var(--lufa-spacing-xl);
-  --spacing-2xl: var(--lufa-spacing-2xl);
-  --spacing-3xl: var(--lufa-spacing-3xl);
+  --spacing-none: var(--lufa-token-spacing-none);
+  --spacing-xxs: var(--lufa-token-spacing-xxs);
+  --spacing-xs: var(--lufa-token-spacing-xs);
+  --spacing-sm: var(--lufa-token-spacing-sm);
+  --spacing-md: var(--lufa-token-spacing-md);
+  --spacing-base: var(--lufa-token-spacing-base);
+  --spacing-lg: var(--lufa-token-spacing-lg);
+  --spacing-xl: var(--lufa-token-spacing-xl);
+  --spacing-2xl: var(--lufa-token-spacing-2xl);
+  --spacing-3xl: var(--lufa-token-spacing-3xl);
   --spacing: 0.25rem;
 }
 
@@ -142,46 +142,46 @@
 
 /* Lufa Cursors */
 @theme {
-  --cursor-pointer: var(--lufa-cursor-pointer);
-  --cursor-grab: var(--lufa-cursor-grab);
-  --cursor-grabbing: var(--lufa-cursor-grabbing);
-  --cursor-move: var(--lufa-cursor-move);
-  --cursor-not-allowed: var(--lufa-cursor-not-allowed);
-  --cursor-help: var(--lufa-cursor-help);
-  --cursor-wait: var(--lufa-cursor-wait);
+  --cursor-pointer: var(--lufa-token-cursor-pointer);
+  --cursor-grab: var(--lufa-token-cursor-grab);
+  --cursor-grabbing: var(--lufa-token-cursor-grabbing);
+  --cursor-move: var(--lufa-token-cursor-move);
+  --cursor-not-allowed: var(--lufa-token-cursor-not-allowed);
+  --cursor-help: var(--lufa-token-cursor-help);
+  --cursor-wait: var(--lufa-token-cursor-wait);
 }
 
 /* Lufa Transforms */
 @theme {
-  --transform-hover-lift: var(--lufa-transform-hover-lift);
-  --transform-hover-lift-more: var(--lufa-transform-hover-lift-more);
-  --transform-pressed: var(--lufa-transform-pressed-down);
-  --transform-scale-up: var(--lufa-transform-scale-up);
-  --transform-scale-down: var(--lufa-transform-scale-down);
+  --transform-hover-lift: var(--lufa-token-transform-hover-lift);
+  --transform-hover-lift-more: var(--lufa-token-transform-hover-lift-more);
+  --transform-pressed: var(--lufa-token-transform-pressed-down);
+  --transform-scale-up: var(--lufa-token-transform-scale-up);
+  --transform-scale-down: var(--lufa-token-transform-scale-down);
 }
 
 /* Lufa Dimensions */
 @theme {
-  --height-navbar: var(--lufa-dimensions-navbar-height-default);
-  --height-navbar-compact: var(--lufa-dimensions-navbar-height-compact);
-  --height-navbar-large: var(--lufa-dimensions-navbar-height-large);
-  --height-button: var(--lufa-dimensions-button-height-default);
-  --height-button-sm: var(--lufa-dimensions-button-height-small);
-  --height-button-lg: var(--lufa-dimensions-button-height-large);
-  --height-input: var(--lufa-dimensions-input-height-default);
-  --height-input-sm: var(--lufa-dimensions-input-height-small);
-  --height-input-lg: var(--lufa-dimensions-input-height-large);
-  --width-sidebar: var(--lufa-dimensions-sidebar-width-default);
-  --width-sidebar-collapsed: var(--lufa-dimensions-sidebar-width-collapsed);
-  --width-modal-sm: var(--lufa-dimensions-modal-width-small);
-  --width-modal: var(--lufa-dimensions-modal-width-default);
-  --width-modal-lg: var(--lufa-dimensions-modal-width-large);
+  --height-navbar: var(--lufa-token-dimensions-navbar-height-default);
+  --height-navbar-compact: var(--lufa-token-dimensions-navbar-height-compact);
+  --height-navbar-large: var(--lufa-token-dimensions-navbar-height-large);
+  --height-button: var(--lufa-token-dimensions-button-height-default);
+  --height-button-sm: var(--lufa-token-dimensions-button-height-small);
+  --height-button-lg: var(--lufa-token-dimensions-button-height-large);
+  --height-input: var(--lufa-token-dimensions-input-height-default);
+  --height-input-sm: var(--lufa-token-dimensions-input-height-small);
+  --height-input-lg: var(--lufa-token-dimensions-input-height-large);
+  --width-sidebar: var(--lufa-token-dimensions-sidebar-width-default);
+  --width-sidebar-collapsed: var(--lufa-token-dimensions-sidebar-width-collapsed);
+  --width-modal-sm: var(--lufa-token-dimensions-modal-width-small);
+  --width-modal: var(--lufa-token-dimensions-modal-width-default);
+  --width-modal-lg: var(--lufa-token-dimensions-modal-width-large);
 }
 
 /* Lufa Content Measure (optimal line lengths) */
 @theme {
-  --measure-narrow: var(--lufa-measure-narrow);
-  --measure-default: var(--lufa-measure-default);
-  --measure-comfortable: var(--lufa-measure-comfortable);
-  --measure-wide: var(--lufa-measure-wide);
+  --measure-narrow: var(--lufa-token-measure-narrow);
+  --measure-default: var(--lufa-token-measure-default);
+  --measure-comfortable: var(--lufa-token-measure-comfortable);
+  --measure-wide: var(--lufa-token-measure-wide);
 }

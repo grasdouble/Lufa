@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mergePreviewConfig, parseFlatConfig, parseObjectConfig } from '../config-utils';
+import { mergePreviewConfig, parseFlatConfig, parseObjectConfig } from '../preview-config';
 
 const createFlatConfig = (values: Record<string, unknown>) => {
   return {
