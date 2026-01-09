@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Center, Placeholder, Spinner, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Center, Placeholder, Spinner, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
       borderRadius: '8px',
       marginBottom: '16px',
     }}
@@ -18,7 +17,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           marginBottom: 12,
         }}
       >
@@ -33,7 +32,7 @@ const Panel = ({ children }: { children: React.ReactNode }) => (
   <div
     style={{
       borderRadius: 12,
-      border: `1px solid ${color.border.light}`,
+      border: `1px solid ${tokens.color.border.light}`,
       background: '#fff',
       minHeight: 160,
       padding: 12,
@@ -48,7 +47,7 @@ const Panel = ({ children }: { children: React.ReactNode }) => (
           top: 0,
           bottom: 0,
           width: 1,
-          background: color.border.light,
+          background: tokens.color.border.light,
         }}
       />
       <div
@@ -58,7 +57,7 @@ const Panel = ({ children }: { children: React.ReactNode }) => (
           left: 0,
           right: 0,
           height: 1,
-          background: color.border.light,
+          background: tokens.color.border.light,
         }}
       />
     </div>
@@ -73,7 +72,7 @@ export const LiveDemo = () => (
       minHeight={200}
       style={{
         borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
+        border: `1px solid ${tokens.color.border.light}`,
         background: '#fff',
       }}
     >
@@ -102,7 +101,7 @@ export const Axis = () => (
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -110,7 +109,7 @@ export const Axis = () => (
           </div>
           <Panel>
             <Center axis={axis} minHeight={160}>
-              <Placeholder color={color.interactive.default} width="auto">
+              <Placeholder color={tokens.color.interactive.default} width="auto">
                 Content
               </Placeholder>
             </Center>
@@ -123,7 +122,7 @@ export const Axis = () => (
 
 export const Inline = () => (
   <Frame title="inline">
-    <div style={{ lineHeight: 1.9, color: color.text.primary }}>
+    <div style={{ lineHeight: 1.9, color: tokens.color.text.primary }}>
       Text before
       <Center
         as="span"
@@ -133,7 +132,7 @@ export const Inline = () => (
           marginInline: 8,
           padding: '2px 10px',
           borderRadius: 999,
-          background: color.background.secondary,
+          background: tokens.color.background.secondary,
         }}
       >
         <span style={{ fontFamily: 'monospace', fontSize: 12 }}>badge</span>
@@ -157,7 +156,7 @@ export const MinHeight = () => (
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -165,7 +164,7 @@ export const MinHeight = () => (
           </div>
           <Panel>
             <Center axis="both" minHeight={minHeight}>
-              <Placeholder color={color.interactive.default} width="auto">
+              <Placeholder color={tokens.color.interactive.default} width="auto">
                 Content
               </Placeholder>
             </Center>
@@ -194,7 +193,7 @@ export const As = () => (
           minHeight={96}
           style={{
             borderRadius: 12,
-            border: `1px solid ${color.border.light}`,
+            border: `1px solid ${tokens.color.border.light}`,
             background: '#fff',
           }}
         >
@@ -202,7 +201,7 @@ export const As = () => (
             style={{
               fontFamily: 'monospace',
               fontSize: 12,
-              color: color.text.secondary,
+              color: tokens.color.text.secondary,
             }}
           >
             {label}
@@ -228,7 +227,7 @@ export const LoadingPanelExample = () => (
       <Center axis="both" minHeight={200}>
         <Stack direction="vertical" gap="normal" align="center">
           <Spinner />
-          <div style={{ color: color.text.secondary, fontSize: 12 }}>Loading…</div>
+          <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>Loading…</div>
         </Stack>
       </Center>
     </Panel>
@@ -240,14 +239,14 @@ export const EmptyStateExample = () => (
     <div
       style={{
         borderRadius: 12,
-        border: `1px dashed ${color.border.light}`,
+        border: `1px dashed ${tokens.color.border.light}`,
         background: '#fff',
       }}
     >
       <Center axis="both" minHeight={220} style={{ padding: 16 }}>
         <Stack direction="vertical" gap="condensed" align="center">
-          <div style={{ fontWeight: 700, color: color.text.primary }}>No results</div>
-          <div style={{ color: color.text.secondary, fontSize: 12 }}>Try changing your filters.</div>
+          <div style={{ fontWeight: 700, color: tokens.color.text.primary }}>No results</div>
+          <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>Try changing your filters.</div>
         </Stack>
       </Center>
     </div>

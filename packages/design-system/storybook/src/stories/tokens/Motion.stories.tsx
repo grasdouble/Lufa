@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { easing, motion, timing } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Motion',
@@ -33,7 +33,7 @@ export const TimingTokens: Story = {
             marginBottom: '40px',
           }}
         >
-          {Object.entries(timing).map(([key, value]) => (
+          {Object.entries(tokens.timing).map(([key, value]) => (
             <div key={key}>
               <div
                 onClick={() => {
@@ -109,7 +109,7 @@ export const EasingTokens: Story = {
             marginBottom: '40px',
           }}
         >
-          {Object.entries(easing).map(([key, value]) => (
+          {Object.entries(tokens.easing).map(([key, value]) => (
             <div key={key}>
               <div
                 onClick={() => {
@@ -195,7 +195,7 @@ export const MotionPresets: Story = {
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {Object.entries(motion).map(([key, config]) => (
+          {Object.entries(tokens.motion).map(([key, config]) => (
             <div
               key={key}
               style={{

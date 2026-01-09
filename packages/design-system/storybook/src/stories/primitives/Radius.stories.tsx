@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { radius } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Radius',
@@ -23,7 +23,7 @@ export const AllRadius: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(radius).map(([key, value]) => (
+        {Object.entries(primitives.radius).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -100,7 +100,7 @@ export const UsageExamples: Story = {
                 backgroundColor: '#3B82F6',
                 color: 'white',
                 border: 'none',
-                borderRadius: radius[4],
+                borderRadius: primitives.radius[4],
                 fontWeight: '500',
                 cursor: 'pointer',
               }}
@@ -113,7 +113,7 @@ export const UsageExamples: Story = {
                 backgroundColor: '#3B82F6',
                 color: 'white',
                 border: 'none',
-                borderRadius: radius[8],
+                borderRadius: primitives.radius[8],
                 fontWeight: '500',
                 cursor: 'pointer',
               }}
@@ -126,7 +126,7 @@ export const UsageExamples: Story = {
                 backgroundColor: '#3B82F6',
                 color: 'white',
                 border: 'none',
-                borderRadius: radius[9999],
+                borderRadius: primitives.radius[9999],
                 fontWeight: '500',
                 cursor: 'pointer',
               }}
@@ -150,7 +150,7 @@ export const UsageExamples: Story = {
                 padding: '20px',
                 backgroundColor: 'white',
                 border: '1px solid #E5E5E5',
-                borderRadius: radius[8],
+                borderRadius: primitives.radius[8],
                 boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
               }}
             >
@@ -162,7 +162,7 @@ export const UsageExamples: Story = {
                 padding: '20px',
                 backgroundColor: 'white',
                 border: '1px solid #E5E5E5',
-                borderRadius: radius[16],
+                borderRadius: primitives.radius[16],
                 boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
               }}
             >
@@ -182,7 +182,7 @@ export const UsageExamples: Story = {
                 color: '#1E40AF',
                 fontSize: '12px',
                 fontWeight: '500',
-                borderRadius: radius[4],
+                borderRadius: primitives.radius[4],
               }}
             >
               Subtle (4px)
@@ -194,7 +194,7 @@ export const UsageExamples: Story = {
                 color: '#1E40AF',
                 fontSize: '12px',
                 fontWeight: '500',
-                borderRadius: radius[9999],
+                borderRadius: primitives.radius[9999],
               }}
             >
               Pill (9999px)
@@ -210,7 +210,7 @@ export const UsageExamples: Story = {
                 color: 'white',
                 fontSize: '12px',
                 fontWeight: '600',
-                borderRadius: radius[9999],
+                borderRadius: primitives.radius[9999],
               }}
             >
               3
@@ -226,7 +226,7 @@ export const UsageExamples: Story = {
                 width: '120px',
                 height: '120px',
                 backgroundColor: '#E5E7EB',
-                borderRadius: radius[8],
+                borderRadius: primitives.radius[8],
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -241,7 +241,7 @@ export const UsageExamples: Story = {
                 width: '64px',
                 height: '64px',
                 backgroundColor: '#3B82F6',
-                borderRadius: radius[9999],
+                borderRadius: primitives.radius[9999],
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -257,7 +257,7 @@ export const UsageExamples: Story = {
                 width: '48px',
                 height: '48px',
                 backgroundColor: '#10B981',
-                borderRadius: radius[9999],
+                borderRadius: primitives.radius[9999],
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -279,7 +279,7 @@ export const UsageExamples: Story = {
               padding: '32px',
               backgroundColor: 'white',
               border: '1px solid #E5E5E5',
-              borderRadius: radius[12],
+              borderRadius: primitives.radius[12],
               boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)',
             }}
           >
@@ -294,7 +294,7 @@ export const UsageExamples: Story = {
                   backgroundColor: 'transparent',
                   color: '#737373',
                   border: '1px solid #E5E5E5',
-                  borderRadius: radius[6],
+                  borderRadius: primitives.radius[6],
                   fontWeight: '500',
                   cursor: 'pointer',
                 }}
@@ -307,7 +307,7 @@ export const UsageExamples: Story = {
                   backgroundColor: '#3B82F6',
                   color: 'white',
                   border: 'none',
-                  borderRadius: radius[6],
+                  borderRadius: primitives.radius[6],
                   fontWeight: '500',
                   cursor: 'pointer',
                 }}

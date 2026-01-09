@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { aspectRatio, blur, grid, maxWidth, size, zIndex } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Layout',
@@ -23,7 +23,7 @@ export const MaxWidth: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(maxWidth).map(([key, value]) => (
+        {Object.entries(primitives.maxWidth).map(([key, value]) => (
           <div key={key} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
               <div
@@ -75,7 +75,7 @@ export const Sizes: Story = {
       </p>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'flex-end' }}>
-        {Object.entries(size).map(([key, value]) => (
+        {Object.entries(primitives.size).map(([key, value]) => (
           <div key={key} style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
             <div
               style={{
@@ -130,7 +130,7 @@ export const Grid: Story = {
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Columns</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
-        {Object.entries(grid.columns).map(([key, value]) => (
+        {Object.entries(primitives.grid.columns).map(([key, value]) => (
           <div key={key}>
             <div style={{ fontFamily: 'monospace', fontSize: '12px', color: '#737373', marginBottom: '8px' }}>
               columns[{key}] = {value}
@@ -167,7 +167,7 @@ export const Grid: Story = {
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Gutters</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(grid.gutters).map(([key, value]) => (
+        {Object.entries(primitives.grid.gutters).map(([key, value]) => (
           <div key={key}>
             <div style={{ fontFamily: 'monospace', fontSize: '12px', color: '#737373', marginBottom: '8px' }}>
               gutters[{key}] = {value}
@@ -206,7 +206,7 @@ export const AspectRatio: Story = {
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }}>
-        {Object.entries(aspectRatio).map(([key, value]) => (
+        {Object.entries(primitives.aspectRatio).map(([key, value]) => (
           <div key={key} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <div
               style={{
@@ -298,7 +298,7 @@ export const ZIndex: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(zIndex).map(([key, value]) => (
+        {Object.entries(primitives.zIndex).map(([key, value]) => (
           <div
             key={key}
             style={{

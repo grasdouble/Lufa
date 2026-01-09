@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Alert, Button, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Alert, Button } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '5. Feedback/Alert',
@@ -180,8 +179,8 @@ export const UsageExamples: Story = {
           Use keyboard shortcuts to navigate faster. Press{' '}
           <code
             style={{
-              background: color.background.secondary,
-              border: `1px solid ${color.border.light}`,
+              background: tokens.color.background.secondary,
+              border: `1px solid ${tokens.color.border.light}`,
               padding: '2px 6px',
               borderRadius: '6px',
             }}

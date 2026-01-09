@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Badge, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Badge, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
       borderRadius: '8px',
       marginBottom: '16px',
     }}
@@ -18,7 +17,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           marginBottom: 12,
         }}
       >
@@ -153,7 +152,7 @@ export const StatusListExample = () => (
           justifyContent: 'space-between',
         }}
       >
-        <div style={{ color: color.text.primary }}>Payments</div>
+        <div style={{ color: tokens.color.text.primary }}>Payments</div>
         <Badge variant="success" dot rounded>
           Healthy
         </Badge>
@@ -165,7 +164,7 @@ export const StatusListExample = () => (
           justifyContent: 'space-between',
         }}
       >
-        <div style={{ color: color.text.primary }}>Webhooks</div>
+        <div style={{ color: tokens.color.text.primary }}>Webhooks</div>
         <Badge variant="warning" dot rounded>
           Delayed
         </Badge>
@@ -177,7 +176,7 @@ export const StatusListExample = () => (
           justifyContent: 'space-between',
         }}
       >
-        <div style={{ color: color.text.primary }}>Fraud checks</div>
+        <div style={{ color: tokens.color.text.primary }}>Fraud checks</div>
         <Badge variant="danger" dot rounded>
           Action required
         </Badge>
@@ -202,13 +201,13 @@ export const NavigationCountExample = () => (
             justifyContent: 'space-between',
           }}
         >
-          <div style={{ color: color.text.primary }}>{label}</div>
+          <div style={{ color: tokens.color.text.primary }}>{label}</div>
           {count > 0 ? (
             <Badge variant={variant} rounded>
               {count}
             </Badge>
           ) : (
-            <div style={{ color: color.text.tertiary, fontSize: 12 }}>—</div>
+            <div style={{ color: tokens.color.text.tertiary, fontSize: 12 }}>—</div>
           )}
         </div>
       ))}

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { opacity } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Opacity',
@@ -23,7 +23,7 @@ export const AllOpacity: Story = {
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-        {Object.entries(opacity).map(([key, value]) => (
+        {Object.entries(primitives.opacity).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -141,7 +141,7 @@ export const UsageExamples: Story = {
                 position: 'absolute',
                 inset: 0,
                 backgroundColor: '#000',
-                opacity: opacity[75],
+                opacity: primitives.opacity[75],
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -189,7 +189,7 @@ export const UsageExamples: Story = {
                 border: 'none',
                 borderRadius: '6px',
                 fontWeight: '500',
-                opacity: opacity[50],
+                opacity: primitives.opacity[50],
                 cursor: 'not-allowed',
               }}
             >
@@ -228,7 +228,7 @@ export const UsageExamples: Story = {
                 fontSize: '18px',
                 fontWeight: '600',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = String(opacity[25]))}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = String(primitives.opacity[25]))}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = '0')}
             >
               Hover to see overlay
@@ -244,7 +244,7 @@ export const UsageExamples: Story = {
                 height: '20px',
                 backgroundColor: '#E5E7EB',
                 borderRadius: '4px',
-                opacity: opacity[50],
+                opacity: primitives.opacity[50],
               }}
             />
             <div
@@ -253,7 +253,7 @@ export const UsageExamples: Story = {
                 backgroundColor: '#E5E7EB',
                 borderRadius: '4px',
                 width: '80%',
-                opacity: opacity[50],
+                opacity: primitives.opacity[50],
               }}
             />
             <div
@@ -262,7 +262,7 @@ export const UsageExamples: Story = {
                 backgroundColor: '#E5E7EB',
                 borderRadius: '4px',
                 width: '60%',
-                opacity: opacity[50],
+                opacity: primitives.opacity[50],
               }}
             />
           </div>

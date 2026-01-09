@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { iconSize } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Icon Sizes',
@@ -23,7 +23,7 @@ export const AllIconSizes: Story = {
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
-        {Object.entries(iconSize).map(([key, value]) => {
+        {Object.entries(tokens.iconSize).map(([key, value]) => {
           const isTouchTarget = key === 'lg';
 
           return (
@@ -119,8 +119,8 @@ export const UsageExamples: Story = {
               key={size}
               aria-label={`${size} icon button`}
               style={{
-                width: iconSize[size as keyof typeof iconSize],
-                height: iconSize[size as keyof typeof iconSize],
+                width: tokens.iconSize[size as keyof typeof tokens.iconSize],
+                height: tokens.iconSize[size as keyof typeof tokens.iconSize],
                 backgroundColor: '#3B82F6',
                 color: 'white',
                 border: 'none',
@@ -129,7 +129,7 @@ export const UsageExamples: Story = {
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
-                fontSize: `calc(${iconSize[size as keyof typeof iconSize]} * 0.5)`,
+                fontSize: `calc(${tokens.iconSize[size as keyof typeof tokens.iconSize]} * 0.5)`,
               }}
               title={`${size} size`}
             >
@@ -149,8 +149,8 @@ export const UsageExamples: Story = {
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '16px' }}>
             <span
               style={{
-                width: iconSize.xs,
-                height: iconSize.xs,
+                width: tokens.iconSize.xs,
+                height: tokens.iconSize.xs,
                 backgroundColor: '#10B981',
                 borderRadius: '50%',
                 display: 'inline-flex',
@@ -167,8 +167,8 @@ export const UsageExamples: Story = {
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '18px' }}>
             <span
               style={{
-                width: iconSize.sm,
-                height: iconSize.sm,
+                width: tokens.iconSize.sm,
+                height: tokens.iconSize.sm,
                 backgroundColor: '#3B82F6',
                 borderRadius: '4px',
                 display: 'inline-flex',
@@ -202,8 +202,8 @@ export const UsageExamples: Story = {
               key={label}
               aria-label={label}
               style={{
-                width: iconSize.md,
-                height: iconSize.md,
+                width: tokens.iconSize.md,
+                height: tokens.iconSize.md,
                 backgroundColor: 'transparent',
                 color: 'white',
                 border: 'none',
@@ -246,8 +246,8 @@ export const UsageExamples: Story = {
             >
               <div
                 style={{
-                  width: iconSize['2xl'],
-                  height: iconSize['2xl'],
+                  width: tokens.iconSize['2xl'],
+                  height: tokens.iconSize['2xl'],
                   backgroundColor: ['#3B82F6', '#10B981', '#F59E0B'][index],
                   borderRadius: '12px',
                   display: 'flex',

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 
-import { Stack, Tabs, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Stack, Tabs } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
       borderRadius: '8px',
       marginBottom: '16px',
     }}
@@ -18,7 +17,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           marginBottom: 12,
         }}
       >
@@ -69,7 +68,7 @@ export const Type = () => {
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -81,7 +80,7 @@ export const Type = () => {
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -93,7 +92,7 @@ export const Type = () => {
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -116,7 +115,7 @@ export const TabPosition = () => {
     minHeight: 160,
     padding: 12,
     borderRadius: 8,
-    border: `1px solid ${color.border.secondary}`,
+    border: `1px solid ${tokens.color.border.default}`,
   };
 
   const leftRightBoxStyle: React.CSSProperties = {
@@ -132,7 +131,7 @@ export const TabPosition = () => {
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -146,7 +145,7 @@ export const TabPosition = () => {
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -160,7 +159,7 @@ export const TabPosition = () => {
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -174,7 +173,7 @@ export const TabPosition = () => {
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -201,7 +200,7 @@ export const Size = () => {
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -213,7 +212,7 @@ export const Size = () => {
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -225,7 +224,7 @@ export const Size = () => {
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -244,7 +243,7 @@ export const ActiveKey = () => {
   return (
     <Frame title="activeKey / onChange (controlled)">
       <Tabs items={tabItems} activeKey={activeKey} onChange={setActiveKey} />
-      <div style={{ marginTop: 12, color: color.text.secondary }}>Active tab: {activeKey}</div>
+      <div style={{ marginTop: 12, color: tokens.color.text.secondary }}>Active tab: {activeKey}</div>
     </Frame>
   );
 };
@@ -283,7 +282,7 @@ export const Items = () => {
   return (
     <Frame title="items (icon / disabled)">
       <Tabs items={items} activeKey={activeKey} onChange={setActiveKey} />
-      <div style={{ marginTop: 12, color: color.text.secondary }}>
+      <div style={{ marginTop: 12, color: tokens.color.text.secondary }}>
         “Security” is disabled (focus skips it with arrow keys).
       </div>
     </Frame>
@@ -300,7 +299,7 @@ export const SettingsTabsExample = () => {
       children: (
         <Stack gap="condensed">
           <div style={{ fontWeight: 600 }}>Profile settings</div>
-          <div style={{ color: color.text.secondary }}>Update your public information.</div>
+          <div style={{ color: tokens.color.text.secondary }}>Update your public information.</div>
         </Stack>
       ),
     },
@@ -310,7 +309,7 @@ export const SettingsTabsExample = () => {
       children: (
         <Stack gap="condensed">
           <div style={{ fontWeight: 600 }}>Security</div>
-          <div style={{ color: color.text.secondary }}>Manage password and 2FA.</div>
+          <div style={{ color: tokens.color.text.secondary }}>Manage password and 2FA.</div>
         </Stack>
       ),
     },
@@ -320,7 +319,7 @@ export const SettingsTabsExample = () => {
       children: (
         <Stack gap="condensed">
           <div style={{ fontWeight: 600 }}>Notifications</div>
-          <div style={{ color: color.text.secondary }}>Choose what we email you.</div>
+          <div style={{ color: tokens.color.text.secondary }}>Choose what we email you.</div>
         </Stack>
       ),
     },

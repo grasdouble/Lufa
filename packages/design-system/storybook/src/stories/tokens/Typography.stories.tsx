@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { fontSize, fontWeight, letterSpacing, lineHeight } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Typography Tokens',
@@ -22,7 +22,7 @@ export const FontSizes: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-        {Object.entries(fontSize).map(([key, value]) => (
+        {Object.entries(tokens.fontSize).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -60,7 +60,7 @@ export const LineHeights: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-        {Object.entries(lineHeight).map(([key, value]) => (
+        {Object.entries(tokens.lineHeight).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -101,7 +101,7 @@ export const FontWeights: Story = {
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-        {Object.entries(fontWeight).map(([key, value]) => (
+        {Object.entries(tokens.fontWeight).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -139,7 +139,7 @@ export const LetterSpacing: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-        {Object.entries(letterSpacing).map(([key, value]) => (
+        {Object.entries(tokens.letterSpacing).map(([key, value]) => (
           <div
             key={key}
             style={{

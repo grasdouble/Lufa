@@ -1,9 +1,8 @@
 import { Fragment } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Container, Grid, GRID_COLUMNS, GRID_GUTTER, Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Container, Grid, GRID_COLUMNS, GRID_GUTTER, Placeholder, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/Grid',
@@ -36,7 +35,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const DemoCell = ({ label }: { label: string }) => (
-  <Placeholder color={color.interactive.default} height="small" width="full">
+  <Placeholder color={tokens.color.interactive.default} height="small" width="full">
     {label}
   </Placeholder>
 );
@@ -59,15 +58,15 @@ export const Columns: Story = {
     <Stack direction="vertical" gap="spacious">
       {Object.values(GRID_COLUMNS).map((columns) => (
         <div key={columns}>
-          <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>
             columns: {columns}
           </div>
           <Container
             size="xl"
             paddingX="none"
             style={{
-              backgroundColor: color.background.primary,
-              border: `1px solid ${color.border.light}`,
+              backgroundColor: tokens.color.background.primary,
+              border: `1px solid ${tokens.color.border.light}`,
               borderRadius: '12px',
               padding: '16px',
             }}
@@ -89,15 +88,15 @@ export const Gutters: Story = {
     <Stack direction="vertical" gap="spacious">
       {Object.values(GRID_GUTTER).map((gutter) => (
         <div key={gutter}>
-          <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>
             gutter: {gutter}
           </div>
           <Container
             size="xl"
             paddingX="none"
             style={{
-              backgroundColor: color.background.primary,
-              border: `1px solid ${color.border.light}`,
+              backgroundColor: tokens.color.background.primary,
+              border: `1px solid ${tokens.color.border.light}`,
               borderRadius: '12px',
               padding: '16px',
             }}
@@ -137,11 +136,11 @@ export const ColumnGutterMatrix: Story = {
               style={{
                 fontFamily: 'monospace',
                 fontSize: '12px',
-                color: color.text.secondary,
+                color: tokens.color.text.secondary,
                 textAlign: 'center',
                 padding: '6px 8px',
-                backgroundColor: color.background.primary,
-                border: `1px solid ${color.border.light}`,
+                backgroundColor: tokens.color.background.primary,
+                border: `1px solid ${tokens.color.border.light}`,
                 borderRadius: '10px',
               }}
             >
@@ -155,10 +154,10 @@ export const ColumnGutterMatrix: Story = {
                 style={{
                   fontFamily: 'monospace',
                   fontSize: '12px',
-                  color: color.text.secondary,
+                  color: tokens.color.text.secondary,
                   padding: '6px 8px',
-                  backgroundColor: color.background.primary,
-                  border: `1px solid ${color.border.light}`,
+                  backgroundColor: tokens.color.background.primary,
+                  border: `1px solid ${tokens.color.border.light}`,
                   borderRadius: '10px',
                   display: 'flex',
                   alignItems: 'center',
@@ -171,8 +170,8 @@ export const ColumnGutterMatrix: Story = {
                 <div
                   key={`${gutter}-${columns}`}
                   style={{
-                    backgroundColor: color.background.primary,
-                    border: `1px solid ${color.border.light}`,
+                    backgroundColor: tokens.color.background.primary,
+                    border: `1px solid ${tokens.color.border.light}`,
                     borderRadius: '12px',
                     padding: '16px',
                   }}

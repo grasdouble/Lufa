@@ -176,12 +176,12 @@ Style Dictionary resolves references automatically and can output references in 
 
 ```css
 :root {
-  --lufa-color-interactive-default: #3b82f6;
-  --lufa-spacing-md: 16px;
+  --lufa-token-color-interactive-default: #3b82f6;
+  --lufa-token-spacing-md: 16px;
 }
 ```
 
-- Custom prefix (`--lufa-`)
+- Custom prefix (`--lufa-token-`)
 - Manual kebab-case conversion
 
 #### Style Dictionary
@@ -258,11 +258,11 @@ platforms: {
 
 ```css
 :root {
-  --lufa-color-interactive-default: #3b82f6;
-  --lufa-color-interactive-hover: #2563eb;
-  --lufa-spacing-xs: 4px;
-  --lufa-spacing-sm: 8px;
-  --lufa-spacing-md: 16px;
+  --lufa-token-color-interactive-default: #3b82f6;
+  --lufa-token-color-interactive-hover: #2563eb;
+  --lufa-token-spacing-xs: 4px;
+  --lufa-token-spacing-sm: 8px;
+  --lufa-token-spacing-md: 16px;
 }
 ```
 

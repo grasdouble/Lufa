@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Link, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Link, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
       borderRadius: '8px',
       marginBottom: '16px',
     }}
@@ -18,7 +17,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           marginBottom: 12,
         }}
       >
@@ -53,7 +52,7 @@ export const Variant = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -65,7 +64,7 @@ export const Variant = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -79,7 +78,7 @@ export const Variant = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >

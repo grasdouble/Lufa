@@ -8,11 +8,9 @@ import {
   Placeholder,
   Spinner,
   Stack,
-  tokens,
   Typography,
 } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/Center',
@@ -58,9 +56,9 @@ export const Playground: Story = {
         {...args}
         style={{
           ...args.style,
-          backgroundColor: color.background.secondary,
+          backgroundColor: tokens.color.background.secondary,
           borderRadius: '12px',
-          border: `1px solid ${color.border.light}`,
+          border: `1px solid ${tokens.color.border.light}`,
           padding: '16px',
         }}
       >
@@ -79,12 +77,12 @@ export const Axis: Story = {
         {(['both', 'horizontal', 'vertical'] as const).map((axis) => (
           <div
             key={axis}
-            style={{ backgroundColor: color.background.secondary, borderRadius: '12px', padding: '16px' }}
+            style={{ backgroundColor: tokens.color.background.secondary, borderRadius: '12px', padding: '16px' }}
           >
-            <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '8px' }}>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '8px' }}>
               axis: {axis}
             </div>
-            <div style={{ color: color.text.tertiary, fontSize: '12px', marginBottom: '12px' }}>
+            <div style={{ color: tokens.color.text.tertiary, fontSize: '12px', marginBottom: '12px' }}>
               {axis === 'horizontal' && 'Center on X only'}
               {axis === 'vertical' && 'Center on Y only'}
               {axis === 'both' && 'Center on X and Y'}
@@ -93,9 +91,9 @@ export const Axis: Story = {
               axis={axis}
               minHeight={200}
               style={{
-                backgroundColor: color.background.primary,
+                backgroundColor: tokens.color.background.primary,
                 borderRadius: '12px',
-                border: `1px solid ${color.border.light}`,
+                border: `1px solid ${tokens.color.border.light}`,
                 padding: '16px',
                 position: 'relative',
               }}
@@ -105,7 +103,7 @@ export const Axis: Story = {
                 style={{
                   position: 'absolute',
                   inset: '16px',
-                  border: `2px dashed ${color.border.default}`,
+                  border: `2px dashed ${tokens.color.border.default}`,
                   borderRadius: '10px',
                   pointerEvents: 'none',
                 }}
@@ -118,7 +116,7 @@ export const Axis: Story = {
                   left: '16px',
                   right: '16px',
                   height: '1px',
-                  backgroundColor: color.border.light,
+                  backgroundColor: tokens.color.border.light,
                   pointerEvents: 'none',
                 }}
               />
@@ -130,11 +128,11 @@ export const Axis: Story = {
                   top: '16px',
                   bottom: '16px',
                   width: '1px',
-                  backgroundColor: color.border.light,
+                  backgroundColor: tokens.color.border.light,
                   pointerEvents: 'none',
                 }}
               />
-              <Placeholder color={color.interactive.default} height="small" width="small">
+              <Placeholder color={tokens.color.interactive.default} height="small" width="small">
                 Target
               </Placeholder>
             </Center>
@@ -149,48 +147,48 @@ export const Inline: Story = {
   render: () => (
     <Stack direction="vertical" gap="normal">
       <div>
-        <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '8px' }}>inline: true</div>
-        <div style={{ backgroundColor: color.background.secondary, padding: '16px', borderRadius: '12px' }}>
-          <span style={{ color: color.text.secondary }}>Text before</span>
+        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '8px' }}>inline: true</div>
+        <div style={{ backgroundColor: tokens.color.background.secondary, padding: '16px', borderRadius: '12px' }}>
+          <span style={{ color: tokens.color.text.secondary }}>Text before</span>
           <Center
             inline
             axis="both"
             style={{
-              backgroundColor: color.background.primary,
+              backgroundColor: tokens.color.background.primary,
               borderRadius: '12px',
               padding: '8px 12px',
-              border: `1px solid ${color.border.light}`,
+              border: `1px solid ${tokens.color.border.light}`,
               margin: '0 12px',
             }}
           >
-            <Placeholder color={color.interactive.default} height="small" width="auto">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
               Badge
             </Placeholder>
           </Center>
-          <span style={{ color: color.text.secondary }}>Text after (same line)</span>
+          <span style={{ color: tokens.color.text.secondary }}>Text after (same line)</span>
         </div>
       </div>
 
       <div>
-        <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '8px' }}>inline: false</div>
-        <div style={{ backgroundColor: color.background.secondary, padding: '16px', borderRadius: '12px' }}>
-          <span style={{ color: color.text.secondary }}>Text before</span>
+        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '8px' }}>inline: false</div>
+        <div style={{ backgroundColor: tokens.color.background.secondary, padding: '16px', borderRadius: '12px' }}>
+          <span style={{ color: tokens.color.text.secondary }}>Text before</span>
           <Center
             inline={false}
             axis="both"
             style={{
-              backgroundColor: color.background.primary,
+              backgroundColor: tokens.color.background.primary,
               borderRadius: '12px',
               padding: '16px',
-              border: `1px solid ${color.border.light}`,
+              border: `1px solid ${tokens.color.border.light}`,
               margin: '12px 0',
             }}
           >
-            <Placeholder color={color.interactive.default} height="small" width="auto">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
               Block
             </Placeholder>
           </Center>
-          <span style={{ color: color.text.secondary }}>Text after (next line)</span>
+          <span style={{ color: tokens.color.text.secondary }}>Text after (next line)</span>
         </div>
       </div>
     </Stack>
@@ -202,15 +200,15 @@ export const Examples: Story = {
     <Container size="xl" paddingX="none">
       <Stack direction="vertical" gap="spacious">
         <div>
-          <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>Empty state</div>
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>Empty state</div>
           <Card variant="outlined" padding="large" title="Search results" subtitle="Try adjusting your filters">
             <Center
               axis="both"
               minHeight={220}
-              style={{ backgroundColor: color.background.secondary, borderRadius: '12px' }}
+              style={{ backgroundColor: tokens.color.background.secondary, borderRadius: '12px' }}
             >
               <Stack direction="vertical" gap="normal" align="center">
-                <Placeholder color={color.background.primary} height="small" width="auto">
+                <Placeholder color={tokens.color.background.primary} height="small" width="auto">
                   Icon
                 </Placeholder>
                 <Typography variant="body" color="secondary">
@@ -223,15 +221,15 @@ export const Examples: Story = {
         </div>
 
         <div>
-          <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>Loading</div>
-          <div style={{ backgroundColor: color.background.secondary, borderRadius: '12px', padding: '16px' }}>
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>Loading</div>
+          <div style={{ backgroundColor: tokens.color.background.secondary, borderRadius: '12px', padding: '16px' }}>
             <Center
               axis="both"
               minHeight={260}
               style={{
-                backgroundColor: color.background.primary,
+                backgroundColor: tokens.color.background.primary,
                 borderRadius: '12px',
-                border: `1px solid ${color.border.light}`,
+                border: `1px solid ${tokens.color.border.light}`,
               }}
             >
               <Stack direction="vertical" gap="normal" align="center">
@@ -245,7 +243,7 @@ export const Examples: Story = {
         </div>
 
         <div>
-          <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>Footer CTA</div>
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>Footer CTA</div>
           <Card
             variant="outlined"
             title="Newsletter"

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { container } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Container',
@@ -22,7 +22,7 @@ export const AllContainers: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(container).map(([key, value]) => (
+        {Object.entries(tokens.container).map(([key, value]) => (
           <div key={key} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
               <div
@@ -104,7 +104,7 @@ export const UsageExamples: Story = {
         <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Page Layout Container</h2>
         <div
           style={{
-            maxWidth: container.xl,
+            maxWidth: tokens.container.xl,
             margin: '0 auto',
             padding: '24px',
             backgroundColor: '#F3F4F6',
@@ -126,7 +126,7 @@ export const UsageExamples: Story = {
         <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Article Container</h2>
         <div
           style={{
-            maxWidth: container.md,
+            maxWidth: tokens.container.md,
             margin: '0 auto',
             padding: '24px',
             backgroundColor: '#F3F4F6',
@@ -155,7 +155,7 @@ export const UsageExamples: Story = {
         <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Form Container</h2>
         <div
           style={{
-            maxWidth: container.sm,
+            maxWidth: tokens.container.sm,
             margin: '0 auto',
             padding: '24px',
             backgroundColor: '#F3F4F6',
@@ -215,7 +215,7 @@ export const UsageExamples: Story = {
             <div
               key={size}
               style={{
-                maxWidth: container[size as keyof typeof container],
+                maxWidth: tokens.container[size as keyof typeof tokens.container],
                 padding: '16px',
                 backgroundColor: '#3B82F6',
                 borderRadius: '6px',
@@ -224,7 +224,7 @@ export const UsageExamples: Story = {
                 fontWeight: '500',
               }}
             >
-              container.{size} ({container[size as keyof typeof container]})
+              container.{size} ({tokens.container[size as keyof typeof tokens.container]})
             </div>
           ))}
         </div>

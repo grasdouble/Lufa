@@ -13,13 +13,25 @@ Lufa uses a standardized spacing scale based on a 4px baseline grid.
 ### Spacing Tokens
 
 ```css
---lufa-spacing-xs: 0.25rem; /* 4px */
---lufa-spacing-sm: 0.5rem; /* 8px */
---lufa-spacing-md: 1rem; /* 16px */
---lufa-spacing-lg: 1.5rem; /* 24px */
---lufa-spacing-xl: 2rem; /* 32px */
---lufa-spacing-2xl: 3rem; /* 48px */
---lufa-spacing-3xl: 4rem; /* 64px */
+--lufa-token-spacing-none: 0;
+--lufa-token-spacing-xxs: 2px;
+--lufa-token-spacing-xs: 4px;
+--lufa-token-spacing-2xs: 6px;
+--lufa-token-spacing-sm: 8px;
+--lufa-token-spacing-sm-md: 10px;
+--lufa-token-spacing-md: 12px;
+--lufa-token-spacing-base: 16px;
+--lufa-token-spacing-md-lg: 20px;
+--lufa-token-spacing-lg: 24px;
+--lufa-token-spacing-lg-xl: 28px;
+--lufa-token-spacing-xl: 32px;
+--lufa-token-spacing-xl-2xl: 40px;
+--lufa-token-spacing-2xl: 48px;
+--lufa-token-spacing-2xl-3xl: 56px;
+--lufa-token-spacing-3xl: 64px;
+--lufa-token-spacing-3xl-4xl: 80px;
+--lufa-token-spacing-4xl: 96px;
+--lufa-token-spacing-5xl: 128px;
 ```
 
 ## Usage
@@ -28,14 +40,14 @@ Lufa uses a standardized spacing scale based on a 4px baseline grid.
 
 ```css
 .card {
-  padding: var(--lufa-spacing-lg);
-  margin-bottom: var(--lufa-spacing-md);
-  gap: var(--lufa-spacing-sm);
+  padding: var(--lufa-token-spacing-lg);
+  margin-bottom: var(--lufa-token-spacing-md);
+  gap: var(--lufa-token-spacing-sm);
 }
 
 .section {
-  padding-block: var(--lufa-spacing-2xl);
-  padding-inline: var(--lufa-spacing-xl);
+  padding-block: var(--lufa-token-spacing-2xl);
+  padding-inline: var(--lufa-token-spacing-xl);
 }
 ```
 
@@ -44,8 +56,8 @@ Lufa uses a standardized spacing scale based on a 4px baseline grid.
 ```tsx
 <div
   style={{
-    padding: 'var(--lufa-spacing-md)',
-    gap: 'var(--lufa-spacing-sm)',
+    padding: 'var(--lufa-token-spacing-md)',
+    gap: 'var(--lufa-token-spacing-sm)',
   }}
 >
   <Button>Action</Button>
@@ -56,9 +68,10 @@ Lufa uses a standardized spacing scale based on a 4px baseline grid.
 
 ### Component Spacing
 
+- **xxs (2px)**: Micro spacing within tight UI
 - **xs (4px)**: Tight spacing within small components
 - **sm (8px)**: Internal component spacing (e.g., button padding)
-- **md (16px)**: Default spacing between related elements
+- **base (16px)**: Default spacing between related elements
 - **lg (24px)**: Spacing between component groups
 - **xl (32px)**: Spacing between sections
 - **2xl (48px)**: Large section spacing
@@ -72,7 +85,7 @@ Lufa uses a standardized spacing scale based on a 4px baseline grid.
 .stack {
   display: flex;
   flex-direction: column;
-  gap: var(--lufa-spacing-md);
+  gap: var(--lufa-token-spacing-md);
 }
 ```
 
@@ -81,7 +94,7 @@ Lufa uses a standardized spacing scale based on a 4px baseline grid.
 ```css
 .inline {
   display: flex;
-  gap: var(--lufa-spacing-sm);
+  gap: var(--lufa-token-spacing-sm);
 }
 ```
 
@@ -90,7 +103,7 @@ Lufa uses a standardized spacing scale based on a 4px baseline grid.
 ```css
 .grid {
   display: grid;
-  gap: var(--lufa-spacing-lg);
+  gap: var(--lufa-token-spacing-lg);
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 ```
@@ -101,18 +114,18 @@ Consider adjusting spacing for different screen sizes:
 
 ```css
 .section {
-  padding: var(--lufa-spacing-md);
+  padding: var(--lufa-token-spacing-md);
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: var(--lufa-spacing-xl);
+    padding: var(--lufa-token-spacing-xl);
   }
 }
 
 @media (min-width: 1024px) {
   .section {
-    padding: var(--lufa-spacing-2xl);
+    padding: var(--lufa-token-spacing-2xl);
   }
 }
 ```
@@ -132,12 +145,12 @@ Sometimes visual weight requires slight adjustments:
 ```css
 /* Icons might need slightly less spacing due to visual weight */
 .icon-button {
-  padding: var(--lufa-spacing-sm);
+  padding: var(--lufa-token-spacing-sm);
 }
 
 /* Text might need more breathing room */
 .text-content {
-  padding: var(--lufa-spacing-lg);
+  padding: var(--lufa-token-spacing-lg);
 }
 ```
 
@@ -156,8 +169,8 @@ Don't be afraid of whitespace. It:
 
 ```css
 .card {
-  padding: var(--lufa-spacing-lg);
-  gap: var(--lufa-spacing-md);
+  padding: var(--lufa-token-spacing-lg);
+  gap: var(--lufa-token-spacing-md);
 }
 ```
 
@@ -167,13 +180,13 @@ Don't be afraid of whitespace. It:
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: var(--lufa-spacing-sm);
+  gap: var(--lufa-token-spacing-sm);
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--lufa-spacing-lg);
+  gap: var(--lufa-token-spacing-lg);
 }
 ```
 
@@ -182,7 +195,7 @@ Don't be afraid of whitespace. It:
 ```css
 .button-group {
   display: flex;
-  gap: var(--lufa-spacing-sm);
+  gap: var(--lufa-token-spacing-sm);
 }
 ```
 

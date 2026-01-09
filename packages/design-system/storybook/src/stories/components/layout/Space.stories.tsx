@@ -1,15 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import {
-  Container,
-  Placeholder,
-  Space,
-  SPACE_DIRECTION,
-  SPACE_SIZE,
-  Stack,
-  tokens,
-} from '@grasdouble/lufa_design-system';
-import * as primitives from '@grasdouble/lufa_design-system-primitives';
+import { Container, Placeholder, Space, SPACE_DIRECTION, SPACE_SIZE, Stack } from '@grasdouble/lufa_design-system';
+import primitives from '@grasdouble/lufa_design-system-primitives';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const { color, spacing } = tokens;
 const { chromatic } = primitives.color;

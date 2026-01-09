@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { grid } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Grid',
@@ -22,7 +22,7 @@ export const GridColumns: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-        {Object.entries(grid.columns).map(([key, value]) => (
+        {Object.entries(tokens.grid.columns).map(([key, value]) => (
           <div key={key}>
             <div style={{ marginBottom: '12px' }}>
               <span style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>grid.columns.{key}</span>
@@ -78,7 +78,7 @@ export const GridGutters: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-        {Object.entries(grid.gutters).map(([key, value]) => (
+        {Object.entries(tokens.grid.gutters).map(([key, value]) => (
           <div key={key}>
             <div style={{ marginBottom: '12px' }}>
               <span style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>grid.gutters.{key}</span>

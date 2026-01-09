@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { spacing } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Spacing',
@@ -55,7 +55,7 @@ export const Overview: Story = {
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>All Spacing Tokens</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        {Object.entries(spacing).map(([key, value]) => (
+        {Object.entries(tokens.spacing).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -144,13 +144,15 @@ export const PracticalExamples: Story = {
           <h3 style={{ marginBottom: '12px', fontSize: '16px' }}>Card with Base Spacing</h3>
           <div
             style={{
-              padding: spacing.base,
+              padding: tokens.spacing.base,
               backgroundColor: '#FFFFFF',
               border: '1px solid #E5E5E5',
               borderRadius: '8px',
             }}
           >
-            <h4 style={{ margin: 0, marginBottom: spacing.sm, fontSize: '14px', fontWeight: 600 }}>Card Title</h4>
+            <h4 style={{ margin: 0, marginBottom: tokens.spacing.sm, fontSize: '14px', fontWeight: 600 }}>
+              Card Title
+            </h4>
             <p style={{ margin: 0, color: '#737373', fontSize: '14px' }}>Content with consistent spacing</p>
           </div>
           <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>padding: spacing.base (16px)</p>
@@ -158,10 +160,10 @@ export const PracticalExamples: Story = {
 
         <div>
           <h3 style={{ marginBottom: '12px', fontSize: '16px' }}>Button Group with Small Gap</h3>
-          <div style={{ display: 'flex', gap: spacing.sm }}>
+          <div style={{ display: 'flex', gap: tokens.spacing.sm }}>
             <button
               style={{
-                padding: `${spacing.sm} ${spacing.base}`,
+                padding: `${tokens.spacing.sm} ${tokens.spacing.base}`,
                 backgroundColor: '#2563EB',
                 color: '#FFFFFF',
                 border: 'none',
@@ -173,7 +175,7 @@ export const PracticalExamples: Story = {
             </button>
             <button
               style={{
-                padding: `${spacing.sm} ${spacing.base}`,
+                padding: `${tokens.spacing.sm} ${tokens.spacing.base}`,
                 backgroundColor: '#FFFFFF',
                 color: '#2563EB',
                 border: '1px solid #2563EB',
@@ -189,12 +191,12 @@ export const PracticalExamples: Story = {
 
         <div>
           <h3 style={{ marginBottom: '12px', fontSize: '16px' }}>List with Medium Gap</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: spacing.md }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.md }}>
             {['Item 1', 'Item 2', 'Item 3'].map((item, i) => (
               <div
                 key={i}
                 style={{
-                  padding: spacing.md,
+                  padding: tokens.spacing.md,
                   backgroundColor: '#F5F5F5',
                   borderRadius: '6px',
                 }}

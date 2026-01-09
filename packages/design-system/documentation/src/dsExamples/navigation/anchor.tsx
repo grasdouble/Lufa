@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Anchor, Container, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Anchor, Container, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      color: color.text.primary,
+      color: tokens.color.text.primary,
       padding: '20px',
-      backgroundColor: color.background.secondary,
+      backgroundColor: tokens.color.background.secondary,
       borderRadius: '8px',
       marginBottom: '16px',
     }}
@@ -18,7 +17,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           marginBottom: 12,
         }}
       >
@@ -150,15 +149,15 @@ export const StickyInPageNavExample = () => (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <section id="intro">
               <h3 style={{ margin: 0 }}>Intro</h3>
-              <p style={{ margin: 0, color: color.text.secondary }}>Scroll within this area (demo).</p>
+              <p style={{ margin: 0, color: tokens.color.text.secondary }}>Scroll within this area (demo).</p>
             </section>
             <section id="details">
               <h3 style={{ margin: 0 }}>Details</h3>
-              <p style={{ margin: 0, color: color.text.secondary }}>Anchor links jump to sections.</p>
+              <p style={{ margin: 0, color: tokens.color.text.secondary }}>Anchor links jump to sections.</p>
             </section>
             <section id="more">
               <h3 style={{ margin: 0 }}>More</h3>
-              <p style={{ margin: 0, color: color.text.secondary }}>Use a sticky nav for long pages.</p>
+              <p style={{ margin: 0, color: tokens.color.text.secondary }}>Use a sticky nav for long pages.</p>
             </section>
           </div>
           <nav
@@ -169,7 +168,7 @@ export const StickyInPageNavExample = () => (
               padding: 16,
               backgroundColor: '#fff',
               borderRadius: 12,
-              border: `1px solid ${color.border.light}`,
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <Stack gap="condensed">
@@ -190,7 +189,7 @@ export const ExternalLinkExample = () => (
       <Anchor href="https://example.com" target="_blank" rel="noreferrer">
         Open example.com
       </Anchor>
-      <div style={{ color: color.text.tertiary, fontSize: 12 }}>
+      <div style={{ color: tokens.color.text.tertiary, fontSize: 12 }}>
         Use <code>target</code>/<code>rel</code> for external links.
       </div>
     </Stack>

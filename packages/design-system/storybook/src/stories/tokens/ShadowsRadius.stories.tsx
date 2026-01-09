@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { radius, shadow } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Shadows & Radius',
@@ -29,7 +29,7 @@ export const ShadowTokens: Story = {
           marginBottom: '40px',
         }}
       >
-        {Object.entries(shadow).map(([key, value]) => (
+        {Object.entries(tokens.shadow).map(([key, value]) => (
           <div key={key}>
             <div
               style={{
@@ -119,7 +119,7 @@ export const RadiusTokens: Story = {
           marginBottom: '40px',
         }}
       >
-        {Object.entries(radius).map(([key, value]) => (
+        {Object.entries(tokens.radius).map(([key, value]) => (
           <div key={key}>
             <div
               style={{
@@ -200,8 +200,8 @@ export const CombinedExample: Story = {
             style={{
               padding: '24px',
               backgroundColor: '#FFFFFF',
-              borderRadius: radius.lg,
-              boxShadow: shadow.md,
+              borderRadius: tokens.radius.lg,
+              boxShadow: tokens.shadow.md,
             }}
           >
             <h4 style={{ margin: 0, marginBottom: '8px', fontSize: '18px', fontWeight: 600 }}>Card Title</h4>
@@ -219,8 +219,8 @@ export const CombinedExample: Story = {
               backgroundColor: '#2563EB',
               color: '#FFFFFF',
               border: 'none',
-              borderRadius: radius.base,
-              boxShadow: shadow.sm,
+              borderRadius: tokens.radius.base,
+              boxShadow: tokens.shadow.sm,
               cursor: 'pointer',
               fontSize: '14px',
               fontWeight: 600,
@@ -237,8 +237,8 @@ export const CombinedExample: Story = {
             style={{
               padding: '32px',
               backgroundColor: '#FFFFFF',
-              borderRadius: radius.xl,
-              boxShadow: shadow.xl,
+              borderRadius: tokens.radius.xl,
+              boxShadow: tokens.shadow.xl,
               maxWidth: '400px',
             }}
           >
@@ -254,7 +254,7 @@ export const CombinedExample: Story = {
                   backgroundColor: '#2563EB',
                   color: '#FFFFFF',
                   border: 'none',
-                  borderRadius: radius.base,
+                  borderRadius: tokens.radius.base,
                   cursor: 'pointer',
                 }}
               >
@@ -267,7 +267,7 @@ export const CombinedExample: Story = {
                   backgroundColor: '#FFFFFF',
                   color: '#737373',
                   border: '1px solid #E5E5E5',
-                  borderRadius: radius.base,
+                  borderRadius: tokens.radius.base,
                   cursor: 'pointer',
                 }}
               >

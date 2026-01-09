@@ -9,17 +9,15 @@ import {
   STACK_JUSTIFY,
   STACK_PADDING,
   STACK_WRAP,
-  tokens,
 } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
       borderRadius: '8px',
       marginBottom: '16px',
     }}
@@ -28,7 +26,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           marginBottom: 12,
         }}
       >
@@ -42,9 +40,9 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
 export const LiveDemo = () => (
   <Frame title="live demo">
     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
-      <Placeholder color={color.interactive.default}>Item 1</Placeholder>
-      <Placeholder color={color.interactive.default}>Item 2</Placeholder>
-      <Placeholder color={color.interactive.default}>Item 3</Placeholder>
+      <Placeholder color={tokens.color.interactive.default}>Item 1</Placeholder>
+      <Placeholder color={tokens.color.interactive.default}>Item 2</Placeholder>
+      <Placeholder color={tokens.color.interactive.default}>Item 3</Placeholder>
     </Stack>
   </Frame>
 );
@@ -61,7 +59,7 @@ export const Direction = () => (
       <div
         style={{
           borderRadius: 12,
-          border: `1px solid ${color.border.light}`,
+          border: `1px solid ${tokens.color.border.light}`,
           background: '#fff',
           padding: 12,
         }}
@@ -69,22 +67,22 @@ export const Direction = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
           horizontal
         </div>
         <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
-          <Placeholder color={color.interactive.default}>A</Placeholder>
-          <Placeholder color={color.interactive.default}>B</Placeholder>
-          <Placeholder color={color.interactive.default}>C</Placeholder>
+          <Placeholder color={tokens.color.interactive.default}>A</Placeholder>
+          <Placeholder color={tokens.color.interactive.default}>B</Placeholder>
+          <Placeholder color={tokens.color.interactive.default}>C</Placeholder>
         </Stack>
       </div>
       <div
         style={{
           borderRadius: 12,
-          border: `1px solid ${color.border.light}`,
+          border: `1px solid ${tokens.color.border.light}`,
           background: '#fff',
           padding: 12,
         }}
@@ -92,16 +90,16 @@ export const Direction = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
           vertical
         </div>
         <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-          <Placeholder color={color.success.default}>A</Placeholder>
-          <Placeholder color={color.success.default}>B</Placeholder>
-          <Placeholder color={color.success.default}>C</Placeholder>
+          <Placeholder color={tokens.color.success.default}>A</Placeholder>
+          <Placeholder color={tokens.color.success.default}>B</Placeholder>
+          <Placeholder color={tokens.color.success.default}>C</Placeholder>
         </Stack>
       </div>
     </div>
@@ -128,7 +126,7 @@ export const Gap = () => (
           key={label}
           style={{
             borderRadius: 12,
-            border: `1px solid ${color.border.light}`,
+            border: `1px solid ${tokens.color.border.light}`,
             background: '#fff',
             padding: 12,
           }}
@@ -136,16 +134,16 @@ export const Gap = () => (
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
             gap: {label}
           </div>
           <Stack direction={STACK_DIRECTION.vertical} gap={gap}>
-            <Placeholder color={color.background.secondary}>Item</Placeholder>
-            <Placeholder color={color.background.secondary}>Item</Placeholder>
-            <Placeholder color={color.background.secondary}>Item</Placeholder>
+            <Placeholder color={tokens.color.background.secondary}>Item</Placeholder>
+            <Placeholder color={tokens.color.background.secondary}>Item</Placeholder>
+            <Placeholder color={tokens.color.background.secondary}>Item</Placeholder>
           </Stack>
         </div>
       ))}
@@ -158,26 +156,26 @@ export const Align = () => (
     <div
       style={{
         borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
+        border: `1px solid ${tokens.color.border.light}`,
         background: '#fff',
         padding: 12,
       }}
     >
       <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} align={STACK_ALIGN.center}>
-        <Placeholder color={color.background.secondary} height="small">
+        <Placeholder color={tokens.color.background.secondary} height="small">
           A
         </Placeholder>
-        <Placeholder color={color.interactive.default} height="large">
+        <Placeholder color={tokens.color.interactive.default} height="large">
           B
         </Placeholder>
-        <Placeholder color={color.background.secondary} height="medium">
+        <Placeholder color={tokens.color.background.secondary} height="medium">
           C
         </Placeholder>
       </Stack>
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           fontSize: 12,
           marginTop: 10,
         }}
@@ -202,7 +200,7 @@ export const Justify = () => (
           key={label}
           style={{
             borderRadius: 12,
-            border: `1px solid ${color.border.light}`,
+            border: `1px solid ${tokens.color.border.light}`,
             background: '#fff',
             padding: 12,
           }}
@@ -210,7 +208,7 @@ export const Justify = () => (
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -222,8 +220,8 @@ export const Justify = () => (
             align={STACK_ALIGN.center}
             justify={justify}
           >
-            <Placeholder color={color.interactive.default}>Left</Placeholder>
-            <Placeholder color={color.interactive.default}>Right</Placeholder>
+            <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
+            <Placeholder color={tokens.color.interactive.default}>Right</Placeholder>
           </Stack>
         </div>
       ))}
@@ -236,7 +234,7 @@ export const Wrap = () => (
     <div
       style={{
         borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
+        border: `1px solid ${tokens.color.border.light}`,
         background: '#fff',
         padding: 12,
       }}
@@ -248,7 +246,7 @@ export const Wrap = () => (
         align={STACK_ALIGN.start}
       >
         {Array.from({ length: 12 }).map((_, index) => (
-          <Placeholder key={index} color={color.brand.secondary}>
+          <Placeholder key={index} color={tokens.color.brand.secondary}>
             {index + 1}
           </Placeholder>
         ))}
@@ -256,7 +254,7 @@ export const Wrap = () => (
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           fontSize: 12,
           marginTop: 10,
         }}
@@ -287,18 +285,18 @@ export const Padding = () => (
           key={label}
           style={{
             borderRadius: 12,
-            border: `1px solid ${color.border.light}`,
+            border: `1px solid ${tokens.color.border.light}`,
             background: '#fff',
           }}
         >
           <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.condensed} padding={padding}>
-            <Placeholder color={color.background.secondary}>Item</Placeholder>
-            <Placeholder color={color.background.secondary}>Item</Placeholder>
+            <Placeholder color={tokens.color.background.secondary}>Item</Placeholder>
+            <Placeholder color={tokens.color.background.secondary}>Item</Placeholder>
           </Stack>
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               fontSize: 12,
               padding: 12,
               paddingTop: 0,
@@ -317,21 +315,21 @@ export const ItemGrow = () => (
     <div
       style={{
         borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
+        border: `1px solid ${tokens.color.border.light}`,
         background: '#fff',
         padding: 12,
       }}
     >
       <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed} align={STACK_ALIGN.center}>
-        <Placeholder color={color.background.secondary} width="auto">
+        <Placeholder color={tokens.color.background.secondary} width="auto">
           Left
         </Placeholder>
         <Stack.Item grow>
-          <Placeholder color={color.interactive.default} width="full">
+          <Placeholder color={tokens.color.interactive.default} width="full">
             Grows
           </Placeholder>
         </Stack.Item>
-        <Placeholder color={color.background.secondary} width="auto">
+        <Placeholder color={tokens.color.background.secondary} width="auto">
           Right
         </Placeholder>
       </Stack>
@@ -356,7 +354,7 @@ export const ToolbarExample = () => (
     <div
       style={{
         borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
+        border: `1px solid ${tokens.color.border.light}`,
         background: '#fff',
         padding: 12,
       }}
@@ -368,18 +366,18 @@ export const ToolbarExample = () => (
         gap={STACK_GAP.normal}
       >
         <Stack direction={STACK_DIRECTION.horizontal} align={STACK_ALIGN.center} gap={STACK_GAP.condensed}>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             Logo
           </Placeholder>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             Search
           </Placeholder>
         </Stack>
         <Stack direction={STACK_DIRECTION.horizontal} align={STACK_ALIGN.center} gap={STACK_GAP.condensed}>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             Help
           </Placeholder>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             Profile
           </Placeholder>
         </Stack>
@@ -398,7 +396,7 @@ export const WrappingChipsExample = () => (
     >
       {['Design', 'Dev', 'Marketing', 'Ops', 'Finance', 'QA', 'Support', 'Security', 'Legal', 'Product'].map(
         (label) => (
-          <Placeholder key={label} color={color.background.secondary} width="auto">
+          <Placeholder key={label} color={tokens.color.background.secondary} width="auto">
             {label}
           </Placeholder>
         )

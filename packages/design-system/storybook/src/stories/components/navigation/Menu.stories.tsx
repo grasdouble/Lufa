@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Menu, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Menu, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Navigation/Menu',
@@ -131,7 +130,7 @@ export const Themes: Story = {
       </div>
       <div>
         <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Dark Theme</h4>
-        <div style={{ padding: '16px', backgroundColor: color.background.inverse, borderRadius: '8px' }}>
+        <div style={{ padding: '16px', backgroundColor: tokens.color.background.inverse, borderRadius: '8px' }}>
           <Menu items={itemsWithIcons} theme="dark" />
         </div>
       </div>
@@ -174,7 +173,7 @@ export const SidebarNavigation: Story = {
         style={{
           width: '280px',
           padding: '16px',
-          backgroundColor: color.background.secondary,
+          backgroundColor: tokens.color.background.secondary,
           borderRadius: '8px',
         }}
       >

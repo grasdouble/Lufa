@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Avatar, AvatarGroup, Badge, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Avatar, AvatarGroup, Badge, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
       borderRadius: '8px',
       marginBottom: '16px',
     }}
@@ -18,7 +17,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           marginBottom: 12,
         }}
       >
@@ -39,8 +38,8 @@ const svgAvatar = (text: string, background: string) => {
 
 const Team = ({ size = 'md', max }: { size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'; max?: number }) => (
   <AvatarGroup size={size} max={max}>
-    <Avatar src={svgAvatar('AL', color.interactive.default)} alt="Alice" status="online" />
-    <Avatar src={svgAvatar('BO', color.brand.secondary)} alt="Bob" status="away" />
+    <Avatar src={svgAvatar('AL', tokens.color.interactive.default)} alt="Alice" status="online" />
+    <Avatar src={svgAvatar('BO', tokens.color.brand.secondary)} alt="Bob" status="away" />
     <Avatar src={svgAvatar('CH', '#0ea5e9')} alt="Chris" status="offline" />
     <Avatar src={svgAvatar('DE', '#f97316')} alt="Denise" status="busy" />
     <Avatar src={svgAvatar('EV', '#10b981')} alt="Eve" status="online" />
@@ -59,7 +58,7 @@ export const LiveDemo = () => (
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
         <Team max={4} />
-        <div style={{ color: color.text.secondary }}>Design team</div>
+        <div style={{ color: tokens.color.text.secondary }}>Design team</div>
       </div>
       <Badge rounded variant="primary">
         5 members
@@ -77,7 +76,7 @@ export const Max = () => (
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               fontSize: 12,
             }}
           >
@@ -98,7 +97,7 @@ export const Size = () => (
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               fontSize: 12,
             }}
           >
@@ -116,7 +115,7 @@ export const ProjectCardHeaderExample = () => (
       style={{
         borderRadius: 12,
         background: '#fff',
-        border: `1px solid ${color.border.light}`,
+        border: `1px solid ${tokens.color.border.light}`,
         padding: 16,
         display: 'flex',
         justifyContent: 'space-between',
@@ -125,8 +124,8 @@ export const ProjectCardHeaderExample = () => (
       }}
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-        <div style={{ color: color.text.primary, fontWeight: 700 }}>Website Redesign</div>
-        <div style={{ color: color.text.secondary, fontSize: 12 }}>Assigned</div>
+        <div style={{ color: tokens.color.text.primary, fontWeight: 700 }}>Website Redesign</div>
+        <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>Assigned</div>
       </div>
       <Team max={3} />
     </div>
@@ -144,8 +143,8 @@ export const InlineAssigneesExample = () => (
       }}
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-        <div style={{ color: color.text.primary, fontWeight: 700 }}>Bug triage</div>
-        <div style={{ color: color.text.secondary, fontSize: 12 }}>Assignees</div>
+        <div style={{ color: tokens.color.text.primary, fontWeight: 700 }}>Bug triage</div>
+        <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>Assignees</div>
       </div>
       <Team max={4} size="sm" />
     </div>

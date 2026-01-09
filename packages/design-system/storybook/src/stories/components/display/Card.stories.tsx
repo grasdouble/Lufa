@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Button, Card, Placeholder, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Button, Card, Placeholder } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Display/Card',
@@ -162,12 +161,12 @@ export const UsageExamples: Story = {
           </div>
         }
       >
-        <Placeholder height="large" width="full" color={color.interactive.default}>
+        <Placeholder height="large" width="full" color={tokens.color.interactive.default}>
           Product image
         </Placeholder>
         <div style={{ padding: '16px' }}>
           <h3 style={{ margin: '0 0 8px 0' }}>Product Name</h3>
-          <p style={{ margin: 0, color: color.text.secondary }}>$99.99</p>
+          <p style={{ margin: 0, color: tokens.color.text.secondary }}>$99.99</p>
         </div>
       </Card>
       <Card
@@ -180,12 +179,12 @@ export const UsageExamples: Story = {
           </div>
         }
       >
-        <Placeholder height="large" width="full" color={color.success.default}>
+        <Placeholder height="large" width="full" color={tokens.color.success.default}>
           Product image
         </Placeholder>
         <div style={{ padding: '16px' }}>
           <h3 style={{ margin: '0 0 8px 0' }}>Another Product</h3>
-          <p style={{ margin: 0, color: color.text.secondary }}>$149.99</p>
+          <p style={{ margin: 0, color: tokens.color.text.secondary }}>$149.99</p>
         </div>
       </Card>
       <Card
@@ -198,12 +197,12 @@ export const UsageExamples: Story = {
           </div>
         }
       >
-        <Placeholder height="large" width="full" color={color.error.default}>
+        <Placeholder height="large" width="full" color={tokens.color.error.default}>
           Product image
         </Placeholder>
         <div style={{ padding: '16px' }}>
           <h3 style={{ margin: '0 0 8px 0' }}>Premium Item</h3>
-          <p style={{ margin: 0, color: color.text.secondary }}>$249.99</p>
+          <p style={{ margin: 0, color: tokens.color.text.secondary }}>$249.99</p>
         </div>
       </Card>
     </div>

@@ -1,9 +1,8 @@
 import { Fragment } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Button, Container, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Button, Container, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '3. Forms/Button',
@@ -92,11 +91,11 @@ export const Color: Story = {
               style={{
                 fontFamily: 'monospace',
                 fontSize: '12px',
-                color: color.text.secondary,
+                color: tokens.color.text.secondary,
                 textAlign: 'center',
                 padding: '6px 8px',
-                backgroundColor: color.background.primary,
-                border: `1px solid ${color.border.light}`,
+                backgroundColor: tokens.color.background.primary,
+                border: `1px solid ${tokens.color.border.light}`,
                 borderRadius: '10px',
               }}
             >
@@ -110,10 +109,10 @@ export const Color: Story = {
                 style={{
                   fontFamily: 'monospace',
                   fontSize: '12px',
-                  color: color.text.secondary,
+                  color: tokens.color.text.secondary,
                   padding: '6px 8px',
-                  backgroundColor: color.background.primary,
-                  border: `1px solid ${color.border.light}`,
+                  backgroundColor: tokens.color.background.primary,
+                  border: `1px solid ${tokens.color.border.light}`,
                   borderRadius: '10px',
                 }}
               >

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { fontFamily, fontSize, fontWeight, letterSpacing, lineHeight } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Typography',
@@ -24,7 +24,7 @@ export const FontFamilies: Story = {
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Font Families</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(fontFamily).map(([key, value]) => (
+        {Object.entries(primitives.fontFamily).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -68,7 +68,7 @@ export const FontSizes: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(fontSize).map(([key, value]) => (
+        {Object.entries(primitives.fontSize).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -131,7 +131,7 @@ export const LineHeights: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-        {Object.entries(lineHeight).map(([key, value]) => (
+        {Object.entries(primitives.lineHeight).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -185,7 +185,7 @@ export const LetterSpacing: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-        {Object.entries(letterSpacing).map(([key, value]) => (
+        {Object.entries(primitives.letterSpacing).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -233,7 +233,7 @@ export const FontWeights: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(fontWeight).map(([key, value]) => (
+        {Object.entries(primitives.fontWeight).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -274,11 +274,11 @@ export const UsageExamples: Story = {
         <div>
           <h3
             style={{
-              fontFamily: fontFamily.sans,
-              fontSize: fontSize[30],
-              fontWeight: fontWeight[700],
-              lineHeight: lineHeight.heading,
-              letterSpacing: letterSpacing.heading,
+              fontFamily: primitives.fontFamily.sans,
+              fontSize: primitives.fontSize[30],
+              fontWeight: primitives.fontWeight[700],
+              lineHeight: primitives.lineHeight.heading,
+              letterSpacing: primitives.letterSpacing.heading,
               marginBottom: '16px',
             }}
           >
@@ -286,11 +286,11 @@ export const UsageExamples: Story = {
           </h3>
           <p
             style={{
-              fontFamily: fontFamily.sans,
-              fontSize: fontSize[16],
-              fontWeight: fontWeight[400],
-              lineHeight: lineHeight.body,
-              letterSpacing: letterSpacing.normal,
+              fontFamily: primitives.fontFamily.sans,
+              fontSize: primitives.fontSize[16],
+              fontWeight: primitives.fontWeight[400],
+              lineHeight: primitives.lineHeight.body,
+              letterSpacing: primitives.letterSpacing.normal,
               color: '#737373',
               marginBottom: '16px',
             }}
@@ -300,11 +300,11 @@ export const UsageExamples: Story = {
           </p>
           <p
             style={{
-              fontFamily: fontFamily.sans,
-              fontSize: fontSize[16],
-              fontWeight: fontWeight[400],
-              lineHeight: lineHeight.reading,
-              letterSpacing: letterSpacing.readable,
+              fontFamily: primitives.fontFamily.sans,
+              fontSize: primitives.fontSize[16],
+              fontWeight: primitives.fontWeight[400],
+              lineHeight: primitives.lineHeight.reading,
+              letterSpacing: primitives.letterSpacing.readable,
               color: '#737373',
             }}
           >
@@ -316,10 +316,10 @@ export const UsageExamples: Story = {
         <div>
           <h4
             style={{
-              fontFamily: fontFamily.serif,
-              fontSize: fontSize[24],
-              fontWeight: fontWeight[600],
-              lineHeight: lineHeight.heading,
+              fontFamily: primitives.fontFamily.serif,
+              fontSize: primitives.fontSize[24],
+              fontWeight: primitives.fontWeight[600],
+              lineHeight: primitives.lineHeight.heading,
               marginBottom: '12px',
             }}
           >
@@ -327,10 +327,10 @@ export const UsageExamples: Story = {
           </h4>
           <p
             style={{
-              fontFamily: fontFamily.serif,
-              fontSize: fontSize[16],
-              fontWeight: fontWeight[400],
-              lineHeight: lineHeight.body,
+              fontFamily: primitives.fontFamily.serif,
+              fontSize: primitives.fontSize[16],
+              fontWeight: primitives.fontWeight[400],
+              lineHeight: primitives.lineHeight.body,
               color: '#737373',
             }}
           >
@@ -344,9 +344,9 @@ export const UsageExamples: Story = {
             padding: '20px',
             backgroundColor: '#1F2937',
             borderRadius: '8px',
-            fontFamily: fontFamily.mono,
-            fontSize: fontSize[14],
-            lineHeight: lineHeight.body,
+            fontFamily: primitives.fontFamily.mono,
+            fontSize: primitives.fontSize[14],
+            lineHeight: primitives.lineHeight.body,
             color: '#D1D5DB',
           }}
         >
@@ -364,7 +364,7 @@ export const UsageExamples: Story = {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <div
             style={{
-              fontSize: fontSize[12],
+              fontSize: primitives.fontSize[12],
               color: '#9CA3AF',
             }}
           >
@@ -372,7 +372,7 @@ export const UsageExamples: Story = {
           </div>
           <div
             style={{
-              fontSize: fontSize[14],
+              fontSize: primitives.fontSize[14],
               color: '#6B7280',
             }}
           >
@@ -380,16 +380,16 @@ export const UsageExamples: Story = {
           </div>
           <div
             style={{
-              fontSize: fontSize[16],
-              fontWeight: fontWeight[400],
+              fontSize: primitives.fontSize[16],
+              fontWeight: primitives.fontWeight[400],
             }}
           >
             Body text (16px) - WCAG minimum
           </div>
           <div
             style={{
-              fontSize: fontSize[20],
-              fontWeight: fontWeight[500],
+              fontSize: primitives.fontSize[20],
+              fontWeight: primitives.fontWeight[500],
             }}
           >
             Large text (20px) - Qualifies for relaxed contrast ratios

@@ -159,13 +159,13 @@ We use automated tools as a first line of defense:
 
 ## CSS Variable Theming
 
-All design tokens use CSS variables with the `--lufa-` prefix, making it easy to override values while maintaining accessibility:
+All design tokens use CSS variables with the `--lufa-token-` prefix, making it easy to override values while maintaining accessibility:
 
 ```css
 :root {
   /* Ensure sufficient contrast when overriding colors */
-  --lufa-color-text-primary: #1a1a1a;
-  --lufa-color-background-primary: #ffffff;
+  --lufa-token-color-text-primary: #1a1a1a;
+  --lufa-token-color-background-primary: #ffffff;
 }
 ```
 

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { size } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Sizes',
@@ -22,7 +22,7 @@ export const AllSizes: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(size).map(([key, value]) => {
+        {Object.entries(tokens.size).map(([key, value]) => {
           const isTouchTarget = key === 'touchTarget';
 
           return (
@@ -102,8 +102,8 @@ export const UsageExamples: Story = {
             <div key={siz} style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
               <div
                 style={{
-                  width: size[siz as keyof typeof size],
-                  height: size[siz as keyof typeof size],
+                  width: tokens.size[siz as keyof typeof tokens.size],
+                  height: tokens.size[siz as keyof typeof tokens.size],
                   backgroundColor: '#3B82F6',
                   borderRadius: '4px',
                   display: 'flex',
@@ -129,7 +129,7 @@ export const UsageExamples: Story = {
             <button
               key={siz}
               style={{
-                height: size[siz as keyof typeof size],
+                height: tokens.size[siz as keyof typeof tokens.size],
                 padding: '0 24px',
                 backgroundColor: '#3B82F6',
                 color: 'white',
@@ -154,8 +154,8 @@ export const UsageExamples: Story = {
             <div key={siz} style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
               <div
                 style={{
-                  width: size[siz as keyof typeof size],
-                  height: size[siz as keyof typeof size],
+                  width: tokens.size[siz as keyof typeof tokens.size],
+                  height: tokens.size[siz as keyof typeof tokens.size],
                   backgroundColor: '#10B981',
                   borderRadius: '50%',
                   display: 'flex',
@@ -183,7 +183,7 @@ export const UsageExamples: Story = {
               type="text"
               placeholder={`Input with ${siz} height`}
               style={{
-                height: size[siz as keyof typeof size],
+                height: tokens.size[siz as keyof typeof tokens.size],
                 padding: '0 16px',
                 border: '1px solid #D1D5DB',
                 borderRadius: '6px',

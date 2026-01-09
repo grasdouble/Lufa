@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { tokens } from '@grasdouble/lufa_design-system';
-import { borderStyle, borderWidth } from '@grasdouble/lufa_design-system-tokens';
-
-const { color } = tokens;
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Borders',
@@ -33,7 +30,7 @@ export const BorderWidths: Story = {
           marginBottom: '40px',
         }}
       >
-        {Object.entries(borderWidth).map(([key, value]) => (
+        {Object.entries(tokens.borderWidth).map(([key, value]) => (
           <div key={key}>
             <div
               style={{
@@ -91,7 +88,7 @@ export const BorderStyles: Story = {
           marginBottom: '40px',
         }}
       >
-        {Object.entries(borderStyle).map(([key, value]) => (
+        {Object.entries(tokens.borderStyle).map(([key, value]) => (
           <div key={key}>
             <div
               style={{
@@ -131,7 +128,7 @@ export const UsageExamples: Story = {
             placeholder="Default (hairline)"
             style={{
               padding: '10px 12px',
-              border: `${borderWidth.hairline} ${borderStyle.solid} #D1D5DB`,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} #D1D5DB`,
               borderRadius: '6px',
               fontSize: '14px',
             }}
@@ -141,7 +138,7 @@ export const UsageExamples: Story = {
             placeholder="Focus (3px for visibility)"
             style={{
               padding: '10px 12px',
-              border: `${borderWidth.focus} ${borderStyle.solid} #3B82F6`,
+              border: `${tokens.borderWidth.focus} ${tokens.borderStyle.solid} #3B82F6`,
               borderRadius: '6px',
               fontSize: '14px',
               outline: 'none',
@@ -152,7 +149,7 @@ export const UsageExamples: Story = {
             placeholder="Error (thin)"
             style={{
               padding: '10px 12px',
-              border: `${borderWidth.thin} ${borderStyle.solid} ${color.error.default}`,
+              border: `${tokens.borderWidth.thin} ${tokens.borderStyle.solid} ${tokens.color.error.default}`,
               borderRadius: '6px',
               fontSize: '14px',
             }}
@@ -172,7 +169,7 @@ export const UsageExamples: Story = {
           <div
             style={{
               padding: '20px',
-              border: `${borderWidth.hairline} ${borderStyle.solid} #E5E5E5`,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} #E5E5E5`,
               borderRadius: '8px',
             }}
           >
@@ -182,7 +179,7 @@ export const UsageExamples: Story = {
           <div
             style={{
               padding: '20px',
-              border: `${borderWidth.thin} ${borderStyle.solid} #3B82F6`,
+              border: `${tokens.borderWidth.thin} ${tokens.borderStyle.solid} #3B82F6`,
               borderRadius: '8px',
             }}
           >
@@ -192,7 +189,7 @@ export const UsageExamples: Story = {
           <div
             style={{
               padding: '20px',
-              border: `${borderWidth.thick} ${borderStyle.dashed} #737373`,
+              border: `${tokens.borderWidth.thick} ${tokens.borderStyle.dashed} #737373`,
               borderRadius: '8px',
             }}
           >
@@ -208,18 +205,23 @@ export const UsageExamples: Story = {
           <div
             style={{
               padding: '12px 0',
-              borderBottom: `${borderWidth.hairline} ${borderStyle.solid} #E5E5E5`,
+              borderBottom: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} #E5E5E5`,
             }}
           >
             Hairline divider
           </div>
-          <div style={{ padding: '12px 0', borderBottom: `${borderWidth.thin} ${borderStyle.solid} #D1D5DB` }}>
+          <div
+            style={{
+              padding: '12px 0',
+              borderBottom: `${tokens.borderWidth.thin} ${tokens.borderStyle.solid} #D1D5DB`,
+            }}
+          >
             Thin divider
           </div>
           <div
             style={{
               padding: '12px 0',
-              borderBottom: `${borderWidth.hairline} ${borderStyle.dashed} #D1D5DB`,
+              borderBottom: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} #D1D5DB`,
             }}
           >
             Dashed divider

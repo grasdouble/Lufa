@@ -100,7 +100,7 @@ const modalWidth = maxWidth[600]; // "37.5rem"
 
 ## Primitive Categories
 
-### 🎨 **Border** (17 tokens)
+### 🎨 **Border** (21 tokens)
 
 - **borderWidth** (6) - `0`, `1`, `2`, `3`, `4`, `8` (pixels)
 - **borderStyle** (5) - `solid`, `dashed`, `dotted`, `double`, `none`
@@ -121,7 +121,7 @@ const modalWidth = maxWidth[600]; // "37.5rem"
 
 ### 📐 **Elevation** (20 tokens)
 
-- **shadow** (10) - `xs`, `sm`, `md`, `base`, `lg`, `xl`, `2xl`, `inner`, `none`, `focus`
+- **shadow** (10) - `none`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`
 - **zIndex** (10) - `0`, `10`, `20`, `30`, `40`, `50`, `100`, `500`, `900`, `9999`
 
 ### 🔷 **Icon** (11 tokens)
@@ -129,7 +129,7 @@ const modalWidth = maxWidth[600]; // "37.5rem"
 - **iconSize** (7) - `12`, `16`, `20`, `24`, `32`, `40`, `48` (pixels)
 - **iconStroke** (4) - `"1"`, `"1-5"`, `"2"`, `"2-5"` (stroke width for SVG icons)
 
-### 📏 **Layout** (20 tokens)
+### 📏 **Layout** (28 tokens)
 
 - **breakpoint** (6) - `480`, `768`, `1024`, `1280`, `1440`, `1920` (pixels)
 - **grid.columns** (8) - `1` to `12`
@@ -138,18 +138,17 @@ const modalWidth = maxWidth[600]; // "37.5rem"
 
 ### 🎬 **Motion** (17 tokens)
 
-- **easing** (4) - `linear`, `ease-in`, `ease-out`, `ease-in-out` (cubic-bezier curves)
+- **easing** (4) - `easeIn`, `easeOut`, `easeInOut`, `gentle` (cubic-bezier curves)
 - **timing** (13) - `0`, `50`, `75`, `100`, `150`, `200`, `250`, `300`, `400`, `500`, `600`, `800`, `1000` (milliseconds)
 
-### 📦 **Space** (60 tokens)
+### 📦 **Space** (54 tokens)
 
 - **spacing** (21) - `0`, `2`, `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `28`, `32`, `40`, `48`, `56`, `64`, `72`, `80`, `96`, `120`, `128` (pixels)
 - **size** (10) - `0`, `4`, `8`, `16`, `32`, `44`, `64`, `96`, `128`, `192` (pixels for component sizes)
 - **maxWidth** (23) - `256`, `288`, `320`, `360`, `384`, `400`, `448`, `512`, `576`, `600`, `640`, `672`, `768`, `800`, `896`, `960`, `1024`, `1152`, `1200`, `1280`, `1440` + `full`, `none` (pixels/rem)
 
-### ✍️ **Typography** (42 tokens)
+### ✍️ **Typography** (37 tokens)
 
-- **fontFamily** (3) - `sans`, `serif`, `mono`
 - **fontSize** (13) - `12`, `14`, `16`, `18`, `20`, `24`, `30`, `36`, `48`, `60`, `72`, `96`, `128` (pixels/rem)
 - **fontWeight** (9) - `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`
 - **lineHeight** (6) - `1`, `1.2`, `1.35`, `1.5`, `1.65`, `1.8`

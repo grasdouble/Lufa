@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { ASPECT_RATIO, AspectRatio, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color, aspectRatio } = tokens;
+import { ASPECT_RATIO, AspectRatio, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
       borderRadius: '8px',
       marginBottom: '16px',
     }}
@@ -18,7 +17,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           marginBottom: 12,
         }}
       >
@@ -34,7 +33,7 @@ const Media = ({ label }: { label: string }) => (
     style={{
       width: '100%',
       height: '100%',
-      backgroundImage: `linear-gradient(135deg, ${color.interactive.default} 0%, ${color.brand.secondary} 100%)`,
+      backgroundImage: `linear-gradient(135deg, ${tokens.color.interactive.default} 0%, ${tokens.color.brand.secondary} 100%)`,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -48,12 +47,12 @@ const Media = ({ label }: { label: string }) => (
 );
 
 export const LiveDemo = () => (
-  <Frame title={`ratio: video → ${aspectRatio.video}`}>
+  <Frame title={`ratio: video → ${tokens.aspectRatio.video}`}>
     <AspectRatio
       ratio={ASPECT_RATIO.video}
       style={{
         borderRadius: 12,
-        outline: `1px solid ${color.border.light}`,
+        outline: `1px solid ${tokens.color.border.light}`,
         background: '#fff',
       }}
     >
@@ -73,16 +72,16 @@ export const TokenRatios = () => (
     >
       {(
         [
-          { key: ASPECT_RATIO.video, label: 'video', value: aspectRatio.video },
+          { key: ASPECT_RATIO.video, label: 'video', value: tokens.aspectRatio.video },
           {
             key: ASPECT_RATIO.square,
             label: 'square',
-            value: aspectRatio.square,
+            value: tokens.aspectRatio.square,
           },
           {
             key: ASPECT_RATIO.portrait,
             label: 'portrait',
-            value: aspectRatio.portrait,
+            value: tokens.aspectRatio.portrait,
           },
         ] as const
       ).map(({ key, label, value }) => (
@@ -90,7 +89,7 @@ export const TokenRatios = () => (
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               marginBottom: 8,
             }}
           >
@@ -100,7 +99,7 @@ export const TokenRatios = () => (
             ratio={key}
             style={{
               borderRadius: 12,
-              outline: `1px solid ${color.border.light}`,
+              outline: `1px solid ${tokens.color.border.light}`,
               background: '#fff',
             }}
           >
@@ -119,7 +118,7 @@ export const CustomRatios = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -129,7 +128,7 @@ export const CustomRatios = () => (
           ratio="3 / 1"
           style={{
             borderRadius: 12,
-            outline: `1px solid ${color.border.light}`,
+            outline: `1px solid ${tokens.color.border.light}`,
             background: '#fff',
           }}
         >
@@ -140,7 +139,7 @@ export const CustomRatios = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -150,7 +149,7 @@ export const CustomRatios = () => (
           ratio={1.333}
           style={{
             borderRadius: 12,
-            outline: `1px solid ${color.border.light}`,
+            outline: `1px solid ${tokens.color.border.light}`,
             background: '#fff',
           }}
         >
@@ -169,19 +168,19 @@ export const As = () => (
         ratio={ASPECT_RATIO.video}
         style={{
           borderRadius: 12,
-          outline: `1px solid ${color.border.light}`,
+          outline: `1px solid ${tokens.color.border.light}`,
           background: '#fff',
         }}
       >
         <Media label='as="div"' />
       </AspectRatio>
-      <div></div>
+      <div />
       <AspectRatio
         as="figure"
         ratio={ASPECT_RATIO.photo}
         style={{
           borderRadius: 12,
-          outline: `1px solid ${color.border.light}`,
+          outline: `1px solid ${tokens.color.border.light}`,
           background: '#fff',
         }}
       >
@@ -214,7 +213,7 @@ export const CardThumbnailsExample = () => (
           style={{
             borderRadius: 12,
             overflow: 'hidden',
-            outline: `1px solid ${color.border.light}`,
+            outline: `1px solid ${tokens.color.border.light}`,
             background: '#fff',
           }}
         >
@@ -225,13 +224,13 @@ export const CardThumbnailsExample = () => (
             <div
               style={{
                 fontFamily: 'monospace',
-                color: color.text.primary,
+                color: tokens.color.text.primary,
                 fontSize: 12,
               }}
             >
               Item {label}
             </div>
-            <div style={{ color: color.text.secondary, fontSize: 12 }}>16 / 9 media</div>
+            <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>16 / 9 media</div>
           </div>
         </div>
       ))}
@@ -246,7 +245,7 @@ export const MediaHeroExample = () => (
       style={{
         borderRadius: 12,
         overflow: 'hidden',
-        outline: `1px solid ${color.border.light}`,
+        outline: `1px solid ${tokens.color.border.light}`,
         background: '#fff',
       }}
     >

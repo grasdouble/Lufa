@@ -180,9 +180,9 @@ platforms: {
    - v5 API is more powerful but more complex than v4
 
 4. **CSS Variable Prefixes**
-   - Default naming doesn't include custom prefix (e.g., `--lufa-`)
+   - Default naming doesn't include custom prefix (e.g., `--lufa-token-`)
    - Would need custom name transform
-   - Current output: `--color-semantic-*` vs desired: `--lufa-color-semantic-*`
+   - Current output: `--color-semantic-*` vs desired: `--lufa-token-color-*`
 
 5. **Limited Custom Logic**
    - JSON format restricts programming logic
@@ -200,7 +200,7 @@ platforms: {
 - ✅ Flexible custom logic in token definitions
 - ✅ Team familiar with TypeScript
 - ✅ Simple build process (tsc + Node script)
-- ✅ Custom CSS variable prefix (`--lufa-`)
+- ✅ Custom CSS variable prefix (`--lufa-token-`)
 
 **Cons:**
 
@@ -316,7 +316,7 @@ The benefits (multi-platform, industry standard) don't currently outweigh the co
 
 ### If Proceeding with Style Dictionary:
 
-1. Create custom transform for `--lufa-` prefix
+1. Create custom transform for `--lufa-token-` prefix
 2. Build custom format for TypeScript definitions
 3. Set up token validation scripts
 4. Create migration guide for consumers

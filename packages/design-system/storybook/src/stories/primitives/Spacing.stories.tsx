@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { spacing } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Spacing',
@@ -23,7 +23,7 @@ export const AllSpacing: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(spacing).map(([key, value]) => (
+        {Object.entries(primitives.spacing).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -105,21 +105,23 @@ export const UsageExamples: Story = {
           <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '16px' }}>Card Layout</h3>
           <div
             style={{
-              padding: spacing[24],
+              padding: primitives.spacing[24],
               backgroundColor: 'white',
               borderRadius: '12px',
               border: '1px solid #E5E5E5',
               boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
             }}
           >
-            <h4 style={{ margin: `0 0 ${spacing[8]} 0`, fontSize: '18px', fontWeight: '600' }}>Card Title</h4>
-            <p style={{ margin: `0 0 ${spacing[16]} 0`, color: '#737373', lineHeight: '1.5' }}>
+            <h4 style={{ margin: `0 0 ${primitives.spacing[8]} 0`, fontSize: '18px', fontWeight: '600' }}>
+              Card Title
+            </h4>
+            <p style={{ margin: `0 0 ${primitives.spacing[16]} 0`, color: '#737373', lineHeight: '1.5' }}>
               This card uses spacing[24] for padding and spacing[8] for title margin.
             </p>
-            <div style={{ display: 'flex', gap: spacing[12] }}>
+            <div style={{ display: 'flex', gap: primitives.spacing[12] }}>
               <button
                 style={{
-                  padding: `${spacing[12]} ${spacing[24]}`,
+                  padding: `${primitives.spacing[12]} ${primitives.spacing[24]}`,
                   backgroundColor: '#3B82F6',
                   color: 'white',
                   border: 'none',
@@ -132,7 +134,7 @@ export const UsageExamples: Story = {
               </button>
               <button
                 style={{
-                  padding: `${spacing[12]} ${spacing[24]}`,
+                  padding: `${primitives.spacing[12]} ${primitives.spacing[24]}`,
                   backgroundColor: 'transparent',
                   color: '#3B82F6',
                   border: '1px solid #3B82F6',
@@ -149,12 +151,12 @@ export const UsageExamples: Story = {
 
         <div>
           <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '16px' }}>Touch Target Spacing</h3>
-          <div style={{ display: 'flex', gap: spacing[24], flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: primitives.spacing[24], flexWrap: 'wrap' }}>
             {[1, 2, 3, 4].map((i) => (
               <button
                 key={i}
                 style={{
-                  padding: spacing[32],
+                  padding: primitives.spacing[32],
                   minWidth: '44px',
                   minHeight: '44px',
                   backgroundColor: '#3B82F6',
@@ -178,11 +180,11 @@ export const UsageExamples: Story = {
         <div>
           <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '16px' }}>Form Layout</h3>
           <div style={{ maxWidth: '400px' }}>
-            <div style={{ marginBottom: spacing[16] }}>
+            <div style={{ marginBottom: primitives.spacing[16] }}>
               <label
                 style={{
                   display: 'block',
-                  marginBottom: spacing[8],
+                  marginBottom: primitives.spacing[8],
                   fontSize: '14px',
                   fontWeight: '500',
                 }}
@@ -194,18 +196,18 @@ export const UsageExamples: Story = {
                 placeholder="you@example.com"
                 style={{
                   width: '100%',
-                  padding: spacing[12],
+                  padding: primitives.spacing[12],
                   border: '1px solid #E5E5E5',
                   borderRadius: '6px',
                   fontSize: '14px',
                 }}
               />
             </div>
-            <div style={{ marginBottom: spacing[24] }}>
+            <div style={{ marginBottom: primitives.spacing[24] }}>
               <label
                 style={{
                   display: 'block',
-                  marginBottom: spacing[8],
+                  marginBottom: primitives.spacing[8],
                   fontSize: '14px',
                   fontWeight: '500',
                 }}
@@ -217,7 +219,7 @@ export const UsageExamples: Story = {
                 placeholder="••••••••"
                 style={{
                   width: '100%',
-                  padding: spacing[12],
+                  padding: primitives.spacing[12],
                   border: '1px solid #E5E5E5',
                   borderRadius: '6px',
                   fontSize: '14px',
@@ -227,7 +229,7 @@ export const UsageExamples: Story = {
             <button
               style={{
                 width: '100%',
-                padding: `${spacing[12]} ${spacing[24]}`,
+                padding: `${primitives.spacing[12]} ${primitives.spacing[24]}`,
                 backgroundColor: '#3B82F6',
                 color: 'white',
                 border: 'none',

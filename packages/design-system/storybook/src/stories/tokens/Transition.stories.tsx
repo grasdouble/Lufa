@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { transition } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Transition',
@@ -34,7 +34,7 @@ export const AllTransitions: Story = {
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-          {Object.entries(transition).map(([key, value]) => (
+          {Object.entries(tokens.transition).map(([key, value]) => (
             <div
               key={key}
               style={{
@@ -124,7 +124,7 @@ export const AllTransitions: Story = {
           >
             {`@media (prefers-reduced-motion: reduce) {
   * {
-    transition: ${transition.none} !important;
+    transition: ${tokens.transition.none} !important;
     animation: none !important;
   }
 }`}
@@ -169,7 +169,7 @@ export const InteractiveExamples: Story = {
                   borderRadius: '8px',
                   textAlign: 'center',
                   cursor: 'pointer',
-                  transition: transition.fast,
+                  transition: tokens.transition.fast,
                   transform: hoveredCard === card ? 'translateY(-4px)' : 'translateY(0)',
                   boxShadow: hoveredCard === card ? '0 4px 12px rgba(0,0,0,0.15)' : '0 1px 3px rgba(0,0,0,0.1)',
                 }}
@@ -213,7 +213,7 @@ export const InteractiveExamples: Story = {
                 justifyContent: 'center',
                 zIndex: 50,
                 opacity: isModalOpen ? 1 : 0,
-                transition: transition.base,
+                transition: tokens.transition.base,
               }}
               onClick={() => setIsModalOpen(false)}
             >
@@ -224,7 +224,7 @@ export const InteractiveExamples: Story = {
                   padding: '32px',
                   borderRadius: '12px',
                   maxWidth: '400px',
-                  transition: transition.base,
+                  transition: tokens.transition.base,
                   transform: isModalOpen ? 'scale(1)' : 'scale(0.95)',
                 }}
               >
@@ -270,7 +270,7 @@ export const InteractiveExamples: Story = {
                   border: selectedColor === color ? '3px solid #1F2937' : '3px solid transparent',
                   borderRadius: '8px',
                   cursor: 'pointer',
-                  transition: transition.colors,
+                  transition: tokens.transition.colors,
                 }}
                 aria-label={`Select color ${color}`}
               />
@@ -282,7 +282,7 @@ export const InteractiveExamples: Story = {
               backgroundColor: selectedColor,
               color: 'white',
               borderRadius: '8px',
-              transition: transition.colors,
+              transition: tokens.transition.colors,
             }}
           >
             <div style={{ fontSize: '20px', fontWeight: '600' }}>Selected Color</div>

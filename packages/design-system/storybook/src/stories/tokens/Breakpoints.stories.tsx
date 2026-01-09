@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { breakpoint } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Breakpoints',
@@ -23,7 +23,7 @@ export const AllBreakpoints: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(breakpoint).map(([key, value]) => (
+        {Object.entries(tokens.breakpoint).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -81,14 +81,14 @@ export const AllBreakpoints: Story = {
 }
 
 /* Tablet and up */
-@media (min-width: ${breakpoint.md}) {
+@media (min-width: ${tokens.breakpoint.md}) {
   .element {
     width: 50%;
   }
 }
 
 /* Desktop and up */
-@media (min-width: ${breakpoint.lg}) {
+@media (min-width: ${tokens.breakpoint.lg}) {
   .element {
     width: 33.333%;
   }
@@ -111,12 +111,12 @@ export const ResponsiveDemo: Story = {
 
     const getActiveBreakpoint = () => {
       const widthNum = currentWidth;
-      if (widthNum >= parseInt(breakpoint['2xl'])) return '2xl';
-      if (widthNum >= parseInt(breakpoint.xl)) return 'xl';
-      if (widthNum >= parseInt(breakpoint.lg)) return 'lg';
-      if (widthNum >= parseInt(breakpoint.md)) return 'md';
-      if (widthNum >= parseInt(breakpoint.sm)) return 'sm';
-      if (widthNum >= parseInt(breakpoint.xs)) return 'xs';
+      if (widthNum >= parseInt(tokens.breakpoint['2xl'])) return '2xl';
+      if (widthNum >= parseInt(tokens.breakpoint.xl)) return 'xl';
+      if (widthNum >= parseInt(tokens.breakpoint.lg)) return 'lg';
+      if (widthNum >= parseInt(tokens.breakpoint.md)) return 'md';
+      if (widthNum >= parseInt(tokens.breakpoint.sm)) return 'sm';
+      if (widthNum >= parseInt(tokens.breakpoint.xs)) return 'xs';
       return 'mobile';
     };
 
@@ -147,7 +147,7 @@ export const ResponsiveDemo: Story = {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          {Object.entries(breakpoint).map(([key, value]) => {
+          {Object.entries(tokens.breakpoint).map(([key, value]) => {
             const isActive =
               activeBreakpoint === key ||
               (activeBreakpoint === '2xl' && ['2xl', 'xl', 'lg', 'md', 'sm', 'xs'].includes(key)) ||

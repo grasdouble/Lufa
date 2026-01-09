@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { easing, timing } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Motion',
@@ -24,7 +24,7 @@ export const Timing: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(timing).map(([key, value]) => (
+        {Object.entries(primitives.timing).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -106,7 +106,7 @@ export const Easing: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-        {Object.entries(easing).map(([key, value]) => (
+        {Object.entries(primitives.easing).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -190,7 +190,7 @@ export const CombinedExamples: Story = {
               fontSize: '16px',
               fontWeight: '500',
               cursor: 'pointer',
-              transition: `transform ${timing[100]} ${easing.easeOut}, box-shadow ${timing[100]} ${easing.easeOut}`,
+              transition: `transform ${primitives.timing[100]} ${primitives.easing.easeOut}, box-shadow ${primitives.timing[100]} ${primitives.easing.easeOut}`,
               boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
             }}
             onMouseEnter={(e) => {
@@ -243,7 +243,7 @@ export const CombinedExamples: Story = {
                 boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)',
                 opacity: 0,
                 transform: 'translateY(-10px)',
-                transition: `opacity ${timing[150]} ${easing.easeOut}, transform ${timing[150]} ${easing.easeOut}`,
+                transition: `opacity ${primitives.timing[150]} ${primitives.easing.easeOut}, transform ${primitives.timing[150]} ${primitives.easing.easeOut}`,
                 pointerEvents: 'none',
                 overflow: 'hidden',
               }}
@@ -254,7 +254,7 @@ export const CombinedExamples: Story = {
                   style={{
                     padding: '12px 16px',
                     cursor: 'pointer',
-                    transition: `background-color ${timing[100]} ${easing.easeOut}`,
+                    transition: `background-color ${primitives.timing[100]} ${primitives.easing.easeOut}`,
                   }}
                   onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#F9FAFB')}
                   onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
@@ -302,7 +302,7 @@ export const CombinedExamples: Story = {
               alignItems: 'center',
               justifyContent: 'center',
               opacity: 0,
-              transition: `opacity ${timing[250]} ${easing.easeInOut}`,
+              transition: `opacity ${primitives.timing[250]} ${primitives.easing.easeInOut}`,
               pointerEvents: 'none',
               zIndex: 1000,
             }}
@@ -326,7 +326,7 @@ export const CombinedExamples: Story = {
                 maxWidth: '500px',
                 boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)',
                 transform: 'scale(0.95)',
-                transition: `transform ${timing[250]} ${easing.easeInOut}`,
+                transition: `transform ${primitives.timing[250]} ${primitives.easing.easeInOut}`,
               }}
             >
               <h4 style={{ margin: '0 0 16px 0', fontSize: '24px', fontWeight: '600' }}>Modal Title</h4>

@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Placeholder, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Placeholder } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/Placeholder',
@@ -129,19 +128,19 @@ export const Color: Story = {
       </div>
       <div>
         <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Interactive (Blue)</h3>
-        <Placeholder color={color.interactive.default}>Solid Blue</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>Solid Blue</Placeholder>
       </div>
       <div>
         <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Success (Green)</h3>
-        <Placeholder color={color.success.default}>Solid Green</Placeholder>
+        <Placeholder color={tokens.color.success.default}>Solid Green</Placeholder>
       </div>
       <div>
         <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Error (Red)</h3>
-        <Placeholder color={color.error.default}>Solid Red</Placeholder>
+        <Placeholder color={tokens.color.error.default}>Solid Red</Placeholder>
       </div>
       <div>
         <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Solid - Warning (Orange)</h3>
-        <Placeholder color={color.warning.default}>Solid Orange</Placeholder>
+        <Placeholder color={tokens.color.warning.default}>Solid Orange</Placeholder>
       </div>
     </div>
   ),
@@ -152,31 +151,31 @@ export const ColorGradient: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '420px' }}>
       <div>
         <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Blue to Purple</h3>
-        <Placeholder colorFrom={color.interactive.default} colorTo={color.brand.secondary}>
+        <Placeholder colorFrom={tokens.color.interactive.default} colorTo={tokens.color.brand.secondary}>
           Blue → Purple
         </Placeholder>
       </div>
       <div>
         <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Green to Teal</h3>
-        <Placeholder colorFrom={color.success.default} colorTo={color.info.default}>
+        <Placeholder colorFrom={tokens.color.success.default} colorTo={tokens.color.info.default}>
           Green → Teal
         </Placeholder>
       </div>
       <div>
         <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Orange to Red</h3>
-        <Placeholder colorFrom={color.warning.default} colorTo={color.error.default}>
+        <Placeholder colorFrom={tokens.color.warning.default} colorTo={tokens.color.error.default}>
           Orange → Red
         </Placeholder>
       </div>
       <div>
         <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Purple to Pink</h3>
-        <Placeholder colorFrom={color.brand.secondary} colorTo={color.brand.accent}>
+        <Placeholder colorFrom={tokens.color.brand.secondary} colorTo={tokens.color.brand.accent}>
           Purple → Pink
         </Placeholder>
       </div>
       <div>
         <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Dark to Light</h3>
-        <Placeholder colorFrom={color.background.inverse} colorTo={color.background.secondary}>
+        <Placeholder colorFrom={tokens.color.background.inverse} colorTo={tokens.color.background.secondary}>
           Dark → Light
         </Placeholder>
       </div>
@@ -187,31 +186,31 @@ export const ColorGradient: Story = {
 export const CombinedWithAndHeight: Story = {
   render: () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-      <Placeholder height="small" width="small" color={color.interactive.default}>
+      <Placeholder height="small" width="small" color={tokens.color.interactive.default}>
         Small × Small
       </Placeholder>
-      <Placeholder height="small" width="medium" color={color.success.default}>
+      <Placeholder height="small" width="medium" color={tokens.color.success.default}>
         Small × Medium
       </Placeholder>
-      <Placeholder height="small" width="large" color={color.error.default}>
+      <Placeholder height="small" width="large" color={tokens.color.error.default}>
         Small × Large
       </Placeholder>
-      <Placeholder height="medium" width="small" color={color.brand.secondary}>
+      <Placeholder height="medium" width="small" color={tokens.color.brand.secondary}>
         Medium × Small
       </Placeholder>
-      <Placeholder height="medium" width="medium" color={color.info.default}>
+      <Placeholder height="medium" width="medium" color={tokens.color.info.default}>
         Medium × Medium
       </Placeholder>
-      <Placeholder height="medium" width="large" color={color.warning.default}>
+      <Placeholder height="medium" width="large" color={tokens.color.warning.default}>
         Medium × Large
       </Placeholder>
-      <Placeholder height="large" width="small" color={color.interactive.hover}>
+      <Placeholder height="large" width="small" color={tokens.color.interactive.hover}>
         Large × Small
       </Placeholder>
-      <Placeholder height="large" width="medium" color={color.success.hover}>
+      <Placeholder height="large" width="medium" color={tokens.color.success.hover}>
         Large × Medium
       </Placeholder>
-      <Placeholder height="large" width="large" color={color.warning.default}>
+      <Placeholder height="large" width="large" color={tokens.color.warning.default}>
         Large × Large
       </Placeholder>
     </div>
@@ -230,15 +229,15 @@ export const LayoutExample: Story = {
     >
       <h2 style={{ marginBottom: '16px' }}>Dashboard Layout Example</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        <Placeholder height="small" width="full" color={color.interactive.default}>
+        <Placeholder height="small" width="full" color={tokens.color.interactive.default}>
           Header - Small Height, Full Width
         </Placeholder>
         <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '16px' }}>
-          <Placeholder height="full" width="full" color={color.brand.secondary}>
+          <Placeholder height="full" width="full" color={tokens.color.brand.secondary}>
             Sidebar
           </Placeholder>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <Placeholder height="medium" width="full" color={color.success.light}>
+            <Placeholder height="medium" width="full" color={tokens.color.success.light}>
               Content Area
             </Placeholder>
             <div
@@ -248,19 +247,19 @@ export const LayoutExample: Story = {
                 gap: '16px',
               }}
             >
-              <Placeholder height="small" color={color.warning.light}>
+              <Placeholder height="small" color={tokens.color.warning.light}>
                 Card 1
               </Placeholder>
-              <Placeholder height="small" color={color.warning.light}>
+              <Placeholder height="small" color={tokens.color.warning.light}>
                 Card 2
               </Placeholder>
-              <Placeholder height="small" color={color.warning.light}>
+              <Placeholder height="small" color={tokens.color.warning.light}>
                 Card 3
               </Placeholder>
             </div>
           </div>
         </div>
-        <Placeholder height="small" width="full" color={color.text.secondary}>
+        <Placeholder height="small" width="full" color={tokens.color.text.secondary}>
           Footer - Small Height, Full Width
         </Placeholder>
       </div>

@@ -11,19 +11,19 @@
  * - Combine with color and text labels for clarity
  */
 
-import { borderStyle as primitiveBorderStyle } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const borderStyle = {
   /** Solid line (default) */
-  solid: primitiveBorderStyle.solid,
+  solid: primitives.borderStyle.solid,
   /** Dashed line (inactive/disabled states) */
-  dashed: primitiveBorderStyle.dashed,
+  dashed: primitives.borderStyle.dashed,
   /** Dotted line (subtle separation) */
-  dotted: primitiveBorderStyle.dotted,
+  dotted: primitives.borderStyle.dotted,
   /** Double line (decorative) */
-  double: primitiveBorderStyle.double,
+  double: primitives.borderStyle.double,
   /** No border */
-  none: primitiveBorderStyle.none,
+  none: primitives.borderStyle.none,
 } as const;
 
 export type BorderStyle = keyof typeof borderStyle;

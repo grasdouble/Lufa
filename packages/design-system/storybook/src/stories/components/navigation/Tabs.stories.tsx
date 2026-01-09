@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Stack, Tabs, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Stack, Tabs } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Navigation/Tabs',
@@ -161,7 +160,7 @@ export const Controlled: Story = {
 
     return (
       <Stack gap="spacious">
-        <div style={{ padding: '12px', backgroundColor: color.background.secondary, borderRadius: '8px' }}>
+        <div style={{ padding: '12px', backgroundColor: tokens.color.background.secondary, borderRadius: '8px' }}>
           <div style={{ fontSize: '14px', marginBottom: '8px' }}>
             Active tab: <strong>{activeKey}</strong>
           </div>
@@ -171,9 +170,9 @@ export const Controlled: Story = {
               style={{
                 padding: '4px 12px',
                 borderRadius: '4px',
-                border: `1px solid ${color.border.light}`,
-                backgroundColor: activeKey === 'tab1' ? color.interactive.default : 'transparent',
-                color: activeKey === 'tab1' ? 'white' : color.text.primary,
+                border: `1px solid ${tokens.color.border.light}`,
+                backgroundColor: activeKey === 'tab1' ? tokens.color.interactive.default : 'transparent',
+                color: activeKey === 'tab1' ? 'white' : tokens.color.text.primary,
                 cursor: 'pointer',
               }}
             >
@@ -184,9 +183,9 @@ export const Controlled: Story = {
               style={{
                 padding: '4px 12px',
                 borderRadius: '4px',
-                border: `1px solid ${color.border.light}`,
-                backgroundColor: activeKey === 'tab2' ? color.interactive.default : 'transparent',
-                color: activeKey === 'tab2' ? 'white' : color.text.primary,
+                border: `1px solid ${tokens.color.border.light}`,
+                backgroundColor: activeKey === 'tab2' ? tokens.color.interactive.default : 'transparent',
+                color: activeKey === 'tab2' ? 'white' : tokens.color.text.primary,
                 cursor: 'pointer',
               }}
             >
@@ -197,9 +196,9 @@ export const Controlled: Story = {
               style={{
                 padding: '4px 12px',
                 borderRadius: '4px',
-                border: `1px solid ${color.border.light}`,
-                backgroundColor: activeKey === 'tab3' ? color.interactive.default : 'transparent',
-                color: activeKey === 'tab3' ? 'white' : color.text.primary,
+                border: `1px solid ${tokens.color.border.light}`,
+                backgroundColor: activeKey === 'tab3' ? tokens.color.interactive.default : 'transparent',
+                color: activeKey === 'tab3' ? 'white' : tokens.color.text.primary,
                 cursor: 'pointer',
               }}
             >
@@ -277,25 +276,25 @@ export const ProductDetails: Story = {
                 <div
                   style={{
                     padding: '16px',
-                    backgroundColor: color.background.secondary,
+                    backgroundColor: tokens.color.background.secondary,
                     borderRadius: '8px',
                     marginBottom: '12px',
                   }}
                 >
                   <div style={{ fontWeight: 600, marginBottom: '8px' }}>Great product!</div>
-                  <div style={{ fontSize: '14px', color: color.text.secondary }}>
+                  <div style={{ fontSize: '14px', color: tokens.color.text.secondary }}>
                     Really happy with this purchase. Highly recommended.
                   </div>
                 </div>
                 <div
                   style={{
                     padding: '16px',
-                    backgroundColor: color.background.secondary,
+                    backgroundColor: tokens.color.background.secondary,
                     borderRadius: '8px',
                   }}
                 >
                   <div style={{ fontWeight: 600, marginBottom: '8px' }}>Excellent quality</div>
-                  <div style={{ fontSize: '14px', color: color.text.secondary }}>
+                  <div style={{ fontSize: '14px', color: tokens.color.text.secondary }}>
                     The quality is outstanding. Worth every penny.
                   </div>
                 </div>
@@ -324,35 +323,35 @@ export const Dashboard: Story = {
                 <div
                   style={{
                     padding: '20px',
-                    backgroundColor: color.background.secondary,
+                    backgroundColor: tokens.color.background.secondary,
                     borderRadius: '8px',
                     textAlign: 'center',
                   }}
                 >
                   <div style={{ fontSize: '32px', fontWeight: 700, marginBottom: '8px' }}>1,234</div>
-                  <div style={{ fontSize: '14px', color: color.text.secondary }}>Total Users</div>
+                  <div style={{ fontSize: '14px', color: tokens.color.text.secondary }}>Total Users</div>
                 </div>
                 <div
                   style={{
                     padding: '20px',
-                    backgroundColor: color.background.secondary,
+                    backgroundColor: tokens.color.background.secondary,
                     borderRadius: '8px',
                     textAlign: 'center',
                   }}
                 >
                   <div style={{ fontSize: '32px', fontWeight: 700, marginBottom: '8px' }}>567</div>
-                  <div style={{ fontSize: '14px', color: color.text.secondary }}>Active Sessions</div>
+                  <div style={{ fontSize: '14px', color: tokens.color.text.secondary }}>Active Sessions</div>
                 </div>
                 <div
                   style={{
                     padding: '20px',
-                    backgroundColor: color.background.secondary,
+                    backgroundColor: tokens.color.background.secondary,
                     borderRadius: '8px',
                     textAlign: 'center',
                   }}
                 >
                   <div style={{ fontSize: '32px', fontWeight: 700, marginBottom: '8px' }}>89%</div>
-                  <div style={{ fontSize: '14px', color: color.text.secondary }}>Satisfaction Rate</div>
+                  <div style={{ fontSize: '14px', color: tokens.color.text.secondary }}>Satisfaction Rate</div>
                 </div>
               </div>
             </div>

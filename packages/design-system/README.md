@@ -45,7 +45,7 @@ The design system follows a three-layer architecture, each serving a distinct pu
 
 - **Three-Layer Architecture** - Clear separation between primitives, tokens, and components
 - **448 Primitives** - Raw foundational values for all design aspects
-- **355 Semantic Tokens** - Purpose-driven design decisions
+- **446 Semantic Tokens** - Purpose-driven design decisions (including motion/focus presets)
 - **Type-Safe** - Full TypeScript support with strict mode
 - **Accessible** - WCAG 2.1 AA compliant components
 - **Themeable** - Token-based theming with dark mode support
@@ -83,7 +83,7 @@ pnpm add @grasdouble/lufa_design-system-tokens
 
 **What's included:**
 
-- 355 semantic tokens
+- 446 semantic tokens (including motion/focus presets)
 - Color, spacing, typography, motion tokens
 - CSS custom properties
 - TypeScript definitions
@@ -204,11 +204,11 @@ function App() {
 Access semantic tokens for custom styling:
 
 ```tsx
-import { tokens } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const customStyles = {
-  padding: tokens.spacing.comfortable,
-  fontSize: tokens.fontSize.body,
+  padding: tokens.spacing.lg,
+  fontSize: tokens.fontSize.base,
   color: tokens.color.text.primary,
 };
 ```
@@ -218,7 +218,7 @@ const customStyles = {
 Access raw primitive values for advanced use cases:
 
 ```tsx
-import { primitives } from '@grasdouble/lufa_design-system';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 const customStyles = {
   padding: primitives.spacing[24],
@@ -306,12 +306,12 @@ Tokens provide semantic meaning for design decisions:
 
 ```typescript
 // ✅ Good: Purpose-driven names
-spacing.comfortable; // Mapped from primitives.spacing[24]
-timing.transition; // Mapped from primitives.timing[150]
-fontSize.body; // Mapped from primitives.fontSize[16]
+spacing.lg; // Mapped from primitives.spacing[24]
+timing.fast; // Mapped from primitives.timing[150]
+fontSize.base; // Mapped from primitives.fontSize[16]
 
 // ❌ Avoid: Hard-coded values in tokens
-spacing.comfortable = '24px'; // Should map from primitives
+spacing.lg = '24px'; // Should map from primitives
 ```
 
 ### Component Composition
@@ -321,8 +321,8 @@ Components are built using tokens for consistency:
 ```tsx
 // ✅ Good: Uses tokens
 const Button = styled.button`
-  padding: ${tokens.spacing.compact};
-  font-size: ${tokens.fontSize.body};
+  padding: ${tokens.spacing.sm};
+  font-size: ${tokens.fontSize.base};
 `;
 
 // ❌ Avoid: Hard-coded values or primitives
@@ -364,14 +364,14 @@ function App() {
 /* custom-theme.css */
 :root {
   /* Override token values */
-  --lufa-color-text-primary: #1a1a1a;
-  --lufa-color-background-primary: #ffffff;
-  --lufa-spacing-default: 16px;
+  --lufa-token-color-text-primary: #1a1a1a;
+  --lufa-token-color-background-primary: #ffffff;
+  --lufa-token-spacing-base: 16px;
 }
 
 [data-theme='dark'] {
-  --lufa-color-text-primary: #ffffff;
-  --lufa-color-background-primary: #1a1a1a;
+  --lufa-token-color-text-primary: #ffffff;
+  --lufa-token-color-background-primary: #1a1a1a;
 }
 ```
 

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { aspectRatio } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Aspect Ratio',
@@ -22,7 +22,7 @@ export const AllAspectRatios: Story = {
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
-        {Object.entries(aspectRatio).map(([key, value]) => (
+        {Object.entries(tokens.aspectRatio).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -89,7 +89,7 @@ export const UsageExamples: Story = {
           <div
             style={{
               maxWidth: '800px',
-              aspectRatio: aspectRatio.video,
+              aspectRatio: tokens.aspectRatio.video,
               backgroundColor: '#1F2937',
               borderRadius: '12px',
               display: 'flex',
@@ -109,7 +109,7 @@ export const UsageExamples: Story = {
           <div
             style={{
               width: '200px',
-              aspectRatio: aspectRatio.square,
+              aspectRatio: tokens.aspectRatio.square,
               backgroundColor: '#3B82F6',
               borderRadius: '50%',
               display: 'flex',
@@ -130,7 +130,7 @@ export const UsageExamples: Story = {
           <div
             style={{
               maxWidth: '300px',
-              aspectRatio: aspectRatio.vertical,
+              aspectRatio: tokens.aspectRatio.vertical,
               background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
               borderRadius: '16px',
               display: 'flex',

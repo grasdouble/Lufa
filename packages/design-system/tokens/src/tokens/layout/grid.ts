@@ -42,40 +42,40 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/reflow.html|WCAG 2.1 - Reflow}
  */
 
-import { grid as primitiveGrid } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const grid = {
   columns: {
     /** 1 column - Mobile vertical stacking */
-    single: primitiveGrid.columns[1],
+    single: primitives.grid.columns[1],
     /** 2 columns - Small tablets, split layouts */
-    double: primitiveGrid.columns[2],
+    double: primitives.grid.columns[2],
     /** 3 columns - Tablet portrait */
-    triple: primitiveGrid.columns[3],
+    triple: primitives.grid.columns[3],
     /** 4 columns - Tablet landscape, small desktop */
-    quad: primitiveGrid.columns[4],
+    quad: primitives.grid.columns[4],
     /** 6 columns - Medium desktop */
-    six: primitiveGrid.columns[6],
+    six: primitives.grid.columns[6],
     /** 8 columns - Large desktop */
-    eight: primitiveGrid.columns[8],
+    eight: primitives.grid.columns[8],
     /** 12 columns - Standard grid system (most flexible) */
-    twelve: primitiveGrid.columns[12],
+    twelve: primitives.grid.columns[12],
     /** 16 columns - Dense layouts, dashboards */
-    sixteen: primitiveGrid.columns[16],
+    sixteen: primitives.grid.columns[16],
   },
   gutters: {
     /** No gutter - Flush layouts */
-    none: primitiveGrid.gutters[0],
+    none: primitives.grid.gutters[0],
     /** 8px - Compact layouts */
-    xs: primitiveGrid.gutters[8],
+    xs: primitives.grid.gutters[8],
     /** 16px - Standard spacing */
-    sm: primitiveGrid.gutters[16],
+    sm: primitives.grid.gutters[16],
     /** 24px - Comfortable spacing (minimum for touch) */
-    md: primitiveGrid.gutters[24],
+    md: primitives.grid.gutters[24],
     /** 32px - Spacious layouts */
-    lg: primitiveGrid.gutters[32],
+    lg: primitives.grid.gutters[32],
     /** 48px - Very spacious, hero sections */
-    xl: primitiveGrid.gutters[48],
+    xl: primitives.grid.gutters[48],
   },
 } as const;
 

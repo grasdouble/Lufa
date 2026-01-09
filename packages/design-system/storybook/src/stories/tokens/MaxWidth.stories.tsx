@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { maxWidth } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Max Width',
@@ -57,7 +57,7 @@ export const Overview: Story = {
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>All Max-Width Tokens</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        {Object.entries(maxWidth).map(([key, value]) => {
+        {Object.entries(tokens.maxWidth).map(([key, value]) => {
           // Convert rem to px for display (1rem = 16px)
           const pxValue = value === 'none' || value === '100%' ? value : `${parseFloat(value) * 16}px`;
 
@@ -153,12 +153,12 @@ export const ResponsiveDemo: Story = {
       {(['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] as const).map((size) => (
         <div key={size} style={{ marginBottom: '32px' }}>
           <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px' }}>
-            {size.toUpperCase()} - {maxWidth[size]}
+            {size.toUpperCase()} - {tokens.maxWidth[size]}
           </h3>
           <div
             style={{
               width: '100%',
-              maxWidth: maxWidth[size],
+              maxWidth: tokens.maxWidth[size],
               padding: '24px',
               backgroundColor: '#FFFFFF',
               border: '2px solid #2563EB',
@@ -166,8 +166,8 @@ export const ResponsiveDemo: Story = {
             }}
           >
             <p style={{ margin: 0, color: '#525252', fontSize: '14px' }}>
-              This container has a max-width of <strong>{maxWidth[size]}</strong>. It will shrink on smaller screens but
-              never exceed this width on larger screens.
+              This container has a max-width of <strong>{tokens.maxWidth[size]}</strong>. It will shrink on smaller
+              screens but never exceed this width on larger screens.
             </p>
           </div>
         </div>
@@ -186,7 +186,7 @@ export const ModalSizeComparison: Story = {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', alignItems: 'center' }}>
         {/* Small Modal */}
-        <div style={{ width: '100%', maxWidth: maxWidth.md }}>
+        <div style={{ width: '100%', maxWidth: tokens.maxWidth.md }}>
           <div
             style={{
               backgroundColor: '#FFFFFF',
@@ -207,7 +207,7 @@ export const ModalSizeComparison: Story = {
         </div>
 
         {/* Medium Modal */}
-        <div style={{ width: '100%', maxWidth: maxWidth['2xl'] }}>
+        <div style={{ width: '100%', maxWidth: tokens.maxWidth['2xl'] }}>
           <div
             style={{
               backgroundColor: '#FFFFFF',
@@ -228,7 +228,7 @@ export const ModalSizeComparison: Story = {
         </div>
 
         {/* Large Modal */}
-        <div style={{ width: '100%', maxWidth: maxWidth['4xl'] }}>
+        <div style={{ width: '100%', maxWidth: tokens.maxWidth['4xl'] }}>
           <div
             style={{
               backgroundColor: '#FFFFFF',

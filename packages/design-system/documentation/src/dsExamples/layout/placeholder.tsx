@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Placeholder, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
       borderRadius: '8px',
       marginBottom: '16px',
     }}
@@ -18,7 +17,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           marginBottom: 12,
         }}
       >
@@ -42,7 +41,7 @@ export const Height = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -54,7 +53,7 @@ export const Height = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -66,7 +65,7 @@ export const Height = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -78,7 +77,7 @@ export const Height = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -103,7 +102,7 @@ export const Width = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -115,7 +114,7 @@ export const Width = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -127,7 +126,7 @@ export const Width = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -139,7 +138,7 @@ export const Width = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -151,7 +150,7 @@ export const Width = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -176,7 +175,7 @@ export const Color = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -188,37 +187,37 @@ export const Color = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
           solid — interactive
         </div>
-        <Placeholder color={color.interactive.default}>Solid Blue</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>Solid Blue</Placeholder>
       </div>
       <div>
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
           solid — success
         </div>
-        <Placeholder color={color.success.default}>Solid Green</Placeholder>
+        <Placeholder color={tokens.color.success.default}>Solid Green</Placeholder>
       </div>
       <div>
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
           solid — error
         </div>
-        <Placeholder color={color.error.default}>Solid Red</Placeholder>
+        <Placeholder color={tokens.color.error.default}>Solid Red</Placeholder>
       </div>
     </div>
   </Frame>
@@ -237,13 +236,13 @@ export const Gradient = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
           blue → purple
         </div>
-        <Placeholder colorFrom={color.interactive.default} colorTo={color.brand.secondary}>
+        <Placeholder colorFrom={tokens.color.interactive.default} colorTo={tokens.color.brand.secondary}>
           Custom Gradient
         </Placeholder>
       </div>
@@ -251,13 +250,13 @@ export const Gradient = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
           green → teal
         </div>
-        <Placeholder colorFrom={color.success.default} colorTo="#14B8A6">
+        <Placeholder colorFrom={tokens.color.success.default} colorTo="#14B8A6">
           Green → Teal
         </Placeholder>
       </div>
@@ -288,7 +287,7 @@ export const HeightWidthMatrixExample = () => (
         Large × Small
       </Placeholder>
       <div style={{ gridColumn: '1 / -1' }}>
-        <Placeholder height="medium" width="full" color={color.interactive.default}>
+        <Placeholder height="medium" width="full" color={tokens.color.interactive.default}>
           Medium × Full Width
         </Placeholder>
       </div>

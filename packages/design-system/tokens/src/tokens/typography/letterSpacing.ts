@@ -39,21 +39,21 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html|WCAG 2.1 - Visual Presentation}
  */
 
-import { letterSpacing as primitiveLetterSpacing } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const letterSpacing = {
   /** -0.02em - Tightest (large display only) */
-  tightest: primitiveLetterSpacing.tight,
+  tightest: primitives.letterSpacing.tight,
   /** -0.01em - Tight (headings only) */
-  tight: primitiveLetterSpacing.heading,
+  tight: primitives.letterSpacing.heading,
   /** 0 - Normal (default) */
-  normal: primitiveLetterSpacing.normal,
+  normal: primitives.letterSpacing.normal,
   /** 0.01em - Wide (slight tracking) */
-  wide: primitiveLetterSpacing.relaxed,
+  wide: primitives.letterSpacing.relaxed,
   /** 0.04em - Wider (dyslexia-friendly) */
-  wider: primitiveLetterSpacing.readable,
+  wider: primitives.letterSpacing.readable,
   /** 0.08em - Widest (uppercase, small caps) */
-  widest: primitiveLetterSpacing.dyslexia,
+  widest: primitives.letterSpacing.dyslexia,
 } as const;
 
 export type LetterSpacing = keyof typeof letterSpacing;

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { opacity } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Opacity',
@@ -30,7 +30,7 @@ export const Overview: Story = {
           marginBottom: '40px',
         }}
       >
-        {Object.entries(opacity).map(([key, value]) => (
+        {Object.entries(tokens.opacity).map(([key, value]) => (
           <div key={key}>
             <div
               style={{
@@ -122,7 +122,7 @@ export const UsageExamples: Story = {
                 position: 'absolute',
                 inset: 0,
                 backgroundColor: 'black',
-                opacity: opacity.light,
+                opacity: tokens.opacity.light,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -150,7 +150,7 @@ export const UsageExamples: Story = {
                 position: 'absolute',
                 inset: 0,
                 backgroundColor: 'black',
-                opacity: opacity.medium,
+                opacity: tokens.opacity.medium,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -186,7 +186,7 @@ export const UsageExamples: Story = {
               border: 'none',
               borderRadius: '6px',
               fontWeight: '500',
-              opacity: opacity.disabled,
+              opacity: tokens.opacity.disabled,
               cursor: 'not-allowed',
             }}
             disabled
@@ -203,7 +203,7 @@ export const UsageExamples: Story = {
             style={{
               padding: '16px',
               backgroundColor: '#3B82F6',
-              opacity: opacity.subtle,
+              opacity: tokens.opacity.subtle,
               borderRadius: '6px',
               minWidth: '150px',
             }}
@@ -214,7 +214,7 @@ export const UsageExamples: Story = {
             style={{
               padding: '16px',
               backgroundColor: '#3B82F6',
-              opacity: opacity.light,
+              opacity: tokens.opacity.light,
               borderRadius: '6px',
               minWidth: '150px',
             }}
@@ -225,7 +225,7 @@ export const UsageExamples: Story = {
             style={{
               padding: '16px',
               backgroundColor: '#3B82F6',
-              opacity: opacity.faint,
+              opacity: tokens.opacity.faint,
               borderRadius: '6px',
               minWidth: '150px',
             }}

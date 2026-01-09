@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { focus, getFocusStyle } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Focus',
@@ -63,7 +63,7 @@ export const FocusStyles: Story = {
                 cursor: 'pointer',
               }}
               onFocus={(e) => {
-                e.currentTarget.style.cssText += getFocusStyle(key as keyof typeof focus);
+                e.currentTarget.style.cssText += tokens.getFocusStyle(key as keyof typeof tokens.focus);
               }}
               onBlur={(e) => {
                 e.currentTarget.style.outline = 'none';
@@ -182,7 +182,7 @@ export const InteractiveDemo: Story = {
                 overflow: 'auto',
               }}
             >
-              {`&:focus-visible {\n  ${getFocusStyle(focusedElement as keyof typeof focus)}\n}`}
+              {`&:focus-visible {\n  ${tokens.getFocusStyle(focusedElement as keyof typeof tokens.focus)}\n}`}
             </pre>
           </div>
         )}

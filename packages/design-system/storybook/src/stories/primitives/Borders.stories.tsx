@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { borderStyle, borderWidth } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Borders',
@@ -24,7 +24,7 @@ export const AllBorders: Story = {
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Border Widths</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(borderWidth).map(([key, value]) => (
+        {Object.entries(primitives.borderWidth).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -67,7 +67,7 @@ export const AllBorders: Story = {
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Border Styles</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(borderStyle).map(([key, value]) => (
+        {Object.entries(primitives.borderStyle).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -143,7 +143,7 @@ export const UsageExamples: Story = {
             <div
               style={{
                 padding: '20px',
-                border: `${borderWidth[1]} ${borderStyle.solid} #E5E5E5`,
+                border: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} #E5E5E5`,
                 borderRadius: '8px',
                 minWidth: '200px',
               }}
@@ -154,7 +154,7 @@ export const UsageExamples: Story = {
             <div
               style={{
                 padding: '20px',
-                border: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
+                border: `${primitives.borderWidth[2]} ${primitives.borderStyle.solid} #3B82F6`,
                 borderRadius: '8px',
                 minWidth: '200px',
               }}
@@ -172,11 +172,11 @@ export const UsageExamples: Story = {
               style={{
                 padding: '12px 24px',
                 backgroundColor: 'white',
-                border: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
+                border: `${primitives.borderWidth[2]} ${primitives.borderStyle.solid} #3B82F6`,
                 borderRadius: '6px',
                 fontWeight: '500',
                 cursor: 'pointer',
-                outline: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
+                outline: `${primitives.borderWidth[2]} ${primitives.borderStyle.solid} #3B82F6`,
                 outlineOffset: '2px',
               }}
             >
@@ -186,11 +186,11 @@ export const UsageExamples: Story = {
               style={{
                 padding: '12px 24px',
                 backgroundColor: 'white',
-                border: `${borderWidth[3]} ${borderStyle.solid} #3B82F6`,
+                border: `${primitives.borderWidth[3]} ${primitives.borderStyle.solid} #3B82F6`,
                 borderRadius: '6px',
                 fontWeight: '500',
                 cursor: 'pointer',
-                outline: `${borderWidth[3]} ${borderStyle.solid} #3B82F6`,
+                outline: `${primitives.borderWidth[3]} ${primitives.borderStyle.solid} #3B82F6`,
                 outlineOffset: '2px',
               }}
             >
@@ -207,7 +207,7 @@ export const UsageExamples: Story = {
               placeholder="Default state (1px)"
               style={{
                 padding: '12px',
-                border: `${borderWidth[1]} ${borderStyle.solid} #E5E5E5`,
+                border: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} #E5E5E5`,
                 borderRadius: '6px',
                 fontSize: '14px',
               }}
@@ -217,7 +217,7 @@ export const UsageExamples: Story = {
               placeholder="Focus state (2px)"
               style={{
                 padding: '12px',
-                border: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
+                border: `${primitives.borderWidth[2]} ${primitives.borderStyle.solid} #3B82F6`,
                 borderRadius: '6px',
                 fontSize: '14px',
               }}
@@ -227,7 +227,7 @@ export const UsageExamples: Story = {
               placeholder="Error state (2px)"
               style={{
                 padding: '12px',
-                border: `${borderWidth[2]} ${borderStyle.solid} #EF4444`,
+                border: `${primitives.borderWidth[2]} ${primitives.borderStyle.solid} #EF4444`,
                 borderRadius: '6px',
                 fontSize: '14px',
               }}
@@ -239,11 +239,11 @@ export const UsageExamples: Story = {
           <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '16px' }}>Dividers</h3>
           <div style={{ maxWidth: '600px' }}>
             <div style={{ padding: '16px 0' }}>Section 1</div>
-            <div style={{ borderTop: `${borderWidth[1]} ${borderStyle.solid} #E5E5E5` }} />
+            <div style={{ borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} #E5E5E5` }} />
             <div style={{ padding: '16px 0' }}>Section 2</div>
-            <div style={{ borderTop: `${borderWidth[1]} ${borderStyle.dashed} #E5E5E5` }} />
+            <div style={{ borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.dashed} #E5E5E5` }} />
             <div style={{ padding: '16px 0' }}>Section 3 (editable)</div>
-            <div style={{ borderTop: `${borderWidth[1]} ${borderStyle.dotted} #E5E5E5` }} />
+            <div style={{ borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.dotted} #E5E5E5` }} />
             <div style={{ padding: '16px 0' }}>Section 4 (subtle)</div>
           </div>
         </div>

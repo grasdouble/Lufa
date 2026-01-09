@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { blur } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Blur',
@@ -110,8 +110,8 @@ export const AllBlurLevels: Story = {
         >
           {`.frosted-glass {
   background-color: rgba(255, 255, 255, 0.8); /* Fallback */
-  backdrop-filter: blur(${blur.base});
-  -webkit-backdrop-filter: blur(${blur.base});
+  backdrop-filter: blur(${tokens.blur.base});
+  -webkit-backdrop-filter: blur(${tokens.blur.base});
 }
 
 /* Feature detection */
@@ -168,8 +168,8 @@ export const UsageExamples: Story = {
         >
           <div
             style={{
-              backdropFilter: `blur(${blur.subtle})`,
-              WebkitBackdropFilter: `blur(${blur.subtle})`,
+              backdropFilter: `blur(${tokens.blur.subtle})`,
+              WebkitBackdropFilter: `blur(${tokens.blur.subtle})`,
               backgroundColor: 'rgba(255, 255, 255, 0.7)',
               padding: '32px',
               borderRadius: '12px',
@@ -219,8 +219,8 @@ export const UsageExamples: Story = {
             style={{
               position: 'absolute',
               inset: 0,
-              backdropFilter: `blur(${blur.base})`,
-              WebkitBackdropFilter: `blur(${blur.base})`,
+              backdropFilter: `blur(${tokens.blur.base})`,
+              WebkitBackdropFilter: `blur(${tokens.blur.base})`,
               backgroundColor: 'rgba(0, 0, 0, 0.5)',
               display: 'flex',
               alignItems: 'center',
@@ -292,8 +292,8 @@ export const UsageExamples: Story = {
             style={{
               position: 'absolute',
               inset: '32px',
-              backdropFilter: `blur(${blur.extraStrong})`,
-              WebkitBackdropFilter: `blur(${blur.extraStrong})`,
+              backdropFilter: `blur(${tokens.blur.extraStrong})`,
+              WebkitBackdropFilter: `blur(${tokens.blur.extraStrong})`,
               backgroundColor: 'rgba(0, 0, 0, 0.3)',
               borderRadius: '8px',
               display: 'flex',

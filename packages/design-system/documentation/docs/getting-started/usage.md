@@ -46,20 +46,20 @@ You can use CSS custom properties (CSS variables) directly in your styles:
 
 ```css
 .my-component {
-  color: var(--lufa-color-text-primary);
-  background-color: var(--lufa-color-background-primary);
-  padding: var(--lufa-spacing-md);
-  border-radius: var(--lufa-radius-md);
+  color: var(--lufa-token-color-text-primary);
+  background-color: var(--lufa-token-color-background-primary);
+  padding: var(--lufa-token-spacing-md);
+  border-radius: var(--lufa-token-radius-md);
 }
 ```
 
 ### Available Token Categories
 
-- **Colors**: `--lufa-color-*`
-- **Spacing**: `--lufa-spacing-*`
-- **Typography**: `--lufa-font-*`, `--lufa-text-*`
-- **Shadows**: `--lufa-shadow-*`
-- **Border Radius**: `--lufa-radius-*`
+- **Colors**: `--lufa-token-color-*`
+- **Spacing**: `--lufa-token-spacing-*`
+- **Typography**: `--lufa-token-font-*`, `--lufa-token-font-size-*`, `--lufa-token-line-height-*`, `--lufa-token-letter-spacing-*`, `--lufa-token-measure-*`
+- **Shadows**: `--lufa-token-shadow-*`
+- **Border Radius**: `--lufa-token-radius-*`
 
 ## Component Patterns
 

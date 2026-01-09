@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Center, Placeholder, Spinner, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Center, Placeholder, Spinner, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
       borderRadius: '8px',
       marginBottom: '16px',
     }}
@@ -18,7 +17,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           marginBottom: 12,
         }}
       >
@@ -33,7 +32,7 @@ export const LiveDemo = () => (
   <Frame title="live demo">
     <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
       <Spinner />
-      <div style={{ color: color.text.secondary }}>Loading…</div>
+      <div style={{ color: tokens.color.text.secondary }}>Loading…</div>
     </div>
   </Frame>
 );
@@ -54,7 +53,7 @@ export const Size = () => (
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               fontSize: 12,
             }}
           >
@@ -82,7 +81,7 @@ export const Mode = () => (
           <div
             style={{
               fontFamily: 'monospace',
-              color: color.text.tertiary,
+              color: tokens.color.text.tertiary,
               fontSize: 12,
             }}
           >
@@ -99,7 +98,7 @@ export const CenteredLoadingPanelExample = () => (
     <div
       style={{
         borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
+        border: `1px solid ${tokens.color.border.light}`,
         background: '#fff',
         minHeight: 180,
         padding: 12,
@@ -108,7 +107,7 @@ export const CenteredLoadingPanelExample = () => (
       <Center axis="both" minHeight={160}>
         <Stack direction="vertical" gap="normal" align="center">
           <Spinner size="large" />
-          <div style={{ color: color.text.secondary, fontSize: 12 }}>Fetching data…</div>
+          <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>Fetching data…</div>
         </Stack>
       </Center>
     </div>
@@ -119,8 +118,8 @@ export const InlineLoadingExample = () => (
   <Frame title="inline next to text">
     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
       <Spinner size="small" />
-      <div style={{ color: color.text.secondary }}>Syncing</div>
-      <Placeholder color={color.background.secondary} width="auto">
+      <div style={{ color: tokens.color.text.secondary }}>Syncing</div>
+      <Placeholder color={tokens.color.background.secondary} width="auto">
         background task
       </Placeholder>
     </div>

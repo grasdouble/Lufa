@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 
-import { Menu, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Menu, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
       padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
       borderRadius: '8px',
       marginBottom: '16px',
     }}
@@ -18,7 +17,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
       <div
         style={{
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           marginBottom: 12,
         }}
       >
@@ -67,7 +66,7 @@ export const Mode = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -79,7 +78,7 @@ export const Mode = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -91,7 +90,7 @@ export const Mode = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -116,7 +115,7 @@ export const Theme = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -128,7 +127,7 @@ export const Theme = () => (
         <div
           style={{
             fontFamily: 'monospace',
-            color: color.text.tertiary,
+            color: tokens.color.text.tertiary,
             marginBottom: 8,
           }}
         >
@@ -150,7 +149,7 @@ export const SelectedKey = () => {
         style={{
           marginTop: 12,
           fontFamily: 'monospace',
-          color: color.text.tertiary,
+          color: tokens.color.text.tertiary,
           fontSize: 12,
         }}
       >
@@ -171,9 +170,9 @@ export const HeaderNavExample = () => (
     <div
       style={{
         borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
-        backgroundColor: color.background.primary,
-        color: color.text.primary,
+        border: `1px solid ${tokens.color.border.light}`,
+        backgroundColor: tokens.color.background.primary,
+        color: tokens.color.text.primary,
         padding: 12,
       }}
     >

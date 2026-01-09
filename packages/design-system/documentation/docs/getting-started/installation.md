@@ -63,11 +63,11 @@ You can use design tokens (CSS variables) in your custom styles:
 
 ```css title="src/style.css"
 .my-component {
-  color: var(--lufa-color-text-primary);
-  background-color: var(--lufa-color-background-primary);
-  padding: var(--lufa-spacing-md);
-  border-radius: var(--lufa-radius-md);
-  box-shadow: var(--lufa-shadow-sm);
+  color: var(--lufa-token-color-text-primary);
+  background-color: var(--lufa-token-color-background-primary);
+  padding: var(--lufa-token-spacing-md);
+  border-radius: var(--lufa-token-radius-md);
+  box-shadow: var(--lufa-token-shadow-sm);
 }
 ```
 
@@ -76,8 +76,8 @@ Or with inline styles:
 ```tsx
 <div
   style={{
-    padding: 'var(--lufa-spacing-lg)',
-    backgroundColor: 'var(--lufa-color-background-secondary)',
+    padding: 'var(--lufa-token-spacing-lg)',
+    backgroundColor: 'var(--lufa-token-color-background-secondary)',
   }}
 >
   Content
@@ -173,7 +173,7 @@ import { Button, Typography } from '@grasdouble/lufa_design-system';
 
 export function Test() {
   return (
-    <div style={{ padding: 'var(--lufa-spacing-xl)' }}>
+    <div style={{ padding: 'var(--lufa-token-spacing-xl)' }}>
       <Typography variant="h2">Lufa Design System</Typography>
       <Typography variant="body1">If you can see this styled text and button, installation is successful!</Typography>
       <Button variant="primary" onClick={() => alert('It works!')}>

@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Button, Input, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Button, Input } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '3. Forms/Input',
@@ -132,7 +131,7 @@ export const EndAdornment: Story = {
   args: {
     label: 'Website',
     placeholder: 'example',
-    endAdornment: <span style={{ color: color.text.secondary, fontSize: '14px' }}>.com</span>,
+    endAdornment: <span style={{ color: tokens.color.text.secondary, fontSize: '14px' }}>.com</span>,
   },
 };
 
@@ -156,7 +155,7 @@ export const PasswordFieldExample: Story = {
                 cursor: 'pointer',
                 padding: 0,
                 display: 'flex',
-                color: color.text.secondary,
+                color: tokens.color.text.secondary,
               }}
             >
               {showPassword ? (

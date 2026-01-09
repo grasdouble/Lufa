@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { zIndex } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Z-Index',
@@ -22,7 +22,7 @@ export const AllZIndexLayers: Story = {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(zIndex).map(([key, value]) => (
+        {Object.entries(tokens.zIndex).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -99,7 +99,7 @@ export const LayeringVisualization: Story = {
             backgroundColor: '#E5E7EB',
             borderRadius: '6px',
             fontSize: '12px',
-            zIndex: zIndex.base,
+            zIndex: tokens.zIndex.base,
           }}
         >
           base (0)
@@ -115,7 +115,7 @@ export const LayeringVisualization: Story = {
             backgroundColor: '#BFDBFE',
             borderRadius: '6px',
             fontSize: '12px',
-            zIndex: zIndex.dropdown,
+            zIndex: tokens.zIndex.dropdown,
           }}
         >
           dropdown (10)
@@ -131,7 +131,7 @@ export const LayeringVisualization: Story = {
             backgroundColor: '#93C5FD',
             borderRadius: '6px',
             fontSize: '12px',
-            zIndex: zIndex.modal,
+            zIndex: tokens.zIndex.modal,
           }}
         >
           modal (40)
@@ -148,7 +148,7 @@ export const LayeringVisualization: Story = {
             color: 'white',
             borderRadius: '6px',
             fontSize: '12px',
-            zIndex: zIndex.tooltip,
+            zIndex: tokens.zIndex.tooltip,
           }}
         >
           tooltip (100)
