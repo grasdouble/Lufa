@@ -144,7 +144,7 @@ export type {Category}Key = keyof typeof {category}Tokens;
 export const generateTokenVars = () => {
   return `
     :root {
-      --lufa-{category}-{semantic}: ${value};
+      --lufa-token-{category}-{semantic}: ${value};
     }
   `;
 };
@@ -222,31 +222,31 @@ export const {Component} = ({
 @layer components {
   .{component-class} {
     /* Use tokens via CSS custom properties */
-    padding: var(--lufa-spacing-default);
-    font-size: var(--lufa-font-size-body);
-    border-radius: var(--lufa-radius-base);
-    transition: var(--lufa-transition-fast);
+    padding: var(--lufa-token-spacing-base);
+    font-size: var(--lufa-token-font-size-base);
+    border-radius: var(--lufa-token-radius-base);
+    transition: var(--lufa-token-transition-fast);
   }
 
   .{component-class}:hover {
-    transform: var(--lufa-transform-hover-lift);
+    transform: var(--lufa-token-transform-hover-lift);
   }
 
   .{component-class}:focus-visible {
-    outline: var(--lufa-border-width-focus) solid var(--lufa-color-border-focus);
-    outline-offset: var(--lufa-spacing-xs);
+    outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
+    outline-offset: var(--lufa-token-spacing-xs);
   }
 
   /* Variants */
   .{component-class}-primary {
-    background: var(--lufa-color-background-primary);
-    color: var(--lufa-color-text-inverse);
+    background: var(--lufa-token-color-interactive-default);
+    color: var(--lufa-token-color-text-inverse);
   }
 
   /* Sizes */
   .{component-class}-sm {
-    padding: var(--lufa-spacing-compact);
-    font-size: var(--lufa-font-size-small);
+    padding: var(--lufa-token-spacing-sm);
+    font-size: var(--lufa-token-font-size-sm);
   }
 }
 ```
@@ -561,26 +561,26 @@ Badge.displayName = 'Badge';
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: var(--lufa-spacing-xs) var(--lufa-spacing-sm);
-    font-size: var(--lufa-font-size-small);
-    font-weight: var(--lufa-font-weight-semibold);
-    border-radius: var(--lufa-radius-full);
+    padding: var(--lufa-token-spacing-xs) var(--lufa-token-spacing-sm);
+    font-size: var(--lufa-token-font-size-sm);
+    font-weight: var(--lufa-token-font-weight-semibold);
+    border-radius: var(--lufa-token-radius-full);
     white-space: nowrap;
   }
 
   .badge-default {
-    background: var(--lufa-color-background-secondary);
-    color: var(--lufa-color-text-primary);
+    background: var(--lufa-token-color-background-secondary);
+    color: var(--lufa-token-color-text-primary);
   }
 
   .badge-success {
-    background: var(--lufa-color-background-success);
-    color: var(--lufa-color-text-success);
+    background: var(--lufa-token-color-success-light);
+    color: var(--lufa-token-color-success-text);
   }
 
   .badge-sm {
-    padding: var(--lufa-spacing-xxs) var(--lufa-spacing-xs);
-    font-size: var(--lufa-font-size-xs);
+    padding: var(--lufa-token-spacing-xxs) var(--lufa-token-spacing-xs);
+    font-size: var(--lufa-token-font-size-xs);
   }
 }
 ```

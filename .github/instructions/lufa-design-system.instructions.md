@@ -113,14 +113,14 @@ export const spacingTokens = {
 **Naming Conventions**:
 
 - Use descriptive names: `primary`, `secondary`, `success`, `error`, `warning`
-- Context-specific: `text.primary`, `background.success`, `border.default`
+- Context-specific: `text.primary`, `background.primary`, `border.default`, `success.light`
 - Size indicators: `compact`, `default`, `comfortable`, `spacious`
 - State indicators: `hover`, `active`, `disabled`, `focus`
 
 **CSS Custom Properties**:
 
-- Use naming convention: `--lufa-{category}-{variant}`
-- Example: `--lufa-color-text-primary`, `--lufa-spacing-default`
+- Use naming convention: `--lufa-token-{category}-{variant}`
+- Example: `--lufa-token-color-text-primary`, `--lufa-token-spacing-base`
 
 ### Components Layer
 
@@ -241,30 +241,30 @@ components/
 @layer components {
   .btn {
     /* Use tokens via CSS custom properties */
-    padding: var(--lufa-spacing-default);
-    font-size: var(--lufa-font-size-body);
-    font-weight: var(--lufa-font-weight-semibold);
-    border-radius: var(--lufa-radius-base);
-    transition: var(--lufa-transition-fast);
-    cursor: var(--lufa-cursor-pointer);
+    padding: var(--lufa-token-spacing-base);
+    font-size: var(--lufa-token-font-size-base);
+    font-weight: var(--lufa-token-font-weight-semibold);
+    border-radius: var(--lufa-token-radius-base);
+    transition: var(--lufa-token-transition-fast);
+    cursor: var(--lufa-token-cursor-pointer);
   }
 
   .btn:hover {
-    transform: var(--lufa-transform-hover-lift);
+    transform: var(--lufa-token-transform-hover-lift);
   }
 
   .btn:focus-visible {
-    outline: var(--lufa-border-width-focus) solid var(--lufa-color-border-focus);
-    outline-offset: var(--lufa-spacing-xs);
+    outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
+    outline-offset: var(--lufa-token-spacing-xs);
   }
 
   .btn-primary {
-    background: var(--lufa-color-background-primary);
-    color: var(--lufa-color-text-inverse);
+    background: var(--lufa-token-color-interactive-default);
+    color: var(--lufa-token-color-text-inverse);
   }
 
   .btn-primary:hover {
-    background: var(--lufa-color-background-primary-hover);
+    background: var(--lufa-token-color-interactive-hover);
   }
 }
 ```

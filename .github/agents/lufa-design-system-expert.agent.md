@@ -137,12 +137,11 @@ I can help with ALL Lufa Design System tasks:
   - All primitives use concrete values for clarity and precision
 
 - **Tokens (`@grasdouble/lufa_design-system-tokens`)**: Semantic, intent-based naming mapped from primitives
-  - Color tokens: `text.primary`, `background.success`, `border.default`
-  - Spacing tokens: `spacing.compact`, `spacing.default`, `spacing.comfortable`
-  - Typography tokens: `fontSize.h1`, `fontWeight.bold`, `lineHeight.base`
-  - Dimension tokens: `navbarHeightDefault`, `modalWidthDefault`
-  - Motion tokens: `transition.fast`, `cursor.pointer`
-
+  - Color tokens: `tokens.color.text.primary`, `tokens.color.background.primary`, `tokens.color.border.default`
+  - Spacing tokens: `tokens.spacing.sm`, `tokens.spacing.base`, `tokens.spacing.lg`
+  - Typography tokens: `tokens.fontSize.base`, `tokens.fontWeight.bold`, `tokens.lineHeight.base`
+  - Dimension tokens: `tokens.dimension.navbarHeightDefault`, `tokens.dimension.modalWidthDefault`
+  - Motion tokens: `tokens.transition.fast`, `tokens.cursor.pointer`
 - **Components (`@grasdouble/lufa_design-system`)**: Main component library
   - Built with React 19+, TypeScript, and Tailwind CSS
   - Uses HeadlessUI and Heroicons
@@ -345,24 +344,24 @@ export const {Component} = ({
 @layer components {
   .{component-class} {
     /* Use tokens via CSS custom properties */
-    padding: var(--lufa-spacing-default);
-    font-size: var(--lufa-font-size-body);
-    border-radius: var(--lufa-radius-base);
-    transition: var(--lufa-transition-fast);
+    padding: var(--lufa-token-spacing-base);
+    font-size: var(--lufa-token-font-size-base);
+    border-radius: var(--lufa-token-radius-base);
+    transition: var(--lufa-token-transition-fast);
   }
 
   .{component-class}:hover:not(:disabled) {
-    transform: var(--lufa-transform-hover-lift);
+    transform: var(--lufa-token-transform-hover-lift);
   }
 
   .{component-class}:focus-visible {
-    outline: var(--lufa-border-width-focus) solid var(--lufa-color-border-focus);
-    outline-offset: var(--lufa-spacing-xs);
+    outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
+    outline-offset: var(--lufa-token-spacing-xs);
   }
 
   .{component-class}-primary {
-    background: var(--lufa-color-background-primary);
-    color: var(--lufa-color-text-inverse);
+    background: var(--lufa-token-color-interactive-default);
+    color: var(--lufa-token-color-text-inverse);
   }
 }
 ```
@@ -556,15 +555,15 @@ Before completing, verify:
 
 // ❌ Avoid: Direct primitive usage in components (use tokens instead)
 import { spacing } from '@grasdouble/lufa_design-system-primitives';
-import { color, fontSize, spacing } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const styles = {
-  color: color.text.primary,
-  padding: spacing.default,
-  fontSize: fontSize.body,
+  color: tokens.color.text.primary,
+  padding: tokens.spacing.base,
+  fontSize: tokens.fontSize.base,
 };
 
-const styles = { padding: spacing[16] }; // Use tokens!
+const styles = { padding: tokens.spacing[16] }; // Use tokens!
 ```
 
 ### Component Structure
@@ -572,7 +571,7 @@ const styles = { padding: spacing[16] }; // Use tokens!
 ```typescript
 // ✅ Good: Clear props interface, accessibility, token-based styling
 import type { ComponentPropsWithoutRef } from 'react';
-import { spacing, color, fontSize } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   variant?: 'primary' | 'secondary' | 'ghost';
@@ -603,15 +602,15 @@ export const Button = ({
 /* Use tokens in Tailwind config or CSS */
 @layer components {
   .btn {
-    padding: var(--lufa-spacing-default);
-    font-size: var(--lufa-font-size-body);
-    border-radius: var(--lufa-radius-base);
-    transition: var(--lufa-transition-fast);
+    padding: var(--lufa-token-spacing-base);
+    font-size: var(--lufa-token-font-size-base);
+    border-radius: var(--lufa-token-radius-base);
+    transition: var(--lufa-token-transition-fast);
   }
 
   .btn-primary {
-    background: var(--lufa-color-background-primary);
-    color: var(--lufa-color-text-inverse);
+    background: var(--lufa-token-color-interactive-default);
+    color: var(--lufa-token-color-text-inverse);
   }
 }
 ```
