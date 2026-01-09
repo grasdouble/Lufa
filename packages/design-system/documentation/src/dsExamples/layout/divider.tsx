@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -38,7 +38,7 @@ export const Orientation = () => (
   <Frame title="orientation">
     <Stack direction="vertical" gap="normal">
       <Divider label="horizontal" orientation="horizontal" />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16, height: 120 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base, height: tokens.size['3xl'] }}>
         <Placeholder color={tokens.color.background.secondary}>Left</Placeholder>
         <Divider orientation="vertical" variant="solid" length="70%" />
         <Placeholder color={tokens.color.background.secondary}>Right</Placeholder>
@@ -92,7 +92,7 @@ export const Length = () => (
   <Frame title="length">
     <Stack direction="vertical" gap="normal">
       <Divider label='length="60%"' length="60%" />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16, height: 160 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base, height: tokens.size['4xl'] }}>
         <Placeholder color={tokens.color.background.secondary}>Left</Placeholder>
         <Divider orientation="vertical" variant="dashed" length="70%" />
         <Placeholder color={tokens.color.background.secondary}>Right</Placeholder>
@@ -124,7 +124,7 @@ export const Variants = () => (
 
 export const BetweenContentExample = () => (
   <Frame title="between content">
-    <div style={{ width: '100%' }}>
+    <div style={{ width: tokens.maxWidth.full }}>
       <Placeholder color={tokens.color.interactive.default}>Context</Placeholder>
       <Divider label="Between" spacing="sm" />
       <Placeholder color={tokens.color.interactive.default}>Context</Placeholder>
@@ -138,8 +138,8 @@ export const VerticalSplitExample = () => (
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '16px',
-        height: '160px',
+        gap: tokens.spacing.base,
+        height: tokens.size['4xl'],
       }}
     >
       <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>

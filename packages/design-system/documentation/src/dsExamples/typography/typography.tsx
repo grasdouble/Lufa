@@ -6,11 +6,11 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ children }: { children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {children}
@@ -36,9 +36,9 @@ export const Variants = () => (
     <Frame>
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         headings
@@ -53,9 +53,9 @@ export const Variants = () => (
     <Frame>
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         body / label / caption
@@ -80,9 +80,9 @@ export const Examples = () => (
     <Frame>
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         overriding semantics (as)
@@ -100,9 +100,9 @@ export const Examples = () => (
     <Frame>
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         composition (Card)

@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -34,9 +34,9 @@ export const LiveDemo = () => (
       size="md"
       paddingY="md"
       style={{
-        border: `2px dashed ${tokens.color.border.light}`,
-        borderRadius: 12,
-        background: '#fff',
+        border: `${tokens.borderWidth.thin} ${tokens.borderStyle.dashed} ${tokens.color.border.light}`,
+        borderRadius: tokens.radius.lg,
+        background: tokens.color.background.primary,
       }}
     >
       <Stack direction="vertical" gap="normal">
@@ -54,9 +54,9 @@ export const Size = () => (
         <div key={size}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             size: {size}
@@ -65,9 +65,9 @@ export const Size = () => (
             size={size}
             paddingY="sm"
             style={{
-              border: `1px solid ${tokens.color.border.light}`,
-              borderRadius: 12,
-              background: '#fff',
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.lg,
+              background: tokens.color.background.primary,
             }}
           >
             <Placeholder color={tokens.color.interactive.default}>Content</Placeholder>
@@ -77,10 +77,10 @@ export const Size = () => (
     </Stack>
     <div
       style={{
-        fontFamily: 'monospace',
+        fontFamily: tokens.fontFamily.mono,
         color: tokens.color.text.tertiary,
-        fontSize: 12,
-        marginTop: 12,
+        fontSize: tokens.fontSize.xs,
+        marginTop: tokens.spacing.md,
       }}
     >
       Tokens: spacing.base → {tokens.spacing.base}
@@ -95,19 +95,19 @@ export const Align = () => (
         <div key={align}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             align: {align}
           </div>
           <div
             style={{
-              padding: 12,
-              borderRadius: 12,
+              padding: tokens.spacing.md,
+              borderRadius: tokens.radius.lg,
               background: tokens.color.background.secondary,
-              outline: `1px dashed ${tokens.color.border.light}`,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.light}`,
             }}
           >
             <Container
@@ -115,9 +115,9 @@ export const Align = () => (
               align={align}
               paddingY="sm"
               style={{
-                border: `1px solid ${tokens.color.border.light}`,
-                borderRadius: 12,
-                background: '#fff',
+                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                borderRadius: tokens.radius.lg,
+                background: tokens.color.background.primary,
               }}
             >
               <Placeholder color={tokens.color.interactive.default}>Aligned</Placeholder>
@@ -136,9 +136,9 @@ export const PaddingX = () => (
         <div key={paddingX}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             paddingX: {paddingX}
@@ -148,22 +148,22 @@ export const PaddingX = () => (
             paddingX={paddingX}
             paddingY="none"
             style={{
-              border: `1px solid ${tokens.color.border.light}`,
-              borderRadius: 12,
-              background: '#fff',
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.lg,
+              background: tokens.color.background.primary,
             }}
           >
             <div
               style={{
-                height: 48,
-                borderRadius: 10,
-                outline: `1px dashed ${tokens.color.border.light}`,
+                height: tokens.size.lg,
+                borderRadius: tokens.radius.lg,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.light}`,
                 background: tokens.color.background.secondary,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontFamily: 'monospace',
-                fontSize: 12,
+                fontFamily: tokens.fontFamily.mono,
+                fontSize: tokens.fontSize.xs,
                 color: tokens.color.text.secondary,
               }}
             >
@@ -183,9 +183,9 @@ export const PaddingY = () => (
         <div key={paddingY}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             paddingY: {paddingY}
@@ -195,22 +195,22 @@ export const PaddingY = () => (
             paddingX="base"
             paddingY={paddingY}
             style={{
-              border: `1px solid ${tokens.color.border.light}`,
-              borderRadius: 12,
-              background: '#fff',
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.lg,
+              background: tokens.color.background.primary,
             }}
           >
             <div
               style={{
-                height: 48,
-                borderRadius: 10,
-                outline: `1px dashed ${tokens.color.border.light}`,
+                height: tokens.size.lg,
+                borderRadius: tokens.radius.lg,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.light}`,
                 background: tokens.color.background.secondary,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontFamily: 'monospace',
-                fontSize: 12,
+                fontFamily: tokens.fontFamily.mono,
+                fontSize: tokens.fontSize.xs,
                 color: tokens.color.text.secondary,
               }}
             >
@@ -240,15 +240,15 @@ export const As = () => (
           size="md"
           paddingY="sm"
           style={{
-            border: `1px solid ${tokens.color.border.light}`,
-            borderRadius: 12,
-            background: '#fff',
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            borderRadius: tokens.radius.lg,
+            background: tokens.color.background.primary,
           }}
         >
           <div
             style={{
-              fontFamily: 'monospace',
-              fontSize: 12,
+              fontFamily: tokens.fontFamily.mono,
+              fontSize: tokens.fontSize.xs,
               color: tokens.color.text.secondary,
             }}
           >
@@ -294,9 +294,9 @@ export const MixedBleedExample = () => (
         size="full"
         paddingY="sm"
         style={{
-          background: '#fff',
-          borderRadius: 12,
-          outline: `1px solid ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          borderRadius: tokens.radius.lg,
+          outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
         }}
       >
         <Placeholder color={tokens.color.background.secondary}>Full-bleed section</Placeholder>
@@ -305,9 +305,9 @@ export const MixedBleedExample = () => (
         size="md"
         paddingY="sm"
         style={{
-          background: '#fff',
-          borderRadius: 12,
-          outline: `1px solid ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          borderRadius: tokens.radius.lg,
+          outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
         }}
       >
         <Placeholder color={tokens.color.interactive.default}>Constrained content</Placeholder>

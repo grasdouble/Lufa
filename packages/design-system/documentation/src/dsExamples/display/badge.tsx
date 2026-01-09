@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -33,7 +33,7 @@ export const LiveDemo = () => (
     <div
       style={{
         display: 'flex',
-        gap: 10,
+        gap: tokens.spacing['sm-md'],
         alignItems: 'center',
         flexWrap: 'wrap',
       }}
@@ -56,7 +56,7 @@ export const Variant = () => (
     <div
       style={{
         display: 'flex',
-        gap: 10,
+        gap: tokens.spacing['sm-md'],
         alignItems: 'center',
         flexWrap: 'wrap',
       }}
@@ -75,7 +75,7 @@ export const Size = () => (
     <div
       style={{
         display: 'flex',
-        gap: 10,
+        gap: tokens.spacing['sm-md'],
         alignItems: 'center',
         flexWrap: 'wrap',
       }}
@@ -94,7 +94,7 @@ export const Dot = () => (
     <div
       style={{
         display: 'flex',
-        gap: 10,
+        gap: tokens.spacing['sm-md'],
         alignItems: 'center',
         flexWrap: 'wrap',
       }}
@@ -117,7 +117,7 @@ export const Rounded = () => (
     <div
       style={{
         display: 'flex',
-        gap: 10,
+        gap: tokens.spacing['sm-md'],
         alignItems: 'center',
         flexWrap: 'wrap',
       }}
@@ -207,7 +207,7 @@ export const NavigationCountExample = () => (
               {count}
             </Badge>
           ) : (
-            <div style={{ color: tokens.color.text.tertiary, fontSize: 12 }}>—</div>
+            <div style={{ color: tokens.color.text.tertiary, fontSize: tokens.fontSize.xs }}>—</div>
           )}
         </div>
       ))}

@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -31,15 +31,15 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
 const Media = ({ label }: { label: string }) => (
   <div
     style={{
-      width: '100%',
-      height: '100%',
+      width: tokens.maxWidth.full,
+      height: tokens.maxWidth.full,
       backgroundImage: `linear-gradient(135deg, ${tokens.color.interactive.default} 0%, ${tokens.color.brand.secondary} 100%)`,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: '#fff',
-      fontFamily: 'monospace',
-      fontSize: 12,
+      color: tokens.color.text.inverse,
+      fontFamily: tokens.fontFamily.mono,
+      fontSize: tokens.fontSize.xs,
     }}
   >
     {label}
@@ -51,9 +51,9 @@ export const LiveDemo = () => (
     <AspectRatio
       ratio={ASPECT_RATIO.video}
       style={{
-        borderRadius: 12,
-        outline: `1px solid ${tokens.color.border.light}`,
-        background: '#fff',
+        borderRadius: tokens.radius.lg,
+        outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
       }}
     >
       <Media label="16 / 9" />
@@ -67,7 +67,7 @@ export const TokenRatios = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       {(
@@ -88,9 +88,9 @@ export const TokenRatios = () => (
         <div key={label}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             {label} → {value}
@@ -98,9 +98,9 @@ export const TokenRatios = () => (
           <AspectRatio
             ratio={key}
             style={{
-              borderRadius: 12,
-              outline: `1px solid ${tokens.color.border.light}`,
-              background: '#fff',
+              borderRadius: tokens.radius.lg,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              background: tokens.color.background.primary,
             }}
           >
             <Media label={label} />
@@ -115,44 +115,44 @@ export const CustomRatios = () => (
   <Frame title="ratio (custom)">
     <Stack direction="vertical" gap="normal">
       <div>
-        <div
-          style={{
-            fontFamily: 'monospace',
-            color: tokens.color.text.tertiary,
-            marginBottom: 8,
-          }}
-        >
-          ratio: &quot;3 / 1&quot;
-        </div>
-        <AspectRatio
-          ratio="3 / 1"
-          style={{
-            borderRadius: 12,
-            outline: `1px solid ${tokens.color.border.light}`,
-            background: '#fff',
-          }}
-        >
+          <div
+            style={{
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
+            }}
+          >
+            ratio: &quot;3 / 1&quot;
+          </div>
+          <AspectRatio
+            ratio="3 / 1"
+            style={{
+              borderRadius: tokens.radius.lg,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              background: tokens.color.background.primary,
+            }}
+          >
           <Media label="3 / 1" />
         </AspectRatio>
       </div>
       <div>
-        <div
-          style={{
-            fontFamily: 'monospace',
-            color: tokens.color.text.tertiary,
-            marginBottom: 8,
-          }}
-        >
-          ratio: 1.333 (4/3)
-        </div>
-        <AspectRatio
-          ratio={1.333}
-          style={{
-            borderRadius: 12,
-            outline: `1px solid ${tokens.color.border.light}`,
-            background: '#fff',
-          }}
-        >
+          <div
+            style={{
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
+            }}
+          >
+            ratio: 1.333 (4/3)
+          </div>
+          <AspectRatio
+            ratio={1.333}
+            style={{
+              borderRadius: tokens.radius.lg,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              background: tokens.color.background.primary,
+            }}
+          >
           <Media label="4 / 3" />
         </AspectRatio>
       </div>
@@ -167,9 +167,9 @@ export const As = () => (
         as="div"
         ratio={ASPECT_RATIO.video}
         style={{
-          borderRadius: 12,
-          outline: `1px solid ${tokens.color.border.light}`,
-          background: '#fff',
+          borderRadius: tokens.radius.lg,
+          outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
         }}
       >
         <Media label='as="div"' />
@@ -179,9 +179,9 @@ export const As = () => (
         as="figure"
         ratio={ASPECT_RATIO.photo}
         style={{
-          borderRadius: 12,
-          outline: `1px solid ${tokens.color.border.light}`,
-          background: '#fff',
+          borderRadius: tokens.radius.lg,
+          outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
         }}
       >
         <Media label='as="figure"' />
@@ -204,33 +204,33 @@ export const CardThumbnailsExample = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       {['A', 'B', 'C'].map((label) => (
         <div
           key={label}
           style={{
-            borderRadius: 12,
+            borderRadius: tokens.radius.lg,
             overflow: 'hidden',
-            outline: `1px solid ${tokens.color.border.light}`,
-            background: '#fff',
+            outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
           }}
         >
           <AspectRatio ratio={ASPECT_RATIO.video}>
             <Media label={`Thumb ${label}`} />
           </AspectRatio>
-          <div style={{ padding: 12 }}>
+          <div style={{ padding: tokens.spacing.md }}>
             <div
               style={{
-                fontFamily: 'monospace',
+                fontFamily: tokens.fontFamily.mono,
                 color: tokens.color.text.primary,
-                fontSize: 12,
+                fontSize: tokens.fontSize.xs,
               }}
             >
               Item {label}
             </div>
-            <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>16 / 9 media</div>
+            <div style={{ color: tokens.color.text.secondary, fontSize: tokens.fontSize.xs }}>16 / 9 media</div>
           </div>
         </div>
       ))}
@@ -243,10 +243,10 @@ export const MediaHeroExample = () => (
     <AspectRatio
       ratio={ASPECT_RATIO.ultrawide}
       style={{
-        borderRadius: 12,
+        borderRadius: tokens.radius.lg,
         overflow: 'hidden',
-        outline: `1px solid ${tokens.color.border.light}`,
-        background: '#fff',
+        outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
       }}
     >
       <Media label="ultrawide" />

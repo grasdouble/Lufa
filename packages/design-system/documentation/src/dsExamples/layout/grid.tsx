@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -47,9 +47,9 @@ export const Columns = () => (
         <div key={columns}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             columns: {columns}
@@ -74,9 +74,9 @@ export const Gutter = () => (
         <div key={gutter}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             gutter: {gutter}

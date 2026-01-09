@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -48,9 +48,9 @@ export const Size = () => (
         <div key={size}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             size: {size}
@@ -72,9 +72,9 @@ export const Separator = () => (
         <div key={separator}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             separator: {JSON.stringify(separator)}
@@ -123,7 +123,7 @@ export const CompactHeaderExample = () => (
         size="small"
         items={[{ label: 'Home', href: '/' }, { label: 'Settings', href: '/settings' }, { label: 'Security' }]}
       />
-      <div style={{ fontWeight: 700 }}>Security</div>
+      <div style={{ fontWeight: tokens.fontWeight.bold }}>Security</div>
     </Stack>
   </Frame>
 );

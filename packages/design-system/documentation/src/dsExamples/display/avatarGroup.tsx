@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -29,9 +29,9 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
 );
 
 const svgAvatar = (text: string, background: string) => {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96">
-  <rect width="100%" height="100%" rx="16" fill="${background}"/>
-  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="38" fill="#fff">${text}</text>
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${tokens.size['2xl']}" height="${tokens.size['2xl']}">
+  <rect width="100%" height="100%" rx="${tokens.radius.xl}" fill="${background}"/>
+  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="${tokens.fontSize['4xl']}" fill="${tokens.color.text.inverse}">${text}</text>
 </svg>`;
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 };
@@ -40,9 +40,9 @@ const Team = ({ size = 'md', max }: { size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'; m
   <AvatarGroup size={size} max={max}>
     <Avatar src={svgAvatar('AL', tokens.color.interactive.default)} alt="Alice" status="online" />
     <Avatar src={svgAvatar('BO', tokens.color.brand.secondary)} alt="Bob" status="away" />
-    <Avatar src={svgAvatar('CH', '#0ea5e9')} alt="Chris" status="offline" />
-    <Avatar src={svgAvatar('DE', '#f97316')} alt="Denise" status="busy" />
-    <Avatar src={svgAvatar('EV', '#10b981')} alt="Eve" status="online" />
+    <Avatar src={svgAvatar('CH', tokens.color.info.default)} alt="Chris" status="offline" />
+    <Avatar src={svgAvatar('DE', tokens.color.warning.default)} alt="Denise" status="busy" />
+    <Avatar src={svgAvatar('EV', tokens.color.success.default)} alt="Eve" status="online" />
   </AvatarGroup>
 );
 
@@ -53,10 +53,10 @@ export const LiveDemo = () => (
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.md }}>
         <Team max={4} />
         <div style={{ color: tokens.color.text.secondary }}>Design team</div>
       </div>
@@ -71,13 +71,13 @@ export const Max = () => (
   <Frame title="max">
     <Stack direction="vertical" gap="normal">
       {[undefined, 2, 3, 4].map((max) => (
-        <div key={String(max)} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div key={String(max)} style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.md }}>
           <Team max={max as number | undefined} />
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              fontSize: 12,
+              fontSize: tokens.fontSize.xs,
             }}
           >
             max: {max ?? '—'}
@@ -92,13 +92,13 @@ export const Size = () => (
   <Frame title="size">
     <Stack direction="vertical" gap="normal">
       {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
-        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.md }}>
           <Team size={size} max={4} />
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              fontSize: 12,
+              fontSize: tokens.fontSize.xs,
             }}
           >
             size: {size}
@@ -113,19 +113,19 @@ export const ProjectCardHeaderExample = () => (
   <Frame title="project card header">
     <div
       style={{
-        borderRadius: 12,
-        background: '#fff',
-        border: `1px solid ${tokens.color.border.light}`,
-        padding: 16,
+        borderRadius: tokens.radius.lg,
+        background: tokens.color.background.primary,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        padding: tokens.spacing.base,
         display: 'flex',
         justifyContent: 'space-between',
-        gap: 16,
+        gap: tokens.spacing.base,
         alignItems: 'center',
       }}
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-        <div style={{ color: tokens.color.text.primary, fontWeight: 700 }}>Website Redesign</div>
-        <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>Assigned</div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing['2xs'] }}>
+        <div style={{ color: tokens.color.text.primary, fontWeight: tokens.fontWeight.bold }}>Website Redesign</div>
+        <div style={{ color: tokens.color.text.secondary, fontSize: tokens.fontSize.xs }}>Assigned</div>
       </div>
       <Team max={3} />
     </div>
@@ -139,12 +139,12 @@ export const InlineAssigneesExample = () => (
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-        <div style={{ color: tokens.color.text.primary, fontWeight: 700 }}>Bug triage</div>
-        <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>Assignees</div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing['2xs'] }}>
+        <div style={{ color: tokens.color.text.primary, fontWeight: tokens.fontWeight.bold }}>Bug triage</div>
+        <div style={{ color: tokens.color.text.secondary, fontSize: tokens.fontSize.xs }}>Assignees</div>
       </div>
       <Team max={4} size="sm" />
     </div>

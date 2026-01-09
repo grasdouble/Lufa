@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -41,7 +41,7 @@ export const LiveDemo = () => {
   return (
     <Frame title="live demo">
       <Steps items={basicSteps} current={current} />
-      <div style={{ marginTop: '24px', display: 'flex', gap: '8px' }}>
+      <div style={{ marginTop: tokens.spacing.lg, display: 'flex', gap: tokens.spacing.sm }}>
         <Button onClick={() => setCurrent(Math.max(0, current - 1))} disabled={current === 0}>
           Previous
         </Button>
@@ -64,9 +64,9 @@ export const Direction = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           horizontal (default)
@@ -76,9 +76,9 @@ export const Direction = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           vertical
@@ -95,9 +95,9 @@ export const Size = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           default
@@ -107,9 +107,9 @@ export const Size = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           small
@@ -126,9 +126,9 @@ export const Current = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           current: 0
@@ -138,9 +138,9 @@ export const Current = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           current: 2
@@ -150,9 +150,9 @@ export const Current = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           current: 3
@@ -169,7 +169,9 @@ export const OnChange = () => {
   return (
     <Frame title="onChange (clickable steps)">
       <Steps items={basicSteps} current={clickableCurrent} onChange={setClickableCurrent} />
-      <div style={{ marginTop: 16, color: tokens.color.text.secondary }}>Current: {clickableCurrent}</div>
+      <div style={{ marginTop: tokens.spacing.base, color: tokens.color.text.secondary }}>
+        Current: {clickableCurrent}
+      </div>
     </Frame>
   );
 };
@@ -227,9 +229,9 @@ export const Items = () => {
         <div>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             title + description
@@ -247,9 +249,9 @@ export const Items = () => {
         <div>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             custom icons
@@ -259,9 +261,9 @@ export const Items = () => {
         <div>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             manual status

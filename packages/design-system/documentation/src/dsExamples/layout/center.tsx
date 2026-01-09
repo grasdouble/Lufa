@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -31,22 +31,22 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
 const Panel = ({ children }: { children: React.ReactNode }) => (
   <div
     style={{
-      borderRadius: 12,
-      border: `1px solid ${tokens.color.border.light}`,
-      background: '#fff',
-      minHeight: 160,
-      padding: 12,
+      borderRadius: tokens.radius.lg,
+      border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+      background: tokens.color.background.primary,
+      minHeight: tokens.size['4xl'],
+      padding: tokens.spacing.md,
       position: 'relative',
     }}
   >
-    <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+    <div style={{ position: 'absolute', inset: tokens.spacing.none, pointerEvents: 'none' }}>
       <div
         style={{
           position: 'absolute',
           left: '50%',
-          top: 0,
-          bottom: 0,
-          width: 1,
+          top: tokens.spacing.none,
+          bottom: tokens.spacing.none,
+          width: tokens.borderWidth.hairline,
           background: tokens.color.border.light,
         }}
       />
@@ -54,9 +54,9 @@ const Panel = ({ children }: { children: React.ReactNode }) => (
         style={{
           position: 'absolute',
           top: '50%',
-          left: 0,
-          right: 0,
-          height: 1,
+          left: tokens.spacing.none,
+          right: tokens.spacing.none,
+          height: tokens.borderWidth.hairline,
           background: tokens.color.border.light,
         }}
       />
@@ -69,11 +69,11 @@ export const LiveDemo = () => (
   <Frame title="live demo">
     <Center
       axis="both"
-      minHeight={200}
+      minHeight={tokens.size['4xl']}
       style={{
-        borderRadius: 12,
-        border: `1px solid ${tokens.color.border.light}`,
-        background: '#fff',
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
       }}
     >
       <Spinner />
@@ -87,7 +87,7 @@ export const Axis = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       {(
@@ -100,15 +100,15 @@ export const Axis = () => (
         <div key={axis}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             axis: {label}
           </div>
           <Panel>
-            <Center axis={axis} minHeight={160}>
+            <Center axis={axis} minHeight={tokens.size['4xl']}>
               <Placeholder color={tokens.color.interactive.default} width="auto">
                 Content
               </Placeholder>
@@ -122,20 +122,20 @@ export const Axis = () => (
 
 export const Inline = () => (
   <Frame title="inline">
-    <div style={{ lineHeight: 1.9, color: tokens.color.text.primary }}>
+    <div style={{ lineHeight: tokens.lineHeight.loose, color: tokens.color.text.primary }}>
       Text before
       <Center
         as="span"
         inline
         axis="vertical"
         style={{
-          marginInline: 8,
-          padding: '2px 10px',
-          borderRadius: 999,
+          marginInline: tokens.spacing.sm,
+          padding: `${tokens.spacing.xxs} ${tokens.spacing['sm-md']}`,
+          borderRadius: tokens.radius.full,
           background: tokens.color.background.secondary,
         }}
       >
-        <span style={{ fontFamily: 'monospace', fontSize: 12 }}>badge</span>
+        <span style={{ fontFamily: tokens.fontFamily.mono, fontSize: tokens.fontSize.xs }}>badge</span>
       </Center>
       text after (same line)
     </div>
@@ -148,22 +148,25 @@ export const MinHeight = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
-      {[120, 220].map((minHeight) => (
-        <div key={minHeight}>
+      {[
+        { label: `minHeight: ${tokens.size['3xl']}`, value: tokens.size['3xl'] },
+        { label: `minHeight: ${tokens.size['4xl']}`, value: tokens.size['4xl'] },
+      ].map(({ label, value }) => (
+        <div key={label}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
-            minHeight: {minHeight}px
+            {label}
           </div>
           <Panel>
-            <Center axis="both" minHeight={minHeight}>
+            <Center axis="both" minHeight={value}>
               <Placeholder color={tokens.color.interactive.default} width="auto">
                 Content
               </Placeholder>
@@ -190,17 +193,17 @@ export const As = () => (
           key={as}
           as={as}
           axis="both"
-          minHeight={96}
+          minHeight={tokens.size['2xl']}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${tokens.color.border.light}`,
-            background: '#fff',
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
           }}
         >
           <span
             style={{
-              fontFamily: 'monospace',
-              fontSize: 12,
+              fontFamily: tokens.fontFamily.mono,
+              fontSize: tokens.fontSize.xs,
               color: tokens.color.text.secondary,
             }}
           >
@@ -224,10 +227,10 @@ export const Variants = () => (
 export const LoadingPanelExample = () => (
   <Frame title="loading panel">
     <Panel>
-      <Center axis="both" minHeight={200}>
+      <Center axis="both" minHeight={tokens.size['4xl']}>
         <Stack direction="vertical" gap="normal" align="center">
           <Spinner />
-          <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>Loading…</div>
+          <div style={{ color: tokens.color.text.secondary, fontSize: tokens.fontSize.xs }}>Loading…</div>
         </Stack>
       </Center>
     </Panel>
@@ -238,15 +241,17 @@ export const EmptyStateExample = () => (
   <Frame title="empty state">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px dashed ${tokens.color.border.light}`,
-        background: '#fff',
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
       }}
     >
-      <Center axis="both" minHeight={220} style={{ padding: 16 }}>
+      <Center axis="both" minHeight={tokens.size['4xl']} style={{ padding: tokens.spacing.base }}>
         <Stack direction="vertical" gap="condensed" align="center">
-          <div style={{ fontWeight: 700, color: tokens.color.text.primary }}>No results</div>
-          <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>Try changing your filters.</div>
+          <div style={{ fontWeight: tokens.fontWeight.bold, color: tokens.color.text.primary }}>No results</div>
+          <div style={{ color: tokens.color.text.secondary, fontSize: tokens.fontSize.xs }}>
+            Try changing your filters.
+          </div>
         </Stack>
       </Center>
     </div>

@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -32,15 +32,15 @@ const InlineIcon = ({ label }: { label: string }) => (
   <span
     style={{
       display: 'inline-flex',
-      width: 20,
-      height: 20,
+      width: tokens.iconSize.sm,
+      height: tokens.iconSize.sm,
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 6,
+      borderRadius: tokens.radius.md,
       background: tokens.color.background.secondary,
-      outline: `1px solid ${tokens.color.border.light}`,
+      outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
       fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
-      fontSize: 12,
+      fontSize: tokens.fontSize.xs,
       color: tokens.color.text.secondary,
     }}
   >
@@ -100,7 +100,7 @@ export const ClosableWithActionExample = () => (
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 8,
+            gap: tokens.spacing.sm,
             flexWrap: 'wrap',
           }}
         >
@@ -121,7 +121,7 @@ export const CustomIconWithMetaExample = () => (
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 8,
+            gap: tokens.spacing.sm,
             flexWrap: 'wrap',
           }}
         >

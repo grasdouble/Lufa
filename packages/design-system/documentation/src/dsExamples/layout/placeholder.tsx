@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -40,45 +40,45 @@ export const Height = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          small (40px)
+          small ({tokens.spacing['xl-2xl']})
         </div>
         <Placeholder height="small">Small Height</Placeholder>
       </div>
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          medium (80px) — default
+          medium ({tokens.spacing['3xl-4xl']}) — default
         </div>
         <Placeholder height="medium">Medium Height</Placeholder>
       </div>
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          large (128px)
+          large ({tokens.size['3xl']})
         </div>
         <Placeholder height="large">Large Height</Placeholder>
       </div>
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           auto
@@ -101,60 +101,60 @@ export const Width = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          auto (min-width: 96px)
+          auto (min-width: {tokens.size['2xl']})
         </div>
         <Placeholder width="auto">Auto</Placeholder>
       </div>
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          small (128px)
+          small ({tokens.size['3xl']})
         </div>
         <Placeholder width="small">Small Width</Placeholder>
       </div>
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          medium (240px)
+          medium ({tokens.minWidth.cardMin})
         </div>
         <Placeholder width="medium">Medium Width</Placeholder>
       </div>
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          large (384px)
+          large ({tokens.maxWidth.xs})
         </div>
         <Placeholder width="large">Large Width</Placeholder>
       </div>
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          full (100%)
+          full ({tokens.maxWidth.full})
         </div>
         <Placeholder width="full">Full Width</Placeholder>
       </div>
@@ -168,15 +168,15 @@ export const Color = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           default gradient
@@ -186,9 +186,9 @@ export const Color = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           solid — interactive
@@ -198,9 +198,9 @@ export const Color = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           solid — success
@@ -210,9 +210,9 @@ export const Color = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           solid — error
@@ -229,15 +229,15 @@ export const Gradient = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           blue → purple
@@ -249,14 +249,14 @@ export const Gradient = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           green → teal
         </div>
-        <Placeholder colorFrom={tokens.color.success.default} colorTo="#14B8A6">
+        <Placeholder colorFrom={tokens.color.success.default} colorTo={tokens.color.brand.accent}>
           Green → Teal
         </Placeholder>
       </div>
@@ -277,13 +277,13 @@ export const HeightWidthMatrixExample = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
-      <Placeholder height="small" width="large" color="#8b5cf6">
+      <Placeholder height="small" width="large" color={tokens.color.brand.secondary}>
         Small × Large
       </Placeholder>
-      <Placeholder height="large" width="small" color="#f59e0b">
+      <Placeholder height="large" width="small" color={tokens.color.warning.default}>
         Large × Small
       </Placeholder>
       <div style={{ gridColumn: '1 / -1' }}>
@@ -299,9 +299,9 @@ export const CombinedVariants = HeightWidthMatrixExample;
 
 export const DashboardLayoutExample = () => (
   <Frame title="dashboard layout">
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
       {/* Header */}
-      <Placeholder height="small" width="full" color="#3b82f6">
+      <Placeholder height="small" width="full" color={tokens.color.interactive.default}>
         Header
       </Placeholder>
 
@@ -309,16 +309,16 @@ export const DashboardLayoutExample = () => (
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '200px 1fr',
-          gap: '16px',
+          gridTemplateColumns: `${tokens.minWidth.sidebarMin} 1fr`,
+          gap: tokens.spacing.base,
         }}
       >
-        <Placeholder height="full" color="#8b5cf6">
+        <Placeholder height="full" color={tokens.color.brand.secondary}>
           Sidebar
         </Placeholder>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <Placeholder height="medium" width="full" color="#10b981">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
+          <Placeholder height="medium" width="full" color={tokens.color.success.default}>
             Content Area
           </Placeholder>
 
@@ -327,16 +327,16 @@ export const DashboardLayoutExample = () => (
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '16px',
+              gap: tokens.spacing.base,
             }}
           >
-            <Placeholder height="small" color="#f59e0b">
+            <Placeholder height="small" color={tokens.color.warning.default}>
               Card 1
             </Placeholder>
-            <Placeholder height="small" color="#f59e0b">
+            <Placeholder height="small" color={tokens.color.warning.default}>
               Card 2
             </Placeholder>
-            <Placeholder height="small" color="#f59e0b">
+            <Placeholder height="small" color={tokens.color.warning.default}>
               Card 3
             </Placeholder>
           </div>
@@ -344,7 +344,7 @@ export const DashboardLayoutExample = () => (
       </div>
 
       {/* Footer */}
-      <Placeholder height="small" width="full" color="#525252">
+      <Placeholder height="small" width="full" color={tokens.color.text.secondary}>
         Footer
       </Placeholder>
     </div>
@@ -355,22 +355,22 @@ export const DashboardLayout = DashboardLayoutExample;
 
 export const FormLayoutExample = () => (
   <Frame title="form layout">
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <div style={{ display: 'flex', gap: '16px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
+      <div style={{ display: 'flex', gap: tokens.spacing.base }}>
         <div style={{ flex: 1 }}>
-          <Placeholder color="#6366f1">First Name</Placeholder>
+          <Placeholder color={tokens.color.brand.secondary}>First Name</Placeholder>
         </div>
         <div style={{ flex: 1 }}>
-          <Placeholder color="#6366f1">Last Name</Placeholder>
+          <Placeholder color={tokens.color.brand.secondary}>Last Name</Placeholder>
         </div>
       </div>
 
-      <Placeholder color="#6366f1">Email</Placeholder>
-      <Placeholder color="#6366f1">Message</Placeholder>
+      <Placeholder color={tokens.color.brand.secondary}>Email</Placeholder>
+      <Placeholder color={tokens.color.brand.secondary}>Message</Placeholder>
 
-      <div style={{ display: 'flex', gap: '16px', justifyContent: 'flex-end' }}>
-        <Placeholder color="#a3a3a3">Cancel</Placeholder>
-        <Placeholder color="#3b82f6">Submit</Placeholder>
+      <div style={{ display: 'flex', gap: tokens.spacing.base, justifyContent: 'flex-end' }}>
+        <Placeholder color={tokens.color.text.disabled}>Cancel</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>Submit</Placeholder>
       </div>
     </div>
   </Frame>
@@ -381,16 +381,16 @@ export const FormLayout = FormLayoutExample;
 export const PrototypeLayoutExample = () => (
   <Frame title="prototype layout">
     <Stack direction="vertical" gap="normal">
-      <Placeholder height="small" width="full" color="#2563eb">
+      <Placeholder height="small" width="full" color={tokens.color.interactive.default}>
         Navigation Bar
       </Placeholder>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: 16 }}>
-        <Placeholder height="large" color="#7c3aed">
+      <div style={{ display: 'grid', gridTemplateColumns: `${tokens.minWidth.sm} 1fr`, gap: tokens.spacing.base }}>
+        <Placeholder height="large" color={tokens.color.brand.secondary}>
           Sidebar Menu
         </Placeholder>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          <Placeholder height="large" color="#10b981">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
+          <Placeholder height="large" color={tokens.color.success.default}>
             Hero Section
           </Placeholder>
 
@@ -398,27 +398,27 @@ export const PrototypeLayoutExample = () => (
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-              gap: 16,
+              gap: tokens.spacing.base,
             }}
           >
-            <Placeholder height="medium" color="#f59e0b">
+            <Placeholder height="medium" color={tokens.color.warning.default}>
               Card 1
             </Placeholder>
-            <Placeholder height="medium" color="#f59e0b">
+            <Placeholder height="medium" color={tokens.color.warning.default}>
               Card 2
             </Placeholder>
-            <Placeholder height="medium" color="#f59e0b">
+            <Placeholder height="medium" color={tokens.color.warning.default}>
               Card 3
             </Placeholder>
           </div>
 
-          <Placeholder height="medium" width="full" color="#6b7280">
+          <Placeholder height="medium" width="full" color={tokens.color.text.tertiary}>
             Content Area
           </Placeholder>
         </div>
       </div>
 
-      <Placeholder height="small" width="full" color="#1f2937">
+      <Placeholder height="small" width="full" color={tokens.color.background.inverse}>
         Footer
       </Placeholder>
     </Stack>

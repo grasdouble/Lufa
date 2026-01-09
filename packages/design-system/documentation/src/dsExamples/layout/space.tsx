@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -33,8 +33,8 @@ const VisibleSpace = (props: React.ComponentProps<typeof Space>) => (
     {...props}
     style={{
       backgroundColor: tokens.color.background.tertiary,
-      borderRadius: 10,
-      outline: `1px solid ${tokens.color.border.light}`,
+      borderRadius: tokens.radius.base,
+      outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
       ...(props.style ?? {}),
     }}
   />
@@ -47,10 +47,10 @@ export const LiveDemo = () => (
     <Placeholder color={tokens.color.interactive.default}>After</Placeholder>
     <div
       style={{
-        marginTop: 12,
-        fontFamily: 'monospace',
+        marginTop: tokens.spacing.md,
+        fontFamily: tokens.fontFamily.mono,
         color: tokens.color.text.tertiary,
-        fontSize: 12,
+        fontSize: tokens.fontSize.xs,
       }}
     >
       size: {SPACE_SIZE.lg} → {tokens.spacing[SPACE_SIZE.lg]}
@@ -64,15 +64,15 @@ export const Direction = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           vertical
@@ -84,9 +84,9 @@ export const Direction = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           horizontal
@@ -108,9 +108,9 @@ export const Size = () => (
         <div key={size}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             size: {size} → {tokens.spacing[size]}
@@ -124,15 +124,15 @@ export const Size = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          custom: 40px
+          custom: {tokens.spacing['xl-2xl']}
         </div>
         <Placeholder color={tokens.color.interactive.default}>Before</Placeholder>
-        <VisibleSpace size={40} />
+        <VisibleSpace size={Number.parseInt(tokens.spacing['xl-2xl'], 10)} />
         <Placeholder color={tokens.color.interactive.default}>After</Placeholder>
       </div>
     </Stack>
@@ -145,9 +145,9 @@ export const As = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           as=&quot;div&quot; (block)
@@ -159,22 +159,22 @@ export const As = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           as=&quot;span&quot; (inline)
         </div>
-        <div style={{ lineHeight: 1.9, color: tokens.color.text.primary }}>
+        <div style={{ lineHeight: tokens.lineHeight.loose, color: tokens.color.text.primary }}>
           Pay now
           <Space as="span" direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.sm} />
           <span
             style={{
-              padding: '2px 10px',
-              borderRadius: 999,
+              padding: `${tokens.spacing.xxs} ${tokens.spacing['sm-md']}`,
+              borderRadius: tokens.radius.full,
               background: tokens.color.background.secondary,
-              outline: `1px solid ${tokens.color.border.light}`,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
             }}
           >
             badge
@@ -197,15 +197,15 @@ export const Variants = () => (
 
 export const InlineTextExample = () => (
   <Frame title='inline spacing (as="span")'>
-    <div style={{ lineHeight: 1.9, color: tokens.color.text.primary }}>
+    <div style={{ lineHeight: tokens.lineHeight.loose, color: tokens.color.text.primary }}>
       Pay now
       <Space as="span" direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.sm} />
       <span
         style={{
-          padding: '2px 10px',
-          borderRadius: 999,
+          padding: `${tokens.spacing.xxs} ${tokens.spacing['sm-md']}`,
+          borderRadius: tokens.radius.full,
           background: tokens.color.background.secondary,
-          outline: `1px solid ${tokens.color.border.light}`,
+          outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
         }}
       >
         badge

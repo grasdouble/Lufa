@@ -13,19 +13,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -39,11 +39,11 @@ const Shell = (props: React.ComponentProps<typeof Layout>) => (
   <Layout
     {...props}
     style={{
-      background: '#fff',
-      borderRadius: 12,
-      border: `1px solid ${tokens.color.border.light}`,
-      padding: 16,
-      minHeight: 280,
+      background: tokens.color.background.primary,
+      borderRadius: tokens.radius.lg,
+      border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+      padding: tokens.spacing.base,
+      minHeight: tokens.dimension.cardMinWidth,
       ...(props.style ?? {}),
     }}
   />
@@ -85,15 +85,15 @@ export const Sidebar = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           sidebar: false
@@ -113,9 +113,9 @@ export const Sidebar = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           sidebar: true
@@ -147,9 +147,9 @@ export const SidebarPosition = () => (
         <div key={sidebarPosition}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             sidebarPosition: {sidebarPosition}
@@ -188,9 +188,9 @@ export const SidebarWidth = () => (
           <div key={sidebarWidth}>
             <div
               style={{
-                fontFamily: 'monospace',
+                fontFamily: tokens.fontFamily.mono,
                 color: tokens.color.text.tertiary,
-                marginBottom: 8,
+                marginBottom: tokens.spacing.sm,
               }}
             >
               sidebarWidth: {sidebarWidth}
@@ -229,9 +229,9 @@ export const Gap = () => (
         <div key={gap}>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             gap: {gap}
@@ -271,7 +271,7 @@ export const Variants = () => (
 
 export const AppShellExample = () => (
   <Frame title="app shell">
-    <Shell sidebar gap={LAYOUT_GAP.md} style={{ minHeight: 340 }}>
+    <Shell sidebar gap={LAYOUT_GAP.md} style={{ minHeight: tokens.dimension.cardDefaultWidth }}>
       <Layout.Header>
         <Placeholder color={tokens.color.interactive.default}>Top bar</Placeholder>
       </Layout.Header>
@@ -301,7 +301,7 @@ export const AppShellExample = () => (
 
 export const ContentOnlyExample = () => (
   <Frame title="content only">
-    <Shell gap={LAYOUT_GAP.sm} style={{ minHeight: 240 }}>
+    <Shell gap={LAYOUT_GAP.sm} style={{ minHeight: tokens.minWidth.cardMin }}>
       <Layout.Header>
         <Placeholder color={tokens.color.interactive.default}>Header</Placeholder>
       </Layout.Header>

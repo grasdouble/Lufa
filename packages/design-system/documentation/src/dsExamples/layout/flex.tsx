@@ -15,19 +15,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -55,22 +55,22 @@ export const Direction = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${tokens.color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           row
@@ -89,17 +89,17 @@ export const Direction = () => (
       </div>
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${tokens.color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           column
@@ -126,7 +126,7 @@ export const Align = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       {(
@@ -139,30 +139,30 @@ export const Align = () => (
         <div
           key={label}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${tokens.color.border.light}`,
-            background: '#fff',
-            padding: 12,
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
+            padding: tokens.spacing.md,
           }}
         >
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             align: {label}
           </div>
           <div
             style={{
-              height: 120,
-              borderRadius: 12,
-              outline: `1px dashed ${tokens.color.border.light}`,
-              padding: 12,
+              height: tokens.size['3xl'],
+              borderRadius: tokens.radius.lg,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.light}`,
+              padding: tokens.spacing.md,
             }}
           >
-            <Flex align={align} gap={SPACE_SIZE.sm} style={{ height: '100%' }}>
+            <Flex align={align} gap={SPACE_SIZE.sm} style={{ height: tokens.maxWidth.full }}>
               <Placeholder color={tokens.color.background.secondary} width="auto" height="large">
                 A
               </Placeholder>
@@ -193,17 +193,17 @@ export const Justify = () => (
         <div
           key={label}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${tokens.color.border.light}`,
-            background: '#fff',
-            padding: 12,
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
+            padding: tokens.spacing.md,
           }}
         >
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             justify: {label}
@@ -229,17 +229,17 @@ export const Wrap = () => (
   <Frame title="wrap">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${tokens.color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 8,
+          marginBottom: tokens.spacing.sm,
         }}
       >
         wrap
@@ -260,17 +260,17 @@ export const Gap = () => (
     <Stack direction="vertical" gap="normal">
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${tokens.color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           gap: md (token)
@@ -289,22 +289,22 @@ export const Gap = () => (
       </div>
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${tokens.color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          gap: 24 (number)
+          gap: lg (token)
         </div>
-        <Flex gap={24}>
+        <Flex gap={SPACE_SIZE.lg}>
           <Placeholder color={tokens.color.background.secondary} width="auto">
             A
           </Placeholder>
@@ -318,22 +318,22 @@ export const Gap = () => (
       </div>
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${tokens.color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          gap: &quot;2rem&quot; (CSS length)
+          gap: spacing.lg (token value)
         </div>
-        <Flex gap="2rem">
+        <Flex gap={tokens.spacing.lg}>
           <Placeholder color={tokens.color.background.secondary} width="auto">
             A
           </Placeholder>
@@ -351,13 +351,13 @@ export const Gap = () => (
 
 export const Inline = () => (
   <Frame title="inline">
-    <div style={{ lineHeight: 1.9, color: tokens.color.text.primary }}>
+    <div style={{ lineHeight: tokens.lineHeight.loose, color: tokens.color.text.primary }}>
       Text before
-      <Flex inline gap={SPACE_SIZE.xs} align={FLEX_ALIGN.center} style={{ marginInline: 8 }}>
+      <Flex inline gap={SPACE_SIZE.xs} align={FLEX_ALIGN.center} style={{ marginInline: tokens.spacing.sm }}>
         <span
           style={{
-            padding: '2px 10px',
-            borderRadius: 999,
+            padding: `${tokens.spacing.xxs} ${tokens.spacing['sm-md']}`,
+            borderRadius: tokens.radius.full,
             background: tokens.color.background.secondary,
           }}
         >
@@ -365,8 +365,8 @@ export const Inline = () => (
         </span>
         <span
           style={{
-            padding: '2px 10px',
-            borderRadius: 999,
+            padding: `${tokens.spacing.xxs} ${tokens.spacing['sm-md']}`,
+            borderRadius: tokens.radius.full,
             background: tokens.color.background.secondary,
           }}
         >
@@ -396,16 +396,16 @@ export const As = () => (
           justify={FLEX_JUSTIFY.between}
           gap={SPACE_SIZE.sm}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${tokens.color.border.light}`,
-            background: '#fff',
-            padding: 12,
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
+            padding: tokens.spacing.md,
           }}
         >
           <span
             style={{
-              fontFamily: 'monospace',
-              fontSize: 12,
+              fontFamily: tokens.fontFamily.mono,
+              fontSize: tokens.fontSize.xs,
               color: tokens.color.text.secondary,
             }}
           >
@@ -436,10 +436,10 @@ export const ToolbarExample = () => (
   <Frame title="toolbar">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${tokens.color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <Flex align={FLEX_ALIGN.center} justify={FLEX_JUSTIFY.between} gap={SPACE_SIZE.md}>
@@ -468,7 +468,7 @@ export const ResponsiveCardRowExample = () => (
   <Frame title="responsive card row (wrap)">
     <Flex wrap={FLEX_WRAP.wrap} gap={SPACE_SIZE.md}>
       {['Card A', 'Card B', 'Card C', 'Card D', 'Card E'].map((label) => (
-        <div key={label} style={{ width: 220 }}>
+        <div key={label} style={{ width: tokens.maxWidth['3xs'] }}>
           <Placeholder color={tokens.color.background.secondary} height="large">
             {label}
           </Placeholder>

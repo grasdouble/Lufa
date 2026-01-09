@@ -5,6 +5,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 import styles from './index.module.css';
 
@@ -24,7 +25,7 @@ function HomepageHeader() {
           <Link
             className="button button--outline button--lg"
             to="/docs/getting-started/installation"
-            style={{ marginLeft: '1rem' }}
+            style={{ marginLeft: tokens.spacing.base }}
           >
             Installation Guide
           </Link>

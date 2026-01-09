@@ -15,19 +15,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -53,22 +53,22 @@ export const Direction = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${tokens.color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           horizontal
@@ -81,17 +81,17 @@ export const Direction = () => (
       </div>
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${tokens.color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
+            fontFamily: tokens.fontFamily.mono,
             color: tokens.color.text.tertiary,
-            marginBottom: 8,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           vertical
@@ -112,7 +112,7 @@ export const Gap = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       {(
@@ -125,17 +125,17 @@ export const Gap = () => (
         <div
           key={label}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${tokens.color.border.light}`,
-            background: '#fff',
-            padding: 12,
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
+            padding: tokens.spacing.md,
           }}
         >
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             gap: {label}
@@ -155,10 +155,10 @@ export const Align = () => (
   <Frame title="align">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${tokens.color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} align={STACK_ALIGN.center}>
@@ -174,10 +174,10 @@ export const Align = () => (
       </Stack>
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          fontSize: 12,
-          marginTop: 10,
+          fontSize: tokens.fontSize.xs,
+          marginTop: tokens.spacing['sm-md'],
         }}
       >
         align: center
@@ -199,17 +199,17 @@ export const Justify = () => (
         <div
           key={label}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${tokens.color.border.light}`,
-            background: '#fff',
-            padding: 12,
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
+            padding: tokens.spacing.md,
           }}
         >
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              marginBottom: 8,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             justify: {label}
@@ -233,10 +233,10 @@ export const Wrap = () => (
   <Frame title="wrap">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${tokens.color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <Stack
@@ -253,10 +253,10 @@ export const Wrap = () => (
       </Stack>
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          fontSize: 12,
-          marginTop: 10,
+          fontSize: tokens.fontSize.xs,
+          marginTop: tokens.spacing['sm-md'],
         }}
       >
         wrap: wrap
@@ -271,7 +271,7 @@ export const Padding = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       {(
@@ -284,9 +284,9 @@ export const Padding = () => (
         <div
           key={label}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${tokens.color.border.light}`,
-            background: '#fff',
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
           }}
         >
           <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.condensed} padding={padding}>
@@ -295,11 +295,11 @@ export const Padding = () => (
           </Stack>
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              fontSize: 12,
-              padding: 12,
-              paddingTop: 0,
+              fontSize: tokens.fontSize.xs,
+              padding: tokens.spacing.md,
+              paddingTop: tokens.spacing.none,
             }}
           >
             padding: {label}
@@ -314,10 +314,10 @@ export const ItemGrow = () => (
   <Frame title="Stack.Item grow">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${tokens.color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed} align={STACK_ALIGN.center}>
@@ -353,10 +353,10 @@ export const ToolbarExample = () => (
   <Frame title="toolbar">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${tokens.color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <Stack

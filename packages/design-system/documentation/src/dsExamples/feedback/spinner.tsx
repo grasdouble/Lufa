@@ -6,19 +6,19 @@ import tokens from '@grasdouble/lufa_design-system-tokens';
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
+      padding: tokens.spacing['md-lg'],
       backgroundColor: tokens.color.background.secondary,
       color: tokens.color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
+          fontFamily: tokens.fontFamily.mono,
           color: tokens.color.text.tertiary,
-          marginBottom: 12,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -30,7 +30,7 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
 
 export const LiveDemo = () => (
   <Frame title="live demo">
-    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.md }}>
       <Spinner />
       <div style={{ color: tokens.color.text.secondary }}>Loading…</div>
     </div>
@@ -43,18 +43,18 @@ export const Size = () => (
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: 16,
+        gap: tokens.spacing.base,
         flexWrap: 'wrap',
       }}
     >
       {(['small', 'medium', 'large'] as const).map((size) => (
-        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing['sm-md'] }}>
           <Spinner size={size} />
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              fontSize: 12,
+              fontSize: tokens.fontSize.xs,
             }}
           >
             {size}
@@ -71,18 +71,18 @@ export const Mode = () => (
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: 16,
+        gap: tokens.spacing.base,
         flexWrap: 'wrap',
       }}
     >
       {(['A', 'B'] as const).map((mode) => (
-        <div key={mode} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div key={mode} style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing['sm-md'] }}>
           <Spinner mode={mode} />
           <div
             style={{
-              fontFamily: 'monospace',
+              fontFamily: tokens.fontFamily.mono,
               color: tokens.color.text.tertiary,
-              fontSize: 12,
+              fontSize: tokens.fontSize.xs,
             }}
           >
             mode: {mode}
@@ -97,17 +97,17 @@ export const CenteredLoadingPanelExample = () => (
   <Frame title="centered loading panel">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${tokens.color.border.light}`,
-        background: '#fff',
-        minHeight: 180,
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        minHeight: tokens.size['4xl'],
+        padding: tokens.spacing.md,
       }}
     >
-      <Center axis="both" minHeight={160}>
+      <Center axis="both" minHeight={tokens.size['3xl']}>
         <Stack direction="vertical" gap="normal" align="center">
           <Spinner size="large" />
-          <div style={{ color: tokens.color.text.secondary, fontSize: 12 }}>Fetching data…</div>
+          <div style={{ color: tokens.color.text.secondary, fontSize: tokens.fontSize.xs }}>Fetching data…</div>
         </Stack>
       </Center>
     </div>
@@ -116,7 +116,7 @@ export const CenteredLoadingPanelExample = () => (
 
 export const InlineLoadingExample = () => (
   <Frame title="inline next to text">
-    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing['sm-md'] }}>
       <Spinner size="small" />
       <div style={{ color: tokens.color.text.secondary }}>Syncing</div>
       <Placeholder color={tokens.color.background.secondary} width="auto">
