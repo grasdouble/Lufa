@@ -107,19 +107,19 @@ const hoverCursor = tokens.cursor.pointer;
 
 ### ✨ **Effects** (55 tokens)
 
-- **blur** (7) - `none`, `sm`, `md`, `base`, `lg`, `xl`, `2xl`
+- **blur** (7) - `none`, `subtle`, `base`, `medium`, `strong`, `extraStrong`, `max`
 - **opacity** (7) - `invisible`, `subtle`, `light`, `medium`, `disabled`, `faint`, `full`
-- **cursor** (17) - `auto`, `pointer`, `grab`, `grabbing`, `move`, `text`, `wait`, `notAllowed`, `help`, `zoomIn`, `zoomOut`, `crosshair`, `resizeVertical`, `resizeHorizontal`, `resizeDiagonal1`, `resizeDiagonal2`
-- **transform** (24) - Scale (`none`, `down`, `downMore`, `up`, `upMore`, `upLarge`), Rotate (`none`, `45`, `90`, `180`, `270`, `-45`, `-90`, `-180`), Translate (`none`, `upSmall`, `up`, `upLarge`, `downSmall`, `down`, `downLarge`), Combined (`hoverLift`, `hoverLiftMore`, `pressedDown`)
+- **cursor** (17) - `auto`, `default`, `pointer`, `grab`, `grabbing`, `move`, `text`, `wait`, `notAllowed`, `help`, `zoomIn`, `zoomOut`, `crosshair`, `resizeVertical`, `resizeHorizontal`, `resizeDiagonal1`, `resizeDiagonal2`
+- **transform** (24) - Scale (`scaleNone`, `scaleDown`, `scaleDownMore`, `scaleUp`, `scaleUpMore`, `scaleUpLarge`), Rotate (`rotateNone`, `rotate45`, `rotate90`, `rotate180`, `rotate270`, `rotateMinus45`, `rotateMinus90`, `rotateMinus180`), Translate (`translateNone`, `translateUpSmall`, `translateUp`, `translateUpLarge`, `translateDownSmall`, `translateDown`, `translateDownLarge`), Combined (`hoverLift`, `hoverLiftMore`, `pressedDown`)
 
 ### 📐 **Elevation** (21 tokens)
 
 - **shadow** (11) - `none`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `inner`
-- **zIndex** (10) - `base`, `dropdown`, `sticky`, `fixed`, `overlay`, `modal`, `popover`, `tooltip`, `notification`, `maximum`
+- **zIndex** (10) - `base`, `dropdown`, `sticky`, `tooltip`, `drawer`, `menu`, `modal`, `notification`, `toast`, `max`
 
 ### 🔷 **Icon** (11 tokens)
 
-- **iconSize** (7) - `xs`, `sm`, `md`, `base`, `lg`, `xl`, `2xl`
+- **iconSize** (7) - `2xs`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`
 - **iconStroke** (4) - `thin`, `default`, `bold`, `extraBold`
 
 ### 📏 **Layout** (70 tokens)
@@ -157,6 +157,9 @@ const hoverCursor = tokens.cursor.pointer;
 - **typographyScale** (11 presets / 44 values) - `h1`-`h6`, `bodyLarge`, `body`, `bodySmall`, `caption`, `label`
 - **measure** (5) - `narrow`, `default`, `comfortable`, `wide`, `extraWide` (optimal line lengths in `ch`)
 
-## Total: 446 Semantic Tokens
+## Totals
 
-All tokens map to values from `@grasdouble/lufa_design-system-primitives` for consistency and maintainability.
+- **446 token values** in TypeScript (leaf values, including composite presets like `motion` and `typographyScale`)
+- **355 CSS custom properties** generated in `dist/style.css`
+
+All tokens map to values from `@grasdouble/lufa_design-system-primitives` for consistency and maintainability. Composite presets (e.g., `typographyScale`, `motion`, `focus`) are JS-only helpers and are not exported as CSS variables.

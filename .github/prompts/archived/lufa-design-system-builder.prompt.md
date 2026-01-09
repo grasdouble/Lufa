@@ -29,7 +29,7 @@ Build, maintain, and enhance the Lufa Design System with a focus on accessibilit
 
 Create or update design system components, tokens, or primitives following the three-layer architecture:
 
-1. **Primitives**: Non-semantic foundational values (value-based keys)
+1. **Primitives**: Non-semantic foundational values (value-based keys for numeric scales; descriptive keys where needed)
 2. **Tokens**: Semantic design decisions (purpose-based naming)
 3. **Components**: Accessible React components (built with tokens)
 
@@ -56,8 +56,9 @@ Create or update design system components, tokens, or primitives following the t
 
 **For Primitives**
 
-- Use actual values as keys (pixels, milliseconds, numeric)
-- Keep non-semantic (no `small`, `medium`, `large`)
+- Use actual values as keys for numeric scales (pixels, milliseconds, numeric)
+- Allow descriptive keys where numeric values are awkward (line height, letter spacing, blur)
+- Keep non-semantic (no `small`, `medium`, `large` for spacing/size scales)
 - Export TypeScript objects and CSS custom properties
 - Document purpose and usage
 
@@ -120,14 +121,14 @@ export const generatePrimitiveVars = () => {
 ```typescript
 // File: packages/design-system/tokens/src/{category}.ts
 
-import { {primitive} } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 /**
  * {Category} tokens with semantic, purpose-driven names.
  */
 export const {category}Tokens = {
-  primary: {primitive}[{value}],
-  secondary: {primitive}[{value}],
+  primary: primitives.{primitive}[{value}],
+  secondary: primitives.{primitive}[{value}],
   // ... more semantic mappings
 } as const;
 

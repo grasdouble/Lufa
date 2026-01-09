@@ -222,9 +222,9 @@ export const Alignment: Story = {
             <div
               style={{
                 height: '200px',
-                backgroundColor: '#F3F4F6',
+                backgroundColor: tokens.color.background.tertiary,
                 padding: '16px',
-                border: `2px dashed #E5E7EB`,
+                border: `2px dashed ${tokens.color.border.light}`,
               }}
             >
               <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} align={STACK_ALIGN.end}>

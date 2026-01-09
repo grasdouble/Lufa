@@ -51,18 +51,26 @@ Our typography system is based on a modular scale that ensures visual hierarchy 
 ## Font Weights
 
 ```css
+--lufa-token-font-weight-thin: 100;
+--lufa-token-font-weight-extra-light: 200;
+--lufa-token-font-weight-light: 300;
 --lufa-token-font-weight-regular: 400;
 --lufa-token-font-weight-medium: 500;
 --lufa-token-font-weight-semibold: 600;
 --lufa-token-font-weight-bold: 700;
+--lufa-token-font-weight-extra-bold: 800;
+--lufa-token-font-weight-black: 900;
 ```
 
 ## Line Heights
 
 ```css
---lufa-token-line-height-tight: 1.25; /* For headings */
+--lufa-token-line-height-none: 1; /* Avoid for readable text */
+--lufa-token-line-height-tight: 1.2; /* For headings */
+--lufa-token-line-height-snug: 1.35; /* For large text */
 --lufa-token-line-height-base: 1.5; /* For body text */
---lufa-token-line-height-relaxed: 1.75; /* For long-form content */
+--lufa-token-line-height-relaxed: 1.65; /* For long-form content */
+--lufa-token-line-height-loose: 1.8; /* For accessibility-focused text */
 ```
 
 ## Typography Scale Presets (JS)
@@ -70,9 +78,9 @@ Our typography system is based on a modular scale that ensures visual hierarchy 
 Use `typographyScale` for pre-configured combinations of font size, weight, line height, and letter spacing:
 
 ```ts
-import { typographyScale } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
-const heading = typographyScale.h1;
+const heading = tokens.typographyScale.h1;
 ```
 
 ## Usage

@@ -58,7 +58,7 @@ export const Columns: Story = {
     <Stack direction="vertical" gap="spacious">
       {Object.values(GRID_COLUMNS).map((columns) => (
         <div key={columns}>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
             columns: {columns}
           </div>
           <Container
@@ -66,9 +66,9 @@ export const Columns: Story = {
             paddingX="none"
             style={{
               backgroundColor: tokens.color.background.primary,
-              border: `1px solid ${tokens.color.border.light}`,
-              borderRadius: '12px',
-              padding: '16px',
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.lg,
+              padding: tokens.spacing.base,
             }}
           >
             <Grid columns={columns} gutter={GRID_GUTTER.sm}>
@@ -88,7 +88,7 @@ export const Gutters: Story = {
     <Stack direction="vertical" gap="spacious">
       {Object.values(GRID_GUTTER).map((gutter) => (
         <div key={gutter}>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
             gutter: {gutter}
           </div>
           <Container
@@ -96,9 +96,9 @@ export const Gutters: Story = {
             paddingX="none"
             style={{
               backgroundColor: tokens.color.background.primary,
-              border: `1px solid ${tokens.color.border.light}`,
-              borderRadius: '12px',
-              padding: '16px',
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.lg,
+              padding: tokens.spacing.base,
             }}
           >
             <Grid columns={GRID_COLUMNS.quad} gutter={gutter}>
@@ -119,13 +119,13 @@ export const ColumnGutterMatrix: Story = {
     const gutterValues = [GRID_GUTTER.none, GRID_GUTTER.sm, GRID_GUTTER.md, GRID_GUTTER.lg] as const;
 
     return (
-      <div style={{ width: '100%', overflowX: 'auto' }}>
+      <div style={{ width: tokens.maxWidth.full, overflowX: 'auto' }}>
         <div
           style={{
-            minWidth: '900px',
+            minWidth: tokens.maxWidth['4xl'],
             display: 'grid',
-            gridTemplateColumns: `140px repeat(${columnsValues.length}, minmax(0, 1fr))`,
-            gap: '12px',
+            gridTemplateColumns: `${tokens.spacing['5xl']} repeat(${columnsValues.length}, minmax(0, 1fr))`,
+            gap: tokens.spacing.md,
             alignItems: 'stretch',
           }}
         >
@@ -135,13 +135,13 @@ export const ColumnGutterMatrix: Story = {
               key={`header-${columns}`}
               style={{
                 fontFamily: 'monospace',
-                fontSize: '12px',
+                fontSize: tokens.fontSize.xs,
                 color: tokens.color.text.secondary,
                 textAlign: 'center',
-                padding: '6px 8px',
+                padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
                 backgroundColor: tokens.color.background.primary,
-                border: `1px solid ${tokens.color.border.light}`,
-                borderRadius: '10px',
+                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                borderRadius: tokens.radius.lg,
               }}
             >
               columns: {columns}
@@ -153,12 +153,12 @@ export const ColumnGutterMatrix: Story = {
               <div
                 style={{
                   fontFamily: 'monospace',
-                  fontSize: '12px',
+                  fontSize: tokens.fontSize.xs,
                   color: tokens.color.text.secondary,
-                  padding: '6px 8px',
+                  padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
                   backgroundColor: tokens.color.background.primary,
-                  border: `1px solid ${tokens.color.border.light}`,
-                  borderRadius: '10px',
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  borderRadius: tokens.radius.lg,
                   display: 'flex',
                   alignItems: 'center',
                 }}
@@ -171,9 +171,9 @@ export const ColumnGutterMatrix: Story = {
                   key={`${gutter}-${columns}`}
                   style={{
                     backgroundColor: tokens.color.background.primary,
-                    border: `1px solid ${tokens.color.border.light}`,
-                    borderRadius: '12px',
-                    padding: '16px',
+                    border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                    borderRadius: tokens.radius.lg,
+                    padding: tokens.spacing.base,
                   }}
                 >
                   <Grid columns={columns} gutter={gutter}>

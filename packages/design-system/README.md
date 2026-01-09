@@ -45,7 +45,7 @@ The design system follows a three-layer architecture, each serving a distinct pu
 
 - **Three-Layer Architecture** - Clear separation between primitives, tokens, and components
 - **448 Primitives** - Raw foundational values for all design aspects
-- **446 Semantic Tokens** - Purpose-driven design decisions (including motion/focus presets)
+- **446 Token Values** - Semantic design decisions in TS (355 CSS custom properties)
 - **Type-Safe** - Full TypeScript support with strict mode
 - **Accessible** - WCAG 2.1 AA compliant components
 - **Themeable** - Token-based theming with dark mode support
@@ -83,7 +83,8 @@ pnpm add @grasdouble/lufa_design-system-tokens
 
 **What's included:**
 
-- 446 semantic tokens (including motion/focus presets)
+- 446 token values in TypeScript (including motion/focus presets)
+- 355 CSS custom properties in `dist/style.css`
 - Color, spacing, typography, motion tokens
 - CSS custom properties
 - TypeScript definitions
@@ -286,7 +287,7 @@ pnpm ds:themes:build
 
 ### Value-Based Primitives
 
-Primitives use actual measurement values as keys for clarity:
+Primitives use actual measurement values as keys for numeric scales; rhythm/optical scales use descriptive keys for readability:
 
 ```typescript
 // ✅ Good: Clear and predictable

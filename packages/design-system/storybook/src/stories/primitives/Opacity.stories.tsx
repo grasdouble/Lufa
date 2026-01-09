@@ -17,9 +17,9 @@ export const AllOpacity: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Opacity Primitives</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-        Token opacity values for transparency. CAUTION: Opacity reduces effective contrast - verify WCAG compliance when
-        using opacity on text.
+      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
+        Primitive opacity values for transparency. CAUTION: Opacity reduces effective contrast - verify WCAG compliance
+        when using opacity on text.
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
@@ -31,9 +31,9 @@ export const AllOpacity: Story = {
               flexDirection: 'column',
               gap: '12px',
               padding: '16px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: primitives.color.neutral.neutral[50],
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>opacity[{key}]</div>
@@ -43,7 +43,7 @@ export const AllOpacity: Story = {
                 height: '100px',
                 borderRadius: '6px',
                 overflow: 'hidden',
-                backgroundColor: 'white',
+                backgroundColor: primitives.color.neutral.neutral[0],
               }}
             >
               <div
@@ -55,7 +55,7 @@ export const AllOpacity: Story = {
                   justifyContent: 'center',
                   fontSize: '32px',
                   fontWeight: '600',
-                  color: '#737373',
+                  color: primitives.color.neutral.neutral[600],
                 }}
               >
                 Background
@@ -64,19 +64,19 @@ export const AllOpacity: Story = {
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  backgroundColor: '#3B82F6',
+                  backgroundColor: primitives.color.chromatic.blue[500],
                   opacity: value,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'white',
+                  color: primitives.color.neutral.white,
                   fontWeight: '600',
                 }}
               >
                 {key}%
               </div>
             </div>
-            <div style={{ fontSize: '11px', color: '#737373' }}>
+            <div style={{ fontSize: '11px', color: primitives.color.neutral.neutral[600] }}>
               {Number(key) <= 25 && '⚠️ Decorative only - never for text'}
               {Number(key) === 50 && '⚠️ May violate WCAG for text'}
               {Number(key) === 75 && '⚠️ Verify contrast for text'}
@@ -90,9 +90,9 @@ export const AllOpacity: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: '#FEF3C7',
+          backgroundColor: primitives.color.chromatic.orange[100],
           borderRadius: '12px',
-          border: '1px solid #FCD34D',
+          border: `1px solid ${primitives.color.chromatic.orange[300]}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>WCAG Warnings</h3>
@@ -125,11 +125,11 @@ export const UsageExamples: Story = {
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                backgroundImage: `linear-gradient(135deg, ${primitives.color.chromatic.blue[500]} 0%, ${primitives.color.chromatic.purple[500]} 100%)`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'white',
+                color: primitives.color.neutral.white,
                 fontSize: '24px',
                 fontWeight: '600',
               }}
@@ -140,7 +140,7 @@ export const UsageExamples: Story = {
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundColor: '#000',
+                backgroundColor: primitives.color.neutral.black,
                 opacity: primitives.opacity[75],
                 display: 'flex',
                 alignItems: 'center',
@@ -150,16 +150,25 @@ export const UsageExamples: Story = {
               <div
                 style={{
                   padding: '32px',
-                  backgroundColor: 'white',
+                  backgroundColor: primitives.color.neutral.neutral[0],
                   borderRadius: '12px',
-                  boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)',
+                  boxShadow: primitives.shadow.xl,
                   textAlign: 'center',
                 }}
               >
-                <div style={{ fontSize: '20px', fontWeight: '600', marginBottom: '8px', color: '#000' }}>
+                <div
+                  style={{
+                    fontSize: '20px',
+                    fontWeight: '600',
+                    marginBottom: '8px',
+                    color: primitives.color.neutral.black,
+                  }}
+                >
                   Modal Dialog
                 </div>
-                <div style={{ fontSize: '14px', color: '#737373' }}>75% black overlay</div>
+                <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+                  75% black overlay
+                </div>
               </div>
             </div>
           </div>
@@ -171,8 +180,8 @@ export const UsageExamples: Story = {
             <button
               style={{
                 padding: '12px 24px',
-                backgroundColor: '#3B82F6',
-                color: 'white',
+                backgroundColor: primitives.color.chromatic.blue[500],
+                color: primitives.color.neutral.white,
                 border: 'none',
                 borderRadius: '6px',
                 fontWeight: '500',
@@ -184,8 +193,8 @@ export const UsageExamples: Story = {
             <button
               style={{
                 padding: '12px 24px',
-                backgroundColor: '#3B82F6',
-                color: 'white',
+                backgroundColor: primitives.color.chromatic.blue[500],
+                color: primitives.color.neutral.white,
                 border: 'none',
                 borderRadius: '6px',
                 fontWeight: '500',
@@ -218,13 +227,13 @@ export const UsageExamples: Story = {
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundColor: '#000',
+                backgroundColor: primitives.color.neutral.black,
                 opacity: 0,
                 transition: 'opacity 150ms',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'white',
+                color: primitives.color.neutral.white,
                 fontSize: '18px',
                 fontWeight: '600',
               }}
@@ -242,7 +251,7 @@ export const UsageExamples: Story = {
             <div
               style={{
                 height: '20px',
-                backgroundColor: '#E5E7EB',
+                backgroundColor: primitives.color.neutral.neutral[200],
                 borderRadius: '4px',
                 opacity: primitives.opacity[50],
               }}
@@ -250,7 +259,7 @@ export const UsageExamples: Story = {
             <div
               style={{
                 height: '20px',
-                backgroundColor: '#E5E7EB',
+                backgroundColor: primitives.color.neutral.neutral[200],
                 borderRadius: '4px',
                 width: '80%',
                 opacity: primitives.opacity[50],
@@ -259,7 +268,7 @@ export const UsageExamples: Story = {
             <div
               style={{
                 height: '20px',
-                backgroundColor: '#E5E7EB',
+                backgroundColor: primitives.color.neutral.neutral[200],
                 borderRadius: '4px',
                 width: '60%',
                 opacity: primitives.opacity[50],

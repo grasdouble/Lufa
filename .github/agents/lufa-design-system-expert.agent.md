@@ -129,12 +129,12 @@ I can help with ALL Lufa Design System tasks:
 
 ### Lufa Design System Architecture
 
-- **Primitives (`@grasdouble/lufa_design-system-primitives`)**: Non-semantic foundational values using actual values as keys
+- **Primitives (`@grasdouble/lufa_design-system-primitives`)**: Non-semantic foundational values with value-based keys for numeric scales
   - Spacing using pixel values (e.g., `spacing[16]`, `spacing[24]`)
   - Timing using millisecond values (e.g., `timing[150]`, `timing[400]`)
   - Font sizes, weights, border widths, radius, shadows
   - Icon sizes and strokes
-  - All primitives use concrete values for clarity and precision
+  - Descriptive keys are used where numeric values are awkward (e.g., `lineHeight.body`, `letterSpacing.readable`, `blur.none`)
 
 - **Tokens (`@grasdouble/lufa_design-system-tokens`)**: Semantic, intent-based naming mapped from primitives
   - Color tokens: `tokens.color.text.primary`, `tokens.color.background.primary`, `tokens.color.border.default`
@@ -201,7 +201,8 @@ I can help with ALL Lufa Design System tasks:
 
 **For Primitives:**
 
-- Use actual values as keys (pixels, milliseconds, numeric values)
+- Use actual values as keys for numeric scales (pixels, milliseconds, numeric values)
+- Allow descriptive keys where numeric values are not ergonomic (line height, letter spacing, blur)
 - Export both TypeScript constants and CSS custom properties
 - Keep values non-semantic and foundational
 - Document the purpose and usage
@@ -505,7 +506,7 @@ Before completing, verify:
 
 - Maintain the two-layer token system (primitives → tokens)
 - Ensure semantic token names reflect their purpose
-- Keep primitives value-based for clarity
+- Prefer value-based primitives for numeric scales; keep descriptive keys limited to rhythm/optical scales
 - Update tokens when design decisions change
 - Document token usage and relationships
 
@@ -554,7 +555,7 @@ Before completing, verify:
 // ✅ Good: Use semantic tokens in components
 
 // ❌ Avoid: Direct primitive usage in components (use tokens instead)
-import { spacing } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const styles = {
@@ -563,7 +564,7 @@ const styles = {
   fontSize: tokens.fontSize.base,
 };
 
-const styles = { padding: tokens.spacing[16] }; // Use tokens!
+const badStyles = { padding: primitives.spacing[16] }; // Avoid primitives in components
 ```
 
 ### Component Structure

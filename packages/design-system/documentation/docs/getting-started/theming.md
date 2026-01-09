@@ -81,7 +81,12 @@ All CSS variables are prefixed with `--lufa-token-` to avoid conflicts:
 
 - `--lufa-token-color-*` - Color tokens
 - `--lufa-token-spacing-*` - Spacing tokens
-- `--lufa-token-font-*` - Typography tokens
+- `--lufa-token-font-family-*` - Font families
+- `--lufa-token-font-size-*` - Font sizes
+- `--lufa-token-font-weight-*` - Font weights
+- `--lufa-token-line-height-*` - Line heights
+- `--lufa-token-letter-spacing-*` - Letter spacing
+- `--lufa-token-measure-*` - Measure (line length)
 - `--lufa-token-radius-*` - Border radius tokens
 - `--lufa-token-shadow-*` - Shadow tokens
 

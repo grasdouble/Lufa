@@ -17,7 +17,7 @@ export const AllSizes: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Size Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic size tokens for common element dimensions. Includes WCAG 2.5.5 minimum touch target (44px).
       </p>
 
@@ -34,25 +34,29 @@ export const AllSizes: Story = {
                 gap: '24px',
                 alignItems: 'center',
                 padding: '16px',
-                backgroundColor: '#FAFAFA',
+                backgroundColor: tokens.color.background.secondary,
                 borderRadius: '8px',
-                border: isTouchTarget ? '2px solid #2563EB' : '1px solid #E5E5E5',
+                border: isTouchTarget
+                  ? `2px solid ${tokens.color.interactive.default}`
+                  : `1px solid ${tokens.color.border.light}`,
               }}
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>size.{key}</div>
-              <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
+                {value}
+              </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <div
                   style={{
                     width: value,
                     height: value,
-                    backgroundColor: isTouchTarget ? '#2563EB' : '#3B82F6',
+                    backgroundColor: isTouchTarget ? tokens.color.interactive.default : tokens.color.interactive.focus,
                     borderRadius: '6px',
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                    boxShadow: tokens.shadow.xs,
                     flexShrink: 0,
                   }}
                 />
-                <div style={{ fontSize: '12px', color: '#737373' }}>
+                <div style={{ fontSize: '12px', color: tokens.color.text.tertiary }}>
                   {key === 'none' && 'No size'}
                   {key === 'xs' && 'Icons (inline)'}
                   {key === 'sm' && 'Small icons, avatars'}
@@ -74,13 +78,15 @@ export const AllSizes: Story = {
         style={{
           marginTop: '32px',
           padding: '16px',
-          backgroundColor: '#EFF6FF',
-          border: '1px solid #BFDBFE',
+          backgroundColor: tokens.color.info.light,
+          border: `1px solid ${tokens.color.info.border}`,
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: '#1E40AF' }}>WCAG 2.5.5 Target Size</div>
-        <div style={{ fontSize: '14px', color: '#1E3A8A' }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text }}>
+          WCAG 2.5.5 Target Size
+        </div>
+        <div style={{ fontSize: '14px', color: tokens.color.info.text }}>
           Interactive elements should have a minimum touch target of 44×44px to ensure accessibility on touch devices.
           Use size.touchTarget or larger for all interactive elements.
         </div>
@@ -104,12 +110,12 @@ export const UsageExamples: Story = {
                 style={{
                   width: tokens.size[siz as keyof typeof tokens.size],
                   height: tokens.size[siz as keyof typeof tokens.size],
-                  backgroundColor: '#3B82F6',
+                  backgroundColor: tokens.color.interactive.focus,
                   borderRadius: '4px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'white',
+                  color: tokens.color.text.inverse,
                   fontSize: '10px',
                 }}
               >
@@ -131,8 +137,8 @@ export const UsageExamples: Story = {
               style={{
                 height: tokens.size[siz as keyof typeof tokens.size],
                 padding: '0 24px',
-                backgroundColor: '#3B82F6',
-                color: 'white',
+                backgroundColor: tokens.color.interactive.focus,
+                color: tokens.color.text.inverse,
                 border: 'none',
                 borderRadius: '6px',
                 fontSize: '14px',
@@ -156,12 +162,12 @@ export const UsageExamples: Story = {
                 style={{
                   width: tokens.size[siz as keyof typeof tokens.size],
                   height: tokens.size[siz as keyof typeof tokens.size],
-                  backgroundColor: '#10B981',
+                  backgroundColor: tokens.color.success.default,
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'white',
+                  color: tokens.color.text.inverse,
                   fontWeight: '600',
                 }}
               >
@@ -185,7 +191,7 @@ export const UsageExamples: Story = {
               style={{
                 height: tokens.size[siz as keyof typeof tokens.size],
                 padding: '0 16px',
-                border: '1px solid #D1D5DB',
+                border: `1px solid ${tokens.color.border.default}`,
                 borderRadius: '6px',
                 fontSize: '14px',
               }}

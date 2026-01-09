@@ -17,7 +17,7 @@ export const FontSizes: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Font Size Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic font size tokens with t-shirt sizing. WCAG requires minimum 16px for body text.
       </p>
 
@@ -27,9 +27,9 @@ export const FontSizes: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: tokens.color.background.secondary,
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div
@@ -41,7 +41,9 @@ export const FontSizes: Story = {
               }}
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>fontSize.{key}</div>
-              <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{String(value)}</div>
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
+                {String(value)}
+              </div>
             </div>
             <div style={{ fontSize: value as string }}>The quick brown fox jumps over the lazy dog</div>
           </div>
@@ -55,7 +57,7 @@ export const LineHeights: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Line Height Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic line height tokens. WCAG requires minimum 1.5 for body text.
       </p>
 
@@ -65,9 +67,9 @@ export const LineHeights: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: tokens.color.background.secondary,
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div
@@ -79,7 +81,9 @@ export const LineHeights: Story = {
               }}
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>lineHeight.{key}</div>
-              <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{String(value)}</div>
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
+                {String(value)}
+              </div>
             </div>
             <div style={{ fontSize: '16px', lineHeight: value as number }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
@@ -96,7 +100,7 @@ export const FontWeights: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Font Weight Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic font weight tokens from thin to black. WCAG recommends minimum 400 for body text.
       </p>
 
@@ -106,9 +110,9 @@ export const FontWeights: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: tokens.color.background.secondary,
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div
@@ -117,7 +121,7 @@ export const FontWeights: Story = {
                 fontWeight: '600',
                 fontSize: '12px',
                 marginBottom: '8px',
-                color: '#737373',
+                color: tokens.color.text.tertiary,
               }}
             >
               fontWeight.{key} ({String(value)})
@@ -134,7 +138,7 @@ export const LetterSpacing: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Letter Spacing Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic letter spacing tokens. Wider spacing improves readability for users with dyslexia.
       </p>
 
@@ -144,9 +148,9 @@ export const LetterSpacing: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: tokens.color.background.secondary,
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div
@@ -158,7 +162,9 @@ export const LetterSpacing: Story = {
               }}
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>letterSpacing.{key}</div>
-              <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{String(value)}</div>
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
+                {String(value)}
+              </div>
             </div>
             <div style={{ fontSize: '20px', letterSpacing: value as string }}>
               The quick brown fox jumps over the lazy dog
@@ -174,7 +180,7 @@ export const LetterSpacing: Story = {
 //     render: () => (
 //         <div style={{ padding: '20px', maxWidth: '1400px' }}>
 //             <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Typography Scale Presets</h1>
-//             <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+//             <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
 //                 Pre-configured typography styles combining font size, line height, weight, and letter spacing.
 //             </p>
 
@@ -186,16 +192,16 @@ export const LetterSpacing: Story = {
 //                         key={key}
 //                         style={{
 //                             padding: '24px',
-//                             backgroundColor: '#FAFAFA',
+//                             backgroundColor: tokens.color.background.secondary,
 //                             borderRadius: '8px',
-//                             border: '1px solid #E5E5E5',
+//                             border: `1px solid ${tokens.color.border.light}`,
 //                         }}
 //                     >
 //                         <div style={{ marginBottom: '16px' }}>
 //                             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px', marginBottom: '8px' }}>
 //                                 typographyScale.{key}
 //                             </div>
-//                             <div style={{ fontFamily: 'monospace', fontSize: '11px', color: '#737373' }}>
+//                             <div style={{ fontFamily: 'monospace', fontSize: '11px', color: tokens.color.text.tertiary }}>
 //                                 fontSize: {String(scale.fontSize)} | lineHeight: {String(scale.lineHeight)} | fontWeight: {String(scale.fontWeight)} |
 //                                 letterSpacing: {String(scale.letterSpacing)}
 //                             </div>

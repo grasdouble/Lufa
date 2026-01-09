@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Spinner } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '5. Feedback/Spinner',
@@ -49,18 +50,24 @@ export const Playground: Story = {
 
 export const AllSizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.xl }}>
       <div style={{ textAlign: 'center' }}>
         <Spinner size="small" mode="A" />
-        <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Small</p>
+        <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          Small
+        </p>
       </div>
       <div style={{ textAlign: 'center' }}>
         <Spinner size="medium" mode="A" />
-        <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Medium</p>
+        <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          Medium
+        </p>
       </div>
       <div style={{ textAlign: 'center' }}>
         <Spinner size="large" mode="A" />
-        <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Large</p>
+        <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          Large
+        </p>
       </div>
     </div>
   ),
@@ -82,18 +89,18 @@ export const ModeB: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.xl }}>
       <div>
-        <h3 style={{ marginBottom: '16px' }}>Mode A</h3>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+        <h3 style={{ marginBottom: tokens.spacing.base }}>Mode A</h3>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.xl }}>
           <Spinner size="small" mode="A" />
           <Spinner size="medium" mode="A" />
           <Spinner size="large" mode="A" />
         </div>
       </div>
       <div>
-        <h3 style={{ marginBottom: '16px' }}>Mode B</h3>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+        <h3 style={{ marginBottom: tokens.spacing.base }}>Mode B</h3>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.xl }}>
           <Spinner size="small" mode="B" />
           <Spinner size="medium" mode="B" />
           <Spinner size="large" mode="B" />
@@ -109,33 +116,33 @@ export const InContext: Story = {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '24px',
-        padding: '20px',
+        gap: tokens.spacing.lg,
+        padding: tokens.spacing['md-lg'],
       }}
     >
       <div
         style={{
-          padding: '40px',
-          backgroundColor: '#f5f5f5',
-          borderRadius: '8px',
+          padding: tokens.spacing['xl-2xl'],
+          backgroundColor: tokens.color.background.tertiary,
+          borderRadius: tokens.radius.base,
           textAlign: 'center',
         }}
       >
         <Spinner size="large" mode="A" />
-        <p style={{ marginTop: '16px', color: '#737373' }}>Loading content...</p>
+        <p style={{ marginTop: tokens.spacing.base, color: tokens.color.text.tertiary }}>Loading content...</p>
       </div>
 
       <button
         style={{
-          padding: '12px 24px',
-          backgroundColor: '#2563EB',
-          color: 'white',
-          border: 'none',
-          borderRadius: '6px',
+          padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
+          backgroundColor: tokens.color.interactive.default,
+          color: tokens.color.text.inverse,
+          border: tokens.borderStyle.none,
+          borderRadius: tokens.radius.md,
           cursor: 'not-allowed',
           display: 'flex',
           alignItems: 'center',
-          gap: '8px',
+          gap: tokens.spacing.sm,
           justifyContent: 'center',
         }}
         disabled
@@ -148,11 +155,11 @@ export const InContext: Story = {
         style={{
           display: 'inline-flex',
           alignItems: 'center',
-          gap: '8px',
-          padding: '8px 16px',
-          backgroundColor: '#EFF6FF',
-          borderRadius: '6px',
-          color: '#2563EB',
+          gap: tokens.spacing.sm,
+          padding: `${tokens.spacing.sm} ${tokens.spacing.base}`,
+          backgroundColor: tokens.color.info.light,
+          borderRadius: tokens.radius.md,
+          color: tokens.color.interactive.default,
         }}
       >
         <Spinner size="small" mode="A" />

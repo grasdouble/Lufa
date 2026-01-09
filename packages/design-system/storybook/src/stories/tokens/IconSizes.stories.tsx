@@ -17,23 +17,25 @@ export const AllIconSizes: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Icon Size Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-        Standardized icon dimensions for consistent visual hierarchy. Icon buttons require minimum 44×44px touch target
-        (WCAG 2.5.5).
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
+        Standardized icon dimensions for consistent visual hierarchy. Icon glyphs are separate from hit targets - aim
+        for a 44×44px touch target (WCAG 2.5.5) using padding or size.touchTarget around smaller icons.
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
         {Object.entries(tokens.iconSize).map(([key, value]) => {
-          const isTouchTarget = key === 'lg';
+          const isTouchReady = Number(value) >= 24;
 
           return (
             <div
               key={key}
               style={{
                 padding: '24px',
-                backgroundColor: '#FAFAFA',
+                backgroundColor: tokens.color.background.secondary,
                 borderRadius: '8px',
-                border: isTouchTarget ? '2px solid #2563EB' : '1px solid #E5E5E5',
+                border: isTouchReady
+                  ? `2px solid ${tokens.color.interactive.default}`
+                  : `1px solid ${tokens.color.border.light}`,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -51,33 +53,36 @@ export const AllIconSizes: Story = {
                 >
                   iconSize.{key}
                 </div>
-                <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
+                <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
+                  {value}
+                </div>
               </div>
 
               <div
                 style={{
                   width: value,
                   height: value,
-                  backgroundColor: isTouchTarget ? '#2563EB' : '#3B82F6',
+                  backgroundColor: isTouchReady ? tokens.color.interactive.default : tokens.color.interactive.focus,
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'white',
+                  color: tokens.color.text.inverse,
                   fontSize: `calc(${value} * 0.6)`,
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                  boxShadow: tokens.shadow.sm,
                 }}
               >
                 ★
               </div>
 
-              <div style={{ fontSize: '12px', color: '#737373', textAlign: 'center' }}>
+              <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, textAlign: 'center' }}>
+                {key === '2xs' && 'Tiny icons (dense UI)'}
                 {key === 'xs' && 'Inline with text'}
-                {key === 'sm' && 'Buttons, navigation'}
-                {key === 'md' && 'Default size'}
-                {key === 'lg' && 'WCAG touch target ✓'}
+                {key === 'sm' && 'Compact UI icons'}
+                {key === 'md' && 'Default size (touch-friendly with padding)'}
+                {key === 'lg' && 'Primary actions (32px)'}
                 {key === 'xl' && 'Hero sections'}
-                {key === '2xl' && 'Feature highlights'}
+                {key === '2xl' && 'Display icons (48px)'}
               </div>
             </div>
           );
@@ -88,17 +93,19 @@ export const AllIconSizes: Story = {
         style={{
           marginTop: '32px',
           padding: '16px',
-          backgroundColor: '#EFF6FF',
-          border: '1px solid #BFDBFE',
+          backgroundColor: tokens.color.info.light,
+          border: `1px solid ${tokens.color.info.border}`,
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: '#1E40AF' }}>Icon Button Guidelines</div>
-        <ul style={{ margin: 0, paddingLeft: '20px', color: '#1E3A8A', fontSize: '14px' }}>
-          <li>Icon-only buttons must have minimum 44×44px touch target (use iconSize.lg or larger)</li>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text }}>
+          Icon Button Guidelines
+        </div>
+        <ul style={{ margin: 0, paddingLeft: '20px', color: tokens.color.info.text, fontSize: '14px' }}>
+          <li>Icon-only buttons should hit 44×44px (use padding or size.touchTarget around smaller icons)</li>
+          <li>Default icon size is 24px; use 32px+ for primary actions</li>
           <li>Ensure sufficient color contrast: 3:1 for non-text content (WCAG 1.4.11)</li>
-          <li>Provide accessible labels with aria-label for icon-only buttons</li>
-          <li>Add adequate spacing between multiple icon buttons (minimum 24px)</li>
+          <li>Provide accessible labels and adequate spacing between icon buttons (min 24px)</li>
         </ul>
       </div>
     </div>
@@ -114,31 +121,35 @@ export const UsageExamples: Story = {
       <div style={{ marginBottom: '48px' }}>
         <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Icon Buttons</h2>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-          {['sm', 'md', 'lg', 'xl'].map((size) => (
-            <button
-              key={size}
-              aria-label={`${size} icon button`}
-              style={{
-                width: tokens.iconSize[size as keyof typeof tokens.iconSize],
-                height: tokens.iconSize[size as keyof typeof tokens.iconSize],
-                backgroundColor: '#3B82F6',
-                color: 'white',
-                border: 'none',
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                fontSize: `calc(${tokens.iconSize[size as keyof typeof tokens.iconSize]} * 0.5)`,
-              }}
-              title={`${size} size`}
-            >
-              +
-            </button>
-          ))}
+          {['sm', 'md', 'lg', 'xl', '2xl'].map((size) => {
+            const iconSize = tokens.iconSize[size as keyof typeof tokens.iconSize];
+
+            return (
+              <button
+                key={size}
+                aria-label={`${size} icon button`}
+                style={{
+                  width: tokens.size.touchTarget,
+                  height: tokens.size.touchTarget,
+                  backgroundColor: tokens.color.interactive.focus,
+                  color: tokens.color.text.inverse,
+                  border: 'none',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  fontSize: `calc(${iconSize} * 0.5)`,
+                }}
+                title={`${size} size`}
+              >
+                +
+              </button>
+            );
+          })}
         </div>
-        <p style={{ marginTop: '12px', fontSize: '12px', color: '#737373' }}>
-          Icon-only buttons with proper touch targets
+        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary }}>
+          Icon-only buttons shown inside size.touchTarget (44x44px) hit areas
         </p>
       </div>
 
@@ -151,12 +162,12 @@ export const UsageExamples: Story = {
               style={{
                 width: tokens.iconSize.xs,
                 height: tokens.iconSize.xs,
-                backgroundColor: '#10B981',
+                backgroundColor: tokens.color.success.default,
                 borderRadius: '50%',
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'white',
+                color: tokens.color.text.inverse,
                 fontSize: '10px',
               }}
             >
@@ -169,12 +180,12 @@ export const UsageExamples: Story = {
               style={{
                 width: tokens.iconSize.sm,
                 height: tokens.iconSize.sm,
-                backgroundColor: '#3B82F6',
+                backgroundColor: tokens.color.interactive.focus,
                 borderRadius: '4px',
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'white',
+                color: tokens.color.text.inverse,
                 fontSize: '12px',
               }}
             >
@@ -193,7 +204,7 @@ export const UsageExamples: Story = {
             display: 'flex',
             gap: '8px',
             padding: '12px',
-            backgroundColor: '#1F2937',
+            backgroundColor: tokens.color.background.inverse,
             borderRadius: '8px',
           }}
         >
@@ -205,7 +216,7 @@ export const UsageExamples: Story = {
                 width: tokens.iconSize.md,
                 height: tokens.iconSize.md,
                 backgroundColor: 'transparent',
-                color: 'white',
+                color: tokens.color.text.inverse,
                 border: 'none',
                 borderRadius: '6px',
                 display: 'flex',
@@ -220,7 +231,9 @@ export const UsageExamples: Story = {
             </button>
           ))}
         </nav>
-        <p style={{ marginTop: '12px', fontSize: '12px', color: '#737373' }}>Navigation bar with medium (md) icons</p>
+        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary }}>
+          Navigation bar with medium (md) icons
+        </p>
       </div>
 
       {/* Feature Icons */}
@@ -239,21 +252,25 @@ export const UsageExamples: Story = {
               style={{
                 padding: '24px',
                 textAlign: 'center',
-                backgroundColor: '#FAFAFA',
+                backgroundColor: tokens.color.background.secondary,
                 borderRadius: '8px',
-                border: '1px solid #E5E5E5',
+                border: `1px solid ${tokens.color.border.light}`,
               }}
             >
               <div
                 style={{
                   width: tokens.iconSize['2xl'],
                   height: tokens.iconSize['2xl'],
-                  backgroundColor: ['#3B82F6', '#10B981', '#F59E0B'][index],
+                  backgroundColor: [
+                    tokens.color.interactive.focus,
+                    tokens.color.success.default,
+                    tokens.color.warning.default,
+                  ][index],
                   borderRadius: '12px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'white',
+                  color: tokens.color.text.inverse,
                   fontSize: '48px',
                   margin: '0 auto 16px',
                 }}
@@ -261,7 +278,7 @@ export const UsageExamples: Story = {
                 {['⚡', '🔒', '✓'][index]}
               </div>
               <div style={{ fontWeight: '600', marginBottom: '4px' }}>{feature}</div>
-              <div style={{ fontSize: '12px', color: '#737373' }}>Using iconSize.2xl</div>
+              <div style={{ fontSize: '12px', color: tokens.color.text.tertiary }}>Using iconSize.2xl</div>
             </div>
           ))}
         </div>

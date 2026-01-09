@@ -43,7 +43,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const ArrowRightIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+  <svg width={tokens.iconSize.xs} height={tokens.iconSize.xs} viewBox="0 0 20 20" fill="currentColor" aria-hidden>
     <path
       fillRule="evenodd"
       d="M10.293 3.293a1 1 0 011.414 0l6 6a.997.997 0 01.083.094 1 1 0 010 1.226.997.997 0 01-.083.094l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -53,7 +53,7 @@ const ArrowRightIcon = () => (
 );
 
 const SearchIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+  <svg width={tokens.iconSize.xs} height={tokens.iconSize.xs} viewBox="0 0 20 20" fill="currentColor" aria-hidden>
     <path
       fillRule="evenodd"
       d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
@@ -74,13 +74,13 @@ export const Playground: Story = {
 export const Color: Story = {
   render: () => (
     <Container size="xl" paddingX="none">
-      <div style={{ width: '100%', overflowX: 'auto' }}>
+      <div style={{ width: tokens.maxWidth.full, overflowX: 'auto' }}>
         <div
           style={{
-            minWidth: '820px',
+            minWidth: tokens.maxWidth['4xl'],
             display: 'grid',
-            gridTemplateColumns: '140px repeat(5, minmax(0, 1fr))',
-            gap: '12px',
+            gridTemplateColumns: `${tokens.spacing['5xl']} repeat(5, minmax(0, 1fr))`,
+            gap: tokens.spacing.md,
             alignItems: 'center',
           }}
         >
@@ -90,13 +90,13 @@ export const Color: Story = {
               key={`header-${colorKey}`}
               style={{
                 fontFamily: 'monospace',
-                fontSize: '12px',
+                fontSize: tokens.fontSize.xs,
                 color: tokens.color.text.secondary,
                 textAlign: 'center',
-                padding: '6px 8px',
+                padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
                 backgroundColor: tokens.color.background.primary,
-                border: `1px solid ${tokens.color.border.light}`,
-                borderRadius: '10px',
+                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                borderRadius: tokens.radius.lg,
               }}
             >
               {colorKey}
@@ -108,12 +108,12 @@ export const Color: Story = {
               <div
                 style={{
                   fontFamily: 'monospace',
-                  fontSize: '12px',
+                  fontSize: tokens.fontSize.xs,
                   color: tokens.color.text.secondary,
-                  padding: '6px 8px',
+                  padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
                   backgroundColor: tokens.color.background.primary,
-                  border: `1px solid ${tokens.color.border.light}`,
-                  borderRadius: '10px',
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  borderRadius: tokens.radius.lg,
                 }}
               >
                 {variantKey}
@@ -194,7 +194,7 @@ export const Disabled: Story = {
 
 export const FullWidth: Story = {
   render: () => (
-    <div style={{ maxWidth: '420px' }}>
+    <div style={{ maxWidth: tokens.maxWidth.sm }}>
       <Stack direction="vertical" gap="normal">
         <Button fullWidth>Full width</Button>
         <Button fullWidth variant="outlined">

@@ -57,7 +57,7 @@ You can use CSS custom properties (CSS variables) directly in your styles:
 
 - **Colors**: `--lufa-token-color-*`
 - **Spacing**: `--lufa-token-spacing-*`
-- **Typography**: `--lufa-token-font-*`, `--lufa-token-font-size-*`, `--lufa-token-line-height-*`, `--lufa-token-letter-spacing-*`, `--lufa-token-measure-*`
+- **Typography**: `--lufa-token-font-family-*`, `--lufa-token-font-size-*`, `--lufa-token-font-weight-*`, `--lufa-token-line-height-*`, `--lufa-token-letter-spacing-*`, `--lufa-token-measure-*`
 - **Shadows**: `--lufa-token-shadow-*`
 - **Border Radius**: `--lufa-token-radius-*`
 

@@ -17,9 +17,9 @@ export const FontFamilies: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Typography Primitives</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-        Token typography values. WCAG requires minimum 16px for body text, 1.5 line-height for paragraphs, and 0.12em
-        letter spacing.
+      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
+        Primitive typography values. WCAG requires minimum 16px for body text, 1.5 line-height for paragraphs, and
+        0.12em letter spacing.
       </p>
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Font Families</h2>
@@ -29,16 +29,16 @@ export const FontFamilies: Story = {
             key={key}
             style={{
               padding: '24px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: primitives.color.neutral.neutral[50],
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
             }}
           >
             <div
               style={{
                 fontFamily: 'monospace',
                 fontSize: '12px',
-                color: '#737373',
+                color: primitives.color.neutral.neutral[600],
                 marginBottom: '12px',
               }}
             >
@@ -47,7 +47,9 @@ export const FontFamilies: Story = {
             <div style={{ fontFamily: value, fontSize: '32px', fontWeight: '600', marginBottom: '8px' }}>
               The quick brown fox jumps over the lazy dog
             </div>
-            <div style={{ fontFamily: value, fontSize: '16px', lineHeight: '1.5', color: '#737373' }}>
+            <div
+              style={{ fontFamily: value, fontSize: '16px', lineHeight: '1.5', color: primitives.color.neutral.neutral[600] }}
+            >
               {key === 'sans' && 'Body text, UI elements, buttons - Most versatile'}
               {key === 'serif' && 'Editorial content, headings, quotes - Elegant and traditional'}
               {key === 'mono' && 'Code snippets, technical data - Fixed width characters'}
@@ -63,7 +65,7 @@ export const FontSizes: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Font Sizes</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
         Minimum 16px for body text (WCAG 1.4.4). Smaller sizes should be used only for secondary content.
       </p>
 
@@ -77,16 +79,18 @@ export const FontSizes: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: primitives.color.neutral.neutral[50],
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>fontSize[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
+            <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+              {value}
+            </div>
             <div style={{ fontSize: value }}>
               The quick brown fox jumps over the lazy dog{' '}
-              <span style={{ fontSize: '12px', color: '#737373', marginLeft: '8px' }}>
+              <span style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600], marginLeft: '8px' }}>
                 {Number(key) < 16 && '⚠️ Secondary only'}
                 {Number(key) === 16 && '✓ WCAG minimum'}
                 {Number(key) >= 20 && '✓ Headings, emphasis'}
@@ -100,9 +104,9 @@ export const FontSizes: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: '#FEF3C7',
+          backgroundColor: primitives.color.chromatic.orange[100],
           borderRadius: '12px',
-          border: '1px solid #FCD34D',
+          border: `1px solid ${primitives.color.chromatic.orange[300]}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>WCAG Guidelines</h3>
@@ -126,7 +130,7 @@ export const LineHeights: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Line Heights</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
         WCAG requires minimum 1.5 line-height for paragraph text (WCAG 1.4.12).
       </p>
 
@@ -136,9 +140,9 @@ export const LineHeights: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: primitives.color.neutral.neutral[50],
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
             }}
           >
             <div
@@ -150,7 +154,7 @@ export const LineHeights: Story = {
               }}
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>lineHeight.{key}</div>
-              <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>
+              <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
                 {value}
                 {Number(value) < 1.5 && ' ⚠️ Headings only'}
                 {Number(value) >= 1.5 && ' ✓ WCAG compliant'}
@@ -161,7 +165,7 @@ export const LineHeights: Story = {
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
               ea commodo consequat.
             </div>
-            <div style={{ fontSize: '12px', color: '#737373', marginTop: '8px' }}>
+            <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600], marginTop: '8px' }}>
               {key === 'tight' && 'Very tight - special cases only'}
               {key === 'heading' && 'Headings only - below WCAG minimum'}
               {key === 'display' && 'Large display text only'}
@@ -180,7 +184,7 @@ export const LetterSpacing: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Letter Spacing</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
         WCAG recommends minimum 0.12em letter spacing for improved readability (WCAG 1.4.12).
       </p>
 
@@ -190,9 +194,9 @@ export const LetterSpacing: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: primitives.color.neutral.neutral[50],
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
             }}
           >
             <div
@@ -204,12 +208,14 @@ export const LetterSpacing: Story = {
               }}
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>letterSpacing.{key}</div>
-              <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
+              <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+                {value}
+              </div>
             </div>
             <div style={{ fontSize: '24px', letterSpacing: value, marginBottom: '8px' }}>
               The quick brown fox jumps over the lazy dog
             </div>
-            <div style={{ fontSize: '12px', color: '#737373' }}>
+            <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>
               {key === 'tight' && 'Tight spacing - use cautiously'}
               {key === 'heading' && 'Headings only - avoid for body text'}
               {key === 'normal' && 'Default spacing'}
@@ -228,7 +234,7 @@ export const FontWeights: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Font Weights</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
         WCAG recommends minimum 400 weight for body text. Thin weights may reduce legibility at small sizes.
       </p>
 
@@ -242,16 +248,25 @@ export const FontWeights: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: primitives.color.neutral.neutral[50],
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: 600, fontSize: '14px' }}>fontWeight[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
+            <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+              {value}
+            </div>
             <div style={{ fontSize: '20px', fontWeight: value }}>
               The quick brown fox jumps over the lazy dog{' '}
-              <span style={{ fontSize: '12px', color: '#737373', fontWeight: 400, marginLeft: '8px' }}>
+              <span
+                style={{
+                  fontSize: '12px',
+                  color: primitives.color.neutral.neutral[600],
+                  fontWeight: 400,
+                  marginLeft: '8px',
+                }}
+              >
                 {Number(value) < 300 && '⚠️ Avoid for small text'}
                 {Number(value) === 300 && '⚠️ Use cautiously'}
                 {Number(value) === 400 && '✓ Body text minimum'}
@@ -291,7 +306,7 @@ export const UsageExamples: Story = {
               fontWeight: primitives.fontWeight[400],
               lineHeight: primitives.lineHeight.body,
               letterSpacing: primitives.letterSpacing.normal,
-              color: '#737373',
+              color: primitives.color.neutral.neutral[600],
               marginBottom: '16px',
             }}
           >
@@ -305,7 +320,7 @@ export const UsageExamples: Story = {
               fontWeight: primitives.fontWeight[400],
               lineHeight: primitives.lineHeight.reading,
               letterSpacing: primitives.letterSpacing.readable,
-              color: '#737373',
+              color: primitives.color.neutral.neutral[600],
             }}
           >
             This paragraph uses enhanced readability settings with 1.65 line-height and 0.04em letter spacing. This is
@@ -331,7 +346,7 @@ export const UsageExamples: Story = {
               fontSize: primitives.fontSize[16],
               fontWeight: primitives.fontWeight[400],
               lineHeight: primitives.lineHeight.body,
-              color: '#737373',
+              color: primitives.color.neutral.neutral[600],
             }}
           >
             Serif fonts bring elegance and tradition to editorial content. They're perfect for quotes, long-form
@@ -342,21 +357,23 @@ export const UsageExamples: Story = {
         <div
           style={{
             padding: '20px',
-            backgroundColor: '#1F2937',
+            backgroundColor: primitives.color.neutral.neutral[900],
             borderRadius: '8px',
             fontFamily: primitives.fontFamily.mono,
             fontSize: primitives.fontSize[14],
             lineHeight: primitives.lineHeight.body,
-            color: '#D1D5DB',
+            color: primitives.color.neutral.neutral[300],
           }}
         >
-          <div style={{ marginBottom: '8px', color: '#9CA3AF' }}>// Code example</div>
+          <div style={{ marginBottom: '8px', color: primitives.color.neutral.neutral[400] }}>// Code example</div>
           <div>
-            <span style={{ color: '#F472B6' }}>const</span> message <span style={{ color: '#F472B6' }}>=</span>{' '}
-            <span style={{ color: '#A78BFA' }}>"Hello World"</span>;
+            <span style={{ color: primitives.color.chromatic.pink[400] }}>const</span> message{' '}
+            <span style={{ color: primitives.color.chromatic.pink[400] }}>=</span>{' '}
+            <span style={{ color: primitives.color.chromatic.violet[400] }}>"Hello World"</span>;
           </div>
           <div>
-            <span style={{ color: '#F472B6' }}>console</span>.<span style={{ color: '#60A5FA' }}>log</span>
+            <span style={{ color: primitives.color.chromatic.pink[400] }}>console</span>.
+            <span style={{ color: primitives.color.chromatic.blue[400] }}>log</span>
             (message);
           </div>
         </div>
@@ -365,7 +382,7 @@ export const UsageExamples: Story = {
           <div
             style={{
               fontSize: primitives.fontSize[12],
-              color: '#9CA3AF',
+              color: primitives.color.neutral.neutral[400],
             }}
           >
             Caption text (12px) - Use only for metadata, labels
@@ -373,7 +390,7 @@ export const UsageExamples: Story = {
           <div
             style={{
               fontSize: primitives.fontSize[14],
-              color: '#6B7280',
+              color: primitives.color.neutral.neutral[600],
             }}
           >
             Secondary text (14px) - Use sparingly

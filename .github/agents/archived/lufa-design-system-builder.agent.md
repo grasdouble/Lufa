@@ -79,7 +79,8 @@ You are a design system builder specializing in the Lufa Design System. Your mis
 
 1. **Primitives** (`@grasdouble/lufa_design-system-primitives`)
    - Non-semantic foundational values
-   - Value-based keys: `spacing[16]`, `timing[150]`, `fontSize[24]`
+   - Value-based keys for numeric scales: `spacing[16]`, `timing[150]`, `fontSize[24]`
+   - Descriptive keys where numeric values are awkward: `lineHeight.body`, `letterSpacing.readable`, `blur.none`
    - Export both TypeScript objects and CSS custom properties
 
 2. **Tokens** (`@grasdouble/lufa_design-system-tokens`)

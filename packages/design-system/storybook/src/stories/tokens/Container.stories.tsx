@@ -17,7 +17,7 @@ export const AllContainers: Story = {
   render: () => (
     <div style={{ padding: '20px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Container Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px', maxWidth: '768px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px', maxWidth: '768px' }}>
         Semantic container width tokens for page-level layouts. Provides clearer intent than maxWidth for content areas.
       </p>
 
@@ -38,7 +38,7 @@ export const AllContainers: Story = {
               <div
                 style={{
                   fontFamily: 'monospace',
-                  color: '#737373',
+                  color: tokens.color.text.tertiary,
                   fontSize: '12px',
                   minWidth: '100px',
                 }}
@@ -51,9 +51,9 @@ export const AllContainers: Story = {
                 maxWidth: value,
                 width: '100%',
                 padding: '16px',
-                backgroundColor: '#3B82F6',
+                backgroundColor: tokens.color.interactive.focus,
                 borderRadius: '6px',
-                color: 'white',
+                color: tokens.color.text.inverse,
                 fontSize: '12px',
               }}
             >
@@ -61,7 +61,7 @@ export const AllContainers: Story = {
                 ? `${key} - no max-width constraint`
                 : `Container constrained to ${value} max-width`}
             </div>
-            <div style={{ fontSize: '12px', color: '#737373', marginLeft: '8px' }}>
+            <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, marginLeft: '8px' }}>
               {key === 'xs' && 'Extra small (384px) - Narrow forms, alerts, compact modals'}
               {key === 'sm' && 'Small (448px) - Compact content sections, small dialogs'}
               {key === 'md' && 'Medium (672px) - Standard content width, article containers'}
@@ -78,13 +78,15 @@ export const AllContainers: Story = {
         style={{
           marginTop: '32px',
           padding: '16px',
-          backgroundColor: '#EFF6FF',
-          border: '1px solid #BFDBFE',
+          backgroundColor: tokens.color.info.light,
+          border: `1px solid ${tokens.color.info.border}`,
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: '#1E40AF' }}>Container vs MaxWidth</div>
-        <div style={{ fontSize: '14px', color: '#1E3A8A' }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text }}>
+          Container vs MaxWidth
+        </div>
+        <div style={{ fontSize: '14px', color: tokens.color.info.text }}>
           <strong>container</strong> tokens: Use for page-level layout containers and major content sections
           <br />
           <strong>maxWidth</strong> tokens: Use for component-level constraints (modals, cards, specific elements)
@@ -107,16 +109,20 @@ export const UsageExamples: Story = {
             maxWidth: tokens.container.xl,
             margin: '0 auto',
             padding: '24px',
-            backgroundColor: '#F3F4F6',
+            backgroundColor: tokens.color.background.tertiary,
             borderRadius: '8px',
           }}
         >
-          <div style={{ marginBottom: '16px', fontSize: '14px', fontFamily: 'monospace', color: '#6B7280' }}>
+          <div
+            style={{ marginBottom: '16px', fontSize: '14px', fontFamily: 'monospace', color: tokens.color.text.secondary }}
+          >
             container.xl (1280px)
           </div>
-          <div style={{ padding: '40px', backgroundColor: 'white', borderRadius: '6px', textAlign: 'center' }}>
+          <div
+            style={{ padding: '40px', backgroundColor: tokens.color.surface.default, borderRadius: '6px', textAlign: 'center' }}
+          >
             <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '8px' }}>Main Content Area</h3>
-            <p style={{ color: '#6B7280' }}>Full application shell with standard desktop width</p>
+            <p style={{ color: tokens.color.text.secondary }}>Full application shell with standard desktop width</p>
           </div>
         </div>
       </div>
@@ -129,20 +135,22 @@ export const UsageExamples: Story = {
             maxWidth: tokens.container.md,
             margin: '0 auto',
             padding: '24px',
-            backgroundColor: '#F3F4F6',
+            backgroundColor: tokens.color.background.tertiary,
             borderRadius: '8px',
           }}
         >
-          <div style={{ marginBottom: '16px', fontSize: '14px', fontFamily: 'monospace', color: '#6B7280' }}>
+          <div
+            style={{ marginBottom: '16px', fontSize: '14px', fontFamily: 'monospace', color: tokens.color.text.secondary }}
+          >
             container.md (672px)
           </div>
-          <div style={{ padding: '32px', backgroundColor: 'white', borderRadius: '6px' }}>
+          <div style={{ padding: '32px', backgroundColor: tokens.color.surface.default, borderRadius: '6px' }}>
             <h3 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '16px' }}>Article Title</h3>
-            <p style={{ lineHeight: 1.65, color: '#374151', marginBottom: '16px' }}>
+            <p style={{ lineHeight: 1.65, color: tokens.color.text.secondary, marginBottom: '16px' }}>
               This container width (672px) is optimal for reading. It maintains 45-75 characters per line, which is
               considered ideal for readability and reduces eye strain.
             </p>
-            <p style={{ lineHeight: 1.65, color: '#374151' }}>
+            <p style={{ lineHeight: 1.65, color: tokens.color.text.secondary }}>
               Use container.md for blog posts, articles, documentation, and any long-form content where reading
               experience is paramount.
             </p>
@@ -158,14 +166,16 @@ export const UsageExamples: Story = {
             maxWidth: tokens.container.sm,
             margin: '0 auto',
             padding: '24px',
-            backgroundColor: '#F3F4F6',
+            backgroundColor: tokens.color.background.tertiary,
             borderRadius: '8px',
           }}
         >
-          <div style={{ marginBottom: '16px', fontSize: '14px', fontFamily: 'monospace', color: '#6B7280' }}>
+          <div
+            style={{ marginBottom: '16px', fontSize: '14px', fontFamily: 'monospace', color: tokens.color.text.secondary }}
+          >
             container.sm (448px)
           </div>
-          <div style={{ padding: '24px', backgroundColor: 'white', borderRadius: '6px' }}>
+          <div style={{ padding: '24px', backgroundColor: tokens.color.surface.default, borderRadius: '6px' }}>
             <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '16px' }}>Login Form</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <input
@@ -173,7 +183,7 @@ export const UsageExamples: Story = {
                 placeholder="Email"
                 style={{
                   padding: '12px',
-                  border: '1px solid #D1D5DB',
+                  border: `1px solid ${tokens.color.border.default}`,
                   borderRadius: '6px',
                   fontSize: '14px',
                 }}
@@ -183,7 +193,7 @@ export const UsageExamples: Story = {
                 placeholder="Password"
                 style={{
                   padding: '12px',
-                  border: '1px solid #D1D5DB',
+                  border: `1px solid ${tokens.color.border.default}`,
                   borderRadius: '6px',
                   fontSize: '14px',
                 }}
@@ -191,8 +201,8 @@ export const UsageExamples: Story = {
               <button
                 style={{
                   padding: '12px',
-                  backgroundColor: '#3B82F6',
-                  color: 'white',
+                  backgroundColor: tokens.color.interactive.focus,
+                  color: tokens.color.text.inverse,
                   border: 'none',
                   borderRadius: '6px',
                   fontSize: '14px',
@@ -217,9 +227,9 @@ export const UsageExamples: Story = {
               style={{
                 maxWidth: tokens.container[size as keyof typeof tokens.container],
                 padding: '16px',
-                backgroundColor: '#3B82F6',
+                backgroundColor: tokens.color.interactive.focus,
                 borderRadius: '6px',
-                color: 'white',
+                color: tokens.color.text.inverse,
                 fontSize: '14px',
                 fontWeight: '500',
               }}
@@ -234,13 +244,15 @@ export const UsageExamples: Story = {
         style={{
           marginTop: '32px',
           padding: '16px',
-          backgroundColor: '#FFFBEB',
-          border: '1px solid #FCD34D',
+          backgroundColor: tokens.color.warning.light,
+          border: `1px solid ${tokens.color.warning.border}`,
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: '#92400E' }}>💡 Best Practices</div>
-        <ul style={{ margin: 0, paddingLeft: '20px', color: '#78350F', fontSize: '14px' }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.warning.text }}>
+          💡 Best Practices
+        </div>
+        <ul style={{ margin: 0, paddingLeft: '20px', color: tokens.color.warning.text, fontSize: '14px' }}>
           <li>Combine containers with responsive padding (use spacing tokens)</li>
           <li>Center containers with margin: 0 auto for traditional layouts</li>
           <li>Use container.md for optimal reading width (45-75 characters/line)</li>

@@ -69,7 +69,7 @@ export const Playground: Story = {
 
     if (isVertical) {
       return (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', height: '140px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base, height: tokens.spacing['5xl'] }}>
           <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
           <Divider {...args} length="100%" />
           <Placeholder color={tokens.color.interactive.default}>Right</Placeholder>
@@ -78,7 +78,7 @@ export const Playground: Story = {
     }
 
     return (
-      <div style={{ width: '100%' }}>
+      <div style={{ width: tokens.maxWidth.full }}>
         <Placeholder color={tokens.color.interactive.default}>Add content here to see spacing in context.</Placeholder>
         <Divider {...args} />
         <Placeholder color={tokens.color.interactive.default}>Add content here to see spacing in context.</Placeholder>
@@ -89,7 +89,7 @@ export const Playground: Story = {
 
 export const Label: Story = {
   render: () => (
-    <div style={{ width: '100%' }}>
+    <div style={{ width: tokens.maxWidth.full }}>
       <Divider label="Upcoming" />
       <Stack direction="vertical" gap="normal" padding="none">
         <Placeholder color={tokens.color.interactive.default}>Item A</Placeholder>
@@ -101,19 +101,26 @@ export const Label: Story = {
 
 export const Orientation: Story = {
   render: () => (
-    <div style={{ width: '100%', display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '24px' }}>
+    <div
+      style={{
+        width: tokens.maxWidth.full,
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+        gap: tokens.spacing.lg,
+      }}
+    >
       <div
         style={{
           backgroundColor: tokens.color.background.primary,
-          border: `1px solid ${tokens.color.border.light}`,
-          borderRadius: '12px',
-          padding: '16px',
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          borderRadius: tokens.radius.lg,
+          padding: tokens.spacing.base,
         }}
       >
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>
+        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
           orientation: horizontal
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
           <Divider label="Solid / start" variant="solid" align="start" />
           <Divider label="Solid / center" variant="solid" align="center" />
           <Divider label="Solid / end" variant="solid" align="end" />
@@ -124,23 +131,23 @@ export const Orientation: Story = {
       <div
         style={{
           backgroundColor: tokens.color.background.primary,
-          border: `1px solid ${tokens.color.border.light}`,
-          borderRadius: '12px',
-          padding: '16px',
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          borderRadius: tokens.radius.lg,
+          padding: tokens.spacing.base,
         }}
       >
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>
+        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
           orientation: vertical
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', height: '220px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base, height: tokens.size['4xl'] }}>
           <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
           <div
             style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: '16px',
-              height: '100%',
+              gap: tokens.spacing.base,
+              height: tokens.maxWidth.full,
             }}
           >
             <Divider orientation="vertical" variant="solid" length="70%" />
@@ -155,7 +162,7 @@ export const Orientation: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <div style={{ width: tokens.maxWidth.full, display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
       <Divider label="Solid" variant="solid" />
       <Divider label="Dashed" variant="dashed" />
     </div>
@@ -170,19 +177,19 @@ export const Spacing: Story = {
     return (
       <div
         style={{
-          width: '100%',
+          width: tokens.maxWidth.full,
           overflowX: 'auto',
           backgroundColor: tokens.color.background.secondary,
-          padding: '24px',
-          borderRadius: '16px',
+          padding: tokens.spacing.lg,
+          borderRadius: tokens.radius.xl,
         }}
       >
         <div
           style={{
-            minWidth: '860px',
+            minWidth: tokens.maxWidth['4xl'],
             display: 'grid',
-            gridTemplateColumns: `140px repeat(${spacings.length}, minmax(0, 1fr))`,
-            gap: '12px',
+            gridTemplateColumns: `${tokens.spacing['5xl']} repeat(${spacings.length}, minmax(0, 1fr))`,
+            gap: tokens.spacing.md,
             alignItems: 'stretch',
           }}
         >
@@ -192,13 +199,13 @@ export const Spacing: Story = {
               key={`header-${spacing}`}
               style={{
                 fontFamily: 'monospace',
-                fontSize: '12px',
+                fontSize: tokens.fontSize.xs,
                 color: tokens.color.text.secondary,
                 textAlign: 'center',
-                padding: '6px 8px',
+                padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
                 backgroundColor: tokens.color.background.primary,
-                border: `1px solid ${tokens.color.border.light}`,
-                borderRadius: '10px',
+                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                borderRadius: tokens.radius.lg,
               }}
             >
               spacing: {spacing}
@@ -210,12 +217,12 @@ export const Spacing: Story = {
               <div
                 style={{
                   fontFamily: 'monospace',
-                  fontSize: '12px',
+                  fontSize: tokens.fontSize.xs,
                   color: tokens.color.text.secondary,
-                  padding: '6px 8px',
+                  padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
                   backgroundColor: tokens.color.background.primary,
-                  border: `1px solid ${tokens.color.border.light}`,
-                  borderRadius: '10px',
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  borderRadius: tokens.radius.lg,
                   display: 'flex',
                   alignItems: 'center',
                 }}
@@ -227,9 +234,9 @@ export const Spacing: Story = {
                   key={`${variant}-${spacing}`}
                   style={{
                     backgroundColor: tokens.color.background.primary,
-                    border: `1px solid ${tokens.color.border.light}`,
-                    borderRadius: '12px',
-                    padding: '16px',
+                    border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                    borderRadius: tokens.radius.lg,
+                    padding: tokens.spacing.base,
                   }}
                 >
                   <Placeholder color={tokens.color.interactive.default}>Context</Placeholder>
@@ -247,20 +254,20 @@ export const Spacing: Story = {
 
 export const Length: Story = {
   render: () => (
-    <div style={{ width: '100%' }}>
+    <div style={{ width: tokens.maxWidth.full }}>
       <div
         style={{
           backgroundColor: tokens.color.background.primary,
-          border: `1px solid ${tokens.color.border.light}`,
-          borderRadius: '12px',
-          padding: '16px',
-          marginBottom: '16px',
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          borderRadius: tokens.radius.lg,
+          padding: tokens.spacing.base,
+          marginBottom: tokens.spacing.base,
         }}
       >
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>
+        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
           horizontal lengths
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
           <Divider label="length: 200" length={200} />
           <Divider label='length: "400px"' length="400px" />
           <Divider label='length: "100%"' length="100%" />
@@ -270,22 +277,22 @@ export const Length: Story = {
       <div
         style={{
           backgroundColor: tokens.color.background.primary,
-          border: `1px solid ${tokens.color.border.light}`,
-          borderRadius: '12px',
-          padding: '16px',
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          borderRadius: tokens.radius.lg,
+          padding: tokens.spacing.base,
         }}
       >
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>
+        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
           vertical lengths
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', height: '200px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base, height: tokens.size['4xl'] }}>
           <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
           <Divider orientation="vertical" length={80} />
           <Divider orientation="vertical" length={140} />
           <Divider orientation="vertical" length="100%" />
           <Placeholder color={tokens.color.interactive.default}>Right</Placeholder>
         </div>
-        <div style={{ marginTop: '12px', color: tokens.color.text.secondary, fontSize: '12px' }}>
+        <div style={{ marginTop: tokens.spacing.md, color: tokens.color.text.secondary, fontSize: tokens.fontSize.xs }}>
           For vertical dividers, <code style={{ fontFamily: 'monospace' }}>length</code> controls height.
         </div>
       </div>

@@ -17,7 +17,7 @@ export const AllAspectRatios: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Aspect Ratio Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic aspect ratios for media containers, images, and videos. Prevents layout shift during loading.
       </p>
 
@@ -27,9 +27,9 @@ export const AllAspectRatios: Story = {
             key={key}
             style={{
               padding: '16px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: tokens.color.background.secondary,
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div style={{ marginBottom: '12px' }}>
@@ -43,24 +43,26 @@ export const AllAspectRatios: Story = {
               >
                 aspectRatio.{key}
               </div>
-              <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
+                {value}
+              </div>
             </div>
             <div
               style={{
                 aspectRatio: value,
-                backgroundColor: '#3B82F6',
+                backgroundColor: tokens.color.interactive.focus,
                 borderRadius: '6px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'white',
+                color: tokens.color.text.inverse,
                 fontSize: '14px',
                 fontWeight: '600',
               }}
             >
               {value}
             </div>
-            <div style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>
+            <div style={{ marginTop: '8px', fontSize: '12px', color: tokens.color.text.tertiary }}>
               {key === 'square' && '1:1 - Avatars, thumbnails'}
               {key === 'traditional' && '4:3 - Presentations'}
               {key === 'photo' && '3:2 - Photography'}
@@ -90,12 +92,12 @@ export const UsageExamples: Story = {
             style={{
               maxWidth: '800px',
               aspectRatio: tokens.aspectRatio.video,
-              backgroundColor: '#1F2937',
+              backgroundColor: tokens.color.background.inverse,
               borderRadius: '12px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'white',
+              color: tokens.color.text.inverse,
               fontSize: '24px',
             }}
           >
@@ -110,12 +112,12 @@ export const UsageExamples: Story = {
             style={{
               width: '200px',
               aspectRatio: tokens.aspectRatio.square,
-              backgroundColor: '#3B82F6',
+              backgroundColor: tokens.color.interactive.focus,
               borderRadius: '50%',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'white',
+              color: tokens.color.text.inverse,
               fontSize: '48px',
               fontWeight: 'bold',
             }}
@@ -131,12 +133,12 @@ export const UsageExamples: Story = {
             style={{
               maxWidth: '300px',
               aspectRatio: tokens.aspectRatio.vertical,
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              background: `linear-gradient(135deg, ${tokens.color.brand.primary} 0%, ${tokens.color.brand.secondary} 100%)`,
               borderRadius: '16px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'white',
+              color: tokens.color.text.inverse,
               fontSize: '24px',
               fontWeight: 'bold',
             }}

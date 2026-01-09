@@ -157,7 +157,7 @@ const border = tokens.borderWidth.thin;
 
 // Primitives namespace
 const scale = primitives.spacing[16];
-const opacity = primitives.opacity[60];
+const opacity = primitives.opacity[50];
 ```
 
 ## Troubleshooting

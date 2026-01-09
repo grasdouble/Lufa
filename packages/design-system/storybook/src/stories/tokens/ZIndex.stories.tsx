@@ -17,7 +17,7 @@ export const AllZIndexLayers: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Z-Index Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic z-index values for consistent layering and stacking order across the application.
       </p>
 
@@ -31,23 +31,25 @@ export const AllZIndexLayers: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: tokens.color.background.secondary,
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>zIndex.{key}</div>
-            <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
-            <div style={{ fontSize: '12px', color: '#737373' }}>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
+              {value}
+            </div>
+            <div style={{ fontSize: '12px', color: tokens.color.text.tertiary }}>
               {key === 'base' && 'Normal content layer'}
               {key === 'dropdown' && 'Dropdowns, menus'}
               {key === 'sticky' && 'Sticky headers, footers'}
-              {key === 'overlay' && 'Overlay backgrounds'}
+              {key === 'tooltip' && 'Tooltips, popovers'}
+              {key === 'drawer' && 'Slide-out panels, drawers'}
+              {key === 'menu' && 'Off-canvas menus'}
               {key === 'modal' && 'Modal dialogs'}
+              {key === 'notification' && 'Important notifications, banners'}
               {key === 'toast' && 'Toast notifications'}
-              {key === 'tooltip' && 'Tooltips'}
-              {key === 'high' && 'High priority elements'}
-              {key === 'veryHigh' && 'Very high priority'}
               {key === 'max' && 'Maximum z-index'}
             </div>
           </div>
@@ -61,7 +63,7 @@ export const LayeringVisualization: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Z-Index Layering</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Visual demonstration of how different z-index values stack on top of each other.
       </p>
 
@@ -69,7 +71,7 @@ export const LayeringVisualization: Story = {
         style={{
           position: 'relative',
           height: '300px',
-          backgroundColor: '#F3F4F6',
+          backgroundColor: tokens.color.background.tertiary,
           borderRadius: '8px',
           overflow: 'hidden',
         }}
@@ -83,7 +85,7 @@ export const LayeringVisualization: Story = {
             width: '80%',
             maxWidth: '600px',
             textAlign: 'center',
-            color: '#6B7280',
+            color: tokens.color.text.secondary,
           }}
         >
           Layering visualization - each layer stacks on top
@@ -96,7 +98,7 @@ export const LayeringVisualization: Story = {
             bottom: '20px',
             left: '20px',
             padding: '12px 16px',
-            backgroundColor: '#E5E7EB',
+            backgroundColor: tokens.color.background.tertiary,
             borderRadius: '6px',
             fontSize: '12px',
             zIndex: tokens.zIndex.base,
@@ -112,7 +114,7 @@ export const LayeringVisualization: Story = {
             bottom: '40px',
             left: '60px',
             padding: '12px 16px',
-            backgroundColor: '#BFDBFE',
+            backgroundColor: tokens.color.info.lighter,
             borderRadius: '6px',
             fontSize: '12px',
             zIndex: tokens.zIndex.dropdown,
@@ -128,13 +130,13 @@ export const LayeringVisualization: Story = {
             bottom: '60px',
             left: '100px',
             padding: '12px 16px',
-            backgroundColor: '#93C5FD',
+            backgroundColor: tokens.color.info.border,
             borderRadius: '6px',
             fontSize: '12px',
             zIndex: tokens.zIndex.modal,
           }}
         >
-          modal (40)
+          modal ({tokens.zIndex.modal})
         </div>
 
         {/* Tooltip */}
@@ -144,14 +146,14 @@ export const LayeringVisualization: Story = {
             bottom: '80px',
             left: '140px',
             padding: '12px 16px',
-            backgroundColor: '#60A5FA',
-            color: 'white',
+            backgroundColor: tokens.color.info.default,
+            color: tokens.color.text.inverse,
             borderRadius: '6px',
             fontSize: '12px',
             zIndex: tokens.zIndex.tooltip,
           }}
         >
-          tooltip (100)
+          tooltip ({tokens.zIndex.tooltip})
         </div>
       </div>
     </div>

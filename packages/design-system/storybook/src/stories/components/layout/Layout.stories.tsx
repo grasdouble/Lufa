@@ -56,9 +56,9 @@ export const Playground: Story = {
         {...args}
         style={{
           backgroundColor: tokens.color.background.secondary,
-          border: `1px solid ${tokens.color.border.light}`,
-          borderRadius: '16px',
-          padding: '16px',
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          borderRadius: tokens.radius.xl,
+          padding: tokens.spacing.base,
         }}
       >
         <Layout.Header>
@@ -107,7 +107,7 @@ export const Playground: Story = {
 export const SidebarPositions: Story = {
   render: () => (
     <Container size="xl" paddingX="none">
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: tokens.spacing.lg }}>
         {([LAYOUT_SIDEBAR_POSITION.left, LAYOUT_SIDEBAR_POSITION.right] as const).map((position) => (
           <Layout
             key={position}
@@ -117,13 +117,13 @@ export const SidebarPositions: Story = {
             gap={LAYOUT_GAP.md}
             style={{
               backgroundColor: tokens.color.background.secondary,
-              border: `1px solid ${tokens.color.border.light}`,
-              borderRadius: '16px',
-              padding: '16px',
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.xl,
+              padding: tokens.spacing.base,
             }}
           >
             <Layout.Header>
-              <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '8px' }}>
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
                 sidebarPosition: {position}
               </div>
               <Placeholder color={tokens.color.interactive.default} height="small" width="full">
@@ -165,13 +165,13 @@ export const SidebarWidths: Story = {
             gap={LAYOUT_GAP.md}
             style={{
               backgroundColor: tokens.color.background.secondary,
-              border: `1px solid ${tokens.color.border.light}`,
-              borderRadius: '16px',
-              padding: '16px',
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.xl,
+              padding: tokens.spacing.base,
             }}
           >
             <Layout.Header>
-              <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '8px' }}>
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
                 sidebarWidth: {width}
               </div>
               <Placeholder color={tokens.color.interactive.default} height="small" width="full">
@@ -208,9 +208,9 @@ export const WithoutSidebar: Story = {
         gap={LAYOUT_GAP.md}
         style={{
           backgroundColor: tokens.color.background.secondary,
-          border: `1px solid ${tokens.color.border.light}`,
-          borderRadius: '16px',
-          padding: '16px',
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          borderRadius: tokens.radius.xl,
+          padding: tokens.spacing.base,
         }}
       >
         <Layout.Header>

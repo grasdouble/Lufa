@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button, Modal } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '6. Overlay/Modal',
@@ -57,7 +58,7 @@ export const Sizes: Story = {
 
       return (
         <>
-          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: tokens.spacing.sm, flexWrap: 'wrap' }}>
             <Button onClick={() => setSize('small')}>Small</Button>
             <Button onClick={() => setSize('medium')}>Medium</Button>
             <Button onClick={() => setSize('large')}>Large</Button>
@@ -130,7 +131,7 @@ export const LongContent: Story = {
         <>
           <Button onClick={() => setOpen(true)}>Open Modal with Long Content</Button>
           <Modal open={open} onClose={() => setOpen(false)} title="Terms and Conditions" size="large">
-            <div style={{ maxHeight: '400px', overflowY: 'auto' }}>
+            <div style={{ maxHeight: tokens.maxWidth.xs, overflowY: 'auto' }}>
               <h3>1. Introduction</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
@@ -236,14 +237,14 @@ export const FormModal: Story = {
             <form
               id="contact-form"
               onSubmit={handleSubmit}
-              style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
+              style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}
             >
               <div>
                 <label
                   style={{
                     display: 'block',
-                    marginBottom: '4px',
-                    fontWeight: 500,
+                    marginBottom: tokens.spacing.xs,
+                    fontWeight: tokens.fontWeight.medium,
                   }}
                 >
                   Name
@@ -254,10 +255,10 @@ export const FormModal: Story = {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
                   style={{
-                    width: '100%',
-                    padding: '8px 12px',
-                    border: '1px solid #d4d4d4',
-                    borderRadius: '6px',
+                    width: tokens.maxWidth.full,
+                    padding: `${tokens.spacing.sm} ${tokens.spacing.md}`,
+                    border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.default}`,
+                    borderRadius: tokens.radius.md,
                   }}
                 />
               </div>
@@ -265,8 +266,8 @@ export const FormModal: Story = {
                 <label
                   style={{
                     display: 'block',
-                    marginBottom: '4px',
-                    fontWeight: 500,
+                    marginBottom: tokens.spacing.xs,
+                    fontWeight: tokens.fontWeight.medium,
                   }}
                 >
                   Email
@@ -277,10 +278,10 @@ export const FormModal: Story = {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
                   style={{
-                    width: '100%',
-                    padding: '8px 12px',
-                    border: '1px solid #d4d4d4',
-                    borderRadius: '6px',
+                    width: tokens.maxWidth.full,
+                    padding: `${tokens.spacing.sm} ${tokens.spacing.md}`,
+                    border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.default}`,
+                    borderRadius: tokens.radius.md,
                   }}
                 />
               </div>

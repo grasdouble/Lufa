@@ -17,9 +17,9 @@ export const AllRadius: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Radius Primitives</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-        Token border-radius values for consistent corner rounding. Choose 1-2 values as your primary scale for brand
-        consistency.
+      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
+        Primitive border-radius values for consistent corner rounding. Choose 1-2 values as your primary scale for
+        brand consistency.
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -32,24 +32,26 @@ export const AllRadius: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: primitives.color.neutral.neutral[50],
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>radius[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
+            <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+              {value}
+            </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div
                 style={{
                   width: '120px',
                   height: '80px',
-                  backgroundColor: '#3B82F6',
+                  backgroundColor: primitives.color.chromatic.blue[500],
                   borderRadius: value,
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                  boxShadow: primitives.shadow.xs,
                 }}
               />
-              <div style={{ fontSize: '12px', color: '#737373' }}>
+              <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>
                 {key === '0' && 'Sharp corners (tables, technical UI)'}
                 {key === '2' && 'Subtle rounding'}
                 {key === '4' && 'Soft corners (inputs, small buttons)'}
@@ -70,9 +72,9 @@ export const AllRadius: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: '#DBEAFE',
+          backgroundColor: primitives.color.chromatic.blue[100],
           borderRadius: '12px',
-          border: '1px solid #93C5FD',
+          border: `1px solid ${primitives.color.chromatic.blue[300]}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>Consistency Tip</h3>
@@ -97,8 +99,8 @@ export const UsageExamples: Story = {
             <button
               style={{
                 padding: '12px 24px',
-                backgroundColor: '#3B82F6',
-                color: 'white',
+                backgroundColor: primitives.color.chromatic.blue[500],
+                color: primitives.color.neutral.white,
                 border: 'none',
                 borderRadius: primitives.radius[4],
                 fontWeight: '500',
@@ -110,8 +112,8 @@ export const UsageExamples: Story = {
             <button
               style={{
                 padding: '12px 24px',
-                backgroundColor: '#3B82F6',
-                color: 'white',
+                backgroundColor: primitives.color.chromatic.blue[500],
+                color: primitives.color.neutral.white,
                 border: 'none',
                 borderRadius: primitives.radius[8],
                 fontWeight: '500',
@@ -123,8 +125,8 @@ export const UsageExamples: Story = {
             <button
               style={{
                 padding: '12px 24px',
-                backgroundColor: '#3B82F6',
-                color: 'white',
+                backgroundColor: primitives.color.chromatic.blue[500],
+                color: primitives.color.neutral.white,
                 border: 'none',
                 borderRadius: primitives.radius[9999],
                 fontWeight: '500',
@@ -148,26 +150,30 @@ export const UsageExamples: Story = {
             <div
               style={{
                 padding: '20px',
-                backgroundColor: 'white',
-                border: '1px solid #E5E5E5',
+                backgroundColor: primitives.color.neutral.white,
+                border: `1px solid ${primitives.color.neutral.neutral[200]}`,
                 borderRadius: primitives.radius[8],
-                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                boxShadow: primitives.shadow.xs,
               }}
             >
               <div style={{ fontWeight: '600', marginBottom: '8px' }}>Standard Card</div>
-              <div style={{ fontSize: '14px', color: '#737373' }}>radius[8] - Most common for cards</div>
+              <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+                radius[8] - Most common for cards
+              </div>
             </div>
             <div
               style={{
                 padding: '20px',
-                backgroundColor: 'white',
-                border: '1px solid #E5E5E5',
+                backgroundColor: primitives.color.neutral.white,
+                border: `1px solid ${primitives.color.neutral.neutral[200]}`,
                 borderRadius: primitives.radius[16],
-                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                boxShadow: primitives.shadow.xs,
               }}
             >
               <div style={{ fontWeight: '600', marginBottom: '8px' }}>Prominent Card</div>
-              <div style={{ fontSize: '14px', color: '#737373' }}>radius[16] - Bold, modern look</div>
+              <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+                radius[16] - Bold, modern look
+              </div>
             </div>
           </div>
         </div>
@@ -178,8 +184,8 @@ export const UsageExamples: Story = {
             <span
               style={{
                 padding: '4px 12px',
-                backgroundColor: '#DBEAFE',
-                color: '#1E40AF',
+                backgroundColor: primitives.color.chromatic.blue[100],
+                color: primitives.color.chromatic.blue[800],
                 fontSize: '12px',
                 fontWeight: '500',
                 borderRadius: primitives.radius[4],
@@ -190,8 +196,8 @@ export const UsageExamples: Story = {
             <span
               style={{
                 padding: '4px 12px',
-                backgroundColor: '#DBEAFE',
-                color: '#1E40AF',
+                backgroundColor: primitives.color.chromatic.blue[100],
+                color: primitives.color.chromatic.blue[800],
                 fontSize: '12px',
                 fontWeight: '500',
                 borderRadius: primitives.radius[9999],
@@ -206,8 +212,8 @@ export const UsageExamples: Story = {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#EF4444',
-                color: 'white',
+                backgroundColor: primitives.color.chromatic.red[500],
+                color: primitives.color.neutral.white,
                 fontSize: '12px',
                 fontWeight: '600',
                 borderRadius: primitives.radius[9999],
@@ -225,13 +231,13 @@ export const UsageExamples: Story = {
               style={{
                 width: '120px',
                 height: '120px',
-                backgroundColor: '#E5E7EB',
+                backgroundColor: primitives.color.neutral.neutral[200],
                 borderRadius: primitives.radius[8],
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '12px',
-                color: '#6B7280',
+                color: primitives.color.neutral.neutral[600],
               }}
             >
               Image (8px)
@@ -240,12 +246,12 @@ export const UsageExamples: Story = {
               style={{
                 width: '64px',
                 height: '64px',
-                backgroundColor: '#3B82F6',
+                backgroundColor: primitives.color.chromatic.blue[500],
                 borderRadius: primitives.radius[9999],
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'white',
+                color: primitives.color.neutral.white,
                 fontSize: '20px',
                 fontWeight: '600',
               }}
@@ -256,12 +262,12 @@ export const UsageExamples: Story = {
               style={{
                 width: '48px',
                 height: '48px',
-                backgroundColor: '#10B981',
+                backgroundColor: primitives.color.chromatic.green[500],
                 borderRadius: primitives.radius[9999],
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'white',
+                color: primitives.color.neutral.white,
                 fontSize: '16px',
                 fontWeight: '600',
               }}
@@ -277,14 +283,14 @@ export const UsageExamples: Story = {
             style={{
               maxWidth: '500px',
               padding: '32px',
-              backgroundColor: 'white',
-              border: '1px solid #E5E5E5',
+              backgroundColor: primitives.color.neutral.white,
+              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
               borderRadius: primitives.radius[12],
-              boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)',
+              boxShadow: primitives.shadow.xl,
             }}
           >
             <h4 style={{ margin: '0 0 16px 0', fontSize: '20px', fontWeight: '600' }}>Modal Title</h4>
-            <p style={{ margin: '0 0 24px 0', color: '#737373', lineHeight: '1.5' }}>
+            <p style={{ margin: '0 0 24px 0', color: primitives.color.neutral.neutral[600], lineHeight: '1.5' }}>
               Modals typically use radius[12] or radius[16] for a prominent, modern look.
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
@@ -292,8 +298,8 @@ export const UsageExamples: Story = {
                 style={{
                   padding: '10px 20px',
                   backgroundColor: 'transparent',
-                  color: '#737373',
-                  border: '1px solid #E5E5E5',
+                  color: primitives.color.neutral.neutral[600],
+                  border: `1px solid ${primitives.color.neutral.neutral[200]}`,
                   borderRadius: primitives.radius[6],
                   fontWeight: '500',
                   cursor: 'pointer',
@@ -304,8 +310,8 @@ export const UsageExamples: Story = {
               <button
                 style={{
                   padding: '10px 20px',
-                  backgroundColor: '#3B82F6',
-                  color: 'white',
+                  backgroundColor: primitives.color.chromatic.blue[500],
+                  color: primitives.color.neutral.white,
                   border: 'none',
                   borderRadius: primitives.radius[6],
                   fontWeight: '500',

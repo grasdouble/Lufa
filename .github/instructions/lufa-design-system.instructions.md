@@ -25,8 +25,8 @@ The Lufa Design System follows a three-layer architecture:
 
 **Key Principles**:
 
-- Use actual values as keys (pixels, milliseconds, numeric values)
-- Never use semantic names like `small`, `medium`, `large`
+- Prefer actual values as keys for numeric scales (pixels, milliseconds, numeric values)
+- Allow descriptive keys where numeric values are not ergonomic (e.g., `lineHeight.body`, `letterSpacing.readable`, `blur.none`)
 - Export both TypeScript objects and CSS custom properties
 - Organize by category (spacing, timing, typography, etc.)
 
@@ -50,7 +50,7 @@ export const timing = {
   500: '500ms',
 } as const;
 
-// ❌ Bad: Semantic keys in primitives
+// ❌ Bad: Semantic sizing keys in primitives
 export const spacing = {
   none: '0px',
   small: '8px',
@@ -69,7 +69,7 @@ export const spacing = {
 
 - Generate CSS variables for all primitives
 - Use naming convention: `--lufa-primitive-{category}-{value}`
-- Example: `--lufa-primitive-spacing-16`, `--lufa-primitive-timing-150`
+- Example: `--lufa-primitive-spacing-16`, `--lufa-primitive-timing-150`, `--lufa-primitive-line-height-body`
 
 ### Tokens Layer
 
@@ -85,27 +85,27 @@ export const spacing = {
 **Example Structure**:
 
 ```typescript
-import { fontSize, spacing } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 // ✅ Good: Semantic, purpose-driven names
 export const spacingTokens = {
-  compact: spacing[8],
-  default: spacing[16],
-  comfortable: spacing[24],
-  spacious: spacing[32],
+  compact: primitives.spacing[8],
+  default: primitives.spacing[16],
+  comfortable: primitives.spacing[24],
+  spacious: primitives.spacing[32],
 } as const;
 
 export const fontSizeTokens = {
-  body: fontSize[16],
-  h1: fontSize[32],
-  h2: fontSize[24],
-  small: fontSize[14],
+  body: primitives.fontSize[16],
+  h1: primitives.fontSize[32],
+  h2: primitives.fontSize[24],
+  small: primitives.fontSize[14],
 } as const;
 
 // ❌ Bad: Appearance-based or non-semantic names
 export const spacingTokens = {
-  xs: spacing[8],
-  sm: spacing[16],
+  xs: primitives.spacing[8],
+  sm: primitives.spacing[16],
   red: '#FF0000', // Never hard-code values!
 };
 ```
@@ -138,7 +138,7 @@ export const spacingTokens = {
 
 ````typescript
 import type { ComponentPropsWithoutRef } from 'react';
-import { color, spacing, fontSize } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 import { clsx } from 'clsx';
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {

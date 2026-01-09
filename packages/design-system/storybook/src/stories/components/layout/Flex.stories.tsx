@@ -63,15 +63,21 @@ export const Playground: Story = {
   },
   render: (args) => (
     <Container size="xl" paddingX="none">
-      <div style={{ backgroundColor: tokens.color.background.secondary, borderRadius: '12px', padding: '16px' }}>
+      <div
+        style={{
+          backgroundColor: tokens.color.background.secondary,
+          borderRadius: tokens.radius.lg,
+          padding: tokens.spacing.base,
+        }}
+      >
         <Flex
           {...args}
           style={{
             ...args.style,
             backgroundColor: tokens.color.background.primary,
-            borderRadius: '12px',
-            border: `1px solid ${tokens.color.border.light}`,
-            padding: '16px',
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            padding: tokens.spacing.base,
           }}
         >
           {Array.from({ length: 8 }).map((_, index) => (
@@ -90,20 +96,20 @@ export const Alignment: Story = {
     const aligns = [FLEX_ALIGN.start, FLEX_ALIGN.center, FLEX_ALIGN.end] as const;
     const justifies = [FLEX_JUSTIFY.start, FLEX_JUSTIFY.center, FLEX_JUSTIFY.end, FLEX_JUSTIFY.between] as const;
 
-    const Box = ({ label, width, height }: { label: string; width: number; height: number }) => (
+    const Box = ({ label, width, height }: { label: string; width: string; height: string }) => (
       <div
         style={{
           width,
           height,
-          borderRadius: '10px',
+          borderRadius: tokens.radius.lg,
           backgroundColor: tokens.color.interactive.default,
           color: tokens.color.text.inverse,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           fontFamily: 'monospace',
-          fontWeight: 700,
-          fontSize: '12px',
+          fontWeight: tokens.fontWeight.bold,
+          fontSize: tokens.fontSize.xs,
         }}
       >
         {label}
@@ -112,13 +118,13 @@ export const Alignment: Story = {
 
     return (
       <Container size="full" paddingX="none">
-        <div style={{ width: '100%', overflowX: 'auto' }}>
+        <div style={{ width: tokens.maxWidth.full, overflowX: 'auto' }}>
           <div
             style={{
-              minWidth: '1460px',
+              minWidth: tokens.maxWidth['8xl'],
               display: 'grid',
-              gridTemplateColumns: `140px repeat(${justifies.length}, 320px)`,
-              gap: '12px',
+              gridTemplateColumns: `${tokens.spacing['5xl']} repeat(${justifies.length}, ${tokens.dimension.sidebarWidthWide})`,
+              gap: tokens.spacing.md,
               alignItems: 'stretch',
             }}
           >
@@ -128,13 +134,13 @@ export const Alignment: Story = {
                 key={`header-${justify}`}
                 style={{
                   fontFamily: 'monospace',
-                  fontSize: '12px',
+                  fontSize: tokens.fontSize.xs,
                   color: tokens.color.text.secondary,
                   textAlign: 'center',
-                  padding: '6px 8px',
+                  padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
                   backgroundColor: tokens.color.background.primary,
-                  border: `1px solid ${tokens.color.border.light}`,
-                  borderRadius: '10px',
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  borderRadius: tokens.radius.lg,
                 }}
               >
                 justify: {justify}
@@ -146,12 +152,12 @@ export const Alignment: Story = {
                 <div
                   style={{
                     fontFamily: 'monospace',
-                    fontSize: '12px',
+                    fontSize: tokens.fontSize.xs,
                     color: tokens.color.text.secondary,
-                    padding: '6px 8px',
+                    padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
                     backgroundColor: tokens.color.background.primary,
-                    border: `1px solid ${tokens.color.border.light}`,
-                    borderRadius: '10px',
+                    border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                    borderRadius: tokens.radius.lg,
                     display: 'flex',
                     alignItems: 'center',
                   }}
@@ -163,22 +169,22 @@ export const Alignment: Story = {
                     key={`${align}-${justify}`}
                     style={{
                       backgroundColor: tokens.color.background.primary,
-                      border: `1px solid ${tokens.color.border.light}`,
-                      borderRadius: '12px',
-                      padding: '16px',
+                      border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                      borderRadius: tokens.radius.lg,
+                      padding: tokens.spacing.base,
                       overflow: 'hidden',
                     }}
                   >
-                    <div style={{ position: 'relative', height: '160px' }}>
+                    <div style={{ position: 'relative', height: tokens.size['4xl'] }}>
                       {/* Guides */}
                       <div
                         aria-hidden
                         style={{
                           position: 'absolute',
-                          left: '12px',
-                          right: '12px',
+                          left: tokens.spacing.md,
+                          right: tokens.spacing.md,
                           top: '50%',
-                          height: '1px',
+                          height: tokens.borderWidth.hairline,
                           backgroundColor: tokens.color.border.light,
                           pointerEvents: 'none',
                         }}
@@ -187,10 +193,10 @@ export const Alignment: Story = {
                         aria-hidden
                         style={{
                           position: 'absolute',
-                          top: '12px',
-                          bottom: '12px',
+                          top: tokens.spacing.md,
+                          bottom: tokens.spacing.md,
                           left: '50%',
-                          width: '1px',
+                          width: tokens.borderWidth.hairline,
                           backgroundColor: tokens.color.border.light,
                           pointerEvents: 'none',
                         }}
@@ -199,10 +205,10 @@ export const Alignment: Story = {
                         aria-hidden
                         style={{
                           position: 'absolute',
-                          top: '12px',
-                          bottom: '12px',
-                          left: '12px',
-                          width: '1px',
+                          top: tokens.spacing.md,
+                          bottom: tokens.spacing.md,
+                          left: tokens.spacing.md,
+                          width: tokens.borderWidth.hairline,
                           backgroundColor: tokens.color.border.light,
                           pointerEvents: 'none',
                         }}
@@ -211,10 +217,10 @@ export const Alignment: Story = {
                         aria-hidden
                         style={{
                           position: 'absolute',
-                          top: '12px',
-                          bottom: '12px',
-                          right: '12px',
-                          width: '1px',
+                          top: tokens.spacing.md,
+                          bottom: tokens.spacing.md,
+                          right: tokens.spacing.md,
+                          width: tokens.borderWidth.hairline,
                           backgroundColor: tokens.color.border.light,
                           pointerEvents: 'none',
                         }}
@@ -225,13 +231,13 @@ export const Alignment: Story = {
                         justify={justify}
                         gap={SPACE_SIZE.none}
                         style={{
-                          height: '100%',
-                          padding: '12px',
+                          height: tokens.maxWidth.full,
+                          padding: tokens.spacing.md,
                         }}
                       >
-                        <Box label="A" width={56} height={32} />
-                        <Box label="B" width={72} height={64} />
-                        <Box label="C" width={56} height={40} />
+                        <Box label="A" width={tokens.size.lg} height={tokens.size.md} />
+                        <Box label="B" width={tokens.size.xl} height={tokens.size.xl} />
+                        <Box label="C" width={tokens.size.lg} height={tokens.spacing['xl-2xl']} />
                       </Flex>
                     </div>
                   </div>
@@ -254,18 +260,22 @@ export const Gap: Story = {
             key={wrap}
             style={{
               backgroundColor: tokens.color.background.secondary,
-              borderRadius: '12px',
-              padding: '16px',
+              borderRadius: tokens.radius.lg,
+              padding: tokens.spacing.base,
               overflow: 'auto',
             }}
           >
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
               wrap: {wrap}
             </div>
             <Flex
               wrap={wrap}
               gap="md"
-              style={{ backgroundColor: tokens.color.background.primary, borderRadius: '12px', padding: '16px' }}
+              style={{
+                backgroundColor: tokens.color.background.primary,
+                borderRadius: tokens.radius.lg,
+                padding: tokens.spacing.base,
+              }}
             >
               {Array.from({ length: 10 }).map((_, index) => (
                 <Placeholder key={index} height="small" width="auto">
@@ -287,15 +297,19 @@ export const Wrap: Story = {
         {([SPACE_SIZE.none, SPACE_SIZE.sm, SPACE_SIZE.md, SPACE_SIZE.lg, SPACE_SIZE.xl] as const).map((gap) => (
           <div
             key={gap}
-            style={{ backgroundColor: tokens.color.background.secondary, borderRadius: '12px', padding: '16px' }}
+            style={{ backgroundColor: tokens.color.background.secondary, borderRadius: tokens.radius.lg, padding: tokens.spacing.base }}
           >
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: '12px' }}>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
               gap: {gap}
             </div>
             <Flex
               wrap={FLEX_WRAP.wrap}
               gap="md"
-              style={{ backgroundColor: tokens.color.background.primary, borderRadius: '12px', padding: '16px' }}
+              style={{
+                backgroundColor: tokens.color.background.primary,
+                borderRadius: tokens.radius.lg,
+                padding: tokens.spacing.base,
+              }}
             >
               {Array.from({ length: 5 }).map((_, index) => (
                 <Placeholder key={index} height="small" width="auto">
