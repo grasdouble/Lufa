@@ -38,27 +38,27 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html|WCAG 2.1 - Visual Presentation}
  */
 
-import { fontWeight as primitiveFontWeight } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const fontWeight = {
   /** 100 - Thin (avoid for small text) */
-  thin: primitiveFontWeight[100],
+  thin: primitives.fontWeight[100],
   /** 200 - Extra light (avoid for small text) */
-  extraLight: primitiveFontWeight[200],
+  extraLight: primitives.fontWeight[200],
   /** 300 - Light */
-  light: primitiveFontWeight[300],
+  light: primitives.fontWeight[300],
   /** 400 - Regular (WCAG minimum) */
-  regular: primitiveFontWeight[400],
+  regular: primitives.fontWeight[400],
   /** 500 - Medium */
-  medium: primitiveFontWeight[500],
+  medium: primitives.fontWeight[500],
   /** 600 - Semibold */
-  semibold: primitiveFontWeight[600],
+  semibold: primitives.fontWeight[600],
   /** 700 - Bold */
-  bold: primitiveFontWeight[700],
+  bold: primitives.fontWeight[700],
   /** 800 - Extra bold */
-  extraBold: primitiveFontWeight[800],
+  extraBold: primitives.fontWeight[800],
   /** 900 - Black */
-  black: primitiveFontWeight[900],
+  black: primitives.fontWeight[900],
 } as const;
 
 export type FontWeight = keyof typeof fontWeight;

@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 
-import { Pagination, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Pagination, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -35,7 +34,7 @@ export const LiveDemo = () => {
   return (
     <Frame title="live demo">
       <Pagination current={current} total={100} pageSize={10} onChange={setCurrent} />
-      <p style={{ marginTop: '16px' }}>Current page: {current}</p>
+      <p style={{ marginTop: tokens.spacing.base }}>Current page: {current}</p>
     </Frame>
   );
 };
@@ -51,9 +50,9 @@ export const Size = () => {
         <div>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             small
@@ -63,9 +62,9 @@ export const Size = () => {
         <div>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             medium (default)
@@ -75,9 +74,9 @@ export const Size = () => {
         <div>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             large
@@ -114,7 +113,7 @@ export const ShowSizeChanger = () => {
         onPageSizeChange={setPageSize}
         pageSizeOptions={[10, 20, 50, 100]}
       />
-      <p style={{ marginTop: '16px' }}>
+      <p style={{ marginTop: tokens.spacing.base }}>
         Page: {current} • Page size: {pageSize}
       </p>
     </Frame>
@@ -149,7 +148,7 @@ export const TableFooterPaginationExample = () => {
   return (
     <Frame title="table footer pagination">
       <Stack gap="condensed">
-        <div style={{ color: color.text.secondary }}>
+        <div style={{ color: tokens.color.text.secondary }}>
           Showing {from}-{to} of {total} results
         </div>
         <Pagination

@@ -13,9 +13,17 @@ Lufa provides a set of elevation tokens that create consistent depth across your
 ### Shadow Tokens
 
 ```css
---lufa-shadow-xs: /* Subtle shadow for subtle elevation */ --lufa-shadow-sm: /* Small shadow for cards and buttons */
-  --lufa-shadow-md: /* Medium shadow for dropdowns */ --lufa-shadow-lg: /* Large shadow for modals */
-  --lufa-shadow-xl: /* Extra large shadow for overlays */;
+--lufa-token-shadow-none: /* No shadow */
+--lufa-token-shadow-xs: /* Subtle shadow for subtle elevation */
+--lufa-token-shadow-sm: /* Small shadow for cards and buttons */
+--lufa-token-shadow-md: /* Medium shadow for dropdowns */
+--lufa-token-shadow-lg: /* Large shadow for modals */
+--lufa-token-shadow-xl: /* Extra large shadow for overlays */
+--lufa-token-shadow-2xl: /* Huge elevation */
+--lufa-token-shadow-3xl: /* Dramatic elevation */
+--lufa-token-shadow-4xl: /* Extreme elevation */
+--lufa-token-shadow-5xl: /* Maximum elevation */
+--lufa-token-shadow-inner: /* Inset shadow */
 ```
 
 ## Elevation Levels
@@ -38,7 +46,7 @@ Slightly raised elements like inactive cards.
 
 ```css
 .card {
-  box-shadow: var(--lufa-shadow-xs);
+  box-shadow: var(--lufa-token-shadow-xs);
 }
 ```
 
@@ -48,7 +56,7 @@ Interactive elements like buttons and cards on hover.
 
 ```css
 .button:hover {
-  box-shadow: var(--lufa-shadow-sm);
+  box-shadow: var(--lufa-token-shadow-sm);
 }
 ```
 
@@ -58,7 +66,7 @@ Floating elements like dropdowns and tooltips.
 
 ```css
 .dropdown {
-  box-shadow: var(--lufa-shadow-md);
+  box-shadow: var(--lufa-token-shadow-md);
 }
 ```
 
@@ -68,7 +76,7 @@ Prominent elements like modals and dialogs.
 
 ```css
 .modal {
-  box-shadow: var(--lufa-shadow-lg);
+  box-shadow: var(--lufa-token-shadow-lg);
 }
 ```
 
@@ -78,7 +86,7 @@ Maximum elevation for important overlays.
 
 ```css
 .overlay {
-  box-shadow: var(--lufa-shadow-xl);
+  box-shadow: var(--lufa-token-shadow-xl);
 }
 ```
 
@@ -88,10 +96,10 @@ Maximum elevation for important overlays.
 
 ```css
 .card {
-  background-color: var(--lufa-color-background-primary);
-  border-radius: var(--lufa-radius-md);
-  padding: var(--lufa-spacing-lg);
-  box-shadow: var(--lufa-shadow-sm);
+  background-color: var(--lufa-token-color-background-primary);
+  border-radius: var(--lufa-token-radius-md);
+  padding: var(--lufa-token-spacing-lg);
+  box-shadow: var(--lufa-token-shadow-sm);
 }
 ```
 
@@ -101,23 +109,23 @@ Add depth on interaction:
 
 ```css
 .interactive-card {
-  box-shadow: var(--lufa-shadow-xs);
+  box-shadow: var(--lufa-token-shadow-xs);
   transition: box-shadow 0.2s ease;
 }
 
 .interactive-card:hover {
-  box-shadow: var(--lufa-shadow-md);
+  box-shadow: var(--lufa-token-shadow-md);
 }
 
 .interactive-card:active {
-  box-shadow: var(--lufa-shadow-xs);
+  box-shadow: var(--lufa-token-shadow-xs);
 }
 ```
 
 ### With React Components
 
 ```tsx
-<Card style={{ boxShadow: 'var(--lufa-shadow-md)' }}>
+<Card style={{ boxShadow: 'var(--lufa-token-shadow-md)' }}>
   <Typography variant="h3">Elevated Card</Typography>
 </Card>
 ```
@@ -145,14 +153,14 @@ Use shadows to establish visual hierarchy:
 ```css
 /* Use transform for better performance on hover */
 .button {
-  box-shadow: var(--lufa-shadow-sm);
+  box-shadow: var(--lufa-token-shadow-sm);
   transition:
     box-shadow 0.2s ease,
     transform 0.2s ease;
 }
 
 .button:hover {
-  box-shadow: var(--lufa-shadow-md);
+  box-shadow: var(--lufa-token-shadow-md);
   transform: translateY(-1px);
 }
 ```
@@ -167,12 +175,12 @@ Shadows automatically adapt to dark mode. In dark themes, shadows might be more 
 
 ```css
 .card {
-  box-shadow: var(--lufa-shadow-sm);
-  border-radius: var(--lufa-radius-md);
+  box-shadow: var(--lufa-token-shadow-sm);
+  border-radius: var(--lufa-token-radius-md);
 }
 
 .card:hover {
-  box-shadow: var(--lufa-shadow-md);
+  box-shadow: var(--lufa-token-shadow-md);
 }
 ```
 
@@ -180,8 +188,8 @@ Shadows automatically adapt to dark mode. In dark themes, shadows might be more 
 
 ```css
 .dropdown-menu {
-  box-shadow: var(--lufa-shadow-md);
-  border-radius: var(--lufa-radius-sm);
+  box-shadow: var(--lufa-token-shadow-md);
+  border-radius: var(--lufa-token-radius-sm);
 }
 ```
 
@@ -189,8 +197,8 @@ Shadows automatically adapt to dark mode. In dark themes, shadows might be more 
 
 ```css
 .modal {
-  box-shadow: var(--lufa-shadow-lg);
-  border-radius: var(--lufa-radius-lg);
+  box-shadow: var(--lufa-token-shadow-lg);
+  border-radius: var(--lufa-token-radius-lg);
 }
 ```
 
@@ -198,15 +206,15 @@ Shadows automatically adapt to dark mode. In dark themes, shadows might be more 
 
 ```css
 .button-elevated {
-  box-shadow: var(--lufa-shadow-sm);
+  box-shadow: var(--lufa-token-shadow-sm);
 }
 
 .button-elevated:hover {
-  box-shadow: var(--lufa-shadow-md);
+  box-shadow: var(--lufa-token-shadow-md);
 }
 
 .button-elevated:active {
-  box-shadow: var(--lufa-shadow-xs);
+  box-shadow: var(--lufa-token-shadow-xs);
 }
 ```
 

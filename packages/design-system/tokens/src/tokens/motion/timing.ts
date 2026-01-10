@@ -36,21 +36,21 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html|WCAG 2.1 - Pause, Stop, Hide}
  */
 
-import { timing as primitiveTiming } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const timing = {
   /** 0ms - Instant (no animation) */
-  none: primitiveTiming[0],
+  none: primitives.timing[0],
   /** 100ms - Very fast (micro-interactions) */
-  instant: primitiveTiming[100],
+  instant: primitives.timing[100],
   /** 150ms - Fast (button hovers) */
-  fast: primitiveTiming[150],
+  fast: primitives.timing[150],
   /** 250ms - Base duration (most UI) */
-  base: primitiveTiming[250],
+  base: primitives.timing[250],
   /** 400ms - Slow (modals, drawers) */
-  slow: primitiveTiming[400],
+  slow: primitives.timing[400],
   /** 600ms - Deliberate (page transitions) */
-  deliberate: primitiveTiming[600],
+  deliberate: primitives.timing[600],
 } as const;
 
 export type Timing = keyof typeof timing;

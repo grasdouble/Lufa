@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Avatar, AvatarGroup } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Display/AvatarGroup',
@@ -59,8 +60,16 @@ export const Playground: Story = {
 export const BasicGroup: Story = {
   render: () => (
     <div>
-      <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>Basic Usage</h3>
-      <p style={{ marginBottom: '16px', fontSize: '13px', color: '#737373' }}>
+      <h3
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          fontWeight: tokens.fontWeight.semibold,
+        }}
+      >
+        Basic Usage
+      </h3>
+      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
         Avatars automatically overlap without manual styling
       </p>
       <AvatarGroup size="md">
@@ -76,13 +85,23 @@ export const BasicGroup: Story = {
 export const WithMaxLimit: Story = {
   render: () => (
     <div>
-      <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>Max Limit with Count</h3>
-      <p style={{ marginBottom: '16px', fontSize: '13px', color: '#737373' }}>
+      <h3
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          fontWeight: tokens.fontWeight.semibold,
+        }}
+      >
+        Max Limit with Count
+      </h3>
+      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
         Use max prop to limit displayed avatars and show remaining count
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>max=2 of 8 avatars</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            max=2 of 8 avatars
+          </p>
           <AvatarGroup size="md" max={2}>
             {sampleAvatars.map((src, index) => (
               <Avatar key={index} src={src} />
@@ -90,7 +109,9 @@ export const WithMaxLimit: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>max=4 of 8 avatars</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            max=4 of 8 avatars
+          </p>
           <AvatarGroup size="md" max={4}>
             {sampleAvatars.map((src, index) => (
               <Avatar key={index} src={src} />
@@ -98,7 +119,9 @@ export const WithMaxLimit: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>max=6 of 8 avatars</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            max=6 of 8 avatars
+          </p>
           <AvatarGroup size="md" max={6}>
             {sampleAvatars.map((src, index) => (
               <Avatar key={index} src={src} />
@@ -113,13 +136,23 @@ export const WithMaxLimit: Story = {
 export const DifferentSizes: Story = {
   render: () => (
     <div>
-      <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>Size Variants</h3>
-      <p style={{ marginBottom: '16px', fontSize: '13px', color: '#737373' }}>
+      <h3
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          fontWeight: tokens.fontWeight.semibold,
+        }}
+      >
+        Size Variants
+      </h3>
+      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
         Control size for all avatars in the group
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing['md-lg'] }}>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>Extra Small (xs)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            Extra Small (xs)
+          </p>
           <AvatarGroup size="xs" max={3}>
             {sampleAvatars.slice(0, 5).map((src, index) => (
               <Avatar key={index} src={src} />
@@ -127,7 +160,9 @@ export const DifferentSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>Small (sm)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            Small (sm)
+          </p>
           <AvatarGroup size="sm" max={3}>
             {sampleAvatars.slice(0, 5).map((src, index) => (
               <Avatar key={index} src={src} />
@@ -135,7 +170,9 @@ export const DifferentSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>Medium (md)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            Medium (md)
+          </p>
           <AvatarGroup size="md" max={3}>
             {sampleAvatars.slice(0, 5).map((src, index) => (
               <Avatar key={index} src={src} />
@@ -143,7 +180,9 @@ export const DifferentSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>Large (lg)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            Large (lg)
+          </p>
           <AvatarGroup size="lg" max={3}>
             {sampleAvatars.slice(0, 5).map((src, index) => (
               <Avatar key={index} src={src} />
@@ -151,7 +190,9 @@ export const DifferentSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>Extra Large (xl)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            Extra Large (xl)
+          </p>
           <AvatarGroup size="xl" max={3}>
             {sampleAvatars.slice(0, 5).map((src, index) => (
               <Avatar key={index} src={src} />
@@ -166,8 +207,16 @@ export const DifferentSizes: Story = {
 export const WithStatuses: Story = {
   render: () => (
     <div>
-      <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>With Status Indicators</h3>
-      <p style={{ marginBottom: '16px', fontSize: '13px', color: '#737373' }}>
+      <h3
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          fontWeight: tokens.fontWeight.semibold,
+        }}
+      >
+        With Status Indicators
+      </h3>
+      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
         Combine group functionality with status indicators
       </p>
       <AvatarGroup size="md" max={4}>
@@ -185,22 +234,40 @@ export const WithStatuses: Story = {
 export const RealWorldExample: Story = {
   render: () => (
     <div>
-      <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>Real-world Example</h3>
-      <p style={{ marginBottom: '16px', fontSize: '13px', color: '#737373' }}>Team members on a project</p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <h3
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          fontWeight: tokens.fontWeight.semibold,
+        }}
+      >
+        Real-world Example
+      </h3>
+      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+        Team members on a project
+      </p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
         <div
           style={{
-            padding: '16px',
-            border: '1px solid #e5e5e5',
-            borderRadius: '8px',
+            padding: tokens.spacing.base,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            borderRadius: tokens.radius.base,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
           }}
         >
           <div>
-            <h4 style={{ fontSize: '14px', fontWeight: 600, marginBottom: '4px' }}>Design System Project</h4>
-            <p style={{ fontSize: '13px', color: '#737373' }}>12 team members</p>
+            <h4
+              style={{
+                fontSize: tokens.fontSize.sm,
+                fontWeight: tokens.fontWeight.semibold,
+                marginBottom: tokens.spacing.xs,
+              }}
+            >
+              Design System Project
+            </h4>
+            <p style={{ fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>12 team members</p>
           </div>
           <AvatarGroup size="sm" max={5}>
             {sampleAvatars.map((src, index) => (
@@ -210,17 +277,25 @@ export const RealWorldExample: Story = {
         </div>
         <div
           style={{
-            padding: '16px',
-            border: '1px solid #e5e5e5',
-            borderRadius: '8px',
+            padding: tokens.spacing.base,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            borderRadius: tokens.radius.base,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
           }}
         >
           <div>
-            <h4 style={{ fontSize: '14px', fontWeight: 600, marginBottom: '4px' }}>Mobile App Development</h4>
-            <p style={{ fontSize: '13px', color: '#737373' }}>8 team members</p>
+            <h4
+              style={{
+                fontSize: tokens.fontSize.sm,
+                fontWeight: tokens.fontWeight.semibold,
+                marginBottom: tokens.spacing.xs,
+              }}
+            >
+              Mobile App Development
+            </h4>
+            <p style={{ fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>8 team members</p>
           </div>
           <AvatarGroup size="sm" max={5}>
             {sampleAvatars.map((src, index) => (

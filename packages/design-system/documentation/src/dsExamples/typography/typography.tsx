@@ -1,17 +1,16 @@
 import React from 'react';
 
-import { Card, Stack, tokens, Typography } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Card, Stack, Typography } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ children }: { children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {children}
@@ -37,9 +36,9 @@ export const Variants = () => (
     <Frame>
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         headings
@@ -54,9 +53,9 @@ export const Variants = () => (
     <Frame>
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         body / label / caption
@@ -81,9 +80,9 @@ export const Examples = () => (
     <Frame>
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         overriding semantics (as)
@@ -101,9 +100,9 @@ export const Examples = () => (
     <Frame>
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         composition (Card)

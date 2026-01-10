@@ -54,17 +54,17 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html|WCAG 2.1 - Animation from Interactions}
  */
 
-import { easing as primitiveEasing, timing as primitiveTiming } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const transition = {
   /** Fast - 150ms (micro-interactions, hovers) */
-  fast: `all ${primitiveTiming[150]} ${primitiveEasing.easeOut}`,
+  fast: `all ${primitives.timing[150]} ${primitives.easing.easeOut}`,
   /** Base - 250ms (most UI elements) */
-  base: `all ${primitiveTiming[250]} ${primitiveEasing.easeInOut}`,
+  base: `all ${primitives.timing[250]} ${primitives.easing.easeInOut}`,
   /** Slow - 400ms (modals, drawers) */
-  slow: `all ${primitiveTiming[400]} ${primitiveEasing.easeInOut}`,
+  slow: `all ${primitives.timing[400]} ${primitives.easing.easeInOut}`,
   /** Colors - 150ms (color changes only) */
-  colors: `color ${primitiveTiming[150]} ${primitiveEasing.easeInOut}, background-color ${primitiveTiming[150]} ${primitiveEasing.easeInOut}, border-color ${primitiveTiming[150]} ${primitiveEasing.easeInOut}`,
+  colors: `color ${primitives.timing[150]} ${primitives.easing.easeInOut}, background-color ${primitives.timing[150]} ${primitives.easing.easeInOut}, border-color ${primitives.timing[150]} ${primitives.easing.easeInOut}`,
   /** None - disable transitions (reduced motion) */
   none: 'none',
 } as const;

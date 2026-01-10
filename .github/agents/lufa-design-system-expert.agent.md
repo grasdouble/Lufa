@@ -129,20 +129,19 @@ I can help with ALL Lufa Design System tasks:
 
 ### Lufa Design System Architecture
 
-- **Primitives (`@grasdouble/lufa_design-system-primitives`)**: Non-semantic foundational values using actual values as keys
+- **Primitives (`@grasdouble/lufa_design-system-primitives`)**: Non-semantic foundational values with value-based keys for numeric scales
   - Spacing using pixel values (e.g., `spacing[16]`, `spacing[24]`)
   - Timing using millisecond values (e.g., `timing[150]`, `timing[400]`)
   - Font sizes, weights, border widths, radius, shadows
   - Icon sizes and strokes
-  - All primitives use concrete values for clarity and precision
+  - Descriptive keys are used where numeric values are awkward (e.g., `lineHeight.body`, `letterSpacing.readable`, `blur.none`)
 
 - **Tokens (`@grasdouble/lufa_design-system-tokens`)**: Semantic, intent-based naming mapped from primitives
-  - Color tokens: `text.primary`, `background.success`, `border.default`
-  - Spacing tokens: `spacing.compact`, `spacing.default`, `spacing.comfortable`
-  - Typography tokens: `fontSize.h1`, `fontWeight.bold`, `lineHeight.base`
-  - Dimension tokens: `navbarHeightDefault`, `modalWidthDefault`
-  - Motion tokens: `transition.fast`, `cursor.pointer`
-
+  - Color tokens: `tokens.color.text.primary`, `tokens.color.background.primary`, `tokens.color.border.default`
+  - Spacing tokens: `tokens.spacing.sm`, `tokens.spacing.base`, `tokens.spacing.lg`
+  - Typography tokens: `tokens.fontSize.base`, `tokens.fontWeight.bold`, `tokens.lineHeight.base`
+  - Dimension tokens: `tokens.dimension.navbarHeightDefault`, `tokens.dimension.modalWidthDefault`
+  - Motion tokens: `tokens.transition.fast`, `tokens.cursor.pointer`
 - **Components (`@grasdouble/lufa_design-system`)**: Main component library
   - Built with React 19+, TypeScript, and Tailwind CSS
   - Uses HeadlessUI and Heroicons
@@ -202,7 +201,8 @@ I can help with ALL Lufa Design System tasks:
 
 **For Primitives:**
 
-- Use actual values as keys (pixels, milliseconds, numeric values)
+- Use actual values as keys for numeric scales (pixels, milliseconds, numeric values)
+- Allow descriptive keys where numeric values are not ergonomic (line height, letter spacing, blur)
 - Export both TypeScript constants and CSS custom properties
 - Keep values non-semantic and foundational
 - Document the purpose and usage
@@ -345,24 +345,24 @@ export const {Component} = ({
 @layer components {
   .{component-class} {
     /* Use tokens via CSS custom properties */
-    padding: var(--lufa-spacing-default);
-    font-size: var(--lufa-font-size-body);
-    border-radius: var(--lufa-radius-base);
-    transition: var(--lufa-transition-fast);
+    padding: var(--lufa-token-spacing-base);
+    font-size: var(--lufa-token-font-size-base);
+    border-radius: var(--lufa-token-radius-base);
+    transition: var(--lufa-token-transition-fast);
   }
 
   .{component-class}:hover:not(:disabled) {
-    transform: var(--lufa-transform-hover-lift);
+    transform: var(--lufa-token-transform-hover-lift);
   }
 
   .{component-class}:focus-visible {
-    outline: var(--lufa-border-width-focus) solid var(--lufa-color-border-focus);
-    outline-offset: var(--lufa-spacing-xs);
+    outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
+    outline-offset: var(--lufa-token-spacing-xs);
   }
 
   .{component-class}-primary {
-    background: var(--lufa-color-background-primary);
-    color: var(--lufa-color-text-inverse);
+    background: var(--lufa-token-color-interactive-default);
+    color: var(--lufa-token-color-text-inverse);
   }
 }
 ```
@@ -506,7 +506,7 @@ Before completing, verify:
 
 - Maintain the two-layer token system (primitives → tokens)
 - Ensure semantic token names reflect their purpose
-- Keep primitives value-based for clarity
+- Prefer value-based primitives for numeric scales; keep descriptive keys limited to rhythm/optical scales
 - Update tokens when design decisions change
 - Document token usage and relationships
 
@@ -555,16 +555,16 @@ Before completing, verify:
 // ✅ Good: Use semantic tokens in components
 
 // ❌ Avoid: Direct primitive usage in components (use tokens instead)
-import { spacing } from '@grasdouble/lufa_design-system-primitives';
-import { color, fontSize, spacing } from '@grasdouble/lufa_design-system-tokens';
+import primitives from '@grasdouble/lufa_design-system-primitives';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const styles = {
-  color: color.text.primary,
-  padding: spacing.default,
-  fontSize: fontSize.body,
+  color: tokens.color.text.primary,
+  padding: tokens.spacing.base,
+  fontSize: tokens.fontSize.base,
 };
 
-const styles = { padding: spacing[16] }; // Use tokens!
+const badStyles = { padding: primitives.spacing[16] }; // Avoid primitives in components
 ```
 
 ### Component Structure
@@ -572,7 +572,7 @@ const styles = { padding: spacing[16] }; // Use tokens!
 ```typescript
 // ✅ Good: Clear props interface, accessibility, token-based styling
 import type { ComponentPropsWithoutRef } from 'react';
-import { spacing, color, fontSize } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   variant?: 'primary' | 'secondary' | 'ghost';
@@ -603,15 +603,15 @@ export const Button = ({
 /* Use tokens in Tailwind config or CSS */
 @layer components {
   .btn {
-    padding: var(--lufa-spacing-default);
-    font-size: var(--lufa-font-size-body);
-    border-radius: var(--lufa-radius-base);
-    transition: var(--lufa-transition-fast);
+    padding: var(--lufa-token-spacing-base);
+    font-size: var(--lufa-token-font-size-base);
+    border-radius: var(--lufa-token-radius-base);
+    transition: var(--lufa-token-transition-fast);
   }
 
   .btn-primary {
-    background: var(--lufa-color-background-primary);
-    color: var(--lufa-color-text-inverse);
+    background: var(--lufa-token-color-interactive-default);
+    color: var(--lufa-token-color-text-inverse);
   }
 }
 ```

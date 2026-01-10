@@ -1,25 +1,24 @@
 import React from 'react';
 
-import { Avatar, Badge, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Avatar, Badge } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -30,24 +29,24 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
 );
 
 const svgAvatar = (text: string, background: string) => {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96">
-  <rect width="100%" height="100%" rx="16" fill="${background}"/>
-  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="38" fill="#fff">${text}</text>
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${tokens.size['2xl']}" height="${tokens.size['2xl']}">
+  <rect width="100%" height="100%" rx="${tokens.radius.xl}" fill="${background}"/>
+  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="${tokens.fontSize['4xl']}" fill="${tokens.color.text.inverse}">${text}</text>
 </svg>`;
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 };
 
 const UserLabel = ({ name, role }: { name: string; role: string }) => (
-  <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
-    <div style={{ color: color.text.primary, fontWeight: 600 }}>{name}</div>
-    <div style={{ color: color.text.secondary, fontSize: 12 }}>{role}</div>
+  <div style={{ display: 'flex', flexDirection: 'column', lineHeight: tokens.lineHeight.tight }}>
+    <div style={{ color: tokens.color.text.primary, fontWeight: tokens.fontWeight.semibold }}>{name}</div>
+    <div style={{ color: tokens.color.text.secondary, fontSize: tokens.fontSize.xs }}>{role}</div>
   </div>
 );
 
 export const LiveDemo = () => (
   <Frame title="live demo">
-    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-      <Avatar src={svgAvatar('SL', color.interactive.default)} alt="Profile picture" status="online" />
+    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.md }}>
+      <Avatar src={svgAvatar('SL', tokens.color.interactive.default)} alt="Profile picture" status="online" />
       <UserLabel name="Sébastien" role="Admin" />
       <Badge variant="success" rounded>
         Online
@@ -63,17 +62,21 @@ export const Size = () => (
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        gap: 12,
+        gap: tokens.spacing.md,
       }}
     >
       {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
-        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <Avatar size={size} src={svgAvatar(size.toUpperCase(), color.brand.secondary)} alt={`Avatar size ${size}`} />
+        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.sm }}>
+          <Avatar
+            size={size}
+            src={svgAvatar(size.toUpperCase(), tokens.color.brand.secondary)}
+            alt={`Avatar size ${size}`}
+          />
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              fontSize: 12,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              fontSize: tokens.fontSize.xs,
             }}
           >
             {size}
@@ -91,40 +94,45 @@ export const Variant = () => (
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <Avatar variant="circle" src={svgAvatar('C', color.interactive.default)} alt="Circle avatar" status="away" />
+      <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing['sm-md'] }}>
+        <Avatar
+          variant="circle"
+          src={svgAvatar('C', tokens.color.interactive.default)}
+          alt="Circle avatar"
+          status="away"
+        />
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            fontSize: 12,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            fontSize: tokens.fontSize.xs,
           }}
         >
           circle
         </div>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <Avatar variant="square" src={svgAvatar('S', color.brand.secondary)} alt="Square avatar" status="busy" />
+      <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing['sm-md'] }}>
+        <Avatar variant="square" src={svgAvatar('S', tokens.color.brand.secondary)} alt="Square avatar" status="busy" />
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            fontSize: 12,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            fontSize: tokens.fontSize.xs,
           }}
         >
           square
         </div>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing['sm-md'] }}>
         <Avatar variant="count" count="+12" />
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            fontSize: 12,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            fontSize: tokens.fontSize.xs,
           }}
         >
           count
@@ -141,21 +149,21 @@ export const Status = () => (
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       {(['online', 'offline', 'away', 'busy', 'none'] as const).map((status) => (
-        <div key={status} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div key={status} style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing['sm-md'] }}>
           <Avatar
-            src={svgAvatar(status.slice(0, 1).toUpperCase(), color.interactive.default)}
+            src={svgAvatar(status.slice(0, 1).toUpperCase(), tokens.color.interactive.default)}
             alt={`Status ${status}`}
             status={status}
           />
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              fontSize: 12,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              fontSize: tokens.fontSize.xs,
             }}
           >
             {status}
@@ -173,38 +181,38 @@ export const StatusPosition = () => (
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing['sm-md'] }}>
         <Avatar
-          src={svgAvatar('T', color.brand.secondary)}
+          src={svgAvatar('T', tokens.color.brand.secondary)}
           alt="Status position top"
           status="online"
           statusPosition="top"
         />
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            fontSize: 12,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            fontSize: tokens.fontSize.xs,
           }}
         >
           top
         </div>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing['sm-md'] }}>
         <Avatar
-          src={svgAvatar('B', color.brand.secondary)}
+          src={svgAvatar('B', tokens.color.brand.secondary)}
           alt="Status position bottom"
           status="online"
           statusPosition="bottom"
         />
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            fontSize: 12,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            fontSize: tokens.fontSize.xs,
           }}
         >
           bottom
@@ -216,24 +224,24 @@ export const StatusPosition = () => (
 
 export const CommentHeaderExample = () => (
   <Frame title="comment header">
-    <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-      <Avatar src={svgAvatar('JD', color.interactive.default)} status="online" />
+    <div style={{ display: 'flex', gap: tokens.spacing.md, alignItems: 'flex-start' }}>
+      <Avatar src={svgAvatar('JD', tokens.color.interactive.default)} status="online" />
       <div style={{ flex: 1 }}>
         <div
           style={{
             display: 'flex',
-            gap: 10,
+            gap: tokens.spacing['sm-md'],
             alignItems: 'center',
-            marginBottom: 6,
+            marginBottom: tokens.spacing['2xs'],
           }}
         >
-          <div style={{ fontWeight: 600, color: color.text.primary }}>Jane Doe</div>
+          <div style={{ fontWeight: tokens.fontWeight.semibold, color: tokens.color.text.primary }}>Jane Doe</div>
           <Badge variant="info" rounded>
             Moderator
           </Badge>
-          <div style={{ color: color.text.tertiary, fontSize: 12 }}>2h ago</div>
+          <div style={{ color: tokens.color.text.tertiary, fontSize: tokens.fontSize.xs }}>2h ago</div>
         </div>
-        <div style={{ color: color.text.secondary }}>
+        <div style={{ color: tokens.color.text.secondary }}>
           Avatar works well as a leading element for comments, activity feeds, and list rows.
         </div>
       </div>
@@ -248,14 +256,14 @@ export const CountAvatarExample = () => (
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <UserLabel name="Reviewers" role="5 people" />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <Avatar src={svgAvatar('AL', color.interactive.default)} alt="Alice" />
-        <Avatar src={svgAvatar('BO', color.brand.secondary)} alt="Bob" />
-        <Avatar src={svgAvatar('CH', '#0ea5e9')} alt="Chris" />
+      <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing['sm-md'] }}>
+        <Avatar src={svgAvatar('AL', tokens.color.interactive.default)} alt="Alice" />
+        <Avatar src={svgAvatar('BO', tokens.color.brand.secondary)} alt="Bob" />
+        <Avatar src={svgAvatar('CH', tokens.color.info.default)} alt="Chris" />
         <Avatar variant="count" count="+2" />
       </div>
     </div>

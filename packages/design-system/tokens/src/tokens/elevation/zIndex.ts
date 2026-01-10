@@ -12,29 +12,29 @@
  * - Avoid z-index wars by following this hierarchy
  */
 
-import { zIndex as primitiveZIndex } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const zIndex = {
   /** 0 - Normal content layer (default) */
-  base: primitiveZIndex[0],
+  base: primitives.zIndex[0],
   /** 10 - Dropdowns, select options */
-  dropdown: primitiveZIndex[10],
+  dropdown: primitives.zIndex[10],
   /** 20 - Sticky headers, fixed navigation */
-  sticky: primitiveZIndex[20],
+  sticky: primitives.zIndex[20],
   /** 30 - Tooltips, popovers */
-  tooltip: primitiveZIndex[30],
+  tooltip: primitives.zIndex[30],
   /** 40 - Slide-out panels, drawers */
-  drawer: primitiveZIndex[40],
+  drawer: primitives.zIndex[40],
   /** 50 - Off-canvas menus */
-  menu: primitiveZIndex[50],
+  menu: primitives.zIndex[50],
   /** 100 - Modals, dialogs, overlays */
-  modal: primitiveZIndex[100],
+  modal: primitives.zIndex[100],
   /** 500 - Important notifications, banners */
-  notification: primitiveZIndex[500],
+  notification: primitives.zIndex[500],
   /** 900 - Toast notifications, alerts (top layer) */
-  toast: primitiveZIndex[900],
+  toast: primitives.zIndex[900],
   /** 9999 - Critical system messages, loading screens */
-  max: primitiveZIndex[9999],
+  max: primitives.zIndex[9999],
 } as const;
 
 export type ZIndex = keyof typeof zIndex;

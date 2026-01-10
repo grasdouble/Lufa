@@ -1,25 +1,24 @@
 import React from 'react';
 
-import { Badge, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Badge, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -34,7 +33,7 @@ export const LiveDemo = () => (
     <div
       style={{
         display: 'flex',
-        gap: 10,
+        gap: tokens.spacing['sm-md'],
         alignItems: 'center',
         flexWrap: 'wrap',
       }}
@@ -57,7 +56,7 @@ export const Variant = () => (
     <div
       style={{
         display: 'flex',
-        gap: 10,
+        gap: tokens.spacing['sm-md'],
         alignItems: 'center',
         flexWrap: 'wrap',
       }}
@@ -76,7 +75,7 @@ export const Size = () => (
     <div
       style={{
         display: 'flex',
-        gap: 10,
+        gap: tokens.spacing['sm-md'],
         alignItems: 'center',
         flexWrap: 'wrap',
       }}
@@ -95,7 +94,7 @@ export const Dot = () => (
     <div
       style={{
         display: 'flex',
-        gap: 10,
+        gap: tokens.spacing['sm-md'],
         alignItems: 'center',
         flexWrap: 'wrap',
       }}
@@ -118,7 +117,7 @@ export const Rounded = () => (
     <div
       style={{
         display: 'flex',
-        gap: 10,
+        gap: tokens.spacing['sm-md'],
         alignItems: 'center',
         flexWrap: 'wrap',
       }}
@@ -153,7 +152,7 @@ export const StatusListExample = () => (
           justifyContent: 'space-between',
         }}
       >
-        <div style={{ color: color.text.primary }}>Payments</div>
+        <div style={{ color: tokens.color.text.primary }}>Payments</div>
         <Badge variant="success" dot rounded>
           Healthy
         </Badge>
@@ -165,7 +164,7 @@ export const StatusListExample = () => (
           justifyContent: 'space-between',
         }}
       >
-        <div style={{ color: color.text.primary }}>Webhooks</div>
+        <div style={{ color: tokens.color.text.primary }}>Webhooks</div>
         <Badge variant="warning" dot rounded>
           Delayed
         </Badge>
@@ -177,7 +176,7 @@ export const StatusListExample = () => (
           justifyContent: 'space-between',
         }}
       >
-        <div style={{ color: color.text.primary }}>Fraud checks</div>
+        <div style={{ color: tokens.color.text.primary }}>Fraud checks</div>
         <Badge variant="danger" dot rounded>
           Action required
         </Badge>
@@ -202,13 +201,13 @@ export const NavigationCountExample = () => (
             justifyContent: 'space-between',
           }}
         >
-          <div style={{ color: color.text.primary }}>{label}</div>
+          <div style={{ color: tokens.color.text.primary }}>{label}</div>
           {count > 0 ? (
             <Badge variant={variant} rounded>
               {count}
             </Badge>
           ) : (
-            <div style={{ color: color.text.tertiary, fontSize: 12 }}>—</div>
+            <div style={{ color: tokens.color.text.tertiary, fontSize: tokens.fontSize.xs }}>—</div>
           )}
         </div>
       ))}

@@ -39,21 +39,21 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html|WCAG 2.1 - Visual Presentation}
  */
 
-import { lineHeight as primitiveLineHeight } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const lineHeight = {
   /** 1.0 - None (avoid for text) */
-  none: primitiveLineHeight.tight,
+  none: primitives.lineHeight.tight,
   /** 1.2 - Tight (headings only) */
-  tight: primitiveLineHeight.heading,
+  tight: primitives.lineHeight.heading,
   /** 1.35 - Snug (large text only) */
-  snug: primitiveLineHeight.display,
+  snug: primitives.lineHeight.display,
   /** 1.5 - Base (WCAG minimum for body) */
-  base: primitiveLineHeight.body,
+  base: primitives.lineHeight.body,
   /** 1.65 - Relaxed (enhanced readability) */
-  relaxed: primitiveLineHeight.reading,
+  relaxed: primitives.lineHeight.reading,
   /** 1.8 - Loose (dyslexia-friendly) */
-  loose: primitiveLineHeight.dyslexia,
+  loose: primitives.lineHeight.dyslexia,
 } as const;
 
 export type LineHeight = keyof typeof lineHeight;

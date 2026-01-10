@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { easing, motion, timing } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Motion',
@@ -21,7 +21,7 @@ export const TimingTokens: Story = {
     return (
       <div style={{ padding: '20px', maxWidth: '1000px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Timing Tokens</h1>
-        <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+        <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
           Standardized animation durations for consistent motion design. Click boxes to see timing in action.
         </p>
 
@@ -33,7 +33,7 @@ export const TimingTokens: Story = {
             marginBottom: '40px',
           }}
         >
-          {Object.entries(timing).map(([key, value]) => (
+          {Object.entries(tokens.timing).map(([key, value]) => (
             <div key={key}>
               <div
                 onClick={() => {
@@ -43,7 +43,7 @@ export const TimingTokens: Story = {
                 style={{
                   width: '100%',
                   height: '100px',
-                  backgroundColor: activeBox === key ? '#3B82F6' : '#E5E5E5',
+                  backgroundColor: activeBox === key ? tokens.color.interactive.focus : tokens.color.border.light,
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
@@ -52,11 +52,18 @@ export const TimingTokens: Story = {
                   transition: `background-color ${value} ease-in-out`,
                 }}
               >
-                <span style={{ fontWeight: '600', color: activeBox === key ? 'white' : '#737373' }}>Click me</span>
+                <span
+                  style={{
+                    fontWeight: '600',
+                    color: activeBox === key ? tokens.color.text.inverse : tokens.color.text.tertiary,
+                  }}
+                >
+                  Click me
+                </span>
               </div>
               <div style={{ marginTop: '8px', fontSize: '12px' }}>
                 <div style={{ fontWeight: '600' }}>{key}</div>
-                <div style={{ color: '#737373', fontFamily: 'monospace' }}>{value}</div>
+                <div style={{ color: tokens.color.text.tertiary, fontFamily: 'monospace' }}>{value}</div>
               </div>
             </div>
           ))}
@@ -65,20 +72,20 @@ export const TimingTokens: Story = {
         <div
           style={{
             padding: '20px',
-            backgroundColor: '#FAFAFA',
-            borderRadius: '8px',
-            border: '1px solid #E5E5E5',
+          backgroundColor: tokens.color.background.secondary,
+          borderRadius: '8px',
+          border: `1px solid ${tokens.color.border.light}`,
+        }}
+      >
+        <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>WCAG 2.1 Guidelines</h3>
+        <ul
+          style={{
+            margin: '0',
+            paddingLeft: '20px',
+            color: tokens.color.text.tertiary,
+            fontSize: '14px',
+            lineHeight: '1.6',
           }}
-        >
-          <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>WCAG 2.1 Guidelines</h3>
-          <ul
-            style={{
-              margin: '0',
-              paddingLeft: '20px',
-              color: '#737373',
-              fontSize: '14px',
-              lineHeight: '1.6',
-            }}
           >
             <li>Respect prefers-reduced-motion for accessibility (WCAG 2.3.3)</li>
             <li>Keep animations under 5 seconds unless user-controlled (WCAG 2.2.2)</li>
@@ -97,7 +104,7 @@ export const EasingTokens: Story = {
     return (
       <div style={{ padding: '20px', maxWidth: '1000px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Easing Tokens</h1>
-        <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+        <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
           Animation easing curves for natural motion. Click to see each easing in action.
         </p>
 
@@ -109,7 +116,7 @@ export const EasingTokens: Story = {
             marginBottom: '40px',
           }}
         >
-          {Object.entries(easing).map(([key, value]) => (
+          {Object.entries(tokens.easing).map(([key, value]) => (
             <div key={key}>
               <div
                 onClick={() => {
@@ -119,9 +126,9 @@ export const EasingTokens: Story = {
                 style={{
                   width: '100%',
                   height: '80px',
-                  backgroundColor: '#FAFAFA',
+                  backgroundColor: tokens.color.background.secondary,
                   borderRadius: '8px',
-                  border: '1px solid #E5E5E5',
+                  border: `1px solid ${tokens.color.border.light}`,
                   padding: '12px',
                   cursor: 'pointer',
                   position: 'relative',
@@ -129,7 +136,9 @@ export const EasingTokens: Story = {
                 }}
               >
                 <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '4px' }}>{key}</div>
-                <div style={{ fontSize: '10px', color: '#737373', fontFamily: 'monospace' }}>{value}</div>
+                <div style={{ fontSize: '10px', color: tokens.color.text.tertiary, fontFamily: 'monospace' }}>
+                  {value}
+                </div>
                 <div
                   style={{
                     position: 'absolute',
@@ -137,7 +146,7 @@ export const EasingTokens: Story = {
                     left: 0,
                     width: activeEasing === key ? '100%' : '0%',
                     height: '4px',
-                    backgroundColor: '#3B82F6',
+                    backgroundColor: tokens.color.interactive.focus,
                     transition: `width 600ms ${value}`,
                   }}
                 />
@@ -149,20 +158,20 @@ export const EasingTokens: Story = {
         <div
           style={{
             padding: '20px',
-            backgroundColor: '#FAFAFA',
-            borderRadius: '8px',
-            border: '1px solid #E5E5E5',
+          backgroundColor: tokens.color.background.secondary,
+          borderRadius: '8px',
+          border: `1px solid ${tokens.color.border.light}`,
+        }}
+      >
+        <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>Usage Guidelines</h3>
+        <ul
+          style={{
+            margin: '0',
+            paddingLeft: '20px',
+            color: tokens.color.text.tertiary,
+            fontSize: '14px',
+            lineHeight: '1.6',
           }}
-        >
-          <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>Usage Guidelines</h3>
-          <ul
-            style={{
-              margin: '0',
-              paddingLeft: '20px',
-              color: '#737373',
-              fontSize: '14px',
-              lineHeight: '1.6',
-            }}
           >
             <li>
               <strong>easeIn:</strong> Elements entering the viewport
@@ -190,19 +199,19 @@ export const MotionPresets: Story = {
     return (
       <div style={{ padding: '20px', maxWidth: '1000px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Motion Presets</h1>
-        <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+        <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
           Pre-configured motion tokens combining timing, easing, and properties for common UI patterns.
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {Object.entries(motion).map(([key, config]) => (
+          {Object.entries(tokens.motion).map(([key, config]) => (
             <div
               key={key}
               style={{
                 padding: '20px',
-                backgroundColor: '#FAFAFA',
+                backgroundColor: tokens.color.background.secondary,
                 borderRadius: '8px',
-                border: '1px solid #E5E5E5',
+                border: `1px solid ${tokens.color.border.light}`,
               }}
             >
               <div
@@ -215,10 +224,10 @@ export const MotionPresets: Story = {
               >
                 <div>
                   <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontWeight: '600' }}>{key}</h3>
-                  <div style={{ fontSize: '12px', color: '#737373', fontFamily: 'monospace' }}>
+                  <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, fontFamily: 'monospace' }}>
                     duration: {config.duration} | easing: {config.easing}
                   </div>
-                  <div style={{ fontSize: '12px', color: '#737373', marginTop: '4px' }}>
+                  <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, marginTop: '4px' }}>
                     properties: {config.properties}
                   </div>
                 </div>
@@ -229,8 +238,8 @@ export const MotionPresets: Story = {
                   }}
                   style={{
                     padding: '8px 16px',
-                    backgroundColor: '#3B82F6',
-                    color: 'white',
+                    backgroundColor: tokens.color.interactive.focus,
+                    color: tokens.color.text.inverse,
                     border: 'none',
                     borderRadius: '6px',
                     cursor: 'pointer',
@@ -245,7 +254,7 @@ export const MotionPresets: Story = {
                 style={{
                   width: activeMotion === key ? '100%' : '20%',
                   height: '40px',
-                  backgroundColor: '#3B82F6',
+                  backgroundColor: tokens.color.interactive.focus,
                   borderRadius: '6px',
                   transition: `all ${config.duration} ${config.easing}`,
                   display: 'flex',
@@ -253,7 +262,7 @@ export const MotionPresets: Story = {
                   justifyContent: 'center',
                 }}
               >
-                <span style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>
+                <span style={{ color: tokens.color.text.inverse, fontSize: '12px', fontWeight: '600' }}>
                   {activeMotion === key ? 'Animating!' : 'Demo'}
                 </span>
               </div>

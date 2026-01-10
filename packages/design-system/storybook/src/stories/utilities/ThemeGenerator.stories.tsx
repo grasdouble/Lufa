@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Alert, Badge, Button, Card, getContrastRatio, Input, meetsWCAG } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '8. Utilities/Theme Generator',
@@ -46,7 +47,7 @@ const ColorPicker = ({
         style={{
           width: '60px',
           height: '40px',
-          border: '1px solid #e5e5e5',
+          border: `1px solid ${tokens.color.border.light}`,
           borderRadius: '6px',
           cursor: 'pointer',
         }}
@@ -58,13 +59,15 @@ const ColorPicker = ({
         style={{
           flex: 1,
           padding: '8px 12px',
-          border: '1px solid #e5e5e5',
+          border: `1px solid ${tokens.color.border.light}`,
           borderRadius: '6px',
           fontFamily: 'monospace',
         }}
       />
     </div>
-    {helperText && <p style={{ margin: '4px 0 0 0', fontSize: '12px', color: '#737373' }}>{helperText}</p>}
+    {helperText && (
+      <p style={{ margin: '4px 0 0 0', fontSize: '12px', color: tokens.color.text.tertiary }}>{helperText}</p>
+    )}
   </div>
 );
 
@@ -82,8 +85,16 @@ const ContrastChecker = ({ foreground, background }: { foreground: string; backg
         padding: '4px 8px',
         borderRadius: '4px',
         fontSize: '12px',
-        background: meetsAAA ? '#ecfdf5' : meetsAA ? '#fef3c7' : '#fee2e2',
-        color: meetsAAA ? '#065f46' : meetsAA ? '#92400e' : '#991b1b',
+        background: meetsAAA
+          ? tokens.color.success.light
+          : meetsAA
+            ? tokens.color.warning.light
+            : tokens.color.error.light,
+        color: meetsAAA
+          ? tokens.color.success.text
+          : meetsAA
+            ? tokens.color.warning.text
+            : tokens.color.error.text,
       }}
     >
       <span style={{ fontWeight: '600' }}>{ratio.toFixed(2)}:1</span>
@@ -210,7 +221,9 @@ const ComponentPreview: React.FC<{ colors: ThemeColors }> = ({ colors }) => {
   return (
     <div>
       <div style={{ marginBottom: '24px' }}>
-        <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#171717' }}>Buttons</h3>
+        <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: tokens.color.text.primary }}>
+          Buttons
+        </h3>
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           <Button color="primary" size="medium">
             Primary Button
@@ -225,7 +238,9 @@ const ComponentPreview: React.FC<{ colors: ThemeColors }> = ({ colors }) => {
       </div>
 
       <div style={{ marginBottom: '24px' }}>
-        <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#171717' }}>Badges</h3>
+        <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: tokens.color.text.primary }}>
+          Badges
+        </h3>
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           <Badge variant="success">Success</Badge>
           <Badge variant="warning">Warning</Badge>
@@ -235,7 +250,9 @@ const ComponentPreview: React.FC<{ colors: ThemeColors }> = ({ colors }) => {
       </div>
 
       <div style={{ marginBottom: '24px' }}>
-        <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#171717' }}>Alerts</h3>
+        <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: tokens.color.text.primary }}>
+          Alerts
+        </h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <Alert variant="success" title="Success">
             Your changes have been saved successfully.
@@ -250,11 +267,13 @@ const ComponentPreview: React.FC<{ colors: ThemeColors }> = ({ colors }) => {
       </div>
 
       <div style={{ marginBottom: '24px' }}>
-        <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#171717' }}>Card & Input</h3>
+        <h3 style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: tokens.color.text.primary }}>
+          Card & Input
+        </h3>
         <Card>
           <div style={{ marginBottom: '16px' }}>
             <h4 style={{ marginBottom: '8px', fontSize: '16px', fontWeight: '600' }}>Example Form</h4>
-            <p style={{ marginBottom: '16px', color: '#737373', fontSize: '14px' }}>
+            <p style={{ marginBottom: '16px', color: tokens.color.text.tertiary, fontSize: '14px' }}>
               This is how your theme looks in a card component.
             </p>
           </div>
@@ -391,13 +410,13 @@ export const Generator: Story = {
           style={{
             width: '400px',
             padding: '24px',
-            borderRight: '1px solid #e5e5e5',
+            borderRight: `1px solid ${tokens.color.border.light}`,
             overflowY: 'auto',
-            background: '#fafafa',
+            background: tokens.color.background.secondary,
           }}
         >
           <h1 style={{ marginBottom: '8px', fontSize: '24px', fontWeight: '700' }}>Theme Generator</h1>
-          <p style={{ marginBottom: '24px', color: '#737373', fontSize: '14px' }}>
+          <p style={{ marginBottom: '24px', color: tokens.color.text.tertiary, fontSize: '14px' }}>
             Create custom themes by selecting colors. The system will automatically generate hover states and variants.
           </p>
 
@@ -412,13 +431,13 @@ export const Generator: Story = {
               style={{
                 width: '100%',
                 padding: '8px 12px',
-                border: '1px solid #e5e5e5',
+                border: `1px solid ${tokens.color.border.light}`,
                 borderRadius: '6px',
               }}
             />
           </div>
 
-          <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid #e5e5e5' }}>
+          <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: `1px solid ${tokens.color.border.light}` }}>
             <h3 style={{ marginBottom: '16px', fontSize: '16px', fontWeight: '600' }}>Base Colors</h3>
 
             <ColorPicker
@@ -449,7 +468,7 @@ export const Generator: Story = {
             </div>
           </div>
 
-          <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid #e5e5e5' }}>
+          <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: `1px solid ${tokens.color.border.light}` }}>
             <h3 style={{ marginBottom: '16px', fontSize: '16px', fontWeight: '600' }}>Status Colors</h3>
 
             <ColorPicker
@@ -480,8 +499,8 @@ export const Generator: Story = {
               style={{
                 flex: 1,
                 padding: '12px',
-                background: '#171717',
-                color: 'white',
+                background: tokens.color.background.inverse,
+                color: tokens.color.text.inverse,
                 border: 'none',
                 borderRadius: '6px',
                 fontWeight: '600',
@@ -496,7 +515,7 @@ export const Generator: Story = {
                 flex: 1,
                 padding: '12px',
                 background: colors.interactive,
-                color: 'white',
+                color: tokens.color.text.inverse,
                 border: 'none',
                 borderRadius: '6px',
                 fontWeight: '600',
@@ -521,17 +540,19 @@ export const Generator: Story = {
                 }}
               >
                 <h2 style={{ fontSize: '20px', fontWeight: '600' }}>Generated CSS</h2>
-                <p style={{ color: '#737373', fontSize: '14px' }}>
+                <p style={{ color: tokens.color.text.tertiary, fontSize: '14px' }}>
                   Save this as{' '}
-                  <code style={{ background: '#f5f5f5', padding: '2px 6px', borderRadius: '4px' }}>
+                  <code
+                    style={{ background: tokens.color.background.tertiary, padding: '2px 6px', borderRadius: '4px' }}
+                  >
                     {colors.name.toLowerCase().replace(/\s+/g, '-')}.css
                   </code>
                 </p>
               </div>
               <pre
                 style={{
-                  background: '#1e293b',
-                  color: '#e2e8f0',
+                  background: tokens.color.background.inverse,
+                  color: tokens.color.text.inverse,
                   padding: '20px',
                   borderRadius: '8px',
                   overflow: 'auto',
@@ -546,7 +567,7 @@ export const Generator: Story = {
           ) : (
             <div style={{ padding: '24px' }}>
               <h2 style={{ marginBottom: '8px', fontSize: '20px', fontWeight: '600' }}>Live Preview</h2>
-              <p style={{ marginBottom: '24px', color: '#737373', fontSize: '14px' }}>
+              <p style={{ marginBottom: '24px', color: tokens.color.text.tertiary, fontSize: '14px' }}>
                 See how your theme looks with real components. Adjust colors in the left panel to see changes instantly.
               </p>
               <ComponentPreview colors={colors} />

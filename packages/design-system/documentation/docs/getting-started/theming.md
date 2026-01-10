@@ -8,21 +8,21 @@ Customize Lufa Design System to match your brand.
 
 ## CSS Variables
 
-All design tokens are exposed as CSS custom properties with the `--lufa-` prefix. This allows you to override them at runtime for theming.
+All design tokens are exposed as CSS custom properties with the `--lufa-token-` prefix. This allows you to override them at runtime for theming.
 
 ### Override Colors
 
 ```css
 :root {
   /* Override brand colors */
-  --lufa-color-brand-primary: #your-color;
-  --lufa-color-brand-secondary: #your-color;
+  --lufa-token-color-brand-primary: #your-color;
+  --lufa-token-color-brand-secondary: #your-color;
 }
 
 /* Dark mode overrides */
 [data-theme='dark'] {
-  --lufa-color-background-primary: #1a1a1a;
-  --lufa-color-text-primary: #ffffff;
+  --lufa-token-color-background-primary: #1a1a1a;
+  --lufa-token-color-text-primary: #ffffff;
 }
 ```
 
@@ -31,11 +31,11 @@ All design tokens are exposed as CSS custom properties with the `--lufa-` prefix
 ```css
 :root {
   /* Override heading sizes */
-  --lufa-typography-h1-font-size: 4rem;
-  --lufa-typography-h1-line-height: 1.1;
+  --lufa-token-font-size-6xl: 4rem;
+  --lufa-token-line-height-tight: 1.1;
 
   /* Override font family */
-  --lufa-font-family-base: 'Your Font', sans-serif;
+  --lufa-token-font-family-sans: 'Your Font', sans-serif;
 }
 ```
 
@@ -44,8 +44,8 @@ All design tokens are exposed as CSS custom properties with the `--lufa-` prefix
 ```css
 :root {
   /* Make spacing more compact */
-  --lufa-spacing-base: 0.75rem;
-  --lufa-spacing-lg: 1.25rem;
+  --lufa-token-spacing-base: 0.75rem;
+  --lufa-token-spacing-lg: 1.25rem;
 }
 ```
 
@@ -77,12 +77,17 @@ import '@grasdouble/lufa_design-system/themes/forest.css';
 
 ## Available Variables
 
-All CSS variables are prefixed with `--lufa-` to avoid conflicts:
+All CSS variables are prefixed with `--lufa-token-` to avoid conflicts:
 
-- `--lufa-color-*` - Color tokens
-- `--lufa-spacing-*` - Spacing tokens
-- `--lufa-typography-*` - Typography tokens
-- `--lufa-radius-*` - Border radius tokens
-- `--lufa-shadow-*` - Shadow tokens
+- `--lufa-token-color-*` - Color tokens
+- `--lufa-token-spacing-*` - Spacing tokens
+- `--lufa-token-font-family-*` - Font families
+- `--lufa-token-font-size-*` - Font sizes
+- `--lufa-token-font-weight-*` - Font weights
+- `--lufa-token-line-height-*` - Line heights
+- `--lufa-token-letter-spacing-*` - Letter spacing
+- `--lufa-token-measure-*` - Measure (line length)
+- `--lufa-token-radius-*` - Border radius tokens
+- `--lufa-token-shadow-*` - Shadow tokens
 
 [View all design tokens →](../tokens/colors)

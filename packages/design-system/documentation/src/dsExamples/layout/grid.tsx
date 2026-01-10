@@ -1,25 +1,24 @@
 import React from 'react';
 
-import { Grid, GRID_COLUMNS, GRID_GUTTER, Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Grid, GRID_COLUMNS, GRID_GUTTER, Placeholder, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -33,7 +32,7 @@ export const LiveDemo = () => (
   <Frame title="live demo">
     <Grid columns={GRID_COLUMNS.quad} gutter={GRID_GUTTER.sm}>
       {Array.from({ length: 8 }).map((_, index) => (
-        <Placeholder key={index} color={color.interactive.default}>
+        <Placeholder key={index} color={tokens.color.interactive.default}>
           {index + 1}
         </Placeholder>
       ))}
@@ -48,16 +47,16 @@ export const Columns = () => (
         <div key={columns}>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             columns: {columns}
           </div>
           <Grid columns={columns} gutter={GRID_GUTTER.sm}>
             {Array.from({ length: 8 }).map((_, index) => (
-              <Placeholder key={index} color={color.interactive.default}>
+              <Placeholder key={index} color={tokens.color.interactive.default}>
                 {index + 1}
               </Placeholder>
             ))}
@@ -75,16 +74,16 @@ export const Gutter = () => (
         <div key={gutter}>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             gutter: {gutter}
           </div>
           <Grid columns={GRID_COLUMNS.quad} gutter={gutter}>
             {Array.from({ length: 8 }).map((_, index) => (
-              <Placeholder key={index} color={color.interactive.default}>
+              <Placeholder key={index} color={tokens.color.interactive.default}>
                 {index + 1}
               </Placeholder>
             ))}
@@ -106,7 +105,7 @@ export const DashboardCardsExample = () => (
   <Frame title="dashboard cards">
     <Grid columns={GRID_COLUMNS.triple} gutter={GRID_GUTTER.md}>
       {['Revenue', 'Orders', 'Conversion', 'Users', 'Retention', 'Support'].map((label) => (
-        <Placeholder key={label} color={color.background.secondary}>
+        <Placeholder key={label} color={tokens.color.background.secondary}>
           {label}
         </Placeholder>
       ))}
@@ -118,7 +117,7 @@ export const ImageGalleryExample = () => (
   <Frame title="image gallery (responsive-ish)">
     <Grid columns={GRID_COLUMNS.quad} gutter={GRID_GUTTER.sm}>
       {Array.from({ length: 12 }).map((_, index) => (
-        <Placeholder key={index} color={color.background.secondary} height="large">
+        <Placeholder key={index} color={tokens.color.background.secondary} height="large">
           Item {index + 1}
         </Placeholder>
       ))}

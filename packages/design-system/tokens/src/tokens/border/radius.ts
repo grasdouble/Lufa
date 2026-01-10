@@ -11,29 +11,29 @@
  * Common combinations: sm + lg, or md + xl
  */
 
-import { radius as primitiveRadius } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const radius = {
   /** 0px - No rounding (sharp corners) */
-  none: primitiveRadius[0],
+  none: primitives.radius[0],
   /** 2px - Subtle rounding */
-  xs: primitiveRadius[2],
+  xs: primitives.radius[2],
   /** 4px - Small rounding (inputs, small buttons) */
-  sm: primitiveRadius[4],
+  sm: primitives.radius[4],
   /** 6px - Medium rounding */
-  md: primitiveRadius[6],
+  md: primitives.radius[6],
   /** 8px - Base rounding (cards, buttons, modals) */
-  base: primitiveRadius[8],
+  base: primitives.radius[8],
   /** 12px - Large rounding (panels, large cards) */
-  lg: primitiveRadius[12],
+  lg: primitives.radius[12],
   /** 16px - Extra large rounding */
-  xl: primitiveRadius[16],
+  xl: primitives.radius[16],
   /** 24px - Very large rounding (hero sections) */
-  '2xl': primitiveRadius[24],
+  '2xl': primitives.radius[24],
   /** 32px - Huge rounding (feature cards) */
-  '3xl': primitiveRadius[32],
+  '3xl': primitives.radius[32],
   /** 9999px - Fully rounded (pills, badges, avatars) */
-  full: primitiveRadius[9999],
+  full: primitives.radius[9999],
 } as const;
 
 export type Radius = keyof typeof radius;

@@ -42,8 +42,8 @@ To create a new theme:
 2. Define your color palette using the semantic variable names:
    \`\`\`css
    :root[data-theme='purple'] {
-       --color-interactive-default: #9333ea;
-       --color-interactive-hover: #7e22ce;
+       --color-interactive-default: var(--lufa-primitive-color-chromatic-purple-600);
+       --color-interactive-hover: var(--lufa-primitive-color-chromatic-purple-700);
        /* ... all other semantic colors ... */
    }
    \`\`\`

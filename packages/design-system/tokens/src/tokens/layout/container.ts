@@ -39,23 +39,23 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html|WCAG 2.1 - Resize Text}
  */
 
-import { maxWidth as primitiveMaxWidth } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const container = {
   /** Extra small - 384px (narrow forms, alerts) */
-  xs: primitiveMaxWidth[384],
+  xs: primitives.maxWidth[384],
   /** Small - 448px (compact content sections) */
-  sm: primitiveMaxWidth[448],
+  sm: primitives.maxWidth[448],
   /** Medium - 672px (standard content width) */
-  md: primitiveMaxWidth[672],
+  md: primitives.maxWidth[672],
   /** Large - 1024px (wide content areas) */
-  lg: primitiveMaxWidth[1024],
+  lg: primitives.maxWidth[1024],
   /** Extra large - 1280px (full-width layouts) */
-  xl: primitiveMaxWidth[1280],
+  xl: primitives.maxWidth[1280],
   /** Full - 100% (edge-to-edge content) */
-  full: primitiveMaxWidth.full,
+  full: primitives.maxWidth.full,
   /** Fluid - no max-width (grows with viewport) */
-  fluid: primitiveMaxWidth.none,
+  fluid: primitives.maxWidth.none,
 } as const;
 
 export type Container = keyof typeof container;

@@ -1,25 +1,24 @@
 import React from 'react';
 
-import { Breadcrumb, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Breadcrumb, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -49,9 +48,9 @@ export const Size = () => (
         <div key={size}>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             size: {size}
@@ -73,9 +72,9 @@ export const Separator = () => (
         <div key={separator}>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             separator: {JSON.stringify(separator)}
@@ -124,7 +123,7 @@ export const CompactHeaderExample = () => (
         size="small"
         items={[{ label: 'Home', href: '/' }, { label: 'Settings', href: '/settings' }, { label: 'Security' }]}
       />
-      <div style={{ fontWeight: 700 }}>Security</div>
+      <div style={{ fontWeight: tokens.fontWeight.bold }}>Security</div>
     </Stack>
   </Frame>
 );

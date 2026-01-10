@@ -10,29 +10,29 @@
  * - touchTarget (44px): WCAG minimum for interactive elements
  */
 
-import { size as primitiveSize } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const size = {
   /** 0px - No size */
-  none: primitiveSize[0],
+  none: primitives.size[0],
   /** 16px - Extra small (tiny icons, indicators) */
-  xs: primitiveSize[16],
+  xs: primitives.size[16],
   /** 24px - Small (small buttons, small avatars) */
-  sm: primitiveSize[24],
+  sm: primitives.size[24],
   /** 32px - Medium (default buttons, icons) */
-  md: primitiveSize[32],
+  md: primitives.size[32],
   /** 44px - WCAG minimum touch target */
-  touchTarget: primitiveSize[44],
+  touchTarget: primitives.size[44],
   /** 48px - Large (large buttons, avatars) */
-  lg: primitiveSize[48],
+  lg: primitives.size[48],
   /** 64px - Extra large (feature icons, large avatars) */
-  xl: primitiveSize[64],
+  xl: primitives.size[64],
   /** 96px - 2x large (hero icons, profile pictures) */
-  '2xl': primitiveSize[96],
+  '2xl': primitives.size[96],
   /** 128px - 3x large (large images, logos) */
-  '3xl': primitiveSize[128],
+  '3xl': primitives.size[128],
   /** 192px - 4x large (thumbnails, product images) */
-  '4xl': primitiveSize[192],
+  '4xl': primitives.size[192],
 } as const;
 
 export type Size = keyof typeof size;

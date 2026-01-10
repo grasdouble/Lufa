@@ -1,25 +1,24 @@
 import React from 'react';
 
-import { Link, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Link, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -52,9 +51,9 @@ export const Variant = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           default
@@ -64,9 +63,9 @@ export const Variant = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           underline
@@ -78,9 +77,9 @@ export const Variant = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           button
@@ -111,7 +110,7 @@ export const Color = () => (
       <Link color="danger" href="/page">
         Danger link
       </Link>
-      <Link color="inherit" href="/page" style={{ color: '#e91e63' }}>
+      <Link color="inherit" href="/page" style={{ color: tokens.color.brand.accent }}>
         Inherit color
       </Link>
     </Stack>
@@ -135,7 +134,7 @@ export const Size = () => (
 );
 
 const ArrowRightIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+  <svg width={tokens.iconSize.xs} height={tokens.iconSize.xs} viewBox="0 0 20 20" fill="currentColor" aria-hidden>
     <path
       fillRule="evenodd"
       d="M10.293 3.293a1 1 0 011.414 0l6 6a.997.997 0 01.083.094 1 1 0 010 1.226.997.997 0 01-.083.094l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"

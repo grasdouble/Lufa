@@ -1,10 +1,11 @@
 {
-  "editor.defaultFormatter": "prettier.prettier-vscode",
-  "editor.formatOnSave": true,
-  "prettier.configPath": "./packages/config/prettier/prettier.config.mjs",
+  // Tailwind CSS Settings
   "files.associations": {
     "*.css": "tailwindcss"
   },
+  // Editor Settings
+  "editor.defaultFormatter": "prettier.prettier-vscode",
+  "editor.formatOnSave": true,
   "editor.quickSuggestions": {
     "strings": "on"
   },
@@ -14,10 +15,38 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
+  // SCM Settings
+  "scm.repositories.selectionMode": "single",
+  "scm.repositories.explorer": true,
+  // GitHub Copilot Settings
+  "github.copilot.enable": { "*": true },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.chat.newWorkspace.useContext7": true,
+  // AI Settings
+  "chat.mcp.gallery.enabled": true,
+  "chat.tools.terminal.autoApprove": {
+    "pnpm": true
+  },
+  "chat.checkpoints.showFileChanges": true,
+  "chat.customAgentInSubagent.enabled": true,
+  "chat.useAgentSkills": true,
+  "chat.agent.codeBlockProgress": true,
+  "chat.viewSessions.orientation": "sideBySide",
+  "chat.viewRestorePreviousSession": true,
+  "chat.tools.terminal.enableAutoApprove": true,
+  "chat.tools.terminal.autoApproveWorkspaceNpmScripts": true,
+  "chat.tools.terminal.preventShellHistory": true,
+  // GitLens AI Settings
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  // Lufa Design System Preview Settings
   "lufaDsPreview": {
     "debug": true,
     "primitivesMapPath": "./packages/design-system/primitives/dist/primitives.map.json",
     "tokensMapPath": "./packages/design-system/tokens/dist/tokens.map.json"
   },
+  // Prettier Settings
+  "prettier.configPath": "./packages/config/prettier/prettier.config.mjs",
+  // ESLint Settings
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }

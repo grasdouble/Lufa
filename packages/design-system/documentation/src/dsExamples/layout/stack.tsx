@@ -9,27 +9,25 @@ import {
   STACK_JUSTIFY,
   STACK_PADDING,
   STACK_WRAP,
-  tokens,
 } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -42,9 +40,9 @@ const Frame = ({ title, children }: { title?: string; children: React.ReactNode 
 export const LiveDemo = () => (
   <Frame title="live demo">
     <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
-      <Placeholder color={color.interactive.default}>Item 1</Placeholder>
-      <Placeholder color={color.interactive.default}>Item 2</Placeholder>
-      <Placeholder color={color.interactive.default}>Item 3</Placeholder>
+      <Placeholder color={tokens.color.interactive.default}>Item 1</Placeholder>
+      <Placeholder color={tokens.color.interactive.default}>Item 2</Placeholder>
+      <Placeholder color={tokens.color.interactive.default}>Item 3</Placeholder>
     </Stack>
   </Frame>
 );
@@ -55,53 +53,53 @@ export const Direction = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           horizontal
         </div>
         <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal}>
-          <Placeholder color={color.interactive.default}>A</Placeholder>
-          <Placeholder color={color.interactive.default}>B</Placeholder>
-          <Placeholder color={color.interactive.default}>C</Placeholder>
+          <Placeholder color={tokens.color.interactive.default}>A</Placeholder>
+          <Placeholder color={tokens.color.interactive.default}>B</Placeholder>
+          <Placeholder color={tokens.color.interactive.default}>C</Placeholder>
         </Stack>
       </div>
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           vertical
         </div>
         <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-          <Placeholder color={color.success.default}>A</Placeholder>
-          <Placeholder color={color.success.default}>B</Placeholder>
-          <Placeholder color={color.success.default}>C</Placeholder>
+          <Placeholder color={tokens.color.success.default}>A</Placeholder>
+          <Placeholder color={tokens.color.success.default}>B</Placeholder>
+          <Placeholder color={tokens.color.success.default}>C</Placeholder>
         </Stack>
       </div>
     </div>
@@ -114,7 +112,7 @@ export const Gap = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       {(
@@ -127,25 +125,25 @@ export const Gap = () => (
         <div
           key={label}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${color.border.light}`,
-            background: '#fff',
-            padding: 12,
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
+            padding: tokens.spacing.md,
           }}
         >
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             gap: {label}
           </div>
           <Stack direction={STACK_DIRECTION.vertical} gap={gap}>
-            <Placeholder color={color.background.secondary}>Item</Placeholder>
-            <Placeholder color={color.background.secondary}>Item</Placeholder>
-            <Placeholder color={color.background.secondary}>Item</Placeholder>
+            <Placeholder color={tokens.color.background.secondary}>Item</Placeholder>
+            <Placeholder color={tokens.color.background.secondary}>Item</Placeholder>
+            <Placeholder color={tokens.color.background.secondary}>Item</Placeholder>
           </Stack>
         </div>
       ))}
@@ -157,29 +155,29 @@ export const Align = () => (
   <Frame title="align">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} align={STACK_ALIGN.center}>
-        <Placeholder color={color.background.secondary} height="small">
+        <Placeholder color={tokens.color.background.secondary} height="small">
           A
         </Placeholder>
-        <Placeholder color={color.interactive.default} height="large">
+        <Placeholder color={tokens.color.interactive.default} height="large">
           B
         </Placeholder>
-        <Placeholder color={color.background.secondary} height="medium">
+        <Placeholder color={tokens.color.background.secondary} height="medium">
           C
         </Placeholder>
       </Stack>
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          fontSize: 12,
-          marginTop: 10,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          fontSize: tokens.fontSize.xs,
+          marginTop: tokens.spacing['sm-md'],
         }}
       >
         align: center
@@ -201,17 +199,17 @@ export const Justify = () => (
         <div
           key={label}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${color.border.light}`,
-            background: '#fff',
-            padding: 12,
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
+            padding: tokens.spacing.md,
           }}
         >
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             justify: {label}
@@ -222,8 +220,8 @@ export const Justify = () => (
             align={STACK_ALIGN.center}
             justify={justify}
           >
-            <Placeholder color={color.interactive.default}>Left</Placeholder>
-            <Placeholder color={color.interactive.default}>Right</Placeholder>
+            <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
+            <Placeholder color={tokens.color.interactive.default}>Right</Placeholder>
           </Stack>
         </div>
       ))}
@@ -235,10 +233,10 @@ export const Wrap = () => (
   <Frame title="wrap">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <Stack
@@ -248,17 +246,17 @@ export const Wrap = () => (
         align={STACK_ALIGN.start}
       >
         {Array.from({ length: 12 }).map((_, index) => (
-          <Placeholder key={index} color={color.brand.secondary}>
+          <Placeholder key={index} color={tokens.color.brand.secondary}>
             {index + 1}
           </Placeholder>
         ))}
       </Stack>
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          fontSize: 12,
-          marginTop: 10,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          fontSize: tokens.fontSize.xs,
+          marginTop: tokens.spacing['sm-md'],
         }}
       >
         wrap: wrap
@@ -273,7 +271,7 @@ export const Padding = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       {(
@@ -286,22 +284,22 @@ export const Padding = () => (
         <div
           key={label}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${color.border.light}`,
-            background: '#fff',
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
           }}
         >
           <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.condensed} padding={padding}>
-            <Placeholder color={color.background.secondary}>Item</Placeholder>
-            <Placeholder color={color.background.secondary}>Item</Placeholder>
+            <Placeholder color={tokens.color.background.secondary}>Item</Placeholder>
+            <Placeholder color={tokens.color.background.secondary}>Item</Placeholder>
           </Stack>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              fontSize: 12,
-              padding: 12,
-              paddingTop: 0,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              fontSize: tokens.fontSize.xs,
+              padding: tokens.spacing.md,
+              paddingTop: tokens.spacing.none,
             }}
           >
             padding: {label}
@@ -316,22 +314,22 @@ export const ItemGrow = () => (
   <Frame title="Stack.Item grow">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed} align={STACK_ALIGN.center}>
-        <Placeholder color={color.background.secondary} width="auto">
+        <Placeholder color={tokens.color.background.secondary} width="auto">
           Left
         </Placeholder>
         <Stack.Item grow>
-          <Placeholder color={color.interactive.default} width="full">
+          <Placeholder color={tokens.color.interactive.default} width="full">
             Grows
           </Placeholder>
         </Stack.Item>
-        <Placeholder color={color.background.secondary} width="auto">
+        <Placeholder color={tokens.color.background.secondary} width="auto">
           Right
         </Placeholder>
       </Stack>
@@ -355,10 +353,10 @@ export const ToolbarExample = () => (
   <Frame title="toolbar">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <Stack
@@ -368,18 +366,18 @@ export const ToolbarExample = () => (
         gap={STACK_GAP.normal}
       >
         <Stack direction={STACK_DIRECTION.horizontal} align={STACK_ALIGN.center} gap={STACK_GAP.condensed}>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             Logo
           </Placeholder>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             Search
           </Placeholder>
         </Stack>
         <Stack direction={STACK_DIRECTION.horizontal} align={STACK_ALIGN.center} gap={STACK_GAP.condensed}>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             Help
           </Placeholder>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             Profile
           </Placeholder>
         </Stack>
@@ -398,7 +396,7 @@ export const WrappingChipsExample = () => (
     >
       {['Design', 'Dev', 'Marketing', 'Ops', 'Finance', 'QA', 'Support', 'Security', 'Legal', 'Product'].map(
         (label) => (
-          <Placeholder key={label} color={color.background.secondary} width="auto">
+          <Placeholder key={label} color={tokens.color.background.secondary} width="auto">
             {label}
           </Placeholder>
         )

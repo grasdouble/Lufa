@@ -1,25 +1,24 @@
 import React from 'react';
 
-import { Button, Card, Stack, tokens, Typography } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Button, Card, Stack, Typography } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -45,7 +44,7 @@ export const Variant = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: '16px',
+        gap: tokens.spacing.base,
       }}
     >
       <Card variant="default" title="Default">
@@ -114,9 +113,9 @@ export const Interactive = () => (
           </Typography>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              fontSize: 12,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              fontSize: tokens.fontSize.xs,
             }}
           >
             (Check console)
@@ -134,7 +133,7 @@ export const FooterActionsExample = () => (
       title="Card with actions"
       subtitle="Footer actions"
       footer={
-        <div style={{ display: 'flex', gap: 8 }}>
+        <div style={{ display: 'flex', gap: tokens.spacing.sm }}>
           <Button variant="solid">Primary</Button>
           <Button variant="text">Cancel</Button>
         </div>
@@ -162,9 +161,9 @@ export const ClickableCardExample = () => (
         </Typography>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            fontSize: 12,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            fontSize: tokens.fontSize.xs,
           }}
         >
           (Check console)

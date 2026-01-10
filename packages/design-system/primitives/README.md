@@ -17,52 +17,41 @@ pnpm add @grasdouble/lufa_design-system-primitives
 
 ## Philosophy
 
-Primitives use **actual values as keys** (e.g., `spacing[16]`, `timing[150]`, `fontSize[24]`) for maximum clarity and predictability. They are intentionally non-semantic—use `@grasdouble/lufa_design-system-tokens` for semantic names like `compact`, `default`, `large`.
+Primitives use **actual values as keys** for numeric scales (e.g., `spacing[16]`, `timing[150]`, `fontSize[24]`) for maximum clarity and predictability. For rhythm/optical scales, descriptive keys are used (e.g., `lineHeight.body`, `letterSpacing.readable`, `blur.none`). They are intentionally non-semantic—use `@grasdouble/lufa_design-system-tokens` for semantic names like `compact`, `default`, `large`.
 
 ## Usage
 
 ### TypeScript/JavaScript
 
 ```typescript
-import {
-  borderWidth,
-  fontSize,
-  fontWeight,
-  iconSize,
-  iconStroke,
-  maxWidth,
-  radius,
-  shadow,
-  spacing,
-  timing,
-} from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 // Spacing uses pixel values as keys
-const padding = spacing[16]; // "16px"
-const margin = spacing[24]; // "24px"
-const gap = spacing[72]; // "72px"
+const padding = primitives.spacing[16]; // "16px"
+const margin = primitives.spacing[24]; // "24px"
+const gap = primitives.spacing[72]; // "72px"
 
 // Timing uses millisecond values as keys
-const transition = timing[150]; // "150ms"
-const animation = timing[400]; // "400ms"
+const transition = primitives.timing[150]; // "150ms"
+const animation = primitives.timing[400]; // "400ms"
 
 // Border widths use pixel values
-const border = borderWidth[1]; // "1px"
-const focusBorder = borderWidth[3]; // "3px"
+const border = primitives.borderWidth[1]; // "1px"
+const focusBorder = primitives.borderWidth[3]; // "3px"
 
 // Typography uses pixel/numeric values
-const body = fontSize[16]; // "1rem" (16px)
-const heading = fontSize[24]; // "1.5rem" (24px)
-const bold = fontWeight[700]; // 700
+const body = primitives.fontSize[16]; // "1rem" (16px)
+const heading = primitives.fontSize[24]; // "1.5rem" (24px)
+const bold = primitives.fontWeight[700]; // 700
 
 // Icons use pixel sizes
-const iconSmall = iconSize[16]; // 16
-const iconDefault = iconSize[24]; // 24
-const iconStrokeDefault = iconStroke['1-5']; // 1.5
+const iconSmall = primitives.iconSize[16]; // 16
+const iconDefault = primitives.iconSize[24]; // 24
+const iconStrokeDefault = primitives.iconStroke['1-5']; // 1.5
 
 // Layout uses pixel values (in rem)
-const containerWidth = maxWidth[768]; // "48rem"
-const modalWidth = maxWidth[600]; // "37.5rem"
+const containerWidth = primitives.maxWidth[768]; // "48rem"
+const modalWidth = primitives.maxWidth[600]; // "37.5rem"
 ```
 
 ### CSS Custom Properties
@@ -71,7 +60,7 @@ const modalWidth = maxWidth[600]; // "37.5rem"
 @import '@grasdouble/lufa_design-system-primitives/style.css';
 
 .my-element {
-  /* Spacing: --lufa-primitive-spacing-{pixels} */
+  /* Spacing: --lufa-primitive-spacing-{value} */
   padding: var(--lufa-primitive-spacing-16);
   margin: var(--lufa-primitive-spacing-24);
   gap: var(--lufa-primitive-spacing-8);
@@ -86,7 +75,7 @@ const modalWidth = maxWidth[600]; // "37.5rem"
   font-size: var(--lufa-primitive-font-size-16);
   font-weight: var(--lufa-primitive-font-weight-700);
 
-  /* Layout: --lufa-primitive-max-width-{pixels} */
+  /* Layout: --lufa-primitive-max-width-{value} */
   max-width: var(--lufa-primitive-max-width-768);
 
   /* Radius: --lufa-primitive-radius-{pixels} */
@@ -100,7 +89,7 @@ const modalWidth = maxWidth[600]; // "37.5rem"
 
 ## Primitive Categories
 
-### 🎨 **Border** (17 tokens)
+### 🎨 **Border** (21 tokens)
 
 - **borderWidth** (6) - `0`, `1`, `2`, `3`, `4`, `8` (pixels)
 - **borderStyle** (5) - `solid`, `dashed`, `dotted`, `double`, `none`
@@ -108,20 +97,22 @@ const modalWidth = maxWidth[600]; // "37.5rem"
 
 ### 🌈 **Color** (246 tokens)
 
-- **chromatic** (187) - 11 color palettes × 17 shades each
-  - Palettes: `blue`, `green`, `orange`, `red`, `purple`, `teal`, `yellow`, `pink`, `indigo`, `cyan`, `lime`
-  - Shades: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950` + variants
-- **neutral** (59) - Gray scale from `0` (black) to `1000` (white)
-  - Full range: `0`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`, `1000` + variants
+- **chromatic** (187) - 17 color palettes × 11 shades each
+  - Palettes: `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`
+  - Shades: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`
+- **neutral** (59) - Neutral palettes + grayscale
+  - Palettes: `slate`, `gray`, `zinc`, `stone` (shades `50-950`)
+  - Scale: `neutral` (`0`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`, `1000`)
+  - Single values: `black`, `white`
 
 ### ✨ **Effects** (14 tokens)
 
-- **blur** (7) - `4`, `8`, `12`, `16`, `24`, `40`, `64` (pixels)
+- **blur** (7) - `none`, `4`, `8`, `12`, `16`, `24`, `40` (pixels)
 - **opacity** (7) - `0`, `10`, `25`, `50`, `75`, `90`, `100` (percentage)
 
 ### 📐 **Elevation** (20 tokens)
 
-- **shadow** (10) - `xs`, `sm`, `md`, `base`, `lg`, `xl`, `2xl`, `inner`, `none`, `focus`
+- **shadow** (10) - `none`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`
 - **zIndex** (10) - `0`, `10`, `20`, `30`, `40`, `50`, `100`, `500`, `900`, `9999`
 
 ### 🔷 **Icon** (11 tokens)
@@ -132,33 +123,32 @@ const modalWidth = maxWidth[600]; // "37.5rem"
 ### 📏 **Layout** (20 tokens)
 
 - **breakpoint** (6) - `480`, `768`, `1024`, `1280`, `1440`, `1920` (pixels)
-- **grid.columns** (8) - `1` to `12`
+- **grid.columns** (8) - `1`, `2`, `3`, `4`, `6`, `8`, `12`, `16`
 - **grid.gutters** (6) - `0`, `8`, `16`, `24`, `32`, `48` (pixels)
-- **aspectRatio** (8) - Common ratios (`square`, `video`, `portrait`, `ultraWide`, etc.)
 
 ### 🎬 **Motion** (17 tokens)
 
-- **easing** (4) - `linear`, `ease-in`, `ease-out`, `ease-in-out` (cubic-bezier curves)
+- **easing** (4) - `easeIn`, `easeOut`, `easeInOut`, `gentle` (cubic-bezier curves)
 - **timing** (13) - `0`, `50`, `75`, `100`, `150`, `200`, `250`, `300`, `400`, `500`, `600`, `800`, `1000` (milliseconds)
 
-### 📦 **Space** (60 tokens)
+### 📦 **Space** (62 tokens)
 
 - **spacing** (21) - `0`, `2`, `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `28`, `32`, `40`, `48`, `56`, `64`, `72`, `80`, `96`, `120`, `128` (pixels)
-- **size** (10) - `0`, `4`, `8`, `16`, `32`, `44`, `64`, `96`, `128`, `192` (pixels for component sizes)
+- **size** (10) - `0`, `16`, `24`, `32`, `44`, `48`, `64`, `96`, `128`, `192` (pixels for component sizes)
 - **maxWidth** (23) - `256`, `288`, `320`, `360`, `384`, `400`, `448`, `512`, `576`, `600`, `640`, `672`, `768`, `800`, `896`, `960`, `1024`, `1152`, `1200`, `1280`, `1440` + `full`, `none` (pixels/rem)
+- **aspectRatio** (8) - `square`, `traditionalPhotoMonitor`, `classicPhotography`, `widescreenVideo`, `ultrawide`, `vertical`, `portraitPhoto`, `portraitDisplay`
 
-### ✍️ **Typography** (42 tokens)
+### ✍️ **Typography** (37 tokens)
 
-- **fontFamily** (3) - `sans`, `serif`, `mono`
 - **fontSize** (13) - `12`, `14`, `16`, `18`, `20`, `24`, `30`, `36`, `48`, `60`, `72`, `96`, `128` (pixels/rem)
 - **fontWeight** (9) - `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`
-- **lineHeight** (6) - `1`, `1.2`, `1.35`, `1.5`, `1.65`, `1.8`
-- **letterSpacing** (6) - `-0.02em`, `-0.01em`, `0em`, `0.01em`, `0.04em`, `0.08em`
+- **lineHeight** (6) - `tight`, `heading`, `display`, `body`, `reading`, `dyslexia`
+- **letterSpacing** (6) - `tight`, `heading`, `normal`, `relaxed`, `readable`, `dyslexia`
 - **fontFamily** (3) - `sans`, `serif`, `mono`
 
 ## Total: 448 Primitive Tokens
 
-All primitives use **actual measurement values as keys** for maximum clarity and predictability. They serve as the foundation for semantic tokens in `@grasdouble/lufa_design-system-tokens`.
+Most primitives use **actual measurement values as keys** for maximum clarity and predictability, with descriptive keys reserved for rhythm/optical scales (line height, letter spacing) and explicit `none` values. They serve as the foundation for semantic tokens in `@grasdouble/lufa_design-system-tokens`.
 
 ## Key Principles
 

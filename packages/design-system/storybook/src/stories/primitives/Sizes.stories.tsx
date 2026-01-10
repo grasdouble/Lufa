@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { size } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Sizes',
@@ -17,13 +17,13 @@ export const AllSizes: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Sizes Primitives</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
         Fixed size values for element-level dimensions: icons, buttons, avatars, and touch targets. Includes WCAG 2.5.5
         minimum touch target size (44px).
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(size).map(([key, value]) => {
+        {Object.entries(primitives.size).map(([key, value]) => {
           const sizeNum = Number(key);
           const isTouchTarget = sizeNum === 44;
 
@@ -36,24 +36,28 @@ export const AllSizes: Story = {
                 gap: '24px',
                 alignItems: 'center',
                 padding: '16px',
-                backgroundColor: '#FAFAFA',
+                backgroundColor: primitives.color.neutral.neutral[50],
                 borderRadius: '8px',
-                border: isTouchTarget ? '2px solid #2563EB' : '1px solid #E5E5E5',
+                border: isTouchTarget
+                  ? `2px solid ${primitives.color.chromatic.blue[600]}`
+                  : `1px solid ${primitives.color.neutral.neutral[200]}`,
               }}
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>size[{key}]</div>
-              <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
+              <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+                {value}
+              </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div
                   style={{
                     width: value,
                     height: value,
-                    backgroundColor: isTouchTarget ? '#2563EB' : '#3B82F6',
+                    backgroundColor: isTouchTarget ? primitives.color.chromatic.blue[600] : primitives.color.chromatic.blue[500],
                     borderRadius: '6px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'white',
+                    color: primitives.color.neutral.white,
                     fontSize: Math.min(Number(key) / 3, 16) + 'px',
                     fontWeight: '600',
                     flexShrink: 0,
@@ -61,7 +65,7 @@ export const AllSizes: Story = {
                 >
                   {key}
                 </div>
-                <div style={{ fontSize: '12px', color: '#737373' }}>
+                <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>
                   {sizeNum === 0 && 'Zero size - collapse element'}
                   {sizeNum === 16 && 'Small icons'}
                   {sizeNum === 24 && 'Standard icons, small avatars'}
@@ -83,9 +87,9 @@ export const AllSizes: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: '#DBEAFE',
+          backgroundColor: primitives.color.chromatic.blue[100],
           borderRadius: '12px',
-          border: '1px solid #60A5FA',
+          border: `1px solid ${primitives.color.chromatic.blue[400]}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>WCAG 2.5.5 - Touch Target Size</h3>
@@ -100,9 +104,9 @@ export const AllSizes: Story = {
         style={{
           marginTop: '24px',
           padding: '24px',
-          backgroundColor: '#FEF3C7',
+          backgroundColor: primitives.color.chromatic.orange[100],
           borderRadius: '12px',
-          border: '1px solid #FCD34D',
+          border: `1px solid ${primitives.color.chromatic.orange[300]}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>Usage Guidelines</h3>
@@ -142,14 +146,14 @@ export const UsageExamples: Story = {
           <div key={size} style={{ textAlign: 'center' }}>
             <div
               style={{
-                width: size[size as keyof typeof size],
-                height: size[size as keyof typeof size],
-                backgroundColor: '#3B82F6',
+                width: primitives.size[size as keyof typeof primitives.size],
+                height: primitives.size[size as keyof typeof primitives.size],
+                backgroundColor: primitives.color.chromatic.blue[500],
                 borderRadius: '8px',
                 marginBottom: '8px',
               }}
             />
-            <div style={{ fontSize: '12px', color: '#737373' }}>{size}px</div>
+            <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>{size}px</div>
           </div>
         ))}
       </div>
@@ -160,10 +164,10 @@ export const UsageExamples: Story = {
       <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '32px' }}>
         <button
           style={{
-            height: size[32],
+            height: primitives.size[32],
             padding: '0 16px',
-            backgroundColor: '#3B82F6',
-            color: 'white',
+            backgroundColor: primitives.color.chromatic.blue[500],
+            color: primitives.color.neutral.white,
             border: 'none',
             borderRadius: '6px',
             fontSize: '14px',
@@ -174,10 +178,10 @@ export const UsageExamples: Story = {
         </button>
         <button
           style={{
-            height: size[44],
+            height: primitives.size[44],
             padding: '0 20px',
-            backgroundColor: '#2563EB',
-            color: 'white',
+            backgroundColor: primitives.color.chromatic.blue[600],
+            color: primitives.color.neutral.white,
             border: 'none',
             borderRadius: '6px',
             fontSize: '16px',
@@ -188,10 +192,10 @@ export const UsageExamples: Story = {
         </button>
         <button
           style={{
-            height: size[48],
+            height: primitives.size[48],
             padding: '0 24px',
-            backgroundColor: '#1D4ED8',
-            color: 'white',
+            backgroundColor: primitives.color.chromatic.blue[700],
+            color: primitives.color.neutral.white,
             border: 'none',
             borderRadius: '6px',
             fontSize: '16px',
@@ -208,22 +212,22 @@ export const UsageExamples: Story = {
           <div key={size} style={{ textAlign: 'center' }}>
             <div
               style={{
-                width: size[size as keyof typeof size],
-                height: size[size as keyof typeof size],
-                backgroundColor: '#3B82F6',
+                width: primitives.size[size as keyof typeof primitives.size],
+                height: primitives.size[size as keyof typeof primitives.size],
+                backgroundColor: primitives.color.chromatic.blue[500],
                 borderRadius: '50%',
                 marginBottom: '8px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'white',
+                color: primitives.color.neutral.white,
                 fontSize: Math.min(size / 2.5, 24) + 'px',
                 fontWeight: '600',
               }}
             >
               A
             </div>
-            <div style={{ fontSize: '12px', color: '#737373' }}>{size}px</div>
+            <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>{size}px</div>
           </div>
         ))}
       </div>
@@ -234,9 +238,9 @@ export const UsageExamples: Story = {
           type="text"
           placeholder="Small input (32px height)"
           style={{
-            height: size[32],
+            height: primitives.size[32],
             padding: '0 12px',
-            border: '1px solid #D1D5DB',
+            border: `1px solid ${primitives.color.neutral.neutral[300]}`,
             borderRadius: '6px',
             fontSize: '14px',
           }}
@@ -245,9 +249,9 @@ export const UsageExamples: Story = {
           type="text"
           placeholder="Medium input (44px height) ✓ WCAG"
           style={{
-            height: size[44],
+            height: primitives.size[44],
             padding: '0 16px',
-            border: '2px solid #2563EB',
+            border: `2px solid ${primitives.color.chromatic.blue[600]}`,
             borderRadius: '6px',
             fontSize: '16px',
           }}
@@ -256,9 +260,9 @@ export const UsageExamples: Story = {
           type="text"
           placeholder="Large input (48px height)"
           style={{
-            height: size[48],
+            height: primitives.size[48],
             padding: '0 16px',
-            border: '1px solid #D1D5DB',
+            border: `1px solid ${primitives.color.neutral.neutral[300]}`,
             borderRadius: '6px',
             fontSize: '16px',
           }}

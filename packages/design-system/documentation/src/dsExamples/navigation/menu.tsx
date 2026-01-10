@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 
-import { Menu, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Menu, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -66,9 +65,9 @@ export const Mode = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           vertical (default)
@@ -78,9 +77,9 @@ export const Mode = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           horizontal
@@ -90,9 +89,9 @@ export const Mode = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           inline
@@ -109,15 +108,15 @@ export const Theme = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           light
@@ -127,9 +126,9 @@ export const Theme = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           dark
@@ -148,10 +147,10 @@ export const SelectedKey = () => {
       <Menu items={menuItems} selectedKey={selectedKey} onSelect={setSelectedKey} />
       <div
         style={{
-          marginTop: 12,
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          fontSize: 12,
+          marginTop: tokens.spacing.md,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          fontSize: tokens.fontSize.xs,
         }}
       >
         selectedKey: {selectedKey}
@@ -170,11 +169,11 @@ export const HeaderNavExample = () => (
   <Frame title="header navigation">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
-        backgroundColor: color.background.primary,
-        color: color.text.primary,
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        backgroundColor: tokens.color.background.primary,
+        color: tokens.color.text.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <Menu mode="horizontal" items={menuItems} selectedKey="products" />

@@ -79,12 +79,13 @@ You are a design system builder specializing in the Lufa Design System. Your mis
 
 1. **Primitives** (`@grasdouble/lufa_design-system-primitives`)
    - Non-semantic foundational values
-   - Value-based keys: `spacing[16]`, `timing[150]`, `fontSize[24]`
+   - Value-based keys for numeric scales: `spacing[16]`, `timing[150]`, `fontSize[24]`
+   - Descriptive keys where numeric values are awkward: `lineHeight.body`, `letterSpacing.readable`, `blur.none`
    - Export both TypeScript objects and CSS custom properties
 
 2. **Tokens** (`@grasdouble/lufa_design-system-tokens`)
    - Semantic, purpose-driven names
-   - Map to primitives: `spacing.default`, `color.text.primary`
+   - Map to primitives: `spacing.base`, `color.text.primary`
    - Support theming and customization
 
 3. **Components** (`@grasdouble/lufa_design-system`)
@@ -160,8 +161,8 @@ interface {Component}Props extends ComponentPropsWithoutRef<'{element}'> {
 Identify which tokens you'll use:
 
 - Colors: `color.text.*`, `color.background.*`
-- Spacing: `spacing.compact`, `spacing.default`
-- Typography: `fontSize.body`, `fontWeight.semibold`
+- Spacing: `spacing.sm`, `spacing.base`
+- Typography: `fontSize.base`, `fontWeight.semibold`
 - Motion: `transition.fast`, `cursor.pointer`
 
 **Component Structure:**
@@ -284,65 +285,65 @@ export const {Component} = ({
     justify-content: center;
 
     /* Spacing - use tokens */
-    padding: var(--lufa-spacing-default);
-    gap: var(--lufa-spacing-xs);
+    padding: var(--lufa-token-spacing-base);
+    gap: var(--lufa-token-spacing-xs);
 
     /* Typography - use tokens */
-    font-size: var(--lufa-font-size-body);
-    font-weight: var(--lufa-font-weight-semibold);
-    line-height: var(--lufa-line-height-base);
+    font-size: var(--lufa-token-font-size-base);
+    font-weight: var(--lufa-token-font-weight-semibold);
+    line-height: var(--lufa-token-line-height-base);
 
     /* Visual - use tokens */
-    border-radius: var(--lufa-radius-base);
-    border: var(--lufa-border-width-default) solid transparent;
+    border-radius: var(--lufa-token-radius-base);
+    border: var(--lufa-token-border-width-hairline) solid transparent;
 
     /* Motion - use tokens */
-    transition: var(--lufa-transition-fast);
-    cursor: var(--lufa-cursor-pointer);
+    transition: var(--lufa-token-transition-fast);
+    cursor: var(--lufa-token-cursor-pointer);
   }
 
   /* Hover state */
   .{component-class}:hover:not(:disabled) {
-    transform: var(--lufa-transform-hover-lift);
+    transform: var(--lufa-token-transform-hover-lift);
   }
 
   /* Focus state - accessibility */
   .{component-class}:focus-visible {
-    outline: var(--lufa-border-width-focus) solid var(--lufa-color-border-focus);
-    outline-offset: var(--lufa-spacing-xs);
+    outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
+    outline-offset: var(--lufa-token-spacing-xs);
   }
 
   /* Disabled state */
   .{component-class}:disabled {
-    opacity: var(--lufa-opacity-disabled);
-    cursor: var(--lufa-cursor-not-allowed);
+    opacity: var(--lufa-token-opacity-disabled);
+    cursor: var(--lufa-token-cursor-not-allowed);
   }
 
   /* Variants */
   .{component-class}-primary {
-    background-color: var(--lufa-color-background-primary);
-    color: var(--lufa-color-text-inverse);
+    background-color: var(--lufa-token-color-interactive-default);
+    color: var(--lufa-token-color-text-inverse);
   }
 
   .{component-class}-primary:hover:not(:disabled) {
-    background-color: var(--lufa-color-background-primary-hover);
+    background-color: var(--lufa-token-color-interactive-hover);
   }
 
   .{component-class}-secondary {
-    background-color: var(--lufa-color-background-secondary);
-    color: var(--lufa-color-text-primary);
-    border-color: var(--lufa-color-border-default);
+    background-color: var(--lufa-token-color-background-secondary);
+    color: var(--lufa-token-color-text-primary);
+    border-color: var(--lufa-token-color-border-default);
   }
 
   /* Sizes */
   .{component-class}-sm {
-    padding: var(--lufa-spacing-compact);
-    font-size: var(--lufa-font-size-small);
+    padding: var(--lufa-token-spacing-sm);
+    font-size: var(--lufa-token-font-size-sm);
   }
 
   .{component-class}-lg {
-    padding: var(--lufa-spacing-comfortable);
-    font-size: var(--lufa-font-size-large);
+    padding: var(--lufa-token-spacing-lg);
+    font-size: var(--lufa-token-font-size-lg);
   }
 }
 ```

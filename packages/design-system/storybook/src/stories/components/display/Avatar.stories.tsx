@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Avatar, AvatarGroup } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Display/Avatar',
@@ -66,7 +67,7 @@ export const Playground: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base }}>
       <Avatar src={sampleImage} size="xs" alt="Extra small" />
       <Avatar src={sampleImage} size="sm" alt="Small" />
       <Avatar src={sampleImage} size="md" alt="Medium" />
@@ -78,14 +79,18 @@ export const Sizes: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.xl }}>
       <div style={{ textAlign: 'center' }}>
         <Avatar src={sampleImage} variant="circle" size="lg" />
-        <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Circle</p>
+        <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          Circle
+        </p>
       </div>
       <div style={{ textAlign: 'center' }}>
         <Avatar src={sampleImage} variant="square" size="lg" />
-        <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Square</p>
+        <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          Square
+        </p>
       </div>
     </div>
   ),
@@ -93,46 +98,78 @@ export const Variants: Story = {
 
 export const StatusIndicators: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
       <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: '600' }}>Status Types</h3>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.base,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
+          Status Types
+        </h3>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base }}>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" />
-            <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Online</p>
+            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+              Online
+            </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="away" />
-            <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Away</p>
+            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+              Away
+            </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="busy" />
-            <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Busy</p>
+            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+              Busy
+            </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="offline" />
-            <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Offline</p>
+            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+              Offline
+            </p>
           </div>
         </div>
       </div>
       <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: '600' }}>Status Positions</h3>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.base,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
+          Status Positions
+        </h3>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base }}>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="top" variant="circle" />
-            <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Top (Circle)</p>
+            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+              Top (Circle)
+            </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="bottom" variant="circle" />
-            <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Bottom (Circle)</p>
+            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+              Bottom (Circle)
+            </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="top" variant="square" />
-            <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Top (Square)</p>
+            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+              Top (Square)
+            </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="bottom" variant="square" />
-            <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>Bottom (Square)</p>
+            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+              Bottom (Square)
+            </p>
           </div>
         </div>
       </div>
@@ -143,11 +180,19 @@ export const StatusIndicators: Story = {
 export const CountVariant: Story = {
   render: () => (
     <div>
-      <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>Count Variant</h3>
-      <p style={{ marginBottom: '16px', fontSize: '13px', color: '#737373' }}>
+      <h3
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          fontWeight: tokens.fontWeight.semibold,
+        }}
+      >
+        Count Variant
+      </h3>
+      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
         Display numeric counts instead of images
       </p>
-      <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: tokens.spacing.base, alignItems: 'center' }}>
         <Avatar variant="count" count="+5" size="xs" />
         <Avatar variant="count" count="+10" size="sm" />
         <Avatar variant="count" count="+25" size="md" />
@@ -161,8 +206,16 @@ export const CountVariant: Story = {
 export const GroupBasic: Story = {
   render: () => (
     <div>
-      <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>Basic Avatar Group</h3>
-      <p style={{ marginBottom: '16px', fontSize: '13px', color: '#737373' }}>
+      <h3
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          fontWeight: tokens.fontWeight.semibold,
+        }}
+      >
+        Basic Avatar Group
+      </h3>
+      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
         Avatars automatically overlap without manual styling
       </p>
       <AvatarGroup size="md">
@@ -178,13 +231,23 @@ export const GroupBasic: Story = {
 export const GroupWithCount: Story = {
   render: () => (
     <div>
-      <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>Avatar Group with Count</h3>
-      <p style={{ marginBottom: '16px', fontSize: '13px', color: '#737373' }}>
+      <h3
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          fontWeight: tokens.fontWeight.semibold,
+        }}
+      >
+        Avatar Group with Count
+      </h3>
+      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
         Display remaining avatars count automatically using the max prop
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>max=3 (shows +6 more)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            max=3 (shows +6 more)
+          </p>
           <AvatarGroup size="md" max={3}>
             <Avatar src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc" status="online" />
             <Avatar src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" status="away" />
@@ -198,7 +261,9 @@ export const GroupWithCount: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>max=5 (shows +4 more)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            max=5 (shows +4 more)
+          </p>
           <AvatarGroup size="md" max={5}>
             <Avatar src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc" status="online" />
             <Avatar src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" status="away" />
@@ -219,13 +284,23 @@ export const GroupWithCount: Story = {
 export const GroupSizes: Story = {
   render: () => (
     <div>
-      <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>Avatar Group Sizes</h3>
-      <p style={{ marginBottom: '16px', fontSize: '13px', color: '#737373' }}>
+      <h3
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          fontWeight: tokens.fontWeight.semibold,
+        }}
+      >
+        Avatar Group Sizes
+      </h3>
+      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
         Control size for all avatars in the group
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing['md-lg'] }}>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>Extra Small (xs)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            Extra Small (xs)
+          </p>
           <AvatarGroup size="xs" max={3}>
             <Avatar src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc" />
             <Avatar src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" />
@@ -235,7 +310,9 @@ export const GroupSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>Small (sm)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            Small (sm)
+          </p>
           <AvatarGroup size="sm" max={3}>
             <Avatar src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc" />
             <Avatar src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" />
@@ -245,7 +322,9 @@ export const GroupSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>Medium (md)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            Medium (md)
+          </p>
           <AvatarGroup size="md" max={3}>
             <Avatar src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc" />
             <Avatar src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" />
@@ -255,7 +334,9 @@ export const GroupSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>Large (lg)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            Large (lg)
+          </p>
           <AvatarGroup size="lg" max={3}>
             <Avatar src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc" />
             <Avatar src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" />
@@ -265,7 +346,9 @@ export const GroupSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: '8px', fontSize: '12px', color: '#737373' }}>Extra Large (xl)</p>
+          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            Extra Large (xl)
+          </p>
           <AvatarGroup size="xl" max={3}>
             <Avatar src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc" />
             <Avatar src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" />

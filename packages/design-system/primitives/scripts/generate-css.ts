@@ -3,7 +3,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import type { Token } from './utils/token-helpers.js';
-import * as primitives from '../dist/index.js';
+import primitives from '../dist/index.js';
 import { extractTokens, sortByNaturalKey } from './utils/token-helpers.js';
 
 const __filename = fileURLToPath(import.meta.url);

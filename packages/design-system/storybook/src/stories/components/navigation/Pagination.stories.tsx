@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Pagination, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Pagination, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Navigation/Pagination',
@@ -108,7 +107,7 @@ export const FullFeatured: Story = {
           onChange={setCurrent}
           onPageSizeChange={setPageSize}
         />
-        <div style={{ fontSize: '14px', color: color.text.secondary }}>
+        <div style={{ fontSize: '14px', color: tokens.color.text.secondary }}>
           Showing {(current - 1) * pageSize + 1}-{Math.min(current * pageSize, 500)} of 500 items
         </div>
       </Stack>
@@ -174,12 +173,12 @@ export const DataTable: Story = {
       <div>
         <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '16px' }}>
           <thead>
-            <tr style={{ backgroundColor: color.background.secondary }}>
+            <tr style={{ backgroundColor: tokens.color.background.secondary }}>
               <th
                 style={{
                   padding: '12px',
                   textAlign: 'left',
-                  borderBottom: `2px solid ${color.border.light}`,
+                  borderBottom: `2px solid ${tokens.color.border.light}`,
                 }}
               >
                 ID
@@ -188,7 +187,7 @@ export const DataTable: Story = {
                 style={{
                   padding: '12px',
                   textAlign: 'left',
-                  borderBottom: `2px solid ${color.border.light}`,
+                  borderBottom: `2px solid ${tokens.color.border.light}`,
                 }}
               >
                 Name
@@ -197,7 +196,7 @@ export const DataTable: Story = {
                 style={{
                   padding: '12px',
                   textAlign: 'left',
-                  borderBottom: `2px solid ${color.border.light}`,
+                  borderBottom: `2px solid ${tokens.color.border.light}`,
                 }}
               >
                 Description
@@ -207,9 +206,9 @@ export const DataTable: Story = {
           <tbody>
             {currentData.map((item) => (
               <tr key={item.id}>
-                <td style={{ padding: '12px', borderBottom: `1px solid ${color.border.light}` }}>{item.id}</td>
-                <td style={{ padding: '12px', borderBottom: `1px solid ${color.border.light}` }}>{item.name}</td>
-                <td style={{ padding: '12px', borderBottom: `1px solid ${color.border.light}` }}>{item.description}</td>
+                <td style={{ padding: '12px', borderBottom: `1px solid ${tokens.color.border.light}` }}>{item.id}</td>
+                <td style={{ padding: '12px', borderBottom: `1px solid ${tokens.color.border.light}` }}>{item.name}</td>
+                <td style={{ padding: '12px', borderBottom: `1px solid ${tokens.color.border.light}` }}>{item.description}</td>
               </tr>
             ))}
           </tbody>
