@@ -69,6 +69,183 @@ test.describe('Movie Search Feature', () => {
 });
 ```
 
+## Playwright Component Testing (Playwright CT)
+
+This project uses `@playwright/experimental-ct-react` for component testing in the design system.
+
+### Setup and Configuration
+
+**Test Location**: Co-locate tests with components as `*.spec.tsx`
+**Config File**: `packages/design-system/main/playwright-ct.config.ts`
+**Command**: `pnpm --filter @grasdouble/lufa_design-system test-ct`
+
+### Basic Component Test Structure
+
+```typescript
+import { test, expect } from '@playwright/experimental-ct-react';
+import { Button } from './Button';
+
+test.describe('Button Component', () => {
+  test('renders with correct text', async ({ mount }) => {
+    const component = await mount(<Button>Click me</Button>);
+    await expect(component).toContainText('Click me');
+  });
+
+  test('handles user interactions', async ({ mount }) => {
+    let clicked = false;
+    const component = await mount(
+      <Button onClick={() => { clicked = true; }}>Click</Button>
+    );
+    await component.click();
+    expect(clicked).toBe(true);
+  });
+
+  test('applies variant classes correctly', async ({ mount }) => {
+    const component = await mount(<Button variant="primary">Primary</Button>);
+    await expect(component).toHaveClass(/btn-primary/);
+  });
+
+  test('supports keyboard navigation', async ({ mount }) => {
+    const component = await mount(<Button>Press me</Button>);
+    await component.focus();
+    await expect(component).toBeFocused();
+    await component.press('Enter');
+  });
+});
+```
+
+### Key Differences: Component Testing vs E2E Testing
+
+| Aspect | E2E Testing | Component Testing |
+|--------|-------------|-------------------|
+| **Entry point** | `page.goto(url)` | `mount(<Component />)` |
+| **Scope** | Full application flow | Single component in isolation |
+| **Dependencies** | Real backend/APIs | Mocked via props |
+| **Speed** | Slower (browser + server) | Faster (component only) |
+| **Use case** | User workflows | Component behavior and variants |
+
+### Component Testing Best Practices
+
+1. **Test User-Facing Behavior**: Focus on what users see and interact with, not implementation
+2. **Use Accessible Locators**: Prioritize `getByRole`, `getByLabel`, `getByText`
+3. **Test All Variants**: Ensure each variant (size, color, state) renders correctly
+4. **Test Interactions**: Click, focus, keyboard events, form submissions
+5. **Mock External Dependencies**: Pass mock functions via props instead of real APIs
+6. **Test Accessibility**: Keyboard navigation, ARIA attributes, focus management
+
+### Testing Pattern for Design System Components
+
+```typescript
+import { test, expect } from '@playwright/experimental-ct-react';
+import { TextField } from './TextField';
+
+test.describe('TextField Component', () => {
+  test.describe('Rendering', () => {
+    test('renders with label', async ({ mount }) => {
+      const component = await mount(<TextField label="Email" />);
+      await expect(component.getByText('Email')).toBeVisible();
+    });
+
+    test('renders with placeholder', async ({ mount }) => {
+      const component = await mount(<TextField placeholder="Enter email" />);
+      await expect(component.getByPlaceholder('Enter email')).toBeVisible();
+    });
+  });
+
+  test.describe('User Interactions', () => {
+    test('allows text input', async ({ mount }) => {
+      const component = await mount(<TextField label="Name" />);
+      const input = component.getByRole('textbox');
+      await input.fill('John Doe');
+      await expect(input).toHaveValue('John Doe');
+    });
+
+    test('calls onChange handler', async ({ mount }) => {
+      let value = '';
+      const component = await mount(
+        <TextField onChange={(e) => { value = e.target.value; }} />
+      );
+      await component.getByRole('textbox').fill('test');
+      expect(value).toBe('test');
+    });
+  });
+
+  test.describe('Accessibility', () => {
+    test('associates label with input', async ({ mount }) => {
+      const component = await mount(<TextField label="Email" id="email" />);
+      const input = component.getByLabelText('Email');
+      await expect(input).toHaveAttribute('id', 'email');
+    });
+
+    test('supports keyboard navigation', async ({ mount }) => {
+      const component = await mount(<TextField label="Name" />);
+      await component.getByRole('textbox').press('Tab');
+      // Verify focus moves correctly in your component
+    });
+  });
+
+  test.describe('Error States', () => {
+    test('displays error message', async ({ mount }) => {
+      const component = await mount(
+        <TextField label="Email" error="Invalid email" />
+      );
+      await expect(component.getByText('Invalid email')).toBeVisible();
+    });
+  });
+});
+```
+
+### Running Component Tests
+
+```bash
+# Run all component tests
+pnpm --filter @grasdouble/lufa_design-system test-ct
+
+# Run in UI mode (interactive)
+pnpm --filter @grasdouble/lufa_design-system test-ct --ui
+
+# Run specific test file
+pnpm --filter @grasdouble/lufa_design-system test-ct Button.spec
+
+# Debug mode
+pnpm --filter @grasdouble/lufa_design-system test-ct --debug
+```
+
+### Integration with Storybook
+
+Component tests can leverage Storybook stories:
+
+```typescript
+import { test, expect } from '@playwright/experimental-ct-react';
+import { Primary, Secondary } from './Button.stories';
+
+test('Primary story renders correctly', async ({ mount }) => {
+  const component = await mount(<Primary {...Primary.args} />);
+  await expect(component).toHaveClass(/btn-primary/);
+});
+```
+
+### Component Test Checklist
+
+Before marking component testing complete:
+
+- [ ] All component variants tested (size, color, state)
+- [ ] User interactions tested (click, focus, input)
+- [ ] Accessibility features verified (keyboard, ARIA, labels)
+- [ ] Error states and edge cases covered
+- [ ] Props validation tested
+- [ ] Component renders in isolation without errors
+- [ ] Tests use accessible locators (getByRole preferred)
+- [ ] Test descriptions clearly state intent
+
+### Resources
+
+- [Playwright Component Testing Docs](https://playwright.dev/docs/test-components)
+- [Design System Testing Patterns](../../AGENTS.md#testing-instructions)
+- [Accessibility Testing Guide](a11y.instructions.md)
+
+---
+
 ## Test Execution Strategy
 
 1. **Initial Run**: Execute tests with `npx playwright test --project=chromium`
@@ -86,3 +263,21 @@ Before finalizing tests, ensure:
 - [ ] Assertions are meaningful and reflect user expectations
 - [ ] Tests follow consistent naming conventions
 - [ ] Code is properly formatted and commented
+
+---
+
+## Related Documentation
+
+For comprehensive project documentation, see:
+
+- **[AGENTS.md](../../AGENTS.md)** - Complete development guide
+  - Project overview and architecture
+  - Setup and development workflow
+  - Code patterns and examples
+  - Troubleshooting guides
+
+- **[CLAUDE.md](../../CLAUDE.md)** - Quick reference for Claude Code
+- **[.github/copilot-instructions.md](../copilot-instructions.md)** - GitHub Copilot instructions
+- **[CONTRIBUTING.md](../../CONTRIBUTING.md)** - Contribution workflow
+
+**This file is automatically applied by GitHub Copilot when working in matching file paths.**
