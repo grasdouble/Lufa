@@ -9,27 +9,25 @@ import {
   Placeholder,
   SPACE_SIZE,
   Stack,
-  tokens,
 } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -43,7 +41,7 @@ export const LiveDemo = () => (
   <Frame title="live demo">
     <Flex align={FLEX_ALIGN.center} justify={FLEX_JUSTIFY.between} wrap={FLEX_WRAP.wrap} gap={SPACE_SIZE.sm}>
       {Array.from({ length: 6 }).map((_, i) => (
-        <Placeholder key={i} color={color.interactive.default} width="auto">
+        <Placeholder key={i} color={tokens.color.interactive.default} width="auto">
           Item {i + 1}
         </Placeholder>
       ))}
@@ -57,63 +55,63 @@ export const Direction = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           row
         </div>
         <Flex direction={FLEX_DIRECTION.row} gap={SPACE_SIZE.sm}>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             A
           </Placeholder>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             B
           </Placeholder>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             C
           </Placeholder>
         </Flex>
       </div>
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           column
         </div>
         <Flex direction={FLEX_DIRECTION.column} gap={SPACE_SIZE.sm}>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             A
           </Placeholder>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             B
           </Placeholder>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             C
           </Placeholder>
         </Flex>
@@ -128,7 +126,7 @@ export const Align = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       {(
@@ -141,37 +139,37 @@ export const Align = () => (
         <div
           key={label}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${color.border.light}`,
-            background: '#fff',
-            padding: 12,
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
+            padding: tokens.spacing.md,
           }}
         >
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             align: {label}
           </div>
           <div
             style={{
-              height: 120,
-              borderRadius: 12,
-              outline: `1px dashed ${color.border.light}`,
-              padding: 12,
+              height: tokens.size['3xl'],
+              borderRadius: tokens.radius.lg,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.light}`,
+              padding: tokens.spacing.md,
             }}
           >
-            <Flex align={align} gap={SPACE_SIZE.sm} style={{ height: '100%' }}>
-              <Placeholder color={color.background.secondary} width="auto" height="large">
+            <Flex align={align} gap={SPACE_SIZE.sm} style={{ height: tokens.maxWidth.full }}>
+              <Placeholder color={tokens.color.background.secondary} width="auto" height="large">
                 A
               </Placeholder>
-              <Placeholder color={color.interactive.default} width="auto" height="medium">
+              <Placeholder color={tokens.color.interactive.default} width="auto" height="medium">
                 B
               </Placeholder>
-              <Placeholder color={color.background.secondary} width="auto" height="small">
+              <Placeholder color={tokens.color.background.secondary} width="auto" height="small">
                 C
               </Placeholder>
             </Flex>
@@ -195,29 +193,29 @@ export const Justify = () => (
         <div
           key={label}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${color.border.light}`,
-            background: '#fff',
-            padding: 12,
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
+            padding: tokens.spacing.md,
           }}
         >
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             justify: {label}
           </div>
           <Flex justify={justify} gap={SPACE_SIZE.sm}>
-            <Placeholder color={color.interactive.default} width="auto">
+            <Placeholder color={tokens.color.interactive.default} width="auto">
               A
             </Placeholder>
-            <Placeholder color={color.interactive.default} width="auto">
+            <Placeholder color={tokens.color.interactive.default} width="auto">
               B
             </Placeholder>
-            <Placeholder color={color.interactive.default} width="auto">
+            <Placeholder color={tokens.color.interactive.default} width="auto">
               C
             </Placeholder>
           </Flex>
@@ -231,24 +229,24 @@ export const Wrap = () => (
   <Frame title="wrap">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 8,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.sm,
         }}
       >
         wrap
       </div>
       <Flex wrap={FLEX_WRAP.wrap} gap={SPACE_SIZE.sm}>
         {Array.from({ length: 12 }).map((_, i) => (
-          <Placeholder key={i} color={color.background.secondary} width="auto">
+          <Placeholder key={i} color={tokens.color.background.secondary} width="auto">
             {i + 1}
           </Placeholder>
         ))}
@@ -262,87 +260,87 @@ export const Gap = () => (
     <Stack direction="vertical" gap="normal">
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           gap: md (token)
         </div>
         <Flex gap={SPACE_SIZE.md}>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             A
           </Placeholder>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             B
           </Placeholder>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             C
           </Placeholder>
         </Flex>
       </div>
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          gap: 24 (number)
+          gap: lg (token)
         </div>
-        <Flex gap={24}>
-          <Placeholder color={color.background.secondary} width="auto">
+        <Flex gap={SPACE_SIZE.lg}>
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             A
           </Placeholder>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             B
           </Placeholder>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             C
           </Placeholder>
         </Flex>
       </div>
       <div
         style={{
-          borderRadius: 12,
-          border: `1px solid ${color.border.light}`,
-          background: '#fff',
-          padding: 12,
+          borderRadius: tokens.radius.lg,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          background: tokens.color.background.primary,
+          padding: tokens.spacing.md,
         }}
       >
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          gap: &quot;2rem&quot; (CSS length)
+          gap: spacing.lg (token value)
         </div>
-        <Flex gap="2rem">
-          <Placeholder color={color.background.secondary} width="auto">
+        <Flex gap={tokens.spacing.lg}>
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             A
           </Placeholder>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             B
           </Placeholder>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             C
           </Placeholder>
         </Flex>
@@ -353,23 +351,23 @@ export const Gap = () => (
 
 export const Inline = () => (
   <Frame title="inline">
-    <div style={{ lineHeight: 1.9, color: color.text.primary }}>
+    <div style={{ lineHeight: tokens.lineHeight.loose, color: tokens.color.text.primary }}>
       Text before
-      <Flex inline gap={SPACE_SIZE.xs} align={FLEX_ALIGN.center} style={{ marginInline: 8 }}>
+      <Flex inline gap={SPACE_SIZE.xs} align={FLEX_ALIGN.center} style={{ marginInline: tokens.spacing.sm }}>
         <span
           style={{
-            padding: '2px 10px',
-            borderRadius: 999,
-            background: color.background.secondary,
+            padding: `${tokens.spacing.xxs} ${tokens.spacing['sm-md']}`,
+            borderRadius: tokens.radius.full,
+            background: tokens.color.background.secondary,
           }}
         >
           A
         </span>
         <span
           style={{
-            padding: '2px 10px',
-            borderRadius: 999,
-            background: color.background.secondary,
+            padding: `${tokens.spacing.xxs} ${tokens.spacing['sm-md']}`,
+            borderRadius: tokens.radius.full,
+            background: tokens.color.background.secondary,
           }}
         >
           B
@@ -398,22 +396,22 @@ export const As = () => (
           justify={FLEX_JUSTIFY.between}
           gap={SPACE_SIZE.sm}
           style={{
-            borderRadius: 12,
-            border: `1px solid ${color.border.light}`,
-            background: '#fff',
-            padding: 12,
+            borderRadius: tokens.radius.lg,
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            background: tokens.color.background.primary,
+            padding: tokens.spacing.md,
           }}
         >
           <span
             style={{
-              fontFamily: 'monospace',
-              fontSize: 12,
-              color: color.text.secondary,
+              fontFamily: tokens.fontFamily.mono,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.secondary,
             }}
           >
             {label}
           </span>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             content
           </Placeholder>
         </Flex>
@@ -438,26 +436,26 @@ export const ToolbarExample = () => (
   <Frame title="toolbar">
     <div
       style={{
-        borderRadius: 12,
-        border: `1px solid ${color.border.light}`,
-        background: '#fff',
-        padding: 12,
+        borderRadius: tokens.radius.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        background: tokens.color.background.primary,
+        padding: tokens.spacing.md,
       }}
     >
       <Flex align={FLEX_ALIGN.center} justify={FLEX_JUSTIFY.between} gap={SPACE_SIZE.md}>
         <Flex align={FLEX_ALIGN.center} gap={SPACE_SIZE.sm}>
-          <Placeholder color={color.interactive.default} width="auto">
+          <Placeholder color={tokens.color.interactive.default} width="auto">
             Logo
           </Placeholder>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             Search
           </Placeholder>
         </Flex>
         <Flex align={FLEX_ALIGN.center} gap={SPACE_SIZE.sm}>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             Help
           </Placeholder>
-          <Placeholder color={color.background.secondary} width="auto">
+          <Placeholder color={tokens.color.background.secondary} width="auto">
             Profile
           </Placeholder>
         </Flex>
@@ -470,8 +468,8 @@ export const ResponsiveCardRowExample = () => (
   <Frame title="responsive card row (wrap)">
     <Flex wrap={FLEX_WRAP.wrap} gap={SPACE_SIZE.md}>
       {['Card A', 'Card B', 'Card C', 'Card D', 'Card E'].map((label) => (
-        <div key={label} style={{ width: 220 }}>
-          <Placeholder color={color.background.secondary} height="large">
+        <div key={label} style={{ width: tokens.maxWidth['3xs'] }}>
+          <Placeholder color={tokens.color.background.secondary} height="large">
             {label}
           </Placeholder>
         </div>

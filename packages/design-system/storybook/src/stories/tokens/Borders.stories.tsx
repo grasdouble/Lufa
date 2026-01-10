@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { tokens } from '@grasdouble/lufa_design-system';
-import { borderStyle, borderWidth } from '@grasdouble/lufa_design-system-tokens';
-
-const { color } = tokens;
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Borders',
@@ -20,7 +17,7 @@ export const BorderWidths: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1000px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Border Width Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Standardized border widths for consistent visual weight. Focus borders meet WCAG 2.1 minimum requirements
         (2px+).
       </p>
@@ -33,25 +30,25 @@ export const BorderWidths: Story = {
           marginBottom: '40px',
         }}
       >
-        {Object.entries(borderWidth).map(([key, value]) => (
+        {Object.entries(tokens.borderWidth).map(([key, value]) => (
           <div key={key}>
             <div
               style={{
                 width: '100%',
                 height: '80px',
-                backgroundColor: '#FFFFFF',
+                backgroundColor: tokens.color.surface.default,
                 borderRadius: '8px',
-                border: `${value} solid #3B82F6`,
+                border: `${value} solid ${tokens.color.interactive.focus}`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              <span style={{ fontWeight: '600', color: '#3B82F6' }}>{key}</span>
+              <span style={{ fontWeight: '600', color: tokens.color.interactive.focus }}>{key}</span>
             </div>
             <div style={{ marginTop: '8px', fontSize: '12px' }}>
               <div style={{ fontWeight: '600' }}>{key}</div>
-              <div style={{ color: '#737373', fontFamily: 'monospace' }}>{value}</div>
+              <div style={{ color: tokens.color.text.tertiary, fontFamily: 'monospace' }}>{value}</div>
             </div>
           </div>
         ))}
@@ -60,13 +57,13 @@ export const BorderWidths: Story = {
       <div
         style={{
           padding: '20px',
-          backgroundColor: '#FAFAFA',
+          backgroundColor: tokens.color.background.secondary,
           borderRadius: '8px',
-          border: '1px solid #E5E5E5',
+          border: `1px solid ${tokens.color.border.light}`,
         }}
       >
         <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>WCAG 2.1 Requirements</h3>
-        <p style={{ margin: '0', color: '#737373', fontSize: '14px', lineHeight: '1.6' }}>
+        <p style={{ margin: '0', color: tokens.color.text.tertiary, fontSize: '14px', lineHeight: '1.6' }}>
           <strong>Focus Indicators:</strong> Must be at least 2px thick (borderWidth.thin) and have sufficient contrast
           (3:1 minimum) to meet WCAG 2.4.7 Focus Visible.
         </p>
@@ -79,7 +76,7 @@ export const BorderStyles: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1000px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Border Style Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Standard border styles for different visual treatments.
       </p>
 
@@ -91,25 +88,25 @@ export const BorderStyles: Story = {
           marginBottom: '40px',
         }}
       >
-        {Object.entries(borderStyle).map(([key, value]) => (
+        {Object.entries(tokens.borderStyle).map(([key, value]) => (
           <div key={key}>
             <div
               style={{
                 width: '100%',
                 height: '80px',
-                backgroundColor: '#FFFFFF',
+                backgroundColor: tokens.color.surface.default,
                 borderRadius: '8px',
-                border: `4px ${value} #3B82F6`,
+                border: `4px ${value} ${tokens.color.interactive.focus}`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              <span style={{ fontWeight: '600', color: '#3B82F6' }}>{key}</span>
+              <span style={{ fontWeight: '600', color: tokens.color.interactive.focus }}>{key}</span>
             </div>
             <div style={{ marginTop: '8px', fontSize: '12px' }}>
               <div style={{ fontWeight: '600' }}>{key}</div>
-              <div style={{ color: '#737373', fontFamily: 'monospace' }}>{value}</div>
+              <div style={{ color: tokens.color.text.tertiary, fontFamily: 'monospace' }}>{value}</div>
             </div>
           </div>
         ))}
@@ -131,7 +128,7 @@ export const UsageExamples: Story = {
             placeholder="Default (hairline)"
             style={{
               padding: '10px 12px',
-              border: `${borderWidth.hairline} ${borderStyle.solid} #D1D5DB`,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.default}`,
               borderRadius: '6px',
               fontSize: '14px',
             }}
@@ -141,7 +138,7 @@ export const UsageExamples: Story = {
             placeholder="Focus (3px for visibility)"
             style={{
               padding: '10px 12px',
-              border: `${borderWidth.focus} ${borderStyle.solid} #3B82F6`,
+              border: `${tokens.borderWidth.focus} ${tokens.borderStyle.solid} ${tokens.color.interactive.focus}`,
               borderRadius: '6px',
               fontSize: '14px',
               outline: 'none',
@@ -152,7 +149,7 @@ export const UsageExamples: Story = {
             placeholder="Error (thin)"
             style={{
               padding: '10px 12px',
-              border: `${borderWidth.thin} ${borderStyle.solid} ${color.error.default}`,
+              border: `${tokens.borderWidth.thin} ${tokens.borderStyle.solid} ${tokens.color.error.default}`,
               borderRadius: '6px',
               fontSize: '14px',
             }}
@@ -172,32 +169,36 @@ export const UsageExamples: Story = {
           <div
             style={{
               padding: '20px',
-              border: `${borderWidth.hairline} ${borderStyle.solid} #E5E5E5`,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
               borderRadius: '8px',
             }}
           >
             <strong>Hairline Border</strong>
-            <p style={{ margin: '8px 0 0', fontSize: '14px', color: '#737373' }}>Subtle separation</p>
+            <p style={{ margin: '8px 0 0', fontSize: '14px', color: tokens.color.text.tertiary }}>
+              Subtle separation
+            </p>
           </div>
           <div
             style={{
               padding: '20px',
-              border: `${borderWidth.thin} ${borderStyle.solid} #3B82F6`,
+              border: `${tokens.borderWidth.thin} ${tokens.borderStyle.solid} ${tokens.color.interactive.focus}`,
               borderRadius: '8px',
             }}
           >
             <strong>Thin Border</strong>
-            <p style={{ margin: '8px 0 0', fontSize: '14px', color: '#737373' }}>Emphasized</p>
+            <p style={{ margin: '8px 0 0', fontSize: '14px', color: tokens.color.text.tertiary }}>Emphasized</p>
           </div>
           <div
             style={{
               padding: '20px',
-              border: `${borderWidth.thick} ${borderStyle.dashed} #737373`,
+              border: `${tokens.borderWidth.thick} ${tokens.borderStyle.dashed} ${tokens.color.border.strong}`,
               borderRadius: '8px',
             }}
           >
             <strong>Dashed Border</strong>
-            <p style={{ margin: '8px 0 0', fontSize: '14px', color: '#737373' }}>Placeholder style</p>
+            <p style={{ margin: '8px 0 0', fontSize: '14px', color: tokens.color.text.tertiary }}>
+              Placeholder style
+            </p>
           </div>
         </div>
       </div>
@@ -208,18 +209,23 @@ export const UsageExamples: Story = {
           <div
             style={{
               padding: '12px 0',
-              borderBottom: `${borderWidth.hairline} ${borderStyle.solid} #E5E5E5`,
+              borderBottom: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
             }}
           >
             Hairline divider
           </div>
-          <div style={{ padding: '12px 0', borderBottom: `${borderWidth.thin} ${borderStyle.solid} #D1D5DB` }}>
+          <div
+            style={{
+              padding: '12px 0',
+              borderBottom: `${tokens.borderWidth.thin} ${tokens.borderStyle.solid} ${tokens.color.border.default}`,
+            }}
+          >
             Thin divider
           </div>
           <div
             style={{
               padding: '12px 0',
-              borderBottom: `${borderWidth.hairline} ${borderStyle.dashed} #D1D5DB`,
+              borderBottom: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.default}`,
             }}
           >
             Dashed divider

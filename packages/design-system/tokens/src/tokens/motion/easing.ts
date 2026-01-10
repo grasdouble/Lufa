@@ -33,17 +33,17 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html|WCAG 2.1 - Animation from Interactions}
  */
 
-import { easing as primitiveEasing } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const easing = {
   /** Ease in - Gentle acceleration (elements entering) */
-  easeIn: primitiveEasing.easeIn,
+  easeIn: primitives.easing.easeIn,
   /** Ease out - Gentle deceleration (elements leaving) */
-  easeOut: primitiveEasing.easeOut,
+  easeOut: primitives.easing.easeOut,
   /** Ease in-out - Smooth start and end (reversible) */
-  easeInOut: primitiveEasing.easeInOut,
+  easeInOut: primitives.easing.easeInOut,
   /** Gentle - Smoother, less jarring motion (large movements) */
-  gentle: primitiveEasing.gentle,
+  gentle: primitives.easing.gentle,
 } as const;
 
 export type Easing = keyof typeof easing;

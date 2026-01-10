@@ -1,95 +1,163 @@
+import type { BorderStyle } from './border/borderStyle.js';
+import type { BorderWidth } from './border/borderWidth.js';
+import type { Radius } from './border/radius.js';
+import type { Color } from './color/index.js';
+import type { Blur } from './effects/blur.js';
+import type { Opacity } from './effects/opacity.js';
+import type { Shadow } from './elevation/shadow.js';
+import type { ZIndex } from './elevation/z-index.js';
+import type { IconSize } from './icon/iconSize.js';
+import type { IconStroke } from './icon/iconStroke.js';
+import type { Breakpoint } from './layout/breakpoint.js';
+import type { GridColumns, GridGutters } from './layout/grid.js';
+import type { Easing } from './motion/easing.js';
+import type { Timing } from './motion/timing.js';
+import type { AspectRatio } from './space/aspectRatio.js';
+import type { MaxWidth } from './space/maxWidth.js';
+import type { Size } from './space/sizes.js';
+import type { Spacing } from './space/spacing.js';
+import type { FontFamily } from './typography/fontFamily.js';
+import type { FontSize } from './typography/fontSize.js';
+import type { FontWeight } from './typography/fontWeight.js';
+import type { LetterSpacing } from './typography/letterSpacing.js';
+import type { LineHeight } from './typography/lineHeight.js';
 // ============================================================================
 // BORDER
 // ============================================================================
-export { borderWidth } from './border/borderWidth.js';
-export type { BorderWidth } from './border/borderWidth.js';
 
-export { borderStyle } from './border/borderStyle.js';
-export type { BorderStyle } from './border/borderStyle.js';
-
-export { radius } from './border/radius.js';
-export type { Radius } from './border/radius.js';
-
+import { borderStyle } from './border/borderStyle.js';
+import { borderWidth } from './border/borderWidth.js';
+import { radius } from './border/radius.js';
 // ============================================================================
 // COLOR
 // ============================================================================
-export { color } from './color/index.js';
-export type { Color } from './color/index.js';
-
+import { color } from './color/index.js';
 // ============================================================================
 // EFFECTS
 // ============================================================================
-export { blur } from './effects/blur.js';
-export type { Blur } from './effects/blur.js';
-
-export { opacity } from './effects/opacity.js';
-export type { Opacity } from './effects/opacity.js';
-
+import { blur } from './effects/blur.js';
+import { opacity } from './effects/opacity.js';
 // ============================================================================
 // ELEVATION
 // ============================================================================
-export { shadow } from './elevation/shadow.js';
-export type { Shadow } from './elevation/shadow.js';
-
-export { zIndex } from './elevation/z-index.js';
-export type { ZIndex } from './elevation/z-index.js';
-
+import { shadow } from './elevation/shadow.js';
+import { zIndex } from './elevation/z-index.js';
 // ============================================================================
 // ICON
 // ============================================================================
-export { iconSize } from './icon/iconSize.js';
-export type { IconSize } from './icon/iconSize.js';
-
-export { iconStroke } from './icon/iconStroke.js';
-export type { IconStroke } from './icon/iconStroke.js';
-
+import { iconSize } from './icon/iconSize.js';
+import { iconStroke } from './icon/iconStroke.js';
 // ============================================================================
 // LAYOUT
 // ============================================================================
-export { breakpoint } from './layout/breakpoint.js';
-export type { Breakpoint } from './layout/breakpoint.js';
-
-export { grid } from './layout/grid.js';
-export type { GridColumns, GridGutters } from './layout/grid.js';
-
+import { breakpoint } from './layout/breakpoint.js';
+import { grid } from './layout/grid.js';
 // ============================================================================
 // MOTION
 // ============================================================================
-export { easing } from './motion/easing.js';
-export type { Easing } from './motion/easing.js';
-
-export { timing } from './motion/timing.js';
-export type { Timing } from './motion/timing.js';
-
+import { easing } from './motion/easing.js';
+import { timing } from './motion/timing.js';
 // ============================================================================
 // SPACE
 // ============================================================================
-export { aspectRatio } from './space/aspectRatio.js';
-export type { AspectRatio } from './space/aspectRatio.js';
-
-export { maxWidth } from './space/maxWidth.js';
-export type { MaxWidth } from './space/maxWidth.js';
-
-export { size } from './space/sizes.js';
-export type { Size } from './space/sizes.js';
-
-export { spacing } from './space/spacing.js';
-export type { Spacing } from './space/spacing.js';
-
+import { aspectRatio } from './space/aspectRatio.js';
+import { maxWidth } from './space/maxWidth.js';
+import { size } from './space/sizes.js';
+import { spacing } from './space/spacing.js';
 // ============================================================================
 // TYPOGRAPHY
 // ============================================================================
-export { fontFamily } from './typography/fontFamily.js';
-export type { FontFamily } from './typography/fontFamily.js';
+import { fontFamily } from './typography/fontFamily.js';
+import { fontSize } from './typography/fontSize.js';
+import { fontWeight } from './typography/fontWeight.js';
+import { letterSpacing } from './typography/letterSpacing.js';
+import { lineHeight } from './typography/lineHeight.js';
 
-export { fontSize } from './typography/fontSize.js';
-export type { FontSize } from './typography/fontSize.js';
+const primitives = {
+  // BORDER
+  borderWidth,
+  borderStyle,
+  radius,
 
-export { fontWeight } from './typography/fontWeight.js';
-export type { FontWeight } from './typography/fontWeight.js';
+  // COLOR
+  color,
 
-export { letterSpacing } from './typography/letterSpacing.js';
-export type { LetterSpacing } from './typography/letterSpacing.js';
+  // EFFECTS
+  blur,
+  opacity,
 
-export { lineHeight } from './typography/lineHeight.js';
-export type { LineHeight } from './typography/lineHeight.js';
+  // ELEVATION
+  shadow,
+  zIndex,
+
+  // ICON
+  iconSize,
+  iconStroke,
+
+  // LAYOUT
+  breakpoint,
+  grid,
+
+  // MOTION
+  easing,
+  timing,
+
+  // SPACE
+  aspectRatio,
+  maxWidth,
+  size,
+  spacing,
+
+  // TYPOGRAPHY
+  fontFamily,
+  fontSize,
+  fontWeight,
+  letterSpacing,
+  lineHeight,
+};
+
+export default primitives;
+
+export type {
+  // BORDER
+  BorderWidth,
+  BorderStyle,
+  Radius,
+
+  // COLOR
+  Color,
+
+  // EFFECTS
+  Blur,
+  Opacity,
+
+  // ELEVATION
+  Shadow,
+  ZIndex,
+
+  // ICON
+  IconSize,
+  IconStroke,
+
+  // LAYOUT
+  Breakpoint,
+  GridColumns,
+  GridGutters,
+
+  // MOTION
+  Easing,
+  Timing,
+
+  // SPACE
+  AspectRatio,
+  MaxWidth,
+  Size,
+  Spacing,
+
+  // TYPOGRAPHY
+  FontFamily,
+  FontSize,
+  FontWeight,
+  LetterSpacing,
+  LineHeight,
+};

@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { ASPECT_RATIO, AspectRatio, Container, Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color, aspectRatio } = tokens;
+import { ASPECT_RATIO, AspectRatio, Container, Placeholder, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/AspectRatio',
@@ -37,20 +36,26 @@ export const Playground: Story = {
   },
   render: (args) => (
     <Container size="md" paddingX="none">
-      <div style={{ backgroundColor: color.background.secondary, borderRadius: '12px', padding: '16px' }}>
-        <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>
+      <div
+        style={{
+          backgroundColor: tokens.color.background.secondary,
+          borderRadius: tokens.radius.lg,
+          padding: tokens.spacing.base,
+        }}
+      >
+        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
           ratio: {String(args.ratio)}
         </div>
         <AspectRatio
           {...args}
           style={{
             ...args.style,
-            borderRadius: '12px',
-            outline: `1px solid ${color.border.light}`,
-            backgroundColor: color.background.primary,
+            borderRadius: tokens.radius.lg,
+            outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            backgroundColor: tokens.color.background.primary,
           }}
         >
-          <Placeholder color={color.interactive.default} height="full" width="full">
+          <Placeholder color={tokens.color.interactive.default} height="full" width="full">
             Media
           </Placeholder>
         </AspectRatio>
@@ -64,10 +69,16 @@ export const Ratio: Story = {
     <Container size="xl" paddingX="none">
       <Stack direction="vertical" gap="spacious">
         <div>
-          <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
             landscape & square
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', gap: '16px' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+              gap: tokens.spacing.base,
+            }}
+          >
             {(
               [
                 ASPECT_RATIO.square,
@@ -80,9 +91,9 @@ export const Ratio: Story = {
               <div
                 key={ratio}
                 style={{
-                  backgroundColor: color.background.secondary,
-                  borderRadius: '12px',
-                  padding: '16px',
+                  backgroundColor: tokens.color.background.secondary,
+                  borderRadius: tokens.radius.lg,
+                  padding: tokens.spacing.base,
                 }}
               >
                 <div
@@ -90,43 +101,43 @@ export const Ratio: Story = {
                     display: 'flex',
                     alignItems: 'baseline',
                     justifyContent: 'space-between',
-                    marginBottom: '12px',
+                    marginBottom: tokens.spacing.md,
                   }}
                 >
-                  <div style={{ fontFamily: 'monospace', color: color.text.secondary }}>ratio: {ratio}</div>
+                  <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary }}>ratio: {ratio}</div>
                   <div
                     style={{
                       fontFamily: 'monospace',
-                      color: color.text.tertiary,
-                      fontSize: '12px',
+                      color: tokens.color.text.tertiary,
+                      fontSize: tokens.fontSize.xs,
                     }}
                   >
-                    {aspectRatio[ratio]}
+                    {tokens.aspectRatio[ratio]}
                   </div>
                 </div>
                 <AspectRatio
                   ratio={ratio}
                   style={{
-                    borderRadius: '12px',
-                    outline: `1px solid ${color.border.light}`,
-                    backgroundColor: color.background.primary,
+                    borderRadius: tokens.radius.lg,
+                    outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                    backgroundColor: tokens.color.background.primary,
                   }}
                 >
                   <div
                     style={{
                       width: '100%',
                       height: '100%',
-                      backgroundImage: `linear-gradient(135deg, ${color.interactive.default} 0%, ${color.brand.secondary} 100%)`,
+                      backgroundImage: `linear-gradient(135deg, ${tokens.color.interactive.default} 0%, ${tokens.color.brand.secondary} 100%)`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: color.text.inverse,
+                      color: tokens.color.text.inverse,
                       fontFamily: 'monospace',
-                      fontSize: '12px',
-                      fontWeight: 700,
+                      fontSize: tokens.fontSize.xs,
+                      fontWeight: tokens.fontWeight.bold,
                     }}
                   >
-                    {aspectRatio[ratio]}
+                    {tokens.aspectRatio[ratio]}
                   </div>
                 </AspectRatio>
               </div>
@@ -135,15 +146,23 @@ export const Ratio: Story = {
         </div>
 
         <div>
-          <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>portrait</div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '16px' }}>
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+            portrait
+          </div>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+              gap: tokens.spacing.base,
+            }}
+          >
             {([ASPECT_RATIO.vertical, ASPECT_RATIO.portrait, ASPECT_RATIO.portraitDisplay] as const).map((ratio) => (
               <div
                 key={ratio}
                 style={{
-                  backgroundColor: color.background.secondary,
-                  borderRadius: '12px',
-                  padding: '16px',
+                  backgroundColor: tokens.color.background.secondary,
+                  borderRadius: tokens.radius.lg,
+                  padding: tokens.spacing.base,
                 }}
               >
                 <div
@@ -151,45 +170,45 @@ export const Ratio: Story = {
                     display: 'flex',
                     alignItems: 'baseline',
                     justifyContent: 'space-between',
-                    marginBottom: '12px',
+                    marginBottom: tokens.spacing.md,
                   }}
                 >
-                  <div style={{ fontFamily: 'monospace', color: color.text.secondary }}>ratio: {ratio}</div>
+                  <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary }}>ratio: {ratio}</div>
                   <div
                     style={{
                       fontFamily: 'monospace',
-                      color: color.text.tertiary,
-                      fontSize: '12px',
+                      color: tokens.color.text.tertiary,
+                      fontSize: tokens.fontSize.xs,
                     }}
                   >
-                    {aspectRatio[ratio]}
+                    {tokens.aspectRatio[ratio]}
                   </div>
                 </div>
                 <AspectRatio
                   ratio={ratio}
                   style={{
-                    borderRadius: '12px',
-                    outline: `1px solid ${color.border.light}`,
-                    backgroundColor: color.background.primary,
-                    maxWidth: '260px',
-                    margin: '0 auto',
+                    borderRadius: tokens.radius.lg,
+                    outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                    backgroundColor: tokens.color.background.primary,
+                    maxWidth: tokens.maxWidth['3xs'],
+                    margin: `${tokens.spacing.none} auto`,
                   }}
                 >
                   <div
                     style={{
                       width: '100%',
                       height: '100%',
-                      backgroundImage: `linear-gradient(135deg, ${color.interactive.default} 0%, ${color.brand.secondary} 100%)`,
+                      backgroundImage: `linear-gradient(135deg, ${tokens.color.interactive.default} 0%, ${tokens.color.brand.secondary} 100%)`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: color.text.inverse,
+                      color: tokens.color.text.inverse,
                       fontFamily: 'monospace',
-                      fontSize: '12px',
-                      fontWeight: 700,
+                      fontSize: tokens.fontSize.xs,
+                      fontWeight: tokens.fontWeight.bold,
                     }}
                   >
-                    {aspectRatio[ratio]}
+                    {tokens.aspectRatio[ratio]}
                   </div>
                 </AspectRatio>
               </div>
@@ -204,7 +223,7 @@ export const Ratio: Story = {
 export const CustomRatios: Story = {
   render: () => (
     <Container size="xl" paddingX="none">
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '16px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: tokens.spacing.base }}>
         {[
           { label: 'ratio: 1', ratio: 1 },
           { label: 'ratio: 2', ratio: 2 },
@@ -213,23 +232,23 @@ export const CustomRatios: Story = {
           <div
             key={item.label}
             style={{
-              backgroundColor: color.background.secondary,
-              borderRadius: '12px',
-              padding: '16px',
+              backgroundColor: tokens.color.background.secondary,
+              borderRadius: tokens.radius.lg,
+              padding: tokens.spacing.base,
             }}
           >
-            <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '12px' }}>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
               {item.label}
             </div>
             <AspectRatio
               ratio={item.ratio}
               style={{
-                borderRadius: '12px',
-                outline: `1px solid ${color.border.light}`,
-                backgroundColor: color.background.primary,
+                borderRadius: tokens.radius.lg,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                backgroundColor: tokens.color.background.primary,
               }}
             >
-              <Placeholder color={color.interactive.default} height="full" width="full">
+              <Placeholder color={tokens.color.interactive.default} height="full" width="full">
                 Media
               </Placeholder>
             </AspectRatio>

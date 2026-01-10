@@ -13,47 +13,47 @@
  * - 2xl (48px): Recommended for primary actions on mobile
  */
 
-import { spacing as primitiveSpacing } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const spacing = {
   /** 0px - No spacing */
-  none: primitiveSpacing[0],
+  none: primitives.spacing[0],
   /** 2px - Minimal spacing */
-  xxs: primitiveSpacing[2],
+  xxs: primitives.spacing[2],
   /** 4px - Very tight spacing */
-  xs: primitiveSpacing[4],
+  xs: primitives.spacing[4],
   /** 6px - Subtle spacing */
-  '2xs': primitiveSpacing[6],
+  '2xs': primitives.spacing[6],
   /** 8px - Tight spacing */
-  sm: primitiveSpacing[8],
+  sm: primitives.spacing[8],
   /** 10px - Small-medium spacing */
-  'sm-md': primitiveSpacing[10],
+  'sm-md': primitives.spacing[10],
   /** 12px - Compact spacing */
-  md: primitiveSpacing[12],
+  md: primitives.spacing[12],
   /** 16px - Base spacing unit */
-  base: primitiveSpacing[16],
+  base: primitives.spacing[16],
   /** 20px - Medium-large spacing */
-  'md-lg': primitiveSpacing[20],
+  'md-lg': primitives.spacing[20],
   /** 24px - Spacious (minimum between touch targets) */
-  lg: primitiveSpacing[24],
+  lg: primitives.spacing[24],
   /** 28px - Large-extra large spacing */
-  'lg-xl': primitiveSpacing[28],
+  'lg-xl': primitives.spacing[28],
   /** 32px - Extra spacious (touch target padding) */
-  xl: primitiveSpacing[32],
+  xl: primitives.spacing[32],
   /** 40px - Very spacious */
-  'xl-2xl': primitiveSpacing[40],
+  'xl-2xl': primitives.spacing[40],
   /** 48px - Recommended for primary touch targets */
-  '2xl': primitiveSpacing[48],
+  '2xl': primitives.spacing[48],
   /** 56px - Huge spacing */
-  '2xl-3xl': primitiveSpacing[56],
+  '2xl-3xl': primitives.spacing[56],
   /** 64px - Section separation */
-  '3xl': primitiveSpacing[64],
+  '3xl': primitives.spacing[64],
   /** 80px - Large section separation */
-  '3xl-4xl': primitiveSpacing[80],
+  '3xl-4xl': primitives.spacing[80],
   /** 96px - Very large section */
-  '4xl': primitiveSpacing[96],
+  '4xl': primitives.spacing[96],
   /** 128px - Maximum section separation */
-  '5xl': primitiveSpacing[128],
+  '5xl': primitives.spacing[128],
 } as const;
 
 export type Spacing = keyof typeof spacing;

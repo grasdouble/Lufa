@@ -115,13 +115,13 @@ pnpm build
    ```css
    /* NewComponent.module.css */
    .default {
-     color: var(--lufa-color-text-primary);
-     padding: var(--lufa-spacing-md);
+     color: var(--lufa-token-color-text-primary);
+     padding: var(--lufa-token-spacing-md);
    }
 
    .primary {
-     color: var(--lufa-color-primary);
-     padding: var(--lufa-spacing-md);
+     color: var(--lufa-token-color-brand-primary);
+     padding: var(--lufa-token-spacing-md);
    }
    ```
 

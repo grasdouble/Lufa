@@ -5,7 +5,7 @@
  * They provide intent-based naming for easier usage and better maintainability.
  */
 
-import * as primitives from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const color = {
   // Text colors

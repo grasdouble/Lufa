@@ -28,3 +28,21 @@ applyTo: '**/*.js, **/*.mjs, **/*.cjs'
 ## User interactions
 - Ask questions if you are unsure about the implementation details, design choices, or need clarification on the requirements
 - Always answer in the same language as the question, but use english for the generated content like code, comments or docs
+
+---
+
+## Related Documentation
+
+For comprehensive project documentation, see:
+
+- **[AGENTS.md](../../AGENTS.md)** - Complete development guide
+  - Project overview and architecture
+  - Setup and development workflow
+  - Code patterns and examples
+  - Troubleshooting guides
+
+- **[CLAUDE.md](../../CLAUDE.md)** - Quick reference for Claude Code
+- **[.github/copilot-instructions.md](../copilot-instructions.md)** - GitHub Copilot instructions
+- **[CONTRIBUTING.md](../../CONTRIBUTING.md)** - Contribution workflow
+
+**This file is automatically applied by GitHub Copilot when working in matching file paths.**

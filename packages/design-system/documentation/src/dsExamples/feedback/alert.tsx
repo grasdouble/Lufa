@@ -1,25 +1,24 @@
 import React from 'react';
 
-import { Alert, Badge, Button, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Alert, Badge, Button, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -33,16 +32,16 @@ const InlineIcon = ({ label }: { label: string }) => (
   <span
     style={{
       display: 'inline-flex',
-      width: 20,
-      height: 20,
+      width: tokens.iconSize.sm,
+      height: tokens.iconSize.sm,
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 6,
-      background: color.background.secondary,
-      outline: `1px solid ${color.border.light}`,
+      borderRadius: tokens.radius.md,
+      background: tokens.color.background.secondary,
+      outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
       fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
-      fontSize: 12,
-      color: color.text.secondary,
+      fontSize: tokens.fontSize.xs,
+      color: tokens.color.text.secondary,
     }}
   >
     {label}
@@ -101,7 +100,7 @@ export const ClosableWithActionExample = () => (
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 8,
+            gap: tokens.spacing.sm,
             flexWrap: 'wrap',
           }}
         >
@@ -122,7 +121,7 @@ export const CustomIconWithMetaExample = () => (
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 8,
+            gap: tokens.spacing.sm,
             flexWrap: 'wrap',
           }}
         >

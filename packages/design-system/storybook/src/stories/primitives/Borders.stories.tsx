@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { borderStyle, borderWidth } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Borders',
@@ -17,14 +17,14 @@ export const AllBorders: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Border Primitives</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
         token border widths and styles. WCAG requires minimum 2px thickness for focus indicators and 3:1 contrast for
         borders.
       </p>
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Border Widths</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(borderWidth).map(([key, value]) => (
+        {Object.entries(primitives.borderWidth).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -33,25 +33,27 @@ export const AllBorders: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: primitives.color.neutral.neutral[50],
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>width[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
+            <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+              {value}
+            </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div
                 style={{
                   width: '200px',
                   height: '60px',
-                  border: `${value} solid #3B82F6`,
+                  border: `${value} solid ${primitives.color.chromatic.blue[500]}`,
                   borderRadius: '6px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontSize: '12px',
-                  color: '#737373',
+                  color: primitives.color.neutral.neutral[600],
                 }}
               >
                 {key === '0' && 'No border'}
@@ -67,7 +69,7 @@ export const AllBorders: Story = {
 
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Border Styles</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(borderStyle).map(([key, value]) => (
+        {Object.entries(primitives.borderStyle).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -76,24 +78,26 @@ export const AllBorders: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: primitives.color.neutral.neutral[50],
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>style.{key}</div>
-            <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
+            <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+              {value}
+            </div>
             <div
               style={{
                 width: '200px',
                 height: '60px',
-                border: `2px ${value} #3B82F6`,
+                border: `2px ${value} ${primitives.color.chromatic.blue[500]}`,
                 borderRadius: '6px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '12px',
-                color: '#737373',
+                color: primitives.color.neutral.neutral[600],
               }}
             >
               {key === 'solid' && 'Standard border'}
@@ -109,9 +113,9 @@ export const AllBorders: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: '#FEF3C7',
+          backgroundColor: primitives.color.chromatic.orange[100],
           borderRadius: '12px',
-          border: '1px solid #FCD34D',
+          border: `1px solid ${primitives.color.chromatic.orange[300]}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>WCAG Guidelines</h3>
@@ -143,24 +147,24 @@ export const UsageExamples: Story = {
             <div
               style={{
                 padding: '20px',
-                border: `${borderWidth[1]} ${borderStyle.solid} #E5E5E5`,
+                border: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} ${primitives.color.neutral.neutral[200]}`,
                 borderRadius: '8px',
                 minWidth: '200px',
               }}
             >
               <div style={{ fontWeight: '600', marginBottom: '8px' }}>Subtle Card</div>
-              <div style={{ fontSize: '14px', color: '#737373' }}>1px solid border</div>
+              <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>1px solid border</div>
             </div>
             <div
               style={{
                 padding: '20px',
-                border: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
+                border: `${primitives.borderWidth[2]} ${primitives.borderStyle.solid} ${primitives.color.chromatic.blue[500]}`,
                 borderRadius: '8px',
                 minWidth: '200px',
               }}
             >
               <div style={{ fontWeight: '600', marginBottom: '8px' }}>Emphasized Card</div>
-              <div style={{ fontSize: '14px', color: '#737373' }}>2px solid border</div>
+              <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>2px solid border</div>
             </div>
           </div>
         </div>
@@ -171,12 +175,12 @@ export const UsageExamples: Story = {
             <button
               style={{
                 padding: '12px 24px',
-                backgroundColor: 'white',
-                border: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
+                backgroundColor: primitives.color.neutral.white,
+                border: `${primitives.borderWidth[2]} ${primitives.borderStyle.solid} ${primitives.color.chromatic.blue[500]}`,
                 borderRadius: '6px',
                 fontWeight: '500',
                 cursor: 'pointer',
-                outline: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
+                outline: `${primitives.borderWidth[2]} ${primitives.borderStyle.solid} ${primitives.color.chromatic.blue[500]}`,
                 outlineOffset: '2px',
               }}
             >
@@ -185,12 +189,12 @@ export const UsageExamples: Story = {
             <button
               style={{
                 padding: '12px 24px',
-                backgroundColor: 'white',
-                border: `${borderWidth[3]} ${borderStyle.solid} #3B82F6`,
+                backgroundColor: primitives.color.neutral.white,
+                border: `${primitives.borderWidth[3]} ${primitives.borderStyle.solid} ${primitives.color.chromatic.blue[500]}`,
                 borderRadius: '6px',
                 fontWeight: '500',
                 cursor: 'pointer',
-                outline: `${borderWidth[3]} ${borderStyle.solid} #3B82F6`,
+                outline: `${primitives.borderWidth[3]} ${primitives.borderStyle.solid} ${primitives.color.chromatic.blue[500]}`,
                 outlineOffset: '2px',
               }}
             >
@@ -207,7 +211,7 @@ export const UsageExamples: Story = {
               placeholder="Default state (1px)"
               style={{
                 padding: '12px',
-                border: `${borderWidth[1]} ${borderStyle.solid} #E5E5E5`,
+                border: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} ${primitives.color.neutral.neutral[200]}`,
                 borderRadius: '6px',
                 fontSize: '14px',
               }}
@@ -217,7 +221,7 @@ export const UsageExamples: Story = {
               placeholder="Focus state (2px)"
               style={{
                 padding: '12px',
-                border: `${borderWidth[2]} ${borderStyle.solid} #3B82F6`,
+                border: `${primitives.borderWidth[2]} ${primitives.borderStyle.solid} ${primitives.color.chromatic.blue[500]}`,
                 borderRadius: '6px',
                 fontSize: '14px',
               }}
@@ -227,7 +231,7 @@ export const UsageExamples: Story = {
               placeholder="Error state (2px)"
               style={{
                 padding: '12px',
-                border: `${borderWidth[2]} ${borderStyle.solid} #EF4444`,
+                border: `${primitives.borderWidth[2]} ${primitives.borderStyle.solid} ${primitives.color.chromatic.red[500]}`,
                 borderRadius: '6px',
                 fontSize: '14px',
               }}
@@ -239,11 +243,23 @@ export const UsageExamples: Story = {
           <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '16px' }}>Dividers</h3>
           <div style={{ maxWidth: '600px' }}>
             <div style={{ padding: '16px 0' }}>Section 1</div>
-            <div style={{ borderTop: `${borderWidth[1]} ${borderStyle.solid} #E5E5E5` }} />
+            <div
+              style={{
+                borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} ${primitives.color.neutral.neutral[200]}`,
+              }}
+            />
             <div style={{ padding: '16px 0' }}>Section 2</div>
-            <div style={{ borderTop: `${borderWidth[1]} ${borderStyle.dashed} #E5E5E5` }} />
+            <div
+              style={{
+                borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.dashed} ${primitives.color.neutral.neutral[200]}`,
+              }}
+            />
             <div style={{ padding: '16px 0' }}>Section 3 (editable)</div>
-            <div style={{ borderTop: `${borderWidth[1]} ${borderStyle.dotted} #E5E5E5` }} />
+            <div
+              style={{
+                borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.dotted} ${primitives.color.neutral.neutral[200]}`,
+              }}
+            />
             <div style={{ padding: '16px 0' }}>Section 4 (subtle)</div>
           </div>
         </div>

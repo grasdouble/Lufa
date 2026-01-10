@@ -7,27 +7,25 @@ import {
   LAYOUT_SIDEBAR_WIDTH,
   Placeholder,
   Stack,
-  tokens,
 } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -41,11 +39,11 @@ const Shell = (props: React.ComponentProps<typeof Layout>) => (
   <Layout
     {...props}
     style={{
-      background: '#fff',
-      borderRadius: 12,
-      border: `1px solid ${color.border.light}`,
-      padding: 16,
-      minHeight: 280,
+      background: tokens.color.background.primary,
+      borderRadius: tokens.radius.lg,
+      border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+      padding: tokens.spacing.base,
+      minHeight: tokens.dimension.cardMinWidth,
       ...(props.style ?? {}),
     }}
   />
@@ -60,22 +58,22 @@ export const LiveDemo = () => (
       gap={LAYOUT_GAP.md}
     >
       <Layout.Header>
-        <Placeholder color={color.interactive.default}>Header</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>Header</Placeholder>
       </Layout.Header>
       <Layout.Sidebar>
         <Stack direction="vertical" gap="normal">
-          <Placeholder color={color.background.secondary}>Nav</Placeholder>
-          <Placeholder color={color.background.secondary}>Nav</Placeholder>
-          <Placeholder color={color.background.secondary}>Nav</Placeholder>
+          <Placeholder color={tokens.color.background.secondary}>Nav</Placeholder>
+          <Placeholder color={tokens.color.background.secondary}>Nav</Placeholder>
+          <Placeholder color={tokens.color.background.secondary}>Nav</Placeholder>
         </Stack>
       </Layout.Sidebar>
       <Layout.Content>
-        <Placeholder color={color.background.secondary} height="large">
+        <Placeholder color={tokens.color.background.secondary} height="large">
           Content
         </Placeholder>
       </Layout.Content>
       <Layout.Footer>
-        <Placeholder color={color.background.secondary}>Footer</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Footer</Placeholder>
       </Layout.Footer>
     </Shell>
   </Frame>
@@ -87,25 +85,25 @@ export const Sidebar = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           sidebar: false
         </div>
         <Shell gap={LAYOUT_GAP.sm}>
           <Layout.Header>
-            <Placeholder color={color.interactive.default}>Header</Placeholder>
+            <Placeholder color={tokens.color.interactive.default}>Header</Placeholder>
           </Layout.Header>
           <Layout.Content>
-            <Placeholder color={color.background.secondary} height="large">
+            <Placeholder color={tokens.color.background.secondary} height="large">
               Content
             </Placeholder>
           </Layout.Content>
@@ -115,24 +113,24 @@ export const Sidebar = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           sidebar: true
         </div>
         <Shell sidebar gap={LAYOUT_GAP.sm}>
           <Layout.Header>
-            <Placeholder color={color.interactive.default}>Header</Placeholder>
+            <Placeholder color={tokens.color.interactive.default}>Header</Placeholder>
           </Layout.Header>
           <Layout.Sidebar>
-            <Placeholder color={color.background.secondary} height="large">
+            <Placeholder color={tokens.color.background.secondary} height="large">
               Sidebar
             </Placeholder>
           </Layout.Sidebar>
           <Layout.Content>
-            <Placeholder color={color.background.secondary} height="large">
+            <Placeholder color={tokens.color.background.secondary} height="large">
               Content
             </Placeholder>
           </Layout.Content>
@@ -149,9 +147,9 @@ export const SidebarPosition = () => (
         <div key={sidebarPosition}>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             sidebarPosition: {sidebarPosition}
@@ -163,15 +161,15 @@ export const SidebarPosition = () => (
             gap={LAYOUT_GAP.md}
           >
             <Layout.Header>
-              <Placeholder color={color.interactive.default}>Header</Placeholder>
+              <Placeholder color={tokens.color.interactive.default}>Header</Placeholder>
             </Layout.Header>
             <Layout.Sidebar>
-              <Placeholder color={color.background.secondary} height="large">
+              <Placeholder color={tokens.color.background.secondary} height="large">
                 Sidebar
               </Placeholder>
             </Layout.Sidebar>
             <Layout.Content>
-              <Placeholder color={color.background.secondary} height="large">
+              <Placeholder color={tokens.color.background.secondary} height="large">
                 Content
               </Placeholder>
             </Layout.Content>
@@ -190,9 +188,9 @@ export const SidebarWidth = () => (
           <div key={sidebarWidth}>
             <div
               style={{
-                fontFamily: 'monospace',
-                color: color.text.tertiary,
-                marginBottom: 8,
+                fontFamily: tokens.fontFamily.mono,
+                color: tokens.color.text.tertiary,
+                marginBottom: tokens.spacing.sm,
               }}
             >
               sidebarWidth: {sidebarWidth}
@@ -204,15 +202,15 @@ export const SidebarWidth = () => (
               gap={LAYOUT_GAP.md}
             >
               <Layout.Header>
-                <Placeholder color={color.interactive.default}>Header</Placeholder>
+                <Placeholder color={tokens.color.interactive.default}>Header</Placeholder>
               </Layout.Header>
               <Layout.Sidebar>
-                <Placeholder color={color.background.secondary} height="large">
+                <Placeholder color={tokens.color.background.secondary} height="large">
                   Sidebar
                 </Placeholder>
               </Layout.Sidebar>
               <Layout.Content>
-                <Placeholder color={color.background.secondary} height="large">
+                <Placeholder color={tokens.color.background.secondary} height="large">
                   Content
                 </Placeholder>
               </Layout.Content>
@@ -231,29 +229,29 @@ export const Gap = () => (
         <div key={gap}>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             gap: {gap}
           </div>
           <Shell sidebar gap={gap}>
             <Layout.Header>
-              <Placeholder color={color.interactive.default}>Header</Placeholder>
+              <Placeholder color={tokens.color.interactive.default}>Header</Placeholder>
             </Layout.Header>
             <Layout.Sidebar>
-              <Placeholder color={color.background.secondary} height="large">
+              <Placeholder color={tokens.color.background.secondary} height="large">
                 Sidebar
               </Placeholder>
             </Layout.Sidebar>
             <Layout.Content>
-              <Placeholder color={color.background.secondary} height="large">
+              <Placeholder color={tokens.color.background.secondary} height="large">
                 Content
               </Placeholder>
             </Layout.Content>
             <Layout.Footer>
-              <Placeholder color={color.background.secondary}>Footer</Placeholder>
+              <Placeholder color={tokens.color.background.secondary}>Footer</Placeholder>
             </Layout.Footer>
           </Shell>
         </div>
@@ -273,29 +271,29 @@ export const Variants = () => (
 
 export const AppShellExample = () => (
   <Frame title="app shell">
-    <Shell sidebar gap={LAYOUT_GAP.md} style={{ minHeight: 340 }}>
+    <Shell sidebar gap={LAYOUT_GAP.md} style={{ minHeight: tokens.dimension.cardDefaultWidth }}>
       <Layout.Header>
-        <Placeholder color={color.interactive.default}>Top bar</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>Top bar</Placeholder>
       </Layout.Header>
       <Layout.Sidebar>
         <Stack direction="vertical" gap="normal">
-          <Placeholder color={color.background.secondary}>Dashboard</Placeholder>
-          <Placeholder color={color.background.secondary}>Projects</Placeholder>
-          <Placeholder color={color.background.secondary}>Settings</Placeholder>
+          <Placeholder color={tokens.color.background.secondary}>Dashboard</Placeholder>
+          <Placeholder color={tokens.color.background.secondary}>Projects</Placeholder>
+          <Placeholder color={tokens.color.background.secondary}>Settings</Placeholder>
         </Stack>
       </Layout.Sidebar>
       <Layout.Content>
         <Stack direction="vertical" gap="normal">
-          <Placeholder color={color.background.secondary} height="large">
+          <Placeholder color={tokens.color.background.secondary} height="large">
             KPI row
           </Placeholder>
-          <Placeholder color={color.background.secondary} height="large">
+          <Placeholder color={tokens.color.background.secondary} height="large">
             Main panel
           </Placeholder>
         </Stack>
       </Layout.Content>
       <Layout.Footer>
-        <Placeholder color={color.background.secondary}>Footer</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Footer</Placeholder>
       </Layout.Footer>
     </Shell>
   </Frame>
@@ -303,16 +301,16 @@ export const AppShellExample = () => (
 
 export const ContentOnlyExample = () => (
   <Frame title="content only">
-    <Shell gap={LAYOUT_GAP.sm} style={{ minHeight: 240 }}>
+    <Shell gap={LAYOUT_GAP.sm} style={{ minHeight: tokens.minWidth.cardMin }}>
       <Layout.Header>
-        <Placeholder color={color.interactive.default}>Header</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>Header</Placeholder>
       </Layout.Header>
       <Layout.Content>
         <Stack direction="vertical" gap="normal">
-          <Placeholder color={color.background.secondary} height="large">
+          <Placeholder color={tokens.color.background.secondary} height="large">
             Content
           </Placeholder>
-          <Placeholder color={color.background.secondary}>Secondary section</Placeholder>
+          <Placeholder color={tokens.color.background.secondary}>Secondary section</Placeholder>
         </Stack>
       </Layout.Content>
     </Shell>

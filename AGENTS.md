@@ -1,5 +1,108 @@
 # AGENTS.md
 
+> 📘 **Multi-Agent Compatible**: This file follows the [AGENTS.md standard](https://agents.md/) and is optimized for GitHub Copilot, Claude Code, Cursor, Aider, Cline, Windsurf, and Roo Code.
+
+**This file is for AI agents working with this codebase.**
+
+## 🚀 Quick Navigation for AI Agents
+
+**First time here? Read in this order:**
+1. [Quick Start](#quick-start-for-ai-agents) - Essential info (3 min read)
+2. [Architecture](#design-system-three-layer-architecture) - Critical design system layers (5 min read)
+3. Detailed sections below as needed
+
+**Most common tasks:**
+- 🏗️ Adding a component → [Component Creation Guide](#when-creating-new-components)
+- 🐛 Build failing → [Build Troubleshooting](#build-failures)
+- 🧪 Running tests → [Testing Instructions](#testing-instructions)
+- 📦 Adding dependencies → [Adding Dependencies](#adding-dependencies)
+- 🔄 Version management → [Using Changesets](#using-changesets)
+
+**Agent-specific notes:**
+- **GitHub Copilot**: See [.github/copilot-instructions.md](.github/copilot-instructions.md) for path-scoped rules
+- **Claude Code**: See [CLAUDE.md](CLAUDE.md) for quick reference
+- **Cursor**: See `.cursor/index.mdc` for IDE-specific rules (if using Cursor)
+- **Aider**: This file is also available as `CONVENTIONS.md`
+
+---
+
+## 🤖 Quick Start for AI Agents
+
+### Essential Context
+
+**Project Type**: Monorepo with microfrontend architecture and design system
+**Package Manager**: pnpm (10.26.x+) with workspaces
+**Node Version**: 24.9.0 (check `.tool-versions`)
+**Primary Focus**: Design system with strict three-layer architecture
+
+### Three Most Important Rules
+
+1. **Design System Architecture**: Components MUST use tokens only, NEVER primitives or hard-coded values
+2. **Build Order Matters**: Design system packages must be built in specific order (tokens → primitives → main → storybook)
+3. **Testing Required**: All components need Playwright component tests
+
+### Quick Commands Cheatsheet
+
+```bash
+# Setup (first time)
+pnpm install && pnpm all:build
+
+# Development
+pnpm ds:storybook:dev          # Design system on :6006
+pnpm app:mf:dev                # Microfrontends on :3000
+
+# Build (CRITICAL: order matters for design system!)
+pnpm ds:all:build              # Design system (correct order)
+pnpm all:build                 # Everything
+
+# Testing
+pnpm --filter @grasdouble/lufa_design-system test-ct
+
+# Quality checks
+pnpm all:lint && pnpm all:prettier
+
+# Version management
+pnpm changeset                 # After code changes
+```
+
+### Decision Trees
+
+#### Should I create a new file?
+
+```
+Need to add code?
+├─ New component? → packages/design-system/main/src/components/{ComponentName}.tsx
+├─ New token? → packages/design-system/tokens/src/
+├─ New primitive? → packages/design-system/primitives/src/
+├─ Test? → Co-locate with component as *.spec.tsx
+└─ Configuration? → Check existing configs first
+```
+
+#### What layer am I working in?
+
+```
+Looking at imports...
+├─ Importing from @grasdouble/lufa_design-system-tokens? → Layer 3 (Components) ✅
+├─ Importing from @grasdouble/lufa_design-system-primitives? → Layer 1 or 2 only
+├─ Hard-coding values (16px, #FF0000)? → ❌ STOP - Use tokens instead
+└─ Not sure? → Read Design System Architecture section below
+```
+
+#### Build is failing?
+
+```
+Error type?
+├─ "Cannot find module @grasdouble/lufa_design-system-tokens"
+│   └─ Run: pnpm ds:tokens:build (tokens not built)
+├─ TypeScript errors in components
+│   └─ Run: pnpm ds:all:build (wrong build order)
+├─ Import resolution issues
+│   └─ Check: workspace:^ protocol in package.json
+└─ Still failing? → See Troubleshooting section
+```
+
+---
+
 ## Project Overview
 
 Lufa is a personal learning monorepo for exploring modern web application development with microfrontend architecture, design systems, and advanced build tooling. The project uses pnpm workspaces, Vite for building, Single-SPA for microfrontend orchestration, and follows strict TypeScript and code quality standards.
@@ -8,11 +111,11 @@ Lufa is a personal learning monorepo for exploring modern web application develo
 
 - **Package Manager:** pnpm (10.26.x+) with workspace support
 - **Node.js:** 24.9.0 (check `.tool-versions`)
-- **Build Tool:** Vite 5.x with custom plugins
+- **Build Tool:** Vite 7.x with custom plugins
 - **Microfrontend Framework:** Single-SPA
-- **UI Framework:** React 18+ with TypeScript 5.x
-- **Styling:** Tailwind CSS with design tokens
-- **Testing:** Vitest (unit), Playwright (E2E)
+- **UI Framework:** React 19 with TypeScript 5.x
+- **Styling:** Tailwind CSS 4.x with design tokens
+- **Testing:** Playwright (component testing)
 - **Version Management:** Changesets for semantic versioning
 - **Documentation:** Storybook 8, Docusaurus 3
 
@@ -21,9 +124,10 @@ Lufa is a personal learning monorepo for exploring modern web application develo
 The repository is organized into focused packages:
 
 - **packages/apps/microfrontend/** - Single-SPA applications (main-container, home)
-- **packages/design-system/** - Component library (primitives, tokens, main, themes, storybook, documentation)
+- **packages/design-system/** - Component library (primitives, tokens, main, themes, storybook, documentation, playwright)
 - **packages/cdn/** - CDN infrastructure (autobuild-server)
 - **packages/plugins/vite/** - Custom Vite plugins (import-map-injector, react-preamble)
+- **packages/plugins/vscode/** - VS Code extensions (vscode-lufa-ds-preview)
 - **packages/config/** - Shared configurations (eslint, prettier, tsconfig)
 - **packages/poc/** - Proof of concepts and experiments
 
@@ -49,15 +153,19 @@ pnpm all:lint
 ```bash
 # All microfrontends (main-container + home)
 pnpm app:mf:dev
-# Access at http://localhost:3000
+# Runs: main-container on http://localhost:3000, home on http://localhost:3001
 
 # Design system with Storybook
 pnpm ds:all:dev
-# Storybook at http://localhost:6006
-# Docusaurus at http://localhost:3001
+# Runs concurrently: Storybook (:6006), main build watch, Docusaurus (:3001)
 
 # Individual design system components in watch mode
 pnpm ds:main:dev
+# Runs: vite build --watch for design system main package
+
+# Design system Storybook only
+pnpm ds:storybook:dev
+# Runs: Storybook on http://localhost:6006
 
 # CDN autobuild server
 pnpm cdn:autobuild-server:dev
@@ -84,18 +192,19 @@ pnpm --filter @grasdouble/lufa_design-system add react-icons
 pnpm --filter @grasdouble/lufa_design-system-* build
 ```
 
-### Navigation Tips
+### Package Information
 
-```bash
-# Find package location
-pnpm list --filter @grasdouble/lufa_design-system --depth 0
+**Finding packages:**
+- Use `pnpm list --recursive --depth 0` to list all workspace packages
+- Check `pnpm-workspace.yaml` for workspace patterns
+- Package locations follow pattern: `packages/<category>/<package-name>/`
 
-# List all workspace packages
-pnpm list --recursive --depth 0
-
-# Check package.json name field to confirm package names
-cat packages/design-system/main/package.json | grep '"name"'
-```
+**Key package locations:**
+- Design system main: `packages/design-system/main/`
+- Design system tokens: `packages/design-system/tokens/`
+- Design system primitives: `packages/design-system/primitives/`
+- Main container: `packages/apps/microfrontend/main-container/`
+- Home microfrontend: `packages/apps/microfrontend/home/`
 
 ## Code Style and Standards
 
@@ -112,16 +221,108 @@ cat packages/design-system/main/package.json | grep '"name"'
 - **Functional components only** - Use hooks, avoid class components
 - **TypeScript interfaces** - Define props with JSDoc documentation
 - **Accessibility first** - Follow WCAG 2.1 AA standards (see `.github/instructions/a11y.instructions.md`)
-- **Testing required** - Components need unit tests (Vitest)
+- **Testing required** - Components need Playwright component tests
+- **Use `ComponentPropsWithoutRef<'element'>`** - For extending HTML element props
+- **Set `displayName`** - For better debugging in React DevTools
 
-### Design System
+### Design System: Three-Layer Architecture
 
-- **Three-layer architecture:**
-  1. **Primitives** - Raw, value-based keys (e.g., `spacing[16]`, `timing[300]`)
-  2. **Tokens** - Semantic names mapping to primitives (e.g., `spacingTokens.default`)
-  3. **Components** - React components using tokens (never hard-code values)
-- **Follow instructions:** See `.github/instructions/lufa-design-system.instructions.md`
-- **Tailwind CSS** - Use utility classes with token-based customization
+**⚠️ CRITICAL CONCEPT - Read carefully before working with design system code**
+
+The design system follows a **strict three-layer architecture**. Violating this architecture will cause errors and require rework.
+
+```
+┌─────────────────────────────────────────────┐
+│         Layer 3: Components                 │
+│    (@grasdouble/lufa_design-system)         │
+│    React components using TOKENS only       │
+└─────────────────┬───────────────────────────┘
+                  │ ✅ References tokens
+┌─────────────────▼───────────────────────────┐
+│         Layer 2: Tokens                     │
+│  (@grasdouble/lufa_design-system-tokens)    │
+│    Semantic names (primary, compact)        │
+└─────────────────┬───────────────────────────┘
+                  │ ✅ References primitives
+┌─────────────────▼───────────────────────────┐
+│         Layer 1: Primitives                 │
+│  (@grasdouble/lufa_design-system-primitives)│
+│    Raw values (16px, 150ms, blue[600])      │
+└─────────────────────────────────────────────┘
+```
+
+#### Layer 1: Primitives (`@grasdouble/lufa_design-system-primitives`)
+
+**Purpose:** Provide raw, non-semantic foundational values
+
+**Rules:**
+- Keys are **actual values**: `spacing[16]`, `timing[150]`, `blue[600]`
+- ❌ NEVER use semantic names like "small", "medium", "large" in primitives
+- Exports TypeScript objects and CSS custom properties (`--lufa-primitive-spacing-16`)
+
+**Example:**
+```typescript
+export const spacing = {
+  0: '0px',
+  4: '4px',
+  8: '8px',
+  16: '16px',
+  24: '24px',
+} as const;
+```
+
+#### Layer 2: Tokens (`@grasdouble/lufa_design-system-tokens`)
+
+**Purpose:** Map primitive values to semantic, purpose-driven names
+
+**Rules:**
+- Keys are **semantic/purpose-driven**: `primary`, `secondary`, `compact`, `spacious`
+- ✅ ALWAYS reference primitives (never hard-code values)
+- ❌ NEVER use raw values directly
+- CSS custom properties: `--lufa-color-text-primary`, `--lufa-spacing-default`
+- Build script generates CSS and TypeScript types
+
+**Example:**
+```typescript
+import { spacing } from '@grasdouble/lufa_design-system-primitives';
+
+export const spacingTokens = {
+  compact: spacing[8],
+  default: spacing[16],
+  comfortable: spacing[24],
+  spacious: spacing[32],
+} as const;
+```
+
+#### Layer 3: Components (`@grasdouble/lufa_design-system`)
+
+**Purpose:** React components using tokens for all design values
+
+**Rules:**
+- ✅ Components MUST use tokens only
+- ❌ Components MUST NOT import from primitives
+- ❌ Components MUST NOT hard-code design values
+- Use Tailwind CSS utilities with token-based CSS custom properties
+
+**Example:**
+```typescript
+// ✅ GOOD - Import tokens
+import { color, spacing } from '@grasdouble/lufa_design-system-tokens';
+
+const styles = {
+  padding: spacing.default,
+  color: color.text.primary,
+};
+
+// ❌ BAD - Don't import primitives
+import { spacing } from '@grasdouble/lufa_design-system-primitives';
+const styles = { padding: spacing[16] };
+
+// ❌ BAD - Don't hard-code
+const styles = { padding: '16px', color: '#FF0000' };
+```
+
+**For detailed patterns:** See `.github/instructions/lufa-design-system.instructions.md`
 
 ### File Naming
 
@@ -163,52 +364,50 @@ Configuration files:
 
 ## Testing Instructions
 
-### Unit Tests (Vitest)
+### Playwright Component Tests
+
+The design system uses **Playwright component testing** for React components.
 
 ```bash
-# Run tests for specific package
-pnpm --filter @grasdouble/lufa_design-system test
+# Run component tests for design system
+pnpm --filter @grasdouble/lufa_design-system test-ct
 
-# Run tests in watch mode
-pnpm --filter @grasdouble/lufa_design-system test:watch
-
-# Run tests with coverage
-pnpm --filter @grasdouble/lufa_design-system test:coverage
+# Or run from the package directory
+cd packages/design-system/main
+pnpm test-ct
 ```
 
-**Test Patterns:**
+**Test Configuration:**
+- Config file: `packages/design-system/main/playwright-ct.config.ts`
+- Test files: Co-located with components as `*.spec.tsx` or in separate test directories
+- Uses `@playwright/experimental-ct-react` for component testing
+
+**Testing Guidelines:**
 
 - Test component behavior, not implementation details
-- Use React Testing Library for component tests
-- Mock external dependencies appropriately
-- Test accessibility features (keyboard navigation, ARIA)
-- Follow patterns in `.github/instructions/nodejs-javascript-vitest.instructions.md`
+- Prioritize user-facing interactions and locators (`getByRole`, `getByLabel`)
+- Test accessibility features (keyboard navigation, ARIA, focus management)
+- Test all component variants and states
+- Use `await expect()` for auto-retrying assertions
+- Follow patterns in `.github/instructions/playwright-typescript.instructions.md`
 
-### E2E Tests (Playwright)
+**Example test structure:**
+```typescript
+import { test, expect } from '@playwright/experimental-ct-react';
+import { Button } from './Button';
 
-```bash
-# Run E2E tests
-pnpm --filter @grasdouble/lufa_microfrontend_main-container test:e2e
-
-# Run in UI mode
-pnpm --filter @grasdouble/lufa_microfrontend_main-container test:e2e:ui
-
-# Run specific test file
-pnpm --filter @grasdouble/lufa_microfrontend_main-container test:e2e -- login.spec.ts
+test('renders with correct variant', async ({ mount }) => {
+  const component = await mount(<Button variant="primary">Click me</Button>);
+  await expect(component).toContainText('Click me');
+  await expect(component).toHaveClass(/btn-primary/);
+});
 ```
-
-**Playwright Guidelines:**
-
-- Prioritize user-facing locators (`getByRole`, `getByLabel`)
-- Use `test.step()` for grouping interactions
-- Auto-retrying assertions with `await expect()`
-- Follow `.github/instructions/playwright-typescript.instructions.md`
 
 ### Test Coverage Requirements
 
-- All new features must include tests
-- Maintain or improve existing coverage
-- Test accessibility features
+- All new components must include Playwright component tests
+- Test all variants, states, and interactive behaviors
+- Test accessibility features (keyboard, ARIA, focus)
 - Cover edge cases and error handling
 
 ## Build and Deployment
@@ -229,7 +428,22 @@ pnpm app:mf:build
 pnpm --filter @grasdouble/lufa_design-system build
 ```
 
-**Build Order:** Design system primitives → tokens → main → storybook → documentation
+**Build Order (CRITICAL for design system):**
+```bash
+# Must be built in this exact order:
+pnpm ds:tokens:build       # 1. First - generates CSS and types used by components
+pnpm ds:primitives:build   # 2. Then primitives
+pnpm ds:main:build         # 3. Then main components (depends on tokens)
+pnpm ds:storybook:build    # 4. Finally Storybook
+
+# Or use convenience script that handles order:
+pnpm ds:all:build
+```
+
+**Why order matters:**
+- Tokens package generates CSS custom properties and TypeScript types
+- Main components import from tokens package
+- Building out of order will cause TypeScript errors
 
 ### Preview Built Packages
 
@@ -283,41 +497,31 @@ git add .changeset/
 git commit -m "chore: add changeset for [description]"
 ```
 
-## Pull Request Guidelines
+## Before Committing Changes
 
-### Before Submitting
-
+**Pre-commit checklist:**
 ```bash
-# Ensure all checks pass
+# 1. Ensure all packages build
 pnpm all:build
+
+# 2. Lint all changes
 pnpm all:lint
+
+# 3. Format code
 pnpm all:prettier
 
-# Run tests for affected packages
-pnpm --filter @grasdouble/your-package test
+# 4. Run tests for affected packages
+pnpm --filter @grasdouble/lufa_design-system test-ct
 
-# Create changeset if needed
+# 5. Create changeset for user-facing changes
 pnpm changeset
 ```
 
-### PR Requirements
-
-- **Title format:** Follow [Conventional Commits](https://www.conventionalcommits.org/)
-  - `feat(design-system): add Button variants`
-  - `fix(microfrontend): resolve routing issue`
-  - `docs: update AGENTS.md`
-- **All tests passing**
-- **Lint and format checks passing**
-- **Documentation updated** (if applicable)
-- **Changeset created** (for version changes)
-- **Reference issues** when applicable
-
-### Review Process
-
-- PRs are typically squashed and merged
-- Maintain focused scope
-- Address review comments promptly
-- Keep commits clean and atomic
+**Commit message format:** Follow [Conventional Commits](https://www.conventionalcommits.org/)
+- `feat(design-system): add Button variants`
+- `fix(microfrontend): resolve routing issue`
+- `docs: update AGENTS.md`
+- `chore: add changeset`
 
 ## Common Development Tasks
 
@@ -372,115 +576,429 @@ pnpm --filter @grasdouble/lufa_microfrontend_home dev
 pnpm app:mf:build
 ```
 
-## Security and Performance
+## Code Patterns and Examples
 
-### Security Best Practices
+### Common Patterns in This Codebase
 
-- **Never commit secrets** - Use environment variables
-- **Validate inputs** - Sanitize user inputs
-- **Follow OWASP guidelines** - See `.github/instructions/ai-prompt-engineering-safety-best-practices.instructions.md`
-- **Audit dependencies** - Run `pnpm audit` regularly
-- **Use secure protocols** - HTTPS for external APIs
+#### Pattern 1: Creating a Design System Component
 
-### Performance Optimization
+**Complete workflow from tokens to tests:**
 
-- **Code splitting** - Use dynamic imports for large components
-- **Lazy loading** - Implement `React.lazy` and `Suspense`
-- **Memoization** - Use `React.memo`, `useMemo`, `useCallback` judiciously
-- **Bundle analysis** - Check bundle sizes in production builds
-- **Follow guidelines** - See `.github/instructions/performance-optimization.instructions.md`
+```typescript
+// Step 1: Ensure tokens exist in packages/design-system/tokens/
+// If not, add them first, then run: pnpm ds:tokens:build
 
-## Documentation
+// Step 2: Create component file
+// File: packages/design-system/main/src/components/Button.tsx
 
-### Available Documentation
+import type { ComponentPropsWithoutRef } from 'react';
+import { clsx } from 'clsx';
 
-- **Main README:** Project overview and quick start
-- **CONTRIBUTING.md:** Contribution guidelines
-- **AGENTS.md:** This file - agent instructions
-- **docs/howto/:** How-to guides (changesets, etc.)
-- **docs/POCs.md:** Proof of concept documentation
-- **Design system docs:** Docusaurus at `packages/design-system/documentation/`
-- **Component explorer:** Storybook at `packages/design-system/storybook/`
+// ✅ ALWAYS import from tokens
+import { color, spacing, fontSize } from '@grasdouble/lufa_design-system-tokens';
 
-### Instruction Files
+// Step 3: Define props interface with JSDoc
+export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
+  /**
+   * Visual variant
+   * @default 'primary'
+   */
+  variant?: 'primary' | 'secondary' | 'ghost';
 
-Located in `.github/instructions/`:
+  /**
+   * Size variant
+   * @default 'md'
+   */
+  size?: 'sm' | 'md' | 'lg';
 
-- `a11y.instructions.md` - Accessibility guidelines
-- `lufa-design-system.instructions.md` - Design system standards
+  children: React.ReactNode;
+}
+
+// Step 4: Implement component with accessibility
+export const Button = ({
+  variant = 'primary',
+  size = 'md',
+  children,
+  className,
+  ...props
+}: ButtonProps) => {
+  return (
+    <button
+      className={clsx(
+        'btn',
+        `btn-${variant}`,
+        `btn-${size}`,
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
+
+// Step 5: Set displayName
+Button.displayName = 'Button';
+
+// Step 6: Export from packages/design-system/main/src/index.ts
+// export { Button, type ButtonProps } from './components/Button';
+```
+
+#### Pattern 2: Writing Playwright Component Tests
+
+```typescript
+// File: packages/design-system/main/src/components/Button.spec.tsx
+
+import { test, expect } from '@playwright/experimental-ct-react';
+import { Button } from './Button';
+
+test.describe('Button Component', () => {
+  test('renders with correct text', async ({ mount }) => {
+    const component = await mount(<Button>Click me</Button>);
+    await expect(component).toContainText('Click me');
+  });
+
+  test('handles click events', async ({ mount }) => {
+    let clicked = false;
+    const component = await mount(
+      <Button onClick={() => { clicked = true; }}>Click</Button>
+    );
+    await component.click();
+    expect(clicked).toBe(true);
+  });
+
+  test('applies variant classes correctly', async ({ mount }) => {
+    const component = await mount(<Button variant="primary">Primary</Button>);
+    await expect(component).toHaveClass(/btn-primary/);
+  });
+
+  test('is keyboard accessible', async ({ mount }) => {
+    const component = await mount(<Button>Press me</Button>);
+    await component.focus();
+    await expect(component).toBeFocused();
+  });
+});
+```
+
+#### Pattern 3: Using Changesets for Version Management
+
+```bash
+# After making changes to components
+pnpm changeset
+
+# Interactive prompts:
+# 1. Select affected packages (use space to select, enter to confirm)
+# 2. Choose version bump type:
+#    - major: Breaking changes
+#    - minor: New features (backward compatible)
+#    - patch: Bug fixes
+# 3. Write clear description of changes
+
+# Commit the changeset
+git add .changeset/
+git commit -m "chore: add changeset for button component variants"
+```
+
+#### Pattern 4: Working with Monorepo Packages
+
+```bash
+# Find package name
+pnpm list --recursive --depth 0 | grep design-system
+
+# Install dependency to specific package
+pnpm --filter @grasdouble/lufa_design-system add clsx
+
+# Build specific package
+pnpm --filter @grasdouble/lufa_design-system build
+
+# Build all packages with pattern
+pnpm --filter @grasdouble/lufa_design-system-* build
+
+# Run command in package directory
+cd packages/design-system/main
+pnpm test-ct
+```
+
+#### Pattern 5: CSS with Design Tokens
+
+```css
+/* File: packages/design-system/main/src/components/Button.css */
+
+@layer components {
+  .btn {
+    /* ✅ Use tokens via CSS custom properties */
+    padding: var(--lufa-spacing-default);
+    font-size: var(--lufa-font-size-body);
+    font-weight: var(--lufa-font-weight-semibold);
+    border-radius: var(--lufa-radius-base);
+    transition: var(--lufa-transition-fast);
+    cursor: pointer;
+
+    /* ❌ Don't hard-code values */
+    /* padding: 16px; */
+    /* font-size: 14px; */
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--lufa-color-border-focus);
+    outline-offset: 2px;
+  }
+
+  .btn-primary {
+    background: var(--lufa-color-background-primary);
+    color: var(--lufa-color-text-inverse);
+  }
+
+  .btn-primary:hover {
+    background: var(--lufa-color-background-primary-hover);
+  }
+}
+```
+
+---
+
+### Design System Component Pattern
+
+**Correct component structure:**
+```typescript
+import type { ComponentPropsWithoutRef } from 'react';
+import { clsx } from 'clsx';
+
+// Always import from tokens, never from primitives
+import { color, spacing, fontSize } from '@grasdouble/lufa_design-system-tokens';
+
+export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
+  /**
+   * Visual variant
+   * @default 'primary'
+   */
+  variant?: 'primary' | 'secondary' | 'ghost';
+
+  /**
+   * Size variant
+   * @default 'md'
+   */
+  size?: 'sm' | 'md' | 'lg';
+
+  children: React.ReactNode;
+}
+
+/**
+ * Button component with multiple variants and sizes.
+ *
+ * @example
+ * ```tsx
+ * <Button variant="primary" size="md" onClick={handleClick}>
+ *   Click me
+ * </Button>
+ * ```
+ */
+export const Button = ({
+  variant = 'primary',
+  size = 'md',
+  children,
+  className,
+  ...props
+}: ButtonProps) => {
+  return (
+    <button
+      className={clsx(
+        'btn',
+        `btn-${variant}`,
+        `btn-${size}`,
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
+
+Button.displayName = 'Button';
+```
+
+**CSS with tokens (use CSS custom properties):**
+```css
+@layer components {
+  .btn {
+    /* ✅ Use tokens via CSS custom properties */
+    padding: var(--lufa-spacing-default);
+    font-size: var(--lufa-font-size-body);
+    border-radius: var(--lufa-radius-base);
+    transition: var(--lufa-transition-fast);
+
+    /* ❌ Don't hard-code values */
+    /* padding: 16px; */
+    /* font-size: 14px; */
+  }
+
+  .btn-primary {
+    background: var(--lufa-color-background-primary);
+    color: var(--lufa-color-text-inverse);
+  }
+
+  .btn-primary:hover {
+    background: var(--lufa-color-background-primary-hover);
+  }
+}
+```
+
+### Workspace Dependencies Pattern
+
+**In package.json:**
+```json
+{
+  "dependencies": {
+    "@grasdouble/lufa_design-system-tokens": "workspace:^",
+    "@grasdouble/lufa_design-system-primitives": "workspace:^"
+  }
+}
+```
+
+### Common Mistakes to Avoid
+
+**❌ Don't do this:**
+```typescript
+// Don't import primitives in components
+import { spacing } from '@grasdouble/lufa_design-system-primitives';
+
+// Don't hard-code values
+const styles = { padding: '16px', color: '#FF0000' };
+
+// Don't skip displayName
+export const Button = (props) => { /* ... */ };
+```
+
+**✅ Do this instead:**
+```typescript
+// Import tokens
+import { spacing, color } from '@grasdouble/lufa_design-system-tokens';
+
+// Use tokens
+const styles = {
+  padding: spacing.default,
+  color: color.text.primary
+};
+
+// Set displayName
+export const Button = (props) => { /* ... */ };
+Button.displayName = 'Button';
+```
+
+## Code Quality Requirements
+
+### Security
+- Never commit secrets or credentials
+- Validate and sanitize user inputs
+- Follow OWASP security best practices
+- Reference: `.github/instructions/ai-prompt-engineering-safety-best-practices.instructions.md`
+
+### Performance
+- Use `React.memo`, `useMemo`, `useCallback` judiciously (not by default)
+- Implement code splitting with dynamic imports when needed
+- Lazy load components with `React.lazy` and `Suspense` where appropriate
+- Reference: `.github/instructions/performance-optimization.instructions.md`
+
+## Reference Documentation
+
+### Key Documentation Files
+
+**Must-read files:**
+- [CLAUDE.md](CLAUDE.md) - Critical three-layer design system architecture
+- [AGENTS.md](AGENTS.md) - This file (comprehensive development guide)
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution workflow and git practices
+
+**Technology-specific instructions** (`.github/instructions/`):
+- `lufa-design-system.instructions.md` - Design system standards (detailed patterns)
+- `a11y.instructions.md` - Accessibility guidelines (WCAG 2.1 AA)
 - `reactjs.instructions.md` - React best practices
 - `tailwindcss.instructions.md` - Tailwind CSS patterns
 - `typescript-5-es2022.instructions.md` - TypeScript guidelines
-- `nodejs-javascript-vitest.instructions.md` - Testing with Vitest
-- `playwright-typescript.instructions.md` - Playwright E2E testing
+- `playwright-typescript.instructions.md` - Playwright testing
 - `performance-optimization.instructions.md` - Performance patterns
-- `update-docs-on-code-change.instructions.md` - Documentation sync
 
-### Generating Documentation
+**How-to guides** (`docs/howto/`):
+- `How-to-use-changeset-in-Lufa.md` - Version management with Changesets
+
+### Documentation Commands
 
 ```bash
-# Build Storybook static site
+# Build Storybook (component explorer)
 pnpm ds:storybook:build
 
-# Build Docusaurus site
+# Build Docusaurus (design system docs)
 pnpm ds:documentation:build
 
 # Generate dependency report
 pnpm tools:generate-outdated-report
 ```
 
-## Troubleshooting
+## Troubleshooting for AI Agents
 
-### Common Issues
+### Build Failures
 
-**Build Failures:**
+**Most common cause:** Design system packages built out of order
 
 ```bash
-# Clean install
+# Solution: Build in correct order
+pnpm ds:tokens:build       # 1. Tokens first (generates types)
+pnpm ds:primitives:build   # 2. Then primitives
+pnpm ds:main:build         # 3. Then components
+pnpm ds:storybook:build    # 4. Finally Storybook
+
+# Or use convenience script:
+pnpm ds:all:build
+```
+
+**If clean rebuild needed:**
+```bash
 rm -rf node_modules pnpm-lock.yaml
 pnpm install
-
-# Rebuild all packages
 pnpm all:build
 ```
 
-**Import Resolution Issues:**
+### TypeScript Errors
 
-- Check package names in `package.json`
-- Ensure dependencies use `workspace:*` protocol for internal packages
-- Verify package is built: `pnpm --filter @grasdouble/package-name build`
+**Symptoms:** "Cannot find module '@grasdouble/lufa_design-system-tokens'" or similar
 
-**TypeScript Errors:**
+**Causes and solutions:**
+1. **Tokens not built:** Run `pnpm ds:tokens:build`
+2. **Wrong import path:** Verify package name in `package.json`
+3. **Missing workspace dependency:** Check `workspace:^` protocol is used
+4. **Types not exported:** Verify package exports types in `package.json`
 
-- Ensure all dependencies are built
-- Check `tsconfig.json` extends correct base config
-- Verify types are exported properly
+### Import Resolution Issues
 
-**Lint/Format Issues:**
+**Check these:**
+1. Package is built: `pnpm --filter @grasdouble/package-name build`
+2. Workspace protocol used: `"@grasdouble/lufa_design-system-tokens": "workspace:^"`
+3. Package name matches exactly (check `package.json` `name` field)
+4. Types are exported in package's `package.json` exports field
+
+### Linting/Formatting Issues
 
 ```bash
-# Fix automatically
+# Auto-fix formatting
 pnpm all:prettier
 
-# Check specific issues
+# Check linting issues
 pnpm all:lint
 ```
 
-### Debug Mode
+## Environment Information
 
-```bash
-# Enable pnpm debug logging
-pnpm --loglevel debug [command]
-
-# Verbose output
-pnpm -r --stream [command]
-```
-
-## Additional Notes
+### Required Versions
+- **Node.js:** 24.9.0 (specified in `.tool-versions`)
+- **pnpm:** 10.26.x or later (currently 10.8.1+)
+- Check versions: `node -v` and `pnpm -v`
 
 ### Workspace Protocol
-
-Internal dependencies should use `workspace:*` or `workspace:^` protocol:
+All internal dependencies must use `workspace:^` protocol:
 
 ```json
 {
@@ -490,52 +1008,257 @@ Internal dependencies should use `workspace:*` or `workspace:^` protocol:
 }
 ```
 
-### Environment Setup
+### CI/CD Information
+- **Workflows location:** `.github/workflows/`
+- **Release automation:** `changeset-release.yml` (manual trigger from `main` branch)
+- **Publishing:** GitHub Package Registry
+- **Checks:** Linting, building, testing run on PRs
 
-- Check Node.js version: `node -v` (should be 24.9.0)
-- Check pnpm version: `pnpm -v` (should be 10.8.1+)
-- Use `.tool-versions` for asdf version management
+## AI Agent Guidelines
 
-### CI/CD
+### When Working with Design System Components
 
-GitHub Actions workflows are in `.github/workflows/`:
+1. **Always check CLAUDE.md first** for the three-layer architecture
+2. **Verify tokens exist** before creating components
+3. **Build tokens before components**: Run `pnpm ds:tokens:build` after token changes
+4. **Never skip the build order** - tokens → primitives → main → storybook
+5. **Use Read tool** to check existing patterns before creating new components
+6. **Reference existing components** in `packages/design-system/main/src/components/`
 
-- `changeset-release.yml` - Release automation
-- Various PR checks for linting, building, testing
+### Before Making Changes
 
-### Getting Help
+**Check these files:**
+1. Read the package's `package.json` to understand scripts and dependencies
+2. Check existing component patterns in the same directory
+3. Review `.github/instructions/lufa-design-system.instructions.md` for detailed patterns
+4. Look at Storybook stories for usage examples
 
-- Check documentation in `docs/` directory
-- Review instruction files in `.github/instructions/`
-- See `CONTRIBUTING.md` for contribution process
-- Open issues for bugs or feature requests
+### When Creating New Components
 
-## Quick Reference
+**Step-by-step process:**
+1. Verify or create required tokens in `packages/design-system/tokens/`
+2. Run `pnpm ds:tokens:build` to generate CSS and types
+3. Create component file in `packages/design-system/main/src/components/`
+4. Import tokens (never primitives)
+5. Add TypeScript interface with JSDoc
+6. Implement accessibility (ARIA, keyboard, focus)
+7. Set `displayName`
+8. Create Storybook story in `packages/design-system/storybook/src/stories/`
+9. Write Playwright component tests
+10. Export from `packages/design-system/main/src/index.ts`
+11. Create changeset: `pnpm changeset`
 
-### Most Common Commands
+### Common AI Agent Mistakes
+
+❌ **Don't:**
+- Use Bash `cat` or `grep` when Read or Grep tools are available
+- Assume test scripts exist (check package.json first)
+- Skip building tokens before components
+- Import from primitives in components
+- Forget to set `displayName`
+- Skip creating changesets for user-facing changes
+
+✅ **Do:**
+- Use Read tool for file reading
+- Use Grep tool for searching
+- Verify commands exist in package.json before suggesting them
+- Check build order for design system
+- Follow the three-layer architecture strictly
+- Create changesets for releases
+
+### Tool Usage Recommendations
+
+**For this codebase:**
+- Use `Read` to examine component patterns
+- Use `Grep` to search for similar implementations
+- Use `Glob` to find component files
+- Use `Bash` for git operations and running scripts
+- Use `Edit` to modify existing files
+- Use `Write` only for new files (prefer Edit)
+
+## Quick Command Reference
+
+### Essential Commands
 
 ```bash
-pnpm install              # Install dependencies
-pnpm all:build            # Build everything
-pnpm app:mf:dev           # Run microfrontends
-pnpm ds:storybook:dev     # Run Storybook
-pnpm all:lint             # Lint all
-pnpm all:prettier         # Format all
-pnpm changeset            # Create changeset
+# Setup
+pnpm install              # Install all dependencies
+pnpm all:build            # Build all packages
+
+# Development
+pnpm app:mf:dev           # Microfrontends (main-container :3000, home :3001)
+pnpm ds:storybook:dev     # Storybook (:6006)
+pnpm ds:main:dev          # Design system watch mode
+
+# Design System Build (correct order)
+pnpm ds:tokens:build      # 1. Tokens first
+pnpm ds:primitives:build  # 2. Then primitives
+pnpm ds:main:build        # 3. Then components
+pnpm ds:all:build         # Or use this (handles order)
+
+# Code Quality
+pnpm all:lint             # Lint all packages
+pnpm all:prettier         # Format all packages
+
+# Testing
+pnpm --filter @grasdouble/lufa_design-system test-ct
+
+# Version Management
+pnpm changeset            # Create changeset for releases
 ```
 
-### Package Filters
+### Package Filter Syntax
 
 ```bash
+# Specific package
 pnpm --filter @grasdouble/lufa_design-system [command]
 pnpm --filter @grasdouble/lufa_microfrontend_home [command]
+
+# Pattern matching (all design system packages)
 pnpm --filter @grasdouble/lufa_design-system-* [command]
+
+# All packages with @grasdouble scope
+pnpm --filter @grasdouble/* [command]
 ```
 
-### Navigation
+### Key Directory Paths
 
-```bash
-cd packages/design-system/main          # Main design system
-cd packages/apps/microfrontend/home     # Home microfrontend
-cd packages/cdn/autobuild-server        # CDN server
 ```
+packages/design-system/main/          # Main design system components
+packages/design-system/tokens/        # Design tokens (semantic)
+packages/design-system/primitives/    # Primitives (raw values)
+packages/apps/microfrontend/main-container/  # Main container
+packages/apps/microfrontend/home/     # Home microfrontend
+packages/cdn/autobuild-server/        # CDN autobuild server
+```
+
+---
+
+## 🤖 AI Agent Compatibility
+
+This project follows the [AGENTS.md standard](https://agents.md/) and maintains compatibility with multiple AI coding agents.
+
+### Supported Agents and Their Files
+
+| Agent | Primary File | Status | Notes |
+|-------|-------------|--------|-------|
+| **GitHub Copilot** | [.github/copilot-instructions.md](.github/copilot-instructions.md) | ✅ Full Support | Path-scoped instructions with YAML frontmatter |
+| **Claude Code** | [CLAUDE.md](CLAUDE.md) | ✅ Full Support | Quick reference, links to AGENTS.md |
+| **Cursor** | `.cursor/index.mdc` | ✅ Full Support | Create if using Cursor IDE |
+| **Aider** | `CONVENTIONS.md` → AGENTS.md | ✅ Full Support | Symlink or reference to this file |
+| **Cline** | `.clinerules` | 🔄 Community Support | Can reference AGENTS.md |
+| **Windsurf** | `.windsurfrules` | 🔄 Community Support | Can reference AGENTS.md |
+| **Roo Code** | AGENTS.md | ✅ Native Support | Uses this file directly |
+
+### File Organization Strategy
+
+```
+project-root/
+├── AGENTS.md                          # ⭐ Primary source of truth (this file)
+├── CLAUDE.md                          # Quick reference for Claude Code
+├── CONVENTIONS.md                     # Symlink to AGENTS.md (for Aider)
+├── .github/
+│   ├── copilot-instructions.md       # GitHub Copilot main file
+│   ├── instructions/                  # Path-scoped instructions
+│   │   ├── *.instructions.md         # With YAML frontmatter
+│   ├── prompts/                       # Reusable AI prompts
+│   │   └── README.md                 # Prompts index
+│   └── agents/                        # Custom agent definitions
+└── .cursor/
+    └── index.mdc                      # Cursor IDE rules (optional)
+```
+
+### Cross-Agent Best Practices
+
+This project follows these principles for maximum compatibility:
+
+1. **Single Source of Truth**: AGENTS.md contains comprehensive documentation
+2. **Agent-Specific Files Reference AGENTS.md**: Avoid duplication
+3. **Standard Markdown**: Simple, readable format for all agents
+4. **YAML Frontmatter**: Used sparingly (only for GitHub Copilot path-scoping)
+5. **Natural Language**: Clear instructions, not cryptic abbreviations
+
+### For Contributors Using Different Agents
+
+Regardless of which AI agent you're using, start with this file (AGENTS.md). Agent-specific files provide additional context but this file contains all essential information.
+
+**Quick setup for your agent:**
+- **GitHub Copilot**: Already configured via `.github/copilot-instructions.md`
+- **Claude Code**: See [CLAUDE.md](CLAUDE.md) for quick start
+- **Cursor**: Create `.cursor/index.mdc` that references this file
+- **Aider**: Use `--read AGENTS.md` or configure in `.aider.conf.yml`
+- **Other agents**: Reference this file in your agent's configuration
+
+---
+
+### Extended Compatibility Matrix
+
+This detailed matrix shows which features are supported by each AI agent.
+
+| Feature | GitHub Copilot | Claude Code | Cursor | Aider | Cline | Windsurf | Roo Code |
+|---------|----------------|-------------|--------|-------|-------|----------|----------|
+| **AGENTS.md Support** | ✅ Native | ✅ Via CLAUDE.md | ✅ Via .mdc | ✅ Native | 🔄 Requested | ❓ | ✅ Native |
+| **Path-Scoped Rules** | ✅ YAML frontmatter | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ |
+| **YAML Frontmatter** | ✅ Advanced | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Multiple Instructions Files** | ✅ .instructions.md | ✅ Referenced | ✅ .mdc files | ✅ Multiple --read | ✅ Directory | ✅ | ✅ |
+| **Auto-Load on File Open** | ✅ | ✅ CLAUDE.md | ✅ Always rules | ⚠️ Config needed | ⚠️ Manual | ⚠️ Manual | ⚠️ Config needed |
+| **Custom Agents/Skills** | ✅ Copilot Extensions | ✅ Agent Skills | ❌ | ❌ | ❌ | ❌ | ✅ Custom modes |
+| **Prompts Library** | ⚠️ Via @workspace | ⚠️ Via Skill tool | ⚠️ Manual reference | ✅ /read | ⚠️ Manual | ⚠️ Manual | ⚠️ Manual |
+| **IDE Integration** | ✅ VS Code, JetBrains | ✅ CLI, VSCode ext | ✅ Native IDE | ⚠️ CLI only | ✅ VS Code ext | ✅ Native IDE | ✅ VS Code ext |
+| **Organization-Level Rules** | ✅ | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ |
+| **Cost** | Paid | Paid | Paid | Open Source | Open Source | Paid | Open Source |
+
+**Legend**:
+- ✅ Full Support
+- ⚠️ Partial Support / Needs Configuration
+- 🔄 Community Request / In Progress
+- ❓ Unknown / Not Documented
+- ➖ Not Applicable / Not Available
+
+### Choosing the Right Agent for Your Workflow
+
+**For This Project (Lufa)**:
+
+| Workflow | Recommended Agent(s) | Why |
+|----------|---------------------|-----|
+| **Design System Development** | Claude Code, GitHub Copilot | CLAUDE.md optimized, path-scoped rules |
+| **Component Testing** | GitHub Copilot, Cursor | Path-scoped to test files, good test generation |
+| **Documentation Updates** | Aider, Claude Code | Good at reading context, following AGENTS.md |
+| **Refactoring** | GitHub Copilot, Cursor | IDE integration, multi-file changes |
+| **Learning the Codebase** | Claude Code, Aider | Can read AGENTS.md comprehensively |
+| **Quick Fixes** | GitHub Copilot | Fastest in-editor suggestions |
+| **CLI Workflows** | Aider | Best CLI-native experience |
+
+### Agent-Specific Setup Instructions
+
+**GitHub Copilot**:
+- ✅ No setup needed - automatically loads `.github/copilot-instructions.md`
+- ✅ Path-scoped instructions apply automatically
+
+**Claude Code**:
+- ✅ Automatically loads `CLAUDE.md`
+- 💡 Can reference AGENTS.md for deep dives
+
+**Cursor**:
+1. Create `.cursor/index.mdc`:
+```markdown
+# Cursor Rules
+
+See [AGENTS.md](../AGENTS.md) for complete development guide.
+
+## Critical Rules
+- Components use tokens only (no primitives)
+- Build order: tokens → primitives → main → storybook
+- All components need Playwright tests
+```
+
+**Aider**:
+1. Create `.aider.conf.yml`:
+```yaml
+read: AGENTS.md
+```
+2. Or use flag: `aider --read AGENTS.md`
+
+**Cline / Windsurf / Roo Code**:
+- Reference AGENTS.md in your tool's settings
+- See tool-specific documentation for configuration

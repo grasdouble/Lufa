@@ -21,7 +21,7 @@ This extension shows color decorators for Lufa tokens in TypeScript and CSS file
 1. Open this folder in VSCode
 2. Press `F5` to launch an Extension Development Host
 3. Open a file that uses Lufa color tokens:
-   - CSS: `var(--lufa-token-color-text-primary)` or `--lufa-token-color-background: oklch(...)`
+   - CSS: `var(--lufa-token-color-text-primary)` or `--lufa-token-color-background-primary: oklch(...)`
    - TypeScript: `primitives.color.chromatic.red[500]` or `primitives.color.neutral.neutral[900]`
 4. See colored squares next to your tokens! 🎨
 
@@ -122,7 +122,7 @@ Then check the "Lufa DS Preview" output channel: View → Output → Select "Luf
 ```css
 /* Variable usage */
 color: var(--lufa-token-color-text-primary);
-background: var(--lufa-token-color-background-success, #fallback);
+background: var(--lufa-token-color-success-light, #fallback);
 
 /* Variable declarations */
 --lufa-token-color-text-primary: oklch(90% 0.05 200);
@@ -157,7 +157,7 @@ const border = tokens.borderWidth.thin;
 
 // Primitives namespace
 const scale = primitives.spacing[16];
-const opacity = primitives.opacity[60];
+const opacity = primitives.opacity[50];
 ```
 
 ## Troubleshooting

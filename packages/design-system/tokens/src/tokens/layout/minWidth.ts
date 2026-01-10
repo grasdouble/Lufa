@@ -16,12 +16,12 @@
  * - Test on mobile devices for usability
  */
 
-import { maxWidth as primitiveMaxWidths, spacing as primitiveSpacing } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const minWidth = {
   // Button/Control minimums
-  buttonMin: primitiveSpacing[80],
-  inputMin: primitiveSpacing[120],
+  buttonMin: primitives.spacing[80],
+  inputMin: primitives.spacing[120],
 
   // Content minimums
   cardMin: '240px', // Custom value between 256 and 288 primitives
@@ -29,14 +29,13 @@ export const minWidth = {
 
   // Component minimums
   xs: '280px', // Custom value between 256 and 288
-  sm: primitiveMaxWidths[320],
+  sm: primitives.maxWidth[320],
   md: '480px', // Custom value between 448 and 512
-  lg: primitiveMaxWidths[640],
-  xl: primitiveMaxWidths[768],
-
+  lg: primitives.maxWidth[640],
+  xl: primitives.maxWidth[768],
   // Special values
   none: '0',
-  full: primitiveMaxWidths.full,
+  full: primitives.maxWidth.full,
   fitContent: 'fit-content',
   minContent: 'min-content',
   maxContent: 'max-content',

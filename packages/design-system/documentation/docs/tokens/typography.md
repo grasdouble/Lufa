@@ -13,50 +13,74 @@ Our typography system is based on a modular scale that ensures visual hierarchy 
 ### Headings
 
 ```css
---lufa-text-h1: /* 2.5rem / 40px */ --lufa-text-h2: /* 2rem / 32px */ --lufa-text-h3: /* 1.75rem / 28px */
-  --lufa-text-h4: /* 1.5rem / 24px */ --lufa-text-h5: /* 1.25rem / 20px */ --lufa-text-h6: /* 1rem / 16px */;
+--lufa-token-font-size-6xl: /* H1 (60px) */
+--lufa-token-font-size-5xl: /* H2 (48px) */
+--lufa-token-font-size-4xl: /* H3 (36px) */
+--lufa-token-font-size-3xl: /* H4 (30px) */
+--lufa-token-font-size-2xl: /* H5 (24px) */
+--lufa-token-font-size-xl: /* H6 (20px) */
 ```
 
 ### Body Text
 
 ```css
---lufa-text-body1: /* 1rem / 16px - Primary body text */ --lufa-text-body2: /* 0.875rem / 14px - Secondary body text */;
+--lufa-token-font-size-base: /* 16px - Primary body text */
+--lufa-token-font-size-sm: /* 14px - Secondary body text */
 ```
 
 ### Small Text
 
 ```css
---lufa-text-caption: /* 0.75rem / 12px - Captions and labels */ --lufa-text-overline:
-  /* 0.75rem / 12px - All caps labels */;
+--lufa-token-font-size-xs: /* 12px - Captions and labels */
 ```
 
 ## Font Families
 
 ```css
---lufa-font-sans: /* System font stack for body text */ --lufa-font-mono: /* Monospace font for code */;
+--lufa-token-font-family-sans: /* System font stack for body text */
+--lufa-token-font-family-serif: /* Serif stack for editorial content */
+--lufa-token-font-family-mono: /* Monospace font for code */
 ```
 
 ### Default Font Stack
 
 ```css
---lufa-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+--lufa-token-font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 ```
 
 ## Font Weights
 
 ```css
---lufa-font-weight-regular: 400;
---lufa-font-weight-medium: 500;
---lufa-font-weight-semibold: 600;
---lufa-font-weight-bold: 700;
+--lufa-token-font-weight-thin: 100;
+--lufa-token-font-weight-extra-light: 200;
+--lufa-token-font-weight-light: 300;
+--lufa-token-font-weight-regular: 400;
+--lufa-token-font-weight-medium: 500;
+--lufa-token-font-weight-semibold: 600;
+--lufa-token-font-weight-bold: 700;
+--lufa-token-font-weight-extra-bold: 800;
+--lufa-token-font-weight-black: 900;
 ```
 
 ## Line Heights
 
 ```css
---lufa-line-height-tight: 1.25; /* For headings */
---lufa-line-height-normal: 1.5; /* For body text */
---lufa-line-height-relaxed: 1.75; /* For long-form content */
+--lufa-token-line-height-none: 1; /* Avoid for readable text */
+--lufa-token-line-height-tight: 1.2; /* For headings */
+--lufa-token-line-height-snug: 1.35; /* For large text */
+--lufa-token-line-height-base: 1.5; /* For body text */
+--lufa-token-line-height-relaxed: 1.65; /* For long-form content */
+--lufa-token-line-height-loose: 1.8; /* For accessibility-focused text */
+```
+
+## Typography Scale Presets (JS)
+
+Use `typographyScale` for pre-configured combinations of font size, weight, line height, and letter spacing:
+
+```ts
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
+const heading = tokens.typographyScale.h1;
 ```
 
 ## Usage
@@ -76,15 +100,15 @@ import { Typography } from '@grasdouble/lufa_design-system';
 
 ```css
 .heading {
-  font-size: var(--lufa-text-h2);
-  font-weight: var(--lufa-font-weight-bold);
-  line-height: var(--lufa-line-height-tight);
+  font-size: var(--lufa-token-font-size-5xl);
+  font-weight: var(--lufa-token-font-weight-bold);
+  line-height: var(--lufa-token-line-height-tight);
 }
 
 .body {
-  font-size: var(--lufa-text-body1);
-  font-family: var(--lufa-font-sans);
-  line-height: var(--lufa-line-height-normal);
+  font-size: var(--lufa-token-font-size-base);
+  font-family: var(--lufa-token-font-family-sans);
+  line-height: var(--lufa-token-line-height-base);
 }
 ```
 
@@ -94,7 +118,7 @@ Typography scales responsively based on viewport size. Consider using relative u
 
 ```css
 .responsive-heading {
-  font-size: clamp(var(--lufa-text-h3), 5vw, var(--lufa-text-h1));
+  font-size: clamp(var(--lufa-token-font-size-4xl), 5vw, var(--lufa-token-font-size-6xl));
 }
 ```
 

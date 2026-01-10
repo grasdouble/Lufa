@@ -51,7 +51,15 @@ const parseCssVariables = (cssText: string): Record<string, string> => {
 
 const buildPaths = (moduleExports: Record<string, unknown>, root: string): Record<string, string> => {
   const paths: Record<string, string> = {};
+  // Use the default export as the canonical root to avoid `tokens.default.*` paths.
+  const defaultExport = moduleExports.default;
+
+  if (defaultExport && typeof defaultExport === 'object') {
+    flattenPaths(defaultExport, [root], paths);
+  }
+
   for (const [name, value] of Object.entries(moduleExports)) {
+    if (name === 'default') continue;
     if (typeof value === 'function' || value === undefined) continue;
     if (value && typeof value === 'object') {
       flattenPaths(value, [root, name], paths);

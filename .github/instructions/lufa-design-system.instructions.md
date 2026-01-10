@@ -25,8 +25,8 @@ The Lufa Design System follows a three-layer architecture:
 
 **Key Principles**:
 
-- Use actual values as keys (pixels, milliseconds, numeric values)
-- Never use semantic names like `small`, `medium`, `large`
+- Prefer actual values as keys for numeric scales (pixels, milliseconds, numeric values)
+- Allow descriptive keys where numeric values are not ergonomic (e.g., `lineHeight.body`, `letterSpacing.readable`, `blur.none`)
 - Export both TypeScript objects and CSS custom properties
 - Organize by category (spacing, timing, typography, etc.)
 
@@ -50,7 +50,7 @@ export const timing = {
   500: '500ms',
 } as const;
 
-// ❌ Bad: Semantic keys in primitives
+// ❌ Bad: Semantic sizing keys in primitives
 export const spacing = {
   none: '0px',
   small: '8px',
@@ -69,7 +69,7 @@ export const spacing = {
 
 - Generate CSS variables for all primitives
 - Use naming convention: `--lufa-primitive-{category}-{value}`
-- Example: `--lufa-primitive-spacing-16`, `--lufa-primitive-timing-150`
+- Example: `--lufa-primitive-spacing-16`, `--lufa-primitive-timing-150`, `--lufa-primitive-line-height-body`
 
 ### Tokens Layer
 
@@ -85,27 +85,27 @@ export const spacing = {
 **Example Structure**:
 
 ```typescript
-import { fontSize, spacing } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 // ✅ Good: Semantic, purpose-driven names
 export const spacingTokens = {
-  compact: spacing[8],
-  default: spacing[16],
-  comfortable: spacing[24],
-  spacious: spacing[32],
+  compact: primitives.spacing[8],
+  default: primitives.spacing[16],
+  comfortable: primitives.spacing[24],
+  spacious: primitives.spacing[32],
 } as const;
 
 export const fontSizeTokens = {
-  body: fontSize[16],
-  h1: fontSize[32],
-  h2: fontSize[24],
-  small: fontSize[14],
+  body: primitives.fontSize[16],
+  h1: primitives.fontSize[32],
+  h2: primitives.fontSize[24],
+  small: primitives.fontSize[14],
 } as const;
 
 // ❌ Bad: Appearance-based or non-semantic names
 export const spacingTokens = {
-  xs: spacing[8],
-  sm: spacing[16],
+  xs: primitives.spacing[8],
+  sm: primitives.spacing[16],
   red: '#FF0000', // Never hard-code values!
 };
 ```
@@ -113,14 +113,14 @@ export const spacingTokens = {
 **Naming Conventions**:
 
 - Use descriptive names: `primary`, `secondary`, `success`, `error`, `warning`
-- Context-specific: `text.primary`, `background.success`, `border.default`
+- Context-specific: `text.primary`, `background.primary`, `border.default`, `success.light`
 - Size indicators: `compact`, `default`, `comfortable`, `spacious`
 - State indicators: `hover`, `active`, `disabled`, `focus`
 
 **CSS Custom Properties**:
 
-- Use naming convention: `--lufa-{category}-{variant}`
-- Example: `--lufa-color-text-primary`, `--lufa-spacing-default`
+- Use naming convention: `--lufa-token-{category}-{variant}`
+- Example: `--lufa-token-color-text-primary`, `--lufa-token-spacing-base`
 
 ### Components Layer
 
@@ -138,7 +138,7 @@ export const spacingTokens = {
 
 ````typescript
 import type { ComponentPropsWithoutRef } from 'react';
-import { color, spacing, fontSize } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 import { clsx } from 'clsx';
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
@@ -241,30 +241,30 @@ components/
 @layer components {
   .btn {
     /* Use tokens via CSS custom properties */
-    padding: var(--lufa-spacing-default);
-    font-size: var(--lufa-font-size-body);
-    font-weight: var(--lufa-font-weight-semibold);
-    border-radius: var(--lufa-radius-base);
-    transition: var(--lufa-transition-fast);
-    cursor: var(--lufa-cursor-pointer);
+    padding: var(--lufa-token-spacing-base);
+    font-size: var(--lufa-token-font-size-base);
+    font-weight: var(--lufa-token-font-weight-semibold);
+    border-radius: var(--lufa-token-radius-base);
+    transition: var(--lufa-token-transition-fast);
+    cursor: var(--lufa-token-cursor-pointer);
   }
 
   .btn:hover {
-    transform: var(--lufa-transform-hover-lift);
+    transform: var(--lufa-token-transform-hover-lift);
   }
 
   .btn:focus-visible {
-    outline: var(--lufa-border-width-focus) solid var(--lufa-color-border-focus);
-    outline-offset: var(--lufa-spacing-xs);
+    outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
+    outline-offset: var(--lufa-token-spacing-xs);
   }
 
   .btn-primary {
-    background: var(--lufa-color-background-primary);
-    color: var(--lufa-color-text-inverse);
+    background: var(--lufa-token-color-interactive-default);
+    color: var(--lufa-token-color-text-inverse);
   }
 
   .btn-primary:hover {
-    background: var(--lufa-color-background-primary-hover);
+    background: var(--lufa-token-color-interactive-hover);
   }
 }
 ```

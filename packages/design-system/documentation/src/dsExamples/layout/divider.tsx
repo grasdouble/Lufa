@@ -1,25 +1,24 @@
 import React from 'react';
 
-import { Divider, Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import { Divider, Placeholder, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -39,10 +38,10 @@ export const Orientation = () => (
   <Frame title="orientation">
     <Stack direction="vertical" gap="normal">
       <Divider label="horizontal" orientation="horizontal" />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16, height: 120 }}>
-        <Placeholder color={color.background.secondary}>Left</Placeholder>
+      <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base, height: tokens.size['3xl'] }}>
+        <Placeholder color={tokens.color.background.secondary}>Left</Placeholder>
         <Divider orientation="vertical" variant="solid" length="70%" />
-        <Placeholder color={color.background.secondary}>Right</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Right</Placeholder>
       </div>
     </Stack>
   </Frame>
@@ -71,19 +70,19 @@ export const Spacing = () => (
   <Frame title="spacing">
     <Stack direction="vertical" gap="condensed">
       <div>
-        <Placeholder color={color.background.secondary}>Above</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Above</Placeholder>
         <Divider label="none" spacing="none" />
-        <Placeholder color={color.background.secondary}>Below</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Below</Placeholder>
       </div>
       <div>
-        <Placeholder color={color.background.secondary}>Above</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Above</Placeholder>
         <Divider label="sm" spacing="sm" />
-        <Placeholder color={color.background.secondary}>Below</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Below</Placeholder>
       </div>
       <div>
-        <Placeholder color={color.background.secondary}>Above</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Above</Placeholder>
         <Divider label="lg" spacing="lg" />
-        <Placeholder color={color.background.secondary}>Below</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Below</Placeholder>
       </div>
     </Stack>
   </Frame>
@@ -93,10 +92,10 @@ export const Length = () => (
   <Frame title="length">
     <Stack direction="vertical" gap="normal">
       <Divider label='length="60%"' length="60%" />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16, height: 160 }}>
-        <Placeholder color={color.background.secondary}>Left</Placeholder>
+      <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base, height: tokens.size['4xl'] }}>
+        <Placeholder color={tokens.color.background.secondary}>Left</Placeholder>
         <Divider orientation="vertical" variant="dashed" length="70%" />
-        <Placeholder color={color.background.secondary}>Right</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Right</Placeholder>
       </div>
     </Stack>
   </Frame>
@@ -107,7 +106,7 @@ export const Label = () => (
     <Stack direction="vertical" gap="condensed">
       <Divider />
       <Divider label="Details" />
-      <Divider label={<span style={{ color: color.text.primary }}>Custom node</span>} />
+      <Divider label={<span style={{ color: tokens.color.text.primary }}>Custom node</span>} />
     </Stack>
   </Frame>
 );
@@ -125,10 +124,10 @@ export const Variants = () => (
 
 export const BetweenContentExample = () => (
   <Frame title="between content">
-    <div style={{ width: '100%' }}>
-      <Placeholder color={color.interactive.default}>Context</Placeholder>
+    <div style={{ width: tokens.maxWidth.full }}>
+      <Placeholder color={tokens.color.interactive.default}>Context</Placeholder>
       <Divider label="Between" spacing="sm" />
-      <Placeholder color={color.interactive.default}>Context</Placeholder>
+      <Placeholder color={tokens.color.interactive.default}>Context</Placeholder>
     </div>
   </Frame>
 );
@@ -139,13 +138,13 @@ export const VerticalSplitExample = () => (
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '16px',
-        height: '160px',
+        gap: tokens.spacing.base,
+        height: tokens.size['4xl'],
       }}
     >
-      <Placeholder color={color.interactive.default}>Left</Placeholder>
+      <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
       <Divider orientation="vertical" variant="dashed" length="90%" />
-      <Placeholder color={color.interactive.default}>Right</Placeholder>
+      <Placeholder color={tokens.color.interactive.default}>Right</Placeholder>
     </div>
   </Frame>
 );
@@ -154,8 +153,8 @@ export const ListSectionExample = () => (
   <Frame title="list section">
     <Stack direction="vertical" gap="normal" padding="none">
       <Divider label="Upcoming" />
-      <Placeholder color={color.background.secondary}>Item A</Placeholder>
-      <Placeholder color={color.background.secondary}>Item B</Placeholder>
+      <Placeholder color={tokens.color.background.secondary}>Item A</Placeholder>
+      <Placeholder color={tokens.color.background.secondary}>Item B</Placeholder>
     </Stack>
   </Frame>
 );

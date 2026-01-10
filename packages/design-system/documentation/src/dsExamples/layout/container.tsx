@@ -1,25 +1,24 @@
 import React from 'react';
 
-import { Container, Placeholder, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color, spacing } = tokens;
+import { Container, Placeholder, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -35,14 +34,14 @@ export const LiveDemo = () => (
       size="md"
       paddingY="md"
       style={{
-        border: `2px dashed ${color.border.light}`,
-        borderRadius: 12,
-        background: '#fff',
+        border: `${tokens.borderWidth.thin} ${tokens.borderStyle.dashed} ${tokens.color.border.light}`,
+        borderRadius: tokens.radius.lg,
+        background: tokens.color.background.primary,
       }}
     >
       <Stack direction="vertical" gap="normal">
-        <Placeholder color={color.interactive.default}>Header</Placeholder>
-        <Placeholder color={color.background.secondary}>Content</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>Header</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Content</Placeholder>
       </Stack>
     </Container>
   </Frame>
@@ -55,9 +54,9 @@ export const Size = () => (
         <div key={size}>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             size: {size}
@@ -66,25 +65,25 @@ export const Size = () => (
             size={size}
             paddingY="sm"
             style={{
-              border: `1px solid ${color.border.light}`,
-              borderRadius: 12,
-              background: '#fff',
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.lg,
+              background: tokens.color.background.primary,
             }}
           >
-            <Placeholder color={color.interactive.default}>Content</Placeholder>
+            <Placeholder color={tokens.color.interactive.default}>Content</Placeholder>
           </Container>
         </div>
       ))}
     </Stack>
     <div
       style={{
-        fontFamily: 'monospace',
-        color: color.text.tertiary,
-        fontSize: 12,
-        marginTop: 12,
+        fontFamily: tokens.fontFamily.mono,
+        color: tokens.color.text.tertiary,
+        fontSize: tokens.fontSize.xs,
+        marginTop: tokens.spacing.md,
       }}
     >
-      Tokens: spacing.base → {spacing.base}
+      Tokens: spacing.base → {tokens.spacing.base}
     </div>
   </Frame>
 );
@@ -96,19 +95,19 @@ export const Align = () => (
         <div key={align}>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             align: {align}
           </div>
           <div
             style={{
-              padding: 12,
-              borderRadius: 12,
-              background: color.background.secondary,
-              outline: `1px dashed ${color.border.light}`,
+              padding: tokens.spacing.md,
+              borderRadius: tokens.radius.lg,
+              background: tokens.color.background.secondary,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.light}`,
             }}
           >
             <Container
@@ -116,12 +115,12 @@ export const Align = () => (
               align={align}
               paddingY="sm"
               style={{
-                border: `1px solid ${color.border.light}`,
-                borderRadius: 12,
-                background: '#fff',
+                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                borderRadius: tokens.radius.lg,
+                background: tokens.color.background.primary,
               }}
             >
-              <Placeholder color={color.interactive.default}>Aligned</Placeholder>
+              <Placeholder color={tokens.color.interactive.default}>Aligned</Placeholder>
             </Container>
           </div>
         </div>
@@ -137,9 +136,9 @@ export const PaddingX = () => (
         <div key={paddingX}>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             paddingX: {paddingX}
@@ -149,23 +148,23 @@ export const PaddingX = () => (
             paddingX={paddingX}
             paddingY="none"
             style={{
-              border: `1px solid ${color.border.light}`,
-              borderRadius: 12,
-              background: '#fff',
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.lg,
+              background: tokens.color.background.primary,
             }}
           >
             <div
               style={{
-                height: 48,
-                borderRadius: 10,
-                outline: `1px dashed ${color.border.light}`,
-                background: color.background.secondary,
+                height: tokens.size.lg,
+                borderRadius: tokens.radius.lg,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.light}`,
+                background: tokens.color.background.secondary,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontFamily: 'monospace',
-                fontSize: 12,
-                color: color.text.secondary,
+                fontFamily: tokens.fontFamily.mono,
+                fontSize: tokens.fontSize.xs,
+                color: tokens.color.text.secondary,
               }}
             >
               inner content area
@@ -184,9 +183,9 @@ export const PaddingY = () => (
         <div key={paddingY}>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
             paddingY: {paddingY}
@@ -196,23 +195,23 @@ export const PaddingY = () => (
             paddingX="base"
             paddingY={paddingY}
             style={{
-              border: `1px solid ${color.border.light}`,
-              borderRadius: 12,
-              background: '#fff',
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.lg,
+              background: tokens.color.background.primary,
             }}
           >
             <div
               style={{
-                height: 48,
-                borderRadius: 10,
-                outline: `1px dashed ${color.border.light}`,
-                background: color.background.secondary,
+                height: tokens.size.lg,
+                borderRadius: tokens.radius.lg,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.light}`,
+                background: tokens.color.background.secondary,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontFamily: 'monospace',
-                fontSize: 12,
-                color: color.text.secondary,
+                fontFamily: tokens.fontFamily.mono,
+                fontSize: tokens.fontSize.xs,
+                color: tokens.color.text.secondary,
               }}
             >
               inner content area
@@ -241,16 +240,16 @@ export const As = () => (
           size="md"
           paddingY="sm"
           style={{
-            border: `1px solid ${color.border.light}`,
-            borderRadius: 12,
-            background: '#fff',
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            borderRadius: tokens.radius.lg,
+            background: tokens.color.background.primary,
           }}
         >
           <div
             style={{
-              fontFamily: 'monospace',
-              fontSize: 12,
-              color: color.text.secondary,
+              fontFamily: tokens.fontFamily.mono,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.secondary,
             }}
           >
             {label}
@@ -276,13 +275,13 @@ export const PageLayoutExample = () => (
     <Stack direction="vertical" gap="normal">
       <Container as="main" size="lg" paddingY="lg">
         <Stack direction="vertical" gap="normal">
-          <Placeholder color={color.interactive.default}>Main content</Placeholder>
-          <Placeholder color={color.background.secondary}>Section</Placeholder>
-          <Placeholder color={color.background.secondary}>Section</Placeholder>
+          <Placeholder color={tokens.color.interactive.default}>Main content</Placeholder>
+          <Placeholder color={tokens.color.background.secondary}>Section</Placeholder>
+          <Placeholder color={tokens.color.background.secondary}>Section</Placeholder>
         </Stack>
       </Container>
       <Container as="footer" size="lg" paddingY="sm">
-        <Placeholder color={color.background.secondary}>Footer</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Footer</Placeholder>
       </Container>
     </Stack>
   </Frame>
@@ -295,23 +294,23 @@ export const MixedBleedExample = () => (
         size="full"
         paddingY="sm"
         style={{
-          background: '#fff',
-          borderRadius: 12,
-          outline: `1px solid ${color.border.light}`,
+          background: tokens.color.background.primary,
+          borderRadius: tokens.radius.lg,
+          outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
         }}
       >
-        <Placeholder color={color.background.secondary}>Full-bleed section</Placeholder>
+        <Placeholder color={tokens.color.background.secondary}>Full-bleed section</Placeholder>
       </Container>
       <Container
         size="md"
         paddingY="sm"
         style={{
-          background: '#fff',
-          borderRadius: 12,
-          outline: `1px solid ${color.border.light}`,
+          background: tokens.color.background.primary,
+          borderRadius: tokens.radius.lg,
+          outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
         }}
       >
-        <Placeholder color={color.interactive.default}>Constrained content</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>Constrained content</Placeholder>
       </Container>
     </Stack>
   </Frame>

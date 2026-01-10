@@ -1,18 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import {
-  Container,
-  Placeholder,
-  Space,
-  SPACE_DIRECTION,
-  SPACE_SIZE,
-  Stack,
-  tokens,
-} from '@grasdouble/lufa_design-system';
-import * as primitives from '@grasdouble/lufa_design-system-primitives';
-
-const { color, spacing } = tokens;
-const { chromatic } = primitives.color;
+import { Container, Placeholder, Space, SPACE_DIRECTION, SPACE_SIZE, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/Space',
@@ -41,9 +30,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const DemoLabel = ({ label, value }: { label: string; value?: string }) => (
-  <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', marginBottom: '12px' }}>
-    <div style={{ fontFamily: 'monospace', color: color.text.secondary }}>{label}</div>
-    {value && <div style={{ fontFamily: 'monospace', color: color.text.tertiary, fontSize: '12px' }}>{value}</div>}
+  <div style={{ display: 'flex', alignItems: 'baseline', gap: tokens.spacing.md, marginBottom: tokens.spacing.md }}>
+    <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary }}>{label}</div>
+    {value && (
+      <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: tokens.fontSize.xs }}>
+        {value}
+      </div>
+    )}
   </div>
 );
 
@@ -55,18 +48,24 @@ export const Playground: Story = {
   },
   render: (args) => (
     <Container size="md" paddingX="none">
-      <div style={{ backgroundColor: color.background.secondary, borderRadius: '12px', padding: '16px' }}>
+      <div
+        style={{
+          backgroundColor: tokens.color.background.secondary,
+          borderRadius: tokens.radius.lg,
+          padding: tokens.spacing.base,
+        }}
+      >
         <DemoLabel
           label={`direction: ${args.direction}, size: ${String(args.size)}`}
           value={
             typeof args.size === 'string' && args.size in SPACE_SIZE
-              ? spacing[args.size as keyof typeof spacing]
+              ? tokens.spacing[args.size as keyof typeof tokens.spacing]
               : undefined
           }
         />
         {args.direction === SPACE_DIRECTION.horizontal ? (
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Placeholder color={color.interactive.default} height="small" width="auto">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
               Before
             </Placeholder>
             <Space
@@ -74,18 +73,18 @@ export const Playground: Story = {
               as="span"
               style={{
                 ...args.style,
-                height: '30px',
-                backgroundColor: chromatic.purple[200],
-                outline: `1px dashed ${color.border.medium}`,
+                height: tokens.size.md,
+                backgroundColor: tokens.color.brand.secondary,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
               }}
             />
-            <Placeholder color={color.interactive.default} height="small" width="auto">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
               After
             </Placeholder>
           </div>
         ) : (
           <>
-            <Placeholder color={color.interactive.default} height="small" width="full">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="full">
               Before
             </Placeholder>
             <Space
@@ -93,12 +92,12 @@ export const Playground: Story = {
               as="div"
               style={{
                 ...args.style,
-                height: '30px',
-                backgroundColor: chromatic.purple[200],
-                outline: `1px dashed ${color.border.medium}`,
+                height: tokens.size.md,
+                backgroundColor: tokens.color.brand.secondary,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
               }}
             />
-            <Placeholder color={color.interactive.default} height="small" width="full">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="full">
               After
             </Placeholder>
           </>
@@ -129,24 +128,24 @@ export const VerticalSizes: Story = {
             <div
               key={size}
               style={{
-                backgroundColor: color.background.tertiary,
-                outline: `1px dashed ${color.border.medium}`,
-                padding: '16px',
+                backgroundColor: tokens.color.background.tertiary,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
+                padding: tokens.spacing.base,
               }}
             >
-              <DemoLabel label={`size: ${size}`} value={spacing[size]} />
-              <Placeholder color={color.interactive.default} height="small" width="full">
+              <DemoLabel label={`size: ${size}`} value={tokens.spacing[size]} />
+              <Placeholder color={tokens.color.interactive.default} height="small" width="full">
                 A
               </Placeholder>
               <Space
                 direction={SPACE_DIRECTION.vertical}
                 size={size}
                 style={{
-                  backgroundColor: chromatic.purple[200],
-                  outline: `1px dashed ${color.border.medium}`,
+                  backgroundColor: tokens.color.brand.secondary,
+                  outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
                 }}
               />
-              <Placeholder color={color.interactive.default} height="small" width="full">
+              <Placeholder color={tokens.color.interactive.default} height="small" width="full">
                 B
               </Placeholder>
             </div>
@@ -177,14 +176,14 @@ export const HorizontalSizes: Story = {
           <div
             key={size}
             style={{
-              backgroundColor: color.background.tertiary,
-              outline: `1px dashed ${color.border.medium}`,
-              padding: '16px',
+              backgroundColor: tokens.color.background.tertiary,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
+              padding: tokens.spacing.base,
             }}
           >
-            <DemoLabel label={`size: ${size}`} value={spacing[size]} />
+            <DemoLabel label={`size: ${size}`} value={tokens.spacing[size]} />
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Placeholder color={color.interactive.default} height="small" width="auto">
+              <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
                 A
               </Placeholder>
               <Space
@@ -192,12 +191,12 @@ export const HorizontalSizes: Story = {
                 direction={SPACE_DIRECTION.horizontal}
                 size={size}
                 style={{
-                  height: '30px',
-                  backgroundColor: chromatic.purple[200],
-                  outline: `1px dashed ${color.border.medium}`,
+                  height: tokens.size.md,
+                  backgroundColor: tokens.color.brand.secondary,
+                  outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
                 }}
               />
-              <Placeholder color={color.interactive.default} height="small" width="auto">
+              <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
                 B
               </Placeholder>
             </div>
@@ -222,24 +221,24 @@ export const CustomSizes: Story = {
           <div
             key={item.label}
             style={{
-              backgroundColor: color.background.tertiary,
-              outline: `1px dashed ${color.border.medium}`,
-              padding: '16px',
+              backgroundColor: tokens.color.background.tertiary,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
+              padding: tokens.spacing.base,
             }}
           >
             <DemoLabel label={item.label} />
-            <Placeholder color={color.interactive.default} height="small" width="full">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="full">
               A
             </Placeholder>
             <Space
               direction={SPACE_DIRECTION.vertical}
               size={item.size}
               style={{
-                backgroundColor: chromatic.purple[200],
-                outline: `1px dashed ${color.border.medium}`,
+                backgroundColor: tokens.color.brand.secondary,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
               }}
             />
-            <Placeholder color={color.interactive.default} height="small" width="full">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="full">
               B
             </Placeholder>
           </div>

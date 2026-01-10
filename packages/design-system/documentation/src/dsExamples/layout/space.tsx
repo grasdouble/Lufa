@@ -1,25 +1,24 @@
 import React from 'react';
 
-import { Placeholder, Space, SPACE_DIRECTION, SPACE_SIZE, Stack, tokens } from '@grasdouble/lufa_design-system';
-
-const { color, spacing } = tokens;
+import { Placeholder, Space, SPACE_DIRECTION, SPACE_SIZE, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const Frame = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div
     style={{
-      padding: '20px',
-      backgroundColor: color.background.secondary,
-      color: color.text.primary,
-      borderRadius: '8px',
-      marginBottom: '16px',
+      padding: tokens.spacing['md-lg'],
+      backgroundColor: tokens.color.background.secondary,
+      color: tokens.color.text.primary,
+      borderRadius: tokens.radius.base,
+      marginBottom: tokens.spacing.base,
     }}
   >
     {title ? (
       <div
         style={{
-          fontFamily: 'monospace',
-          color: color.text.tertiary,
-          marginBottom: 12,
+          fontFamily: tokens.fontFamily.mono,
+          color: tokens.color.text.tertiary,
+          marginBottom: tokens.spacing.md,
         }}
       >
         {title}
@@ -33,9 +32,9 @@ const VisibleSpace = (props: React.ComponentProps<typeof Space>) => (
   <Space
     {...props}
     style={{
-      backgroundColor: color.background.tertiary,
-      borderRadius: 10,
-      outline: `1px solid ${color.border.light}`,
+      backgroundColor: tokens.color.background.tertiary,
+      borderRadius: tokens.radius.base,
+      outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
       ...(props.style ?? {}),
     }}
   />
@@ -43,18 +42,18 @@ const VisibleSpace = (props: React.ComponentProps<typeof Space>) => (
 
 export const LiveDemo = () => (
   <Frame title="live demo">
-    <Placeholder color={color.interactive.default}>Before</Placeholder>
+    <Placeholder color={tokens.color.interactive.default}>Before</Placeholder>
     <VisibleSpace size={SPACE_SIZE.lg} />
-    <Placeholder color={color.interactive.default}>After</Placeholder>
+    <Placeholder color={tokens.color.interactive.default}>After</Placeholder>
     <div
       style={{
-        marginTop: 12,
-        fontFamily: 'monospace',
-        color: color.text.tertiary,
-        fontSize: 12,
+        marginTop: tokens.spacing.md,
+        fontFamily: tokens.fontFamily.mono,
+        color: tokens.color.text.tertiary,
+        fontSize: tokens.fontSize.xs,
       }}
     >
-      size: {SPACE_SIZE.lg} → {spacing[SPACE_SIZE.lg]}
+      size: {SPACE_SIZE.lg} → {tokens.spacing[SPACE_SIZE.lg]}
     </div>
   </Frame>
 );
@@ -65,37 +64,37 @@ export const Direction = () => (
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: 16,
+        gap: tokens.spacing.base,
       }}
     >
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           vertical
         </div>
-        <Placeholder color={color.interactive.default}>Before</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>Before</Placeholder>
         <VisibleSpace direction={SPACE_DIRECTION.vertical} size={SPACE_SIZE.md} />
-        <Placeholder color={color.interactive.default}>After</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>After</Placeholder>
       </div>
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           horizontal
         </div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Placeholder color={color.interactive.default}>Left</Placeholder>
+          <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
           <VisibleSpace direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.md} />
-          <Placeholder color={color.interactive.default}>Right</Placeholder>
+          <Placeholder color={tokens.color.interactive.default}>Right</Placeholder>
         </div>
       </div>
     </div>
@@ -109,32 +108,32 @@ export const Size = () => (
         <div key={size}>
           <div
             style={{
-              fontFamily: 'monospace',
-              color: color.text.tertiary,
-              marginBottom: 8,
+              fontFamily: tokens.fontFamily.mono,
+              color: tokens.color.text.tertiary,
+              marginBottom: tokens.spacing.sm,
             }}
           >
-            size: {size} → {spacing[size]}
+            size: {size} → {tokens.spacing[size]}
           </div>
-          <Placeholder color={color.interactive.default}>Before</Placeholder>
+          <Placeholder color={tokens.color.interactive.default}>Before</Placeholder>
           <VisibleSpace size={size} />
-          <Placeholder color={color.interactive.default}>After</Placeholder>
+          <Placeholder color={tokens.color.interactive.default}>After</Placeholder>
         </div>
       ))}
 
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
-          custom: 40px
+          custom: {tokens.spacing['xl-2xl']}
         </div>
-        <Placeholder color={color.interactive.default}>Before</Placeholder>
-        <VisibleSpace size={40} />
-        <Placeholder color={color.interactive.default}>After</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>Before</Placeholder>
+        <VisibleSpace size={Number.parseInt(tokens.spacing['xl-2xl'], 10)} />
+        <Placeholder color={tokens.color.interactive.default}>After</Placeholder>
       </div>
     </Stack>
   </Frame>
@@ -146,36 +145,36 @@ export const As = () => (
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           as=&quot;div&quot; (block)
         </div>
-        <Placeholder color={color.interactive.default}>Before</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>Before</Placeholder>
         <VisibleSpace as="div" size={SPACE_SIZE.md} />
-        <Placeholder color={color.interactive.default}>After</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>After</Placeholder>
       </div>
       <div>
         <div
           style={{
-            fontFamily: 'monospace',
-            color: color.text.tertiary,
-            marginBottom: 8,
+            fontFamily: tokens.fontFamily.mono,
+            color: tokens.color.text.tertiary,
+            marginBottom: tokens.spacing.sm,
           }}
         >
           as=&quot;span&quot; (inline)
         </div>
-        <div style={{ lineHeight: 1.9, color: color.text.primary }}>
+        <div style={{ lineHeight: tokens.lineHeight.loose, color: tokens.color.text.primary }}>
           Pay now
           <Space as="span" direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.sm} />
           <span
             style={{
-              padding: '2px 10px',
-              borderRadius: 999,
-              background: color.background.secondary,
-              outline: `1px solid ${color.border.light}`,
+              padding: `${tokens.spacing.xxs} ${tokens.spacing['sm-md']}`,
+              borderRadius: tokens.radius.full,
+              background: tokens.color.background.secondary,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
             }}
           >
             badge
@@ -198,15 +197,15 @@ export const Variants = () => (
 
 export const InlineTextExample = () => (
   <Frame title='inline spacing (as="span")'>
-    <div style={{ lineHeight: 1.9, color: color.text.primary }}>
+    <div style={{ lineHeight: tokens.lineHeight.loose, color: tokens.color.text.primary }}>
       Pay now
       <Space as="span" direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.sm} />
       <span
         style={{
-          padding: '2px 10px',
-          borderRadius: 999,
-          background: color.background.secondary,
-          outline: `1px solid ${color.border.light}`,
+          padding: `${tokens.spacing.xxs} ${tokens.spacing['sm-md']}`,
+          borderRadius: tokens.radius.full,
+          background: tokens.color.background.secondary,
+          outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
         }}
       >
         badge
@@ -219,9 +218,9 @@ export const InlineTextExample = () => (
 
 export const SectionSeparatorExample = () => (
   <Frame title="separating sections">
-    <Placeholder color={color.background.secondary}>Section A</Placeholder>
+    <Placeholder color={tokens.color.background.secondary}>Section A</Placeholder>
     <VisibleSpace size={SPACE_SIZE.xl} />
-    <Placeholder color={color.background.secondary}>Section B</Placeholder>
+    <Placeholder color={tokens.color.background.secondary}>Section B</Placeholder>
   </Frame>
 );
 

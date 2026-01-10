@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { spacing } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Spacing',
@@ -15,84 +15,130 @@ type Story = StoryObj<typeof meta>;
 
 export const Overview: Story = {
   render: () => (
-    <div style={{ padding: '20px', maxWidth: '1000px' }}>
-      <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Spacing Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-        Standardized spacing values based on an 8px grid system for consistent layouts and visual rhythm.
+    <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['5xl'] }}>
+      <h1
+        style={{ fontSize: tokens.fontSize['5xl'], fontWeight: tokens.fontWeight.bold, marginBottom: tokens.spacing.base }}
+      >
+        Spacing Tokens
+      </h1>
+      <p style={{ marginBottom: tokens.spacing.xl, color: tokens.color.text.tertiary, fontSize: tokens.fontSize.base }}>
+        Standardized spacing values based on a 4px/8px rhythm for consistent layouts and visual hierarchy.
       </p>
 
-      <div style={{ marginBottom: '40px' }}>
-        <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>Usage</h2>
+      <div style={{ marginBottom: tokens.spacing['xl-2xl'] }}>
+        <h2
+          style={{
+            fontSize: tokens.fontSize['2xl'],
+            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: tokens.spacing.base,
+          }}
+        >
+          Usage
+        </h2>
         <div
           style={{
-            padding: '20px',
-            backgroundColor: '#FAFAFA',
-            borderRadius: '8px',
+            padding: tokens.spacing['md-lg'],
+            backgroundColor: tokens.color.background.secondary,
+            borderRadius: tokens.radius.base,
             fontFamily: 'monospace',
-            fontSize: '14px',
+            fontSize: tokens.fontSize.sm,
           }}
         >
           <div
-            style={{ color: '#737373', marginBottom: '12px' }}
-          >{`import { spacing } from '@grasdouble/lufa_design-system';`}</div>
-          <div style={{ marginBottom: '8px' }}>
-            <span style={{ color: '#C678DD' }}>const</span> <span style={{ color: '#E06C75' }}>styles</span> ={' '}
-            <span style={{ color: '#98C379' }}>{'{'}</span>
+            style={{ color: tokens.color.text.tertiary, marginBottom: tokens.spacing.md }}
+          >{`import tokens from '@grasdouble/lufa_design-system-tokens';`}</div>
+          <div style={{ marginBottom: tokens.spacing.sm }}>
+            <span style={{ color: tokens.color.brand.secondary }}>const</span>{' '}
+            <span style={{ color: tokens.color.error.text }}>styles</span> ={' '}
+            <span style={{ color: tokens.color.success.text }}>{'{'}</span>
           </div>
-          <div style={{ marginLeft: '20px', marginBottom: '8px' }}>
-            <span style={{ color: '#E5C07B' }}>padding</span>: spacing.base,{' '}
-            <span style={{ color: '#737373' }}>// 16px</span>
+          <div style={{ marginLeft: tokens.spacing['md-lg'], marginBottom: tokens.spacing.sm }}>
+            <span style={{ color: tokens.color.warning.text }}>padding</span>: tokens.spacing.base,{' '}
+            <span style={{ color: tokens.color.text.tertiary }}>// 16px</span>
           </div>
-          <div style={{ marginLeft: '20px', marginBottom: '8px' }}>
-            <span style={{ color: '#E5C07B' }}>margin</span>: spacing.xl,{' '}
-            <span style={{ color: '#737373' }}>// 24px</span>
+          <div style={{ marginLeft: tokens.spacing['md-lg'], marginBottom: tokens.spacing.sm }}>
+            <span style={{ color: tokens.color.warning.text }}>margin</span>: tokens.spacing.lg,{' '}
+            <span style={{ color: tokens.color.text.tertiary }}>// 24px</span>
           </div>
           <div>
-            <span style={{ color: '#98C379' }}>{'}'}</span>;
+            <span style={{ color: tokens.color.success.text }}>{'}'}</span>;
           </div>
         </div>
       </div>
 
-      <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>All Spacing Tokens</h2>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        {Object.entries(spacing).map(([key, value]) => (
+      <h2
+        style={{
+          fontSize: tokens.fontSize['2xl'],
+          fontWeight: tokens.fontWeight.semibold,
+          marginBottom: tokens.spacing.base,
+        }}
+      >
+        All Spacing Tokens
+      </h2>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.md }}>
+        {Object.entries(tokens.spacing).map(([key, value]) => (
           <div
             key={key}
             style={{
               display: 'flex',
               alignItems: 'center',
-              padding: '12px 16px',
-              backgroundColor: '#FFFFFF',
-              border: '1px solid #E5E5E5',
-              borderRadius: '8px',
+              padding: `${tokens.spacing.md} ${tokens.spacing.base}`,
+              backgroundColor: tokens.color.surface.default,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.base,
             }}
           >
-            <div style={{ flex: '0 0 100px', fontFamily: 'monospace', fontSize: '14px', fontWeight: 600 }}>{key}</div>
-            <div style={{ flex: '0 0 80px', color: '#737373', fontSize: '14px' }}>{value}</div>
+            <div
+              style={{
+                flex: `0 0 ${tokens.size['2xl']}`,
+                fontFamily: 'monospace',
+                fontSize: tokens.fontSize.sm,
+                fontWeight: tokens.fontWeight.semibold,
+              }}
+            >
+              {key}
+            </div>
+            <div
+              style={{
+                flex: `0 0 ${tokens.spacing['3xl-4xl']}`,
+                color: tokens.color.text.tertiary,
+                fontSize: tokens.fontSize.sm,
+              }}
+            >
+              {value}
+            </div>
             <div
               style={{
                 flex: '0 0 auto',
-                height: '40px',
-                width: value === '0px' ? '2px' : value,
-                backgroundColor: '#2563EB',
-                border: value === '0px' ? '1px solid #2563EB' : 'none',
+                height: tokens.spacing['xl-2xl'],
+                width: value === tokens.spacing.none ? tokens.spacing.xxs : value,
+                backgroundColor: tokens.color.interactive.default,
+                border:
+                  value === tokens.spacing.none
+                    ? `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.interactive.default}`
+                    : tokens.borderStyle.none,
               }}
             />
-            <div style={{ marginLeft: '16px', color: '#737373', fontSize: '13px' }}>
+            <div style={{ marginLeft: tokens.spacing.base, color: tokens.color.text.tertiary, fontSize: tokens.fontSize.xs }}>
               {key === 'none' && 'No spacing'}
               {key === 'xxs' && 'Minimal spacing'}
               {key === 'xs' && 'Very tight spacing'}
+              {key === '2xs' && 'Subtle spacing'}
               {key === 'sm' && 'Tight spacing'}
+              {key === 'sm-md' && 'Small-medium spacing'}
               {key === 'md' && 'Compact spacing'}
               {key === 'base' && 'Base spacing unit'}
-              {key === 'lg' && 'Comfortable spacing'}
-              {key === 'xl' && 'Spacious'}
-              {key === '2xl' && 'Extra spacious'}
-              {key === '3xl' && 'Very spacious'}
-              {key === '4xl' && 'Extra large'}
-              {key === '5xl' && 'Huge spacing'}
-              {key === '6xl' && 'Very huge spacing'}
-              {key === '7xl' && 'Maximum spacing'}
+              {key === 'md-lg' && 'Medium-large spacing'}
+              {key === 'lg' && 'Spacious'}
+              {key === 'lg-xl' && 'Large-extra large spacing'}
+              {key === 'xl' && 'Extra spacious'}
+              {key === 'xl-2xl' && 'Very spacious'}
+              {key === '2xl' && 'Primary touch target spacing'}
+              {key === '2xl-3xl' && 'Huge spacing'}
+              {key === '3xl' && 'Section separation'}
+              {key === '3xl-4xl' && 'Large section separation'}
+              {key === '4xl' && 'Very large section'}
+              {key === '5xl' && 'Maximum spacing'}
             </div>
           </div>
         ))}
@@ -103,69 +149,84 @@ export const Overview: Story = {
 
 export const SpacingGrid: Story = {
   render: () => (
-    <div style={{ padding: '20px' }}>
-      <h2 style={{ marginBottom: '16px' }}>8px Grid System</h2>
-      <p style={{ marginBottom: '24px', color: '#737373' }}>
-        Our spacing system is based on multiples of 8px for consistent visual rhythm
+    <div style={{ padding: tokens.spacing['md-lg'] }}>
+      <h2 style={{ marginBottom: tokens.spacing.base }}>4px/8px Rhythm</h2>
+      <p style={{ marginBottom: tokens.spacing.lg, color: tokens.color.text.tertiary }}>
+        Our spacing system uses a 4px/8px rhythm for consistent visual hierarchy and alignment
       </p>
       <div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(8, 1fr)',
-          gap: '1px',
-          backgroundColor: '#E5E5E5',
-          padding: '1px',
-          maxWidth: '400px',
+          gap: tokens.borderWidth.hairline,
+          backgroundColor: tokens.color.border.light,
+          padding: tokens.borderWidth.hairline,
+          maxWidth: tokens.maxWidth.xs,
         }}
       >
         {Array.from({ length: 64 }).map((_, i) => (
           <div
             key={i}
             style={{
-              width: '8px',
-              height: '8px',
-              backgroundColor: i % 8 === 0 ? '#2563EB' : '#BFDBFE',
+              width: tokens.spacing.sm,
+              height: tokens.spacing.sm,
+              backgroundColor: i % 8 === 0 ? tokens.color.interactive.default : tokens.color.info.lighter,
             }}
           />
         ))}
       </div>
-      <p style={{ marginTop: '16px', fontSize: '13px', color: '#737373' }}>Each square = 8px × 8px</p>
+      <p style={{ marginTop: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+        Each square = 8px × 8px
+      </p>
     </div>
   ),
 };
 
 export const PracticalExamples: Story = {
   render: () => (
-    <div style={{ padding: '20px', maxWidth: '800px' }}>
-      <h2 style={{ marginBottom: '24px' }}>Practical Examples</h2>
+    <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['3xl'] }}>
+      <h2 style={{ marginBottom: tokens.spacing.lg }}>Practical Examples</h2>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.xl }}>
         <div>
-          <h3 style={{ marginBottom: '12px', fontSize: '16px' }}>Card with Base Spacing</h3>
+          <h3 style={{ marginBottom: tokens.spacing.md, fontSize: tokens.fontSize.base }}>Card with Base Spacing</h3>
           <div
             style={{
-              padding: spacing.base,
-              backgroundColor: '#FFFFFF',
-              border: '1px solid #E5E5E5',
-              borderRadius: '8px',
+              padding: tokens.spacing.base,
+              backgroundColor: tokens.color.surface.default,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.base,
             }}
           >
-            <h4 style={{ margin: 0, marginBottom: spacing.sm, fontSize: '14px', fontWeight: 600 }}>Card Title</h4>
-            <p style={{ margin: 0, color: '#737373', fontSize: '14px' }}>Content with consistent spacing</p>
+            <h4
+              style={{
+                margin: 0,
+                marginBottom: tokens.spacing.sm,
+                fontSize: tokens.fontSize.sm,
+                fontWeight: tokens.fontWeight.semibold,
+              }}
+            >
+              Card Title
+            </h4>
+            <p style={{ margin: 0, color: tokens.color.text.tertiary, fontSize: tokens.fontSize.sm }}>
+              Content with consistent spacing
+            </p>
           </div>
-          <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>padding: spacing.base (16px)</p>
+          <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            padding: spacing.base (16px)
+          </p>
         </div>
 
         <div>
-          <h3 style={{ marginBottom: '12px', fontSize: '16px' }}>Button Group with Small Gap</h3>
-          <div style={{ display: 'flex', gap: spacing.sm }}>
+          <h3 style={{ marginBottom: tokens.spacing.md, fontSize: tokens.fontSize.base }}>Button Group with Small Gap</h3>
+          <div style={{ display: 'flex', gap: tokens.spacing.sm }}>
             <button
               style={{
-                padding: `${spacing.sm} ${spacing.base}`,
-                backgroundColor: '#2563EB',
-                color: '#FFFFFF',
-                border: 'none',
-                borderRadius: '6px',
+                padding: `${tokens.spacing.sm} ${tokens.spacing.base}`,
+                backgroundColor: tokens.color.interactive.default,
+                color: tokens.color.text.inverse,
+                border: tokens.borderStyle.none,
+                borderRadius: tokens.radius.md,
                 cursor: 'pointer',
               }}
             >
@@ -173,37 +234,41 @@ export const PracticalExamples: Story = {
             </button>
             <button
               style={{
-                padding: `${spacing.sm} ${spacing.base}`,
-                backgroundColor: '#FFFFFF',
-                color: '#2563EB',
-                border: '1px solid #2563EB',
-                borderRadius: '6px',
+                padding: `${tokens.spacing.sm} ${tokens.spacing.base}`,
+                backgroundColor: tokens.color.surface.default,
+                color: tokens.color.interactive.default,
+                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.interactive.default}`,
+                borderRadius: tokens.radius.md,
                 cursor: 'pointer',
               }}
             >
               Secondary
             </button>
           </div>
-          <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>gap: spacing.sm (8px)</p>
+          <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            gap: spacing.sm (8px)
+          </p>
         </div>
 
         <div>
-          <h3 style={{ marginBottom: '12px', fontSize: '16px' }}>List with Medium Gap</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: spacing.md }}>
+          <h3 style={{ marginBottom: tokens.spacing.md, fontSize: tokens.fontSize.base }}>List with Medium Gap</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.md }}>
             {['Item 1', 'Item 2', 'Item 3'].map((item, i) => (
               <div
                 key={i}
                 style={{
-                  padding: spacing.md,
-                  backgroundColor: '#F5F5F5',
-                  borderRadius: '6px',
+                  padding: tokens.spacing.md,
+                  backgroundColor: tokens.color.background.tertiary,
+                  borderRadius: tokens.radius.md,
                 }}
               >
                 {item}
               </div>
             ))}
           </div>
-          <p style={{ marginTop: '8px', fontSize: '12px', color: '#737373' }}>gap: spacing.md (12px)</p>
+          <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            gap: spacing.md (12px)
+          </p>
         </div>
       </div>
     </div>

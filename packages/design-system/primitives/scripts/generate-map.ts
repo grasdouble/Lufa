@@ -55,7 +55,15 @@ const parseCssVariables = (cssText: string): CssEntry[] => {
 
 const buildPaths = (moduleExports: Record<string, unknown>, root: string): Record<string, string> => {
   const paths: Record<string, string> = {};
+  // Use the default export as the canonical root to avoid `primitives.default.*` paths.
+  const defaultExport = moduleExports.default;
+
+  if (defaultExport && typeof defaultExport === 'object') {
+    flattenPaths(defaultExport, [root], paths);
+  }
+
   for (const [name, value] of Object.entries(moduleExports)) {
+    if (name === 'default') continue;
     if (typeof value === 'function' || value === undefined) continue;
     if (value && typeof value === 'object') {
       flattenPaths(value, [root, name], paths);
@@ -75,10 +83,7 @@ const outputFile = resolve(distDir, 'primitives.map.json');
 const buildMap = async (): Promise<TokenMap> => {
   const cssEntries = parseCssVariables(readFileSync(cssFile, 'utf8'));
   const css = Object.fromEntries(sortByNaturalKey(cssEntries, ([name]) => name));
-  const moduleExports = (await import(pathToFileURL(resolve(distDir, 'index.js')).href)) as Record<
-    string,
-    unknown
-  >;
+  const moduleExports = (await import(pathToFileURL(resolve(distDir, 'index.js')).href)) as Record<string, unknown>;
   const paths = buildPaths(moduleExports, 'primitives');
 
   return {

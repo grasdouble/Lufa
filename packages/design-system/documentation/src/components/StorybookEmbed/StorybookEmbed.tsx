@@ -1,4 +1,5 @@
 import React from 'react';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 export interface StorybookEmbedProps {
   /** Story ID from Storybook (e.g., "2-layout-stack--default") */
@@ -32,19 +33,19 @@ export const StorybookEmbed: React.FC<StorybookEmbedProps> = ({
   return (
     <div
       style={{
-        width: '100%',
-        marginBottom: '24px',
-        border: '1px solid #e5e7eb',
-        borderRadius: '8px',
+        width: tokens.maxWidth.full,
+        marginBottom: tokens.spacing.lg,
+        border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+        borderRadius: tokens.radius.base,
         overflow: 'hidden',
       }}
     >
       <iframe
         src={iframeSrc}
-        width="100%"
+        width={tokens.maxWidth.full}
         height={heightValue}
         style={{
-          border: 'none',
+          border: tokens.borderWidth.none,
           display: 'block',
         }}
         title={`Storybook: ${storyId}`}
