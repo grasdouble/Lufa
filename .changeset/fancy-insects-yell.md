@@ -1,6 +1,6 @@
 ---
-'@grasdouble/lufa_design-system-primitives': major
-'@grasdouble/lufa_design-system-tokens': major
+'@grasdouble/lufa_design-system-primitives': minor
+'@grasdouble/lufa_design-system-tokens': minor
 ---
 
-[BREAKING CHANGE]Change how primitives and tokens are exposed
+Change how primitives and tokens are exposed

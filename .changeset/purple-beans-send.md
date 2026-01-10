@@ -1,5 +1,5 @@
 ---
-'@grasdouble/lufa_design-system': major
+'@grasdouble/lufa_design-system': minor
 ---
 
-[BREAKING_CHANGE] tokens and primitives are no more exposed
+tokens and primitives are no more exposed
