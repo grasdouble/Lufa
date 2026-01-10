@@ -1,0 +1,143 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+  .container {
+    @apply inline-flex flex-col;
+  }
+
+  .labelWrapper {
+    @apply inline-flex items-center cursor-pointer;
+  }
+
+  .labelWrapper.disabledLabel {
+    cursor: var(--lufa-token-cursor-not-allowed);
+  }
+
+  .checkbox {
+    @apply reset-input;
+    @apply rounded;
+    @apply border-border-default border-2;
+    @apply duration-base transition-all;
+    @apply focus:ring-interactive-focus focus:ring-2 focus:ring-offset-0 focus:outline-none;
+    @apply appearance-none;
+    @apply flex items-center justify-center shrink-0;
+    cursor: var(--lufa-token-cursor-pointer);
+  }
+
+  .checkbox:checked {
+    @apply bg-interactive-default border-interactive-default;
+  }
+
+  .checkbox:checked::after {
+    content: '';
+    @apply block;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* Sizes */
+  .sizeSmall {
+    @apply w-4 h-4;
+  }
+
+  .sizeSmall::after {
+    @apply w-3 h-3;
+  }
+
+  .sizeMedium {
+    @apply w-5 h-5;
+  }
+
+  .sizeMedium::after {
+    @apply w-4 h-4;
+  }
+
+  .sizeLarge {
+    @apply w-6 h-6;
+  }
+
+  .sizeLarge::after {
+    @apply w-5 h-5;
+  }
+
+  /* Colors */
+  .checkbox.colorPrimary:checked {
+    @apply bg-interactive-default border-interactive-default;
+  }
+
+  .checkbox.colorPrimary:hover:not(:disabled) {
+    @apply border-interactive-hover;
+  }
+
+  .checkbox.colorSecondary:checked {
+    @apply bg-text-secondary border-text-secondary;
+  }
+
+  .checkbox.colorSecondary:hover:not(:disabled) {
+    @apply border-text-primary;
+  }
+
+  .checkbox.colorSuccess:checked {
+    @apply bg-success-default border-success-default;
+  }
+
+  .checkbox.colorSuccess:hover:not(:disabled) {
+    @apply border-success-hover;
+  }
+
+  .checkbox.colorWarning:checked {
+    @apply bg-warning-default border-warning-default;
+  }
+
+  .checkbox.colorWarning:hover:not(:disabled) {
+    @apply border-warning-hover;
+  }
+
+  .checkbox.colorDanger:checked {
+    @apply bg-error-default border-error-default;
+  }
+
+  .checkbox.colorDanger:hover:not(:disabled) {
+    @apply border-error-hover;
+  }
+
+  /* States */
+  .error {
+    @apply border-error-border;
+    @apply focus:ring-error-default;
+  }
+
+  .disabled {
+    @apply bg-background-secondary border-border-light;
+    cursor: var(--lufa-token-cursor-not-allowed);
+  }
+
+  .checkbox:disabled:checked {
+    @apply bg-interactive-disabled border-interactive-disabled;
+  }
+
+  .indeterminate::after {
+    content: '';
+    @apply block;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 8h8' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  }
+
+  .label {
+    @apply text-text-primary ml-2 text-sm;
+  }
+
+  .required {
+    @apply text-error-default ml-1;
+  }
+
+  /* Helper/Error text */
+  .helperText {
+    @apply text-text-secondary mt-1 ml-7 text-sm;
+  }
+
+  .errorText {
+    @apply text-error-text mt-1 ml-7 text-sm;
+  }
+}

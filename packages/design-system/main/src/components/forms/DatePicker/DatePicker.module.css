@@ -1,0 +1,91 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+  .container {
+    @apply inline-flex flex-col;
+  }
+
+  .fullWidth {
+    @apply w-full;
+  }
+
+  .label {
+    @apply text-text-primary mb-1 block text-sm font-medium;
+  }
+
+  .required {
+    @apply text-error-default ml-1;
+  }
+
+  .inputWrapper {
+    @apply relative flex items-center;
+  }
+
+  .input {
+    @apply reset-input;
+    @apply w-full;
+    @apply pr-10;
+    @apply duration-base transition-all;
+    @apply rounded-md;
+    @apply text-text-primary;
+    @apply focus:ring-interactive-focus focus:ring-2 focus:ring-offset-0 focus:outline-none;
+  }
+
+  .input::-webkit-calendar-picker-indicator {
+    @apply opacity-0 cursor-pointer;
+    @apply absolute right-0 w-10 h-full;
+  }
+
+  /* Sizes */
+  .sizeSmall {
+    @apply px-sm text-sm;
+    height: var(--lufa-token-height-input-sm);
+  }
+
+  .sizeMedium {
+    @apply px-base text-base;
+    height: var(--lufa-token-height-input);
+  }
+
+  .sizeLarge {
+    @apply px-lg text-lg;
+    height: var(--lufa-token-height-input-lg);
+  }
+
+  /* Variants */
+  .variantOutlined {
+    @apply border-border-default bg-background-primary border;
+    @apply hover:border-border-medium;
+  }
+
+  .variantFilled {
+    @apply bg-background-secondary border-none;
+    @apply hover:bg-background-tertiary;
+  }
+
+  /* States */
+  .error {
+    @apply border-error-border;
+    @apply focus:ring-error-default;
+  }
+
+  .disabled {
+    @apply bg-background-secondary text-text-disabled;
+    cursor: var(--lufa-token-cursor-not-allowed);
+    @apply hover:border-border-default;
+  }
+
+  /* Icon */
+  .icon {
+    @apply text-text-tertiary absolute right-3 flex items-center pointer-events-none;
+  }
+
+  /* Helper/Error text */
+  .helperText {
+    @apply text-text-secondary mt-1 text-sm;
+  }
+
+  .errorText {
+    @apply text-error-text mt-1 text-sm;
+  }
+}
