@@ -54,28 +54,6 @@ This directory contains reusable prompts for AI agents working with the Lufa cod
   - Get recommendations on which AI model to use for specific tasks
   - Agent: TBD
 
-### Meta / Improvement Suggestions
-
-- **[suggest-awesome-github-copilot-agents.prompt.md](suggest-awesome-github-copilot-agents.prompt.md)**
-  - Suggest custom GitHub Copilot agents for the project
-  - Agent: TBD
-
-- **[suggest-awesome-github-copilot-chatmodes.prompt.md](suggest-awesome-github-copilot-chatmodes.prompt.md)**
-  - Suggest GitHub Copilot chat modes
-  - Agent: TBD
-
-- **[suggest-awesome-github-copilot-collections.prompt.md](suggest-awesome-github-copilot-collections.prompt.md)**
-  - Suggest GitHub Copilot collections
-  - Agent: TBD
-
-- **[suggest-awesome-github-copilot-instructions.prompt.md](suggest-awesome-github-copilot-instructions.prompt.md)**
-  - Suggest new `.instructions.md` files
-  - Agent: TBD
-
-- **[suggest-awesome-github-copilot-prompts.prompt.md](suggest-awesome-github-copilot-prompts.prompt.md)**
-  - Suggest new reusable prompts
-  - Agent: TBD
-
 ---
 
 ## 🎯 How to Use Prompts
@@ -189,14 +167,15 @@ agent: "agent" # or specific agent type
 
 ## 📊 Prompt Categories
 
-| Category | Prompts | Purpose |
-|----------|---------|---------|
+| Category | Active Prompts | Purpose |
+|----------|---------------|---------|
 | **Documentation** | 2 | Generate/update docs |
 | **Testing** | 2 | Generate tests, explore apps |
 | **Code Quality** | 1 | Security reviews |
 | **Utilities** | 2 | Convert code, model selection |
-| **Meta** | 5 | Improve tooling |
-| **Archived** | 1 | Legacy/deprecated |
+| **Total** | **7** | - |
+
+> 📜 **History**: 6 prompts removed (5 suggestion tools + 1 legacy design system builder). See "Removed Prompts History" section below.
 
 ---
 
@@ -210,7 +189,7 @@ agent: "agent" # or specific agent type
 **For Beginners:**
 - Start with [model-recommendation.prompt.md](model-recommendation.prompt.md) to choose the right AI model
 - Use [create-readme.prompt.md](create-readme.prompt.md) for documentation
-- Review [suggest-awesome-github-copilot-instructions.prompt.md](suggest-awesome-github-copilot-instructions.prompt.md) for improving the project
+- Review [.github/instructions/](../instructions/) for path-scoped coding guidance
 
 ---
 
@@ -220,6 +199,27 @@ agent: "agent" # or specific agent type
 - **Customize**: Adapt prompts to your specific needs
 - **Share**: Contribute successful prompts back to the project
 - **Version Control**: All prompts are versioned with git
+
+---
+
+## 📜 Removed Prompts History
+
+Prompts removed from active use. Available in Git history if needed.
+
+| Prompt | Category | Removed | Reason |
+|--------|----------|---------|--------|
+| `suggest-awesome-github-copilot-agents.prompt.md` | Meta / Improvement | 2025-01-11 | Comprehensive set already exists |
+| `suggest-awesome-github-copilot-chatmodes.prompt.md` | Meta / Improvement | 2025-01-11 | Comprehensive set already exists |
+| `suggest-awesome-github-copilot-collections.prompt.md` | Meta / Improvement | 2025-01-11 | Comprehensive set already exists |
+| `suggest-awesome-github-copilot-instructions.prompt.md` | Meta / Improvement | 2025-01-11 | Comprehensive set already exists |
+| `suggest-awesome-github-copilot-prompts.prompt.md` | Meta / Improvement | 2025-01-11 | Comprehensive set already exists |
+| `lufa-design-system-builder.prompt.md` | Design System | 2025-01-11 | Improved workflows available |
+
+**Restoration**: Recover from Git with:
+```bash
+git log --all --full-history -- ".github/prompts/<filename>"
+git checkout <commit-hash> -- ".github/prompts/<filename>"
+```
 
 ---
 
