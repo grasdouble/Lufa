@@ -408,6 +408,71 @@ export const AllVariants: Story = {
 - Accessibility notes and keyboard shortcuts
 - Design guidelines and best practices
 
+**Docusaurus Documentation**:
+
+Every component must have a comprehensive documentation page in the Docusaurus site.
+
+**Purpose**: Provide detailed guides, API reference, usage examples, and best practices.
+
+**Location**:
+
+- MDX file: `packages/design-system/documentation/docs/components/{category}/{component}.mdx`
+- Examples: `packages/design-system/documentation/src/dsExamples/{category}/{componentName}.tsx`
+
+**IMPORTANT**: Examples must be created as React components in `src/dsExamples/` and imported in the MDX file. Do NOT use inline code blocks for interactive examples.
+
+**Required Sections**:
+
+1. **Overview** - Component purpose and use cases
+2. **Live Demo** - Interactive example component from `dsExamples`
+3. **Import** - Import statement
+4. **Basic Usage** - Simple code example
+5. **Props** - Complete API table with types and defaults
+6. **Examples** - All variants, sizes, and states (imported from `dsExamples`)
+7. **Accessibility** - Keyboard navigation, ARIA attributes, screen reader behavior
+8. **Best Practices** - Do's and don'ts
+9. **Related Components** - Links to similar components
+
+**Example Structure**:
+
+Create example components in `src/dsExamples/{category}/{componentName}.tsx`:
+
+```tsx
+import { Component } from '@grasdouble/lufa_design-system';
+
+export function LiveDemo() {
+  return (
+    <div>
+      <p className="text-sm text-gray-600 mb-2">Interactive demo:</p>
+      <Component variant="primary">Example</Component>
+    </div>
+  );
+}
+```
+
+Import in MDX file:
+
+```mdx
+import { LiveDemo } from '../../../src/dsExamples/{category}/{componentName}';
+
+<LiveDemo />
+```
+
+**Development Workflow**:
+
+```bash
+cd packages/design-system/documentation
+pnpm dev                    # Start dev server on port 3000
+```
+
+**Production Site**: https://lufa-ds.grasdouble.com
+
+**Distinction from Storybook**:
+
+- **Storybook**: Interactive component playground with controls and isolated variants
+- **Documentation**: Comprehensive guides, getting started tutorials, complete API reference with examples in `dsExamples/`
+- Both are required for complete component documentation
+
 ## Version Management
 
 - Use semantic versioning (semver)
@@ -458,10 +523,17 @@ Before creating or modifying components, ensure:
 - [ ] Accessibility features are implemented (ARIA, keyboard, focus)
 - [ ] Component is responsive (mobile-first approach)
 - [ ] Unit tests cover core functionality and accessibility
+- [ ] Playwright component tests written (render, variants, a11y, visual regression)
 - [ ] Storybook story demonstrates all variants
-- [ ] Documentation is complete (JSDoc, README, Storybook)
+- [ ] Docusaurus documentation page created in `packages/design-system/documentation/docs/components/`
+- [ ] Example components created in `packages/design-system/documentation/src/dsExamples/{category}/`
+- [ ] Examples imported in MDX file (NOT inline code blocks)
+- [ ] Props API table is complete and accurate in documentation
+- [ ] Accessibility section documents keyboard navigation and ARIA
+- [ ] Documentation is complete (JSDoc, README, Storybook, Docusaurus)
 - [ ] Code follows linting and formatting rules
 - [ ] Component is exported from package index
+- [ ] Documentation site builds successfully (`pnpm ds:documentation:build`)
 - [ ] CHANGELOG is updated (via changeset)
 
 ## Common Patterns
@@ -539,6 +611,104 @@ export const Input = ({
   return <input value={value} onChange={handleChange} {...props} />;
 };
 ```
+
+## Design System Package Structure
+
+The design system uses a four-package architecture for separation of concerns:
+
+```
+packages/design-system/
+├── primitives/              # Raw values (spacing[16], blue[600])
+├── tokens/                  # Semantic mappings (spacing.default, color.primary)
+├── main/                    # Component library + types
+│   └── src/components/      # Component source code
+├── storybook/               # Component showcase
+│   ├── .storybook/          # Storybook configuration
+│   └── src/stories/         # Story files organized by category
+├── playwright/              # Component testing
+│   ├── playwright-ct.config.ts
+│   ├── src/components/      # Test files (.spec.tsx)
+│   └── __snapshots__/       # Visual regression snapshots
+└── documentation/           # Comprehensive documentation site
+    ├── docs/                # MDX documentation pages
+    ├── docusaurus.config.ts
+    └── build/               # Production build output
+```
+
+### Package Purposes
+
+| Package           | Purpose                    | Technology                 | Dev Command    | Port |
+| ----------------- | -------------------------- | -------------------------- | -------------- | ---- |
+| **primitives**    | Raw, non-semantic values   | TypeScript + CSS variables | -              | -    |
+| **tokens**        | Semantic design decisions  | TypeScript + CSS variables | -              | -    |
+| **main**          | Component library (source) | React 19 + TypeScript      | `pnpm dev`     | -    |
+| **storybook**     | Interactive playground     | Storybook 8 + Vite         | `pnpm dev`     | 6006 |
+| **playwright**    | Component testing          | Playwright CT + React      | `pnpm test-ct` | -    |
+| **documentation** | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
+
+### Why Separate Packages?
+
+- **Storybook**: Independent development environment, doesn't bloat component bundle
+- **Playwright**: Test infrastructure isolated from production code
+- **Documentation**: Comprehensive guides separate from interactive playground
+- **Main**: Clean component library with minimal dependencies
+
+### When to Update Each Package
+
+**When creating a new component:**
+
+1. **main/** - Write component code, TypeScript types, styles
+2. **storybook/** - Create `.stories.tsx` for interactive demos
+3. **playwright/** - Create `.spec.tsx` with tests (render, variants, a11y, visual regression)
+4. **documentation/** - Create `.mdx` page with API docs, examples, best practices
+
+**Complete workflow:**
+
+```bash
+# 1. Build component in main package
+cd packages/design-system/main
+# ... create component files ...
+
+# 2. Create Storybook story
+cd ../storybook
+# ... create story file ...
+pnpm dev  # Verify in Storybook (port 6006)
+
+# 3. Write tests
+cd ../playwright
+# ... create test file ...
+pnpm test-ct  # Run tests
+
+# 4. Document component
+cd ../documentation
+# ... create MDX documentation ...
+pnpm dev  # Verify in Docusaurus (port 3000)
+
+# 5. Or run everything concurrently (from root)
+cd ../../../..
+pnpm ds:all:dev  # Runs Storybook + Documentation + Main watch
+```
+
+### Storybook vs Documentation
+
+**Storybook** (Interactive Playground):
+
+- Interactive component demos with live controls
+- Isolated variant exploration
+- Visual regression baseline
+- Quick component previewing during development
+- **Audience**: Developers building with components
+
+**Documentation** (Comprehensive Guides):
+
+- Getting started tutorials
+- Complete API reference with prop tables
+- Accessibility guidelines and keyboard shortcuts
+- Best practices and usage patterns
+- Design principles and token system explanation
+- **Audience**: All stakeholders (developers, designers, product)
+
+**Both are required** for complete component documentation.
 
 ## Resources
 

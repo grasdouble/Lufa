@@ -445,7 +445,167 @@ export const AllVariants: Story = {
 };
 ```
 
-### Step 6: Quality Checklist
+### Step 6: Documentation Page Template (Docusaurus)
+
+Every component should have comprehensive documentation in the Docusaurus site.
+
+**Location**:
+
+- MDX file: `packages/design-system/documentation/docs/components/{category}/{component}.mdx`
+- Examples: `packages/design-system/documentation/src/dsExamples/{category}/{componentName}.tsx`
+
+**IMPORTANT**: Examples must be created as React components in `src/dsExamples/` and imported in the MDX file. Do NOT use inline code blocks for interactive examples.
+
+**Example Component** (`src/dsExamples/{category}/{componentName}.tsx`):
+
+```tsx
+import { {Component} } from '@grasdouble/lufa_design-system';
+
+export function LiveDemo() {
+  return (
+    <div>
+      <p className="text-sm text-gray-600 mb-2">Interactive demo:</p>
+      <{Component} variant="primary">Example content</{Component}>
+    </div>
+  );
+}
+
+export function AllVariantsExample() {
+  return (
+    <div>
+      <p className="text-sm text-gray-600 mb-2">All variants:</p>
+      <div className="flex gap-4">
+        <{Component} variant="primary">Primary</{Component}>
+        <{Component} variant="secondary">Secondary</{Component}>
+      </div>
+    </div>
+  );
+}
+
+export function SizesExample() {
+  return (
+    <div>
+      <p className="text-sm text-gray-600 mb-2">Different sizes:</p>
+      <div className="flex gap-4 items-center">
+        <{Component} size="sm">Small</{Component}>
+        <{Component} size="md">Medium</{Component}>
+        <{Component} size="lg">Large</{Component}>
+      </div>
+    </div>
+  );
+}
+```
+
+**MDX Template**:
+
+````mdx
+---
+sidebar_position: 1
+---
+
+import { {Component} } from '@grasdouble/lufa_design-system';
+
+import { AllVariantsExample, LiveDemo, SizesExample } from '../../../src/dsExamples/{category}/{componentName}';
+
+# {Component}
+
+{Brief description of the component and its purpose}
+
+## Overview
+
+Use `{Component}` when you need...
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { {Component} } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<{Component} variant="primary">
+  Example content
+</{Component}>
+```
+
+## Props
+
+| Prop     | Type                     | Default   | Description          |
+| -------- | ------------------------ | --------- | -------------------- |
+| variant  | 'primary' \| 'secondary' | 'primary' | Visual style variant |
+| size     | 'sm' \| 'md' \| 'lg'     | 'md'      | Size variant         |
+| children | ReactNode                | -         | Component content    |
+
+## Examples
+
+### All Variants
+
+<AllVariantsExample />
+
+### Different Sizes
+
+<SizesExample />
+
+## Accessibility
+
+- Keyboard navigation: Tab to focus, Enter/Space to activate
+- ARIA attributes: `role="button"`, `aria-label` supported
+- Focus management: Visible focus indicators
+- Screen readers: Announced as "{Component type}"
+
+## Best Practices
+
+### Do ✅
+
+- Use semantic variants that match intent
+- Provide accessible labels for icon-only components
+
+### Don't ❌
+
+- Don't use multiple conflicting variants
+- Don't disable without clear user feedback
+
+## Related Components
+
+- [RelatedComponent1](./RelatedComponent1.mdx)
+- [RelatedComponent2](./RelatedComponent2.mdx)
+````
+
+**Development Commands**:
+
+```bash
+cd packages/design-system/documentation
+
+# Start dev server (port 3000)
+pnpm dev
+
+# Build production site
+pnpm build
+
+# Preview production build
+pnpm serve
+```
+
+**Documentation Structure**:
+
+- **MDX files**: Located in `docs/components/{category}/` for content and structure
+- **Example components**: Located in `src/dsExamples/{category}/` for interactive demos
+- Each example component should include a small caption/title to describe what it demonstrates
+- Examples are imported and rendered as React components in the MDX file
+
+**Verify**:
+
+- [ ] Component page appears in sidebar navigation
+- [ ] Live examples render correctly
+- [ ] All props are documented
+- [ ] Accessibility section is complete
+
+### Step 7: Quality Checklist
 
 Before completing, verify:
 
@@ -485,12 +645,20 @@ Before completing, verify:
 - [ ] JSDoc with examples
 - [ ] Storybook stories for all variants
 - [ ] Component exported from package
+- [ ] Docusaurus documentation page created in `packages/design-system/documentation/docs/components/`
+- [ ] Example components created in `packages/design-system/documentation/src/dsExamples/{category}/`
+- [ ] Examples imported in MDX file (NOT inline code blocks)
+- [ ] Props API table is complete and accurate
+- [ ] Accessibility section documents keyboard navigation and ARIA
+- [ ] Best practices section included
+- [ ] Component appears in Docusaurus sidebar
 
 **Build:**
 
 - [ ] No console errors/warnings
 - [ ] Build succeeds (`pnpm build`)
 - [ ] Works in Storybook
+- [ ] Documentation site builds successfully (`pnpm ds:documentation:build`)
 
 ## Key Responsibilities
 
@@ -638,34 +806,145 @@ export const Button = ({ ... }) => { ... };
 
 ## Package Structure
 
+The Lufa Design System uses a four-package architecture for separation of concerns:
+
 ```
 packages/design-system/
-├── primitives/          # Non-semantic base values
+├── primitives/              # Layer 1: Raw values
 │   ├── src/
-│   │   ├── borderWidth.ts
-│   │   ├── spacing.ts
-│   │   ├── timing.ts
+│   │   ├── borderWidth.ts   # Border width scale
+│   │   ├── spacing.ts       # spacing[16], spacing[24]
+│   │   ├── timing.ts        # timing[150], timing[400]
 │   │   └── ...
 │   └── package.json
-├── tokens/              # Semantic design tokens
+│
+├── tokens/                  # Layer 2: Semantic mappings
 │   ├── src/
-│   │   ├── color.ts
-│   │   ├── spacing.ts
-│   │   ├── typography.ts
+│   │   ├── color.ts         # color.text.primary
+│   │   ├── spacing.ts       # spacing.default, spacing.compact
+│   │   ├── typography.ts    # fontSize.base, fontWeight.bold
 │   │   └── ...
 │   └── package.json
-├── main/                # Component library
+│
+├── main/                    # Layer 3: Component library
 │   ├── src/
-│   │   ├── components/
+│   │   ├── components/      # React components (source of truth)
 │   │   │   ├── forms/
 │   │   │   ├── layout/
 │   │   │   ├── navigation/
+│   │   │   ├── display/
+│   │   │   ├── feedback/
 │   │   │   └── ...
-│   │   └── index.ts
+│   │   └── index.ts         # Public exports
 │   └── package.json
-├── storybook/           # Component showcase
-└── documentation/       # Docusaurus docs
+│
+├── storybook/               # Interactive component showcase
+│   ├── .storybook/          # Storybook configuration
+│   │   ├── main.ts
+│   │   ├── preview.tsx
+│   │   └── manager.ts
+│   ├── src/stories/         # Story files organized by category
+│   │   ├── components/      # Component stories
+│   │   ├── tokens/          # Token documentation
+│   │   └── primitives/      # Primitive documentation
+│   └── storybook-static/    # Build output
+│
+├── playwright/              # Component testing suite
+│   ├── playwright-ct.config.ts
+│   ├── src/components/      # Test files (.spec.tsx)
+│   │   ├── forms/
+│   │   ├── layout/
+│   │   ├── display/
+│   │   └── ...
+│   ├── __snapshots__/       # Visual regression snapshots
+│   └── package.json
+│
+└── documentation/           # Comprehensive documentation site
+    ├── docs/                # MDX documentation pages
+    │   ├── getting-started/ # Installation, usage guides
+    │   ├── components/      # Component API reference
+    │   │   ├── forms/
+    │   │   ├── layout/
+    │   │   └── ...
+    │   ├── guides/          # Development guides
+    │   └── tokens/          # Token system documentation
+    ├── src/                 # Custom React components
+    ├── docusaurus.config.ts # Docusaurus configuration
+    ├── build/               # Production build output
+    └── package.json
 ```
+
+### Package Purposes
+
+| Package           | Purpose                    | Technology                 | Dev Command    | Port |
+| ----------------- | -------------------------- | -------------------------- | -------------- | ---- |
+| **primitives**    | Raw, non-semantic values   | TypeScript + CSS variables | -              | -    |
+| **tokens**        | Semantic design decisions  | TypeScript + CSS variables | -              | -    |
+| **main**          | Component library (source) | React 19 + TypeScript      | `pnpm dev`     | -    |
+| **storybook**     | Interactive playground     | Storybook 8 + Vite         | `pnpm dev`     | 6006 |
+| **playwright**    | Component testing          | Playwright CT + React      | `pnpm test-ct` | -    |
+| **documentation** | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
+
+### When to Update Each Package
+
+**When creating a new component:**
+
+1. **main/** - Write component code, TypeScript types, styles
+2. **storybook/** - Create `.stories.tsx` for interactive demos
+3. **playwright/** - Create `.spec.tsx` with tests (render, variants, a11y, visual regression)
+4. **documentation/** - Create `.mdx` page with API docs, examples, best practices
+
+**Complete workflow:**
+
+```bash
+# 1. Build component in main package
+cd packages/design-system/main
+# ... create component files ...
+
+# 2. Create Storybook story
+cd ../storybook
+# ... create story file ...
+pnpm dev  # Verify in Storybook (port 6006)
+
+# 3. Write tests
+cd ../playwright
+# ... create test file ...
+pnpm test-ct  # Run tests
+
+# 4. Document component
+cd ../documentation
+# ... create MDX documentation ...
+pnpm dev  # Verify in Docusaurus (port 3000)
+
+# 5. Or run everything concurrently (from root)
+cd ../../../..
+pnpm ds:all:dev  # Runs Storybook + Documentation + Main watch
+```
+
+### Storybook vs Documentation
+
+**Storybook** (Interactive Playground):
+
+- Interactive component demos with live controls
+- Isolated variant exploration
+- Visual regression baseline
+- Quick component previewing during development
+- Theme switching (light/dark)
+- Responsive viewport testing
+- **Audience**: Developers building with components
+
+**Documentation** (Comprehensive Guides):
+
+- Getting started tutorials
+- Complete API reference with prop tables
+- Accessibility guidelines and keyboard shortcuts
+- Best practices and usage patterns
+- Design principles and token system explanation
+- Live interactive examples with `tsx live` blocks
+- **Production URL**: https://lufa-ds.grasdouble.com
+- **Audience**: All stakeholders (developers, designers, product)
+
+**Both are required** for complete component documentation.
 
 ## Common Patterns & Examples
 
@@ -746,8 +1025,10 @@ Use these to verify your work:
 # Navigate to design system main package
 cd packages/design-system/main
 
-# Run tests
-pnpm test
+# Run component tests
+pnpm test-ct                    # Run all tests
+pnpm test-ct:ui                 # Debug in UI mode
+pnpm test-ct:update-snapshots   # Update visual regression snapshots
 
 # Check types
 pnpm tsc --noEmit
@@ -759,9 +1040,17 @@ pnpm prettier
 # Build
 pnpm build
 
-# Start Storybook
+# Start Storybook (from storybook package)
 cd ../storybook
-pnpm dev
+pnpm dev                        # Runs on http://localhost:6006
+
+# Start Documentation (from documentation package)
+cd ../documentation
+pnpm dev                        # Runs on http://localhost:3000
+
+# Or run all dev servers concurrently (from root)
+cd ../../../..
+pnpm ds:all:dev                 # Runs Storybook + Documentation + Main watch
 ```
 
 ## When to Use What
