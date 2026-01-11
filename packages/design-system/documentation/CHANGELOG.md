@@ -1,5 +1,20 @@
 # @grasdouble/lufa_design-system-documentation
 
+## 0.5.0
+
+### Minor Changes
+
+- 509bb8e: Improve usage of primitives and tokens
+
+### Patch Changes
+
+- Updated dependencies [8ae7e61]
+- Updated dependencies [509bb8e]
+- Updated dependencies [603f643]
+- Updated dependencies [509bb8e]
+  - @grasdouble/lufa_design-system-tokens@0.4.0
+  - @grasdouble/lufa_design-system@0.6.0
+
 ## 0.4.1
 
 ### Patch Changes

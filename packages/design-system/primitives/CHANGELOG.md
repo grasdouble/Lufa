@@ -1,5 +1,11 @@
 # @grasdouble/lufa_design-system-primitives
 
+## 0.4.0
+
+### Minor Changes
+
+- 509bb8e: Change how primitives and tokens are exposed
+
 ## 0.3.0
 
 ### Minor Changes
