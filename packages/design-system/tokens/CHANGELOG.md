@@ -1,5 +1,17 @@
 # @grasdouble/lufa_design-system-tokens
 
+## 0.4.0
+
+### Minor Changes
+
+- 509bb8e: Change how primitives and tokens are exposed
+
+### Patch Changes
+
+- 8ae7e61: change how css variable for token is generated. now there is the prefix --lufa-token
+- Updated dependencies [509bb8e]
+  - @grasdouble/lufa_design-system-primitives@0.4.0
+
 ## 0.3.0
 
 ### Minor Changes

@@ -1,5 +1,18 @@
 # @grasdouble/lufa_plugin_vscode_lufa-ds-preview
 
+## 0.2.0
+
+### Minor Changes
+
+- 8ae7e61: Add support of completion and improve code
+
+### Patch Changes
+
+- Updated dependencies [8ae7e61]
+- Updated dependencies [509bb8e]
+  - @grasdouble/lufa_design-system-tokens@0.4.0
+  - @grasdouble/lufa_design-system-primitives@0.4.0
+
 ## 0.1.0
 
 ### Minor Changes
