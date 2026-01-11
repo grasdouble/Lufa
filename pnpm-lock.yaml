@@ -383,9 +383,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      react:
-        specifier: ^19.1.0
-        version: 19.2.3
     devDependencies:
       '@grasdouble/lufa_config_eslint':
         specifier: workspace:^
@@ -399,6 +396,9 @@ importers:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^4.7.0
         version: 4.7.0(prettier@3.7.4)
+      '@playwright/experimental-ct-react':
+        specifier: ^1.57.0
+        version: 1.57.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0))(yaml@2.7.0)
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.1.18(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0))
@@ -429,6 +429,12 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.7.2
         version: 0.7.2(@ianvs/prettier-plugin-sort-imports@4.7.0(prettier@3.7.4))(prettier@3.7.4)
+      react:
+        specifier: ^19.1.0
+        version: 19.2.3
+      react-dom:
+        specifier: ^19.1.0
+        version: 19.2.3(react@19.2.3)
       tailwindcss:
         specifier: ^4.1.18
         version: 4.1.18
@@ -453,6 +459,30 @@ importers:
       vite-tsconfig-paths:
         specifier: ^6.0.3
         version: 6.0.3(typescript@5.9.3)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0))
+
+  packages/design-system/playwright:
+    devDependencies:
+      '@grasdouble/lufa_design-system':
+        specifier: workspace:^
+        version: link:../main
+      '@playwright/experimental-ct-react':
+        specifier: ^1.57.0
+        version: 1.57.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0))(yaml@2.7.0)
+      '@types/node':
+        specifier: ^25.0.3
+        version: 25.0.3
+      '@types/react':
+        specifier: ^19.2.7
+        version: 19.2.7
+      '@types/react-dom':
+        specifier: ^19.2.3
+        version: 19.2.3(@types/react@19.2.7)
+      react:
+        specifier: ^19.2.3
+        version: 19.2.3
+      react-dom:
+        specifier: ^19.2.3
+        version: 19.2.3(react@19.2.3)
 
   packages/design-system/primitives:
     devDependencies:
@@ -2891,6 +2921,15 @@ packages:
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
+  '@playwright/experimental-ct-core@1.57.0':
+    resolution: {integrity: sha512-Z5Uh+61vR5FDRE+YJIMrnD8m6i2wJmYK525AHCJNcAcGcEC+i7xuMnZmZkg+booi3YHIwql/ApAlm03+jsCIzQ==}
+    engines: {node: '>=18'}
+
+  '@playwright/experimental-ct-react@1.57.0':
+    resolution: {integrity: sha512-wNRmkLOxHEXA9OL7QggNYVHnqaGlMOTB5q9FhrnlcFHHRs+M8SH9mQy5//dGFoYKAkhuZf4GPA3poi9bBdkdfQ==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   '@pnpm/config.env-replace@1.1.0':
     resolution: {integrity: sha512-htyl8TWnKL7K/ESFa1oW2UB5lVDxuF5DpM7tBi6Hu2LNL3mWkIzNLG6N4zoCUP1lCKNxWy/3iu8mS8MvToGd6w==}
     engines: {node: '>=12.22.0'}
@@ -2942,6 +2981,9 @@ packages:
     resolution: {integrity: sha512-famxyD5emrGGpFuUlgOP6fVW2h/ZaF405G5KDi3zPHzyjAWys/8W6NAVJtNbkCkhedmvL0xOhvt8feGXyXaw5w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
+  '@rolldown/pluginutils@1.0.0-beta.27':
+    resolution: {integrity: sha512-+d0F4MKMCbeVUJwG96uQ4SgAznZNSq93I3V+9NHA4OpvqG8mRCpGdKmK8l/dl02h2CCDHwW2FqilnTyDcAnqjA==}
 
   '@rolldown/pluginutils@1.0.0-beta.53':
     resolution: {integrity: sha512-vENRlFU4YbrwVqNDZ7fLvy+JR1CRkyr01jhSiDpE1u6py3OMzQfztQU2jxykW3ALNxO4kSlqIDeYyD0Y9RcQeQ==}
@@ -4014,6 +4056,12 @@ packages:
   '@vercel/oidc@3.0.5':
     resolution: {integrity: sha512-fnYhv671l+eTTp48gB4zEsTW/YtRgRPnkI2nT7x6qw5rkI1Lq2hTmQIpHPgyThI0znLK+vX2n9XxKdXZ7BUbbw==}
     engines: {node: '>= 20'}
+
+  '@vitejs/plugin-react@4.7.0':
+    resolution: {integrity: sha512-gUu9hwfWvvEDBBmgtAowQCojwZmJ5mcLn3aufeCsitijs3+f2NsrPtlAWIR6OPiqljl96GVCUbLe0HyqIpVaoA==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      vite: ^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
 
   '@vitejs/plugin-react@5.1.2':
     resolution: {integrity: sha512-EcA07pHJouywpzsoTUqNh5NwGayl2PPVEJKUSinGGSxFGYn+shYbqMGBg6FXDqgXum9Ou/ecb+411ssw8HImJQ==}
@@ -5757,6 +5805,11 @@ packages:
   fs-minipass@3.0.3:
     resolution: {integrity: sha512-XUBA9XClHbnJWSfBzjkm6RvPsyg3sryZt06BEQoXcF7EK/xpGaQYJgQKDJSUH5SGZ76Y7pFx1QBnXz09rU5Fbw==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+
+  fsevents@2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -7609,6 +7662,16 @@ packages:
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
 
+  playwright-core@1.57.0:
+    resolution: {integrity: sha512-agTcKlMw/mjBWOnD6kFZttAAGHgi/Nw0CZ2o6JqWSbMlI219lAFLZZCyqByTsvVAJq5XA5H8cA6PrvBRpBWEuQ==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright@1.57.0:
+    resolution: {integrity: sha512-ilYQj1s8sr2ppEJ2YVadYBN0Mb3mdo9J0wQ+UuDhzYqURwSoW4n1Xs5vs7ORwgDGmyEh33tRMeS8KhdkMoLXQw==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   pluralize@2.0.0:
     resolution: {integrity: sha512-TqNZzQCD4S42De9IfnnBvILN7HAW7riLqsCyp8lgjXeysyPlX5HhqKAcJHHHb9XskE4/a+7VGC9zzx8Ls0jOAw==}
 
@@ -8248,6 +8311,10 @@ packages:
     peerDependencies:
       react-loadable: '*'
       webpack: '>=4.41.1 || 5.x'
+
+  react-refresh@0.17.0:
+    resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
+    engines: {node: '>=0.10.0'}
 
   react-refresh@0.18.0:
     resolution: {integrity: sha512-QgT5//D3jfjJb6Gsjxv0Slpj23ip+HtOpnNgnb2S5zU3CB26G/IDPGoy4RJB42wzFE46DRsstbW6tKHoKbhAxw==}
@@ -12795,6 +12862,43 @@ snapshots:
 
   '@pkgr/core@0.2.9': {}
 
+  '@playwright/experimental-ct-core@1.57.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0)':
+    dependencies:
+      playwright: 1.57.0
+      playwright-core: 1.57.0
+      vite: 6.4.1(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - jiti
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - terser
+      - tsx
+      - yaml
+
+  '@playwright/experimental-ct-react@1.57.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0))(yaml@2.7.0)':
+    dependencies:
+      '@playwright/experimental-ct-core': 1.57.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0)
+      '@vitejs/plugin-react': 4.7.0(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0))
+    transitivePeerDependencies:
+      - '@types/node'
+      - jiti
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - vite
+      - yaml
+
   '@pnpm/config.env-replace@1.1.0': {}
 
   '@pnpm/network.ca-file@1.0.2':
@@ -12857,6 +12961,8 @@ snapshots:
   '@react-types/shared@3.32.1(react@19.2.3)':
     dependencies:
       react: 19.2.3
+
+  '@rolldown/pluginutils@1.0.0-beta.27': {}
 
   '@rolldown/pluginutils@1.0.0-beta.53': {}
 
@@ -14001,6 +14107,18 @@ snapshots:
   '@ungap/structured-clone@1.3.0': {}
 
   '@vercel/oidc@3.0.5': {}
+
+  '@vitejs/plugin-react@4.7.0(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0))':
+    dependencies:
+      '@babel/core': 7.28.5
+      '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.28.5)
+      '@babel/plugin-transform-react-jsx-source': 7.27.1(@babel/core@7.28.5)
+      '@rolldown/pluginutils': 1.0.0-beta.27
+      '@types/babel__core': 7.20.5
+      react-refresh: 0.17.0
+      vite: 7.3.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0)
+    transitivePeerDependencies:
+      - supports-color
 
   '@vitejs/plugin-react@5.1.2(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.7.0))':
     dependencies:
@@ -16158,6 +16276,9 @@ snapshots:
   fs-minipass@3.0.3:
     dependencies:
       minipass: 7.1.2
+
+  fsevents@2.3.2:
+    optional: true
 
   fsevents@2.3.3:
     optional: true
@@ -18411,6 +18532,14 @@ snapshots:
       exsolve: 1.0.8
       pathe: 2.0.3
 
+  playwright-core@1.57.0: {}
+
+  playwright@1.57.0:
+    dependencies:
+      playwright-core: 1.57.0
+    optionalDependencies:
+      fsevents: 2.3.2
+
   pluralize@2.0.0: {}
 
   pluralize@8.0.0: {}
@@ -19057,6 +19186,8 @@ snapshots:
       '@babel/runtime': 7.28.4
       react-loadable: '@docusaurus/react-loadable@6.0.0(react@19.2.3)'
       webpack: 5.104.1(@swc/core@1.15.7(@swc/helpers@0.5.18))
+
+  react-refresh@0.17.0: {}
 
   react-refresh@0.18.0: {}
 

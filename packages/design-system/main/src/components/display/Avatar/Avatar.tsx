@@ -65,7 +65,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
           <img src={src} alt={alt} className={avatarClasses} />
         )}
         {!isCountVariant && status && status !== 'none' && (
-          <span className={statusClasses} aria-label={`Status: ${status}`} />
+          <span className={statusClasses} role="status" aria-label={`Status: ${status}`} />
         )}
       </span>
     );

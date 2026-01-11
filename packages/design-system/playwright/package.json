@@ -1,0 +1,26 @@
+{
+  "name": "@grasdouble/lufa_design-system-playwright",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test -c playwright-ct.config.ts",
+    "test-ct": "playwright test -c playwright-ct.config.ts",
+    "test-ct:ui": "playwright test -c playwright-ct.config.ts --ui",
+    "test-ct:update-snapshots": "playwright test -c playwright-ct.config.ts --update-snapshots"
+  },
+  "devDependencies": {
+    "@grasdouble/lufa_design-system": "workspace:^",
+    "@playwright/experimental-ct-react": "^1.57.0",
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "packageManager": "pnpm@10.8.1"
+}

@@ -1,0 +1,91 @@
+@layer components {
+  /* ========================================
+     SOLID VARIANT - Using CSS Variables
+     ======================================== */
+
+  .variantSolid {
+    background: var(--btn-bg);
+    color: var(--btn-color);
+    box-shadow: var(--btn-shadow, theme(boxShadow.md));
+  }
+
+  .variantSolid:is(
+    :focus-visible:not(:disabled),
+    :hover:not(:disabled),
+    [data-test-state='focus'],
+    [data-test-state='hover']
+  ) {
+    background: var(--btn-bg-hover);
+    box-shadow: var(--btn-shadow-hover, theme(boxShadow.lg));
+    transform: translateY(-2px);
+  }
+
+  .variantSolid:disabled {
+    background: var(--btn-bg-disabled);
+    color: var(--btn-color-disabled);
+    box-shadow: none;
+  }
+
+  .variantSolid:is(:focus-visible, [data-test-state='focus']) {
+    outline: var(--btn-outline);
+    outline-offset: var(--btn-outline-offset);
+    box-shadow: var(--btn-ring);
+  }
+
+  /* Solid Colors - Variable Assignments */
+  .variantSolid.colorPrimary {
+    --btn-bg: theme(colors.interactive.default);
+    --btn-bg-hover: theme(colors.interactive.hover);
+    --btn-bg-disabled: theme(colors.text.disabled);
+    --btn-color: theme(colors.text.inverse);
+    --btn-color-disabled: theme(colors.text.secondary);
+    --btn-outline: 2px solid theme(colors.interactive.focus);
+    --btn-ring: 0 0 0 4px rgb(from theme(colors.interactive.focus) r g b / 0.2);
+  }
+
+  .variantSolid.colorSecondary {
+    --btn-bg: theme(colors.text.secondary);
+    --btn-bg-hover: theme(colors.text.primary);
+    --btn-bg-disabled: theme(colors.text.disabled);
+    --btn-color: theme(colors.text.inverse);
+    --btn-color-disabled: theme(colors.text.secondary);
+    --btn-outline: 2px solid theme(colors.text.secondary);
+    --btn-ring: 0 0 0 4px rgb(from theme(colors.text.secondary) r g b / 0.2);
+  }
+
+  .variantSolid.colorSuccess {
+    --btn-bg: theme(colors.success.default);
+    --btn-bg-hover: theme(colors.success.hover);
+    --btn-bg-disabled: theme(colors.success.lighter);
+    --btn-color: theme(colors.text.inverse);
+    --btn-color-disabled: theme(colors.success.text);
+    --btn-outline: 2px solid theme(colors.success.default);
+    --btn-ring: 0 0 0 4px rgb(from theme(colors.success.default) r g b / 0.2);
+    --btn-shadow: 0 1px 3px rgb(from theme(colors.success.default) r g b / 0.2);
+    --btn-shadow-hover: 0 4px 6px rgb(from theme(colors.success.hover) r g b / 0.3);
+  }
+
+  .variantSolid.colorWarning {
+    --btn-bg: theme(colors.warning.default);
+    --btn-bg-hover: theme(colors.warning.hover);
+    --btn-bg-disabled: theme(colors.warning.lighter);
+    --btn-color: theme(colors.text.inverse);
+    --btn-color-disabled: theme(colors.warning.text);
+    --btn-outline: 2px solid theme(colors.warning.default);
+    --btn-ring: 0 0 0 4px rgb(from theme(colors.warning.default) r g b / 0.2);
+    --btn-shadow: 0 1px 3px rgb(from theme(colors.warning.default) r g b / 0.2);
+    --btn-shadow-hover: 0 4px 6px rgb(from theme(colors.warning.hover) r g b / 0.3);
+  }
+
+  .variantSolid.colorDanger {
+    --btn-bg: theme(colors.error.default);
+    --btn-bg-hover: theme(colors.error.hover);
+    --btn-bg-disabled: theme(colors.error.lighter);
+    --btn-color: theme(colors.text.inverse);
+    --btn-color-disabled: theme(colors.error.text);
+    --btn-outline: 2px solid theme(colors.error.default);
+    --btn-ring: 0 0 0 4px rgb(from theme(colors.error.default) r g b / 0.2);
+    --btn-shadow: 0 1px 3px rgb(from theme(colors.error.default) r g b / 0.2);
+    --btn-shadow-hover: 0 4px 6px rgb(from theme(colors.error.hover) r g b / 0.3);
+  }
+}
