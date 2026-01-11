@@ -4,6 +4,8 @@
 
 This file contains GitHub Copilot-specific instructions and references to path-scoped rules. For detailed documentation, always refer to [AGENTS.md](../AGENTS.md).
 
+> ℹ️ **Note on AI Models**: GitHub Copilot uses GPT-4/Codex models. This repository also supports **Claude Code** (via [CLAUDE.md](../CLAUDE.md)) and **OpenAI Codex Extension** (via [config.toml](../config.toml)). See [AGENTS.md - AI Agent Compatibility](../AGENTS.md#-ai-agent-compatibility) for details.
+
 ---
 
 ## Project Overview
@@ -15,7 +17,7 @@ Lufa is a monorepo with:
 - **Playwright** for component testing
 - **Strict TypeScript** and code quality standards
 
-**Critical Concept**: Design system components MUST use tokens only, never primitives or hard-coded values.
+**Critical Concept**: Design system components MUST use tokens only and MUST NOT import primitives or hard-code values.
 
 ---
 
@@ -60,6 +62,7 @@ GitHub Copilot automatically applies these instructions based on file paths:
 - **[github-actions-ci-cd-best-practices.instructions.md](instructions/github-actions-ci-cd-best-practices.instructions.md)**
 - **[ai-prompt-engineering-safety-best-practices.instructions.md](instructions/ai-prompt-engineering-safety-best-practices.instructions.md)**
 - **[update-docs-on-code-change.instructions.md](instructions/update-docs-on-code-change.instructions.md)**
+- **[multi-agent-documentation-maintenance.instructions.md](instructions/multi-agent-documentation-maintenance.instructions.md)**
 
 ---
 
@@ -77,7 +80,7 @@ GitHub Copilot automatically applies these instructions based on file paths:
    // ✅ CORRECT - Components import tokens
    import { color, spacing } from '@grasdouble/lufa_design-system-tokens';
 
-   // ❌ WRONG - Never import primitives in components
+   // ❌ WRONG - Components MUST NOT import primitives
    import { spacing } from '@grasdouble/lufa_design-system-primitives';
 
    // ❌ WRONG - Never hard-code values

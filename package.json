@@ -48,7 +48,9 @@
     "plugin:vite:lint": "pnpm --filter @grasdouble/lufa_plugin_vite_* run lint",
     "plugin:vite:prettier": "pnpm --filter @grasdouble/lufa_plugin_vite_* run prettier",
     "tools---------------------------------------------": "",
-    "tools:generate-outdated-report": "node .github/actions/dependency-update/generateOutdatedReport.js"
+    "tools:generate-outdated-report": "node .github/actions/dependency-update/generateOutdatedReport.js",
+    "validate------------------------------------------": "",
+    "validate:docs": "bash scripts/validate-ai-docs.sh"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.8",

@@ -1,28 +1,31 @@
 # AGENTS.md
 
-> 📘 **Multi-Agent Compatible**: This file follows the [AGENTS.md standard](https://agents.md/) and is optimized for GitHub Copilot, Claude Code, Cursor, Aider, Cline, Windsurf, and Roo Code.
+> 📘 **Multi-Agent Compatible**: This file follows the [AGENTS.md standard](https://agents.md/) and is optimized for GitHub Copilot, Claude Code, and OpenAI Codex Extension.
 
 **This file is for AI agents working with this codebase.**
 
 ## 🚀 Quick Navigation for AI Agents
 
 **First time here? Read in this order:**
+
 1. [Quick Start](#quick-start-for-ai-agents) - Essential info (3 min read)
 2. [Architecture](#design-system-three-layer-architecture) - Critical design system layers (5 min read)
 3. Detailed sections below as needed
 
 **Most common tasks:**
+
 - 🏗️ Adding a component → [Component Creation Guide](#when-creating-new-components)
 - 🐛 Build failing → [Build Troubleshooting](#build-failures)
 - 🧪 Running tests → [Testing Instructions](#testing-instructions)
 - 📦 Adding dependencies → [Adding Dependencies](#adding-dependencies)
 - 🔄 Version management → [Using Changesets](#using-changesets)
+- 📝 Updating AI docs → [Maintenance Guide](.github/instructions/multi-agent-documentation-maintenance.instructions.md)
 
 **Agent-specific notes:**
+
 - **GitHub Copilot**: See [.github/copilot-instructions.md](.github/copilot-instructions.md) for path-scoped rules
 - **Claude Code**: See [CLAUDE.md](CLAUDE.md) for quick reference
-- **Cursor**: See `.cursor/index.mdc` for IDE-specific rules (if using Cursor)
-- **Aider**: This file is also available as `CONVENTIONS.md`
+- **OpenAI Codex Extension**: See [config.toml](config.toml) for configuration
 
 ---
 
@@ -60,6 +63,7 @@ pnpm --filter @grasdouble/lufa_design-system test-ct
 
 # Quality checks
 pnpm all:lint && pnpm all:prettier
+pnpm validate:docs             # Validate AI documentation consistency
 
 # Version management
 pnpm changeset                 # After code changes
@@ -195,11 +199,13 @@ pnpm --filter @grasdouble/lufa_design-system-* build
 ### Package Information
 
 **Finding packages:**
+
 - Use `pnpm list --recursive --depth 0` to list all workspace packages
 - Check `pnpm-workspace.yaml` for workspace patterns
 - Package locations follow pattern: `packages/<category>/<package-name>/`
 
 **Key package locations:**
+
 - Design system main: `packages/design-system/main/`
 - Design system tokens: `packages/design-system/tokens/`
 - Design system primitives: `packages/design-system/primitives/`
@@ -256,11 +262,13 @@ The design system follows a **strict three-layer architecture**. Violating this 
 **Purpose:** Provide raw, non-semantic foundational values
 
 **Rules:**
+
 - Keys are **actual values**: `spacing[16]`, `timing[150]`, `blue[600]`
 - ❌ NEVER use semantic names like "small", "medium", "large" in primitives
 - Exports TypeScript objects and CSS custom properties (`--lufa-primitive-spacing-16`)
 
 **Example:**
+
 ```typescript
 export const spacing = {
   0: '0px',
@@ -276,6 +284,7 @@ export const spacing = {
 **Purpose:** Map primitive values to semantic, purpose-driven names
 
 **Rules:**
+
 - Keys are **semantic/purpose-driven**: `primary`, `secondary`, `compact`, `spacious`
 - ✅ ALWAYS reference primitives (never hard-code values)
 - ❌ NEVER use raw values directly
@@ -283,6 +292,7 @@ export const spacing = {
 - Build script generates CSS and TypeScript types
 
 **Example:**
+
 ```typescript
 import { spacing } from '@grasdouble/lufa_design-system-primitives';
 
@@ -299,14 +309,19 @@ export const spacingTokens = {
 **Purpose:** React components using tokens for all design values
 
 **Rules:**
+
 - ✅ Components MUST use tokens only
 - ❌ Components MUST NOT import from primitives
 - ❌ Components MUST NOT hard-code design values
 - Use Tailwind CSS utilities with token-based CSS custom properties
 
 **Example:**
+
 ```typescript
 // ✅ GOOD - Import tokens
+
+// ❌ BAD - Don't import primitives
+import { spacing } from '@grasdouble/lufa_design-system-primitives';
 import { color, spacing } from '@grasdouble/lufa_design-system-tokens';
 
 const styles = {
@@ -314,8 +329,6 @@ const styles = {
   color: color.text.primary,
 };
 
-// ❌ BAD - Don't import primitives
-import { spacing } from '@grasdouble/lufa_design-system-primitives';
 const styles = { padding: spacing[16] };
 
 // ❌ BAD - Don't hard-code
@@ -378,6 +391,7 @@ pnpm test-ct
 ```
 
 **Test Configuration:**
+
 - Config file: `packages/design-system/main/playwright-ct.config.ts`
 - Test files: Co-located with components as `*.spec.tsx` or in separate test directories
 - Uses `@playwright/experimental-ct-react` for component testing
@@ -392,6 +406,7 @@ pnpm test-ct
 - Follow patterns in `.github/instructions/playwright-typescript.instructions.md`
 
 **Example test structure:**
+
 ```typescript
 import { test, expect } from '@playwright/experimental-ct-react';
 import { Button } from './Button';
@@ -429,6 +444,7 @@ pnpm --filter @grasdouble/lufa_design-system build
 ```
 
 **Build Order (CRITICAL for design system):**
+
 ```bash
 # Must be built in this exact order:
 pnpm ds:tokens:build       # 1. First - generates CSS and types used by components
@@ -441,6 +457,7 @@ pnpm ds:all:build
 ```
 
 **Why order matters:**
+
 - Tokens package generates CSS custom properties and TypeScript types
 - Main components import from tokens package
 - Building out of order will cause TypeScript errors
@@ -500,6 +517,7 @@ git commit -m "chore: add changeset for [description]"
 ## Before Committing Changes
 
 **Pre-commit checklist:**
+
 ```bash
 # 1. Ensure all packages build
 pnpm all:build
@@ -518,6 +536,7 @@ pnpm changeset
 ```
 
 **Commit message format:** Follow [Conventional Commits](https://www.conventionalcommits.org/)
+
 - `feat(design-system): add Button variants`
 - `fix(microfrontend): resolve routing issue`
 - `docs: update AGENTS.md`
@@ -764,7 +783,8 @@ pnpm test-ct
 ### Design System Component Pattern
 
 **Correct component structure:**
-```typescript
+
+````typescript
 import type { ComponentPropsWithoutRef } from 'react';
 import { clsx } from 'clsx';
 
@@ -820,9 +840,10 @@ export const Button = ({
 };
 
 Button.displayName = 'Button';
-```
+````
 
 **CSS with tokens (use CSS custom properties):**
+
 ```css
 @layer components {
   .btn {
@@ -851,6 +872,7 @@ Button.displayName = 'Button';
 ### Workspace Dependencies Pattern
 
 **In package.json:**
+
 ```json
 {
   "dependencies": {
@@ -863,6 +885,7 @@ Button.displayName = 'Button';
 ### Common Mistakes to Avoid
 
 **❌ Don't do this:**
+
 ```typescript
 // Don't import primitives in components
 import { spacing } from '@grasdouble/lufa_design-system-primitives';
@@ -871,34 +894,41 @@ import { spacing } from '@grasdouble/lufa_design-system-primitives';
 const styles = { padding: '16px', color: '#FF0000' };
 
 // Don't skip displayName
-export const Button = (props) => { /* ... */ };
+export const Button = (props) => {
+  /* ... */
+};
 ```
 
 **✅ Do this instead:**
+
 ```typescript
 // Import tokens
-import { spacing, color } from '@grasdouble/lufa_design-system-tokens';
+import { color, spacing } from '@grasdouble/lufa_design-system-tokens';
 
 // Use tokens
 const styles = {
   padding: spacing.default,
-  color: color.text.primary
+  color: color.text.primary,
 };
 
 // Set displayName
-export const Button = (props) => { /* ... */ };
+export const Button = (props) => {
+  /* ... */
+};
 Button.displayName = 'Button';
 ```
 
 ## Code Quality Requirements
 
 ### Security
+
 - Never commit secrets or credentials
 - Validate and sanitize user inputs
 - Follow OWASP security best practices
 - Reference: `.github/instructions/ai-prompt-engineering-safety-best-practices.instructions.md`
 
 ### Performance
+
 - Use `React.memo`, `useMemo`, `useCallback` judiciously (not by default)
 - Implement code splitting with dynamic imports when needed
 - Lazy load components with `React.lazy` and `Suspense` where appropriate
@@ -909,11 +939,13 @@ Button.displayName = 'Button';
 ### Key Documentation Files
 
 **Must-read files:**
+
 - [CLAUDE.md](CLAUDE.md) - Critical three-layer design system architecture
 - [AGENTS.md](AGENTS.md) - This file (comprehensive development guide)
 - [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution workflow and git practices
 
 **Technology-specific instructions** (`.github/instructions/`):
+
 - `lufa-design-system.instructions.md` - Design system standards (detailed patterns)
 - `a11y.instructions.md` - Accessibility guidelines (WCAG 2.1 AA)
 - `reactjs.instructions.md` - React best practices
@@ -923,6 +955,7 @@ Button.displayName = 'Button';
 - `performance-optimization.instructions.md` - Performance patterns
 
 **How-to guides** (`docs/howto/`):
+
 - `How-to-use-changeset-in-Lufa.md` - Version management with Changesets
 
 ### Documentation Commands
@@ -956,6 +989,7 @@ pnpm ds:all:build
 ```
 
 **If clean rebuild needed:**
+
 ```bash
 rm -rf node_modules pnpm-lock.yaml
 pnpm install
@@ -967,6 +1001,7 @@ pnpm all:build
 **Symptoms:** "Cannot find module '@grasdouble/lufa_design-system-tokens'" or similar
 
 **Causes and solutions:**
+
 1. **Tokens not built:** Run `pnpm ds:tokens:build`
 2. **Wrong import path:** Verify package name in `package.json`
 3. **Missing workspace dependency:** Check `workspace:^` protocol is used
@@ -975,6 +1010,7 @@ pnpm all:build
 ### Import Resolution Issues
 
 **Check these:**
+
 1. Package is built: `pnpm --filter @grasdouble/package-name build`
 2. Workspace protocol used: `"@grasdouble/lufa_design-system-tokens": "workspace:^"`
 3. Package name matches exactly (check `package.json` `name` field)
@@ -993,11 +1029,13 @@ pnpm all:lint
 ## Environment Information
 
 ### Required Versions
+
 - **Node.js:** 24.9.0 (specified in `.tool-versions`)
 - **pnpm:** 10.26.x or later (currently 10.8.1+)
 - Check versions: `node -v` and `pnpm -v`
 
 ### Workspace Protocol
+
 All internal dependencies must use `workspace:^` protocol:
 
 ```json
@@ -1009,6 +1047,7 @@ All internal dependencies must use `workspace:^` protocol:
 ```
 
 ### CI/CD Information
+
 - **Workflows location:** `.github/workflows/`
 - **Release automation:** `changeset-release.yml` (manual trigger from `main` branch)
 - **Publishing:** GitHub Package Registry
@@ -1028,6 +1067,7 @@ All internal dependencies must use `workspace:^` protocol:
 ### Before Making Changes
 
 **Check these files:**
+
 1. Read the package's `package.json` to understand scripts and dependencies
 2. Check existing component patterns in the same directory
 3. Review `.github/instructions/lufa-design-system.instructions.md` for detailed patterns
@@ -1036,6 +1076,7 @@ All internal dependencies must use `workspace:^` protocol:
 ### When Creating New Components
 
 **Step-by-step process:**
+
 1. Verify or create required tokens in `packages/design-system/tokens/`
 2. Run `pnpm ds:tokens:build` to generate CSS and types
 3. Create component file in `packages/design-system/main/src/components/`
@@ -1051,6 +1092,7 @@ All internal dependencies must use `workspace:^` protocol:
 ### Common AI Agent Mistakes
 
 ❌ **Don't:**
+
 - Use Bash `cat` or `grep` when Read or Grep tools are available
 - Assume test scripts exist (check package.json first)
 - Skip building tokens before components
@@ -1059,6 +1101,7 @@ All internal dependencies must use `workspace:^` protocol:
 - Skip creating changesets for user-facing changes
 
 ✅ **Do:**
+
 - Use Read tool for file reading
 - Use Grep tool for searching
 - Verify commands exist in package.json before suggesting them
@@ -1069,6 +1112,7 @@ All internal dependencies must use `workspace:^` protocol:
 ### Tool Usage Recommendations
 
 **For this codebase:**
+
 - Use `Read` to examine component patterns
 - Use `Grep` to search for similar implementations
 - Use `Glob` to find component files
@@ -1140,15 +1184,11 @@ This project follows the [AGENTS.md standard](https://agents.md/) and maintains 
 
 ### Supported Agents and Their Files
 
-| Agent | Primary File | Status | Notes |
-|-------|-------------|--------|-------|
-| **GitHub Copilot** | [.github/copilot-instructions.md](.github/copilot-instructions.md) | ✅ Full Support | Path-scoped instructions with YAML frontmatter |
-| **Claude Code** | [CLAUDE.md](CLAUDE.md) | ✅ Full Support | Quick reference, links to AGENTS.md |
-| **Cursor** | `.cursor/index.mdc` | ✅ Full Support | Create if using Cursor IDE |
-| **Aider** | `CONVENTIONS.md` → AGENTS.md | ✅ Full Support | Symlink or reference to this file |
-| **Cline** | `.clinerules` | 🔄 Community Support | Can reference AGENTS.md |
-| **Windsurf** | `.windsurfrules` | 🔄 Community Support | Can reference AGENTS.md |
-| **Roo Code** | AGENTS.md | ✅ Native Support | Uses this file directly |
+| Agent                        | Primary File                                                       | Status          | Notes                                          |
+| ---------------------------- | ------------------------------------------------------------------ | --------------- | ---------------------------------------------- |
+| **GitHub Copilot**           | [.github/copilot-instructions.md](.github/copilot-instructions.md) | ✅ Full Support | Path-scoped instructions with YAML frontmatter |
+| **Claude Code**              | [CLAUDE.md](CLAUDE.md)                                             | ✅ Full Support | Quick reference, links to AGENTS.md            |
+| **OpenAI Codex Extension**   | [config.toml](config.toml)                                         | ✅ Full Support | TOML configuration with custom instructions    |
 
 ### File Organization Strategy
 
@@ -1156,15 +1196,19 @@ This project follows the [AGENTS.md standard](https://agents.md/) and maintains 
 project-root/
 ├── AGENTS.md                          # ⭐ Primary source of truth (this file)
 ├── CLAUDE.md                          # Quick reference for Claude Code
-├── CONVENTIONS.md                     # Symlink to AGENTS.md (for Aider)
+├── config.toml                        # OpenAI Codex Extension configuration
 ├── .github/
 │   ├── copilot-instructions.md       # GitHub Copilot main file
 │   ├── instructions/                  # Path-scoped instructions
 │   │   ├── *.instructions.md         # With YAML frontmatter
+│   │   └── multi-agent-documentation-maintenance.instructions.md  # 📝 Maintenance guide
 │   ├── prompts/                       # Reusable AI prompts
 │   │   └── README.md                 # Prompts index
 │   └── agents/                        # Custom agent definitions
-└── .cursor/
+│       └── README.md                 # Custom agents index
+└── scripts/
+    ├── validate-ai-docs.sh           # Documentation validation
+    └── README.md                     # Scripts documentation
     └── index.mdc                      # Cursor IDE rules (optional)
 ```
 
@@ -1178,16 +1222,65 @@ This project follows these principles for maximum compatibility:
 4. **YAML Frontmatter**: Used sparingly (only for GitHub Copilot path-scoping)
 5. **Natural Language**: Clear instructions, not cryptic abbreviations
 
+### Documentation Consistency Validation
+
+To prevent desynchronization between AI documentation files, this project includes automated validation:
+
+**Validation Script**: [scripts/validate-ai-docs.sh](scripts/validate-ai-docs.sh)
+
+**What it validates**:
+- Three-layer architecture consistency across AGENTS.md, CLAUDE.md, and .github/copilot-instructions.md
+- Critical rules (token usage, primitives restrictions) documented in all files
+- Build commands consistency
+- YAML frontmatter validity in .instructions.md files
+- Markdown link integrity
+- File size limits (for token optimization)
+- Package scope consistency
+
+**Running validation**:
+```bash
+# Via npm script (recommended)
+pnpm validate:docs
+
+# Or directly
+bash scripts/validate-ai-docs.sh
+```
+
+**CI Integration**: The validation runs automatically on pull requests and pushes to main via [.github/workflows/validate-docs.yml](.github/workflows/validate-docs.yml)
+
+See [scripts/README.md](scripts/README.md) for detailed documentation.
+
+### Maintaining AI Documentation
+
+When the codebase evolves, AI documentation should be kept up-to-date. This project includes comprehensive guidelines for maintaining multi-agent compatible documentation.
+
+**Maintenance Guide**: [.github/instructions/multi-agent-documentation-maintenance.instructions.md](.github/instructions/multi-agent-documentation-maintenance.instructions.md)
+
+**What it covers**:
+- **Quick Decision Guide**: Should I update AI docs? What files to update? (decision trees and tables)
+- **Templates**: For creating new `.instructions.md` files and prompts
+- **Workflows**: Step-by-step instructions for common maintenance tasks
+- **Update Order**: Critical sequence to follow when updating multiple files
+- **Common Scenarios**: Ready-to-use actions for typical changes
+- **Implementation History**: 5 phases documenting how the system evolved
+
+**When to consult this guide**:
+- ✅ You just made code changes and wonder if docs need updating
+- ✅ You're adding new technology or patterns to the project
+- ✅ You want to create new agent-specific instructions
+- ✅ You're unsure which documentation files are affected by your changes
+
+**Quick reference**: Start with the "Quick Decision Guide" section for a 2-minute assessment of whether your changes require documentation updates.
+
 ### For Contributors Using Different Agents
 
 Regardless of which AI agent you're using, start with this file (AGENTS.md). Agent-specific files provide additional context but this file contains all essential information.
 
 **Quick setup for your agent:**
+
 - **GitHub Copilot**: Already configured via `.github/copilot-instructions.md`
-- **Claude Code**: See [CLAUDE.md](CLAUDE.md) for quick start
-- **Cursor**: Create `.cursor/index.mdc` that references this file
-- **Aider**: Use `--read AGENTS.md` or configure in `.aider.conf.yml`
-- **Other agents**: Reference this file in your agent's configuration
+- **Claude Code**: Automatically loads [CLAUDE.md](CLAUDE.md) on startup
+- **OpenAI Codex Extension**: Automatically loads [config.toml](config.toml) from project root
 
 ---
 
@@ -1195,20 +1288,22 @@ Regardless of which AI agent you're using, start with this file (AGENTS.md). Age
 
 This detailed matrix shows which features are supported by each AI agent.
 
-| Feature | GitHub Copilot | Claude Code | Cursor | Aider | Cline | Windsurf | Roo Code |
-|---------|----------------|-------------|--------|-------|-------|----------|----------|
-| **AGENTS.md Support** | ✅ Native | ✅ Via CLAUDE.md | ✅ Via .mdc | ✅ Native | 🔄 Requested | ❓ | ✅ Native |
-| **Path-Scoped Rules** | ✅ YAML frontmatter | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ |
-| **YAML Frontmatter** | ✅ Advanced | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Multiple Instructions Files** | ✅ .instructions.md | ✅ Referenced | ✅ .mdc files | ✅ Multiple --read | ✅ Directory | ✅ | ✅ |
-| **Auto-Load on File Open** | ✅ | ✅ CLAUDE.md | ✅ Always rules | ⚠️ Config needed | ⚠️ Manual | ⚠️ Manual | ⚠️ Config needed |
-| **Custom Agents/Skills** | ✅ Copilot Extensions | ✅ Agent Skills | ❌ | ❌ | ❌ | ❌ | ✅ Custom modes |
-| **Prompts Library** | ⚠️ Via @workspace | ⚠️ Via Skill tool | ⚠️ Manual reference | ✅ /read | ⚠️ Manual | ⚠️ Manual | ⚠️ Manual |
-| **IDE Integration** | ✅ VS Code, JetBrains | ✅ CLI, VSCode ext | ✅ Native IDE | ⚠️ CLI only | ✅ VS Code ext | ✅ Native IDE | ✅ VS Code ext |
-| **Organization-Level Rules** | ✅ | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ |
-| **Cost** | Paid | Paid | Paid | Open Source | Open Source | Paid | Open Source |
+| Feature                         | GitHub Copilot        | OpenAI Codex Extension       | Claude Code        |
+| ------------------------------- | --------------------- | ---------------------------- | ------------------ |
+| **AGENTS.md Support**           | ✅ Native             | ✅ Via config.toml           | ✅ Via CLAUDE.md   |
+| **Path-Scoped Rules**           | ✅ YAML frontmatter   | ➖                           | ➖                 |
+| **YAML Frontmatter**            | ✅ Advanced           | ❌                           | ❌                 |
+| **Multiple Instructions Files** | ✅ .instructions.md   | ✅ TOML config               | ✅ Referenced      |
+| **Auto-Load on File Open**      | ✅                    | ✅ config.toml               | ✅ CLAUDE.md       |
+| **Custom Agents/Skills**        | ✅ Copilot Extensions | ✅ Referenced in config      | ✅ Agent Skills    |
+| **Prompts Library**             | ⚠️ Via @workspace     | ✅ Referenced in config      | ⚠️ Via Skill tool  |
+| **IDE Integration**             | ✅ VS Code, JetBrains | ✅ VS Code, Cursor, Windsurf | ✅ CLI, VSCode ext |
+| **Autonomous Mode**             | ❌                    | ✅ Cloud sandboxes           | ❌                 |
+| **Organization-Level Rules**    | ✅                    | ➖                           | ➖                 |
+| **Cost**                        | Paid                  | Paid (ChatGPT Plus+)         | Paid               |
 
 **Legend**:
+
 - ✅ Full Support
 - ⚠️ Partial Support / Needs Configuration
 - 🔄 Community Request / In Progress
@@ -1219,46 +1314,45 @@ This detailed matrix shows which features are supported by each AI agent.
 
 **For This Project (Lufa)**:
 
-| Workflow | Recommended Agent(s) | Why |
-|----------|---------------------|-----|
-| **Design System Development** | Claude Code, GitHub Copilot | CLAUDE.md optimized, path-scoped rules |
-| **Component Testing** | GitHub Copilot, Cursor | Path-scoped to test files, good test generation |
-| **Documentation Updates** | Aider, Claude Code | Good at reading context, following AGENTS.md |
-| **Refactoring** | GitHub Copilot, Cursor | IDE integration, multi-file changes |
-| **Learning the Codebase** | Claude Code, Aider | Can read AGENTS.md comprehensively |
-| **Quick Fixes** | GitHub Copilot | Fastest in-editor suggestions |
-| **CLI Workflows** | Aider | Best CLI-native experience |
+| Workflow                      | Recommended Agent(s)           | Why                                               |
+| ----------------------------- | ------------------------------ | ------------------------------------------------- |
+| **Design System Development** | Claude Code, GitHub Copilot    | CLAUDE.md optimized, path-scoped rules            |
+| **Component Testing**         | GitHub Copilot                 | Path-scoped to test files, good test generation   |
+| **Documentation Updates**     | Claude Code                    | Good at reading context, following AGENTS.md      |
+| **Refactoring**               | GitHub Copilot                 | IDE integration, multi-file changes               |
+| **Learning the Codebase**     | Claude Code                    | Can read AGENTS.md comprehensively                |
+| **Quick Fixes**               | GitHub Copilot                 | Fastest in-editor suggestions                     |
+| **Complex Multi-File Tasks**  | OpenAI Codex Extension         | Autonomous mode, handles full features end-to-end |
+| **Async Long-Running Tasks**  | OpenAI Codex Extension         | Cloud sandboxes, work while you focus elsewhere   |
 
 ### Agent-Specific Setup Instructions
 
 **GitHub Copilot**:
+
 - ✅ No setup needed - automatically loads `.github/copilot-instructions.md`
 - ✅ Path-scoped instructions apply automatically
+- 💡 Uses OpenAI Codex/GPT-4 models in background
 
 **Claude Code**:
+
 - ✅ Automatically loads `CLAUDE.md`
 - 💡 Can reference AGENTS.md for deep dives
 
-**Cursor**:
-1. Create `.cursor/index.mdc`:
-```markdown
-# Cursor Rules
+**OpenAI Codex Extension** (VSCode):
 
-See [AGENTS.md](../AGENTS.md) for complete development guide.
+- 📦 Install from [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt)
+- ✅ Automatically loads `config.toml` from project root
+- ⚡ **Different from Copilot**: Autonomous agent mode vs real-time suggestions
+- 🔑 Requires ChatGPT Plus/Pro/Business account or OpenAI API key
+- ⚙️ Configuration: See [`config.toml`](config.toml) for Lufa-specific settings
 
-## Critical Rules
-- Components use tokens only (no primitives)
-- Build order: tokens → primitives → main → storybook
-- All components need Playwright tests
-```
+**Key Differences Codex vs Copilot**:
 
-**Aider**:
-1. Create `.aider.conf.yml`:
-```yaml
-read: AGENTS.md
-```
-2. Or use flag: `aider --read AGENTS.md`
+| Aspect       | GitHub Copilot                    | OpenAI Codex Extension              |
+| ------------ | --------------------------------- | ----------------------------------- |
+| **Mode**     | Real-time inline suggestions      | Autonomous task completion          |
+| **Workflow** | Synchronous (assists as you code) | Asynchronous (completes full tasks) |
+| **Scope**    | Code completion, patterns         | End-to-end feature development      |
+| **Best For** | Daily coding efficiency           | Complex multi-file tasks            |
 
-**Cline / Windsurf / Roo Code**:
-- Reference AGENTS.md in your tool's settings
-- See tool-specific documentation for configuration
+💡 **Use Both**: Copilot for daily coding + Codex for larger tasks

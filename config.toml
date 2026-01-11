@@ -1,0 +1,102 @@
+# OpenAI Codex Configuration
+# This file configures the OpenAI Codex VSCode extension and CLI
+# See: https://developers.openai.com/codex/ide/
+
+# Model Configuration
+model = "gpt-4-turbo-preview"  # or "gpt-5" when available
+model_provider = "openai"
+
+# Approval Policy
+# Options: "on-request" (default), "auto-approve", "never"
+approval_policy = "on-request"
+
+# Workspace Configuration
+# Codex will reference these files for context and instructions
+context_files = [
+    "AGENTS.md",           # Primary documentation
+    "CLAUDE.md",           # Quick reference
+    ".github/copilot-instructions.md"  # Copilot instructions (compatible)
+]
+
+# Custom Instructions for Lufa Project
+# Codex will follow these guidelines when working on this codebase
+
+[custom_instructions]
+# Three-Layer Design System Architecture (CRITICAL)
+architecture_rules = """
+CRITICAL: Lufa uses a strict three-layer design system architecture:
+- Layer 1: Primitives (@grasdouble/lufa_design-system-primitives) - Raw values
+- Layer 2: Tokens (@grasdouble/lufa_design-system-tokens) - Semantic values
+- Layer 3: Components (@grasdouble/lufa_design-system) - React components
+
+RULES:
+1. Components MUST import from @grasdouble/lufa_design-system-tokens ONLY
+2. Components MUST NOT import from @grasdouble/lufa_design-system-primitives
+3. Components MUST NOT hard-code values (16px, #FF0000, etc.)
+"""
+
+# Build Order (CRITICAL)
+build_order = """
+Build order matters! Always build in this sequence:
+1. pnpm ds:tokens:build       # First - generates types
+2. pnpm ds:primitives:build   # Then primitives
+3. pnpm ds:main:build         # Then components
+4. pnpm ds:storybook:build    # Finally Storybook
+
+Or use convenience script: pnpm ds:all:build
+"""
+
+# Component Development Standards
+component_standards = """
+When creating design system components:
+1. Use TypeScript with strict mode
+2. Define interface with JSDoc comments
+3. Set displayName on component
+4. Use ComponentPropsWithoutRef<'element'> for HTML props
+5. Ensure WCAG 2.1 AA accessibility (ARIA, keyboard, focus)
+6. Create Playwright component test
+7. Export from packages/design-system/main/src/index.ts
+8. Create changeset: pnpm changeset
+"""
+
+# Reference to Custom Agents
+custom_agents_location = """
+Custom agents available in .github/agents/:
+- lufa-design-system-expert.agent.md - Design system specialization
+- expert-react-frontend-engineer.agent.md - React expertise
+- accessibility.agent.md - a11y specialist
+- playwright-tester.agent.md - Test generation
+- tdd-red.agent.md, tdd-green.agent.md, tdd-refactor.agent.md - TDD workflow
+
+Reference these agents when needed for specialized tasks.
+"""
+
+# Reference to Reusable Prompts
+prompts_location = """
+Reusable prompts available in .github/prompts/:
+- playwright-generate-test.prompt.md - Generate Playwright tests
+- create-agentsmd.prompt.md - Generate/update AGENTS.md
+- ai-prompt-engineering-safety-review.prompt.md - Security review
+- tailwindcss-convert.prompt.md - Convert CSS to Tailwind
+
+Use these prompts for common tasks.
+"""
+
+# Common Commands
+[commands]
+dev_storybook = "pnpm ds:storybook:dev"
+dev_microfrontends = "pnpm app:mf:dev"
+build_all = "pnpm all:build"
+build_design_system = "pnpm ds:all:build"
+test_component = "pnpm --filter @grasdouble/lufa_design-system test-ct"
+lint_all = "pnpm all:lint"
+format_all = "pnpm all:prettier"
+create_changeset = "pnpm changeset"
+validate_docs = "pnpm validate:docs"
+
+# Authentication
+# Set one of these environment variables:
+# - OPENAI_API_KEY (for OpenAI)
+# - AZURE_OPENAI_API_KEY (for Azure OpenAI)
+#
+# Or sign in with ChatGPT account via extension UI

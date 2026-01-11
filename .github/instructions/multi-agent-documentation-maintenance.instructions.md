@@ -24,6 +24,159 @@ This project follows a **multi-agent compatible documentation strategy** optimiz
 4. **Standard Markdown**: Simple, readable format compatible with all agents
 5. **YAML Frontmatter**: Used only for GitHub Copilot path-scoping (`applyTo`, `description`, `name`)
 
+## Quick Decision Guide
+
+> **⚡ Start here** if you just made code changes and want to know if you should update AI documentation.
+
+### Should I Update AI Documentation?
+
+Use this decision tree to determine if your changes require documentation updates:
+
+```
+┌─ Changed packages/design-system/?
+│  ├─ New component created ────────────────────> ✅ YES - Update AGENTS.md Pattern 1
+│  ├─ New tokens added ────────────────────────> ✅ YES - Update AGENTS.md + CLAUDE.md
+│  ├─ Component behavior changed ──────────────> ✅ YES - Update pattern examples
+│  └─ Internal refactoring (no API change) ────> ❌ NO
+│
+┌─ Changed tests/?
+│  ├─ New testing pattern discovered ──────────> ✅ YES - Update AGENTS.md Pattern 2
+│  ├─ New testing tool/framework added ────────> ✅ YES - Create .instructions.md
+│  └─ Fixed failing test ──────────────────────> ❌ NO
+│
+┌─ Changed build process?
+│  ├─ New build command added ─────────────────> ✅ YES - All doc files
+│  ├─ Build order changed ─────────────────────> ✅ YES - AGENTS.md + CLAUDE.md
+│  ├─ New package added to monorepo ───────────> ✅ YES - AGENTS.md + package.json scripts
+│  └─ Internal optimization (same commands) ───> ❌ NO
+│
+┌─ Changed project architecture?
+│  ├─ Layer structure modified ────────────────> ✅ YES - Critical! All doc files
+│  ├─ New architectural pattern ───────────────> ✅ YES - AGENTS.md + create .instructions.md
+│  └─ File moved (same architecture) ──────────> ⚠️  MAYBE - Fix links if referenced
+│
+┌─ Added new technology/library?
+│  ├─ Major framework (React, Vite, etc.) ─────> ✅ YES - Create .instructions.md
+│  ├─ Utility library with patterns ───────────> ✅ YES - Add to relevant .instructions.md
+│  └─ Dependency update (no API change) ───────> ❌ NO
+│
+└─ Bug fix, typo, or minor change?
+   └─ No pattern or workflow impact ───────────> ❌ NO
+```
+
+### What Documentation Files to Update?
+
+Quick reference table for different types of changes:
+
+| Type of Change | AGENTS.md | CLAUDE.md | .instructions.md | copilot-instructions.md | QUICKSTART.md |
+|----------------|-----------|-----------|------------------|-------------------------|---------------|
+| **New reusable pattern** | ✅ Required<br>(Common Patterns) | ✅ Required<br>(if critical) | 📝 Optional<br>(if tech-specific) | 📝 Optional<br>(add reference) | ❌ No |
+| **New technology** | 📝 Optional<br>(if widely used) | ❌ No | ✅ Required<br>(create new file) | ✅ Required<br>(reference it) | ❌ No |
+| **Build process change** | ✅ Required<br>(Quick Commands) | ✅ Required<br>(Quick Reference) | ❌ No | ✅ Required<br>(Common Commands) | ✅ Required<br>(if affects setup) |
+| **Architecture change** | ✅ Required<br>(multiple sections) | ✅ Required<br>(Critical section) | ✅ Required<br>(update all relevant) | ✅ Required<br>(Critical Rules) | 📝 Optional<br>(if affects setup) |
+| **New component** | ✅ Required<br>(Pattern 1 example) | 📝 Optional<br>(if establishes pattern) | ❌ No | ❌ No | ❌ No |
+| **Setup process change** | ✅ Required<br>(Getting Started) | ❌ No | ❌ No | 📝 Optional | ✅ Required |
+| **New AI agent support** | ✅ Required<br>(Compatibility Matrix) | ❌ No | ❌ No | 📝 Optional<br>(mention it) | ❌ No |
+
+**Legend**:
+- ✅ **Required** - Must be updated
+- 📝 **Optional** - Update if relevant/helpful
+- ❌ **No** - No update needed
+
+### Update Order (Critical!)
+
+When you need to update multiple files, **always follow this order**:
+
+```
+1. AGENTS.md          ← Update first (single source of truth)
+   ↓
+2. CLAUDE.md          ← Then quick reference (if needed)
+   ↓
+3. .instructions.md   ← Then technology-specific files
+   ↓
+4. copilot-instructions.md  ← Then GitHub Copilot main file
+   ↓
+5. QUICKSTART.md      ← Finally onboarding guide (if needed)
+   ↓
+6. pnpm validate:docs ← Always run validation after changes
+```
+
+**Why this order matters**: Other files reference AGENTS.md, so it must be updated first to maintain consistency.
+
+### Quick Validation Checklist
+
+Before committing documentation changes, verify:
+
+- [ ] **Ran validation**: `pnpm validate:docs` passes without errors
+- [ ] **No duplication**: Linked to AGENTS.md instead of copying content
+- [ ] **Links work**: All `[text](path)` references are valid
+- [ ] **Examples tested**: Code snippets are runnable and correct
+- [ ] **Consistent**: Same concept described the same way across files
+- [ ] **YAML valid**: Only `description`, `applyTo`, `name` in frontmatter (if .instructions.md)
+
+### Common Scenarios - Quick Actions
+
+#### Scenario 1: "I created a new Design System component"
+
+```bash
+# 1. Update AGENTS.md Pattern 1 with your component as example
+# 2. If it introduces new patterns, update CLAUDE.md checklist
+# 3. Run validation
+pnpm validate:docs
+```
+
+#### Scenario 2: "I added a new testing approach"
+
+```bash
+# 1. Update AGENTS.md Pattern 2 (Playwright Component Tests)
+# 2. If new tool/framework, create .github/instructions/{tool}.instructions.md
+# 3. Update .github/copilot-instructions.md to reference new file
+# 4. Run validation
+pnpm validate:docs
+```
+
+#### Scenario 3: "Build commands changed"
+
+```bash
+# 1. Update AGENTS.md (Quick Commands Cheatsheet section)
+# 2. Update CLAUDE.md (Most Common Tasks section)
+# 3. Update .github/copilot-instructions.md (Common Commands)
+# 4. If affects setup, update QUICKSTART.md
+# 5. Run validation
+pnpm validate:docs
+```
+
+#### Scenario 4: "I'm not sure if I should update docs"
+
+```bash
+# Ask yourself:
+# - Will other developers need to know this?
+# - Does it change how AI agents should work with the code?
+# - Is it a reusable pattern?
+
+# If ANY answer is "yes" → Update documentation
+# If ALL answers are "no" → Skip documentation update
+```
+
+### Time-Based Guidelines
+
+**If you have 5 minutes**:
+1. Identify affected files using the table above
+2. Make minimal updates to critical sections
+3. Run `pnpm validate:docs`
+
+**If you have 30 minutes**:
+1. Follow full update order
+2. Add complete examples
+3. Update cross-references
+4. Run validation and fix warnings
+
+**If you have 1+ hours**:
+1. Complete documentation update
+2. Add new patterns or sections if needed
+3. Review related documentation for consistency
+4. Test with multiple AI agents if possible
+
 ## File Structure and Purpose
 
 ### Root Documentation Files
@@ -325,6 +478,75 @@ agent: "agent"  # or specific agent type
 
 **Impact**: ~180 lines added (QUICKSTART + matrix), improved agent selection guidance
 
+### Phase 4: OpenAI Codex Extension Support (Completed)
+
+**Objective**: Add support for OpenAI Codex VSCode extension
+
+**Changes**:
+
+1. **config.toml** - Created (~103 lines):
+   - Model configuration (gpt-4-turbo-preview)
+   - Approval policy (on-request)
+   - Context files array (AGENTS.md, CLAUDE.md, copilot-instructions.md)
+   - Custom instructions for three-layer architecture
+   - Build order documentation
+   - Component development standards
+   - References to custom agents and prompts locations
+   - Common commands pre-configured
+
+2. **AGENTS.md** - Added OpenAI Codex section:
+   - Extended Compatibility Matrix updated (now 8 agents)
+   - OpenAI Codex Extension setup instructions
+   - Comparison table: GitHub Copilot vs OpenAI Codex Extension
+   - Key differences (autonomous agent vs real-time suggestions)
+   - Usage workflow recommendations
+
+3. **.gitignore** - Updated:
+   - Section for AI coding agents
+   - Protect config.local.toml (secrets)
+   - Commit config.toml (no secrets, uses env vars)
+
+**Impact**: ~150 lines added, OpenAI Codex extension now fully supported
+
+### Phase 5: Automatic Validation Script (Completed)
+
+**Objective**: Prevent documentation desynchronization through automated validation
+
+**Changes**:
+
+1. **scripts/validate-ai-docs.sh** - Created (~350 lines):
+   - Validates three-layer architecture consistency across AGENTS.md, CLAUDE.md, copilot-instructions.md
+   - Checks critical rules consistency (token imports, primitives restrictions)
+   - Verifies build commands consistency
+   - Validates YAML frontmatter (only description, applyTo, name)
+   - Checks markdown links validity
+   - Warns about file size limits (CLAUDE.md token limit)
+   - Verifies config.toml references
+   - Checks package scope consistency (@grasdouble/)
+   - Color-coded output (errors, warnings, success)
+   - Exit codes: 0 (success), 1 (failure)
+
+2. **scripts/README.md** - Created (~150 lines):
+   - Documentation for validate-ai-docs.sh
+   - Usage instructions
+   - Common errors and fixes table
+   - Guidelines for adding new scripts
+   - Best practices
+
+3. **.github/workflows/validate-docs.yml** - Created (~60 lines):
+   - CI workflow for automatic validation
+   - Triggers: Pull requests, pushes to main, manual dispatch
+   - Paths filter (AGENTS.md, CLAUDE.md, config.toml, .github/instructions/*, etc.)
+   - Automatic PR comment on validation failure
+   - Clear error messages with links to documentation
+
+4. **package.json** - Modified:
+   - Added validate:docs script section
+   - Command: `bash scripts/validate-ai-docs.sh`
+   - Consistent with existing script organization
+
+**Impact**: ~560 lines added, critical protection against documentation drift, CI/CD integration
+
 ## Version Control and Changes
 
 ### When to Update This File
@@ -457,13 +679,18 @@ Before committing documentation changes:
 ```bash
 # Check for mentions of old patterns
 grep -r "old-pattern-name" .github/ *.md
+
+# Or use automatic validation
+pnpm validate:docs
 ```
 
 **Solution**:
-1. Identify which files need updates
-2. Update in order: AGENTS.md → CLAUDE.md → .instructions.md → QUICKSTART.md
-3. Search for all references to changed concept
-4. Update consistently across all files
+1. Run `pnpm validate:docs` to identify inconsistencies
+2. Review errors and warnings from validation script
+3. Update in order: AGENTS.md → CLAUDE.md → .instructions.md → QUICKSTART.md
+4. Search for all references to changed concept
+5. Update consistently across all files
+6. Re-run `pnpm validate:docs` to verify fixes
 
 ## Resources
 

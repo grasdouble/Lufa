@@ -4,6 +4,8 @@
 
 This file provides Claude Code with critical quick-reference information. All comprehensive documentation is maintained in [AGENTS.md](AGENTS.md) following the open standard.
 
+> ℹ️ **Multi-Agent Support**: This repository also supports **GitHub Copilot** (via [.github/copilot-instructions.md](.github/copilot-instructions.md)) and **OpenAI Codex Extension** (via [config.toml](config.toml)).
+
 ---
 
 ## ⚠️ Critical: Three-Layer Design System
