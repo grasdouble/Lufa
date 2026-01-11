@@ -157,7 +157,7 @@ This file is a quick reference. For comprehensive guides, see:
   - Troubleshooting guides
   - AI agent compatibility matrix
 
-- **[.github/instructions/](/.github/instructions/)** - Technology-specific instructions
+- **[.github/instructions/](.github/instructions/)** - Technology-specific instructions
   - `lufa-design-system.instructions.md` - Design system patterns
   - `reactjs.instructions.md` - React best practices
   - `a11y.instructions.md` - Accessibility guidelines
@@ -165,7 +165,7 @@ This file is a quick reference. For comprehensive guides, see:
   - `playwright-typescript.instructions.md` - Testing patterns
   - `tailwindcss.instructions.md` - Tailwind CSS usage
 
-- **[.github/prompts/](/.github/prompts/)** - Reusable AI prompts
+- **[.github/prompts/](.github/prompts/)** - Reusable AI prompts
   - See `.github/prompts/README.md` for index
 
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution workflow

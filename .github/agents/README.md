@@ -1,6 +1,6 @@
 # Custom AI Agents
 
-This directory contains 14 specialized AI agents for the Lufa project, optimized for specific development tasks.
+This directory contains 11 specialized AI agents for the Lufa project, optimized for specific development tasks.
 
 ---
 
@@ -83,23 +83,6 @@ Best way to compose these hooks?
 Review this custom hook implementation
 ```
 
-#### 🎨 Tailwind CSS Refactor
-**File**: [tailwindcss-refactor.agent.md](tailwindcss-refactor.agent.md)
-**Purpose**: Convert traditional CSS to Tailwind utility classes
-
-**When to use**:
-- Migrating CSS to Tailwind
-- Refactoring inline styles
-- Tailwind best practices
-- Design token integration
-
-**Example prompts**:
-```
-Convert this CSS to Tailwind classes
-Refactor inline styles to use design tokens
-Optimize this Tailwind markup
-```
-
 ### Testing & Quality (TDD Workflow)
 
 The TDD agents work together to implement Test-Driven Development:
@@ -174,38 +157,6 @@ Investigate this build failure
 ```
 
 ### Meta & Tooling
-
-#### 🏗️ Custom Agent Foundry
-**File**: [custom-agent-foundry.agent.md](custom-agent-foundry.agent.md)
-**Purpose**: Create new custom agents for this project
-
-**When to use**:
-- Creating new specialized agents
-- Improving existing agent definitions
-- Agent architecture questions
-
-**Example prompts**:
-```
-Create agent for database migrations
-Improve the Playwright tester agent
-Best practices for agent tool selection
-```
-
-#### 📝 Prompt Builder
-**File**: [prompt-builder.agent.md](prompt-builder.agent.md)
-**Purpose**: Craft effective prompts for AI agents
-
-**When to use**:
-- Improving prompt effectiveness
-- Creating reusable prompt templates
-- Prompt engineering best practices
-
-**Example prompts**:
-```
-Improve this prompt for component generation
-Create template for code review prompts
-Best way to structure complex prompts?
-```
 
 #### 🏗️ Meta Agentic Project Scaffold
 **File**: [meta-agentic-project-scaffold.agent.md](meta-agentic-project-scaffold.agent.md)
@@ -314,8 +265,7 @@ Use the Lufa Design System Expert agent to create a Button component
 ```
 1. @debug: Identify bottlenecks
 2. @expert-react-frontend-engineer: Optimize React code
-3. @tailwindcss-refactor: Optimize CSS
-4. @playwright-tester: Add performance tests
+3. @playwright-tester: Add performance tests
 ```
 
 ---
@@ -329,9 +279,7 @@ Use the Lufa Design System Expert agent to create a Button component
 | **Add tests** | Playwright Tester | TDD Red/Green/Refactor |
 | **Refactor** | TDD Refactor | Expert React Frontend Engineer |
 | **Accessibility** | Accessibility | Playwright Tester |
-| **CSS → Tailwind** | Tailwind CSS Refactor | Lufa Design System Expert |
 | **Complex problem** | GPT-5 Beast Mode / 4.1-Beast | Debug, Expert React |
-| **New agent** | Custom Agent Foundry | Prompt Builder |
 | **Project setup** | Meta Agentic Project Scaffold | - |
 
 ---
@@ -360,14 +308,32 @@ Use the Lufa Design System Expert agent to create a Button component
 
 To create a new custom agent:
 
-1. Use **Custom Agent Foundry** agent
-2. Follow the agent file template format
-3. Define clear purpose and use cases
-4. Specify appropriate tools
-5. Add to this README
-6. Test with real scenarios
+1. Follow the agent file template format
+2. Define clear purpose and use cases
+3. Specify appropriate tools
+4. Add to this README
+5. Test with real scenarios
 
-See [custom-agent-foundry.agent.md](custom-agent-foundry.agent.md) for details.
+Refer to existing agents for template examples (e.g., [lufa-design-system-expert.agent.md](lufa-design-system-expert.agent.md), [accessibility.agent.md](accessibility.agent.md)).
+
+---
+
+## 📜 Removed Agents History
+
+Agents removed from active use. Available in Git history if needed.
+
+| Agent | Category | Removed | Reason |
+|-------|----------|---------|--------|
+| `custom-agent-foundry.agent.md` | Meta & Tooling | 2025-01-11 | Use existing templates instead |
+| `prompt-builder.agent.md` | Meta & Tooling | 2025-01-11 | Rarely needed |
+| `tailwindcss-refactor.agent.md` | Development | 2025-01-11 | Specialized use case |
+| `lufa-design-system-builder.agent.md` | Design System | 2025-01-11 | Replaced by lufa-design-system-expert |
+
+**Restoration**: Recover from Git with:
+```bash
+git log --all --full-history -- ".github/agents/<filename>"
+git checkout <commit-hash> -- ".github/agents/<filename>"
+```
 
 ---
 
