@@ -36,8 +36,7 @@ test.describe('Spinner Component', () => {
     test('should have accessible structure', async ({ mount }) => {
       const component = await mount(<Spinner />);
       await expect(component).toMatchAriaSnapshot(`
-        - status:
-            - text: "Loading"
+        - status "Loading"
       `);
     });
   });

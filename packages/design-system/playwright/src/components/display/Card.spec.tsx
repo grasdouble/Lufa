@@ -82,17 +82,15 @@ test.describe('Card Component', () => {
         </Card>
       );
       await expect(component).toMatchAriaSnapshot(`
-        - group:
-            - heading "Title" [level=3]
-            - text: "Subtitle"
-            - text: "Body"
+        - heading "Title" [level=3]
+        - paragraph: Subtitle
+        - text: Body
       `);
     });
     test('should have accessible structure with content only', async ({ mount }) => {
       const component = await mount(<Card>Body</Card>);
       await expect(component).toMatchAriaSnapshot(`
-        - group:
-            - text: "Body"
+        - text: Body
       `);
     });
   });
