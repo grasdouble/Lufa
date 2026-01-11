@@ -155,6 +155,9 @@ for file in AGENTS.md CLAUDE.md .github/copilot-instructions.md config.toml; do
     continue
   fi
 
+  # Get the directory of the file being checked
+  FILE_DIR=$(dirname "$file")
+
   # Extract relative links (not starting with http)
   if [[ "$file" == *.toml ]]; then
     # For TOML files, extract paths in quotes after '='
@@ -168,7 +171,47 @@ for file in AGENTS.md CLAUDE.md .github/copilot-instructions.md config.toml; do
     # Remove anchor
     FILEPATH=$(echo "$link" | sed 's/#.*//')
 
-    if [ -n "$FILEPATH" ] && [ ! -f "$FILEPATH" ]; then
+    # Skip empty paths or directory-only links (ending with /)
+    if [ -z "$FILEPATH" ] || [[ "$FILEPATH" == */ ]]; then
+      # Check if directory exists
+      if [ -n "$FILEPATH" ]; then
+        RESOLVED_PATH="$FILE_DIR/$FILEPATH"
+        if [ ! -d "$RESOLVED_PATH" ]; then
+          echo -e "${RED}❌ ERROR: Broken directory link in $file: $link${NC}"
+          ERRORS=$((ERRORS + 1))
+          LINKS_VALID=false
+        fi
+      fi
+      continue
+    fi
+
+    # Resolve the path relative to the file's directory
+    RESOLVED_PATH="$FILE_DIR/$FILEPATH"
+
+    # Normalize the path (handles ../ and ./)
+    # Use realpath if available, otherwise use readlink -f, or fall back to manual normalization
+    if command -v realpath >/dev/null 2>&1; then
+      # Linux (realpath with -m for non-existent paths)
+      NORMALIZED_PATH=$(realpath -m "$RESOLVED_PATH" 2>/dev/null || realpath "$RESOLVED_PATH" 2>/dev/null || echo "$RESOLVED_PATH")
+    elif command -v readlink >/dev/null 2>&1; then
+      # macOS (readlink without -f for non-existent paths, so we use a fallback)
+      NORMALIZED_PATH=$(readlink -f "$RESOLVED_PATH" 2>/dev/null || echo "$RESOLVED_PATH")
+    else
+      NORMALIZED_PATH="$RESOLVED_PATH"
+    fi
+
+    # For paths that couldn't be normalized (non-existent), manually normalize using cd
+    if [ "$NORMALIZED_PATH" = "$RESOLVED_PATH" ] && [[ "$RESOLVED_PATH" == *../* ]] || [[ "$RESOLVED_PATH" == *./* ]]; then
+      # Extract directory and filename
+      DIR_PART=$(dirname "$RESOLVED_PATH")
+      FILE_PART=$(basename "$RESOLVED_PATH")
+      # Try to cd to directory and get absolute path
+      if ABSOLUTE_DIR=$(cd "$DIR_PART" 2>/dev/null && pwd); then
+        NORMALIZED_PATH="$ABSOLUTE_DIR/$FILE_PART"
+      fi
+    fi
+
+    if [ ! -f "$NORMALIZED_PATH" ] && [ ! -d "$NORMALIZED_PATH" ]; then
       echo -e "${RED}❌ ERROR: Broken link in $file: $link${NC}"
       ERRORS=$((ERRORS + 1))
       LINKS_VALID=false
