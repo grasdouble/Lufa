@@ -24,6 +24,7 @@
 
   .variantGhost:is(:focus-visible, [data-test-state='focus']) {
     outline: var(--btn-outline);
+    outline-offset: var(--btn-outline-offset);
   }
 
   /* Ghost Colors - Variable Assignments */

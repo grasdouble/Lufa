@@ -5,7 +5,13 @@
      Base Button Styles & States
      ======================================== */
 
+  /* Button-specific tokens */
   .button {
+    /* Focus outline offset - from focus tokens */
+    --btn-outline-offset: 2px;
+    /* Disabled filter effects - TODO: Move to tokens layer */
+    --btn-disabled-grayscale: 20%;
+    --btn-disabled-brightness: 0.6;
     /* Reset & Layout */
     @apply reset-button;
     @apply inline-flex items-center justify-center gap-2;
@@ -16,7 +22,8 @@
 
     /* Visual */
     @apply rounded-xl;
-    @apply border-2 border-transparent;
+    border-width: theme(borderWidth.thin);
+    @apply border-transparent;
     @apply shadow-sm;
 
     /* Animation */
@@ -28,14 +35,14 @@
   }
 
   .button:active:not(:disabled) {
-    transform: translateY(1px) scale(0.98);
+    transform: var(--transform-pressed);
   }
 
   .button:disabled,
   .button.disabled {
     cursor: var(--lufa-token-cursor-not-allowed);
-    @apply opacity-65;
-    filter: grayscale(20%) brightness(0.6);
+    opacity: theme(opacity.disabled);
+    filter: grayscale(var(--btn-disabled-grayscale)) brightness(var(--btn-disabled-brightness));
   }
 
   /* ========================================

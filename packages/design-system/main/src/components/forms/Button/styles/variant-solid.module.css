@@ -28,7 +28,7 @@
 
   .variantSolid:is(:focus-visible, [data-test-state='focus']) {
     outline: var(--btn-outline);
-    outline-offset: 2px;
+    outline-offset: var(--btn-outline-offset);
     box-shadow: var(--btn-ring);
   }
 

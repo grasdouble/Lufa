@@ -118,6 +118,27 @@
   --color-info: var(--lufa-token-color-info-default);
 }
 
+/* Border Widths */
+@theme {
+  --border-width-none: var(--lufa-token-border-width-none);
+  --border-width-hairline: var(--lufa-token-border-width-hairline);
+  --border-width-thin: var(--lufa-token-border-width-thin);
+  --border-width-focus: var(--lufa-token-border-width-focus);
+  --border-width-thick: var(--lufa-token-border-width-thick);
+  --border-width-extra-thick: var(--lufa-token-border-width-extra-thick);
+}
+
+/* Opacity */
+@theme {
+  --opacity-invisible: var(--lufa-token-opacity-invisible);
+  --opacity-subtle: var(--lufa-token-opacity-subtle);
+  --opacity-light: var(--lufa-token-opacity-light);
+  --opacity-medium: var(--lufa-token-opacity-medium);
+  --opacity-disabled: var(--lufa-token-opacity-disabled);
+  --opacity-faint: var(--lufa-token-opacity-faint);
+  --opacity-full: var(--lufa-token-opacity-full);
+}
+
 /* Lufa Spacing */
 @theme {
   --spacing-none: var(--lufa-token-spacing-none);
