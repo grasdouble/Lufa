@@ -203,6 +203,16 @@ export const Button = ({
 Button.displayName = 'Button';
 ````
 
+**Design & Visual Quality Requirements**:
+
+- Modern, clean, and professional appearance
+- Proper spacing and visual hierarchy using design tokens
+- Subtle shadows and depth where appropriate (cards, modals, dropdowns)
+- Smooth transitions and animations (use motion tokens)
+- Consistent with existing design system aesthetic
+- Responsive and mobile-friendly design
+- Polished micro-interactions (hover states, active states, focus rings)
+
 **Accessibility Requirements**:
 
 - Include proper ARIA attributes (`aria-label`, `aria-describedby`, etc.)
@@ -520,6 +530,9 @@ Before creating or modifying components, ensure:
 
 - [ ] Component uses tokens (not primitives or hard-coded values)
 - [ ] TypeScript props interface is complete with JSDoc
+- [ ] Modern, clean, professional visual appearance
+- [ ] Proper spacing, shadows, and transitions using tokens
+- [ ] Polished micro-interactions (hover, active, focus states)
 - [ ] Accessibility features are implemented (ARIA, keyboard, focus)
 - [ ] Component is responsive (mobile-first approach)
 - [ ] Unit tests cover core functionality and accessibility

@@ -165,6 +165,7 @@ I can help with ALL Lufa Design System tasks:
 ### Design System Principles
 
 - **Two-Layer Token System**: Primitives (values as keys) → Tokens (semantic names) → Components
+- **Modern Design Aesthetic**: Components must have a clean, modern, professional appearance with attention to visual polish, proper spacing, subtle shadows, smooth transitions, and contemporary UI patterns
 - **Accessibility First**: WCAG 2.1 AA compliance, semantic HTML, keyboard navigation, ARIA attributes
 - **Consistency**: Unified design language across all components
 - **Flexibility**: Composable components with clear APIs and customization points
@@ -623,6 +624,15 @@ Before completing, verify:
 - [ ] No hard-coded values (colors, spacing, etc.)
 - [ ] No direct primitive usage
 - [ ] CSS custom properties for theming
+
+**Design & Visual Quality:**
+
+- [ ] Modern, clean, professional appearance
+- [ ] Proper spacing and visual hierarchy
+- [ ] Subtle shadows and depth where appropriate
+- [ ] Smooth transitions and animations
+- [ ] Consistent with existing design system aesthetic
+- [ ] Responsive and mobile-friendly
 
 **Accessibility:**
 
