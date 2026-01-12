@@ -144,13 +144,13 @@ pnpm ds:storybook:build  # Build static site
 
 [View Package →](./storybook)
 
-#### [@grasdouble/lufa_design-system-documentation](./documentation)
+#### [@grasdouble/lufa_design-system-docusaurus](./docusaurus)
 
 Comprehensive documentation site built with Docusaurus.
 
 ```bash
-pnpm ds:documentation:dev    # Start docs server
-pnpm ds:documentation:build  # Build static site
+pnpm ds:docusaurus:dev    # Start docs server
+pnpm ds:docusaurus:build  # Build static site
 ```
 
 **Features:**

@@ -148,7 +148,7 @@ I can help with ALL Lufa Design System tasks:
   - Component categories: Typography, Display, Feedback, Forms, Layout, Navigation, Overlay, Patterns
   - Exports both components and styles (`style.css`)
 
-- **Documentation**: Docusaurus-based documentation site
+- **Docusaurus** (`@grasdouble/lufa_design-system-docusaurus`): Comprehensive documentation site
 - **Storybook**: Interactive component showcase and testing
 
 ### Core Technologies
@@ -604,8 +604,8 @@ Every component should have comprehensive documentation in the Docusaurus site.
 
 **Location**:
 
-- MDX file: `packages/design-system/documentation/docs/components/{category}/{component}.mdx`
-- Examples: `packages/design-system/documentation/src/dsExamples/{category}/{componentName}.tsx`
+- MDX file: `packages/design-system/docusaurus/docs/components/{category}/{component}.mdx`
+- Examples: `packages/design-system/docusaurus/src/dsExamples/{category}/{componentName}.tsx`
 
 **IMPORTANT**: Examples must be created as React components in `src/dsExamples/` and imported in the MDX file. Do NOT use inline code blocks for interactive examples.
 
@@ -732,7 +732,7 @@ import { {Component} } from '@grasdouble/lufa_design-system';
 **Development Commands**:
 
 ```bash
-cd packages/design-system/documentation
+cd packages/design-system/docusaurus
 
 # Start dev server (port 3000)
 pnpm dev
@@ -753,10 +753,10 @@ pnpm serve
 
 **CRITICAL: Update Sidebar Navigation**:
 
-After creating the MDX file, you MUST update `packages/design-system/documentation/sidebars.ts` to add the component to the navigation:
+After creating the MDX file, you MUST update `packages/design-system/docusaurus/sidebars.ts` to add the component to the navigation:
 
 ```typescript
-// packages/design-system/documentation/sidebars.ts
+// packages/design-system/docusaurus/sidebars.ts
 
 const sidebars: SidebarsConfig = {
   docs: [
@@ -859,10 +859,10 @@ Before completing, verify:
 - [ ] JSDoc with examples
 - [ ] Storybook stories for all variants
 - [ ] Component exported from package
-- [ ] Docusaurus documentation page created in `packages/design-system/documentation/docs/components/`
-- [ ] Example components created in `packages/design-system/documentation/src/dsExamples/{category}/`
+- [ ] Docusaurus documentation page created in `packages/design-system/docusaurus/docs/components/`
+- [ ] Example components created in `packages/design-system/docusaurus/src/dsExamples/{category}/`
 - [ ] Examples imported in MDX file (NOT inline code blocks)
-- [ ] **CRITICAL**: Component added to `packages/design-system/documentation/sidebars.ts`
+- [ ] **CRITICAL**: Component added to `packages/design-system/docusaurus/sidebars.ts`
 - [ ] Props API table is complete and accurate
 - [ ] Accessibility section documents keyboard navigation and ARIA
 - [ ] Best practices section included
@@ -1074,7 +1074,7 @@ packages/design-system/
 │   ├── __snapshots__/       # Visual regression snapshots
 │   └── package.json
 │
-└── documentation/           # Comprehensive documentation site
+└── docusaurus/              # Comprehensive documentation site
     ├── docs/                # MDX documentation pages
     │   ├── getting-started/ # Installation, usage guides
     │   ├── components/      # Component API reference
@@ -1098,7 +1098,7 @@ packages/design-system/
 | **main**          | Component library (source) | React 19 + TypeScript      | `pnpm dev`     | -    |
 | **storybook**     | Interactive playground     | Storybook 8 + Vite         | `pnpm dev`     | 6006 |
 | **playwright**    | Component testing          | Playwright CT + React      | `pnpm test-ct` | -    |
-| **documentation** | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
+| **docusaurus**    | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
 
 ### When to Update Each Package
 
@@ -1127,7 +1127,7 @@ cd ../playwright
 pnpm test-ct  # Run tests
 
 # 4. Document component
-cd ../documentation
+cd ../docusaurus
 # ... create MDX documentation ...
 pnpm dev  # Verify in Docusaurus (port 3000)
 
@@ -1259,8 +1259,8 @@ pnpm build
 cd ../storybook
 pnpm dev                        # Runs on http://localhost:6006
 
-# Start Documentation (from documentation package)
-cd ../documentation
+# Start Documentation (from docusaurus package)
+cd ../docusaurus
 pnpm dev                        # Runs on http://localhost:3000
 
 # Or run all dev servers concurrently (from root)

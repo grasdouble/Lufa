@@ -540,8 +540,8 @@ Every component must have a comprehensive documentation page in the Docusaurus s
 
 **Location**:
 
-- MDX file: `packages/design-system/documentation/docs/components/{category}/{component}.mdx`
-- Examples: `packages/design-system/documentation/src/dsExamples/{category}/{componentName}.tsx`
+- MDX file: `packages/design-system/docusaurus/docs/components/{category}/{component}.mdx`
+- Examples: `packages/design-system/docusaurus/src/dsExamples/{category}/{componentName}.tsx`
 
 **IMPORTANT**: Examples must be created as React components in `src/dsExamples/` and imported in the MDX file. Do NOT use inline code blocks for interactive examples.
 
@@ -587,7 +587,7 @@ import { LiveDemo } from '../../../src/dsExamples/{category}/{componentName}';
 After creating the MDX file, you MUST update `sidebars.ts` to make the component appear in navigation:
 
 ```typescript
-// packages/design-system/documentation/sidebars.ts
+// packages/design-system/docusaurus/sidebars.ts
 
 const sidebars: SidebarsConfig = {
   docs: [
@@ -624,7 +624,7 @@ const sidebars: SidebarsConfig = {
 **Development Workflow**:
 
 ```bash
-cd packages/design-system/documentation
+cd packages/design-system/docusaurus
 pnpm dev                    # Start dev server on port 3000
 ```
 
@@ -698,10 +698,10 @@ Before creating or modifying components, ensure:
 - [ ] Unit tests cover core functionality and accessibility
 - [ ] Playwright component tests written (render, variants, a11y, visual regression)
 - [ ] Storybook story demonstrates all variants
-- [ ] Docusaurus documentation page created in `packages/design-system/documentation/docs/components/`
-- [ ] Example components created in `packages/design-system/documentation/src/dsExamples/{category}/`
+- [ ] Docusaurus documentation page created in `packages/design-system/docusaurus/docs/components/`
+- [ ] Example components created in `packages/design-system/docusaurus/src/dsExamples/{category}/`
 - [ ] Examples imported in MDX file (NOT inline code blocks)
-- [ ] **CRITICAL**: Component added to `packages/design-system/documentation/sidebars.ts`
+- [ ] **CRITICAL**: Component added to `packages/design-system/docusaurus/sidebars.ts`
 - [ ] Props API table is complete and accurate in documentation
 - [ ] Accessibility section documents keyboard navigation and ARIA
 - [ ] Documentation is complete (JSDoc, README, Storybook, Docusaurus)
@@ -804,7 +804,7 @@ packages/design-system/
 │   ├── playwright-ct.config.ts
 │   ├── src/components/      # Test files (.spec.tsx)
 │   └── __snapshots__/       # Visual regression snapshots
-└── documentation/           # Comprehensive documentation site
+└── docusaurus/              # Comprehensive documentation site
     ├── docs/                # MDX documentation pages
     ├── docusaurus.config.ts
     └── build/               # Production build output
@@ -819,7 +819,7 @@ packages/design-system/
 | **main**          | Component library (source) | React 19 + TypeScript      | `pnpm dev`     | -    |
 | **storybook**     | Interactive playground     | Storybook 8 + Vite         | `pnpm dev`     | 6006 |
 | **playwright**    | Component testing          | Playwright CT + React      | `pnpm test-ct` | -    |
-| **documentation** | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
+| **docusaurus**    | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
 
 ### Why Separate Packages?
 
@@ -855,7 +855,7 @@ cd ../playwright
 pnpm test-ct  # Run tests
 
 # 4. Document component
-cd ../documentation
+cd ../docusaurus
 # ... create MDX documentation ...
 pnpm dev  # Verify in Docusaurus (port 3000)
 

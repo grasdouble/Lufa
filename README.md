@@ -72,7 +72,7 @@ packages/
 │   ├── tokens/             # Semantic design tokens
 │   ├── themes/             # Theme variants
 │   ├── storybook/          # Component explorer
-│   └── documentation/      # Docusaurus docs
+│   └── docusaurus/         # Docusaurus docs
 ├── cdn/                    # CDN infrastructure
 │   └── autobuild-server/   # Dynamic asset builder
 ├── plugins/vite/           # Custom Vite plugins
@@ -177,7 +177,7 @@ Lufa includes comprehensive AI assistance with GitHub Copilot:
 ### Design System
 
 - **[Storybook](packages/design-system/storybook/)** - Interactive component explorer
-- **[Documentation Site](packages/design-system/documentation/)** - Comprehensive guides
+- **[Documentation Site](packages/design-system/docusaurus/)** - Comprehensive guides
 - **[Primitives](packages/design-system/primitives/)** - Non-semantic foundation values
 - **[Tokens](packages/design-system/tokens/)** - Semantic design decisions
 - **[Themes](packages/design-system/themes/)** - Alternative color schemes

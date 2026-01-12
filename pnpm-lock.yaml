@@ -299,7 +299,7 @@ importers:
 
   packages/config/tsconfig: {}
 
-  packages/design-system/documentation:
+  packages/design-system/docusaurus:
     dependencies:
       '@docusaurus/core':
         specifier: 3.9.2
@@ -13780,7 +13780,7 @@ snapshots:
 
   '@types/connect-history-api-fallback@1.5.4':
     dependencies:
-      '@types/express-serve-static-core': 4.19.8
+      '@types/express-serve-static-core': 5.1.1
       '@types/node': 25.0.6
 
   '@types/connect@3.4.38':
@@ -13976,7 +13976,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 25.0.6
 
   '@types/send@0.17.6':
     dependencies:
@@ -13989,7 +13989,7 @@ snapshots:
 
   '@types/serve-index@1.9.4':
     dependencies:
-      '@types/express': 4.17.25
+      '@types/express': 5.0.6
 
   '@types/serve-static@1.15.10':
     dependencies:
