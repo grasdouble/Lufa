@@ -1,0 +1,154 @@
+---
+// Sidebar navigation based on the original sidebars.ts structure
+const navItems = [
+  {
+    label: 'Introduction',
+    href: '/docs/intro',
+  },
+  {
+    label: 'Getting Started',
+    items: [
+      { label: 'Installation', href: '/docs/getting-started/installation' },
+      { label: 'Theming', href: '/docs/getting-started/theming' },
+    ],
+  },
+  {
+    label: 'Accessibility',
+    href: '/docs/accessibility',
+  },
+  {
+    label: 'Components',
+    items: [
+      {
+        label: 'Layout',
+        items: [
+          { label: 'Placeholder', href: '/docs/components/layout/placeholder' },
+          { label: 'Stack', href: '/docs/components/layout/stack' },
+          { label: 'Divider', href: '/docs/components/layout/divider' },
+          { label: 'Container', href: '/docs/components/layout/container' },
+          { label: 'Grid', href: '/docs/components/layout/grid' },
+          { label: 'Layout', href: '/docs/components/layout/layout' },
+          { label: 'Space', href: '/docs/components/layout/space' },
+          { label: 'AspectRatio', href: '/docs/components/layout/aspect-ratio' },
+          { label: 'Center', href: '/docs/components/layout/center' },
+          { label: 'Flex', href: '/docs/components/layout/flex' },
+        ],
+      },
+      {
+        label: 'Display',
+        items: [
+          { label: 'Card', href: '/docs/components/display/card' },
+          { label: 'Avatar', href: '/docs/components/display/avatar' },
+          { label: 'AvatarGroup', href: '/docs/components/display/avatar-group' },
+          { label: 'Badge', href: '/docs/components/display/badge' },
+        ],
+      },
+      {
+        label: 'Typography',
+        items: [{ label: 'Typography', href: '/docs/components/typography' }],
+      },
+      {
+        label: 'Navigation',
+        items: [
+          { label: 'Anchor', href: '/docs/components/navigation/anchor' },
+          { label: 'Breadcrumb', href: '/docs/components/navigation/breadcrumb' },
+          { label: 'Link', href: '/docs/components/navigation/link' },
+          { label: 'Menu', href: '/docs/components/navigation/menu' },
+          { label: 'Pagination', href: '/docs/components/navigation/pagination' },
+          { label: 'Steps', href: '/docs/components/navigation/steps' },
+          { label: 'Tabs', href: '/docs/components/navigation/tabs' },
+        ],
+      },
+      {
+        label: 'Feedback',
+        items: [
+          { label: 'Alert', href: '/docs/components/feedback/alert' },
+          { label: 'Spinner', href: '/docs/components/feedback/spinner' },
+        ],
+      },
+      {
+        label: 'Forms',
+        items: [{ label: 'Button', href: '/docs/components/forms/button' }],
+      },
+    ],
+  },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<aside class="hidden lg:block w-64 border-r border-gray-200 dark:border-gray-800 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
+  <nav class="px-4 py-8">
+    <ul class="space-y-1">
+      {navItems.map((item) => (
+        <li>
+          {item.href ? (
+            <a
+              href={item.href}
+              class:list={[
+                'block px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                currentPath === item.href || currentPath.startsWith(item.href + '/')
+                  ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50',
+              ]}
+            >
+              {item.label}
+            </a>
+          ) : (
+            <>
+              <div class="px-3 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                {item.label}
+              </div>
+              {item.items && (
+                <ul class="mt-1 space-y-1">
+                  {item.items.map((subItem) => (
+                    <li>
+                      {subItem.href ? (
+                        <a
+                          href={subItem.href}
+                          class:list={[
+                            'block px-3 py-2 rounded-lg text-sm transition-colors',
+                            currentPath === subItem.href || currentPath.startsWith(subItem.href + '/')
+                              ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'
+                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50',
+                          ]}
+                        >
+                          {subItem.label}
+                        </a>
+                      ) : (
+                        <>
+                          <div class="px-3 py-1.5 text-xs font-semibold text-gray-500 dark:text-gray-400">
+                            {subItem.label}
+                          </div>
+                          {subItem.items && (
+                            <ul class="mt-1 space-y-1 ml-2">
+                              {subItem.items.map((nestedItem) => (
+                                <li>
+                                  <a
+                                    href={nestedItem.href}
+                                    class:list={[
+                                      'block px-3 py-1.5 rounded-lg text-sm transition-colors',
+                                      currentPath === nestedItem.href || currentPath.startsWith(nestedItem.href + '/')
+                                        ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'
+                                        : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50',
+                                    ]}
+                                  >
+                                    {nestedItem.label}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </>
+          )}
+        </li>
+      ))}
+    </ul>
+  </nav>
+</aside>

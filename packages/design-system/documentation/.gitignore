@@ -1,15 +1,18 @@
 # Dependencies
 /node_modules
 
-# Production
-/build
+# Production - Astro
+/dist
+/.astro
 
-# Generated files
+# Old Docusaurus (to be removed)
+/build
 .docusaurus
 .cache-loader
 
 # Misc
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
@@ -18,3 +21,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+

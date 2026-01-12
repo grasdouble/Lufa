@@ -55,7 +55,7 @@ jobs:
       - name: Build Lufa Design System
         run: pnpm ds:main:build
 
-      # Step 8: Build Lufa Design System Documentation
+      # Step 8: Build Lufa Design System Documentation (Astro)
       - name: Build Lufa Design System Documentation
         run: pnpm ds:documentation:build
       # Step 9: Deploy to GitHub Pages
@@ -67,7 +67,7 @@ jobs:
           protocol: ${{ secrets.STORYBOOK_FTP_PROTOCOL }}
           username: ${{ secrets.STORYBOOK_FTP_LOGIN }}
           password: ${{ secrets.STORYBOOK_FTP_PWD }}
-          local-dir: ./packages/design-system/documentation/build/
+          local-dir: ./packages/design-system/documentation/dist/
           exclude: |
             **/.git*
             **/.git*/**
