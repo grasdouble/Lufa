@@ -1,0 +1,125 @@
+---
+title: Button
+description: A guide in my new Starlight docs site.
+---
+
+import { Button } from '@grasdouble/lufa_design-system';
+
+import {
+  ButtonGroupExample,
+  Color,
+  Disabled,
+  FormSubmitExample,
+  FullWidth,
+  Icons,
+  LiveDemo,
+  Loading,
+  Size,
+  Variant,
+} from '../../../../dsExamples/forms/button';
+
+# Button
+
+A versatile button component for actions and navigation. Supports variants, colors, sizes, icons, and loading/disabled states.
+
+## Overview
+
+Use `Button` when you need…
+
+- A clear action trigger (primary/secondary/tertiary)
+- Styling via `variant` and `color`
+- Sizing via `size` and layout via `fullWidth`
+- Async states via `loading` and `disabled`
+- Icons via `startIcon` / `endIcon`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Button } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Button>Action</Button>
+
+<Button variant="outlined">Secondary action</Button>
+```
+
+## Props
+
+| Prop        | Type                                                             | Default     | Description                                   |
+| ----------- | ---------------------------------------------------------------- | ----------- | --------------------------------------------- |
+| `children`  | `ReactNode`                                                      | -           | Button content (text, icons, etc.)            |
+| `label`     | `string`                                                         | -           | Deprecated (use `children`)                   |
+| `variant`   | `'solid' \| 'outlined' \| 'text' \| 'ghost' \| 'link'`           | `'solid'`   | Visual style variant                          |
+| `color`     | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger'` | `'primary'` | Color scheme                                  |
+| `size`      | `'small' \| 'medium' \| 'large'`                                 | `'medium'`  | Size                                          |
+| `fullWidth` | `boolean`                                                        | `false`     | Make button full width                        |
+| `loading`   | `boolean`                                                        | `false`     | Show loading state (also disables the button) |
+| `disabled`  | `boolean`                                                        | `false`     | Disable interactions                          |
+| `startIcon` | `ReactNode`                                                      | -           | Icon before content                           |
+| `endIcon`   | `ReactNode`                                                      | -           | Icon after content                            |
+| `onClick`   | `(event: React.MouseEvent<HTMLButtonElement>) => void`           | -           | Click handler                                 |
+| `type`      | `'button' \| 'submit' \| 'reset'`                                | `'button'`  | Button type attribute                         |
+
+Also supports standard `button` props (for example `className`, `aria-*`, …).
+
+## Variants
+
+### variant
+
+<Variant />
+
+### color
+
+<Color />
+
+### size
+
+<Size />
+
+### startIcon / endIcon
+
+<Icons />
+
+### loading
+
+<Loading />
+
+### disabled
+
+<Disabled />
+
+### fullWidth
+
+<FullWidth />
+
+## Best Practices
+
+### Do ✅
+
+- Use a single clear primary action per view when possible
+- Use `loading` for async actions to prevent double-submits
+- Keep labels short and verb-first (“Save”, “Continue”, “Delete”)
+- Prefer `type="submit"` inside forms for submission actions
+
+### Don't ❌
+
+- Don’t disable a button without explaining why (use helper text/tooltip if needed)
+- Don’t use `link` variant for destructive actions; use an appropriate `color`
+
+## Accessibility
+
+- Buttons are keyboard accessible by default; ensure focus styles remain visible.
+- Use descriptive labels; for icon-only buttons, provide an `aria-label`.
+- Avoid removing focus outlines; ensure sufficient contrast for all variants.
+
+## Examples of usage
+
+<FormSubmitExample />
+<ButtonGroupExample />

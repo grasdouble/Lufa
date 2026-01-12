@@ -1,0 +1,86 @@
+---
+title: Spinner
+description: A guide in my new Starlight docs site.
+---
+
+import { Spinner } from '@grasdouble/lufa_design-system';
+
+import {
+  CenteredLoadingPanelExample,
+  InlineLoadingExample,
+  LiveDemo,
+  Mode,
+  Size,
+} from '../../../../dsExamples/feedback/spinner';
+
+# Spinner
+
+Loading indicator for async content and background operations.
+
+## Overview
+
+Use `Spinner` when you need…
+
+- A clear “loading” indicator for async content
+- Size control via `size` (`small`, `medium`, `large`)
+- Visual style via `mode` (`A` or `B`)
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Spinner } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Spinner />
+
+<Spinner size="small" />
+
+<Spinner mode="B" />
+```
+
+## Props
+
+| Prop   | Type                             | Default    | Description  |
+| ------ | -------------------------------- | ---------- | ------------ |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Spinner size |
+| `mode` | `'A' \| 'B'`                     | `'A'`      | Visual style |
+
+## Variants
+
+### size
+
+<Size />
+
+### mode
+
+<Mode />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Spinner` near the UI region that’s loading (or inside a placeholder)
+- Prefer `size="small"` for inline/background operations
+- Pair with text when the wait may be long (e.g. “Fetching data…”)
+
+### Don't ❌
+
+- Don’t block the entire page for small, localized actions
+- Don’t show spinners without context for long operations; add status text or progress when possible
+
+## Accessibility
+
+- Spinner uses `role="status"` with `aria-live="polite"` and `aria-label="Loading"`.
+- If multiple spinners can appear at once, consider providing more specific accessible labels in the surrounding UI (e.g. “Loading comments”).
+
+## Examples of usage
+
+<CenteredLoadingPanelExample />
+<InlineLoadingExample />

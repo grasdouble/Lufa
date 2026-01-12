@@ -1,0 +1,111 @@
+---
+title: Menu
+description: A guide in my new Starlight docs site.
+---
+
+import { Menu } from '@grasdouble/lufa_design-system';
+
+import {
+  HeaderNavExample,
+  LiveDemo,
+  Mode,
+  SelectedKey,
+  SubmenuExample,
+  Theme,
+} from '../../../../dsExamples/navigation/menu';
+
+# Menu
+
+Navigation and action list with optional nested items.
+
+## Overview
+
+Use `Menu` when you need…
+
+- A navigation/action list for pages or sections
+- Items via `items` (including optional nesting)
+- Layout via `mode`
+- Styling via `theme`
+- Controlled selection via `selectedKey` + `onSelect`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Menu } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Menu
+  items={[
+    { key: 'home', label: 'Home', href: '/' },
+    { key: 'products', label: 'Products', href: '/products' },
+    { key: 'about', label: 'About', href: '/about' },
+  ]}
+/>
+```
+
+## Props
+
+| Prop          | Type                                     | Default      | Description              |
+| ------------- | ---------------------------------------- | ------------ | ------------------------ |
+| `items`       | `MenuItem[]`                             | -            | Array of menu items      |
+| `selectedKey` | `string`                                 | -            | Selected menu item key   |
+| `mode`        | `'vertical' \| 'horizontal' \| 'inline'` | `'vertical'` | Menu display mode        |
+| `theme`       | `'light' \| 'dark'`                      | `'light'`    | Theme variant            |
+| `className`   | `string`                                 | -            | Additional CSS class     |
+| `onSelect`    | `(key: string) => void`                  | -            | Selection change handler |
+
+### MenuItem
+
+| Property   | Type         | Description                  |
+| ---------- | ------------ | ---------------------------- |
+| `key`      | `string`     | Unique identifier            |
+| `label`    | `string`     | Label to display             |
+| `icon`     | `ReactNode`  | Icon before label (optional) |
+| `onClick`  | `() => void` | Click handler (optional)     |
+| `href`     | `string`     | Link URL (optional)          |
+| `disabled` | `boolean`    | Disabled state (optional)    |
+| `children` | `MenuItem[]` | Submenu items (optional)     |
+
+## Variants
+
+### mode
+
+<Mode />
+
+### theme
+
+<Theme />
+
+### selectedKey / onSelect
+
+<SelectedKey />
+
+## Best Practices
+
+### Do ✅
+
+- Use `selectedKey` + `onSelect` for controlled navigation state
+- Keep labels short and predictable
+- Use `mode="horizontal"` for top nav and `mode="vertical"` for side nav
+
+### Don't ❌
+
+- Don’t use menus as the only way to access critical actions; provide clear primary actions elsewhere
+- Don’t nest too deeply; consider restructuring navigation for long trees
+
+## Accessibility
+
+- Ensure menu items have clear text labels (don’t rely on icons alone).
+- If you use `href`, treat items as navigation; if you use `onClick`, treat them as actions and ensure keyboard access is preserved.
+
+## Examples of usage
+
+<SubmenuExample />
+<HeaderNavExample />

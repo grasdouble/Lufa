@@ -1,0 +1,60 @@
+---
+title: Typography
+description: A guide in my new Starlight docs site.
+---
+
+import { Typography } from '@grasdouble/lufa_design-system';
+
+import { Examples, LiveDemo, Variants } from '../../src/dsExamples/typography/typography';
+
+# Typography
+
+Text component for consistent typography, semantics, and color.
+
+## Overview
+
+Use `Typography` to render headings, labels, and body text with consistent styling.
+
+- Semantic element via `as` (optional)
+- Visual style via `variant`
+- Weight via `weight`, alignment via `align`
+- Semantic colors via `color`
+
+## Live Demo
+
+<LiveDemo />
+
+## Installation
+
+```tsx
+import { Typography } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Typography variant="h2">Heading</Typography>
+<Typography variant="body" color="secondary">
+  Supporting text
+</Typography>
+```
+
+## Props
+
+| Prop        | Type                                                                                                           | Default     | Description            |
+| ----------- | -------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------- |
+| `as`        | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' \| 'p' \| 'span' \| 'label' \| 'div'`                            | Auto        | HTML element to render |
+| `variant`   | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' \| 'body' \| 'bodyLarge' \| 'bodySmall' \| 'caption' \| 'label'` | `'body'`    | Visual style variant   |
+| `weight`    | `'light' \| 'normal' \| 'medium' \| 'semibold' \| 'bold'`                                                      | -           | Font weight            |
+| `align`     | `'left' \| 'center' \| 'right' \| 'justify'`                                                                   | -           | Text alignment         |
+| `color`     | `'primary' \| 'secondary' \| 'tertiary' \| 'inverse' \| 'error' \| 'success' \| 'warning'`                     | `'primary'` | Semantic color         |
+| `children`  | `ReactNode`                                                                                                    | -           | Content                |
+| `className` | `string`                                                                                                       | -           | Additional CSS classes |
+
+## Variants
+
+<Variants />
+
+## Examples
+
+<Examples />

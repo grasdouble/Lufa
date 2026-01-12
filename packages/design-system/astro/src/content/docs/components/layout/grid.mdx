@@ -1,0 +1,91 @@
+---
+title: Grid
+description: A guide in my new Starlight docs site.
+---
+
+import { Grid, GRID_COLUMNS, GRID_GUTTER } from '@grasdouble/lufa_design-system';
+
+import {
+  Columns,
+  DashboardCardsExample,
+  Gutter,
+  ImageGalleryExample,
+  LiveDemo,
+} from '../../../../dsExamples/layout/grid';
+
+# Grid
+
+A token-driven CSS grid layout with semantic column and gutter presets.
+
+## Overview
+
+Use `Grid` when you need…
+
+- A simple, consistent CSS grid without custom templates
+- Column presets via `columns`
+- Gap presets via `gutter`
+- Layouts like card lists, dashboards, and galleries
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Grid, GRID_COLUMNS, GRID_GUTTER } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Grid columns={GRID_COLUMNS.quad} gutter={GRID_GUTTER.md}>
+  <div />
+  <div />
+  <div />
+  <div />
+</Grid>
+```
+
+## Props
+
+| Prop       | Type                        | Default    | Description               |
+| ---------- | --------------------------- | ---------- | ------------------------- |
+| `columns`  | `keyof typeof GRID_COLUMNS` | `'twelve'` | Number of columns (token) |
+| `gutter`   | `keyof typeof GRID_GUTTER`  | `'md'`     | Gap between grid items    |
+| `children` | `ReactNode`                 | -          | Grid items                |
+
+Also supports standard `div` props (for example `className`, `style`, `aria-label`, …).
+
+## Variants
+
+### columns
+
+<Columns />
+
+### gutter
+
+<Gutter />
+
+## Best Practices
+
+### Do ✅
+
+- Use token presets (`GRID_COLUMNS`, `GRID_GUTTER`) for consistent layout rhythm
+- Combine `Grid` with `Container` to keep wide layouts readable
+- Use `gutter="none"` for dense layouts only when spacing is handled elsewhere
+
+### Don't ❌
+
+- Don’t use `Grid` for 1D layouts; prefer `Flex`/`Stack`
+- Don’t mix inconsistent gutters across similar grids in the same view
+
+## Accessibility
+
+- `Grid` is layout-only; accessibility depends on its children.
+- Ensure interactive grid items have clear focus states and accessible labels.
+
+## Examples of usage
+
+<DashboardCardsExample />
+<ImageGalleryExample />

@@ -1,0 +1,115 @@
+---
+title: Divider
+description: A guide in my new Starlight docs site.
+---
+
+import { Divider } from '@grasdouble/lufa_design-system';
+
+import {
+  Align,
+  BetweenContentExample,
+  Label,
+  Length,
+  ListSectionExample,
+  LiveDemo,
+  Orientation,
+  Spacing,
+  Variant,
+  VerticalSplitExample,
+} from '../../../../dsExamples/layout/divider';
+
+# Divider
+
+A lightweight separator for grouping content. Supports horizontal and vertical orientations, optional labels, solid or dashed styles, and built-in spacing.
+
+## Overview
+
+Use `Divider` when you need…
+
+- A subtle separator between content blocks
+- Orientation control via `orientation` (horizontal/vertical)
+- An optional label via `label` + alignment via `align`
+- A solid/dashed line style via `variant`
+- Built-in outer spacing via `spacing` and optional constraint via `length`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Divider } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Divider />
+
+<Divider label="Details" />
+
+<Divider orientation="vertical" />
+```
+
+## Props
+
+| Prop          | Type                             | Default        | Description                                                     |
+| ------------- | -------------------------------- | -------------- | --------------------------------------------------------------- |
+| `label`       | `ReactNode`                      | -              | Optional label displayed between the lines (horizontal only)    |
+| `orientation` | `'horizontal' \| 'vertical'`     | `'horizontal'` | Direction of the divider                                        |
+| `variant`     | `'solid' \| 'dashed'`            | `'solid'`      | Line style                                                      |
+| `align`       | `'start' \| 'center' \| 'end'`   | `'center'`     | Label alignment for horizontal dividers                         |
+| `spacing`     | `'none' \| 'sm' \| 'md' \| 'lg'` | `'md'`         | Outer spacing (margin) applied around the divider               |
+| `length`      | `number \| string`               | -              | Constrain width (horizontal) or height (vertical). Accepts px/% |
+| `className`   | `string`                         | -              | Additional CSS classes                                          |
+
+## Variants
+
+### orientation
+
+<Orientation />
+
+### variant
+
+<Variant />
+
+### align
+
+<Align />
+
+### spacing
+
+<Spacing />
+
+### length
+
+<Length />
+
+### label
+
+<Label />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Divider` to separate content groups without adding extra UI chrome
+- Use labels sparingly to clarify group meaning (e.g. “Upcoming”, “Or”)
+- Prefer `orientation="vertical"` only in clearly columnar layouts
+
+### Don't ❌
+
+- Don’t use dividers as a substitute for spacing; use layout primitives for spacing first
+- Don’t stack many labeled dividers; it becomes noisy
+
+## Accessibility
+
+- `Divider` renders `role="separator"` and sets `aria-orientation`.
+- Provide a meaningful `label` only when it helps understanding; decorative separators don’t need labels.
+
+## Examples of usage
+
+<BetweenContentExample />
+<VerticalSplitExample />
+<ListSectionExample />

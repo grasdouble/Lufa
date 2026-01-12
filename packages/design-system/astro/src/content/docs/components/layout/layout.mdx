@@ -1,0 +1,102 @@
+---
+title: Layout
+description: A guide in my new Starlight docs site.
+---
+
+import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from '@grasdouble/lufa_design-system';
+
+import {
+  AppShellExample,
+  ContentOnlyExample,
+  Gap,
+  LiveDemo,
+  Sidebar,
+  SidebarPosition,
+  SidebarWidth,
+} from '../../../../dsExamples/layout/layout';
+
+# Layout
+
+A page-level scaffold using CSS grid areas: Header / Sidebar / Content / Footer.
+
+## Overview
+
+Use `Layout` when you need…
+
+- A consistent app shell scaffold (header/sidebar/content/footer)
+- An optional sidebar via `sidebar`, `sidebarPosition`, `sidebarWidth`
+- Spacing between areas via `gap`
+- Compound components: `Layout.Header`, `Layout.Sidebar`, `Layout.Content`, `Layout.Footer`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Layout sidebar gap={LAYOUT_GAP.md}>
+  <Layout.Header>...</Layout.Header>
+  <Layout.Sidebar>...</Layout.Sidebar>
+  <Layout.Content>...</Layout.Content>
+  <Layout.Footer>...</Layout.Footer>
+</Layout>
+```
+
+## Props
+
+| Prop              | Type                                   | Default     | Description                                 |
+| ----------------- | -------------------------------------- | ----------- | ------------------------------------------- |
+| `sidebar`         | `boolean`                              | `false`     | Enables the sidebar area                    |
+| `sidebarPosition` | `keyof typeof LAYOUT_SIDEBAR_POSITION` | `'left'`    | Sidebar placement (when sidebar is enabled) |
+| `sidebarWidth`    | `keyof typeof LAYOUT_SIDEBAR_WIDTH`    | `'default'` | Sidebar width preset (when enabled)         |
+| `gap`             | `keyof typeof LAYOUT_GAP`              | `'md'`      | Gap between layout areas                    |
+
+Also supports standard `div` props (for example `className`, `style`, `aria-label`, …).
+
+## Variants
+
+### sidebar
+
+<Sidebar />
+
+### sidebarPosition
+
+<SidebarPosition />
+
+### sidebarWidth
+
+<SidebarWidth />
+
+### gap
+
+<Gap />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Layout` for page-level scaffolds (not small widgets)
+- Keep `Layout.Header`/`Sidebar`/`Content`/`Footer` in a consistent order for readability
+- Use the sidebar only for navigation or secondary context, not primary content
+
+### Don't ❌
+
+- Don’t nest multiple `Layout` components; prefer `Container` + other layout primitives inside `Layout.Content`
+- Don’t rely on `gap="none"` unless the inner areas provide their own spacing
+
+## Accessibility
+
+- `Layout` is a layout container; semantics come from the elements inside (e.g. use `header`, `nav`, `main`, `footer` where appropriate within the slots).
+- Ensure landmarks are unique per page (only one `main`, etc.).
+
+## Examples of usage
+
+<AppShellExample />
+<ContentOnlyExample />

@@ -1,0 +1,91 @@
+---
+title: AvatarGroup
+description: A guide in my new Starlight docs site.
+---
+
+import { AvatarGroup } from '@grasdouble/lufa_design-system';
+
+import {
+  InlineAssigneesExample,
+  LiveDemo,
+  Max,
+  ProjectCardHeaderExample,
+  Size,
+} from '../../../../dsExamples/display/avatarGroup';
+
+# AvatarGroup
+
+Displays multiple avatars with overlap and an optional "+N" count when the list is truncated.
+
+## Overview
+
+Use `AvatarGroup` when you need…
+
+- A compact representation of multiple people (overlap)
+- A shared `size` applied to all child avatars
+- A `max` limit with a trailing `+N` count for long lists
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Avatar, AvatarGroup } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<AvatarGroup max={3} size="md">
+  <Avatar src="/a.jpg" alt="Alice" />
+  <Avatar src="/b.jpg" alt="Bob" />
+  <Avatar src="/c.jpg" alt="Chris" />
+  <Avatar src="/d.jpg" alt="Denise" />
+</AvatarGroup>
+```
+
+## Props
+
+| Prop       | Type                                   | Default | Description                                    |
+| ---------- | -------------------------------------- | ------- | ---------------------------------------------- |
+| `children` | `ReactNode`                            | -       | Avatars to render                              |
+| `max`      | `number`                               | -       | Maximum avatars displayed before showing `+N`  |
+| `size`     | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'`  | Applies a size to all child avatars (if unset) |
+
+Also supports standard `div` props (for example `className`, `style`, `aria-label`, …).
+
+## Variants
+
+### max
+
+<Max />
+
+### size
+
+<Size />
+
+## Best Practices
+
+### Do ✅
+
+- Use `max` when the available space is constrained
+- Keep children as `Avatar` components so `size` can be applied consistently
+- Ensure each avatar has meaningful `alt` text (or `alt=""` if decorative)
+
+### Don't ❌
+
+- Don’t use `AvatarGroup` as the only way to convey identity; pair it with names when needed
+- Don’t mix arbitrary children; layout and sizing is optimized for avatars
+
+## Accessibility
+
+- `AvatarGroup` is a `div`; provide an accessible name with `aria-label`/`aria-labelledby` when needed.
+- Ensure `Avatar` images have appropriate `alt` text.
+- If avatars are interactive, use focusable elements (buttons/links) and ensure a visible focus state.
+
+## Examples of usage
+
+<ProjectCardHeaderExample />
+<InlineAssigneesExample />

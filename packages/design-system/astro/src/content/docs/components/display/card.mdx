@@ -1,0 +1,99 @@
+---
+title: Card
+description: A guide in my new Starlight docs site.
+---
+
+import { Card } from '@grasdouble/lufa_design-system';
+
+import {
+  ClickableCardExample,
+  FooterActionsExample,
+  Interactive,
+  LiveDemo,
+  Padding,
+  Variant,
+} from '../../../../dsExamples/display/card';
+
+# Card
+
+Flexible container for grouping related content and actions.
+
+## Overview
+
+Use `Card` when you need…
+
+- A clear surface to group related content and actions
+- An optional header via `title` / `subtitle`
+- An optional footer via `footer` (actions, meta, etc.)
+- Visual styling via `variant` and spacing via `padding`
+- An interactive affordance via `hoverable` + `onClick`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Card } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Card title="Title" subtitle="Optional subtitle">
+  Content goes here.
+</Card>
+```
+
+## Props
+
+| Prop        | Type                                                | Default     | Description                          |
+| ----------- | --------------------------------------------------- | ----------- | ------------------------------------ |
+| `children`  | `ReactNode`                                         | -           | Card content                         |
+| `title`     | `string`                                            | -           | Card title (header)                  |
+| `subtitle`  | `string`                                            | -           | Card subtitle/description (header)   |
+| `footer`    | `ReactNode`                                         | -           | Footer slot (actions, meta, etc.)    |
+| `variant`   | `'default' \| 'elevated' \| 'outlined' \| 'filled'` | `'default'` | Visual variant                       |
+| `padding`   | `'none' \| 'small' \| 'medium' \| 'large'`          | `'medium'`  | Padding size                         |
+| `hoverable` | `boolean`                                           | `false`     | Add hover affordance                 |
+| `onClick`   | `() => void`                                        | -           | Click handler (makes card clickable) |
+| `className` | `string`                                            | -           | Additional CSS classes               |
+
+## Variants
+
+### variant
+
+<Variant />
+
+### padding
+
+<Padding />
+
+### interactive (hoverable / onClick)
+
+<Interactive />
+
+## Best Practices
+
+### Do ✅
+
+- Use `title` / `subtitle` to provide structure for dense content
+- Use `footer` for actions or meta information, not for primary content
+- Use `hoverable` only when the card is actually interactive or needs an affordance
+
+### Don't ❌
+
+- Don’t overload cards with too many actions; prefer a clear primary action
+- Don’t rely on `onClick` alone to convey navigation; include an explicit link/button when possible
+
+## Accessibility
+
+- `Card` renders a `div`; it is not interactive by default.
+- If you use `onClick`, ensure the interaction is accessible (keyboard access and clear focus/hover behavior). Prefer placing a real `button`/`a` inside the card for the primary action.
+- Keep text contrast sufficient for the chosen `variant`.
+
+## Examples of usage
+
+<FooterActionsExample />
+<ClickableCardExample />
