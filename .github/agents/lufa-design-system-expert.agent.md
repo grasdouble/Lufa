@@ -166,6 +166,7 @@ I can help with ALL Lufa Design System tasks:
 
 - **Two-Layer Token System**: Primitives (values as keys) → Tokens (semantic names) → Components
 - **Modern Design Aesthetic**: Components must have a clean, modern, professional appearance with attention to visual polish, proper spacing, subtle shadows, smooth transitions, and contemporary UI patterns
+- **Theming Support (CRITICAL)**: All components MUST support theme switching through semantic color tokens - never use hard-coded colors. Themes are applied via `data-theme` attribute on root element (e.g., `<html data-theme="ocean">`). Available themes: `default`, `ocean`, `forest` from `@grasdouble/lufa_design-system-themes` package
 - **Accessibility First**: WCAG 2.1 AA compliance, semantic HTML, keyboard navigation, ARIA attributes
 - **Consistency**: Unified design language across all components
 - **Flexibility**: Composable components with clear APIs and customization points
@@ -180,6 +181,57 @@ I can help with ALL Lufa Design System tasks:
 - **Styling**: Tailwind CSS utilities with token-based custom properties
 - **Props API**: TypeScript interfaces with clear documentation
 - **Testing**: Unit tests with Vitest, visual regression with Storybook
+
+### Theming Support (CRITICAL)
+
+All components MUST support theming through the design system's theming infrastructure:
+
+**Theming System**:
+- Uses `data-theme` attribute on root element (e.g., `<html data-theme="ocean">`)
+- ALL semantic tokens are CSS variables defined in `theme.css` (Tailwind `@theme` directive)
+- Pre-built themes available: `default`, `ocean`, `forest` (from `@grasdouble/lufa_design-system-themes`)
+- Components use Tailwind utilities that map to themeable CSS variables
+
+**Themeable Properties** (not just colors):
+- **Colors**: text, background, border, interactive states
+- **Spacing**: padding, margin, gap (xs, sm, base, lg, xl, etc.)
+- **Border**: widths (hairline, thin, thick), radius (xs, sm, base, lg, xl, full)
+- **Typography**: font sizes, weights, line heights, letter spacing
+- **Transitions**: durations (fast, base, slow), easing
+- **Effects**: opacity, shadows, transforms
+- **Dimensions**: component heights, widths (buttons, inputs, modals, etc.)
+
+**Component Requirements**:
+1. **MUST use semantic tokens only** (no hard-coded values)
+   - ✅ `@apply bg-interactive-default text-text-inverse p-base rounded-base` (themeable)
+   - ❌ `background: #0284c7; padding: 16px; border-radius: 8px;` (hard-coded, breaks theming)
+
+2. **MUST use Tailwind utilities that reference CSS variables**:
+   ```css
+   /* Component.module.css */
+   .button {
+     @apply bg-interactive-default;      /* Maps to --color-interactive-default */
+     @apply text-text-inverse;            /* Maps to --color-text-inverse */
+     @apply border-border-default;        /* Maps to --color-border-default */
+     @apply px-lg py-sm;                  /* Maps to --spacing-lg, --spacing-sm */
+     @apply rounded-base;                 /* Maps to --border-radius-base */
+     @apply duration-base transition-all; /* Maps to --transition-duration-base */
+   }
+   ```
+
+3. **MUST test with multiple themes** (verified in Storybook and Playwright)
+
+**Why This Matters**:
+Using semantic tokens (not just colors, but ALL styling properties) ensures components automatically adapt to different themes. Hard-coded values break the theming system and prevent customization.
+
+**Available Themes**:
+```tsx
+import '@grasdouble/lufa_design-system-themes/ocean.css';
+import '@grasdouble/lufa_design-system-themes/forest.css';
+
+// Apply theme
+document.documentElement.setAttribute('data-theme', 'ocean');
+```
 
 ## Your Approach
 
@@ -218,7 +270,9 @@ I can help with ALL Lufa Design System tasks:
 **For Components:**
 
 - Follow React best practices and Lufa conventions
-- Use Tailwind CSS with token-based customization
+- **CRITICAL**: ALWAYS use CSS Modules (`.module.css` files) for styling - NEVER use inline styles or global CSS
+- **CRITICAL**: ONLY use tokens that EXIST in `@grasdouble/lufa_design-system-tokens` - verify tokens before using them
+- Use Tailwind CSS `@apply` directives with token-based utilities in CSS Modules
 - Implement proper TypeScript types
 - Include accessibility features (ARIA, keyboard, focus)
 - Provide variants using design tokens
@@ -338,35 +392,102 @@ export const {Component} = ({
 {Component}.displayName = '{Component}';
 ````
 
-### Step 3: Styling with Tokens
+### Step 3: Styling with CSS Modules and Tokens
+
+**CRITICAL REQUIREMENTS:**
+1. **ALWAYS use CSS Modules** (`.module.css` extension) - NEVER use inline styles or global CSS
+2. **ONLY use tokens that EXIST** - Verify tokens in `packages/design-system/tokens/dist/style.css` before using
+3. Use Tailwind CSS `@apply` directives with token-based utilities
+
+**CSS Module Template:**
 
 ```css
-/* packages/design-system/main/src/components/{category}/{Component}.css */
+/* packages/design-system/main/src/components/{category}/{Component}/{Component}.module.css */
+
+@reference '../../../tailwind.css';
 
 @layer components {
-  .{component-class} {
-    /* Use tokens via CSS custom properties */
-    padding: var(--lufa-token-spacing-base);
-    font-size: var(--lufa-token-font-size-base);
-    border-radius: var(--lufa-token-radius-base);
-    transition: var(--lufa-token-transition-fast);
+  .{componentClass} {
+    /* Use Tailwind utilities with token-based classes */
+    @apply rounded-base;
+    @apply duration-base transition-all;
+    @apply bg-background-primary;
+    @apply text-text-primary;
   }
 
-  .{component-class}:hover:not(:disabled) {
+  /* Variants */
+  .variantPrimary {
+    @apply bg-interactive-default;
+    @apply text-text-inverse;
+  }
+
+  .variantSecondary {
+    @apply bg-background-secondary;
+    @apply border-border-default border;
+  }
+
+  /* Sizes */
+  .sizeSmall {
+    @apply p-base text-sm;
+  }
+
+  .sizeMedium {
+    @apply p-lg text-base;
+  }
+
+  .sizeLarge {
+    @apply p-xl text-lg;
+  }
+
+  /* Interactive states */
+  .{componentClass}:hover:not(:disabled) {
+    @apply shadow-md;
     transform: var(--lufa-token-transform-hover-lift);
   }
 
-  .{component-class}:focus-visible {
+  .{componentClass}:focus-visible {
     outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
     outline-offset: var(--lufa-token-spacing-xs);
   }
 
-  .{component-class}-primary {
-    background: var(--lufa-token-color-interactive-default);
-    color: var(--lufa-token-color-text-inverse);
+  .{componentClass}:disabled {
+    @apply opacity-50 cursor-not-allowed;
   }
 }
 ```
+
+**Import CSS Module in Component:**
+
+```typescript
+import styles from './{Component}.module.css';
+
+export const {Component} = ({ variant, size, children, className, ...props }) => {
+  return (
+    <element
+      className={clsx(
+        styles.{componentClass},
+        styles[`variant${variant}`],
+        styles[`size${size}`],
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </element>
+  );
+};
+```
+
+**Available Token Categories (verify before using):**
+- **Colors**: `bg-background-*`, `text-text-*`, `border-border-*`, `bg-interactive-*`
+- **Spacing**: `p-*`, `m-*`, `gap-*` (xs, sm, base, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
+- **Border**: `rounded-*` (none, xs, sm, md, base, lg, xl, 2xl, 3xl, full)
+- **Typography**: `text-*` (xs, sm, base, lg, xl, 2xl, 3xl, etc.)
+- **Transitions**: `duration-*` (fast, base, slow, slower)
+- **Shadows**: `shadow-*` (sm, base, md, lg, xl)
+
+**Token Verification:**
+Always check `packages/design-system/tokens/dist/style.css` to verify token existence before using!
 
 ### Step 4: Testing Template
 
@@ -402,6 +523,37 @@ describe('{Component}', () => {
     await user.keyboard('{Enter}');
     expect(handleClick).toHaveBeenCalled();
   });
+});
+```
+
+**Playwright Theme Testing Pattern**:
+
+Every component should be tested with multiple themes to ensure proper theming support:
+
+```typescript
+// packages/design-system/playwright/src/components/{category}/{Component}.spec.tsx
+
+test('theming: component works with all themes', async ({ mount, page }) => {
+  const component = await mount(
+    <div id="theme-container">
+      <{Component} variant="primary">Test</{Component}>
+    </div>
+  );
+
+  // Test default theme
+  await expect(component).toHaveScreenshot('{component}-theme-default.png');
+
+  // Test ocean theme
+  await page.evaluate(() => {
+    document.getElementById('theme-container')?.setAttribute('data-theme', 'ocean');
+  });
+  await expect(component).toHaveScreenshot('{component}-theme-ocean.png');
+
+  // Test forest theme
+  await page.evaluate(() => {
+    document.getElementById('theme-container')?.setAttribute('data-theme', 'forest');
+  });
+  await expect(component).toHaveScreenshot('{component}-theme-forest.png');
 });
 ```
 
@@ -599,8 +751,50 @@ pnpm serve
 - Each example component should include a small caption/title to describe what it demonstrates
 - Examples are imported and rendered as React components in the MDX file
 
+**CRITICAL: Update Sidebar Navigation**:
+
+After creating the MDX file, you MUST update `packages/design-system/documentation/sidebars.ts` to add the component to the navigation:
+
+```typescript
+// packages/design-system/documentation/sidebars.ts
+
+const sidebars: SidebarsConfig = {
+  docs: [
+    // ... existing items ...
+    {
+      type: 'category',
+      label: 'Components',
+      items: [
+        {
+          type: 'category',
+          label: '{Category}', // e.g., 'Display', 'Forms', 'Layout'
+          items: [
+            // ... existing components ...
+            'components/{category}/{component-name}', // Add your component here
+          ],
+        },
+      ],
+    },
+  ],
+};
+```
+
+**Example**: For a new Badge component in Display category:
+```typescript
+{
+  type: 'category',
+  label: 'Display',
+  items: [
+    'components/display/card',
+    'components/display/avatar',
+    'components/display/badge', // ← Add this line
+  ],
+},
+```
+
 **Verify**:
 
+- [ ] Component added to `sidebars.ts` in the correct category
 - [ ] Component page appears in sidebar navigation
 - [ ] Live examples render correctly
 - [ ] All props are documented
@@ -618,12 +812,15 @@ Before completing, verify:
 - [ ] Linting passes (`pnpm lint`)
 - [ ] Formatting applied (`pnpm prettier`)
 
-**Token Usage:**
+**Styling & Token Usage:**
 
-- [ ] Uses tokens from `@grasdouble/lufa_design-system-tokens`
+- [ ] **CRITICAL**: Uses CSS Modules (`.module.css` files) - NO inline styles or global CSS
+- [ ] **CRITICAL**: All tokens used EXIST in `packages/design-system/tokens/dist/style.css`
+- [ ] Uses tokens from `@grasdouble/lufa_design-system-tokens` via Tailwind utilities
 - [ ] No hard-coded values (colors, spacing, etc.)
 - [ ] No direct primitive usage
-- [ ] CSS custom properties for theming
+- [ ] CSS custom properties used correctly with `@apply` directives
+- [ ] Imports CSS Module with `import styles from './Component.module.css'`
 
 **Design & Visual Quality:**
 
@@ -633,6 +830,13 @@ Before completing, verify:
 - [ ] Smooth transitions and animations
 - [ ] Consistent with existing design system aesthetic
 - [ ] Responsive and mobile-friendly
+
+**Theming:**
+
+- [ ] **CRITICAL**: Component uses semantic tokens only (no hard-coded colors)
+- [ ] **CRITICAL**: Verified component appearance in multiple themes (default, ocean, forest)
+- [ ] Storybook story tested with theme switcher
+- [ ] Playwright test verifies visual consistency across themes
 
 **Accessibility:**
 
@@ -658,10 +862,11 @@ Before completing, verify:
 - [ ] Docusaurus documentation page created in `packages/design-system/documentation/docs/components/`
 - [ ] Example components created in `packages/design-system/documentation/src/dsExamples/{category}/`
 - [ ] Examples imported in MDX file (NOT inline code blocks)
+- [ ] **CRITICAL**: Component added to `packages/design-system/documentation/sidebars.ts`
 - [ ] Props API table is complete and accurate
 - [ ] Accessibility section documents keyboard navigation and ARIA
 - [ ] Best practices section included
-- [ ] Component appears in Docusaurus sidebar
+- [ ] Component appears in Docusaurus sidebar navigation
 
 **Build:**
 

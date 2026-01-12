@@ -84,4 +84,22 @@
   --color-surface-raised: #f0f9ff;
   --color-surface-overlay: #e0f2fe;
   --color-surface-inverse: #0c4a6e;
+
+  /* Border Radius - More rounded for Ocean theme */
+  --border-radius-base: 0.75rem; /* 12px instead of default 8px */
+  --border-radius-lg: 1rem; /* 16px instead of default 12px */
+  --border-radius-xl: 1.5rem; /* 24px instead of default 16px */
+
+  /* Spacing - Slightly more spacious */
+  --spacing-base: 1.125rem; /* 18px instead of default 16px */
+  --spacing-lg: 1.75rem; /* 28px instead of default 24px */
+  --spacing-xl: 2.25rem; /* 36px instead of default 32px */
+
+  /* Transitions - Slightly slower for smoother feel */
+  --transition-duration-base: 300ms; /* Instead of default 250ms */
+  --transition-duration-slow: 500ms; /* Instead of default 400ms */
+
+  /* Opacity - Slightly more transparent overlays */
+  --opacity-light: 0.65; /* Instead of default 0.7 */
+  --opacity-medium: 0.8; /* Instead of default 0.85 */
 }
