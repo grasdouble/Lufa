@@ -1,4 +1,4 @@
-# @grasdouble/lufa_design-system-documentation
+# @grasdouble/lufa_design-system-docusaurus
 
 ## 0.4.1
 

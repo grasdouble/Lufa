@@ -203,6 +203,71 @@ export const Button = ({
 Button.displayName = 'Button';
 ````
 
+**Styling Requirements (CRITICAL)**:
+
+1. **ALWAYS use CSS Modules** - Create a `.module.css` file alongside your component
+2. **ONLY use tokens that EXIST** - Verify tokens in `packages/design-system/tokens/dist/style.css` before using
+3. **Use Tailwind `@apply` directives** with token-based utilities in CSS Modules
+
+**CSS Module Example**:
+
+```css
+/* Button.module.css */
+@reference '../../../tailwind.css';
+
+@layer components {
+  .button {
+    @apply rounded-base;
+    @apply duration-base transition-all;
+    @apply font-medium;
+  }
+
+  .variantPrimary {
+    @apply bg-interactive-default;
+    @apply text-text-inverse;
+  }
+
+  .variantSecondary {
+    @apply bg-background-secondary;
+    @apply border-border-default border;
+    @apply text-text-primary;
+  }
+
+  .sizeSmall {
+    @apply px-base py-xs text-sm;
+  }
+
+  .sizeMedium {
+    @apply px-lg py-sm text-base;
+  }
+
+  .sizeLarge {
+    @apply px-xl py-md text-lg;
+  }
+}
+```
+
+**Import and use in component**:
+
+```typescript
+import styles from './Button.module.css';
+
+className={clsx(
+  styles.button,
+  styles[`variant${variant}`],
+  styles[`size${size}`],
+  className
+)}
+```
+
+**Available Token Categories** (always verify in `tokens/dist/style.css`):
+- **Colors**: `bg-background-*`, `text-text-*`, `border-border-*`, `bg-interactive-*`
+- **Spacing**: `p-*`, `m-*`, `gap-*` (xs, sm, base, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
+- **Border**: `rounded-*` (none, xs, sm, md, base, lg, xl, 2xl, 3xl, full)
+- **Typography**: `text-*`, `font-*`, `leading-*`
+- **Transitions**: `duration-*` (fast, base, slow, slower)
+- **Shadows**: `shadow-*` (sm, base, md, lg, xl)
+
 **Design & Visual Quality Requirements**:
 
 - Modern, clean, and professional appearance
@@ -212,6 +277,55 @@ Button.displayName = 'Button';
 - Consistent with existing design system aesthetic
 - Responsive and mobile-friendly design
 - Polished micro-interactions (hover states, active states, focus rings)
+
+**Theming Support (CRITICAL)**:
+
+All components MUST support theming:
+
+1. **Use semantic tokens only** - Never hard-code ANY values (not just colors)
+   - ✅ `@apply bg-interactive-default text-text-inverse p-base rounded-base duration-base`
+   - ❌ `background: #0284c7; color: white; padding: 16px; border-radius: 8px;`
+
+**Themeable Properties** (not just colors):
+- **Colors**: text, background, border, interactive states
+- **Spacing**: padding, margin, gap (xs, sm, base, lg, xl, etc.)
+- **Border**: widths (hairline, thin, thick), radius (xs, sm, base, lg, xl, full)
+- **Typography**: font sizes, weights, line heights, letter spacing
+- **Transitions**: durations (fast, base, slow), easing
+- **Effects**: opacity, shadows, transforms
+- **Dimensions**: component heights, widths (buttons, inputs, modals, etc.)
+
+2. **Theme switching mechanism**:
+   - Themes applied via `data-theme` attribute on root element
+   - Example: `<html data-theme="ocean">`
+   - Available themes: `default`, `ocean`, `forest`
+
+3. **CSS variables pattern**:
+   ```css
+   /* Tailwind utilities map to CSS variables in theme.css */
+   .button {
+     @apply bg-interactive-default;      /* → --color-interactive-default */
+     @apply hover:bg-interactive-hover;  /* → --color-interactive-hover */
+     @apply px-lg py-sm;                 /* → --spacing-lg, --spacing-sm */
+     @apply rounded-base;                /* → --border-radius-base */
+     @apply duration-base;               /* → --transition-duration-base */
+   }
+   ```
+
+4. **Testing themes**:
+   - Verify component in Storybook with theme switcher
+   - Create Playwright tests with theme variations
+   - Ensure visual consistency across all themes
+
+**Themes Package**:
+```tsx
+// Import themes
+import '@grasdouble/lufa_design-system-themes/ocean.css';
+import '@grasdouble/lufa_design-system-themes/forest.css';
+
+// Switch theme programmatically
+document.documentElement.setAttribute('data-theme', 'ocean');
+```
 
 **Accessibility Requirements**:
 
@@ -426,8 +540,8 @@ Every component must have a comprehensive documentation page in the Docusaurus s
 
 **Location**:
 
-- MDX file: `packages/design-system/documentation/docs/components/{category}/{component}.mdx`
-- Examples: `packages/design-system/documentation/src/dsExamples/{category}/{componentName}.tsx`
+- MDX file: `packages/design-system/docusaurus/docs/components/{category}/{component}.mdx`
+- Examples: `packages/design-system/docusaurus/src/dsExamples/{category}/{componentName}.tsx`
 
 **IMPORTANT**: Examples must be created as React components in `src/dsExamples/` and imported in the MDX file. Do NOT use inline code blocks for interactive examples.
 
@@ -468,10 +582,49 @@ import { LiveDemo } from '../../../src/dsExamples/{category}/{componentName}';
 <LiveDemo />
 ```
 
+**CRITICAL: Update Sidebar Navigation**:
+
+After creating the MDX file, you MUST update `sidebars.ts` to make the component appear in navigation:
+
+```typescript
+// packages/design-system/docusaurus/sidebars.ts
+
+const sidebars: SidebarsConfig = {
+  docs: [
+    {
+      type: 'category',
+      label: 'Components',
+      items: [
+        {
+          type: 'category',
+          label: '{Category}', // Display, Forms, Layout, etc.
+          items: [
+            'components/{category}/{component-name}', // Add here
+          ],
+        },
+      ],
+    },
+  ],
+};
+```
+
+**Example**: Adding Accordion to Display category:
+```typescript
+{
+  type: 'category',
+  label: 'Display',
+  items: [
+    'components/display/accordion', // ← Add this
+    'components/display/card',
+    'components/display/avatar',
+  ],
+},
+```
+
 **Development Workflow**:
 
 ```bash
-cd packages/design-system/documentation
+cd packages/design-system/docusaurus
 pnpm dev                    # Start dev server on port 3000
 ```
 
@@ -528,7 +681,14 @@ pnpm dev                    # Start dev server on port 3000
 
 Before creating or modifying components, ensure:
 
-- [ ] Component uses tokens (not primitives or hard-coded values)
+- [ ] **CRITICAL**: Component uses CSS Modules (`.module.css` file created)
+- [ ] **CRITICAL**: All tokens used EXIST in `packages/design-system/tokens/dist/style.css`
+- [ ] **CRITICAL**: NO inline styles or global CSS - only CSS Modules
+- [ ] Component uses tokens via Tailwind utilities (not primitives or hard-coded values)
+- [ ] CSS Module imported with `import styles from './Component.module.css'`
+- [ ] **CRITICAL**: Component supports theming (uses semantic tokens, no hard-coded colors)
+- [ ] Component tested with multiple themes (default, ocean, forest)
+- [ ] Visual regression tests include theme variations
 - [ ] TypeScript props interface is complete with JSDoc
 - [ ] Modern, clean, professional visual appearance
 - [ ] Proper spacing, shadows, and transitions using tokens
@@ -538,12 +698,14 @@ Before creating or modifying components, ensure:
 - [ ] Unit tests cover core functionality and accessibility
 - [ ] Playwright component tests written (render, variants, a11y, visual regression)
 - [ ] Storybook story demonstrates all variants
-- [ ] Docusaurus documentation page created in `packages/design-system/documentation/docs/components/`
-- [ ] Example components created in `packages/design-system/documentation/src/dsExamples/{category}/`
+- [ ] Docusaurus documentation page created in `packages/design-system/docusaurus/docs/components/`
+- [ ] Example components created in `packages/design-system/docusaurus/src/dsExamples/{category}/`
 - [ ] Examples imported in MDX file (NOT inline code blocks)
+- [ ] **CRITICAL**: Component added to `packages/design-system/docusaurus/sidebars.ts`
 - [ ] Props API table is complete and accurate in documentation
 - [ ] Accessibility section documents keyboard navigation and ARIA
 - [ ] Documentation is complete (JSDoc, README, Storybook, Docusaurus)
+- [ ] Component appears in Docusaurus sidebar navigation
 - [ ] Code follows linting and formatting rules
 - [ ] Component is exported from package index
 - [ ] Documentation site builds successfully (`pnpm ds:documentation:build`)
@@ -642,7 +804,7 @@ packages/design-system/
 │   ├── playwright-ct.config.ts
 │   ├── src/components/      # Test files (.spec.tsx)
 │   └── __snapshots__/       # Visual regression snapshots
-└── documentation/           # Comprehensive documentation site
+└── docusaurus/              # Comprehensive documentation site
     ├── docs/                # MDX documentation pages
     ├── docusaurus.config.ts
     └── build/               # Production build output
@@ -657,7 +819,7 @@ packages/design-system/
 | **main**          | Component library (source) | React 19 + TypeScript      | `pnpm dev`     | -    |
 | **storybook**     | Interactive playground     | Storybook 8 + Vite         | `pnpm dev`     | 6006 |
 | **playwright**    | Component testing          | Playwright CT + React      | `pnpm test-ct` | -    |
-| **documentation** | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
+| **docusaurus**    | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
 
 ### Why Separate Packages?
 
@@ -693,7 +855,7 @@ cd ../playwright
 pnpm test-ct  # Run tests
 
 # 4. Document component
-cd ../documentation
+cd ../docusaurus
 # ... create MDX documentation ...
 pnpm dev  # Verify in Docusaurus (port 3000)
 

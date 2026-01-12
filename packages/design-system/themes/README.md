@@ -81,6 +81,7 @@ function App() {
 
 Themes override CSS custom properties defined by the token package:
 
+**Color Properties**:
 - `--color-text-*` - Text colors
 - `--color-background-*` - Background colors
 - `--color-border-*` - Border colors
@@ -88,4 +89,26 @@ Themes override CSS custom properties defined by the token package:
 - `--color-success-*`, `--color-error-*`, etc. - State colors
 - `--color-brand-*` - Brand colors
 
-Each theme provides a complete set of semantic color overrides that maintain accessibility and design consistency.
+**Visual Properties** (new):
+- `--border-radius-*` - Border radius (sm, base, lg, xl, etc.)
+- `--spacing-*` - Spacing values (sm, base, lg, xl, etc.)
+- `--transition-duration-*` - Animation speeds (fast, base, slow)
+- `--border-width-*` - Border widths (thin, thick, etc.)
+- `--opacity-*` - Opacity values (light, medium, etc.)
+
+Each theme provides semantic overrides that maintain accessibility and design consistency while creating a unique visual identity.
+
+### Theme Personalities
+
+**Ocean Theme**: Smooth, flowing, modern
+- More rounded corners (larger border radius)
+- More spacious layout (increased spacing)
+- Slower, smoother transitions
+- Blue/aqua color palette
+
+**Forest Theme**: Organic, grounded, natural
+- Less rounded corners (smaller border radius)
+- More compact layout (reduced spacing)
+- Faster, snappier transitions
+- Thicker borders for earthy feel
+- Green/earth color palette
