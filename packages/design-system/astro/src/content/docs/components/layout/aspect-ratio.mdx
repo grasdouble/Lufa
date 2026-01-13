@@ -1,0 +1,98 @@
+---
+title: AspectRatio
+description: A guide in my new Starlight docs site.
+---
+
+import { ASPECT_RATIO, AspectRatio } from '@grasdouble/lufa_design-system';
+
+import {
+  As,
+  CardThumbnailsExample,
+  CustomRatios,
+  LiveDemo,
+  MediaHeroExample,
+  TokenRatios,
+} from '../../../../dsExamples/layout/aspectRatio';
+
+# AspectRatio
+
+Media container that preserves aspect ratio (token presets or custom ratios).
+
+## Overview
+
+Use `AspectRatio` when you need…
+
+- A stable layout for media (avoid layout shift)
+- Presets via `ASPECT_RATIO` (token-backed)
+- Custom ratios via `ratio` (number or CSS ratio string like `"16 / 9"`)
+- Responsive media, thumbnails, and cards
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { ASPECT_RATIO, AspectRatio } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<AspectRatio ratio={ASPECT_RATIO.video}>
+  <img alt="..." />
+</AspectRatio>
+
+<AspectRatio ratio="3 / 1">
+  <div />
+</AspectRatio>
+```
+
+## Props
+
+| Prop       | Type                                            | Default   | Description                  |
+| ---------- | ----------------------------------------------- | --------- | ---------------------------- |
+| `as`       | `'div' \| 'figure'`                             | `'div'`   | Render element               |
+| `ratio`    | `keyof typeof ASPECT_RATIO \| number \| string` | `'video'` | Ratio preset or custom value |
+| `children` | `ReactNode`                                     | -         | Content                      |
+
+Also supports standard element props (for example `className`, `style`, `aria-label`, …).
+
+## Variants
+
+### ratio presets (tokens)
+
+<TokenRatios />
+
+### ratio (custom)
+
+<CustomRatios />
+
+### as
+
+<As />
+
+## Best Practices
+
+### Do ✅
+
+- Use `AspectRatio` to reserve space before media loads (prevents layout shift)
+- Use token presets (`ASPECT_RATIO`) for consistency across the UI
+- Use custom `ratio` only when you have a product-specific need
+
+### Don't ❌
+
+- Don’t nest fixed-height media inside `AspectRatio` without ensuring it can fill the container
+- Don’t overuse custom ratios; it makes layouts inconsistent
+
+## Accessibility
+
+- `AspectRatio` is a layout container; accessibility depends on its children.
+- Ensure contained media has appropriate `alt` text (images) or captions where relevant.
+- If using `as="figure"`, consider pairing it with a caption in your UI.
+
+## Examples of usage
+
+<CardThumbnailsExample />
+<MediaHeroExample />

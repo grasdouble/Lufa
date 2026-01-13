@@ -1,0 +1,105 @@
+---
+title: Badge
+description: A guide in my new Starlight docs site.
+---
+
+import { Badge } from '@grasdouble/lufa_design-system';
+
+import {
+  Dot,
+  LiveDemo,
+  NavigationCountExample,
+  Rounded,
+  Size,
+  StatusListExample,
+  Variant,
+} from '../../../../dsExamples/display/badge';
+
+# Badge
+
+Compact label component for tags, statuses, and counters. Supports multiple color variants, sizes, dots, and pill shape.
+
+## Overview
+
+Use `Badge` when you need…
+
+- A compact label for status, category, or count
+- Color variants via `variant`
+- Sizes via `size`
+- A dot indicator via `dot`
+- A pill shape via `rounded`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Badge } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Badge variant="primary">New</Badge>
+
+<Badge variant="success" dot rounded>
+  Synced
+</Badge>
+```
+
+## Props
+
+| Prop       | Type                                                                     | Default     | Description                 |
+| ---------- | ------------------------------------------------------------------------ | ----------- | --------------------------- |
+| `children` | `ReactNode`                                                              | -           | Badge content               |
+| `label`    | `string`                                                                 | -           | Deprecated (use `children`) |
+| `size`     | `'sm' \| 'md' \| 'lg'`                                                   | `'md'`      | Badge size                  |
+| `variant`  | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'default'` | Color variant               |
+| `dot`      | `boolean`                                                                | `false`     | Shows a dot indicator       |
+| `rounded`  | `boolean`                                                                | `false`     | Makes the badge pill-shaped |
+
+Also supports standard `span` props (for example `className`, `style`, `aria-label`, …).
+
+## Variants
+
+### variant
+
+<Variant />
+
+### size
+
+<Size />
+
+### dot
+
+<Dot />
+
+### rounded
+
+<Rounded />
+
+## Best Practices
+
+### Do ✅
+
+- Keep labels short and scannable (1–2 words)
+- Use `dot` for status indicators where the color reinforces meaning
+- Use `rounded` for pill-like tags, filters, or counters
+
+### Don't ❌
+
+- Don’t rely on color alone for critical meaning; include text when it matters
+- Don’t use badges for long sentences; prefer a `Typography` block or callout
+
+## Accessibility
+
+- Badges are non-interactive by default; if clickable, use a real `button`/`a` and style it accordingly.
+- Ensure sufficient contrast between text and background for the chosen `variant`.
+- If using `dot`, don’t rely on it as the only indicator of a state; pair with text.
+
+## Examples of usage
+
+<StatusListExample />
+<NavigationCountExample />

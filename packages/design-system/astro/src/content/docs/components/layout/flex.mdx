@@ -1,0 +1,128 @@
+---
+title: Flex
+description: A guide in my new Starlight docs site.
+---
+
+import { Flex, FLEX_ALIGN, FLEX_DIRECTION, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE } from '@grasdouble/lufa_design-system';
+
+import {
+  Align,
+  As,
+  Direction,
+  Gap,
+  Inline,
+  Justify,
+  LiveDemo,
+  ResponsiveCardRowExample,
+  ToolbarExample,
+  Wrap,
+} from '../../../../dsExamples/layout/flex';
+
+# Flex
+
+Generic flex container with alignment, wrapping, and token-friendly gaps.
+
+## Overview
+
+Use `Flex` when you need…
+
+- A simple declarative flex layout without custom CSS
+- Direction via `direction` (row/column)
+- Alignment via `align` / `justify`
+- Wrapping via `wrap`
+- Token-backed spacing via `gap`
+- Inline layout via `inline`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Flex, FLEX_ALIGN, FLEX_DIRECTION, FLEX_JUSTIFY, FLEX_WRAP, SPACE_SIZE } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Flex
+  direction={FLEX_DIRECTION.row}
+  align={FLEX_ALIGN.center}
+  justify={FLEX_JUSTIFY.between}
+  wrap={FLEX_WRAP.wrap}
+  gap={SPACE_SIZE.md}
+>
+  <div />
+  <div />
+  <div />
+</Flex>
+```
+
+## Props
+
+| Prop        | Type                                                                                   | Default     | Description                          |
+| ----------- | -------------------------------------------------------------------------------------- | ----------- | ------------------------------------ |
+| `as`        | `'div' \| 'span' \| 'section' \| 'nav' \| 'header' \| 'footer' \| 'main' \| 'article'` | `'div'`     | Render element                       |
+| `inline`    | `boolean`                                                                              | `false`     | Uses `inline-flex` instead of `flex` |
+| `direction` | `keyof typeof FLEX_DIRECTION`                                                          | `'row'`     | Flex direction                       |
+| `align`     | `keyof typeof FLEX_ALIGN`                                                              | `'stretch'` | Cross-axis alignment                 |
+| `justify`   | `keyof typeof FLEX_JUSTIFY`                                                            | `'start'`   | Main-axis distribution               |
+| `wrap`      | `keyof typeof FLEX_WRAP`                                                               | `'nowrap'`  | Wrapping behavior                    |
+| `gap`       | `keyof typeof SPACE_SIZE \| number \| string`                                          | `'md'`      | Gap between items                    |
+| `children`  | `ReactNode`                                                                            | -           | Content                              |
+
+Also supports standard element props (for example `className`, `style`, `aria-label`, …).
+
+## Variants
+
+### direction
+
+<Direction />
+
+### align
+
+<Align />
+
+### justify
+
+<Justify />
+
+### wrap
+
+<Wrap />
+
+### gap
+
+<Gap />
+
+### inline
+
+<Inline />
+
+### as
+
+<As />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Flex` for small, localized layouts (toolbars, rows, small grids)
+- Use `gap` instead of manual margins between children
+- Prefer wrapping (`wrap="wrap"`) for responsive rows of chips/cards
+
+### Don't ❌
+
+- Don’t use `Flex` for complex page layouts; prefer dedicated layout components (e.g. `Container`, grids)
+- Don’t rely on `Flex` to fix sizing issues; set widths/min-widths intentionally
+
+## Accessibility
+
+- `Flex` is layout-only; accessibility depends on semantics and children.
+- Use `as` to choose an appropriate semantic element when the container is a landmark (`nav`, `header`, …).
+
+## Examples of usage
+
+<ToolbarExample />
+<ResponsiveCardRowExample />

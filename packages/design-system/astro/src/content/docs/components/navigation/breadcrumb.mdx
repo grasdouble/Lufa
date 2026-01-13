@@ -1,0 +1,96 @@
+---
+title: Breadcrumb
+description: A guide in my new Starlight docs site.
+---
+
+import { Breadcrumb } from '@grasdouble/lufa_design-system';
+
+import {
+  CompactHeaderExample,
+  LiveDemo,
+  ProductHierarchyExample,
+  Separator,
+  Size,
+} from '../../../../dsExamples/navigation/breadcrumb';
+
+# Breadcrumb
+
+Hierarchical navigation trail that shows where you are in the page tree.
+
+## Overview
+
+Use `Breadcrumb` when you need…
+
+- A clear location indicator in a page hierarchy
+- Navigation back to parent pages
+- Items via `items`
+- Optional separator customization via `separator`
+- Size control via `size`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Breadcrumb } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Breadcrumb
+  items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Current Page' }]}
+/>
+```
+
+## Props
+
+| Prop        | Type                             | Default    | Description                    |
+| ----------- | -------------------------------- | ---------- | ------------------------------ |
+| `items`     | `BreadcrumbItem[]`               | -          | Array of breadcrumb items      |
+| `separator` | `ReactNode`                      | `'/'`      | Custom separator between items |
+| `size`      | `'small' \| 'medium' \| 'large'` | `'medium'` | Size variant                   |
+| `className` | `string`                         | -          | Additional CSS class           |
+
+### BreadcrumbItem
+
+| Property | Type        | Description                               |
+| -------- | ----------- | ----------------------------------------- |
+| `label`  | `string`    | Label to display                          |
+| `href`   | `string`    | Link URL (optional for current/last item) |
+| `icon`   | `ReactNode` | Icon before label (optional)              |
+
+## Variants
+
+### size
+
+<Size />
+
+### separator
+
+<Separator />
+
+## Best Practices
+
+### Do ✅
+
+- Keep labels short and meaningful
+- Use the last item as the current page (no `href`)
+- Use `size="small"` in dense headers or tight layouts
+
+### Don't ❌
+
+- Don’t include too many levels; consider truncation or simplifying IA
+- Don’t use breadcrumbs as the only navigation for critical flows
+
+## Accessibility
+
+- `Breadcrumb` renders a `<nav aria-label="Breadcrumb">` and marks the current page with `aria-current="page"`.
+- Ensure link labels are descriptive and unique enough in context.
+
+## Examples of usage
+
+<ProductHierarchyExample />
+<CompactHeaderExample />

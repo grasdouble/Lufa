@@ -1,0 +1,97 @@
+---
+title: Alert
+description: A guide in my new Starlight docs site.
+---
+
+import { Alert } from '@grasdouble/lufa_design-system';
+
+import {
+  Closable,
+  ClosableWithActionExample,
+  CustomIconWithMetaExample,
+  Icon,
+  LiveDemo,
+  Variant,
+} from '../../../../dsExamples/feedback/alert';
+
+# Alert
+
+Inline feedback message for communicating information, success, warning, or error states.
+
+## Overview
+
+Use `Alert` when you need…
+
+- A concise inline message near relevant content
+- Severity styling via `variant` (`info`, `success`, `warning`, `error`)
+- An optional title via `title`
+- A dismiss action via `closable` + `onClose`
+- A custom icon via `icon`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Alert } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Alert variant="success" title="Saved">
+  Your changes have been saved.
+</Alert>
+```
+
+## Props
+
+| Prop        | Type                                          | Default  | Description                     |
+| ----------- | --------------------------------------------- | -------- | ------------------------------- |
+| `children`  | `ReactNode`                                   | -        | Alert message content           |
+| `title`     | `string`                                      | -        | Optional title                  |
+| `variant`   | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'` | Severity / style variant        |
+| `closable`  | `boolean`                                     | `false`  | Shows a close button            |
+| `onClose`   | `() => void`                                  | -        | Close handler                   |
+| `icon`      | `ReactNode`                                   | -        | Custom icon (overrides default) |
+| `className` | `string`                                      | -        | Additional CSS classes          |
+
+## Variants
+
+### variant
+
+<Variant />
+
+### closable
+
+<Closable />
+
+### icon
+
+<Icon />
+
+## Best Practices
+
+### Do ✅
+
+- Keep messages concise and action-oriented
+- Use `title` to summarize the state, and keep the body for details
+- Provide `onClose` when `closable` is enabled (and ensure dismissing doesn’t hide critical information)
+
+### Don't ❌
+
+- Don’t use alerts for long-form content; prefer a dedicated section or page
+- Don’t stack too many alerts; it becomes noise
+
+## Accessibility
+
+- `Alert` uses `role="alert"`; use it for important messages that need attention.
+- Ensure action buttons inside the alert are keyboard accessible and clearly labeled.
+- Don’t rely on icon/color alone; the text should convey the meaning.
+
+## Examples of usage
+
+<ClosableWithActionExample />
+<CustomIconWithMetaExample />

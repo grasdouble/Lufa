@@ -1,0 +1,99 @@
+---
+title: Space
+description: A guide in my new Starlight docs site.
+---
+
+import { Space, SPACE_DIRECTION, SPACE_SIZE } from '@grasdouble/lufa_design-system';
+
+import {
+  As,
+  Direction,
+  InlineTextExample,
+  LiveDemo,
+  SectionSeparatorExample,
+  Size,
+} from '../../../../dsExamples/layout/space';
+
+# Space
+
+A simple spacer element for adding fixed vertical or horizontal space (token-based by default).
+
+## Overview
+
+Use `Space` when you need…
+
+- Explicit spacing without changing layout structure
+- Vertical or horizontal spacing via `direction`
+- Token presets or custom values via `size`
+- Render element control via `as` (`div`/`span`)
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Space, SPACE_DIRECTION, SPACE_SIZE } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<div>Before</div>
+<Space size={SPACE_SIZE.lg} />
+<div>After</div>
+
+<div style={{ display: "flex", alignItems: "center" }}>
+  <div>Left</div>
+  <Space direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.md} />
+  <div>Right</div>
+</div>
+```
+
+## Props
+
+| Prop        | Type                                          | Default      | Description      |
+| ----------- | --------------------------------------------- | ------------ | ---------------- |
+| `as`        | `'div' \| 'span'`                             | `'div'`      | Render element   |
+| `direction` | `keyof typeof SPACE_DIRECTION`                | `'vertical'` | Spacer direction |
+| `size`      | `keyof typeof SPACE_SIZE \| number \| string` | `'md'`       | Spacer size      |
+
+Also supports standard element props (for example `className`, `style`, `aria-label`, …).
+
+## Variants
+
+### direction
+
+<Direction />
+
+### size
+
+<Size />
+
+### as
+
+<As />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Space` for small, explicit gaps where changing markup isn’t worth it
+- Prefer token sizes (`SPACE_SIZE`) for consistent rhythm
+- Use `as="span"` for inline spacing in text
+
+### Don't ❌
+
+- Don’t overuse spacers for layout; prefer `Stack`, `Flex`, or `Grid`
+- Don’t rely on `Space` for semantic separation; it’s purely visual/layout
+
+## Accessibility
+
+- `Space` defaults to `aria-hidden`, and should be treated as decorative.
+- Avoid using `Space` to create “click targets” or interactive spacing; use padding/margins on interactive elements instead.
+
+## Examples of usage
+
+<InlineTextExample />
+<SectionSeparatorExample />

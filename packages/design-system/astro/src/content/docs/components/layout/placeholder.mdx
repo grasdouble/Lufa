@@ -1,0 +1,101 @@
+---
+title: Placeholder
+description: A guide in my new Starlight docs site.
+---
+
+import { Placeholder } from '@grasdouble/lufa_design-system';
+
+import {
+  Color,
+  DashboardLayoutExample,
+  FormLayoutExample,
+  Gradient,
+  Height,
+  HeightWidthMatrixExample,
+  LiveDemo,
+  PrototypeLayoutExample,
+  Width,
+} from '../../../../dsExamples/layout/placeholder';
+
+# Placeholder
+
+Layout placeholder block for prototyping and spacing.
+
+## Overview
+
+Use `Placeholder` when you need…
+
+- A quick visual block while prototyping layouts
+- Control over `height` and `width`
+- A solid `color` or a gradient via `colorFrom` / `colorTo`
+- A label via `children`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Placeholder } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Placeholder>Placeholder</Placeholder>
+```
+
+## Props
+
+| Prop        | Type                                                 | Default    | Description                                  |
+| ----------- | ---------------------------------------------------- | ---------- | -------------------------------------------- |
+| `children`  | `ReactNode`                                          | -          | Content to display inside the placeholder    |
+| `color`     | `string`                                             | -          | Solid background color (any valid CSS color) |
+| `colorFrom` | `string`                                             | -          | Gradient start color (requires `colorTo`)    |
+| `colorTo`   | `string`                                             | -          | Gradient end color (requires `colorFrom`)    |
+| `height`    | `'small' \| 'medium' \| 'large' \| 'auto' \| 'full'` | `'medium'` | Height variant of the placeholder            |
+| `width`     | `'auto' \| 'small' \| 'medium' \| 'large' \| 'full'` | `'auto'`   | Width variant of the placeholder             |
+
+## Variants
+
+### height
+
+<Height />
+
+### width
+
+<Width />
+
+### color
+
+<Color />
+
+### colorFrom / colorTo
+
+<Gradient />
+
+## Best Practices
+
+### Do ✅
+
+- Use `Placeholder` to sketch layout and spacing quickly during development
+- Use `height="auto"` when you want the placeholder to grow with its content
+- Prefer token colors (`tokens.color.*`) when demonstrating examples
+
+### Don't ❌
+
+- Don’t ship `Placeholder` in production UI unless it’s intentional (it’s meant for prototyping)
+- Don’t use placeholders as a replacement for a skeleton/loading state component
+
+## Accessibility
+
+- `Placeholder` is a decorative/prototyping element; avoid using it for meaningful content in production.
+- If you use it to represent a UI region temporarily, ensure the real component will have appropriate semantics and labels.
+
+## Examples of usage
+
+<DashboardLayoutExample />
+<FormLayoutExample />
+<PrototypeLayoutExample />
+<HeightWidthMatrixExample />
