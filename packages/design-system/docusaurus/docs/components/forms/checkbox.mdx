@@ -1,0 +1,148 @@
+---
+sidebar_position: 3
+---
+
+import { Checkbox } from '@grasdouble/lufa_design-system';
+
+import {
+  CheckboxGroup,
+  Color,
+  Disabled,
+  ErrorState,
+  Indeterminate,
+  LiveDemo,
+  Required,
+  Size,
+  WithCallback,
+  WithHelperText,
+  WithoutLabel,
+} from '../../../src/dsExamples/forms/checkbox';
+
+# Checkbox
+
+A checkbox component for binary choices and multi-selection scenarios with support for indeterminate state and multiple color variants.
+
+## Overview
+
+Use `Checkbox` when you need…
+
+- Binary choices (checked/unchecked)
+- Multiple selections from a list
+- Indeterminate state for "select all" scenarios
+- Different color schemes for visual emphasis
+- Form validation with required fields
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Checkbox } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<Checkbox label="I agree to the terms and conditions" />
+
+<Checkbox label="Subscribe to newsletter" defaultChecked />
+```
+
+## Props
+
+| Prop           | Type                                                      | Default     | Description                          |
+| -------------- | --------------------------------------------------------- | ----------- | ------------------------------------ |
+| `label`        | `string`                                                  | -           | Label text next to checkbox          |
+| `size`         | `'small' \| 'medium' \| 'large'`                          | `'medium'`  | Size of the checkbox                 |
+| `color`        | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger'` | `'primary'` | Color scheme                        |
+| `indeterminate`| `boolean`                                                 | `false`     | Shows indeterminate state (dash)     |
+| `error`        | `string`                                                  | -           | Error message to display             |
+| `helperText`   | `string`                                                  | -           | Helper text below the checkbox       |
+| `disabled`     | `boolean`                                                 | `false`     | Disables the checkbox                |
+| `required`     | `boolean`                                                 | `false`     | Marks the field as required          |
+| `checked`      | `boolean`                                                 | -           | Controlled checked state             |
+| `defaultChecked` | `boolean`                                               | `false`     | Initial checked state (uncontrolled) |
+| `onChange`     | `(event: React.ChangeEvent<HTMLInputElement>) => void`    | -           | Change handler                       |
+
+Also supports standard `input[type="checkbox"]` props (for example `className`, `aria-*`, `name`, …).
+
+## Examples
+
+### size
+
+<Size />
+
+### color
+
+<Color />
+
+### With Helper Text
+
+<WithHelperText />
+
+### Error State
+
+<ErrorState />
+
+### Disabled
+
+<Disabled />
+
+### Required
+
+<Required />
+
+### Indeterminate
+
+<Indeterminate />
+
+### With Callback
+
+<WithCallback />
+
+### Checkbox Group
+
+<CheckboxGroup />
+
+### Without Label
+
+<WithoutLabel />
+
+## Accessibility
+
+- Uses native `<input type="checkbox">` for full accessibility
+- Supports keyboard navigation:
+  - **Space**: Toggle checked state
+  - **Tab**: Move to next focusable element
+- Label is properly associated with the checkbox
+- Error states are announced to screen readers via `aria-describedby`
+- Indeterminate state is set via DOM property (not ARIA)
+- Supports `aria-label` for checkboxes without visible labels
+- Focus indicator is clearly visible
+
+## Best Practices
+
+### Do ✅
+
+- Always provide a label (visible or via `aria-label`)
+- Use indeterminate state for "select all" functionality
+- Group related checkboxes together
+- Use helper text to provide additional context
+- Mark required fields appropriately
+- Use appropriate color variants for emphasis
+
+### Don't ❌
+
+- Don't use for mutually exclusive options (use Radio instead)
+- Don't disable without explanation
+- Avoid long checkbox labels (break into multiple lines if needed)
+- Don't nest checkboxes too deeply (keep hierarchies simple)
+- Don't forget to handle the indeterminate state in parent checkboxes
+
+## Related Components
+
+- **Radio** - For mutually exclusive options
+- **Switch** - For toggle actions
+- **Button** - For single actions

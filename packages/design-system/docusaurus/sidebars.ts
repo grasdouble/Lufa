@@ -77,7 +77,13 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Forms',
-          items: ['components/forms/button'],
+          items: [
+            'components/forms/button',
+            'components/forms/autocomplete',
+            'components/forms/checkbox',
+            'components/forms/colorpicker',
+            'components/forms/datepicker',
+          ],
         },
       ],
     },

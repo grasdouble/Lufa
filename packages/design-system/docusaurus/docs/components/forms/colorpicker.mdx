@@ -1,0 +1,152 @@
+---
+sidebar_position: 4
+---
+
+import { ColorPicker } from '@grasdouble/lufa_design-system';
+
+import {
+  Disabled,
+  ErrorState,
+  FullWidth,
+  LiveDemo,
+  MultipleColors,
+  PresetColors,
+  Required,
+  Size,
+  WithCallback,
+  WithHelperText,
+  WithoutPreview,
+} from '../../../src/dsExamples/forms/colorpicker';
+
+# ColorPicker
+
+A color picker component that combines a native color input with a hex text input, providing both visual and precise color selection.
+
+## Overview
+
+Use `ColorPicker` when you need…
+
+- Visual color selection interface
+- Precise hex color input
+- Color preview swatch
+- Form-friendly color input
+- Integration with design systems
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { ColorPicker } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<ColorPicker label="Pick a color" defaultValue="#3b82f6" />
+
+<ColorPicker
+  label="Brand Color"
+  value={color}
+  onColorChange={(newColor) => setColor(newColor)}
+/>
+```
+
+## Props
+
+| Prop           | Type                                      | Default     | Description                            |
+| -------------- | ----------------------------------------- | ----------- | -------------------------------------- |
+| `label`        | `string`                                  | -           | Label text above the input             |
+| `size`         | `'small' \| 'medium' \| 'large'`          | `'medium'`  | Size of the input                      |
+| `fullWidth`    | `boolean`                                 | `false`     | Makes the input take full width        |
+| `showPreview`  | `boolean`                                 | `true`      | Shows color preview swatch             |
+| `onColorChange`| `(color: string) => void`                 | -           | Callback when color changes            |
+| `error`        | `string`                                  | -           | Error message to display               |
+| `helperText`   | `string`                                  | -           | Helper text below the input            |
+| `disabled`     | `boolean`                                 | `false`     | Disables the input                     |
+| `required`     | `boolean`                                 | `false`     | Marks the field as required            |
+| `value`        | `string`                                  | `'#000000'` | Controlled value (hex color)           |
+| `defaultValue` | `string`                                  | `'#000000'` | Initial value (uncontrolled)           |
+| `onChange`     | `(event: React.ChangeEvent<HTMLInputElement>) => void` | - | Native change handler           |
+
+Also supports standard `input` props (for example `className`, `aria-*`, `name`, …).
+
+## Examples
+
+### size
+
+<Size />
+
+### Without Preview
+
+<WithoutPreview />
+
+### Full Width
+
+<FullWidth />
+
+### With Helper Text
+
+<WithHelperText />
+
+### Error State
+
+<ErrorState />
+
+### Disabled
+
+<Disabled />
+
+### Required
+
+<Required />
+
+### With Callback
+
+<WithCallback />
+
+### Multiple Colors
+
+<MultipleColors />
+
+### Preset Colors
+
+<PresetColors />
+
+## Accessibility
+
+- Uses native `<input type="color">` for the color picker
+- Provides text input for precise hex value entry
+- Supports keyboard navigation:
+  - **Tab**: Move between color picker and hex input
+  - **Enter**: Open native color picker (when focused)
+- Label is properly associated with the inputs
+- Error states are announced to screen readers via `aria-describedby`
+- Color preview provides visual feedback
+- Hex input validates format (supports 3 or 6 character hex codes)
+
+## Best Practices
+
+### Do ✅
+
+- Always provide a label
+- Show the color preview for visual feedback
+- Use `onColorChange` for real-time updates
+- Provide helper text for context
+- Validate hex input format
+- Use in forms with proper validation
+
+### Don't ❌
+
+- Don't rely solely on color to convey information
+- Don't disable without explanation
+- Avoid using without a preview (unless space is limited)
+- Don't forget to handle invalid hex values gracefully
+- Don't use for accessibility-critical features without text alternatives
+
+## Related Components
+
+- **Input** - For general text input
+- **Select** - For predefined color options
