@@ -5,14 +5,28 @@
 @layer starlight, lufa;
 
 /* Fix Starlight CSS conflicts with Lufa DS components */
-:where(.sl-markdown-content) button[class*='_button'] {
+:where(.sl-markdown-content) button[class*='_button'],
+:where(.sl-markdown-content) div[class*='_alert'] {
   all: revert-layer;
 }
 
 :where(.sl-markdown-content) *[class*='_'] {
-  /* Preserve Lufa DS styles */
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
+  /* Preserve Lufa DS styles - force important layout properties */
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  display: revert-layer;
+  flex-direction: revert-layer;
+  align-items: revert-layer;
+  justify-content: revert-layer;
+  gap: revert-layer;
+  padding: revert-layer;
+  margin: revert-layer;
+  border: revert-layer;
+  border-radius: revert-layer;
+  background: revert-layer;
+  background-color: revert-layer;
+  width: revert-layer;
+  max-width: revert-layer;
 }
