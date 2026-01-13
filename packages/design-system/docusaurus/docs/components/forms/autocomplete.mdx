@@ -1,21 +1,41 @@
 ---
-sidebar_position: 10
+sidebar_position: 2
 ---
 
 import { AutoComplete } from '@grasdouble/lufa_design-system';
 
+import {
+  CustomFilter,
+  DisabledOptions,
+  Disabled,
+  ErrorState,
+  FullWidth,
+  LiveDemo,
+  Required,
+  Size,
+  Variant,
+  WithAdornment,
+  WithCallback,
+  WithHelperText,
+} from '../../../src/dsExamples/forms/autocomplete';
+
 # AutoComplete
 
-An autocomplete input component that provides suggestions as users type.
+An autocomplete input component that provides dynamic suggestions as users type, with keyboard navigation and custom filtering support.
 
 ## Overview
 
-Use `AutoComplete` when you need to:
+Use `AutoComplete` when you need…
 
-- Help users find options from a large list
-- Provide search functionality with suggestions
-- Enable keyboard navigation through options
-- Filter options based on user input
+- Help users find options from a large list quickly
+- Search functionality with real-time suggestions
+- Keyboard navigation through filtered options
+- Custom filtering logic for specific use cases
+- Support for disabled options
+
+## Live Demo
+
+<LiveDemo />
 
 ## Import
 
@@ -59,27 +79,87 @@ const options = [
 | `startAdornment`| `ReactNode`                                             | -            | Element to display at the start of input |
 | `endAdornment`  | `ReactNode`                                             | -            | Element to display at the end of input   |
 
+Also supports standard `input` props (for example `className`, `aria-*`, `onChange`, …).
+
+## Examples
+
+### size
+
+<Size />
+
+### variant
+
+<Variant />
+
+### With Adornment
+
+<WithAdornment />
+
+### Full Width
+
+<FullWidth />
+
+### With Helper Text
+
+<WithHelperText />
+
+### Error State
+
+<ErrorState />
+
+### Disabled
+
+<Disabled />
+
+### Required
+
+<Required />
+
+### With Callback
+
+<WithCallback />
+
+### Custom Filter
+
+<CustomFilter />
+
+### Disabled Options
+
+<DisabledOptions />
+
+## Accessibility
+
+- Uses native input for screen reader support
+- Supports keyboard navigation:
+  - **Arrow Down/Up**: Navigate through options
+  - **Enter**: Select highlighted option
+  - **Escape**: Close dropdown
+  - **Tab**: Move to next focusable element
+- Includes proper ARIA attributes (`role="listbox"`, `aria-selected`)
+- Label is associated with the input using `htmlFor`
+- Error states are announced to screen readers via `aria-describedby`
+- Disabled options are properly marked with `aria-disabled`
+
 ## Best Practices
 
 ### Do ✅
 
 - Use clear, concise option labels
 - Provide helpful placeholder text
-- Enable keyboard navigation (ArrowUp, ArrowDown, Enter, Escape)
 - Show the most relevant options first
 - Use helper text to guide users
+- Implement custom filtering for domain-specific searches
+- Mark disabled options appropriately
 
 ### Don't ❌
 
 - Don't use for fewer than 5 options (use Select instead)
 - Don't disable keyboard navigation
 - Avoid using without a label for accessibility
-- Don't make option labels too long
+- Don't make option labels too long (truncate if necessary)
+- Don't implement without proper filtering logic
 
-## Accessibility
+## Related Components
 
-- Uses native input for screen reader support
-- Supports keyboard navigation (Arrow keys, Enter, Escape)
-- Includes proper ARIA attributes
-- Label is associated with the input using `htmlFor`
-- Error states are announced to screen readers
+- **Input** - For simple text input without suggestions
+- **Select** - For smaller, predefined option sets

@@ -1,0 +1,171 @@
+---
+sidebar_position: 5
+---
+
+import { DatePicker } from '@grasdouble/lufa_design-system';
+
+import {
+  DateRange,
+  Disabled,
+  ErrorState,
+  FormExample,
+  FullWidth,
+  LiveDemo,
+  Required,
+  Size,
+  Variant,
+  WithCallback,
+  WithDefaultValue,
+  WithHelperText,
+  WithMinMax,
+  WithTime,
+} from '../../../src/dsExamples/forms/datepicker';
+
+# DatePicker
+
+A date picker component that uses the native date/datetime input with consistent styling and full form integration.
+
+## Overview
+
+Use `DatePicker` when you need…
+
+- Date selection with calendar interface
+- Date and time selection combined
+- Date range constraints (min/max)
+- Form-friendly date input
+- Native platform date picker behavior
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { DatePicker } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+<DatePicker label="Select Date" placeholder="Choose a date" />
+
+<DatePicker
+  label="Event Date"
+  value={date}
+  onChange={(e) => setDate(e.target.value)}
+/>
+```
+
+## Props
+
+| Prop          | Type                                      | Default      | Description                          |
+| ------------- | ----------------------------------------- | ------------ | ------------------------------------ |
+| `label`       | `string`                                  | -            | Label text above the input           |
+| `size`        | `'small' \| 'medium' \| 'large'`          | `'medium'`   | Size of the input                    |
+| `variant`     | `'outlined' \| 'filled'`                  | `'outlined'` | Visual style variant                 |
+| `fullWidth`   | `boolean`                                 | `false`      | Makes the input take full width      |
+| `showTime`    | `boolean`                                 | `false`      | Shows datetime picker instead of date|
+| `min`         | `string`                                  | -            | Minimum selectable date (ISO format) |
+| `max`         | `string`                                  | -            | Maximum selectable date (ISO format) |
+| `error`       | `string`                                  | -            | Error message to display             |
+| `helperText`  | `string`                                  | -            | Helper text below the input          |
+| `disabled`    | `boolean`                                 | `false`      | Disables the input                   |
+| `required`    | `boolean`                                 | `false`      | Marks the field as required          |
+| `value`       | `string`                                  | -            | Controlled value (ISO date string)   |
+| `defaultValue`| `string`                                  | -            | Initial value (uncontrolled)         |
+| `onChange`    | `(event: React.ChangeEvent<HTMLInputElement>) => void` | - | Change handler            |
+
+Also supports standard `input[type="date"]` or `input[type="datetime-local"]` props (for example `className`, `aria-*`, `name`, …).
+
+## Examples
+
+### size
+
+<Size />
+
+### variant
+
+<Variant />
+
+### With Time
+
+<WithTime />
+
+### With Default Value
+
+<WithDefaultValue />
+
+### With Min/Max
+
+<WithMinMax />
+
+### Full Width
+
+<FullWidth />
+
+### With Helper Text
+
+<WithHelperText />
+
+### Error State
+
+<ErrorState />
+
+### Disabled
+
+<Disabled />
+
+### Required
+
+<Required />
+
+### With Callback
+
+<WithCallback />
+
+### Date Range
+
+<DateRange />
+
+### Form Example
+
+<FormExample />
+
+## Accessibility
+
+- Uses native `<input type="date">` or `<input type="datetime-local">`
+- Supports keyboard navigation:
+  - **Tab**: Move to the input
+  - **Enter/Space**: Open native date picker
+  - **Arrow keys**: Navigate dates in picker
+  - **Escape**: Close picker
+- Label is properly associated with the input
+- Error states are announced to screen readers via `aria-describedby`
+- Min/max constraints are enforced by the browser
+- Native date picker provides localized date format
+
+## Best Practices
+
+### Do ✅
+
+- Always provide a label
+- Use `min` and `max` to constrain valid date ranges
+- Provide helpful placeholder or helper text
+- Use ISO date format (YYYY-MM-DD) for values
+- Handle timezone appropriately for datetime inputs
+- Use `showTime` when both date and time are needed
+
+### Don't ❌
+
+- Don't rely on placeholder alone (always include a label)
+- Don't disable without explanation
+- Avoid complex date constraints without helper text
+- Don't forget to validate date ranges in your logic
+- Don't use for far-future or far-past dates (consider text input with validation)
+- Don't assume specific date format (it varies by locale)
+
+## Related Components
+
+- **Input** - For general text input
+- **TimePicker** - For time-only selection (if available)
