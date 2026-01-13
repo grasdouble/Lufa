@@ -1,1 +1,18 @@
-@import '@grasdouble/lufa_design-system/style.css';
+/* Import Lufa Design System CSS with higher specificity */
+@import '@grasdouble/lufa_design-system/style.css' layer(lufa);
+
+/* Ensure Lufa Design System styles take precedence over Starlight */
+@layer starlight, lufa;
+
+/* Fix Starlight CSS conflicts with Lufa DS components */
+:where(.sl-markdown-content) button[class*='_button'] {
+  all: revert-layer;
+}
+
+:where(.sl-markdown-content) *[class*='_'] {
+  /* Preserve Lufa DS styles */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
