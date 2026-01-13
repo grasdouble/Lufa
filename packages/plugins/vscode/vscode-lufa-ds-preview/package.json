@@ -71,7 +71,7 @@
     "@grasdouble/lufa_config_prettier": "workspace:^",
     "@secretlint/secretlint-rule-no-dotenv": "^11.2.5",
     "@secretlint/secretlint-rule-preset-recommend": "^11.2.5",
-    "@types/node": "^22.19.5",
+    "@types/node": "^25.0.6",
     "@types/vscode": "^1.108.1",
     "@vitest/coverage-v8": "^2.1.9",
     "@vscode/vsce": "^3.7.1",
