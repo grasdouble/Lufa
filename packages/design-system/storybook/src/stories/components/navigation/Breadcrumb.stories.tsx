@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Breadcrumb, Container, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Navigation/Breadcrumb',
@@ -26,7 +27,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const HomeIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+  <svg width={tokens.iconSize.xs} height={tokens.iconSize.xs} viewBox="0 0 20 20" fill="currentColor" aria-hidden>
     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
   </svg>
 );
@@ -56,21 +57,45 @@ export const Sizes: Story = {
   render: () => (
     <Stack gap="spacious">
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Small</h4>
+        <h4
+          style={{
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
+          Small
+        </h4>
         <Breadcrumb
           size="small"
           items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Current Page' }]}
         />
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Medium (Default)</h4>
+        <h4
+          style={{
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
+          Medium (Default)
+        </h4>
         <Breadcrumb
           size="medium"
           items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Current Page' }]}
         />
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Large</h4>
+        <h4
+          style={{
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
+          Large
+        </h4>
         <Breadcrumb
           size="large"
           items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Current Page' }]}
@@ -84,21 +109,45 @@ export const CustomSeparator: Story = {
   render: () => (
     <Stack gap="spacious">
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Arrow Separator</h4>
+        <h4
+          style={{
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
+          Arrow Separator
+        </h4>
         <Breadcrumb
           separator="→"
           items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Current Page' }]}
         />
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Chevron Separator</h4>
+        <h4
+          style={{
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
+          Chevron Separator
+        </h4>
         <Breadcrumb
           separator="›"
           items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Current Page' }]}
         />
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Dot Separator</h4>
+        <h4
+          style={{
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
+          Dot Separator
+        </h4>
         <Breadcrumb
           separator="•"
           items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Current Page' }]}

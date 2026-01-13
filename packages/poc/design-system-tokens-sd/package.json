@@ -1,7 +1,7 @@
 {
   "name": "@grasdouble/lufa_poc_design-system-tokens-sd",
-  "version": "0.2.0",
-  "private": false,
+  "version": "0.2.1",
+  "private": true,
   "description": "Lufa Design System tokens using Style Dictionary",
   "keywords": [
     "design-tokens",
@@ -28,7 +28,7 @@
     "clean": "rm -rf dist"
   },
   "devDependencies": {
-    "style-dictionary": "^5.1.1",
+    "style-dictionary": "^5.1.3",
     "typescript": "^5.9.3"
   }
 }

@@ -1,0 +1,69 @@
+@layer components {
+  /* ========================================
+     TEXT VARIANT - Using CSS Variables
+     ======================================== */
+
+  .variantText {
+    @apply border-transparent shadow-none;
+    @apply h-auto px-sm py-xs rounded-md;
+    @apply justify-start inline-flex;
+    width: fit-content;
+    min-width: unset;
+    color: var(--btn-color);
+  }
+
+  .variantText:is(
+    :focus-visible:not(:disabled),
+    :hover:not(:disabled),
+    [data-test-state='focus'],
+    [data-test-state='hover']
+  ) {
+    background: var(--btn-bg-hover);
+    transform: scale(1.02);
+  }
+
+  .variantText:disabled {
+    color: var(--btn-color-disabled);
+  }
+
+  .variantText:is(:focus-visible, [data-test-state='focus']) {
+    outline: var(--btn-outline);
+    outline-offset: var(--btn-outline-offset);
+  }
+
+  /* Text Colors - Variable Assignments */
+  .variantText.colorPrimary {
+    --btn-color: theme(colors.interactive.default);
+    --btn-bg-hover: theme(colors.interactive.focus);
+    --btn-color-disabled: theme(colors.interactive.disabled);
+    --btn-outline: 1px solid theme(colors.interactive.focus);
+  }
+
+  .variantText.colorSecondary {
+    --btn-color: theme(colors.text.secondary);
+    --btn-bg-hover: theme(colors.background.secondary);
+    --btn-color-disabled: theme(colors.text.disabled);
+    --btn-outline: 1px solid theme(colors.text.secondary);
+  }
+
+  .variantText.colorSuccess {
+    --btn-color: theme(colors.success.text);
+    --btn-bg-hover: theme(colors.success.lighter);
+    --btn-color-disabled: theme(colors.success.lighter);
+    --btn-outline: 1px solid theme(colors.success.default);
+  }
+
+  .variantText.colorWarning {
+    --btn-color: theme(colors.warning.text);
+    --btn-bg-hover: theme(colors.warning.lighter);
+    --btn-color-disabled: theme(colors.warning.lighter);
+    --btn-outline: 1px solid theme(colors.warning.default);
+  }
+
+  .variantText.colorDanger {
+    --btn-color: theme(colors.error.text);
+    --btn-bg-hover: theme(colors.error.lighter);
+    --btn-color-disabled: theme(colors.error.lighter);
+    --btn-outline: 1px solid theme(colors.error.default);
+  }
+}

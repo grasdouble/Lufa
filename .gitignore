@@ -1,5 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# OS
+.DS_Store
+Thumbs.db
+
 # dependencies
 node_modules
 .pnp
@@ -13,7 +17,9 @@ coverage
 *.pem
 
 # debug
+*.log
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
@@ -26,12 +32,21 @@ yarn-error.log*
 .env.production
 .env.production.local
 
+# AI coding agents - secrets and local configs
+# Note: config.toml is committed (no secrets, uses env vars)
+# Add any local override files here if needed
+config.local.toml
+
 # storybook
 storybook-static
 
 # outputs
 dist
+*.vsix
 
 # IDE artifacts
 .dependencygraph/
 
+# Temporary files
+*.tmp
+.eslintcache

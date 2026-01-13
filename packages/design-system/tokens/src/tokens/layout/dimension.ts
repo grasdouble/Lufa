@@ -14,43 +14,43 @@
  * - Values based on spacing and maxWidths primitives
  */
 
-import { maxWidth as primitiveMaxWidth, spacing as primitiveSpacing } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const dimension = {
   // Navigation heights
-  navbarHeightCompact: primitiveSpacing[48],
-  navbarHeightDefault: primitiveSpacing[64],
-  navbarHeightLarge: primitiveSpacing[72],
+  navbarHeightCompact: primitives.spacing[48],
+  navbarHeightDefault: primitives.spacing[64],
+  navbarHeightLarge: primitives.spacing[72],
 
   // Sidebar widths
-  sidebarWidthCollapsed: primitiveSpacing[64],
-  sidebarWidthDefault: primitiveMaxWidth[256],
-  sidebarWidthWide: primitiveMaxWidth[320],
+  sidebarWidthCollapsed: primitives.spacing[64],
+  sidebarWidthDefault: primitives.maxWidth[256],
+  sidebarWidthWide: primitives.maxWidth[320],
 
   // Footer heights
-  footerHeightCompact: primitiveSpacing[48],
-  footerHeightDefault: primitiveSpacing[64],
-  footerHeightLarge: primitiveSpacing[96],
+  footerHeightCompact: primitives.spacing[48],
+  footerHeightDefault: primitives.spacing[64],
+  footerHeightLarge: primitives.spacing[96],
 
   // Button heights
-  buttonHeightSmall: primitiveSpacing[32],
-  buttonHeightDefault: primitiveSpacing[40],
-  buttonHeightLarge: primitiveSpacing[48],
+  buttonHeightSmall: primitives.spacing[32],
+  buttonHeightDefault: primitives.spacing[40],
+  buttonHeightLarge: primitives.spacing[48],
 
   // Input heights
-  inputHeightSmall: primitiveSpacing[32],
-  inputHeightDefault: primitiveSpacing[40],
-  inputHeightLarge: primitiveSpacing[48],
+  inputHeightSmall: primitives.spacing[32],
+  inputHeightDefault: primitives.spacing[40],
+  inputHeightLarge: primitives.spacing[48],
 
   // Card/Panel minimum widths
   cardMinWidth: '280px', // Custom value between 256 and 288
-  cardDefaultWidth: primitiveMaxWidth[360],
+  cardDefaultWidth: primitives.maxWidth[360],
 
   // Modal widths
-  modalWidthSmall: primitiveMaxWidth[400],
-  modalWidthDefault: primitiveMaxWidth[600],
-  modalWidthLarge: primitiveMaxWidth[800],
-  modalWidthFullWidth: primitiveMaxWidth[1200],
+  modalWidthSmall: primitives.maxWidth[400],
+  modalWidthDefault: primitives.maxWidth[600],
+  modalWidthLarge: primitives.maxWidth[800],
+  modalWidthFullWidth: primitives.maxWidth[1200],
 } as const;
 
 export type Dimension = keyof typeof dimension;

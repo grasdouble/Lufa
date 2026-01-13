@@ -8,10 +8,8 @@ import {
   LAYOUT_SIDEBAR_WIDTH,
   Placeholder,
   Stack,
-  tokens,
 } from '@grasdouble/lufa_design-system';
-
-const { color } = tokens;
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/Layout',
@@ -57,14 +55,14 @@ export const Playground: Story = {
       <Layout
         {...args}
         style={{
-          backgroundColor: color.background.secondary,
-          border: `1px solid ${color.border.light}`,
-          borderRadius: '16px',
-          padding: '16px',
+          backgroundColor: tokens.color.background.secondary,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          borderRadius: tokens.radius.xl,
+          padding: tokens.spacing.base,
         }}
       >
         <Layout.Header>
-          <Placeholder color={color.interactive.default} height="small" width="full">
+          <Placeholder color={tokens.color.interactive.default} height="small" width="full">
             Header
           </Placeholder>
         </Layout.Header>
@@ -72,13 +70,13 @@ export const Playground: Story = {
         {args.sidebar && (
           <Layout.Sidebar>
             <Stack direction="vertical" gap="normal">
-              <Placeholder color={color.background.primary} height="small" width="full">
+              <Placeholder color={tokens.color.background.primary} height="small" width="full">
                 Nav 1
               </Placeholder>
-              <Placeholder color={color.background.primary} height="small" width="full">
+              <Placeholder color={tokens.color.background.primary} height="small" width="full">
                 Nav 2
               </Placeholder>
-              <Placeholder color={color.background.primary} height="small" width="full">
+              <Placeholder color={tokens.color.background.primary} height="small" width="full">
                 Nav 3
               </Placeholder>
             </Stack>
@@ -87,17 +85,17 @@ export const Playground: Story = {
 
         <Layout.Content>
           <Stack direction="vertical" gap="normal">
-            <Placeholder color={color.background.primary} height="large" width="full">
+            <Placeholder color={tokens.color.background.primary} height="large" width="full">
               Content
             </Placeholder>
-            <Placeholder color={color.background.primary} height="medium" width="full">
+            <Placeholder color={tokens.color.background.primary} height="medium" width="full">
               More content
             </Placeholder>
           </Stack>
         </Layout.Content>
 
         <Layout.Footer>
-          <Placeholder color={color.background.primary} height="small" width="full">
+          <Placeholder color={tokens.color.background.primary} height="small" width="full">
             Footer
           </Placeholder>
         </Layout.Footer>
@@ -109,7 +107,7 @@ export const Playground: Story = {
 export const SidebarPositions: Story = {
   render: () => (
     <Container size="xl" paddingX="none">
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: tokens.spacing.lg }}>
         {([LAYOUT_SIDEBAR_POSITION.left, LAYOUT_SIDEBAR_POSITION.right] as const).map((position) => (
           <Layout
             key={position}
@@ -118,32 +116,32 @@ export const SidebarPositions: Story = {
             sidebarWidth={LAYOUT_SIDEBAR_WIDTH.default}
             gap={LAYOUT_GAP.md}
             style={{
-              backgroundColor: color.background.secondary,
-              border: `1px solid ${color.border.light}`,
-              borderRadius: '16px',
-              padding: '16px',
+              backgroundColor: tokens.color.background.secondary,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.xl,
+              padding: tokens.spacing.base,
             }}
           >
             <Layout.Header>
-              <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '8px' }}>
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
                 sidebarPosition: {position}
               </div>
-              <Placeholder color={color.interactive.default} height="small" width="full">
+              <Placeholder color={tokens.color.interactive.default} height="small" width="full">
                 Header
               </Placeholder>
             </Layout.Header>
             <Layout.Sidebar>
-              <Placeholder color={color.background.primary} height="large" width="full">
+              <Placeholder color={tokens.color.background.primary} height="large" width="full">
                 Sidebar
               </Placeholder>
             </Layout.Sidebar>
             <Layout.Content>
-              <Placeholder color={color.background.primary} height="large" width="full">
+              <Placeholder color={tokens.color.background.primary} height="large" width="full">
                 Content
               </Placeholder>
             </Layout.Content>
             <Layout.Footer>
-              <Placeholder color={color.background.primary} height="small" width="full">
+              <Placeholder color={tokens.color.background.primary} height="small" width="full">
                 Footer
               </Placeholder>
             </Layout.Footer>
@@ -166,32 +164,32 @@ export const SidebarWidths: Story = {
             sidebarWidth={width}
             gap={LAYOUT_GAP.md}
             style={{
-              backgroundColor: color.background.secondary,
-              border: `1px solid ${color.border.light}`,
-              borderRadius: '16px',
-              padding: '16px',
+              backgroundColor: tokens.color.background.secondary,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.xl,
+              padding: tokens.spacing.base,
             }}
           >
             <Layout.Header>
-              <div style={{ fontFamily: 'monospace', color: color.text.secondary, marginBottom: '8px' }}>
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
                 sidebarWidth: {width}
               </div>
-              <Placeholder color={color.interactive.default} height="small" width="full">
+              <Placeholder color={tokens.color.interactive.default} height="small" width="full">
                 Header
               </Placeholder>
             </Layout.Header>
             <Layout.Sidebar>
-              <Placeholder color={color.background.primary} height="large" width="full">
+              <Placeholder color={tokens.color.background.primary} height="large" width="full">
                 Sidebar
               </Placeholder>
             </Layout.Sidebar>
             <Layout.Content>
-              <Placeholder color={color.background.primary} height="large" width="full">
+              <Placeholder color={tokens.color.background.primary} height="large" width="full">
                 Content
               </Placeholder>
             </Layout.Content>
             <Layout.Footer>
-              <Placeholder color={color.background.primary} height="small" width="full">
+              <Placeholder color={tokens.color.background.primary} height="small" width="full">
                 Footer
               </Placeholder>
             </Layout.Footer>
@@ -209,24 +207,24 @@ export const WithoutSidebar: Story = {
         sidebar={false}
         gap={LAYOUT_GAP.md}
         style={{
-          backgroundColor: color.background.secondary,
-          border: `1px solid ${color.border.light}`,
-          borderRadius: '16px',
-          padding: '16px',
+          backgroundColor: tokens.color.background.secondary,
+          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          borderRadius: tokens.radius.xl,
+          padding: tokens.spacing.base,
         }}
       >
         <Layout.Header>
-          <Placeholder color={color.interactive.default} height="small" width="full">
+          <Placeholder color={tokens.color.interactive.default} height="small" width="full">
             Header
           </Placeholder>
         </Layout.Header>
         <Layout.Content>
-          <Placeholder color={color.background.primary} height="large" width="full">
+          <Placeholder color={tokens.color.background.primary} height="large" width="full">
             Content
           </Placeholder>
         </Layout.Content>
         <Layout.Footer>
-          <Placeholder color={color.background.primary} height="small" width="full">
+          <Placeholder color={tokens.color.background.primary} height="small" width="full">
             Footer
           </Placeholder>
         </Layout.Footer>

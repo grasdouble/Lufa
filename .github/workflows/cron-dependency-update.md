@@ -185,7 +185,7 @@ Missing or insufficient `PAT_DEPENDENCY_CHECK_UPDATE` permissions cause authenti
 - **Dependencies**:
   - `actions/checkout@v5` – Repository checkout
   - `pnpm/action-setup@v4` – pnpm installation
-  - `actions/setup-node@v4` – Node.js setup with pnpm cache
+  - `actions/setup-node@v6` – Node.js setup with pnpm cache
   - `.github/actions/dependency-update` – Composite action encapsulating pnpm update and reporting
 - **Update Strategy**: Bump action versions periodically, and adjust the cron schedule or runner image if project requirements change.
 - **Testing**: For workflow changes, run `workflow_dispatch` on a feature branch to verify the report generation and commit behavior before merging.

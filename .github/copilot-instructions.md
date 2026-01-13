@@ -1,231 +1,260 @@
-# GitHub Copilot Instructions for Lufa Project
+# GitHub Copilot Instructions
 
-This file contains general instructions and guidelines for GitHub Copilot when working with the Lufa monorepo.
+> 📘 **Primary Documentation**: See [AGENTS.md](../AGENTS.md) for comprehensive development guide.
+
+This file contains GitHub Copilot-specific instructions and references to path-scoped rules. For detailed documentation, always refer to [AGENTS.md](../AGENTS.md).
+
+> ℹ️ **Note on AI Models**: GitHub Copilot uses GPT-4/Codex models. This repository also supports **Claude Code** (via [CLAUDE.md](../CLAUDE.md)) and **OpenAI Codex Extension** (via [config.toml](../config.toml)). See [AGENTS.md - AI Agent Compatibility](../AGENTS.md#-ai-agent-compatibility) for details.
+
+---
 
 ## Project Overview
 
-Lufa is a monorepo containing:
+Lufa is a monorepo with:
+- **Design System** with strict three-layer architecture (primitives → tokens → components)
+- **Microfrontends** using Single-SPA
+- **pnpm workspaces** for package management
+- **Playwright** for component testing
+- **Strict TypeScript** and code quality standards
 
-- **Design System**: Component library with primitives, tokens, themes, and documentation
-- **Microfrontends**: Single-SPA based microfrontend applications
-- **CDN Infrastructure**: Auto-build server for static asset delivery
-- **Shared Configuration**: ESLint, Prettier, and TypeScript configurations
-- **Build Tools**: Vite plugins and build utilities
+**Critical Concept**: Design system components MUST use tokens only and MUST NOT import primitives or hard-code values.
 
-## Technology Stack
+---
 
-### Core Technologies
+## Path-Scoped Instructions
 
-- **Package Manager**: pnpm with workspace support
-- **Build Tool**: Vite
-- **Testing**: Vitest for unit tests, Playwright for E2E tests
-- **Frontend Framework**: React with TypeScript
-- **Styling**: Tailwind CSS
-- **Microfrontend Framework**: Single-SPA
-- **Documentation**: Docusaurus (for design system docs)
-- **Version Management**: Changesets for versioning and publishing
+GitHub Copilot automatically applies these instructions based on file paths:
 
-### Code Quality Tools
+### Design System
+- **[lufa-design-system.instructions.md](instructions/lufa-design-system.instructions.md)**
+  - Applied to: `packages/design-system/**/*.{ts,tsx,css}`
+  - Covers: Three-layer architecture, component patterns, token usage
 
-- **Linting**: ESLint with custom configurations
-- **Formatting**: Prettier
-- **Type Checking**: TypeScript with strict mode
-- **Pre-commit Hooks**: Husky and lint-staged
+### React Components
+- **[reactjs.instructions.md](instructions/reactjs.instructions.md)**
+  - Applied to: `**/*.{jsx,tsx,js,ts,css,scss}`
+  - Covers: React 19+, hooks, functional components, best practices
 
-## General Guidelines
+### Accessibility
+- **[a11y.instructions.md](instructions/a11y.instructions.md)**
+  - Applied to: `**`
+  - Covers: WCAG 2.2 Level AA, keyboard nav, screen readers, ARIA
 
-### Code Organization
+### TypeScript
+- **[typescript-5-es2022.instructions.md](instructions/typescript-5-es2022.instructions.md)**
+  - Applied to: `**/*.ts`
+  - Covers: TypeScript 5.x, ES2022, strict mode, naming conventions
 
-- Follow the existing monorepo structure
-- Keep related code in appropriate packages
-- Maintain clear separation between apps, packages, and configurations
-- Use workspace protocol (`workspace:*`) for internal dependencies
+### Playwright Tests
+- **[playwright-typescript.instructions.md](instructions/playwright-typescript.instructions.md)**
+  - Applied to: `**`
+  - Covers: E2E and component testing, locators, assertions
 
-### Code Style
+### Tailwind CSS
+- **[tailwindcss.instructions.md](instructions/tailwindcss.instructions.md)**
+  - Applied to: `**/*.{jsx,tsx,js,ts,html,css}`
+  - Covers: Utility-first CSS, responsive design, design tokens
 
-- Use TypeScript for all new code
-- Follow existing ESLint and Prettier configurations
-- Use functional components and React hooks
-- Prefer named exports over default exports
-- Use const assertions for constant values
+### Additional Instructions
+- **[performance-optimization.instructions.md](instructions/performance-optimization.instructions.md)**
+- **[markdown.instructions.md](instructions/markdown.instructions.md)**
+- **[nodejs-javascript-vitest.instructions.md](instructions/nodejs-javascript-vitest.instructions.md)**
+- **[github-actions-ci-cd-best-practices.instructions.md](instructions/github-actions-ci-cd-best-practices.instructions.md)**
+- **[ai-prompt-engineering-safety-best-practices.instructions.md](instructions/ai-prompt-engineering-safety-best-practices.instructions.md)**
+- **[update-docs-on-code-change.instructions.md](instructions/update-docs-on-code-change.instructions.md)**
+- **[multi-agent-documentation-maintenance.instructions.md](instructions/multi-agent-documentation-maintenance.instructions.md)**
+
+---
+
+## Project-Specific Conventions
+
+### Critical Design System Rules
+
+1. **Three-Layer Architecture** (see [AGENTS.md - Design System Architecture](../AGENTS.md#design-system-three-layer-architecture))
+   - **Layer 1: Primitives** - Raw values (`spacing[16]`, `blue[600]`)
+   - **Layer 2: Tokens** - Semantic names (`primary`, `compact`)
+   - **Layer 3: Components** - React components using TOKENS only
+
+2. **Import Rules**
+   ```typescript
+   // ✅ CORRECT - Components import tokens
+   import { color, spacing } from '@grasdouble/lufa_design-system-tokens';
+
+   // ❌ WRONG - Components MUST NOT import primitives
+   import { spacing } from '@grasdouble/lufa_design-system-primitives';
+
+   // ❌ WRONG - Never hard-code values
+   const styles = { padding: '16px' };
+   ```
+
+3. **Build Order Matters**
+   ```bash
+   pnpm ds:tokens:build       # 1. First!
+   pnpm ds:primitives:build   # 2. Then primitives
+   pnpm ds:main:build         # 3. Then components
+   pnpm ds:storybook:build    # 4. Finally Storybook
+   ```
+
+### Monorepo Conventions
+
+- Use `pnpm` for all package management
+- Use `--filter` flag for package-specific commands
+- Internal dependencies use `workspace:^` protocol
+- All published packages use `@grasdouble/` scope
+
+### Component Standards
+
+- Functional components with hooks only
+- TypeScript interfaces with JSDoc documentation
+- Set `displayName` on all components
+- Use `ComponentPropsWithoutRef<'element'>` for HTML props
+- WCAG 2.1 AA accessibility required
+- Playwright component tests required
 
 ### Testing Strategy
 
-- Write tests alongside implementation
-- Use Vitest for unit and integration tests
-- Use Playwright for E2E tests
-- Follow TDD principles when appropriate
-- Ensure all tests pass before committing
+- **Playwright Component Tests** for design system components
+  - File location: Co-located with components as `*.spec.tsx`
+  - Import: `@playwright/experimental-ct-react`
+  - Run: `pnpm --filter @grasdouble/lufa_design-system test-ct`
 
-### Version Management
+### Commit Conventions
 
-- Use changesets for tracking changes
-- Follow semantic versioning (semver)
-- Write clear, descriptive changelogs
-- See [How-to-use-changeset-in-Lufa.md](../docs/howto/How-to-use-changeset-in-Lufa.md)
+- Follow [Conventional Commits](https://www.conventionalcommits.org/)
+  - `feat(design-system): add Button variants`
+  - `fix(microfrontend): resolve routing issue`
+  - `docs: update AGENTS.md`
+  - `chore: add changeset`
+- Create changesets for all user-facing changes: `pnpm changeset`
 
-### Git Workflow
+---
 
-- Work on feature branches
-- Write clear, descriptive commit messages
-- Reference issue numbers in commits when applicable
-- Keep commits atomic and focused
-
-## Context-Specific Instructions
-
-### When Working with Design System
-
-- Follow [lufa-design-system.instructions.md](instructions/lufa-design-system.instructions.md)
-- Ensure component accessibility
-- Maintain design token consistency
-- Update Storybook stories for new components
-- Document components in Docusaurus
-
-### When Writing React Code
-
-- Follow [reactjs.instructions.md](instructions/reactjs.instructions.md)
-- Use TypeScript with proper type definitions
-- Implement proper error boundaries
-- Optimize for performance (memoization, lazy loading)
-- Follow React best practices and hooks rules
-
-### When Using Tailwind CSS
-
-- Follow [tailwindcss.instructions.md](instructions/tailwindcss.instructions.md)
-- Use design system tokens when available
-- Maintain consistent spacing and sizing
-- Avoid inline styles; use Tailwind utilities
-- Create custom utilities only when necessary
-
-### When Writing Tests
-
-- For Playwright tests: Follow [playwright-typescript.instructions.md](instructions/playwright-typescript.instructions.md)
-- For JavaScript/Node.js tests: Follow [nodejs-javascript-vitest.instructions.md](instructions/nodejs-javascript-vitest.instructions.md)
-- Write tests that are clear, maintainable, and reliable
-- Use descriptive test names
-- Mock external dependencies appropriately
-
-### When Working with Microfrontends
-
-- Understand Single-SPA architecture
-- Maintain proper routing configuration
-- Ensure proper loading and error handling
-- Keep microfrontends independent
-- Document integration points
-
-### When Modifying Build Configuration
-
-- Test changes locally before committing
-- Update documentation if configuration changes affect usage
-- Ensure backwards compatibility when possible
-- Consider impact on all packages in monorepo
-
-## File Naming Conventions
-
-- **Components**: PascalCase (e.g., `Button.tsx`, `TextField.tsx`)
-- **Utilities**: camelCase (e.g., `formatDate.ts`, `validateEmail.ts`)
-- **Tests**: Match source file with `.test.ts` or `.spec.ts` suffix
-- **Styles**: Match component name or use `index.css`
-- **Configuration**: Use standard names (e.g., `vite.config.ts`, `tsconfig.json`)
-
-## Import Organization
-
-Order imports as follows:
-
-1. External dependencies (React, third-party libraries)
-2. Internal packages (workspace dependencies)
-3. Relative imports from parent directories
-4. Relative imports from same directory
-5. Type imports (grouped separately with `import type`)
-6. Style imports (CSS/SCSS files last)
-
-## Documentation
-
-- Update README files when adding new features or packages
-- Document complex logic with inline comments
-- Maintain changelog using changesets
-- Update Docusaurus docs for design system changes
-- Keep documentation in sync with code
-
-## Security Considerations
-
-- Never commit sensitive data (API keys, secrets, credentials)
-- Validate and sanitize user inputs
-- Follow OWASP security best practices
-- Keep dependencies updated and audit regularly
-- Use environment variables for configuration
-
-## Performance Guidelines
-
-- Optimize bundle sizes
-- Implement code splitting and lazy loading
-- Use proper caching strategies
-- Minimize re-renders in React components
-- Optimize images and assets
-
-## Accessibility
-
-- Follow WCAG 2.1 AA standards
-- Use semantic HTML
-- Ensure keyboard navigation
-- Provide proper ARIA labels
-- Test with screen readers
-
-## Common Commands
-
-### Development
+## Quick Commands
 
 ```bash
-# Install dependencies
-pnpm install
+# Setup
+pnpm install              # Install all dependencies
+pnpm all:build            # Build all packages (required first time)
 
-# Run development server
-pnpm dev
+# Development
+pnpm ds:storybook:dev     # Design system with Storybook (:6006)
+pnpm app:mf:dev           # Microfrontends (:3000 + :3001)
+pnpm ds:main:dev          # Design system watch mode
 
-# Build all packages
-pnpm build
+# Build (CRITICAL: order matters for design system!)
+pnpm ds:all:build         # Design system (correct order)
+pnpm all:build            # Everything
 
-# Run tests
-pnpm test
+# Quality Checks
+pnpm all:lint             # Lint all packages
+pnpm all:prettier         # Format all packages
 
-# Lint code
-pnpm lint
+# Testing
+pnpm --filter @grasdouble/lufa_design-system test-ct
 
-# Format code
-pnpm format
+# Version Management
+pnpm changeset            # Create changeset for releases
 ```
 
-### Changesets
+### Working with Specific Packages
 
 ```bash
-# Create a changeset
-pnpm changeset
+# Find packages
+pnpm list --recursive --depth 0
 
-# Version packages
-pnpm changeset version
+# Filter commands
+pnpm --filter @grasdouble/lufa_design-system [command]
+pnpm --filter @grasdouble/lufa_design-system add clsx
+pnpm --filter @grasdouble/lufa_design-system build
 
-# Publish packages
-pnpm changeset publish
+# Pattern matching (all design system packages)
+pnpm --filter @grasdouble/lufa_design-system-* build
 ```
 
-## Agents and Specialized Instructions
+---
 
-For specialized tasks, refer to agent-specific instructions:
+## Common Patterns
 
-- **TDD Refactoring**: [tdd-refactor.agent.md](agents/tdd-refactor.agent.md)
+### Creating a Design System Component
+
+```typescript
+// 1. Import tokens (never primitives!)
+import type { ComponentPropsWithoutRef } from 'react';
+import { clsx } from 'clsx';
+import { color, spacing } from '@grasdouble/lufa_design-system-tokens';
+
+// 2. Define props interface
+export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
+  variant?: 'primary' | 'secondary';
+  children: React.ReactNode;
+}
+
+// 3. Implement component
+export const Button = ({ variant = 'primary', children, ...props }: ButtonProps) => (
+  <button className={clsx('btn', `btn-${variant}`)} {...props}>
+    {children}
+  </button>
+);
+
+// 4. Set displayName
+Button.displayName = 'Button';
+```
+
+### Writing Playwright Component Tests
+
+```typescript
+import { test, expect } from '@playwright/experimental-ct-react';
+import { Button } from './Button';
+
+test('button renders correctly', async ({ mount }) => {
+  const component = await mount(<Button>Click me</Button>);
+  await expect(component).toContainText('Click me');
+});
+```
+
+---
+
+## Troubleshooting Quick Reference
+
+| Issue | Solution |
+|-------|----------|
+| Build fails | `pnpm ds:all:build` (order matters!) |
+| Cannot find module @grasdouble/lufa_design-system-tokens | `pnpm ds:tokens:build` |
+| TypeScript errors in components | `pnpm ds:all:build` (wrong build order) |
+| Component not in Storybook | Export from `packages/design-system/main/src/index.ts` |
+
+---
 
 ## Additional Resources
 
-- **Contributing Guide**: [CONTRIBUTING.md](../CONTRIBUTING.md)
-- **License**: [LICENSE.md](../LICENSE.md)
-- **Project Documentation**: [docs/](../docs/)
-- **TODOs and Planning**: [docs/todos/](../docs/todos/)
+For comprehensive documentation, see:
 
-## Notes for GitHub Copilot
+- **[AGENTS.md](../AGENTS.md)** - Complete development guide
+  - Project overview and architecture
+  - Detailed workflows and patterns
+  - Code examples and common mistakes
+  - Troubleshooting guides
 
-- Always check for existing patterns before creating new ones
-- Respect the monorepo structure and dependencies
-- Follow the principle of least surprise
-- Write self-documenting code
-- When in doubt, favor clarity over cleverness
-- Consider the impact on other packages in the workspace
+- **[CLAUDE.md](../CLAUDE.md)** - Quick reference
+
+- **[CONTRIBUTING.md](../CONTRIBUTING.md)** - Contribution workflow
+
+- **[.github/instructions/](instructions/)** - Technology-specific instructions (auto-applied)
+
+- **[.github/prompts/](prompts/)** - Reusable AI prompts
+
+- **[docs/howto/](../docs/howto/)** - How-to guides
+
+---
+
+## Key Takeaways
+
+1. **Three-layer architecture is critical** - Components use tokens only
+2. **Build order matters** - tokens → primitives → main → storybook
+3. **Testing is required** - All components need Playwright tests
+4. **Use path-scoped instructions** - Check `.github/instructions/` for specific guidance
+5. **Refer to AGENTS.md** - Comprehensive documentation lives there
+
+---
+
+**For complete documentation, always refer to [AGENTS.md](../AGENTS.md)**.

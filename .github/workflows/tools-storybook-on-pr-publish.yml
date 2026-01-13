@@ -27,7 +27,7 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Step 2: Install pnpm
       - name: Install pnpm
@@ -35,9 +35,9 @@ jobs:
 
       # Step 3: Set up Node.js
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '23'
+          node-version-file: .tool-versions
           cache: 'pnpm'
 
       # Step 4: Install dependencies
@@ -62,7 +62,7 @@ jobs:
 
       # Step 9: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./packages/design-system/storybook/storybook-static
@@ -71,7 +71,7 @@ jobs:
           cname: ''
 
       - name: Add comment with Storybook link
-        uses: peter-evans/create-or-update-comment@v4
+        uses: peter-evans/create-or-update-comment@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}

@@ -26,7 +26,7 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Step 2: Install pnpm
       - name: Install pnpm
@@ -34,9 +34,9 @@ jobs:
 
       # Step 3: Set up Node.js
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '23'
+          node-version-file: .tool-versions
           cache: 'pnpm'
 
       # Step 4: Install dependencies
@@ -55,19 +55,19 @@ jobs:
       - name: Build Lufa Design System
         run: pnpm ds:main:build
 
-      # Step 8: Build Lufa Design System Documentation
-      - name: Build Lufa Design System Documentation
-        run: pnpm ds:documentation:build
+      # Step 8: Build Lufa Design System Docusaurus
+      - name: Build Lufa Design System Docusaurus
+        run: pnpm ds:docusaurus:build
       # Step 9: Deploy to GitHub Pages
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.STORYBOOK_FTP_URL }}
           port: ${{ secrets.STORYBOOK_FTP_PORT }}
           protocol: ${{ secrets.STORYBOOK_FTP_PROTOCOL }}
           username: ${{ secrets.STORYBOOK_FTP_LOGIN }}
           password: ${{ secrets.STORYBOOK_FTP_PWD }}
-          local-dir: ./packages/design-system/documentation/build/
+          local-dir: ./packages/design-system/docusaurus/build/
           exclude: |
             **/.git*
             **/.git*/**

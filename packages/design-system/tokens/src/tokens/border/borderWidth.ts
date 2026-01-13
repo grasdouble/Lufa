@@ -11,21 +11,21 @@
  * - 3px recommended for better visibility
  */
 
-import { borderWidth as primitiveBorderWidth } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const borderWidth = {
   /** 0px - No border */
-  none: primitiveBorderWidth[0],
+  none: primitives.borderWidth[0],
   /** 1px - Hairline border (default) */
-  hairline: primitiveBorderWidth[1],
+  hairline: primitives.borderWidth[1],
   /** 2px - Thin border (WCAG minimum for focus) */
-  thin: primitiveBorderWidth[2],
+  thin: primitives.borderWidth[2],
   /** 3px - Focus indicator (recommended) */
-  focus: primitiveBorderWidth[3],
+  focus: primitives.borderWidth[3],
   /** 4px - Thick border (emphasis) */
-  thick: primitiveBorderWidth[4],
+  thick: primitives.borderWidth[4],
   /** 8px - Extra thick border (decorative) */
-  extraThick: primitiveBorderWidth[8],
+  extraThick: primitives.borderWidth[8],
 } as const;
 
 export type BorderWidth = keyof typeof borderWidth;

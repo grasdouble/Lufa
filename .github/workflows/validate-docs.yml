@@ -1,0 +1,41 @@
+name: Validate AI Documentation
+
+on:
+  pull_request:
+    paths:
+      - 'AGENTS.md'
+      - 'CLAUDE.md'
+      - '.github/copilot-instructions.md'
+      - '.github/instructions/**/*.instructions.md'
+      - 'config.toml'
+      - 'scripts/validate-ai-docs.sh'
+  push:
+    branches:
+      - main
+    paths:
+      - 'AGENTS.md'
+      - 'CLAUDE.md'
+      - '.github/copilot-instructions.md'
+      - '.github/instructions/**/*.instructions.md'
+      - 'config.toml'
+      - 'scripts/validate-ai-docs.sh'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  validate:
+    name: Validate Documentation Consistency
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Run validation script
+        run: bash scripts/validate-ai-docs.sh
+
+      - name: Report status
+        if: failure()
+        run: |
+          echo "::error::AI documentation validation failed. Please fix the errors above."
+          echo "Run 'pnpm validate:docs' locally to reproduce the errors."
+          exit 1

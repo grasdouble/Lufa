@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/cdn_autobuild-server",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": false,
   "description": "Self-fed CDN from npm packages",
   "type": "module",
@@ -25,7 +25,7 @@
     "preview": "dotenvx run --env-file=.env.production --env-file=.env -- node dist/index.cjs"
   },
   "dependencies": {
-    "@dotenvx/dotenvx": "^1.51.2",
+    "@dotenvx/dotenvx": "^1.51.4",
     "cors": "^2.8.5",
     "escape-html": "^1.0.3",
     "express": "^5.2.1",
@@ -43,7 +43,7 @@
     "@types/escape-html": "^1.0.4",
     "@types/express": "^5.0.6",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^24.10.4",
+    "@types/node": "^25.0.6",
     "@types/pacote": "^11.1.8",
     "esbuild": "^0.27.2",
     "eslint": "^9.39.2",
@@ -52,7 +52,7 @@
     "prettier-plugin-packagejson": "^2.5.20",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.50.0"
+    "typescript-eslint": "^8.52.0"
   },
   "engines": {
     "node": ">=18"

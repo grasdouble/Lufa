@@ -13,23 +13,23 @@
  * - Avoid opacity < 0.9 on text to maintain WCAG compliance
  */
 
-import { opacity as primitiveOpacity } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const opacity = {
   /** 0 - Fully transparent (invisible) */
-  invisible: primitiveOpacity[0],
+  invisible: primitives.opacity[0],
   /** 0.1 - Very subtle tint (decorative only) */
-  subtle: primitiveOpacity[10],
+  subtle: primitives.opacity[10],
   /** 0.25 - Light overlay (backgrounds only) */
-  light: primitiveOpacity[25],
+  light: primitives.opacity[25],
   /** 0.5 - Medium transparency (WARNING: may fail WCAG for text) */
-  medium: primitiveOpacity[50],
+  medium: primitives.opacity[50],
   /** 0.75 - Disabled state (CAUTION: verify contrast ratios) */
-  disabled: primitiveOpacity[75],
+  disabled: primitives.opacity[75],
   /** 0.9 - Slightly transparent (safe for text if base color meets WCAG) */
-  faint: primitiveOpacity[90],
+  faint: primitives.opacity[90],
   /** 1 - Fully opaque */
-  full: primitiveOpacity[100],
+  full: primitives.opacity[100],
 } as const;
 
 export type Opacity = keyof typeof opacity;

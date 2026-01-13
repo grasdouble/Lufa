@@ -37,25 +37,25 @@
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html|WCAG 2.1 - Non-text Content}
  */
 
-import { aspectRatio as primitiveAspectRatio } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 export const aspectRatio = {
   /** 1:1 - Square (profile pictures, thumbnails) */
-  square: primitiveAspectRatio.square,
+  square: primitives.aspectRatio.square,
   /** 4:3 - Traditional (presentations, older displays) */
-  traditional: primitiveAspectRatio.traditionalPhotoMonitor,
+  traditional: primitives.aspectRatio.traditionalPhotoMonitor,
   /** 3:2 - Classic photography */
-  photo: primitiveAspectRatio.classicPhotography,
+  photo: primitives.aspectRatio.classicPhotography,
   /** 16:9 - Widescreen video (YouTube, modern displays) */
-  video: primitiveAspectRatio.widescreenVideo,
+  video: primitives.aspectRatio.widescreenVideo,
   /** 21:9 - Ultrawide (cinematic, banner images) */
-  ultrawide: primitiveAspectRatio.ultrawide,
+  ultrawide: primitives.aspectRatio.ultrawide,
   /** 9:16 - Vertical video (Instagram stories, TikTok) */
-  vertical: primitiveAspectRatio.vertical,
+  vertical: primitives.aspectRatio.vertical,
   /** 2:3 - Portrait photography */
-  portrait: primitiveAspectRatio.portraitPhoto,
+  portrait: primitives.aspectRatio.portraitPhoto,
   /** 3:4 - Portrait display */
-  portraitDisplay: primitiveAspectRatio.portraitDisplay,
+  portraitDisplay: primitives.aspectRatio.portraitDisplay,
 } as const;
 
 export type AspectRatio = keyof typeof aspectRatio;

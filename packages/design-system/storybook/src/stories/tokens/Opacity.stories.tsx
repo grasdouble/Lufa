@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { opacity } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Opacity',
@@ -17,7 +17,7 @@ export const Overview: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1000px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Opacity Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Standardized opacity values for overlays, disabled states, and visual hierarchy. Use with caution on text to
         maintain WCAG 2.1 contrast requirements.
       </p>
@@ -30,14 +30,14 @@ export const Overview: Story = {
           marginBottom: '40px',
         }}
       >
-        {Object.entries(opacity).map(([key, value]) => (
+        {Object.entries(tokens.opacity).map(([key, value]) => (
           <div key={key}>
             <div
               style={{
                 position: 'relative',
                 width: '100%',
                 height: '120px',
-                backgroundColor: '#E5E5E5',
+                backgroundColor: tokens.color.border.light,
                 borderRadius: '8px',
                 overflow: 'hidden',
               }}
@@ -46,19 +46,19 @@ export const Overview: Story = {
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  backgroundColor: '#3B82F6',
+                  backgroundColor: tokens.color.interactive.default,
                   opacity: value,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
               >
-                <span style={{ color: 'white', fontWeight: '600', fontSize: '14px' }}>{key}</span>
+                <span style={{ color: tokens.color.text.inverse, fontWeight: '600', fontSize: '14px' }}>{key}</span>
               </div>
             </div>
             <div style={{ marginTop: '8px', fontSize: '12px' }}>
               <div style={{ fontWeight: '600' }}>{key}</div>
-              <div style={{ color: '#737373', fontFamily: 'monospace' }}>{value}</div>
+              <div style={{ color: tokens.color.text.tertiary, fontFamily: 'monospace' }}>{value}</div>
             </div>
           </div>
         ))}
@@ -67,13 +67,13 @@ export const Overview: Story = {
       <div
         style={{
           padding: '20px',
-          backgroundColor: '#FAFAFA',
+          backgroundColor: tokens.color.background.secondary,
           borderRadius: '8px',
-          border: '1px solid #E5E5E5',
+          border: `1px solid ${tokens.color.border.light}`,
         }}
       >
         <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>Accessibility Note</h3>
-        <p style={{ margin: '0', color: '#737373', fontSize: '14px', lineHeight: '1.6' }}>
+        <p style={{ margin: '0', color: tokens.color.text.tertiary, fontSize: '14px', lineHeight: '1.6' }}>
           <strong>WCAG 2.1 Compliance:</strong> When applying opacity to text or interactive elements, always verify
           that contrast ratios meet minimum requirements:
         </p>
@@ -81,7 +81,7 @@ export const Overview: Story = {
           style={{
             margin: '12px 0 0 0',
             paddingLeft: '20px',
-            color: '#737373',
+            color: tokens.color.text.tertiary,
             fontSize: '14px',
             lineHeight: '1.6',
           }}
@@ -121,14 +121,14 @@ export const UsageExamples: Story = {
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundColor: 'black',
-                opacity: opacity.light,
+                backgroundColor: tokens.color.background.inverse,
+                opacity: tokens.opacity.light,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              <span style={{ color: 'white', fontWeight: '600' }}>Light Overlay</span>
+              <span style={{ color: tokens.color.text.inverse, fontWeight: '600' }}>Light Overlay</span>
             </div>
           </div>
           <div
@@ -149,14 +149,14 @@ export const UsageExamples: Story = {
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundColor: 'black',
-                opacity: opacity.medium,
+                backgroundColor: tokens.color.background.inverse,
+                opacity: tokens.opacity.medium,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              <span style={{ color: 'white', fontWeight: '600' }}>Medium Overlay</span>
+              <span style={{ color: tokens.color.text.inverse, fontWeight: '600' }}>Medium Overlay</span>
             </div>
           </div>
         </div>
@@ -168,8 +168,8 @@ export const UsageExamples: Story = {
           <button
             style={{
               padding: '10px 20px',
-              backgroundColor: '#3B82F6',
-              color: 'white',
+              backgroundColor: tokens.color.interactive.default,
+              color: tokens.color.text.inverse,
               border: 'none',
               borderRadius: '6px',
               fontWeight: '500',
@@ -181,12 +181,12 @@ export const UsageExamples: Story = {
           <button
             style={{
               padding: '10px 20px',
-              backgroundColor: '#3B82F6',
-              color: 'white',
+              backgroundColor: tokens.color.interactive.default,
+              color: tokens.color.text.inverse,
               border: 'none',
               borderRadius: '6px',
               fontWeight: '500',
-              opacity: opacity.disabled,
+              opacity: tokens.opacity.disabled,
               cursor: 'not-allowed',
             }}
             disabled
@@ -202,8 +202,8 @@ export const UsageExamples: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: '#3B82F6',
-              opacity: opacity.subtle,
+              backgroundColor: tokens.color.interactive.default,
+              opacity: tokens.opacity.subtle,
               borderRadius: '6px',
               minWidth: '150px',
             }}
@@ -213,8 +213,8 @@ export const UsageExamples: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: '#3B82F6',
-              opacity: opacity.light,
+              backgroundColor: tokens.color.interactive.default,
+              opacity: tokens.opacity.light,
               borderRadius: '6px',
               minWidth: '150px',
             }}
@@ -224,13 +224,13 @@ export const UsageExamples: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: '#3B82F6',
-              opacity: opacity.faint,
+              backgroundColor: tokens.color.interactive.default,
+              opacity: tokens.opacity.faint,
               borderRadius: '6px',
               minWidth: '150px',
             }}
           >
-            <strong style={{ color: 'white' }}>Faint</strong>
+            <strong style={{ color: tokens.color.text.inverse }}>Faint</strong>
           </div>
         </div>
       </div>

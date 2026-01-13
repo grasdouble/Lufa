@@ -205,3 +205,21 @@ module.exports = {
 - [Tailwind UI Components](https://tailwindui.com/)
 - [Headless UI for Tailwind](https://headlessui.com/)
 - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+
+---
+
+## Related Documentation
+
+For comprehensive project documentation, see:
+
+- **[AGENTS.md](../../AGENTS.md)** - Complete development guide
+  - Project overview and architecture
+  - Setup and development workflow
+  - Code patterns and examples
+  - Troubleshooting guides
+
+- **[CLAUDE.md](../../CLAUDE.md)** - Quick reference for Claude Code
+- **[.github/copilot-instructions.md](../copilot-instructions.md)** - GitHub Copilot instructions
+- **[CONTRIBUTING.md](../../CONTRIBUTING.md)** - Contribution workflow
+
+**This file is automatically applied by GitHub Copilot when working in matching file paths.**

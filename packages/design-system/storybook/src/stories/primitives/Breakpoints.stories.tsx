@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { breakpoint } from '@grasdouble/lufa_design-system-primitives';
+import primitives from '@grasdouble/lufa_design-system-primitives';
 
 const meta = {
   title: '0. Primitives/Breakpoints',
@@ -18,13 +18,13 @@ export const AllBreakpoints: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Breakpoint Primitives</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
-        Tokens breakpoint values for responsive design. Follow mobile-first approach: these represent minimum widths for
-        each breakpoint.
+      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
+        Primitive breakpoint values for responsive design. Follow mobile-first approach: these represent minimum widths
+        for each breakpoint.
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {Object.entries(breakpoint).map(([key, value]) => (
+        {Object.entries(primitives.breakpoint).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -33,14 +33,16 @@ export const AllBreakpoints: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: '#FAFAFA',
+              backgroundColor: primitives.color.neutral.neutral[50],
               borderRadius: '8px',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>breakpoint[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: '#737373', fontSize: '12px' }}>{value}</div>
-            <div style={{ fontSize: '12px', color: '#737373' }}>
+            <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+              {value}
+            </div>
+            <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>
               {key === '480' && 'Mobile landscape'}
               {key === '768' && 'Tablet portrait'}
               {key === '1024' && 'Tablet landscape / Small desktop'}
@@ -56,16 +58,18 @@ export const AllBreakpoints: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: '#DBEAFE',
+          backgroundColor: primitives.color.chromatic.blue[100],
           borderRadius: '12px',
-          border: '1px solid #93C5FD',
+          border: `1px solid ${primitives.color.chromatic.blue[300]}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>Mobile-First Strategy</h3>
         <p style={{ margin: 0, lineHeight: '1.6' }}>
           Default styles apply to all screen sizes. Use media queries with min-width to progressively enhance for larger
           screens. Example:{' '}
-          <code style={{ padding: '2px 6px', backgroundColor: '#EFF6FF', borderRadius: '4px' }}>
+          <code
+            style={{ padding: '2px 6px', backgroundColor: primitives.color.chromatic.blue[50], borderRadius: '4px' }}
+          >
             @media (min-width: 768px)
           </code>
         </p>
@@ -101,8 +105,8 @@ export const ResponsiveExample: Story = {
         <div
           style={{
             padding: '24px',
-            backgroundColor: '#3B82F6',
-            color: 'white',
+            backgroundColor: primitives.color.chromatic.blue[500],
+            color: primitives.color.neutral.white,
             borderRadius: '12px',
             marginBottom: '32px',
             textAlign: 'center',
@@ -125,14 +129,14 @@ export const ResponsiveExample: Story = {
               key={i}
               style={{
                 padding: '20px',
-                backgroundColor: 'white',
-                border: '1px solid #E5E5E5',
+                backgroundColor: primitives.color.neutral.white,
+                border: `1px solid ${primitives.color.neutral.neutral[200]}`,
                 borderRadius: '8px',
                 textAlign: 'center',
               }}
             >
               <div style={{ fontSize: '24px', fontWeight: '600', marginBottom: '8px' }}>Card {i}</div>
-              <div style={{ fontSize: '14px', color: '#737373' }}>
+              <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
                 {windowWidth >= 1024 && '3 columns'}
                 {windowWidth >= 768 && windowWidth < 1024 && '2 columns'}
                 {windowWidth < 768 && '1 column'}
@@ -141,7 +145,7 @@ export const ResponsiveExample: Story = {
           ))}
         </div>
 
-        <p style={{ marginTop: '24px', fontSize: '14px', color: '#737373' }}>
+        <p style={{ marginTop: '24px', fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
           Resize your browser window to see the responsive behavior in action.
         </p>
       </div>

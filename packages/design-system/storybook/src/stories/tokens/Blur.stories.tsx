@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { blur } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '1. Tokens/Blur',
@@ -17,7 +17,7 @@ export const AllBlurLevels: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Blur Tokens</h1>
-      <p style={{ marginBottom: '32px', color: '#737373', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic blur values for backdrop filters, overlays, and frosted glass effects. Ensure sufficient contrast for
         accessibility.
       </p>
@@ -30,7 +30,7 @@ export const AllBlurLevels: Story = {
           marginBottom: '32px',
         }}
       >
-        {Object.entries(blur).map(([key, value]) => (
+        {Object.entries(tokens.blur).map(([key, value]) => (
           <div
             key={key}
             style={{
@@ -38,7 +38,7 @@ export const AllBlurLevels: Story = {
               height: '200px',
               borderRadius: '12px',
               overflow: 'hidden',
-              border: '1px solid #E5E5E5',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             {/* Background image/pattern */}
@@ -46,8 +46,7 @@ export const AllBlurLevels: Story = {
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundImage:
-                  'linear-gradient(45deg, #3B82F6 25%, #10B981 25%, #10B981 50%, #3B82F6 50%, #3B82F6 75%, #10B981 75%, #10B981)',
+                backgroundImage: `linear-gradient(45deg, ${tokens.color.interactive.focus} 25%, ${tokens.color.success.default} 25%, ${tokens.color.success.default} 50%, ${tokens.color.interactive.focus} 50%, ${tokens.color.interactive.focus} 75%, ${tokens.color.success.default} 75%, ${tokens.color.success.default})`,
                 backgroundSize: '40px 40px',
               }}
             />
@@ -59,7 +58,7 @@ export const AllBlurLevels: Story = {
                 inset: 0,
                 backdropFilter: `blur(${value})`,
                 WebkitBackdropFilter: `blur(${value})`,
-                backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                backgroundColor: `color-mix(in oklab, ${tokens.color.background.primary} 70%, transparent)`,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -73,12 +72,14 @@ export const AllBlurLevels: Story = {
                   fontWeight: '600',
                   fontSize: '14px',
                   marginBottom: '4px',
-                  color: '#1F2937',
+                  color: tokens.color.text.primary,
                 }}
               >
                 blur.{key}
               </div>
-              <div style={{ fontFamily: 'monospace', fontSize: '12px', color: '#6B7280' }}>{value}</div>
+              <div style={{ fontFamily: 'monospace', fontSize: '12px', color: tokens.color.text.secondary }}>
+                {value}
+              </div>
             </div>
           </div>
         ))}
@@ -88,21 +89,23 @@ export const AllBlurLevels: Story = {
         style={{
           marginTop: '32px',
           padding: '16px',
-          backgroundColor: '#EFF6FF',
-          border: '1px solid #BFDBFE',
+          backgroundColor: tokens.color.info.light,
+          border: `1px solid ${tokens.color.info.border}`,
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: '#1E40AF' }}>Browser Support & Fallbacks</div>
-        <div style={{ fontSize: '14px', color: '#1E3A8A', marginBottom: '12px' }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text }}>
+          Browser Support & Fallbacks
+        </div>
+        <div style={{ fontSize: '14px', color: tokens.color.info.text, marginBottom: '12px' }}>
           backdrop-filter is supported in modern browsers. Always provide fallback backgrounds for older browsers.
         </div>
         <pre
           style={{
             margin: 0,
             padding: '12px',
-            backgroundColor: '#1F2937',
-            color: '#10B981',
+            backgroundColor: tokens.color.background.inverse,
+            color: tokens.color.success.default,
             borderRadius: '6px',
             fontSize: '12px',
             overflow: 'auto',
@@ -110,8 +113,8 @@ export const AllBlurLevels: Story = {
         >
           {`.frosted-glass {
   background-color: rgba(255, 255, 255, 0.8); /* Fallback */
-  backdrop-filter: blur(${blur.base});
-  -webkit-backdrop-filter: blur(${blur.base});
+  backdrop-filter: blur(${tokens.blur.base});
+  -webkit-backdrop-filter: blur(${tokens.blur.base});
 }
 
 /* Feature detection */
@@ -127,13 +130,15 @@ export const AllBlurLevels: Story = {
         style={{
           marginTop: '16px',
           padding: '16px',
-          backgroundColor: '#FFFBEB',
-          border: '1px solid #FCD34D',
+          backgroundColor: tokens.color.warning.light,
+          border: `1px solid ${tokens.color.warning.border}`,
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: '#92400E' }}>⚠️ Accessibility Considerations</div>
-        <ul style={{ margin: 0, paddingLeft: '20px', color: '#78350F', fontSize: '14px' }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.warning.text }}>
+          ⚠️ Accessibility Considerations
+        </div>
+        <ul style={{ margin: 0, paddingLeft: '20px', color: tokens.color.warning.text, fontSize: '14px' }}>
           <li>Ensure sufficient text contrast (4.5:1 for body, 3:1 for large text) on blurred backgrounds</li>
           <li>Test with different background colors and images</li>
           <li>Provide alternative visual cues beyond blur effects</li>
@@ -168,25 +173,25 @@ export const UsageExamples: Story = {
         >
           <div
             style={{
-              backdropFilter: `blur(${blur.subtle})`,
-              WebkitBackdropFilter: `blur(${blur.subtle})`,
-              backgroundColor: 'rgba(255, 255, 255, 0.7)',
+              backdropFilter: `blur(${tokens.blur.subtle})`,
+              WebkitBackdropFilter: `blur(${tokens.blur.subtle})`,
+              backgroundColor: `color-mix(in oklab, ${tokens.color.background.primary} 70%, transparent)`,
               padding: '32px',
               borderRadius: '12px',
               maxWidth: '400px',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              border: `1px solid color-mix(in oklab, ${tokens.color.background.primary} 30%, transparent)`,
+              boxShadow: tokens.shadow.lg,
             }}
           >
-            <h3 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '12px', color: '#1F2937' }}>
+            <h3 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '12px', color: tokens.color.text.primary }}>
               Frosted Glass Effect
             </h3>
-            <p style={{ color: '#374151', lineHeight: 1.6 }}>
+            <p style={{ color: tokens.color.text.secondary, lineHeight: 1.6 }}>
               Using blur.subtle for a gentle frosted glass appearance that doesn't obscure the background too much.
             </p>
           </div>
         </div>
-        <p style={{ marginTop: '12px', fontSize: '12px', color: '#737373' }}>
+        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary }}>
           Using blur.subtle for frosted glass cards
         </p>
       </div>
@@ -200,7 +205,7 @@ export const UsageExamples: Story = {
             height: '300px',
             borderRadius: '12px',
             overflow: 'hidden',
-            backgroundColor: '#F3F4F6',
+            backgroundColor: tokens.color.background.tertiary,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -208,10 +213,10 @@ export const UsageExamples: Story = {
         >
           {/* Mock background content */}
           <div style={{ padding: '40px', textAlign: 'center' }}>
-            <div style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: '#6B7280' }}>
+            <div style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: tokens.color.text.secondary }}>
               Background Content
             </div>
-            <div style={{ color: '#9CA3AF' }}>This content is behind the modal overlay</div>
+            <div style={{ color: tokens.color.text.disabled }}>This content is behind the modal overlay</div>
           </div>
 
           {/* Blurred overlay */}
@@ -219,9 +224,9 @@ export const UsageExamples: Story = {
             style={{
               position: 'absolute',
               inset: 0,
-              backdropFilter: `blur(${blur.base})`,
-              WebkitBackdropFilter: `blur(${blur.base})`,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              backdropFilter: `blur(${tokens.blur.base})`,
+              WebkitBackdropFilter: `blur(${tokens.blur.base})`,
+              backgroundColor: tokens.color.background.overlay,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -229,22 +234,22 @@ export const UsageExamples: Story = {
           >
             <div
               style={{
-                backgroundColor: 'white',
+                backgroundColor: tokens.color.surface.default,
                 padding: '32px',
                 borderRadius: '12px',
                 maxWidth: '400px',
-                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
+                boxShadow: tokens.shadow.xl,
               }}
             >
               <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px' }}>Modal Dialog</h3>
-              <p style={{ color: '#6B7280', marginBottom: '20px' }}>
+              <p style={{ color: tokens.color.text.secondary, marginBottom: '20px' }}>
                 The background is blurred using blur.base to focus attention on this modal.
               </p>
               <button
                 style={{
                   padding: '10px 20px',
-                  backgroundColor: '#3B82F6',
-                  color: 'white',
+                  backgroundColor: tokens.color.interactive.focus,
+                  color: tokens.color.text.inverse,
                   border: 'none',
                   borderRadius: '6px',
                   cursor: 'pointer',
@@ -255,7 +260,9 @@ export const UsageExamples: Story = {
             </div>
           </div>
         </div>
-        <p style={{ marginTop: '12px', fontSize: '12px', color: '#737373' }}>Using blur.base for modal overlays</p>
+        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary }}>
+          Using blur.base for modal overlays
+        </p>
       </div>
 
       {/* Privacy Screen */}
@@ -267,16 +274,16 @@ export const UsageExamples: Story = {
             height: '300px',
             borderRadius: '12px',
             overflow: 'hidden',
-            backgroundColor: 'white',
+            backgroundColor: tokens.color.surface.default,
             padding: '32px',
           }}
         >
           {/* Mock sensitive content */}
           <div style={{ marginBottom: '24px' }}>
-            <div style={{ fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: '#6B7280' }}>
+            <div style={{ fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: tokens.color.text.secondary }}>
               Personal Information
             </div>
-            <div style={{ color: '#9CA3AF' }}>
+            <div style={{ color: tokens.color.text.disabled }}>
               Name: John Doe
               <br />
               Email: john.doe@example.com
@@ -292,22 +299,22 @@ export const UsageExamples: Story = {
             style={{
               position: 'absolute',
               inset: '32px',
-              backdropFilter: `blur(${blur.extraStrong})`,
-              WebkitBackdropFilter: `blur(${blur.extraStrong})`,
-              backgroundColor: 'rgba(0, 0, 0, 0.3)',
+              backdropFilter: `blur(${tokens.blur.extraStrong})`,
+              WebkitBackdropFilter: `blur(${tokens.blur.extraStrong})`,
+              backgroundColor: `color-mix(in oklab, ${tokens.color.background.inverse} 30%, transparent)`,
               borderRadius: '8px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}
           >
-            <div style={{ textAlign: 'center', color: 'white' }}>
+            <div style={{ textAlign: 'center', color: tokens.color.text.inverse }}>
               <div style={{ fontSize: '48px', marginBottom: '12px' }}>🔒</div>
               <div style={{ fontSize: '16px', fontWeight: '600' }}>Content Hidden for Privacy</div>
             </div>
           </div>
         </div>
-        <p style={{ marginTop: '12px', fontSize: '12px', color: '#737373' }}>
+        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary }}>
           Using blur.extraStrong for maximum privacy
         </p>
       </div>
@@ -316,13 +323,15 @@ export const UsageExamples: Story = {
         style={{
           marginTop: '32px',
           padding: '16px',
-          backgroundColor: '#FFFBEB',
-          border: '1px solid #FCD34D',
+          backgroundColor: tokens.color.warning.light,
+          border: `1px solid ${tokens.color.warning.border}`,
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: '#92400E' }}>💡 Best Practices</div>
-        <ul style={{ margin: 0, paddingLeft: '20px', color: '#78350F', fontSize: '14px' }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.warning.text }}>
+          💡 Best Practices
+        </div>
+        <ul style={{ margin: 0, paddingLeft: '20px', color: tokens.color.warning.text, fontSize: '14px' }}>
           <li>Use blur.subtle for gentle depth without obscuring content</li>
           <li>Use blur.base for standard overlays and frosted glass</li>
           <li>Use blur.strong or blur.extraStrong for focus or privacy</li>

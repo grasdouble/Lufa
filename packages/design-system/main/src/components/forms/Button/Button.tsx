@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 import clsx from 'clsx';
 
-import styles from './Button.module.css';
+import styles from './styles/index.module.css';
 
 export type ButtonProps = {
   /** Button content - can be text, icons, or any React elements */
