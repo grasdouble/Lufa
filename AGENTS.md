@@ -128,7 +128,7 @@ Lufa is a personal learning monorepo for exploring modern web application develo
 The repository is organized into focused packages:
 
 - **packages/apps/microfrontend/** - Single-SPA applications (main-container, home)
-- **packages/design-system/** - Component library (primitives, tokens, main, themes, storybook, documentation, playwright)
+- **packages/design-system/** - Component library (primitives, tokens, main, themes, storybook, docusaurus, playwright)
 - **packages/cdn/** - CDN infrastructure (autobuild-server)
 - **packages/plugins/vite/** - Custom Vite plugins (import-map-injector, react-preamble)
 - **packages/plugins/vscode/** - VS Code extensions (vscode-lufa-ds-preview)
@@ -477,7 +477,7 @@ pnpm cdn:autobuild-server:preview
 - **Design system components:** `packages/design-system/main/dist/`
 - **Microfrontends:** `packages/apps/microfrontend/*/dist/`
 - **Storybook:** `packages/design-system/storybook/storybook-static/`
-- **Docusaurus:** `packages/design-system/documentation/build/`
+- **Docusaurus:** `packages/design-system/docusaurus/build/`
 
 ## Version Management and Releases
 

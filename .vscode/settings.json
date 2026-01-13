@@ -36,9 +36,6 @@
   "chat.tools.terminal.enableAutoApprove": true,
   "chat.tools.terminal.autoApproveWorkspaceNpmScripts": true,
   "chat.tools.terminal.preventShellHistory": true,
-  // GitLens AI Settings
-  "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   // Lufa Design System Preview Settings
   "lufaDsPreview": {
     "debug": true,

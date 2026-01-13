@@ -64,22 +64,22 @@
   "dependencies": {
     "@grasdouble/lufa_design-system-primitives": "workspace:^",
     "@grasdouble/lufa_design-system-tokens": "workspace:^",
-    "culori": "^4.0.1"
+    "culori": "^4.0.2"
   },
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_prettier": "workspace:^",
     "@secretlint/secretlint-rule-no-dotenv": "^11.2.5",
     "@secretlint/secretlint-rule-preset-recommend": "^11.2.5",
-    "@types/node": "^22.0.0",
-    "@types/vscode": "^1.90.0",
-    "@vitest/coverage-v8": "^2.1.8",
+    "@types/node": "^25.0.6",
+    "@types/vscode": "^1.108.1",
+    "@vitest/coverage-v8": "^4.0.17",
     "@vscode/vsce": "^3.7.1",
     "esbuild": "^0.27.2",
-    "eslint": "^9.18.0",
-    "prettier": "^3.4.2",
+    "eslint": "^9.39.2",
+    "prettier": "^3.7.4",
     "typescript": "^5.9.3",
-    "vitest": "^2.1.8"
+    "vitest": "^4.0.17"
   },
   "engines": {
     "vscode": "^1.90.0"

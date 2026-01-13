@@ -84,4 +84,28 @@
   --color-surface-raised: #f0fdf4;
   --color-surface-overlay: #dcfce7;
   --color-surface-inverse: #14532d;
+
+  /* Border Radius - Less rounded for Forest theme (more natural/organic) */
+  --border-radius-sm: 0.25rem; /* 4px instead of default 6px */
+  --border-radius-base: 0.5rem; /* 8px instead of default 8px (kept same) */
+  --border-radius-lg: 0.625rem; /* 10px instead of default 12px - less rounded */
+  --border-radius-xl: 0.875rem; /* 14px instead of default 16px */
+
+  /* Spacing - Slightly more compact for earthy feel */
+  --spacing-sm: 0.625rem; /* 10px instead of default 12px */
+  --spacing-base: 0.875rem; /* 14px instead of default 16px */
+  --spacing-lg: 1.25rem; /* 20px instead of default 24px */
+
+  /* Transitions - Faster for more organic feel */
+  --transition-duration-fast: 120ms; /* Instead of default 150ms */
+  --transition-duration-base: 200ms; /* Instead of default 250ms */
+
+  /* Border Width - Slightly thicker borders for earthy feel */
+  --border-width-thin: 1.5px; /* Instead of default 1px */
+  --border-width-thick: 3px; /* Instead of default 2px */
+
+  /* Opacity - Slightly less transparent for more grounded feel */
+  --opacity-light: 0.75; /* Instead of default 0.7 */
+  --opacity-medium: 0.9; /* Instead of default 0.85 */
 }
+
