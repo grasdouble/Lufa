@@ -4,7 +4,6 @@ name: Update Changelog Documentation
 # Documentation: packages/design-system/docusaurus/scripts/README.md
 
 on:
-  workflow_call:
   # Trigger when the changeset release workflow runs
   workflow_run:
     workflows: ['Release:Changesets']
