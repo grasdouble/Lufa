@@ -1,0 +1,444 @@
+---
+sidebar_position: 1
+---
+
+import { Alert } from '@grasdouble/lufa_design-system';
+
+import {
+  Closable,
+  ClosableWithActionExample,
+  CustomIconWithMetaExample,
+  Icon,
+  LiveDemo,
+  Variant,
+} from '../../../src/dsExamples/feedback/alert';
+
+# Alert
+
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+
+<DarkModeCompatible />
+
+Inline feedback message for communicating information, success, warning, or error states. Provides contextual feedback to users with variant-based styling and optional dismiss functionality.
+
+## Overview
+
+Use `Alert` when you need…
+
+- A concise inline message near relevant content
+- Severity styling via `variant` (`info`, `success`, `warning`, `error`)
+- An optional title via `title`
+- A dismiss action via `closable` + `onClose`
+- A custom icon via `icon`
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Alert } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx title="src/App.tsx"
+import { Alert } from '@grasdouble/lufa_design-system';
+
+function App() {
+  return (
+    <>
+      <Alert variant="success" title="Saved">
+        Your changes have been saved.
+      </Alert>
+      <Alert variant="error" title="Error">
+        Something went wrong. Please try again.
+      </Alert>
+    </>
+  );
+}
+```
+
+## Anatomy
+
+The Alert component consists of several key parts:
+
+```
+┌───────────────────────────────────────────────┐
+│  [Icon]  Title                        [✕]     │  ← Alert Container
+│          Message content goes here            │
+│          [Action Button] [Action Button]      │
+└───────────────────────────────────────────────┘
+     ↑       ↑                ↑            ↑
+     │       │                │            └─ Close Button (optional)
+     │       │                └────────────── Actions (optional)
+     │       └─────────────────────────────── Title (optional)
+     └─────────────────────────────────────── Icon (default or custom)
+```
+
+**Component Structure:**
+- **Container**: Main wrapper with variant-based styling and proper ARIA attributes
+- **Icon**: Leading icon indicating severity (info, success, warning, error)
+- **Content Area**: Contains title and message
+- **Title** (optional): Bold heading summarizing the alert
+- **Message**: Main alert content (children)
+- **Actions** (optional): Custom buttons or links for user actions
+- **Close Button** (optional): Dismiss button when `closable` is true
+
+**Visual States:**
+- **Default**: Normal display with variant-specific colors
+- **Hover** (close button): Visual feedback on close button hover
+- **Focus** (close button): Keyboard navigation indicator on close button
+
+## API Reference
+
+### Props
+
+| Prop        | Type                                          | Default  | Description                               |
+| ----------- | --------------------------------------------- | -------- | ----------------------------------------- |
+| `children`  | `ReactNode`                                   | Required | Alert message content                     |
+| `title`     | `string`                                      | -        | Optional title (summary)                  |
+| `variant`   | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'` | Severity / style variant                  |
+| `closable`  | `boolean`                                     | `false`  | Shows a close button                      |
+| `onClose`   | `() => void`                                  | -        | Close handler (required if closable)      |
+| `icon`      | `ReactNode`                                   | -        | Custom icon (overrides default)           |
+| `className` | `string`                                      | -        | Additional CSS classes                    |
+
+Also supports all standard HTML `div` attributes for the container element.
+
+### Variant Details
+
+Each variant provides semantic styling with color-coded backgrounds, borders, and icons:
+
+- **info**: Informational messages (blue color scheme, info icon)
+- **success**: Positive feedback, confirmations (green color scheme, checkmark icon)
+- **warning**: Cautionary messages (yellow/orange color scheme, warning icon)
+- **error**: Error messages, validation failures (red color scheme, error icon)
+
+All variants use design tokens for consistent theming and accessibility.
+
+## Variants
+
+### variant
+
+<Variant />
+
+### closable
+
+<Closable />
+
+### icon
+
+<Icon />
+
+## Best Practices
+
+### Do ✅
+
+- Keep messages concise and action-oriented (1-2 sentences)
+- Use `title` to summarize the state, and keep the body for details
+- Provide `onClose` when `closable` is enabled (and ensure dismissing doesn't hide critical information)
+- Place alerts near the relevant content or action
+- Use appropriate variant for the message type (success for confirmations, error for failures)
+- Include actionable next steps when appropriate
+
+### Don't ❌
+
+- Don't use alerts for long-form content; prefer a dedicated section or page
+- Don't stack too many alerts; it becomes noise
+- Don't use `closable` for critical errors that require user action
+- Don't rely solely on color to convey meaning (always include icon and text)
+- Don't use alerts for permanent content (use callouts or info boxes instead)
+
+## Accessibility
+
+The Alert component is designed with WCAG 2.1 AA compliance in mind:
+
+### Keyboard Navigation
+
+- **Tab**: Navigate to close button (if `closable` is true)
+- **Enter/Space**: Activate close button to dismiss alert
+- **Tab**: Navigate to any action buttons within alert content
+
+All interactive elements within the alert are keyboard accessible with visible focus indicators.
+
+### Screen Reader Support
+
+**For Basic Alerts:**
+```tsx
+<Alert variant="success" title="Success">
+  Your profile has been updated.
+</Alert>
+// Screen reader announces: "Success, alert. Your profile has been updated."
+```
+
+**For Error Alerts:**
+```tsx
+<Alert variant="error" title="Error">
+  Please enter a valid email address.
+</Alert>
+// Screen reader announces: "Error, alert. Please enter a valid email address."
+```
+
+**For Closable Alerts:**
+```tsx
+<Alert variant="info" title="Tip" closable onClose={handleClose}>
+  You can customize your preferences in settings.
+</Alert>
+// Close button announces: "Close, button"
+```
+
+**For Alerts with Custom Icons:**
+```tsx
+<Alert variant="warning" title="Warning" icon={<CustomIcon />}>
+  Your session will expire in 5 minutes.
+</Alert>
+// Custom icons should be decorative; text conveys the meaning
+```
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Use `role="alert"` (automatically applied) for important messages
+- Provide clear, descriptive titles and messages
+- Ensure close button has `aria-label="Close"` (automatically applied)
+- Include text content alongside icons (never icon-only alerts)
+- Use semantic HTML for action buttons within alerts
+- Keep focus indicators visible on close button
+- Ensure sufficient color contrast for all variants
+
+#### Don't ❌
+
+- Don't use alerts for purely decorative messages
+- Don't remove the close button's aria-label
+- Don't rely only on color to convey severity (icon + text required)
+- Don't auto-dismiss critical alerts without user control
+- Don't nest interactive elements inappropriately
+- Don't remove focus outlines from close button
+
+### ARIA Attributes
+
+The component automatically handles:
+- `role="alert"` on the container (announces to screen readers immediately)
+- `aria-label="Close"` on the close button
+- Proper semantic HTML structure for content
+
+Additional ARIA attributes can be passed as props:
+
+```tsx
+<Alert
+  variant="error"
+  title="Form Error"
+  aria-describedby="error-details"
+>
+  Please correct the errors below.
+</Alert>
+```
+
+### Color Contrast
+
+All alert variants meet WCAG 2.1 AA contrast requirements:
+- Title text: Minimum 4.5:1 contrast ratio
+- Message text: Minimum 4.5:1 contrast ratio
+- Icons: Minimum 3:1 contrast ratio
+- Close button: Minimum 3:1 contrast ratio
+
+Tested in both light and dark modes across all variants.
+
+### Live Regions
+
+The Alert component uses `role="alert"`, which is an assertive ARIA live region. This means:
+- Screen readers announce the alert immediately when it appears
+- Content changes are announced automatically
+- Use sparingly for truly important messages to avoid overwhelming users
+- For less critical messages, consider using `role="status"` via custom props
+
+## Common Patterns
+
+### Inline Error Message
+
+```tsx title="src/components/FormError.tsx"
+import { Alert } from '@grasdouble/lufa_design-system';
+
+function FormError({ error }: { error?: string }) {
+  if (!error) return null;
+
+  return (
+    <Alert variant="error" title="Validation Error">
+      {error}
+    </Alert>
+  );
+}
+
+// Usage in form
+<FormError error={formErrors.email} />
+```
+
+### Success Message After Save
+
+```tsx title="src/components/SaveSuccess.tsx"
+import { Alert } from '@grasdouble/lufa_design-system';
+import { useState } from 'react';
+
+function ProfileForm() {
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleSave = async () => {
+    await saveProfile();
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 5000);
+  };
+
+  return (
+    <>
+      {showSuccess && (
+        <Alert
+          variant="success"
+          title="Saved"
+          closable
+          onClose={() => setShowSuccess(false)}
+        >
+          Your profile has been updated successfully.
+        </Alert>
+      )}
+      {/* Form fields */}
+    </>
+  );
+}
+```
+
+### Warning Banner
+
+```tsx title="src/components/MaintenanceWarning.tsx"
+import { Alert } from '@grasdouble/lufa_design-system';
+
+function MaintenanceWarning() {
+  return (
+    <Alert variant="warning" title="Scheduled Maintenance">
+      The system will be unavailable on Sunday from 2:00 AM to 4:00 AM UTC for scheduled maintenance.
+    </Alert>
+  );
+}
+```
+
+### Alert with Actions
+
+```tsx title="src/components/ConfirmationAlert.tsx"
+import { Alert, Button, Stack } from '@grasdouble/lufa_design-system';
+
+function ConfirmationAlert({ onConfirm, onCancel }) {
+  return (
+    <Alert variant="info" title="Unsaved Changes">
+      <div>
+        <p>You have unsaved changes. Do you want to save before leaving?</p>
+        <Stack direction="row" spacing="small" style={{ marginTop: '12px' }}>
+          <Button size="small" onClick={onConfirm}>
+            Save Changes
+          </Button>
+          <Button size="small" variant="outlined" onClick={onCancel}>
+            Discard
+          </Button>
+        </Stack>
+      </div>
+    </Alert>
+  );
+}
+```
+
+### Dismissible Alert with Persistence
+
+```tsx title="src/components/TipAlert.tsx"
+import { Alert } from '@grasdouble/lufa_design-system';
+import { useState, useEffect } from 'react';
+
+function TipAlert() {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const dismissed = localStorage.getItem('tip-alert-dismissed');
+    if (dismissed) setVisible(false);
+  }, []);
+
+  const handleClose = () => {
+    setVisible(false);
+    localStorage.setItem('tip-alert-dismissed', 'true');
+  };
+
+  if (!visible) return null;
+
+  return (
+    <Alert
+      variant="info"
+      title="Pro Tip"
+      closable
+      onClose={handleClose}
+    >
+      Use keyboard shortcuts to navigate faster. Press ? to see all shortcuts.
+    </Alert>
+  );
+}
+```
+
+### Error Alert with Retry Action
+
+```tsx title="src/components/ErrorAlert.tsx"
+import { Alert, Button } from '@grasdouble/lufa_design-system';
+
+function ErrorAlert({ error, onRetry, onDismiss }) {
+  return (
+    <Alert
+      variant="error"
+      title="Failed to Load Data"
+      closable
+      onClose={onDismiss}
+    >
+      <div>
+        <p>{error.message}</p>
+        <Button
+          size="small"
+          variant="outlined"
+          onClick={onRetry}
+          style={{ marginTop: '12px' }}
+        >
+          Retry
+        </Button>
+      </div>
+    </Alert>
+  );
+}
+```
+
+## Examples of usage
+
+<ClosableWithActionExample />
+<CustomIconWithMetaExample />
+
+## Related Components
+
+- **Modal** - For urgent messages requiring user action before continuing
+- **Toast** - For temporary, non-blocking notifications
+- **Badge** - For inline status indicators
+- **Callout** - For highlighting important information in documentation
+- **Banner** - For system-wide announcements
+
+## TypeScript Support
+
+The Alert component is fully typed with TypeScript:
+
+```tsx
+import type { ReactNode } from 'react';
+
+export type AlertProps = {
+  children: ReactNode;
+  title?: string;
+  variant?: 'info' | 'success' | 'warning' | 'error';
+  closable?: boolean;
+  onClose?: () => void;
+  icon?: ReactNode;
+  className?: string;
+};
+```
+
+This ensures type safety and autocomplete in your IDE.

@@ -29,16 +29,7 @@ View the complete changelog for the main design system package:
 
 ### @grasdouble/lufa_design-system
 
-#### 0.6.0 (Latest)
-
-**Patch Changes:**
-- 509bb8e: tokens and primitives are no more exposed
-- 8ae7e61: change how css variable for token is generated. now there is the prefix --lufa-token
-- 603f643: Button: fix css and split it in multiple file
-- Updated dependencies [8ae7e61]
-- Updated dependencies [509bb8e]
-
-#### 0.5.1
+#### 0.5.1 (Latest)
 
 **Patch Changes:**
 - 6c972e8: fix: prettier config
@@ -70,6 +61,12 @@ View the complete changelog for the main design system package:
 **Patch Changes:**
 - 93819d3: fix how to manage color on primitive
 - Updated dependencies [93819d3]
+
+#### 0.3.0
+
+**Patch Changes:**
+- 501cf5f: Rework how primitive, tokens and ds is working + align storybook and docusaurus
+- Updated dependencies [501cf5f]
 
 ## Related Packages
 
