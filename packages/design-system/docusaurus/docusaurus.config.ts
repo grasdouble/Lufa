@@ -38,21 +38,110 @@ const config: Config = {
     locales: ['en'],
   },
 
+  // SEO: Head tags for metadata
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'keywords',
+        content: 'design system, react, tailwind css, accessibility, wcag, components, ui library',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'author',
+        content: 'Grasdouble',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:type',
+        content: 'website',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:site_name',
+        content: 'Lufa Design System',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+    },
+  ],
+
   presets: [
     [
       'classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/grasdouble/Lufa/tree/main/packages/apps/lufa-documentation/',
+          editUrl: 'https://github.com/grasdouble/Lufa/tree/main/packages/design-system/docusaurus/',
           sidebarCollapsible: true,
           sidebarCollapsed: false,
+          // Future: Enable versioning when reaching v1.0.0
+          // See docs/changelog.md for versioning strategy
+          // Uncomment and configure when ready:
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: 'Development (Unreleased)',
+              path: '/',
+            },
+            '0.5.1': {
+              label: '0.5.1',
+              path: '/0.5.1',
+            },
+            '0.5.0': {
+              label: '0.5.0',
+              path: '/0.5.0',
+            },
+            '0.4.0': {
+              label: '0.4.0',
+              path: '/0.4.0',
+            },
+            '0.3.1': {
+              label: '0.3.1',
+              path: '/0.3.1',
+            },
+            '0.3.0': {
+              label: '0.3.0',
+              path: '/0.3.0',
+            },
+          },
         },
         blog: false, // Disable blog for design system docs
         theme: {
           customCss: './src/css/custom.css',
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
       } satisfies Preset.Options,
+    ],
+  ],
+
+  themes: [
+    '@docusaurus/theme-live-codeblock',
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['en'],
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        docsRouteBasePath: '/docs',
+      },
     ],
   ],
 
@@ -74,6 +163,11 @@ const config: Config = {
           sidebarId: 'docs',
           position: 'left',
           label: 'Documentation',
+        },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownActiveClassDisabled: true,
         },
         {
           href: 'https://github.com/grasdouble/Lufa',

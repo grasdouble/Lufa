@@ -6,6 +6,10 @@ sidebar_position: 1
 
 A modern, accessible design system built with React and Tailwind CSS v4.
 
+:::tip Try Dark Mode
+Switch to dark mode using the toggle in the navbar to see all components adapt automatically!
+:::
+
 ## Getting Started
 
 Get up and running with Lufa Design System in minutes.
@@ -34,6 +38,6 @@ Browse our collection of accessible React components.
 
 ## Resources
 
-- **[Storybook](http://localhost:6006)** - Interactive component catalog
+- **[Storybook](https://lufa-design.sebastien-lemouillour.fr)** - Interactive component catalog
 - **[GitHub](https://github.com/grasdouble/Lufa)** - Source code and issues
 - **[Contributing](./guides/contributing)** - Help us improve Lufa

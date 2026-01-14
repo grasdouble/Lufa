@@ -54,11 +54,10 @@ Lufa/
 ### Running Storybook
 
 ```bash
-cd packages/apps/lufa-storybook
-pnpm dev
+pnpm ds:storybook:dev
 ```
 
-Visit `http://localhost:6006` to see component examples.
+Storybook will be available at http://localhost:6006 to view component examples.
 
 ### Running Documentation
 
@@ -320,11 +319,65 @@ Releases are managed by maintainers using [Changesets](https://github.com/change
 
 ### Creating a Changeset
 
+After making changes to any package, create a changeset to document your changes:
+
 ```bash
 pnpm changeset
 ```
 
-Follow the prompts to describe your changes.
+Follow the prompts:
+
+1. **Select affected packages** - Choose which packages your changes affect (use Space to select, Enter to confirm)
+2. **Choose version bump type**:
+   - **Major** (1.0.0): Breaking changes that require migration
+   - **Minor** (0.1.0): New features, backward-compatible
+   - **Patch** (0.0.1): Bug fixes and minor improvements
+3. **Write a summary** - Describe your changes clearly (this appears in CHANGELOG.md)
+
+**Example changeset workflow:**
+
+```bash
+# Make your changes
+git add .
+
+# Create a changeset
+pnpm changeset
+# Select: @grasdouble/lufa_design-system
+# Type: minor
+# Summary: "Add Tooltip component with full accessibility support"
+
+# Commit both your changes and the changeset file
+git commit -m "feat: add Tooltip component"
+git push origin feature/add-tooltip
+```
+
+### Versioning Strategy
+
+Lufa Design System follows [Semantic Versioning 2.0.0](https://semver.org/):
+
+- **Current status**: Beta (0.x.x) - APIs may change between minor versions
+- **Goal**: Stable 1.0.0 release with locked APIs
+- **Breaking changes**: Always documented with migration guides
+
+For more details, see the [Changelog](/docs/changelog).
+
+### For Maintainers
+
+To publish a release:
+
+```bash
+# Generate versions and update CHANGELOGs
+pnpm changeset version
+
+# Build all packages
+pnpm all:build
+
+# Publish to npm (maintainers only)
+pnpm changeset publish
+
+# Push tags to GitHub
+git push --follow-tags
+```
 
 ## Getting Help
 
