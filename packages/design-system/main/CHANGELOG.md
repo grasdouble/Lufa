@@ -1,5 +1,21 @@
 # @grasdouble/lufa_design-system
 
+## 0.6.0
+
+### Minor Changes
+
+- 509bb8e: tokens and primitives are no more exposed
+
+### Patch Changes
+
+- 8ae7e61: change how css variable for token is generated. now there is the prefix --lufa-token
+- 603f643: Button: fix css and split it in multiple file
+  Avatar: fix role
+- Updated dependencies [8ae7e61]
+- Updated dependencies [509bb8e]
+  - @grasdouble/lufa_design-system-tokens@0.4.0
+  - @grasdouble/lufa_design-system-primitives@0.4.0
+
 ## 0.5.1
 
 ### Patch Changes

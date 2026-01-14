@@ -1,5 +1,14 @@
 # @grasdouble/lufa_design-system-themes
 
+## 0.2.2
+
+### Patch Changes
+
+- 79857a3: Improve themes and Readme
+- Updated dependencies [8ae7e61]
+- Updated dependencies [509bb8e]
+  - @grasdouble/lufa_design-system-tokens@0.4.0
+
 ## 0.2.1
 
 ### Patch Changes
