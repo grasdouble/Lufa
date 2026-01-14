@@ -237,7 +237,9 @@ export const CustomRatios: Story = {
               padding: tokens.spacing.base,
             }}
           >
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+            <div
+              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+            >
               {item.label}
             </div>
             <AspectRatio

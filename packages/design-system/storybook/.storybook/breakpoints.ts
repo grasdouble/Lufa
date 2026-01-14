@@ -1,24 +1,22 @@
-const theme = {
-  breakpoints: ['320px', '544px', '768px', '1012px', '1280px', '1400px'],
-};
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 export const Breakpoints = {
   xsmall: {
-    width: theme.breakpoints[0],
+    width: tokens.breakpoint.xs,
   },
   small: {
-    width: theme.breakpoints[1],
+    width: tokens.breakpoint.sm,
   },
   medium: {
-    width: theme.breakpoints[2],
+    width: tokens.breakpoint.md,
   },
   large: {
-    width: theme.breakpoints[3],
+    width: tokens.breakpoint.lg,
   },
   xlarge: {
-    width: theme.breakpoints[4],
+    width: tokens.breakpoint.xl,
   },
   xxlarge: {
-    width: theme.breakpoints[5],
+    width: tokens.breakpoint['2xl'],
   },
 };

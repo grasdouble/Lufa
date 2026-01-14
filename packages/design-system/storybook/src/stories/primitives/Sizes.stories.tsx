@@ -52,7 +52,9 @@ export const AllSizes: Story = {
                   style={{
                     width: value,
                     height: value,
-                    backgroundColor: isTouchTarget ? primitives.color.chromatic.blue[600] : primitives.color.chromatic.blue[500],
+                    backgroundColor: isTouchTarget
+                      ? primitives.color.chromatic.blue[600]
+                      : primitives.color.chromatic.blue[500],
                     borderRadius: '6px',
                     display: 'flex',
                     alignItems: 'center',

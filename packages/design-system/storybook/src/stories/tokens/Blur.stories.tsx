@@ -213,7 +213,9 @@ export const UsageExamples: Story = {
         >
           {/* Mock background content */}
           <div style={{ padding: '40px', textAlign: 'center' }}>
-            <div style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: tokens.color.text.secondary }}>
+            <div
+              style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: tokens.color.text.secondary }}
+            >
               Background Content
             </div>
             <div style={{ color: tokens.color.text.disabled }}>This content is behind the modal overlay</div>
@@ -280,7 +282,9 @@ export const UsageExamples: Story = {
         >
           {/* Mock sensitive content */}
           <div style={{ marginBottom: '24px' }}>
-            <div style={{ fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: tokens.color.text.secondary }}>
+            <div
+              style={{ fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: tokens.color.text.secondary }}
+            >
               Personal Information
             </div>
             <div style={{ color: tokens.color.text.disabled }}>

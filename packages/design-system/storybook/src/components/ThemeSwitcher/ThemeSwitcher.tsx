@@ -60,6 +60,8 @@ export function ThemeSwitcher({
           </Typography>
         )}
         <select
+          id="theme-select"
+          aria-label="Select theme"
           className={styles.select}
           value={currentTheme}
           onChange={(e) => handleThemeChange(e.target.value as Theme)}

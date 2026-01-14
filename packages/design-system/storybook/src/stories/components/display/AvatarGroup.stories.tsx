@@ -99,7 +99,9 @@ export const WithMaxLimit: Story = {
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             max=2 of 8 avatars
           </p>
           <AvatarGroup size="md" max={2}>
@@ -109,7 +111,9 @@ export const WithMaxLimit: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             max=4 of 8 avatars
           </p>
           <AvatarGroup size="md" max={4}>
@@ -119,7 +123,9 @@ export const WithMaxLimit: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             max=6 of 8 avatars
           </p>
           <AvatarGroup size="md" max={6}>
@@ -150,7 +156,9 @@ export const DifferentSizes: Story = {
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing['md-lg'] }}>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             Extra Small (xs)
           </p>
           <AvatarGroup size="xs" max={3}>
@@ -160,7 +168,9 @@ export const DifferentSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             Small (sm)
           </p>
           <AvatarGroup size="sm" max={3}>
@@ -170,7 +180,9 @@ export const DifferentSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             Medium (md)
           </p>
           <AvatarGroup size="md" max={3}>
@@ -180,7 +192,9 @@ export const DifferentSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             Large (lg)
           </p>
           <AvatarGroup size="lg" max={3}>
@@ -190,7 +204,9 @@ export const DifferentSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             Extra Large (xl)
           </p>
           <AvatarGroup size="xl" max={3}>

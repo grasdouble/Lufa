@@ -117,9 +117,7 @@ export const InteractiveDemo: Story = {
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Focus Utility Helper</h1>
         <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
           Use{' '}
-          <code
-            style={{ padding: '2px 6px', backgroundColor: tokens.color.background.tertiary, borderRadius: '4px' }}
-          >
+          <code style={{ padding: '2px 6px', backgroundColor: tokens.color.background.tertiary, borderRadius: '4px' }}>
             getFocusStyle()
           </code>{' '}
           helper to apply focus styles in CSS-in-JS or styled-components.
@@ -175,7 +173,12 @@ export const InteractiveDemo: Story = {
             }}
           >
             <div
-              style={{ fontFamily: 'monospace', fontSize: '12px', color: tokens.color.text.tertiary, marginBottom: '8px' }}
+              style={{
+                fontFamily: 'monospace',
+                fontSize: '12px',
+                color: tokens.color.text.tertiary,
+                marginBottom: '8px',
+              }}
             >
               Currently focused:
             </div>

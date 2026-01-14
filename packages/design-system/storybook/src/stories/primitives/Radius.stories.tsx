@@ -18,8 +18,8 @@ export const AllRadius: Story = {
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Radius Primitives</h1>
       <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
-        Primitive border-radius values for consistent corner rounding. Choose 1-2 values as your primary scale for
-        brand consistency.
+        Primitive border-radius values for consistent corner rounding. Choose 1-2 values as your primary scale for brand
+        consistency.
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

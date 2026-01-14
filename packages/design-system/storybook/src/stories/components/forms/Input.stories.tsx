@@ -61,9 +61,7 @@ export const Required: Story = {
 
 export const Size: Story = {
   render: () => (
-    <div
-      style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.xs }}
-    >
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.xs }}>
       <Input size="small" label="Small" placeholder="Small input" />
       <Input size="medium" label="Medium" placeholder="Medium input (default)" />
       <Input size="large" label="Large" placeholder="Large input" />
@@ -73,9 +71,7 @@ export const Size: Story = {
 
 export const Variant: Story = {
   render: () => (
-    <div
-      style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.xs }}
-    >
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.xs }}>
       <Input variant="outlined" label="Outlined" placeholder="Outlined variant (default)" />
       <Input variant="filled" label="Filled" placeholder="Filled variant" />
     </div>

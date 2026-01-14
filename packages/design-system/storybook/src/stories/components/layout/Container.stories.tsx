@@ -68,7 +68,13 @@ export const Playground: Story = {
     ),
   },
   render: (args) => (
-    <div style={{ width: tokens.maxWidth.full, backgroundColor: tokens.color.background.secondary, padding: tokens.spacing.lg }}>
+    <div
+      style={{
+        width: tokens.maxWidth.full,
+        backgroundColor: tokens.color.background.secondary,
+        padding: tokens.spacing.lg,
+      }}
+    >
       <Container
         {...args}
         style={{
@@ -84,7 +90,13 @@ export const Playground: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ width: tokens.maxWidth.full, backgroundColor: tokens.color.background.secondary, padding: tokens.spacing.lg }}>
+    <div
+      style={{
+        width: tokens.maxWidth.full,
+        backgroundColor: tokens.color.background.secondary,
+        padding: tokens.spacing.lg,
+      }}
+    >
       <Stack direction="vertical" gap="spacious">
         {(['xs', 'sm', 'md', 'lg', 'xl', 'full', 'fluid'] as const).map((size) => (
           <Container
@@ -98,7 +110,9 @@ export const Sizes: Story = {
               borderRadius: tokens.radius.lg,
             }}
           >
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+            <div
+              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+            >
               size: {size}
             </div>
             <Placeholder color={tokens.color.interactive.default} height="small">
@@ -113,11 +127,19 @@ export const Sizes: Story = {
 
 export const Align: Story = {
   render: () => (
-    <div style={{ width: tokens.maxWidth.full, backgroundColor: tokens.color.background.secondary, padding: tokens.spacing.lg }}>
+    <div
+      style={{
+        width: tokens.maxWidth.full,
+        backgroundColor: tokens.color.background.secondary,
+        padding: tokens.spacing.lg,
+      }}
+    >
       <Stack direction="vertical" gap="spacious">
         {(['start', 'center', 'end'] as const).map((align) => (
           <div key={align}>
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+            <div
+              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+            >
               align: {align}
             </div>
             <Container
@@ -147,7 +169,13 @@ export const Padding: Story = {
     const values = ['none', 'sm', 'base', 'lg', '3xl'] as const;
 
     return (
-      <div style={{ width: tokens.maxWidth.full, backgroundColor: tokens.color.background.secondary, padding: tokens.spacing.lg }}>
+      <div
+        style={{
+          width: tokens.maxWidth.full,
+          backgroundColor: tokens.color.background.secondary,
+          padding: tokens.spacing.lg,
+        }}
+      >
         <div
           style={{
             display: 'grid',
@@ -265,7 +293,13 @@ export const Padding: Story = {
 
 export const As: Story = {
   render: () => (
-    <div style={{ width: tokens.maxWidth.full, backgroundColor: tokens.color.background.secondary, padding: tokens.spacing.lg }}>
+    <div
+      style={{
+        width: tokens.maxWidth.full,
+        backgroundColor: tokens.color.background.secondary,
+        padding: tokens.spacing.lg,
+      }}
+    >
       <Container
         as="div"
         size="xl"
@@ -336,7 +370,9 @@ export const As: Story = {
             paddingY="lg"
             style={{ backgroundColor: tokens.color.background.primary }}
           >
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+            <div
+              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+            >
               {'<main>'}
             </div>
             <Stack direction="vertical" gap="spacious">
@@ -410,7 +446,9 @@ export const As: Story = {
               borderLeft: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
             }}
           >
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+            <div
+              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+            >
               {'<aside>'}
             </div>
             <Stack direction="vertical" gap="normal">
@@ -429,15 +467,15 @@ export const As: Story = {
           size="fluid"
           align="start"
           paddingX="base"
-        paddingY="lg"
-        style={{
-          backgroundColor: tokens.color.background.primary,
-          borderTop: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-        }}
-      >
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
-          {'<footer>'}
-        </div>
+          paddingY="lg"
+          style={{
+            backgroundColor: tokens.color.background.primary,
+            borderTop: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+          }}
+        >
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
+            {'<footer>'}
+          </div>
           <Placeholder color={tokens.color.background.secondary} height="small">
             Footer content
           </Placeholder>

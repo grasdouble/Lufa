@@ -36,7 +36,9 @@ export const AllTransitions: Story = {
         >
           Transition Tokens
         </h1>
-        <p style={{ marginBottom: tokens.spacing.xl, color: tokens.color.text.tertiary, fontSize: tokens.fontSize.base }}>
+        <p
+          style={{ marginBottom: tokens.spacing.xl, color: tokens.color.text.tertiary, fontSize: tokens.fontSize.base }}
+        >
           Pre-configured CSS transition strings for common UI interactions. Simpler than motion tokens for basic
           transitions.
         </p>
@@ -81,7 +83,9 @@ export const AllTransitions: Story = {
                 onClick={() => triggerTransition(key)}
                 style={{
                   padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
-                  backgroundColor: activeTransitions[key] ? tokens.color.success.default : tokens.color.interactive.focus,
+                  backgroundColor: activeTransitions[key]
+                    ? tokens.color.success.default
+                    : tokens.color.interactive.focus,
                   color: tokens.color.text.inverse,
                   border: tokens.borderStyle.none,
                   borderRadius: tokens.radius.base,
@@ -95,7 +99,13 @@ export const AllTransitions: Story = {
                 Click to see {key} transition
               </button>
 
-              <div style={{ marginTop: tokens.spacing.md, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+              <div
+                style={{
+                  marginTop: tokens.spacing.md,
+                  fontSize: tokens.fontSize.xs,
+                  color: tokens.color.text.tertiary,
+                }}
+              >
                 {key === 'fast' && '150ms - Quick hover effects, micro-interactions'}
                 {key === 'base' && '250ms - Standard transitions, most UI elements'}
                 {key === 'slow' && '400ms - Larger movements, modals, drawers'}
@@ -115,7 +125,13 @@ export const AllTransitions: Story = {
             borderRadius: tokens.radius.base,
           }}
         >
-          <div style={{ fontWeight: tokens.fontWeight.semibold, marginBottom: tokens.spacing.sm, color: tokens.color.info.text }}>
+          <div
+            style={{
+              fontWeight: tokens.fontWeight.semibold,
+              marginBottom: tokens.spacing.sm,
+              color: tokens.color.info.text,
+            }}
+          >
             Accessibility: Reduced Motion
           </div>
           <div style={{ fontSize: tokens.fontSize.sm, color: tokens.color.info.text, marginBottom: tokens.spacing.md }}>
@@ -188,7 +204,8 @@ export const InteractiveExamples: Story = {
                 onMouseLeave={() => setHoveredCard(null)}
                 style={{
                   padding: tokens.spacing.lg,
-                  backgroundColor: hoveredCard === card ? tokens.color.interactive.focus : tokens.color.background.tertiary,
+                  backgroundColor:
+                    hoveredCard === card ? tokens.color.interactive.focus : tokens.color.background.tertiary,
                   color: hoveredCard === card ? tokens.color.text.inverse : tokens.color.text.primary,
                   borderRadius: tokens.radius.base,
                   textAlign: 'center',
@@ -261,7 +278,11 @@ export const InteractiveExamples: Story = {
                 }}
               >
                 <h3
-                  style={{ fontSize: tokens.fontSize.xl, fontWeight: tokens.fontWeight.semibold, marginBottom: tokens.spacing.md }}
+                  style={{
+                    fontSize: tokens.fontSize.xl,
+                    fontWeight: tokens.fontWeight.semibold,
+                    marginBottom: tokens.spacing.md,
+                  }}
                 >
                   Example Modal
                 </h3>
@@ -355,7 +376,13 @@ export const InteractiveExamples: Story = {
             borderRadius: tokens.radius.base,
           }}
         >
-          <div style={{ fontWeight: tokens.fontWeight.semibold, marginBottom: tokens.spacing.sm, color: tokens.color.warning.text }}>
+          <div
+            style={{
+              fontWeight: tokens.fontWeight.semibold,
+              marginBottom: tokens.spacing.sm,
+              color: tokens.color.warning.text,
+            }}
+          >
             💡 Transition Best Practices
           </div>
           <ul

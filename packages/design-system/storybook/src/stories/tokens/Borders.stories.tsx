@@ -174,9 +174,7 @@ export const UsageExamples: Story = {
             }}
           >
             <strong>Hairline Border</strong>
-            <p style={{ margin: '8px 0 0', fontSize: '14px', color: tokens.color.text.tertiary }}>
-              Subtle separation
-            </p>
+            <p style={{ margin: '8px 0 0', fontSize: '14px', color: tokens.color.text.tertiary }}>Subtle separation</p>
           </div>
           <div
             style={{
@@ -196,9 +194,7 @@ export const UsageExamples: Story = {
             }}
           >
             <strong>Dashed Border</strong>
-            <p style={{ margin: '8px 0 0', fontSize: '14px', color: tokens.color.text.tertiary }}>
-              Placeholder style
-            </p>
+            <p style={{ margin: '8px 0 0', fontSize: '14px', color: tokens.color.text.tertiary }}>Placeholder style</p>
           </div>
         </div>
       </div>

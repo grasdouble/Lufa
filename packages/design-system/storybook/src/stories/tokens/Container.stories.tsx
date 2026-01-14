@@ -114,12 +114,22 @@ export const UsageExamples: Story = {
           }}
         >
           <div
-            style={{ marginBottom: '16px', fontSize: '14px', fontFamily: 'monospace', color: tokens.color.text.secondary }}
+            style={{
+              marginBottom: '16px',
+              fontSize: '14px',
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+            }}
           >
             container.xl (1280px)
           </div>
           <div
-            style={{ padding: '40px', backgroundColor: tokens.color.surface.default, borderRadius: '6px', textAlign: 'center' }}
+            style={{
+              padding: '40px',
+              backgroundColor: tokens.color.surface.default,
+              borderRadius: '6px',
+              textAlign: 'center',
+            }}
           >
             <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '8px' }}>Main Content Area</h3>
             <p style={{ color: tokens.color.text.secondary }}>Full application shell with standard desktop width</p>
@@ -140,7 +150,12 @@ export const UsageExamples: Story = {
           }}
         >
           <div
-            style={{ marginBottom: '16px', fontSize: '14px', fontFamily: 'monospace', color: tokens.color.text.secondary }}
+            style={{
+              marginBottom: '16px',
+              fontSize: '14px',
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+            }}
           >
             container.md (672px)
           </div>
@@ -171,7 +186,12 @@ export const UsageExamples: Story = {
           }}
         >
           <div
-            style={{ marginBottom: '16px', fontSize: '14px', fontFamily: 'monospace', color: tokens.color.text.secondary }}
+            style={{
+              marginBottom: '16px',
+              fontSize: '14px',
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+            }}
           >
             container.sm (448px)
           </div>

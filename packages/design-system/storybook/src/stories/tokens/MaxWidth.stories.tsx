@@ -103,11 +103,15 @@ export const Overview: Story = {
         })}
       </div>
 
-      <div style={{ marginTop: '40px', padding: '20px', backgroundColor: tokens.color.info.light, borderRadius: '8px' }}>
+      <div
+        style={{ marginTop: '40px', padding: '20px', backgroundColor: tokens.color.info.light, borderRadius: '8px' }}
+      >
         <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px', color: tokens.color.info.text }}>
           💡 Common Use Cases
         </h3>
-        <ul style={{ margin: 0, paddingLeft: '20px', color: tokens.color.info.text, fontSize: '14px', lineHeight: '1.6' }}>
+        <ul
+          style={{ margin: 0, paddingLeft: '20px', color: tokens.color.info.text, fontSize: '14px', lineHeight: '1.6' }}
+        >
           <li>
             <strong>md (32rem/512px)</strong>: Small modals, form dialogs
           </li>
@@ -129,11 +133,21 @@ export const Overview: Story = {
         </ul>
       </div>
 
-      <div style={{ marginTop: '24px', padding: '20px', backgroundColor: tokens.color.warning.light, borderRadius: '8px' }}>
+      <div
+        style={{ marginTop: '24px', padding: '20px', backgroundColor: tokens.color.warning.light, borderRadius: '8px' }}
+      >
         <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px', color: tokens.color.warning.text }}>
           ⚠️ Best Practices
         </h3>
-        <ul style={{ margin: 0, paddingLeft: '20px', color: tokens.color.warning.text, fontSize: '14px', lineHeight: '1.6' }}>
+        <ul
+          style={{
+            margin: 0,
+            paddingLeft: '20px',
+            color: tokens.color.warning.text,
+            fontSize: '14px',
+            lineHeight: '1.6',
+          }}
+        >
           <li>Use these tokens for consistent component sizing across the design system</li>
           <li>Prefer smaller max-widths for better readability (especially for text content)</li>
           <li>Combine with responsive design for optimal mobile experience</li>

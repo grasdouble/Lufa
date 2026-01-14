@@ -118,7 +118,11 @@ export const UsageExamples: Story = {
               Card Title
             </h4>
             <p
-              style={{ margin: `0 0 ${primitives.spacing[16]} 0`, color: primitives.color.neutral.neutral[600], lineHeight: '1.5' }}
+              style={{
+                margin: `0 0 ${primitives.spacing[16]} 0`,
+                color: primitives.color.neutral.neutral[600],
+                lineHeight: '1.5',
+              }}
             >
               This card uses spacing[24] for padding and spacing[8] for title margin.
             </p>

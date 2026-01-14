@@ -65,29 +65,51 @@ export const Playground: Story = {
 
 export const Height: Story = {
   render: () => (
-    <div
-      style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.sm }}
-    >
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.sm }}>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Small
         </h3>
         <Placeholder height="small">Small Height</Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Medium (default)
         </h3>
         <Placeholder height="medium">Medium Height</Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Large
         </h3>
         <Placeholder height="large">Large Height</Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Auto
         </h3>
         <Placeholder height="auto">
@@ -106,31 +128,61 @@ export const Width: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Auto
         </h3>
         <Placeholder width="auto">Auto</Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Small
         </h3>
         <Placeholder width="small">Small Width</Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Medium
         </h3>
         <Placeholder width="medium">Medium Width</Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Large
         </h3>
         <Placeholder width="large">Large Width</Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Full (100%)
         </h3>
         <Placeholder width="full">Full Width</Placeholder>
@@ -141,35 +193,63 @@ export const Width: Story = {
 
 export const Color: Story = {
   render: () => (
-    <div
-      style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.sm }}
-    >
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.sm }}>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Default (Violet Gradient)
         </h3>
         <Placeholder>Default Gradient</Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Solid - Interactive (Blue)
         </h3>
         <Placeholder color={tokens.color.interactive.default}>Solid Blue</Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Solid - Success (Green)
         </h3>
         <Placeholder color={tokens.color.success.default}>Solid Green</Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Solid - Error (Red)
         </h3>
         <Placeholder color={tokens.color.error.default}>Solid Red</Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Solid - Warning (Orange)
         </h3>
         <Placeholder color={tokens.color.warning.default}>Solid Orange</Placeholder>
@@ -180,11 +260,15 @@ export const Color: Story = {
 
 export const ColorGradient: Story = {
   render: () => (
-    <div
-      style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.sm }}
-    >
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.sm }}>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Blue to Purple
         </h3>
         <Placeholder colorFrom={tokens.color.interactive.default} colorTo={tokens.color.brand.secondary}>
@@ -192,7 +276,13 @@ export const ColorGradient: Story = {
         </Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Green to Teal
         </h3>
         <Placeholder colorFrom={tokens.color.success.default} colorTo={tokens.color.info.default}>
@@ -200,7 +290,13 @@ export const ColorGradient: Story = {
         </Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Orange to Red
         </h3>
         <Placeholder colorFrom={tokens.color.warning.default} colorTo={tokens.color.error.default}>
@@ -208,7 +304,13 @@ export const ColorGradient: Story = {
         </Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Purple to Pink
         </h3>
         <Placeholder colorFrom={tokens.color.brand.secondary} colorTo={tokens.color.brand.accent}>
@@ -216,7 +318,13 @@ export const ColorGradient: Story = {
         </Placeholder>
       </div>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.sm, fontWeight: tokens.fontWeight.semibold }}>
+        <h3
+          style={{
+            marginBottom: tokens.spacing.sm,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
+          }}
+        >
           Dark to Light
         </h3>
         <Placeholder colorFrom={tokens.color.background.inverse} colorTo={tokens.color.background.secondary}>
@@ -276,7 +384,13 @@ export const LayoutExample: Story = {
         <Placeholder height="small" width="full" color={tokens.color.interactive.default}>
           Header - Small Height, Full Width
         </Placeholder>
-        <div style={{ display: 'grid', gridTemplateColumns: `${tokens.dimension.sidebarWidthDefault} 1fr`, gap: tokens.spacing.base }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: `${tokens.dimension.sidebarWidthDefault} 1fr`,
+            gap: tokens.spacing.base,
+          }}
+        >
           <Placeholder height="full" width="full" color={tokens.color.brand.secondary}>
             Sidebar
           </Placeholder>

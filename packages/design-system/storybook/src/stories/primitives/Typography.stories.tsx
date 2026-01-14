@@ -48,7 +48,12 @@ export const FontFamilies: Story = {
               The quick brown fox jumps over the lazy dog
             </div>
             <div
-              style={{ fontFamily: value, fontSize: '16px', lineHeight: '1.5', color: primitives.color.neutral.neutral[600] }}
+              style={{
+                fontFamily: value,
+                fontSize: '16px',
+                lineHeight: '1.5',
+                color: primitives.color.neutral.neutral[600],
+              }}
             >
               {key === 'sans' && 'Body text, UI elements, buttons - Most versatile'}
               {key === 'serif' && 'Editorial content, headings, quotes - Elegant and traditional'}

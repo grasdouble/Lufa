@@ -244,21 +244,51 @@ export const Interactive: Story = {
 
 // Helper component for color swatches
 function ColorSwatch({ color, label }: { color: string; label: string }) {
+  const colorMap: Record<string, { bg: string; border: string }> = {
+    'interactive-default': {
+      bg: 'var(--color-interactive-default)',
+      border: 'var(--color-border-default)',
+    },
+    'interactive-hover': {
+      bg: 'var(--color-interactive-hover)',
+      border: 'var(--color-border-default)',
+    },
+    'success-default': {
+      bg: 'var(--color-success-default)',
+      border: 'var(--color-success-border)',
+    },
+    'warning-default': {
+      bg: 'var(--color-warning-default)',
+      border: 'var(--color-warning-border)',
+    },
+    'error-default': {
+      bg: 'var(--color-error-default)',
+      border: 'var(--color-error-border)',
+    },
+    'info-default': {
+      bg: 'var(--color-info-default)',
+      border: 'var(--color-info-border)',
+    },
+  };
+
+  const colors = colorMap[color] || { bg: 'transparent', border: 'var(--color-border-default)' };
+
   return (
     <div
       style={{
-        padding: '1rem',
+        padding: 'var(--spacing-md)',
         borderRadius: 'var(--radius-md)',
-        border: '1px solid var(--color-border-default)',
+        border: `1px solid ${colors.border}`,
+        backgroundColor: 'var(--color-background-primary)',
       }}
     >
       <div
-        className={`bg-${color}`}
         style={{
           width: '100%',
           height: '60px',
           borderRadius: 'var(--radius-sm)',
-          marginBottom: '0.5rem',
+          marginBottom: 'var(--spacing-xs)',
+          backgroundColor: colors.bg,
         }}
       />
       <Typography variant="bodySmall" weight="medium">

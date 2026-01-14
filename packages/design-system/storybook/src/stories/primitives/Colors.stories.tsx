@@ -64,8 +64,7 @@ export const AllColors: Story = {
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>All Primitive Colors</h1>
       <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
-        Complete set of primitive color scales in OKLCH format. Includes 17 chromatic palettes and 5 neutral scales,
-        all
+        Complete set of primitive color scales in OKLCH format. Includes 17 chromatic palettes and 5 neutral scales, all
         optimized for WCAG 2.1 contrast ratios.
       </p>
       <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', marginTop: '32px' }}>Neutrals</h2>
@@ -376,13 +375,23 @@ export const ContrastGuide: Story = {
             <div style={{ fontSize: '12px', color: primitives.color.chromatic.blue[700] }}>AAA Compliant</div>
           </div>
           <div
-            style={{ padding: '16px', backgroundColor: primitives.color.neutral.white, borderRadius: '8px', minWidth: '200px' }}
+            style={{
+              padding: '16px',
+              backgroundColor: primitives.color.neutral.white,
+              borderRadius: '8px',
+              minWidth: '200px',
+            }}
           >
             <div style={{ color: primitives.color.chromatic.blue[700], fontWeight: '600' }}>Blue 700 on White</div>
             <div style={{ fontSize: '12px', color: primitives.color.chromatic.blue[600] }}>AAA Compliant</div>
           </div>
           <div
-            style={{ padding: '16px', backgroundColor: primitives.color.neutral.white, borderRadius: '8px', minWidth: '200px' }}
+            style={{
+              padding: '16px',
+              backgroundColor: primitives.color.neutral.white,
+              borderRadius: '8px',
+              minWidth: '200px',
+            }}
           >
             <div style={{ color: primitives.color.chromatic.blue[600], fontWeight: '600' }}>Blue 600 on White</div>
             <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>AA Compliant</div>

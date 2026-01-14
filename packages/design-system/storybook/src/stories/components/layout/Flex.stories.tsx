@@ -265,7 +265,9 @@ export const Gap: Story = {
               overflow: 'auto',
             }}
           >
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+            <div
+              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+            >
               wrap: {wrap}
             </div>
             <Flex
@@ -297,9 +299,15 @@ export const Wrap: Story = {
         {([SPACE_SIZE.none, SPACE_SIZE.sm, SPACE_SIZE.md, SPACE_SIZE.lg, SPACE_SIZE.xl] as const).map((gap) => (
           <div
             key={gap}
-            style={{ backgroundColor: tokens.color.background.secondary, borderRadius: tokens.radius.lg, padding: tokens.spacing.base }}
+            style={{
+              backgroundColor: tokens.color.background.secondary,
+              borderRadius: tokens.radius.lg,
+              padding: tokens.spacing.base,
+            }}
           >
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+            <div
+              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+            >
               gap: {gap}
             </div>
             <Flex

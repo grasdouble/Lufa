@@ -17,10 +17,16 @@ export const MaxWidth: Story = {
   render: () => (
     <div style={{ padding: '20px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>MaxWidth Primitives</h1>
-      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px', maxWidth: '768px' }}>
+      <p
+        style={{
+          marginBottom: '32px',
+          color: primitives.color.neutral.neutral[600],
+          fontSize: '16px',
+          maxWidth: '768px',
+        }}
+      >
         Primitive max-width values for content containers. Optimal reading width is 576-768px (45-75 characters per
-        line).
-        Includes component-specific widths (320-600px) and layout widths (768-1440px).
+        line). Includes component-specific widths (320-600px) and layout widths (768-1440px).
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -82,7 +88,8 @@ export const Sizes: Story = {
               style={{
                 width: value,
                 height: value,
-                backgroundColor: key === '44' ? primitives.color.chromatic.green[500] : primitives.color.chromatic.blue[500],
+                backgroundColor:
+                  key === '44' ? primitives.color.chromatic.green[500] : primitives.color.chromatic.blue[500],
                 borderRadius: '6px',
                 display: 'flex',
                 alignItems: 'center',
@@ -133,7 +140,14 @@ export const Grid: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
         {Object.entries(primitives.grid.columns).map(([key, value]) => (
           <div key={key}>
-            <div style={{ fontFamily: 'monospace', fontSize: '12px', color: primitives.color.neutral.neutral[600], marginBottom: '8px' }}>
+            <div
+              style={{
+                fontFamily: 'monospace',
+                fontSize: '12px',
+                color: primitives.color.neutral.neutral[600],
+                marginBottom: '8px',
+              }}
+            >
               columns[{key}] = {value}
             </div>
             <div
@@ -170,7 +184,14 @@ export const Grid: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         {Object.entries(primitives.grid.gutters).map(([key, value]) => (
           <div key={key}>
-            <div style={{ fontFamily: 'monospace', fontSize: '12px', color: primitives.color.neutral.neutral[600], marginBottom: '8px' }}>
+            <div
+              style={{
+                fontFamily: 'monospace',
+                fontSize: '12px',
+                color: primitives.color.neutral.neutral[600],
+                marginBottom: '8px',
+              }}
+            >
               gutters[{key}] = {value}
             </div>
             <div

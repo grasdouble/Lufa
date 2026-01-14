@@ -208,7 +208,9 @@ export const DataTable: Story = {
               <tr key={item.id}>
                 <td style={{ padding: '12px', borderBottom: `1px solid ${tokens.color.border.light}` }}>{item.id}</td>
                 <td style={{ padding: '12px', borderBottom: `1px solid ${tokens.color.border.light}` }}>{item.name}</td>
-                <td style={{ padding: '12px', borderBottom: `1px solid ${tokens.color.border.light}` }}>{item.description}</td>
+                <td style={{ padding: '12px', borderBottom: `1px solid ${tokens.color.border.light}` }}>
+                  {item.description}
+                </td>
               </tr>
             ))}
           </tbody>

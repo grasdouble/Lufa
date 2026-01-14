@@ -166,9 +166,7 @@ export const UsageExamples: Story = {
                 >
                   Modal Dialog
                 </div>
-                <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
-                  75% black overlay
-                </div>
+                <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>75% black overlay</div>
               </div>
             </div>
           </div>

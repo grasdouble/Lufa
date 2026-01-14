@@ -18,8 +18,8 @@ export const AllShadows: Story = {
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Shadow Primitives</h1>
       <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
-        Primitive shadow values using t-shirt sizing for depth and elevation hierarchy. Use shadows to indicate
-        layering and interactive affordance.
+        Primitive shadow values using t-shirt sizing for depth and elevation hierarchy. Use shadows to indicate layering
+        and interactive affordance.
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>

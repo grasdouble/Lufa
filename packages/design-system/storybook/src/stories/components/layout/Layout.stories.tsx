@@ -123,7 +123,9 @@ export const SidebarPositions: Story = {
             }}
           >
             <Layout.Header>
-              <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
+              <div
+                style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}
+              >
                 sidebarPosition: {position}
               </div>
               <Placeholder color={tokens.color.interactive.default} height="small" width="full">
@@ -171,7 +173,9 @@ export const SidebarWidths: Story = {
             }}
           >
             <Layout.Header>
-              <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
+              <div
+                style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}
+              >
                 sidebarWidth: {width}
               </div>
               <Placeholder color={tokens.color.interactive.default} height="small" width="full">

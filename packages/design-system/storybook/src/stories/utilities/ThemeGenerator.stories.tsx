@@ -90,11 +90,7 @@ const ContrastChecker = ({ foreground, background }: { foreground: string; backg
           : meetsAA
             ? tokens.color.warning.light
             : tokens.color.error.light,
-        color: meetsAAA
-          ? tokens.color.success.text
-          : meetsAA
-            ? tokens.color.warning.text
-            : tokens.color.error.text,
+        color: meetsAAA ? tokens.color.success.text : meetsAA ? tokens.color.warning.text : tokens.color.error.text,
       }}
     >
       <span style={{ fontWeight: '600' }}>{ratio.toFixed(2)}:1</span>

@@ -280,9 +280,7 @@ export const CombinedExample: Story = {
               </button>
             </div>
           </div>
-          <p style={{ marginTop: '8px', fontSize: '12px', color: tokens.color.text.tertiary }}>
-            radius.xl + shadow.xl
-          </p>
+          <p style={{ marginTop: '8px', fontSize: '12px', color: tokens.color.text.tertiary }}>radius.xl + shadow.xl</p>
         </div>
       </div>
     </div>

@@ -134,9 +134,7 @@ export const Rounded: Story = {
 
 export const UseCases: Story = {
   render: () => (
-    <div
-      style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.xs }}
-    >
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.xs }}>
       <div>
         <h3
           style={{

@@ -260,9 +260,7 @@ export const CombinedExamples: Story = {
                     cursor: 'pointer',
                     transition: `background-color ${primitives.timing[100]} ${primitives.easing.easeOut}`,
                   }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor = primitives.color.neutral.neutral[50])
-                  }
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = primitives.color.neutral.neutral[50])}
                   onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                 >
                   {opt}

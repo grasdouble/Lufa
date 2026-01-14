@@ -38,9 +38,7 @@ export const AllBreakpoints: Story = {
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>breakpoint.{key}</div>
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
-              {value}
-            </div>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>{value}</div>
             <div style={{ fontSize: '12px', color: tokens.color.text.tertiary }}>
               {key === 'xs' && 'Mobile landscape (480px+)'}
               {key === 'sm' && 'Small tablet (768px+)'}

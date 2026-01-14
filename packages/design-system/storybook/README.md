@@ -2,7 +2,7 @@
 
 # Lufa Design System Storybook
 
-[![Storybook](https://img.shields.io/badge/Storybook-8.x-FF4785?style=flat-square&logo=storybook)](https://storybook.js.org)
+[![Storybook](https://img.shields.io/badge/Storybook-10.x-FF4785?style=flat-square&logo=storybook)](https://storybook.js.org)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](../../LICENSE.md)
 
 > Interactive component explorer and documentation for the Lufa Design System
@@ -68,10 +68,8 @@ export const Primary: Story = {
 
 Installed Storybook addons:
 
-- **@storybook/addon-essentials** - Essential addons bundle
-- **@storybook/addon-interactions** - Test user interactions
-- **@storybook/addon-a11y** - Accessibility testing
 - **@storybook/addon-themes** - Theme switcher
+- **@storybook/addon-docs** - Documentation with MDX
 
 ## Deployment
 
@@ -86,38 +84,3 @@ Storybook is automatically deployed on pull requests and merges to main.
 ## Contributing
 
 See [CONTRIBUTING.md](../../../CONTRIBUTING.md) and [design system instructions](../../../.github/instructions/lufa-design-system.instructions.md) for development guidelines.
-// Optionally, add this for stylistic rules
-...tseslint.configs.stylisticTypeChecked,
-],
-languageOptions: {
-// other options...
-parserOptions: {
-project: ['./tsconfig.node.json', './tsconfig.app.json'],
-tsconfigRootDir: import.meta.dirname,
-},
-},
-});
-
-````
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactDom from 'eslint-plugin-react-dom';
-import reactX from 'eslint-plugin-react-x';
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-````

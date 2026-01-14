@@ -51,9 +51,7 @@ const SemanticColorCard = ({
           />
           <div style={{ fontSize: '12px' }}>
             <div style={{ fontWeight: '600', marginBottom: '2px' }}>{key}</div>
-            <div style={{ color: tokens.color.text.tertiary, fontFamily: 'monospace', fontSize: '11px' }}>
-              {value}
-            </div>
+            <div style={{ color: tokens.color.text.tertiary, fontFamily: 'monospace', fontSize: '11px' }}>{value}</div>
           </div>
         </div>
       ))}
@@ -256,7 +254,14 @@ export const StatusColors: Story = {
       />
       <SemanticColorCard title="Info Colors" color={tokens.color.info} description="Colors for informational states" />
 
-      <div style={{ padding: '20px', backgroundColor: tokens.color.surface.default, borderRadius: '8px', marginTop: '24px' }}>
+      <div
+        style={{
+          padding: '20px',
+          backgroundColor: tokens.color.surface.default,
+          borderRadius: '8px',
+          marginTop: '24px',
+        }}
+      >
         <h4 style={{ marginBottom: '16px' }}>Alert Examples</h4>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <div
@@ -317,7 +322,14 @@ export const BrandColors: Story = {
         color={tokens.color.brand}
         description="Primary and secondary brand colors"
       />
-      <div style={{ padding: '20px', backgroundColor: tokens.color.surface.default, borderRadius: '8px', marginTop: '24px' }}>
+      <div
+        style={{
+          padding: '20px',
+          backgroundColor: tokens.color.surface.default,
+          borderRadius: '8px',
+          marginTop: '24px',
+        }}
+      >
         <h4 style={{ marginBottom: '16px' }}>Brand Button Examples</h4>
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
           <button

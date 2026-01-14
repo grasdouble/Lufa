@@ -89,7 +89,11 @@ export const Axis: Story = {
               axis: {axis}
             </div>
             <div
-              style={{ color: tokens.color.text.tertiary, fontSize: tokens.fontSize.xs, marginBottom: tokens.spacing.md }}
+              style={{
+                color: tokens.color.text.tertiary,
+                fontSize: tokens.fontSize.xs,
+                marginBottom: tokens.spacing.md,
+              }}
             >
               {axis === 'horizontal' && 'Center on X only'}
               {axis === 'vertical' && 'Center on Y only'}
@@ -155,9 +159,7 @@ export const Inline: Story = {
   render: () => (
     <Stack direction="vertical" gap="normal">
       <div>
-        <div
-          style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}
-        >
+        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
           inline: true
         </div>
         <div
@@ -188,9 +190,7 @@ export const Inline: Story = {
       </div>
 
       <div>
-        <div
-          style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}
-        >
+        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
           inline: false
         </div>
         <div
@@ -228,9 +228,7 @@ export const Examples: Story = {
     <Container size="xl" paddingX="none">
       <Stack direction="vertical" gap="spacious">
         <div>
-          <div
-            style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
-          >
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
             Empty state
           </div>
           <Card variant="outlined" padding="large" title="Search results" subtitle="Try adjusting your filters">
@@ -253,9 +251,7 @@ export const Examples: Story = {
         </div>
 
         <div>
-          <div
-            style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
-          >
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
             Loading
           </div>
           <div
@@ -285,9 +281,7 @@ export const Examples: Story = {
         </div>
 
         <div>
-          <div
-            style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
-          >
+          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
             Footer CTA
           </div>
           <Card

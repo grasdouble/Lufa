@@ -1,5 +1,5 @@
-import type { Decorator, Parameters, Preview, ReactRenderer } from '@storybook/react-vite';
-import { withThemeByClassName, withThemeByDataAttribute } from '@storybook/addon-themes';
+import type { Decorator, Parameters, Preview } from '@storybook/react-vite';
+import { withThemeByDataAttribute } from '@storybook/addon-themes';
 
 import { Breakpoints } from './breakpoints';
 // Import design system compiled CSS (includes all component styles)
@@ -37,87 +37,48 @@ const parameters: Parameters = {
       return a.id === b.id ? 0 : a.id.localeCompare(b.id, undefined, { numeric: true });
     },
   },
-  backgrounds: { disabled: true },
-  layout: 'fullscreen',
+  layout: 'centered',
   viewport: {
     options: { ...storybookViewports },
   },
-  themes: {
-    default: 'light',
-    list: [
-      {
-        name: 'light',
-        class: 'theme-light',
-        color: '#ffffff', // Background color for the light theme
-      },
-      {
-        name: 'dark',
-        class: 'theme-dark',
-        color: '#333', // Background color for the dark theme
-        default: true,
-      },
-    ],
-  },
 };
 
-type ThemeItem = {
-  name: string;
-  color?: string;
-  class?: string;
-  default?: boolean;
-};
+// Decorator to automatically sync background color with theme
+const withThemeBackground: Decorator = (Story, context) => {
+  const theme = context.globals.theme ?? 'light';
 
-export const hackDecoratorDarkMode: Decorator = (story, context) => {
-  const isDarkMode = context?.globals?.theme === 'dark';
-  const darkModeColor = context?.parameters?.themes?.list?.find((v: ThemeItem) => v.name === 'dark')?.color;
+  // Apply background color based on theme
+  const backgroundColor = theme === 'dark' ? '#1a1a1a' : '#ffffff';
 
-  const lightModeColor = context?.parameters?.themes?.list?.find((v: ThemeItem) => v.name === 'light')?.color;
-
-  const styleContentForDocs = `
-      .docs-story {
-        background-color: ${isDarkMode ? darkModeColor : lightModeColor};
-      }`;
-
-  const styleContentForStories = `
-      .dark,
-      [data-theme="dark"] {
-        background-color: #333;
-      }`;
-
-  const size = ``;
   return (
-    <>
-      <style>{styleContentForDocs}</style>
-      <style>{styleContentForStories}</style>
-      <style>{size}</style>
-
-      <>{story(context)}</>
-    </>
+    <div
+      style={{
+        backgroundColor,
+        minHeight: '100vh',
+        padding: '2rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Story />
+    </div>
   );
 };
 
-const decorators = [
-  withThemeByDataAttribute({
-    themes: {
-      light: 'light',
-      dark: 'dark',
-    },
-    defaultTheme: 'light',
-    attributeName: 'data-theme',
-  }),
-  withThemeByClassName<ReactRenderer>({
-    themes: {
-      light: 'light',
-      dark: 'dark',
-    },
-    defaultTheme: 'light',
-  }),
-  hackDecoratorDarkMode,
-];
-
 const preview: Preview = {
   parameters,
-  decorators,
+  decorators: [
+    withThemeByDataAttribute({
+      themes: {
+        light: '',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+      attributeName: 'data-theme',
+    }),
+    withThemeBackground, // Add after theme decorator to auto-sync background
+  ],
 };
 
 export default preview;

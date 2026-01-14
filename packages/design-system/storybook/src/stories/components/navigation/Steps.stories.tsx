@@ -184,19 +184,31 @@ export const Wizard: Story = {
     ];
 
     const stepContent = [
-      <div key="step-0" style={{ padding: '24px', backgroundColor: tokens.color.background.secondary, borderRadius: '8px' }}>
+      <div
+        key="step-0"
+        style={{ padding: '24px', backgroundColor: tokens.color.background.secondary, borderRadius: '8px' }}
+      >
         <h3 style={{ marginBottom: '16px' }}>Basic Information</h3>
         <p>Form fields for basic information would go here...</p>
       </div>,
-      <div key="step-1" style={{ padding: '24px', backgroundColor: tokens.color.background.secondary, borderRadius: '8px' }}>
+      <div
+        key="step-1"
+        style={{ padding: '24px', backgroundColor: tokens.color.background.secondary, borderRadius: '8px' }}
+      >
         <h3 style={{ marginBottom: '16px' }}>Contact Details</h3>
         <p>Form fields for contact details would go here...</p>
       </div>,
-      <div key="step-2" style={{ padding: '24px', backgroundColor: tokens.color.background.secondary, borderRadius: '8px' }}>
+      <div
+        key="step-2"
+        style={{ padding: '24px', backgroundColor: tokens.color.background.secondary, borderRadius: '8px' }}
+      >
         <h3 style={{ marginBottom: '16px' }}>Preferences</h3>
         <p>Form fields for preferences would go here...</p>
       </div>,
-      <div key="step-3" style={{ padding: '24px', backgroundColor: tokens.color.background.secondary, borderRadius: '8px' }}>
+      <div
+        key="step-3"
+        style={{ padding: '24px', backgroundColor: tokens.color.background.secondary, borderRadius: '8px' }}
+      >
         <h3 style={{ marginBottom: '16px' }}>Review & Confirm</h3>
         <p>Summary of all entered information would go here...</p>
       </div>,

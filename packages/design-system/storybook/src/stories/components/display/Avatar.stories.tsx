@@ -112,25 +112,33 @@ export const StatusIndicators: Story = {
         <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base }}>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" />
-            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            <p
+              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            >
               Online
             </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="away" />
-            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            <p
+              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            >
               Away
             </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="busy" />
-            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            <p
+              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            >
               Busy
             </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="offline" />
-            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            <p
+              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            >
               Offline
             </p>
           </div>
@@ -149,25 +157,33 @@ export const StatusIndicators: Story = {
         <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base }}>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="top" variant="circle" />
-            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            <p
+              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            >
               Top (Circle)
             </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="bottom" variant="circle" />
-            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            <p
+              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            >
               Bottom (Circle)
             </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="top" variant="square" />
-            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            <p
+              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            >
               Top (Square)
             </p>
           </div>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="bottom" variant="square" />
-            <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+            <p
+              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            >
               Bottom (Square)
             </p>
           </div>
@@ -245,7 +261,9 @@ export const GroupWithCount: Story = {
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             max=3 (shows +6 more)
           </p>
           <AvatarGroup size="md" max={3}>
@@ -261,7 +279,9 @@ export const GroupWithCount: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             max=5 (shows +4 more)
           </p>
           <AvatarGroup size="md" max={5}>
@@ -298,7 +318,9 @@ export const GroupSizes: Story = {
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing['md-lg'] }}>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             Extra Small (xs)
           </p>
           <AvatarGroup size="xs" max={3}>
@@ -310,7 +332,9 @@ export const GroupSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             Small (sm)
           </p>
           <AvatarGroup size="sm" max={3}>
@@ -322,7 +346,9 @@ export const GroupSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             Medium (md)
           </p>
           <AvatarGroup size="md" max={3}>
@@ -334,7 +360,9 @@ export const GroupSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             Large (lg)
           </p>
           <AvatarGroup size="lg" max={3}>
@@ -346,7 +374,9 @@ export const GroupSizes: Story = {
           </AvatarGroup>
         </div>
         <div>
-          <p style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+          >
             Extra Large (xl)
           </p>
           <AvatarGroup size="xl" max={3}>

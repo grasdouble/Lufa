@@ -269,9 +269,7 @@ export const WCAGStandards: Story = {
           >
             <div>
               <div style={{ fontWeight: '600', marginBottom: '4px' }}>Normal Text</div>
-              <div style={{ fontSize: '14px', color: tokens.color.text.tertiary }}>
-                14pt or smaller (under 18.66px)
-              </div>
+              <div style={{ fontSize: '14px', color: tokens.color.text.tertiary }}>14pt or smaller (under 18.66px)</div>
             </div>
             <div style={{ fontSize: '24px', fontWeight: '700', color: tokens.color.interactive.default }}>
               {WCAG_STANDARDS.AA.normalText}:1
@@ -339,9 +337,7 @@ export const WCAGStandards: Story = {
           >
             <div>
               <div style={{ fontWeight: '600', marginBottom: '4px' }}>Normal Text</div>
-              <div style={{ fontSize: '14px', color: tokens.color.text.tertiary }}>
-                14pt or smaller (under 18.66px)
-              </div>
+              <div style={{ fontSize: '14px', color: tokens.color.text.tertiary }}>14pt or smaller (under 18.66px)</div>
             </div>
             <div style={{ fontSize: '24px', fontWeight: '700', color: tokens.color.success.default }}>
               {WCAG_STANDARDS.AAA.normalText}:1
@@ -394,9 +390,9 @@ export const TextColorSuggestion: Story = {
     return (
       <div style={{ padding: '20px', maxWidth: '600px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Text Color Suggestion</h1>
-      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary }}>
-        Automatically suggests the best text color (black or white) for any background color.
-      </p>
+        <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary }}>
+          Automatically suggests the best text color (black or white) for any background color.
+        </p>
 
         <div style={{ marginBottom: '24px' }}>
           <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Choose Background Color</label>

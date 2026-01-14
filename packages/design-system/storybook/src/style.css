@@ -1,6 +1,6 @@
 /**
  * Storybook-specific styles
- * 
+ *
  * Note: The design system's CSS is imported in .storybook/preview.tsx
  * This file only contains Storybook-specific overrides and utilities.
  */
@@ -9,4 +9,8 @@
 #storybook-root {
   height: 100%;
   width: 100%;
+}
+
+.sb-show-main.sb-main-padded {
+  padding: 0;
 }

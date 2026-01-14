@@ -17,7 +17,11 @@ export const Overview: Story = {
   render: () => (
     <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['5xl'] }}>
       <h1
-        style={{ fontSize: tokens.fontSize['5xl'], fontWeight: tokens.fontWeight.bold, marginBottom: tokens.spacing.base }}
+        style={{
+          fontSize: tokens.fontSize['5xl'],
+          fontWeight: tokens.fontWeight.bold,
+          marginBottom: tokens.spacing.base,
+        }}
       >
         Spacing Tokens
       </h1>
@@ -119,7 +123,13 @@ export const Overview: Story = {
                     : tokens.borderStyle.none,
               }}
             />
-            <div style={{ marginLeft: tokens.spacing.base, color: tokens.color.text.tertiary, fontSize: tokens.fontSize.xs }}>
+            <div
+              style={{
+                marginLeft: tokens.spacing.base,
+                color: tokens.color.text.tertiary,
+                fontSize: tokens.fontSize.xs,
+              }}
+            >
               {key === 'none' && 'No spacing'}
               {key === 'xxs' && 'Minimal spacing'}
               {key === 'xs' && 'Very tight spacing'}
@@ -218,7 +228,9 @@ export const PracticalExamples: Story = {
         </div>
 
         <div>
-          <h3 style={{ marginBottom: tokens.spacing.md, fontSize: tokens.fontSize.base }}>Button Group with Small Gap</h3>
+          <h3 style={{ marginBottom: tokens.spacing.md, fontSize: tokens.fontSize.base }}>
+            Button Group with Small Gap
+          </h3>
           <div style={{ display: 'flex', gap: tokens.spacing.sm }}>
             <button
               style={{

@@ -72,20 +72,20 @@ export const TimingTokens: Story = {
         <div
           style={{
             padding: '20px',
-          backgroundColor: tokens.color.background.secondary,
-          borderRadius: '8px',
-          border: `1px solid ${tokens.color.border.light}`,
-        }}
-      >
-        <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>WCAG 2.1 Guidelines</h3>
-        <ul
-          style={{
-            margin: '0',
-            paddingLeft: '20px',
-            color: tokens.color.text.tertiary,
-            fontSize: '14px',
-            lineHeight: '1.6',
+            backgroundColor: tokens.color.background.secondary,
+            borderRadius: '8px',
+            border: `1px solid ${tokens.color.border.light}`,
           }}
+        >
+          <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>WCAG 2.1 Guidelines</h3>
+          <ul
+            style={{
+              margin: '0',
+              paddingLeft: '20px',
+              color: tokens.color.text.tertiary,
+              fontSize: '14px',
+              lineHeight: '1.6',
+            }}
           >
             <li>Respect prefers-reduced-motion for accessibility (WCAG 2.3.3)</li>
             <li>Keep animations under 5 seconds unless user-controlled (WCAG 2.2.2)</li>
@@ -158,20 +158,20 @@ export const EasingTokens: Story = {
         <div
           style={{
             padding: '20px',
-          backgroundColor: tokens.color.background.secondary,
-          borderRadius: '8px',
-          border: `1px solid ${tokens.color.border.light}`,
-        }}
-      >
-        <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>Usage Guidelines</h3>
-        <ul
-          style={{
-            margin: '0',
-            paddingLeft: '20px',
-            color: tokens.color.text.tertiary,
-            fontSize: '14px',
-            lineHeight: '1.6',
+            backgroundColor: tokens.color.background.secondary,
+            borderRadius: '8px',
+            border: `1px solid ${tokens.color.border.light}`,
           }}
+        >
+          <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>Usage Guidelines</h3>
+          <ul
+            style={{
+              margin: '0',
+              paddingLeft: '20px',
+              color: tokens.color.text.tertiary,
+              fontSize: '14px',
+              lineHeight: '1.6',
+            }}
           >
             <li>
               <strong>easeIn:</strong> Elements entering the viewport
