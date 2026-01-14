@@ -84,14 +84,23 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Forms',
-          items: ['components/forms/button'],
+          items: ['components/forms/button', 'components/forms/input'],
+        },
+        {
+          type: 'category',
+          label: 'Overlay',
+          items: ['components/overlay/modal'],
         },
       ],
     },
     {
       type: 'category',
       label: 'Guides',
-      items: ['guides/contributing'],
+      items: [
+        'guides/contributing',
+        'guides/migration',
+        'guides/component-documentation-template',
+      ],
     },
     'changelog',
   ],

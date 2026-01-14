@@ -15,10 +15,13 @@ import {
   PrototypeLayoutExample,
   Width,
 } from '../../../src/dsExamples/layout/placeholder';
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
 
 # Placeholder
 
-Layout placeholder block for prototyping and spacing.
+<DarkModeCompatible />
+
+Layout placeholder block for prototyping and spacing. A visual utility component for sketching layouts during development.
 
 ## Overview
 
@@ -41,11 +44,44 @@ import { Placeholder } from '@grasdouble/lufa_design-system';
 
 ## Basic Usage
 
-```tsx
-<Placeholder>Placeholder</Placeholder>
+```tsx title="src/App.tsx"
+import { Placeholder } from '@grasdouble/lufa_design-system';
+
+function App() {
+  return (
+    <Placeholder>Placeholder</Placeholder>
+  );
+}
 ```
 
-## Props
+## Anatomy
+
+The Placeholder component is a simple visual block for prototyping:
+
+```
+┌─────────────────────────────────────┐
+│                                     │
+│           [children]                │  ← Placeholder Container
+│         (optional label)            │     (customizable size & color)
+│                                     │
+└─────────────────────────────────────┘
+```
+
+**Component Structure:**
+- **Container**: A block element with customizable dimensions and background
+- **Children** (optional): Content displayed inside (typically a label for identification)
+
+**Sizing:**
+- Width: auto (default), small, medium, large, or full
+- Height: small, medium (default), large, auto (content-based), or full
+
+**Coloring:**
+- Solid color via `color` prop
+- Gradient via `colorFrom` and `colorTo` props
+
+## API Reference
+
+### Props
 
 | Prop        | Type                                                 | Default    | Description                                  |
 | ----------- | ---------------------------------------------------- | ---------- | -------------------------------------------- |
@@ -55,6 +91,29 @@ import { Placeholder } from '@grasdouble/lufa_design-system';
 | `colorTo`   | `string`                                             | -          | Gradient end color (requires `colorFrom`)    |
 | `height`    | `'small' \| 'medium' \| 'large' \| 'auto' \| 'full'` | `'medium'` | Height variant of the placeholder            |
 | `width`     | `'auto' \| 'small' \| 'medium' \| 'large' \| 'full'` | `'auto'`   | Width variant of the placeholder             |
+
+Also supports standard HTML `div` attributes (e.g., `className`, `style`, `data-*`).
+
+### Height Details
+
+- **small**: 64px fixed height, suitable for compact UI elements
+- **medium**: 128px fixed height, default for most prototyping needs
+- **large**: 256px fixed height, useful for hero sections or large content blocks
+- **auto**: Height adjusts to content, useful for text or variable content
+- **full**: 100% height, fills parent container
+
+### Width Details
+
+- **auto**: Width adjusts to content (default, inline-block behavior)
+- **small**: 128px fixed width, useful for sidebar elements
+- **medium**: 256px fixed width, good for card-like components
+- **large**: 512px fixed width, suitable for wide content blocks
+- **full**: 100% width, fills parent container
+
+### Color Details
+
+- **color**: Any valid CSS color value (hex, rgb, named colors, or token references)
+- **colorFrom / colorTo**: Creates a diagonal gradient (top-left to bottom-right)
 
 ## Variants
 
@@ -89,8 +148,106 @@ import { Placeholder } from '@grasdouble/lufa_design-system';
 
 ## Accessibility
 
-- `Placeholder` is a decorative/prototyping element; avoid using it for meaningful content in production.
-- If you use it to represent a UI region temporarily, ensure the real component will have appropriate semantics and labels.
+The Placeholder component is designed as a development utility:
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Use Placeholder only during development and prototyping phases
+- Replace placeholders with semantic components before production
+- If temporarily representing a UI region, document what the final component will be
+- Use meaningful labels in children to identify placeholder purpose
+
+#### Don't ❌
+
+- Don't ship Placeholder components in production without semantic alternatives
+- Don't use placeholders to represent interactive elements
+- Don't rely on color alone to identify placeholder purpose
+
+### Screen Reader Considerations
+
+```tsx
+// If temporarily using in production, provide context:
+<Placeholder aria-label="Image placeholder - final design pending">
+  Product Image
+</Placeholder>
+```
+
+Since Placeholder is decorative, consider adding `aria-hidden="true"` if the content is purely visual:
+
+```tsx
+<Placeholder aria-hidden="true">
+  {/* Decorative content */}
+</Placeholder>
+```
+
+## Common Patterns
+
+### Layout Prototyping
+
+```tsx title="src/components/LayoutPrototype.tsx"
+import { Placeholder } from '@grasdouble/lufa_design-system';
+
+function LayoutPrototype() {
+  return (
+    <div style={{ display: 'flex', gap: '16px' }}>
+      <Placeholder width="small" height="full" color="#e0e0e0">
+        Sidebar
+      </Placeholder>
+      <div style={{ flex: 1 }}>
+        <Placeholder height="small" width="full" color="#f0f0f0">
+          Header
+        </Placeholder>
+        <Placeholder height="large" width="full" color="#f5f5f5">
+          Main Content
+        </Placeholder>
+      </div>
+    </div>
+  );
+}
+```
+
+### Visual Spacing Reference
+
+```tsx title="src/components/SpacingDemo.tsx"
+import { Placeholder } from '@grasdouble/lufa_design-system';
+
+function SpacingDemo() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <Placeholder height="small" width="medium" color="#ddd">
+        Small (64px)
+      </Placeholder>
+      <Placeholder height="medium" width="medium" color="#ccc">
+        Medium (128px)
+      </Placeholder>
+      <Placeholder height="large" width="medium" color="#bbb">
+        Large (256px)
+      </Placeholder>
+    </div>
+  );
+}
+```
+
+### Gradient Backgrounds
+
+```tsx title="src/components/GradientPlaceholder.tsx"
+import { Placeholder } from '@grasdouble/lufa_design-system';
+
+function GradientPlaceholder() {
+  return (
+    <Placeholder
+      height="large"
+      width="full"
+      colorFrom="#667eea"
+      colorTo="#764ba2"
+    >
+      Hero Section
+    </Placeholder>
+  );
+}
+```
 
 ## Examples of usage
 
@@ -98,3 +255,27 @@ import { Placeholder } from '@grasdouble/lufa_design-system';
 <FormLayoutExample />
 <PrototypeLayoutExample />
 <HeightWidthMatrixExample />
+
+## Related Components
+
+- **Space** - For adding explicit spacing between elements
+- **Stack** - For organizing content with consistent gaps
+- **Grid** - For creating structured layouts
+- **Flex** - For flexible container layouts
+
+## TypeScript Support
+
+The Placeholder component is fully typed with TypeScript:
+
+```tsx
+interface PlaceholderProps {
+  children?: ReactNode;
+  color?: string;
+  colorFrom?: string;
+  colorTo?: string;
+  height?: 'small' | 'medium' | 'large' | 'auto' | 'full';
+  width?: 'auto' | 'small' | 'medium' | 'large' | 'full';
+}
+```
+
+This ensures type safety and autocomplete in your IDE.

@@ -19,6 +19,10 @@ import {
 
 # Stack
 
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+
+<DarkModeCompatible />
+
 A flexible layout primitive for arranging children in a horizontal or vertical stack with consistent spacing, alignment, wrapping, and distribution options.
 
 ## Overview
@@ -35,7 +39,7 @@ Use `Stack` when you need…
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import {
@@ -67,7 +71,51 @@ import {
 </Stack>
 ```
 
-## Props
+## Anatomy
+
+The Stack component consists of several key parts:
+
+```
+Vertical Stack (direction="vertical"):
+┌─────────────────────────┐
+│  Item 1                 │  ← Stack Item
+├─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┤
+│         gap             │  ← Spacing (gap)
+├─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┤
+│  Item 2                 │  ← Stack Item
+├─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┤
+│         gap             │  ← Spacing (gap)
+├─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┤
+│  Item 3                 │  ← Stack Item
+└─────────────────────────┘
+  ↑                     ↑
+  │                     └─ padding (optional)
+  └─ padding (optional)
+
+Horizontal Stack (direction="horizontal"):
+┌────────┬───┬────────┬───┬────────┐
+│ Item 1 │gap│ Item 2 │gap│ Item 3 │
+└────────┴───┴────────┴───┴────────┘
+```
+
+**Component Structure:**
+- **Stack Container**: Flex container with configurable direction, spacing, and alignment
+- **Stack Items**: Child elements arranged in the stack (can be any ReactNode)
+- **Gap Spacing**: Consistent spacing between items (none, condensed, normal, spacious)
+- **Padding**: Optional internal padding around the stack container
+- **Stack.Item**: Wrapper component with optional `grow` property
+
+**Alignment Options:**
+- **align**: Cross-axis alignment (stretch, start, center, end, baseline)
+- **justify**: Main-axis distribution (start, center, end, space-between, space-evenly)
+- **wrap**: Whether items should wrap to multiple lines (wrap, nowrap)
+
+**Visual States:**
+- **Default**: Normal layout with specified direction and spacing
+- **Wrapped**: Items flow to next line when `wrap="wrap"` and space is limited
+- **Grow**: Items with `Stack.Item grow` expand to fill available space
+
+## API Reference
 
 ### Stack Props
 
@@ -87,6 +135,48 @@ import {
 | ---------- | ----------- | ------- | ---------------------------------------------------- |
 | `children` | `ReactNode` | -       | Content to display inside the stack item             |
 | `grow`     | `boolean`   | `false` | Whether the item should grow to fill available space |
+
+Also supports all standard HTML `div` attributes for the container element.
+
+### Direction Details
+
+- **vertical**: Items stacked top to bottom (default, good for forms, menus, lists)
+- **horizontal**: Items arranged left to right (good for toolbars, button groups, navigation)
+
+### Gap Details
+
+- **none**: No spacing between items (0px)
+- **condensed**: Compact spacing for dense layouts (8px)
+- **normal**: Default spacing for most use cases (16px)
+- **spacious**: Generous spacing for breathing room (24px)
+
+### Align Details
+
+- **stretch**: Items stretch to fill cross-axis (default)
+- **start**: Items aligned to cross-axis start (top for horizontal, left for vertical)
+- **center**: Items centered on cross-axis
+- **end**: Items aligned to cross-axis end (bottom for horizontal, right for vertical)
+- **baseline**: Items aligned by their text baseline
+
+### Justify Details
+
+- **start**: Items packed at main-axis start (default)
+- **center**: Items centered on main-axis
+- **end**: Items packed at main-axis end
+- **space-between**: Items evenly distributed with first at start, last at end
+- **space-evenly**: Items evenly distributed with equal space around them
+
+### Wrap Details
+
+- **nowrap**: All items on single line (default, may overflow)
+- **wrap**: Items wrap to next line when space is limited (responsive)
+
+### Padding Details
+
+- **none**: No internal padding (default)
+- **condensed**: Compact padding around container (8px)
+- **normal**: Standard padding around container (16px)
+- **spacious**: Generous padding around container (24px)
 
 ## Variants
 
@@ -133,10 +223,354 @@ import {
 
 ## Accessibility
 
-- `Stack` renders a `div`; semantics come from its children.
-- Ensure interactive children have visible focus states and sufficient spacing for touch targets.
+The Stack component is designed with WCAG 2.1 AA compliance in mind:
+
+### Keyboard Navigation
+
+Stack is a layout primitive that doesn't directly handle keyboard navigation. However, it supports proper keyboard navigation through:
+
+- **Tab**: Navigate to next focusable child element
+- **Shift + Tab**: Navigate to previous focusable child element
+- Interactive children maintain their natural keyboard behavior
+- Focus order follows the visual layout direction
+
+The component ensures focus order matches visual order, critical for keyboard users.
+
+### Screen Reader Support
+
+**For Standard Stack:**
+```tsx
+<Stack direction="vertical" gap="normal">
+  <Button>First Button</Button>
+  <Button>Second Button</Button>
+  <Button>Third Button</Button>
+</Stack>
+// Screen readers announce each child in document order
+// "First Button, button", "Second Button, button", "Third Button, button"
+```
+
+**For Horizontal Stack:**
+```tsx
+<Stack direction="horizontal" gap="normal">
+  <Link href="/home">Home</Link>
+  <Link href="/about">About</Link>
+  <Link href="/contact">Contact</Link>
+</Stack>
+// Screen readers announce navigation structure from children
+// Order matches visual left-to-right layout
+```
+
+**For Form Layout:**
+```tsx
+<Stack direction="vertical" gap="normal">
+  <label htmlFor="name">Name</label>
+  <Input id="name" />
+  <label htmlFor="email">Email</label>
+  <Input id="email" type="email" />
+</Stack>
+// Screen readers announce proper label-input associations
+// "Name, edit text", "Email, edit text"
+```
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Ensure all interactive children are keyboard accessible
+- Maintain logical reading order (top-to-bottom for vertical, left-to-right for horizontal)
+- Use semantic HTML elements for stack children (button, a, etc.)
+- Provide sufficient spacing between interactive elements (minimum 44x44px touch targets)
+- Ensure focus indicators are visible on all interactive children
+- Use `Stack.Item grow` to create responsive layouts that adapt to screen sizes
+
+#### Don't ❌
+
+- Don't use Stack to create semantic structure (use nav, header, footer, etc. as children)
+- Don't rely on visual order alone; ensure DOM order matches visual order
+- Don't remove focus outlines from interactive children
+- Don't create overly complex nested stacks (can confuse screen reader users)
+- Don't use Stack to hide overflow content (use appropriate scrolling containers)
+
+### ARIA Attributes
+
+The Stack component renders a `div` with no implicit ARIA semantics. Semantic meaning comes from child elements:
+
+```tsx
+// Navigation example with proper ARIA
+<nav aria-label="Main navigation">
+  <Stack direction="horizontal" gap="normal">
+    <Link href="/">Home</Link>
+    <Link href="/products">Products</Link>
+    <Link href="/about">About</Link>
+  </Stack>
+</nav>
+
+// Button group example
+<Stack direction="horizontal" gap="condensed" role="group" aria-label="Text formatting">
+  <Button aria-label="Bold">B</Button>
+  <Button aria-label="Italic">I</Button>
+  <Button aria-label="Underline">U</Button>
+</Stack>
+
+// Form section with fieldset
+<fieldset>
+  <legend>Contact Information</legend>
+  <Stack direction="vertical" gap="normal">
+    <Input label="Name" />
+    <Input label="Email" type="email" />
+    <Input label="Phone" type="tel" />
+  </Stack>
+</fieldset>
+```
+
+Additional ARIA attributes can be passed as props when semantic grouping is needed:
+
+```tsx
+<Stack
+  direction="horizontal"
+  gap="normal"
+  role="group"
+  aria-labelledby="toolbar-label"
+>
+  <h3 id="toolbar-label" className="sr-only">Editor toolbar</h3>
+  {/* toolbar buttons */}
+</Stack>
+```
+
+### Color Contrast
+
+Stack is a layout component with no inherent colors. Accessibility considerations:
+
+- Ensure child components meet WCAG 2.1 AA contrast requirements (4.5:1 for text)
+- Background colors should contrast with Stack's parent container
+- Interactive elements should have visible focus indicators (minimum 3:1 contrast)
+- Gap spacing helps maintain visual separation and readability
+
+Tested in both light and dark modes through child component styling.
+
+## Common Patterns
+
+### Button Group
+
+```tsx title="src/components/ButtonGroup.tsx"
+import { Stack, STACK_DIRECTION, STACK_GAP } from '@grasdouble/lufa_design-system';
+import { Button } from '@grasdouble/lufa_design-system';
+
+function ButtonGroup() {
+  return (
+    <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed}>
+      <Button variant="primary">Save</Button>
+      <Button variant="secondary">Cancel</Button>
+      <Button variant="tertiary">Reset</Button>
+    </Stack>
+  );
+}
+```
+
+### Form Layout
+
+```tsx title="src/components/UserForm.tsx"
+import { Stack, STACK_DIRECTION, STACK_GAP } from '@grasdouble/lufa_design-system';
+import { Input, Button } from '@grasdouble/lufa_design-system';
+
+function UserForm() {
+  return (
+    <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
+      <Input label="Name" placeholder="Enter your name" />
+      <Input label="Email" type="email" placeholder="Enter your email" />
+      <Input label="Password" type="password" placeholder="Enter your password" />
+      <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed} justify="end">
+        <Button variant="secondary">Cancel</Button>
+        <Button variant="primary">Submit</Button>
+      </Stack>
+    </Stack>
+  );
+}
+```
+
+### Toolbar
+
+```tsx title="src/components/EditorToolbar.tsx"
+import { Stack, STACK_DIRECTION, STACK_GAP, STACK_JUSTIFY } from '@grasdouble/lufa_design-system';
+import { Button } from '@grasdouble/lufa_design-system';
+
+function EditorToolbar() {
+  return (
+    <Stack
+      direction={STACK_DIRECTION.horizontal}
+      gap={STACK_GAP.condensed}
+      justify={STACK_JUSTIFY['space-between']}
+      padding="normal"
+    >
+      <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed}>
+        <Button variant="ghost" aria-label="Bold">B</Button>
+        <Button variant="ghost" aria-label="Italic">I</Button>
+        <Button variant="ghost" aria-label="Underline">U</Button>
+      </Stack>
+      <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed}>
+        <Button variant="ghost" aria-label="Undo">↶</Button>
+        <Button variant="ghost" aria-label="Redo">↷</Button>
+      </Stack>
+    </Stack>
+  );
+}
+```
+
+### Card Actions
+
+```tsx title="src/components/ProductCard.tsx"
+import { Stack, STACK_DIRECTION, STACK_GAP } from '@grasdouble/lufa_design-system';
+import { Button } from '@grasdouble/lufa_design-system';
+
+function ProductCard({ product }) {
+  return (
+    <div className="card">
+      <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
+        <img src={product.image} alt={product.name} />
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
+        <p className="price">${product.price}</p>
+        <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed} justify="end">
+          <Button variant="secondary">Add to Wishlist</Button>
+          <Button variant="primary">Add to Cart</Button>
+        </Stack>
+      </Stack>
+    </div>
+  );
+}
+```
+
+### Responsive Stack with Wrap
+
+```tsx title="src/components/ChipList.tsx"
+import { Stack, STACK_DIRECTION, STACK_GAP, STACK_WRAP } from '@grasdouble/lufa_design-system';
+import { Chip } from '@grasdouble/lufa_design-system';
+
+function ChipList({ tags }) {
+  return (
+    <Stack
+      direction={STACK_DIRECTION.horizontal}
+      gap={STACK_GAP.condensed}
+      wrap={STACK_WRAP.wrap}
+    >
+      {tags.map((tag) => (
+        <Chip key={tag} label={tag} />
+      ))}
+    </Stack>
+  );
+}
+```
+
+### Flexible Layout with Stack.Item
+
+```tsx title="src/components/SearchHeader.tsx"
+import { Stack, STACK_DIRECTION, STACK_GAP, STACK_ALIGN } from '@grasdouble/lufa_design-system';
+import { Input, Button } from '@grasdouble/lufa_design-system';
+
+function SearchHeader() {
+  return (
+    <Stack
+      direction={STACK_DIRECTION.horizontal}
+      gap={STACK_GAP.normal}
+      align={STACK_ALIGN.center}
+    >
+      <div>Logo</div>
+      <Stack.Item grow>
+        <Input placeholder="Search..." />
+      </Stack.Item>
+      <Button variant="primary">Sign In</Button>
+    </Stack>
+  );
+}
+```
+
+### Nested Stacks for Complex Layouts
+
+```tsx title="src/components/DashboardHeader.tsx"
+import { Stack, STACK_DIRECTION, STACK_GAP, STACK_JUSTIFY } from '@grasdouble/lufa_design-system';
+import { Button, Avatar } from '@grasdouble/lufa_design-system';
+
+function DashboardHeader() {
+  return (
+    <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
+      <Stack
+        direction={STACK_DIRECTION.horizontal}
+        gap={STACK_GAP.normal}
+        justify={STACK_JUSTIFY['space-between']}
+      >
+        <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.condensed}>
+          <h1>Dashboard</h1>
+          <p>Welcome back, John!</p>
+        </Stack>
+        <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed}>
+          <Button variant="secondary">Settings</Button>
+          <Avatar name="John Doe" />
+        </Stack>
+      </Stack>
+      <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed}>
+        <Button variant="ghost">Overview</Button>
+        <Button variant="ghost">Analytics</Button>
+        <Button variant="ghost">Reports</Button>
+        <Button variant="ghost">Team</Button>
+      </Stack>
+    </Stack>
+  );
+}
+```
 
 ## Examples of usage
 
 <ToolbarExample />
 <WrappingChipsExample />
+
+## Related Components
+
+- **Flex** - Low-level flex container for custom layouts
+- **Grid** - Two-dimensional layout system for complex grids
+- **Space** - Spacing component for adding consistent gaps between elements
+- **Box** - Generic container component with padding and margin utilities
+
+## TypeScript Support
+
+The Stack component is fully typed with TypeScript:
+
+```tsx
+import type { ReactNode } from 'react';
+
+export type StackProps = {
+  children?: ReactNode;
+  gap?: 'none' | 'condensed' | 'normal' | 'spacious';
+  direction?: 'horizontal' | 'vertical';
+  align?: 'stretch' | 'start' | 'center' | 'end' | 'baseline';
+  wrap?: 'wrap' | 'nowrap';
+  justify?: 'start' | 'center' | 'end' | 'space-between' | 'space-evenly';
+  padding?: 'none' | 'condensed' | 'normal' | 'spacious';
+};
+
+export type StackItemProps = {
+  grow?: boolean;
+  children?: ReactNode;
+};
+```
+
+This ensures type safety and autocomplete in your IDE.
+
+You can also use the constant types for better type safety:
+
+```tsx
+import {
+  Stack,
+  STACK_ALIGN,
+  STACK_DIRECTION,
+  STACK_GAP,
+  STACK_JUSTIFY,
+  STACK_PADDING,
+  STACK_WRAP,
+} from '@grasdouble/lufa_design-system';
+
+// Constants for type-safe values
+const directions = Object.keys(STACK_DIRECTION); // ['horizontal', 'vertical']
+const gaps = Object.keys(STACK_GAP); // ['none', 'condensed', 'normal', 'spacious']
+const aligns = Object.keys(STACK_ALIGN); // ['stretch', 'start', 'center', 'end', 'baseline']
+const justifies = Object.keys(STACK_JUSTIFY); // ['start', 'center', 'end', 'space-between', 'space-evenly']
+```

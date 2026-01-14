@@ -15,6 +15,10 @@ import {
 
 # AspectRatio
 
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+
+<DarkModeCompatible />
+
 Media container that preserves aspect ratio (token presets or custom ratios).
 
 ## Overview
@@ -48,7 +52,40 @@ import { ASPECT_RATIO, AspectRatio } from '@grasdouble/lufa_design-system';
 </AspectRatio>
 ```
 
-## Props
+## Anatomy
+
+The AspectRatio component maintains consistent proportions:
+
+```
+┌──────────────────────┐
+│                      │
+│   [Media Content]    │  ← Fills container maintaining ratio
+│                      │
+└──────────────────────┘
+        16:9
+
+Ratio types:
+┌─────┐  ┌──────────┐  ┌────────────┐
+│     │  │          │  │            │
+│ 1:1 │  │   4:3    │  │    16:9    │
+│     │  │          │  │            │
+└─────┘  └──────────┘  └────────────┘
+square   traditional      video
+```
+
+**Component Structure:**
+- **Outer Container**: Sets aspect ratio via CSS `aspect-ratio` property
+- **Inner Wrapper**: Ensures content fills the container
+- **Content**: Child elements (images, videos, iframes, etc.)
+
+**Visual States:**
+- **Token Ratios**: Predefined presets (square, video, photo, etc.)
+- **Custom Ratios**: Number or CSS string (e.g., "21 / 9", 1.5)
+- **Responsive**: Maintains ratio across all viewport sizes
+
+## API Reference
+
+### Props
 
 | Prop       | Type                                            | Default   | Description                  |
 | ---------- | ----------------------------------------------- | --------- | ---------------------------- |
@@ -87,11 +124,171 @@ Also supports standard element props (for example `className`, `style`, `aria-la
 
 ## Accessibility
 
-- `AspectRatio` is a layout container; accessibility depends on its children.
-- Ensure contained media has appropriate `alt` text (images) or captions where relevant.
-- If using `as="figure"`, consider pairing it with a caption in your UI.
+The AspectRatio component is designed with WCAG 2.1 AA compliance in mind:
+
+### Screen Reader Support
+
+AspectRatio is a layout-only component. Screen readers announce content based on the `as` element and children.
+
+```tsx
+<AspectRatio as="figure" ratio={ASPECT_RATIO.video}>
+  <img src="/video-thumbnail.jpg" alt="Product demo video" />
+</AspectRatio>
+// Screen reader announces: "Product demo video, image"
+```
+
+**With Figure and Caption:**
+```tsx
+<AspectRatio as="figure" ratio={ASPECT_RATIO.photo}>
+  <img src="/photo.jpg" alt="Team celebration" />
+  <figcaption>Our team celebrating project launch</figcaption>
+</AspectRatio>
+// Screen reader announces: "Team celebration, image" then caption
+```
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Provide descriptive `alt` text for all images within AspectRatio
+- Use `as="figure"` when the media content is referenced in surrounding content
+- Include captions or descriptions for complex media
+- Ensure video content has captions and transcripts
+- Maintain adequate color contrast for overlaid text
+
+#### Don't ❌
+
+- Don't use decorative `alt=""` for informational images
+- Don't hide important content within media without text alternatives
+- Don't rely solely on visual ratio to convey meaning
+- Don't use AspectRatio to crop out critical information
+
+### ARIA Attributes
+
+The component supports standard HTML attributes based on the `as` element:
+
+```tsx
+<AspectRatio as="figure" ratio={ASPECT_RATIO.video} aria-labelledby="video-title">
+  <img src="/video.jpg" alt="Video thumbnail" />
+  <figcaption id="video-title">Introduction to Design Systems</figcaption>
+</AspectRatio>
+```
+
+### Color Contrast
+
+AspectRatio is a transparent layout container. Ensure:
+- Media content has sufficient clarity and contrast
+- Overlaid text meets WCAG 2.1 AA requirements (4.5:1 for normal text, 3:1 for large text)
+- Loading states or placeholders are distinguishable
+
+## Common Patterns
+
+### Responsive Video Embed
+
+```tsx title="src/components/VideoEmbed.tsx"
+import { AspectRatio, ASPECT_RATIO } from '@grasdouble/lufa_design-system';
+
+function VideoEmbed({ videoId, title }) {
+  return (
+    <AspectRatio ratio={ASPECT_RATIO.video}>
+      <iframe
+        src={`https://www.youtube.com/embed/${videoId}`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        style={{ width: '100%', height: '100%', border: 0 }}
+      />
+    </AspectRatio>
+  );
+}
+```
+
+### Image Card Thumbnails
+
+```tsx title="src/components/ProductCard.tsx"
+import { AspectRatio, ASPECT_RATIO } from '@grasdouble/lufa_design-system';
+
+function ProductCard({ product }) {
+  return (
+    <div style={{ width: '300px' }}>
+      <AspectRatio ratio={ASPECT_RATIO.square}>
+        <img
+          src={product.image}
+          alt={product.name}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      </AspectRatio>
+      <h3>{product.name}</h3>
+      <p>{product.price}</p>
+    </div>
+  );
+}
+```
+
+### Hero Image with Custom Ratio
+
+```tsx title="src/components/HeroImage.tsx"
+import { AspectRatio } from '@grasdouble/lufa_design-system';
+
+function HeroImage({ src, alt }) {
+  return (
+    <AspectRatio ratio="21 / 9">
+      <img
+        src={src}
+        alt={alt}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center',
+        }}
+      />
+    </AspectRatio>
+  );
+}
+```
 
 ## Examples of usage
 
 <CardThumbnailsExample />
 <MediaHeroExample />
+
+## Related Components
+
+- **Image** - Often used within AspectRatio for responsive images
+- **Card** - Frequently contains AspectRatio for media thumbnails
+- **Container** - For constraining AspectRatio width
+- **Skeleton** - For loading states while media loads
+
+## TypeScript Support
+
+The AspectRatio component is fully typed with TypeScript:
+
+```tsx
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { ASPECT_RATIO } from './AspectRatio.constants';
+
+export type AspectRatioValue = keyof typeof ASPECT_RATIO | number;
+
+type AspectRatioElement = 'div' | 'figure';
+
+export type AspectRatioProps = {
+  as?: AspectRatioElement;
+  ratio?: AspectRatioValue;
+  children?: ReactNode;
+} & HTMLAttributes<HTMLElement>;
+
+// Available token ratios
+export const ASPECT_RATIO = {
+  square: 'square',        // 1:1
+  traditional: 'traditional', // 4:3
+  photo: 'photo',          // 3:2
+  video: 'video',          // 16:9
+  ultrawide: 'ultrawide',  // 21:9
+  vertical: 'vertical',    // 9:16
+  portrait: 'portrait',    // 2:3
+  portraitDisplay: 'portraitDisplay', // 3:4
+} as const;
+```
+
+This ensures type safety and autocomplete in your IDE.

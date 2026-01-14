@@ -14,10 +14,13 @@ import {
   Size,
   VerticalSidebarStepsExample,
 } from '../../../src/dsExamples/navigation/steps';
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
 
 # Steps
 
-Progress indicator for multi-step flows.
+<DarkModeCompatible />
+
+Progress indicator for multi-step flows. Visualizes sequential processes like checkout, onboarding, or multi-part forms.
 
 ## Overview
 
@@ -40,11 +43,78 @@ import { Steps } from '@grasdouble/lufa_design-system';
 
 ## Basic Usage
 
-```tsx
-<Steps current={1} items={[{ title: 'Account' }, { title: 'Verification' }, { title: 'Profile' }, { title: 'Done' }]} />
+```tsx title="src/App.tsx"
+import { Steps } from '@grasdouble/lufa_design-system';
+
+function App() {
+  return (
+    <Steps
+      current={1}
+      items={[
+        { title: 'Account' },
+        { title: 'Verification' },
+        { title: 'Profile' },
+        { title: 'Done' }
+      ]}
+    />
+  );
+}
 ```
 
-## Props
+## Anatomy
+
+The Steps component visualizes progress through a sequence:
+
+```
+Horizontal Layout:
+┌─────────┐     ┌─────────┐     ┌─────────┐     ┌─────────┐
+│ ✓       │─────│ 2       │─────│ 3       │─────│ 4       │
+│ Step 1  │     │ Step 2  │     │ Step 3  │     │ Step 4  │
+│ Done    │     │ Current │     │ Waiting │     │ Waiting │
+└─────────┘     └─────────┘     └─────────┘     └─────────┘
+   ↑              ↑                ↑                ↑
+   │              │                │                └─ Wait state
+   │              │                └────────────────── Wait state
+   │              └───────────────────────────────── Process (current)
+   └──────────────────────────────────────────────── Finish state
+
+Vertical Layout:
+┌─────────┐
+│ ✓       │
+│ Step 1  │
+│ Done    │
+└────┬────┘
+     │
+┌────▼────┐
+│ 2       │
+│ Step 2  │
+│ Current │
+└────┬────┘
+     │
+┌────▼────┐
+│ 3       │
+│ Step 3  │
+│ Waiting │
+└─────────┘
+```
+
+**Component Structure:**
+- **Container**: Wrapper for all steps
+- **Step Items**: Individual step indicators with icon/number
+- **Connectors**: Lines between steps showing progress
+- **Title**: Step name (required)
+- **Description**: Additional detail (optional)
+- **Status Indicator**: Visual state (number, checkmark, or error)
+
+**Visual States:**
+- **wait**: Future step, not yet started (gray)
+- **process**: Current active step (highlighted)
+- **finish**: Completed step (checkmark, success color)
+- **error**: Failed step (error color)
+
+## API Reference
+
+### Props
 
 | Prop        | Type                         | Default        | Description                                |
 | ----------- | ---------------------------- | -------------- | ------------------------------------------ |
@@ -63,6 +133,25 @@ import { Steps } from '@grasdouble/lufa_design-system';
 | `description` | `string`                                     | Step description (optional)       |
 | `icon`        | `ReactNode`                                  | Custom icon (optional)            |
 | `status`      | `'wait' \| 'process' \| 'finish' \| 'error'` | Manual status override (optional) |
+
+### Direction Details
+
+- **horizontal** (default): Steps arranged left-to-right, ideal for headers and compact spaces
+- **vertical**: Steps arranged top-to-bottom, better for sidebars and detailed descriptions
+
+### Size Details
+
+- **small**: Compact size for dense interfaces (smaller icons and text)
+- **default**: Standard size for most use cases
+
+### Status Logic
+
+If `status` is not manually set on a step item:
+- Steps before `current` → `'finish'`
+- Step at `current` → `'process'`
+- Steps after `current` → `'wait'`
+
+Manual status overrides automatic calculation.
 
 ## Variants
 
@@ -93,19 +182,302 @@ import { Steps } from '@grasdouble/lufa_design-system';
 - Keep titles short and meaningful (1–2 words) and use `description` for extra context
 - Use the vertical `direction` for dense sidebars or long step descriptions
 - Use `onChange` only when users are allowed to navigate non-linearly
+- Show 3-7 steps (more may overwhelm users)
+- Use descriptive titles that indicate what happens in each step
 
 ### Don't ❌
 
-- Don’t make steps clickable if earlier steps contain required validation
-- Don’t overload steps with long text (prefer descriptions or move detail into the page content)
-- Don’t rely on color alone to communicate status (pair with text and icons when relevant)
+- Don't make steps clickable if earlier steps contain required validation
+- Don't overload steps with long text (prefer descriptions or move detail into the page content)
+- Don't rely on color alone to communicate status (pair with text and icons when relevant)
+- Don't skip step numbers unless using custom icons
 
 ## Accessibility
 
-- When `onChange` is provided, steps behave like buttons and support keyboard activation via Enter/Space.
-- Ensure the surrounding UI provides context (e.g. heading “Checkout progress”) and that step titles are descriptive.
+The Steps component follows WCAG 2.1 AA guidelines:
+
+### Built-in Features
+
+- **Keyboard navigation**: When `onChange` is provided, steps are keyboard accessible
+- **Role="button"**: Clickable steps are properly marked
+- **Tab index**: Interactive steps are in tab order
+- **Visual indicators**: Multiple cues beyond color (numbers, checkmarks, text)
+
+### Keyboard Navigation
+
+When `onChange` is provided (clickable steps):
+
+- **Tab**: Navigate to next clickable step
+- **Shift+Tab**: Navigate to previous clickable step
+- **Enter/Space**: Activate step (navigate to that step)
+
+Non-clickable steps are not in the tab order.
+
+### Screen Reader Support
+
+**For Basic Steps:**
+```tsx
+<Steps
+  current={1}
+  items={[
+    { title: 'Login' },
+    { title: 'Verify' },
+    { title: 'Complete' }
+  ]}
+/>
+// Screen reader announces status through visual position
+// Consider adding aria-label for clarity
+```
+
+**With Descriptions:**
+```tsx
+<Steps
+  current={1}
+  items={[
+    { title: 'Personal Info', description: 'Name and email' },
+    { title: 'Payment', description: 'Billing details' },
+    { title: 'Review', description: 'Confirm order' }
+  ]}
+/>
+// Descriptions provide additional context for all users
+```
+
+**For Interactive Steps:**
+```tsx
+<Steps
+  current={2}
+  onChange={(step) => navigateToStep(step)}
+  items={[
+    { title: 'Step 1' },
+    { title: 'Step 2' },
+    { title: 'Step 3' }
+  ]}
+/>
+// Clickable steps announce as buttons
+// Screen reader: "Step 1, button", "Step 2, button", etc.
+```
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Provide descriptive step titles that make sense independently
+- Use descriptions to add context for complex steps
+- Ensure sufficient color contrast for all states
+- Provide visual feedback beyond color (numbers, icons, text)
+- Use `aria-label` to describe the overall process if needed
+
+#### Don't ❌
+
+- Don't rely only on color to show progress
+- Don't make all steps clickable if order matters
+- Don't use steps without clear visual progression
+- Don't nest interactive elements inside step titles
+
+### ARIA Attributes
+
+For enhanced context:
+
+```tsx
+<div aria-label="Checkout progress">
+  <Steps
+    current={1}
+    items={[
+      { title: 'Cart' },
+      { title: 'Shipping' },
+      { title: 'Payment' },
+      { title: 'Confirmation' }
+    ]}
+  />
+</div>
+```
+
+### Color Contrast
+
+All step states meet WCAG 2.1 AA contrast requirements:
+- Text labels: Minimum 4.5:1 contrast ratio
+- Icons/indicators: Minimum 3:1 contrast ratio
+- Connectors: Minimum 3:1 contrast ratio
+
+Tested in both light and dark modes.
+
+## Common Patterns
+
+### Checkout Flow
+
+```tsx title="src/components/CheckoutSteps.tsx"
+import { Steps } from '@grasdouble/lufa_design-system';
+import { useState } from 'react';
+
+function CheckoutSteps() {
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const steps = [
+    { title: 'Cart', description: 'Review items' },
+    { title: 'Shipping', description: 'Delivery address' },
+    { title: 'Payment', description: 'Payment method' },
+    { title: 'Confirmation', description: 'Order summary' }
+  ];
+
+  return (
+    <div>
+      <Steps
+        current={currentStep}
+        items={steps}
+      />
+      {/* Step content here */}
+      <button onClick={() => setCurrentStep(currentStep + 1)}>
+        Continue
+      </button>
+    </div>
+  );
+}
+```
+
+### Onboarding Wizard
+
+```tsx title="src/components/OnboardingWizard.tsx"
+import { Steps } from '@grasdouble/lufa_design-system';
+import { useState } from 'react';
+
+function OnboardingWizard() {
+  const [current, setCurrent] = useState(0);
+  const [completedSteps, setCompletedSteps] = useState<number[]>([]);
+
+  const steps = [
+    { title: 'Welcome', description: 'Get started' },
+    { title: 'Profile', description: 'Your information' },
+    { title: 'Preferences', description: 'Customize settings' },
+    { title: 'Complete', description: 'All set!' }
+  ].map((step, index) => ({
+    ...step,
+    status: completedSteps.includes(index) ? 'finish' : undefined
+  }));
+
+  const handleStepChange = (step: number) => {
+    // Only allow navigation to completed steps or next step
+    if (completedSteps.includes(step) || step <= current + 1) {
+      setCurrent(step);
+    }
+  };
+
+  return (
+    <Steps
+      current={current}
+      items={steps}
+      onChange={handleStepChange}
+    />
+  );
+}
+```
+
+### Vertical Progress Sidebar
+
+```tsx title="src/components/ProgressSidebar.tsx"
+import { Steps } from '@grasdouble/lufa_design-system';
+
+function ProgressSidebar({ currentStep }) {
+  return (
+    <aside style={{ width: '250px' }}>
+      <h2>Registration Progress</h2>
+      <Steps
+        direction="vertical"
+        current={currentStep}
+        items={[
+          { title: 'Account Details', description: 'Username and password' },
+          { title: 'Personal Info', description: 'Name and contact' },
+          { title: 'Verification', description: 'Email confirmation' },
+          { title: 'Welcome', description: 'Complete setup' }
+        ]}
+      />
+    </aside>
+  );
+}
+```
+
+### Error State Handling
+
+```tsx title="src/components/StepsWithError.tsx"
+import { Steps } from '@grasdouble/lufa_design-system';
+import { useState } from 'react';
+
+function StepsWithError() {
+  const [current, setCurrent] = useState(1);
+  const [hasError, setHasError] = useState(true);
+
+  const steps = [
+    { title: 'Information', status: 'finish' },
+    { title: 'Payment', status: hasError ? 'error' : 'process' },
+    { title: 'Confirmation', status: 'wait' }
+  ];
+
+  return (
+    <div>
+      <Steps current={current} items={steps} />
+      {hasError && (
+        <div className="error-message">
+          Payment failed. Please check your card details.
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+### Condensed Steps for Mobile
+
+```tsx title="src/components/ResponsiveSteps.tsx"
+import { Steps } from '@grasdouble/lufa_design-system';
+import { useMediaQuery } from './hooks';
+
+function ResponsiveSteps({ current, items }) {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  return (
+    <Steps
+      current={current}
+      items={items}
+      size={isMobile ? 'small' : 'default'}
+      direction={isMobile ? 'vertical' : 'horizontal'}
+    />
+  );
+}
+```
 
 ## Examples of usage
 
 <CheckoutProgressStepsExample />
 <VerticalSidebarStepsExample />
+
+## Related Components
+
+- **Breadcrumb** - For hierarchical navigation
+- **Tabs** - For switching between views
+- **Progress** - For continuous progress indication
+- **Stepper** - For linear step-by-step forms (coming soon)
+
+## TypeScript Support
+
+The Steps component is fully typed with TypeScript:
+
+```tsx
+import type { ReactNode } from 'react';
+
+interface StepItem {
+  title: string;
+  description?: string;
+  icon?: ReactNode;
+  status?: 'wait' | 'process' | 'finish' | 'error';
+}
+
+interface StepsProps {
+  items: StepItem[];
+  current?: number;
+  direction?: 'horizontal' | 'vertical';
+  size?: 'small' | 'default';
+  className?: string;
+  onChange?: (current: number) => void;
+}
+```
+
+This ensures type safety and autocomplete in your IDE.

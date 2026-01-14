@@ -14,10 +14,13 @@ import {
   Size,
   Variant,
 } from '../../../src/dsExamples/navigation/link';
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
 
 # Link
 
-Navigation link for internal routes and external destinations.
+<DarkModeCompatible />
+
+Navigation link for internal routes and external destinations. A versatile component for routing with multiple visual styles and safe external link handling.
 
 ## Overview
 
@@ -41,11 +44,53 @@ import { Link } from '@grasdouble/lufa_design-system';
 
 ## Basic Usage
 
-```tsx
-<Link href="/about">About</Link>
+```tsx title="src/App.tsx"
+import { Link } from '@grasdouble/lufa_design-system';
+
+function App() {
+  return (
+    <>
+      <Link href="/about">About</Link>
+      <Link href="https://example.com" external>
+        External Site
+      </Link>
+    </>
+  );
+}
 ```
 
-## Props
+## Anatomy
+
+The Link component provides navigation with flexible styling:
+
+```
+┌─────────────────────────────────────┐
+│  [startIcon]  Label  [endIcon] [↗]  │  ← Link Container
+└─────────────────────────────────────┘
+     ↑          ↑         ↑        ↑
+     │          │         │        └─ Auto external indicator
+     │          │         └────────── Optional trailing icon
+     │          └────────────────────── Required text content
+     └───────────────────────────────── Optional leading icon
+```
+
+**Component Structure:**
+- **Container**: Native `<a>` element with styling variants
+- **Start Icon** (optional): Leading icon positioned before the label
+- **Label**: The main link text (required for accessibility)
+- **End Icon** (optional): Trailing icon positioned after the label
+- **External Indicator** (auto): Shows "↗" icon when `external={true}` and no `endIcon`
+
+**Visual States:**
+- Default: Underlined or styled based on variant
+- Hover: Color change and visual feedback
+- Focus: Keyboard navigation indicator (focus ring)
+- Active: Pressed/clicking state
+- Visited: Browser's visited link styling (can be styled)
+
+## API Reference
+
+### Props
 
 | Prop        | Type                                                                          | Default     | Description             |
 | ----------- | ----------------------------------------------------------------------------- | ----------- | ----------------------- |
@@ -59,6 +104,39 @@ import { Link } from '@grasdouble/lufa_design-system';
 | `href`      | `string`                                                                      | -           | Link URL                |
 | `target`    | `string`                                                                      | -           | Link target attribute   |
 | `rel`       | `string`                                                                      | -           | Link rel attribute      |
+
+Also supports all standard HTML `anchor` attributes (e.g., `className`, `id`, `aria-*`, `data-*`).
+
+### Variant Details
+
+- **default**: Standard link styling with subtle color and no underline
+- **underline**: Classic underlined link for maximum affordance
+- **button**: Button-like appearance, useful for prominent call-to-action links
+
+### Color Details
+
+Each color maps to semantic design tokens:
+
+- **primary**: Main brand color, use for primary navigation
+- **secondary**: Neutral alternative, use for less prominent links
+- **success**: Positive actions (e.g., "View results", "Success")
+- **warning**: Cautionary links (e.g., "Review before continuing")
+- **danger**: Destructive or critical links (e.g., "Delete account")
+- **inherit**: Inherits color from parent, useful for text-matching links
+
+### Size Details
+
+- **small**: Compact size for dense interfaces or inline text (14px)
+- **medium**: Default size for most use cases (16px)
+- **large**: Prominent size for hero sections or headers (18px)
+
+### External Link Handling
+
+When `external={true}`:
+- Automatically sets `target="_blank"`
+- Adds `rel="noopener noreferrer"` for security
+- Displays "↗" indicator (unless `endIcon` is provided)
+- Includes accessible label "(opens in new tab)"
 
 ## Variants
 
@@ -97,10 +175,196 @@ import { Link } from '@grasdouble/lufa_design-system';
 
 ## Accessibility
 
-- Ensure link text is meaningful (“View billing settings” vs “Click here”).
-- If a link opens a new tab/window, consider indicating that (visually or via accessible text).
+The Link component follows WCAG 2.1 AA guidelines:
+
+### Keyboard Navigation
+
+- **Tab**: Navigate to link
+- **Enter**: Activate link
+- **Shift+Tab**: Navigate backward
+
+All links are keyboard accessible by default with visible focus indicators.
+
+### Screen Reader Support
+
+**For Text Links:**
+```tsx
+<Link href="/about">About Us</Link>
+// Screen reader announces: "About Us, link"
+```
+
+**For External Links:**
+```tsx
+<Link href="https://example.com" external>
+  Documentation
+</Link>
+// Screen reader announces: "Documentation, link, (opens in new tab)"
+```
+
+**For Links with Icons:**
+```tsx
+<Link href="/settings" startIcon={<SettingsIcon />}>
+  Settings
+</Link>
+// Screen reader announces: "Settings, link"
+// (Icon is decorative, not announced)
+```
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Use descriptive link text that makes sense out of context
+- Indicate when links open in new windows (handled automatically with `external`)
+- Ensure sufficient color contrast (all variants meet WCAG AA)
+- Keep focus indicators visible (default focus ring)
+- Use underline variant when link affordance isn't clear
+
+#### Don't ❌
+
+- Don't use "click here" or "read more" without context
+- Don't remove focus outlines (breaks keyboard navigation)
+- Don't use only color to distinguish links (use underline/icons)
+- Don't nest interactive elements inside links
+
+### ARIA Attributes
+
+The component handles external links automatically. Additional ARIA attributes can be passed:
+
+```tsx
+<Link
+  href="/important"
+  aria-label="Important announcement details"
+  aria-describedby="announcement-summary"
+>
+  Read more
+</Link>
+```
+
+### Color Contrast
+
+All link variants meet WCAG 2.1 AA contrast requirements:
+- Normal text: Minimum 4.5:1 contrast ratio
+- Large text: Minimum 3:1 contrast ratio
+- Interactive elements: Minimum 3:1 contrast ratio
+
+Tested in both light and dark modes.
+
+## Common Patterns
+
+### Inline Text Links
+
+```tsx title="src/components/Article.tsx"
+import { Link } from '@grasdouble/lufa_design-system';
+
+function Article() {
+  return (
+    <p>
+      For more information, visit our{' '}
+      <Link href="/docs" variant="underline">
+        documentation
+      </Link>
+      {' '}or{' '}
+      <Link href="/support" variant="underline">
+        contact support
+      </Link>.
+    </p>
+  );
+}
+```
+
+### Navigation Menu
+
+```tsx title="src/components/Navigation.tsx"
+import { Link } from '@grasdouble/lufa_design-system';
+
+function Navigation() {
+  return (
+    <nav>
+      <Link href="/">Home</Link>
+      <Link href="/about">About</Link>
+      <Link href="/services">Services</Link>
+      <Link href="/contact">Contact</Link>
+    </nav>
+  );
+}
+```
+
+### Button-Style Links
+
+```tsx title="src/components/CallToAction.tsx"
+import { Link } from '@grasdouble/lufa_design-system';
+
+function CallToAction() {
+  return (
+    <div>
+      <Link href="/signup" variant="button" size="large">
+        Get Started
+      </Link>
+      <Link href="/learn-more" variant="button" color="secondary">
+        Learn More
+      </Link>
+    </div>
+  );
+}
+```
+
+### External Links with Icons
+
+```tsx title="src/components/Resources.tsx"
+import { Link } from '@grasdouble/lufa_design-system';
+import { GithubIcon, TwitterIcon } from './icons';
+
+function Resources() {
+  return (
+    <div>
+      <Link
+        href="https://github.com/example"
+        external
+        startIcon={<GithubIcon />}
+      >
+        View on GitHub
+      </Link>
+      <Link
+        href="https://twitter.com/example"
+        external
+        startIcon={<TwitterIcon />}
+      >
+        Follow on Twitter
+      </Link>
+    </div>
+  );
+}
+```
 
 ## Examples of usage
 
 <InlineTextExample />
 <ButtonRowExample />
+
+## Related Components
+
+- **Anchor** - For in-page navigation using anchor links
+- **Button** - For actions instead of navigation
+- **Breadcrumb** - For hierarchical navigation
+- **Menu** - For dropdown navigation menus
+
+## TypeScript Support
+
+The Link component is fully typed with TypeScript:
+
+```tsx
+import type { AnchorHTMLAttributes, ReactNode } from 'react';
+
+interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  children?: ReactNode;
+  variant?: 'default' | 'underline' | 'button';
+  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'inherit';
+  size?: 'small' | 'medium' | 'large';
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
+  external?: boolean;
+}
+```
+
+This ensures type safety and autocomplete in your IDE.

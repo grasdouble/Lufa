@@ -15,7 +15,11 @@ import {
 
 # Card
 
-Flexible container for grouping related content and actions.
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+
+<DarkModeCompatible />
+
+Flexible container for grouping related content and actions. Use cards to organize information into digestible, focused sections with optional headers, footers, and visual variants.
 
 ## Overview
 
@@ -45,11 +49,46 @@ import { Card } from '@grasdouble/lufa_design-system';
 </Card>
 ```
 
-## Props
+## Anatomy
+
+The Card component consists of several key parts:
+
+```
+┌─────────────────────────────────────────┐
+│  Title                                  │  ← Header (optional)
+│  Subtitle or description                │
+├─────────────────────────────────────────┤
+│                                         │
+│  Main content area for text, images,    │  ← Body (children)
+│  or other components                    │
+│                                         │
+├─────────────────────────────────────────┤
+│  Footer content or actions              │  ← Footer (optional)
+└─────────────────────────────────────────┘
+```
+
+**Component Structure:**
+- **Container**: Outer wrapper with border radius, shadow/border, and background
+- **Header** (optional): Title and subtitle section at the top
+- **Title** (optional): Primary heading text (h3) for the card
+- **Subtitle** (optional): Secondary descriptive text below title
+- **Body**: Main content area containing `children` prop
+- **Footer** (optional): Bottom section for actions, metadata, or supplementary info
+- **Image Area**: Can be placed in body or used with `padding="none"` for full-bleed images
+
+**Visual States:**
+- **Default**: Normal non-interactive card with border or shadow based on variant
+- **Hover** (hoverable): Elevated shadow and subtle lift transform on mouse over
+- **Focus** (clickable): Focus indicator when card has onClick handler
+- **Clickable**: Pointer cursor indicating the entire card is interactive
+
+## API Reference
+
+### Props
 
 | Prop        | Type                                                | Default     | Description                          |
 | ----------- | --------------------------------------------------- | ----------- | ------------------------------------ |
-| `children`  | `ReactNode`                                         | -           | Card content                         |
+| `children`  | `ReactNode`                                         | Required    | Card content                         |
 | `title`     | `string`                                            | -           | Card title (header)                  |
 | `subtitle`  | `string`                                            | -           | Card subtitle/description (header)   |
 | `footer`    | `ReactNode`                                         | -           | Footer slot (actions, meta, etc.)    |
@@ -58,6 +97,28 @@ import { Card } from '@grasdouble/lufa_design-system';
 | `hoverable` | `boolean`                                           | `false`     | Add hover affordance                 |
 | `onClick`   | `() => void`                                        | -           | Click handler (makes card clickable) |
 | `className` | `string`                                            | -           | Additional CSS classes               |
+
+Also supports all standard HTML `div` attributes for the container element.
+
+### Variant Details
+
+- **default**: Standard card with subtle border (most common, clean appearance)
+- **elevated**: Card with medium shadow and no border (adds depth, good for overlays)
+- **outlined**: Card with thicker 2px border (strong definition, good for emphasis)
+- **filled**: Card with secondary background color (subtle differentiation from page)
+
+### Padding Details
+
+- **none**: No padding (0px) - use for full-bleed images or custom layouts
+- **small**: Compact padding (16px) - dense interfaces or small cards
+- **medium**: Default padding (24px) - balanced spacing for most use cases
+- **large**: Generous padding (32px) - spacious layouts or prominent cards
+
+### Interactive Props Details
+
+**hoverable**: When `true`, adds hover effects (shadow elevation and transform lift) without making the card clickable. Use for visual affordance when card contains interactive elements inside.
+
+**onClick**: Function called when card is clicked. Automatically adds pointer cursor. For accessibility, prefer placing explicit buttons/links inside the card rather than making the entire card clickable.
 
 ## Variants
 
@@ -80,19 +141,367 @@ import { Card } from '@grasdouble/lufa_design-system';
 - Use `title` / `subtitle` to provide structure for dense content
 - Use `footer` for actions or meta information, not for primary content
 - Use `hoverable` only when the card is actually interactive or needs an affordance
+- Place explicit buttons or links inside the card for primary actions
+- Keep card content focused on a single topic or action
+- Use consistent variants across similar card types in the same interface
 
 ### Don't ❌
 
-- Don’t overload cards with too many actions; prefer a clear primary action
-- Don’t rely on `onClick` alone to convey navigation; include an explicit link/button when possible
+- Don't overload cards with too many actions; prefer a clear primary action
+- Don't rely on `onClick` alone to convey navigation; include an explicit link/button when possible
+- Don't nest cards inside cards (causes visual hierarchy confusion)
+- Don't use cards for single lines of text (use simpler container components)
+- Don't mix too many variants on the same page (creates visual noise)
 
 ## Accessibility
 
-- `Card` renders a `div`; it is not interactive by default.
-- If you use `onClick`, ensure the interaction is accessible (keyboard access and clear focus/hover behavior). Prefer placing a real `button`/`a` inside the card for the primary action.
-- Keep text contrast sufficient for the chosen `variant`.
+The Card component is designed with WCAG 2.1 AA compliance in mind:
+
+### Keyboard Navigation
+
+By default, `Card` renders a non-interactive `div` with no keyboard navigation.
+
+**For Interactive Cards:**
+- When using `onClick`, the card itself is **not** keyboard accessible by default
+- **Best practice**: Place an explicit `<button>` or `<a>` element inside the card for keyboard users
+- If the entire card must be clickable, wrap it in a button or add proper keyboard handlers
+
+```tsx
+// ✅ Good - Accessible clickable card
+<Card title="Product" hoverable>
+  <p>Product description</p>
+  <button onClick={handleClick}>View Details</button>
+</Card>
+
+// ❌ Avoid - Card onClick without keyboard access
+<Card title="Product" onClick={handleClick} hoverable>
+  <p>Product description</p>
+</Card>
+```
+
+### Screen Reader Support
+
+**For Standard Cards:**
+```tsx
+<Card title="User Profile" subtitle="Account details">
+  <p>Name: John Doe</p>
+  <p>Email: john@example.com</p>
+</Card>
+// Title announces as heading (h3)
+// Content reads normally
+```
+
+**For Cards with Semantic Headings:**
+```tsx
+<Card>
+  <h2>Custom Heading</h2>
+  <p>Content here</p>
+</Card>
+// Use when you need specific heading levels (h1, h2, h4, etc.)
+// Omit title prop and use semantic HTML inside children
+```
+
+**For Clickable Cards:**
+```tsx
+<Card title="Article" hoverable>
+  <p>Article preview...</p>
+  <a href="/article/123">Read more</a>
+</Card>
+// Screen reader announces heading, content, and "Read more, link"
+// Link is keyboard accessible with Tab key
+```
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Use semantic heading levels (`title` renders h3, or use custom headings in `children`)
+- Ensure sufficient color contrast for text on card backgrounds
+- Place interactive elements (buttons/links) inside the card, not on card itself
+- Keep card content concise and scannable
+- Use descriptive titles that make sense out of context
+- Provide meaningful link/button text ("Read more" is vague, "Read article about X" is better)
+
+#### Don't ❌
+
+- Don't make entire card clickable without visible interactive elements inside
+- Don't use cards purely for decoration (should contain meaningful content)
+- Don't rely on color alone to convey information (use text/icons too)
+- Don't remove focus indicators from interactive elements inside cards
+- Don't use vague calls to action like "Click here" or "Learn more" without context
+
+### ARIA Attributes
+
+The Card component is a presentational container and does not apply ARIA roles by default. You can add ARIA attributes for specific use cases:
+
+```tsx
+// For landmark card sections
+<Card
+  title="Latest News"
+  aria-label="Latest news articles"
+  role="region"
+>
+  <ArticleList />
+</Card>
+
+// For clickable cards (prefer button inside instead)
+<Card
+  onClick={handleClick}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      handleClick();
+    }
+  }}
+  aria-label="Navigate to product details"
+>
+  <ProductInfo />
+</Card>
+```
+
+**Automatically Handled:**
+- Card header uses semantic `h3` for title
+- Footer has top border for visual separation
+- Hover and clickable states use CSS transforms and cursor changes
+
+**You Can Add:**
+- `role="region"` and `aria-label` for landmark sections
+- `role="button"`, `tabIndex`, and keyboard handlers for fully clickable cards
+- `aria-describedby` to link card content to external descriptions
+
+### Color Contrast
+
+All card variants meet WCAG 2.1 AA contrast requirements:
+
+- **Title text**: Uses `text-text-primary` token (minimum 4.5:1 contrast)
+- **Subtitle text**: Uses `text-text-secondary` token (minimum 4.5:1 contrast)
+- **Body text**: Uses `text-text-secondary` token (minimum 4.5:1 contrast)
+- **Borders**: Uses design system border tokens (minimum 3:1 contrast)
+- **Filled variant**: Secondary background maintains sufficient contrast for all text
+
+Tested in both light and dark modes across all variants.
+
+## Common Patterns
+
+### Product Card
+
+```tsx title="src/components/ProductCard.tsx"
+import { Card } from '@grasdouble/lufa_design-system';
+
+function ProductCard({ product }) {
+  return (
+    <Card
+      variant="elevated"
+      padding="none"
+      hoverable
+    >
+      <img
+        src={product.image}
+        alt={product.name}
+        style={{ width: '100%', height: '200px', objectFit: 'cover' }}
+      />
+      <div style={{ padding: '16px' }}>
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
+        <p style={{ fontSize: '20px', fontWeight: 'bold' }}>
+          ${product.price}
+        </p>
+        <button onClick={() => addToCart(product)}>
+          Add to Cart
+        </button>
+      </div>
+    </Card>
+  );
+}
+```
+
+### User Profile Card
+
+```tsx title="src/components/UserProfileCard.tsx"
+import { Card } from '@grasdouble/lufa_design-system';
+
+function UserProfileCard({ user }) {
+  return (
+    <Card
+      title={user.name}
+      subtitle={user.role}
+      footer={
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <button>Message</button>
+          <button>Follow</button>
+        </div>
+      }
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <img
+          src={user.avatar}
+          alt=""
+          style={{ width: '64px', height: '64px', borderRadius: '50%' }}
+        />
+        <div>
+          <p>Email: {user.email}</p>
+          <p>Joined: {user.joinDate}</p>
+        </div>
+      </div>
+    </Card>
+  );
+}
+```
+
+### Dashboard Widget
+
+```tsx title="src/components/DashboardWidget.tsx"
+import { Card } from '@grasdouble/lufa_design-system';
+
+function DashboardWidget({ title, value, trend, icon }) {
+  return (
+    <Card variant="outlined" padding="small">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div>
+          <p style={{ fontSize: '14px', color: '#666' }}>{title}</p>
+          <p style={{ fontSize: '32px', fontWeight: 'bold', margin: '8px 0' }}>
+            {value}
+          </p>
+          <p style={{ fontSize: '12px', color: trend >= 0 ? 'green' : 'red' }}>
+            {trend >= 0 ? '↑' : '↓'} {Math.abs(trend)}% from last month
+          </p>
+        </div>
+        <div style={{ fontSize: '48px', opacity: 0.2 }}>
+          {icon}
+        </div>
+      </div>
+    </Card>
+  );
+}
+```
+
+### Clickable Card (Navigation)
+
+```tsx title="src/components/NavigationCard.tsx"
+import { Card } from '@grasdouble/lufa_design-system';
+import { useNavigate } from 'react-router-dom';
+
+function NavigationCard({ title, description, path, icon }) {
+  const navigate = useNavigate();
+
+  return (
+    <Card
+      title={title}
+      subtitle={description}
+      variant="elevated"
+      hoverable
+      onClick={() => navigate(path)}
+    >
+      <div style={{ fontSize: '48px', textAlign: 'center', padding: '32px 0' }}>
+        {icon}
+      </div>
+    </Card>
+  );
+}
+
+// Better approach - with explicit link
+function AccessibleNavigationCard({ title, description, path, icon }) {
+  return (
+    <Card
+      title={title}
+      subtitle={description}
+      variant="elevated"
+      hoverable
+    >
+      <div style={{ fontSize: '48px', textAlign: 'center', padding: '32px 0' }}>
+        {icon}
+      </div>
+      <a href={path} style={{ display: 'block', textAlign: 'center' }}>
+        View Details →
+      </a>
+    </Card>
+  );
+}
+```
+
+### Card with Image
+
+```tsx title="src/components/ImageCard.tsx"
+import { Card } from '@grasdouble/lufa_design-system';
+
+function ImageCard({ image, title, description, tags }) {
+  return (
+    <Card padding="none" variant="outlined">
+      <img
+        src={image}
+        alt={title}
+        style={{
+          width: '100%',
+          height: '240px',
+          objectFit: 'cover',
+        }}
+      />
+      <div style={{ padding: '16px' }}>
+        <h3 style={{ margin: '0 0 8px 0' }}>{title}</h3>
+        <p style={{ margin: '0 0 16px 0', color: '#666' }}>
+          {description}
+        </p>
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              style={{
+                padding: '4px 12px',
+                background: '#f0f0f0',
+                borderRadius: '16px',
+                fontSize: '12px',
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Card>
+  );
+}
+```
 
 ## Examples of usage
 
 <FooterActionsExample />
 <ClickableCardExample />
+
+## Related Components
+
+- **Container** - For simple layout containers without card styling
+- **Stack** - For arranging multiple cards or organizing card content
+- **Paper** - For elevated surfaces without card-specific features (if available)
+- **Panel** - For collapsible card-like sections (if available)
+
+## TypeScript Support
+
+The Card component is fully typed with TypeScript:
+
+```tsx
+import type { ReactNode } from 'react';
+
+export type CardProps = {
+  /** Card content */
+  children: ReactNode;
+  /** Card title */
+  title?: string;
+  /** Card subtitle or description */
+  subtitle?: string;
+  /** Footer content */
+  footer?: ReactNode;
+  /** Visual variant */
+  variant?: 'default' | 'elevated' | 'outlined' | 'filled';
+  /** Padding size */
+  padding?: 'none' | 'small' | 'medium' | 'large';
+  /** Make card interactive/hoverable */
+  hoverable?: boolean;
+  /** Click handler */
+  onClick?: () => void;
+  /** Additional CSS classes */
+  className?: string;
+};
+```
+
+This ensures type safety and autocomplete in your IDE for all card props and variants.

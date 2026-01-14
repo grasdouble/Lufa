@@ -14,6 +14,10 @@ import {
 
 # Spinner
 
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+
+<DarkModeCompatible />
+
 Loading indicator for async content and background operations.
 
 ## Overview
@@ -44,12 +48,45 @@ import { Spinner } from '@grasdouble/lufa_design-system';
 <Spinner mode="B" />
 ```
 
-## Props
+## Anatomy
+
+The Spinner component is a simple animated SVG indicator:
+
+```
+    ┌───────────┐
+    │     ⟳     │  ← Animated spinner (rotating)
+    └───────────┘
+```
+
+**Component Structure:**
+- **SVG Container**: Fixed viewBox with responsive sizing
+- **Animation Path**: Arc or circle that rotates continuously
+- **Color**: Inherits `currentColor` from parent context
+
+**Visual States:**
+- **Loading**: Continuous rotation animation
+- **Mode A**: Partial arc (default, smoother appearance)
+- **Mode B**: Dashed circle (alternative style)
+
+## API Reference
+
+### Props
 
 | Prop   | Type                             | Default    | Description  |
 | ------ | -------------------------------- | ---------- | ------------ |
 | `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Spinner size |
 | `mode` | `'A' \| 'B'`                     | `'A'`      | Visual style |
+
+### Size Details
+
+- **small**: Compact size for inline use (16px)
+- **medium**: Default size for most use cases (32px)
+- **large**: Prominent size for full-screen loading states (48px)
+
+### Mode Details
+
+- **A**: Partial arc animation (default, smoother and more modern)
+- **B**: Dashed circle animation (alternative style, more traditional)
 
 ## Variants
 
@@ -76,10 +113,116 @@ import { Spinner } from '@grasdouble/lufa_design-system';
 
 ## Accessibility
 
-- Spinner uses `role="status"` with `aria-live="polite"` and `aria-label="Loading"`.
-- If multiple spinners can appear at once, consider providing more specific accessible labels in the surrounding UI (e.g. “Loading comments”).
+The Spinner component is designed with WCAG 2.1 AA compliance in mind:
+
+### Screen Reader Support
+
+The spinner includes built-in ARIA attributes for screen reader announcements:
+
+```tsx
+<Spinner />
+// Announces: "Loading" (polite, non-interrupting)
+```
+
+**ARIA Attributes:**
+- `role="status"` - Identifies the element as a status indicator
+- `aria-live="polite"` - Announces changes without interrupting
+- `aria-label="Loading"` - Provides accessible name
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Place spinner near the loading content for context
+- Provide additional text for long operations (e.g., "Loading comments...")
+- Use appropriate size for the context (small for inline, large for full-screen)
+- Ensure spinner color contrasts with background (inherits `currentColor`)
+
+#### Don't ❌
+
+- Don't use spinner as the only feedback for long operations (add progress text)
+- Don't hide critical content behind spinner without context
+- Don't use multiple spinners for the same operation
+- Don't forget to remove spinner when loading completes
+
+### Color Contrast
+
+The spinner inherits `currentColor` from its parent, ensuring it adapts to the surrounding text color and maintains proper contrast ratios. Ensure the parent context meets WCAG 2.1 AA requirements (4.5:1 for normal text, 3:1 for large text).
+
+## Common Patterns
+
+### Inline Loading State
+
+```tsx title="src/components/LoadingButton.tsx"
+import { Spinner } from '@grasdouble/lufa_design-system';
+
+function LoadingButton({ isLoading, children }) {
+  return (
+    <button disabled={isLoading}>
+      {isLoading ? (
+        <>
+          <Spinner size="small" /> Loading...
+        </>
+      ) : (
+        children
+      )}
+    </button>
+  );
+}
+```
+
+### Centered Loading Panel
+
+```tsx title="src/components/LoadingPanel.tsx"
+import { Spinner } from '@grasdouble/lufa_design-system';
+
+function LoadingPanel() {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px' }}>
+      <Spinner size="large" />
+    </div>
+  );
+}
+```
+
+### Loading with Status Text
+
+```tsx title="src/components/DataLoader.tsx"
+import { Spinner } from '@grasdouble/lufa_design-system';
+
+function DataLoader({ message = 'Loading data...' }) {
+  return (
+    <div style={{ textAlign: 'center', padding: '2rem' }}>
+      <Spinner size="medium" />
+      <p style={{ marginTop: '1rem', color: 'var(--color-text-secondary)' }}>
+        {message}
+      </p>
+    </div>
+  );
+}
+```
 
 ## Examples of usage
 
 <CenteredLoadingPanelExample />
 <InlineLoadingExample />
+
+## Related Components
+
+- **Progress** - For operations with measurable progress
+- **Skeleton** - For content placeholder loading states
+- **Alert** - For status messages after loading completes
+- **Button** - Often combined with spinner for loading states
+
+## TypeScript Support
+
+The Spinner component is fully typed with TypeScript:
+
+```tsx
+export type SpinnerProps = {
+  size?: 'small' | 'medium' | 'large';
+  mode?: 'A' | 'B';
+};
+```
+
+This ensures type safety and autocomplete in your IDE.
