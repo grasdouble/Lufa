@@ -147,7 +147,13 @@ export function ConfirmationExample() {
             <Button variant="outlined" onClick={() => setIsOpen(false)} disabled={isDeleting}>
               Cancel
             </Button>
-            <Button color="danger" onClick={handleDelete} loading={isDeleting}>
+            <Button
+              color="danger"
+              onClick={() => {
+                void handleDelete();
+              }}
+              loading={isDeleting}
+            >
               Delete
             </Button>
           </Stack>
@@ -197,7 +203,12 @@ export function FormExample() {
           </Stack>
         }
       >
-        <form id="contact-form" onSubmit={handleSubmit}>
+        <form
+          id="contact-form"
+          onSubmit={(e) => {
+            void handleSubmit(e);
+          }}
+        >
           <Stack direction="column" spacing="medium">
             <Input
               label="Name"
@@ -281,7 +292,7 @@ export function CloseOptionsExample() {
           <li>✅ Clicking the X button</li>
         </ul>
         <p style={{ marginTop: '16px', fontStyle: 'italic' }}>
-          Try clicking outside - it won't close!
+          Try clicking outside - it won&apos;t close!
         </p>
       </Modal>
 
@@ -298,7 +309,7 @@ export function CloseOptionsExample() {
           <li>✅ Clicking the X button</li>
         </ul>
         <p style={{ marginTop: '16px', fontStyle: 'italic' }}>
-          Try pressing Escape - it won't close!
+          Try pressing Escape - it won&apos;t close!
         </p>
       </Modal>
 

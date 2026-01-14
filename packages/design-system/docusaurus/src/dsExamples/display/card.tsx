@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 
 import { Button, Card, Stack, Typography } from '@grasdouble/lufa_design-system';
