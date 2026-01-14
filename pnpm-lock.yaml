@@ -531,6 +531,9 @@ importers:
       '@grasdouble/lufa_design-system-primitives':
         specifier: workspace:^
         version: link:../primitives
+      '@grasdouble/lufa_design-system-themes':
+        specifier: workspace:^
+        version: link:../themes
       '@grasdouble/lufa_design-system-tokens':
         specifier: workspace:^
         version: link:../tokens
