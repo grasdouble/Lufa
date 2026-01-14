@@ -119,4 +119,4 @@ const MyButton: React.FC<ButtonProps> = (props) => {
 
 - [Explore theming options →](./theming)
 - [Browse all components →](../components/overview)
-- [View component examples in Storybook →](http://localhost:6006)
+- [View component examples in Storybook →](https://lufa-design.sebastien-lemouillour.fr)

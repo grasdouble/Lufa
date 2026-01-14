@@ -11,10 +11,13 @@ import {
   Separator,
   Size,
 } from '../../../src/dsExamples/navigation/breadcrumb';
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
 
 # Breadcrumb
 
-Hierarchical navigation trail that shows where you are in the page tree.
+<DarkModeCompatible />
+
+Hierarchical navigation trail that shows where you are in the page tree. Provides context and allows quick navigation to parent pages.
 
 ## Overview
 
@@ -38,13 +41,54 @@ import { Breadcrumb } from '@grasdouble/lufa_design-system';
 
 ## Basic Usage
 
-```tsx
-<Breadcrumb
-  items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Current Page' }]}
-/>
+```tsx title="src/App.tsx"
+import { Breadcrumb } from '@grasdouble/lufa_design-system';
+
+function App() {
+  return (
+    <Breadcrumb
+      items={[
+        { label: 'Home', href: '/' },
+        { label: 'Products', href: '/products' },
+        { label: 'Current Page' }
+      ]}
+    />
+  );
+}
 ```
 
-## Props
+## Anatomy
+
+The Breadcrumb component displays a navigation trail:
+
+```
+┌──────────────────────────────────────────────┐
+│  Home  /  Products  /  Category  /  Current  │  ← Breadcrumb Container
+└──────────────────────────────────────────────┘
+   ↑     ↑     ↑       ↑     ↑       ↑    ↑
+   │     │     │       │     │       │    └─ Current page (no link)
+   │     │     │       │     │       └────── Last item
+   │     │     │       │     └────────────── Separator (customizable)
+   │     │     │       └──────────────────── Linked item
+   │     │     └──────────────────────────── Separator
+   │     └────────────────────────────────── Linked item
+   └──────────────────────────────────────── First item (usually root)
+```
+
+**Component Structure:**
+- **Container**: `<nav>` element with `aria-label="Breadcrumb"`
+- **Items**: Ordered list of navigation links
+- **Separators**: Visual dividers between items (default: "/")
+- **Current Page**: Last item marked with `aria-current="page"`
+
+**Visual States:**
+- Links: Clickable items with hover/focus states
+- Current: Non-interactive, visually distinct
+- Icons: Optional icons can precede labels
+
+## API Reference
+
+### Props
 
 | Prop        | Type                             | Default    | Description                    |
 | ----------- | -------------------------------- | ---------- | ------------------------------ |
@@ -61,6 +105,18 @@ import { Breadcrumb } from '@grasdouble/lufa_design-system';
 | `href`   | `string`    | Link URL (optional for current/last item) |
 | `icon`   | `ReactNode` | Icon before label (optional)              |
 
+### Size Details
+
+- **small**: Compact size for dense headers (12px/14px)
+- **medium**: Default size for most use cases (14px/16px)
+- **large**: Prominent size for hero sections (16px/18px)
+
+### Separator Customization
+
+The separator can be customized with:
+- **String**: Any text character (e.g., `">"`, `"→"`, `"|"`)
+- **ReactNode**: Custom icons or styled elements
+
 ## Variants
 
 ### size
@@ -75,21 +131,220 @@ import { Breadcrumb } from '@grasdouble/lufa_design-system';
 
 ### Do ✅
 
-- Keep labels short and meaningful
+- Keep labels short and meaningful (1-3 words ideal)
 - Use the last item as the current page (no `href`)
 - Use `size="small"` in dense headers or tight layouts
+- Include a "Home" or root item as the first item
+- Truncate or collapse middle items on mobile if needed
 
 ### Don't ❌
 
-- Don’t include too many levels; consider truncation or simplifying IA
-- Don’t use breadcrumbs as the only navigation for critical flows
+- Don't include too many levels; consider truncation or simplifying IA (5-7 max recommended)
+- Don't use breadcrumbs as the only navigation for critical flows
+- Don't make the current page (last item) clickable
+- Don't use breadcrumbs for flat site structures
 
 ## Accessibility
 
-- `Breadcrumb` renders a `<nav aria-label="Breadcrumb">` and marks the current page with `aria-current="page"`.
-- Ensure link labels are descriptive and unique enough in context.
+The Breadcrumb component is designed with WCAG 2.1 AA compliance:
+
+### Built-in Features
+
+- **nav landmark**: Semantic `<nav>` element with `aria-label="Breadcrumb"`
+- **Ordered list**: Uses `<ol>` for proper item sequence
+- **aria-current="page"**: Marks the current page item
+- **Keyboard navigation**: All links are keyboard accessible
+
+### Keyboard Navigation
+
+- **Tab**: Navigate to next breadcrumb link
+- **Shift+Tab**: Navigate to previous breadcrumb link
+- **Enter**: Activate breadcrumb link
+
+### Screen Reader Support
+
+**For Standard Breadcrumbs:**
+```tsx
+<Breadcrumb
+  items={[
+    { label: 'Home', href: '/' },
+    { label: 'Products', href: '/products' },
+    { label: 'Laptops' }
+  ]}
+/>
+// Screen reader announces:
+// "Breadcrumb navigation"
+// "Home, link"
+// "Products, link"
+// "Laptops, current page"
+```
+
+**With Icons:**
+```tsx
+<Breadcrumb
+  items={[
+    { label: 'Home', href: '/', icon: <HomeIcon /> },
+    { label: 'Settings', href: '/settings', icon: <SettingsIcon /> },
+    { label: 'Profile' }
+  ]}
+/>
+// Icons are decorative and not announced
+// Screen reader focuses on labels only
+```
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Ensure link labels are descriptive and unique
+- Use `aria-current="page"` for the current item (handled automatically)
+- Keep breadcrumb trails concise (avoid overwhelming users)
+- Ensure sufficient color contrast for links
+- Test with keyboard-only navigation
+
+#### Don't ❌
+
+- Don't remove the `aria-label` from the nav element
+- Don't make the current page clickable
+- Don't use only icons without text labels
+- Don't nest breadcrumbs inside other nav landmarks
+
+### ARIA Attributes
+
+The component automatically provides:
+- `<nav aria-label="Breadcrumb">` for the container
+- `aria-current="page"` for the current/last item
+- `aria-hidden="true"` for separators
+
+### Color Contrast
+
+All breadcrumb variants meet WCAG 2.1 AA contrast requirements:
+- Links: Minimum 4.5:1 contrast ratio
+- Current page text: Minimum 4.5:1 contrast ratio
+- Separators: Minimum 3:1 contrast ratio (decorative)
+
+Tested in both light and dark modes.
+
+## Common Patterns
+
+### E-commerce Product Hierarchy
+
+```tsx title="src/components/ProductBreadcrumb.tsx"
+import { Breadcrumb } from '@grasdouble/lufa_design-system';
+
+function ProductBreadcrumb({ category, subcategory, product }) {
+  return (
+    <Breadcrumb
+      items={[
+        { label: 'Home', href: '/' },
+        { label: 'Shop', href: '/shop' },
+        { label: category, href: `/shop/${category}` },
+        { label: subcategory, href: `/shop/${category}/${subcategory}` },
+        { label: product }
+      ]}
+      size="small"
+    />
+  );
+}
+```
+
+### Documentation Navigation
+
+```tsx title="src/components/DocsBreadcrumb.tsx"
+import { Breadcrumb } from '@grasdouble/lufa_design-system';
+import { BookIcon, ComponentIcon } from './icons';
+
+function DocsBreadcrumb({ section, component }) {
+  return (
+    <Breadcrumb
+      items={[
+        { label: 'Docs', href: '/docs', icon: <BookIcon /> },
+        { label: section, href: `/docs/${section}` },
+        { label: component, icon: <ComponentIcon /> }
+      ]}
+    />
+  );
+}
+```
+
+### Custom Separator
+
+```tsx title="src/components/CustomBreadcrumb.tsx"
+import { Breadcrumb } from '@grasdouble/lufa_design-system';
+import { ChevronRightIcon } from './icons';
+
+function CustomBreadcrumb() {
+  return (
+    <Breadcrumb
+      items={[
+        { label: 'Dashboard', href: '/dashboard' },
+        { label: 'Projects', href: '/projects' },
+        { label: 'Project Alpha' }
+      ]}
+      separator={<ChevronRightIcon />}
+    />
+  );
+}
+```
+
+### Responsive Breadcrumb
+
+```tsx title="src/components/ResponsiveBreadcrumb.tsx"
+import { Breadcrumb } from '@grasdouble/lufa_design-system';
+import { useMediaQuery } from './hooks';
+
+function ResponsiveBreadcrumb({ items }) {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  // On mobile, show only first and last items
+  const displayItems = isMobile && items.length > 3
+    ? [
+        items[0],
+        { label: '...', href: undefined },
+        items[items.length - 1]
+      ]
+    : items;
+
+  return (
+    <Breadcrumb
+      items={displayItems}
+      size={isMobile ? 'small' : 'medium'}
+    />
+  );
+}
+```
 
 ## Examples of usage
 
 <ProductHierarchyExample />
 <CompactHeaderExample />
+
+## Related Components
+
+- **Link** - For single navigation links
+- **Anchor** - For in-page navigation
+- **Tabs** - For horizontal navigation between views
+- **Steps** - For sequential process navigation
+
+## TypeScript Support
+
+The Breadcrumb component is fully typed with TypeScript:
+
+```tsx
+import type { ReactNode } from 'react';
+
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+  icon?: ReactNode;
+}
+
+interface BreadcrumbProps {
+  items: BreadcrumbItem[];
+  separator?: ReactNode;
+  size?: 'small' | 'medium' | 'large';
+  className?: string;
+}
+```
+
+This ensures type safety and autocomplete in your IDE.

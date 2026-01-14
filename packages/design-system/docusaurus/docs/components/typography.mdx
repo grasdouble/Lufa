@@ -8,22 +8,27 @@ import { Examples, LiveDemo, Variants } from '../../src/dsExamples/typography/ty
 
 # Typography
 
-Text component for consistent typography, semantics, and color.
+import { DarkModeCompatible } from '../../src/components/DarkModeCompatible';
+
+<DarkModeCompatible />
+
+Text component for consistent typography, semantics, and color. Provides flexible rendering of headings, body text, labels, and captions with semantic HTML and accessible styling.
 
 ## Overview
 
-Use `Typography` to render headings, labels, and body text with consistent styling.
+Use `Typography` when you need…
 
-- Semantic element via `as` (optional)
-- Visual style via `variant`
-- Weight via `weight`, alignment via `align`
-- Semantic colors via `color`
+- Consistent text styling across your application
+- Semantic HTML via `as` with independent visual styling via `variant`
+- Flexible typography (headings, body, labels, captions)
+- Semantic color variants via `color`
+- Customizable weight and alignment via `weight` and `align`
 
 ## Live Demo
 
 <LiveDemo />
 
-## Installation
+## Import
 
 ```tsx
 import { Typography } from '@grasdouble/lufa_design-system';
@@ -38,22 +43,498 @@ import { Typography } from '@grasdouble/lufa_design-system';
 </Typography>
 ```
 
-## Props
+## Anatomy
 
-| Prop        | Type                                                                                                           | Default     | Description            |
-| ----------- | -------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------- |
-| `as`        | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' \| 'p' \| 'span' \| 'label' \| 'div'`                            | Auto        | HTML element to render |
-| `variant`   | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' \| 'body' \| 'bodyLarge' \| 'bodySmall' \| 'caption' \| 'label'` | `'body'`    | Visual style variant   |
-| `weight`    | `'light' \| 'normal' \| 'medium' \| 'semibold' \| 'bold'`                                                      | -           | Font weight            |
-| `align`     | `'left' \| 'center' \| 'right' \| 'justify'`                                                                   | -           | Text alignment         |
-| `color`     | `'primary' \| 'secondary' \| 'tertiary' \| 'inverse' \| 'error' \| 'success' \| 'warning'`                     | `'primary'` | Semantic color         |
-| `children`  | `ReactNode`                                                                                                    | -           | Content                |
-| `className` | `string`                                                                                                       | -           | Additional CSS classes |
+The Typography component provides semantic text rendering with visual flexibility:
+
+```
+┌──────────────────────────────────────┐
+│  Text Content                        │  ← Typography Container
+└──────────────────────────────────────┘
+     ↑
+     └─ Rendered as semantic HTML element
+        (h1-h6, p, span, label, div)
+```
+
+**Component Structure:**
+- **Container**: Semantic HTML element (default based on variant, override with `as`)
+- **Content**: Text or inline elements (children)
+- **Styling**: Applied via CSS classes based on variant, weight, align, and color
+
+**Visual Variants:**
+- **Headings**: h1, h2, h3, h4, h5, h6 (large to small heading styles)
+- **Body Text**: bodyLarge, body, bodySmall (paragraph text in different sizes)
+- **Specialized**: label (form labels), caption (small secondary text)
+
+**Color Variants:**
+- **primary**: Default text color (high contrast)
+- **secondary**: Slightly muted text (medium contrast)
+- **tertiary**: More muted text (lower contrast for hints/captions)
+- **inverse**: Inverted color for dark backgrounds
+- **error**: Red text for error messages
+- **success**: Green text for success messages
+- **warning**: Orange/amber text for warnings
+
+## API Reference
+
+### Props
+
+| Prop        | Type                                                                                                           | Default     | Description                   |
+| ----------- | -------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------------- |
+| `children`  | `ReactNode`                                                                                                    | Required    | Text content                  |
+| `as`        | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' \| 'p' \| 'span' \| 'label' \| 'div'`                            | Auto        | HTML element to render        |
+| `variant`   | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' \| 'body' \| 'bodyLarge' \| 'bodySmall' \| 'caption' \| 'label'` | `'body'`    | Visual style variant          |
+| `weight`    | `'light' \| 'normal' \| 'medium' \| 'semibold' \| 'bold'`                                                      | -           | Font weight                   |
+| `align`     | `'left' \| 'center' \| 'right' \| 'justify'`                                                                   | -           | Text alignment                |
+| `color`     | `'primary' \| 'secondary' \| 'tertiary' \| 'inverse' \| 'error' \| 'success' \| 'warning'`                     | `'primary'` | Semantic color variant        |
+| `className` | `string`                                                                                                       | -           | Additional CSS classes        |
+
+Also supports all standard HTML attributes for the rendered element (e.g., `id`, `aria-*`, `data-*`).
+
+### Variant Details
+
+**Headings:**
+- **h1**: Largest heading (48px, for page titles)
+- **h2**: Section heading (36px, for main sections)
+- **h3**: Subsection heading (28px, for subsections)
+- **h4**: Small heading (24px, for cards/panels)
+- **h5**: Tiny heading (20px, rarely used)
+- **h6**: Smallest heading (18px, rarely used)
+
+**Body Text:**
+- **bodyLarge**: Large body text (18px, for emphasis or leads)
+- **body**: Default body text (16px, main content - default)
+- **bodySmall**: Small body text (14px, secondary content)
+
+**Specialized:**
+- **label**: Form labels (14px, medium weight)
+- **caption**: Captions and hints (12px, small annotations)
+
+### Default HTML Elements
+
+When `as` is not provided, the component renders a semantic element based on `variant`:
+
+| Variant     | Default Element |
+| ----------- | --------------- |
+| `h1`        | `<h1>`          |
+| `h2`        | `<h2>`          |
+| `h3`        | `<h3>`          |
+| `h4`        | `<h4>`          |
+| `h5`        | `<h5>`          |
+| `h6`        | `<h6>`          |
+| `body*`     | `<p>`           |
+| `label`     | `<span>`        |
+| `caption`   | `<span>`        |
+
+### Weight Details
+
+- **light**: Lighter weight (300)
+- **normal**: Normal weight (400, default for body)
+- **medium**: Medium weight (500)
+- **semibold**: Semi-bold weight (600, default for headings)
+- **bold**: Bold weight (700)
+
+### Align Details
+
+- **left**: Left-aligned text (default)
+- **center**: Center-aligned text
+- **right**: Right-aligned text
+- **justify**: Justified text (equal width)
+
+### Color Details
+
+- **primary**: Default text color (highest contrast)
+- **secondary**: Muted text color (medium contrast)
+- **tertiary**: More muted text (lower contrast)
+- **inverse**: Light text for dark backgrounds
+- **error**: Red text for errors and destructive actions
+- **success**: Green text for success states
+- **warning**: Orange/amber text for warnings
 
 ## Variants
 
 <Variants />
 
-## Examples
+## Best Practices
+
+### Do ✅
+
+- Use semantic HTML (let `variant` determine element, or use `as` explicitly)
+- Maintain heading hierarchy (don't skip levels: h1 → h2 → h3)
+- Use `color="secondary"` for supporting text, `color="tertiary"` for hints/captions
+- Use `as` to separate semantics from visual style (e.g., `as="h1" variant="h3"`)
+- Keep line length readable (45-75 characters for body text)
+
+### Don't ❌
+
+- Don't skip heading levels (bad: h1 → h3, good: h1 → h2 → h3)
+- Don't use multiple h1 elements per page (harms SEO and accessibility)
+- Don't use color alone to convey meaning (combine with text/icons)
+- Don't override font families (use design system tokens)
+
+## Accessibility
+
+The Typography component is designed with WCAG 2.1 AA compliance in mind:
+
+### Heading Hierarchy
+
+Maintain proper heading structure for screen readers and SEO:
+
+```tsx
+<Typography variant="h1">Page Title</Typography>
+<Typography variant="h2">Section 1</Typography>
+<Typography variant="h3">Subsection 1.1</Typography>
+<Typography variant="h3">Subsection 1.2</Typography>
+<Typography variant="h2">Section 2</Typography>
+```
+
+**Separating Semantics from Styling:**
+```tsx
+{/* Visual h3 style but semantic h1 for SEO */}
+<Typography as="h1" variant="h3">Compact Page Title</Typography>
+```
+
+### Readable Line Length
+
+Keep line length between 45-75 characters for optimal readability:
+
+```tsx
+{/* Good: Constrained width */}
+<div style={{ maxWidth: '65ch' }}>
+  <Typography variant="body">
+    This text will wrap at a comfortable reading width...
+  </Typography>
+</div>
+```
+
+### Keyboard Navigation
+
+All Typography content is accessible to keyboard users:
+- **Tab**: Navigate to interactive elements within text (links, buttons)
+- Text content itself is not focusable (as expected for static text)
+
+### Screen Reader Support
+
+**For Headings:**
+```tsx
+<Typography variant="h2">Account Settings</Typography>
+// Screen reader announces: "Account Settings, heading level 2"
+```
+
+**For Body Text:**
+```tsx
+<Typography variant="body">
+  Welcome to the application.
+</Typography>
+// Screen reader announces: "Welcome to the application."
+```
+
+**For Labels:**
+```tsx
+<Typography as="label" htmlFor="email" variant="label">
+  Email Address
+</Typography>
+// Screen reader announces: "Email Address" (associated with input)
+```
+
+**For Color Variants:**
+```tsx
+<Typography color="error">Password is required</Typography>
+// Screen reader announces: "Password is required"
+// Note: Color alone doesn't convey meaning to screen readers
+```
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Use semantic heading elements (h1-h6) for page structure
+- Maintain heading hierarchy (don't skip levels)
+- Use only one h1 per page
+- Associate labels with form inputs using `htmlFor` or wrapping
+- Ensure sufficient line height for readability (default: 1.5 for body)
+- Keep line length between 45-75 characters
+- Combine color with text to convey meaning (not color alone)
+
+#### Don't ❌
+
+- Don't skip heading levels (h1 → h3)
+- Don't use headings only for visual styling (use `variant` for styling, `as` for semantics)
+- Don't use multiple h1 elements per page
+- Don't rely on color alone to convey meaning
+- Don't use very long lines (harder to read)
+- Don't use center/justify alignment for long text (reduces readability)
+
+### ARIA Attributes
+
+The component supports all standard ARIA attributes:
+
+```tsx
+<Typography
+  variant="body"
+  role="status"
+  aria-live="polite"
+>
+  Your changes have been saved.
+</Typography>
+```
+
+**For Form Labels:**
+```tsx
+<Typography as="label" htmlFor="username" variant="label">
+  Username
+</Typography>
+<input id="username" type="text" />
+```
+
+**For Error Messages:**
+```tsx
+<Typography
+  color="error"
+  role="alert"
+  id="error-message"
+>
+  Invalid email format
+</Typography>
+<input type="email" aria-describedby="error-message" />
+```
+
+### Color Contrast
+
+All Typography color variants meet WCAG 2.1 AA contrast requirements:
+- **primary**: Minimum 4.5:1 contrast ratio (7:1 in most cases)
+- **secondary**: Minimum 4.5:1 contrast ratio
+- **tertiary**: Minimum 4.5:1 contrast ratio (meets AA for large text)
+- **inverse**: Minimum 4.5:1 contrast ratio (on dark backgrounds)
+- **error/success/warning**: Minimum 4.5:1 contrast ratio
+
+Tested in both light and dark modes.
+
+## Common Patterns
+
+### Article Content
+
+```tsx title="src/components/Article.tsx"
+import { Typography } from '@grasdouble/lufa_design-system';
+
+function Article() {
+  return (
+    <article style={{ maxWidth: '65ch' }}>
+      <Typography variant="h1">
+        Understanding React Hooks
+      </Typography>
+
+      <Typography variant="bodyLarge" color="secondary">
+        A comprehensive guide to modern React development
+      </Typography>
+
+      <Typography variant="body">
+        React Hooks revolutionized how we write components by allowing
+        function components to use state and lifecycle features.
+      </Typography>
+
+      <Typography variant="h2">
+        Getting Started
+      </Typography>
+
+      <Typography variant="body">
+        The most commonly used hooks are useState and useEffect...
+      </Typography>
+
+      <Typography variant="caption" color="tertiary">
+        Published on January 14, 2026
+      </Typography>
+    </article>
+  );
+}
+```
+
+### Heading Hierarchy
+
+```tsx title="src/components/ProductPage.tsx"
+import { Typography } from '@grasdouble/lufa_design-system';
+
+function ProductPage() {
+  return (
+    <>
+      <Typography variant="h1">Product Name</Typography>
+
+      <Typography variant="h2">Features</Typography>
+      <Typography variant="h3">Core Features</Typography>
+      <Typography variant="body">Feature descriptions...</Typography>
+
+      <Typography variant="h3">Advanced Features</Typography>
+      <Typography variant="body">More feature descriptions...</Typography>
+
+      <Typography variant="h2">Specifications</Typography>
+      <Typography variant="body">Technical details...</Typography>
+    </>
+  );
+}
+```
+
+### Inline Code and Mixed Content
+
+```tsx title="src/components/CodeExample.tsx"
+import { Typography } from '@grasdouble/lufa_design-system';
+
+function CodeExample() {
+  return (
+    <Typography variant="body">
+      Use the <code>useState</code> hook to add state to function components.
+      For example: <code>const [count, setCount] = useState(0)</code>
+    </Typography>
+  );
+}
+```
+
+### Body Text with Links
+
+```tsx title="src/components/TermsText.tsx"
+import { Typography } from '@grasdouble/lufa_design-system';
+
+function TermsText() {
+  return (
+    <>
+      <Typography variant="body">
+        By signing up, you agree to our{' '}
+        <a href="/terms">Terms of Service</a> and{' '}
+        <a href="/privacy">Privacy Policy</a>.
+      </Typography>
+
+      <Typography variant="bodySmall" color="secondary">
+        We'll never share your information with third parties.
+      </Typography>
+    </>
+  );
+}
+```
+
+### Truncated Text
+
+```tsx title="src/components/TruncatedText.tsx"
+import { Typography } from '@grasdouble/lufa_design-system';
+
+function TruncatedText({ text }: { text: string }) {
+  return (
+    <Typography
+      variant="body"
+      style={{
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        maxWidth: '300px',
+      }}
+      title={text}
+    >
+      {text}
+    </Typography>
+  );
+}
+```
+
+### Form Labels with Typography
+
+```tsx title="src/components/FormField.tsx"
+import { Typography } from '@grasdouble/lufa_design-system';
+
+function FormField() {
+  return (
+    <div>
+      <Typography as="label" htmlFor="email" variant="label">
+        Email Address
+      </Typography>
+      <input id="email" type="email" />
+
+      <Typography variant="caption" color="tertiary">
+        We'll never share your email with anyone else.
+      </Typography>
+    </div>
+  );
+}
+```
+
+### Status Messages
+
+```tsx title="src/components/StatusMessages.tsx"
+import { Typography } from '@grasdouble/lufa_design-system';
+
+function StatusMessages() {
+  return (
+    <>
+      <Typography color="success" role="status">
+        Your profile has been updated successfully.
+      </Typography>
+
+      <Typography color="error" role="alert">
+        Failed to save changes. Please try again.
+      </Typography>
+
+      <Typography color="warning">
+        Your subscription will expire in 3 days.
+      </Typography>
+    </>
+  );
+}
+```
+
+### Separating Semantics from Visual Style
+
+```tsx title="src/components/CardHeader.tsx"
+import { Typography } from '@grasdouble/lufa_design-system';
+
+function CardHeader() {
+  return (
+    <>
+      {/* Semantic h1 but visually styled as h3 */}
+      <Typography as="h1" variant="h3">
+        Welcome Back
+      </Typography>
+
+      {/* Semantic h2 but visually styled as body */}
+      <Typography as="h2" variant="body" color="secondary">
+        Continue where you left off
+      </Typography>
+    </>
+  );
+}
+```
+
+## Examples of usage
 
 <Examples />
+
+## Related Components
+
+- **Link** - For navigation links with underline styling
+- **Anchor** - For in-page anchor links
+- **Card** - Often uses Typography for title and description
+- **Stack** - For organizing typography with consistent spacing
+
+## TypeScript Support
+
+The Typography component is fully typed with TypeScript:
+
+```tsx
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+
+type TypographyElement =
+  | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  | 'p' | 'span' | 'label' | 'div';
+
+export type TypographyProps = {
+  as?: TypographyElement;
+  variant?:
+    | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+    | 'body' | 'bodyLarge' | 'bodySmall'
+    | 'caption' | 'label';
+  weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
+  align?: 'left' | 'center' | 'right' | 'justify';
+  color?:
+    | 'primary' | 'secondary' | 'tertiary' | 'inverse'
+    | 'error' | 'success' | 'warning';
+  children: ReactNode;
+} & HTMLAttributes<HTMLElement>;
+```
+
+This ensures type safety and autocomplete in your IDE.

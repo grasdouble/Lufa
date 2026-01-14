@@ -226,7 +226,7 @@ Optimized for fast rendering and minimal bundle size.
 
 ## Storybook
 
-Explore interactive examples in [Storybook](http://localhost:6006).
+Explore interactive examples in [Storybook](https://lufa-design.sebastien-lemouillour.fr).
 
 ## Related
 

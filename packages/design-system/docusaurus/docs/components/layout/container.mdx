@@ -17,6 +17,10 @@ import {
 
 # Container
 
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+
+<DarkModeCompatible />
+
 A page-level layout container with token-based max widths, alignment, and optional padding.
 
 ## Overview
@@ -45,7 +49,41 @@ import { Container } from '@grasdouble/lufa_design-system';
 <Container size="md">Content</Container>
 ```
 
-## Props
+## Anatomy
+
+The Container component constrains content width and provides padding:
+
+```
+Full viewport width
+◄─────────────────────────────────────►
+
+┌─────────────────────────────────────┐
+│ ┌─────────────────────────────────┐ │ ← paddingX
+│ │                                 │ │
+│ │  Content (max-width: size)      │ │ ← Constrained content
+│ │                                 │ │
+│ └─────────────────────────────────┘ │
+└─────────────────────────────────────┘
+       ▲                         ▲
+       └─────────┬───────────────┘
+              align (center)
+```
+
+**Component Structure:**
+- **Outer Container**: Full width with alignment
+- **Inner Content Area**: Constrained by `size` (max-width)
+- **Padding**: Horizontal (`paddingX`) and vertical (`paddingY`) spacing
+- **Semantic Element**: Renders as configurable element via `as`
+
+**Visual States:**
+- **Constrained**: Limited width (xs, sm, md, lg, xl)
+- **Full Width**: `size="full"` - 100% width with padding
+- **Fluid**: `size="fluid"` - 100% width, no max-width
+- **Aligned**: Horizontal positioning via `align`
+
+## API Reference
+
+### Props
 
 | Prop       | Type                                                                                    | Default    | Description                           |
 | ---------- | --------------------------------------------------------------------------------------- | ---------- | ------------------------------------- |
@@ -94,10 +132,155 @@ Also supports standard element props (for example `className`, `style`, `aria-la
 
 ## Accessibility
 
-- `Container` is layout-only; accessibility depends on semantics and children.
-- Prefer semantic `as` values when the container represents a landmark region (e.g. `main`, `nav`, `header`, `footer`).
+The Container component is designed with WCAG 2.1 AA compliance in mind:
+
+### Screen Reader Support
+
+Container is a layout-only component. Screen readers announce content based on the `as` element and children.
+
+```tsx
+<Container as="main" size="lg">
+  <h1>Page Title</h1>
+  <p>Content...</p>
+</Container>
+// Screen reader announces: "main, landmark" then reads content
+```
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Use semantic `as` values for landmark regions (`main`, `header`, `footer`, `nav`, `aside`)
+- Ensure one `<main>` landmark per page (use `as="main"` on primary content container)
+- Provide adequate padding for touch targets (minimum 44x44px)
+- Use appropriate heading hierarchy within containers
+
+#### Don't ❌
+
+- Don't use multiple `<main>` landmarks on the same page
+- Don't rely solely on Container for layout (combine with semantic HTML)
+- Don't use Container to hide or obscure content
+- Don't nest landmark regions unnecessarily
+
+### ARIA Attributes
+
+The component supports standard HTML attributes based on the `as` element:
+
+```tsx
+<Container as="section" aria-labelledby="section-title">
+  <h2 id="section-title">Section Title</h2>
+  <p>Content...</p>
+</Container>
+```
+
+### Color Contrast
+
+Container is a transparent layout container. Ensure child content meets WCAG 2.1 AA contrast requirements (4.5:1 for normal text, 3:1 for large text).
+
+## Common Patterns
+
+### Page Layout
+
+```tsx title="src/pages/HomePage.tsx"
+import { Container } from '@grasdouble/lufa_design-system';
+
+function HomePage() {
+  return (
+    <>
+      <Container as="header" size="xl" paddingY="md">
+        <nav>Navigation</nav>
+      </Container>
+
+      <Container as="main" size="lg" paddingY="2xl">
+        <h1>Welcome</h1>
+        <p>Page content...</p>
+      </Container>
+
+      <Container as="footer" size="xl" paddingY="lg">
+        <p>Footer content</p>
+      </Container>
+    </>
+  );
+}
+```
+
+### Full-Bleed Section with Nested Container
+
+```tsx title="src/components/HeroSection.tsx"
+import { Container } from '@grasdouble/lufa_design-system';
+
+function HeroSection() {
+  return (
+    <Container
+      as="section"
+      size="full"
+      paddingY="3xl"
+      style={{ background: 'var(--color-primary)' }}
+    >
+      <Container size="lg">
+        <h1>Hero Title</h1>
+        <p>Constrained content within full-width background</p>
+      </Container>
+    </Container>
+  );
+}
+```
+
+### Sidebar Layout
+
+```tsx title="src/components/DashboardLayout.tsx"
+import { Container } from '@grasdouble/lufa_design-system';
+
+function DashboardLayout({ sidebar, children }) {
+  return (
+    <Container as="div" size="fluid" paddingX="none">
+      <div style={{ display: 'flex' }}>
+        <Container as="aside" size="xs" paddingX="md" paddingY="lg">
+          {sidebar}
+        </Container>
+
+        <Container as="main" size="lg" paddingX="lg" paddingY="lg">
+          {children}
+        </Container>
+      </div>
+    </Container>
+  );
+}
+```
 
 ## Examples of usage
 
 <PageLayoutExample />
 <MixedBleedExample />
+
+## Related Components
+
+- **Center** - For centering content within containers
+- **Stack** - For spacing content vertically or horizontally
+- **Grid** - For multi-column layouts within containers
+- **Divider** - For separating sections within containers
+
+## TypeScript Support
+
+The Container component is fully typed with TypeScript:
+
+```tsx
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+
+export type ContainerSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full' | 'fluid';
+export type ContainerAlign = 'start' | 'center' | 'end';
+export type ContainerSpacing = 'none' | 'xxs' | 'xs' | 'sm' | 'md' | 'base' | 'lg' | 'xl' | '2xl' | '3xl';
+
+type ContainerElement = 'div' | 'main' | 'section' | 'article' | 'header' | 'footer' | 'aside' | 'nav';
+
+export type ContainerProps = {
+  as?: ContainerElement;
+  size?: ContainerSize;
+  align?: ContainerAlign;
+  paddingX?: ContainerSpacing;
+  paddingY?: ContainerSpacing;
+  children?: ReactNode;
+} & HTMLAttributes<HTMLElement>;
+```
+
+This ensures type safety and autocomplete in your IDE.

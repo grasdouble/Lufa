@@ -15,16 +15,23 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   docs: [
     'intro',
+    'playground',
     {
       type: 'category',
       label: 'Getting Started',
-      items: ['getting-started/installation', 'getting-started/theming'],
+      items: ['getting-started/installation', 'getting-started/usage', 'getting-started/theming'],
     },
     'accessibility',
     {
       type: 'category',
+      label: 'Design Tokens',
+      items: ['tokens/colors', 'tokens/typography', 'tokens/spacing', 'tokens/shadows'],
+    },
+    {
+      type: 'category',
       label: 'Components',
       items: [
+        'components/overview',
         {
           type: 'category',
           label: 'Layout',
@@ -77,10 +84,25 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Forms',
-          items: ['components/forms/button'],
+          items: ['components/forms/button', 'components/forms/input'],
+        },
+        {
+          type: 'category',
+          label: 'Overlay',
+          items: ['components/overlay/modal'],
         },
       ],
     },
+    {
+      type: 'category',
+      label: 'Guides',
+      items: [
+        'guides/contributing',
+        'guides/migration',
+        'guides/component-documentation-template',
+      ],
+    },
+    'changelog',
   ],
 };
 
