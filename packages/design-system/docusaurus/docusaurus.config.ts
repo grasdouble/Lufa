@@ -95,10 +95,6 @@ const config: Config = {
               label: 'Development (Unreleased)',
               path: '/',
             },
-            '0.6.0': {
-              label: '0.6.0',
-              path: '/0.6.0',
-            },
           },
         },
         blog: false, // Disable blog for design system docs

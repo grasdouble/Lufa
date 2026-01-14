@@ -605,11 +605,11 @@ Every component should have comprehensive documentation in the Docusaurus site.
 **Location**:
 
 - MDX file: `packages/design-system/docusaurus/docs/components/{category}/{component}.mdx`
-- Examples: `packages/design-system/docusaurus/src/dsExamples/{category}/{componentName}.tsx`
+- Examples: `packages/design-system/docusaurus/docs/_examples/{category}/{componentName}.tsx`
 
-**IMPORTANT**: Examples must be created as React components in `src/dsExamples/` and imported in the MDX file. Do NOT use inline code blocks for interactive examples.
+**IMPORTANT**: Examples must be created as React components in `docs/_examples/` and imported in the MDX file. Do NOT use inline code blocks for interactive examples.
 
-**Example Component** (`src/dsExamples/{category}/{componentName}.tsx`):
+**Example Component** (`docs/_examples/{category}/{componentName}.tsx`):
 
 ```tsx
 import { {Component} } from '@grasdouble/lufa_design-system';
@@ -658,7 +658,7 @@ sidebar_position: 1
 
 import { {Component} } from '@grasdouble/lufa_design-system';
 
-import { AllVariantsExample, LiveDemo, SizesExample } from '../../../src/dsExamples/{category}/{componentName}';
+import { AllVariantsExample, LiveDemo, SizesExample } from '../../../docs/_examples/{category}/{componentName}';
 
 # {Component}
 
@@ -747,7 +747,7 @@ pnpm serve
 **Documentation Structure**:
 
 - **MDX files**: Located in `docs/components/{category}/` for content and structure
-- **Example components**: Located in `src/dsExamples/{category}/` for interactive demos
+- **Example components**: Located in `docs/_examples/{category}/` for interactive demos
 - Each example component should include a small caption/title to describe what it demonstrates
 - Examples are imported and rendered as React components in the MDX file
 
@@ -860,7 +860,7 @@ Before completing, verify:
 - [ ] Storybook stories for all variants
 - [ ] Component exported from package
 - [ ] Docusaurus documentation page created in `packages/design-system/docusaurus/docs/components/`
-- [ ] Example components created in `packages/design-system/docusaurus/src/dsExamples/{category}/`
+- [ ] Example components created in `packages/design-system/docusaurus/docs/_examples/{category}/`
 - [ ] Examples imported in MDX file (NOT inline code blocks)
 - [ ] **CRITICAL**: Component added to `packages/design-system/docusaurus/sidebars.ts`
 - [ ] Props API table is complete and accurate

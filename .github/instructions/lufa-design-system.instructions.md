@@ -541,25 +541,25 @@ Every component must have a comprehensive documentation page in the Docusaurus s
 **Location**:
 
 - MDX file: `packages/design-system/docusaurus/docs/components/{category}/{component}.mdx`
-- Examples: `packages/design-system/docusaurus/src/dsExamples/{category}/{componentName}.tsx`
+- Examples: `packages/design-system/docusaurus/docs/_examples/{category}/{componentName}.tsx`
 
-**IMPORTANT**: Examples must be created as React components in `src/dsExamples/` and imported in the MDX file. Do NOT use inline code blocks for interactive examples.
+**IMPORTANT**: Examples must be created as React components in `docs/_examples/` and imported in the MDX file. Do NOT use inline code blocks for interactive examples.
 
 **Required Sections**:
 
 1. **Overview** - Component purpose and use cases
-2. **Live Demo** - Interactive example component from `dsExamples`
+2. **Live Demo** - Interactive example component from `_examples`
 3. **Import** - Import statement
 4. **Basic Usage** - Simple code example
 5. **Props** - Complete API table with types and defaults
-6. **Examples** - All variants, sizes, and states (imported from `dsExamples`)
+6. **Examples** - All variants, sizes, and states (imported from `_examples`)
 7. **Accessibility** - Keyboard navigation, ARIA attributes, screen reader behavior
 8. **Best Practices** - Do's and don'ts
 9. **Related Components** - Links to similar components
 
 **Example Structure**:
 
-Create example components in `src/dsExamples/{category}/{componentName}.tsx`:
+Create example components in `docs/_examples/{category}/{componentName}.tsx`:
 
 ```tsx
 import { Component } from '@grasdouble/lufa_design-system';
@@ -577,7 +577,7 @@ export function LiveDemo() {
 Import in MDX file:
 
 ```mdx
-import { LiveDemo } from '../../../src/dsExamples/{category}/{componentName}';
+import { LiveDemo } from '../../../docs/_examples/{category}/{componentName}';
 
 <LiveDemo />
 ```
@@ -633,7 +633,7 @@ pnpm dev                    # Start dev server on port 3000
 **Distinction from Storybook**:
 
 - **Storybook**: Interactive component playground with controls and isolated variants
-- **Documentation**: Comprehensive guides, getting started tutorials, complete API reference with examples in `dsExamples/`
+- **Documentation**: Comprehensive guides, getting started tutorials, complete API reference with examples in `_examples/`
 - Both are required for complete component documentation
 
 ## Version Management
@@ -699,7 +699,7 @@ Before creating or modifying components, ensure:
 - [ ] Playwright component tests written (render, variants, a11y, visual regression)
 - [ ] Storybook story demonstrates all variants
 - [ ] Docusaurus documentation page created in `packages/design-system/docusaurus/docs/components/`
-- [ ] Example components created in `packages/design-system/docusaurus/src/dsExamples/{category}/`
+- [ ] Example components created in `packages/design-system/docusaurus/docs/_examples/{category}/`
 - [ ] Examples imported in MDX file (NOT inline code blocks)
 - [ ] **CRITICAL**: Component added to `packages/design-system/docusaurus/sidebars.ts`
 - [ ] Props API table is complete and accurate in documentation
