@@ -4,9 +4,10 @@ name: Update Changelog Documentation
 # Documentation: packages/design-system/docusaurus/scripts/README.md
 
 on:
+  workflow_call:
   # Trigger when the changeset release workflow runs
   workflow_run:
-    workflows: ["Release:Changesets"]
+    workflows: ['Release:Changesets']
     types:
       - completed
 
@@ -14,13 +15,13 @@ on:
   workflow_dispatch:
 
   # Trigger on push to main when CHANGELOG files change
-  push:
-    branches:
-      - main
-    paths:
-      - 'packages/design-system/main/CHANGELOG.md'
-      - 'packages/design-system/tokens/CHANGELOG.md'
-      - 'packages/design-system/primitives/CHANGELOG.md'
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'packages/design-system/main/CHANGELOG.md'
+  #     - 'packages/design-system/tokens/CHANGELOG.md'
+  #     - 'packages/design-system/primitives/CHANGELOG.md'
 
 permissions:
   contents: write
@@ -72,9 +73,6 @@ jobs:
             echo "📸 No snapshot found for ${RELEASED_VERSION}, will create it"
           fi
 
-      - name: Update changelog documentation
-        run: pnpm --filter @grasdouble/lufa_design-system-docusaurus update-changelog
-
       - name: Create version snapshot for new release
         if: steps.check_snapshot.outputs.snapshot_exists == 'false'
         id: create_snapshot
@@ -91,6 +89,9 @@ jobs:
           echo "✅ Created versioned docs in versioned_docs/version-${RELEASED_VERSION}/"
           echo "snapshot_created=true" >> $GITHUB_OUTPUT
           echo "version=${RELEASED_VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Update changelog documentation
+        run: pnpm --filter @grasdouble/lufa_design-system-docusaurus update-changelog
 
       - name: Check for changes
         id: check_changes
