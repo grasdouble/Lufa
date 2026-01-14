@@ -14,11 +14,11 @@ import {
   Size,
   TabPosition,
   Type,
-} from '../../_examples/navigation/tabs';
+} from '@site/src/dsExamples/navigation/tabs';
 
 # Tabs
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -75,6 +75,7 @@ The Tabs component consists of several key parts:
 ```
 
 **Component Structure:**
+
 - **Tab List**: Container for all tab buttons with horizontal or vertical orientation
 - **Tab Buttons**: Clickable labels for switching between panels
 - **Active Indicator**: Visual highlight (underline, background, or pill) showing the selected tab
@@ -82,6 +83,7 @@ The Tabs component consists of several key parts:
 - **Optional Icons**: Leading icons before tab labels
 
 **Visual States:**
+
 - **Default**: Normal interactive state for inactive tabs
 - **Hover**: Visual feedback on mouse over
 - **Focus**: Keyboard navigation indicator (focus ring)
@@ -192,6 +194,7 @@ Disabled tabs are automatically skipped during keyboard navigation.
 ### Screen Reader Support
 
 **For Standard Tabs:**
+
 ```tsx
 <Tabs
   items={[
@@ -204,6 +207,7 @@ Disabled tabs are automatically skipped during keyboard navigation.
 ```
 
 **For Tabs with Icons:**
+
 ```tsx
 <Tabs
   items={[
@@ -215,6 +219,7 @@ Disabled tabs are automatically skipped during keyboard navigation.
 ```
 
 **For Disabled Tabs:**
+
 ```tsx
 <Tabs
   items={[
@@ -247,6 +252,7 @@ Disabled tabs are automatically skipped during keyboard navigation.
 ### ARIA Attributes
 
 The component automatically handles:
+
 - `role="tablist"` on the tab container
 - `role="tab"` on each tab button
 - `role="tabpanel"` on each content panel
@@ -260,15 +266,13 @@ The component automatically handles:
 Additional ARIA attributes can be passed as props:
 
 ```tsx
-<Tabs
-  items={items}
-  aria-label="User settings navigation"
-/>
+<Tabs items={items} aria-label="User settings navigation" />
 ```
 
 ### Color Contrast
 
 All tab variants meet WCAG 2.1 AA contrast requirements:
+
 - Tab labels: Minimum 4.5:1 contrast ratio
 - Active indicator: Minimum 3:1 contrast ratio
 - Disabled tabs: Reduced opacity while maintaining readable contrast
@@ -317,7 +321,8 @@ function SettingsPage() {
 
 ```tsx title="src/components/Dashboard.tsx"
 import { Tabs } from '@grasdouble/lufa_design-system';
-import { ChartIcon, UsersIcon, FileIcon, SettingsIcon } from './icons';
+
+import { ChartIcon, FileIcon, SettingsIcon, UsersIcon } from './icons';
 
 function Dashboard() {
   return (
@@ -358,8 +363,9 @@ function Dashboard() {
 ### Controlled Tabs with State
 
 ```tsx title="src/components/ControlledTabs.tsx"
-import { Tabs } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Tabs } from '@grasdouble/lufa_design-system';
 
 function ControlledTabs() {
   const [activeTab, setActiveTab] = useState('overview');

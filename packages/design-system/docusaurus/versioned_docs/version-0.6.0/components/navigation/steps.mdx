@@ -4,6 +4,7 @@ sidebar_position: 6
 
 import { Steps } from '@grasdouble/lufa_design-system';
 
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 import {
   CheckoutProgressStepsExample,
   Current,
@@ -13,8 +14,7 @@ import {
   OnChange,
   Size,
   VerticalSidebarStepsExample,
-} from '../../_examples/navigation/steps';
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+} from '@site/src/dsExamples/navigation/steps';
 
 # Steps
 
@@ -50,12 +50,7 @@ function App() {
   return (
     <Steps
       current={1}
-      items={[
-        { title: 'Account' },
-        { title: 'Verification' },
-        { title: 'Profile' },
-        { title: 'Done' }
-      ]}
+      items={[{ title: 'Account' }, { title: 'Verification' }, { title: 'Profile' }, { title: 'Done' }]}
     />
   );
 }
@@ -99,6 +94,7 @@ Vertical Layout:
 ```
 
 **Component Structure:**
+
 - **Container**: Wrapper for all steps
 - **Step Items**: Individual step indicators with icon/number
 - **Connectors**: Lines between steps showing progress
@@ -107,6 +103,7 @@ Vertical Layout:
 - **Status Indicator**: Visual state (number, checkmark, or error)
 
 **Visual States:**
+
 - **wait**: Future step, not yet started (gray)
 - **process**: Current active step (highlighted)
 - **finish**: Completed step (checkmark, success color)
@@ -147,6 +144,7 @@ Vertical Layout:
 ### Status Logic
 
 If `status` is not manually set on a step item:
+
 - Steps before `current` → `'finish'`
 - Step at `current` → `'process'`
 - Steps after `current` → `'wait'`
@@ -216,42 +214,34 @@ Non-clickable steps are not in the tab order.
 ### Screen Reader Support
 
 **For Basic Steps:**
+
 ```tsx
-<Steps
-  current={1}
-  items={[
-    { title: 'Login' },
-    { title: 'Verify' },
-    { title: 'Complete' }
-  ]}
-/>
+<Steps current={1} items={[{ title: 'Login' }, { title: 'Verify' }, { title: 'Complete' }]} />
 // Screen reader announces status through visual position
 // Consider adding aria-label for clarity
 ```
 
 **With Descriptions:**
+
 ```tsx
 <Steps
   current={1}
   items={[
     { title: 'Personal Info', description: 'Name and email' },
     { title: 'Payment', description: 'Billing details' },
-    { title: 'Review', description: 'Confirm order' }
+    { title: 'Review', description: 'Confirm order' },
   ]}
 />
 // Descriptions provide additional context for all users
 ```
 
 **For Interactive Steps:**
+
 ```tsx
 <Steps
   current={2}
   onChange={(step) => navigateToStep(step)}
-  items={[
-    { title: 'Step 1' },
-    { title: 'Step 2' },
-    { title: 'Step 3' }
-  ]}
+  items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
 />
 // Clickable steps announce as buttons
 // Screen reader: "Step 1, button", "Step 2, button", etc.
@@ -282,12 +272,7 @@ For enhanced context:
 <div aria-label="Checkout progress">
   <Steps
     current={1}
-    items={[
-      { title: 'Cart' },
-      { title: 'Shipping' },
-      { title: 'Payment' },
-      { title: 'Confirmation' }
-    ]}
+    items={[{ title: 'Cart' }, { title: 'Shipping' }, { title: 'Payment' }, { title: 'Confirmation' }]}
   />
 </div>
 ```
@@ -295,6 +280,7 @@ For enhanced context:
 ### Color Contrast
 
 All step states meet WCAG 2.1 AA contrast requirements:
+
 - Text labels: Minimum 4.5:1 contrast ratio
 - Icons/indicators: Minimum 3:1 contrast ratio
 - Connectors: Minimum 3:1 contrast ratio
@@ -306,8 +292,9 @@ Tested in both light and dark modes.
 ### Checkout Flow
 
 ```tsx title="src/components/CheckoutSteps.tsx"
-import { Steps } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Steps } from '@grasdouble/lufa_design-system';
 
 function CheckoutSteps() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -316,19 +303,14 @@ function CheckoutSteps() {
     { title: 'Cart', description: 'Review items' },
     { title: 'Shipping', description: 'Delivery address' },
     { title: 'Payment', description: 'Payment method' },
-    { title: 'Confirmation', description: 'Order summary' }
+    { title: 'Confirmation', description: 'Order summary' },
   ];
 
   return (
     <div>
-      <Steps
-        current={currentStep}
-        items={steps}
-      />
+      <Steps current={currentStep} items={steps} />
       {/* Step content here */}
-      <button onClick={() => setCurrentStep(currentStep + 1)}>
-        Continue
-      </button>
+      <button onClick={() => setCurrentStep(currentStep + 1)}>Continue</button>
     </div>
   );
 }
@@ -337,8 +319,9 @@ function CheckoutSteps() {
 ### Onboarding Wizard
 
 ```tsx title="src/components/OnboardingWizard.tsx"
-import { Steps } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Steps } from '@grasdouble/lufa_design-system';
 
 function OnboardingWizard() {
   const [current, setCurrent] = useState(0);
@@ -348,10 +331,10 @@ function OnboardingWizard() {
     { title: 'Welcome', description: 'Get started' },
     { title: 'Profile', description: 'Your information' },
     { title: 'Preferences', description: 'Customize settings' },
-    { title: 'Complete', description: 'All set!' }
+    { title: 'Complete', description: 'All set!' },
   ].map((step, index) => ({
     ...step,
-    status: completedSteps.includes(index) ? 'finish' : undefined
+    status: completedSteps.includes(index) ? 'finish' : undefined,
   }));
 
   const handleStepChange = (step: number) => {
@@ -361,13 +344,7 @@ function OnboardingWizard() {
     }
   };
 
-  return (
-    <Steps
-      current={current}
-      items={steps}
-      onChange={handleStepChange}
-    />
-  );
+  return <Steps current={current} items={steps} onChange={handleStepChange} />;
 }
 ```
 
@@ -387,7 +364,7 @@ function ProgressSidebar({ currentStep }) {
           { title: 'Account Details', description: 'Username and password' },
           { title: 'Personal Info', description: 'Name and contact' },
           { title: 'Verification', description: 'Email confirmation' },
-          { title: 'Welcome', description: 'Complete setup' }
+          { title: 'Welcome', description: 'Complete setup' },
         ]}
       />
     </aside>
@@ -398,8 +375,9 @@ function ProgressSidebar({ currentStep }) {
 ### Error State Handling
 
 ```tsx title="src/components/StepsWithError.tsx"
-import { Steps } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Steps } from '@grasdouble/lufa_design-system';
 
 function StepsWithError() {
   const [current, setCurrent] = useState(1);
@@ -408,17 +386,13 @@ function StepsWithError() {
   const steps = [
     { title: 'Information', status: 'finish' },
     { title: 'Payment', status: hasError ? 'error' : 'process' },
-    { title: 'Confirmation', status: 'wait' }
+    { title: 'Confirmation', status: 'wait' },
   ];
 
   return (
     <div>
       <Steps current={current} items={steps} />
-      {hasError && (
-        <div className="error-message">
-          Payment failed. Please check your card details.
-        </div>
-      )}
+      {hasError && <div className="error-message">Payment failed. Please check your card details.</div>}
     </div>
   );
 }
@@ -428,6 +402,7 @@ function StepsWithError() {
 
 ```tsx title="src/components/ResponsiveSteps.tsx"
 import { Steps } from '@grasdouble/lufa_design-system';
+
 import { useMediaQuery } from './hooks';
 
 function ResponsiveSteps({ current, items }) {

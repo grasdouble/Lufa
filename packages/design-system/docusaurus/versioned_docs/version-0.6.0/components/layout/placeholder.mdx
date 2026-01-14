@@ -4,6 +4,7 @@ sidebar_position: 1
 
 import { Placeholder } from '@grasdouble/lufa_design-system';
 
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 import {
   Color,
   DashboardLayoutExample,
@@ -14,8 +15,7 @@ import {
   LiveDemo,
   PrototypeLayoutExample,
   Width,
-} from '../../_examples/layout/placeholder';
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+} from '@site/src/dsExamples/layout/placeholder';
 
 # Placeholder
 
@@ -48,9 +48,7 @@ import { Placeholder } from '@grasdouble/lufa_design-system';
 import { Placeholder } from '@grasdouble/lufa_design-system';
 
 function App() {
-  return (
-    <Placeholder>Placeholder</Placeholder>
-  );
+  return <Placeholder>Placeholder</Placeholder>;
 }
 ```
 
@@ -68,14 +66,17 @@ The Placeholder component is a simple visual block for prototyping:
 ```
 
 **Component Structure:**
+
 - **Container**: A block element with customizable dimensions and background
 - **Children** (optional): Content displayed inside (typically a label for identification)
 
 **Sizing:**
+
 - Width: auto (default), small, medium, large, or full
 - Height: small, medium (default), large, auto (content-based), or full
 
 **Coloring:**
+
 - Solid color via `color` prop
 - Gradient via `colorFrom` and `colorTo` props
 
@@ -169,17 +170,13 @@ The Placeholder component is designed as a development utility:
 
 ```tsx
 // If temporarily using in production, provide context:
-<Placeholder aria-label="Image placeholder - final design pending">
-  Product Image
-</Placeholder>
+<Placeholder aria-label="Image placeholder - final design pending">Product Image</Placeholder>
 ```
 
 Since Placeholder is decorative, consider adding `aria-hidden="true"` if the content is purely visual:
 
 ```tsx
-<Placeholder aria-hidden="true">
-  {/* Decorative content */}
-</Placeholder>
+<Placeholder aria-hidden="true">{/* Decorative content */}</Placeholder>
 ```
 
 ## Common Patterns
@@ -237,12 +234,7 @@ import { Placeholder } from '@grasdouble/lufa_design-system';
 
 function GradientPlaceholder() {
   return (
-    <Placeholder
-      height="large"
-      width="full"
-      colorFrom="#667eea"
-      colorTo="#764ba2"
-    >
+    <Placeholder height="large" width="full" colorFrom="#667eea" colorTo="#764ba2">
       Hero Section
     </Placeholder>
   );

@@ -15,11 +15,11 @@ import {
   ToolbarExample,
   Wrap,
   WrappingChipsExample,
-} from '../../_examples/layout/stack';
+} from '@site/src/dsExamples/layout/stack';
 
 # Stack
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -99,6 +99,7 @@ Horizontal Stack (direction="horizontal"):
 ```
 
 **Component Structure:**
+
 - **Stack Container**: Flex container with configurable direction, spacing, and alignment
 - **Stack Items**: Child elements arranged in the stack (can be any ReactNode)
 - **Gap Spacing**: Consistent spacing between items (none, condensed, normal, spacious)
@@ -106,11 +107,13 @@ Horizontal Stack (direction="horizontal"):
 - **Stack.Item**: Wrapper component with optional `grow` property
 
 **Alignment Options:**
+
 - **align**: Cross-axis alignment (stretch, start, center, end, baseline)
 - **justify**: Main-axis distribution (start, center, end, space-between, space-evenly)
 - **wrap**: Whether items should wrap to multiple lines (wrap, nowrap)
 
 **Visual States:**
+
 - **Default**: Normal layout with specified direction and spacing
 - **Wrapped**: Items flow to next line when `wrap="wrap"` and space is limited
 - **Grow**: Items with `Stack.Item grow` expand to fill available space
@@ -239,6 +242,7 @@ The component ensures focus order matches visual order, critical for keyboard us
 ### Screen Reader Support
 
 **For Standard Stack:**
+
 ```tsx
 <Stack direction="vertical" gap="normal">
   <Button>First Button</Button>
@@ -250,6 +254,7 @@ The component ensures focus order matches visual order, critical for keyboard us
 ```
 
 **For Horizontal Stack:**
+
 ```tsx
 <Stack direction="horizontal" gap="normal">
   <Link href="/home">Home</Link>
@@ -261,6 +266,7 @@ The component ensures focus order matches visual order, critical for keyboard us
 ```
 
 **For Form Layout:**
+
 ```tsx
 <Stack direction="vertical" gap="normal">
   <label htmlFor="name">Name</label>
@@ -326,13 +332,10 @@ The Stack component renders a `div` with no implicit ARIA semantics. Semantic me
 Additional ARIA attributes can be passed as props when semantic grouping is needed:
 
 ```tsx
-<Stack
-  direction="horizontal"
-  gap="normal"
-  role="group"
-  aria-labelledby="toolbar-label"
->
-  <h3 id="toolbar-label" className="sr-only">Editor toolbar</h3>
+<Stack direction="horizontal" gap="normal" role="group" aria-labelledby="toolbar-label">
+  <h3 id="toolbar-label" className="sr-only">
+    Editor toolbar
+  </h3>
   {/* toolbar buttons */}
 </Stack>
 ```
@@ -353,8 +356,7 @@ Tested in both light and dark modes through child component styling.
 ### Button Group
 
 ```tsx title="src/components/ButtonGroup.tsx"
-import { Stack, STACK_DIRECTION, STACK_GAP } from '@grasdouble/lufa_design-system';
-import { Button } from '@grasdouble/lufa_design-system';
+import { Button, Stack, STACK_DIRECTION, STACK_GAP } from '@grasdouble/lufa_design-system';
 
 function ButtonGroup() {
   return (
@@ -370,8 +372,7 @@ function ButtonGroup() {
 ### Form Layout
 
 ```tsx title="src/components/UserForm.tsx"
-import { Stack, STACK_DIRECTION, STACK_GAP } from '@grasdouble/lufa_design-system';
-import { Input, Button } from '@grasdouble/lufa_design-system';
+import { Button, Input, Stack, STACK_DIRECTION, STACK_GAP } from '@grasdouble/lufa_design-system';
 
 function UserForm() {
   return (
@@ -391,8 +392,7 @@ function UserForm() {
 ### Toolbar
 
 ```tsx title="src/components/EditorToolbar.tsx"
-import { Stack, STACK_DIRECTION, STACK_GAP, STACK_JUSTIFY } from '@grasdouble/lufa_design-system';
-import { Button } from '@grasdouble/lufa_design-system';
+import { Button, Stack, STACK_DIRECTION, STACK_GAP, STACK_JUSTIFY } from '@grasdouble/lufa_design-system';
 
 function EditorToolbar() {
   return (
@@ -403,13 +403,23 @@ function EditorToolbar() {
       padding="normal"
     >
       <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed}>
-        <Button variant="ghost" aria-label="Bold">B</Button>
-        <Button variant="ghost" aria-label="Italic">I</Button>
-        <Button variant="ghost" aria-label="Underline">U</Button>
+        <Button variant="ghost" aria-label="Bold">
+          B
+        </Button>
+        <Button variant="ghost" aria-label="Italic">
+          I
+        </Button>
+        <Button variant="ghost" aria-label="Underline">
+          U
+        </Button>
       </Stack>
       <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed}>
-        <Button variant="ghost" aria-label="Undo">↶</Button>
-        <Button variant="ghost" aria-label="Redo">↷</Button>
+        <Button variant="ghost" aria-label="Undo">
+          ↶
+        </Button>
+        <Button variant="ghost" aria-label="Redo">
+          ↷
+        </Button>
       </Stack>
     </Stack>
   );
@@ -419,8 +429,7 @@ function EditorToolbar() {
 ### Card Actions
 
 ```tsx title="src/components/ProductCard.tsx"
-import { Stack, STACK_DIRECTION, STACK_GAP } from '@grasdouble/lufa_design-system';
-import { Button } from '@grasdouble/lufa_design-system';
+import { Button, Stack, STACK_DIRECTION, STACK_GAP } from '@grasdouble/lufa_design-system';
 
 function ProductCard({ product }) {
   return (
@@ -443,16 +452,11 @@ function ProductCard({ product }) {
 ### Responsive Stack with Wrap
 
 ```tsx title="src/components/ChipList.tsx"
-import { Stack, STACK_DIRECTION, STACK_GAP, STACK_WRAP } from '@grasdouble/lufa_design-system';
-import { Chip } from '@grasdouble/lufa_design-system';
+import { Chip, Stack, STACK_DIRECTION, STACK_GAP, STACK_WRAP } from '@grasdouble/lufa_design-system';
 
 function ChipList({ tags }) {
   return (
-    <Stack
-      direction={STACK_DIRECTION.horizontal}
-      gap={STACK_GAP.condensed}
-      wrap={STACK_WRAP.wrap}
-    >
+    <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.condensed} wrap={STACK_WRAP.wrap}>
       {tags.map((tag) => (
         <Chip key={tag} label={tag} />
       ))}
@@ -464,16 +468,11 @@ function ChipList({ tags }) {
 ### Flexible Layout with Stack.Item
 
 ```tsx title="src/components/SearchHeader.tsx"
-import { Stack, STACK_DIRECTION, STACK_GAP, STACK_ALIGN } from '@grasdouble/lufa_design-system';
-import { Input, Button } from '@grasdouble/lufa_design-system';
+import { Button, Input, Stack, STACK_ALIGN, STACK_DIRECTION, STACK_GAP } from '@grasdouble/lufa_design-system';
 
 function SearchHeader() {
   return (
-    <Stack
-      direction={STACK_DIRECTION.horizontal}
-      gap={STACK_GAP.normal}
-      align={STACK_ALIGN.center}
-    >
+    <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} align={STACK_ALIGN.center}>
       <div>Logo</div>
       <Stack.Item grow>
         <Input placeholder="Search..." />
@@ -487,17 +486,12 @@ function SearchHeader() {
 ### Nested Stacks for Complex Layouts
 
 ```tsx title="src/components/DashboardHeader.tsx"
-import { Stack, STACK_DIRECTION, STACK_GAP, STACK_JUSTIFY } from '@grasdouble/lufa_design-system';
-import { Button, Avatar } from '@grasdouble/lufa_design-system';
+import { Avatar, Button, Stack, STACK_DIRECTION, STACK_GAP, STACK_JUSTIFY } from '@grasdouble/lufa_design-system';
 
 function DashboardHeader() {
   return (
     <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.normal}>
-      <Stack
-        direction={STACK_DIRECTION.horizontal}
-        gap={STACK_GAP.normal}
-        justify={STACK_JUSTIFY['space-between']}
-      >
+      <Stack direction={STACK_DIRECTION.horizontal} gap={STACK_GAP.normal} justify={STACK_JUSTIFY['space-between']}>
         <Stack direction={STACK_DIRECTION.vertical} gap={STACK_GAP.condensed}>
           <h1>Dashboard</h1>
           <p>Welcome back, John!</p>

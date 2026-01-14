@@ -6,13 +6,13 @@ This template provides a standardized structure for documenting design system co
 
 Use this structure when creating or updating component documentation:
 
-```markdown
+````markdown
 ---
 sidebar_position: [number]
 ---
 
 import { ComponentName } from '@grasdouble/lufa_design-system';
-import DarkModeCompatible from '../../../src/components/DarkModeCompatible';
+import DarkModeCompatible from '@site/src/components/DarkModeCompatible';
 
 # Component Name
 
@@ -37,6 +37,7 @@ Use `ComponentName` when you need…
 ```tsx
 import { ComponentName } from '@grasdouble/lufa_design-system';
 ```
+````
 
 ## Basic Usage
 
@@ -44,11 +45,7 @@ import { ComponentName } from '@grasdouble/lufa_design-system';
 import { ComponentName } from '@grasdouble/lufa_design-system';
 
 function App() {
-  return (
-    <ComponentName>
-      Basic example
-    </ComponentName>
-  );
+  return <ComponentName>Basic example</ComponentName>;
 }
 ```
 
@@ -63,11 +60,13 @@ Visual breakdown of component parts:
 ```
 
 **Component Structure:**
+
 - **Part 1**: Description of first part
 - **Part 2**: Description of second part
 - **Part 3**: Description of third part
 
 **Visual States:**
+
 - Default: Description
 - Hover: Description
 - Focus: Description
@@ -78,21 +77,23 @@ Visual breakdown of component parts:
 
 ### Props
 
-| Prop       | Type                         | Default    | Description                          |
-| ---------- | ---------------------------- | ---------- | ------------------------------------ |
-| `propName` | `string \| number`           | Required   | Description of prop                  |
-| `optional` | `boolean`                    | `false`    | Description of optional prop         |
+| Prop       | Type               | Default  | Description                  |
+| ---------- | ------------------ | -------- | ---------------------------- |
+| `propName` | `string \| number` | Required | Description of prop          |
+| `optional` | `boolean`          | `false`  | Description of optional prop |
 
 Also supports all standard HTML attributes for the underlying element.
 
 ### Prop Details
 
 **propName**
+
 - Detailed explanation of what this prop does
 - Valid values and their meanings
 - When to use each value
 
 **optional**
+
 - Detailed explanation of optional prop
 - Default behavior when not provided
 
@@ -119,28 +120,22 @@ Also supports all standard HTML attributes for the underlying element.
 import { ComponentName } from '@grasdouble/lufa_design-system';
 
 export function BasicExample() {
-  return (
-    <ComponentName>
-      Basic usage example
-    </ComponentName>
-  );
+  return <ComponentName>Basic usage example</ComponentName>;
 }
 ```
 
 ### Advanced Example
 
 ```tsx title="src/components/AdvancedExample.tsx" {5-7}
-import { ComponentName } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { ComponentName } from '@grasdouble/lufa_design-system';
 
 export function AdvancedExample() {
   const [state, setState] = useState(false);
 
   return (
-    <ComponentName
-      property={state}
-      onChange={setState}
-    >
+    <ComponentName property={state} onChange={setState}>
       Advanced example with state
     </ComponentName>
   );
@@ -159,16 +154,16 @@ Brief overview of accessibility features.
 ### Screen Reader Support
 
 **Standard Usage:**
+
 ```tsx
 <ComponentName>Label</ComponentName>
 // Screen reader announces: "Label, [role]"
 ```
 
 **With ARIA Labels:**
+
 ```tsx
-<ComponentName aria-label="Descriptive label">
-  Content
-</ComponentName>
+<ComponentName aria-label="Descriptive label">Content</ComponentName>
 ```
 
 ### Best Practices for Accessibility
@@ -264,7 +259,8 @@ Brief explanation of TypeScript benefits and type safety.
 **Problem**: Description of another common issue
 
 **Solution**: How to fix it
-```
+
+`````
 
 ## Sections Breakdown
 
@@ -337,8 +333,9 @@ import { Component } from '@grasdouble/lufa_design-system';
 // These lines are highlighted
 const example = true;
 return <Component />;
-```
-````
+`````
+
+`````
 
 ### Live Interactive Example
 
@@ -348,7 +345,7 @@ function Example() {
   return <Button>Click Me</Button>;
 }
 ```
-````
+`````
 
 ### Callouts
 

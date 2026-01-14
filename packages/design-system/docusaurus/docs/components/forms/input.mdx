@@ -4,19 +4,19 @@ sidebar_position: 2
 
 import { Input } from '@grasdouble/lufa_design-system';
 
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 import {
+  AdornmentExample,
   BasicExample,
+  DisabledExample,
   ErrorExample,
+  FullWidthExample,
   HelperTextExample,
   LiveDemo,
   SizeExample,
-  VariantExample,
-  FullWidthExample,
-  AdornmentExample,
-  DisabledExample,
   TypesExample,
-} from '../../_examples/forms/input';
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+  VariantExample,
+} from '@site/src/dsExamples/forms/input';
 
 # Input
 
@@ -79,8 +79,9 @@ The Input component consists of several key parts:
 ```
 
 **Component Structure:**
+
 - **Container**: Wraps all input elements with proper spacing
-- **Label** (optional): Descriptive text above the input field, with required indicator (*)
+- **Label** (optional): Descriptive text above the input field, with required indicator (\*)
 - **Input Wrapper**: Contains the input field and adornments
 - **Start Adornment** (optional): Leading icon or element positioned before the input
 - **Input Field**: The main text input element
@@ -88,6 +89,7 @@ The Input component consists of several key parts:
 - **Helper/Error Text** (optional): Contextual message below the input
 
 **Visual States:**
+
 - Default: Normal interactive state
 - Hover: Visual feedback on mouse over
 - Focus: Keyboard navigation indicator (focus ring)
@@ -99,20 +101,20 @@ The Input component consists of several key parts:
 
 ### Props
 
-| Prop              | Type                           | Default      | Description                                   |
-| ----------------- | ------------------------------ | ------------ | --------------------------------------------- |
-| `label`           | `string`                       | -            | Label text displayed above input              |
-| `error`           | `string`                       | -            | Error message (displays in red)               |
-| `helperText`      | `string`                       | -            | Helper text displayed below input             |
-| `size`            | `'small' \| 'medium' \| 'large'` | `'medium'` | Input field size                              |
-| `variant`         | `'outlined' \| 'filled'`       | `'outlined'` | Visual style variant                          |
-| `fullWidth`       | `boolean`                      | `false`      | Expands input to full container width         |
-| `startAdornment`  | `ReactNode`                    | -            | Icon or element displayed before input        |
-| `endAdornment`    | `ReactNode`                    | -            | Icon or element displayed after input         |
-| `type`            | `string`                       | `'text'`     | HTML input type (text, email, password, etc.) |
-| `placeholder`     | `string`                       | -            | Placeholder text                              |
-| `disabled`        | `boolean`                      | `false`      | Disables input interaction                    |
-| `required`        | `boolean`                      | `false`      | Marks field as required (shows * indicator)   |
+| Prop             | Type                             | Default      | Description                                   |
+| ---------------- | -------------------------------- | ------------ | --------------------------------------------- |
+| `label`          | `string`                         | -            | Label text displayed above input              |
+| `error`          | `string`                         | -            | Error message (displays in red)               |
+| `helperText`     | `string`                         | -            | Helper text displayed below input             |
+| `size`           | `'small' \| 'medium' \| 'large'` | `'medium'`   | Input field size                              |
+| `variant`        | `'outlined' \| 'filled'`         | `'outlined'` | Visual style variant                          |
+| `fullWidth`      | `boolean`                        | `false`      | Expands input to full container width         |
+| `startAdornment` | `ReactNode`                      | -            | Icon or element displayed before input        |
+| `endAdornment`   | `ReactNode`                      | -            | Icon or element displayed after input         |
+| `type`           | `string`                         | `'text'`     | HTML input type (text, email, password, etc.) |
+| `placeholder`    | `string`                         | -            | Placeholder text                              |
+| `disabled`       | `boolean`                        | `false`      | Disables input interaction                    |
+| `required`       | `boolean`                        | `false`      | Marks field as required (shows \* indicator)  |
 
 Also supports all standard HTML `input` attributes (e.g., `className`, `id`, `aria-*`, `data-*`, `name`, `value`, `onChange`).
 
@@ -182,7 +184,7 @@ The `type` prop accepts all standard HTML input types:
 - Always provide a `label` for accessibility and context
 - Use `helperText` to provide guidance or formatting requirements
 - Use `error` prop for validation feedback
-- Mark required fields with `required` prop (shows * indicator)
+- Mark required fields with `required` prop (shows \* indicator)
 - Use appropriate `type` for different data (email, password, number)
 - Use `startAdornment` for icons that clarify the input purpose
 - Use `endAdornment` for actions like clear, visibility toggle, or submit
@@ -211,34 +213,30 @@ All inputs are keyboard accessible by default with visible focus indicators.
 ### Screen Reader Support
 
 **For Standard Inputs:**
+
 ```tsx
 <Input label="Email" type="email" />
 // Screen reader announces: "Email, edit text"
 ```
 
 **For Required Fields:**
+
 ```tsx
 <Input label="Password" type="password" required />
 // Screen reader announces: "Password, required, edit text"
 ```
 
 **For Inputs with Helper Text:**
+
 ```tsx
-<Input
-  label="Username"
-  helperText="Must be 3-20 characters"
-  aria-describedby="username-helper"
-/>
+<Input label="Username" helperText="Must be 3-20 characters" aria-describedby="username-helper" />
 // Screen reader announces: "Username, edit text, Must be 3-20 characters"
 ```
 
 **For Inputs with Errors:**
+
 ```tsx
-<Input
-  label="Email"
-  error="Please enter a valid email address"
-  type="email"
-/>
+<Input label="Email" error="Please enter a valid email address" type="email" />
 // Screen reader announces: "Email, invalid data, Please enter a valid email address"
 ```
 
@@ -265,6 +263,7 @@ All inputs are keyboard accessible by default with visible focus indicators.
 ### ARIA Attributes
 
 The component automatically handles:
+
 - `aria-invalid="true"` when `error` is present
 - `aria-required="true"` when `required` prop is set
 - `aria-disabled="true"` when `disabled`
@@ -272,16 +271,13 @@ The component automatically handles:
 Additional ARIA attributes can be passed as props:
 
 ```tsx
-<Input
-  label="Username"
-  aria-describedby="username-helper username-error"
-  aria-label="User account name"
-/>
+<Input label="Username" aria-describedby="username-helper username-error" aria-label="User account name" />
 ```
 
 ### Color Contrast
 
 All input variants meet WCAG 2.1 AA contrast requirements:
+
 - Text: Minimum 4.5:1 contrast ratio
 - Border/outline: Minimum 3:1 contrast ratio
 - Error state: Minimum 4.5:1 contrast ratio
@@ -294,8 +290,9 @@ Tested in both light and dark modes.
 ### Login Form
 
 ```tsx title="src/components/LoginForm.tsx"
-import { Input, Button, Stack } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Button, Input, Stack } from '@grasdouble/lufa_design-system';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -341,25 +338,21 @@ function LoginForm() {
 
 ```tsx title="src/components/SearchBar.tsx"
 import { Input } from '@grasdouble/lufa_design-system';
+
 import { SearchIcon } from './icons';
 
 function SearchBar() {
-  return (
-    <Input
-      placeholder="Search products..."
-      type="search"
-      startAdornment={<SearchIcon />}
-      fullWidth
-    />
-  );
+  return <Input placeholder="Search products..." type="search" startAdornment={<SearchIcon />} fullWidth />;
 }
 ```
 
 ### Password with Visibility Toggle
 
 ```tsx title="src/components/PasswordInput.tsx"
-import { Input } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Input } from '@grasdouble/lufa_design-system';
+
 import { EyeIcon, EyeOffIcon } from './icons';
 
 function PasswordInput({ value, onChange, ...props }) {
@@ -388,8 +381,9 @@ function PasswordInput({ value, onChange, ...props }) {
 ### Input with Character Counter
 
 ```tsx title="src/components/BioInput.tsx"
-import { Input } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Input } from '@grasdouble/lufa_design-system';
 
 function BioInput() {
   const [bio, setBio] = useState('');
@@ -411,8 +405,9 @@ function BioInput() {
 ### Validated Email Input
 
 ```tsx title="src/components/EmailInput.tsx"
-import { Input } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Input } from '@grasdouble/lufa_design-system';
 
 function EmailInput() {
   const [email, setEmail] = useState('');

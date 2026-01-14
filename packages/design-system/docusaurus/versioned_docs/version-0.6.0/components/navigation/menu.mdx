@@ -11,11 +11,11 @@ import {
   SelectedKey,
   SubmenuExample,
   Theme,
-} from '../../_examples/navigation/menu';
+} from '@site/src/dsExamples/navigation/menu';
 
 # Menu
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -69,6 +69,7 @@ The Menu component consists of several key parts:
 ```
 
 **Component Structure:**
+
 - **Menu Container**: Navigation wrapper with role="navigation"
 - **Menu List**: Unordered list containing all menu items
 - **Menu Item**: Individual clickable item (can be link or button)
@@ -79,6 +80,7 @@ The Menu component consists of several key parts:
 - **Selection Indicator**: Visual highlight showing active item
 
 **Visual States:**
+
 - **Default**: Normal interactive state
 - **Hover**: Visual feedback on mouse over
 - **Focus**: Keyboard navigation indicator
@@ -171,6 +173,7 @@ All menu items are keyboard accessible with visible focus indicators.
 ### Screen Reader Support
 
 **For Standard Menu Items:**
+
 ```tsx
 <Menu
   items={[
@@ -182,6 +185,7 @@ All menu items are keyboard accessible with visible focus indicators.
 ```
 
 **For Menu Items with Icons:**
+
 ```tsx
 <Menu
   items={[
@@ -193,6 +197,7 @@ All menu items are keyboard accessible with visible focus indicators.
 ```
 
 **For Submenu Items:**
+
 ```tsx
 <Menu
   items={[
@@ -211,6 +216,7 @@ All menu items are keyboard accessible with visible focus indicators.
 ```
 
 **For Disabled Items:**
+
 ```tsx
 <Menu
   items={[
@@ -243,6 +249,7 @@ All menu items are keyboard accessible with visible focus indicators.
 ### ARIA Attributes
 
 The component automatically handles:
+
 - `role="navigation"` on the menu container
 - `role="button"` on items with submenus
 - `tabindex="0"` on focusable items, `tabindex="-1"` on disabled items
@@ -251,15 +258,13 @@ The component automatically handles:
 Additional ARIA attributes can be passed as props:
 
 ```tsx
-<Menu
-  items={items}
-  aria-label="Main navigation"
-/>
+<Menu items={items} aria-label="Main navigation" />
 ```
 
 ### Color Contrast
 
 All menu variants meet WCAG 2.1 AA contrast requirements:
+
 - Menu item text: Minimum 4.5:1 contrast ratio
 - Selected item indicator: Minimum 3:1 contrast ratio
 - Disabled items: Reduced opacity while maintaining readable contrast
@@ -273,7 +278,8 @@ Tested in both light and dark themes.
 
 ```tsx title="src/components/Sidebar.tsx"
 import { Menu } from '@grasdouble/lufa_design-system';
-import { HomeIcon, UsersIcon, SettingsIcon, FileIcon } from './icons';
+
+import { FileIcon, HomeIcon, SettingsIcon, UsersIcon } from './icons';
 
 function Sidebar() {
   return (
@@ -374,8 +380,9 @@ function ContextMenu({ onEdit, onDuplicate, onDelete }) {
 ### Controlled Menu with Router
 
 ```tsx title="src/components/AppMenu.tsx"
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import { Menu } from '@grasdouble/lufa_design-system';
-import { useNavigate, useLocation } from 'react-router-dom';
 
 function AppMenu() {
   const navigate = useNavigate();

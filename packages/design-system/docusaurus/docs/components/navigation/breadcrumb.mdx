@@ -4,14 +4,14 @@ sidebar_position: 2
 
 import { Breadcrumb } from '@grasdouble/lufa_design-system';
 
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 import {
   CompactHeaderExample,
   LiveDemo,
   ProductHierarchyExample,
   Separator,
   Size,
-} from '../../_examples/navigation/breadcrumb';
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+} from '@site/src/dsExamples/navigation/breadcrumb';
 
 # Breadcrumb
 
@@ -47,11 +47,7 @@ import { Breadcrumb } from '@grasdouble/lufa_design-system';
 function App() {
   return (
     <Breadcrumb
-      items={[
-        { label: 'Home', href: '/' },
-        { label: 'Products', href: '/products' },
-        { label: 'Current Page' }
-      ]}
+      items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Current Page' }]}
     />
   );
 }
@@ -76,12 +72,14 @@ The Breadcrumb component displays a navigation trail:
 ```
 
 **Component Structure:**
+
 - **Container**: `<nav>` element with `aria-label="Breadcrumb"`
 - **Items**: Ordered list of navigation links
 - **Separators**: Visual dividers between items (default: "/")
 - **Current Page**: Last item marked with `aria-current="page"`
 
 **Visual States:**
+
 - Links: Clickable items with hover/focus states
 - Current: Non-interactive, visually distinct
 - Icons: Optional icons can precede labels
@@ -114,6 +112,7 @@ The Breadcrumb component displays a navigation trail:
 ### Separator Customization
 
 The separator can be customized with:
+
 - **String**: Any text character (e.g., `">"`, `"→"`, `"|"`)
 - **ReactNode**: Custom icons or styled elements
 
@@ -164,14 +163,9 @@ The Breadcrumb component is designed with WCAG 2.1 AA compliance:
 ### Screen Reader Support
 
 **For Standard Breadcrumbs:**
+
 ```tsx
-<Breadcrumb
-  items={[
-    { label: 'Home', href: '/' },
-    { label: 'Products', href: '/products' },
-    { label: 'Laptops' }
-  ]}
-/>
+<Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Laptops' }]} />
 // Screen reader announces:
 // "Breadcrumb navigation"
 // "Home, link"
@@ -180,12 +174,13 @@ The Breadcrumb component is designed with WCAG 2.1 AA compliance:
 ```
 
 **With Icons:**
+
 ```tsx
 <Breadcrumb
   items={[
     { label: 'Home', href: '/', icon: <HomeIcon /> },
     { label: 'Settings', href: '/settings', icon: <SettingsIcon /> },
-    { label: 'Profile' }
+    { label: 'Profile' },
   ]}
 />
 // Icons are decorative and not announced
@@ -212,6 +207,7 @@ The Breadcrumb component is designed with WCAG 2.1 AA compliance:
 ### ARIA Attributes
 
 The component automatically provides:
+
 - `<nav aria-label="Breadcrumb">` for the container
 - `aria-current="page"` for the current/last item
 - `aria-hidden="true"` for separators
@@ -219,6 +215,7 @@ The component automatically provides:
 ### Color Contrast
 
 All breadcrumb variants meet WCAG 2.1 AA contrast requirements:
+
 - Links: Minimum 4.5:1 contrast ratio
 - Current page text: Minimum 4.5:1 contrast ratio
 - Separators: Minimum 3:1 contrast ratio (decorative)
@@ -240,7 +237,7 @@ function ProductBreadcrumb({ category, subcategory, product }) {
         { label: 'Shop', href: '/shop' },
         { label: category, href: `/shop/${category}` },
         { label: subcategory, href: `/shop/${category}/${subcategory}` },
-        { label: product }
+        { label: product },
       ]}
       size="small"
     />
@@ -252,6 +249,7 @@ function ProductBreadcrumb({ category, subcategory, product }) {
 
 ```tsx title="src/components/DocsBreadcrumb.tsx"
 import { Breadcrumb } from '@grasdouble/lufa_design-system';
+
 import { BookIcon, ComponentIcon } from './icons';
 
 function DocsBreadcrumb({ section, component }) {
@@ -260,7 +258,7 @@ function DocsBreadcrumb({ section, component }) {
       items={[
         { label: 'Docs', href: '/docs', icon: <BookIcon /> },
         { label: section, href: `/docs/${section}` },
-        { label: component, icon: <ComponentIcon /> }
+        { label: component, icon: <ComponentIcon /> },
       ]}
     />
   );
@@ -271,6 +269,7 @@ function DocsBreadcrumb({ section, component }) {
 
 ```tsx title="src/components/CustomBreadcrumb.tsx"
 import { Breadcrumb } from '@grasdouble/lufa_design-system';
+
 import { ChevronRightIcon } from './icons';
 
 function CustomBreadcrumb() {
@@ -279,7 +278,7 @@ function CustomBreadcrumb() {
       items={[
         { label: 'Dashboard', href: '/dashboard' },
         { label: 'Projects', href: '/projects' },
-        { label: 'Project Alpha' }
+        { label: 'Project Alpha' },
       ]}
       separator={<ChevronRightIcon />}
     />
@@ -291,26 +290,17 @@ function CustomBreadcrumb() {
 
 ```tsx title="src/components/ResponsiveBreadcrumb.tsx"
 import { Breadcrumb } from '@grasdouble/lufa_design-system';
+
 import { useMediaQuery } from './hooks';
 
 function ResponsiveBreadcrumb({ items }) {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   // On mobile, show only first and last items
-  const displayItems = isMobile && items.length > 3
-    ? [
-        items[0],
-        { label: '...', href: undefined },
-        items[items.length - 1]
-      ]
-    : items;
+  const displayItems =
+    isMobile && items.length > 3 ? [items[0], { label: '...', href: undefined }, items[items.length - 1]] : items;
 
-  return (
-    <Breadcrumb
-      items={displayItems}
-      size={isMobile ? 'small' : 'medium'}
-    />
-  );
+  return <Breadcrumb items={displayItems} size={isMobile ? 'small' : 'medium'} />;
 }
 ```
 

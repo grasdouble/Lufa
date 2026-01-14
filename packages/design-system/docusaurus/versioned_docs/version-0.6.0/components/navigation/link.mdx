@@ -4,6 +4,7 @@ sidebar_position: 3
 
 import { Link } from '@grasdouble/lufa_design-system';
 
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 import {
   ButtonRowExample,
   Color,
@@ -13,8 +14,7 @@ import {
   LiveDemo,
   Size,
   Variant,
-} from '../../_examples/navigation/link';
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+} from '@site/src/dsExamples/navigation/link';
 
 # Link
 
@@ -75,6 +75,7 @@ The Link component provides navigation with flexible styling:
 ```
 
 **Component Structure:**
+
 - **Container**: Native `<a>` element with styling variants
 - **Start Icon** (optional): Leading icon positioned before the label
 - **Label**: The main link text (required for accessibility)
@@ -82,6 +83,7 @@ The Link component provides navigation with flexible styling:
 - **External Indicator** (auto): Shows "↗" icon when `external={true}` and no `endIcon`
 
 **Visual States:**
+
 - Default: Underlined or styled based on variant
 - Hover: Color change and visual feedback
 - Focus: Keyboard navigation indicator (focus ring)
@@ -133,6 +135,7 @@ Each color maps to semantic design tokens:
 ### External Link Handling
 
 When `external={true}`:
+
 - Automatically sets `target="_blank"`
 - Adds `rel="noopener noreferrer"` for security
 - Displays "↗" indicator (unless `endIcon` is provided)
@@ -188,12 +191,14 @@ All links are keyboard accessible by default with visible focus indicators.
 ### Screen Reader Support
 
 **For Text Links:**
+
 ```tsx
 <Link href="/about">About Us</Link>
 // Screen reader announces: "About Us, link"
 ```
 
 **For External Links:**
+
 ```tsx
 <Link href="https://example.com" external>
   Documentation
@@ -202,6 +207,7 @@ All links are keyboard accessible by default with visible focus indicators.
 ```
 
 **For Links with Icons:**
+
 ```tsx
 <Link href="/settings" startIcon={<SettingsIcon />}>
   Settings
@@ -232,11 +238,7 @@ All links are keyboard accessible by default with visible focus indicators.
 The component handles external links automatically. Additional ARIA attributes can be passed:
 
 ```tsx
-<Link
-  href="/important"
-  aria-label="Important announcement details"
-  aria-describedby="announcement-summary"
->
+<Link href="/important" aria-label="Important announcement details" aria-describedby="announcement-summary">
   Read more
 </Link>
 ```
@@ -244,6 +246,7 @@ The component handles external links automatically. Additional ARIA attributes c
 ### Color Contrast
 
 All link variants meet WCAG 2.1 AA contrast requirements:
+
 - Normal text: Minimum 4.5:1 contrast ratio
 - Large text: Minimum 3:1 contrast ratio
 - Interactive elements: Minimum 3:1 contrast ratio
@@ -263,11 +266,12 @@ function Article() {
       For more information, visit our{' '}
       <Link href="/docs" variant="underline">
         documentation
-      </Link>
-      {' '}or{' '}
+      </Link>{' '}
+      or{' '}
       <Link href="/support" variant="underline">
         contact support
-      </Link>.
+      </Link>
+      .
     </p>
   );
 }
@@ -313,23 +317,16 @@ function CallToAction() {
 
 ```tsx title="src/components/Resources.tsx"
 import { Link } from '@grasdouble/lufa_design-system';
+
 import { GithubIcon, TwitterIcon } from './icons';
 
 function Resources() {
   return (
     <div>
-      <Link
-        href="https://github.com/example"
-        external
-        startIcon={<GithubIcon />}
-      >
+      <Link href="https://github.com/example" external startIcon={<GithubIcon />}>
         View on GitHub
       </Link>
-      <Link
-        href="https://twitter.com/example"
-        external
-        startIcon={<TwitterIcon />}
-      >
+      <Link href="https://twitter.com/example" external startIcon={<TwitterIcon />}>
         Follow on Twitter
       </Link>
     </div>

@@ -4,6 +4,7 @@ sidebar_position: 1
 
 import { Button } from '@grasdouble/lufa_design-system';
 
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 import {
   ButtonGroupExample,
   Color,
@@ -15,8 +16,7 @@ import {
   Loading,
   Size,
   Variant,
-} from '../../_examples/forms/button';
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+} from '@site/src/dsExamples/forms/button';
 
 # Button
 
@@ -74,12 +74,14 @@ The Button component consists of several key parts:
 ```
 
 **Component Structure:**
+
 - **Container**: Handles layout, spacing, colors, and interaction states
 - **Start Icon** (optional): Leading icon positioned before the label
 - **Label**: The main text content (required for accessibility)
 - **End Icon** (optional): Trailing icon positioned after the label
 
 **Visual States:**
+
 - Default: Normal interactive state
 - Hover: Visual feedback on mouse over
 - Focus: Keyboard navigation indicator (focus ring)
@@ -91,20 +93,20 @@ The Button component consists of several key parts:
 
 ### Props
 
-| Prop        | Type                                                             | Default     | Description                                   |
-| ----------- | ---------------------------------------------------------------- | ----------- | --------------------------------------------- |
-| `children`  | `ReactNode`                                                      | Required    | Button content (text, icons, etc.)            |
-| `label`     | `string`                                                         | -           | **Deprecated** (use `children`)               |
-| `variant`   | `'solid' \| 'outlined' \| 'text' \| 'ghost' \| 'link'`           | `'solid'`   | Visual style variant                          |
-| `color`     | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger'` | `'primary'` | Color scheme                                  |
-| `size`      | `'small' \| 'medium' \| 'large'`                                 | `'medium'`  | Button size                                   |
-| `fullWidth` | `boolean`                                                        | `false`     | Expands button to full container width        |
-| `loading`   | `boolean`                                                        | `false`     | Shows loading spinner and disables interaction|
-| `disabled`  | `boolean`                                                        | `false`     | Disables button interaction                   |
-| `startIcon` | `ReactNode`                                                      | -           | Icon displayed before label                   |
-| `endIcon`   | `ReactNode`                                                      | -           | Icon displayed after label                    |
-| `onClick`   | `(event: React.MouseEvent<HTMLButtonElement>) => void`           | -           | Click event handler                           |
-| `type`      | `'button' \| 'submit' \| 'reset'`                                | `'button'`  | HTML button type attribute                    |
+| Prop        | Type                                                             | Default     | Description                                    |
+| ----------- | ---------------------------------------------------------------- | ----------- | ---------------------------------------------- |
+| `children`  | `ReactNode`                                                      | Required    | Button content (text, icons, etc.)             |
+| `label`     | `string`                                                         | -           | **Deprecated** (use `children`)                |
+| `variant`   | `'solid' \| 'outlined' \| 'text' \| 'ghost' \| 'link'`           | `'solid'`   | Visual style variant                           |
+| `color`     | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger'` | `'primary'` | Color scheme                                   |
+| `size`      | `'small' \| 'medium' \| 'large'`                                 | `'medium'`  | Button size                                    |
+| `fullWidth` | `boolean`                                                        | `false`     | Expands button to full container width         |
+| `loading`   | `boolean`                                                        | `false`     | Shows loading spinner and disables interaction |
+| `disabled`  | `boolean`                                                        | `false`     | Disables button interaction                    |
+| `startIcon` | `ReactNode`                                                      | -           | Icon displayed before label                    |
+| `endIcon`   | `ReactNode`                                                      | -           | Icon displayed after label                     |
+| `onClick`   | `(event: React.MouseEvent<HTMLButtonElement>) => void`           | -           | Click event handler                            |
+| `type`      | `'button' \| 'submit' \| 'reset'`                                | `'button'`  | HTML button type attribute                     |
 
 Also supports all standard HTML `button` attributes (e.g., `className`, `id`, `aria-*`, `data-*`).
 
@@ -191,12 +193,14 @@ All buttons are keyboard accessible by default with visible focus indicators.
 ### Screen Reader Support
 
 **For Buttons with Text:**
+
 ```tsx
 <Button>Save Changes</Button>
 // Screen reader announces: "Save Changes, button"
 ```
 
 **For Icon-Only Buttons:**
+
 ```tsx
 <Button aria-label="Close dialog">
   <CloseIcon />
@@ -205,6 +209,7 @@ All buttons are keyboard accessible by default with visible focus indicators.
 ```
 
 **For Loading State:**
+
 ```tsx
 <Button loading aria-label="Saving changes">
   Save
@@ -232,16 +237,14 @@ All buttons are keyboard accessible by default with visible focus indicators.
 ### ARIA Attributes
 
 The component automatically handles:
+
 - `aria-disabled="true"` when `disabled` or `loading`
 - `aria-busy="true"` when `loading`
 
 Additional ARIA attributes can be passed as props:
 
 ```tsx
-<Button
-  aria-label="Delete item"
-  aria-describedby="delete-warning"
->
+<Button aria-label="Delete item" aria-describedby="delete-warning">
   Delete
 </Button>
 ```
@@ -249,6 +252,7 @@ Additional ARIA attributes can be passed as props:
 ### Color Contrast
 
 All button variants meet WCAG 2.1 AA contrast requirements:
+
 - Normal text: Minimum 4.5:1 contrast ratio
 - Large text: Minimum 3:1 contrast ratio
 - Interactive elements: Minimum 3:1 contrast ratio
@@ -260,8 +264,9 @@ Tested in both light and dark modes.
 ### Form Submission
 
 ```tsx title="src/components/LoginForm.tsx" {8,16-18}
-import { Button } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Button } from '@grasdouble/lufa_design-system';
 
 function LoginForm() {
   const [loading, setLoading] = useState(false);
@@ -331,17 +336,15 @@ function EditorToolbar() {
 ### Navigation Button
 
 ```tsx title="src/components/Navigation.tsx"
-import { Button } from '@grasdouble/lufa_design-system';
 import { useNavigate } from 'react-router-dom';
+
+import { Button } from '@grasdouble/lufa_design-system';
 
 function Navigation() {
   const navigate = useNavigate();
 
   return (
-    <Button
-      variant="link"
-      onClick={() => navigate('/dashboard')}
-    >
+    <Button variant="link" onClick={() => navigate('/dashboard')}>
       Go to Dashboard
     </Button>
   );
@@ -351,8 +354,9 @@ function Navigation() {
 ### Async Action with Feedback
 
 ```tsx title="src/components/SaveButton.tsx"
-import { Button } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Button } from '@grasdouble/lufa_design-system';
 
 function SaveButton() {
   const [saving, setSaving] = useState(false);
@@ -370,11 +374,7 @@ function SaveButton() {
   };
 
   return (
-    <Button
-      loading={saving}
-      onClick={handleSave}
-      aria-label={saving ? 'Saving changes' : 'Save changes'}
-    >
+    <Button loading={saving} onClick={handleSave} aria-label={saving ? 'Saving changes' : 'Save changes'}>
       {saving ? 'Saving...' : 'Save Changes'}
     </Button>
   );
@@ -385,26 +385,19 @@ function SaveButton() {
 
 ```tsx title="src/components/ActionButtons.tsx"
 import { Button } from '@grasdouble/lufa_design-system';
-import { SaveIcon, DownloadIcon, ShareIcon } from './icons';
+
+import { DownloadIcon, SaveIcon, ShareIcon } from './icons';
 
 function ActionButtons() {
   return (
     <>
-      <Button startIcon={<SaveIcon />}>
-        Save
-      </Button>
+      <Button startIcon={<SaveIcon />}>Save</Button>
 
-      <Button
-        variant="outlined"
-        startIcon={<DownloadIcon />}
-      >
+      <Button variant="outlined" startIcon={<DownloadIcon />}>
         Download
       </Button>
 
-      <Button
-        variant="text"
-        endIcon={<ShareIcon />}
-      >
+      <Button variant="text" endIcon={<ShareIcon />}>
         Share
       </Button>
     </>

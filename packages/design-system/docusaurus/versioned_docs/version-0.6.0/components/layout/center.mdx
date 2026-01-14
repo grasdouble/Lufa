@@ -12,11 +12,11 @@ import {
   LiveDemo,
   LoadingPanelExample,
   MinHeight,
-} from '../../_examples/layout/center';
+} from '@site/src/dsExamples/layout/center';
 
 # Center
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -67,11 +67,13 @@ axis="both":        axis="horizontal":   axis="vertical":
 ```
 
 **Component Structure:**
+
 - **Flex Container**: Uses `display: flex` (or `inline-flex`) with centering
 - **Alignment**: `justify-content` and/or `align-items` based on `axis`
 - **Semantic Element**: Renders as configurable element via `as` prop
 
 **Visual States:**
+
 - **Both**: Centers horizontally and vertically (default)
 - **Horizontal**: Centers horizontally only (children stack vertically)
 - **Vertical**: Centers vertically only (children flow horizontally)
@@ -197,9 +199,7 @@ function EmptyState({ title, description, action }) {
     <Center axis="both" minHeight={300}>
       <div style={{ textAlign: 'center', maxWidth: '400px' }}>
         <h3>{title}</h3>
-        <p style={{ color: 'var(--color-text-secondary)' }}>
-          {description}
-        </p>
+        <p style={{ color: 'var(--color-text-secondary)' }}>{description}</p>
         {action}
       </div>
     </Center>

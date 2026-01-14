@@ -12,11 +12,11 @@ import {
   ShowSizeChanger,
   Size,
   TableFooterPaginationExample,
-} from '../../_examples/navigation/pagination';
+} from '@site/src/dsExamples/navigation/pagination';
 
 # Pagination
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -69,6 +69,7 @@ The Pagination component consists of several key parts:
 ```
 
 **Component Structure:**
+
 - **Navigation Container**: Wrapper with `role="navigation"` and `aria-label="Pagination"`
 - **Previous Button**: Navigate to previous page (disabled on first page)
 - **Page Numbers**: Clickable buttons showing available pages
@@ -79,6 +80,7 @@ The Pagination component consists of several key parts:
 - **Quick Jumper** (optional): Input field to jump directly to a specific page
 
 **Visual States:**
+
 - **Default**: Normal interactive state for page buttons
 - **Hover**: Visual feedback on mouse over
 - **Focus**: Keyboard navigation indicator with focus ring
@@ -110,51 +112,61 @@ Also supports all standard HTML `div` attributes for the container element.
 ### Prop Details
 
 **current** (required):
+
 - The current active page (1-indexed, not 0-indexed)
 - Must be controlled via state and updated in `onChange`
 - Should be between 1 and total pages (calculated as `Math.ceil(total / pageSize)`)
 
 **total** (required):
+
 - Total number of items in the dataset
 - Used to calculate total pages automatically
 - Must be a positive number
 
 **pageSize**:
+
 - Number of items shown per page (default: 10)
 - Used to calculate total pages
 - When `showSizeChanger` is enabled, this value can be changed by the user
 
 **onChange**:
+
 - Callback fired when user clicks a page number or prev/next buttons
 - Receives the new page number as argument
 - Should update your state to trigger re-render
 
 **showQuickJumper**:
+
 - Enables input field for jumping directly to a page
 - Useful for large datasets where users need quick navigation
 - User presses Enter to jump to the entered page number
 
 **showSizeChanger**:
+
 - Enables dropdown to change page size
 - Options are defined by `pageSizeOptions`
 - When changed, automatically resets to page 1
 
 **pageSizeOptions**:
+
 - Array of numbers shown in the size changer dropdown
 - Default: `[10, 20, 50, 100]`
 - Only used when `showSizeChanger` is true
 
 **onPageSizeChange**:
+
 - Callback fired when user changes page size
 - Receives the new page size as argument
 - Component automatically resets to page 1 and calls `onChange(1)`
 
 **size**:
+
 - **small**: Compact pagination for dense interfaces (28px button height)
 - **medium**: Default size for most use cases (36px button height)
 - **large**: Prominent size for spacious layouts (44px button height)
 
 **prevText / nextText**:
+
 - Customize the previous and next button content
 - Default: Arrow symbols (`←` and `→`)
 - Can be text, icons, or React components
@@ -209,6 +221,7 @@ All interactive elements are keyboard accessible with visible focus indicators.
 ### Screen Reader Support
 
 **For Standard Pagination:**
+
 ```tsx
 <Pagination current={2} total={100} pageSize={10} onChange={handleChange} />
 // Navigation announces: "Pagination navigation"
@@ -219,6 +232,7 @@ All interactive elements are keyboard accessible with visible focus indicators.
 ```
 
 **For Pagination with Size Changer:**
+
 ```tsx
 <Pagination
   current={1}
@@ -233,19 +247,15 @@ All interactive elements are keyboard accessible with visible focus indicators.
 ```
 
 **For Pagination with Quick Jumper:**
+
 ```tsx
-<Pagination
-  current={1}
-  total={200}
-  pageSize={10}
-  showQuickJumper
-  onChange={handleChange}
-/>
+<Pagination current={1} total={200} pageSize={10} showQuickJumper onChange={handleChange} />
 // Quick jumper announces: "Go to" (label) + "Jump to page, spin button, 1" (input)
 // After entering: "Navigated to page 5"
 ```
 
 **For Disabled Navigation Buttons:**
+
 ```tsx
 <Pagination current={1} total={100} pageSize={10} onChange={handleChange} />
 // Previous button on page 1 announces: "Previous page, button, disabled"
@@ -279,6 +289,7 @@ All interactive elements are keyboard accessible with visible focus indicators.
 ### ARIA Attributes
 
 The component automatically handles:
+
 - `role="navigation"` on the pagination container
 - `aria-label="Pagination"` for screen reader context
 - `aria-label="Previous page"` on the previous button
@@ -292,17 +303,13 @@ The component automatically handles:
 Additional ARIA attributes can be passed as props:
 
 ```tsx
-<Pagination
-  current={1}
-  total={100}
-  onChange={handleChange}
-  aria-label="Search results pagination"
-/>
+<Pagination current={1} total={100} onChange={handleChange} aria-label="Search results pagination" />
 ```
 
 ### Color Contrast
 
 All pagination elements meet WCAG 2.1 AA contrast requirements:
+
 - Page button text: Minimum 4.5:1 contrast ratio
 - Active page indicator: Minimum 3:1 contrast ratio (background color)
 - Disabled buttons: Reduced opacity while maintaining readable contrast
@@ -316,8 +323,9 @@ Tested in both light and dark modes.
 ### Table Pagination
 
 ```tsx title="src/components/DataTable.tsx"
-import { Pagination } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Pagination } from '@grasdouble/lufa_design-system';
 
 function DataTable({ data }: { data: Item[] }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -370,8 +378,9 @@ function DataTable({ data }: { data: Item[] }) {
 ### API Pagination with Page Numbers
 
 ```tsx title="src/components/ApiPaginatedList.tsx"
+import { useEffect, useState } from 'react';
+
 import { Pagination } from '@grasdouble/lufa_design-system';
-import { useState, useEffect } from 'react';
 
 function ApiPaginatedList() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -384,9 +393,7 @@ function ApiPaginatedList() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(
-          `/api/items?page=${currentPage}&pageSize=${pageSize}`
-        );
+        const response = await fetch(`/api/items?page=${currentPage}&pageSize=${pageSize}`);
         const result = await response.json();
         setData(result.items);
         setTotalItems(result.total);
@@ -442,8 +449,9 @@ function ApiPaginatedList() {
 ### Infinite Scroll Alternative
 
 ```tsx title="src/components/InfiniteScrollAlternative.tsx"
-import { Pagination } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Pagination } from '@grasdouble/lufa_design-system';
 
 /**
  * Use pagination as a more accessible alternative to infinite scroll
@@ -480,8 +488,9 @@ function ProductGrid({ products }: { products: Product[] }) {
 ### Search Results Pagination
 
 ```tsx title="src/components/SearchResults.tsx"
+import { useEffect, useState } from 'react';
+
 import { Pagination } from '@grasdouble/lufa_design-system';
-import { useState, useEffect } from 'react';
 
 function SearchResults({ query }: { query: string }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -496,9 +505,7 @@ function SearchResults({ query }: { query: string }) {
 
   useEffect(() => {
     const searchApi = async () => {
-      const response = await fetch(
-        `/api/search?q=${query}&page=${currentPage}&limit=${pageSize}`
-      );
+      const response = await fetch(`/api/search?q=${query}&page=${currentPage}&limit=${pageSize}`);
       const data = await response.json();
       setResults(data.results);
       setTotalResults(data.total);
@@ -543,8 +550,9 @@ function SearchResults({ query }: { query: string }) {
 ### Compact Mobile Pagination
 
 ```tsx title="src/components/MobilePagination.tsx"
-import { Pagination } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Pagination } from '@grasdouble/lufa_design-system';
 
 function MobilePagination({ items }: { items: Item[] }) {
   const [currentPage, setCurrentPage] = useState(1);

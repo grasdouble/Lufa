@@ -11,11 +11,11 @@ import {
   LiveDemo,
   MediaHeroExample,
   TokenRatios,
-} from '../../_examples/layout/aspectRatio';
+} from '@site/src/dsExamples/layout/aspectRatio';
 
 # AspectRatio
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -74,11 +74,13 @@ square   traditional      video
 ```
 
 **Component Structure:**
+
 - **Outer Container**: Sets aspect ratio via CSS `aspect-ratio` property
 - **Inner Wrapper**: Ensures content fills the container
 - **Content**: Child elements (images, videos, iframes, etc.)
 
 **Visual States:**
+
 - **Token Ratios**: Predefined presets (square, video, photo, etc.)
 - **Custom Ratios**: Number or CSS string (e.g., "21 / 9", 1.5)
 - **Responsive**: Maintains ratio across all viewport sizes
@@ -138,6 +140,7 @@ AspectRatio is a layout-only component. Screen readers announce content based on
 ```
 
 **With Figure and Caption:**
+
 ```tsx
 <AspectRatio as="figure" ratio={ASPECT_RATIO.photo}>
   <img src="/photo.jpg" alt="Team celebration" />
@@ -177,6 +180,7 @@ The component supports standard HTML attributes based on the `as` element:
 ### Color Contrast
 
 AspectRatio is a transparent layout container. Ensure:
+
 - Media content has sufficient clarity and contrast
 - Overlaid text meets WCAG 2.1 AA requirements (4.5:1 for normal text, 3:1 for large text)
 - Loading states or placeholders are distinguishable
@@ -186,7 +190,7 @@ AspectRatio is a transparent layout container. Ensure:
 ### Responsive Video Embed
 
 ```tsx title="src/components/VideoEmbed.tsx"
-import { AspectRatio, ASPECT_RATIO } from '@grasdouble/lufa_design-system';
+import { ASPECT_RATIO, AspectRatio } from '@grasdouble/lufa_design-system';
 
 function VideoEmbed({ videoId, title }) {
   return (
@@ -206,17 +210,13 @@ function VideoEmbed({ videoId, title }) {
 ### Image Card Thumbnails
 
 ```tsx title="src/components/ProductCard.tsx"
-import { AspectRatio, ASPECT_RATIO } from '@grasdouble/lufa_design-system';
+import { ASPECT_RATIO, AspectRatio } from '@grasdouble/lufa_design-system';
 
 function ProductCard({ product }) {
   return (
     <div style={{ width: '300px' }}>
       <AspectRatio ratio={ASPECT_RATIO.square}>
-        <img
-          src={product.image}
-          alt={product.name}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-        />
+        <img src={product.image} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       </AspectRatio>
       <h3>{product.name}</h3>
       <p>{product.price}</p>
@@ -266,6 +266,7 @@ The AspectRatio component is fully typed with TypeScript:
 
 ```tsx
 import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+
 import { ASPECT_RATIO } from './AspectRatio.constants';
 
 export type AspectRatioValue = keyof typeof ASPECT_RATIO | number;
@@ -280,13 +281,13 @@ export type AspectRatioProps = {
 
 // Available token ratios
 export const ASPECT_RATIO = {
-  square: 'square',        // 1:1
+  square: 'square', // 1:1
   traditional: 'traditional', // 4:3
-  photo: 'photo',          // 3:2
-  video: 'video',          // 16:9
-  ultrawide: 'ultrawide',  // 21:9
-  vertical: 'vertical',    // 9:16
-  portrait: 'portrait',    // 2:3
+  photo: 'photo', // 3:2
+  video: 'video', // 16:9
+  ultrawide: 'ultrawide', // 21:9
+  vertical: 'vertical', // 9:16
+  portrait: 'portrait', // 2:3
   portraitDisplay: 'portraitDisplay', // 3:4
 } as const;
 ```

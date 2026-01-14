@@ -13,11 +13,11 @@ import {
   PaddingY,
   PageLayoutExample,
   Size,
-} from '../../_examples/layout/container';
+} from '@site/src/dsExamples/layout/container';
 
 # Container
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -70,12 +70,14 @@ Full viewport width
 ```
 
 **Component Structure:**
+
 - **Outer Container**: Full width with alignment
 - **Inner Content Area**: Constrained by `size` (max-width)
 - **Padding**: Horizontal (`paddingX`) and vertical (`paddingY`) spacing
 - **Semantic Element**: Renders as configurable element via `as`
 
 **Visual States:**
+
 - **Constrained**: Limited width (xs, sm, md, lg, xl)
 - **Full Width**: `size="full"` - 100% width with padding
 - **Fluid**: `size="fluid"` - 100% width, no max-width
@@ -211,12 +213,7 @@ import { Container } from '@grasdouble/lufa_design-system';
 
 function HeroSection() {
   return (
-    <Container
-      as="section"
-      size="full"
-      paddingY="3xl"
-      style={{ background: 'var(--color-primary)' }}
-    >
+    <Container as="section" size="full" paddingY="3xl" style={{ background: 'var(--color-primary)' }}>
       <Container size="lg">
         <h1>Hero Title</h1>
         <p>Constrained content within full-width background</p>

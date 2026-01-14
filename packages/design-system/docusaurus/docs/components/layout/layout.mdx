@@ -12,11 +12,11 @@ import {
   Sidebar,
   SidebarPosition,
   SidebarWidth,
-} from '../../_examples/layout/layout';
+} from '@site/src/dsExamples/layout/layout';
 
 # Layout
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -57,6 +57,7 @@ import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_POSITION, LAYOUT_SIDEBAR_WIDTH } fro
 The Layout component creates a page-level application shell with CSS grid areas:
 
 **Without Sidebar:**
+
 ```
 ┌──────────────────────────────────────┐
 │          HEADER                      │  ← Layout.Header (header element)
@@ -70,6 +71,7 @@ The Layout component creates a page-level application shell with CSS grid areas:
 ```
 
 **With Sidebar (Left):**
+
 ```
 ┌──────────────────────────────────────┐
 │          HEADER                      │  ← Layout.Header
@@ -86,6 +88,7 @@ The Layout component creates a page-level application shell with CSS grid areas:
 ```
 
 **Component Structure:**
+
 - **Layout** (Container): CSS grid wrapper with named areas
 - **Layout.Header**: Top area, defaults to `<header>` element
 - **Layout.Sidebar**: Optional side area, defaults to `<aside>` element
@@ -93,6 +96,7 @@ The Layout component creates a page-level application shell with CSS grid areas:
 - **Layout.Footer**: Bottom area, defaults to `<footer>` element
 
 **Grid Areas:**
+
 - Header spans full width at top
 - Sidebar (when enabled) sits beside content
 - Content fills remaining space
@@ -100,6 +104,7 @@ The Layout component creates a page-level application shell with CSS grid areas:
 
 **Semantic HTML:**
 Each compound component uses appropriate semantic elements by default:
+
 - `Layout.Header` → `<header>` (customizable via `as` prop)
 - `Layout.Sidebar` → `<aside>` (customizable to `<nav>` via `as` prop)
 - `Layout.Content` → `<main>` (provides main landmark)
@@ -122,37 +127,37 @@ Also supports all standard HTML `div` element attributes.
 
 ### Layout.Header Props
 
-| Prop       | Type                    | Default    | Description              |
-| ---------- | ----------------------- | ---------- | ------------------------ |
-| `as`       | `'header' \| 'div'`     | `'header'` | HTML element to render   |
-| `children` | `ReactNode`             | -          | Header content           |
+| Prop       | Type                | Default    | Description            |
+| ---------- | ------------------- | ---------- | ---------------------- |
+| `as`       | `'header' \| 'div'` | `'header'` | HTML element to render |
+| `children` | `ReactNode`         | -          | Header content         |
 
 Also supports all standard HTML element attributes for the chosen `as` element.
 
 ### Layout.Sidebar Props
 
-| Prop       | Type                          | Default   | Description              |
-| ---------- | ----------------------------- | --------- | ------------------------ |
-| `as`       | `'aside' \| 'div' \| 'nav'`   | `'aside'` | HTML element to render   |
-| `children` | `ReactNode`                   | -         | Sidebar content          |
+| Prop       | Type                        | Default   | Description            |
+| ---------- | --------------------------- | --------- | ---------------------- |
+| `as`       | `'aside' \| 'div' \| 'nav'` | `'aside'` | HTML element to render |
+| `children` | `ReactNode`                 | -         | Sidebar content        |
 
 Also supports all standard HTML element attributes for the chosen `as` element.
 
 ### Layout.Content Props
 
-| Prop       | Type                                      | Default  | Description              |
-| ---------- | ----------------------------------------- | -------- | ------------------------ |
-| `as`       | `'main' \| 'div' \| 'section' \| 'article'` | `'main'` | HTML element to render   |
-| `children` | `ReactNode`                               | -        | Main content             |
+| Prop       | Type                                        | Default  | Description            |
+| ---------- | ------------------------------------------- | -------- | ---------------------- |
+| `as`       | `'main' \| 'div' \| 'section' \| 'article'` | `'main'` | HTML element to render |
+| `children` | `ReactNode`                                 | -        | Main content           |
 
 Also supports all standard HTML element attributes for the chosen `as` element.
 
 ### Layout.Footer Props
 
-| Prop       | Type                    | Default    | Description              |
-| ---------- | ----------------------- | ---------- | ------------------------ |
-| `as`       | `'footer' \| 'div'`     | `'footer'` | HTML element to render   |
-| `children` | `ReactNode`             | -          | Footer content           |
+| Prop       | Type                | Default    | Description            |
+| ---------- | ------------------- | ---------- | ---------------------- |
+| `as`       | `'footer' \| 'div'` | `'footer'` | HTML element to render |
+| `children` | `ReactNode`         | -          | Footer content         |
 
 Also supports all standard HTML element attributes for the chosen `as` element.
 
@@ -215,12 +220,14 @@ The Layout component is designed with WCAG 2.1 AA compliance and semantic HTML i
 Layout provides structural scaffolding but doesn't implement keyboard navigation directly. Navigation depends on interactive elements within each area.
 
 **Best Practices:**
+
 - Include a "Skip to main content" link at the beginning for keyboard users
 - Ensure logical tab order: Header → Sidebar → Content → Footer
 - Provide keyboard shortcuts for common navigation patterns (optional)
 - Use focus management when navigating between areas programmatically
 
 **Skip Link Pattern:**
+
 ```tsx
 <Layout sidebar gap={LAYOUT_GAP.md}>
   <Layout.Header>
@@ -240,6 +247,7 @@ Layout provides structural scaffolding but doesn't implement keyboard navigation
 Layout uses semantic HTML landmarks by default for optimal screen reader navigation:
 
 **Default Semantic Structure:**
+
 ```tsx
 <Layout sidebar>
   <Layout.Header>{/* renders as <header> */}</Layout.Header>
@@ -255,6 +263,7 @@ Layout uses semantic HTML landmarks by default for optimal screen reader navigat
 ```
 
 **Navigation Sidebar:**
+
 ```tsx
 <Layout sidebar>
   <Layout.Header>{/* header */}</Layout.Header>
@@ -268,20 +277,13 @@ Layout uses semantic HTML landmarks by default for optimal screen reader navigat
 ```
 
 **Custom Labels:**
+
 ```tsx
 <Layout sidebar>
-  <Layout.Header aria-label="Site header">
-    {/* header content */}
-  </Layout.Header>
-  <Layout.Sidebar aria-label="Table of contents">
-    {/* TOC content */}
-  </Layout.Sidebar>
-  <Layout.Content aria-label="Article content">
-    {/* main content */}
-  </Layout.Content>
-  <Layout.Footer aria-label="Site footer">
-    {/* footer content */}
-  </Layout.Footer>
+  <Layout.Header aria-label="Site header">{/* header content */}</Layout.Header>
+  <Layout.Sidebar aria-label="Table of contents">{/* TOC content */}</Layout.Sidebar>
+  <Layout.Content aria-label="Article content">{/* main content */}</Layout.Content>
+  <Layout.Footer aria-label="Site footer">{/* footer content */}</Layout.Footer>
 </Layout>
 ```
 
@@ -313,11 +315,10 @@ Layout uses semantic HTML landmarks by default for optimal screen reader navigat
 The Layout component and its sub-components accept ARIA attributes:
 
 **Labeling Landmarks:**
+
 ```tsx
 <Layout sidebar>
-  <Layout.Header aria-label="Global header">
-    {/* header */}
-  </Layout.Header>
+  <Layout.Header aria-label="Global header">{/* header */}</Layout.Header>
   <Layout.Sidebar as="nav" aria-label="Site navigation">
     {/* nav */}
   </Layout.Sidebar>
@@ -325,13 +326,12 @@ The Layout component and its sub-components accept ARIA attributes:
     <h1 id="page-title">Page Title</h1>
     {/* content */}
   </Layout.Content>
-  <Layout.Footer aria-label="Site footer">
-    {/* footer */}
-  </Layout.Footer>
+  <Layout.Footer aria-label="Site footer">{/* footer */}</Layout.Footer>
 </Layout>
 ```
 
 **Multiple Navs:**
+
 ```tsx
 <Layout sidebar>
   <Layout.Header>
@@ -350,6 +350,7 @@ The Layout component and its sub-components accept ARIA attributes:
 ### Color Contrast
 
 Layout is a transparent structural component. Color contrast requirements apply to its contents:
+
 - Text content: Minimum 4.5:1 contrast ratio (WCAG AA)
 - Interactive elements: Minimum 3:1 contrast for UI components
 - Focus indicators: Minimum 3:1 contrast against background
@@ -376,21 +377,19 @@ function AppLayout({ children }: { children: ReactNode }) {
       </Layout.Header>
 
       <Layout.Sidebar as="nav" aria-label="Main navigation">
-        <NavMenu items={[
-          { label: 'Dashboard', href: '/dashboard', icon: <DashboardIcon /> },
-          { label: 'Users', href: '/users', icon: <UsersIcon /> },
-          { label: 'Settings', href: '/settings', icon: <SettingsIcon /> },
-        ]} />
+        <NavMenu
+          items={[
+            { label: 'Dashboard', href: '/dashboard', icon: <DashboardIcon /> },
+            { label: 'Users', href: '/users', icon: <UsersIcon /> },
+            { label: 'Settings', href: '/settings', icon: <SettingsIcon /> },
+          ]}
+        />
       </Layout.Sidebar>
 
-      <Layout.Content id="main-content">
-        {children}
-      </Layout.Content>
+      <Layout.Content id="main-content">{children}</Layout.Content>
 
       <Layout.Footer>
-        <div className="px-6 py-4 text-sm text-gray-600">
-          © 2024 Your Company. All rights reserved.
-        </div>
+        <div className="px-6 py-4 text-sm text-gray-600">© 2024 Your Company. All rights reserved.</div>
       </Layout.Footer>
     </Layout>
   );
@@ -429,9 +428,7 @@ function DashboardLayout() {
       </Layout.Content>
 
       <Layout.Footer>
-        <div className="px-6 py-3 text-xs">
-          Last updated: {new Date().toLocaleString()}
-        </div>
+        <div className="px-6 py-3 text-xs">Last updated: {new Date().toLocaleString()}</div>
       </Layout.Footer>
     </Layout>
   );
@@ -466,9 +463,7 @@ function DocsLayout({ content, tableOfContents }: DocsLayoutProps) {
       </Layout.Header>
 
       <Layout.Content id="main-content" className="px-8 py-6">
-        <article>
-          {content}
-        </article>
+        <article>{content}</article>
       </Layout.Content>
 
       <Layout.Sidebar aria-label="Table of contents">
@@ -506,9 +501,7 @@ function TwoColumnLayout({ sidebar, content }: TwoColumnLayoutProps) {
         {sidebar}
       </Layout.Sidebar>
 
-      <Layout.Content id="main-content">
-        {content}
-      </Layout.Content>
+      <Layout.Content id="main-content">{content}</Layout.Content>
     </Layout>
   );
 }
@@ -517,8 +510,9 @@ function TwoColumnLayout({ sidebar, content }: TwoColumnLayoutProps) {
 ### Sidebar Layout (Collapsed Sidebar with Toggle)
 
 ```tsx title="src/components/CollapsibleLayout.tsx"
-import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_WIDTH } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Layout, LAYOUT_GAP, LAYOUT_SIDEBAR_WIDTH } from '@grasdouble/lufa_design-system';
 
 function CollapsibleLayout({ children }: { children: ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -546,14 +540,10 @@ function CollapsibleLayout({ children }: { children: ReactNode }) {
         <NavMenu collapsed={collapsed} />
       </Layout.Sidebar>
 
-      <Layout.Content id="main-content">
-        {children}
-      </Layout.Content>
+      <Layout.Content id="main-content">{children}</Layout.Content>
 
       <Layout.Footer>
-        <div className="px-4 py-3">
-          {!collapsed && <FooterContent />}
-        </div>
+        <div className="px-4 py-3">{!collapsed && <FooterContent />}</div>
       </Layout.Footer>
     </Layout>
   );
@@ -579,7 +569,7 @@ function CollapsibleLayout({ children }: { children: ReactNode }) {
 The Layout component is fully typed with TypeScript:
 
 ```tsx
-import type { ReactNode, HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 export type LayoutProps = {
   /** Enables the sidebar column and area */

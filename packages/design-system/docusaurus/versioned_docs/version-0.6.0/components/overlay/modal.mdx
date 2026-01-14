@@ -4,16 +4,16 @@ sidebar_position: 1
 
 import { Modal } from '@grasdouble/lufa_design-system';
 
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 import {
   BasicExample,
-  SizeExample,
-  WithFooterExample,
+  CloseOptionsExample,
   ConfirmationExample,
   FormExample,
-  CloseOptionsExample,
   LiveDemo,
-} from '../../_examples/overlay/modal';
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+  SizeExample,
+  WithFooterExample,
+} from '@site/src/dsExamples/overlay/modal';
 
 # Modal
 
@@ -46,8 +46,9 @@ import { Modal } from '@grasdouble/lufa_design-system';
 ## Basic Usage
 
 ```tsx title="src/App.tsx"
-import { Modal, Button } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Button, Modal } from '@grasdouble/lufa_design-system';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,11 +57,7 @@ function App() {
     <>
       <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
 
-      <Modal
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
-        title="Modal Title"
-      >
+      <Modal open={isOpen} onClose={() => setIsOpen(false)} title="Modal Title">
         <p>Modal content goes here.</p>
       </Modal>
     </>
@@ -94,6 +91,7 @@ The Modal component consists of several key parts:
 ```
 
 **Component Structure:**
+
 - **Backdrop**: Semi-transparent overlay that dims the background content
 - **Modal Dialog**: The main container centered on the screen
 - **Header** (optional): Contains title and close button
@@ -103,12 +101,14 @@ The Modal component consists of several key parts:
 - **Footer** (optional): Action buttons or additional content at the bottom
 
 **Visual States:**
+
 - Closed: Not rendered (display: none)
 - Opening: Fade-in animation (backdrop and modal)
 - Open: Fully visible, body scroll locked
 - Closing: Fade-out animation
 
 **Interaction Behaviors:**
+
 - Backdrop click: Closes modal (configurable via `closeOnBackdropClick`)
 - Escape key: Closes modal (configurable via `closeOnEscape`)
 - Close button: Always closes modal when clicked
@@ -118,17 +118,17 @@ The Modal component consists of several key parts:
 
 ### Props
 
-| Prop                      | Type                                            | Default   | Description                                   |
-| ------------------------- | ----------------------------------------------- | --------- | --------------------------------------------- |
-| `children`                | `ReactNode`                                     | Required  | Modal content                                 |
-| `open`                    | `boolean`                                       | Required  | Controls modal visibility                     |
-| `onClose`                 | `() => void`                                    | Required  | Close handler callback                        |
-| `title`                   | `string`                                        | -         | Modal title displayed in header               |
-| `size`                    | `'small' \| 'medium' \| 'large' \| 'fullscreen'` | `'medium'` | Modal width/size                             |
-| `footer`                  | `ReactNode`                                     | -         | Footer content (buttons, actions)             |
-| `closeOnBackdropClick`    | `boolean`                                       | `true`    | Close modal when clicking backdrop            |
-| `closeOnEscape`           | `boolean`                                       | `true`    | Close modal when pressing Escape key          |
-| `className`               | `string`                                        | -         | Additional CSS classes for modal dialog       |
+| Prop                   | Type                                             | Default    | Description                             |
+| ---------------------- | ------------------------------------------------ | ---------- | --------------------------------------- |
+| `children`             | `ReactNode`                                      | Required   | Modal content                           |
+| `open`                 | `boolean`                                        | Required   | Controls modal visibility               |
+| `onClose`              | `() => void`                                     | Required   | Close handler callback                  |
+| `title`                | `string`                                         | -          | Modal title displayed in header         |
+| `size`                 | `'small' \| 'medium' \| 'large' \| 'fullscreen'` | `'medium'` | Modal width/size                        |
+| `footer`               | `ReactNode`                                      | -          | Footer content (buttons, actions)       |
+| `closeOnBackdropClick` | `boolean`                                        | `true`     | Close modal when clicking backdrop      |
+| `closeOnEscape`        | `boolean`                                        | `true`     | Close modal when pressing Escape key    |
+| `className`            | `string`                                         | -          | Additional CSS classes for modal dialog |
 
 ### Size Details
 
@@ -192,6 +192,7 @@ The Modal component is designed with WCAG 2.1 AA compliance in mind:
 - **Enter/Space**: Activate buttons and interactive elements
 
 The modal automatically:
+
 - Traps focus within the modal when open
 - Locks body scroll to prevent background scrolling
 - Returns focus to trigger element when closed
@@ -199,6 +200,7 @@ The modal automatically:
 ### Screen Reader Support
 
 **For Standard Modals:**
+
 ```tsx
 <Modal open={isOpen} onClose={handleClose} title="Confirm Action">
   <p>Are you sure you want to proceed?</p>
@@ -207,19 +209,16 @@ The modal automatically:
 ```
 
 **For Alert Modals:**
+
 ```tsx
-<Modal
-  open={isOpen}
-  onClose={handleClose}
-  title="Error"
-  role="alertdialog"
->
+<Modal open={isOpen} onClose={handleClose} title="Error" role="alertdialog">
   <p>An error occurred.</p>
 </Modal>
 // Screen reader announces: "Error, alert dialog"
 ```
 
 **Close Button:**
+
 ```tsx
 // The close button has aria-label="Close" by default
 // Screen reader announces: "Close, button"
@@ -248,6 +247,7 @@ The modal automatically:
 ### ARIA Attributes
 
 The component automatically handles:
+
 - `role="dialog"` on the modal container
 - `aria-modal="true"` to indicate modal behavior
 - `aria-labelledby` pointing to the title element (when title is provided)
@@ -256,13 +256,7 @@ The component automatically handles:
 Additional ARIA attributes can be passed via props:
 
 ```tsx
-<Modal
-  open={isOpen}
-  onClose={handleClose}
-  title="Confirmation"
-  role="alertdialog"
-  aria-describedby="modal-description"
->
+<Modal open={isOpen} onClose={handleClose} title="Confirmation" role="alertdialog" aria-describedby="modal-description">
   <p id="modal-description">This action cannot be undone.</p>
 </Modal>
 ```
@@ -270,6 +264,7 @@ Additional ARIA attributes can be passed via props:
 ### Color Contrast
 
 All modal elements meet WCAG 2.1 AA contrast requirements:
+
 - Title text: Minimum 4.5:1 contrast ratio
 - Body text: Minimum 4.5:1 contrast ratio
 - Buttons: Minimum 3:1 contrast ratio
@@ -282,8 +277,9 @@ Tested in both light and dark modes.
 ### Confirmation Dialog
 
 ```tsx title="src/components/DeleteConfirmation.tsx"
-import { Modal, Button, Stack } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Button, Modal, Stack } from '@grasdouble/lufa_design-system';
 
 function DeleteConfirmation({ itemName, onConfirm }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -332,8 +328,9 @@ function DeleteConfirmation({ itemName, onConfirm }) {
 ### Form Modal
 
 ```tsx title="src/components/CreateUserModal.tsx"
-import { Modal, Input, Button, Stack } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Button, Input, Modal, Stack } from '@grasdouble/lufa_design-system';
 
 function CreateUserModal({ open, onClose, onSubmit }) {
   const [formData, setFormData] = useState({ name: '', email: '' });
@@ -398,7 +395,7 @@ function CreateUserModal({ open, onClose, onSubmit }) {
 ### Info Modal
 
 ```tsx title="src/components/InfoModal.tsx"
-import { Modal, Button } from '@grasdouble/lufa_design-system';
+import { Button, Modal } from '@grasdouble/lufa_design-system';
 
 function InfoModal({ open, onClose, title, content }) {
   return (
@@ -422,8 +419,9 @@ function InfoModal({ open, onClose, title, content }) {
 ### Multi-Step Wizard
 
 ```tsx title="src/components/WizardModal.tsx"
-import { Modal, Button, Stack } from '@grasdouble/lufa_design-system';
 import { useState } from 'react';
+
+import { Button, Modal, Stack } from '@grasdouble/lufa_design-system';
 
 function WizardModal({ open, onClose }) {
   const [step, setStep] = useState(1);
@@ -475,7 +473,7 @@ function WizardModal({ open, onClose }) {
 ### Fullscreen Modal
 
 ```tsx title="src/components/ImageGalleryModal.tsx"
-import { Modal, Button } from '@grasdouble/lufa_design-system';
+import { Button, Modal } from '@grasdouble/lufa_design-system';
 
 function ImageGalleryModal({ open, onClose, images }) {
   return (

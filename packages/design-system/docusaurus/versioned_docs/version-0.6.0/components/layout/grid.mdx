@@ -10,11 +10,11 @@ import {
   Gutter,
   ImageGalleryExample,
   LiveDemo,
-} from '../../_examples/layout/grid';
+} from '@site/src/dsExamples/layout/grid';
 
 # Grid
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -71,6 +71,7 @@ The Grid component creates a two-dimensional CSS grid layout:
 ```
 
 **Component Structure:**
+
 - **Grid Container**: The outer grid wrapper with `display: grid`
 - **Grid Items**: Direct children automatically placed in grid cells
 - **Columns**: Number of vertical divisions (1, 2, 3, 4, 6, 8, 12, or 16)
@@ -78,6 +79,7 @@ The Grid component creates a two-dimensional CSS grid layout:
 - **Auto-flow**: Items flow left-to-right, top-to-bottom by default
 
 **Layout Behavior:**
+
 - Items automatically wrap to new rows when columns are filled
 - Equal-width columns using `repeat(N, 1fr)`
 - Consistent gutter spacing from design tokens
@@ -87,12 +89,12 @@ The Grid component creates a two-dimensional CSS grid layout:
 
 ### Props
 
-| Prop       | Type                        | Default    | Description                      |
-| ---------- | --------------------------- | ---------- | -------------------------------- |
-| `columns`  | `keyof typeof GRID_COLUMNS` | `'twelve'` | Number of columns (semantic token) |
-| `gutter`   | `keyof typeof GRID_GUTTER`  | `'md'`     | Gap between grid items (token)   |
-| `children` | `ReactNode`                 | -          | Grid items (direct children)     |
-| `className`| `string`                    | -          | Additional CSS class             |
+| Prop        | Type                        | Default    | Description                        |
+| ----------- | --------------------------- | ---------- | ---------------------------------- |
+| `columns`   | `keyof typeof GRID_COLUMNS` | `'twelve'` | Number of columns (semantic token) |
+| `gutter`    | `keyof typeof GRID_GUTTER`  | `'md'`     | Gap between grid items (token)     |
+| `children`  | `ReactNode`                 | -          | Grid items (direct children)       |
+| `className` | `string`                    | -          | Additional CSS class               |
 
 Also supports all standard HTML `div` element attributes.
 
@@ -148,6 +150,7 @@ The Grid component is a layout primitive designed with WCAG 2.1 AA compliance in
 Grid is a layout-only component and does not implement keyboard navigation directly. Keyboard interaction depends on the interactive elements within grid items.
 
 **Best Practices:**
+
 - Ensure interactive grid items (cards, buttons, links) have visible focus indicators
 - Maintain logical tab order (left-to-right, top-to-bottom)
 - Use consistent focus order across responsive breakpoints
@@ -158,6 +161,7 @@ Grid is a layout-only component and does not implement keyboard navigation direc
 Grid uses a standard div element and relies on semantic HTML within grid items:
 
 **Basic Grid (Non-semantic):**
+
 ```tsx
 <Grid columns={GRID_COLUMNS.triple} gutter={GRID_GUTTER.md}>
   <div>Item 1</div>
@@ -168,6 +172,7 @@ Grid uses a standard div element and relies on semantic HTML within grid items:
 ```
 
 **Grid with Semantic Items:**
+
 ```tsx
 <Grid columns={GRID_COLUMNS.quad} gutter={GRID_GUTTER.lg}>
   <article aria-labelledby="card-1">
@@ -183,13 +188,9 @@ Grid uses a standard div element and relies on semantic HTML within grid items:
 ```
 
 **Grid with ARIA Label:**
+
 ```tsx
-<Grid
-  columns={GRID_COLUMNS.triple}
-  gutter={GRID_GUTTER.md}
-  role="region"
-  aria-label="Product gallery"
->
+<Grid columns={GRID_COLUMNS.triple} gutter={GRID_GUTTER.md} role="region" aria-label="Product gallery">
   {/* grid items */}
 </Grid>
 // Announces: "Product gallery, region" followed by item content
@@ -221,12 +222,7 @@ Grid uses a standard div element and relies on semantic HTML within grid items:
 The Grid component itself doesn't apply ARIA attributes by default. When needed, pass them as props:
 
 ```tsx
-<Grid
-  columns={GRID_COLUMNS.quad}
-  gutter={GRID_GUTTER.md}
-  role="list"
-  aria-label="Featured products"
->
+<Grid columns={GRID_COLUMNS.quad} gutter={GRID_GUTTER.md} role="list" aria-label="Featured products">
   <div role="listitem">{/* product */}</div>
   <div role="listitem">{/* product */}</div>
   <div role="listitem">{/* product */}</div>
@@ -234,13 +230,9 @@ The Grid component itself doesn't apply ARIA attributes by default. When needed,
 ```
 
 For grouped content:
+
 ```tsx
-<Grid
-  columns={GRID_COLUMNS.triple}
-  gutter={GRID_GUTTER.lg}
-  role="region"
-  aria-labelledby="section-title"
->
+<Grid columns={GRID_COLUMNS.triple} gutter={GRID_GUTTER.lg} role="region" aria-labelledby="section-title">
   <h2 id="section-title">Product Categories</h2>
   {/* category items */}
 </Grid>
@@ -249,6 +241,7 @@ For grouped content:
 ### Color Contrast
 
 Grid is a transparent layout component. Color contrast requirements apply to its children:
+
 - Text content: Minimum 4.5:1 contrast ratio (WCAG AA)
 - Interactive elements: Minimum 3:1 contrast for UI components
 - Focus indicators: Minimum 3:1 contrast against background
@@ -263,19 +256,10 @@ import { Grid, GRID_COLUMNS, GRID_GUTTER } from '@grasdouble/lufa_design-system'
 
 function ImageGallery({ images }: { images: ImageData[] }) {
   return (
-    <Grid
-      columns={GRID_COLUMNS.quad}
-      gutter={GRID_GUTTER.md}
-      role="region"
-      aria-label="Photo gallery"
-    >
+    <Grid columns={GRID_COLUMNS.quad} gutter={GRID_GUTTER.md} role="region" aria-label="Photo gallery">
       {images.map((image) => (
         <div key={image.id} className="aspect-square">
-          <img
-            src={image.url}
-            alt={image.description}
-            className="w-full h-full object-cover rounded"
-          />
+          <img src={image.url} alt={image.description} className="w-full h-full object-cover rounded" />
         </div>
       ))}
     </Grid>
@@ -396,12 +380,7 @@ function ProductListing({ products }: { products: Product[] }) {
   return (
     <div>
       <h2>Featured Products</h2>
-      <Grid
-        columns={GRID_COLUMNS.triple}
-        gutter={GRID_GUTTER.xl}
-        role="list"
-        aria-label="Featured products"
-      >
+      <Grid columns={GRID_COLUMNS.triple} gutter={GRID_GUTTER.xl} role="list" aria-label="Featured products">
         {products.map((product) => (
           <article key={product.id} role="listitem" className="product-item">
             <div className="product-image">
@@ -440,7 +419,7 @@ function ProductListing({ products }: { products: Product[] }) {
 The Grid component is fully typed with TypeScript:
 
 ```tsx
-import type { ReactNode, HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 export type GridProps = {
   /** Grid content */

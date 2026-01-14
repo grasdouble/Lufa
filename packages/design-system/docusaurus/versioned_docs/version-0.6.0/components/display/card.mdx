@@ -11,11 +11,11 @@ import {
   LiveDemo,
   Padding,
   Variant,
-} from '../../_examples/display/card';
+} from '@site/src/dsExamples/display/card';
 
 # Card
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -68,6 +68,7 @@ The Card component consists of several key parts:
 ```
 
 **Component Structure:**
+
 - **Container**: Outer wrapper with border radius, shadow/border, and background
 - **Header** (optional): Title and subtitle section at the top
 - **Title** (optional): Primary heading text (h3) for the card
@@ -77,6 +78,7 @@ The Card component consists of several key parts:
 - **Image Area**: Can be placed in body or used with `padding="none"` for full-bleed images
 
 **Visual States:**
+
 - **Default**: Normal non-interactive card with border or shadow based on variant
 - **Hover** (hoverable): Elevated shadow and subtle lift transform on mouse over
 - **Focus** (clickable): Focus indicator when card has onClick handler
@@ -162,6 +164,7 @@ The Card component is designed with WCAG 2.1 AA compliance in mind:
 By default, `Card` renders a non-interactive `div` with no keyboard navigation.
 
 **For Interactive Cards:**
+
 - When using `onClick`, the card itself is **not** keyboard accessible by default
 - **Best practice**: Place an explicit `<button>` or `<a>` element inside the card for keyboard users
 - If the entire card must be clickable, wrap it in a button or add proper keyboard handlers
@@ -182,6 +185,7 @@ By default, `Card` renders a non-interactive `div` with no keyboard navigation.
 ### Screen Reader Support
 
 **For Standard Cards:**
+
 ```tsx
 <Card title="User Profile" subtitle="Account details">
   <p>Name: John Doe</p>
@@ -192,6 +196,7 @@ By default, `Card` renders a non-interactive `div` with no keyboard navigation.
 ```
 
 **For Cards with Semantic Headings:**
+
 ```tsx
 <Card>
   <h2>Custom Heading</h2>
@@ -202,6 +207,7 @@ By default, `Card` renders a non-interactive `div` with no keyboard navigation.
 ```
 
 **For Clickable Cards:**
+
 ```tsx
 <Card title="Article" hoverable>
   <p>Article preview...</p>
@@ -261,11 +267,13 @@ The Card component is a presentational container and does not apply ARIA roles b
 ```
 
 **Automatically Handled:**
+
 - Card header uses semantic `h3` for title
 - Footer has top border for visual separation
 - Hover and clickable states use CSS transforms and cursor changes
 
 **You Can Add:**
+
 - `role="region"` and `aria-label` for landmark sections
 - `role="button"`, `tabIndex`, and keyboard handlers for fully clickable cards
 - `aria-describedby` to link card content to external descriptions
@@ -291,25 +299,13 @@ import { Card } from '@grasdouble/lufa_design-system';
 
 function ProductCard({ product }) {
   return (
-    <Card
-      variant="elevated"
-      padding="none"
-      hoverable
-    >
-      <img
-        src={product.image}
-        alt={product.name}
-        style={{ width: '100%', height: '200px', objectFit: 'cover' }}
-      />
+    <Card variant="elevated" padding="none" hoverable>
+      <img src={product.image} alt={product.name} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
       <div style={{ padding: '16px' }}>
         <h3>{product.name}</h3>
         <p>{product.description}</p>
-        <p style={{ fontSize: '20px', fontWeight: 'bold' }}>
-          ${product.price}
-        </p>
-        <button onClick={() => addToCart(product)}>
-          Add to Cart
-        </button>
+        <p style={{ fontSize: '20px', fontWeight: 'bold' }}>${product.price}</p>
+        <button onClick={() => addToCart(product)}>Add to Cart</button>
       </div>
     </Card>
   );
@@ -334,11 +330,7 @@ function UserProfileCard({ user }) {
       }
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        <img
-          src={user.avatar}
-          alt=""
-          style={{ width: '64px', height: '64px', borderRadius: '50%' }}
-        />
+        <img src={user.avatar} alt="" style={{ width: '64px', height: '64px', borderRadius: '50%' }} />
         <div>
           <p>Email: {user.email}</p>
           <p>Joined: {user.joinDate}</p>
@@ -360,16 +352,12 @@ function DashboardWidget({ title, value, trend, icon }) {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <p style={{ fontSize: '14px', color: '#666' }}>{title}</p>
-          <p style={{ fontSize: '32px', fontWeight: 'bold', margin: '8px 0' }}>
-            {value}
-          </p>
+          <p style={{ fontSize: '32px', fontWeight: 'bold', margin: '8px 0' }}>{value}</p>
           <p style={{ fontSize: '12px', color: trend >= 0 ? 'green' : 'red' }}>
             {trend >= 0 ? '↑' : '↓'} {Math.abs(trend)}% from last month
           </p>
         </div>
-        <div style={{ fontSize: '48px', opacity: 0.2 }}>
-          {icon}
-        </div>
+        <div style={{ fontSize: '48px', opacity: 0.2 }}>{icon}</div>
       </div>
     </Card>
   );
@@ -379,23 +367,16 @@ function DashboardWidget({ title, value, trend, icon }) {
 ### Clickable Card (Navigation)
 
 ```tsx title="src/components/NavigationCard.tsx"
-import { Card } from '@grasdouble/lufa_design-system';
 import { useNavigate } from 'react-router-dom';
+
+import { Card } from '@grasdouble/lufa_design-system';
 
 function NavigationCard({ title, description, path, icon }) {
   const navigate = useNavigate();
 
   return (
-    <Card
-      title={title}
-      subtitle={description}
-      variant="elevated"
-      hoverable
-      onClick={() => navigate(path)}
-    >
-      <div style={{ fontSize: '48px', textAlign: 'center', padding: '32px 0' }}>
-        {icon}
-      </div>
+    <Card title={title} subtitle={description} variant="elevated" hoverable onClick={() => navigate(path)}>
+      <div style={{ fontSize: '48px', textAlign: 'center', padding: '32px 0' }}>{icon}</div>
     </Card>
   );
 }
@@ -403,15 +384,8 @@ function NavigationCard({ title, description, path, icon }) {
 // Better approach - with explicit link
 function AccessibleNavigationCard({ title, description, path, icon }) {
   return (
-    <Card
-      title={title}
-      subtitle={description}
-      variant="elevated"
-      hoverable
-    >
-      <div style={{ fontSize: '48px', textAlign: 'center', padding: '32px 0' }}>
-        {icon}
-      </div>
+    <Card title={title} subtitle={description} variant="elevated" hoverable>
+      <div style={{ fontSize: '48px', textAlign: 'center', padding: '32px 0' }}>{icon}</div>
       <a href={path} style={{ display: 'block', textAlign: 'center' }}>
         View Details →
       </a>
@@ -439,9 +413,7 @@ function ImageCard({ image, title, description, tags }) {
       />
       <div style={{ padding: '16px' }}>
         <h3 style={{ margin: '0 0 8px 0' }}>{title}</h3>
-        <p style={{ margin: '0 0 16px 0', color: '#666' }}>
-          {description}
-        </p>
+        <p style={{ margin: '0 0 16px 0', color: '#666' }}>{description}</p>
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           {tags.map((tag) => (
             <span

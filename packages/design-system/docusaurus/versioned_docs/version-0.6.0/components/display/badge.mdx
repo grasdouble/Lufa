@@ -12,11 +12,11 @@ import {
   Size,
   StatusListExample,
   Variant,
-} from '../../_examples/display/badge';
+} from '@site/src/dsExamples/display/badge';
 
 # Badge
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -66,11 +66,13 @@ The Badge component consists of several key parts:
 ```
 
 **Component Structure:**
+
 - **Container**: Handles layout, padding, colors, and border radius
 - **Dot Indicator** (optional): Small circular indicator before the label
 - **Label**: The main text content (supports any ReactNode)
 
 **Visual States:**
+
 - **Default**: Normal static state (badges are non-interactive)
 - **Variant**: Color scheme determined by variant prop (default, primary, success, warning, danger, info)
 - **Size**: Compact (sm), default (md), or large (lg)
@@ -80,14 +82,14 @@ The Badge component consists of several key parts:
 
 ### Props
 
-| Prop       | Type                                                                     | Default     | Description                 |
-| ---------- | ------------------------------------------------------------------------ | ----------- | --------------------------- |
-| `children` | `ReactNode`                                                              | -           | Badge content               |
+| Prop       | Type                                                                     | Default     | Description                     |
+| ---------- | ------------------------------------------------------------------------ | ----------- | ------------------------------- |
+| `children` | `ReactNode`                                                              | -           | Badge content                   |
 | `label`    | `string`                                                                 | -           | **Deprecated** (use `children`) |
-| `size`     | `'sm' \| 'md' \| 'lg'`                                                   | `'md'`      | Badge size                  |
-| `variant`  | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'default'` | Color variant               |
-| `dot`      | `boolean`                                                                | `false`     | Shows a dot indicator       |
-| `rounded`  | `boolean`                                                                | `false`     | Makes the badge pill-shaped |
+| `size`     | `'sm' \| 'md' \| 'lg'`                                                   | `'md'`      | Badge size                      |
+| `variant`  | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'default'` | Color variant                   |
+| `dot`      | `boolean`                                                                | `false`     | Shows a dot indicator           |
+| `rounded`  | `boolean`                                                                | `false`     | Makes the badge pill-shaped     |
 
 Also supports all standard HTML `span` attributes (e.g., `className`, `style`, `aria-label`, `data-*`).
 
@@ -146,6 +148,7 @@ The Badge component is designed with WCAG 2.1 AA compliance in mind:
 ### Keyboard Navigation
 
 Badges are non-interactive by default and do not receive keyboard focus. If you need a clickable badge:
+
 - Wrap the badge in a `<button>` or `<a>` element
 - Ensure the interactive element has proper focus indicators
 - Use appropriate ARIA attributes for the action
@@ -153,12 +156,14 @@ Badges are non-interactive by default and do not receive keyboard focus. If you 
 ### Screen Reader Support
 
 **For Status Badges:**
+
 ```tsx
 <Badge variant="success">Active</Badge>
 // Screen reader announces: "Active"
 ```
 
 **For Notification Count:**
+
 ```tsx
 <Badge variant="danger">3</Badge>
 // For notifications, add context:
@@ -167,8 +172,11 @@ Badges are non-interactive by default and do not receive keyboard focus. If you 
 ```
 
 **For Decorative Badges:**
+
 ```tsx
-<Badge variant="info" aria-hidden="true">New</Badge>
+<Badge variant="info" aria-hidden="true">
+  New
+</Badge>
 // If badge is purely decorative and duplicates nearby text
 ```
 
@@ -205,6 +213,7 @@ The component supports standard ARIA attributes passed as props:
 ```
 
 Common ARIA attributes for badges:
+
 - `aria-label`: Provide full description for counts or abbreviations
 - `aria-hidden="true"`: Hide decorative badges from screen readers
 - `role="status"`: For dynamic status updates
@@ -213,6 +222,7 @@ Common ARIA attributes for badges:
 ### Color Contrast
 
 All badge variants meet WCAG 2.1 AA contrast requirements:
+
 - Badge text: Minimum 4.5:1 contrast ratio against background
 - Badge background: Minimum 3:1 contrast ratio against page background
 - Dot indicator: Matches badge background color for consistency
@@ -334,7 +344,7 @@ function ArticleTags({ tags }: { tags: string[] }) {
 }
 
 // Usage:
-<ArticleTags tags={['React', 'TypeScript', 'Design System']} />
+<ArticleTags tags={['React', 'TypeScript', 'Design System']} />;
 ```
 
 ### Dynamic Status List
@@ -383,11 +393,7 @@ function ServiceStatus() {
 ```tsx title="src/components/FeatureCard.tsx"
 import { Badge } from '@grasdouble/lufa_design-system';
 
-function FeatureCard({ title, isNew, isBeta }: {
-  title: string;
-  isNew?: boolean;
-  isBeta?: boolean;
-}) {
+function FeatureCard({ title, isNew, isBeta }: { title: string; isNew?: boolean; isBeta?: boolean }) {
   return (
     <div>
       <h3>

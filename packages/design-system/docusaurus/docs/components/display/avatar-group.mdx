@@ -10,11 +10,11 @@ import {
   Max,
   ProjectCardHeaderExample,
   Size,
-} from '../../_examples/display/avatarGroup';
+} from '@site/src/dsExamples/display/avatarGroup';
 
 # AvatarGroup
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -66,12 +66,14 @@ The AvatarGroup component stacks avatars with overlapping layout:
 ```
 
 **Component Structure:**
+
 - **Container**: Flex container with negative margin for overlap
 - **Avatar Stack**: Child avatars rendered with z-index layering
 - **Overflow Counter**: Optional "+N" avatar showing remaining count
 - **Border Rings**: Subtle borders to separate overlapping avatars
 
 **Visual States:**
+
 - **Default**: Avatars stacked with slight overlap (left-to-right)
 - **Truncated**: When `max` is set, shows visible avatars + count
 - **Sized**: All avatars inherit size from group or individual prop
@@ -91,6 +93,7 @@ Also supports all standard HTML `div` attributes for the container element.
 ### Max Details
 
 When `max` is set and the number of avatars exceeds this limit:
+
 - Only the first `max` avatars are displayed
 - A special count avatar shows the remaining count (e.g., "+3")
 - The count avatar inherits the same size as other avatars
@@ -135,6 +138,7 @@ The AvatarGroup component is designed with WCAG 2.1 AA compliance in mind:
 ### Screen Reader Support
 
 **For Non-Interactive Groups:**
+
 ```tsx
 <AvatarGroup aria-label="Team members">
   <Avatar src="/alice.jpg" alt="Alice Johnson" />
@@ -145,6 +149,7 @@ The AvatarGroup component is designed with WCAG 2.1 AA compliance in mind:
 ```
 
 **For Groups with Max Limit:**
+
 ```tsx
 <AvatarGroup max={3} aria-label="Project contributors">
   {/* 5 avatars */}
@@ -172,17 +177,14 @@ The AvatarGroup component is designed with WCAG 2.1 AA compliance in mind:
 ### ARIA Attributes
 
 The component automatically handles:
+
 - Container is a standard `div` (inherits semantic meaning from context)
 - Count avatar displays "+N" text visually and to screen readers
 
 Additional ARIA attributes can be passed as props:
 
 ```tsx
-<AvatarGroup
-  max={4}
-  size="md"
-  aria-label="Assigned team members"
->
+<AvatarGroup max={4} size="md" aria-label="Assigned team members">
   {avatars}
 </AvatarGroup>
 ```
@@ -190,6 +192,7 @@ Additional ARIA attributes can be passed as props:
 ### Color Contrast
 
 Avatar borders and overlays meet WCAG 2.1 AA contrast requirements:
+
 - Border rings: Minimum 3:1 contrast ratio against background
 - Count avatar background: Minimum 4.5:1 contrast ratio for text
 - Works in both light and dark modes
@@ -205,11 +208,7 @@ function TeamMembers({ members }) {
   return (
     <AvatarGroup max={5} size="md" aria-label="Team members">
       {members.map((member) => (
-        <Avatar
-          key={member.id}
-          src={member.avatar}
-          alt={member.name}
-        />
+        <Avatar key={member.id} src={member.avatar} alt={member.name} />
       ))}
     </AvatarGroup>
   );
@@ -250,11 +249,7 @@ function MeetingParticipants({ participants, maxVisible = 4 }) {
       <p>Participants ({participants.length})</p>
       <AvatarGroup max={maxVisible} size="xs" aria-label="Meeting participants">
         {participants.map((participant) => (
-          <Avatar
-            key={participant.id}
-            src={participant.avatar}
-            alt={participant.name}
-          />
+          <Avatar key={participant.id} src={participant.avatar} alt={participant.name} />
         ))}
       </AvatarGroup>
     </div>
@@ -280,6 +275,7 @@ The AvatarGroup component is fully typed with TypeScript:
 
 ```tsx
 import type { HTMLAttributes, ReactNode } from 'react';
+
 import type { AvatarProps } from '../Avatar';
 
 export type AvatarGroupProps = {

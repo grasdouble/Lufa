@@ -4,6 +4,7 @@ sidebar_position: 7
 
 import { Space, SPACE_DIRECTION, SPACE_SIZE } from '@grasdouble/lufa_design-system';
 
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 import {
   As,
   Direction,
@@ -11,8 +12,7 @@ import {
   LiveDemo,
   SectionSeparatorExample,
   Size,
-} from '../../_examples/layout/space';
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+} from '@site/src/dsExamples/layout/space';
 
 # Space
 
@@ -53,7 +53,7 @@ function App() {
       <div>After</div>
 
       {/* Horizontal spacing */}
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
         <div>Left</div>
         <Space direction={SPACE_DIRECTION.horizontal} size={SPACE_SIZE.md} />
         <div>Right</div>
@@ -81,11 +81,13 @@ Vertical:                    Horizontal:
 ```
 
 **Component Structure:**
+
 - **Container**: An empty `div` or `span` element (controlled by `as` prop)
 - **Direction**: Vertical (default) or horizontal spacing
 - **Size**: Token-based (xs, sm, md, lg, xl) or custom value (number/string)
 
 **Rendering:**
+
 - Default renders as `<div>` with block display
 - Use `as="span"` for inline spacing within text
 
@@ -117,6 +119,7 @@ Token-based sizes map to the design system spacing scale:
 - **xl**: Extra large spacing (32px)
 
 Custom sizes can be provided as:
+
 - **number**: Interpreted as pixels (e.g., `size={20}` = 20px)
 - **string**: Any CSS length value (e.g., `size="2rem"`)
 
@@ -213,7 +216,7 @@ function Article() {
 ### Inline Spacing in Text
 
 ```tsx title="src/components/Badge.tsx"
-import { Space, SPACE_SIZE, SPACE_DIRECTION } from '@grasdouble/lufa_design-system';
+import { Space, SPACE_DIRECTION, SPACE_SIZE } from '@grasdouble/lufa_design-system';
 
 function BadgeList() {
   return (

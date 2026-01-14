@@ -15,11 +15,11 @@ import {
   Spacing,
   Variant,
   VerticalSplitExample,
-} from '../../_examples/layout/divider';
+} from '@site/src/dsExamples/layout/divider';
 
 # Divider
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -74,12 +74,14 @@ Vertical:
 ```
 
 **Component Structure:**
+
 - **Container**: Wrapper with `role="separator"` and orientation
 - **Lines**: Visual separator elements (solid or dashed)
 - **Label** (optional): Text content between horizontal lines
 - **Spacing**: Built-in margin based on `spacing` prop
 
 **Visual States:**
+
 - **Horizontal**: Default orientation (full width)
 - **Vertical**: For columnar layouts (full height)
 - **With Label**: Horizontal divider with centered/aligned text
@@ -145,12 +147,14 @@ The Divider component is designed with WCAG 2.1 AA compliance in mind:
 ### Screen Reader Support
 
 **For Decorative Dividers:**
+
 ```tsx
 <Divider />
 // Screen reader announces: "separator" (purely visual, minimal announcement)
 ```
 
 **For Labeled Dividers:**
+
 ```tsx
 <Divider label="Additional Details" />
 // Screen reader announces: "Additional Details, separator"
@@ -175,6 +179,7 @@ The Divider component is designed with WCAG 2.1 AA compliance in mind:
 ### ARIA Attributes
 
 The component automatically handles:
+
 - `role="separator"` - Identifies the element as a visual separator
 - `aria-orientation` - Set to "horizontal" or "vertical" based on prop
 - Line elements have `aria-hidden="true"` (purely decorative)
@@ -182,6 +187,7 @@ The component automatically handles:
 ### Color Contrast
 
 Divider lines meet WCAG 2.1 AA contrast requirements:
+
 - Border color: Minimum 3:1 contrast ratio against background
 - Label text: Minimum 4.5:1 contrast ratio
 - Works in both light and dark modes
@@ -244,15 +250,11 @@ import { Divider } from '@grasdouble/lufa_design-system';
 function SplitPanel() {
   return (
     <div style={{ display: 'flex', minHeight: '300px' }}>
-      <div style={{ flex: 1, padding: '1rem' }}>
-        Left content
-      </div>
+      <div style={{ flex: 1, padding: '1rem' }}>Left content</div>
 
       <Divider orientation="vertical" spacing="none" />
 
-      <div style={{ flex: 1, padding: '1rem' }}>
-        Right content
-      </div>
+      <div style={{ flex: 1, padding: '1rem' }}>Right content</div>
     </div>
   );
 }

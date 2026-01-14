@@ -15,11 +15,11 @@ import {
   ResponsiveCardRowExample,
   ToolbarExample,
   Wrap,
-} from '../../_examples/layout/flex';
+} from '@site/src/dsExamples/layout/flex';
 
 # Flex
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -79,6 +79,7 @@ The Flex component is a flexible one-dimensional layout container:
 ```
 
 **Component Structure:**
+
 - **Container**: The outermost flex element (customizable via `as` prop)
 - **Items**: Direct children arranged along main axis
 - **Gap**: Token-based spacing between items
@@ -86,6 +87,7 @@ The Flex component is a flexible one-dimensional layout container:
 - **Cross Axis**: Perpendicular to main axis
 
 **Layout Properties:**
+
 - **direction**: Controls main axis orientation (row/column)
 - **align**: Controls cross-axis alignment (start/center/end/stretch/baseline)
 - **justify**: Controls main-axis distribution (start/center/end/between/around/evenly)
@@ -93,6 +95,7 @@ The Flex component is a flexible one-dimensional layout container:
 - **gap**: Spacing between items (token or custom value)
 
 **Element Modes:**
+
 - **Block**: Default `display: flex` (full width)
 - **Inline**: Optional `display: inline-flex` (shrink-wrapped)
 
@@ -198,6 +201,7 @@ The Flex component is a layout primitive designed with WCAG 2.1 AA compliance in
 Flex is a layout-only component and does not implement keyboard navigation directly. Keyboard interaction depends on the interactive elements within the flex container.
 
 **Best Practices:**
+
 - Ensure interactive children (buttons, links) have visible focus indicators
 - Maintain logical tab order by placing items in source order
 - Avoid using visual-only reordering that conflicts with tab order
@@ -207,6 +211,7 @@ Flex is a layout-only component and does not implement keyboard navigation direc
 Flex uses semantic HTML when appropriate:
 
 **Using Semantic Elements:**
+
 ```tsx
 <Flex as="nav" gap="md">
   <Link href="/home">Home</Link>
@@ -217,6 +222,7 @@ Flex uses semantic HTML when appropriate:
 ```
 
 **Default Layout (Non-semantic):**
+
 ```tsx
 <Flex gap="md">
   <div>Item 1</div>
@@ -226,6 +232,7 @@ Flex uses semantic HTML when appropriate:
 ```
 
 **Using ARIA Labels for Context:**
+
 ```tsx
 <Flex as="section" aria-label="Product features">
   <FeatureCard />
@@ -272,6 +279,7 @@ The Flex component itself doesn't apply ARIA attributes by default. When needed,
 ### Color Contrast
 
 Flex is a transparent layout component. Color contrast requirements apply to its children:
+
 - Text content: Minimum 4.5:1 contrast ratio (WCAG AA)
 - Interactive elements: Minimum 3:1 contrast for UI components
 - Focus indicators: Minimum 3:1 contrast against background
@@ -285,20 +293,20 @@ import { Flex, FLEX_ALIGN, FLEX_JUSTIFY } from '@grasdouble/lufa_design-system';
 
 function Navbar() {
   return (
-    <Flex
-      as="nav"
-      align={FLEX_ALIGN.center}
-      justify={FLEX_JUSTIFY.between}
-      gap="md"
-      aria-label="Main navigation"
-    >
+    <Flex as="nav" align={FLEX_ALIGN.center} justify={FLEX_JUSTIFY.between} gap="md" aria-label="Main navigation">
       <div className="logo">
         <Logo />
       </div>
       <Flex as="ul" align={FLEX_ALIGN.center} gap="lg">
-        <li><Link href="/home">Home</Link></li>
-        <li><Link href="/about">About</Link></li>
-        <li><Link href="/contact">Contact</Link></li>
+        <li>
+          <Link href="/home">Home</Link>
+        </li>
+        <li>
+          <Link href="/about">About</Link>
+        </li>
+        <li>
+          <Link href="/contact">Contact</Link>
+        </li>
       </Flex>
       <div className="actions">
         <Button>Sign In</Button>
@@ -342,7 +350,7 @@ function IconLabel({ icon, text }: { icon: ReactNode; text: string }) {
 }
 
 // Usage
-<IconLabel icon={<CheckIcon />} text="Verified" />
+<IconLabel icon={<CheckIcon />} text="Verified" />;
 ```
 
 ### Space-Between Layout
@@ -352,12 +360,7 @@ import { Flex, FLEX_ALIGN, FLEX_JUSTIFY } from '@grasdouble/lufa_design-system';
 
 function CardHeader() {
   return (
-    <Flex
-      as="header"
-      align={FLEX_ALIGN.center}
-      justify={FLEX_JUSTIFY.between}
-      gap="md"
-    >
+    <Flex as="header" align={FLEX_ALIGN.center} justify={FLEX_JUSTIFY.between} gap="md">
       <h2>Card Title</h2>
       <Button variant="ghost" size="small">
         <MoreIcon />
@@ -370,7 +373,7 @@ function CardHeader() {
 ### Centered Content
 
 ```tsx title="src/components/EmptyState.tsx"
-import { Flex, FLEX_ALIGN, FLEX_JUSTIFY, FLEX_DIRECTION } from '@grasdouble/lufa_design-system';
+import { Flex, FLEX_ALIGN, FLEX_DIRECTION, FLEX_JUSTIFY } from '@grasdouble/lufa_design-system';
 
 function EmptyState() {
   return (
@@ -408,7 +411,7 @@ function EmptyState() {
 The Flex component is fully typed with TypeScript:
 
 ```tsx
-import type { ReactNode, HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 type FlexElement = 'div' | 'span' | 'section' | 'nav' | 'header' | 'footer' | 'main' | 'article';
 

@@ -10,11 +10,11 @@ import {
   LiveDemo,
   Mode,
   Size,
-} from '../../_examples/feedback/spinner';
+} from '@site/src/dsExamples/feedback/spinner';
 
 # Spinner
 
-import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { DarkModeCompatible } from '@site/src/components/DarkModeCompatible';
 
 <DarkModeCompatible />
 
@@ -59,11 +59,13 @@ The Spinner component is a simple animated SVG indicator:
 ```
 
 **Component Structure:**
+
 - **SVG Container**: Fixed viewBox with responsive sizing
 - **Animation Path**: Arc or circle that rotates continuously
 - **Color**: Inherits `currentColor` from parent context
 
 **Visual States:**
+
 - **Loading**: Continuous rotation animation
 - **Mode A**: Partial arc (default, smoother appearance)
 - **Mode B**: Dashed circle (alternative style)
@@ -125,6 +127,7 @@ The spinner includes built-in ARIA attributes for screen reader announcements:
 ```
 
 **ARIA Attributes:**
+
 - `role="status"` - Identifies the element as a status indicator
 - `aria-live="polite"` - Announces changes without interrupting
 - `aria-label="Loading"` - Provides accessible name
@@ -194,9 +197,7 @@ function DataLoader({ message = 'Loading data...' }) {
   return (
     <div style={{ textAlign: 'center', padding: '2rem' }}>
       <Spinner size="medium" />
-      <p style={{ marginTop: '1rem', color: 'var(--color-text-secondary)' }}>
-        {message}
-      </p>
+      <p style={{ marginTop: '1rem', color: 'var(--color-text-secondary)' }}>{message}</p>
     </div>
   );
 }
