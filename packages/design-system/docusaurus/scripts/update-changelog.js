@@ -155,7 +155,36 @@ function updateDocusaurusConfig(releases) {
 }
 
 /**
- * Build the versions config block with all releases
+ * Parse semantic version string to compare versions
+ */
+function parseVersion(versionString) {
+  const parts = versionString.split('.').map(Number);
+  return {
+    major: parts[0] || 0,
+    minor: parts[1] || 0,
+    patch: parts[2] || 0,
+  };
+}
+
+/**
+ * Check if a version is >= 0.6.0 (next minor version after current 0.5.x)
+ */
+function isVersionIncluded(versionString) {
+  const version = parseVersion(versionString);
+
+  // Only include versions >= 0.6.0
+  // This ensures we only add versions with proper snapshots going forward
+  if (version.major === 0 && version.minor >= 6) {
+    return true;
+  }
+  if (version.major >= 1) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Build the versions config block with releases >= 0.6.0
  */
 function buildVersionsConfig(releases) {
   let config = 'versions: {\n';
@@ -164,8 +193,10 @@ function buildVersionsConfig(releases) {
   config += `              path: '/',\n`;
   config += `            },\n`;
 
-  // Add all released versions to enable version dropdown
-  releases.forEach((release) => {
+  // Only add released versions >= 0.6.0 (versions with proper snapshots)
+  const includedVersions = releases.filter(release => isVersionIncluded(release.version));
+
+  includedVersions.forEach((release) => {
     const version = release.version;
     config += `            '${version}': {\n`;
     config += `              label: '${version}',\n`;

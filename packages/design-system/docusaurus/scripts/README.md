@@ -25,8 +25,13 @@ node scripts/update-changelog.js
 1. Reads `packages/design-system/main/CHANGELOG.md`
 2. Parses the 5 most recent releases
 3. Updates the "Recent Releases" section in `docs/changelog.md`
-4. Updates version config in `docusaurus.config.ts` with all versions
+4. Updates version config in `docusaurus.config.ts` with versions >= 0.6.0 only
 5. Preserves all other content
+
+**Version Filtering:**
+- Only includes versions >= 0.6.0 in the dropdown
+- This ensures only versions with proper documentation snapshots are shown
+- Earlier versions (0.5.x and below) are excluded to avoid showing incorrect historical docs
 
 **Output Example:**
 ```
@@ -117,18 +122,25 @@ When triggered by a release:
 
 #### Workflow Timeline Example
 
-```
-Time  | Action                             | docs/ content      | versioned_docs/
-------|------------------------------------|--------------------|------------------
-T0    | Working on next features           | Dev (unreleased)   | version-0.5.1/
-T1    | Release v0.5.2 published           | Dev (unreleased)   | version-0.5.1/
-T2    | Workflow gets latest: v0.5.2       | Dev (unreleased)   | version-0.5.1/
-T3    | Script updates changelog           | Dev (updated)      | version-0.5.1/
-T4    | Creates snapshot for v0.5.2        | Dev (updated)      | version-0.5.1/, version-0.5.2/
-T5    | PR merged                          | Dev (updated)      | version-0.5.1/, version-0.5.2/
+**Starting point:** Current version is 0.5.1, working towards 0.6.0
 
-Result: Current docs = Development, /0.5.2 shows released v0.5.2, /0.5.1 shows released v0.5.1
 ```
+Time  | Action                             | docs/ content      | versioned_docs/ | Dropdown
+------|------------------------------------|--------------------|-----------------|----------
+T0    | Working on v0.6.0 features         | Dev (unreleased)   | (none)          | Dev only
+T1    | Release v0.6.0 published           | Dev (unreleased)   | (none)          | Dev only
+T2    | Workflow gets latest: v0.6.0       | Dev (unreleased)   | (none)          | Dev only
+T3    | Script updates changelog           | Dev (updated)      | (none)          | Dev only
+T4    | Creates snapshot for v0.6.0        | Dev (updated)      | version-0.6.0/  | Dev, 0.6.0
+T5    | PR merged                          | Dev (updated)      | version-0.6.0/  | Dev, 0.6.0
+T6    | Working on v0.6.1 features         | Dev (new changes)  | version-0.6.0/  | Dev, 0.6.0
+T7    | Release v0.6.1 published           | Dev (new changes)  | version-0.6.0/  | Dev, 0.6.0
+T8    | Workflow creates v0.6.1 snapshot   | Dev (new changes)  | v0.6.0, v0.6.1  | Dev, 0.6.1, 0.6.0
+
+Result: Current docs = Development, /0.6.1 shows v0.6.1, /0.6.0 shows v0.6.0
+```
+
+**Note:** Versions < 0.6.0 are never added to the dropdown to prevent showing incorrect docs.
 
 ### Version Config Output
 
@@ -138,21 +150,23 @@ versions: {
     label: 'Development (Unreleased)',  // Always dev/next
     path: '/',                          // Main docs folder
   },
-  '0.5.1': {                            // Latest release
-    label: '0.5.1',
-    path: '/0.5.1',                     // Snapshot of v0.5.1
+  '0.6.0': {                            // First version with snapshots
+    label: '0.6.0',
+    path: '/0.6.0',                     // Snapshot of v0.6.0
   },
-  '0.5.0': {                            // Previous release
-    label: '0.5.0',
-    path: '/0.5.0',                     // Snapshot of v0.5.0
-  },
-  // ... more versions (up to 5 most recent)
+  // Future releases (0.6.1, 0.7.0, 1.0.0, etc.) will be added here
+  // Versions < 0.6.0 are excluded (no snapshots exist)
 }
 ```
 
-**Version Snapshots:** When a new version is released, the GitHub Actions workflow automatically:
+**Version Filtering:**
+- **Included:** Versions >= 0.6.0 (versions with proper snapshots)
+- **Excluded:** Versions < 0.6.0 (0.5.x and earlier - no snapshots available)
+- This prevents showing incorrect/duplicate documentation for old versions
+
+**Version Snapshots:** When a new version >= 0.6.0 is released, the GitHub Actions workflow automatically:
 - Creates a snapshot folder `versioned_docs/version-X.Y.Z/` with the released documentation
-- Adds the version to the dropdown menu
+- Adds the version to the dropdown menu (if >= 0.6.0)
 - Keeps `docs/` as development version for ongoing work
 - Preserves historical documentation for each released version
 
