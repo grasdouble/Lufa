@@ -4,24 +4,15 @@ name: Update Changelog Documentation
 # Documentation: packages/design-system/docusaurus/scripts/README.md
 
 on:
-  workflow_call:
+  # NOTE: /!\ Disabled for now because current solution will generate too many files in the repo after multiple releases.
   # Trigger when the changeset release workflow runs
-  workflow_run:
-    workflows: ['Release:Changesets']
-    types:
-      - completed
+  # workflow_run:
+  #   workflows: ['Release:Changesets']
+  #   types:
+  #     - completed
 
   # Allow manual trigger
   workflow_dispatch:
-
-  # Trigger on push to main when CHANGELOG files change
-  # push:
-  #   branches:
-  #     - main
-  #   paths:
-  #     - 'packages/design-system/main/CHANGELOG.md'
-  #     - 'packages/design-system/tokens/CHANGELOG.md'
-  #     - 'packages/design-system/primitives/CHANGELOG.md'
 
 permissions:
   contents: write
