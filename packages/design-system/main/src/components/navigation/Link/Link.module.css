@@ -2,119 +2,127 @@
 
 @layer components {
   .link {
-    @apply inline-flex items-center gap-1;
-    @apply transition-colors duration-200;
-    @apply cursor-pointer;
+    /* Themable link properties via token-based variables */
+    --link-color: var(--lufa-token-color-text-link);
+    --link-color-hover: var(--lufa-token-color-text-link-hover);
+    --link-underline-thickness: var(--lufa-token-border-width-hairline);
+    --link-underline-radius: var(--lufa-token-radius-sm);
+    --link-transition: var(--lufa-token-timing-fast);
+    --link-font-weight: inherit;
+
+    color: var(--link-color);
     text-decoration: none;
+    font-weight: var(--link-font-weight);
+    position: relative;
+    transition:
+      color var(--link-transition),
+      text-decoration var(--link-transition);
+    @apply inline-flex items-center gap-1;
+  }
+  .link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: var(--link-underline-thickness);
+    width: 0;
+    border-radius: var(--link-underline-radius);
+    background: currentColor;
+    transition:
+      width var(--link-transition),
+      background var(--link-transition);
+  }
+  .link:hover::after,
+  .link:focus-visible::after {
+    width: 100%;
+    background: var(--link-color-hover);
   }
 
-  /* Variants */
+  .link:hover,
+  .link:focus-visible {
+    color: var(--link-color-hover);
+  }
+
+  .link:focus-visible {
+    outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
+    outline-offset: var(--lufa-token-spacing-xxs);
+    border-radius: var(--lufa-token-radius-sm);
+  }
+
+  /* Variant overrides */
   .variantDefault {
-    @apply no-underline;
-    @apply hover:underline;
+    --link-decoration: none;
   }
-
   .variantUnderline {
-    @apply underline underline-offset-4;
+    --link-decoration: underline;
+    text-decoration: underline;
   }
-
+  .variantUnderline::after {
+    display: none;
+  }
   .variantButton {
-    @apply no-underline;
-    @apply rounded-md px-4 py-2;
-    @apply font-medium;
+    --link-color: var(--lufa-token-color-text-inverse);
+    --link-bg: var(--lufa-token-color-interactive-default);
+    --link-bg-hover: var(--lufa-token-color-interactive-hover);
+    --link-padding-x: var(--lufa-token-spacing-md);
+    --link-padding-y: var(--lufa-token-spacing-sm);
+    --link-border-radius: var(--lufa-token-radius-base);
+    --link-decoration: none;
+    --link-decoration-hover: none;
+
+    background: var(--link-bg);
+    padding-inline: var(--link-padding-x);
+    padding-block: var(--link-padding-y);
+    border-radius: var(--link-border-radius);
+  }
+  .variantButton:hover {
+    background: var(--link-bg-hover);
   }
 
-  /* Colors */
+  /* Color variants */
   .colorPrimary {
-    @apply text-interactive-default;
-    @apply hover:text-interactive-hover;
+    --link-color: var(--lufa-token-color-interactive-default);
+    --link-color-hover: var(--lufa-token-color-interactive-hover);
   }
-
-  .colorPrimary.variantButton {
-    @apply bg-interactive-default text-white;
-    @apply hover:bg-interactive-hover;
-  }
-
   .colorSecondary {
-    @apply text-gray-600 dark:text-gray-400;
-    @apply hover:text-gray-900 dark:hover:text-gray-100;
+    --link-color: var(--lufa-token-color-text-secondary);
+    --link-color-hover: var(--lufa-token-color-text-primary);
   }
-
-  .colorSecondary.variantButton {
-    @apply bg-gray-200 text-gray-900;
-    @apply hover:bg-gray-300;
-    @apply dark:bg-gray-700 dark:text-gray-100;
-    @apply dark:hover:bg-gray-600;
-  }
-
   .colorSuccess {
-    @apply text-success-default;
-    @apply hover:text-success-hover;
+    --link-color: var(--lufa-token-color-success-default);
+    --link-color-hover: var(--lufa-token-color-success-hover);
   }
-
-  .colorSuccess.variantButton {
-    @apply bg-success-default text-white;
-    @apply hover:bg-success-hover;
-  }
-
   .colorWarning {
-    @apply text-warning-default;
-    @apply hover:text-warning-hover;
+    --link-color: var(--lufa-token-color-warning-default);
+    --link-color-hover: var(--lufa-token-color-warning-hover);
   }
-
-  .colorWarning.variantButton {
-    @apply bg-warning-default text-white;
-    @apply hover:bg-warning-hover;
-  }
-
   .colorDanger {
-    @apply text-error-default;
-    @apply hover:text-error-hover;
+    --link-color: var(--lufa-token-color-error-default);
+    --link-color-hover: var(--lufa-token-color-error-hover);
   }
-
-  .colorDanger.variantButton {
-    @apply bg-error-default text-white;
-    @apply hover:bg-error-hover;
-  }
-
   .colorInherit {
-    @apply text-inherit;
-    @apply hover:opacity-80;
+    --link-color: inherit;
+    --link-color-hover: inherit;
   }
 
-  /* Sizes */
+  /* Size variants */
   .sizeSmall {
-    @apply text-sm;
+    --link-font-size: var(--lufa-token-font-size-sm);
+    font-size: var(--link-font-size);
   }
-
   .sizeMedium {
-    @apply text-base;
+    --link-font-size: var(--lufa-token-font-size-base);
+    font-size: var(--link-font-size);
   }
-
   .sizeLarge {
-    @apply text-lg;
-  }
-
-  .sizeSmall.variantButton {
-    @apply px-3 py-1.5 text-sm;
-  }
-
-  .sizeMedium.variantButton {
-    @apply px-4 py-2 text-base;
-  }
-
-  .sizeLarge.variantButton {
-    @apply px-5 py-2.5 text-lg;
+    --link-font-size: var(--lufa-token-font-size-lg);
+    font-size: var(--link-font-size);
   }
 
   /* Icons */
   .startIcon,
   .endIcon,
   .externalIcon {
-    @apply inline-flex items-center;
-  }
-
-  .externalIcon {
-    @apply text-xs opacity-70;
+    @apply inline-flex shrink-0;
   }
 }

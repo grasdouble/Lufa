@@ -35,12 +35,12 @@
 
   /* Type: Line */
   .typeLine .tabList {
-    @apply border-b-2 border-border-light;
+    @apply border-b-2 border-gray-200 dark:border-gray-700;
   }
 
   .typeLine .tab {
     @apply px-4 py-2;
-    @apply text-text-secondary;
+    @apply text-gray-600 dark:text-gray-400;
     @apply border-b-2 border-transparent;
     @apply -mb-0.5;
   }
@@ -59,24 +59,24 @@
   /* Type: Card */
   .typeCard .tabList {
     @apply gap-1;
-    @apply border-b border-border-light;
+    @apply border-b border-gray-200 dark:border-gray-700;
   }
 
   .typeCard .tab {
     @apply rounded-t-md px-4 py-2;
-    @apply text-text-secondary;
-    @apply bg-background-secondary;
-    @apply border border-border-light;
+    @apply text-gray-600 dark:text-gray-400;
+    @apply bg-gray-100 dark:bg-gray-800;
+    @apply border border-gray-200 dark:border-gray-700;
     @apply border-b-0;
     @apply -mb-px;
   }
 
   .typeCard .tab:hover:not(.tabDisabled) {
-    @apply bg-background-tertiary;
+    @apply bg-gray-200 dark:bg-gray-700;
   }
 
   .typeCard .tabActive {
-    @apply bg-background-primary;
+    @apply bg-white dark:bg-gray-900;
     @apply text-interactive-default;
     @apply font-medium;
   }
@@ -85,20 +85,20 @@
   .typePill .tabList {
     @apply gap-2;
     @apply rounded-lg p-1;
-    @apply bg-background-secondary;
+    @apply bg-gray-100 dark:bg-gray-800;
   }
 
   .typePill .tab {
     @apply rounded-md px-4 py-2;
-    @apply text-text-secondary;
+    @apply text-gray-600 dark:text-gray-400;
   }
 
   .typePill .tab:hover:not(.tabDisabled) {
-    @apply bg-background-tertiary;
+    @apply bg-gray-200 dark:bg-gray-700;
   }
 
   .typePill .tabActive {
-    @apply bg-background-primary;
+    @apply bg-white dark:bg-gray-900;
     @apply text-interactive-default;
     @apply font-medium;
     @apply shadow-sm;
@@ -148,7 +148,7 @@
 
   .positionLeft .tabList {
     @apply flex-col;
-    @apply border-r-2 border-border-light;
+    @apply border-r-2 border-gray-200 dark:border-gray-700;
   }
 
   .positionLeft.typeLine .tab {
@@ -163,7 +163,7 @@
 
   .positionRight .tabList {
     @apply flex-col;
-    @apply border-l-2 border-border-light;
+    @apply border-l-2 border-gray-200 dark:border-gray-700;
   }
 
   .positionRight.typeLine .tab {

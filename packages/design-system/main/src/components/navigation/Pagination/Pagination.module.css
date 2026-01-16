@@ -12,14 +12,14 @@
   .button {
     @apply reset-button;
     @apply inline-flex items-center justify-center;
-    @apply border border-gray-300 dark:border-gray-600;
+    @apply border border-border-default;
     @apply rounded-md;
     @apply transition-all duration-200;
     @apply min-w-8;
   }
 
   .button:hover:not(:disabled) {
-    @apply bg-gray-100 dark:bg-gray-800;
+    @apply bg-background-secondary;
     @apply border-interactive-hover;
   }
 
@@ -28,7 +28,7 @@
   }
 
   .page {
-    @apply text-gray-700 dark:text-gray-300;
+    @apply text-text-primary;
   }
 
   .active {
@@ -49,7 +49,7 @@
 
   .ellipsis {
     @apply inline-flex items-center justify-center;
-    @apply text-gray-500 dark:text-gray-500;
+    @apply text-text-secondary;
     @apply min-w-8;
   }
 
@@ -60,23 +60,23 @@
   .select {
     @apply reset-input;
     @apply rounded-md px-3 py-1.5;
-    @apply border border-gray-300 dark:border-gray-600;
-    @apply bg-white dark:bg-gray-800;
-    @apply text-gray-900 dark:text-gray-100;
+    @apply border border-border-default;
+    @apply bg-background-primary;
+    @apply text-text-primary;
     @apply cursor-pointer;
   }
 
   .quickJumper {
     @apply flex items-center gap-2;
-    @apply text-sm text-gray-700 dark:text-gray-300;
+    @apply text-sm text-text-primary;
   }
 
   .input {
     @apply reset-input;
     @apply w-16 rounded-md px-2 py-1;
-    @apply border border-gray-300 dark:border-gray-600;
-    @apply bg-white dark:bg-gray-800;
-    @apply text-gray-900 dark:text-gray-100;
+    @apply border border-border-default;
+    @apply bg-background-primary;
+    @apply text-text-primary;
     @apply text-center;
   }
 

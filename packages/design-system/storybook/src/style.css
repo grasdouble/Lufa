@@ -5,6 +5,7 @@
  * This file only contains Storybook-specific overrides and utilities.
  */
 @import '@grasdouble/lufa_design-system/style.css';
+@import '@grasdouble/lufa_design-system-themes/default.css';
 @import '@grasdouble/lufa_design-system-themes/ocean.css';
 @import '@grasdouble/lufa_design-system-themes/forest.css';
 /* Storybook-specific styles */

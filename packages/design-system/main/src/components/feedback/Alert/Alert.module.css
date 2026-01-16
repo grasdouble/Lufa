@@ -2,41 +2,43 @@
 
 @layer components {
   .alert {
-    @apply gap-sm p-base relative flex items-start;
-    @apply rounded-lg;
+    @apply relative flex items-start;
+    @apply gap-sm p-base;
+    @apply rounded-lg border;
+    @apply shadow-xs;
   }
 
   /* Variants */
   .variantInfo {
-    @apply border border-blue-200 bg-blue-50 text-blue-900;
+    @apply border-info-border bg-info-lighter text-info-text;
   }
 
   .variantInfo .icon {
-    @apply text-blue-600;
+    @apply text-info-default;
   }
 
   .variantSuccess {
-    @apply border border-green-200 bg-green-50 text-green-900;
+    @apply border-success-border bg-success-lighter text-success-text;
   }
 
   .variantSuccess .icon {
-    @apply text-green-600;
+    @apply text-success-default;
   }
 
   .variantWarning {
-    @apply border border-orange-200 bg-orange-50 text-orange-900;
+    @apply border-warning-border bg-warning-lighter text-warning-text;
   }
 
   .variantWarning .icon {
-    @apply text-orange-600;
+    @apply text-warning-default;
   }
 
   .variantError {
-    @apply border border-red-200 bg-red-50 text-red-900;
+    @apply border-error-border bg-error-lighter text-error-text;
   }
 
   .variantError .icon {
-    @apply text-red-600;
+    @apply text-error-default;
   }
 
   /* Icon */
@@ -45,7 +47,9 @@
   }
 
   .icon {
-    @apply h-5 w-5;
+    @apply text-lg;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   /* Content */
@@ -55,21 +59,26 @@
 
   .title {
     @apply reset-heading;
-    @apply mb-1 text-sm font-semibold;
+    @apply mb-xxs text-sm font-semibold;
   }
 
   .message {
-    @apply text-sm;
+    @apply text-sm leading-relaxed;
   }
 
   /* Close button */
   .closeButton {
-    @apply reset-button;
-    @apply ml-auto shrink-0;
-    @apply p-1;
-    @apply rounded-md;
-    @apply hover:bg-black/5;
-    @apply duration-base transition-colors;
+    @apply reset-button ml-auto shrink-0;
+    @apply rounded-md p-xxs;
+    @apply hover:bg-background-tertiary;
+    @apply active:bg-border-light;
+    @apply duration-fast transition-colors;
+    cursor: var(--lufa-token-cursor-pointer);
+  }
+
+  .closeButton:focus-visible {
+    @apply outline-2 outline-offset-2;
+    outline-color: var(--lufa-token-color-border-focus);
   }
 
   .closeButton svg {

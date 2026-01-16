@@ -29,8 +29,8 @@
   }
 
   .colorSecondary {
-    @apply text-gray-600 dark:text-gray-400;
-    @apply hover:text-gray-900 dark:hover:text-gray-100;
+    @apply text-text-secondary;
+    @apply hover:text-text-primary;
   }
 
   .colorInherit {
