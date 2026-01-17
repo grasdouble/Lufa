@@ -947,6 +947,7 @@ Button.displayName = 'Button';
 **Technology-specific instructions** (`.github/instructions/`):
 
 - `lufa-design-system.instructions.md` - Design system standards (detailed patterns)
+- `storybook-stories.instructions.md` - Storybook story writing guide (AI agents)
 - `a11y.instructions.md` - Accessibility guidelines (WCAG 2.1 AA)
 - `reactjs.instructions.md` - React best practices
 - `tailwindcss.instructions.md` - Tailwind CSS patterns
@@ -1184,11 +1185,11 @@ This project follows the [AGENTS.md standard](https://agents.md/) and maintains 
 
 ### Supported Agents and Their Files
 
-| Agent                        | Primary File                                                       | Status          | Notes                                          |
-| ---------------------------- | ------------------------------------------------------------------ | --------------- | ---------------------------------------------- |
-| **GitHub Copilot**           | [.github/copilot-instructions.md](.github/copilot-instructions.md) | ✅ Full Support | Path-scoped instructions with YAML frontmatter |
-| **Claude Code**              | [CLAUDE.md](CLAUDE.md)                                             | ✅ Full Support | Quick reference, links to AGENTS.md            |
-| **OpenAI Codex Extension**   | [config.toml](config.toml)                                         | ✅ Full Support | TOML configuration with custom instructions    |
+| Agent                      | Primary File                                                       | Status          | Notes                                          |
+| -------------------------- | ------------------------------------------------------------------ | --------------- | ---------------------------------------------- |
+| **GitHub Copilot**         | [.github/copilot-instructions.md](.github/copilot-instructions.md) | ✅ Full Support | Path-scoped instructions with YAML frontmatter |
+| **Claude Code**            | [CLAUDE.md](CLAUDE.md)                                             | ✅ Full Support | Quick reference, links to AGENTS.md            |
+| **OpenAI Codex Extension** | [config.toml](config.toml)                                         | ✅ Full Support | TOML configuration with custom instructions    |
 
 ### File Organization Strategy
 
@@ -1229,6 +1230,7 @@ To prevent desynchronization between AI documentation files, this project includ
 **Validation Script**: [scripts/validate-ai-docs.sh](scripts/validate-ai-docs.sh)
 
 **What it validates**:
+
 - Three-layer architecture consistency across AGENTS.md, CLAUDE.md, and .github/copilot-instructions.md
 - Critical rules (token usage, primitives restrictions) documented in all files
 - Build commands consistency
@@ -1238,6 +1240,7 @@ To prevent desynchronization between AI documentation files, this project includ
 - Package scope consistency
 
 **Running validation**:
+
 ```bash
 # Via npm script (recommended)
 pnpm validate:docs
@@ -1257,6 +1260,7 @@ When the codebase evolves, AI documentation should be kept up-to-date. This proj
 **Maintenance Guide**: [.github/instructions/multi-agent-documentation-maintenance.instructions.md](.github/instructions/multi-agent-documentation-maintenance.instructions.md)
 
 **What it covers**:
+
 - **Quick Decision Guide**: Should I update AI docs? What files to update? (decision trees and tables)
 - **Templates**: For creating new `.instructions.md` files and prompts
 - **Workflows**: Step-by-step instructions for common maintenance tasks
@@ -1265,6 +1269,7 @@ When the codebase evolves, AI documentation should be kept up-to-date. This proj
 - **Implementation History**: 5 phases documenting how the system evolved
 
 **When to consult this guide**:
+
 - ✅ You just made code changes and wonder if docs need updating
 - ✅ You're adding new technology or patterns to the project
 - ✅ You want to create new agent-specific instructions
@@ -1314,16 +1319,16 @@ This detailed matrix shows which features are supported by each AI agent.
 
 **For This Project (Lufa)**:
 
-| Workflow                      | Recommended Agent(s)           | Why                                               |
-| ----------------------------- | ------------------------------ | ------------------------------------------------- |
-| **Design System Development** | Claude Code, GitHub Copilot    | CLAUDE.md optimized, path-scoped rules            |
-| **Component Testing**         | GitHub Copilot                 | Path-scoped to test files, good test generation   |
-| **Documentation Updates**     | Claude Code                    | Good at reading context, following AGENTS.md      |
-| **Refactoring**               | GitHub Copilot                 | IDE integration, multi-file changes               |
-| **Learning the Codebase**     | Claude Code                    | Can read AGENTS.md comprehensively                |
-| **Quick Fixes**               | GitHub Copilot                 | Fastest in-editor suggestions                     |
-| **Complex Multi-File Tasks**  | OpenAI Codex Extension         | Autonomous mode, handles full features end-to-end |
-| **Async Long-Running Tasks**  | OpenAI Codex Extension         | Cloud sandboxes, work while you focus elsewhere   |
+| Workflow                      | Recommended Agent(s)        | Why                                               |
+| ----------------------------- | --------------------------- | ------------------------------------------------- |
+| **Design System Development** | Claude Code, GitHub Copilot | CLAUDE.md optimized, path-scoped rules            |
+| **Component Testing**         | GitHub Copilot              | Path-scoped to test files, good test generation   |
+| **Documentation Updates**     | Claude Code                 | Good at reading context, following AGENTS.md      |
+| **Refactoring**               | GitHub Copilot              | IDE integration, multi-file changes               |
+| **Learning the Codebase**     | Claude Code                 | Can read AGENTS.md comprehensively                |
+| **Quick Fixes**               | GitHub Copilot              | Fastest in-editor suggestions                     |
+| **Complex Multi-File Tasks**  | OpenAI Codex Extension      | Autonomous mode, handles full features end-to-end |
+| **Async Long-Running Tasks**  | OpenAI Codex Extension      | Cloud sandboxes, work while you focus elsewhere   |
 
 ### Agent-Specific Setup Instructions
 

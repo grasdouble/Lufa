@@ -11,6 +11,7 @@ This file contains GitHub Copilot-specific instructions and references to path-s
 ## Project Overview
 
 Lufa is a monorepo with:
+
 - **Design System** with strict three-layer architecture (primitives → tokens → components)
 - **Microfrontends** using Single-SPA
 - **pnpm workspaces** for package management
@@ -26,36 +27,49 @@ Lufa is a monorepo with:
 GitHub Copilot automatically applies these instructions based on file paths:
 
 ### Design System
+
 - **[lufa-design-system.instructions.md](instructions/lufa-design-system.instructions.md)**
   - Applied to: `packages/design-system/**/*.{ts,tsx,css}`
   - Covers: Three-layer architecture, component patterns, token usage
 
 ### React Components
+
 - **[reactjs.instructions.md](instructions/reactjs.instructions.md)**
   - Applied to: `**/*.{jsx,tsx,js,ts,css,scss}`
   - Covers: React 19+, hooks, functional components, best practices
 
 ### Accessibility
+
 - **[a11y.instructions.md](instructions/a11y.instructions.md)**
   - Applied to: `**`
   - Covers: WCAG 2.2 Level AA, keyboard nav, screen readers, ARIA
 
 ### TypeScript
+
 - **[typescript-5-es2022.instructions.md](instructions/typescript-5-es2022.instructions.md)**
   - Applied to: `**/*.ts`
   - Covers: TypeScript 5.x, ES2022, strict mode, naming conventions
 
 ### Playwright Tests
+
 - **[playwright-typescript.instructions.md](instructions/playwright-typescript.instructions.md)**
   - Applied to: `**`
   - Covers: E2E and component testing, locators, assertions
 
 ### Tailwind CSS
+
 - **[tailwindcss.instructions.md](instructions/tailwindcss.instructions.md)**
   - Applied to: `**/*.{jsx,tsx,js,ts,html,css}`
   - Covers: Utility-first CSS, responsive design, design tokens
 
+### Storybook Stories
+
+- **[storybook-stories.instructions.md](instructions/storybook-stories.instructions.md)**
+  - Applied to: `**/*.stories.tsx`, `**/storybook/**`
+  - Covers: Story creation patterns, prop-to-story workflow, visual demonstrations
+
 ### Additional Instructions
+
 - **[performance-optimization.instructions.md](instructions/performance-optimization.instructions.md)**
 - **[markdown.instructions.md](instructions/markdown.instructions.md)**
 - **[nodejs-javascript-vitest.instructions.md](instructions/nodejs-javascript-vitest.instructions.md)**
@@ -76,12 +90,13 @@ GitHub Copilot automatically applies these instructions based on file paths:
    - **Layer 3: Components** - React components using TOKENS only
 
 2. **Import Rules**
+
    ```typescript
    // ✅ CORRECT - Components import tokens
-   import { color, spacing } from '@grasdouble/lufa_design-system-tokens';
 
    // ❌ WRONG - Components MUST NOT import primitives
    import { spacing } from '@grasdouble/lufa_design-system-primitives';
+   import { color, spacing } from '@grasdouble/lufa_design-system-tokens';
 
    // ❌ WRONG - Never hard-code values
    const styles = { padding: '16px' };
@@ -216,12 +231,12 @@ test('button renders correctly', async ({ mount }) => {
 
 ## Troubleshooting Quick Reference
 
-| Issue | Solution |
-|-------|----------|
-| Build fails | `pnpm ds:all:build` (order matters!) |
-| Cannot find module @grasdouble/lufa_design-system-tokens | `pnpm ds:tokens:build` |
-| TypeScript errors in components | `pnpm ds:all:build` (wrong build order) |
-| Component not in Storybook | Export from `packages/design-system/main/src/index.ts` |
+| Issue                                                    | Solution                                               |
+| -------------------------------------------------------- | ------------------------------------------------------ |
+| Build fails                                              | `pnpm ds:all:build` (order matters!)                   |
+| Cannot find module @grasdouble/lufa_design-system-tokens | `pnpm ds:tokens:build`                                 |
+| TypeScript errors in components                          | `pnpm ds:all:build` (wrong build order)                |
+| Component not in Storybook                               | Export from `packages/design-system/main/src/index.ts` |
 
 ---
 
