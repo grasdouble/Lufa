@@ -175,7 +175,7 @@ agent: 'agent' # or specific agent type
 | **Utilities**     | 1              | Model selection              |
 | **Total**         | **6**          | -                            |
 
-> 📜 **History**: 7 prompts archived (5 suggestion tools + 1 legacy design system builder + 1 Tailwind converter). See "Archived Prompts" section below.
+> 📜 **History**: 7 prompts archived. See "Archived Prompts" section below for details.
 
 ---
 
@@ -210,7 +210,7 @@ Prompts removed from active use but kept for reference. Available in Git history
 
 | Prompt                                                  | Category               | Archived     | Reason                                    |
 | ------------------------------------------------------- | ---------------------- | ------------ | ----------------------------------------- |
-| `tailwindcss-convert.prompt.md`                         | Utilities / Conversion | January 2026 | No longer relevant after Tailwind removal |
+| `tailwindcss-convert.prompt.md`                         | Utilities / Conversion | January 2026 | No longer relevant (tech stack migration) |
 | `suggest-awesome-github-copilot-agents.prompt.md`       | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
 | `suggest-awesome-github-copilot-chatmodes.prompt.md`    | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
 | `suggest-awesome-github-copilot-collections.prompt.md`  | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
