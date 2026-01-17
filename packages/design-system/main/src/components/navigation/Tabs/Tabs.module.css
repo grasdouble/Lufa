@@ -1,4 +1,4 @@
-@import '../../../css/component-resets-vanilla.css';
+@import '../../../css/component-resets.css';
 
 @layer components {
   .tabs {

@@ -1,17 +1,71 @@
 /**
- * Lufa Design System - Tailwind CSS Entry Point
+ * Lufa Design System - Vanilla CSS Entry Point
  * 
- * ⚠️ DEPRECATION NOTICE: This file uses Tailwind CSS and will be replaced
- * by style-vanilla.css after migration is complete.
+ * This is the new CSS entry point without Tailwind CSS dependency.
+ * Uses vanilla CSS with CSS Modules and token-based CSS custom properties.
  * 
- * Migration status: Phase 0 - Being phased out
- * New entry point: style-vanilla.css
- * 
- * This file consolidates all CSS including primitives, tokens, and Tailwind
+ * Migration status: Phase 0 - Coexists with style.css during migration
  */
 
-/* Import primitives and tokens CSS variables */
-@import '@grasdouble/lufa_design-system-primitives/style.css';
+/* Layer definition */
+@layer base, components, utilities;
+
+/* ============================================================================
+   FOUNDATION
+   ============================================================================ */
+
+/* Vanilla CSS foundation (reset, base styles) */
+@import './css/foundation.css';
+
+/* Component reset utilities (vanilla CSS) */
+@import './css/component-resets.css';
+
+/* Container query definitions */
+@import './css/container-queries.css';
+
+/* ============================================================================
+   DESIGN TOKENS
+   ============================================================================ */
+
+/* Import design tokens (CSS custom properties already generated) */
 @import '@grasdouble/lufa_design-system-tokens/style.css';
 
-@import './tailwind.css';
+/* ============================================================================
+   THEME SUPPORT
+   ============================================================================ */
+
+@layer base {
+  /**
+   * Dark mode support
+   * 
+   * Themes handle their own light/dark variants via data-mode attribute.
+   * Semantic tokens automatically adapt to the current mode.
+   * 
+   * Usage:
+   * - <html data-mode="light"> : Force light mode
+   * - <html data-mode="dark">  : Force dark mode
+   * - <html data-mode="auto">  : Follow system preference (default)
+   */
+
+  /* Mode-specific adjustments are handled by semantic tokens */
+  /* No manual dark: classes needed - tokens adapt automatically */
+}
+
+/* ============================================================================
+   COMPONENT STYLES
+   ============================================================================ */
+
+/**
+ * Component-specific CSS is imported via CSS Modules in each component.
+ * This file only provides the foundation, tokens, and utilities.
+ * 
+ * Example component CSS Module:
+ * 
+ * @layer components {
+ *   .button {
+ *     background-color: var(--lufa-token-color-interactive-default);
+ *     padding: var(--lufa-token-spacing-base);
+ *     border-radius: var(--lufa-token-radius-base);
+ *   }
+ * }
+ */

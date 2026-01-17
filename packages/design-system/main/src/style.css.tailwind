@@ -1,0 +1,17 @@
+/**
+ * Lufa Design System - Tailwind CSS Entry Point
+ * 
+ * ⚠️ DEPRECATION NOTICE: This file uses Tailwind CSS and will be replaced
+ * by style-vanilla.css after migration is complete.
+ * 
+ * Migration status: Phase 0 - Being phased out
+ * New entry point: style-vanilla.css
+ * 
+ * This file consolidates all CSS including primitives, tokens, and Tailwind
+ */
+
+/* Import primitives and tokens CSS variables */
+@import '@grasdouble/lufa_design-system-primitives/style.css';
+@import '@grasdouble/lufa_design-system-tokens/style.css';
+
+@import './tailwind.css';

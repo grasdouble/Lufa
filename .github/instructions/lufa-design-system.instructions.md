@@ -130,7 +130,7 @@ export const spacingTokens = {
 - Follow accessibility best practices (WCAG 2.1 AA)
 - Implement TypeScript interfaces for all props
 - Support composition patterns
-- Use Tailwind CSS utilities with token-based customization
+- Use vanilla CSS with token-based design values
 
 **Component Structure**:
 
@@ -205,43 +205,51 @@ Button.displayName = 'Button';
 
 1. **ALWAYS use CSS Modules** - Create a `.module.css` file alongside your component
 2. **ONLY use tokens that EXIST** - Verify tokens in `packages/design-system/tokens/dist/style.css` before using
-3. **Use Tailwind `@apply` directives** with token-based utilities in CSS Modules
+3. **Use vanilla CSS** with design token CSS custom properties (`var(--lufa-token-*)`)
 
 **CSS Module Example**:
 
 ```css
 /* Button.module.css */
-@reference '../../../tailwind.css';
 
-@layer components {
-  .button {
-    @apply rounded-base;
-    @apply duration-base transition-all;
-    @apply font-medium;
-  }
+.button {
+  border-radius: var(--lufa-token-radius-base);
+  transition-duration: var(--lufa-token-duration-base);
+  transition-property: all;
+  font-weight: var(--lufa-token-font-weight-medium);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
 
-  .variantPrimary {
-    @apply bg-interactive-default;
-    @apply text-text-inverse;
-  }
+.variantPrimary {
+  background-color: var(--lufa-token-color-interactive-default);
+  color: var(--lufa-token-color-text-inverse);
+}
 
-  .variantSecondary {
-    @apply bg-background-secondary;
-    @apply border-border-default border;
-    @apply text-text-primary;
-  }
+.variantPrimary:hover {
+  background-color: var(--lufa-token-color-interactive-hover);
+}
 
-  .sizeSmall {
-    @apply px-base py-xs text-sm;
-  }
+.variantSecondary {
+  background-color: var(--lufa-token-color-background-secondary);
+  border: var(--lufa-token-border-width-default) solid var(--lufa-token-color-border-default);
+  color: var(--lufa-token-color-text-primary);
+}
 
-  .sizeMedium {
-    @apply px-lg py-sm text-base;
-  }
+.sizeSmall {
+  padding: var(--lufa-token-spacing-xs) var(--lufa-token-spacing-base);
+  font-size: var(--lufa-token-font-size-sm);
+}
 
-  .sizeLarge {
-    @apply px-xl py-md text-lg;
-  }
+.sizeMedium {
+  padding: var(--lufa-token-spacing-sm) var(--lufa-token-spacing-lg);
+  font-size: var(--lufa-token-font-size-base);
+}
+
+.sizeLarge {
+  padding: var(--lufa-token-spacing-md) var(--lufa-token-spacing-xl);
+  font-size: var(--lufa-token-font-size-lg);
 }
 ```
 
@@ -260,12 +268,12 @@ className={clsx(
 
 **Available Token Categories** (always verify in `tokens/dist/style.css`):
 
-- **Colors**: `bg-background-*`, `text-text-*`, `border-border-*`, `bg-interactive-*`
-- **Spacing**: `p-*`, `m-*`, `gap-*` (xs, sm, base, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
-- **Border**: `rounded-*` (none, xs, sm, md, base, lg, xl, 2xl, 3xl, full)
-- **Typography**: `text-*`, `font-*`, `leading-*`
-- **Transitions**: `duration-*` (fast, base, slow, slower)
-- **Shadows**: `shadow-*` (sm, base, md, lg, xl)
+- **Colors**: `--lufa-token-color-background-*`, `--lufa-token-color-text-*`, `--lufa-token-color-border-*`, `--lufa-token-color-interactive-*`
+- **Spacing**: `--lufa-token-spacing-*` (xs, sm, base, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
+- **Border**: `--lufa-token-radius-*` (none, xs, sm, md, base, lg, xl, 2xl, 3xl, full)
+- **Typography**: `--lufa-token-font-size-*`, `--lufa-token-font-weight-*`, `--lufa-token-line-height-*`
+- **Transitions**: `--lufa-token-duration-*` (fast, base, slow, slower)
+- **Shadows**: `--lufa-token-shadow-*` (sm, base, md, lg, xl)
 
 **Design & Visual Quality Requirements**:
 
@@ -282,7 +290,7 @@ className={clsx(
 All components MUST support theming and dark mode:
 
 1. **Use semantic tokens only** - Never hard-code ANY values (not just colors)
-   - ✅ `@apply bg-interactive-default text-text-inverse p-base rounded-base duration-base`
+   - ✅ `background-color: var(--lufa-token-color-interactive-default); color: var(--lufa-token-color-text-inverse); padding: var(--lufa-token-spacing-base); border-radius: var(--lufa-token-radius-base); transition-duration: var(--lufa-token-duration-base);`
    - ❌ `background: #0284c7; color: white; padding: 16px; border-radius: 8px;`
 
 **Themeable Properties** (not just colors):
@@ -312,17 +320,23 @@ All components MUST support theming and dark mode:
 4. **CSS variables pattern**:
 
    ```css
-   /* Tailwind utilities map to CSS variables in theme.css */
+   /* Use CSS custom properties directly in your styles */
    .button {
-     @apply bg-interactive-default; /* → --color-interactive-default */
-     @apply hover:bg-interactive-hover; /* → --color-interactive-hover */
-     @apply px-lg py-sm; /* → --spacing-lg, --spacing-sm */
-     @apply rounded-base; /* → --border-radius-base */
-     @apply duration-base; /* → --transition-duration-base */
+     background-color: var(--lufa-token-color-interactive-default);
+     padding-left: var(--lufa-token-spacing-lg);
+     padding-right: var(--lufa-token-spacing-lg);
+     padding-top: var(--lufa-token-spacing-sm);
+     padding-bottom: var(--lufa-token-spacing-sm);
+     border-radius: var(--lufa-token-radius-base);
+     transition-duration: var(--lufa-token-duration-base);
+   }
+
+   .button:hover {
+     background-color: var(--lufa-token-color-interactive-hover);
    }
 
    /* Dark mode is handled automatically via semantic tokens */
-   /* No need for manual dark: classes - tokens adapt to data-mode */
+   /* No need for manual dark mode selectors - tokens adapt to data-mode */
    ```
 
 5. **Testing themes and modes**:
@@ -385,42 +399,128 @@ components/
 
 **Styling Guidelines**:
 
-- Use Tailwind CSS utility classes
-- Leverage token-based CSS custom properties
-- Create component-specific classes in `@layer components`
-- Support dark mode via CSS variables
-- Implement responsive behavior with mobile-first approach
+- Use vanilla CSS with CSS Modules for component styling
+- Leverage token-based CSS custom properties (`var(--lufa-token-*)`)
+- Create component-specific classes with semantic class names
+- Support dark mode via CSS variables (automatically handled by tokens)
+- Implement responsive behavior with mobile-first approach using media queries
+
+**Vanilla CSS + Tokens Best Practices**:
+
+1. **Always use tokens via CSS custom properties** - Never hard-code values
+2. **Organize CSS logically** - Base styles, variants, sizes, states (hover, focus, active, disabled)
+3. **Use CSS Modules** - Scoped styles prevent naming conflicts
+4. **Semantic class names** - Descriptive names that indicate purpose (e.g., `.button`, `.variantPrimary`, `.sizeSmall`)
+5. **Mobile-first responsive** - Base styles for mobile, use `min-width` media queries for larger screens
+6. **Logical properties** - Use `padding-inline`, `margin-block`, etc. for better internationalization
+7. **CSS nesting** - Use native CSS nesting for cleaner hierarchy (widely supported)
 
 **Example Styling**:
 
 ```css
-@layer components {
+/* Button.module.css */
+
+/* Base button styles */
+.btn {
+  /* Use tokens via CSS custom properties */
+  padding: var(--lufa-token-spacing-base);
+  font-size: var(--lufa-token-font-size-base);
+  font-weight: var(--lufa-token-font-weight-semibold);
+  border-radius: var(--lufa-token-radius-base);
+  transition-duration: var(--lufa-token-duration-fast);
+  transition-property: transform, background-color, color, box-shadow;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lufa-token-spacing-xs);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+  outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
+  outline-offset: var(--lufa-token-spacing-xs);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variant styles */
+.btnPrimary {
+  background-color: var(--lufa-token-color-interactive-default);
+  color: var(--lufa-token-color-text-inverse);
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background-color: var(--lufa-token-color-interactive-hover);
+}
+
+.btnSecondary {
+  background-color: var(--lufa-token-color-background-secondary);
+  color: var(--lufa-token-color-text-primary);
+  border: var(--lufa-token-border-width-default) solid var(--lufa-token-color-border-default);
+}
+
+/* Size variants */
+.btnSmall {
+  padding: var(--lufa-token-spacing-xs) var(--lufa-token-spacing-base);
+  font-size: var(--lufa-token-font-size-sm);
+}
+
+.btnLarge {
+  padding: var(--lufa-token-spacing-md) var(--lufa-token-spacing-xl);
+  font-size: var(--lufa-token-font-size-lg);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
   .btn {
-    /* Use tokens via CSS custom properties */
-    padding: var(--lufa-token-spacing-base);
-    font-size: var(--lufa-token-font-size-base);
-    font-weight: var(--lufa-token-font-weight-semibold);
-    border-radius: var(--lufa-token-radius-base);
-    transition: var(--lufa-token-transition-fast);
-    cursor: var(--lufa-token-cursor-pointer);
+    padding: var(--lufa-token-spacing-md) var(--lufa-token-spacing-lg);
+  }
+}
+```
+
+**Advanced patterns with CSS nesting**:
+
+```css
+/* Card.module.css */
+
+.card {
+  background-color: var(--lufa-token-color-background-primary);
+  border-radius: var(--lufa-token-radius-lg);
+  padding: var(--lufa-token-spacing-lg);
+  box-shadow: var(--lufa-token-shadow-base);
+  transition-duration: var(--lufa-token-duration-base);
+  transition-property: box-shadow, transform;
+
+  /* Hover state using nesting */
+  &:hover {
+    box-shadow: var(--lufa-token-shadow-md);
+    transform: translateY(-2px);
   }
 
-  .btn:hover {
-    transform: var(--lufa-token-transform-hover-lift);
+  /* Nested element styles */
+  & .cardTitle {
+    font-size: var(--lufa-token-font-size-xl);
+    font-weight: var(--lufa-token-font-weight-bold);
+    color: var(--lufa-token-color-text-primary);
+    margin-bottom: var(--lufa-token-spacing-sm);
   }
 
-  .btn:focus-visible {
-    outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
-    outline-offset: var(--lufa-token-spacing-xs);
-  }
-
-  .btn-primary {
-    background: var(--lufa-token-color-interactive-default);
-    color: var(--lufa-token-color-text-inverse);
-  }
-
-  .btn-primary:hover {
-    background: var(--lufa-token-color-interactive-hover);
+  & .cardContent {
+    color: var(--lufa-token-color-text-secondary);
+    line-height: var(--lufa-token-line-height-relaxed);
   }
 }
 ```
@@ -527,7 +627,7 @@ export const Primary: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex gap-4">
+    <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-base)' }}>
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="ghost">Ghost</Button>
@@ -717,7 +817,7 @@ Before creating or modifying components, ensure:
 - [ ] **CRITICAL**: Component uses CSS Modules (`.module.css` file created)
 - [ ] **CRITICAL**: All tokens used EXIST in `packages/design-system/tokens/dist/style.css`
 - [ ] **CRITICAL**: NO inline styles or global CSS - only CSS Modules
-- [ ] Component uses tokens via Tailwind utilities (not primitives or hard-coded values)
+- [ ] Component uses tokens via CSS custom properties (not primitives or hard-coded values)
 - [ ] CSS Module imported with `import styles from './Component.module.css'`
 - [ ] **CRITICAL**: Component supports theming (uses semantic tokens, no hard-coded colors)
 - [ ] **CRITICAL**: Component supports dark mode (tested in light and dark modes)
@@ -926,7 +1026,8 @@ pnpm ds:all:dev  # Runs Storybook + Documentation + Main watch
 
 - [React Documentation](https://react.dev)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [MDN CSS Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [CSS Modules Documentation](https://github.com/css-modules/css-modules)
 - [HeadlessUI Documentation](https://headlessui.com)
 - [WCAG Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
 - [Inclusive Components](https://inclusive-components.design/)

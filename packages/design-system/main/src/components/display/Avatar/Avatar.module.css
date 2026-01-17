@@ -1,4 +1,4 @@
-@import '../../../css/component-resets-vanilla.css';
+@import '../../../css/component-resets.css';
 @import '@grasdouble/lufa_design-system-tokens/style.css';
 
 @layer components {

@@ -1,5 +1,4 @@
 import { resolve } from 'node:path';
-import tailwindcss from '@tailwindcss/vite';
 import reactPlugin from '@vitejs/plugin-react';
 import { defineConfig, loadEnv } from 'vite';
 import dts from 'vite-plugin-dts';
@@ -42,7 +41,6 @@ export default defineConfig(({ command, mode, isPreview }) => {
       // build specific config
       plugins: [
         ...defaultPlugin,
-        tailwindcss(),
         dts({
           entryRoot: 'src',
           tsconfigPath: './tsconfig.build.json',
