@@ -61,34 +61,40 @@ export const Playground: Story = {
     gap: SPACE_SIZE.md,
     inline: false,
   },
-  render: (args) => (
-    <Container size="xl" paddingX="none">
-      <div
-        style={{
-          backgroundColor: tokens.color.background.secondary,
-          borderRadius: tokens.radius.lg,
-          padding: tokens.spacing.base,
-        }}
-      >
-        <Flex
-          {...args}
+  render: (args) => {
+    // Create items with varying heights to demonstrate align-items effect
+    const heights = ['small', 'medium', 'small', 'large', 'small', 'medium', 'small', 'medium'] as const;
+
+    return (
+      <Container size="xl" paddingX="none">
+        <div
           style={{
-            ...args.style,
-            backgroundColor: tokens.color.background.primary,
+            backgroundColor: tokens.color.background.secondary,
             borderRadius: tokens.radius.lg,
-            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
             padding: tokens.spacing.base,
           }}
         >
-          {Array.from({ length: 8 }).map((_, index) => (
-            <Placeholder key={index} color={tokens.color.interactive.default} height="small" width="auto">
-              Item {index + 1}
-            </Placeholder>
-          ))}
-        </Flex>
-      </div>
-    </Container>
-  ),
+          <Flex
+            {...args}
+            style={{
+              ...args.style,
+              backgroundColor: tokens.color.background.primary,
+              borderRadius: tokens.radius.lg,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              padding: tokens.spacing.base,
+              minHeight: tokens.size['4xl'], // Add minimum height to show vertical alignment
+            }}
+          >
+            {Array.from({ length: 8 }).map((_, index) => (
+              <Placeholder key={index} color={tokens.color.interactive.default} height={heights[index]} width="auto">
+                Item {index + 1}
+              </Placeholder>
+            ))}
+          </Flex>
+        </div>
+      </Container>
+    );
+  },
 };
 
 export const Alignment: Story = {
