@@ -358,7 +358,7 @@ Agents removed from active use. Available in Git history if needed.
 | ------------------------------------- | -------------- | ---------- | ------------------------------------- |
 | `custom-agent-foundry.agent.md`       | Meta & Tooling | 2025-01-11 | Use existing templates instead        |
 | `prompt-builder.agent.md`             | Meta & Tooling | 2025-01-11 | Rarely needed                         |
-| `tailwindcss-refactor.agent.md`       | Development    | 2025-01-11 | Tailwind replaced by vanilla CSS      |
+| `tailwindcss-refactor.agent.md`       | Development    | 2025-01-11 | Tech stack migration completed        |
 | `lufa-design-system-builder.agent.md` | Design System  | 2025-01-11 | Replaced by lufa-design-system-expert |
 
 **Restoration**: Recover from Git with:
