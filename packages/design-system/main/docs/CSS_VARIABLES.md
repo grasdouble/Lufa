@@ -33,7 +33,7 @@
 - `--color-text-disabled` - Disabled text color
 - `--color-text-inverse` - Text on dark backgrounds
 - `--color-text-link` - Link text color
-- `--color-text-linkHover` - Link hover color
+- `--color-text-link-hover` - Link hover color
 
 ### Background Colors
 

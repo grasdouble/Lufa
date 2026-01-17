@@ -198,8 +198,9 @@ Components using semantic tokens automatically support dark mode - **no changes 
 
 ```css
 .alert {
-  @apply bg-background-primary text-text-primary;
-  @apply border border-border-default;
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-default);
 }
 /* ✅ Automatically adapts to light/dark mode */
 ```
@@ -207,15 +208,18 @@ Components using semantic tokens automatically support dark mode - **no changes 
 ### Needs Fixing
 
 ```css
-/* ❌ BAD - Uses primitive colors with dark: utilities */
+/* ❌ BAD - Hard-coded colors that don't adapt */
 .pagination {
-  @apply bg-white text-gray-900 border-gray-300;
-  @apply dark:bg-gray-800 dark:text-gray-100;
+  background: #ffffff;
+  color: #171717;
+  border: 1px solid #e5e5e5;
 }
 
 /* ✅ GOOD - Uses semantic tokens */
 .pagination {
-  @apply bg-background-primary text-text-primary border-border-default;
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-default);
 }
 ```
 
@@ -224,11 +228,11 @@ Components using semantic tokens automatically support dark mode - **no changes 
 ## 🔍 Finding Components to Fix
 
 ```bash
-# Search for primitive dark: utilities
-grep -r "dark:bg-gray\|dark:text-gray" packages/design-system/main/src/components/
-
 # Search for hard-coded colors
 grep -r "#[0-9a-fA-F]\{6\}" packages/design-system/main/src/components/ --include="*.css"
+
+# Search for non-token variable usage (should use var(--color-*, --spacing-*, etc.))
+grep -r "color:\s*[^v]" packages/design-system/main/src/components/ --include="*.css"
 ```
 
 ---
@@ -236,6 +240,6 @@ grep -r "#[0-9a-fA-F]\{6\}" packages/design-system/main/src/components/ --includ
 ## 📚 Additional Resources
 
 - [Material Design Dark Theme](https://m3.material.io/styles/color/dark-theme/overview)
-- [Tailwind CSS Dark Mode](https://tailwindcss.com/docs/dark-mode)
+- [MDN: prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
 - [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
 - [CSS Tricks: Dark Mode Guide](https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/)
