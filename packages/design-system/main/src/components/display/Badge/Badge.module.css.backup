@@ -1,0 +1,90 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+  .badge {
+    @apply gap-xs inline-flex items-center;
+    @apply font-medium;
+    @apply px-sm py-xxs;
+    @apply rounded-md;
+    @apply ring-1 ring-inset;
+    @apply duration-fast transition-colors;
+  }
+
+  /* Sizes */
+  .size-sm {
+    @apply px-xs py-xxs text-xs;
+  }
+
+  .size-md {
+    @apply px-sm py-xxs text-sm;
+  }
+
+  .size-lg {
+    @apply px-md py-xs text-base;
+  }
+
+  /* Rounded variant */
+  .rounded {
+    @apply rounded-full;
+  }
+
+  /* Dot indicator */
+  .dot {
+    @apply h-1.5 w-1.5 rounded-full;
+  }
+
+  /* Color variants */
+  .variant-default {
+    @apply bg-background-secondary text-text-secondary;
+    @apply ring-border-default;
+  }
+
+  .variant-default .dot {
+    @apply bg-text-tertiary;
+  }
+
+  .variant-primary {
+    @apply bg-interactive-focus text-interactive-default;
+    @apply ring-interactive-default;
+  }
+
+  .variant-primary .dot {
+    @apply bg-interactive-default;
+  }
+
+  .variant-success {
+    @apply bg-success-lighter text-success-text;
+    @apply ring-success-border;
+  }
+
+  .variant-success .dot {
+    @apply bg-success-default;
+  }
+
+  .variant-warning {
+    @apply bg-warning-lighter text-warning-text;
+    @apply ring-warning-border;
+  }
+
+  .variant-warning .dot {
+    @apply bg-warning-default;
+  }
+
+  .variant-danger {
+    @apply bg-error-lighter text-error-text;
+    @apply ring-error-border;
+  }
+
+  .variant-danger .dot {
+    @apply bg-error-default;
+  }
+
+  .variant-info {
+    @apply bg-info-lighter text-info-text;
+    @apply ring-info-border;
+  }
+
+  .variant-info .dot {
+    @apply bg-info-default;
+  }
+}

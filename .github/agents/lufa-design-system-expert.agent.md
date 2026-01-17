@@ -187,13 +187,19 @@ I can help with ALL Lufa Design System tasks:
 All components MUST support theming through the design system's theming infrastructure:
 
 **Theming System**:
-- Uses `data-theme` attribute on root element (e.g., `<html data-theme="ocean">`)
-- ALL semantic tokens are CSS variables defined in `theme.css` (Tailwind `@theme` directive)
+
+- Uses `data-theme` attribute on root element for theme selection (e.g., `<html data-theme="ocean">`)
+- Uses `data-mode` attribute on root element for brightness mode (e.g., `<html data-mode="dark">`)
+- **9 Visual Configurations**: 3 themes × 3 modes (light, dark, auto) = `default-light`, `ocean-dark`, `forest-auto`, etc.
+- ALL semantic tokens are CSS variables defined in theme CSS files (Tailwind `@theme` directive)
 - Pre-built themes available: `default`, `ocean`, `forest` (from `@grasdouble/lufa_design-system-themes`)
+- Each theme includes both light and dark mode variants
 - Components use Tailwind utilities that map to themeable CSS variables
+- `useTheme` hook available for programmatic theme and mode control
 
 **Themeable Properties** (not just colors):
-- **Colors**: text, background, border, interactive states
+
+- **Colors**: text, background, border, interactive states (both light and dark mode)
 - **Spacing**: padding, margin, gap (xs, sm, base, lg, xl, etc.)
 - **Border**: widths (hairline, thin, thick), radius (xs, sm, base, lg, xl, full)
 - **Typography**: font sizes, weights, line heights, letter spacing
@@ -201,36 +207,65 @@ All components MUST support theming through the design system's theming infrastr
 - **Effects**: opacity, shadows, transforms
 - **Dimensions**: component heights, widths (buttons, inputs, modals, etc.)
 
+**Mode Support**:
+
+- Light mode: `data-mode="light"` - Bright backgrounds, dark text
+- Dark mode: `data-mode="dark"` - Dark backgrounds, light text with inverted lightness and reduced saturation
+- Auto mode: `data-mode="auto"` or no attribute - Follows system preference via `prefers-color-scheme`
+
 **Component Requirements**:
+
 1. **MUST use semantic tokens only** (no hard-coded values)
    - ✅ `@apply bg-interactive-default text-text-inverse p-base rounded-base` (themeable)
    - ❌ `background: #0284c7; padding: 16px; border-radius: 8px;` (hard-coded, breaks theming)
 
 2. **MUST use Tailwind utilities that reference CSS variables**:
+
    ```css
    /* Component.module.css */
    .button {
-     @apply bg-interactive-default;      /* Maps to --color-interactive-default */
-     @apply text-text-inverse;            /* Maps to --color-text-inverse */
-     @apply border-border-default;        /* Maps to --color-border-default */
-     @apply px-lg py-sm;                  /* Maps to --spacing-lg, --spacing-sm */
-     @apply rounded-base;                 /* Maps to --border-radius-base */
+     @apply bg-interactive-default; /* Maps to --color-interactive-default */
+     @apply text-text-inverse; /* Maps to --color-text-inverse */
+     @apply border-border-default; /* Maps to --color-border-default */
+     @apply px-lg py-sm; /* Maps to --spacing-lg, --spacing-sm */
+     @apply rounded-base; /* Maps to --border-radius-base */
      @apply duration-base transition-all; /* Maps to --transition-duration-base */
    }
    ```
 
-3. **MUST test with multiple themes** (verified in Storybook and Playwright)
+3. **MUST test with multiple themes AND modes** (verified in Storybook and Playwright)
+   - Test all 3 themes: default, ocean, forest
+   - Test all 3 modes: light, dark, auto
+   - Verify contrast and readability in dark mode
 
 **Why This Matters**:
-Using semantic tokens (not just colors, but ALL styling properties) ensures components automatically adapt to different themes. Hard-coded values break the theming system and prevent customization.
+Using semantic tokens (not just colors, but ALL styling properties) ensures components automatically adapt to different themes AND brightness modes. Hard-coded values break the theming system and prevent customization. Dark mode support is built into every theme.
 
-**Available Themes**:
+**Available Themes with Dark Mode**:
+
 ```tsx
 import '@grasdouble/lufa_design-system-themes/ocean.css';
 import '@grasdouble/lufa_design-system-themes/forest.css';
 
-// Apply theme
+// Apply theme and mode
 document.documentElement.setAttribute('data-theme', 'ocean');
+document.documentElement.setAttribute('data-mode', 'dark'); // or 'light' or 'auto'
+```
+
+**useTheme Hook for Programmatic Control**:
+
+```tsx
+import { useTheme } from '@grasdouble/lufa_design-system';
+
+const { theme, mode, effectiveMode, setTheme, setMode } = useTheme({
+  defaultTheme: 'default',
+  defaultMode: 'auto',
+  enableStorage: true,
+});
+
+// Set theme and mode independently
+setTheme('ocean');
+setMode('dark'); // 'light' | 'dark' | 'auto'
 ```
 
 ## Your Approach
@@ -395,6 +430,7 @@ export const {Component} = ({
 ### Step 3: Styling with CSS Modules and Tokens
 
 **CRITICAL REQUIREMENTS:**
+
 1. **ALWAYS use CSS Modules** (`.module.css` extension) - NEVER use inline styles or global CSS
 2. **ONLY use tokens that EXIST** - Verify tokens in `packages/design-system/tokens/dist/style.css` before using
 3. Use Tailwind CSS `@apply` directives with token-based utilities
@@ -479,6 +515,7 @@ export const {Component} = ({ variant, size, children, className, ...props }) =>
 ```
 
 **Available Token Categories (verify before using):**
+
 - **Colors**: `bg-background-*`, `text-text-*`, `border-border-*`, `bg-interactive-*`
 - **Spacing**: `p-*`, `m-*`, `gap-*` (xs, sm, base, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
 - **Border**: `rounded-*` (none, xs, sm, md, base, lg, xl, 2xl, 3xl, full)
@@ -528,32 +565,54 @@ describe('{Component}', () => {
 
 **Playwright Theme Testing Pattern**:
 
-Every component should be tested with multiple themes to ensure proper theming support:
+Every component should be tested with multiple themes AND modes to ensure proper theming support:
 
 ```typescript
 // packages/design-system/playwright/src/components/{category}/{Component}.spec.tsx
 
-test('theming: component works with all themes', async ({ mount, page }) => {
+test('theming: component works with all themes and modes', async ({ mount, page }) => {
   const component = await mount(
     <div id="theme-container">
       <{Component} variant="primary">Test</{Component}>
     </div>
   );
 
-  // Test default theme
-  await expect(component).toHaveScreenshot('{component}-theme-default.png');
+  // Test default theme - light mode
+  await expect(component).toHaveScreenshot('{component}-theme-default-light.png');
 
-  // Test ocean theme
+  // Test default theme - dark mode
   await page.evaluate(() => {
-    document.getElementById('theme-container')?.setAttribute('data-theme', 'ocean');
+    document.getElementById('theme-container')?.setAttribute('data-mode', 'dark');
   });
-  await expect(component).toHaveScreenshot('{component}-theme-ocean.png');
+  await expect(component).toHaveScreenshot('{component}-theme-default-dark.png');
 
-  // Test forest theme
+  // Test ocean theme - light mode
   await page.evaluate(() => {
-    document.getElementById('theme-container')?.setAttribute('data-theme', 'forest');
+    const container = document.getElementById('theme-container');
+    container?.setAttribute('data-theme', 'ocean');
+    container?.setAttribute('data-mode', 'light');
   });
-  await expect(component).toHaveScreenshot('{component}-theme-forest.png');
+  await expect(component).toHaveScreenshot('{component}-theme-ocean-light.png');
+
+  // Test ocean theme - dark mode
+  await page.evaluate(() => {
+    document.getElementById('theme-container')?.setAttribute('data-mode', 'dark');
+  });
+  await expect(component).toHaveScreenshot('{component}-theme-ocean-dark.png');
+
+  // Test forest theme - light mode
+  await page.evaluate(() => {
+    const container = document.getElementById('theme-container');
+    container?.setAttribute('data-theme', 'forest');
+    container?.setAttribute('data-mode', 'light');
+  });
+  await expect(component).toHaveScreenshot('{component}-theme-forest-light.png');
+
+  // Test forest theme - dark mode
+  await page.evaluate(() => {
+    document.getElementById('theme-container')?.setAttribute('data-mode', 'dark');
+  });
+  await expect(component).toHaveScreenshot('{component}-theme-forest-dark.png');
 });
 ```
 
@@ -780,6 +839,7 @@ const sidebars: SidebarsConfig = {
 ```
 
 **Example**: For a new Badge component in Display category:
+
 ```typescript
 {
   type: 'category',
@@ -834,9 +894,13 @@ Before completing, verify:
 **Theming:**
 
 - [ ] **CRITICAL**: Component uses semantic tokens only (no hard-coded colors)
-- [ ] **CRITICAL**: Verified component appearance in multiple themes (default, ocean, forest)
-- [ ] Storybook story tested with theme switcher
-- [ ] Playwright test verifies visual consistency across themes
+- [ ] **CRITICAL**: Verified component appearance in all 9 configurations (3 themes × 3 modes)
+- [ ] Tested in light mode (bright backgrounds, dark text)
+- [ ] Tested in dark mode (dark backgrounds, light text, proper contrast)
+- [ ] Tested in auto mode (system preference detection)
+- [ ] Storybook story tested with theme and mode switcher
+- [ ] Playwright test verifies visual consistency across themes and modes
+- [ ] Text contrast ≥ 4.5:1 in both light and dark modes
 
 **Accessibility:**
 
@@ -1091,14 +1155,14 @@ packages/design-system/
 
 ### Package Purposes
 
-| Package           | Purpose                    | Technology                 | Dev Command    | Port |
-| ----------------- | -------------------------- | -------------------------- | -------------- | ---- |
-| **primitives**    | Raw, non-semantic values   | TypeScript + CSS variables | -              | -    |
-| **tokens**        | Semantic design decisions  | TypeScript + CSS variables | -              | -    |
-| **main**          | Component library (source) | React 19 + TypeScript      | `pnpm dev`     | -    |
-| **storybook**     | Interactive playground     | Storybook 8 + Vite         | `pnpm dev`     | 6006 |
-| **playwright**    | Component testing          | Playwright CT + React      | `pnpm test-ct` | -    |
-| **docusaurus**    | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
+| Package        | Purpose                    | Technology                 | Dev Command    | Port |
+| -------------- | -------------------------- | -------------------------- | -------------- | ---- |
+| **primitives** | Raw, non-semantic values   | TypeScript + CSS variables | -              | -    |
+| **tokens**     | Semantic design decisions  | TypeScript + CSS variables | -              | -    |
+| **main**       | Component library (source) | React 19 + TypeScript      | `pnpm dev`     | -    |
+| **storybook**  | Interactive playground     | Storybook 8 + Vite         | `pnpm dev`     | 6006 |
+| **playwright** | Component testing          | Playwright CT + React      | `pnpm test-ct` | -    |
+| **docusaurus** | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
 
 ### When to Update Each Package
 

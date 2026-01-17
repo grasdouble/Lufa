@@ -42,11 +42,11 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     },
     ref
   ) => {
-    const variantClass = {
-      default: styles.variantDefault,
+    const variantClasses: Record<string, string | undefined> = {
       underline: styles.variantUnderline,
       button: styles.variantButton,
-    }[variant];
+    };
+    const variantClass = variantClasses[variant];
 
     const colorClass = {
       primary: styles.colorPrimary,

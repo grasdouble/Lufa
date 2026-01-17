@@ -6,6 +6,7 @@
   "license": "MIT",
   "type": "module",
   "exports": {
+    "./default.css": "./dist/default.css",
     "./ocean.css": "./dist/ocean.css",
     "./forest.css": "./dist/forest.css"
   },

@@ -1,5 +1,5 @@
+import { useEffect } from 'react';
 import type { Decorator, Parameters, Preview } from '@storybook/react-vite';
-import { withThemeByDataAttribute } from '@storybook/addon-themes';
 
 import { Breakpoints } from './breakpoints';
 // Import design system compiled CSS (includes all component styles)
@@ -43,12 +43,40 @@ const parameters: Parameters = {
   },
 };
 
-// Decorator to automatically sync background color with theme
-const withThemeBackground: Decorator = (Story, context) => {
-  const theme = context.globals.theme ?? 'light';
+/**
+ * Custom decorator to handle theme (default/ocean/forest) and mode (light/dark/auto)
+ * Applies data-theme and data-mode attributes to the document root
+ */
+const withThemeAndMode: Decorator = (Story, context) => {
+  const theme = context.globals.theme || 'default';
+  const mode = context.globals.mode || 'auto';
 
-  // Apply background color based on theme
-  const backgroundColor = theme === 'dark' ? '#1a1a1a' : '#ffffff';
+  useEffect(() => {
+    const root = document.documentElement;
+
+    // Apply theme attribute
+    if (theme === 'default') {
+      root.removeAttribute('data-theme');
+    } else {
+      root.setAttribute('data-theme', theme);
+    }
+
+    // Apply mode attribute
+    if (mode === 'auto') {
+      root.removeAttribute('data-mode');
+    } else {
+      root.setAttribute('data-mode', mode);
+    }
+  }, [theme, mode]);
+
+  // Determine effective mode for background color
+  let effectiveMode = mode;
+  if (mode === 'auto') {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    effectiveMode = prefersDark ? 'dark' : 'light';
+  }
+
+  const backgroundColor = effectiveMode === 'dark' ? '#0a0a0a' : '#ffffff';
 
   return (
     <div
@@ -59,6 +87,7 @@ const withThemeBackground: Decorator = (Story, context) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        transition: 'background-color 0.3s ease',
       }}
     >
       <Story />
@@ -68,17 +97,37 @@ const withThemeBackground: Decorator = (Story, context) => {
 
 const preview: Preview = {
   parameters,
-  decorators: [
-    withThemeByDataAttribute({
-      themes: {
-        light: '',
-        dark: 'dark',
+  decorators: [withThemeAndMode],
+  globalTypes: {
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: 'default',
+      toolbar: {
+        title: 'Theme',
+        icon: 'paintbrush',
+        items: [
+          { value: 'default', title: 'Default', icon: 'circle' },
+          { value: 'ocean', title: 'Ocean 🌊', icon: 'circle' },
+          { value: 'forest', title: 'Forest 🌲', icon: 'circle' },
+        ],
+        dynamicTitle: true,
       },
-      defaultTheme: 'light',
-      attributeName: 'data-theme',
-    }),
-    withThemeBackground, // Add after theme decorator to auto-sync background
-  ],
+    },
+    mode: {
+      description: 'Color mode (light/dark/auto)',
+      defaultValue: 'auto',
+      toolbar: {
+        title: 'Mode',
+        icon: 'contrast',
+        items: [
+          { value: 'light', title: '☀️ Light', icon: 'sun' },
+          { value: 'dark', title: '🌙 Dark', icon: 'moon' },
+          { value: 'auto', title: '🔄 Auto', icon: 'sync' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
 };
 
 export default preview;

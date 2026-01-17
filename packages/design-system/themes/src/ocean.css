@@ -1,9 +1,19 @@
 /**
  * Alternative Theme: Ocean
- * A blue/teal color scheme for demonstration
+ * A blue/teal color scheme with smooth, flowing personality
+ * 
+ * Features:
+ * - More rounded corners (12px vs 8px)
+ * - More spacious layout (+12.5% spacing)
+ * - Slower transitions (300ms vs 250ms)
+ * - Both light and dark mode variants
  */
 
-:root[data-theme='ocean'] {
+/**
+ * Ocean Theme - Light Mode (default)
+ */
+:root[data-theme='ocean'],
+:root[data-theme='ocean'][data-mode='light'] {
   /* Text colors */
   --color-text-primary: #0c4a6e;
   --color-text-secondary: #075985;
@@ -102,4 +112,183 @@
   /* Opacity - Slightly more transparent overlays */
   --opacity-light: 0.65; /* Instead of default 0.7 */
   --opacity-medium: 0.8; /* Instead of default 0.85 */
+}
+
+/**
+ * Ocean Theme - Dark Mode
+ * Inverts lightness while maintaining ocean personality
+ */
+:root[data-theme='ocean'][data-mode='dark'] {
+  /* Text colors - lighter for dark backgrounds */
+  --color-text-primary: #e0f2fe;
+  --color-text-secondary: #bae6fd;
+  --color-text-tertiary: #7dd3fc;
+  --color-text-disabled: #475569;
+  --color-text-inverse: #0c4a6e;
+  --color-text-link: #38bdf8;
+  --color-text-linkHover: #7dd3fc;
+
+  /* Background colors - dark ocean depths */
+  --color-background-primary: #082f49;
+  --color-background-secondary: #0c4a6e;
+  --color-background-tertiary: #075985;
+  --color-background-inverse: #f0f9ff;
+  --color-background-overlay: rgba(8, 47, 73, 0.8);
+
+  /* Border colors - adjusted for dark mode */
+  --color-border-default: #0e7490;
+  --color-border-light: #075985;
+  --color-border-medium: #0891b2;
+  --color-border-strong: #38bdf8;
+  --color-border-focus: #7dd3fc;
+
+  /* Interactive colors - brighter for visibility on dark */
+  --color-interactive-default: #38bdf8;
+  --color-interactive-hover: #7dd3fc;
+  --color-interactive-active: #bae6fd;
+  --color-interactive-disabled: #334155;
+  --color-interactive-focus: #7dd3fc;
+
+  /* Success colors - adjusted for dark mode */
+  --color-success-default: #10b981;
+  --color-success-hover: #34d399;
+  --color-success-active: #6ee7b7;
+  --color-success-light: #064e3b;
+  --color-success-lighter: #022c22;
+  --color-success-border: #059669;
+  --color-success-text: #6ee7b7;
+
+  /* Warning colors - adjusted for dark mode */
+  --color-warning-default: #f59e0b;
+  --color-warning-hover: #fbbf24;
+  --color-warning-active: #fcd34d;
+  --color-warning-light: #78350f;
+  --color-warning-lighter: #451a03;
+  --color-warning-border: #d97706;
+  --color-warning-text: #fcd34d;
+
+  /* Error colors - adjusted for dark mode */
+  --color-error-default: #ef4444;
+  --color-error-hover: #f87171;
+  --color-error-active: #fca5a5;
+  --color-error-light: #7f1d1d;
+  --color-error-lighter: #450a0a;
+  --color-error-border: #dc2626;
+  --color-error-text: #fca5a5;
+
+  /* Info colors - ocean cyan for dark mode */
+  --color-info-default: #06b6d4;
+  --color-info-hover: #22d3ee;
+  --color-info-active: #67e8f9;
+  --color-info-light: #164e63;
+  --color-info-lighter: #083344;
+  --color-info-border: #0891b2;
+  --color-info-text: #67e8f9;
+
+  /* Brand colors - ocean brand in dark mode */
+  --color-brand-primary: #38bdf8;
+  --color-brand-primaryHover: #7dd3fc;
+  --color-brand-primaryActive: #bae6fd;
+  --color-brand-secondary: #06b6d4;
+  --color-brand-secondaryHover: #22d3ee;
+  --color-brand-secondaryActive: #67e8f9;
+  --color-brand-accent: #0ea5e9;
+
+  /* Surface colors - layered depth */
+  --color-surface-default: #082f49;
+  --color-surface-raised: #0c4a6e;
+  --color-surface-overlay: #075985;
+  --color-surface-inverse: #f0f9ff;
+
+  /* Visual properties inherited from light mode */
+  /* Border radius, spacing, and transitions remain the same for consistency */
+}
+
+/**
+ * Auto dark mode based on system preference
+ * Only applies if no explicit data-mode is set
+ */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme='ocean']:not([data-mode]) {
+    /* Text colors */
+    --color-text-primary: #e0f2fe;
+    --color-text-secondary: #bae6fd;
+    --color-text-tertiary: #7dd3fc;
+    --color-text-disabled: #475569;
+    --color-text-inverse: #0c4a6e;
+    --color-text-link: #38bdf8;
+    --color-text-linkHover: #7dd3fc;
+
+    /* Background colors */
+    --color-background-primary: #082f49;
+    --color-background-secondary: #0c4a6e;
+    --color-background-tertiary: #075985;
+    --color-background-inverse: #f0f9ff;
+    --color-background-overlay: rgba(8, 47, 73, 0.8);
+
+    /* Border colors */
+    --color-border-default: #0e7490;
+    --color-border-light: #075985;
+    --color-border-medium: #0891b2;
+    --color-border-strong: #38bdf8;
+    --color-border-focus: #7dd3fc;
+
+    /* Interactive colors */
+    --color-interactive-default: #38bdf8;
+    --color-interactive-hover: #7dd3fc;
+    --color-interactive-active: #bae6fd;
+    --color-interactive-disabled: #334155;
+    --color-interactive-focus: #7dd3fc;
+
+    /* Success colors */
+    --color-success-default: #10b981;
+    --color-success-hover: #34d399;
+    --color-success-active: #6ee7b7;
+    --color-success-light: #064e3b;
+    --color-success-lighter: #022c22;
+    --color-success-border: #059669;
+    --color-success-text: #6ee7b7;
+
+    /* Warning colors */
+    --color-warning-default: #f59e0b;
+    --color-warning-hover: #fbbf24;
+    --color-warning-active: #fcd34d;
+    --color-warning-light: #78350f;
+    --color-warning-lighter: #451a03;
+    --color-warning-border: #d97706;
+    --color-warning-text: #fcd34d;
+
+    /* Error colors */
+    --color-error-default: #ef4444;
+    --color-error-hover: #f87171;
+    --color-error-active: #fca5a5;
+    --color-error-light: #7f1d1d;
+    --color-error-lighter: #450a0a;
+    --color-error-border: #dc2626;
+    --color-error-text: #fca5a5;
+
+    /* Info colors */
+    --color-info-default: #06b6d4;
+    --color-info-hover: #22d3ee;
+    --color-info-active: #67e8f9;
+    --color-info-light: #164e63;
+    --color-info-lighter: #083344;
+    --color-info-border: #0891b2;
+    --color-info-text: #67e8f9;
+
+    /* Brand colors */
+    --color-brand-primary: #38bdf8;
+    --color-brand-primaryHover: #7dd3fc;
+    --color-brand-primaryActive: #bae6fd;
+    --color-brand-secondary: #06b6d4;
+    --color-brand-secondaryHover: #22d3ee;
+    --color-brand-secondaryActive: #67e8f9;
+    --color-brand-accent: #0ea5e9;
+
+    /* Surface colors */
+    --color-surface-default: #082f49;
+    --color-surface-raised: #0c4a6e;
+    --color-surface-overlay: #075985;
+    --color-surface-inverse: #f0f9ff;
+  }
 }

@@ -3,118 +3,144 @@
 @layer components {
   .link {
     @apply inline-flex items-center gap-1;
-    @apply transition-colors duration-200;
-    @apply cursor-pointer;
-    text-decoration: none;
+    @apply text-text-link;
+    @apply no-underline;
+    @apply relative;
+    @apply transition-colors duration-fast;
+    font-weight: inherit;
   }
 
-  /* Variants */
-  .variantDefault {
-    @apply no-underline;
-    @apply hover:underline;
+  .link::after {
+    content: '';
+    @apply absolute left-0 bottom-0;
+    @apply rounded-sm;
+    height: var(--border-width-hairline);
+    width: 0;
+    background: currentColor;
+    @apply transition-all duration-fast;
   }
+
+  .link:hover::after,
+  .link:focus-visible::after {
+    width: 100%;
+    @apply bg-text-link-hover;
+  }
+
+  .link:hover,
+  .link:focus-visible {
+    @apply text-text-link-hover;
+  }
+
+  .link:focus-visible {
+    @apply outline-border-focus;
+    outline-width: var(--border-width-focus);
+    outline-style: solid;
+    outline-offset: var(--spacing-xxs);
+    @apply rounded-sm;
+  }
+
+  /* Variant overrides - variantDefault uses base .link styles with animated underline */
 
   .variantUnderline {
-    @apply underline underline-offset-4;
+    @apply underline;
+    @apply decoration-border-default;
+  }
+
+  .variantUnderline::after {
+    @apply hidden;
   }
 
   .variantButton {
+    @apply text-text-inverse;
+    @apply bg-interactive-default;
+    @apply px-md py-sm;
+    @apply rounded-lg;
     @apply no-underline;
-    @apply rounded-md px-4 py-2;
-    @apply font-medium;
   }
 
-  /* Colors */
+  .variantButton::after {
+    @apply hidden;
+  }
+
+  .variantButton:hover,
+  .variantButton:focus-visible {
+    @apply bg-interactive-hover;
+    @apply text-text-inverse;
+  }
+
+  /* Color variants */
   .colorPrimary {
     @apply text-interactive-default;
-    @apply hover:text-interactive-hover;
   }
 
-  .colorPrimary.variantButton {
-    @apply bg-interactive-default text-white;
-    @apply hover:bg-interactive-hover;
+  .colorPrimary:hover,
+  .colorPrimary:focus-visible {
+    @apply text-interactive-hover;
   }
 
   .colorSecondary {
-    @apply text-gray-600 dark:text-gray-400;
-    @apply hover:text-gray-900 dark:hover:text-gray-100;
+    @apply text-text-secondary;
   }
 
-  .colorSecondary.variantButton {
-    @apply bg-gray-200 text-gray-900;
-    @apply hover:bg-gray-300;
-    @apply dark:bg-gray-700 dark:text-gray-100;
-    @apply dark:hover:bg-gray-600;
+  .colorSecondary:hover,
+  .colorSecondary:focus-visible {
+    @apply text-text-primary;
   }
 
   .colorSuccess {
     @apply text-success-default;
-    @apply hover:text-success-hover;
   }
 
-  .colorSuccess.variantButton {
-    @apply bg-success-default text-white;
-    @apply hover:bg-success-hover;
+  .colorSuccess:hover,
+  .colorSuccess:focus-visible {
+    @apply text-success-hover;
   }
 
   .colorWarning {
     @apply text-warning-default;
-    @apply hover:text-warning-hover;
   }
 
-  .colorWarning.variantButton {
-    @apply bg-warning-default text-white;
-    @apply hover:bg-warning-hover;
+  .colorWarning:hover,
+  .colorWarning:focus-visible {
+    @apply text-warning-hover;
   }
 
   .colorDanger {
     @apply text-error-default;
-    @apply hover:text-error-hover;
   }
 
-  .colorDanger.variantButton {
-    @apply bg-error-default text-white;
-    @apply hover:bg-error-hover;
+  .colorDanger:hover,
+  .colorDanger:focus-visible {
+    @apply text-error-hover;
   }
 
   .colorInherit {
-    @apply text-inherit;
-    @apply hover:opacity-80;
+    color: inherit;
   }
 
-  /* Sizes */
+  .colorInherit:hover,
+  .colorInherit:focus-visible {
+    color: inherit;
+    @apply opacity-75;
+  }
+
+  /* Size variants */
   .sizeSmall {
-    @apply text-sm;
+    @apply text-sm gap-0.5;
   }
 
   .sizeMedium {
-    @apply text-base;
+    @apply text-base gap-1;
   }
 
   .sizeLarge {
-    @apply text-lg;
-  }
-
-  .sizeSmall.variantButton {
-    @apply px-3 py-1.5 text-sm;
-  }
-
-  .sizeMedium.variantButton {
-    @apply px-4 py-2 text-base;
-  }
-
-  .sizeLarge.variantButton {
-    @apply px-5 py-2.5 text-lg;
+    @apply text-lg gap-1.5;
   }
 
   /* Icons */
   .startIcon,
   .endIcon,
   .externalIcon {
-    @apply inline-flex items-center;
-  }
-
-  .externalIcon {
-    @apply text-xs opacity-70;
+    @apply inline-flex shrink-0;
   }
 }
