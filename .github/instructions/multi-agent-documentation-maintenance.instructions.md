@@ -10,6 +10,7 @@ This file contains instructions for maintaining and evolving the multi-agent com
 ## Documentation Architecture Overview
 
 This project follows a **multi-agent compatible documentation strategy** optimized for:
+
 - GitHub Copilot
 - Claude Code
 - Cursor
@@ -68,17 +69,18 @@ Use this decision tree to determine if your changes require documentation update
 
 Quick reference table for different types of changes:
 
-| Type of Change | AGENTS.md | CLAUDE.md | .instructions.md | copilot-instructions.md | QUICKSTART.md |
-|----------------|-----------|-----------|------------------|-------------------------|---------------|
-| **New reusable pattern** | ✅ Required<br>(Common Patterns) | ✅ Required<br>(if critical) | 📝 Optional<br>(if tech-specific) | 📝 Optional<br>(add reference) | ❌ No |
-| **New technology** | 📝 Optional<br>(if widely used) | ❌ No | ✅ Required<br>(create new file) | ✅ Required<br>(reference it) | ❌ No |
-| **Build process change** | ✅ Required<br>(Quick Commands) | ✅ Required<br>(Quick Reference) | ❌ No | ✅ Required<br>(Common Commands) | ✅ Required<br>(if affects setup) |
-| **Architecture change** | ✅ Required<br>(multiple sections) | ✅ Required<br>(Critical section) | ✅ Required<br>(update all relevant) | ✅ Required<br>(Critical Rules) | 📝 Optional<br>(if affects setup) |
-| **New component** | ✅ Required<br>(Pattern 1 example) | 📝 Optional<br>(if establishes pattern) | ❌ No | ❌ No | ❌ No |
-| **Setup process change** | ✅ Required<br>(Getting Started) | ❌ No | ❌ No | 📝 Optional | ✅ Required |
-| **New AI agent support** | ✅ Required<br>(Compatibility Matrix) | ❌ No | ❌ No | 📝 Optional<br>(mention it) | ❌ No |
+| Type of Change           | AGENTS.md                             | CLAUDE.md                               | .instructions.md                     | copilot-instructions.md          | QUICKSTART.md                     |
+| ------------------------ | ------------------------------------- | --------------------------------------- | ------------------------------------ | -------------------------------- | --------------------------------- |
+| **New reusable pattern** | ✅ Required<br>(Common Patterns)      | ✅ Required<br>(if critical)            | 📝 Optional<br>(if tech-specific)    | 📝 Optional<br>(add reference)   | ❌ No                             |
+| **New technology**       | 📝 Optional<br>(if widely used)       | ❌ No                                   | ✅ Required<br>(create new file)     | ✅ Required<br>(reference it)    | ❌ No                             |
+| **Build process change** | ✅ Required<br>(Quick Commands)       | ✅ Required<br>(Quick Reference)        | ❌ No                                | ✅ Required<br>(Common Commands) | ✅ Required<br>(if affects setup) |
+| **Architecture change**  | ✅ Required<br>(multiple sections)    | ✅ Required<br>(Critical section)       | ✅ Required<br>(update all relevant) | ✅ Required<br>(Critical Rules)  | 📝 Optional<br>(if affects setup) |
+| **New component**        | ✅ Required<br>(Pattern 1 example)    | 📝 Optional<br>(if establishes pattern) | ❌ No                                | ❌ No                            | ❌ No                             |
+| **Setup process change** | ✅ Required<br>(Getting Started)      | ❌ No                                   | ❌ No                                | 📝 Optional                      | ✅ Required                       |
+| **New AI agent support** | ✅ Required<br>(Compatibility Matrix) | ❌ No                                   | ❌ No                                | 📝 Optional<br>(mention it)      | ❌ No                             |
 
 **Legend**:
+
 - ✅ **Required** - Must be updated
 - 📝 **Optional** - Update if relevant/helpful
 - ❌ **No** - No update needed
@@ -161,17 +163,20 @@ pnpm validate:docs
 ### Time-Based Guidelines
 
 **If you have 5 minutes**:
+
 1. Identify affected files using the table above
 2. Make minimal updates to critical sections
 3. Run `pnpm validate:docs`
 
 **If you have 30 minutes**:
+
 1. Follow full update order
 2. Add complete examples
 3. Update cross-references
 4. Run validation and fix warnings
 
 **If you have 1+ hours**:
+
 1. Complete documentation update
 2. Add new patterns or sections if needed
 3. Review related documentation for consistency
@@ -225,6 +230,7 @@ project-root/
 **File**: `.github/instructions/{technology}.instructions.md`
 
 **Template**:
+
 ```markdown
 ---
 description: '{Brief description of technology standards}'
@@ -257,6 +263,7 @@ For comprehensive project documentation, see:
 ```
 
 **Steps**:
+
 1. Create file in `.github/instructions/`
 2. Add YAML frontmatter with `description` and `applyTo`
 3. Write technology-specific guidance
@@ -264,6 +271,7 @@ For comprehensive project documentation, see:
 5. Update `.github/copilot-instructions.md` to reference the new file
 
 **Validation**:
+
 - [ ] YAML frontmatter includes only `description`, `applyTo` (and optionally `name`)
 - [ ] "Related Documentation" section added at the end
 - [ ] File referenced in `.github/copilot-instructions.md`
@@ -303,6 +311,7 @@ For comprehensive project documentation, see:
    - Agent-Specific Setup Instructions
 
 **Update Protocol**:
+
 1. Read existing section completely before modifying
 2. Maintain decision trees and tables formatting
 3. Keep examples complete and runnable
@@ -314,10 +323,11 @@ For comprehensive project documentation, see:
 **File**: `.github/prompts/{action}-{subject}.prompt.md`
 
 **Template**:
+
 ```markdown
 ---
-description: "{Brief description of what this prompt does}"
-agent: "agent"  # or specific agent type
+description: '{Brief description of what this prompt does}'
+agent: 'agent' # or specific agent type
 ---
 
 # {Prompt Title}
@@ -325,19 +335,24 @@ agent: "agent"  # or specific agent type
 [Detailed instructions for the AI agent]
 
 ## Context
+
 [Relevant context about the project]
 
 ## Task
+
 [Specific task to accomplish]
 
 ## Requirements
+
 [Requirements and constraints]
 
 ## Example
+
 [Example of expected output]
 ```
 
 **Steps**:
+
 1. Create file in `.github/prompts/`
 2. Add YAML frontmatter
 3. Write clear, unambiguous instructions
@@ -349,12 +364,14 @@ agent: "agent"  # or specific agent type
 **Purpose**: Quick reference for Claude Code (auto-loaded, token-limited)
 
 **Keep**:
+
 - Critical three-layer architecture warning
 - Build order commands
 - Component development checklist
 - Links to AGENTS.md for deep dives
 
 **Avoid**:
+
 - Duplicating AGENTS.md content
 - Long explanations (link to AGENTS.md instead)
 - Technology-specific details (use .instructions.md files)
@@ -366,6 +383,7 @@ agent: "agent"  # or specific agent type
 **Purpose**: 5-minute setup for new contributors
 
 **Structure**:
+
 1. Prerequisites (Node.js, pnpm versions)
 2. Setup (3 commands)
 3. Verify Setup
@@ -383,6 +401,7 @@ agent: "agent"  # or specific agent type
 **Objective**: Establish multi-agent compatible foundation
 
 **Changes**:
+
 1. **AGENTS.md** - Restructured with:
    - Quick Navigation for AI Agents
    - Quick Start section with decision trees
@@ -434,9 +453,11 @@ agent: "agent"  # or specific agent type
    - Resources
 
 2. **All .instructions.md files** - Added "Related Documentation" section:
-   - 11 files updated (a11y, reactjs, markdown, typescript-5-es2022, nodejs-javascript-vitest, tailwindcss, playwright-typescript, github-actions, ai-prompt-engineering, performance-optimization, update-docs-on-code-change)
-   - Each file now links to AGENTS.md, CLAUDE.md, copilot-instructions.md, CONTRIBUTING.md
-   - Consistent cross-referencing across all instruction files
+
+- 11 files updated (a11y, reactjs, markdown, typescript-5-es2022, nodejs-javascript-vitest, playwright-typescript, github-actions, ai-prompt-engineering, performance-optimization, update-docs-on-code-change, lufa-design-system)
+- Each file now links to AGENTS.md, CLAUDE.md, copilot-instructions.md, CONTRIBUTING.md
+- Consistent cross-referencing across all instruction files
+- Note: tailwindcss.instructions.md was later archived when Tailwind CSS was removed from the project
 
 3. **a11y.instructions.md** - Added WCAG 2.2 checklist:
    - Quick checklist (~75 lines)
@@ -536,7 +557,7 @@ agent: "agent"  # or specific agent type
 3. **.github/workflows/validate-docs.yml** - Created (~60 lines):
    - CI workflow for automatic validation
    - Triggers: Pull requests, pushes to main, manual dispatch
-   - Paths filter (AGENTS.md, CLAUDE.md, config.toml, .github/instructions/*, etc.)
+   - Paths filter (AGENTS.md, CLAUDE.md, config.toml, .github/instructions/\*, etc.)
    - Automatic PR comment on validation failure
    - Clear error messages with links to documentation
 
@@ -552,6 +573,7 @@ agent: "agent"  # or specific agent type
 ### When to Update This File
 
 Update this maintenance file when:
+
 - Adding new documentation files or changing file structure
 - Modifying the multi-agent compatibility approach
 - Completing major documentation improvements (new "Phase")
@@ -560,17 +582,20 @@ Update this maintenance file when:
 ### Changeset Requirements
 
 Documentation changes typically require changesets only if they affect:
+
 - Public API documentation
 - Breaking changes in development workflow
 - New features or capabilities
 
 For documentation-only improvements:
+
 ```bash
 # Usually no changeset needed for docs-only changes
 git commit -m "docs: improve multi-agent compatibility"
 ```
 
 For documentation accompanying code changes:
+
 ```bash
 pnpm changeset
 # Select affected packages
@@ -594,17 +619,20 @@ pnpm changeset
 ### Fixing Broken Links
 
 **Common causes**:
+
 - File moved or renamed
 - Anchor changed in target file
 - Relative path incorrect
 
 **Detection**:
+
 ```bash
 # Search for markdown links
 grep -r "\[.*\](.*)" .github/ AGENTS.md CLAUDE.md CONVENTIONS.md QUICKSTART.md
 ```
 
 **Fix**:
+
 1. Verify target file exists
 2. Check anchor exists in target file (use `grep` or file search)
 3. Use relative paths from source file location
@@ -654,16 +682,19 @@ Before committing documentation changes:
 ### Problem: Agent not loading instructions
 
 **GitHub Copilot**:
+
 - Check `.github/copilot-instructions.md` exists
 - Verify YAML frontmatter in `.instructions.md` files
 - Ensure `applyTo` patterns match file types
 
 **Claude Code**:
+
 - Check `CLAUDE.md` exists in project root
 - Verify file is valid markdown
 - Keep file under 250 lines (token limit)
 
 **Aider**:
+
 - Check `CONVENTIONS.md` exists or `.aider.conf.yml` configured
 - Verify `read: AGENTS.md` in config
 
@@ -676,6 +707,7 @@ Before committing documentation changes:
 ### Problem: Documentation out of sync
 
 **Detection**:
+
 ```bash
 # Check for mentions of old patterns
 grep -r "old-pattern-name" .github/ *.md
@@ -685,6 +717,7 @@ pnpm validate:docs
 ```
 
 **Solution**:
+
 1. Run `pnpm validate:docs` to identify inconsistencies
 2. Review errors and warnings from validation script
 3. Update in order: AGENTS.md → CLAUDE.md → .instructions.md → QUICKSTART.md
