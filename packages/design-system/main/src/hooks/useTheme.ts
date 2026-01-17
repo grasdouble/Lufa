@@ -19,7 +19,7 @@ export type ThemeMode = 'light' | 'dark' | 'auto';
 /**
  * Return type for useTheme hook
  */
-export interface UseThemeReturn {
+export type UseThemeReturn = {
   /** Current theme name */
   theme: ThemeName;
   /** Current mode setting (may be 'auto') */
@@ -32,7 +32,7 @@ export interface UseThemeReturn {
   setMode: (mode: ThemeMode) => void;
   /** Check if system prefers dark mode */
   systemPrefersDark: boolean;
-}
+};
 
 /**
  * Custom hook for managing theme and mode in the Lufa Design System
@@ -82,7 +82,7 @@ export function useTheme(options?: {
     defaultMode = 'auto',
     storageKey = 'lufa-theme',
     enableStorage = true,
-  } = options || {};
+  } = options ?? {};
 
   // Initialize from localStorage if enabled
   const getInitialTheme = (): ThemeName => {
@@ -108,7 +108,9 @@ export function useTheme(options?: {
   const [theme, setThemeState] = useState<ThemeName>(getInitialTheme);
   const [mode, setModeState] = useState<ThemeMode>(getInitialMode);
   const [systemPrefersDark, setSystemPrefersDark] = useState<boolean>(false);
-  const [effectiveMode, setEffectiveMode] = useState<'light' | 'dark'>('light');
+
+  // Compute effective mode from current state (no useState needed)
+  const effectiveMode: 'light' | 'dark' = mode === 'auto' ? (systemPrefersDark ? 'dark' : 'light') : mode;
 
   // Detect system preference
   useEffect(() => {
@@ -130,15 +132,6 @@ export function useTheme(options?: {
       mediaQuery.removeEventListener('change', updateSystemPreference);
     };
   }, []);
-
-  // Calculate effective mode
-  useEffect(() => {
-    if (mode === 'auto') {
-      setEffectiveMode(systemPrefersDark ? 'dark' : 'light');
-    } else {
-      setEffectiveMode(mode);
-    }
-  }, [mode, systemPrefersDark]);
 
   // Sync with HTML data attributes
   useEffect(() => {

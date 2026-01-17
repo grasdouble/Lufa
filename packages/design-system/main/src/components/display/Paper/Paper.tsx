@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 import styles from './Paper.module.css';
 
-export interface PaperProps extends ComponentPropsWithoutRef<'div'> {
+export type PaperProps = ComponentPropsWithoutRef<'div'> & {
   /**
    * Content to be rendered inside the Paper
    */
@@ -36,7 +36,7 @@ export interface PaperProps extends ComponentPropsWithoutRef<'div'> {
    * Additional CSS class name
    */
   className?: string;
-}
+};
 
 /**
  * Paper component - A foundational surface component that displays content with elevation and styling.

@@ -31,7 +31,8 @@ function getRelativeLuminance(color: string): number {
   }
 
   // Handle oklch() format: oklch(L C H)
-  const oklchMatch = color.match(/oklch\(\s*([\d.]+%?)\s+([\d.]+)\s+([\d.]+)\s*\)/);
+  const oklchRegex = /oklch\(\s*([\d.]+%?)\s+([\d.]+)\s+([\d.]+)\s*\)/;
+  const oklchMatch = oklchRegex.exec(color);
   if (oklchMatch) {
     // Extract lightness (first value in OKLCH)
     let lightness = parseFloat(oklchMatch[1]);
@@ -44,7 +45,8 @@ function getRelativeLuminance(color: string): number {
   }
 
   // Handle hex colors: #RGB or #RRGGBB
-  const hexMatch = color.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+  const hexRegex = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+  const hexMatch = hexRegex.exec(color);
   if (hexMatch) {
     let hex = hexMatch[1];
     // Expand shorthand (#RGB to #RRGGBB)
@@ -66,7 +68,8 @@ function getRelativeLuminance(color: string): number {
   }
 
   // Handle rgb() and rgba() formats
-  const rgbMatch = color.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
+  const rgbRegex = /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/;
+  const rgbMatch = rgbRegex.exec(color);
   if (rgbMatch) {
     const r = parseInt(rgbMatch[1]) / 255;
     const g = parseInt(rgbMatch[2]) / 255;
