@@ -324,9 +324,9 @@ export const Gap: Story = {
   render: () => (
     <Container size="lg" paddingX="none">
       <Stack direction="vertical" gap="spacious">
-        {([FLEX_WRAP.nowrap, FLEX_WRAP.wrap] as const).map((wrap) => (
+        {([SPACE_SIZE.none, SPACE_SIZE.sm, SPACE_SIZE.md, SPACE_SIZE.lg, SPACE_SIZE.xl] as const).map((gap) => (
           <div
-            key={wrap}
+            key={gap}
             style={{
               backgroundColor: tokens.color.background.secondary,
               borderRadius: tokens.radius.lg,
@@ -337,11 +337,11 @@ export const Gap: Story = {
             <div
               style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
             >
-              wrap: {wrap}
+              gap: {gap}
             </div>
             <Flex
-              wrap={wrap}
-              gap="md"
+              wrap={FLEX_WRAP.wrap}
+              gap={gap}
               style={{
                 backgroundColor: tokens.color.background.primary,
                 borderRadius: tokens.radius.lg,
@@ -365,9 +365,9 @@ export const Wrap: Story = {
   render: () => (
     <Container size="lg" paddingX="none">
       <Stack direction="vertical" gap="spacious">
-        {([SPACE_SIZE.none, SPACE_SIZE.sm, SPACE_SIZE.md, SPACE_SIZE.lg, SPACE_SIZE.xl] as const).map((gap) => (
+        {([FLEX_WRAP.nowrap, FLEX_WRAP.wrap] as const).map((wrap) => (
           <div
-            key={gap}
+            key={wrap}
             style={{
               backgroundColor: tokens.color.background.secondary,
               borderRadius: tokens.radius.lg,
@@ -377,10 +377,10 @@ export const Wrap: Story = {
             <div
               style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
             >
-              gap: {gap}
+              wrap: {wrap}
             </div>
             <Flex
-              wrap={FLEX_WRAP.wrap}
+              wrap={wrap}
               gap="md"
               style={{
                 backgroundColor: tokens.color.background.primary,
