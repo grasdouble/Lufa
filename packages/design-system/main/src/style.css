@@ -1,5 +1,12 @@
 /**
- * Lufa Design System - Main CSS Entry
+ * Lufa Design System - Tailwind CSS Entry Point
+ * 
+ * ⚠️ DEPRECATION NOTICE: This file uses Tailwind CSS and will be replaced
+ * by style-vanilla.css after migration is complete.
+ * 
+ * Migration status: Phase 0 - Being phased out
+ * New entry point: style-vanilla.css
+ * 
  * This file consolidates all CSS including primitives, tokens, and Tailwind
  */
 
