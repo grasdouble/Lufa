@@ -1,8 +1,6 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .grid {
-    @apply w-full;
+    width: 100%;
     display: grid;
   }
 

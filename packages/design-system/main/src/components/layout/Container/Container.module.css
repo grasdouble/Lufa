@@ -1,20 +1,21 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .container {
-    @apply w-full;
+    width: 100%;
   }
 
   .align-center {
-    @apply mx-auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .align-start {
-    @apply ml-0 mr-auto;
+    margin-left: 0;
+    margin-right: auto;
   }
 
   .align-end {
-    @apply ml-auto mr-0;
+    margin-left: auto;
+    margin-right: 0;
   }
 
   .size-xs {
@@ -46,64 +47,102 @@
   }
 
   .paddingX-none {
-    @apply px-none;
+    padding-left: var(--lufa-spacing-none);
+    padding-right: var(--lufa-spacing-none);
   }
+
   .paddingX-xxs {
-    @apply px-xxs;
+    padding-left: var(--lufa-spacing-xxs);
+    padding-right: var(--lufa-spacing-xxs);
   }
+
   .paddingX-xs {
-    @apply px-xs;
+    padding-left: var(--lufa-spacing-xs);
+    padding-right: var(--lufa-spacing-xs);
   }
+
   .paddingX-sm {
-    @apply px-sm;
+    padding-left: var(--lufa-spacing-sm);
+    padding-right: var(--lufa-spacing-sm);
   }
+
   .paddingX-md {
-    @apply px-md;
+    padding-left: var(--lufa-spacing-md);
+    padding-right: var(--lufa-spacing-md);
   }
+
   .paddingX-base {
-    @apply px-base;
+    padding-left: var(--lufa-spacing-base);
+    padding-right: var(--lufa-spacing-base);
   }
+
   .paddingX-lg {
-    @apply px-lg;
+    padding-left: var(--lufa-spacing-lg);
+    padding-right: var(--lufa-spacing-lg);
   }
+
   .paddingX-xl {
-    @apply px-xl;
+    padding-left: var(--lufa-spacing-xl);
+    padding-right: var(--lufa-spacing-xl);
   }
+
   .paddingX-2xl {
-    @apply px-2xl;
+    padding-left: var(--lufa-spacing-2xl);
+    padding-right: var(--lufa-spacing-2xl);
   }
+
   .paddingX-3xl {
-    @apply px-3xl;
+    padding-left: var(--lufa-spacing-3xl);
+    padding-right: var(--lufa-spacing-3xl);
   }
 
   .paddingY-none {
-    @apply py-none;
+    padding-top: var(--lufa-spacing-none);
+    padding-bottom: var(--lufa-spacing-none);
   }
+
   .paddingY-xxs {
-    @apply py-xxs;
+    padding-top: var(--lufa-spacing-xxs);
+    padding-bottom: var(--lufa-spacing-xxs);
   }
+
   .paddingY-xs {
-    @apply py-xs;
+    padding-top: var(--lufa-spacing-xs);
+    padding-bottom: var(--lufa-spacing-xs);
   }
+
   .paddingY-sm {
-    @apply py-sm;
+    padding-top: var(--lufa-spacing-sm);
+    padding-bottom: var(--lufa-spacing-sm);
   }
+
   .paddingY-md {
-    @apply py-md;
+    padding-top: var(--lufa-spacing-md);
+    padding-bottom: var(--lufa-spacing-md);
   }
+
   .paddingY-base {
-    @apply py-base;
+    padding-top: var(--lufa-spacing-base);
+    padding-bottom: var(--lufa-spacing-base);
   }
+
   .paddingY-lg {
-    @apply py-lg;
+    padding-top: var(--lufa-spacing-lg);
+    padding-bottom: var(--lufa-spacing-lg);
   }
+
   .paddingY-xl {
-    @apply py-xl;
+    padding-top: var(--lufa-spacing-xl);
+    padding-bottom: var(--lufa-spacing-xl);
   }
+
   .paddingY-2xl {
-    @apply py-2xl;
+    padding-top: var(--lufa-spacing-2xl);
+    padding-bottom: var(--lufa-spacing-2xl);
   }
+
   .paddingY-3xl {
-    @apply py-3xl;
+    padding-top: var(--lufa-spacing-3xl);
+    padding-bottom: var(--lufa-spacing-3xl);
   }
 }

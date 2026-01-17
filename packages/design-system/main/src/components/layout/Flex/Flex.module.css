@@ -1,5 +1,3 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .flex {
     --lufa-flex-gap: var(--lufa-spacing-md);

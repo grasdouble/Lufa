@@ -1,5 +1,3 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .center {
     min-width: 0;
@@ -7,12 +5,12 @@
 
   .block {
     display: flex;
-    @apply w-full;
+    width: 100%;
   }
 
   .inline {
     display: inline-flex;
-    @apply w-auto;
+    width: auto;
   }
 
   .axisBoth {

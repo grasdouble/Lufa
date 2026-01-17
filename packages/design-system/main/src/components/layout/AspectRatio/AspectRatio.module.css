@@ -1,9 +1,7 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .aspectRatio {
-    @apply w-full;
-    @apply reset-figure;
+    width: 100%;
+    margin: 0;
     position: relative;
     overflow: hidden;
   }

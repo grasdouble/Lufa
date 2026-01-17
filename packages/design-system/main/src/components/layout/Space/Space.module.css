@@ -1,5 +1,3 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .space {
     --lufa-space-size: var(--lufa-spacing-md);
