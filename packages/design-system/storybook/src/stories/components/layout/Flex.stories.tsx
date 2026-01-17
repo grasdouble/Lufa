@@ -63,35 +63,98 @@ export const Playground: Story = {
   },
   render: (args) => {
     // Create items with varying heights to demonstrate align-items effect
-    const heights = ['small', 'medium', 'small', 'large', 'small', 'medium', 'small', 'medium'] as const;
+    const heights = ['small', 'medium', 'small', 'large', 'small', 'medium'] as const;
 
     return (
-      <Container size="xl" paddingX="none">
-        <div
-          style={{
-            backgroundColor: tokens.color.background.secondary,
-            borderRadius: tokens.radius.lg,
-            padding: tokens.spacing.base,
-          }}
-        >
-          <Flex
-            {...args}
-            style={{
-              ...args.style,
-              backgroundColor: tokens.color.background.primary,
-              borderRadius: tokens.radius.lg,
-              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-              padding: tokens.spacing.base,
-              minHeight: tokens.size['4xl'], // Add minimum height to show vertical alignment
-            }}
-          >
-            {Array.from({ length: 8 }).map((_, index) => (
-              <Placeholder key={index} color={tokens.color.interactive.default} height={heights[index]} width="auto">
-                Item {index + 1}
-              </Placeholder>
-            ))}
-          </Flex>
-        </div>
+      <Container size="full" paddingX="none">
+        <Stack direction="vertical" gap="spacious">
+          {/* Row Direction Demo */}
+          <div>
+            <div
+              style={{
+                fontFamily: 'monospace',
+                fontSize: tokens.fontSize.sm,
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.sm,
+                fontWeight: tokens.fontWeight.semibold,
+              }}
+            >
+              direction: row
+            </div>
+            <div
+              style={{
+                backgroundColor: tokens.color.background.secondary,
+                borderRadius: tokens.radius.lg,
+                padding: tokens.spacing.base,
+              }}
+            >
+              <Flex
+                {...args}
+                direction={FLEX_DIRECTION.row}
+                style={{
+                  ...args.style,
+                  backgroundColor: tokens.color.background.primary,
+                  borderRadius: tokens.radius.lg,
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  padding: tokens.spacing.base,
+                  minHeight: tokens.size['4xl'], // Add minimum height to show vertical alignment
+                }}
+              >
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <Placeholder
+                    key={index}
+                    color={tokens.color.interactive.default}
+                    height={heights[index]}
+                    width="auto"
+                  >
+                    {index + 1}
+                  </Placeholder>
+                ))}
+              </Flex>
+            </div>
+          </div>
+
+          {/* Column Direction Demo */}
+          <div>
+            <div
+              style={{
+                fontFamily: 'monospace',
+                fontSize: tokens.fontSize.sm,
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.sm,
+                fontWeight: tokens.fontWeight.semibold,
+              }}
+            >
+              direction: column
+            </div>
+            <div
+              style={{
+                backgroundColor: tokens.color.background.secondary,
+                borderRadius: tokens.radius.lg,
+                padding: tokens.spacing.base,
+              }}
+            >
+              <Flex
+                {...args}
+                direction={FLEX_DIRECTION.column}
+                style={{
+                  ...args.style,
+                  backgroundColor: tokens.color.background.primary,
+                  borderRadius: tokens.radius.lg,
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  padding: tokens.spacing.base,
+                  minHeight: tokens.size['4xl'], // Add minimum height to show vertical spacing
+                }}
+              >
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <Placeholder key={index} color={tokens.color.success.default} height="small" width="auto">
+                    {index + 1}
+                  </Placeholder>
+                ))}
+              </Flex>
+            </div>
+          </div>
+        </Stack>
       </Container>
     );
   },
