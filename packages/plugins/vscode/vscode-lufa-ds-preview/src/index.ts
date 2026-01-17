@@ -2,9 +2,10 @@
  * VS Code extension entry point wiring activation, providers, and lifecycle.
  */
 import * as vscode from 'vscode';
+
+import type { ValuesMapStore } from './values-map-store';
 import { createCompletionProvider, createDocumentColorProvider, createHoverProvider } from './preview-providers';
 import { createValuesMapStore } from './values-map-store';
-import type { ValuesMapStore } from './values-map-store';
 
 let outputChannel: vscode.OutputChannel | null = null;
 let lastStatus: string | null = null;
@@ -66,7 +67,6 @@ export function activate(context: vscode.ExtensionContext): void {
     { scheme: 'file', language: 'css' },
     { scheme: 'file', language: 'scss' },
     { scheme: 'file', language: 'postcss' },
-    { scheme: 'file', language: 'tailwindcss' },
     { scheme: 'file', language: 'typescript' },
     { scheme: 'file', language: 'typescriptreact' },
   ];
