@@ -52,7 +52,12 @@ export const Skeleton = ({
     rectangular: styles.variantRectangular,
   }[variant];
 
-  const animationClass = animation ? styles[`animation${animation.charAt(0).toUpperCase()}${animation.slice(1)}`] : '';
+  const animationClass = animation
+    ? {
+        pulse: styles.animationPulse,
+        wave: styles.animationWave,
+      }[animation]
+    : '';
 
   const skeletonClassName = `${styles.skeleton} ${variantClass} ${animationClass} ${className}`.trim();
 
