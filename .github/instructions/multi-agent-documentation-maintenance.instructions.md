@@ -453,11 +453,9 @@ agent: 'agent' # or specific agent type
    - Resources
 
 2. **All .instructions.md files** - Added "Related Documentation" section:
-
-- 11 files updated (a11y, reactjs, markdown, typescript-5-es2022, nodejs-javascript-vitest, playwright-typescript, github-actions, ai-prompt-engineering, performance-optimization, update-docs-on-code-change, lufa-design-system)
-- Each file now links to AGENTS.md, CLAUDE.md, copilot-instructions.md, CONTRIBUTING.md
-- Consistent cross-referencing across all instruction files
-- Note: tailwindcss.instructions.md was later archived when Tailwind CSS was removed from the project
+   - 11 files updated (a11y, reactjs, markdown, typescript-5-es2022, nodejs-javascript-vitest, playwright-typescript, github-actions, ai-prompt-engineering, performance-optimization, update-docs-on-code-change, lufa-design-system)
+   - Each file now links to AGENTS.md, CLAUDE.md, copilot-instructions.md, CONTRIBUTING.md
+   - Consistent cross-referencing across all instruction files
 
 3. **a11y.instructions.md** - Added WCAG 2.2 checklist:
    - Quick checklist (~75 lines)
