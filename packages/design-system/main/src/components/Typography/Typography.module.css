@@ -93,23 +93,23 @@
 
 /* Font Weights - Using CSS variables */
 .weight-light {
-  font-weight: var(--lufa-font-weight-light);
+  font-weight: var(--lufa-token-font-weight-light);
 }
 
 .weight-normal {
-  font-weight: var(--lufa-font-weight-normal);
+  font-weight: var(--lufa-token-font-weight-normal);
 }
 
 .weight-medium {
-  font-weight: var(--lufa-font-weight-medium);
+  font-weight: var(--lufa-token-font-weight-medium);
 }
 
 .weight-semibold {
-  font-weight: var(--lufa-font-weight-semibold);
+  font-weight: var(--lufa-token-font-weight-semibold);
 }
 
 .weight-bold {
-  font-weight: var(--lufa-font-weight-bold);
+  font-weight: var(--lufa-token-font-weight-bold);
 }
 
 /* Alignment - Converted from @apply text-* utilities */

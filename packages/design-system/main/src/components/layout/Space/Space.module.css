@@ -1,6 +1,6 @@
 @layer components {
   .space {
-    --lufa-space-size: var(--lufa-spacing-md);
+    --lufa-space-size: var(--lufa-token-spacing-md);
     flex: 0 0 auto;
   }
 

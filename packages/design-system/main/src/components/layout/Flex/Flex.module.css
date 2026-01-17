@@ -1,6 +1,6 @@
 @layer components {
   .flex {
-    --lufa-flex-gap: var(--lufa-spacing-md);
+    --lufa-flex-gap: var(--lufa-token-spacing-md);
     gap: var(--lufa-flex-gap);
     min-width: 0;
   }
