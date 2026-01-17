@@ -35,24 +35,18 @@
     color: var(--lufa-token-color-text-primary); /* Dark text for light backgrounds */
   }
 
-  /* Dark mode adaptations */
-  :where([data-mode='dark']) .placeholder,
-  :where([data-theme='dark']) .placeholder {
-    /* In dark mode, invert custom background colors for better visibility */
-    &.textDark {
-      /* If text is dark (meaning bg was light), invert the background */
-      filter: invert(1) hue-rotate(180deg);
-    }
+  /* Dark mode adaptations - invert light backgrounds */
+  :where([data-mode='dark']) .placeholder.textDark,
+  :where([data-theme='dark']) .placeholder.textDark {
+    /* If text is dark (meaning bg was light), invert the background */
+    filter: invert(1) hue-rotate(180deg);
   }
 
   @media (prefers-color-scheme: dark) {
-    :where(:root:not([data-mode='light'])) .placeholder,
-    :where([data-mode='auto']) .placeholder {
-      /* In dark mode, invert custom background colors for better visibility */
-      &.textDark {
-        /* If text is dark (meaning bg was light), invert the background */
-        filter: invert(1) hue-rotate(180deg);
-      }
+    :where(:root:not([data-mode='light'])) .placeholder.textDark,
+    :where([data-mode='auto']) .placeholder.textDark {
+      /* If text is dark (meaning bg was light), invert the background */
+      filter: invert(1) hue-rotate(180deg);
     }
   }
 
