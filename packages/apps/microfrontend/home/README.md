@@ -18,9 +18,7 @@ This microfrontend serves as the landing/home page of the Lufa application. It s
 - **Single-SPA** - Microfrontend lifecycle
 - **Vite** - Build tool
 - **Lufa Design System** - Shared UI components
-- **Tailwind CSS** - Utility-first styling (microfrontend-specific)
-
-> **Note**: This microfrontend uses Tailwind CSS for its internal styling needs. This is independent from the Lufa Design System, which uses vanilla CSS with design tokens. Microfrontends can choose their own styling approach while still consuming shared design system components.
+- **Vanilla CSS** - CSS Modules for styling
 
 ## Development
 

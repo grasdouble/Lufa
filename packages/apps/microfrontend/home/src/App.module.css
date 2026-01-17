@@ -1,58 +1,56 @@
-@reference "tailwindcss";
+/* Lufa Microfrontend Home - Using Lufa Design Tokens */
 
-@layer components {
-  .lufa-home {
-    @apply flex;
-    @apply justify-center;
-    @apply items-center;
-    @apply h-screen;
-    @apply bg-[#101010];
-    @apply m-0;
-    @apply text-white;
-  }
+.lufa-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #101010;
+  margin: 0;
+  color: var(--lufa-token-color-text-inverse);
+}
 
-  .centered-image {
-    @apply w-72;
-    @apply h-72;
-    @apply mb-5;
-  }
+.centered-image {
+  width: 18rem;
+  height: 18rem;
+  margin-bottom: var(--lufa-token-spacing-md-lg);
+}
 
-  .centered-message {
-    @apply text-center;
-    @apply text-2xl;
-    @apply font-bold;
-    @apply mb-5;
-  }
+.centered-message {
+  text-align: center;
+  font-size: var(--lufa-token-font-size-2xl);
+  font-weight: var(--lufa-token-font-weight-bold);
+  margin-bottom: var(--lufa-token-spacing-md-lg);
+}
 
-  .link {
-    @apply no-underline;
-    @apply text-lg;
-    @apply font-bold;
-    @apply px-5 py-2.5;
-    @apply rounded-md;
-    @apply text-white;
-    @apply opacity-80;
-    @apply transition;
-  }
+.link {
+  text-decoration: none;
+  font-size: var(--lufa-token-font-size-lg);
+  font-weight: var(--lufa-token-font-weight-semibold);
+  padding: var(--lufa-token-spacing-sm-md) var(--lufa-token-spacing-md-lg);
+  border-radius: var(--lufa-token-radius-md);
+  color: var(--lufa-token-color-text-inverse);
+  opacity: 0.8;
+  transition: var(--lufa-token-transition-fast);
+}
 
-  .storybook {
-    @apply bg-pink-600;
-  }
+.storybook {
+  background-color: #db2777; /* pink-600 - could use semantic color token */
+}
 
-  .design {
-    @apply bg-green-600;
-  }
+.design {
+  background-color: #16a34a; /* green-600 - could use semantic color token */
+}
 
-  .github {
-    @apply bg-purple-600;
-  }
+.github {
+  background-color: #9333ea; /* purple-600 - could use semantic color token */
+}
 
-  .linkedin {
-    @apply bg-blue-500;
-  }
+.linkedin {
+  background-color: #3b82f6; /* blue-500 - could use semantic color token */
+}
 
-  .link:hover {
-    @apply scale-105;
-    @apply opacity-100;
-  }
+.link:hover {
+  transform: scale(1.05);
+  opacity: 1;
 }
