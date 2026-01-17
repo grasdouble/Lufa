@@ -34,22 +34,34 @@
    THEME SUPPORT
    ============================================================================ */
 
-@layer base {
-  /**
-   * Dark mode support
-   * 
-   * Themes handle their own light/dark variants via data-mode attribute.
-   * Semantic tokens automatically adapt to the current mode.
-   * 
-   * Usage:
-   * - <html data-mode="light"> : Force light mode
-   * - <html data-mode="dark">  : Force dark mode
-   * - <html data-mode="auto">  : Follow system preference (default)
-   */
-
-  /* Mode-specific adjustments are handled by semantic tokens */
-  /* No manual dark: classes needed - tokens adapt automatically */
-}
+/**
+ * Theme System Architecture:
+ * 
+ * The design system is theme-agnostic. It only provides semantic tokens.
+ * Themes are loaded by the consuming application (e.g., Storybook).
+ * 
+ * Theme Structure:
+ * - @grasdouble/lufa_design-system-themes/default.css  : Base theme (light + dark)
+ * - @grasdouble/lufa_design-system-themes/ocean.css    : Ocean theme (light + dark)
+ * - @grasdouble/lufa_design-system-themes/forest.css   : Forest theme (light + dark)
+ * 
+ * Usage in consuming apps:
+ * ```css
+ * @import '@grasdouble/lufa_design-system/style.css';
+ * @import '@grasdouble/lufa_design-system-themes/default.css';
+ * @import '@grasdouble/lufa_design-system-themes/ocean.css';
+ * @import '@grasdouble/lufa_design-system-themes/forest.css';
+ * ```
+ * 
+ * Theme switching with data attributes:
+ * - data-theme="default|ocean|forest" : Choose theme (default if not set)
+ * - data-mode="light|dark|auto"       : Choose color mode (auto = system preference)
+ * 
+ * Examples:
+ * - <html>                                      : Default theme, auto mode
+ * - <html data-theme="ocean">                   : Ocean theme, auto mode
+ * - <html data-theme="forest" data-mode="dark"> : Forest theme, dark mode
+ */
 
 /* ============================================================================
    COMPONENT STYLES
