@@ -9,7 +9,7 @@
     padding-right: var(--lufa-token-spacing-base);
     font-size: var(--lufa-token-font-size-sm);
     font-weight: var(--lufa-token-font-weight-medium);
-    color: var(--lufa-token-color-text-inverse);
+    color: var(--lufa-token-color-text-inverse); /* Default to light text */
     transition: var(--lufa-token-transition-base);
     box-shadow: var(--lufa-token-shadow-sm);
 
@@ -24,6 +24,15 @@
     &:hover {
       filter: brightness(0.8);
     }
+  }
+
+  /* Text color variants for contrast */
+  .textLight {
+    color: var(--lufa-token-color-text-inverse); /* White text for dark backgrounds */
+  }
+
+  .textDark {
+    color: var(--lufa-token-color-text-primary); /* Dark text for light backgrounds */
   }
 
   /* Height variants */
