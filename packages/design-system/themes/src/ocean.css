@@ -15,85 +15,85 @@
 :root[data-theme='ocean'],
 :root[data-theme='ocean'][data-mode='light'] {
   /* Text colors */
-  --color-text-primary: #0c4a6e;
-  --color-text-secondary: #075985;
-  --color-text-tertiary: #0891b2;
-  --color-text-disabled: #94a3b8;
-  --color-text-inverse: #f0f9ff;
-  --color-text-link: #0284c7;
-  --color-text-linkHover: #0369a1;
+  --lufa-token-color-text-primary: #0c4a6e;
+  --lufa-token-color-text-secondary: #075985;
+  --lufa-token-color-text-tertiary: #0891b2;
+  --lufa-token-color-text-disabled: #94a3b8;
+  --lufa-token-color-text-inverse: #f0f9ff;
+  --lufa-token-color-text-link: #0284c7;
+  --lufa-token-color-text-link-hover: #0369a1;
 
   /* Background colors */
-  --color-background-primary: #ffffff;
-  --color-background-secondary: #f0f9ff;
-  --color-background-tertiary: #e0f2fe;
-  --color-background-inverse: #0c4a6e;
-  --color-background-overlay: rgba(12, 74, 110, 0.5);
+  --lufa-token-color-background-primary: #ffffff;
+  --lufa-token-color-background-secondary: #f0f9ff;
+  --lufa-token-color-background-tertiary: #e0f2fe;
+  --lufa-token-color-background-inverse: #0c4a6e;
+  --lufa-token-color-background-overlay: rgba(12, 74, 110, 0.5);
 
   /* Border colors */
-  --color-border-default: #7dd3fc;
-  --color-border-light: #bae6fd;
-  --color-border-medium: #38bdf8;
-  --color-border-strong: #0284c7;
-  --color-border-focus: #0ea5e9;
+  --lufa-token-color-border-default: #7dd3fc;
+  --lufa-token-color-border-light: #bae6fd;
+  --lufa-token-color-border-medium: #38bdf8;
+  --lufa-token-color-border-strong: #0284c7;
+  --lufa-token-color-border-focus: #0ea5e9;
 
   /* Interactive colors */
-  --color-interactive-default: #0284c7;
-  --color-interactive-hover: #0369a1;
-  --color-interactive-active: #075985;
-  --color-interactive-disabled: #cbd5e1;
-  --color-interactive-focus: #0ea5e9;
+  --lufa-token-color-interactive-default: #0284c7;
+  --lufa-token-color-interactive-hover: #0369a1;
+  --lufa-token-color-interactive-active: #075985;
+  --lufa-token-color-interactive-disabled: #cbd5e1;
+  --lufa-token-color-interactive-focus: #0ea5e9;
 
   /* Success colors */
-  --color-success-default: #059669;
-  --color-success-hover: #047857;
-  --color-success-active: #065f46;
-  --color-success-light: #d1fae5;
-  --color-success-lighter: #ecfdf5;
-  --color-success-border: #6ee7b7;
-  --color-success-text: #047857;
+  --lufa-token-color-success-default: #059669;
+  --lufa-token-color-success-hover: #047857;
+  --lufa-token-color-success-active: #065f46;
+  --lufa-token-color-success-light: #d1fae5;
+  --lufa-token-color-success-lighter: #ecfdf5;
+  --lufa-token-color-success-border: #6ee7b7;
+  --lufa-token-color-success-text: #047857;
 
   /* Warning colors */
-  --color-warning-default: #d97706;
-  --color-warning-hover: #b45309;
-  --color-warning-active: #92400e;
-  --color-warning-light: #fef3c7;
-  --color-warning-lighter: #fffbeb;
-  --color-warning-border: #fbbf24;
-  --color-warning-text: #b45309;
+  --lufa-token-color-warning-default: #d97706;
+  --lufa-token-color-warning-hover: #b45309;
+  --lufa-token-color-warning-active: #92400e;
+  --lufa-token-color-warning-light: #fef3c7;
+  --lufa-token-color-warning-lighter: #fffbeb;
+  --lufa-token-color-warning-border: #fbbf24;
+  --lufa-token-color-warning-text: #b45309;
 
   /* Error colors */
-  --color-error-default: #dc2626;
-  --color-error-hover: #b91c1c;
-  --color-error-active: #991b1b;
-  --color-error-light: #fee2e2;
-  --color-error-lighter: #fef2f2;
-  --color-error-border: #fca5a5;
-  --color-error-text: #b91c1c;
+  --lufa-token-color-error-default: #dc2626;
+  --lufa-token-color-error-hover: #b91c1c;
+  --lufa-token-color-error-active: #991b1b;
+  --lufa-token-color-error-light: #fee2e2;
+  --lufa-token-color-error-lighter: #fef2f2;
+  --lufa-token-color-error-border: #fca5a5;
+  --lufa-token-color-error-text: #b91c1c;
 
   /* Info colors */
-  --color-info-default: #0891b2;
-  --color-info-hover: #0e7490;
-  --color-info-active: #155e75;
-  --color-info-light: #cffafe;
-  --color-info-lighter: #ecfeff;
-  --color-info-border: #67e8f9;
-  --color-info-text: #0e7490;
+  --lufa-token-color-info-default: #0891b2;
+  --lufa-token-color-info-hover: #0e7490;
+  --lufa-token-color-info-active: #155e75;
+  --lufa-token-color-info-light: #cffafe;
+  --lufa-token-color-info-lighter: #ecfeff;
+  --lufa-token-color-info-border: #67e8f9;
+  --lufa-token-color-info-text: #0e7490;
 
   /* Brand colors */
-  --color-brand-primary: #0284c7;
-  --color-brand-primaryHover: #0369a1;
-  --color-brand-primaryActive: #075985;
-  --color-brand-secondary: #0891b2;
-  --color-brand-secondaryHover: #0e7490;
-  --color-brand-secondaryActive: #155e75;
-  --color-brand-accent: #06b6d4;
+  --lufa-token-color-brand-primary: #0284c7;
+  --lufa-token-color-brand-primary-hover: #0369a1;
+  --lufa-token-color-brand-primary-active: #075985;
+  --lufa-token-color-brand-secondary: #0891b2;
+  --lufa-token-color-brand-secondary-hover: #0e7490;
+  --lufa-token-color-brand-secondary-active: #155e75;
+  --lufa-token-color-brand-accent: #06b6d4;
 
   /* Surface colors */
-  --color-surface-default: #ffffff;
-  --color-surface-raised: #f0f9ff;
-  --color-surface-overlay: #e0f2fe;
-  --color-surface-inverse: #0c4a6e;
+  --lufa-token-color-surface-default: #ffffff;
+  --lufa-token-color-surface-raised: #f0f9ff;
+  --lufa-token-color-surface-overlay: #e0f2fe;
+  --lufa-token-color-surface-inverse: #0c4a6e;
 
   /* Border Radius - More rounded for Ocean theme */
   --border-radius-base: 0.75rem; /* 12px instead of default 8px */
@@ -120,85 +120,85 @@
  */
 :root[data-theme='ocean'][data-mode='dark'] {
   /* Text colors - lighter for dark backgrounds */
-  --color-text-primary: #e0f2fe;
-  --color-text-secondary: #bae6fd;
-  --color-text-tertiary: #7dd3fc;
-  --color-text-disabled: #475569;
-  --color-text-inverse: #0c4a6e;
-  --color-text-link: #38bdf8;
-  --color-text-linkHover: #7dd3fc;
+  --lufa-token-color-text-primary: #e0f2fe;
+  --lufa-token-color-text-secondary: #bae6fd;
+  --lufa-token-color-text-tertiary: #7dd3fc;
+  --lufa-token-color-text-disabled: #475569;
+  --lufa-token-color-text-inverse: #0c4a6e;
+  --lufa-token-color-text-link: #38bdf8;
+  --lufa-token-color-text-link-hover: #7dd3fc;
 
   /* Background colors - dark ocean depths */
-  --color-background-primary: #082f49;
-  --color-background-secondary: #0c4a6e;
-  --color-background-tertiary: #075985;
-  --color-background-inverse: #f0f9ff;
-  --color-background-overlay: rgba(8, 47, 73, 0.8);
+  --lufa-token-color-background-primary: #082f49;
+  --lufa-token-color-background-secondary: #0c4a6e;
+  --lufa-token-color-background-tertiary: #075985;
+  --lufa-token-color-background-inverse: #f0f9ff;
+  --lufa-token-color-background-overlay: rgba(8, 47, 73, 0.8);
 
   /* Border colors - adjusted for dark mode */
-  --color-border-default: #0e7490;
-  --color-border-light: #075985;
-  --color-border-medium: #0891b2;
-  --color-border-strong: #38bdf8;
-  --color-border-focus: #7dd3fc;
+  --lufa-token-color-border-default: #0e7490;
+  --lufa-token-color-border-light: #075985;
+  --lufa-token-color-border-medium: #0891b2;
+  --lufa-token-color-border-strong: #38bdf8;
+  --lufa-token-color-border-focus: #7dd3fc;
 
   /* Interactive colors - brighter for visibility on dark */
-  --color-interactive-default: #38bdf8;
-  --color-interactive-hover: #7dd3fc;
-  --color-interactive-active: #bae6fd;
-  --color-interactive-disabled: #334155;
-  --color-interactive-focus: #7dd3fc;
+  --lufa-token-color-interactive-default: #38bdf8;
+  --lufa-token-color-interactive-hover: #7dd3fc;
+  --lufa-token-color-interactive-active: #bae6fd;
+  --lufa-token-color-interactive-disabled: #334155;
+  --lufa-token-color-interactive-focus: #7dd3fc;
 
   /* Success colors - adjusted for dark mode */
-  --color-success-default: #10b981;
-  --color-success-hover: #34d399;
-  --color-success-active: #6ee7b7;
-  --color-success-light: #064e3b;
-  --color-success-lighter: #022c22;
-  --color-success-border: #059669;
-  --color-success-text: #6ee7b7;
+  --lufa-token-color-success-default: #10b981;
+  --lufa-token-color-success-hover: #34d399;
+  --lufa-token-color-success-active: #6ee7b7;
+  --lufa-token-color-success-light: #064e3b;
+  --lufa-token-color-success-lighter: #022c22;
+  --lufa-token-color-success-border: #059669;
+  --lufa-token-color-success-text: #6ee7b7;
 
   /* Warning colors - adjusted for dark mode */
-  --color-warning-default: #f59e0b;
-  --color-warning-hover: #fbbf24;
-  --color-warning-active: #fcd34d;
-  --color-warning-light: #78350f;
-  --color-warning-lighter: #451a03;
-  --color-warning-border: #d97706;
-  --color-warning-text: #fcd34d;
+  --lufa-token-color-warning-default: #f59e0b;
+  --lufa-token-color-warning-hover: #fbbf24;
+  --lufa-token-color-warning-active: #fcd34d;
+  --lufa-token-color-warning-light: #78350f;
+  --lufa-token-color-warning-lighter: #451a03;
+  --lufa-token-color-warning-border: #d97706;
+  --lufa-token-color-warning-text: #fcd34d;
 
   /* Error colors - adjusted for dark mode */
-  --color-error-default: #ef4444;
-  --color-error-hover: #f87171;
-  --color-error-active: #fca5a5;
-  --color-error-light: #7f1d1d;
-  --color-error-lighter: #450a0a;
-  --color-error-border: #dc2626;
-  --color-error-text: #fca5a5;
+  --lufa-token-color-error-default: #ef4444;
+  --lufa-token-color-error-hover: #f87171;
+  --lufa-token-color-error-active: #fca5a5;
+  --lufa-token-color-error-light: #7f1d1d;
+  --lufa-token-color-error-lighter: #450a0a;
+  --lufa-token-color-error-border: #dc2626;
+  --lufa-token-color-error-text: #fca5a5;
 
   /* Info colors - ocean cyan for dark mode */
-  --color-info-default: #06b6d4;
-  --color-info-hover: #22d3ee;
-  --color-info-active: #67e8f9;
-  --color-info-light: #164e63;
-  --color-info-lighter: #083344;
-  --color-info-border: #0891b2;
-  --color-info-text: #67e8f9;
+  --lufa-token-color-info-default: #06b6d4;
+  --lufa-token-color-info-hover: #22d3ee;
+  --lufa-token-color-info-active: #67e8f9;
+  --lufa-token-color-info-light: #164e63;
+  --lufa-token-color-info-lighter: #083344;
+  --lufa-token-color-info-border: #0891b2;
+  --lufa-token-color-info-text: #67e8f9;
 
   /* Brand colors - ocean brand in dark mode */
-  --color-brand-primary: #38bdf8;
-  --color-brand-primaryHover: #7dd3fc;
-  --color-brand-primaryActive: #bae6fd;
-  --color-brand-secondary: #06b6d4;
-  --color-brand-secondaryHover: #22d3ee;
-  --color-brand-secondaryActive: #67e8f9;
-  --color-brand-accent: #0ea5e9;
+  --lufa-token-color-brand-primary: #38bdf8;
+  --lufa-token-color-brand-primary-hover: #7dd3fc;
+  --lufa-token-color-brand-primary-active: #bae6fd;
+  --lufa-token-color-brand-secondary: #06b6d4;
+  --lufa-token-color-brand-secondary-hover: #22d3ee;
+  --lufa-token-color-brand-secondary-active: #67e8f9;
+  --lufa-token-color-brand-accent: #0ea5e9;
 
   /* Surface colors - layered depth */
-  --color-surface-default: #082f49;
-  --color-surface-raised: #0c4a6e;
-  --color-surface-overlay: #075985;
-  --color-surface-inverse: #f0f9ff;
+  --lufa-token-color-surface-default: #082f49;
+  --lufa-token-color-surface-raised: #0c4a6e;
+  --lufa-token-color-surface-overlay: #075985;
+  --lufa-token-color-surface-inverse: #f0f9ff;
 
   /* Visual properties inherited from light mode */
   /* Border radius, spacing, and transitions remain the same for consistency */
@@ -211,84 +211,84 @@
 @media (prefers-color-scheme: dark) {
   :root[data-theme='ocean']:not([data-mode]) {
     /* Text colors */
-    --color-text-primary: #e0f2fe;
-    --color-text-secondary: #bae6fd;
-    --color-text-tertiary: #7dd3fc;
-    --color-text-disabled: #475569;
-    --color-text-inverse: #0c4a6e;
-    --color-text-link: #38bdf8;
-    --color-text-linkHover: #7dd3fc;
+    --lufa-token-color-text-primary: #e0f2fe;
+    --lufa-token-color-text-secondary: #bae6fd;
+    --lufa-token-color-text-tertiary: #7dd3fc;
+    --lufa-token-color-text-disabled: #475569;
+    --lufa-token-color-text-inverse: #0c4a6e;
+    --lufa-token-color-text-link: #38bdf8;
+    --lufa-token-color-text-link-hover: #7dd3fc;
 
     /* Background colors */
-    --color-background-primary: #082f49;
-    --color-background-secondary: #0c4a6e;
-    --color-background-tertiary: #075985;
-    --color-background-inverse: #f0f9ff;
-    --color-background-overlay: rgba(8, 47, 73, 0.8);
+    --lufa-token-color-background-primary: #082f49;
+    --lufa-token-color-background-secondary: #0c4a6e;
+    --lufa-token-color-background-tertiary: #075985;
+    --lufa-token-color-background-inverse: #f0f9ff;
+    --lufa-token-color-background-overlay: rgba(8, 47, 73, 0.8);
 
     /* Border colors */
-    --color-border-default: #0e7490;
-    --color-border-light: #075985;
-    --color-border-medium: #0891b2;
-    --color-border-strong: #38bdf8;
-    --color-border-focus: #7dd3fc;
+    --lufa-token-color-border-default: #0e7490;
+    --lufa-token-color-border-light: #075985;
+    --lufa-token-color-border-medium: #0891b2;
+    --lufa-token-color-border-strong: #38bdf8;
+    --lufa-token-color-border-focus: #7dd3fc;
 
     /* Interactive colors */
-    --color-interactive-default: #38bdf8;
-    --color-interactive-hover: #7dd3fc;
-    --color-interactive-active: #bae6fd;
-    --color-interactive-disabled: #334155;
-    --color-interactive-focus: #7dd3fc;
+    --lufa-token-color-interactive-default: #38bdf8;
+    --lufa-token-color-interactive-hover: #7dd3fc;
+    --lufa-token-color-interactive-active: #bae6fd;
+    --lufa-token-color-interactive-disabled: #334155;
+    --lufa-token-color-interactive-focus: #7dd3fc;
 
     /* Success colors */
-    --color-success-default: #10b981;
-    --color-success-hover: #34d399;
-    --color-success-active: #6ee7b7;
-    --color-success-light: #064e3b;
-    --color-success-lighter: #022c22;
-    --color-success-border: #059669;
-    --color-success-text: #6ee7b7;
+    --lufa-token-color-success-default: #10b981;
+    --lufa-token-color-success-hover: #34d399;
+    --lufa-token-color-success-active: #6ee7b7;
+    --lufa-token-color-success-light: #064e3b;
+    --lufa-token-color-success-lighter: #022c22;
+    --lufa-token-color-success-border: #059669;
+    --lufa-token-color-success-text: #6ee7b7;
 
     /* Warning colors */
-    --color-warning-default: #f59e0b;
-    --color-warning-hover: #fbbf24;
-    --color-warning-active: #fcd34d;
-    --color-warning-light: #78350f;
-    --color-warning-lighter: #451a03;
-    --color-warning-border: #d97706;
-    --color-warning-text: #fcd34d;
+    --lufa-token-color-warning-default: #f59e0b;
+    --lufa-token-color-warning-hover: #fbbf24;
+    --lufa-token-color-warning-active: #fcd34d;
+    --lufa-token-color-warning-light: #78350f;
+    --lufa-token-color-warning-lighter: #451a03;
+    --lufa-token-color-warning-border: #d97706;
+    --lufa-token-color-warning-text: #fcd34d;
 
     /* Error colors */
-    --color-error-default: #ef4444;
-    --color-error-hover: #f87171;
-    --color-error-active: #fca5a5;
-    --color-error-light: #7f1d1d;
-    --color-error-lighter: #450a0a;
-    --color-error-border: #dc2626;
-    --color-error-text: #fca5a5;
+    --lufa-token-color-error-default: #ef4444;
+    --lufa-token-color-error-hover: #f87171;
+    --lufa-token-color-error-active: #fca5a5;
+    --lufa-token-color-error-light: #7f1d1d;
+    --lufa-token-color-error-lighter: #450a0a;
+    --lufa-token-color-error-border: #dc2626;
+    --lufa-token-color-error-text: #fca5a5;
 
     /* Info colors */
-    --color-info-default: #06b6d4;
-    --color-info-hover: #22d3ee;
-    --color-info-active: #67e8f9;
-    --color-info-light: #164e63;
-    --color-info-lighter: #083344;
-    --color-info-border: #0891b2;
-    --color-info-text: #67e8f9;
+    --lufa-token-color-info-default: #06b6d4;
+    --lufa-token-color-info-hover: #22d3ee;
+    --lufa-token-color-info-active: #67e8f9;
+    --lufa-token-color-info-light: #164e63;
+    --lufa-token-color-info-lighter: #083344;
+    --lufa-token-color-info-border: #0891b2;
+    --lufa-token-color-info-text: #67e8f9;
 
     /* Brand colors */
-    --color-brand-primary: #38bdf8;
-    --color-brand-primaryHover: #7dd3fc;
-    --color-brand-primaryActive: #bae6fd;
-    --color-brand-secondary: #06b6d4;
-    --color-brand-secondaryHover: #22d3ee;
-    --color-brand-secondaryActive: #67e8f9;
-    --color-brand-accent: #0ea5e9;
+    --lufa-token-color-brand-primary: #38bdf8;
+    --lufa-token-color-brand-primary-hover: #7dd3fc;
+    --lufa-token-color-brand-primary-active: #bae6fd;
+    --lufa-token-color-brand-secondary: #06b6d4;
+    --lufa-token-color-brand-secondary-hover: #22d3ee;
+    --lufa-token-color-brand-secondary-active: #67e8f9;
+    --lufa-token-color-brand-accent: #0ea5e9;
 
     /* Surface colors */
-    --color-surface-default: #082f49;
-    --color-surface-raised: #0c4a6e;
-    --color-surface-overlay: #075985;
-    --color-surface-inverse: #f0f9ff;
+    --lufa-token-color-surface-default: #082f49;
+    --lufa-token-color-surface-raised: #0c4a6e;
+    --lufa-token-color-surface-overlay: #075985;
+    --lufa-token-color-surface-inverse: #f0f9ff;
   }
 }

@@ -14,191 +14,164 @@
  */
 :root,
 :root[data-mode='light'] {
-  /* Text colors */
-  --color-text-primary: #171717;
-  --color-text-secondary: #525252;
-  --color-text-tertiary: #737373;
-  --color-text-disabled: #a3a3a3;
-  --color-text-inverse: #ffffff;
-  --color-text-link: #0284c7;
-  --color-text-linkHover: #0369a1;
+  /* Override semantic token colors for light mode */
+  --lufa-token-color-text-primary: oklch(21% 0 0);
+  --lufa-token-color-text-secondary: oklch(37% 0 0);
+  --lufa-token-color-text-tertiary: oklch(44.2% 0 0);
+  --lufa-token-color-text-disabled: oklch(70.5% 0 0);
+  --lufa-token-color-text-inverse: oklch(100% 0 0);
+  --lufa-token-color-text-link: oklch(54.3% 0.212 266.994);
+  --lufa-token-color-text-link-hover: oklch(47% 0.202 267.568);
 
-  /* Background colors */
-  --color-background-primary: #ffffff;
-  --color-background-secondary: #fafafa;
-  --color-background-tertiary: #f5f5f5;
-  --color-background-inverse: #171717;
-  --color-background-overlay: rgba(23, 23, 23, 0.5);
+  --lufa-token-color-background-primary: oklch(100% 0 0);
+  --lufa-token-color-background-secondary: oklch(98.5% 0 0);
+  --lufa-token-color-background-tertiary: oklch(96.7% 0 0);
+  --lufa-token-color-background-inverse: oklch(21% 0 0);
+  --lufa-token-color-background-overlay: rgba(0, 0, 0, 0.5);
 
-  /* Border colors */
-  --color-border-default: #e5e5e5;
-  --color-border-light: #f5f5f5;
-  --color-border-medium: #d4d4d4;
-  --color-border-strong: #a3a3a3;
-  --color-border-focus: #0284c7;
+  --lufa-token-color-border-default: oklch(87.1% 0 0);
+  --lufa-token-color-border-light: oklch(92% 0 0);
+  --lufa-token-color-border-medium: oklch(70.5% 0 0);
+  --lufa-token-color-border-strong: oklch(44.2% 0 0);
+  --lufa-token-color-border-focus: oklch(61.6% 0.199 262.881);
 
-  /* Interactive colors */
-  --color-interactive-default: #0284c7;
-  --color-interactive-hover: #0369a1;
-  --color-interactive-active: #075985;
-  --color-interactive-disabled: #e5e5e5;
-  --color-interactive-focus: #0ea5e9;
+  --lufa-token-color-interactive-default: oklch(54.3% 0.212 266.994);
+  --lufa-token-color-interactive-hover: oklch(47% 0.202 267.568);
+  --lufa-token-color-interactive-active: oklch(40.9% 0.171 268.344);
+  --lufa-token-color-interactive-disabled: oklch(87.1% 0 0);
+  --lufa-token-color-interactive-focus: oklch(61.6% 0.199 262.881);
 
-  /* Success colors */
-  --color-success-default: #16a34a;
-  --color-success-hover: #15803d;
-  --color-success-active: #166534;
-  --color-success-light: #86efac;
-  --color-success-lighter: #dcfce7;
-  --color-success-border: #22c55e;
-  --color-success-text: #166534;
+  --lufa-token-color-success-default: oklch(60.1% 0.172 149.578);
+  --lufa-token-color-success-hover: oklch(51.2% 0.141 149.433);
+  --lufa-token-color-success-active: oklch(43.5% 0.114 150.069);
+  --lufa-token-color-success-light: oklch(97.3% 0.024 155.826);
+  --lufa-token-color-success-lighter: oklch(94.8% 0.051 156.743);
+  --lufa-token-color-success-border: oklch(84.3% 0.155 155.995);
+  --lufa-token-color-success-text: oklch(51.2% 0.141 149.433);
 
-  /* Warning colors */
-  --color-warning-default: #eab308;
-  --color-warning-hover: #ca8a04;
-  --color-warning-active: #a16207;
-  --color-warning-light: #fde047;
-  --color-warning-lighter: #fef9c3;
-  --color-warning-border: #facc15;
-  --color-warning-text: #854d0e;
+  --lufa-token-color-warning-default: oklch(57.6% 0.189 41.656);
+  --lufa-token-color-warning-hover: oklch(48.4% 0.159 40.033);
+  --lufa-token-color-warning-active: oklch(40.7% 0.131 39.315);
+  --lufa-token-color-warning-light: oklch(97.6% 0.013 70.36);
+  --lufa-token-color-warning-lighter: oklch(94.6% 0.032 72.177);
+  --lufa-token-color-warning-border: oklch(80.3% 0.121 62.683);
+  --lufa-token-color-warning-text: oklch(48.4% 0.159 40.033);
 
-  /* Error colors */
-  --color-error-default: #dc2626;
-  --color-error-hover: #b91c1c;
-  --color-error-active: #991b1b;
-  --color-error-light: #fca5a5;
-  --color-error-lighter: #fee2e2;
-  --color-error-border: #ef4444;
-  --color-error-text: #991b1b;
+  --lufa-token-color-error-default: oklch(54.3% 0.224 27.677);
+  --lufa-token-color-error-hover: oklch(45.7% 0.194 29.234);
+  --lufa-token-color-error-active: oklch(40.1% 0.162 27.804);
+  --lufa-token-color-error-light: oklch(97.1% 0.013 17.38);
+  --lufa-token-color-error-lighter: oklch(94.2% 0.027 17.717);
+  --lufa-token-color-error-border: oklch(82.1% 0.106 14.428);
+  --lufa-token-color-error-text: oklch(45.7% 0.194 29.234);
 
-  /* Info colors */
-  --color-info-default: #0284c7;
-  --color-info-hover: #0369a1;
-  --color-info-active: #075985;
-  --color-info-light: #7dd3fc;
-  --color-info-lighter: #e0f2fe;
-  --color-info-border: #38bdf8;
-  --color-info-text: #075985;
+  --lufa-token-color-info-default: oklch(54.3% 0.212 266.994);
+  --lufa-token-color-info-hover: oklch(47% 0.202 267.568);
+  --lufa-token-color-info-active: oklch(40.9% 0.171 268.344);
+  --lufa-token-color-info-light: oklch(97.1% 0.014 254.604);
+  --lufa-token-color-info-lighter: oklch(93.9% 0.03 254.624);
+  --lufa-token-color-info-border: oklch(80.3% 0.109 254.832);
+  --lufa-token-color-info-text: oklch(47% 0.202 267.568);
 
-  /* Brand colors */
-  --color-brand-primary: #0284c7;
-  --color-brand-primary-hover: #0369a1;
-  --color-brand-primary-active: #075985;
-  --color-brand-secondary: #6366f1;
-  --color-brand-secondary-hover: #4f46e5;
-  --color-brand-secondary-active: #4338ca;
-  --color-brand-accent: #8b5cf6;
+  --lufa-token-color-brand-primary: oklch(54.3% 0.212 266.994);
+  --lufa-token-color-brand-primary-hover: oklch(47% 0.202 267.568);
+  --lufa-token-color-brand-primary-active: oklch(40.9% 0.171 268.344);
+  --lufa-token-color-brand-secondary: oklch(55.7% 0.283 294.408);
+  --lufa-token-color-brand-secondary-hover: oklch(49.3% 0.263 293.571);
+  --lufa-token-color-brand-secondary-active: oklch(43.4% 0.226 293.887);
+  --lufa-token-color-brand-accent: oklch(58.8% 0.131 181.072);
 
-  /* Surface colors */
-  --color-surface-default: #ffffff;
-  --color-surface-raised: #fafafa;
-  --color-surface-overlay: #ffffff;
-  --color-surface-inverse: #171717;
+  --lufa-token-color-surface-default: oklch(100% 0 0);
+  --lufa-token-color-surface-raised: oklch(98.5% 0 0);
+  --lufa-token-color-surface-overlay: oklch(96.7% 0 0);
+  --lufa-token-color-surface-inverse: oklch(21% 0 0);
 
-  /* Shadow colors */
-  --color-shadow-small: rgba(0, 0, 0, 0.05);
-  --color-shadow-medium: rgba(0, 0, 0, 0.1);
-  --color-shadow-large: rgba(0, 0, 0, 0.15);
-  --color-shadow-extra-large: rgba(0, 0, 0, 0.2);
-
-  /* Visual properties (shared across modes) */
-  --border-radius-base: 0.5rem;
-  --spacing-base: 1rem;
-  --transition-duration-base: 250ms;
+  --lufa-token-color-shadow-small: rgba(0, 0, 0, 0.05);
+  --lufa-token-color-shadow-medium: rgba(0, 0, 0, 0.1);
+  --lufa-token-color-shadow-large: rgba(0, 0, 0, 0.15);
+  --lufa-token-color-shadow-extra-large: rgba(0, 0, 0, 0.2);
 }
 
 /**
  * Default Theme - Dark Mode
  */
 :root[data-mode='dark'] {
-  /* Text colors - lighter for dark backgrounds */
-  --color-text-primary: #e5e5e5;
-  --color-text-secondary: #a3a3a3;
-  --color-text-tertiary: #737373;
-  --color-text-disabled: #525252;
-  --color-text-inverse: #0a0a0a;
-  --color-text-link: #38bdf8;
-  --color-text-linkHover: #7dd3fc;
+  /* Override semantic token colors for dark mode */
+  --lufa-token-color-text-primary: oklch(87.1% 0 0);
+  --lufa-token-color-text-secondary: oklch(70.5% 0 0);
+  --lufa-token-color-text-tertiary: oklch(61.1% 0 0);
+  --lufa-token-color-text-disabled: oklch(44.2% 0 0);
+  --lufa-token-color-text-inverse: oklch(10% 0 0);
+  --lufa-token-color-text-link: oklch(73.8% 0.153 256.558);
+  --lufa-token-color-text-link-hover: oklch(82% 0.108 257.416);
 
-  /* Background colors - darker */
-  --color-background-primary: #0a0a0a;
-  --color-background-secondary: #171717;
-  --color-background-tertiary: #262626;
-  --color-background-inverse: #e5e5e5;
-  --color-background-overlay: rgba(250, 250, 250, 0.1);
+  --lufa-token-color-background-primary: oklch(10% 0 0);
+  --lufa-token-color-background-secondary: oklch(21% 0 0);
+  --lufa-token-color-background-tertiary: oklch(30% 0 0);
+  --lufa-token-color-background-inverse: oklch(87.1% 0 0);
+  --lufa-token-color-background-overlay: rgba(255, 255, 255, 0.1);
 
-  /* Border colors - adjusted for dark backgrounds */
-  --color-border-default: #404040;
-  --color-border-light: #262626;
-  --color-border-medium: #525252;
-  --color-border-strong: #737373;
-  --color-border-focus: #38bdf8;
+  --lufa-token-color-border-default: oklch(37% 0 0);
+  --lufa-token-color-border-light: oklch(30% 0 0);
+  --lufa-token-color-border-medium: oklch(44.2% 0 0);
+  --lufa-token-color-border-strong: oklch(61.1% 0 0);
+  --lufa-token-color-border-focus: oklch(73.8% 0.153 256.558);
 
-  /* Interactive colors - brighter for visibility */
-  --color-interactive-default: #38bdf8;
-  --color-interactive-hover: #7dd3fc;
-  --color-interactive-active: #bae6fd;
-  --color-interactive-disabled: #404040;
-  --color-interactive-focus: #0ea5e9;
+  --lufa-token-color-interactive-default: oklch(73.8% 0.153 256.558);
+  --lufa-token-color-interactive-hover: oklch(82% 0.108 257.416);
+  --lufa-token-color-interactive-active: oklch(87.9% 0.075 258.109);
+  --lufa-token-color-interactive-disabled: oklch(37% 0 0);
+  --lufa-token-color-interactive-focus: oklch(67.5% 0.185 257.152);
 
-  /* Success colors - adjusted for dark mode */
-  --color-success-default: #4ade80;
-  --color-success-hover: #86efac;
-  --color-success-active: #bbf7d0;
-  --color-success-light: #22c55e;
-  --color-success-lighter: #166534;
-  --color-success-border: #16a34a;
-  --color-success-text: #86efac;
+  --lufa-token-color-success-default: oklch(75.4% 0.147 149.732);
+  --lufa-token-color-success-hover: oklch(83.3% 0.123 151.301);
+  --lufa-token-color-success-active: oklch(88.4% 0.096 153.569);
+  --lufa-token-color-success-light: oklch(60.1% 0.172 149.578);
+  --lufa-token-color-success-lighter: oklch(43.5% 0.114 150.069);
+  --lufa-token-color-success-border: oklch(60.1% 0.172 149.578);
+  --lufa-token-color-success-text: oklch(83.3% 0.123 151.301);
 
-  /* Warning colors - adjusted for dark mode */
-  --color-warning-default: #fbbf24;
-  --color-warning-hover: #fde047;
-  --color-warning-active: #fef08a;
-  --color-warning-light: #eab308;
-  --color-warning-lighter: #854d0e;
-  --color-warning-border: #ca8a04;
-  --color-warning-text: #fde047;
+  --lufa-token-color-warning-default: oklch(77.7% 0.14 64.665);
+  --lufa-token-color-warning-hover: oklch(85.4% 0.105 74.284);
+  --lufa-token-color-warning-active: oklch(90.3% 0.074 83.087);
+  --lufa-token-color-warning-light: oklch(57.6% 0.189 41.656);
+  --lufa-token-color-warning-lighter: oklch(40.7% 0.131 39.315);
+  --lufa-token-color-warning-border: oklch(48.4% 0.159 40.033);
+  --lufa-token-color-warning-text: oklch(85.4% 0.105 74.284);
 
-  /* Error colors - adjusted for dark mode */
-  --color-error-default: #f87171;
-  --color-error-hover: #fca5a5;
-  --color-error-active: #fecaca;
-  --color-error-light: #ef4444;
-  --color-error-lighter: #991b1b;
-  --color-error-border: #dc2626;
-  --color-error-text: #fca5a5;
+  --lufa-token-color-error-default: oklch(69.4% 0.186 23.888);
+  --lufa-token-color-error-hover: oklch(78% 0.138 21.699);
+  --lufa-token-color-error-active: oklch(84.3% 0.098 20.314);
+  --lufa-token-color-error-light: oklch(54.3% 0.224 27.677);
+  --lufa-token-color-error-lighter: oklch(40.1% 0.162 27.804);
+  --lufa-token-color-error-border: oklch(54.3% 0.224 27.677);
+  --lufa-token-color-error-text: oklch(78% 0.138 21.699);
 
-  /* Info colors - adjusted for dark mode */
-  --color-info-default: #38bdf8;
-  --color-info-hover: #7dd3fc;
-  --color-info-active: #bae6fd;
-  --color-info-light: #0284c7;
-  --color-info-lighter: #075985;
-  --color-info-border: #0369a1;
-  --color-info-text: #7dd3fc;
+  --lufa-token-color-info-default: oklch(73.8% 0.153 256.558);
+  --lufa-token-color-info-hover: oklch(82% 0.108 257.416);
+  --lufa-token-color-info-active: oklch(87.9% 0.075 258.109);
+  --lufa-token-color-info-light: oklch(54.3% 0.212 266.994);
+  --lufa-token-color-info-lighter: oklch(40.9% 0.171 268.344);
+  --lufa-token-color-info-border: oklch(47% 0.202 267.568);
+  --lufa-token-color-info-text: oklch(82% 0.108 257.416);
 
-  /* Brand colors - adjusted for dark mode */
-  --color-brand-primary: #38bdf8;
-  --color-brand-primary-hover: #7dd3fc;
-  --color-brand-primary-active: #bae6fd;
-  --color-brand-secondary: #818cf8;
-  --color-brand-secondary-hover: #a5b4fc;
-  --color-brand-secondary-active: #c7d2fe;
-  --color-brand-accent: #a78bfa;
+  --lufa-token-color-brand-primary: oklch(73.8% 0.153 256.558);
+  --lufa-token-color-brand-primary-hover: oklch(82% 0.108 257.416);
+  --lufa-token-color-brand-primary-active: oklch(87.9% 0.075 258.109);
+  --lufa-token-color-brand-secondary: oklch(74.1% 0.208 293.284);
+  --lufa-token-color-brand-secondary-hover: oklch(82.2% 0.158 292.865);
+  --lufa-token-color-brand-secondary-active: oklch(88% 0.114 292.643);
+  --lufa-token-color-brand-accent: oklch(80.4% 0.112 293.436);
 
-  /* Surface colors - elevated on dark */
-  --color-surface-default: #0a0a0a;
-  --color-surface-raised: #171717;
-  --color-surface-overlay: #262626;
-  --color-surface-inverse: #e5e5e5;
+  --lufa-token-color-surface-default: oklch(10% 0 0);
+  --lufa-token-color-surface-raised: oklch(21% 0 0);
+  --lufa-token-color-surface-overlay: oklch(30% 0 0);
+  --lufa-token-color-surface-inverse: oklch(87.1% 0 0);
 
-  /* Shadow colors - lighter shadows for dark mode */
-  --color-shadow-small: rgba(0, 0, 0, 0.3);
-  --color-shadow-medium: rgba(0, 0, 0, 0.4);
-  --color-shadow-large: rgba(0, 0, 0, 0.5);
-  --color-shadow-extra-large: rgba(0, 0, 0, 0.6);
-
-  /* Visual properties inherited from light mode */
+  --lufa-token-color-shadow-small: rgba(0, 0, 0, 0.3);
+  --lufa-token-color-shadow-medium: rgba(0, 0, 0, 0.4);
+  --lufa-token-color-shadow-large: rgba(0, 0, 0, 0.5);
+  --lufa-token-color-shadow-extra-large: rgba(0, 0, 0, 0.6);
 }
 
 /**
@@ -208,80 +181,80 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-mode]) {
     /* Apply same dark mode colors */
-    --color-text-primary: #e5e5e5;
-    --color-text-secondary: #a3a3a3;
-    --color-text-tertiary: #737373;
-    --color-text-disabled: #525252;
-    --color-text-inverse: #0a0a0a;
-    --color-text-link: #38bdf8;
-    --color-text-linkHover: #7dd3fc;
+    --lufa-token-color-text-primary: oklch(87.1% 0 0);
+    --lufa-token-color-text-secondary: oklch(70.5% 0 0);
+    --lufa-token-color-text-tertiary: oklch(61.1% 0 0);
+    --lufa-token-color-text-disabled: oklch(44.2% 0 0);
+    --lufa-token-color-text-inverse: oklch(10% 0 0);
+    --lufa-token-color-text-link: oklch(73.8% 0.153 256.558);
+    --lufa-token-color-text-link-hover: oklch(82% 0.108 257.416);
 
-    --color-background-primary: #0a0a0a;
-    --color-background-secondary: #171717;
-    --color-background-tertiary: #262626;
-    --color-background-inverse: #e5e5e5;
-    --color-background-overlay: rgba(250, 250, 250, 0.1);
+    --lufa-token-color-background-primary: oklch(10% 0 0);
+    --lufa-token-color-background-secondary: oklch(21% 0 0);
+    --lufa-token-color-background-tertiary: oklch(30% 0 0);
+    --lufa-token-color-background-inverse: oklch(87.1% 0 0);
+    --lufa-token-color-background-overlay: rgba(255, 255, 255, 0.1);
 
-    --color-border-default: #404040;
-    --color-border-light: #262626;
-    --color-border-medium: #525252;
-    --color-border-strong: #737373;
-    --color-border-focus: #38bdf8;
+    --lufa-token-color-border-default: oklch(37% 0 0);
+    --lufa-token-color-border-light: oklch(30% 0 0);
+    --lufa-token-color-border-medium: oklch(44.2% 0 0);
+    --lufa-token-color-border-strong: oklch(61.1% 0 0);
+    --lufa-token-color-border-focus: oklch(73.8% 0.153 256.558);
 
-    --color-interactive-default: #38bdf8;
-    --color-interactive-hover: #7dd3fc;
-    --color-interactive-active: #bae6fd;
-    --color-interactive-disabled: #404040;
-    --color-interactive-focus: #0ea5e9;
+    --lufa-token-color-interactive-default: oklch(73.8% 0.153 256.558);
+    --lufa-token-color-interactive-hover: oklch(82% 0.108 257.416);
+    --lufa-token-color-interactive-active: oklch(87.9% 0.075 258.109);
+    --lufa-token-color-interactive-disabled: oklch(37% 0 0);
+    --lufa-token-color-interactive-focus: oklch(67.5% 0.185 257.152);
 
-    --color-success-default: #4ade80;
-    --color-success-hover: #86efac;
-    --color-success-active: #bbf7d0;
-    --color-success-light: #22c55e;
-    --color-success-lighter: #166534;
-    --color-success-border: #16a34a;
-    --color-success-text: #86efac;
+    --lufa-token-color-success-default: oklch(75.4% 0.147 149.732);
+    --lufa-token-color-success-hover: oklch(83.3% 0.123 151.301);
+    --lufa-token-color-success-active: oklch(88.4% 0.096 153.569);
+    --lufa-token-color-success-light: oklch(60.1% 0.172 149.578);
+    --lufa-token-color-success-lighter: oklch(43.5% 0.114 150.069);
+    --lufa-token-color-success-border: oklch(60.1% 0.172 149.578);
+    --lufa-token-color-success-text: oklch(83.3% 0.123 151.301);
 
-    --color-warning-default: #fbbf24;
-    --color-warning-hover: #fde047;
-    --color-warning-active: #fef08a;
-    --color-warning-light: #eab308;
-    --color-warning-lighter: #854d0e;
-    --color-warning-border: #ca8a04;
-    --color-warning-text: #fde047;
+    --lufa-token-color-warning-default: oklch(77.7% 0.14 64.665);
+    --lufa-token-color-warning-hover: oklch(85.4% 0.105 74.284);
+    --lufa-token-color-warning-active: oklch(90.3% 0.074 83.087);
+    --lufa-token-color-warning-light: oklch(57.6% 0.189 41.656);
+    --lufa-token-color-warning-lighter: oklch(40.7% 0.131 39.315);
+    --lufa-token-color-warning-border: oklch(48.4% 0.159 40.033);
+    --lufa-token-color-warning-text: oklch(85.4% 0.105 74.284);
 
-    --color-error-default: #f87171;
-    --color-error-hover: #fca5a5;
-    --color-error-active: #fecaca;
-    --color-error-light: #ef4444;
-    --color-error-lighter: #991b1b;
-    --color-error-border: #dc2626;
-    --color-error-text: #fca5a5;
+    --lufa-token-color-error-default: oklch(69.4% 0.186 23.888);
+    --lufa-token-color-error-hover: oklch(78% 0.138 21.699);
+    --lufa-token-color-error-active: oklch(84.3% 0.098 20.314);
+    --lufa-token-color-error-light: oklch(54.3% 0.224 27.677);
+    --lufa-token-color-error-lighter: oklch(40.1% 0.162 27.804);
+    --lufa-token-color-error-border: oklch(54.3% 0.224 27.677);
+    --lufa-token-color-error-text: oklch(78% 0.138 21.699);
 
-    --color-info-default: #38bdf8;
-    --color-info-hover: #7dd3fc;
-    --color-info-active: #bae6fd;
-    --color-info-light: #0284c7;
-    --color-info-lighter: #075985;
-    --color-info-border: #0369a1;
-    --color-info-text: #7dd3fc;
+    --lufa-token-color-info-default: oklch(73.8% 0.153 256.558);
+    --lufa-token-color-info-hover: oklch(82% 0.108 257.416);
+    --lufa-token-color-info-active: oklch(87.9% 0.075 258.109);
+    --lufa-token-color-info-light: oklch(54.3% 0.212 266.994);
+    --lufa-token-color-info-lighter: oklch(40.9% 0.171 268.344);
+    --lufa-token-color-info-border: oklch(47% 0.202 267.568);
+    --lufa-token-color-info-text: oklch(82% 0.108 257.416);
 
-    --color-brand-primary: #38bdf8;
-    --color-brand-primary-hover: #7dd3fc;
-    --color-brand-primary-active: #bae6fd;
-    --color-brand-secondary: #818cf8;
-    --color-brand-secondary-hover: #a5b4fc;
-    --color-brand-secondary-active: #c7d2fe;
-    --color-brand-accent: #a78bfa;
+    --lufa-token-color-brand-primary: oklch(73.8% 0.153 256.558);
+    --lufa-token-color-brand-primary-hover: oklch(82% 0.108 257.416);
+    --lufa-token-color-brand-primary-active: oklch(87.9% 0.075 258.109);
+    --lufa-token-color-brand-secondary: oklch(74.1% 0.208 293.284);
+    --lufa-token-color-brand-secondary-hover: oklch(82.2% 0.158 292.865);
+    --lufa-token-color-brand-secondary-active: oklch(88% 0.114 292.643);
+    --lufa-token-color-brand-accent: oklch(80.4% 0.112 293.436);
 
-    --color-surface-default: #0a0a0a;
-    --color-surface-raised: #171717;
-    --color-surface-overlay: #262626;
-    --color-surface-inverse: #e5e5e5;
+    --lufa-token-color-surface-default: oklch(10% 0 0);
+    --lufa-token-color-surface-raised: oklch(21% 0 0);
+    --lufa-token-color-surface-overlay: oklch(30% 0 0);
+    --lufa-token-color-surface-inverse: oklch(87.1% 0 0);
 
-    --color-shadow-small: rgba(0, 0, 0, 0.3);
-    --color-shadow-medium: rgba(0, 0, 0, 0.4);
-    --color-shadow-large: rgba(0, 0, 0, 0.5);
-    --color-shadow-extra-large: rgba(0, 0, 0, 0.6);
+    --lufa-token-color-shadow-small: rgba(0, 0, 0, 0.3);
+    --lufa-token-color-shadow-medium: rgba(0, 0, 0, 0.4);
+    --lufa-token-color-shadow-large: rgba(0, 0, 0, 0.5);
+    --lufa-token-color-shadow-extra-large: rgba(0, 0, 0, 0.6);
   }
 }
