@@ -50,3 +50,6 @@ dist
 # Temporary files
 *.tmp
 .eslintcache
+
+# Playwright cache (build artifacts)
+.cache
