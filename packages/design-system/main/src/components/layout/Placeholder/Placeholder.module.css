@@ -35,6 +35,27 @@
     color: var(--lufa-token-color-text-primary); /* Dark text for light backgrounds */
   }
 
+  /* Dark mode adaptations */
+  :where([data-mode='dark']) .placeholder,
+  :where([data-theme='dark']) .placeholder {
+    /* In dark mode, invert custom background colors for better visibility */
+    &.textDark {
+      /* If text is dark (meaning bg was light), invert the background */
+      filter: invert(1) hue-rotate(180deg);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :where(:root:not([data-mode='light'])) .placeholder,
+    :where([data-mode='auto']) .placeholder {
+      /* In dark mode, invert custom background colors for better visibility */
+      &.textDark {
+        /* If text is dark (meaning bg was light), invert the background */
+        filter: invert(1) hue-rotate(180deg);
+      }
+    }
+  }
+
   /* Height variants */
   .heightSmall {
     height: var(--lufa-token-spacing-xl-2xl); /* 40px */
