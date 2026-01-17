@@ -947,7 +947,7 @@ Button.displayName = 'Button';
 **Technology-specific instructions** (`.github/instructions/`):
 
 - `lufa-design-system.instructions.md` - Design system standards (detailed patterns)
-- `storybook-stories.instructions.md` - Storybook story writing guide (AI agents)
+- `lufa-design-system-storybook-stories.instructions.md` - Storybook story writing guide (AI agents)
 - `a11y.instructions.md` - Accessibility guidelines (WCAG 2.1 AA)
 - `reactjs.instructions.md` - React best practices
 - `tailwindcss.instructions.md` - Tailwind CSS patterns

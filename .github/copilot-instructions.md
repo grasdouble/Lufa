@@ -64,7 +64,7 @@ GitHub Copilot automatically applies these instructions based on file paths:
 
 ### Storybook Stories
 
-- **[storybook-stories.instructions.md](instructions/storybook-stories.instructions.md)**
+- **[lufa-design-system-storybook-stories.instructions.md](instructions/lufa-design-system-storybook-stories.instructions.md)**
   - Applied to: `**/*.stories.tsx`, `**/storybook/**`
   - Covers: Story creation patterns, prop-to-story workflow, visual demonstrations
 
