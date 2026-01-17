@@ -68,6 +68,12 @@ GitHub Copilot automatically applies these instructions based on file paths:
   - Applied to: `**/*.stories.tsx`, `**/storybook/**`
   - Covers: Story creation patterns, prop-to-story workflow, visual demonstrations
 
+### Docusaurus Documentation
+
+- **[lufa-design-system-docusaurus-docs.instructions.md](instructions/lufa-design-system-docusaurus-docs.instructions.md)**
+  - Applied to: `**/*.mdx`, `**/docusaurus/**`
+  - Covers: Component API documentation, prop tables, accessibility, usage patterns
+
 ### Additional Instructions
 
 - **[performance-optimization.instructions.md](instructions/performance-optimization.instructions.md)**
