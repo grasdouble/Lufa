@@ -1,0 +1,71 @@
+@layer components {
+  .skeleton {
+    /* Base styles */
+    display: block;
+    background-color: var(--lufa-token-color-background-secondary);
+    border-radius: var(--lufa-token-radius-base);
+  }
+
+  /* Variant: Text */
+  .variantText {
+    height: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    transform-origin: 0 55%;
+    transform: scale(1, 0.6);
+    border-radius: var(--lufa-token-radius-base);
+  }
+
+  .variantText:empty::before {
+    content: '\00a0';
+  }
+
+  /* Variant: Circular */
+  .variantCircular {
+    border-radius: 50%;
+  }
+
+  /* Variant: Rectangular */
+  .variantRectangular {
+    border-radius: var(--lufa-token-radius-base);
+  }
+
+  /* Animation: Pulse */
+  .animationPulse {
+    animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes skeleton-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  /* Animation: Wave */
+  .animationWave {
+    position: relative;
+    overflow: hidden;
+
+    /* Mask for wave animation gradient */
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.6) 70%);
+    -webkit-mask-size: 200%;
+    mask-image: linear-gradient(-75deg, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.6) 70%);
+    mask-size: 200%;
+    animation: skeleton-wave 2s ease-in-out infinite;
+  }
+
+  @keyframes skeleton-wave {
+    0% {
+      -webkit-mask-position: 150%;
+      mask-position: 150%;
+    }
+    100% {
+      -webkit-mask-position: -50%;
+      mask-position: -50%;
+    }
+  }
+}
