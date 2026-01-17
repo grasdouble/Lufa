@@ -9,16 +9,15 @@
     padding-right: var(--lufa-token-spacing-base);
     font-size: var(--lufa-token-font-size-sm);
     font-weight: var(--lufa-token-font-weight-medium);
-    color: var(--lufa-token-color-text-white);
-    transition-duration: var(--lufa-token-transition-duration-base);
-    transition-property: all;
+    color: var(--lufa-token-color-text-inverse);
+    transition: var(--lufa-token-transition-base);
     box-shadow: var(--lufa-token-shadow-sm);
 
     /* Default background with gradient */
     background-image: linear-gradient(
       to bottom right,
-      var(--lufa-token-color-violet-400),
-      var(--lufa-token-color-violet-600)
+      var(--lufa-primitive-color-chromatic-violet-400),
+      var(--lufa-primitive-color-chromatic-violet-600)
     );
 
     /* Hover effect for custom colors using filter */
