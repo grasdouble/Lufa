@@ -18,7 +18,7 @@
 @import './css/foundation.css';
 
 /* Component reset utilities (vanilla CSS) */
-@import './css/component-resets.css';
+@import './css/component-resets-vanilla.css';
 
 /* Container query definitions */
 @import './css/container-queries.css';

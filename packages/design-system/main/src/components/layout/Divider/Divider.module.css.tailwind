@@ -1,0 +1,75 @@
+@reference '../../../tailwind.css';
+
+@layer components {
+  .divider {
+    @apply text-text-secondary;
+  }
+
+  .horizontal {
+    @apply gap-md flex w-full items-center;
+  }
+
+  .vertical {
+    @apply min-h-lg flex h-1 flex-col items-center justify-center;
+  }
+
+  .line {
+    @apply border-border-light;
+  }
+
+  .lineHorizontal {
+    @apply flex-1 border-t;
+  }
+
+  .lineVertical {
+    @apply h-full border-l;
+  }
+
+  .variantSolid {
+    @apply border-solid;
+  }
+
+  .variantDashed {
+    @apply border-dashed;
+  }
+
+  .label {
+    @apply px-sm text-text-secondary text-sm font-medium whitespace-nowrap;
+  }
+
+  .spacingNone {
+    @apply my-none;
+  }
+
+  .spacingSm {
+    @apply my-sm;
+  }
+
+  .spacingMd {
+    @apply my-md;
+  }
+
+  .spacingLg {
+    @apply my-lg;
+  }
+
+  .horizontal.alignCenter .lineHorizontal {
+    @apply flex-1;
+  }
+
+  .horizontal.alignStart .lineHorizontal:first-of-type {
+    flex: 0.25;
+  }
+
+  .horizontal.alignStart .lineHorizontal:last-of-type {
+    flex: 1;
+  }
+
+  .horizontal.alignEnd .lineHorizontal:first-of-type {
+    flex: 1;
+  }
+
+  .horizontal.alignEnd .lineHorizontal:last-of-type {
+    flex: 0.25;
+  }
+}
