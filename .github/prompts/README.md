@@ -208,15 +208,15 @@ agent: 'agent' # or specific agent type
 
 Prompts removed from active use but kept for reference. Available in Git history if needed.
 
-| Prompt                                                                  | Category               | Archived     | Reason                                    |
-| ----------------------------------------------------------------------- | ---------------------- | ------------ | ----------------------------------------- |
-| [tailwindcss-convert.prompt.md](archived/tailwindcss-convert.prompt.md) | Utilities / Conversion | January 2026 | No longer relevant after Tailwind removal |
-| `suggest-awesome-github-copilot-agents.prompt.md`                       | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
-| `suggest-awesome-github-copilot-chatmodes.prompt.md`                    | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
-| `suggest-awesome-github-copilot-collections.prompt.md`                  | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
-| `suggest-awesome-github-copilot-instructions.prompt.md`                 | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
-| `suggest-awesome-github-copilot-prompts.prompt.md`                      | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
-| `lufa-design-system-builder.prompt.md`                                  | Design System          | 2025-01-11   | Improved workflows available              |
+| Prompt                                                  | Category               | Archived     | Reason                                    |
+| ------------------------------------------------------- | ---------------------- | ------------ | ----------------------------------------- |
+| `tailwindcss-convert.prompt.md`                         | Utilities / Conversion | January 2026 | No longer relevant after Tailwind removal |
+| `suggest-awesome-github-copilot-agents.prompt.md`       | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
+| `suggest-awesome-github-copilot-chatmodes.prompt.md`    | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
+| `suggest-awesome-github-copilot-collections.prompt.md`  | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
+| `suggest-awesome-github-copilot-instructions.prompt.md` | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
+| `suggest-awesome-github-copilot-prompts.prompt.md`      | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
+| `lufa-design-system-builder.prompt.md`                  | Design System          | 2025-01-11   | Improved workflows available              |
 
 **Restoration**: Recover from Git with:
 
