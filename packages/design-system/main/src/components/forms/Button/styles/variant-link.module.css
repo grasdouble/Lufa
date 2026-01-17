@@ -4,11 +4,16 @@
      ======================================== */
 
   .variantLink {
-    @apply border-0 p-0 shadow-none;
-    @apply h-auto rounded-none;
-    @apply underline-offset-4 font-normal;
-    @apply justify-start inline-flex;
-    @apply relative;
+    border-width: 0;
+    padding: 0;
+    box-shadow: none;
+    height: auto;
+    border-radius: 0;
+    text-underline-offset: 4px;
+    font-weight: var(--lufa-token-font-weight-normal);
+    justify-content: flex-start;
+    display: inline-flex;
+    position: relative;
     width: fit-content;
     min-width: unset;
     color: var(--btn-color);
@@ -16,8 +21,15 @@
 
   .variantLink::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-current;
-    @apply transition-all duration-300;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition-property: all;
+    transition-duration: var(--lufa-token-duration-normal);
+    transition-timing-function: ease-out;
   }
 
   .variantLink:is(
@@ -35,12 +47,12 @@
       [data-test-state='focus'],
       [data-test-state='hover']
     )::after {
-    @apply w-full;
+    width: 100%;
   }
 
   .variantLink:disabled {
     color: var(--btn-color-disabled);
-    @apply no-underline;
+    text-decoration: none;
   }
 
   .variantLink:is(:focus-visible, [data-test-state='focus']) {
@@ -50,37 +62,37 @@
 
   /* Link Colors - Variable Assignments */
   .variantLink.colorPrimary {
-    --btn-color: theme(colors.text.link);
-    --btn-color-hover: theme(colors.text.link-hover);
-    --btn-color-disabled: theme(colors.interactive.disabled);
-    --btn-outline: 2px solid theme(colors.interactive.focus);
+    --btn-color: var(--lufa-token-color-text-link);
+    --btn-color-hover: var(--lufa-token-color-text-link-hover);
+    --btn-color-disabled: var(--lufa-token-color-interactive-disabled);
+    --btn-outline: 2px solid var(--lufa-token-color-interactive-focus);
   }
 
   .variantLink.colorSecondary {
-    --btn-color: theme(colors.text.secondary);
-    --btn-color-hover: theme(colors.text.secondary);
-    --btn-color-disabled: theme(colors.text.disabled);
-    --btn-outline: 2px solid theme(colors.text.secondary);
+    --btn-color: var(--lufa-token-color-text-secondary);
+    --btn-color-hover: var(--lufa-token-color-text-secondary);
+    --btn-color-disabled: var(--lufa-token-color-text-disabled);
+    --btn-outline: 2px solid var(--lufa-token-color-text-secondary);
   }
 
   .variantLink.colorSuccess {
-    --btn-color: theme(colors.success.text);
-    --btn-color-hover: theme(colors.success.hover);
-    --btn-color-disabled: theme(colors.success.lighter);
-    --btn-outline: 2px solid theme(colors.success.default);
+    --btn-color: var(--lufa-token-color-success-text);
+    --btn-color-hover: var(--lufa-token-color-success-hover);
+    --btn-color-disabled: var(--lufa-token-color-success-lighter);
+    --btn-outline: 2px solid var(--lufa-token-color-success-default);
   }
 
   .variantLink.colorWarning {
-    --btn-color: theme(colors.warning.text);
-    --btn-color-hover: theme(colors.warning.hover);
-    --btn-color-disabled: theme(colors.warning.lighter);
-    --btn-outline: 2px solid theme(colors.warning.default);
+    --btn-color: var(--lufa-token-color-warning-text);
+    --btn-color-hover: var(--lufa-token-color-warning-hover);
+    --btn-color-disabled: var(--lufa-token-color-warning-lighter);
+    --btn-outline: 2px solid var(--lufa-token-color-warning-default);
   }
 
   .variantLink.colorDanger {
-    --btn-color: theme(colors.error.text);
-    --btn-color-hover: theme(colors.error.hover);
-    --btn-color-disabled: theme(colors.error.lighter);
-    --btn-outline: 2px solid theme(colors.error.default);
+    --btn-color: var(--lufa-token-color-error-text);
+    --btn-color-hover: var(--lufa-token-color-error-hover);
+    --btn-color-disabled: var(--lufa-token-color-error-lighter);
+    --btn-outline: 2px solid var(--lufa-token-color-error-default);
   }
 }
