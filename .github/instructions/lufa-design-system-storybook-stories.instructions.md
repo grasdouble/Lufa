@@ -1091,7 +1091,6 @@ export const ResponsiveGrid: Story = {
 
 - `.github/instructions/reactjs.instructions.md` - React best practices
 - `.github/instructions/typescript-5-es2022.instructions.md` - TypeScript guidelines
-- `.github/instructions/tailwindcss.instructions.md` - Tailwind CSS patterns (legacy, being removed)
 
 ### External Documentation
 

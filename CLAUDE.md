@@ -45,11 +45,13 @@ This file provides Claude Code with critical quick-reference information. All co
 
 ```typescript
 // ✅ CORRECT
-import { color, spacing } from '@grasdouble/lufa_design-system-tokens';
-const styles = { padding: spacing.default, color: color.text.primary };
 
 // ❌ WRONG - Don't import primitives in components
 import { spacing } from '@grasdouble/lufa_design-system-primitives';
+import { color, spacing } from '@grasdouble/lufa_design-system-tokens';
+
+const styles = { padding: spacing.default, color: color.text.primary };
+
 const styles = { padding: spacing[16] };
 
 // ❌ WRONG - Don't hard-code values
@@ -62,13 +64,13 @@ const styles = { padding: '16px', color: '#FF0000' };
 
 ## 🚨 Quick Troubleshooting
 
-| Problem | Solution |
-|---------|----------|
-| Build fails | Run `pnpm ds:all:build` (order matters!) |
-| "Cannot find module @grasdouble/lufa_design-system-tokens" | Run `pnpm ds:tokens:build` first |
-| TypeScript errors in components | Run `pnpm ds:all:build` (wrong build order) |
-| Component not showing in Storybook | Check export in `packages/design-system/main/src/index.ts` |
-| Test failures | Run `pnpm --filter @grasdouble/lufa_design-system test-ct` |
+| Problem                                                    | Solution                                                   |
+| ---------------------------------------------------------- | ---------------------------------------------------------- |
+| Build fails                                                | Run `pnpm ds:all:build` (order matters!)                   |
+| "Cannot find module @grasdouble/lufa_design-system-tokens" | Run `pnpm ds:tokens:build` first                           |
+| TypeScript errors in components                            | Run `pnpm ds:all:build` (wrong build order)                |
+| Component not showing in Storybook                         | Check export in `packages/design-system/main/src/index.ts` |
+| Test failures                                              | Run `pnpm --filter @grasdouble/lufa_design-system test-ct` |
 
 ---
 
@@ -163,7 +165,6 @@ This file is a quick reference. For comprehensive guides, see:
   - `a11y.instructions.md` - Accessibility guidelines
   - `typescript-5-es2022.instructions.md` - TypeScript standards
   - `playwright-typescript.instructions.md` - Testing patterns
-  - `tailwindcss.instructions.md` - Tailwind CSS usage
 
 - **[.github/prompts/](.github/prompts/)** - Reusable AI prompts
   - See `.github/prompts/README.md` for index

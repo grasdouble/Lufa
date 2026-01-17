@@ -6,7 +6,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
   title: 'Lufa Design System',
-  tagline: 'A modern, accessible design system built with React and Tailwind CSS',
+  tagline: 'A modern, accessible design system built with React and CSS Modules',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -44,7 +44,7 @@ const config: Config = {
       tagName: 'meta',
       attributes: {
         name: 'keywords',
-        content: 'design system, react, tailwind css, accessibility, wcag, components, ui library',
+        content: 'design system, react, css modules, design tokens, accessibility, wcag, components, ui library',
       },
     },
     {

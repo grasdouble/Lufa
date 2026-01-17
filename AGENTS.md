@@ -118,7 +118,7 @@ Lufa is a personal learning monorepo for exploring modern web application develo
 - **Build Tool:** Vite 7.x with custom plugins
 - **Microfrontend Framework:** Single-SPA
 - **UI Framework:** React 19 with TypeScript 5.x
-- **Styling:** Tailwind CSS 4.x with design tokens
+- **Styling:** CSS Modules with design tokens (vanilla CSS)
 - **Testing:** Playwright (component testing)
 - **Version Management:** Changesets for semantic versioning
 - **Documentation:** Storybook 8, Docusaurus 3
@@ -313,7 +313,7 @@ export const spacingTokens = {
 - ✅ Components MUST use tokens only
 - ❌ Components MUST NOT import from primitives
 - ❌ Components MUST NOT hard-code design values
-- Use Tailwind CSS utilities with token-based CSS custom properties
+- Use CSS Modules with token-based CSS custom properties
 
 **Example:**
 
@@ -951,7 +951,6 @@ Button.displayName = 'Button';
 - `lufa-design-system-docusaurus-docs.instructions.md` - Docusaurus API documentation guide (AI agents)
 - `a11y.instructions.md` - Accessibility guidelines (WCAG 2.1 AA)
 - `reactjs.instructions.md` - React best practices
-- `tailwindcss.instructions.md` - Tailwind CSS patterns
 - `typescript-5-es2022.instructions.md` - TypeScript guidelines
 - `playwright-typescript.instructions.md` - Playwright testing
 - `performance-optimization.instructions.md` - Performance patterns
