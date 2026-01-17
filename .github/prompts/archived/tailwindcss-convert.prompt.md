@@ -16,6 +16,20 @@ tools:
     'search/searchResults',
   ]
 model: 'Claude Sonnet 4.5'
+archived: true
+archived_reason: 'No longer relevant for Lufa Design System after Tailwind CSS removal (January 2026)'
+---
+
+# ⚠️ ARCHIVED PROMPT
+
+**This prompt is no longer actively maintained.**
+
+- **Archived Date**: January 2026
+- **Reason**: No longer relevant for Lufa Design System after Tailwind CSS removal
+- **Replacement**: Use CSS Modules with token-based styling (see `lufa-design-system.instructions.md`)
+
+The content below is preserved for historical reference only.
+
 ---
 
 # Convert to Tailwind CSS

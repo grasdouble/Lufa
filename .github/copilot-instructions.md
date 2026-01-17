@@ -56,12 +56,6 @@ GitHub Copilot automatically applies these instructions based on file paths:
   - Applied to: `**`
   - Covers: E2E and component testing, locators, assertions
 
-### Tailwind CSS
-
-- **[tailwindcss.instructions.md](instructions/tailwindcss.instructions.md)**
-  - Applied to: `**/*.{jsx,tsx,js,ts,html,css}`
-  - Covers: Utility-first CSS, responsive design, design tokens
-
 ### Storybook Stories
 
 - **[lufa-design-system-storybook-stories.instructions.md](instructions/lufa-design-system-storybook-stories.instructions.md)**

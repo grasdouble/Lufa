@@ -1231,12 +1231,15 @@ test.describe('Button - Theming', () => {
 
 ## Migration Guide
 
-### From Tailwind CSS to Vanilla CSS
+### From Tailwind CSS to Vanilla CSS (Historical Reference)
 
-#### Before (Tailwind)
+> **Note**: The Lufa Design System migrated from Tailwind CSS to vanilla CSS with design tokens in January 2026. This section is preserved for historical reference and to assist teams migrating from Tailwind-based systems.
+
+
+#### Before (Previously Used Tailwind)
 
 ```tsx
-// ❌ Old pattern - Tailwind classes
+// ❌ Old pattern - Tailwind utility classes (pre-2026)
 function Card() {
   return (
     <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
@@ -1304,16 +1307,16 @@ function Card() {
 
 ### Migration Steps
 
-1. **Identify Tailwind Classes:**
+1. **Identify Tailwind Classes:** (if migrating from a Tailwind-based codebase)
 
    ```bash
-   # Search for Tailwind utility classes
+   # Search for Tailwind utility classes in your codebase
    grep -r "className.*bg-\|text-\|p-\|m-\|dark:" packages/
    ```
 
-2. **Map to Theme Tokens:**
+2. **Map Tailwind Classes to Theme Tokens:**
 
-   | Tailwind Class    | CSS Token                           |
+   | Previously Used Tailwind    | CSS Token                           |
    | ----------------- | ----------------------------------- |
    | `bg-white`        | `var(--color-background)`           |
    | `bg-gray-100`     | `var(--color-background-secondary)` |
@@ -1329,7 +1332,7 @@ function Card() {
    ```css
    /* Component.module.css */
    .component {
-     /* Convert Tailwind classes to CSS properties */
+     /* Convert Tailwind utility classes to CSS properties with design tokens */
    }
    ```
 
@@ -1342,10 +1345,10 @@ function Card() {
    <div className={styles.component}>
    ```
 
-5. **Remove Tailwind Config:**
+5. **Remove Tailwind Config:** (if present in your project)
    - Delete `tailwind.config.js`
-   - Remove Tailwind from `package.json`
-   - Remove Tailwind directives from CSS
+   - Remove Tailwind dependencies from `package.json`
+   - Remove Tailwind directives from CSS files
 
 6. **Test Thoroughly:**
    - Visual regression testing

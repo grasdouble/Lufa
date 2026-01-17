@@ -2,7 +2,6 @@
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![React](https://img.shields.io/badge/React-19.x-61DAFB?style=flat-square&logo=react)](https://react.dev)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.x-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com)
 
 > A comprehensive, three-layer design system built for modern web applications with accessibility, theming, and developer experience at its core.
 
@@ -69,7 +68,7 @@ pnpm add @grasdouble/lufa_design-system
 - Accessible React components (Button, Card, Input, etc.)
 - Compound component patterns
 - TypeScript definitions
-- Tailwind CSS integration
+- CSS-based styling with design tokens
 
 [View Package →](./main)
 

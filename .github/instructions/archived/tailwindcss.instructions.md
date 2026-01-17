@@ -1,6 +1,20 @@
 ---
 description: 'Tailwind CSS development standards and best practices'
 applyTo: '**/*.jsx, **/*.tsx, **/*.js, **/*.ts, **/*.html, **/*.css, tailwind.config.*'
+archived: true
+archived_reason: 'Lufa Design System migrated from Tailwind CSS to vanilla CSS with CSS Modules (January 2026)'
+---
+
+# ⚠️ ARCHIVED DOCUMENTATION
+
+**This file is no longer actively maintained.**
+
+- **Archived Date**: January 2026
+- **Reason**: Lufa Design System migrated from Tailwind CSS to vanilla CSS with CSS Modules
+- **Replacement**: Use CSS Modules with token-based styling (see `lufa-design-system.instructions.md`)
+
+The content below is preserved for historical reference only.
+
 ---
 
 # Tailwind CSS Development Instructions
@@ -212,14 +226,14 @@ module.exports = {
 
 For comprehensive project documentation, see:
 
-- **[AGENTS.md](../../AGENTS.md)** - Complete development guide
+- **[AGENTS.md](../../../AGENTS.md)** - Complete development guide
   - Project overview and architecture
   - Setup and development workflow
   - Code patterns and examples
   - Troubleshooting guides
 
-- **[CLAUDE.md](../../CLAUDE.md)** - Quick reference for Claude Code
-- **[.github/copilot-instructions.md](../copilot-instructions.md)** - GitHub Copilot instructions
-- **[CONTRIBUTING.md](../../CONTRIBUTING.md)** - Contribution workflow
+- **[CLAUDE.md](../../../CLAUDE.md)** - Quick reference for Claude Code
+- **[.github/copilot-instructions.md](../../copilot-instructions.md)** - GitHub Copilot instructions
+- **[CONTRIBUTING.md](../../../CONTRIBUTING.md)** - Contribution workflow
 
 **This file is automatically applied by GitHub Copilot when working in matching file paths.**

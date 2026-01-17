@@ -1,10 +1,8 @@
 /**
- * Lufa Design System - Vanilla CSS Entry Point
+ * Lufa Design System - CSS Entry Point
  * 
- * This is the new CSS entry point without Tailwind CSS dependency.
+ * Foundation, tokens, and utilities for the Lufa Design System.
  * Uses vanilla CSS with CSS Modules and token-based CSS custom properties.
- * 
- * Migration status: Phase 0 - Coexists with style.css during migration
  */
 
 /* Layer definition */

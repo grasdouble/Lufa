@@ -1,4 +1,7 @@
-/* Vanilla CSS - No Tailwind dependencies */
+/**
+ * Spinner Component Styles
+ * Uses design tokens from @grasdouble/lufa_design-system-tokens
+ */
 
 @keyframes spin {
   to {
