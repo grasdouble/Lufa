@@ -4,6 +4,9 @@
 **Feature**: Dark Mode Implementation with 9 Configurations  
 **Storybook URL**: http://localhost:6006 (or 6007)
 
+> 📘 **For detailed testing instructions**, see [VISUAL_TESTING_GUIDE.md](./VISUAL_TESTING_GUIDE.md)  
+> 📋 **For quick reference while testing**, see [TESTING_QUICK_REFERENCE.md](./TESTING_QUICK_REFERENCE.md)
+
 ---
 
 ## 🎯 Testing Instructions
@@ -132,10 +135,10 @@ pnpm ds:all:build
 
 ## ✅ Sign-Off
 
-**Tester**: ******\_\_\_******  
-**Date**: ******\_\_\_******
+**Tester**: **\*\***\_\_\_**\*\***  
+**Date**: **\*\***\_\_\_**\*\***
 
-**Issues Found**: ******\_\_\_******
+**Issues Found**: **\*\***\_\_\_**\*\***
 
 **Overall Status**:
 

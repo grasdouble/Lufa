@@ -162,6 +162,8 @@ function App() {
 ```tsx
 import { useState } from 'react';
 
+// Import all theme CSS files (including default for light/dark modes)
+import '@grasdouble/lufa_design-system-themes/default.css';
 import '@grasdouble/lufa_design-system-themes/ocean.css';
 import '@grasdouble/lufa_design-system-themes/forest.css';
 
@@ -833,7 +835,7 @@ Design tokens are defined here and generate the `--lufa-token-*` CSS custom prop
 
 ### Q: Do themes work with dark mode?
 
-**A:** Yes! Each theme can define its own dark mode variants. The current themes don't include dark mode yet, but the architecture supports it via media queries or separate theme variants.
+**A:** Yes! All themes (default, ocean, forest) now include full dark mode support. Each theme defines both light and dark mode variants using the `data-mode` attribute and system preference detection via `prefers-color-scheme`. You can independently choose any theme (default/ocean/forest) and any mode (light/dark/auto), giving you 9 total configurations. See [DARK_MODE_GUIDE.md](./DARK_MODE_GUIDE.md) for complete usage examples.
 
 ### Q: Can I mix themes (e.g., Ocean colors with Forest spacing)?
 
@@ -864,6 +866,7 @@ pnpm ds:tokens:build
 
 **Updated**: January 2026  
 **Pattern Usage**: 78% Pattern 1 (`@apply`), 22% Pattern 2 (explicit tokens)  
-**Components Verified**: Alert, Tabs, Badge, Input, Button, Link, Modal, Card  
-**Available Themes**: Default, Ocean, Forest  
+**Components Verified**: Alert, Tabs, Badge, Input, Button, Link, Modal, Card, Pagination, Steps, Anchor, TestimonialOne  
+**Available Themes**: Default, Ocean, Forest (all with dark mode support)  
+**Dark Mode Status**: ✅ Complete - Production Ready (9 configurations: 3 themes × 3 modes)  
 **Themes Package**: `@grasdouble/lufa_design-system-themes`

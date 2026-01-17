@@ -2,121 +2,139 @@
 
 @layer components {
   .link {
-    /* Themable link properties via token-based variables */
-    --link-color: var(--lufa-token-color-text-link);
-    --link-color-hover: var(--lufa-token-color-text-link-hover);
-    --link-underline-thickness: var(--lufa-token-border-width-hairline);
-    --link-underline-radius: var(--lufa-token-radius-sm);
-    --link-transition: var(--lufa-token-timing-fast);
-    --link-font-weight: inherit;
-
-    color: var(--link-color);
-    text-decoration: none;
-    font-weight: var(--link-font-weight);
-    position: relative;
-    transition:
-      color var(--link-transition),
-      text-decoration var(--link-transition);
     @apply inline-flex items-center gap-1;
+    @apply text-text-link;
+    @apply no-underline;
+    @apply relative;
+    @apply transition-colors duration-fast;
+    font-weight: inherit;
   }
+
   .link::after {
     content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: var(--link-underline-thickness);
+    @apply absolute left-0 bottom-0;
+    @apply rounded-sm;
+    height: var(--border-width-hairline);
     width: 0;
-    border-radius: var(--link-underline-radius);
     background: currentColor;
-    transition:
-      width var(--link-transition),
-      background var(--link-transition);
+    @apply transition-all duration-fast;
   }
+
   .link:hover::after,
   .link:focus-visible::after {
     width: 100%;
-    background: var(--link-color-hover);
+    @apply bg-text-link-hover;
   }
 
   .link:hover,
   .link:focus-visible {
-    color: var(--link-color-hover);
+    @apply text-text-link-hover;
   }
 
   .link:focus-visible {
-    outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
-    outline-offset: var(--lufa-token-spacing-xxs);
-    border-radius: var(--lufa-token-radius-sm);
+    @apply outline-border-focus;
+    outline-width: var(--border-width-focus);
+    outline-style: solid;
+    outline-offset: var(--spacing-xxs);
+    @apply rounded-sm;
   }
 
-  /* Variant overrides */
-  .variantDefault {
-    --link-decoration: none;
-  }
+  /* Variant overrides - variantDefault uses base .link styles with animated underline */
+
   .variantUnderline {
-    --link-decoration: underline;
-    text-decoration: underline;
+    @apply underline;
+    @apply decoration-border-default;
   }
-  .variantUnderline::after {
-    display: none;
-  }
-  .variantButton {
-    --link-color: var(--lufa-token-color-text-inverse);
-    --link-bg: var(--lufa-token-color-interactive-default);
-    --link-bg-hover: var(--lufa-token-color-interactive-hover);
-    --link-padding-x: var(--lufa-token-spacing-md);
-    --link-padding-y: var(--lufa-token-spacing-sm);
-    --link-border-radius: var(--lufa-token-radius-base);
-    --link-decoration: none;
-    --link-decoration-hover: none;
 
-    background: var(--link-bg);
-    padding-inline: var(--link-padding-x);
-    padding-block: var(--link-padding-y);
-    border-radius: var(--link-border-radius);
+  .variantUnderline::after {
+    @apply hidden;
   }
-  .variantButton:hover {
-    background: var(--link-bg-hover);
+
+  .variantButton {
+    @apply text-text-inverse;
+    @apply bg-interactive-default;
+    @apply px-md py-sm;
+    @apply rounded-lg;
+    @apply no-underline;
+  }
+
+  .variantButton::after {
+    @apply hidden;
+  }
+
+  .variantButton:hover,
+  .variantButton:focus-visible {
+    @apply bg-interactive-hover;
+    @apply text-text-inverse;
   }
 
   /* Color variants */
   .colorPrimary {
-    --link-color: var(--lufa-token-color-interactive-default);
-    --link-color-hover: var(--lufa-token-color-interactive-hover);
+    @apply text-interactive-default;
   }
+
+  .colorPrimary:hover,
+  .colorPrimary:focus-visible {
+    @apply text-interactive-hover;
+  }
+
   .colorSecondary {
-    --link-color: var(--lufa-token-color-text-secondary);
-    --link-color-hover: var(--lufa-token-color-text-primary);
+    @apply text-text-secondary;
   }
+
+  .colorSecondary:hover,
+  .colorSecondary:focus-visible {
+    @apply text-text-primary;
+  }
+
   .colorSuccess {
-    --link-color: var(--lufa-token-color-success-default);
-    --link-color-hover: var(--lufa-token-color-success-hover);
+    @apply text-success-default;
   }
+
+  .colorSuccess:hover,
+  .colorSuccess:focus-visible {
+    @apply text-success-hover;
+  }
+
   .colorWarning {
-    --link-color: var(--lufa-token-color-warning-default);
-    --link-color-hover: var(--lufa-token-color-warning-hover);
+    @apply text-warning-default;
   }
+
+  .colorWarning:hover,
+  .colorWarning:focus-visible {
+    @apply text-warning-hover;
+  }
+
   .colorDanger {
-    --link-color: var(--lufa-token-color-error-default);
-    --link-color-hover: var(--lufa-token-color-error-hover);
+    @apply text-error-default;
   }
+
+  .colorDanger:hover,
+  .colorDanger:focus-visible {
+    @apply text-error-hover;
+  }
+
   .colorInherit {
-    --link-color: inherit;
-    --link-color-hover: inherit;
+    color: inherit;
+  }
+
+  .colorInherit:hover,
+  .colorInherit:focus-visible {
+    color: inherit;
+    @apply opacity-75;
   }
 
   /* Size variants */
   .sizeSmall {
-    --link-font-size: var(--lufa-token-font-size-sm);
-    font-size: var(--link-font-size);
+    @apply text-sm gap-0.5;
   }
+
   .sizeMedium {
-    --link-font-size: var(--lufa-token-font-size-base);
-    font-size: var(--link-font-size);
+    @apply text-base gap-1;
   }
+
   .sizeLarge {
-    --link-font-size: var(--lufa-token-font-size-lg);
-    font-size: var(--link-font-size);
+    @apply text-lg gap-1.5;
   }
 
   /* Icons */

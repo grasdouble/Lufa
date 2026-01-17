@@ -132,7 +132,7 @@
   /* Status: Process */
   .statusProcess .stepIcon {
     @apply bg-interactive-default;
-    @apply text-white;
+    @apply text-text-inverse;
     @apply border-interactive-default border-2;
   }
 
@@ -147,7 +147,7 @@
   /* Status: Finish */
   .statusFinish .stepIcon {
     @apply bg-success-default;
-    @apply text-white;
+    @apply text-text-inverse;
     @apply border-success-default border-2;
   }
 
@@ -166,7 +166,7 @@
   /* Status: Error */
   .statusError .stepIcon {
     @apply bg-error-default;
-    @apply text-white;
+    @apply text-text-inverse;
     @apply border-error-default border-2;
   }
 

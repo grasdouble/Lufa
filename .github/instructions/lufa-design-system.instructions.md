@@ -5,9 +5,7 @@ applyTo: 'packages/design-system/**/*.{ts,tsx,js,jsx,css}'
 
 # Lufa Design System Development Instructions
 
-Guidelines for developing and maintaining the Lufa Design System, including primitives, tokens, components, and documentation.
-
-> 💡 **Need help?** Use the **"Dev - Lufa Design System"** agent for interactive guidance on building, reviewing, or refactoring components. The agent includes TDD workflow handoffs and complete code templates.
+Development standards for AI agents working with the Lufa Design System, including primitives, tokens, components, and documentation.
 
 ## System Overview
 
@@ -261,6 +259,7 @@ className={clsx(
 ```
 
 **Available Token Categories** (always verify in `tokens/dist/style.css`):
+
 - **Colors**: `bg-background-*`, `text-text-*`, `border-border-*`, `bg-interactive-*`
 - **Spacing**: `p-*`, `m-*`, `gap-*` (xs, sm, base, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
 - **Border**: `rounded-*` (none, xs, sm, md, base, lg, xl, 2xl, 3xl, full)
@@ -280,14 +279,15 @@ className={clsx(
 
 **Theming Support (CRITICAL)**:
 
-All components MUST support theming:
+All components MUST support theming and dark mode:
 
 1. **Use semantic tokens only** - Never hard-code ANY values (not just colors)
    - ✅ `@apply bg-interactive-default text-text-inverse p-base rounded-base duration-base`
    - ❌ `background: #0284c7; color: white; padding: 16px; border-radius: 8px;`
 
 **Themeable Properties** (not just colors):
-- **Colors**: text, background, border, interactive states
+
+- **Colors**: text, background, border, interactive states (light and dark mode variants)
 - **Spacing**: padding, margin, gap (xs, sm, base, lg, xl, etc.)
 - **Border**: widths (hairline, thin, thick), radius (xs, sm, base, lg, xl, full)
 - **Typography**: font sizes, weights, line heights, letter spacing
@@ -295,36 +295,68 @@ All components MUST support theming:
 - **Effects**: opacity, shadows, transforms
 - **Dimensions**: component heights, widths (buttons, inputs, modals, etc.)
 
-2. **Theme switching mechanism**:
+2. **Theme and mode switching mechanism**:
    - Themes applied via `data-theme` attribute on root element
-   - Example: `<html data-theme="ocean">`
+   - Mode applied via `data-mode` attribute on root element
+   - Example: `<html data-theme="ocean" data-mode="dark">`
    - Available themes: `default`, `ocean`, `forest`
+   - Available modes: `light`, `dark`, `auto` (system preference)
+   - **9 configurations total**: 3 themes × 3 modes
 
-3. **CSS variables pattern**:
+3. **Dark mode support**:
+   - Light mode: Bright backgrounds, dark text
+   - Dark mode: Dark backgrounds, light text with inverted lightness and reduced saturation
+   - Auto mode: Follows system preference via `prefers-color-scheme`
+   - Every theme includes light and dark variants
+
+4. **CSS variables pattern**:
+
    ```css
    /* Tailwind utilities map to CSS variables in theme.css */
    .button {
-     @apply bg-interactive-default;      /* → --color-interactive-default */
-     @apply hover:bg-interactive-hover;  /* → --color-interactive-hover */
-     @apply px-lg py-sm;                 /* → --spacing-lg, --spacing-sm */
-     @apply rounded-base;                /* → --border-radius-base */
-     @apply duration-base;               /* → --transition-duration-base */
+     @apply bg-interactive-default; /* → --color-interactive-default */
+     @apply hover:bg-interactive-hover; /* → --color-interactive-hover */
+     @apply px-lg py-sm; /* → --spacing-lg, --spacing-sm */
+     @apply rounded-base; /* → --border-radius-base */
+     @apply duration-base; /* → --transition-duration-base */
    }
+
+   /* Dark mode is handled automatically via semantic tokens */
+   /* No need for manual dark: classes - tokens adapt to data-mode */
    ```
 
-4. **Testing themes**:
-   - Verify component in Storybook with theme switcher
-   - Create Playwright tests with theme variations
-   - Ensure visual consistency across all themes
+5. **Testing themes and modes**:
+   - Verify component in Storybook with theme and mode switcher
+   - Create Playwright tests with theme AND mode variations
+   - Ensure visual consistency across all 9 configurations
+   - Verify text contrast ≥ 4.5:1 in both light and dark modes
 
 **Themes Package**:
+
 ```tsx
-// Import themes
+// Import themes (each includes light and dark mode)
 import '@grasdouble/lufa_design-system-themes/ocean.css';
 import '@grasdouble/lufa_design-system-themes/forest.css';
 
-// Switch theme programmatically
+// Switch theme and mode programmatically
 document.documentElement.setAttribute('data-theme', 'ocean');
+document.documentElement.setAttribute('data-mode', 'dark'); // 'light' | 'dark' | 'auto'
+```
+
+**useTheme Hook**:
+
+```tsx
+import { useTheme } from '@grasdouble/lufa_design-system';
+
+const { theme, mode, effectiveMode, setTheme, setMode } = useTheme({
+  defaultTheme: 'default',
+  defaultMode: 'auto',
+  enableStorage: true, // Persists to localStorage
+});
+
+// Independent control
+setTheme('ocean');
+setMode('dark'); // 'light' | 'dark' | 'auto'
 ```
 
 **Accessibility Requirements**:
@@ -334,7 +366,7 @@ document.documentElement.setAttribute('data-theme', 'ocean');
 - Manage focus states with visible indicators
 - Use semantic HTML elements
 - Provide alternative text for images/icons
-- Ensure proper color contrast (minimum 4.5:1 for text)
+- Ensure proper color contrast (minimum 4.5:1 for text in both light and dark modes)
 - Support screen readers with meaningful announcements
 
 **Component Organization**:
@@ -609,6 +641,7 @@ const sidebars: SidebarsConfig = {
 ```
 
 **Example**: Adding Accordion to Display category:
+
 ```typescript
 {
   type: 'category',
@@ -687,8 +720,10 @@ Before creating or modifying components, ensure:
 - [ ] Component uses tokens via Tailwind utilities (not primitives or hard-coded values)
 - [ ] CSS Module imported with `import styles from './Component.module.css'`
 - [ ] **CRITICAL**: Component supports theming (uses semantic tokens, no hard-coded colors)
-- [ ] Component tested with multiple themes (default, ocean, forest)
-- [ ] Visual regression tests include theme variations
+- [ ] **CRITICAL**: Component supports dark mode (tested in light and dark modes)
+- [ ] Component tested with all 9 configurations (3 themes × 3 modes)
+- [ ] Visual regression tests include theme and mode variations
+- [ ] Text contrast verified ≥ 4.5:1 in both light and dark modes
 - [ ] TypeScript props interface is complete with JSDoc
 - [ ] Modern, clean, professional visual appearance
 - [ ] Proper spacing, shadows, and transitions using tokens
@@ -812,14 +847,14 @@ packages/design-system/
 
 ### Package Purposes
 
-| Package           | Purpose                    | Technology                 | Dev Command    | Port |
-| ----------------- | -------------------------- | -------------------------- | -------------- | ---- |
-| **primitives**    | Raw, non-semantic values   | TypeScript + CSS variables | -              | -    |
-| **tokens**        | Semantic design decisions  | TypeScript + CSS variables | -              | -    |
-| **main**          | Component library (source) | React 19 + TypeScript      | `pnpm dev`     | -    |
-| **storybook**     | Interactive playground     | Storybook 8 + Vite         | `pnpm dev`     | 6006 |
-| **playwright**    | Component testing          | Playwright CT + React      | `pnpm test-ct` | -    |
-| **docusaurus**    | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
+| Package        | Purpose                    | Technology                 | Dev Command    | Port |
+| -------------- | -------------------------- | -------------------------- | -------------- | ---- |
+| **primitives** | Raw, non-semantic values   | TypeScript + CSS variables | -              | -    |
+| **tokens**     | Semantic design decisions  | TypeScript + CSS variables | -              | -    |
+| **main**       | Component library (source) | React 19 + TypeScript      | `pnpm dev`     | -    |
+| **storybook**  | Interactive playground     | Storybook 8 + Vite         | `pnpm dev`     | 6006 |
+| **playwright** | Component testing          | Playwright CT + React      | `pnpm test-ct` | -    |
+| **docusaurus** | Comprehensive guides       | Docusaurus 3 + MDX         | `pnpm dev`     | 3000 |
 
 ### Why Separate Packages?
 

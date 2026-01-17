@@ -1,309 +1,360 @@
 # Available CSS Variables
 
-> **IMPORTANT**: All variable names use the prefix `--lufa-token-` to indicate they are semantic design tokens.
-> These variables map to primitives and can be overridden by themes.
+> **IMPORTANT**: This document lists semantic design token variables that components should use.
+>
+> **Variable Naming Convention**:
+>
+> - **Tokens package** generates: `--lufa-token-*` (internal implementation)
+> - **Themes override** as: `--color-*`, `--spacing-*`, `--border-*`, etc. (public API)
+> - **Components use**: The shorter public names (e.g., `var(--color-text-primary)`)
+>
+> **Example Flow**:
+>
+> ```
+> Tokens:     --lufa-token-color-text-primary: #171717;
+>              ↓ (theme override)
+> Themes:     --color-text-primary: #0c4a6e;  (ocean theme)
+>              ↓ (component usage)
+> Component:  color: var(--color-text-primary);
+> ```
+>
+> For theming and dark mode, see [THEMING_GUIDE.md](./THEMING_GUIDE.md) and [DARK_MODE_GUIDE.md](./DARK_MODE_GUIDE.md).
 
 ## Colors
 
+> 🌓 **Dark Mode**: All color variables automatically adapt when `data-mode="dark"` is set.
+> See [DARK_MODE_GUIDE.md](./DARK_MODE_GUIDE.md) for details.
+
 ### Text Colors
 
-- `--lufa-token-color-text-primary` - Main text color
-- `--lufa-token-color-text-secondary` - Secondary text color
-- `--lufa-token-color-text-tertiary` - Tertiary text color
-- `--lufa-token-color-text-disabled` - Disabled text color
-- `--lufa-token-color-text-inverse` - Text on dark backgrounds
-- `--lufa-token-color-text-link` - Link text color
-- `--lufa-token-color-text-link-hover` - Link hover color
+- `--color-text-primary` - Main text color
+- `--color-text-secondary` - Secondary text color
+- `--color-text-tertiary` - Tertiary text color
+- `--color-text-disabled` - Disabled text color
+- `--color-text-inverse` - Text on dark backgrounds
+- `--color-text-link` - Link text color
+- `--color-text-linkHover` - Link hover color
 
 ### Background Colors
 
-- `--lufa-token-color-background-primary` - Main background
-- `--lufa-token-color-background-secondary` - Secondary background
-- `--lufa-token-color-background-tertiary` - Tertiary background
-- `--lufa-token-color-background-inverse` - Dark background
-- `--lufa-token-color-background-overlay` - Modal/overlay background
+- `--color-background-primary` - Main background
+- `--color-background-secondary` - Secondary background
+- `--color-background-tertiary` - Tertiary background
+- `--color-background-inverse` - Dark background
+- `--color-background-overlay` - Modal/overlay background
 
 ### Border Colors
 
-- `--lufa-token-color-border-default` - Default borders
-- `--lufa-token-color-border-light` - Light borders
-- `--lufa-token-color-border-medium` - Medium borders
-- `--lufa-token-color-border-strong` - Strong borders
-- `--lufa-token-color-border-focus` - Focus state borders
+- `--color-border-default` - Default borders
+- `--color-border-light` - Light borders
+- `--color-border-medium` - Medium borders
+- `--color-border-strong` - Strong borders
+- `--color-border-focus` - Focus state borders
 
 ### Interactive Colors
 
-- `--lufa-token-color-interactive-default` - Default interactive
-- `--lufa-token-color-interactive-hover` - Hover state
-- `--lufa-token-color-interactive-active` - Active/pressed state
-- `--lufa-token-color-interactive-disabled` - Disabled state
-- `--lufa-token-color-interactive-focus` - Focus state
+- `--color-interactive-default` - Default interactive
+- `--color-interactive-hover` - Hover state
+- `--color-interactive-active` - Active/pressed state
+- `--color-interactive-disabled` - Disabled state
+- `--color-interactive-focus` - Focus state
 
 ### Status Colors
 
 #### Success
 
-- `--lufa-token-color-success-default`
-- `--lufa-token-color-success-hover`
-- `--lufa-token-color-success-active`
-- `--lufa-token-color-success-light`
-- `--lufa-token-color-success-lighter`
-- `--lufa-token-color-success-border`
-- `--lufa-token-color-success-text`
+- `--color-success-default`
+- `--color-success-hover`
+- `--color-success-active`
+- `--color-success-light`
+- `--color-success-lighter`
+- `--color-success-border`
+- `--color-success-text`
 
 #### Warning
 
-- `--lufa-token-color-warning-default`
-- `--lufa-token-color-warning-hover`
-- `--lufa-token-color-warning-active`
-- `--lufa-token-color-warning-light`
-- `--lufa-token-color-warning-lighter`
-- `--lufa-token-color-warning-border`
-- `--lufa-token-color-warning-text`
+- `--color-warning-default`
+- `--color-warning-hover`
+- `--color-warning-active`
+- `--color-warning-light`
+- `--color-warning-lighter`
+- `--color-warning-border`
+- `--color-warning-text`
 
 #### Error
 
-- `--lufa-token-color-error-default`
-- `--lufa-token-color-error-hover`
-- `--lufa-token-color-error-active`
-- `--lufa-token-color-error-light`
-- `--lufa-token-color-error-lighter`
-- `--lufa-token-color-error-border`
-- `--lufa-token-color-error-text`
+- `--color-error-default`
+- `--color-error-hover`
+- `--color-error-active`
+- `--color-error-light`
+- `--color-error-lighter`
+- `--color-error-border`
+- `--color-error-text`
 
 #### Info
 
-- `--lufa-token-color-info-default`
-- `--lufa-token-color-info-hover`
-- `--lufa-token-color-info-active`
-- `--lufa-token-color-info-light`
-- `--lufa-token-color-info-lighter`
-- `--lufa-token-color-info-border`
-- `--lufa-token-color-info-text`
+- `--color-info-default`
+- `--color-info-hover`
+- `--color-info-active`
+- `--color-info-light`
+- `--color-info-lighter`
+- `--color-info-border`
+- `--color-info-text`
 
 ### Brand Colors
 
-- `--lufa-token-color-brand-primary`
-- `--lufa-token-color-brand-primary-hover`
-- `--lufa-token-color-brand-primary-active`
-- `--lufa-token-color-brand-secondary`
-- `--lufa-token-color-brand-secondary-hover`
-- `--lufa-token-color-brand-secondary-active`
-- `--lufa-token-color-brand-accent`
+- `--color-brand-primary`
+- `--color-brand-primary-hover`
+- `--color-brand-primary-active`
+- `--color-brand-secondary`
+- `--color-brand-secondary-hover`
+- `--color-brand-secondary-active`
+- `--color-brand-accent`
 
 ### Surface Colors
 
-- `--lufa-token-color-surface-default`
-- `--lufa-token-color-surface-raised`
-- `--lufa-token-color-surface-overlay`
-- `--lufa-token-color-surface-inverse`
+- `--color-surface-default`
+- `--color-surface-raised`
+- `--color-surface-overlay`
+- `--color-surface-inverse`
 
 ### Shadow Colors
 
-- `--lufa-token-color-shadow-small` - rgba(0, 0, 0, 0.05)
-- `--lufa-token-color-shadow-medium` - rgba(0, 0, 0, 0.1)
-- `--lufa-token-color-shadow-large` - rgba(0, 0, 0, 0.15)
+- `--color-shadow-small` - rgba(0, 0, 0, 0.05)
+- `--color-shadow-medium` - rgba(0, 0, 0, 0.1)
+- `--color-shadow-large` - rgba(0, 0, 0, 0.15)
 
 ## Border
 
 ### Border Widths
 
-- `--lufa-token-border-width-none` - 0px
-- `--lufa-token-border-width-hairline` - 1px
-- `--lufa-token-border-width-thin` - 2px
-- `--lufa-token-border-width-focus` - 3px
-- `--lufa-token-border-width-thick` - 4px
-- `--lufa-token-border-width-extra-thick` - 8px
+- `--border-width-none` - 0px
+- `--border-width-hairline` - 1px
+- `--border-width-thin` - 2px
+- `--border-width-focus` - 3px
+- `--border-width-thick` - 4px
+- `--border-width-extra-thick` - 8px
 
 ### Border Styles
 
-- `--lufa-token-border-style-solid`
-- `--lufa-token-border-style-dashed`
-- `--lufa-token-border-style-dotted`
-- `--lufa-token-border-style-double`
-- `--lufa-token-border-style-none`
+- `--border-style-solid`
+- `--border-style-dashed`
+- `--border-style-dotted`
+- `--border-style-double`
+- `--border-style-none`
 
 ### Border Radius
 
-- `--lufa-token-radius-none` - 0px
-- `--lufa-token-radius-xs` - 2px
-- `--lufa-token-radius-sm` - 4px
-- `--lufa-token-radius-md` - 6px
-- `--lufa-token-radius-base` - 8px
-- `--lufa-token-radius-lg` - 12px
-- `--lufa-token-radius-xl` - 16px
-- `--lufa-token-radius-2xl` - 24px
-- `--lufa-token-radius-3xl` - 32px
-- `--lufa-token-radius-full` - 9999px (circle)
+- `--radius-none` - 0px
+- `--radius-xs` - 2px
+- `--radius-sm` - 4px
+- `--radius-md` - 6px
+- `--radius-base` - 8px
+- `--radius-lg` - 12px
+- `--radius-xl` - 16px
+- `--radius-2xl` - 24px
+- `--radius-3xl` - 32px
+- `--radius-full` - 9999px (circle)
 
 ## Spacing
 
-- `--lufa-token-spacing-none` - 0px
-- `--lufa-token-spacing-xxs` - 4px
-- `--lufa-token-spacing-xs` - 8px
-- `--lufa-token-spacing-sm` - 12px
-- `--lufa-token-spacing-md` - 16px
-- `--lufa-token-spacing-base` - 20px
-- `--lufa-token-spacing-lg` - 24px
-- `--lufa-token-spacing-xl` - 32px
-- `--lufa-token-spacing-2xl` - 40px
-- `--lufa-token-spacing-3xl` - 48px
-- `--lufa-token-spacing-4xl` - 64px
-- `--lufa-token-spacing-5xl` - 80px
+- `--spacing-none` - 0px
+- `--spacing-xxs` - 4px
+- `--spacing-xs` - 8px
+- `--spacing-sm` - 12px
+- `--spacing-md` - 16px
+- `--spacing-base` - 20px
+- `--spacing-lg` - 24px
+- `--spacing-xl` - 32px
+- `--spacing-2xl` - 40px
+- `--spacing-3xl` - 48px
+- `--spacing-4xl` - 64px
+- `--spacing-5xl` - 80px
 
 ## Typography
 
 ### Font Families
 
-- `--lufa-token-font-family-sans` - System sans-serif stack
-- `--lufa-token-font-family-mono` - Monospace font stack
+- `--font-family-sans` - System sans-serif stack
+- `--font-family-mono` - Monospace font stack
 
 ### Font Sizes
 
-- `--lufa-token-font-size-xs` - 12px
-- `--lufa-token-font-size-sm` - 14px
-- `--lufa-token-font-size-base` - 16px
-- `--lufa-token-font-size-lg` - 18px
-- `--lufa-token-font-size-xl` - 20px
-- `--lufa-token-font-size-2xl` - 24px
-- `--lufa-token-font-size-3xl` - 30px
-- `--lufa-token-font-size-4xl` - 36px
-- `--lufa-token-font-size-5xl` - 48px
+- `--font-size-xs` - 12px
+- `--font-size-sm` - 14px
+- `--font-size-base` - 16px
+- `--font-size-lg` - 18px
+- `--font-size-xl` - 20px
+- `--font-size-2xl` - 24px
+- `--font-size-3xl` - 30px
+- `--font-size-4xl` - 36px
+- `--font-size-5xl` - 48px
 
 ### Font Weights
 
-- `--lufa-token-font-weight-light` - 300
-- `--lufa-token-font-weight-normal` - 400
-- `--lufa-token-font-weight-medium` - 500
-- `--lufa-token-font-weight-semibold` - 600
-- `--lufa-token-font-weight-bold` - 700
-- `--lufa-token-font-weight-extrabold` - 800
+- `--font-weight-light` - 300
+- `--font-weight-normal` - 400
+- `--font-weight-medium` - 500
+- `--font-weight-semibold` - 600
+- `--font-weight-bold` - 700
+- `--font-weight-extrabold` - 800
 
 ### Line Heights
 
-- `--lufa-token-line-height-tight` - 1.25
-- `--lufa-token-line-height-snug` - 1.375
-- `--lufa-token-line-height-normal` - 1.5
-- `--lufa-token-line-height-relaxed` - 1.625
-- `--lufa-token-line-height-loose` - 2
+- `--line-height-tight` - 1.25
+- `--line-height-snug` - 1.375
+- `--line-height-normal` - 1.5
+- `--line-height-relaxed` - 1.625
+- `--line-height-loose` - 2
 
 ### Letter Spacing
 
-- `--lufa-token-letter-spacing-tighter` - -0.05em
-- `--lufa-token-letter-spacing-tight` - -0.025em
-- `--lufa-token-letter-spacing-normal` - 0em
-- `--lufa-token-letter-spacing-wide` - 0.025em
-- `--lufa-token-letter-spacing-wider` - 0.05em
+- `--letter-spacing-tighter` - -0.05em
+- `--letter-spacing-tight` - -0.025em
+- `--letter-spacing-normal` - 0em
+- `--letter-spacing-wide` - 0.025em
+- `--letter-spacing-wider` - 0.05em
 
 ## Effects
 
 ### Opacity
 
-- `--lufa-token-opacity-transparent` - 0
-- `--lufa-token-opacity-light` - 0.1
-- `--lufa-token-opacity-medium` - 0.5
-- `--lufa-token-opacity-heavy` - 0.8
-- `--lufa-token-opacity-opaque` - 1
+- `--opacity-transparent` - 0
+- `--opacity-light` - 0.1
+- `--opacity-medium` - 0.5
+- `--opacity-heavy` - 0.8
+- `--opacity-opaque` - 1
 
 ### Blur
 
-- `--lufa-token-blur-none` - 0px
-- `--lufa-token-blur-sm` - 4px
-- `--lufa-token-blur-base` - 8px
-- `--lufa-token-blur-md` - 12px
-- `--lufa-token-blur-lg` - 16px
-- `--lufa-token-blur-xl` - 24px
+- `--blur-none` - 0px
+- `--blur-sm` - 4px
+- `--blur-base` - 8px
+- `--blur-md` - 12px
+- `--blur-lg` - 16px
+- `--blur-xl` - 24px
 
 ### Cursors
 
-- `--lufa-token-cursor-auto`
-- `--lufa-token-cursor-default`
-- `--lufa-token-cursor-pointer`
-- `--lufa-token-cursor-not-allowed`
-- `--lufa-token-cursor-wait`
-- `--lufa-token-cursor-text`
-- `--lufa-token-cursor-move`
-- `--lufa-token-cursor-grab`
-- `--lufa-token-cursor-grabbing`
+- `--cursor-auto`
+- `--cursor-default`
+- `--cursor-pointer`
+- `--cursor-not-allowed`
+- `--cursor-wait`
+- `--cursor-text`
+- `--cursor-move`
+- `--cursor-grab`
+- `--cursor-grabbing`
 
 ## Elevation
 
 ### Shadows
 
-- `--lufa-token-shadow-none` - none
-- `--lufa-token-shadow-xs` - Very subtle
-- `--lufa-token-shadow-sm` - Small
-- `--lufa-token-shadow-base` - Default
-- `--lufa-token-shadow-md` - Medium
-- `--lufa-token-shadow-lg` - Large
-- `--lufa-token-shadow-xl` - Extra large
-- `--lufa-token-shadow-2xl` - Very large
+- `--shadow-none` - none
+- `--shadow-xs` - Very subtle
+- `--shadow-sm` - Small
+- `--shadow-base` - Default
+- `--shadow-md` - Medium
+- `--shadow-lg` - Large
+- `--shadow-xl` - Extra large
+- `--shadow-2xl` - Very large
 
 ### Z-Index
 
-- `--lufa-token-z-index-base` - 0
-- `--lufa-token-z-index-dropdown` - 1000
-- `--lufa-token-z-index-sticky` - 1100
-- `--lufa-token-z-index-fixed` - 1200
-- `--lufa-token-z-index-modal-backdrop` - 1300
-- `--lufa-token-z-index-modal` - 1400
-- `--lufa-token-z-index-popover` - 1500
-- `--lufa-token-z-index-tooltip` - 1600
-- `--lufa-token-z-index-toast` - 1700
+- `--z-index-base` - 0
+- `--z-index-dropdown` - 1000
+- `--z-index-sticky` - 1100
+- `--z-index-fixed` - 1200
+- `--z-index-modal-backdrop` - 1300
+- `--z-index-modal` - 1400
+- `--z-index-popover` - 1500
+- `--z-index-tooltip` - 1600
+- `--z-index-toast` - 1700
 
 ## Motion
 
 ### Timing/Duration
 
-- `--lufa-token-timing-instant` - 0ms
-- `--lufa-token-timing-fast` - 100ms
-- `--lufa-token-timing-moderate` - 200ms
-- `--lufa-token-timing-deliberate` - 300ms
-- `--lufa-token-timing-slow` - 500ms
-- `--lufa-token-timing-slower` - 700ms
+- `--timing-instant` - 0ms
+- `--timing-fast` - 100ms
+- `--timing-moderate` - 200ms
+- `--timing-deliberate` - 300ms
+- `--timing-slow` - 500ms
+- `--timing-slower` - 700ms
 
 ### Easing
 
-- `--lufa-token-easing-linear`
-- `--lufa-token-easing-ease-in`
-- `--lufa-token-easing-ease-out`
-- `--lufa-token-easing-ease-in-out`
-- `--lufa-token-easing-sharp`
-- `--lufa-token-easing-smooth`
-- `--lufa-token-easing-bounce`
+- `--easing-linear`
+- `--easing-ease-in`
+- `--easing-ease-out`
+- `--easing-ease-in-out`
+- `--easing-sharp`
+- `--easing-smooth`
+- `--easing-bounce`
 
 ### Transitions
 
-- `--lufa-token-transition-fast` - fast duration + smooth easing
-- `--lufa-token-transition-base` - moderate duration + smooth easing
-- `--lufa-token-transition-slow` - deliberate duration + smooth easing
+- `--transition-fast` - fast duration + smooth easing
+- `--transition-base` - moderate duration + smooth easing
+- `--transition-slow` - deliberate duration + smooth easing
 
 ## Usage Example
 
 ```css
 .my-component {
-  /* Use component-level variables that reference tokens */
-  --my-component-bg: var(--lufa-token-color-background-primary);
-  --my-component-text: var(--lufa-token-color-text-primary);
-  --my-component-padding: var(--lufa-token-spacing-base);
-  --my-component-radius: var(--lufa-token-radius-base);
-  --my-component-shadow: var(--lufa-token-shadow-sm);
+  /* Use CSS custom properties for styling */
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  padding: var(--spacing-base);
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+}
 
-  /* Apply the component variables */
-  background: var(--my-component-bg);
-  color: var(--my-component-text);
-  padding: var(--my-component-padding);
-  border-radius: var(--my-component-radius);
-  box-shadow: var(--my-component-shadow);
+.my-component:hover {
+  background: var(--color-background-secondary);
+}
+
+.my-component-primary {
+  background: var(--color-interactive-default);
+  color: var(--color-text-inverse);
+}
+
+.my-component-primary:hover {
+  background: var(--color-interactive-hover);
 }
 ```
 
-## Verifying Available Tokens
+**Note**: Variables automatically adapt to:
 
-To see all available tokens, check the generated CSS file:
+- **Themes** (default, ocean, forest) via `data-theme` attribute
+- **Dark mode** (light, dark, auto) via `data-mode` attribute
+
+See [THEMING_GUIDE.md](./THEMING_GUIDE.md) and [DARK_MODE_GUIDE.md](./DARK_MODE_GUIDE.md) for complete usage.
+
+## Verifying Available Variables
+
+To see all available CSS custom properties, check the generated files:
+
+**Tokens (internal implementation with `--lufa-token-` prefix)**:
 
 ```bash
 cat packages/design-system/tokens/dist/style.css
 ```
 
+**Themes (public API with shorter names)**:
+
+```bash
+cat packages/design-system/themes/dist/default.css  # Default theme
+cat packages/design-system/themes/dist/ocean.css    # Ocean theme
+cat packages/design-system/themes/dist/forest.css   # Forest theme
+```
+
 Or inspect the `:root` declaration in your browser DevTools when viewing components in Storybook.
+
+**Browser DevTools**:
+
+1. Open Storybook: `pnpm ds:storybook:dev`
+2. Open browser DevTools (F12)
+3. Inspect the `<html>` element
+4. Look at "Computed" or "Styles" tab to see all `--color-*`, `--spacing-*`, etc. variables

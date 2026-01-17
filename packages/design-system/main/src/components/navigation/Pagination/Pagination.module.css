@@ -32,7 +32,7 @@
   }
 
   .active {
-    @apply bg-interactive-default text-white;
+    @apply bg-interactive-default text-text-inverse;
     @apply border-interactive-default;
     @apply font-medium;
   }
