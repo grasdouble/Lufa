@@ -1,154 +1,159 @@
-@reference '../../tailwind.css';
+/**
+ * Typography Component - Vanilla CSS (Migrated from Tailwind)
+ * Uses design tokens from @grasdouble/lufa_design-system-tokens
+ */
 
-@layer components {
-  .typography {
-    @apply reset-heading;
-  }
+.typography {
+  /* Reset heading styles (converted from @apply reset-heading) */
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
 
-  /* Variants - Using CSS variables from typography tokens */
-  .variant-h1 {
-    font-size: var(--lufa-typography-h1-font-size);
-    line-height: var(--lufa-typography-h1-line-height);
-    font-weight: var(--lufa-typography-h1-font-weight);
-    letter-spacing: var(--lufa-typography-h1-letter-spacing);
-  }
+/* Variants - Using CSS variables from typography tokens */
+.variant-h1 {
+  font-size: var(--lufa-typography-h1-font-size);
+  line-height: var(--lufa-typography-h1-line-height);
+  font-weight: var(--lufa-typography-h1-font-weight);
+  letter-spacing: var(--lufa-typography-h1-letter-spacing);
+}
 
-  .variant-h2 {
-    font-size: var(--lufa-typography-h2-font-size);
-    line-height: var(--lufa-typography-h2-line-height);
-    font-weight: var(--lufa-typography-h2-font-weight);
-    letter-spacing: var(--lufa-typography-h2-letter-spacing);
-  }
+.variant-h2 {
+  font-size: var(--lufa-typography-h2-font-size);
+  line-height: var(--lufa-typography-h2-line-height);
+  font-weight: var(--lufa-typography-h2-font-weight);
+  letter-spacing: var(--lufa-typography-h2-letter-spacing);
+}
 
-  .variant-h3 {
-    font-size: var(--lufa-typography-h3-font-size);
-    line-height: var(--lufa-typography-h3-line-height);
-    font-weight: var(--lufa-typography-h3-font-weight);
-    letter-spacing: var(--lufa-typography-h3-letter-spacing);
-  }
+.variant-h3 {
+  font-size: var(--lufa-typography-h3-font-size);
+  line-height: var(--lufa-typography-h3-line-height);
+  font-weight: var(--lufa-typography-h3-font-weight);
+  letter-spacing: var(--lufa-typography-h3-letter-spacing);
+}
 
-  .variant-h4 {
-    font-size: var(--lufa-typography-h4-font-size);
-    line-height: var(--lufa-typography-h4-line-height);
-    font-weight: var(--lufa-typography-h4-font-weight);
-    letter-spacing: var(--lufa-typography-h4-letter-spacing);
-  }
+.variant-h4 {
+  font-size: var(--lufa-typography-h4-font-size);
+  line-height: var(--lufa-typography-h4-line-height);
+  font-weight: var(--lufa-typography-h4-font-weight);
+  letter-spacing: var(--lufa-typography-h4-letter-spacing);
+}
 
-  .variant-h5 {
-    font-size: var(--lufa-typography-h5-font-size);
-    line-height: var(--lufa-typography-h5-line-height);
-    font-weight: var(--lufa-typography-h5-font-weight);
-    letter-spacing: var(--lufa-typography-h5-letter-spacing);
-  }
+.variant-h5 {
+  font-size: var(--lufa-typography-h5-font-size);
+  line-height: var(--lufa-typography-h5-line-height);
+  font-weight: var(--lufa-typography-h5-font-weight);
+  letter-spacing: var(--lufa-typography-h5-letter-spacing);
+}
 
-  .variant-h6 {
-    font-size: var(--lufa-typography-h6-font-size);
-    line-height: var(--lufa-typography-h6-line-height);
-    font-weight: var(--lufa-typography-h6-font-weight);
-    letter-spacing: var(--lufa-typography-h6-letter-spacing);
-  }
+.variant-h6 {
+  font-size: var(--lufa-typography-h6-font-size);
+  line-height: var(--lufa-typography-h6-line-height);
+  font-weight: var(--lufa-typography-h6-font-weight);
+  letter-spacing: var(--lufa-typography-h6-letter-spacing);
+}
 
-  .variant-body {
-    font-size: var(--lufa-typography-body-font-size);
-    line-height: var(--lufa-typography-body-line-height);
-    font-weight: var(--lufa-typography-body-font-weight);
-    letter-spacing: var(--lufa-typography-body-letter-spacing);
-    max-width: var(--lufa-token-measure-default);
-  }
+.variant-body {
+  font-size: var(--lufa-typography-body-font-size);
+  line-height: var(--lufa-typography-body-line-height);
+  font-weight: var(--lufa-typography-body-font-weight);
+  letter-spacing: var(--lufa-typography-body-letter-spacing);
+  max-width: var(--lufa-token-measure-default);
+}
 
-  .variant-bodyLarge {
-    font-size: var(--lufa-typography-body-large-font-size);
-    line-height: var(--lufa-typography-body-large-line-height);
-    font-weight: var(--lufa-typography-body-large-font-weight);
-    letter-spacing: var(--lufa-typography-body-large-letter-spacing);
-    max-width: var(--lufa-token-measure-comfortable);
-  }
+.variant-bodyLarge {
+  font-size: var(--lufa-typography-body-large-font-size);
+  line-height: var(--lufa-typography-body-large-line-height);
+  font-weight: var(--lufa-typography-body-large-font-weight);
+  letter-spacing: var(--lufa-typography-body-large-letter-spacing);
+  max-width: var(--lufa-token-measure-comfortable);
+}
 
-  .variant-bodySmall {
-    font-size: var(--lufa-typography-body-small-font-size);
-    line-height: var(--lufa-typography-body-small-line-height);
-    font-weight: var(--lufa-typography-body-small-font-weight);
-    letter-spacing: var(--lufa-typography-body-small-letter-spacing);
-  }
+.variant-bodySmall {
+  font-size: var(--lufa-typography-body-small-font-size);
+  line-height: var(--lufa-typography-body-small-line-height);
+  font-weight: var(--lufa-typography-body-small-font-weight);
+  letter-spacing: var(--lufa-typography-body-small-letter-spacing);
+}
 
-  .variant-caption {
-    font-size: var(--lufa-typography-caption-font-size);
-    line-height: var(--lufa-typography-caption-line-height);
-    font-weight: var(--lufa-typography-caption-font-weight);
-    letter-spacing: var(--lufa-typography-caption-letter-spacing);
-  }
+.variant-caption {
+  font-size: var(--lufa-typography-caption-font-size);
+  line-height: var(--lufa-typography-caption-line-height);
+  font-weight: var(--lufa-typography-caption-font-weight);
+  letter-spacing: var(--lufa-typography-caption-letter-spacing);
+}
 
-  .variant-label {
-    font-size: var(--lufa-typography-label-font-size);
-    line-height: var(--lufa-typography-label-line-height);
-    font-weight: var(--lufa-typography-label-font-weight);
-    letter-spacing: var(--lufa-typography-label-letter-spacing);
-  }
+.variant-label {
+  font-size: var(--lufa-typography-label-font-size);
+  line-height: var(--lufa-typography-label-line-height);
+  font-weight: var(--lufa-typography-label-font-weight);
+  letter-spacing: var(--lufa-typography-label-letter-spacing);
+}
 
-  /* Font Weights - Using CSS variables */
-  .weight-light {
-    font-weight: var(--lufa-font-weight-light);
-  }
+/* Font Weights - Using CSS variables */
+.weight-light {
+  font-weight: var(--lufa-font-weight-light);
+}
 
-  .weight-normal {
-    font-weight: var(--lufa-font-weight-normal);
-  }
+.weight-normal {
+  font-weight: var(--lufa-font-weight-normal);
+}
 
-  .weight-medium {
-    font-weight: var(--lufa-font-weight-medium);
-  }
+.weight-medium {
+  font-weight: var(--lufa-font-weight-medium);
+}
 
-  .weight-semibold {
-    font-weight: var(--lufa-font-weight-semibold);
-  }
+.weight-semibold {
+  font-weight: var(--lufa-font-weight-semibold);
+}
 
-  .weight-bold {
-    font-weight: var(--lufa-font-weight-bold);
-  }
+.weight-bold {
+  font-weight: var(--lufa-font-weight-bold);
+}
 
-  /* Alignment */
-  .align-left {
-    @apply text-left;
-  }
+/* Alignment - Converted from @apply text-* utilities */
+.align-left {
+  text-align: left;
+}
 
-  .align-center {
-    @apply text-center;
-  }
+.align-center {
+  text-align: center;
+}
 
-  .align-right {
-    @apply text-right;
-  }
+.align-right {
+  text-align: right;
+}
 
-  .align-justify {
-    @apply text-justify;
-  }
+.align-justify {
+  text-align: justify;
+}
 
-  /* Colors - Using semantic color tokens */
-  .color-primary {
-    @apply text-text-primary;
-  }
+/* Colors - Using semantic color tokens (converted from @apply utilities) */
+.color-primary {
+  color: var(--lufa-token-color-text-primary);
+}
 
-  .color-secondary {
-    @apply text-text-secondary;
-  }
+.color-secondary {
+  color: var(--lufa-token-color-text-secondary);
+}
 
-  .color-tertiary {
-    @apply text-text-tertiary;
-  }
+.color-tertiary {
+  color: var(--lufa-token-color-text-tertiary);
+}
 
-  .color-inverse {
-    @apply text-text-inverse;
-  }
+.color-inverse {
+  color: var(--lufa-token-color-text-inverse);
+}
 
-  .color-error {
-    @apply text-error-text;
-  }
+.color-error {
+  color: var(--lufa-token-color-error-text);
+}
 
-  .color-success {
-    @apply text-success-text;
-  }
+.color-success {
+  color: var(--lufa-token-color-success-text);
+}
 
-  .color-warning {
-    @apply text-warning-text;
-  }
+.color-warning {
+  color: var(--lufa-token-color-warning-text);
 }

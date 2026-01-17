@@ -1,117 +1,122 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .link {
-    @apply inline-flex items-center gap-1;
-    @apply text-text-link;
-    @apply no-underline;
-    @apply relative;
-    @apply transition-colors duration-fast;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--lufa-token-spacing-xs);
+    color: var(--lufa-token-color-text-link);
+    text-decoration: none;
+    position: relative;
+    transition: color var(--lufa-token-timing-fast);
     font-weight: inherit;
   }
 
   .link::after {
     content: '';
-    @apply absolute left-0 bottom-0;
-    @apply rounded-sm;
-    height: var(--border-width-hairline);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: var(--lufa-token-radius-sm);
+    height: var(--lufa-token-border-width-hairline);
     width: 0;
     background: currentColor;
-    @apply transition-all duration-fast;
+    transition: all var(--lufa-token-timing-fast);
   }
 
   .link:hover::after,
   .link:focus-visible::after {
     width: 100%;
-    @apply bg-text-link-hover;
+    background-color: var(--lufa-token-color-text-link-hover);
   }
 
   .link:hover,
   .link:focus-visible {
-    @apply text-text-link-hover;
+    color: var(--lufa-token-color-text-link-hover);
   }
 
   .link:focus-visible {
-    @apply outline-border-focus;
-    outline-width: var(--border-width-focus);
+    outline-color: var(--lufa-token-color-border-focus);
+    outline-width: var(--lufa-token-border-width-focus);
     outline-style: solid;
-    outline-offset: var(--spacing-xxs);
-    @apply rounded-sm;
+    outline-offset: var(--lufa-token-spacing-xxs);
+    border-radius: var(--lufa-token-radius-sm);
   }
 
   /* Variant overrides - variantDefault uses base .link styles with animated underline */
 
   .variantUnderline {
-    @apply underline;
-    @apply decoration-border-default;
+    text-decoration: underline;
+    text-decoration-color: var(--lufa-token-color-border-default);
   }
 
   .variantUnderline::after {
-    @apply hidden;
+    display: none;
   }
 
   .variantButton {
-    @apply text-text-inverse;
-    @apply bg-interactive-default;
-    @apply px-md py-sm;
-    @apply rounded-lg;
-    @apply no-underline;
+    color: var(--lufa-token-color-text-inverse);
+    background-color: var(--lufa-token-color-interactive-default);
+    padding-left: var(--lufa-token-spacing-md);
+    padding-right: var(--lufa-token-spacing-md);
+    padding-top: var(--lufa-token-spacing-sm);
+    padding-bottom: var(--lufa-token-spacing-sm);
+    border-radius: var(--lufa-token-radius-lg);
+    text-decoration: none;
   }
 
   .variantButton::after {
-    @apply hidden;
+    display: none;
   }
 
   .variantButton:hover,
   .variantButton:focus-visible {
-    @apply bg-interactive-hover;
-    @apply text-text-inverse;
+    background-color: var(--lufa-token-color-interactive-hover);
+    color: var(--lufa-token-color-text-inverse);
   }
 
   /* Color variants */
   .colorPrimary {
-    @apply text-interactive-default;
+    color: var(--lufa-token-color-interactive-default);
   }
 
   .colorPrimary:hover,
   .colorPrimary:focus-visible {
-    @apply text-interactive-hover;
+    color: var(--lufa-token-color-interactive-hover);
   }
 
   .colorSecondary {
-    @apply text-text-secondary;
+    color: var(--lufa-token-color-text-secondary);
   }
 
   .colorSecondary:hover,
   .colorSecondary:focus-visible {
-    @apply text-text-primary;
+    color: var(--lufa-token-color-text-primary);
   }
 
   .colorSuccess {
-    @apply text-success-default;
+    color: var(--lufa-token-color-success-default);
   }
 
   .colorSuccess:hover,
   .colorSuccess:focus-visible {
-    @apply text-success-hover;
+    color: var(--lufa-token-color-success-hover);
   }
 
   .colorWarning {
-    @apply text-warning-default;
+    color: var(--lufa-token-color-warning-default);
   }
 
   .colorWarning:hover,
   .colorWarning:focus-visible {
-    @apply text-warning-hover;
+    color: var(--lufa-token-color-warning-hover);
   }
 
   .colorDanger {
-    @apply text-error-default;
+    color: var(--lufa-token-color-error-default);
   }
 
   .colorDanger:hover,
   .colorDanger:focus-visible {
-    @apply text-error-hover;
+    color: var(--lufa-token-color-error-hover);
   }
 
   .colorInherit {
@@ -121,26 +126,30 @@
   .colorInherit:hover,
   .colorInherit:focus-visible {
     color: inherit;
-    @apply opacity-75;
+    opacity: var(--lufa-token-opacity-disabled);
   }
 
   /* Size variants */
   .sizeSmall {
-    @apply text-sm gap-0.5;
+    font-size: var(--lufa-token-font-size-sm);
+    gap: var(--lufa-token-spacing-xxs);
   }
 
   .sizeMedium {
-    @apply text-base gap-1;
+    font-size: var(--lufa-token-font-size-base);
+    gap: var(--lufa-token-spacing-xs);
   }
 
   .sizeLarge {
-    @apply text-lg gap-1.5;
+    font-size: var(--lufa-token-font-size-lg);
+    gap: var(--lufa-token-spacing-2xs);
   }
 
   /* Icons */
   .startIcon,
   .endIcon,
   .externalIcon {
-    @apply inline-flex shrink-0;
+    display: inline-flex;
+    flex-shrink: 0;
   }
 }
