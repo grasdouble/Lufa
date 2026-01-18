@@ -70,19 +70,111 @@ test.describe('Alert Component', () => {
   test.describe('Visual Regression', () => {
     test('should match snapshot for all variants', async ({ mount }) => {
       const variants = ['info', 'success', 'warning', 'error'] as const;
+
       const component = await mount(
-        <div style={{ padding: '20px', width: 'fit-content' }}>
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Variants</h1>
-          <div style={{ display: 'flex', gap: '16px' }}>
-            {variants.map((variant) => (
-              <Alert key={variant} variant={variant} title={variant}>
-                Message
+        <div style={{ padding: '32px', background: '#ffffff', width: '900px' }}>
+          <h1 style={{ marginBottom: '24px', fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
+            Alert Component - All Variants
+          </h1>
+
+          {/* Basic Alerts - All Variants */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>
+              Basic Alerts (All Variants)
+            </h2>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
+              {variants.map((variant) => (
+                <Alert
+                  key={variant}
+                  variant={variant}
+                  title={`${variant.charAt(0).toUpperCase() + variant.slice(1)} Alert`}
+                >
+                  This is a {variant} message with some description text.
+                </Alert>
+              ))}
+            </div>
+          </section>
+
+          {/* Alerts without Title */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>Without Title</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
+              {variants.map((variant) => (
+                <Alert key={`no-title-${variant}`} variant={variant}>
+                  This is a {variant} alert without a title. Just the message content.
+                </Alert>
+              ))}
+            </div>
+          </section>
+
+          {/* Closable Alerts */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>
+              Closable Alerts
+            </h2>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
+              {variants.map((variant) => (
+                <Alert
+                  key={`closable-${variant}`}
+                  variant={variant}
+                  title={`Closable ${variant.charAt(0).toUpperCase() + variant.slice(1)}`}
+                  closable
+                  onClose={() => {}}
+                >
+                  This alert can be dismissed by clicking the close button.
+                </Alert>
+              ))}
+            </div>
+          </section>
+
+          {/* Alerts with Custom Icons */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>
+              With Custom Icons
+            </h2>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
+              {variants.map((variant) => (
+                <Alert
+                  key={`icon-${variant}`}
+                  variant={variant}
+                  title="Custom Icon Alert"
+                  icon={
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+                    </svg>
+                  }
+                >
+                  Alert with a custom notification bell icon.
+                </Alert>
+              ))}
+            </div>
+          </section>
+
+          {/* Long Content Alerts */}
+          <section>
+            <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>Long Content</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
+              <Alert variant="info" title="Detailed Information" closable onClose={() => {}}>
+                This is an alert with longer content to demonstrate how the component handles multiple lines of text. It
+                includes important details that users need to read carefully. The content should wrap properly and
+                maintain good readability even with extensive information provided in the alert message.
               </Alert>
-            ))}
-          </div>
-        </div>
+              <Alert variant="warning" title="Important Warning">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+              </Alert>
+            </div>
+          </section>
+        </div>,
+        { animations: 'disabled' }
       );
-      await expect(component).toHaveScreenshot('alert-all-variants.png');
+
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('alert-all-variants.png', {
+        animations: 'disabled',
+      });
     });
   });
 });

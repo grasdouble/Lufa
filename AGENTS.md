@@ -59,7 +59,9 @@ pnpm ds:all:build              # Design system (correct order)
 pnpm all:build                 # Everything
 
 # Testing
-pnpm --filter @grasdouble/lufa_design-system test-ct
+pnpm ds:test                   # Run all component tests
+pnpm ds:test:ui                # Run tests in UI mode
+pnpm all:test                  # Run all tests in workspace
 
 # Quality checks
 pnpm all:lint && pnpm all:prettier
@@ -382,19 +384,29 @@ Configuration files:
 The design system uses **Playwright component testing** for React components.
 
 ```bash
-# Run component tests for design system
-pnpm --filter @grasdouble/lufa_design-system test-ct
+# Run component tests (recommended - from root)
+pnpm ds:test
 
-# Or run from the package directory
-cd packages/design-system/main
+# Run component tests in UI mode (interactive debugging)
+pnpm ds:test:ui
+
+# Run all tests across workspace
+pnpm all:test
+
+# Update snapshots after intentional design changes
+pnpm ds:test:update-snapshots
+
+# Or run from the Playwright package directory
+cd packages/design-system/playwright
 pnpm test-ct
 ```
 
 **Test Configuration:**
 
-- Config file: `packages/design-system/main/playwright-ct.config.ts`
-- Test files: Co-located with components as `*.spec.tsx` or in separate test directories
+- Config file: `packages/design-system/playwright/playwright-ct.config.ts`
+- Test files: Located in `packages/design-system/playwright/src/components/`
 - Uses `@playwright/experimental-ct-react` for component testing
+- Supports 5 browsers: Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari
 
 **Testing Guidelines:**
 
@@ -403,13 +415,13 @@ pnpm test-ct
 - Test accessibility features (keyboard navigation, ARIA, focus management)
 - Test all component variants and states
 - Use `await expect()` for auto-retrying assertions
-- Follow patterns in `.github/instructions/playwright-typescript.instructions.md`
+- Follow patterns in `.github/instructions/lufa-design-system-playwright-ct.instructions.md`
 
 **Example test structure:**
 
 ```typescript
 import { test, expect } from '@playwright/experimental-ct-react';
-import { Button } from './Button';
+import { Button } from '@grasdouble/lufa_design-system';
 
 test('renders with correct variant', async ({ mount }) => {
   const component = await mount(<Button variant="primary">Click me</Button>);
@@ -424,6 +436,7 @@ test('renders with correct variant', async ({ mount }) => {
 - Test all variants, states, and interactive behaviors
 - Test accessibility features (keyboard, ARIA, focus)
 - Cover edge cases and error handling
+- All tests must include visual regression snapshots
 
 ## Build and Deployment
 
@@ -1146,7 +1159,10 @@ pnpm all:lint             # Lint all packages
 pnpm all:prettier         # Format all packages
 
 # Testing
-pnpm --filter @grasdouble/lufa_design-system test-ct
+pnpm ds:test              # Run all component tests
+pnpm ds:test:ui           # Run tests in UI mode
+pnpm all:test             # Run all tests in workspace
+pnpm ds:test:update-snapshots  # Update visual regression snapshots
 
 # Version Management
 pnpm changeset            # Create changeset for releases

@@ -45,42 +45,106 @@ test.describe('Spinner Component', () => {
     test('should match snapshot for all sizes and modes', async ({ mount }) => {
       const sizes = ['small', 'medium', 'large'] as const;
       const modes = ['A', 'B'] as const;
+
       const component = await mount(
-        <div style={{ padding: '20px', width: 'fit-content' }}>
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Spinner Sizes</h1>
-          <div style={{ display: 'flex', gap: '32px', alignItems: 'center', marginBottom: '32px' }}>
-            {sizes.map((size) => (
-              <div key={size} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Spinner size={size} />
-                <span style={{ marginTop: 8, fontSize: 14 }}>{size}</span>
-              </div>
-            ))}
-          </div>
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Spinner Modes</h1>
-          <div style={{ display: 'flex', gap: '32px', alignItems: 'center', marginBottom: '32px' }}>
-            {modes.map((mode) => (
-              <div key={mode} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Spinner mode={mode} />
-                <span style={{ marginTop: 8, fontSize: 14 }}>mode {mode}</span>
-              </div>
-            ))}
-          </div>
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>All Combinations</h1>
-          <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
-            {sizes.flatMap((size) =>
-              modes.map((mode) => (
-                <div key={size + mode} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <Spinner size={size} mode={mode} />
-                  <span style={{ marginTop: 8, fontSize: 14 }}>
-                    {size} / {mode}
-                  </span>
+        <div style={{ padding: '32px', background: '#ffffff', width: '800px' }}>
+          <h1 style={{ marginBottom: '24px', fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
+            Spinner Component - All Variants
+          </h1>
+
+          {/* Sizes Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>Spinner Sizes</h2>
+            <div
+              style={{
+                display: 'flex',
+                gap: '48px',
+                alignItems: 'center',
+                padding: '24px',
+                background: '#fafafa',
+                borderRadius: '8px',
+              }}
+            >
+              {sizes.map((size) => (
+                <div key={size} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+                  <Spinner size={size} />
+                  <span style={{ fontSize: '14px', color: '#666', textTransform: 'capitalize' }}>{size}</span>
                 </div>
-              ))
-            )}
-          </div>
-        </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Modes Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>Spinner Modes</h2>
+            <div
+              style={{
+                display: 'flex',
+                gap: '48px',
+                alignItems: 'center',
+                padding: '24px',
+                background: '#fafafa',
+                borderRadius: '8px',
+              }}
+            >
+              {modes.map((mode) => (
+                <div key={mode} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+                  <Spinner mode={mode} />
+                  <span style={{ fontSize: '14px', color: '#666' }}>Mode {mode}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* All Combinations Section */}
+          <section>
+            <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>
+              All Size × Mode Combinations
+            </h2>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: '24px',
+                padding: '24px',
+                background: '#fafafa',
+                borderRadius: '8px',
+              }}
+            >
+              {sizes.flatMap((size) =>
+                modes.map((mode) => (
+                  <div
+                    key={`${size}-${mode}`}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: '12px',
+                      padding: '16px',
+                      background: '#fff',
+                      borderRadius: '6px',
+                      border: '1px solid #e0e0e0',
+                    }}
+                  >
+                    <Spinner size={size} mode={mode} />
+                    <span style={{ fontSize: '12px', color: '#888', textAlign: 'center' }}>
+                      {size} / {mode}
+                    </span>
+                  </div>
+                ))
+              )}
+            </div>
+          </section>
+        </div>,
+        { animations: 'disabled' }
       );
-      await expect(component).toHaveScreenshot('spinner-all-variants.png');
+
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('spinner-all-variants.png', {
+        animations: 'disabled',
+      });
     });
   });
 });

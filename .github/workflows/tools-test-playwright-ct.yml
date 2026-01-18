@@ -1,0 +1,92 @@
+name: Tools:Test:Playwright-CT
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write # For commenting test results
+  actions: none
+  checks: none
+  deployments: none
+  issues: none
+  packages: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
+jobs:
+  playwright-component-tests:
+    name: Playwright Component Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      # Step 2: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      # Step 3: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .tool-versions
+          cache: 'pnpm'
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Step 5: Install Playwright browsers
+      - name: Install Playwright browsers
+        run: pnpm --filter @grasdouble/lufa_design-system-playwright exec playwright install --with-deps chromium
+
+      # Step 6: Build design system (required for component tests)
+      - name: Build design system tokens
+        run: pnpm ds:tokens:build
+
+      - name: Build design system primitives
+        run: pnpm ds:primitives:build
+
+      - name: Build design system main
+        run: pnpm ds:main:build
+
+      # Step 7: Run Playwright component tests (Chromium only for CI speed)
+      - name: Run Playwright component tests
+        run: pnpm --filter @grasdouble/lufa_design-system-playwright test-ct --project=chromium
+        env:
+          CI: true
+
+      # Step 8: Upload test results on failure
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: playwright-test-results
+          path: packages/design-system/playwright/test-results/
+          retention-days: 7
+
+      # Step 9: Upload Playwright trace on failure
+      - name: Upload Playwright trace
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: playwright-trace
+          path: packages/design-system/playwright/test-results/**/*.zip
+          retention-days: 7
+
+      # Step 10: Upload HTML report on failure
+      - name: Upload HTML report
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: playwright-html-report
+          path: packages/design-system/playwright/playwright-report/
+          retention-days: 7

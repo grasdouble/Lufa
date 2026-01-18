@@ -60,56 +60,76 @@ test.describe('Button', () => {
   test('visual regression: all variants, sizes, and colors', async ({ mount }) => {
     const variants = ['solid', 'outlined', 'ghost', 'text', 'link'] as const;
     const colors = ['primary', 'secondary', 'success', 'warning', 'danger'] as const;
+    const sizes = ['small', 'medium', 'large'] as const;
     const cellStyle = { padding: 8, textAlign: 'center', background: '#fff' };
     const headerStyle = { fontWeight: 600, padding: 8, background: '#f0f0f0', textAlign: 'center' };
     const tableStyle = { borderCollapse: 'collapse', width: '100%', background: '#f5f5f5', marginBottom: 32 };
+    const sectionTitleStyle = { fontWeight: 700, fontSize: 22, margin: '32px 0 16px 0', color: '#111' };
     const colorTitleStyle = { fontWeight: 700, fontSize: 18, margin: '24px 0 8px 0', color: '#333' };
+
     const component = await mount(
       <div style={{ padding: 24, background: '#f5f5f5' }}>
-        {colors.map((color) => (
-          <div key={color}>
-            <div style={colorTitleStyle}>{color.charAt(0).toUpperCase() + color.slice(1)}</div>
-            <table style={tableStyle}>
-              <thead>
-                <tr>
-                  <th style={headerStyle}>Variant</th>
-                  <th style={headerStyle}>Default</th>
-                  <th style={headerStyle}>Hover</th>
-                  <th style={headerStyle}>Focus</th>
-                  <th style={headerStyle}>Disabled</th>
-                </tr>
-              </thead>
-              <tbody>
-                {variants.map((variant) => {
-                  const buttonStyle = variant === 'text' || variant === 'link' ? {} : { minWidth: 120 };
-                  return (
-                    <tr key={variant}>
-                      <td style={cellStyle}>{variant}</td>
-                      <td style={cellStyle}>
-                        <Button variant={variant} color={color} style={buttonStyle}>
-                          Default
-                        </Button>
-                      </td>
-                      <td style={cellStyle}>
-                        <Button variant={variant} color={color} data-test-state="hover" style={buttonStyle}>
-                          Hover
-                        </Button>
-                      </td>
-                      <td style={cellStyle}>
-                        <Button variant={variant} color={color} data-test-state="focus" style={buttonStyle}>
-                          Focus
-                        </Button>
-                      </td>
-                      <td style={cellStyle}>
-                        <Button variant={variant} color={color} disabled style={buttonStyle}>
-                          Disabled
-                        </Button>
-                      </td>
+        {sizes.map((size) => (
+          <div key={size}>
+            <div style={sectionTitleStyle}>Size: {size.charAt(0).toUpperCase() + size.slice(1)}</div>
+            {colors.map((color) => (
+              <div key={color}>
+                <div style={colorTitleStyle}>{color.charAt(0).toUpperCase() + color.slice(1)}</div>
+                <table style={tableStyle}>
+                  <thead>
+                    <tr>
+                      <th style={headerStyle}>Variant</th>
+                      <th style={headerStyle}>Default</th>
+                      <th style={headerStyle}>Hover</th>
+                      <th style={headerStyle}>Focus</th>
+                      <th style={headerStyle}>Disabled</th>
                     </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                  </thead>
+                  <tbody>
+                    {variants.map((variant) => {
+                      const buttonStyle = variant === 'text' || variant === 'link' ? {} : { minWidth: 120 };
+                      return (
+                        <tr key={variant}>
+                          <td style={cellStyle}>{variant}</td>
+                          <td style={cellStyle}>
+                            <Button variant={variant} color={color} size={size} style={buttonStyle}>
+                              Default
+                            </Button>
+                          </td>
+                          <td style={cellStyle}>
+                            <Button
+                              variant={variant}
+                              color={color}
+                              size={size}
+                              data-test-state="hover"
+                              style={buttonStyle}
+                            >
+                              Hover
+                            </Button>
+                          </td>
+                          <td style={cellStyle}>
+                            <Button
+                              variant={variant}
+                              color={color}
+                              size={size}
+                              data-test-state="focus"
+                              style={buttonStyle}
+                            >
+                              Focus
+                            </Button>
+                          </td>
+                          <td style={cellStyle}>
+                            <Button variant={variant} color={color} size={size} disabled style={buttonStyle}>
+                              Disabled
+                            </Button>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            ))}
           </div>
         ))}
       </div>
