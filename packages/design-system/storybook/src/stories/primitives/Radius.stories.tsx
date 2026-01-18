@@ -17,7 +17,7 @@ export const AllRadius: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Radius Primitives</h1>
-      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
         Primitive border-radius values for consistent corner rounding. Choose 1-2 values as your primary scale for brand
         consistency.
       </p>
@@ -32,13 +32,13 @@ export const AllRadius: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: primitives.color.neutral.neutral[50],
+              backgroundColor: 'var(--lufa-token-color-surface-raised)',
               borderRadius: '8px',
-              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+              border: `1px solid var(--lufa-token-color-border-light)`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>radius[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+            <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)', fontSize: '12px' }}>
               {value}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -51,7 +51,7 @@ export const AllRadius: Story = {
                   boxShadow: primitives.shadow.xs,
                 }}
               />
-              <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>
+              <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>
                 {key === '0' && 'Sharp corners (tables, technical UI)'}
                 {key === '2' && 'Subtle rounding'}
                 {key === '4' && 'Soft corners (inputs, small buttons)'}
@@ -72,9 +72,9 @@ export const AllRadius: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: primitives.color.chromatic.blue[100],
+          backgroundColor: 'var(--lufa-token-color-info-light)',
           borderRadius: '12px',
-          border: `1px solid ${primitives.color.chromatic.blue[300]}`,
+          border: `1px solid var(--lufa-token-color-info-border)`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>Consistency Tip</h3>
@@ -150,28 +150,28 @@ export const UsageExamples: Story = {
             <div
               style={{
                 padding: '20px',
-                backgroundColor: primitives.color.neutral.white,
-                border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                border: `1px solid var(--lufa-token-color-border-light)`,
                 borderRadius: primitives.radius[8],
                 boxShadow: primitives.shadow.xs,
               }}
             >
               <div style={{ fontWeight: '600', marginBottom: '8px' }}>Standard Card</div>
-              <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+              <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
                 radius[8] - Most common for cards
               </div>
             </div>
             <div
               style={{
                 padding: '20px',
-                backgroundColor: primitives.color.neutral.white,
-                border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                border: `1px solid var(--lufa-token-color-border-light)`,
                 borderRadius: primitives.radius[16],
                 boxShadow: primitives.shadow.xs,
               }}
             >
               <div style={{ fontWeight: '600', marginBottom: '8px' }}>Prominent Card</div>
-              <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+              <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
                 radius[16] - Bold, modern look
               </div>
             </div>
@@ -237,7 +237,7 @@ export const UsageExamples: Story = {
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '12px',
-                color: primitives.color.neutral.neutral[600],
+                color: 'var(--lufa-token-color-text-secondary)',
               }}
             >
               Image (8px)
@@ -283,14 +283,14 @@ export const UsageExamples: Story = {
             style={{
               maxWidth: '500px',
               padding: '32px',
-              backgroundColor: primitives.color.neutral.white,
-              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+              backgroundColor: 'var(--lufa-token-color-surface-default)',
+              border: `1px solid var(--lufa-token-color-border-light)`,
               borderRadius: primitives.radius[12],
               boxShadow: primitives.shadow.xl,
             }}
           >
             <h4 style={{ margin: '0 0 16px 0', fontSize: '20px', fontWeight: '600' }}>Modal Title</h4>
-            <p style={{ margin: '0 0 24px 0', color: primitives.color.neutral.neutral[600], lineHeight: '1.5' }}>
+            <p style={{ margin: '0 0 24px 0', color: 'var(--lufa-token-color-text-secondary)', lineHeight: '1.5' }}>
               Modals typically use radius[12] or radius[16] for a prominent, modern look.
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
@@ -298,8 +298,8 @@ export const UsageExamples: Story = {
                 style={{
                   padding: '10px 20px',
                   backgroundColor: 'transparent',
-                  color: primitives.color.neutral.neutral[600],
-                  border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  border: `1px solid var(--lufa-token-color-border-light)`,
                   borderRadius: primitives.radius[6],
                   fontWeight: '500',
                   cursor: 'pointer',

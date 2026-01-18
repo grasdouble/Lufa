@@ -17,7 +17,7 @@ export const AllShadows: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Shadow Primitives</h1>
-      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
         Primitive shadow values using t-shirt sizing for depth and elevation hierarchy. Use shadows to indicate layering
         and interactive affordance.
       </p>
@@ -28,7 +28,7 @@ export const AllShadows: Story = {
             <div
               style={{
                 padding: '32px',
-                backgroundColor: primitives.color.neutral.white,
+                backgroundColor: 'var(--lufa-token-color-surface-default)',
                 borderRadius: '12px',
                 boxShadow: value,
                 display: 'flex',
@@ -39,7 +39,7 @@ export const AllShadows: Story = {
               }}
             >
               <div style={{ fontWeight: '600', fontSize: '18px', marginBottom: '8px' }}>{key}</div>
-              <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600], textAlign: 'center' }}>
+              <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', textAlign: 'center' }}>
                 {key === 'none' && 'Flat design'}
                 {key === 'xs' && 'Subtle depth'}
                 {key === 'sm' && 'Hover states'}
@@ -56,9 +56,9 @@ export const AllShadows: Story = {
               style={{
                 fontFamily: 'monospace',
                 fontSize: '10px',
-                color: primitives.color.neutral.neutral[600],
+                color: 'var(--lufa-token-color-text-secondary)',
                 padding: '8px',
-                backgroundColor: primitives.color.neutral.neutral[50],
+                backgroundColor: 'var(--lufa-token-color-surface-raised)',
                 borderRadius: '4px',
                 wordBreak: 'break-all',
               }}
@@ -73,9 +73,9 @@ export const AllShadows: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: primitives.color.chromatic.orange[100],
+          backgroundColor: 'var(--lufa-token-color-warning-light)',
           borderRadius: '12px',
-          border: `1px solid ${primitives.color.chromatic.orange[300]}`,
+          border: `1px solid var(--lufa-token-color-warning-border)`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>WCAG Accessibility</h3>
@@ -107,26 +107,26 @@ export const UsageExamples: Story = {
             <div
               style={{
                 padding: '20px',
-                backgroundColor: primitives.color.neutral.white,
+                backgroundColor: 'var(--lufa-token-color-surface-default)',
                 borderRadius: '12px',
                 boxShadow: primitives.shadow.sm,
               }}
             >
               <div style={{ fontWeight: '600', marginBottom: '8px' }}>Card with sm shadow</div>
-              <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+              <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
                 Subtle elevation for basic cards
               </div>
             </div>
             <div
               style={{
                 padding: '20px',
-                backgroundColor: primitives.color.neutral.white,
+                backgroundColor: 'var(--lufa-token-color-surface-default)',
                 borderRadius: '12px',
                 boxShadow: primitives.shadow.md,
               }}
             >
               <div style={{ fontWeight: '600', marginBottom: '8px' }}>Card with md shadow</div>
-              <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+              <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
                 Standard elevation for prominent cards
               </div>
             </div>
@@ -156,7 +156,7 @@ export const UsageExamples: Story = {
             <div
               style={{
                 padding: '16px',
-                backgroundColor: primitives.color.neutral.white,
+                backgroundColor: 'var(--lufa-token-color-surface-default)',
                 borderRadius: '8px',
                 cursor: 'pointer',
                 boxShadow: primitives.shadow.md,
@@ -166,7 +166,7 @@ export const UsageExamples: Story = {
               onMouseLeave={(e) => (e.currentTarget.style.boxShadow = primitives.shadow.md)}
             >
               <div style={{ fontWeight: '600', marginBottom: '4px' }}>Interactive Card</div>
-              <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+              <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
                 Hover to see elevation change
               </div>
             </div>
@@ -178,7 +178,7 @@ export const UsageExamples: Story = {
           <div
             style={{
               width: '240px',
-              backgroundColor: primitives.color.neutral.white,
+              backgroundColor: 'var(--lufa-token-color-surface-default)',
               borderRadius: '8px',
               boxShadow: primitives.shadow.lg,
               overflow: 'hidden',
@@ -190,17 +190,19 @@ export const UsageExamples: Story = {
                 style={{
                   padding: '12px 16px',
                   cursor: 'pointer',
-                  borderTop: i > 0 ? `1px solid ${primitives.color.neutral.neutral[100]}` : 'none',
+                  borderTop: i > 0 ? `1px solid var(--lufa-token-color-background-tertiary)` : 'none',
                   transition: 'background-color 150ms',
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = primitives.color.neutral.neutral[50])}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = primitives.color.neutral.white)}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--lufa-token-color-surface-raised)')}
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = 'var(--lufa-token-color-surface-default)')
+                }
               >
                 {item}
               </div>
             ))}
           </div>
-          <p style={{ marginTop: '12px', fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+          <p style={{ marginTop: '12px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
             Uses shadow.lg for clear separation from page
           </p>
         </div>
@@ -211,13 +213,13 @@ export const UsageExamples: Story = {
             style={{
               maxWidth: '500px',
               padding: '32px',
-              backgroundColor: primitives.color.neutral.white,
+              backgroundColor: 'var(--lufa-token-color-surface-default)',
               borderRadius: '16px',
               boxShadow: primitives.shadow.xl,
             }}
           >
             <h4 style={{ margin: '0 0 16px 0', fontSize: '24px', fontWeight: '600' }}>Confirm Action</h4>
-            <p style={{ margin: '0 0 24px 0', color: primitives.color.neutral.neutral[600], lineHeight: '1.5' }}>
+            <p style={{ margin: '0 0 24px 0', color: 'var(--lufa-token-color-text-secondary)', lineHeight: '1.5' }}>
               Are you sure you want to continue? This action cannot be undone.
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
@@ -225,8 +227,8 @@ export const UsageExamples: Story = {
                 style={{
                   padding: '10px 20px',
                   backgroundColor: 'transparent',
-                  color: primitives.color.neutral.neutral[600],
-                  border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  border: `1px solid var(--lufa-token-color-border-light)`,
                   borderRadius: '6px',
                   fontWeight: '500',
                   cursor: 'pointer',
@@ -249,7 +251,7 @@ export const UsageExamples: Story = {
               </button>
             </div>
           </div>
-          <p style={{ marginTop: '12px', fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+          <p style={{ marginTop: '12px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
             Uses shadow.xl for strong elevation above page content
           </p>
         </div>
@@ -274,7 +276,7 @@ export const UsageExamples: Story = {
           >
             +
           </button>
-          <p style={{ marginTop: '12px', fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+          <p style={{ marginTop: '12px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
             Uses shadow.2xl for prominent floating appearance
           </p>
         </div>
@@ -288,7 +290,7 @@ export const UsageExamples: Story = {
                 style={{
                   width: '80px',
                   height: `${80 + (level === 'none' ? 0 : ['xs', 'sm', 'md', 'lg', 'xl'].indexOf(level) * 20)}px`,
-                  backgroundColor: primitives.color.neutral.white,
+                  backgroundColor: 'var(--lufa-token-color-surface-default)',
                   borderRadius: '8px',
                   boxShadow: primitives.shadow[level as keyof typeof primitives.shadow],
                   display: 'flex',
@@ -296,14 +298,14 @@ export const UsageExamples: Story = {
                   justifyContent: 'center',
                   fontSize: '12px',
                   fontWeight: '600',
-                  color: primitives.color.neutral.neutral[600],
+                  color: 'var(--lufa-token-color-text-secondary)',
                 }}
               >
                 {level}
               </div>
             ))}
           </div>
-          <p style={{ marginTop: '16px', fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+          <p style={{ marginTop: '16px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
             Visual comparison of elevation levels - notice the progressive depth
           </p>
         </div>

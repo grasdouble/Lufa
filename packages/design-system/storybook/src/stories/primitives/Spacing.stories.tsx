@@ -17,7 +17,7 @@ export const AllSpacing: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Spacing Primitives</h1>
-      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
         Primitive spacing values using 4px/8px rhythm. Use these for margins, padding, and gaps across all components.
         Touch targets require minimum 44px (spacing[32] padding or spacing[24] separation).
       </p>
@@ -32,13 +32,13 @@ export const AllSpacing: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: primitives.color.neutral.neutral[50],
+              backgroundColor: 'var(--lufa-token-color-surface-raised)',
               borderRadius: '8px',
-              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+              border: `1px solid var(--lufa-token-color-border-light)`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>spacing[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+            <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)', fontSize: '12px' }}>
               {value}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -51,7 +51,7 @@ export const AllSpacing: Story = {
                   boxShadow: primitives.shadow.xs,
                 }}
               />
-              <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>
+              <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>
                 {key === '0' && 'No spacing (flush)'}
                 {key === '2' && 'Micro spacing (icon offset)'}
                 {key === '4' && 'Tight spacing (label gap)'}
@@ -75,9 +75,9 @@ export const AllSpacing: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: primitives.color.chromatic.orange[100],
+          backgroundColor: 'var(--lufa-token-color-warning-light)',
           borderRadius: '12px',
-          border: `1px solid ${primitives.color.chromatic.orange[300]}`,
+          border: `1px solid var(--lufa-token-color-warning-border)`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>WCAG Touch Target Guidelines</h3>
@@ -108,9 +108,9 @@ export const UsageExamples: Story = {
           <div
             style={{
               padding: primitives.spacing[24],
-              backgroundColor: primitives.color.neutral.white,
+              backgroundColor: 'var(--lufa-token-color-surface-default)',
               borderRadius: '12px',
-              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+              border: `1px solid var(--lufa-token-color-border-light)`,
               boxShadow: primitives.shadow.xs,
             }}
           >
@@ -120,7 +120,7 @@ export const UsageExamples: Story = {
             <p
               style={{
                 margin: `0 0 ${primitives.spacing[16]} 0`,
-                color: primitives.color.neutral.neutral[600],
+                color: 'var(--lufa-token-color-text-secondary)',
                 lineHeight: '1.5',
               }}
             >
@@ -180,7 +180,7 @@ export const UsageExamples: Story = {
               </button>
             ))}
           </div>
-          <p style={{ marginTop: '16px', fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+          <p style={{ marginTop: '16px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
             Buttons use spacing[32] padding and spacing[24] gap (WCAG compliant)
           </p>
         </div>
@@ -205,7 +205,7 @@ export const UsageExamples: Story = {
                 style={{
                   width: '100%',
                   padding: primitives.spacing[12],
-                  border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+                  border: `1px solid var(--lufa-token-color-border-light)`,
                   borderRadius: '6px',
                   fontSize: '14px',
                 }}
@@ -228,7 +228,7 @@ export const UsageExamples: Story = {
                 style={{
                   width: '100%',
                   padding: primitives.spacing[12],
-                  border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+                  border: `1px solid var(--lufa-token-color-border-light)`,
                   borderRadius: '6px',
                   fontSize: '14px',
                 }}
@@ -249,7 +249,7 @@ export const UsageExamples: Story = {
               Sign In
             </button>
           </div>
-          <p style={{ marginTop: '16px', fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+          <p style={{ marginTop: '16px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
             Form uses spacing[8] for labels, spacing[12] for input padding, spacing[16] between fields
           </p>
         </div>
