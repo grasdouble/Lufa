@@ -1,113 +1,136 @@
-@reference '../../../tailwind.css';
+@import '../../../css/component-resets.css';
+@import '@grasdouble/lufa_design-system-tokens/style.css';
 
-@layer components {
-  .container {
-    @apply relative inline-block;
-  }
+.container {
+  position: relative;
+  display: inline-block;
+}
 
-  .avatar {
-    @apply reset-image;
-    @apply ring-background-primary ring-2;
-    @apply object-cover;
-  }
+.avatar {
+  /* Image reset */
+  display: block;
+  max-width: 100%;
+  height: auto;
 
-  /* Sizes */
-  .size-xs {
-    @apply h-6 w-6;
-  }
+  /* Ring */
+  box-shadow: 0 0 0 2px var(--lufa-token-color-background-primary);
 
-  .size-sm {
-    @apply h-8 w-8;
-  }
+  /* Object fit */
+  object-fit: cover;
+}
 
-  .size-md {
-    @apply h-10 w-10;
-  }
+/* Sizes */
+.size-xs {
+  width: 1.5rem; /* 24px */
+  height: 1.5rem;
+}
 
-  .size-lg {
-    @apply h-12 w-12;
-  }
+.size-sm {
+  width: 2rem; /* 32px */
+  height: 2rem;
+}
 
-  .size-xl {
-    @apply h-16 w-16;
-  }
+.size-md {
+  width: 2.5rem; /* 40px */
+  height: 2.5rem;
+}
 
-  /* Variants */
-  .variant-circle {
-    @apply rounded-full;
-  }
+.size-lg {
+  width: 3rem; /* 48px */
+  height: 3rem;
+}
 
-  .variant-square {
-    @apply rounded-lg;
-  }
+.size-xl {
+  width: 4rem; /* 64px */
+  height: 4rem;
+}
 
-  .variant-count {
-    @apply rounded-full;
-    @apply bg-background-secondary;
-    @apply text-text-secondary;
-    @apply flex items-center justify-center;
-    @apply font-semibold;
-    @apply text-sm;
-  }
+/* Variants */
+.variant-circle {
+  border-radius: var(--lufa-token-radius-full);
+}
 
-  /* Status indicator */
-  .status {
-    @apply absolute block rounded-full;
-    @apply ring-background-primary ring-2;
-  }
+.variant-square {
+  border-radius: var(--lufa-token-radius-lg);
+}
 
-  .status-size-xs {
-    @apply h-1.5 w-1.5;
-  }
+.variant-count {
+  border-radius: var(--lufa-token-radius-full);
+  background-color: var(--lufa-token-color-background-secondary);
+  color: var(--lufa-token-color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--lufa-token-font-weight-semibold);
+  font-size: var(--lufa-token-font-size-sm);
+}
 
-  .status-size-sm {
-    @apply h-2 w-2;
-  }
+/* Status indicator */
+.status {
+  position: absolute;
+  display: block;
+  border-radius: var(--lufa-token-radius-full);
+  box-shadow: 0 0 0 2px var(--lufa-token-color-background-primary);
+}
 
-  .status-size-md {
-    @apply h-2.5 w-2.5;
-  }
+.status-size-xs {
+  width: 0.375rem; /* 6px */
+  height: 0.375rem;
+}
 
-  .status-size-lg {
-    @apply h-3 w-3;
-  }
+.status-size-sm {
+  width: 0.5rem; /* 8px */
+  height: 0.5rem;
+}
 
-  .status-size-xl {
-    @apply h-4 w-4;
-  }
+.status-size-md {
+  width: 0.625rem; /* 10px */
+  height: 0.625rem;
+}
 
-  /* Status colors */
-  .status-online {
-    @apply bg-success-default;
-  }
+.status-size-lg {
+  width: 0.75rem; /* 12px */
+  height: 0.75rem;
+}
 
-  .status-offline {
-    @apply bg-text-disabled;
-  }
+.status-size-xl {
+  width: 1rem; /* 16px */
+  height: 1rem;
+}
 
-  .status-away {
-    @apply bg-warning-default;
-  }
+/* Status colors */
+.status-online {
+  background-color: var(--lufa-token-color-success-default);
+}
 
-  .status-busy {
-    @apply bg-error-default;
-  }
+.status-offline {
+  background-color: var(--lufa-token-color-text-disabled);
+}
 
-  /* Status positions - Circle */
-  .status-position-top {
-    @apply top-0 right-0;
-  }
+.status-away {
+  background-color: var(--lufa-token-color-warning-default);
+}
 
-  .status-position-bottom {
-    @apply right-0 bottom-0;
-  }
+.status-busy {
+  background-color: var(--lufa-token-color-error-default);
+}
 
-  /* Status positions - Square */
-  .status-square.status-position-top {
-    @apply translate-x-1/3 -translate-y-1/3;
-  }
+/* Status positions - Circle */
+.status-position-top {
+  top: 0;
+  right: 0;
+}
 
-  .status-square.status-position-bottom {
-    @apply translate-x-1/3 translate-y-1/3;
-  }
+.status-position-bottom {
+  right: 0;
+  bottom: 0;
+}
+
+/* Status positions - Square */
+.status-square.status-position-top {
+  transform: translateX(33.333333%) translateY(-33.333333%);
+}
+
+.status-square.status-position-bottom {
+  transform: translateX(33.333333%) translateY(33.333333%);
 }

@@ -2,10 +2,11 @@ import type { ReactNode } from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import CodeBlock from '@theme/CodeBlock';
 import Heading from '@theme/Heading';
 import Layout from '@theme/Layout';
-import CodeBlock from '@theme/CodeBlock';
 import clsx from 'clsx';
+
 import tokens from '@grasdouble/lufa_design-system-tokens';
 
 import styles from './index.module.css';
@@ -95,7 +96,8 @@ function App() {
         </div>
         <div className={styles.quickStartTip}>
           <p>
-            💡 <strong>Tip:</strong> Try switching to dark mode using the toggle in the navbar to see all components adapt automatically!
+            💡 <strong>Tip:</strong> Try switching to dark mode using the toggle in the navbar to see all components
+            adapt automatically!
           </p>
         </div>
       </div>
@@ -108,7 +110,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`${siteConfig.title} - Modern React Component Library`}
-      description="A modern, accessible design system built with React and Tailwind CSS. Component library with design tokens, theming support, and comprehensive documentation."
+      description="A modern, accessible design system built with React and CSS design tokens. Component library with theming support and comprehensive documentation."
     >
       <HomepageHeader />
       <main>

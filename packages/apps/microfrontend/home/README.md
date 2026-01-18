@@ -17,7 +17,8 @@ This microfrontend serves as the landing/home page of the Lufa application. It s
 - **TypeScript** - Type safety
 - **Single-SPA** - Microfrontend lifecycle
 - **Vite** - Build tool
-- **Lufa Design System** - UI components
+- **Lufa Design System** - Shared UI components
+- **Vanilla CSS** - CSS Modules for styling
 
 ## Development
 

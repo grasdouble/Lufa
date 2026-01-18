@@ -24,15 +24,22 @@ context_files = [
 [custom_instructions]
 # Three-Layer Design System Architecture (CRITICAL)
 architecture_rules = """
-CRITICAL: Lufa uses a strict three-layer design system architecture:
-- Layer 1: Primitives (@grasdouble/lufa_design-system-primitives) - Raw values
-- Layer 2: Tokens (@grasdouble/lufa_design-system-tokens) - Semantic values
-- Layer 3: Components (@grasdouble/lufa_design-system) - React components
+CRITICAL: Lufa uses a strict three-layer design system architecture with vanilla CSS:
+- Layer 1: Primitives (@grasdouble/lufa_design-system-primitives) - Raw values (--lufa-primitive-*)
+- Layer 2: Tokens (@grasdouble/lufa_design-system-tokens) - Semantic values (--lufa-token-*)
+- Layer 3: Components (@grasdouble/lufa_design-system) - React components with CSS Modules
+
+STYLING APPROACH:
+- Vanilla CSS with CSS Modules (NOT Tailwind CSS)
+- Use CSS custom properties: var(--lufa-token-color-text-primary)
+- Components use tokens via CSS variables, never primitives directly
 
 RULES:
 1. Components MUST import from @grasdouble/lufa_design-system-tokens ONLY
 2. Components MUST NOT import from @grasdouble/lufa_design-system-primitives
 3. Components MUST NOT hard-code values (16px, #FF0000, etc.)
+4. Use CSS Modules with token-based CSS custom properties
+5. NO @apply directives or Tailwind utility classes
 """
 
 # Build Order (CRITICAL)
@@ -53,10 +60,19 @@ When creating design system components:
 2. Define interface with JSDoc comments
 3. Set displayName on component
 4. Use ComponentPropsWithoutRef<'element'> for HTML props
-5. Ensure WCAG 2.1 AA accessibility (ARIA, keyboard, focus)
-6. Create Playwright component test
-7. Export from packages/design-system/main/src/index.ts
-8. Create changeset: pnpm changeset
+5. Style with CSS Modules using token-based CSS custom properties
+6. NEVER hard-code values - use var(--lufa-token-*) in CSS
+7. Ensure WCAG 2.1 AA accessibility (ARIA, keyboard, focus)
+8. Create Playwright component test
+9. Export from packages/design-system/main/src/index.ts
+10. Create changeset: pnpm changeset
+
+CSS Example:
+  .button {
+    padding: var(--lufa-token-spacing-base);
+    color: var(--lufa-token-color-text-primary);
+    /* NOT: padding: 16px; color: #000; */
+  }
 """
 
 # Reference to Custom Agents
@@ -77,7 +93,8 @@ Reusable prompts available in .github/prompts/:
 - playwright-generate-test.prompt.md - Generate Playwright tests
 - create-agentsmd.prompt.md - Generate/update AGENTS.md
 - ai-prompt-engineering-safety-review.prompt.md - Security review
-- tailwindcss-convert.prompt.md - Convert CSS to Tailwind
+- create-readme.prompt.md - Generate README files
+- model-recommendation.prompt.md - AI model selection
 
 Use these prompts for common tasks.
 """

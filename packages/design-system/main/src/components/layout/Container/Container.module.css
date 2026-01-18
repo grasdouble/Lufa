@@ -1,109 +1,146 @@
-@reference '../../../tailwind.css';
+.container {
+  width: 100%;
+}
 
-@layer components {
-  .container {
-    @apply w-full;
-  }
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .align-center {
-    @apply mx-auto;
-  }
+.align-start {
+  margin-left: 0;
+  margin-right: auto;
+}
 
-  .align-start {
-    @apply ml-0 mr-auto;
-  }
+.align-end {
+  margin-left: auto;
+  margin-right: 0;
+}
 
-  .align-end {
-    @apply ml-auto mr-0;
-  }
+.size-xs {
+  max-width: var(--lufa-token-container-xs);
+}
 
-  .size-xs {
-    max-width: var(--lufa-container-xs);
-  }
+.size-sm {
+  max-width: var(--lufa-token-container-sm);
+}
 
-  .size-sm {
-    max-width: var(--lufa-container-sm);
-  }
+.size-md {
+  max-width: var(--lufa-token-container-md);
+}
 
-  .size-md {
-    max-width: var(--lufa-container-md);
-  }
+.size-lg {
+  max-width: var(--lufa-token-container-lg);
+}
 
-  .size-lg {
-    max-width: var(--lufa-container-lg);
-  }
+.size-xl {
+  max-width: var(--lufa-token-container-xl);
+}
 
-  .size-xl {
-    max-width: var(--lufa-container-xl);
-  }
+.size-full {
+  max-width: var(--lufa-token-container-full);
+}
 
-  .size-full {
-    max-width: var(--lufa-container-full);
-  }
+.size-fluid {
+  max-width: var(--lufa-token-container-fluid);
+}
 
-  .size-fluid {
-    max-width: var(--lufa-container-fluid);
-  }
+.paddingX-none {
+  padding-left: var(--lufa-token-spacing-none);
+  padding-right: var(--lufa-token-spacing-none);
+}
 
-  .paddingX-none {
-    @apply px-none;
-  }
-  .paddingX-xxs {
-    @apply px-xxs;
-  }
-  .paddingX-xs {
-    @apply px-xs;
-  }
-  .paddingX-sm {
-    @apply px-sm;
-  }
-  .paddingX-md {
-    @apply px-md;
-  }
-  .paddingX-base {
-    @apply px-base;
-  }
-  .paddingX-lg {
-    @apply px-lg;
-  }
-  .paddingX-xl {
-    @apply px-xl;
-  }
-  .paddingX-2xl {
-    @apply px-2xl;
-  }
-  .paddingX-3xl {
-    @apply px-3xl;
-  }
+.paddingX-xxs {
+  padding-left: var(--lufa-token-spacing-xxs);
+  padding-right: var(--lufa-token-spacing-xxs);
+}
 
-  .paddingY-none {
-    @apply py-none;
-  }
-  .paddingY-xxs {
-    @apply py-xxs;
-  }
-  .paddingY-xs {
-    @apply py-xs;
-  }
-  .paddingY-sm {
-    @apply py-sm;
-  }
-  .paddingY-md {
-    @apply py-md;
-  }
-  .paddingY-base {
-    @apply py-base;
-  }
-  .paddingY-lg {
-    @apply py-lg;
-  }
-  .paddingY-xl {
-    @apply py-xl;
-  }
-  .paddingY-2xl {
-    @apply py-2xl;
-  }
-  .paddingY-3xl {
-    @apply py-3xl;
-  }
+.paddingX-xs {
+  padding-left: var(--lufa-token-spacing-xs);
+  padding-right: var(--lufa-token-spacing-xs);
+}
+
+.paddingX-sm {
+  padding-left: var(--lufa-token-spacing-sm);
+  padding-right: var(--lufa-token-spacing-sm);
+}
+
+.paddingX-md {
+  padding-left: var(--lufa-token-spacing-md);
+  padding-right: var(--lufa-token-spacing-md);
+}
+
+.paddingX-base {
+  padding-left: var(--lufa-token-spacing-base);
+  padding-right: var(--lufa-token-spacing-base);
+}
+
+.paddingX-lg {
+  padding-left: var(--lufa-token-spacing-lg);
+  padding-right: var(--lufa-token-spacing-lg);
+}
+
+.paddingX-xl {
+  padding-left: var(--lufa-token-spacing-xl);
+  padding-right: var(--lufa-token-spacing-xl);
+}
+
+.paddingX-2xl {
+  padding-left: var(--lufa-token-spacing-2xl);
+  padding-right: var(--lufa-token-spacing-2xl);
+}
+
+.paddingX-3xl {
+  padding-left: var(--lufa-token-spacing-3xl);
+  padding-right: var(--lufa-token-spacing-3xl);
+}
+
+.paddingY-none {
+  padding-top: var(--lufa-token-spacing-none);
+  padding-bottom: var(--lufa-token-spacing-none);
+}
+
+.paddingY-xxs {
+  padding-top: var(--lufa-token-spacing-xxs);
+  padding-bottom: var(--lufa-token-spacing-xxs);
+}
+
+.paddingY-xs {
+  padding-top: var(--lufa-token-spacing-xs);
+  padding-bottom: var(--lufa-token-spacing-xs);
+}
+
+.paddingY-sm {
+  padding-top: var(--lufa-token-spacing-sm);
+  padding-bottom: var(--lufa-token-spacing-sm);
+}
+
+.paddingY-md {
+  padding-top: var(--lufa-token-spacing-md);
+  padding-bottom: var(--lufa-token-spacing-md);
+}
+
+.paddingY-base {
+  padding-top: var(--lufa-token-spacing-base);
+  padding-bottom: var(--lufa-token-spacing-base);
+}
+
+.paddingY-lg {
+  padding-top: var(--lufa-token-spacing-lg);
+  padding-bottom: var(--lufa-token-spacing-lg);
+}
+
+.paddingY-xl {
+  padding-top: var(--lufa-token-spacing-xl);
+  padding-bottom: var(--lufa-token-spacing-xl);
+}
+
+.paddingY-2xl {
+  padding-top: var(--lufa-token-spacing-2xl);
+  padding-bottom: var(--lufa-token-spacing-2xl);
+}
+
+.paddingY-3xl {
+  padding-top: var(--lufa-token-spacing-3xl);
+  padding-bottom: var(--lufa-token-spacing-3xl);
 }

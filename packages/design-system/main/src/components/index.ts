@@ -59,11 +59,14 @@ export * from './forms/Input';
 // DISPLAY (Data Display)
 // ============================================
 export * from './display/Card';
+export * from './display/Paper';
 export { Avatar } from './display/Avatar';
 export type { AvatarProps } from './display/Avatar';
 export { AvatarGroup } from './display/AvatarGroup';
 export type { AvatarGroupProps } from './display/AvatarGroup';
 export { Badge } from './display/Badge';
+export { Kbd } from './display/Kbd';
+export type { KbdProps } from './display/Kbd';
 // export { Accordion } from "./display/Accordion";
 // export { Calendar } from "./display/Calendar";
 // export { Carousel } from "./display/Carousel";
@@ -92,11 +95,11 @@ export * from './overlay/Modal';
 // ============================================
 export * from './feedback/Alert';
 export * from './feedback/Spinner';
+export * from './feedback/Skeleton';
 // export { Message } from "./feedback/Message";
 // export { Notification } from "./feedback/Notification";
 // export { Progress } from "./feedback/Progress";
 // export { Result } from "./feedback/Result";
-// export { Skeleton } from "./feedback/Skeleton";
 // export { Toast } from "./feedback/Toast";
 
 // ============================================

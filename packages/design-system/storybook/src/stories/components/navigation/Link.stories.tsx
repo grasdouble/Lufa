@@ -233,3 +233,158 @@ export const InText: Story = {
     </div>
   ),
 };
+
+export const AllStates: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Demonstrates all link states. Hover over links to see hover state, click to see active state, and focus using keyboard (Tab) to see focus state.',
+      },
+    },
+  },
+  render: () => (
+    <Stack gap="spacious">
+      <div>
+        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Default State</h4>
+        <Link variant="default" href="#">
+          Default link
+        </Link>
+      </div>
+      <div>
+        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Hover State (hover over the link)</h4>
+        <Link variant="default" href="#">
+          Hover over me
+        </Link>
+      </div>
+      <div>
+        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Focus State (use Tab key)</h4>
+        <Link variant="default" href="#">
+          Focus with keyboard
+        </Link>
+      </div>
+      <div>
+        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Active State (click and hold)</h4>
+        <Link variant="default" href="#">
+          Click and hold
+        </Link>
+      </div>
+    </Stack>
+  ),
+};
+
+export const ThemeShowcase: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Demonstrates how Link colors adapt to different themes. Use the theme switcher in the Storybook toolbar to see the changes.',
+      },
+    },
+  },
+  render: () => (
+    <div className="p-6">
+      <h3 className="text-text-primary text-lg font-semibold mb-4">Link Colors (Theme Aware)</h3>
+      <p className="text-text-secondary mb-6">
+        All link colors automatically adapt to the current theme. Use the theme switcher in the toolbar.
+      </p>
+
+      <Stack gap="spacious">
+        <div>
+          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+            Primary
+          </h4>
+          <Link color="primary" href="#">
+            Primary color link - uses interactive colors
+          </Link>
+        </div>
+        <div>
+          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+            Secondary
+          </h4>
+          <Link color="secondary" href="#">
+            Secondary color link - uses text colors
+          </Link>
+        </div>
+        <div>
+          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+            Success
+          </h4>
+          <Link color="success" href="#">
+            Success color link
+          </Link>
+        </div>
+        <div>
+          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+            Warning
+          </h4>
+          <Link color="warning" href="#">
+            Warning color link
+          </Link>
+        </div>
+        <div>
+          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+            Danger
+          </h4>
+          <Link color="danger" href="#">
+            Danger color link
+          </Link>
+        </div>
+        <div className="text-success-default">
+          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+            Inherit (inside success colored text)
+          </h4>
+          <span>This text is success colored with an </span>
+          <Link color="inherit" href="#">
+            inherit link
+          </Link>
+          <span> inside</span>
+        </div>
+      </Stack>
+    </div>
+  ),
+};
+
+export const AccessibilityDemo: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Demonstrates accessibility features: focus visible states, proper contrast ratios, and keyboard navigation support.',
+      },
+    },
+  },
+  render: () => (
+    <Stack gap="spacious">
+      <div>
+        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>
+          Keyboard Navigation (Tab through these links)
+        </h4>
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          <Link href="#1">First Link</Link>
+          <Link href="#2">Second Link</Link>
+          <Link href="#3">Third Link</Link>
+        </div>
+      </div>
+      <div>
+        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>
+          External Link with Screen Reader Indicator
+        </h4>
+        <Link external href="https://example.com">
+          Opens in new tab
+        </Link>
+        <p style={{ fontSize: '12px', color: tokens.color.text.secondary, marginTop: '8px' }}>
+          The arrow icon has an aria-label indicating it opens in a new tab
+        </p>
+      </div>
+      <div>
+        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>
+          Underlined Link (Better for colorblind users)
+        </h4>
+        <Link variant="underline" href="#">
+          This link is always underlined for better visibility
+        </Link>
+      </div>
+    </Stack>
+  ),
+};

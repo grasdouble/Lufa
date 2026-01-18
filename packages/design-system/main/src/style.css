@@ -1,10 +1,92 @@
 /**
- * Lufa Design System - Main CSS Entry
- * This file consolidates all CSS including primitives, tokens, and Tailwind
+ * Lufa Design System - CSS Entry Point (Tokens + Utilities Only)
+ * 
+ * This file provides design tokens and utilities WITHOUT any global reset.
+ * Components use CSS Modules for scoped styling.
+ * 
+ * Philosophy: Component Library Approach
+ * - No global CSS layers (for maximum compatibility)
+ * - No global reset (host app controls document styling)
+ * - Components use CSS Modules (scoped styles)
+ * - Tokens available globally via CSS custom properties
+ * 
+ * Import Strategy:
+ * ```css
+ * // Option 1: Tokens + utilities only (no reset) - Recommended for most cases
+ * @import '@grasdouble/lufa_design-system/style.css';
+ * @import '@grasdouble/lufa_design-system-themes/default.css';
+ * 
+ * // Option 2: With foundation reset (for standalone apps)
+ * @import '@grasdouble/lufa_design-system/foundation.css';
+ * @import '@grasdouble/lufa_design-system-themes/default.css';
+ * ```
  */
 
-/* Import primitives and tokens CSS variables */
-@import '@grasdouble/lufa_design-system-primitives/style.css';
+/* ============================================================================
+   UTILITIES
+   ============================================================================ */
+
+/* Component reset utilities (button, input, etc.) */
+@import './css/component-resets.css';
+
+/* Container query definitions */
+@import './css/container-queries.css';
+
+/* ============================================================================
+   DESIGN TOKENS
+   ============================================================================ */
+
+/* Import design tokens (CSS custom properties already generated) */
 @import '@grasdouble/lufa_design-system-tokens/style.css';
 
-@import './tailwind.css';
+/* ============================================================================
+   THEME SUPPORT
+   ============================================================================ */
+
+/**
+ * Theme System Architecture:
+ * 
+ * The design system is theme-agnostic. It only provides semantic tokens.
+ * Themes are loaded by the consuming application (e.g., Storybook).
+ * 
+ * Theme Structure:
+ * - @grasdouble/lufa_design-system-themes/default.css  : Base theme (light + dark)
+ * - @grasdouble/lufa_design-system-themes/ocean.css    : Ocean theme (light + dark)
+ * - @grasdouble/lufa_design-system-themes/forest.css   : Forest theme (light + dark)
+ * 
+ * Usage in consuming apps:
+ * ```css
+ * @import '@grasdouble/lufa_design-system/style.css';
+ * @import '@grasdouble/lufa_design-system-themes/default.css';
+ * @import '@grasdouble/lufa_design-system-themes/ocean.css';
+ * @import '@grasdouble/lufa_design-system-themes/forest.css';
+ * ```
+ * 
+ * Theme switching with data attributes:
+ * - data-theme="default|ocean|forest" : Choose theme (default if not set)
+ * - data-mode="light|dark|auto"       : Choose color mode (auto = system preference)
+ * 
+ * Examples:
+ * - <html>                                      : Default theme, auto mode
+ * - <html data-theme="ocean">                   : Ocean theme, auto mode
+ * - <html data-theme="forest" data-mode="dark"> : Forest theme, dark mode
+ */
+
+/* ============================================================================
+   COMPONENT STYLES
+   ============================================================================ */
+
+/**
+ * Component-specific CSS is imported via CSS Modules in each component.
+ * This file only provides the foundation, tokens, and utilities.
+ * 
+ * Example component CSS Module:
+ * 
+ * .button {
+ *   background-color: var(--lufa-token-color-interactive-default);
+ *   padding: var(--lufa-token-spacing-base);
+ *   border-radius: var(--lufa-token-radius-base);
+ * }
+ * 
+ * Note: No @layer wrappers needed - CSS Modules provide scoping
+ */

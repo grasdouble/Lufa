@@ -1,6 +1,7 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { activate, deactivate } from '../index';
 import type { ExtensionContext } from 'vscode';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { activate, deactivate } from '../index';
 
 const vscodeMocks = vi.hoisted(() => {
   let outputChannel: { appendLine: ReturnType<typeof vi.fn>; dispose: ReturnType<typeof vi.fn> } | null = null;
@@ -125,7 +126,6 @@ describe('extension activation', () => {
       { scheme: 'file', language: 'css' },
       { scheme: 'file', language: 'scss' },
       { scheme: 'file', language: 'postcss' },
-      { scheme: 'file', language: 'tailwindcss' },
       { scheme: 'file', language: 'typescript' },
       { scheme: 'file', language: 'typescriptreact' },
     ];

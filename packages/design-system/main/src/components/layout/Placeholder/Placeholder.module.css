@@ -1,64 +1,96 @@
-@reference '../../../tailwind.css';
+.placeholder {
+  /* Modern base styles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--lufa-token-radius-lg);
+  padding-left: var(--lufa-token-spacing-base); /* 16px */
+  padding-right: var(--lufa-token-spacing-base);
+  font-size: var(--lufa-token-font-size-sm);
+  font-weight: var(--lufa-token-font-weight-medium);
+  color: var(--lufa-token-color-text-inverse); /* Default to light text */
+  transition: var(--lufa-token-transition-base);
+  box-shadow: var(--lufa-token-shadow-sm);
 
-@layer components {
-  .placeholder {
-    /* Modern base styles */
-    @apply flex items-center justify-center;
-    @apply rounded-lg;
-    @apply px-4;
-    @apply text-sm font-medium text-white;
-    @apply duration-base transition-all;
-    @apply shadow-sm;
+  /* Default background with gradient */
+  background-image: linear-gradient(
+    to bottom right,
+    var(--lufa-primitive-color-chromatic-violet-400),
+    var(--lufa-primitive-color-chromatic-violet-600)
+  );
 
-    /* Default background with gradient */
-    @apply bg-linear-to-br from-violet-400 to-violet-600;
-    /* @apply hover:from-violet-600 hover:to-violet-700; */
-
-    /* Hover effect for custom colors using filter */
-    &:hover {
-      filter: brightness(0.8);
-    }
+  /* Hover effect for custom colors using filter */
+  &:hover {
+    filter: brightness(0.8);
   }
+}
 
-  /* Height variants */
-  .heightSmall {
-    @apply h-10 min-h-10; /* 40px */
-  }
+/* Text color variants for contrast */
+.textLight {
+  color: var(--lufa-token-color-text-inverse); /* White text for dark backgrounds */
+}
 
-  .heightMedium {
-    @apply h-20 min-h-20; /* 80px */
-  }
+.textDark {
+  color: var(--lufa-token-color-text-primary); /* Dark text for light backgrounds */
+}
 
-  .heightLarge {
-    @apply h-32 min-h-32; /* 128px */
-  }
+/* Dark mode adaptations - invert light backgrounds */
+:where([data-mode='dark']) .placeholder.textDark,
+:where([data-theme='dark']) .placeholder.textDark {
+  /* If text is dark (meaning bg was light), invert the background */
+  filter: invert(1) hue-rotate(180deg);
+}
 
-  .heightAuto {
-    @apply h-auto min-h-10;
+@media (prefers-color-scheme: dark) {
+  :where(:root:not([data-mode='light'])) .placeholder.textDark,
+  :where([data-mode='auto']) .placeholder.textDark {
+    /* If text is dark (meaning bg was light), invert the background */
+    filter: invert(1) hue-rotate(180deg);
   }
+}
 
-  .heightFull {
-    @apply h-full;
-  }
+/* Height variants */
+.heightSmall {
+  height: var(--lufa-token-spacing-xl-2xl); /* 40px */
+  min-height: var(--lufa-token-spacing-xl-2xl);
+}
 
-  /* Width variants */
-  .widthAuto {
-    @apply min-w-24;
-  }
+.heightMedium {
+  height: var(--lufa-token-spacing-3xl-4xl); /* 80px */
+  min-height: var(--lufa-token-spacing-3xl-4xl);
+}
 
-  .widthSmall {
-    @apply w-32; /* 128px */
-  }
+.heightLarge {
+  height: var(--lufa-token-spacing-5xl); /* 128px */
+  min-height: var(--lufa-token-spacing-5xl);
+}
 
-  .widthMedium {
-    @apply w-60; /* 240px */
-  }
+.heightAuto {
+  height: auto;
+  min-height: var(--lufa-token-spacing-xl-2xl);
+}
 
-  .widthLarge {
-    @apply w-96; /* 384px */
-  }
+.heightFull {
+  height: 100%;
+}
 
-  .widthFull {
-    @apply w-full;
-  }
+/* Width variants */
+.widthAuto {
+  min-width: var(--lufa-token-spacing-4xl); /* 96px */
+}
+
+.widthSmall {
+  width: var(--lufa-token-spacing-5xl); /* 128px */
+}
+
+.widthMedium {
+  width: 240px; /* No exact token match */
+}
+
+.widthLarge {
+  width: 384px; /* No exact token match */
+}
+
+.widthFull {
+  width: 100%;
 }

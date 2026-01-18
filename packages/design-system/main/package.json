@@ -10,7 +10,8 @@
       "import": "./dist/lufa-ui.mjs",
       "default": "./dist/lufa-ui.mjs"
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css",
+    "./foundation.css": "./dist/foundation.css"
   },
   "main": "./dist/lufa-ui.mjs",
   "module": "./dist/lufa-ui.mjs",
@@ -21,7 +22,7 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && node scripts/build-foundation.mjs",
     "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly --outDir dist",
     "dev": "vite build --watch",
     "lint": "eslint ./src",
@@ -42,7 +43,6 @@
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@playwright/experimental-ct-react": "^1.57.0",
-    "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^25.0.6",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
@@ -51,10 +51,8 @@
     "postcss": "^8.5.6",
     "prettier": "^3.7.4",
     "prettier-plugin-packagejson": "^2.5.20",
-    "prettier-plugin-tailwindcss": "^0.7.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "tailwindcss": "^4.1.18",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",

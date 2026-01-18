@@ -1,0 +1,34 @@
+/**
+ * Lufa Design System - Foundation Entry Point (With Global Reset)
+ * 
+ * This file includes the global foundation reset + tokens + utilities.
+ * Use this when building a standalone application that needs a clean slate.
+ * 
+ * For documentation sites or apps with their own styling system,
+ * use `style.css` instead (tokens + utilities only, no reset).
+ * 
+ * Import Strategy:
+ * ```css
+ * // Standalone app (includes reset)
+ * @import '@grasdouble/lufa_design-system/foundation.css';
+ * @import '@grasdouble/lufa_design-system-themes/default.css';
+ * 
+ * // Documentation site or app with existing styles (no reset)
+ * @import '@grasdouble/lufa_design-system/style.css';
+ * @import '@grasdouble/lufa_design-system-themes/default.css';
+ * ```
+ */
+
+/* ============================================================================
+   FOUNDATION RESET
+   ============================================================================ */
+
+/* Minimal global reset (box-sizing, margins, fonts) */
+@import './css/foundation.css';
+
+/* ============================================================================
+   TOKENS + UTILITIES
+   ============================================================================ */
+
+/* Import core design system (tokens + utilities, no reset) */
+@import './style.css';

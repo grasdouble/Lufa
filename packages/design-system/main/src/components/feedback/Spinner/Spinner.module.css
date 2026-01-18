@@ -1,20 +1,29 @@
-@reference '../../../tailwind.css';
+/**
+ * Spinner Component Styles
+ * Uses design tokens from @grasdouble/lufa_design-system-tokens
+ */
 
-@layer components {
-  .spinner {
-    animation: var(--animate-spin);
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
+}
 
-  .spinner-small {
-    @apply w-4;
-    @apply h-4;
-  }
-  .spinner-medium {
-    @apply w-8;
-    @apply h-8;
-  }
-  .spinner-large {
-    @apply w-16;
-    @apply h-16;
-  }
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+.spinner-small {
+  width: 1rem; /* 16px */
+  height: 1rem; /* 16px */
+}
+
+.spinner-medium {
+  width: 2rem; /* 32px */
+  height: 2rem; /* 32px */
+}
+
+.spinner-large {
+  width: 4rem; /* 64px */
+  height: 4rem; /* 64px */
 }

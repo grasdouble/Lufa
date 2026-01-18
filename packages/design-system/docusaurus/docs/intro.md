@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Welcome to Lufa Design System
 
-A modern, accessible design system built with React and Tailwind CSS v4.
+A modern, accessible design system built with React and vanilla CSS using design tokens.
 
 :::tip Try Dark Mode
 Switch to dark mode using the toggle in the navbar to see all components adapt automatically!

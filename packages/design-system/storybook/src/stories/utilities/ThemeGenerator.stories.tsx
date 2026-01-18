@@ -539,7 +539,12 @@ export const Generator: Story = {
                 <p style={{ color: tokens.color.text.tertiary, fontSize: '14px' }}>
                   Save this as{' '}
                   <code
-                    style={{ background: tokens.color.background.tertiary, padding: '2px 6px', borderRadius: '4px' }}
+                    style={{
+                      background: tokens.color.background.tertiary,
+                      color: tokens.color.text.primary,
+                      padding: '2px 6px',
+                      borderRadius: '4px',
+                    }}
                   >
                     {colors.name.toLowerCase().replace(/\s+/g, '-')}.css
                   </code>

@@ -61,34 +61,103 @@ export const Playground: Story = {
     gap: SPACE_SIZE.md,
     inline: false,
   },
-  render: (args) => (
-    <Container size="xl" paddingX="none">
-      <div
-        style={{
-          backgroundColor: tokens.color.background.secondary,
-          borderRadius: tokens.radius.lg,
-          padding: tokens.spacing.base,
-        }}
-      >
-        <Flex
-          {...args}
-          style={{
-            ...args.style,
-            backgroundColor: tokens.color.background.primary,
-            borderRadius: tokens.radius.lg,
-            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-            padding: tokens.spacing.base,
-          }}
-        >
-          {Array.from({ length: 8 }).map((_, index) => (
-            <Placeholder key={index} color={tokens.color.interactive.default} height="small" width="auto">
-              Item {index + 1}
-            </Placeholder>
-          ))}
-        </Flex>
-      </div>
-    </Container>
-  ),
+  render: (args) => {
+    // Create items with varying heights to demonstrate align-items effect
+    const heights = ['small', 'medium', 'small', 'large', 'small', 'medium'] as const;
+
+    return (
+      <Container size="full" paddingX="none">
+        <Stack direction="vertical" gap="spacious">
+          {/* Row Direction Demo */}
+          <div>
+            <div
+              style={{
+                fontFamily: 'monospace',
+                fontSize: tokens.fontSize.sm,
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.sm,
+                fontWeight: tokens.fontWeight.semibold,
+              }}
+            >
+              direction: row
+            </div>
+            <div
+              style={{
+                backgroundColor: tokens.color.background.secondary,
+                borderRadius: tokens.radius.lg,
+                padding: tokens.spacing.base,
+              }}
+            >
+              <Flex
+                {...args}
+                direction={FLEX_DIRECTION.row}
+                style={{
+                  ...args.style,
+                  backgroundColor: tokens.color.background.primary,
+                  borderRadius: tokens.radius.lg,
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  padding: tokens.spacing.base,
+                  minHeight: tokens.size['4xl'], // Add minimum height to show vertical alignment
+                }}
+              >
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <Placeholder
+                    key={index}
+                    color={tokens.color.interactive.default}
+                    height={heights[index]}
+                    width="auto"
+                  >
+                    {index + 1}
+                  </Placeholder>
+                ))}
+              </Flex>
+            </div>
+          </div>
+
+          {/* Column Direction Demo */}
+          <div>
+            <div
+              style={{
+                fontFamily: 'monospace',
+                fontSize: tokens.fontSize.sm,
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.sm,
+                fontWeight: tokens.fontWeight.semibold,
+              }}
+            >
+              direction: column
+            </div>
+            <div
+              style={{
+                backgroundColor: tokens.color.background.secondary,
+                borderRadius: tokens.radius.lg,
+                padding: tokens.spacing.base,
+              }}
+            >
+              <Flex
+                {...args}
+                direction={FLEX_DIRECTION.column}
+                style={{
+                  ...args.style,
+                  backgroundColor: tokens.color.background.primary,
+                  borderRadius: tokens.radius.lg,
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  padding: tokens.spacing.base,
+                  minHeight: tokens.size['4xl'], // Add minimum height to show vertical spacing
+                }}
+              >
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <Placeholder key={index} color={tokens.color.success.default} height="small" width="auto">
+                    {index + 1}
+                  </Placeholder>
+                ))}
+              </Flex>
+            </div>
+          </div>
+        </Stack>
+      </Container>
+    );
+  },
 };
 
 export const Alignment: Story = {
@@ -255,9 +324,9 @@ export const Gap: Story = {
   render: () => (
     <Container size="lg" paddingX="none">
       <Stack direction="vertical" gap="spacious">
-        {([FLEX_WRAP.nowrap, FLEX_WRAP.wrap] as const).map((wrap) => (
+        {([SPACE_SIZE.none, SPACE_SIZE.sm, SPACE_SIZE.md, SPACE_SIZE.lg, SPACE_SIZE.xl] as const).map((gap) => (
           <div
-            key={wrap}
+            key={gap}
             style={{
               backgroundColor: tokens.color.background.secondary,
               borderRadius: tokens.radius.lg,
@@ -268,11 +337,11 @@ export const Gap: Story = {
             <div
               style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
             >
-              wrap: {wrap}
+              gap: {gap}
             </div>
             <Flex
-              wrap={wrap}
-              gap="md"
+              wrap={FLEX_WRAP.wrap}
+              gap={gap}
               style={{
                 backgroundColor: tokens.color.background.primary,
                 borderRadius: tokens.radius.lg,
@@ -296,9 +365,9 @@ export const Wrap: Story = {
   render: () => (
     <Container size="lg" paddingX="none">
       <Stack direction="vertical" gap="spacious">
-        {([SPACE_SIZE.none, SPACE_SIZE.sm, SPACE_SIZE.md, SPACE_SIZE.lg, SPACE_SIZE.xl] as const).map((gap) => (
+        {([FLEX_WRAP.nowrap, FLEX_WRAP.wrap] as const).map((wrap) => (
           <div
-            key={gap}
+            key={wrap}
             style={{
               backgroundColor: tokens.color.background.secondary,
               borderRadius: tokens.radius.lg,
@@ -308,10 +377,10 @@ export const Wrap: Story = {
             <div
               style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
             >
-              gap: {gap}
+              wrap: {wrap}
             </div>
             <Flex
-              wrap={FLEX_WRAP.wrap}
+              wrap={wrap}
               gap="md"
               style={{
                 backgroundColor: tokens.color.background.primary,

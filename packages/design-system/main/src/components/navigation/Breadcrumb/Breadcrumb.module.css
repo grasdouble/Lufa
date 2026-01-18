@@ -1,55 +1,73 @@
-@reference '../../../tailwind.css';
+.breadcrumb {
+  width: 100%;
+}
 
-@layer components {
-  .breadcrumb {
-    @apply w-full;
-  }
+.list {
+  /* reset-list */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* flex layout */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--lufa-token-spacing-xs);
+}
 
-  .list {
-    @apply reset-list;
-    @apply flex flex-wrap items-baseline gap-1;
-  }
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--lufa-token-spacing-xs);
+}
 
-  .item {
-    @apply flex items-baseline gap-1;
-  }
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lufa-token-spacing-xs);
+  color: var(--lufa-token-color-interactive-default);
+  transition:
+    color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
 
-  .link {
-    @apply inline-flex items-center gap-1;
-    @apply text-interactive-default;
-    @apply hover:text-interactive-hover hover:underline;
-    @apply transition-colors duration-200;
-    text-decoration: none;
-  }
+.link:hover {
+  color: var(--lufa-token-color-interactive-hover);
+  text-decoration: underline;
+}
 
-  .text {
-    @apply inline-flex items-center gap-1;
-    @apply text-text-secondary;
-  }
+.text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lufa-token-spacing-xs);
+  color: var(--lufa-token-color-text-secondary);
+}
 
-  .current {
-    @apply font-medium text-text-primary;
-  }
+.current {
+  font-weight: var(--lufa-token-font-weight-medium);
+  color: var(--lufa-token-color-text-primary);
+}
 
-  .separator {
-    @apply text-text-tertiary;
-    @apply select-none;
-  }
+.separator {
+  color: var(--lufa-token-color-text-tertiary);
+  user-select: none;
+}
 
-  .icon {
-    @apply inline-flex items-center;
-  }
+.icon {
+  display: inline-flex;
+  align-items: center;
+}
 
-  /* Sizes */
-  .sizeSmall {
-    @apply text-sm;
-  }
+/* Sizes */
+.sizeSmall {
+  font-size: var(--lufa-token-font-size-sm);
+}
 
-  .sizeMedium {
-    @apply text-base;
-  }
+.sizeMedium {
+  font-size: var(--lufa-token-font-size-base);
+}
 
-  .sizeLarge {
-    @apply text-lg;
-  }
+.sizeLarge {
+  font-size: var(--lufa-token-font-size-lg);
 }

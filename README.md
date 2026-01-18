@@ -87,14 +87,14 @@ packages/
 
 ### Technology Stack
 
-| Category               | Technology                  |
-| ---------------------- | --------------------------- |
-| **Microfrontends**     | Single-SPA, React 18+       |
-| **Build Tool**         | Vite 5.x                    |
-| **Testing**            | Vitest, Playwright          |
-| **Styling**            | Tailwind CSS, Design Tokens |
-| **Documentation**      | Storybook 8, Docusaurus 3   |
-| **Version Management** | Changesets                  |
+| Category               | Technology                 |
+| ---------------------- | -------------------------- |
+| **Microfrontends**     | Single-SPA, React 18+      |
+| **Build Tool**         | Vite 5.x                   |
+| **Testing**            | Vitest, Playwright         |
+| **Styling**            | CSS Modules, Design Tokens |
+| **Documentation**      | Storybook 8, Docusaurus 3  |
+| **Version Management** | Changesets                 |
 
 ## Development
 
@@ -167,7 +167,7 @@ Lufa includes comprehensive AI assistance with GitHub Copilot:
 
 **Quick Start for Copilot:**
 
-- Use TypeScript, React, and Tailwind CSS as defaults
+- Use TypeScript, React, and CSS Modules with design tokens as defaults
 - Write tests for all new code (Vitest for unit, Playwright for E2E)
 - Follow accessibility guidelines (WCAG 2.1 AA)
 - Use semantic, token-based styling

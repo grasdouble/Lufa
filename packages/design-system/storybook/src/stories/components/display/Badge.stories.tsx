@@ -174,7 +174,7 @@ export const UseCases: Story = {
           <Badge variant="primary">React</Badge>
           <Badge variant="info">TypeScript</Badge>
           <Badge variant="success">Vite</Badge>
-          <Badge variant="default">Tailwind</Badge>
+          <Badge variant="default">Storybook</Badge>
         </div>
       </div>
       <div>

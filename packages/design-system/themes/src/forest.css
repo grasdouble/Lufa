@@ -1,89 +1,100 @@
 /**
  * Alternative Theme: Forest
- * A green/earth color scheme for demonstration
+ * A green/earth color scheme with organic, grounded personality
+ * 
+ * Features:
+ * - Less rounded corners (6px vs 8px)
+ * - More compact layout (-12.5% spacing)
+ * - Faster transitions (200ms vs 250ms)
+ * - Thicker borders for earthy feel
+ * - Both light and dark mode variants
  */
 
-:root[data-theme='forest'] {
+/**
+ * Forest Theme - Light Mode (default)
+ */
+:root[data-theme='forest'],
+:root[data-theme='forest'][data-mode='light'] {
   /* Text colors */
-  --color-text-primary: #14532d;
-  --color-text-secondary: #166534;
-  --color-text-tertiary: #15803d;
-  --color-text-disabled: #94a3b8;
-  --color-text-inverse: #f0fdf4;
-  --color-text-link: #16a34a;
-  --color-text-linkHover: #15803d;
+  --lufa-token-color-text-primary: oklch(34.4% 0.088 149.8);
+  --lufa-token-color-text-secondary: oklch(42.2% 0.107 149.7);
+  --lufa-token-color-text-tertiary: oklch(51.2% 0.141 149.4);
+  --lufa-token-color-text-disabled: oklch(70.5% 0.014 254.6);
+  --lufa-token-color-text-inverse: oklch(99% 0.011 149.6);
+  --lufa-token-color-text-link: oklch(60.1% 0.172 149.6);
+  --lufa-token-color-text-link-hover: oklch(51.2% 0.141 149.4);
 
   /* Background colors */
-  --color-background-primary: #ffffff;
-  --color-background-secondary: #f0fdf4;
-  --color-background-tertiary: #dcfce7;
-  --color-background-inverse: #14532d;
-  --color-background-overlay: rgba(20, 83, 45, 0.5);
+  --lufa-token-color-background-primary: oklch(100% 0 0);
+  --lufa-token-color-background-secondary: oklch(99% 0.011 149.6);
+  --lufa-token-color-background-tertiary: oklch(97.3% 0.047 149.6);
+  --lufa-token-color-background-inverse: oklch(34.4% 0.088 149.8);
+  --lufa-token-color-background-overlay: oklch(34.4% 0.088 149.8 / 0.5);
 
   /* Border colors */
-  --color-border-default: #86efac;
-  --color-border-light: #bbf7d0;
-  --color-border-medium: #4ade80;
-  --color-border-strong: #22c55e;
-  --color-border-focus: #16a34a;
+  --lufa-token-color-border-default: oklch(89.4% 0.134 149.6);
+  --lufa-token-color-border-light: oklch(94.8% 0.087 149.6);
+  --lufa-token-color-border-medium: oklch(84.3% 0.19 149.6);
+  --lufa-token-color-border-strong: oklch(75.1% 0.218 149.6);
+  --lufa-token-color-border-focus: oklch(60.1% 0.172 149.6);
 
   /* Interactive colors */
-  --color-interactive-default: #16a34a;
-  --color-interactive-hover: #15803d;
-  --color-interactive-active: #166534;
-  --color-interactive-disabled: #cbd5e1;
-  --color-interactive-focus: #22c55e;
+  --lufa-token-color-interactive-default: oklch(60.1% 0.172 149.6);
+  --lufa-token-color-interactive-hover: oklch(51.2% 0.141 149.4);
+  --lufa-token-color-interactive-active: oklch(42.2% 0.107 149.7);
+  --lufa-token-color-interactive-disabled: oklch(87.1% 0.007 254.3);
+  --lufa-token-color-interactive-focus: oklch(75.1% 0.218 149.6);
 
   /* Success colors */
-  --color-success-default: #16a34a;
-  --color-success-hover: #15803d;
-  --color-success-active: #166534;
-  --color-success-light: #dcfce7;
-  --color-success-lighter: #f0fdf4;
-  --color-success-border: #86efac;
-  --color-success-text: #15803d;
+  --lufa-token-color-success-default: oklch(60.1% 0.172 149.6);
+  --lufa-token-color-success-hover: oklch(51.2% 0.141 149.4);
+  --lufa-token-color-success-active: oklch(42.2% 0.107 149.7);
+  --lufa-token-color-success-light: oklch(97.3% 0.047 149.6);
+  --lufa-token-color-success-lighter: oklch(99% 0.011 149.6);
+  --lufa-token-color-success-border: oklch(89.4% 0.134 149.6);
+  --lufa-token-color-success-text: oklch(51.2% 0.141 149.4);
 
   /* Warning colors */
-  --color-warning-default: #ea580c;
-  --color-warning-hover: #c2410c;
-  --color-warning-active: #9a3412;
-  --color-warning-light: #fed7aa;
-  --color-warning-lighter: #ffedd5;
-  --color-warning-border: #fdba74;
-  --color-warning-text: #c2410c;
+  --lufa-token-color-warning-default: oklch(59.2% 0.196 42.1);
+  --lufa-token-color-warning-hover: oklch(49.9% 0.165 41);
+  --lufa-token-color-warning-active: oklch(42.2% 0.136 39.9);
+  --lufa-token-color-warning-light: oklch(91% 0.069 70.4);
+  --lufa-token-color-warning-lighter: oklch(96% 0.037 74.1);
+  --lufa-token-color-warning-border: oklch(82.4% 0.123 70.4);
+  --lufa-token-color-warning-text: oklch(49.9% 0.165 41);
 
   /* Error colors */
-  --color-error-default: #dc2626;
-  --color-error-hover: #b91c1c;
-  --color-error-active: #991b1b;
-  --color-error-light: #fee2e2;
-  --color-error-lighter: #fef2f2;
-  --color-error-border: #fca5a5;
-  --color-error-text: #b91c1c;
+  --lufa-token-color-error-default: oklch(54.3% 0.224 27.7);
+  --lufa-token-color-error-hover: oklch(45.7% 0.194 29.2);
+  --lufa-token-color-error-active: oklch(40.1% 0.162 27.8);
+  --lufa-token-color-error-light: oklch(94.1% 0.027 17.7);
+  --lufa-token-color-error-lighter: oklch(97.1% 0.013 17.4);
+  --lufa-token-color-error-border: oklch(82.1% 0.132 20.4);
+  --lufa-token-color-error-text: oklch(45.7% 0.194 29.2);
 
   /* Info colors */
-  --color-info-default: #0891b2;
-  --color-info-hover: #0e7490;
-  --color-info-active: #155e75;
-  --color-info-light: #cffafe;
-  --color-info-lighter: #ecfeff;
-  --color-info-border: #67e8f9;
-  --color-info-text: #0e7490;
+  --lufa-token-color-info-default: oklch(58.8% 0.131 218.7);
+  --lufa-token-color-info-hover: oklch(49.5% 0.093 218.8);
+  --lufa-token-color-info-active: oklch(40.9% 0.071 218.9);
+  --lufa-token-color-info-light: oklch(97.7% 0.027 218.8);
+  --lufa-token-color-info-lighter: oklch(99.1% 0.012 218.9);
+  --lufa-token-color-info-border: oklch(87.7% 0.097 218.7);
+  --lufa-token-color-info-text: oklch(49.5% 0.093 218.8);
 
   /* Brand colors */
-  --color-brand-primary: #16a34a;
-  --color-brand-primaryHover: #15803d;
-  --color-brand-primaryActive: #166534;
-  --color-brand-secondary: #84cc16;
-  --color-brand-secondaryHover: #65a30d;
-  --color-brand-secondaryActive: #4d7c0f;
-  --color-brand-accent: #a3e635;
+  --lufa-token-color-brand-primary: oklch(60.1% 0.172 149.6);
+  --lufa-token-color-brand-primary-hover: oklch(51.2% 0.141 149.4);
+  --lufa-token-color-brand-primary-active: oklch(42.2% 0.107 149.7);
+  --lufa-token-color-brand-secondary: oklch(76.3% 0.178 120.8);
+  --lufa-token-color-brand-secondary-hover: oklch(63.8% 0.149 120.8);
+  --lufa-token-color-brand-secondary-active: oklch(51.2% 0.12 120.8);
+  --lufa-token-color-brand-accent: oklch(85.5% 0.2 120.8);
 
   /* Surface colors */
-  --color-surface-default: #ffffff;
-  --color-surface-raised: #f0fdf4;
-  --color-surface-overlay: #dcfce7;
-  --color-surface-inverse: #14532d;
+  --lufa-token-color-surface-default: oklch(100% 0 0);
+  --lufa-token-color-surface-raised: oklch(99% 0.011 149.6);
+  --lufa-token-color-surface-overlay: oklch(97.3% 0.047 149.6);
+  --lufa-token-color-surface-inverse: oklch(34.4% 0.088 149.8);
 
   /* Border Radius - Less rounded for Forest theme (more natural/organic) */
   --border-radius-sm: 0.25rem; /* 4px instead of default 6px */
@@ -109,3 +120,181 @@
   --opacity-medium: 0.9; /* Instead of default 0.85 */
 }
 
+/**
+ * Forest Theme - Dark Mode
+ * Deep forest night atmosphere with organic feel
+ */
+:root[data-theme='forest'][data-mode='dark'] {
+  /* Text colors - lighter earth tones for dark backgrounds */
+  --lufa-token-color-text-primary: oklch(97.3% 0.047 149.6);
+  --lufa-token-color-text-secondary: oklch(94.8% 0.087 149.6);
+  --lufa-token-color-text-tertiary: oklch(89.4% 0.134 149.6);
+  --lufa-token-color-text-disabled: oklch(41.7% 0.014 254.6);
+  --lufa-token-color-text-inverse: oklch(34.4% 0.088 149.8);
+  --lufa-token-color-text-link: oklch(84.3% 0.19 149.6);
+  --lufa-token-color-text-link-hover: oklch(89.4% 0.134 149.6);
+
+  /* Background colors - deep forest depths */
+  --lufa-token-color-background-primary: oklch(19.8% 0.055 149.8);
+  --lufa-token-color-background-secondary: oklch(34.4% 0.088 149.8);
+  --lufa-token-color-background-tertiary: oklch(42.2% 0.107 149.7);
+  --lufa-token-color-background-inverse: oklch(99% 0.011 149.6);
+  --lufa-token-color-background-overlay: oklch(19.8% 0.055 149.8 / 0.85);
+
+  /* Border colors - forest green adjusted for dark */
+  --lufa-token-color-border-default: oklch(51.2% 0.141 149.4);
+  --lufa-token-color-border-light: oklch(42.2% 0.107 149.7);
+  --lufa-token-color-border-medium: oklch(60.1% 0.172 149.6);
+  --lufa-token-color-border-strong: oklch(84.3% 0.19 149.6);
+  --lufa-token-color-border-focus: oklch(89.4% 0.134 149.6);
+
+  /* Interactive colors - brighter greens for dark mode */
+  --lufa-token-color-interactive-default: oklch(84.3% 0.19 149.6);
+  --lufa-token-color-interactive-hover: oklch(89.4% 0.134 149.6);
+  --lufa-token-color-interactive-active: oklch(94.8% 0.087 149.6);
+  --lufa-token-color-interactive-disabled: oklch(31.7% 0.014 254.6);
+  --lufa-token-color-interactive-focus: oklch(89.4% 0.134 149.6);
+
+  /* Success colors - natural success in dark */
+  --lufa-token-color-success-default: oklch(75.1% 0.218 149.6);
+  --lufa-token-color-success-hover: oklch(84.3% 0.19 149.6);
+  --lufa-token-color-success-active: oklch(89.4% 0.134 149.6);
+  --lufa-token-color-success-light: oklch(34.4% 0.088 149.8);
+  --lufa-token-color-success-lighter: oklch(19.8% 0.055 149.8);
+  --lufa-token-color-success-border: oklch(60.1% 0.172 149.6);
+  --lufa-token-color-success-text: oklch(89.4% 0.134 149.6);
+
+  /* Warning colors - autumn orange for dark */
+  --lufa-token-color-warning-default: oklch(75.7% 0.163 56.4);
+  --lufa-token-color-warning-hover: oklch(82.4% 0.123 70.4);
+  --lufa-token-color-warning-active: oklch(91% 0.069 70.4);
+  --lufa-token-color-warning-light: oklch(32.4% 0.105 46.1);
+  --lufa-token-color-warning-lighter: oklch(19.5% 0.069 46.8);
+  --lufa-token-color-warning-border: oklch(59.2% 0.196 42.1);
+  --lufa-token-color-warning-text: oklch(91% 0.069 70.4);
+
+  /* Error colors - adjusted for dark mode */
+  --lufa-token-color-error-default: oklch(62.8% 0.258 27.3);
+  --lufa-token-color-error-hover: oklch(73.3% 0.204 23.2);
+  --lufa-token-color-error-active: oklch(82.1% 0.132 20.4);
+  --lufa-token-color-error-light: oklch(34.1% 0.128 27.8);
+  --lufa-token-color-error-lighter: oklch(20.4% 0.081 27.9);
+  --lufa-token-color-error-border: oklch(54.3% 0.224 27.7);
+  --lufa-token-color-error-text: oklch(82.1% 0.132 20.4);
+
+  /* Info colors - water/cyan in forest dark */
+  --lufa-token-color-info-default: oklch(70.4% 0.115 218.7);
+  --lufa-token-color-info-hover: oklch(80.6% 0.116 218.7);
+  --lufa-token-color-info-active: oklch(87.7% 0.097 218.7);
+  --lufa-token-color-info-light: oklch(33.7% 0.056 219);
+  --lufa-token-color-info-lighter: oklch(23.2% 0.036 219);
+  --lufa-token-color-info-border: oklch(58.8% 0.131 218.7);
+  --lufa-token-color-info-text: oklch(87.7% 0.097 218.7);
+
+  /* Brand colors - forest brand in dark mode */
+  --lufa-token-color-brand-primary: oklch(84.3% 0.19 149.6);
+  --lufa-token-color-brand-primary-hover: oklch(89.4% 0.134 149.6);
+  --lufa-token-color-brand-primary-active: oklch(94.8% 0.087 149.6);
+  --lufa-token-color-brand-secondary: oklch(85.5% 0.2 120.8);
+  --lufa-token-color-brand-secondary-hover: oklch(91% 0.178 120.8);
+  --lufa-token-color-brand-secondary-active: oklch(95.1% 0.138 120.8);
+  --lufa-token-color-brand-accent: oklch(76.3% 0.178 120.8);
+
+  /* Surface colors - forest floor layers */
+  --lufa-token-color-surface-default: oklch(19.8% 0.055 149.8);
+  --lufa-token-color-surface-raised: oklch(34.4% 0.088 149.8);
+  --lufa-token-color-surface-overlay: oklch(42.2% 0.107 149.7);
+  --lufa-token-color-surface-inverse: oklch(99% 0.011 149.6);
+
+  /* Visual properties inherited from light mode */
+  /* Border radius, spacing, transitions, and border widths remain for consistency */
+}
+
+/**
+ * Auto dark mode based on system preference
+ * Only applies if no explicit data-mode is set
+ */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme='forest']:not([data-mode]) {
+    /* Text colors */
+    --lufa-token-color-text-primary: oklch(97.3% 0.047 149.6);
+    --lufa-token-color-text-secondary: oklch(94.8% 0.087 149.6);
+    --lufa-token-color-text-tertiary: oklch(89.4% 0.134 149.6);
+    --lufa-token-color-text-disabled: oklch(41.7% 0.014 254.6);
+    --lufa-token-color-text-inverse: oklch(34.4% 0.088 149.8);
+    --lufa-token-color-text-link: oklch(84.3% 0.19 149.6);
+    --lufa-token-color-text-link-hover: oklch(89.4% 0.134 149.6);
+
+    /* Background colors */
+    --lufa-token-color-background-primary: oklch(19.8% 0.055 149.8);
+    --lufa-token-color-background-secondary: oklch(34.4% 0.088 149.8);
+    --lufa-token-color-background-tertiary: oklch(42.2% 0.107 149.7);
+    --lufa-token-color-background-inverse: oklch(99% 0.011 149.6);
+    --lufa-token-color-background-overlay: oklch(19.8% 0.055 149.8 / 0.85);
+
+    /* Border colors */
+    --lufa-token-color-border-default: oklch(51.2% 0.141 149.4);
+    --lufa-token-color-border-light: oklch(42.2% 0.107 149.7);
+    --lufa-token-color-border-medium: oklch(60.1% 0.172 149.6);
+    --lufa-token-color-border-strong: oklch(84.3% 0.19 149.6);
+    --lufa-token-color-border-focus: oklch(89.4% 0.134 149.6);
+
+    /* Interactive colors */
+    --lufa-token-color-interactive-default: oklch(84.3% 0.19 149.6);
+    --lufa-token-color-interactive-hover: oklch(89.4% 0.134 149.6);
+    --lufa-token-color-interactive-active: oklch(94.8% 0.087 149.6);
+    --lufa-token-color-interactive-disabled: oklch(31.7% 0.014 254.6);
+    --lufa-token-color-interactive-focus: oklch(89.4% 0.134 149.6);
+
+    /* Success colors */
+    --lufa-token-color-success-default: oklch(75.1% 0.218 149.6);
+    --lufa-token-color-success-hover: oklch(84.3% 0.19 149.6);
+    --lufa-token-color-success-active: oklch(89.4% 0.134 149.6);
+    --lufa-token-color-success-light: oklch(34.4% 0.088 149.8);
+    --lufa-token-color-success-lighter: oklch(19.8% 0.055 149.8);
+    --lufa-token-color-success-border: oklch(60.1% 0.172 149.6);
+    --lufa-token-color-success-text: oklch(89.4% 0.134 149.6);
+
+    /* Warning colors */
+    --lufa-token-color-warning-default: oklch(75.7% 0.163 56.4);
+    --lufa-token-color-warning-hover: oklch(82.4% 0.123 70.4);
+    --lufa-token-color-warning-active: oklch(91% 0.069 70.4);
+    --lufa-token-color-warning-light: oklch(32.4% 0.105 46.1);
+    --lufa-token-color-warning-lighter: oklch(19.5% 0.069 46.8);
+    --lufa-token-color-warning-border: oklch(59.2% 0.196 42.1);
+    --lufa-token-color-warning-text: oklch(91% 0.069 70.4);
+
+    /* Error colors */
+    --lufa-token-color-error-default: oklch(62.8% 0.258 27.3);
+    --lufa-token-color-error-hover: oklch(73.3% 0.204 23.2);
+    --lufa-token-color-error-active: oklch(82.1% 0.132 20.4);
+    --lufa-token-color-error-light: oklch(34.1% 0.128 27.8);
+    --lufa-token-color-error-lighter: oklch(20.4% 0.081 27.9);
+    --lufa-token-color-error-border: oklch(54.3% 0.224 27.7);
+    --lufa-token-color-error-text: oklch(82.1% 0.132 20.4);
+
+    /* Info colors */
+    --lufa-token-color-info-default: oklch(70.4% 0.115 218.7);
+    --lufa-token-color-info-hover: oklch(80.6% 0.116 218.7);
+    --lufa-token-color-info-active: oklch(87.7% 0.097 218.7);
+    --lufa-token-color-info-light: oklch(33.7% 0.056 219);
+    --lufa-token-color-info-lighter: oklch(23.2% 0.036 219);
+    --lufa-token-color-info-border: oklch(58.8% 0.131 218.7);
+    --lufa-token-color-info-text: oklch(87.7% 0.097 218.7);
+
+    /* Brand colors */
+    --lufa-token-color-brand-primary: oklch(84.3% 0.19 149.6);
+    --lufa-token-color-brand-primary-hover: oklch(89.4% 0.134 149.6);
+    --lufa-token-color-brand-primary-active: oklch(94.8% 0.087 149.6);
+    --lufa-token-color-brand-secondary: oklch(85.5% 0.2 120.8);
+    --lufa-token-color-brand-secondary-hover: oklch(91% 0.178 120.8);
+    --lufa-token-color-brand-secondary-active: oklch(95.1% 0.138 120.8);
+    --lufa-token-color-brand-accent: oklch(76.3% 0.178 120.8);
+
+    /* Surface colors */
+    --lufa-token-color-surface-default: oklch(19.8% 0.055 149.8);
+    --lufa-token-color-surface-raised: oklch(34.4% 0.088 149.8);
+    --lufa-token-color-surface-overlay: oklch(42.2% 0.107 149.7);
+    --lufa-token-color-surface-inverse: oklch(99% 0.011 149.6);
+  }
+}

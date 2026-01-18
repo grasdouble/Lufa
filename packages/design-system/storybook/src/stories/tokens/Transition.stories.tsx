@@ -68,7 +68,7 @@ export const AllTransitions: Story = {
                 <div
                   style={{
                     fontFamily: 'monospace',
-                    color: tokens.color.text.tertiary,
+                    color: tokens.color.text.secondary,
                     fontSize: tokens.fontSize.xs,
                     backgroundColor: tokens.color.background.tertiary,
                     padding: tokens.spacing.sm,

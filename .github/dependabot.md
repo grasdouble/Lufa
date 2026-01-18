@@ -28,7 +28,7 @@ Dependabot scans the entire monorepo from the root directory, automatically dete
 #### Production Dependencies
 
 - Groups all `dependencies` updates (minor and patch versions)
-- Includes React, Single-SPA, Tailwind CSS, and other runtime dependencies
+- Includes React, Single-SPA, and other runtime dependencies
 - Creates a single PR for all production dependency updates
 
 **Major version updates** are kept separate to allow for more careful review and testing.

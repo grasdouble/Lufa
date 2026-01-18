@@ -10,7 +10,7 @@ const distDir = resolve(currentDir, '../dist');
 
 mkdirSync(distDir, { recursive: true });
 
-const themes = ['ocean.css', 'forest.css'] as const;
+const themes = ['default.css', 'ocean.css', 'forest.css'] as const;
 
 for (const theme of themes) {
   const src = resolve(srcDir, theme);

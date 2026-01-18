@@ -85,13 +85,14 @@
 
 - c4e20b6: Add Theme generator
 - dba64f6: Add token, implement tailwind theme, update and add components
+  _Note: Tailwind was later replaced with vanilla CSS tokens in January 2026_
 - 1d9de21: Add divider component
 - 6c4eb34: Improve stories + add story for colors
 
 ### Patch Changes
 
 - 6af7149: follow changes in design-system
-- 7def2ef: Remove tailwind dependency
+- 7def2ef: Remove tailwind dependency (migrated to vanilla CSS with design tokens)
 - d4b9e09: Clean and fix storybook
 - Updated dependencies [6af7149]
 - Updated dependencies [dba64f6]

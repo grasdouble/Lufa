@@ -22,7 +22,7 @@ export type SpaceProps = {
 const toCssLength = (value: SpaceSize | undefined) => {
   if (value === undefined) return undefined;
   if (typeof value === 'number') return `${value}px`;
-  if (typeof value === 'string' && value in SPACE_SIZE) return `var(--lufa-spacing-${value})`;
+  if (typeof value === 'string' && value in SPACE_SIZE) return `var(--lufa-token-spacing-${value})`;
   return value;
 };
 

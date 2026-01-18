@@ -15,23 +15,23 @@ const meta = {
         component: `
 # Theme Switcher
 
-The ThemeSwitcher component demonstrates the power of our semantic design system. By using semantic color tokens like \`bg-interactive-default\`, \`text-text-primary\`, and \`border-border-default\`, all components automatically adapt to different themes without any code changes.
+The ThemeSwitcher component demonstrates the power of our semantic design system. By using semantic color tokens via CSS custom properties (e.g., \`var(--lufa-token-color-text-primary)\`), all components automatically adapt to different themes without any code changes.
 
 ## How It Works
 
-1. **CSS Variables Token**: All semantic tokens are defined as CSS variables in \`token/colors.css\`
-2. **Tailwind Integration**: The \`@theme\` directive maps these variables to Tailwind utilities
-3. **Theme Overrides**: Theme files (ocean.css, forest.css) override the CSS variables for specific \`data-theme\` attributes
-4. **Automatic Adaptation**: Components using semantic utilities automatically pick up the new values
+1. **CSS Variables**: All semantic tokens are defined as CSS custom properties in the tokens package
+2. **Design Tokens**: TypeScript token definitions are built into CSS variables
+3. **Theme Overrides**: Theme files (ocean.css, forest.css) override CSS variables for specific \`data-theme\` attributes
+4. **Automatic Adaptation**: Components using CSS Modules with token-based variables automatically pick up theme values
 
 ## Architecture
 
 \`\`\`
-TypeScript Tokens → CSS Variables → Tailwind @theme → Semantic Utilities
-                                                              ↓
-                                        Components (bg-interactive-default)
-                                                              ↓
-                                        Theme Override (data-theme="ocean")
+TypeScript Tokens → Build Process → CSS Custom Properties
+                                              ↓
+                              Components (CSS Modules with tokens)
+                                              ↓
+                              Theme Override (data-theme="ocean")
 \`\`\`
 
 ## Creating New Themes

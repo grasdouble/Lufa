@@ -1,10 +1,15 @@
 /**
- * Reusable reset utilities for components
+ * Reusable reset utilities for components (Vanilla CSS version)
  * Each component imports only what it needs
+ * 
+ * VANILLA CSS VERSION - Used by migrated components
+ * Note: No @layer wrappers - utilities are applied directly
  */
 
 /* Button reset utility */
-@utility reset-button {
+/* Foundation utility - for internal use */
+.reset-button {
+  appearance: none;
   font-family: inherit;
   font-size: 100%;
   line-height: inherit;
@@ -17,8 +22,16 @@
   cursor: pointer;
 }
 
+/* 
+ * Note: outline is NOT reset here to preserve accessibility.
+ * Components should explicitly handle focus styles with :focus-visible
+ * or use a custom focus indicator.
+ */
+
 /* Input/Textarea reset utility */
-@utility reset-input {
+/* Foundation utility - for internal use */
+.reset-input {
+  appearance: none;
   font-family: inherit;
   font-size: 100%;
   line-height: inherit;
@@ -29,8 +42,15 @@
   background: transparent;
 }
 
+/* 
+ * Note: outline is NOT reset here to preserve accessibility.
+ * Components should explicitly handle focus styles with :focus-visible
+ * or use a custom focus indicator (e.g., box-shadow).
+ */
+
 /* Heading reset utility */
-@utility reset-heading {
+/* Foundation utility - for internal use */
+.reset-heading {
   margin: 0;
   font-size: inherit;
   font-weight: inherit;
@@ -38,20 +58,23 @@
 }
 
 /* List reset utility */
-@utility reset-list {
+/* Foundation utility - for internal use */
+.reset-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 /* Image reset utility */
-@utility reset-image {
+/* Foundation utility - for internal use */
+.reset-image {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
 /* Figure reset utility */
-@utility reset-figure {
+/* Foundation utility - for internal use */
+.reset-figure {
   margin: 0;
 }

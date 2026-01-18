@@ -1,6 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
+// Import Lufa design tokens
+import '@grasdouble/lufa_design-system/style.css';
+
 import App from './App';
 
 export const bootstrap = () => {

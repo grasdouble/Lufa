@@ -45,11 +45,6 @@ This directory contains reusable prompts for AI agents working with the Lufa cod
 
 ### Utilities & Conversion
 
-- **[tailwindcss-convert.prompt.md](tailwindcss-convert.prompt.md)**
-  - Convert traditional CSS to Tailwind CSS utilities
-  - Respects design system tokens
-  - Agent: TBD
-
 - **[model-recommendation.prompt.md](model-recommendation.prompt.md)**
   - Get recommendations on which AI model to use for specific tasks
   - Agent: TBD
@@ -113,6 +108,7 @@ Use descriptive names with `.prompt.md` extension:
 ```
 
 Examples:
+
 - `generate-component-test.prompt.md`
 - `refactor-for-accessibility.prompt.md`
 - `analyze-performance.prompt.md`
@@ -123,8 +119,8 @@ Use YAML frontmatter for metadata:
 
 ```markdown
 ---
-description: "Brief description of what this prompt does"
-agent: "agent" # or specific agent type
+description: 'Brief description of what this prompt does'
+agent: 'agent' # or specific agent type
 ---
 
 # Prompt Title
@@ -132,15 +128,19 @@ agent: "agent" # or specific agent type
 [Detailed instructions for the AI agent]
 
 ## Context
+
 [Relevant context about the project]
 
 ## Task
+
 [Specific task to accomplish]
 
 ## Requirements
+
 [Requirements and constraints]
 
 ## Example
+
 [Example of expected output]
 ```
 
@@ -167,26 +167,28 @@ agent: "agent" # or specific agent type
 
 ## 📊 Prompt Categories
 
-| Category | Active Prompts | Purpose |
-|----------|---------------|---------|
-| **Documentation** | 2 | Generate/update docs |
-| **Testing** | 2 | Generate tests, explore apps |
-| **Code Quality** | 1 | Security reviews |
-| **Utilities** | 2 | Convert code, model selection |
-| **Total** | **7** | - |
+| Category          | Active Prompts | Purpose                      |
+| ----------------- | -------------- | ---------------------------- |
+| **Documentation** | 2              | Generate/update docs         |
+| **Testing**       | 2              | Generate tests, explore apps |
+| **Code Quality**  | 1              | Security reviews             |
+| **Utilities**     | 1              | Model selection              |
+| **Total**         | **6**          | -                            |
 
-> 📜 **History**: 6 prompts removed (5 suggestion tools + 1 legacy design system builder). See "Removed Prompts History" section below.
+> 📜 **History**: 7 prompts archived. See "Archived Prompts" section below for details.
 
 ---
 
 ## 🚀 Quick Links
 
 **Most Used Prompts:**
+
 1. [Generate Playwright tests](playwright-generate-test.prompt.md)
 2. [Create AGENTS.md](create-agentsmd.prompt.md)
 3. [Security review](ai-prompt-engineering-safety-review.prompt.md)
 
 **For Beginners:**
+
 - Start with [model-recommendation.prompt.md](model-recommendation.prompt.md) to choose the right AI model
 - Use [create-readme.prompt.md](create-readme.prompt.md) for documentation
 - Review [.github/instructions/](../instructions/) for path-scoped coding guidance
@@ -202,20 +204,22 @@ agent: "agent" # or specific agent type
 
 ---
 
-## 📜 Removed Prompts History
+## 📜 Archived Prompts
 
-Prompts removed from active use. Available in Git history if needed.
+Prompts removed from active use but kept for reference. Available in Git history if needed.
 
-| Prompt | Category | Removed | Reason |
-|--------|----------|---------|--------|
-| `suggest-awesome-github-copilot-agents.prompt.md` | Meta / Improvement | 2025-01-11 | Comprehensive set already exists |
-| `suggest-awesome-github-copilot-chatmodes.prompt.md` | Meta / Improvement | 2025-01-11 | Comprehensive set already exists |
-| `suggest-awesome-github-copilot-collections.prompt.md` | Meta / Improvement | 2025-01-11 | Comprehensive set already exists |
-| `suggest-awesome-github-copilot-instructions.prompt.md` | Meta / Improvement | 2025-01-11 | Comprehensive set already exists |
-| `suggest-awesome-github-copilot-prompts.prompt.md` | Meta / Improvement | 2025-01-11 | Comprehensive set already exists |
-| `lufa-design-system-builder.prompt.md` | Design System | 2025-01-11 | Improved workflows available |
+| Prompt                                                  | Category               | Archived     | Reason                                    |
+| ------------------------------------------------------- | ---------------------- | ------------ | ----------------------------------------- |
+| `tailwindcss-convert.prompt.md`                         | Utilities / Conversion | January 2026 | No longer relevant (tech stack migration) |
+| `suggest-awesome-github-copilot-agents.prompt.md`       | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
+| `suggest-awesome-github-copilot-chatmodes.prompt.md`    | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
+| `suggest-awesome-github-copilot-collections.prompt.md`  | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
+| `suggest-awesome-github-copilot-instructions.prompt.md` | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
+| `suggest-awesome-github-copilot-prompts.prompt.md`      | Meta / Improvement     | 2025-01-11   | Comprehensive set already exists          |
+| `lufa-design-system-builder.prompt.md`                  | Design System          | 2025-01-11   | Improved workflows available              |
 
 **Restoration**: Recover from Git with:
+
 ```bash
 git log --all --full-history -- ".github/prompts/<filename>"
 git checkout <commit-hash> -- ".github/prompts/<filename>"
