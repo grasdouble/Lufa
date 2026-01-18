@@ -309,5 +309,69 @@ test.describe('Avatar Component', () => {
       );
       await expect(component).toHaveScreenshot('avatar-all-variants.png');
     });
+
+    test('should match snapshot for all variants in dark mode', async ({ mount, page }) => {
+      // Set dark mode on the root element
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const component = await mount(
+        <div style={{ padding: '20px', width: 'fit-content', background: 'var(--lufa-token-color-background-primary)' }}>
+          <h1
+            style={{
+              marginBottom: '16px',
+              fontSize: '24px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Sizes
+          </h1>
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginBottom: '32px' }}>
+            <Avatar src={imageSample} size="xs" />
+            <Avatar src={imageSample} size="sm" />
+            <Avatar src={imageSample} size="md" />
+            <Avatar src={imageSample} size="lg" />
+            <Avatar src={imageSample} size="xl" />
+          </div>
+
+          <h1
+            style={{
+              marginBottom: '16px',
+              fontSize: '24px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Status
+          </h1>
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginBottom: '32px' }}>
+            <Avatar src={imageSample} status="online" />
+            <Avatar src={imageSample} status="offline" />
+            <Avatar src={imageSample} status="away" />
+            <Avatar src={imageSample} status="busy" />
+          </div>
+
+          <h1
+            style={{
+              marginBottom: '16px',
+              fontSize: '24px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Variants
+          </h1>
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+            <Avatar src={imageSample} variant="circle" />
+            <Avatar src={imageSample} variant="square" />
+            <Avatar variant="count" count={99} />
+          </div>
+        </div>
+      );
+      await expect(component).toHaveScreenshot('avatar-all-variants-dark.png');
+
+      // Clean up: remove dark mode attribute
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
+    });
   });
 });
