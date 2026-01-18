@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Container, Link, Stack } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Navigation/Link',
