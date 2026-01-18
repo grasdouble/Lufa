@@ -37,7 +37,11 @@ export const AllTransitions: Story = {
           Transition Tokens
         </h1>
         <p
-          style={{ marginBottom: tokens.spacing.xl, color: tokens.color.text.tertiary, fontSize: tokens.fontSize.base }}
+          style={{
+            marginBottom: tokens.spacing.xl,
+            color: 'var(--lufa-token-color-text-tertiary)',
+            fontSize: tokens.fontSize.base,
+          }}
         >
           Pre-configured CSS transition strings for common UI interactions. Simpler than motion tokens for basic
           transitions.
@@ -49,9 +53,9 @@ export const AllTransitions: Story = {
               key={key}
               style={{
                 padding: tokens.spacing.lg,
-                backgroundColor: tokens.color.background.secondary,
+                backgroundColor: 'var(--lufa-token-color-background-secondary)',
                 borderRadius: tokens.radius.base,
-                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} var(--lufa-token-color-border-light)`,
               }}
             >
               <div style={{ marginBottom: tokens.spacing.base }}>
@@ -68,9 +72,9 @@ export const AllTransitions: Story = {
                 <div
                   style={{
                     fontFamily: 'monospace',
-                    color: tokens.color.text.secondary,
+                    color: 'var(--lufa-token-color-text-secondary)',
                     fontSize: tokens.fontSize.xs,
-                    backgroundColor: tokens.color.background.tertiary,
+                    backgroundColor: 'var(--lufa-token-color-background-tertiary)',
                     padding: tokens.spacing.sm,
                     borderRadius: tokens.radius.sm,
                   }}
@@ -84,9 +88,9 @@ export const AllTransitions: Story = {
                 style={{
                   padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
                   backgroundColor: activeTransitions[key]
-                    ? tokens.color.success.default
-                    : tokens.color.interactive.focus,
-                  color: tokens.color.text.inverse,
+                    ? 'var(--lufa-token-color-success-default)'
+                    : 'var(--lufa-token-color-interactive-focus)',
+                  color: 'var(--lufa-token-color-text-inverse)',
                   border: tokens.borderStyle.none,
                   borderRadius: tokens.radius.base,
                   fontSize: tokens.fontSize.sm,
@@ -103,7 +107,7 @@ export const AllTransitions: Story = {
                 style={{
                   marginTop: tokens.spacing.md,
                   fontSize: tokens.fontSize.xs,
-                  color: tokens.color.text.tertiary,
+                  color: 'var(--lufa-token-color-text-tertiary)',
                 }}
               >
                 {key === 'fast' && '150ms - Quick hover effects, micro-interactions'}
@@ -120,8 +124,8 @@ export const AllTransitions: Story = {
           style={{
             marginTop: tokens.spacing.xl,
             padding: tokens.spacing.base,
-            backgroundColor: tokens.color.info.light,
-            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.info.border}`,
+            backgroundColor: 'var(--lufa-token-color-info-light)',
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} var(--lufa-token-color-info-border)`,
             borderRadius: tokens.radius.base,
           }}
         >
@@ -129,20 +133,26 @@ export const AllTransitions: Story = {
             style={{
               fontWeight: tokens.fontWeight.semibold,
               marginBottom: tokens.spacing.sm,
-              color: tokens.color.info.text,
+              color: 'var(--lufa-token-color-info-text)',
             }}
           >
             Accessibility: Reduced Motion
           </div>
-          <div style={{ fontSize: tokens.fontSize.sm, color: tokens.color.info.text, marginBottom: tokens.spacing.md }}>
+          <div
+            style={{
+              fontSize: tokens.fontSize.sm,
+              color: 'var(--lufa-token-color-info-text)',
+              marginBottom: tokens.spacing.md,
+            }}
+          >
             Always respect user's motion preferences. Use transition.none for users who prefer reduced motion.
           </div>
           <pre
             style={{
               margin: 0,
               padding: tokens.spacing.md,
-              backgroundColor: tokens.color.background.inverse,
-              color: tokens.color.success.default,
+              backgroundColor: 'var(--lufa-token-color-background-inverse)',
+              color: 'var(--lufa-token-color-success-default)',
               borderRadius: tokens.radius.md,
               fontSize: tokens.fontSize.xs,
               overflow: 'auto',
@@ -205,8 +215,13 @@ export const InteractiveExamples: Story = {
                 style={{
                   padding: tokens.spacing.lg,
                   backgroundColor:
-                    hoveredCard === card ? tokens.color.interactive.focus : tokens.color.background.tertiary,
-                  color: hoveredCard === card ? tokens.color.text.inverse : tokens.color.text.primary,
+                    hoveredCard === card
+                      ? 'var(--lufa-token-color-interactive-focus)'
+                      : 'var(--lufa-token-color-background-tertiary)',
+                  color:
+                    hoveredCard === card
+                      ? 'var(--lufa-token-color-text-inverse)'
+                      : 'var(--lufa-token-color-text-primary)',
                   borderRadius: tokens.radius.base,
                   textAlign: 'center',
                   cursor: 'pointer',
@@ -219,7 +234,13 @@ export const InteractiveExamples: Story = {
               </div>
             ))}
           </div>
-          <p style={{ marginTop: tokens.spacing.md, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{
+              marginTop: tokens.spacing.md,
+              fontSize: tokens.fontSize.xs,
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
+          >
             Using transition.fast for smooth hover effects
           </p>
         </div>
@@ -239,8 +260,8 @@ export const InteractiveExamples: Story = {
             onClick={() => setIsModalOpen(!isModalOpen)}
             style={{
               padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
-              backgroundColor: tokens.color.interactive.focus,
-              color: tokens.color.text.inverse,
+              backgroundColor: 'var(--lufa-token-color-interactive-focus)',
+              color: 'var(--lufa-token-color-text-inverse)',
               border: tokens.borderStyle.none,
               borderRadius: tokens.radius.md,
               fontSize: tokens.fontSize.sm,
@@ -256,7 +277,7 @@ export const InteractiveExamples: Story = {
               style={{
                 position: 'fixed',
                 inset: 0,
-                backgroundColor: tokens.color.background.overlay,
+                backgroundColor: 'var(--lufa-token-color-background-overlay)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -269,7 +290,7 @@ export const InteractiveExamples: Story = {
               <div
                 onClick={(e) => e.stopPropagation()}
                 style={{
-                  backgroundColor: tokens.color.surface.default,
+                  backgroundColor: 'var(--lufa-token-color-surface-default)',
                   padding: tokens.spacing.xl,
                   borderRadius: tokens.radius.lg,
                   maxWidth: tokens.maxWidth.xs,
@@ -286,15 +307,15 @@ export const InteractiveExamples: Story = {
                 >
                   Example Modal
                 </h3>
-                <p style={{ color: tokens.color.text.secondary, marginBottom: tokens.spacing['md-lg'] }}>
+                <p style={{ color: 'var(--lufa-token-color-text-secondary)', marginBottom: tokens.spacing['md-lg'] }}>
                   This modal uses transition.base for a smooth open/close animation.
                 </p>
                 <button
                   onClick={() => setIsModalOpen(false)}
                   style={{
                     padding: `${tokens.spacing['sm-md']} ${tokens.spacing['md-lg']}`,
-                    backgroundColor: tokens.color.interactive.focus,
-                    color: tokens.color.text.inverse,
+                    backgroundColor: 'var(--lufa-token-color-interactive-focus)',
+                    color: 'var(--lufa-token-color-text-inverse)',
                     border: tokens.borderStyle.none,
                     borderRadius: tokens.radius.md,
                     cursor: 'pointer',
@@ -305,7 +326,13 @@ export const InteractiveExamples: Story = {
               </div>
             </div>
           )}
-          <p style={{ marginTop: tokens.spacing.md, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{
+              marginTop: tokens.spacing.md,
+              fontSize: tokens.fontSize.xs,
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
+          >
             Using transition.base for modal animations
           </p>
         </div>
@@ -323,11 +350,11 @@ export const InteractiveExamples: Story = {
           </h2>
           <div style={{ display: 'flex', gap: tokens.spacing.md, marginBottom: tokens.spacing.base }}>
             {[
-              tokens.color.interactive.focus,
-              tokens.color.success.default,
-              tokens.color.warning.default,
-              tokens.color.error.default,
-              tokens.color.brand.secondary,
+              'var(--lufa-token-color-interactive-focus)',
+              'var(--lufa-token-color-success-default)',
+              'var(--lufa-token-color-warning-default)',
+              'var(--lufa-token-color-error-default)',
+              'var(--lufa-token-color-brand-secondary)',
             ].map((color) => (
               <button
                 key={color}
@@ -338,7 +365,7 @@ export const InteractiveExamples: Story = {
                   backgroundColor: color,
                   border:
                     selectedColor === color
-                      ? `${tokens.borderWidth.focus} ${tokens.borderStyle.solid} ${tokens.color.border.strong}`
+                      ? `${tokens.borderWidth.focus} ${tokens.borderStyle.solid} var(--lufa-token-color-border-strong)`
                       : `${tokens.borderWidth.focus} ${tokens.borderStyle.solid} transparent`,
                   borderRadius: tokens.radius.base,
                   cursor: 'pointer',
@@ -352,7 +379,7 @@ export const InteractiveExamples: Story = {
             style={{
               padding: tokens.spacing.xl,
               backgroundColor: selectedColor,
-              color: tokens.color.text.inverse,
+              color: 'var(--lufa-token-color-text-inverse)',
               borderRadius: tokens.radius.base,
               transition: tokens.transition.colors,
             }}
@@ -362,7 +389,13 @@ export const InteractiveExamples: Story = {
               {selectedColor}
             </div>
           </div>
-          <p style={{ marginTop: tokens.spacing.md, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+          <p
+            style={{
+              marginTop: tokens.spacing.md,
+              fontSize: tokens.fontSize.xs,
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
+          >
             Using transition.colors for smooth color changes
           </p>
         </div>
@@ -371,8 +404,8 @@ export const InteractiveExamples: Story = {
           style={{
             marginTop: tokens.spacing.xl,
             padding: tokens.spacing.base,
-            backgroundColor: tokens.color.warning.light,
-            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.warning.border}`,
+            backgroundColor: 'var(--lufa-token-color-warning-light)',
+            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} var(--lufa-token-color-warning-border)`,
             borderRadius: tokens.radius.base,
           }}
         >
@@ -380,7 +413,7 @@ export const InteractiveExamples: Story = {
             style={{
               fontWeight: tokens.fontWeight.semibold,
               marginBottom: tokens.spacing.sm,
-              color: tokens.color.warning.text,
+              color: 'var(--lufa-token-color-warning-text)',
             }}
           >
             💡 Transition Best Practices
@@ -389,7 +422,7 @@ export const InteractiveExamples: Story = {
             style={{
               margin: 0,
               paddingLeft: tokens.spacing['md-lg'],
-              color: tokens.color.warning.text,
+              color: 'var(--lufa-token-color-warning-text)',
               fontSize: tokens.fontSize.sm,
             }}
           >
