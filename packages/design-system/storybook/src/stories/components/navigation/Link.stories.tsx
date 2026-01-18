@@ -141,9 +141,17 @@ export const Colors: Story = {
               </div>
               {(['primary', 'secondary', 'success', 'warning', 'danger', 'inherit'] as const).map((colorKey) => (
                 <div key={`cell-${variantKey}-${colorKey}`}>
-                  <Link variant={variantKey} color={colorKey} href="/page">
-                    Link
-                  </Link>
+                  {colorKey === 'inherit' ? (
+                    <div style={{ color: tokens.color.success.default }}>
+                      <Link variant={variantKey} color={colorKey} href="/page">
+                        Link
+                      </Link>
+                    </div>
+                  ) : (
+                    <Link variant={variantKey} color={colorKey} href="/page">
+                      Link
+                    </Link>
+                  )}
                 </div>
               ))}
             </Fragment>
