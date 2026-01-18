@@ -68,7 +68,7 @@ test.describe('Alert Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants', async ({ mount }) => {
+    test('should match snapshot for all variants in light mode', async ({ mount }) => {
       const variants = ['info', 'success', 'warning', 'error'] as const;
 
       const component = await mount(
@@ -172,7 +172,7 @@ test.describe('Alert Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('alert-all-variants.png', {
+      await expect(component).toHaveScreenshot('alert-all-variants-light.png', {
         animations: 'disabled',
       });
     });

@@ -523,7 +523,7 @@ test.describe('Pagination', () => {
   });
 
   // Visual regression test
-  test('visual regression: pagination all variants', async ({ mount }) => {
+  test('visual regression: pagination all variants in light mode', async ({ mount }) => {
     const containerStyle = { padding: 24, background: '#f5f5f5', display: 'flex', flexDirection: 'column', gap: 32 };
     const sectionStyle = { background: '#fff', padding: 16, borderRadius: 8 };
     const titleStyle = { fontWeight: 600, marginBottom: 16, fontSize: 14, color: '#333' };
@@ -636,11 +636,11 @@ test.describe('Pagination', () => {
       </div>
     );
 
-    await expect(component).toHaveScreenshot('pagination-all-variants.png');
+    await expect(component).toHaveScreenshot('pagination-all-variants-light.png');
   });
 
   // Visual regression test - Dark mode
-  test('visual regression: pagination all variants (dark mode)', async ({ mount, page }) => {
+  test('visual regression: pagination all variants in dark mode', async ({ mount, page }) => {
     // Set dark mode before mounting
     await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 

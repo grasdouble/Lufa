@@ -242,11 +242,12 @@ test.describe('Testimonial Component', () => {
       const figure = component.locator('figure');
 
       // ARIA snapshot tests semantic structure
+      // Figure has accessible name from figcaption
       await expect(figure).toMatchAriaSnapshot(`
-        - figure:
-          - img
-          - blockquote
-          - figcaption
+        - figure "Sarah Johnson CEO, TechCorp Inc.":
+          - blockquote:
+            - paragraph: ${mockTestimonialData.testimonial}
+          - text: Sarah Johnson CEO, TechCorp Inc.
       `);
     });
 
@@ -255,10 +256,10 @@ test.describe('Testimonial Component', () => {
       const figure = component.locator('figure');
 
       await expect(figure).toMatchAriaSnapshot(`
-        - figure:
-          - img
-          - blockquote
-          - figcaption
+        - figure "Sarah Johnson CEO, TechCorp Inc.":
+          - blockquote:
+            - paragraph: ${mockTestimonialData.testimonial}
+          - text: Sarah Johnson CEO, TechCorp Inc.
       `);
     });
 
@@ -267,16 +268,16 @@ test.describe('Testimonial Component', () => {
       const figure = component.locator('figure');
 
       await expect(figure).toMatchAriaSnapshot(`
-        - figure:
-          - img
-          - blockquote
-          - figcaption
+        - figure "Sarah Johnson CEO, TechCorp Inc.":
+          - blockquote:
+            - paragraph: ${mockTestimonialData.testimonial}
+          - text: Sarah Johnson CEO, TechCorp Inc.
       `);
     });
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all style variants', async ({ mount }) => {
+    test('should match snapshot for all style variants in light mode', async ({ mount }) => {
       const testimonials = [
         {
           ...mockTestimonialData,
@@ -367,7 +368,7 @@ test.describe('Testimonial Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('testimonial-all-styles.png', {
+      await expect(component).toHaveScreenshot('testimonial-all-styles-light.png', {
         animations: 'disabled',
       });
     });

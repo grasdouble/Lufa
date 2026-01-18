@@ -76,7 +76,7 @@ test.describe('Badge Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all size and variant combinations', async ({ mount }) => {
+    test('should match snapshot for all size and variant combinations in light mode', async ({ mount }) => {
       const variants = ['default', 'primary', 'success', 'warning', 'danger', 'info'] as const;
       const sizes = ['sm', 'md', 'lg'] as const;
       const component = await mount(
@@ -121,7 +121,7 @@ test.describe('Badge Component', () => {
 
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('badge-all-variants.png', {
+      await expect(component).toHaveScreenshot('badge-all-variants-light.png', {
         animations: 'disabled',
       });
     });

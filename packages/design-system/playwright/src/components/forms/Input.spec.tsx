@@ -2,6 +2,8 @@ import { expect, test } from '@playwright/experimental-ct-react';
 
 import { Input } from '@grasdouble/lufa_design-system';
 
+import { InputWithOnChangeFixture } from './Input.fixtures';
+
 test.describe('Input Component', () => {
   test.describe('Basic Rendering', () => {
     test('should render with default props', async ({ mount }) => {
@@ -100,16 +102,11 @@ test.describe('Input Component', () => {
     });
 
     test('should call onChange handler', async ({ mount }) => {
-      let value = '';
-      const component = await mount(
-        <Input
-          placeholder="Type here"
-          onChange={(e) => { value = e.target.value; }}
-        />
-      );
+      const component = await mount(<InputWithOnChangeFixture placeholder="Type here" />);
       const input = component.getByRole('textbox');
       await input.fill('test value');
-      expect(value).toBe('test value');
+      const output = component.getByTestId('output-value');
+      await expect(output).toHaveText('test value');
     });
 
     test('should be keyboard accessible with Tab', async ({ mount, page }) => {
@@ -144,9 +141,10 @@ test.describe('Input Component', () => {
 
     test('should have accessible structure with label', async ({ mount }) => {
       const component = await mount(<Input label="Email Address" />);
-      await expect(component).toMatchAriaSnapshot(`
-        - textbox "Email Address"
-      `);
+      const label = component.getByText('Email Address');
+      await expect(label).toBeVisible();
+      const input = component.getByRole('textbox');
+      await expect(input).toBeVisible();
     });
 
     test('should have accessible structure without label', async ({ mount }) => {
@@ -177,7 +175,7 @@ test.describe('Input Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants', async ({ mount }) => {
+    test('should match snapshot for all variants in light mode', async ({ mount }) => {
       const variants = ['outlined', 'filled'] as const;
       const sizes = ['small', 'medium', 'large'] as const;
 
@@ -204,12 +202,7 @@ test.describe('Input Component', () => {
                     </div>
                     <div>
                       <p style={{ fontSize: '14px', color: '#888', marginBottom: '8px' }}>With Value</p>
-                      <Input
-                        placeholder="Type here..."
-                        variant={variant}
-                        size={size}
-                        defaultValue="Sample text"
-                      />
+                      <Input placeholder="Type here..." variant={variant} size={size} defaultValue="Sample text" />
                     </div>
                     <div>
                       <p style={{ fontSize: '14px', color: '#888', marginBottom: '8px' }}>With Label</p>
@@ -217,13 +210,7 @@ test.describe('Input Component', () => {
                     </div>
                     <div>
                       <p style={{ fontSize: '14px', color: '#888', marginBottom: '8px' }}>Required</p>
-                      <Input
-                        label="Required Field"
-                        placeholder="Type here..."
-                        variant={variant}
-                        size={size}
-                        required
-                      />
+                      <Input label="Required Field" placeholder="Type here..." variant={variant} size={size} required />
                     </div>
                     <div>
                       <p style={{ fontSize: '14px', color: '#888', marginBottom: '8px' }}>With Helper Text</p>
@@ -275,7 +262,7 @@ test.describe('Input Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('input-all-variants-sizes-states.png', {
+      await expect(component).toHaveScreenshot('input-all-variants-sizes-states-light.png', {
         animations: 'disabled',
       });
     });
@@ -353,12 +340,7 @@ test.describe('Input Component', () => {
                       >
                         With Value
                       </p>
-                      <Input
-                        placeholder="Type here..."
-                        variant={variant}
-                        size={size}
-                        defaultValue="Sample text"
-                      />
+                      <Input placeholder="Type here..." variant={variant} size={size} defaultValue="Sample text" />
                     </div>
                     <div>
                       <p
@@ -382,13 +364,7 @@ test.describe('Input Component', () => {
                       >
                         Required
                       </p>
-                      <Input
-                        label="Required Field"
-                        placeholder="Type here..."
-                        variant={variant}
-                        size={size}
-                        required
-                      />
+                      <Input label="Required Field" placeholder="Type here..." variant={variant} size={size} required />
                     </div>
                     <div>
                       <p

@@ -393,7 +393,7 @@ test.describe('Steps Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants and options', async ({ mount }) => {
+    test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const directions = ['horizontal', 'vertical'] as const;
       const sizes = ['small', 'default'] as const;
 
@@ -530,12 +530,12 @@ test.describe('Steps Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('steps-all-variants-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('steps-all-variants-light.png', {
         animations: 'disabled',
       });
     });
 
-    test('visual regression: all variants and options (dark mode)', async ({ mount, page }) => {
+    test('visual regression: all variants and options in dark mode', async ({ mount, page }) => {
       // Set dark mode BEFORE mounting
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
@@ -677,7 +677,7 @@ test.describe('Steps Component', () => {
       // Wait for stability
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('steps-all-variants-chromium-darwin-dark.png', {
+      await expect(component).toHaveScreenshot('steps-all-variants-dark.png', {
         animations: 'disabled',
       });
 

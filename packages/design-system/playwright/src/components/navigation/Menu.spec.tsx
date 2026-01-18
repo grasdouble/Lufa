@@ -414,7 +414,7 @@ test.describe('Menu Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants and options', async ({ mount }) => {
+    test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const modes = ['vertical', 'horizontal', 'inline'] as const;
       const themes = ['light', 'dark'] as const;
 
@@ -525,12 +525,12 @@ test.describe('Menu Component', () => {
       // Wait for stability
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('menu-all-variants-dark-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('menu-all-variants-light.png', {
         animations: 'disabled',
       });
     });
 
-    test('visual regression: all variants and options (dark mode)', async ({ mount, page }) => {
+    test('visual regression: all variants and options in dark mode', async ({ mount, page }) => {
       // Set dark mode before mounting
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
@@ -562,7 +562,7 @@ test.describe('Menu Component', () => {
       };
 
       const component = await mount(
-        <div style={{ padding: 24, background: 'var(--lufa-token-color-background-primary)' }}>
+        <div style={{ padding: 24, background: 'var(--lufa-token-color-background-primary)', width: '900px' }}>
           {/* Modes with Light Theme */}
           <div style={sectionTitleStyle}>Menu - Mode Variants (Light Theme)</div>
           {modes.map((mode) => (
@@ -635,7 +635,10 @@ test.describe('Menu Component', () => {
         </div>
       );
 
-      await expect(component).toHaveScreenshot('menu-all-variants-dark-chromium-darwin.png', {
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(200);
+
+      await expect(component).toHaveScreenshot('menu-all-variants-dark.png', {
         fullPage: true,
         animations: 'disabled',
       });

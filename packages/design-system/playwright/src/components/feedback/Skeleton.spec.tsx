@@ -183,7 +183,7 @@ test.describe('Skeleton Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants and animations', async ({ mount }) => {
+    test('should match snapshot for all variants and animations in light mode', async ({ mount }) => {
       const variants = ['text', 'circular', 'rectangular'] as const;
       const animations = [
         { value: 'pulse' as const, label: 'Pulse' },
@@ -383,7 +383,7 @@ test.describe('Skeleton Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('skeleton-all-variants.png', {
+      await expect(component).toHaveScreenshot('skeleton-all-variants-light.png', {
         animations: 'disabled',
       });
     });

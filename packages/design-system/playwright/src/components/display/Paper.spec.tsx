@@ -218,7 +218,7 @@ test.describe('Paper Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants and options', async ({ mount }) => {
+    test('should match snapshot for all variants and options in light mode', async ({ mount }) => {
       const variants = ['default', 'elevated', 'outlined', 'filled'] as const;
       const paddings = ['none', 'small', 'medium', 'large'] as const;
       const radiuses = ['none', 'small', 'medium', 'large', 'full'] as const;
@@ -374,7 +374,7 @@ test.describe('Paper Component', () => {
 
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('paper-all-variants.png', {
+      await expect(component).toHaveScreenshot('paper-all-variants-light.png', {
         animations: 'disabled',
       });
     });

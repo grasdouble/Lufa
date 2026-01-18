@@ -184,7 +184,7 @@ test.describe('Anchor Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants and options', async ({ mount }) => {
+    test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const variants = ['default', 'underline', 'subtle'] as const;
       const colors = ['primary', 'secondary', 'inherit'] as const;
 
@@ -343,13 +343,13 @@ test.describe('Anchor Component', () => {
         </div>
       );
 
-      await expect(component).toHaveScreenshot('anchor-all-variants-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('anchor-all-variants-light.png', {
         fullPage: true,
         animations: 'disabled',
       });
     });
 
-    test('visual regression: all variants and options (dark mode)', async ({ mount, page }) => {
+    test('visual regression: all variants and options in dark mode', async ({ mount, page }) => {
       // Set dark mode before mounting
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
@@ -536,7 +536,7 @@ test.describe('Anchor Component', () => {
         </div>
       );
 
-      await expect(component).toHaveScreenshot('anchor-all-variants-dark-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('anchor-all-variants-dark.png', {
         fullPage: true,
         animations: 'disabled',
       });

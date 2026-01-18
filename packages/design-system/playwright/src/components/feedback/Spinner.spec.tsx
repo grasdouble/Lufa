@@ -42,7 +42,7 @@ test.describe('Spinner Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all sizes and modes', async ({ mount }) => {
+    test('should match snapshot for all sizes and modes in light mode', async ({ mount }) => {
       const sizes = ['small', 'medium', 'large'] as const;
       const modes = ['A', 'B'] as const;
 
@@ -142,7 +142,7 @@ test.describe('Spinner Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('spinner-all-variants.png', {
+      await expect(component).toHaveScreenshot('spinner-all-variants-light.png', {
         animations: 'disabled',
       });
     });

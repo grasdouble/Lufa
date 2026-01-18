@@ -303,7 +303,7 @@ test.describe('Divider Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants', async ({ mount }) => {
+    test('should match snapshot for all variants in light mode', async ({ mount }) => {
       const sectionStyle = { marginBottom: '32px' };
       const titleStyle = { fontSize: '18px', fontWeight: 'bold', marginBottom: '16px', color: '#333' };
       const containerStyle = { width: '600px' };
@@ -451,7 +451,7 @@ test.describe('Divider Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('divider-all-variants.png', {
+      await expect(component).toHaveScreenshot('divider-all-variants-light.png', {
         animations: 'disabled',
       });
     });

@@ -241,7 +241,7 @@ test.describe('Breadcrumb Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants and options', async ({ mount }) => {
+    test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const sizes = ['small', 'medium', 'large'] as const;
       const separators = [
         { label: 'Default (/)', value: '/' },
@@ -342,13 +342,13 @@ test.describe('Breadcrumb Component', () => {
         </div>
       );
 
-      await expect(component).toHaveScreenshot('breadcrumb-all-variants-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('breadcrumb-all-variants-light.png', {
         fullPage: true,
         animations: 'disabled',
       });
     });
 
-    test('visual regression: all variants and options (dark mode)', async ({ mount, page }) => {
+    test('visual regression: all variants and options in dark mode', async ({ mount, page }) => {
       // Set dark mode BEFORE mounting
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
@@ -452,7 +452,7 @@ test.describe('Breadcrumb Component', () => {
         </div>
       );
 
-      await expect(component).toHaveScreenshot('breadcrumb-all-variants-dark-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('breadcrumb-all-variants-dark.png', {
         fullPage: true,
         animations: 'disabled',
       });

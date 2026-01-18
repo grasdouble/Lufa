@@ -111,7 +111,7 @@ test.describe('AvatarGroup Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all group size and variant combinations', async ({ mount }) => {
+    test('should match snapshot for all group size and variant combinations in light mode', async ({ mount }) => {
       const component = await mount(
         <div style={{ padding: '32px', background: '#ffffff', width: '900px' }}>
           <h1 style={{ marginBottom: '24px', fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
@@ -190,7 +190,7 @@ test.describe('AvatarGroup Component', () => {
 
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('avatar-group-all-variants.png', {
+      await expect(component).toHaveScreenshot('avatar-group-all-variants-light.png', {
         animations: 'disabled',
       });
     });

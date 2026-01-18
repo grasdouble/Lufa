@@ -9,7 +9,7 @@ const LayoutFooter = Layout.Footer;
 
 test.describe('Layout Component', () => {
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants and options', async ({ mount }) => {
+    test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const sidebarPositions = ['left', 'right'] as const;
       const sidebarWidths = ['collapsed', 'default', 'wide'] as const;
       const gaps = ['none', 'sm', 'md', 'lg', 'xl'] as const;
@@ -388,12 +388,12 @@ test.describe('Layout Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('layout-all-variants-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('layout-all-variants-light.png', {
         animations: 'disabled',
       });
     });
 
-    test('visual regression: dark mode variants', async ({ mount, page }) => {
+    test('visual regression: all variants and options in dark mode', async ({ mount, page }) => {
       // Set dark mode BEFORE mounting
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
@@ -796,7 +796,7 @@ test.describe('Layout Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('layout-all-variants-dark-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('layout-all-variants-dark.png', {
         animations: 'disabled',
       });
 

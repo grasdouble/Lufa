@@ -4,7 +4,7 @@ import { Container } from '@grasdouble/lufa_design-system';
 
 test.describe('Container Component', () => {
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants and options', async ({ mount }, testInfo) => {
+    test('visual regression: all variants and options in light mode', async ({ mount }, testInfo) => {
       testInfo.setTimeout(20000); // Increase timeout for large test
       const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full', 'fluid'] as const;
       const aligns = ['start', 'center', 'end'] as const;
@@ -185,12 +185,12 @@ test.describe('Container Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('container-all-variants-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('container-all-variants-light.png', {
         animations: 'disabled',
       });
     });
 
-    test('visual regression: dark mode', async ({ mount, page }, testInfo) => {
+    test('visual regression: all variants and options in dark mode', async ({ mount, page }, testInfo) => {
       testInfo.setTimeout(20000); // Increase timeout for large test
 
       // Set dark mode BEFORE mounting
@@ -392,7 +392,7 @@ test.describe('Container Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('container-all-variants-dark-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('container-all-variants-dark.png', {
         animations: 'disabled',
       });
 

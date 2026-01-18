@@ -4,7 +4,7 @@ import { AspectRatio } from '@grasdouble/lufa_design-system';
 
 test.describe('AspectRatio Component', () => {
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants and options', async ({ mount }) => {
+    test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const ratioTokens = [
         'square',
         'traditional',
@@ -133,7 +133,7 @@ test.describe('AspectRatio Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('aspectratio-all-variants-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('aspectratio-all-variants-light.png', {
         animations: 'disabled',
       });
     });
@@ -293,7 +293,7 @@ test.describe('AspectRatio Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('aspectratio-all-variants-dark-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('aspectratio-all-variants-dark.png', {
         animations: 'disabled',
       });
 

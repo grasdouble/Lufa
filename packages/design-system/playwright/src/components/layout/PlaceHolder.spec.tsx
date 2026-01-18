@@ -4,7 +4,7 @@ import { Placeholder } from '../../../../main/src/components/layout/Placeholder/
 
 test.describe('Placeholder Component', () => {
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants and options', async ({ mount }) => {
+    test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const heights = ['small', 'medium', 'large', 'auto', 'full'] as const;
       const widths = ['auto', 'small', 'medium', 'large', 'full'] as const;
       const solidColors = ['#667eea', '#764ba2', '#48c774', '#ffdd57', '#ff3860', '#333333'];
@@ -334,7 +334,7 @@ test.describe('Placeholder Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('placeholder-all-variants-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('placeholder-all-variants-light.png', {
         animations: 'disabled',
       });
     });
@@ -704,7 +704,7 @@ test.describe('Placeholder Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('placeholder-all-variants-chromium-darwin-dark.png', {
+      await expect(component).toHaveScreenshot('placeholder-all-variants-dark.png', {
         animations: 'disabled',
       });
 

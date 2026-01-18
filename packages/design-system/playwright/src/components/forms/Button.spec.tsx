@@ -163,9 +163,8 @@ test.describe('Button Component', () => {
 
     test('should support keyboard navigation', async ({ mount }) => {
       const component = await mount(<Button>Navigate me</Button>);
-      const button = component.getByRole('button', { name: 'Navigate me' });
-      await button.focus();
-      await expect(button).toBeFocused();
+      await component.focus();
+      await expect(component).toBeFocused();
     });
 
     test('should be disabled and not focusable when disabled', async ({ mount }) => {
@@ -175,7 +174,7 @@ test.describe('Button Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants', async ({ mount }) => {
+    test('should match snapshot for all variants in light mode', async ({ mount }) => {
       const variants = ['solid', 'outlined', 'ghost', 'text', 'link'] as const;
       const colors = ['primary', 'secondary', 'success', 'warning', 'danger'] as const;
       const sizes = ['small', 'medium', 'large'] as const;
@@ -241,7 +240,7 @@ test.describe('Button Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('button-all-variants-sizes-colors.png', {
+      await expect(component).toHaveScreenshot('button-all-variants-sizes-colors-light.png', {
         animations: 'disabled',
       });
     });

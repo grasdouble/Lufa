@@ -419,7 +419,7 @@ test.describe('Tabs', () => {
     });
   });
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants, positions, and sizes', async ({ mount }) => {
+    test('visual regression: all variants, positions, and sizes in light mode', async ({ mount }) => {
       const types = ['line', 'card', 'pill'] as const;
       const positions = ['top', 'bottom', 'left', 'right'] as const;
       const sizes = ['small', 'medium', 'large'] as const;
@@ -551,12 +551,12 @@ test.describe('Tabs', () => {
           </div>
         </div>
       );
-      await expect(component).toHaveScreenshot('tabs-all-variants.png', {
+      await expect(component).toHaveScreenshot('tabs-all-variants-light.png', {
         fullPage: true,
       });
     });
 
-    test('visual regression: dark mode - all variants, positions, and sizes', async ({ mount, page }) => {
+    test('visual regression: all variants, positions, and sizes in dark mode', async ({ mount, page }) => {
       // Set dark mode before mounting
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 

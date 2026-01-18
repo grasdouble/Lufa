@@ -228,7 +228,7 @@ test.describe('Kbd Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all size and variant combinations', async ({ mount }) => {
+    test('should match snapshot for all size and variant combination in light mode', async ({ mount }) => {
       const sizes = ['small', 'medium', 'large'] as const;
       const variants = ['default', 'outlined', 'solid'] as const;
 
@@ -433,7 +433,7 @@ test.describe('Kbd Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('kbd-all-variants.png', {
+      await expect(component).toHaveScreenshot('kbd-all-variants-light.png', {
         animations: 'disabled',
       });
     });

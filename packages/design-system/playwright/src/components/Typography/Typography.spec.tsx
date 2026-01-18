@@ -282,7 +282,7 @@ test.describe('Typography Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants, weights, alignments, and colors', async ({ mount }) => {
+    test('should match snapshot for all variants, weights, alignments, and colors in light mode', async ({ mount }) => {
       const variants = [
         'h1',
         'h2',
@@ -534,7 +534,7 @@ test.describe('Typography Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('typography-all-variants.png', {
+      await expect(component).toHaveScreenshot('typography-all-variants-light.png', {
         animations: 'disabled',
       });
     });

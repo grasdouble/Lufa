@@ -96,7 +96,7 @@ test.describe('Card Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants and paddings', async ({ mount }) => {
+    test('should match snapshot for all variants and paddings in light mode', async ({ mount }) => {
       const variants = ['default', 'elevated', 'outlined', 'filled'] as const;
       const paddings = ['none', 'small', 'medium', 'large'] as const;
       const component = await mount(
@@ -130,7 +130,7 @@ test.describe('Card Component', () => {
 
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('card-all-variants.png', {
+      await expect(component).toHaveScreenshot('card-all-variants-light.png', {
         animations: 'disabled',
       });
     });

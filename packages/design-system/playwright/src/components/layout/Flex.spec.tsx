@@ -4,7 +4,7 @@ import { Flex } from '@grasdouble/lufa_design-system';
 
 test.describe('Flex Component', () => {
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants and options', async ({ mount }) => {
+    test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const directions = ['row', 'column'] as const;
       const aligns = ['start', 'center', 'end', 'stretch', 'baseline'] as const;
       const justifies = ['start', 'center', 'end', 'between', 'around', 'evenly'] as const;
@@ -301,12 +301,12 @@ test.describe('Flex Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('flex-all-variants-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('flex-all-variants-light.png', {
         animations: 'disabled',
       });
     });
 
-    test('visual regression: all variants and options (dark mode)', async ({ mount, page }) => {
+    test('visual regression: all variants and options in dark mode', async ({ mount, page }) => {
       // Set dark mode BEFORE mounting
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
@@ -642,7 +642,7 @@ test.describe('Flex Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('flex-all-variants-dark-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('flex-all-variants-dark.png', {
         animations: 'disabled',
       });
 

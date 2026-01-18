@@ -367,7 +367,7 @@ test.describe('Link Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants, colors, and features', async ({ mount }) => {
+    test('should match snapshot for all variants, colors, and features in light mode', async ({ mount }) => {
       const variants = ['default', 'underline', 'button'] as const;
       const colors = ['primary', 'secondary', 'success', 'warning', 'danger', 'inherit'] as const;
       const sizes = ['small', 'medium', 'large'] as const;
@@ -617,7 +617,7 @@ test.describe('Link Component', () => {
       // Wait for stability
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('link-all-variants.png', {
+      await expect(component).toHaveScreenshot('link-all-variants-light.png', {
         animations: 'disabled',
       });
     });

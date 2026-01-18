@@ -4,7 +4,7 @@ import { Stack } from '@grasdouble/lufa_design-system';
 
 test.describe('Stack Component', () => {
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants and options', async ({ mount }) => {
+    test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const gaps = ['none', 'condensed', 'normal', 'spacious'] as const;
       const directions = ['horizontal', 'vertical'] as const;
       const aligns = ['stretch', 'start', 'center', 'end', 'baseline'] as const;
@@ -386,12 +386,12 @@ test.describe('Stack Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('stack-all-variants-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('stack-all-variants-light.png', {
         animations: 'disabled',
       });
     });
 
-    test('visual regression: all variants and options (dark mode)', async ({ mount, page }) => {
+    test('visual regression: all variants and options in dark mode', async ({ mount, page }) => {
       // Set dark mode BEFORE mounting
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
@@ -852,7 +852,7 @@ test.describe('Stack Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('stack-all-variants-dark-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('stack-all-variants-dark.png', {
         animations: 'disabled',
       });
 

@@ -4,7 +4,7 @@ import { Grid } from '@grasdouble/lufa_design-system';
 
 test.describe('Grid Component', () => {
   test.describe('Visual Regression', () => {
-    test('visual regression: all variants and options', async ({ mount }) => {
+    test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const columns = ['single', 'double', 'triple', 'quad', 'six', 'eight', 'twelve', 'sixteen'] as const;
       const gutters = ['none', 'xs', 'sm', 'md', 'lg', 'xl'] as const;
 
@@ -281,12 +281,12 @@ test.describe('Grid Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('grid-all-variants-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('grid-all-variants-light.png', {
         animations: 'disabled',
       });
     });
 
-    test('visual regression: dark mode', async ({ mount, page }) => {
+    test('visual regression: all variants and options in dark mode', async ({ mount, page }) => {
       // Set dark mode BEFORE mounting
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
@@ -587,7 +587,7 @@ test.describe('Grid Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('grid-all-variants-dark-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('grid-all-variants-dark.png', {
         animations: 'disabled',
       });
 

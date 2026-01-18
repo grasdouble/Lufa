@@ -80,7 +80,8 @@ packages/design-system/playwright/
 │   └── fixtures/                       # Shared fixtures (if needed)
 ├── __snapshots__/                      # Visual regression snapshots
 │   └── src/components/feedback/Alert.spec.tsx-snapshots/
-│       └── alert-all-variants-chromium-darwin.png
+│       └── alert-all-variants-light.png
+│       └── alert-all-variants-dark.png
 └── playwright-ct.config.ts             # Playwright CT config
 ```
 
@@ -291,13 +292,20 @@ test.describe('Accessibility', () => {
 - Proper wait for render stabilization
 - Clear section headers
 
+**Snapshot Naming Convention**:
+
+- Light mode: `component-name-all-variants-light.png` (MUST include `-light` suffix)
+- Dark mode: `component-name-all-variants-dark.png` (MUST include `-dark` suffix)
+
+Example: `modal-all-variants-light.png` and `modal-all-variants-dark.png`
+
 #### Light Mode Test (Default)
 
 For light mode, no special setup is required - just mount the component:
 
 ```typescript
 test.describe('Visual Regression', () => {
-  test('should match snapshot for all variants', async ({ mount }) => {
+  test('should match snapshot for all variants in dark mode', async ({ mount }) => {
     const variants = ['primary', 'secondary', 'ghost'] as const;
     const sizes = ['sm', 'md', 'lg'] as const;
 
@@ -353,7 +361,7 @@ test.describe('Visual Regression', () => {
     // Wait for rendering to stabilize
     await component.page().waitForTimeout(100);
 
-    await expect(component).toHaveScreenshot('component-name-all-variants.png', {
+    await expect(component).toHaveScreenshot('component-name-all-variants-light.png', {
       animations: 'disabled',
     });
   });
@@ -607,7 +615,7 @@ const element = component.locator('.my-class');
 
 ```typescript
 test.describe('Visual Regression', () => {
-  test('should match snapshot for all variants', async ({ mount }) => {
+  test('should match snapshot for all variants in light mode', async ({ mount }) => {
     const component = await mount(
       <div style={{
         padding: '32px',           // Fixed padding
@@ -647,7 +655,7 @@ test.describe('Visual Regression', () => {
     // Wait for rendering to stabilize (CRITICAL)
     await component.page().waitForTimeout(100);
 
-    await expect(component).toHaveScreenshot('component-name-variants.png', {
+    await expect(component).toHaveScreenshot('component-name-variants-light.png', {
       animations: 'disabled',         // Disable animations at snapshot
     });
   });
