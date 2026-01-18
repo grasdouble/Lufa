@@ -20,8 +20,13 @@
   background-image: none;
   border: 0;
   cursor: pointer;
-  outline: none;
 }
+
+/* 
+ * Note: outline is NOT reset here to preserve accessibility.
+ * Components should explicitly handle focus styles with :focus-visible
+ * or use a custom focus indicator.
+ */
 
 /* Input/Textarea reset utility */
 /* Foundation utility - for internal use */
@@ -35,8 +40,13 @@
   padding: 0;
   border: 0;
   background: transparent;
-  outline: none;
 }
+
+/* 
+ * Note: outline is NOT reset here to preserve accessibility.
+ * Components should explicitly handle focus styles with :focus-visible
+ * or use a custom focus indicator (e.g., box-shadow).
+ */
 
 /* Heading reset utility */
 /* Foundation utility - for internal use */
