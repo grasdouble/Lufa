@@ -217,6 +217,31 @@ test.describe('Typography Component', () => {
       await expect(component).toHaveAttribute('role', 'alert');
     });
 
+    test('should have accessible structure for heading', async ({ mount }) => {
+      const component = await mount(<Typography variant="h1">Main Heading</Typography>);
+      await expect(component).toMatchAriaSnapshot(`
+        - heading "Main Heading" [level=1]
+      `);
+    });
+
+    test('should have accessible structure for body text', async ({ mount }) => {
+      const component = await mount(<Typography variant="body">Body text content</Typography>);
+      await expect(component).toMatchAriaSnapshot(`
+        - paragraph: Body text content
+      `);
+    });
+
+    test('should have accessible structure for interactive button', async ({ mount }) => {
+      const component = await mount(
+        <Typography as="button" variant="body">
+          Clickable text
+        </Typography>
+      );
+      await expect(component).toMatchAriaSnapshot(`
+        - button "Clickable text"
+      `);
+    });
+
     test('should be keyboard accessible when interactive', async ({ mount }) => {
       const component = await mount(
         <Typography as="button" variant="body">
@@ -276,7 +301,7 @@ test.describe('Typography Component', () => {
       const colors = ['primary', 'secondary', 'tertiary', 'inverse', 'error', 'success', 'warning'] as const;
 
       const component = await mount(
-        <div style={{ padding: '32px', background: '#ffffff', width: '1200px' }}>
+        <div style={{ padding: '32px', background: '#ffffff', width: '900px' }}>
           {/* Header */}
           <h1 style={{ marginBottom: '32px', fontSize: '32px', fontWeight: 'bold', color: '#333' }}>
             Typography Component - All Variants
@@ -506,7 +531,442 @@ test.describe('Typography Component', () => {
         { animations: 'disabled' }
       );
 
-      await expect(component).toHaveScreenshot('typography-all-variants.png');
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('typography-all-variants.png', {
+        animations: 'disabled',
+      });
+    });
+
+    test('should match snapshot for all variants in dark mode', async ({ mount, page }) => {
+      // CRITICAL: Set dark mode on document root BEFORE mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const variants = [
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'body',
+        'bodyLarge',
+        'bodySmall',
+        'caption',
+        'label',
+      ] as const;
+      const weights = ['light', 'normal', 'medium', 'semibold', 'bold'] as const;
+      const alignments = ['left', 'center', 'right', 'justify'] as const;
+      const colors = ['primary', 'secondary', 'tertiary', 'inverse', 'error', 'success', 'warning'] as const;
+
+      const component = await mount(
+        <div
+          style={{
+            padding: '32px',
+            width: '900px',
+            background: 'var(--lufa-token-color-background-primary)',
+          }}
+        >
+          {/* Header */}
+          <h1
+            style={{
+              marginBottom: '32px',
+              fontSize: '32px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Typography Component - All Variants (Dark Mode)
+          </h1>
+
+          {/* Typography Variants Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '20px',
+                fontSize: '24px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Typography Variants
+            </h2>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px',
+                padding: '20px',
+                background: 'var(--lufa-token-color-background-secondary)',
+                borderRadius: '8px',
+              }}
+            >
+              {variants.map((variant) => (
+                <div
+                  key={variant}
+                  style={{ borderBottom: '1px solid var(--lufa-token-color-border-primary)', paddingBottom: '12px' }}
+                >
+                  <Typography variant={variant}>
+                    {variant.charAt(0).toUpperCase() + variant.slice(1)} - The quick brown fox jumps over the lazy dog
+                  </Typography>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Font Weights Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '20px',
+                fontSize: '24px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Font Weights (body variant)
+            </h2>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px',
+                padding: '20px',
+                background: 'var(--lufa-token-color-background-secondary)',
+                borderRadius: '8px',
+              }}
+            >
+              {weights.map((weight) => (
+                <Typography key={weight} variant="body" weight={weight}>
+                  {weight.charAt(0).toUpperCase() + weight.slice(1)} weight - The quick brown fox jumps over the lazy
+                  dog
+                </Typography>
+              ))}
+            </div>
+          </section>
+
+          {/* Text Alignment Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '20px',
+                fontSize: '24px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Text Alignment
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              {alignments.map((align) => (
+                <div
+                  key={align}
+                  style={{
+                    padding: '16px',
+                    background: 'var(--lufa-token-color-background-secondary)',
+                    borderRadius: '8px',
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: '12px',
+                      color: 'var(--lufa-token-color-text-tertiary)',
+                      marginBottom: '8px',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    {align}
+                  </p>
+                  <Typography variant="body" align={align}>
+                    This text is aligned to {align}. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </Typography>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Color Variants Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '20px',
+                fontSize: '24px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Color Variants
+            </h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
+              {colors.map((color) => (
+                <div
+                  key={color}
+                  style={{
+                    padding: '16px',
+                    background:
+                      color === 'inverse'
+                        ? 'var(--lufa-token-color-background-inverse)'
+                        : 'var(--lufa-token-color-background-secondary)',
+                    borderRadius: '8px',
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: '12px',
+                      color: 'var(--lufa-token-color-text-tertiary)',
+                      marginBottom: '8px',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    {color}
+                  </p>
+                  <Typography variant="body" color={color}>
+                    This is {color} colored text. The quick brown fox jumps over the lazy dog.
+                  </Typography>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Heading Hierarchy Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '20px',
+                fontSize: '24px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Heading Hierarchy
+            </h2>
+            <div
+              style={{
+                padding: '20px',
+                background: 'var(--lufa-token-color-background-secondary)',
+                borderRadius: '8px',
+              }}
+            >
+              <Typography variant="h1">Heading 1 - Main Title</Typography>
+              <Typography variant="h2" style={{ marginTop: '16px' }}>
+                Heading 2 - Section Title
+              </Typography>
+              <Typography variant="h3" style={{ marginTop: '12px' }}>
+                Heading 3 - Subsection Title
+              </Typography>
+              <Typography variant="h4" style={{ marginTop: '12px' }}>
+                Heading 4 - Minor Heading
+              </Typography>
+              <Typography variant="h5" style={{ marginTop: '8px' }}>
+                Heading 5 - Small Heading
+              </Typography>
+              <Typography variant="h6" style={{ marginTop: '8px' }}>
+                Heading 6 - Smallest Heading
+              </Typography>
+            </div>
+          </section>
+
+          {/* Body Text Variants Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '20px',
+                fontSize: '24px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Body Text Variants
+            </h2>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px',
+                padding: '20px',
+                background: 'var(--lufa-token-color-background-secondary)',
+                borderRadius: '8px',
+              }}
+            >
+              <div>
+                <p
+                  style={{
+                    fontSize: '12px',
+                    color: 'var(--lufa-token-color-text-tertiary)',
+                    marginBottom: '4px',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Body Large
+                </p>
+                <Typography variant="bodyLarge">
+                  Large body text for emphasis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </Typography>
+              </div>
+              <div>
+                <p
+                  style={{
+                    fontSize: '12px',
+                    color: 'var(--lufa-token-color-text-tertiary)',
+                    marginBottom: '4px',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Body (Default)
+                </p>
+                <Typography variant="body">
+                  Regular body text for content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </Typography>
+              </div>
+              <div>
+                <p
+                  style={{
+                    fontSize: '12px',
+                    color: 'var(--lufa-token-color-text-tertiary)',
+                    marginBottom: '4px',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Body Small
+                </p>
+                <Typography variant="bodySmall">
+                  Small body text for less emphasis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </Typography>
+              </div>
+            </div>
+          </section>
+
+          {/* Caption and Label Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '20px',
+                fontSize: '24px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Caption & Label
+            </h2>
+            <div
+              style={{
+                display: 'flex',
+                gap: '32px',
+                padding: '20px',
+                background: 'var(--lufa-token-color-background-secondary)',
+                borderRadius: '8px',
+              }}
+            >
+              <div>
+                <p
+                  style={{
+                    fontSize: '12px',
+                    color: 'var(--lufa-token-color-text-tertiary)',
+                    marginBottom: '8px',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Caption
+                </p>
+                <Typography variant="caption">Caption text for image descriptions or footnotes</Typography>
+              </div>
+              <div>
+                <p
+                  style={{
+                    fontSize: '12px',
+                    color: 'var(--lufa-token-color-text-tertiary)',
+                    marginBottom: '8px',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Label
+                </p>
+                <Typography variant="label">Label text for form fields</Typography>
+              </div>
+            </div>
+          </section>
+
+          {/* Complex Combinations Section */}
+          <section>
+            <h2
+              style={{
+                marginBottom: '20px',
+                fontSize: '24px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Complex Combinations
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              {/* Card Example */}
+              <div
+                style={{
+                  padding: '24px',
+                  background: 'var(--lufa-token-color-background-secondary)',
+                  borderRadius: '8px',
+                  border: '1px solid var(--lufa-token-color-border-primary)',
+                }}
+              >
+                <Typography variant="h3" weight="bold" color="primary">
+                  Article Title
+                </Typography>
+                <Typography variant="caption" color="secondary" style={{ marginTop: '8px', display: 'block' }}>
+                  Published on January 18, 2026
+                </Typography>
+                <Typography variant="body" style={{ marginTop: '16px', display: 'block' }}>
+                  This is an example of a card layout using various Typography combinations. The heading uses h3 variant
+                  with bold weight, the date uses caption with secondary color, and this paragraph uses the default body
+                  variant.
+                </Typography>
+              </div>
+
+              {/* Alert Example */}
+              <div
+                style={{
+                  padding: '20px',
+                  background: 'var(--lufa-token-color-background-error)',
+                  borderRadius: '8px',
+                  border: '1px solid var(--lufa-token-color-border-error)',
+                }}
+              >
+                <Typography variant="bodyLarge" weight="semibold" color="error">
+                  Error: Something went wrong
+                </Typography>
+                <Typography variant="bodySmall" color="error" style={{ marginTop: '8px', display: 'block' }}>
+                  Please check your input and try again.
+                </Typography>
+              </div>
+
+              {/* Success Example */}
+              <div
+                style={{
+                  padding: '20px',
+                  background: 'var(--lufa-token-color-background-success)',
+                  borderRadius: '8px',
+                  border: '1px solid var(--lufa-token-color-border-success)',
+                }}
+              >
+                <Typography variant="body" weight="medium" color="success">
+                  Success! Your changes have been saved.
+                </Typography>
+              </div>
+            </div>
+          </section>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('typography-all-variants-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up: remove dark mode to avoid affecting other tests
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

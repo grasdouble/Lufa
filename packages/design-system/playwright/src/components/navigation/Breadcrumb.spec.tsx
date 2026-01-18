@@ -347,5 +347,118 @@ test.describe('Breadcrumb Component', () => {
         animations: 'disabled',
       });
     });
+
+    test('visual regression: all variants and options (dark mode)', async ({ mount, page }) => {
+      // Set dark mode BEFORE mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const sizes = ['small', 'medium', 'large'] as const;
+      const separators = [
+        { label: 'Default (/)', value: '/' },
+        { label: 'Arrow (>)', value: '>' },
+        { label: 'Dash (-)', value: '-' },
+        { label: 'Custom (→)', value: '→' },
+      ];
+
+      const sectionTitleStyle: React.CSSProperties = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '32px 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+        borderBottom: '2px solid var(--lufa-token-color-text-primary)',
+        paddingBottom: 8,
+      };
+
+      const labelStyle: React.CSSProperties = {
+        fontWeight: 600,
+        fontSize: 14,
+        marginBottom: 8,
+        color: 'var(--lufa-token-color-text-secondary)',
+      };
+
+      const containerStyle: React.CSSProperties = {
+        padding: 16,
+        background: 'var(--lufa-token-color-background-primary)',
+        border: '1px solid var(--lufa-token-color-text-secondary)',
+        borderRadius: 4,
+        marginBottom: 16,
+      };
+
+      const component = await mount(
+        <div style={{ padding: 24, background: 'var(--lufa-token-color-background-primary)' }}>
+          {/* Size Variants */}
+          <div style={sectionTitleStyle}>Breadcrumb - Size Variants (Dark Mode)</div>
+          {sizes.map((size) => (
+            <div key={size} style={containerStyle}>
+              <div style={labelStyle}>Size: {size}</div>
+              <Breadcrumb items={basicItems} size={size} />
+            </div>
+          ))}
+
+          {/* With Icons */}
+          <div style={sectionTitleStyle}>With Icons (Dark Mode)</div>
+          {sizes.map((size) => (
+            <div key={size} style={containerStyle}>
+              <div style={labelStyle}>Size: {size} with icons</div>
+              <Breadcrumb items={itemsWithIcons} size={size} />
+            </div>
+          ))}
+
+          {/* Custom Separators */}
+          <div style={sectionTitleStyle}>Custom Separators (Dark Mode)</div>
+          {separators.map((sep) => (
+            <div key={sep.label} style={containerStyle}>
+              <div style={labelStyle}>{sep.label}</div>
+              <Breadcrumb items={basicItems} separator={sep.value} />
+            </div>
+          ))}
+
+          {/* Edge Cases */}
+          <div style={sectionTitleStyle}>Edge Cases (Dark Mode)</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Single Item</div>
+            <Breadcrumb items={[{ label: 'Home' }]} />
+          </div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Many Items</div>
+            <Breadcrumb
+              items={[
+                { label: 'Level 1', href: '/l1' },
+                { label: 'Level 2', href: '/l2' },
+                { label: 'Level 3', href: '/l3' },
+                { label: 'Level 4', href: '/l4' },
+                { label: 'Level 5', href: '/l5' },
+                { label: 'Current Page' },
+              ]}
+            />
+          </div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Long Labels</div>
+            <Breadcrumb
+              items={[
+                { label: 'This is a very long breadcrumb item label', href: '/' },
+                { label: 'Another extremely long label that might wrap to multiple lines', href: '/page' },
+                { label: 'Final item with a lengthy descriptive name' },
+              ]}
+            />
+          </div>
+
+          {/* Combination: Large + Icons + Custom Separator */}
+          <div style={sectionTitleStyle}>Combined Features (Dark Mode)</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Large size + Icons + Custom separator (→)</div>
+            <Breadcrumb items={itemsWithIcons} size="large" separator="→" />
+          </div>
+        </div>
+      );
+
+      await expect(component).toHaveScreenshot('breadcrumb-all-variants-dark-chromium-darwin.png', {
+        fullPage: true,
+        animations: 'disabled',
+      });
+
+      // Cleanup: remove dark mode attribute
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
+    });
   });
 });

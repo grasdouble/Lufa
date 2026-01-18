@@ -422,7 +422,7 @@ test.describe('Steps Component', () => {
       };
 
       const component = await mount(
-        <div style={{ padding: 24, background: '#f9f9f9' }}>
+        <div style={{ padding: 32, background: '#ffffff', width: '900px' }}>
           {/* Direction and Size Combinations */}
           <div style={sectionTitleStyle}>Steps - Direction and Size Variants</div>
           {directions.map((direction) =>
@@ -523,13 +523,166 @@ test.describe('Steps Component', () => {
             <div style={labelStyle}>Vertical + Icons + Custom Status + Clickable</div>
             <Steps items={stepsWithIcons} current={1} direction="vertical" onChange={() => {}} />
           </div>
-        </div>
+        </div>,
+        { animations: 'disabled' }
       );
 
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
+
       await expect(component).toHaveScreenshot('steps-all-variants-chromium-darwin.png', {
-        fullPage: true,
         animations: 'disabled',
       });
+    });
+
+    test('visual regression: all variants and options (dark mode)', async ({ mount, page }) => {
+      // Set dark mode BEFORE mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const directions = ['horizontal', 'vertical'] as const;
+      const sizes = ['small', 'default'] as const;
+
+      const sectionTitleStyle: React.CSSProperties = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '32px 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+        borderBottom: '2px solid var(--lufa-token-color-text-primary)',
+        paddingBottom: 8,
+      };
+
+      const labelStyle: React.CSSProperties = {
+        fontWeight: 600,
+        fontSize: 14,
+        marginBottom: 8,
+        color: 'var(--lufa-token-color-text-secondary)',
+      };
+
+      const containerStyle: React.CSSProperties = {
+        padding: 16,
+        background: 'var(--lufa-token-color-background-primary)',
+        border: '1px solid #444',
+        borderRadius: 4,
+        marginBottom: 16,
+      };
+
+      const component = await mount(
+        <div style={{ padding: 24, background: 'var(--lufa-token-color-background-primary)', width: '900px' }}>
+          {/* Direction and Size Combinations */}
+          <div style={sectionTitleStyle}>Steps - Direction and Size Variants</div>
+          {directions.map((direction) =>
+            sizes.map((size) => (
+              <div key={`${direction}-${size}`} style={containerStyle}>
+                <div style={labelStyle}>
+                  Direction: {direction}, Size: {size}
+                </div>
+                <Steps items={basicSteps} current={1} direction={direction} size={size} />
+              </div>
+            ))
+          )}
+
+          {/* Progress States */}
+          <div style={sectionTitleStyle}>Progress States</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>First Step (current=0)</div>
+            <Steps items={basicSteps} current={0} />
+          </div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Middle Step (current=1)</div>
+            <Steps items={basicSteps} current={1} />
+          </div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Last Step (current=2)</div>
+            <Steps items={basicSteps} current={2} />
+          </div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>All Complete (current=3)</div>
+            <Steps items={basicSteps} current={3} />
+          </div>
+
+          {/* Custom Status */}
+          <div style={sectionTitleStyle}>Custom Status</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>All Status Types</div>
+            <Steps items={stepsWithCustomStatus} />
+          </div>
+
+          {/* With Icons */}
+          <div style={sectionTitleStyle}>With Custom Icons</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Horizontal with icons</div>
+            <Steps items={stepsWithIcons} current={1} />
+          </div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Vertical with icons</div>
+            <Steps items={stepsWithIcons} current={2} direction="vertical" />
+          </div>
+
+          {/* Clickable Steps */}
+          <div style={sectionTitleStyle}>Clickable Steps</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>With onChange handler (clickable)</div>
+            <Steps items={basicSteps} current={1} onChange={() => {}} />
+            <div style={{ marginTop: 8, fontSize: 12, color: 'var(--lufa-token-color-text-secondary)' }}>
+              Steps are clickable with onChange prop
+            </div>
+          </div>
+
+          {/* Vertical Layout Examples */}
+          <div style={sectionTitleStyle}>Vertical Layout</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Vertical - Default size</div>
+            <Steps items={basicSteps} current={1} direction="vertical" />
+          </div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Vertical - Small size</div>
+            <Steps items={basicSteps} current={1} direction="vertical" size="small" />
+          </div>
+
+          {/* Edge Cases */}
+          <div style={sectionTitleStyle}>Edge Cases</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Single Step</div>
+            <Steps items={[{ title: 'Only Step', description: 'Single step' }]} current={0} />
+          </div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Many Steps (6 steps)</div>
+            <Steps
+              items={[
+                { title: 'Step 1' },
+                { title: 'Step 2' },
+                { title: 'Step 3' },
+                { title: 'Step 4' },
+                { title: 'Step 5' },
+                { title: 'Step 6' },
+              ]}
+              current={2}
+            />
+          </div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Without Descriptions</div>
+            <Steps items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]} current={1} />
+          </div>
+
+          {/* Combined Features */}
+          <div style={sectionTitleStyle}>Combined Features</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Vertical + Icons + Custom Status + Clickable</div>
+            <Steps items={stepsWithIcons} current={1} direction="vertical" onChange={() => {}} />
+          </div>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      // Wait for stability
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('steps-all-variants-chromium-darwin-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

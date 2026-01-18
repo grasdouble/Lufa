@@ -233,13 +233,13 @@ test.describe('Kbd Component', () => {
       const variants = ['default', 'outlined', 'solid'] as const;
 
       const component = await mount(
-        <div style={{ padding: '32px', background: '#fafafa', width: 'fit-content' }}>
-          <h1 style={{ marginBottom: '24px', fontSize: '28px', fontWeight: 'bold', color: '#1a1a1a' }}>
+        <div style={{ padding: '32px', background: '#ffffff', width: '900px' }}>
+          <h1 style={{ marginBottom: '24px', fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
             Kbd Component - All Variants
           </h1>
 
           {/* Size × Variant Grid */}
-          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#333' }}>
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>
             Size × Variant Combinations
           </h2>
           <table
@@ -309,7 +309,7 @@ test.describe('Kbd Component', () => {
           </table>
 
           {/* Common Keyboard Keys */}
-          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#333' }}>
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>
             Common Keyboard Keys
           </h2>
           <div
@@ -342,7 +342,7 @@ test.describe('Kbd Component', () => {
           </div>
 
           {/* Key Combinations Examples */}
-          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#333' }}>
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>
             Keyboard Shortcuts
           </h2>
           <div
@@ -393,7 +393,7 @@ test.describe('Kbd Component', () => {
           </div>
 
           {/* Variant Comparison at Same Size */}
-          <h2 style={{ marginTop: '48px', marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#333' }}>
+          <h2 style={{ marginTop: '48px', marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>
             Variants Comparison (Large Size)
           </h2>
           <div
@@ -426,10 +426,340 @@ test.describe('Kbd Component', () => {
               </Kbd>
             </div>
           </div>
-        </div>
+        </div>,
+        { animations: 'disabled' }
       );
 
-      await expect(component).toHaveScreenshot('kbd-all-variants.png');
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('kbd-all-variants.png', {
+        animations: 'disabled',
+      });
+    });
+
+    test('should match snapshot for all size and variant combinations in dark mode', async ({ mount, page }) => {
+      // Set dark mode before mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const sizes = ['small', 'medium', 'large'] as const;
+      const variants = ['default', 'outlined', 'solid'] as const;
+
+      const component = await mount(
+        <div
+          style={{
+            padding: '32px',
+            background: 'var(--lufa-token-color-background-primary)',
+            width: '900px',
+          }}
+        >
+          <h1
+            style={{
+              marginBottom: '24px',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Kbd Component - All Variants (Dark Mode)
+          </h1>
+
+          {/* Size × Variant Grid */}
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Size × Variant Combinations
+          </h2>
+          <table
+            style={{
+              borderCollapse: 'separate',
+              borderSpacing: '12px',
+              marginBottom: '48px',
+              background: 'var(--lufa-token-color-background-primary)',
+              padding: '16px',
+              borderRadius: '8px',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+            }}
+          >
+            <thead>
+              <tr>
+                <th
+                  style={{
+                    padding: '12px 16px',
+                    textAlign: 'left',
+                    fontWeight: '600',
+                    color: 'var(--lufa-token-color-text-secondary)',
+                    fontSize: '14px',
+                  }}
+                >
+                  Size / Variant
+                </th>
+                {variants.map((variant) => (
+                  <th
+                    key={variant}
+                    style={{
+                      padding: '12px 16px',
+                      textAlign: 'center',
+                      fontWeight: '600',
+                      color: 'var(--lufa-token-color-text-secondary)',
+                      fontSize: '14px',
+                    }}
+                  >
+                    {variant}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {sizes.map((size) => (
+                <tr key={size}>
+                  <td
+                    style={{
+                      padding: '12px 16px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-token-color-text-secondary)',
+                      fontSize: '14px',
+                      textAlign: 'left',
+                    }}
+                  >
+                    {size}
+                  </td>
+                  {variants.map((variant) => (
+                    <td key={variant} style={{ padding: '12px 16px', textAlign: 'center' }}>
+                      <Kbd size={size} variant={variant}>
+                        K
+                      </Kbd>
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {/* Common Keyboard Keys */}
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Common Keyboard Keys
+          </h2>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '12px',
+              marginBottom: '48px',
+              background: 'var(--lufa-token-color-background-primary)',
+              padding: '24px',
+              borderRadius: '8px',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+            }}
+          >
+            <Kbd>Ctrl</Kbd>
+            <Kbd>Alt</Kbd>
+            <Kbd>Shift</Kbd>
+            <Kbd>Cmd</Kbd>
+            <Kbd>⌘</Kbd>
+            <Kbd>Enter</Kbd>
+            <Kbd>Esc</Kbd>
+            <Kbd>Tab</Kbd>
+            <Kbd>Space</Kbd>
+            <Kbd>Delete</Kbd>
+            <Kbd>Backspace</Kbd>
+            <Kbd>↑</Kbd>
+            <Kbd>↓</Kbd>
+            <Kbd>←</Kbd>
+            <Kbd>→</Kbd>
+          </div>
+
+          {/* Key Combinations Examples */}
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Keyboard Shortcuts
+          </h2>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+              background: 'var(--lufa-token-color-background-primary)',
+              padding: '24px',
+              borderRadius: '8px',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span
+                style={{
+                  minWidth: '120px',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  fontSize: '14px',
+                }}
+              >
+                Copy:
+              </span>
+              <Kbd>Ctrl</Kbd>
+              <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>+</span>
+              <Kbd>C</Kbd>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span
+                style={{
+                  minWidth: '120px',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  fontSize: '14px',
+                }}
+              >
+                Paste:
+              </span>
+              <Kbd>Cmd</Kbd>
+              <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>+</span>
+              <Kbd>V</Kbd>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span
+                style={{
+                  minWidth: '120px',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  fontSize: '14px',
+                }}
+              >
+                Undo:
+              </span>
+              <Kbd>Ctrl</Kbd>
+              <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>+</span>
+              <Kbd>Z</Kbd>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span
+                style={{
+                  minWidth: '120px',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  fontSize: '14px',
+                }}
+              >
+                Command:
+              </span>
+              <Kbd>Cmd</Kbd>
+              <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>+</span>
+              <Kbd>Shift</Kbd>
+              <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>+</span>
+              <Kbd>P</Kbd>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span
+                style={{
+                  minWidth: '120px',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  fontSize: '14px',
+                }}
+              >
+                Navigate:
+              </span>
+              <Kbd>Ctrl</Kbd>
+              <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>+</span>
+              <Kbd>←</Kbd>
+              <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>/</span>
+              <Kbd>→</Kbd>
+            </div>
+          </div>
+
+          {/* Variant Comparison at Same Size */}
+          <h2
+            style={{
+              marginTop: '48px',
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Variants Comparison (Large Size)
+          </h2>
+          <div
+            style={{
+              display: 'flex',
+              gap: '24px',
+              background: 'var(--lufa-token-color-background-primary)',
+              padding: '24px',
+              borderRadius: '8px',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+              justifyContent: 'center',
+            }}
+          >
+            <div style={{ textAlign: 'center' }}>
+              <div
+                style={{
+                  marginBottom: '8px',
+                  fontSize: '12px',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  fontWeight: '500',
+                }}
+              >
+                Default
+              </div>
+              <Kbd size="large" variant="default">
+                Enter
+              </Kbd>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div
+                style={{
+                  marginBottom: '8px',
+                  fontSize: '12px',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  fontWeight: '500',
+                }}
+              >
+                Outlined
+              </div>
+              <Kbd size="large" variant="outlined">
+                Enter
+              </Kbd>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div
+                style={{
+                  marginBottom: '8px',
+                  fontSize: '12px',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  fontWeight: '500',
+                }}
+              >
+                Solid
+              </div>
+              <Kbd size="large" variant="solid">
+                Enter
+              </Kbd>
+            </div>
+          </div>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('kbd-all-variants-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

@@ -638,4 +638,147 @@ test.describe('Pagination', () => {
 
     await expect(component).toHaveScreenshot('pagination-all-variants.png');
   });
+
+  // Visual regression test - Dark mode
+  test('visual regression: pagination all variants (dark mode)', async ({ mount, page }) => {
+    // Set dark mode before mounting
+    await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+    const containerStyle = {
+      padding: 24,
+      background: 'var(--lufa-token-color-background-primary)',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 32,
+    };
+    const sectionStyle = {
+      background: 'var(--lufa-token-color-background-primary)',
+      padding: 16,
+      borderRadius: 8,
+    };
+    const titleStyle = {
+      fontWeight: 600,
+      marginBottom: 16,
+      fontSize: 14,
+      color: 'var(--lufa-token-color-text-primary)',
+    };
+    const labelStyle = {
+      fontSize: 12,
+      marginBottom: 8,
+      color: 'var(--lufa-token-color-text-secondary)',
+    };
+
+    const component = await mount(
+      <div style={containerStyle}>
+        {/* Size variants */}
+        <div style={sectionStyle}>
+          <div style={titleStyle}>Size Variants</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div>
+              <div style={labelStyle}>Small</div>
+              <Pagination current={5} total={100} size="small" />
+            </div>
+            <div>
+              <div style={labelStyle}>Medium</div>
+              <Pagination current={5} total={100} size="medium" />
+            </div>
+            <div>
+              <div style={labelStyle}>Large</div>
+              <Pagination current={5} total={100} size="large" />
+            </div>
+          </div>
+        </div>
+
+        {/* Page states */}
+        <div style={sectionStyle}>
+          <div style={titleStyle}>Page States</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div>
+              <div style={labelStyle}>First Page (prev disabled)</div>
+              <Pagination current={1} total={100} />
+            </div>
+            <div>
+              <div style={labelStyle}>Middle Page</div>
+              <Pagination current={5} total={100} />
+            </div>
+            <div>
+              <div style={labelStyle}>Last Page (next disabled)</div>
+              <Pagination current={10} total={100} pageSize={10} />
+            </div>
+          </div>
+        </div>
+
+        {/* Ellipsis patterns */}
+        <div style={sectionStyle}>
+          <div style={titleStyle}>Ellipsis Patterns</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div>
+              <div style={labelStyle}>No Ellipsis (7 pages or fewer)</div>
+              <Pagination current={3} total={70} pageSize={10} />
+            </div>
+            <div>
+              <div style={labelStyle}>Ellipsis at End (near beginning)</div>
+              <Pagination current={2} total={100} pageSize={10} />
+            </div>
+            <div>
+              <div style={labelStyle}>Ellipsis at Start (near end)</div>
+              <Pagination current={9} total={100} pageSize={10} />
+            </div>
+            <div>
+              <div style={labelStyle}>Double Ellipsis (middle)</div>
+              <Pagination current={5} total={100} pageSize={10} />
+            </div>
+          </div>
+        </div>
+
+        {/* Quick jumper and size changer */}
+        <div style={sectionStyle}>
+          <div style={titleStyle}>Features</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div>
+              <div style={labelStyle}>With Quick Jumper</div>
+              <Pagination current={5} total={100} showQuickJumper />
+            </div>
+            <div>
+              <div style={labelStyle}>With Size Changer</div>
+              <Pagination current={5} total={100} showSizeChanger />
+            </div>
+            <div>
+              <div style={labelStyle}>With Both</div>
+              <Pagination current={5} total={100} showQuickJumper showSizeChanger />
+            </div>
+          </div>
+        </div>
+
+        {/* Custom text */}
+        <div style={sectionStyle}>
+          <div style={titleStyle}>Custom Text</div>
+          <div>
+            <div style={labelStyle}>Custom Prev/Next Text</div>
+            <Pagination current={5} total={100} prevText="Previous" nextText="Next" />
+          </div>
+        </div>
+
+        {/* Edge cases */}
+        <div style={sectionStyle}>
+          <div style={titleStyle}>Edge Cases</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div>
+              <div style={labelStyle}>Single Page</div>
+              <Pagination current={1} total={5} pageSize={10} />
+            </div>
+            <div>
+              <div style={labelStyle}>Many Pages (100 pages)</div>
+              <Pagination current={50} total={1000} pageSize={10} />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+
+    await expect(component).toHaveScreenshot('pagination-all-variants-dark.png');
+
+    // Cleanup: remove dark mode
+    await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
+  });
 });

@@ -192,7 +192,7 @@ test.describe('Skeleton Component', () => {
       ];
 
       const component = await mount(
-        <div style={{ padding: '32px', background: '#ffffff' }}>
+        <div style={{ padding: '32px', background: '#ffffff', width: '900px' }}>
           {/* Header */}
           <h1 style={{ marginBottom: '24px', fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
             Skeleton Component - All Variants
@@ -376,10 +376,322 @@ test.describe('Skeleton Component', () => {
               </div>
             </div>
           </section>
-        </div>
+        </div>,
+        { animations: 'disabled' }
       );
 
-      await expect(component).toHaveScreenshot('skeleton-all-variants.png');
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('skeleton-all-variants.png', {
+        animations: 'disabled',
+      });
+    });
+
+    test('should match snapshot for all variants and animations in dark mode', async ({ mount, page }) => {
+      // Set dark mode BEFORE mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const variants = ['text', 'circular', 'rectangular'] as const;
+      const animations = [
+        { value: 'pulse' as const, label: 'Pulse' },
+        { value: 'wave' as const, label: 'Wave' },
+        { value: false as const, label: 'None' },
+      ];
+
+      const component = await mount(
+        <div style={{ padding: '32px', background: 'var(--lufa-token-color-background-primary)', width: '900px' }}>
+          {/* Header */}
+          <h1
+            style={{
+              marginBottom: '24px',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Skeleton Component - All Variants (Dark Mode)
+          </h1>
+
+          {/* Variants × Animations Grid */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Variant × Animation Combinations
+            </h2>
+            <table
+              style={{
+                borderCollapse: 'collapse',
+                width: '100%',
+                border: '1px solid var(--lufa-token-color-text-secondary)',
+                background: 'var(--lufa-token-color-background-primary)',
+              }}
+            >
+              <thead>
+                <tr style={{ background: 'var(--lufa-token-color-background-primary)' }}>
+                  <th
+                    style={{
+                      padding: '12px',
+                      textAlign: 'left',
+                      borderBottom: '2px solid var(--lufa-token-color-text-secondary)',
+                      color: 'var(--lufa-token-color-text-primary)',
+                    }}
+                  >
+                    Variant
+                  </th>
+                  {animations.map((anim) => (
+                    <th
+                      key={String(anim.value)}
+                      style={{
+                        padding: '12px',
+                        textAlign: 'center',
+                        borderBottom: '2px solid var(--lufa-token-color-text-secondary)',
+                        color: 'var(--lufa-token-color-text-primary)',
+                      }}
+                    >
+                      {anim.label}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {variants.map((variant) => (
+                  <tr key={variant} style={{ borderBottom: '1px solid var(--lufa-token-color-text-secondary)' }}>
+                    <td
+                      style={{
+                        padding: '16px',
+                        fontWeight: '500',
+                        textTransform: 'capitalize',
+                        color: 'var(--lufa-token-color-text-primary)',
+                      }}
+                    >
+                      {variant}
+                    </td>
+                    {animations.map((anim) => (
+                      <td key={String(anim.value)} style={{ padding: '16px', textAlign: 'center' }}>
+                        <Skeleton
+                          variant={variant}
+                          animation={anim.value}
+                          width={variant === 'circular' ? 60 : 150}
+                          height={variant === 'circular' ? 60 : variant === 'text' ? undefined : 60}
+                        />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </section>
+
+          {/* Different Sizes Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Width & Height Variations
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              <div>
+                <p style={{ marginBottom: '8px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
+                  Rectangular - Various sizes
+                </p>
+                <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-end' }}>
+                  <Skeleton variant="rectangular" width={100} height={100} />
+                  <Skeleton variant="rectangular" width={150} height={80} />
+                  <Skeleton variant="rectangular" width={200} height={120} />
+                </div>
+              </div>
+              <div>
+                <p style={{ marginBottom: '8px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
+                  Circular - Avatar sizes
+                </p>
+                <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+                  <Skeleton variant="circular" width={32} height={32} />
+                  <Skeleton variant="circular" width={48} height={48} />
+                  <Skeleton variant="circular" width={64} height={64} />
+                  <Skeleton variant="circular" width={80} height={80} />
+                </div>
+              </div>
+              <div>
+                <p style={{ marginBottom: '8px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
+                  Text - Percentage widths
+                </p>
+                <div style={{ width: '400px' }}>
+                  <Skeleton variant="text" width="100%" style={{ marginBottom: '8px' }} />
+                  <Skeleton variant="text" width="90%" style={{ marginBottom: '8px' }} />
+                  <Skeleton variant="text" width="70%" style={{ marginBottom: '8px' }} />
+                  <Skeleton variant="text" width="50%" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Real-World Examples Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Real-World Loading Patterns
+            </h2>
+            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+              {/* User Card Loading */}
+              <div
+                style={{
+                  width: '280px',
+                  padding: '20px',
+                  border: '1px solid var(--lufa-token-color-text-secondary)',
+                  borderRadius: '8px',
+                  background: 'var(--lufa-token-color-background-primary)',
+                }}
+              >
+                <p
+                  style={{
+                    marginBottom: '12px',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    color: 'var(--lufa-token-color-text-secondary)',
+                  }}
+                >
+                  User Card
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
+                  <Skeleton variant="circular" width={48} height={48} style={{ marginRight: '12px' }} />
+                  <div style={{ flex: 1 }}>
+                    <Skeleton variant="text" width="80%" style={{ marginBottom: '6px' }} />
+                    <Skeleton variant="text" width="60%" />
+                  </div>
+                </div>
+                <Skeleton variant="rectangular" width="100%" height={140} style={{ marginBottom: '12px' }} />
+                <Skeleton variant="text" width="100%" style={{ marginBottom: '4px' }} />
+                <Skeleton variant="text" width="85%" />
+              </div>
+
+              {/* Article Loading */}
+              <div
+                style={{
+                  width: '320px',
+                  padding: '20px',
+                  border: '1px solid var(--lufa-token-color-text-secondary)',
+                  borderRadius: '8px',
+                  background: 'var(--lufa-token-color-background-primary)',
+                }}
+              >
+                <p
+                  style={{
+                    marginBottom: '12px',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    color: 'var(--lufa-token-color-text-secondary)',
+                  }}
+                >
+                  Article Preview
+                </p>
+                <Skeleton variant="rectangular" width="100%" height={180} style={{ marginBottom: '16px' }} />
+                <Skeleton variant="text" width="90%" style={{ marginBottom: '8px' }} />
+                <Skeleton variant="text" width="100%" style={{ marginBottom: '4px' }} />
+                <Skeleton variant="text" width="100%" style={{ marginBottom: '4px' }} />
+                <Skeleton variant="text" width="75%" style={{ marginBottom: '16px' }} />
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Skeleton variant="circular" width={32} height={32} style={{ marginRight: '8px' }} />
+                  <Skeleton variant="text" width="40%" />
+                </div>
+              </div>
+
+              {/* List Items Loading */}
+              <div
+                style={{
+                  width: '280px',
+                  padding: '20px',
+                  border: '1px solid var(--lufa-token-color-text-secondary)',
+                  borderRadius: '8px',
+                  background: 'var(--lufa-token-color-background-primary)',
+                }}
+              >
+                <p
+                  style={{
+                    marginBottom: '12px',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    color: 'var(--lufa-token-color-text-secondary)',
+                  }}
+                >
+                  List Items
+                </p>
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
+                    <Skeleton variant="circular" width={40} height={40} style={{ marginRight: '12px' }} />
+                    <div style={{ flex: 1 }}>
+                      <Skeleton variant="text" width="70%" style={{ marginBottom: '4px' }} />
+                      <Skeleton variant="text" width="50%" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* No Animation State */}
+          <section>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              No Animation (Static State)
+            </h2>
+            <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+              <div>
+                <p style={{ marginBottom: '8px', fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>
+                  Text
+                </p>
+                <Skeleton variant="text" width={200} animation={false} />
+              </div>
+              <div>
+                <p style={{ marginBottom: '8px', fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>
+                  Circular
+                </p>
+                <Skeleton variant="circular" width={60} height={60} animation={false} />
+              </div>
+              <div>
+                <p style={{ marginBottom: '8px', fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>
+                  Rectangular
+                </p>
+                <Skeleton variant="rectangular" width={180} height={100} animation={false} />
+              </div>
+            </div>
+          </section>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('skeleton-all-variants-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

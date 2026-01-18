@@ -348,5 +348,201 @@ test.describe('Anchor Component', () => {
         animations: 'disabled',
       });
     });
+
+    test('visual regression: all variants and options (dark mode)', async ({ mount, page }) => {
+      // Set dark mode before mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const variants = ['default', 'underline', 'subtle'] as const;
+      const colors = ['primary', 'secondary', 'inherit'] as const;
+
+      const cellStyle: React.CSSProperties = {
+        padding: '12px',
+        textAlign: 'center',
+        background: 'var(--lufa-token-color-background-primary)',
+        border: '1px solid var(--lufa-token-color-text-secondary)',
+      };
+      const headerStyle: React.CSSProperties = {
+        fontWeight: 600,
+        padding: '12px',
+        background: 'var(--lufa-token-color-background-primary)',
+        textAlign: 'center',
+        border: '1px solid var(--lufa-token-color-text-secondary)',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const tableStyle: React.CSSProperties = {
+        borderCollapse: 'collapse',
+        width: '100%',
+        background: 'var(--lufa-token-color-background-primary)',
+        marginBottom: 32,
+        border: '1px solid var(--lufa-token-color-text-secondary)',
+      };
+      const sectionTitleStyle: React.CSSProperties = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '32px 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+        borderBottom: '2px solid var(--lufa-token-color-text-primary)',
+        paddingBottom: 8,
+      };
+      const colorTitleStyle: React.CSSProperties = {
+        fontWeight: 700,
+        fontSize: 16,
+        margin: '24px 0 12px 0',
+        color: 'var(--lufa-token-color-text-secondary)',
+      };
+
+      const component = await mount(
+        <div style={{ padding: 24, background: 'var(--lufa-token-color-background-primary)' }}>
+          {/* Variants × Colors Grid */}
+          <div style={sectionTitleStyle}>Anchor - All Variants × Colors (Dark Mode)</div>
+          {colors.map((color) => (
+            <div key={color}>
+              <div style={colorTitleStyle}>{color.charAt(0).toUpperCase() + color.slice(1)}</div>
+              <table style={tableStyle}>
+                <thead>
+                  <tr>
+                    <th style={headerStyle}>Variant</th>
+                    <th style={headerStyle}>Default</th>
+                    <th style={headerStyle}>With Hover</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {variants.map((variant) => (
+                    <tr key={variant}>
+                      <td style={cellStyle}>
+                        <span style={{ color: 'var(--lufa-token-color-text-primary)' }}>{variant}</span>
+                      </td>
+                      <td style={cellStyle}>
+                        <Anchor href="#test" variant={variant} color={color}>
+                          {variant} anchor
+                        </Anchor>
+                      </td>
+                      <td style={cellStyle}>
+                        <Anchor href="#test" variant={variant} color={color} data-test-state="hover">
+                          {variant} anchor
+                        </Anchor>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ))}
+
+          {/* Icons */}
+          <div style={sectionTitleStyle}>With Icons</div>
+          <table style={tableStyle}>
+            <thead>
+              <tr>
+                <th style={headerStyle}>Icon Position</th>
+                <th style={headerStyle}>Default</th>
+                <th style={headerStyle}>Underline</th>
+                <th style={headerStyle}>Subtle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style={cellStyle}>
+                  <span style={{ color: 'var(--lufa-token-color-text-primary)' }}>Start Icon</span>
+                </td>
+                <td style={cellStyle}>
+                  <Anchor href="#section" startIcon={<HomeIcon />}>
+                    Home
+                  </Anchor>
+                </td>
+                <td style={cellStyle}>
+                  <Anchor href="#section" variant="underline" startIcon={<HomeIcon />}>
+                    Home
+                  </Anchor>
+                </td>
+                <td style={cellStyle}>
+                  <Anchor href="#section" variant="subtle" startIcon={<HomeIcon />}>
+                    Home
+                  </Anchor>
+                </td>
+              </tr>
+              <tr>
+                <td style={cellStyle}>
+                  <span style={{ color: 'var(--lufa-token-color-text-primary)' }}>End Icon</span>
+                </td>
+                <td style={cellStyle}>
+                  <Anchor href="#section" endIcon={<ArrowIcon />}>
+                    Next
+                  </Anchor>
+                </td>
+                <td style={cellStyle}>
+                  <Anchor href="#section" variant="underline" endIcon={<ArrowIcon />}>
+                    Next
+                  </Anchor>
+                </td>
+                <td style={cellStyle}>
+                  <Anchor href="#section" variant="subtle" endIcon={<ArrowIcon />}>
+                    Next
+                  </Anchor>
+                </td>
+              </tr>
+              <tr>
+                <td style={cellStyle}>
+                  <span style={{ color: 'var(--lufa-token-color-text-primary)' }}>Both Icons</span>
+                </td>
+                <td style={cellStyle}>
+                  <Anchor href="#section" startIcon={<HomeIcon />} endIcon={<ArrowIcon />}>
+                    Navigate
+                  </Anchor>
+                </td>
+                <td style={cellStyle}>
+                  <Anchor href="#section" variant="underline" startIcon={<HomeIcon />} endIcon={<ArrowIcon />}>
+                    Navigate
+                  </Anchor>
+                </td>
+                <td style={cellStyle}>
+                  <Anchor href="#section" variant="subtle" startIcon={<HomeIcon />} endIcon={<ArrowIcon />}>
+                    Navigate
+                  </Anchor>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          {/* Color Combinations with Icons */}
+          <div style={sectionTitleStyle}>Colors with Icons</div>
+          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            {colors.map((color) => (
+              <div
+                key={color}
+                style={{
+                  padding: 12,
+                  background: 'var(--lufa-token-color-background-primary)',
+                  border: '1px solid var(--lufa-token-color-text-secondary)',
+                }}
+              >
+                <div
+                  style={{
+                    marginBottom: 8,
+                    fontSize: 12,
+                    color: 'var(--lufa-token-color-text-secondary)',
+                    fontWeight: 600,
+                  }}
+                >
+                  {color}
+                </div>
+                <Anchor href="#section" color={color} startIcon={<LinkIcon />}>
+                  Anchor
+                </Anchor>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+
+      await expect(component).toHaveScreenshot('anchor-all-variants-dark-chromium-darwin.png', {
+        fullPage: true,
+        animations: 'disabled',
+      });
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
+    });
   });
 });

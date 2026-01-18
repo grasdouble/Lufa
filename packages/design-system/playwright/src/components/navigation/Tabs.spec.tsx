@@ -555,5 +555,148 @@ test.describe('Tabs', () => {
         fullPage: true,
       });
     });
+
+    test('visual regression: dark mode - all variants, positions, and sizes', async ({ mount, page }) => {
+      // Set dark mode before mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const types = ['line', 'card', 'pill'] as const;
+      const positions = ['top', 'bottom', 'left', 'right'] as const;
+      const sizes = ['small', 'medium', 'large'] as const;
+
+      const sectionStyle = {
+        marginBottom: '48px',
+        padding: '24px',
+        background: 'var(--lufa-token-color-background-primary)',
+        borderRadius: '8px',
+        border: '1px solid var(--lufa-token-color-border-primary)',
+      };
+
+      const titleStyle = {
+        fontSize: '24px',
+        fontWeight: 700,
+        marginBottom: '24px',
+        color: 'var(--lufa-token-color-text-primary)',
+        borderBottom: '2px solid var(--lufa-token-color-border-accent)',
+        paddingBottom: '8px',
+      };
+
+      const subtitleStyle = {
+        fontSize: '18px',
+        fontWeight: 600,
+        marginTop: '32px',
+        marginBottom: '16px',
+        color: 'var(--lufa-token-color-text-secondary)',
+      };
+
+      const labelStyle = {
+        fontSize: '14px',
+        fontWeight: 500,
+        marginBottom: '8px',
+        color: 'var(--lufa-token-color-text-secondary)',
+      };
+
+      const tabContainerStyle = {
+        marginBottom: '24px',
+        padding: '16px',
+        background: 'var(--lufa-token-color-background-primary)',
+        borderRadius: '4px',
+      };
+      const component = await mount(
+        <div style={{ padding: '32px', background: 'var(--lufa-token-color-background-primary)', minHeight: '100vh' }}>
+          {/* Section 1: All Types with All Sizes (Top Position) */}
+          <div style={sectionStyle}>
+            <div style={titleStyle}>Tab Types (Top Position)</div>
+
+            {types.map((type) => (
+              <div key={type}>
+                <div style={subtitleStyle}>Type: {type.charAt(0).toUpperCase() + type.slice(1)}</div>
+
+                {sizes.map((size) => (
+                  <div key={size} style={tabContainerStyle}>
+                    <div style={labelStyle}>Size: {size}</div>
+                    <Tabs items={basicTabItems} type={type} size={size} tabPosition="top" />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          {/* Section 2: All Positions (Line Type, Medium Size) */}
+          <div style={sectionStyle}>
+            <div style={titleStyle}>Tab Positions (Line Type, Medium Size)</div>
+
+            {positions.map((position) => (
+              <div key={position} style={tabContainerStyle}>
+                <div style={labelStyle}>Position: {position}</div>
+                <div style={{ minHeight: '200px' }}>
+                  <Tabs items={basicTabItems} type="line" size="medium" tabPosition={position} />
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Section 3: States (Active, Hover, Disabled) */}
+          <div style={sectionStyle}>
+            <div style={titleStyle}>Tab States</div>
+
+            <div style={subtitleStyle}>Regular Tabs</div>
+            <div style={tabContainerStyle}>
+              <div style={labelStyle}>Normal interaction</div>
+              <Tabs items={basicTabItems} type="line" />
+            </div>
+
+            <div style={subtitleStyle}>Tabs with Disabled State</div>
+            <div style={tabContainerStyle}>
+              <div style={labelStyle}>Middle tab is disabled</div>
+              <Tabs items={tabItemsWithDisabled} type="line" />
+            </div>
+
+            <div style={subtitleStyle}>Tabs with Icons</div>
+            <div style={tabContainerStyle}>
+              <div style={labelStyle}>Icons before labels</div>
+              <Tabs items={tabItemsWithIcons} type="card" />
+            </div>
+          </div>
+          {/* Section 4: All Type Variants Side by Side */}
+          <div style={sectionStyle}>
+            <div style={titleStyle}>Type Comparison (Medium Size)</div>
+
+            {types.map((type) => (
+              <div key={type} style={tabContainerStyle}>
+                <div style={labelStyle}>Type: {type}</div>
+                <Tabs items={basicTabItems} type={type} size="medium" />
+              </div>
+            ))}
+          </div>
+          {/* Section 5: Complex Example - Pill Type with Icons and All Sizes */}
+          <div style={sectionStyle}>
+            <div style={titleStyle}>Pill Type with Icons (All Sizes)</div>
+
+            {sizes.map((size) => (
+              <div key={size} style={tabContainerStyle}>
+                <div style={labelStyle}>Size: {size}</div>
+                <Tabs items={tabItemsWithIcons} type="pill" size={size} />
+              </div>
+            ))}
+          </div>
+          {/* Section 6: Card Type with Disabled State (All Sizes) */}
+          <div style={sectionStyle}>
+            <div style={titleStyle}>Card Type with Disabled State (All Sizes)</div>
+
+            {sizes.map((size) => (
+              <div key={size} style={tabContainerStyle}>
+                <div style={labelStyle}>Size: {size}</div>
+                <Tabs items={tabItemsWithDisabled} type="card" size={size} />
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+      await expect(component).toHaveScreenshot('tabs-all-variants-dark.png', {
+        fullPage: true,
+      });
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
+    });
   });
 });

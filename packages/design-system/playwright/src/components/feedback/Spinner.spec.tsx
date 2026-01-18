@@ -47,7 +47,7 @@ test.describe('Spinner Component', () => {
       const modes = ['A', 'B'] as const;
 
       const component = await mount(
-        <div style={{ padding: '32px', background: '#ffffff', width: '800px' }}>
+        <div style={{ padding: '32px', background: '#ffffff', width: '900px' }}>
           <h1 style={{ marginBottom: '24px', fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
             Spinner Component - All Variants
           </h1>
@@ -145,6 +145,169 @@ test.describe('Spinner Component', () => {
       await expect(component).toHaveScreenshot('spinner-all-variants.png', {
         animations: 'disabled',
       });
+    });
+
+    test('should match snapshot for all sizes and modes in dark mode', async ({ mount, page }) => {
+      const sizes = ['small', 'medium', 'large'] as const;
+      const modes = ['A', 'B'] as const;
+
+      // Set dark mode BEFORE mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const component = await mount(
+        <div
+          style={{
+            padding: '32px',
+            background: 'var(--lufa-token-color-background-primary)',
+            width: '900px',
+          }}
+        >
+          <h1
+            style={{
+              marginBottom: '24px',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Spinner Component - All Variants (Dark Mode)
+          </h1>
+
+          {/* Sizes Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Spinner Sizes
+            </h2>
+            <div
+              style={{
+                display: 'flex',
+                gap: '48px',
+                alignItems: 'center',
+                padding: '24px',
+                background: 'var(--lufa-token-color-background-primary)',
+                borderRadius: '8px',
+              }}
+            >
+              {sizes.map((size) => (
+                <div key={size} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+                  <Spinner size={size} />
+                  <span
+                    style={{
+                      fontSize: '14px',
+                      color: 'var(--lufa-token-color-text-secondary)',
+                      textTransform: 'capitalize',
+                    }}
+                  >
+                    {size}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Modes Section */}
+          <section style={{ marginBottom: '48px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              Spinner Modes
+            </h2>
+            <div
+              style={{
+                display: 'flex',
+                gap: '48px',
+                alignItems: 'center',
+                padding: '24px',
+                background: 'var(--lufa-token-color-background-primary)',
+                borderRadius: '8px',
+              }}
+            >
+              {modes.map((mode) => (
+                <div key={mode} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+                  <Spinner mode={mode} />
+                  <span style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>Mode {mode}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* All Combinations Section */}
+          <section>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
+              All Size × Mode Combinations
+            </h2>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: '24px',
+                padding: '24px',
+                background: 'var(--lufa-token-color-background-primary)',
+                borderRadius: '8px',
+              }}
+            >
+              {sizes.flatMap((size) =>
+                modes.map((mode) => (
+                  <div
+                    key={`${size}-${mode}`}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: '12px',
+                      padding: '16px',
+                      background: 'var(--lufa-token-color-background-primary)',
+                      borderRadius: '6px',
+                      border: '1px solid var(--lufa-token-color-text-secondary)',
+                    }}
+                  >
+                    <Spinner size={size} mode={mode} />
+                    <span
+                      style={{
+                        fontSize: '12px',
+                        color: 'var(--lufa-token-color-text-secondary)',
+                        textAlign: 'center',
+                      }}
+                    >
+                      {size} / {mode}
+                    </span>
+                  </div>
+                ))
+              )}
+            </div>
+          </section>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('spinner-all-variants-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

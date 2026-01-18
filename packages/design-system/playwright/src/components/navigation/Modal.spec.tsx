@@ -601,6 +601,94 @@ test.describe('Modal Component', () => {
       );
       await expect(component).toHaveScreenshot('modal-all-variants.png');
     });
+    test('visual regression: dark mode with title and footer', async ({ mount, page }) => {
+      test.setTimeout(30000);
+
+      // Set dark mode BEFORE mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const containerStyle = {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        gap: 16,
+        padding: 24,
+        background: 'var(--lufa-token-color-background-primary)',
+        minHeight: '100vh',
+      };
+      const labelStyle = {
+        fontWeight: 600,
+        fontSize: 14,
+        marginBottom: 8,
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const modalWrapperStyle = {
+        position: 'relative' as const,
+        height: 300,
+        border: '1px solid var(--lufa-token-color-text-secondary)',
+        borderRadius: 8,
+        overflow: 'hidden',
+        background: 'var(--lufa-token-color-background-primary)',
+      };
+      const component = await mount(
+        <div style={containerStyle}>
+          <div>
+            <div style={labelStyle}>With Title Only</div>
+            <div style={modalWrapperStyle}>
+              <Modal open={true} onClose={() => {}} title="Modal Title">
+                <p>Modal content without footer</p>
+              </Modal>
+            </div>
+          </div>
+          <div>
+            <div style={labelStyle}>With Footer Only</div>
+            <div style={modalWrapperStyle}>
+              <Modal
+                open={true}
+                onClose={() => {}}
+                footer={
+                  <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+                    <Button variant="outlined">Cancel</Button>
+                    <Button>Confirm</Button>
+                  </div>
+                }
+              >
+                <p>Modal content without title</p>
+              </Modal>
+            </div>
+          </div>
+          <div>
+            <div style={labelStyle}>With Title and Footer</div>
+            <div style={modalWrapperStyle}>
+              <Modal
+                open={true}
+                onClose={() => {}}
+                title="Complete Modal"
+                footer={
+                  <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+                    <Button variant="outlined">Cancel</Button>
+                    <Button>Confirm</Button>
+                  </div>
+                }
+              >
+                <p>Modal with both title and footer</p>
+              </Modal>
+            </div>
+          </div>
+          <div>
+            <div style={labelStyle}>Content Only</div>
+            <div style={modalWrapperStyle}>
+              <Modal open={true} onClose={() => {}}>
+                <p>Modal with only content, no title or footer</p>
+              </Modal>
+            </div>
+          </div>
+        </div>
+      );
+      await expect(component).toHaveScreenshot('modal-title-footer-variants-dark.png');
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
+    });
   });
   test.describe('Edge Cases', () => {
     test('should handle long content with scrolling', async ({ mount }) => {

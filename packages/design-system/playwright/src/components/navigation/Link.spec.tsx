@@ -408,7 +408,7 @@ test.describe('Link Component', () => {
       };
 
       const component = await mount(
-        <div style={{ padding: 24, background: '#f9f9f9' }}>
+        <div style={{ padding: 24, background: '#ffffff', width: '900px' }}>
           {/* Variants × Colors Grid */}
           <div style={sectionTitleStyle}>Variants × Colors</div>
           {colors.map((color) => (
@@ -610,13 +610,294 @@ test.describe('Link Component', () => {
               </div>
             ))}
           </div>
-        </div>
+        </div>,
+        { animations: 'disabled' }
       );
 
+      // Wait for stability
+      await component.page().waitForTimeout(100);
+
       await expect(component).toHaveScreenshot('link-all-variants.png', {
-        fullPage: true,
         animations: 'disabled',
       });
+    });
+
+    test('should match snapshot for all variants, colors, and features in dark mode', async ({ mount, page }) => {
+      // Set dark mode before mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const variants = ['default', 'underline', 'button'] as const;
+      const colors = ['primary', 'secondary', 'success', 'warning', 'danger', 'inherit'] as const;
+      const sizes = ['small', 'medium', 'large'] as const;
+
+      const cellStyle: React.CSSProperties = {
+        padding: '12px',
+        textAlign: 'center',
+        backgroundColor: 'var(--lufa-token-color-background-primary)',
+        border: '1px solid #444',
+      };
+      const headerStyle: React.CSSProperties = {
+        fontWeight: 600,
+        padding: '12px',
+        backgroundColor: 'var(--lufa-token-color-background-secondary)',
+        color: 'var(--lufa-token-color-text-primary)',
+        textAlign: 'center',
+        border: '1px solid #444',
+      };
+      const tableStyle: React.CSSProperties = {
+        borderCollapse: 'collapse',
+        width: '100%',
+        backgroundColor: 'var(--lufa-token-color-background-primary)',
+        marginBottom: 32,
+        border: '1px solid #444',
+      };
+      const sectionTitleStyle: React.CSSProperties = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '32px 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+        borderBottom: '2px solid var(--lufa-token-color-text-primary)',
+        paddingBottom: 8,
+      };
+      const colorTitleStyle: React.CSSProperties = {
+        fontWeight: 700,
+        fontSize: 16,
+        margin: '24px 0 12px 0',
+        color: 'var(--lufa-token-color-text-secondary)',
+      };
+
+      const component = await mount(
+        <div style={{ padding: 24, backgroundColor: 'var(--lufa-token-color-background-primary)', width: '900px' }}>
+          {/* Variants × Colors Grid */}
+          <div style={sectionTitleStyle}>Variants × Colors</div>
+          {colors.map((color) => (
+            <div key={color}>
+              <div style={colorTitleStyle}>{color.charAt(0).toUpperCase() + color.slice(1)}</div>
+              <table style={tableStyle}>
+                <thead>
+                  <tr>
+                    <th style={headerStyle}>Variant</th>
+                    <th style={headerStyle}>Default</th>
+                    <th style={headerStyle}>With Hover</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {variants.map((variant) => (
+                    <tr key={variant}>
+                      <td style={{ ...cellStyle, color: 'var(--lufa-token-color-text-primary)' }}>{variant}</td>
+                      <td style={cellStyle}>
+                        <Link href="/test" variant={variant} color={color}>
+                          {variant} link
+                        </Link>
+                      </td>
+                      <td style={cellStyle}>
+                        <Link href="/test" variant={variant} color={color} data-test-state="hover">
+                          {variant} link
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ))}
+
+          {/* Sizes */}
+          <div style={sectionTitleStyle}>Sizes</div>
+          <table style={tableStyle}>
+            <thead>
+              <tr>
+                <th style={headerStyle}>Size</th>
+                <th style={headerStyle}>Default Variant</th>
+                <th style={headerStyle}>Underline Variant</th>
+                <th style={headerStyle}>Button Variant</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sizes.map((size) => (
+                <tr key={size}>
+                  <td style={{ ...cellStyle, color: 'var(--lufa-token-color-text-primary)' }}>{size}</td>
+                  <td style={cellStyle}>
+                    <Link href="/test" size={size}>
+                      {size} link
+                    </Link>
+                  </td>
+                  <td style={cellStyle}>
+                    <Link href="/test" variant="underline" size={size}>
+                      {size} link
+                    </Link>
+                  </td>
+                  <td style={cellStyle}>
+                    <Link href="/test" variant="button" size={size}>
+                      {size} link
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {/* Icons */}
+          <div style={sectionTitleStyle}>With Icons</div>
+          <table style={tableStyle}>
+            <thead>
+              <tr>
+                <th style={headerStyle}>Icon Position</th>
+                <th style={headerStyle}>Default</th>
+                <th style={headerStyle}>Underline</th>
+                <th style={headerStyle}>Button</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style={{ ...cellStyle, color: 'var(--lufa-token-color-text-primary)' }}>Start Icon</td>
+                <td style={cellStyle}>
+                  <Link href="/test" startIcon={<HomeIcon />}>
+                    Home
+                  </Link>
+                </td>
+                <td style={cellStyle}>
+                  <Link href="/test" variant="underline" startIcon={<HomeIcon />}>
+                    Home
+                  </Link>
+                </td>
+                <td style={cellStyle}>
+                  <Link href="/test" variant="button" startIcon={<HomeIcon />}>
+                    Home
+                  </Link>
+                </td>
+              </tr>
+              <tr>
+                <td style={{ ...cellStyle, color: 'var(--lufa-token-color-text-primary)' }}>End Icon</td>
+                <td style={cellStyle}>
+                  <Link href="/test" endIcon={<ArrowIcon />}>
+                    Next
+                  </Link>
+                </td>
+                <td style={cellStyle}>
+                  <Link href="/test" variant="underline" endIcon={<ArrowIcon />}>
+                    Next
+                  </Link>
+                </td>
+                <td style={cellStyle}>
+                  <Link href="/test" variant="button" endIcon={<ArrowIcon />}>
+                    Next
+                  </Link>
+                </td>
+              </tr>
+              <tr>
+                <td style={{ ...cellStyle, color: 'var(--lufa-token-color-text-primary)' }}>Both Icons</td>
+                <td style={cellStyle}>
+                  <Link href="/test" startIcon={<HomeIcon />} endIcon={<ArrowIcon />}>
+                    Navigate
+                  </Link>
+                </td>
+                <td style={cellStyle}>
+                  <Link href="/test" variant="underline" startIcon={<HomeIcon />} endIcon={<ArrowIcon />}>
+                    Navigate
+                  </Link>
+                </td>
+                <td style={cellStyle}>
+                  <Link href="/test" variant="button" startIcon={<HomeIcon />} endIcon={<ArrowIcon />}>
+                    Navigate
+                  </Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          {/* External Links */}
+          <div style={sectionTitleStyle}>External Links</div>
+          <table style={tableStyle}>
+            <thead>
+              <tr>
+                <th style={headerStyle}>Type</th>
+                <th style={headerStyle}>Default</th>
+                <th style={headerStyle}>Underline</th>
+                <th style={headerStyle}>Button</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style={{ ...cellStyle, color: 'var(--lufa-token-color-text-primary)' }}>External (auto icon)</td>
+                <td style={cellStyle}>
+                  <Link href="https://example.com" external>
+                    External Link
+                  </Link>
+                </td>
+                <td style={cellStyle}>
+                  <Link href="https://example.com" variant="underline" external>
+                    External Link
+                  </Link>
+                </td>
+                <td style={cellStyle}>
+                  <Link href="https://example.com" variant="button" external>
+                    External Link
+                  </Link>
+                </td>
+              </tr>
+              <tr>
+                <td style={{ ...cellStyle, color: 'var(--lufa-token-color-text-primary)' }}>External (custom icon)</td>
+                <td style={cellStyle}>
+                  <Link href="https://example.com" external endIcon={<ArrowIcon />}>
+                    Custom Icon
+                  </Link>
+                </td>
+                <td style={cellStyle}>
+                  <Link href="https://example.com" variant="underline" external endIcon={<ArrowIcon />}>
+                    Custom Icon
+                  </Link>
+                </td>
+                <td style={cellStyle}>
+                  <Link href="https://example.com" variant="button" external endIcon={<ArrowIcon />}>
+                    Custom Icon
+                  </Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          {/* Color Combinations with Icons */}
+          <div style={sectionTitleStyle}>Colors with Icons</div>
+          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            {colors.map((color) => (
+              <div
+                key={color}
+                style={{
+                  padding: 12,
+                  backgroundColor: 'var(--lufa-token-color-background-primary)',
+                  border: '1px solid #444',
+                }}
+              >
+                <div
+                  style={{
+                    marginBottom: 8,
+                    fontSize: 12,
+                    color: 'var(--lufa-token-color-text-secondary)',
+                    fontWeight: 600,
+                  }}
+                >
+                  {color}
+                </div>
+                <Link href="/test" color={color} startIcon={<HomeIcon />}>
+                  Link
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      // Wait for stability
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('link-all-variants-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

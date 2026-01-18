@@ -448,7 +448,7 @@ test.describe('Menu Component', () => {
       };
 
       const component = await mount(
-        <div style={{ padding: 24, background: '#f9f9f9' }}>
+        <div style={{ padding: 24, background: 'var(--lufa-token-color-background-primary)', width: '900px' }}>
           {/* Modes with Light Theme */}
           <div style={sectionTitleStyle}>Menu - Mode Variants (Light Theme)</div>
           {modes.map((mode) => (
@@ -461,8 +461,8 @@ test.describe('Menu Component', () => {
           {/* Modes with Dark Theme */}
           <div style={sectionTitleStyle}>Mode Variants (Dark Theme)</div>
           {modes.map((mode) => (
-            <div key={mode} style={darkContainerStyle}>
-              <div style={{ ...labelStyle, color: '#ccc' }}>Mode: {mode}</div>
+            <div key={mode} style={containerStyle}>
+              <div style={labelStyle}>Mode: {mode}</div>
               <Menu items={itemsWithIcons} mode={mode} theme="dark" />
             </div>
           ))}
@@ -470,10 +470,8 @@ test.describe('Menu Component', () => {
           {/* With Icons and Selection */}
           <div style={sectionTitleStyle}>With Icons and Selection</div>
           {themes.map((theme) => (
-            <div key={theme} style={theme === 'dark' ? darkContainerStyle : containerStyle}>
-              <div style={{ ...labelStyle, color: theme === 'dark' ? '#ccc' : '#555' }}>
-                Theme: {theme} (Profile selected)
-              </div>
+            <div key={theme} style={containerStyle}>
+              <div style={labelStyle}>Theme: {theme} (Profile selected)</div>
               <Menu items={itemsWithIcons} selectedKey="profile" theme={theme} />
             </div>
           ))}
@@ -481,8 +479,8 @@ test.describe('Menu Component', () => {
           {/* With Disabled Items */}
           <div style={sectionTitleStyle}>With Disabled Items</div>
           {themes.map((theme) => (
-            <div key={theme} style={theme === 'dark' ? darkContainerStyle : containerStyle}>
-              <div style={{ ...labelStyle, color: theme === 'dark' ? '#ccc' : '#555' }}>Theme: {theme}</div>
+            <div key={theme} style={containerStyle}>
+              <div style={labelStyle}>Theme: {theme}</div>
               <Menu items={itemsWithDisabled} theme={theme} />
             </div>
           ))}
@@ -492,7 +490,7 @@ test.describe('Menu Component', () => {
           <div style={containerStyle}>
             <div style={labelStyle}>Submenu expanded</div>
             <Menu items={itemsWithSubmenu} mode="vertical" />
-            <div style={{ marginTop: 8, fontSize: 12, color: '#666' }}>
+            <div style={{ marginTop: 8, fontSize: 12, color: 'var(--lufa-token-color-text-secondary)' }}>
               Note: Click "Files" to see submenu expand/collapse
             </div>
           </div>
@@ -516,17 +514,134 @@ test.describe('Menu Component', () => {
             <div style={labelStyle}>Horizontal + Icons + Selection + Light</div>
             <Menu items={itemsWithIcons} mode="horizontal" selectedKey="home" theme="light" />
           </div>
-          <div style={darkContainerStyle}>
-            <div style={{ ...labelStyle, color: '#ccc' }}>Inline + Icons + Selection + Dark</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Inline + Icons + Selection + Dark</div>
+            <Menu items={itemsWithIcons} mode="inline" selectedKey="settings" theme="dark" />
+          </div>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      // Wait for stability
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('menu-all-variants-dark-chromium-darwin.png', {
+        animations: 'disabled',
+      });
+    });
+
+    test('visual regression: all variants and options (dark mode)', async ({ mount, page }) => {
+      // Set dark mode before mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const modes = ['vertical', 'horizontal', 'inline'] as const;
+      const themes = ['light', 'dark'] as const;
+
+      const sectionTitleStyle: React.CSSProperties = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '32px 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+        borderBottom: '2px solid var(--lufa-token-color-text-primary)',
+        paddingBottom: 8,
+      };
+
+      const labelStyle: React.CSSProperties = {
+        fontWeight: 600,
+        fontSize: 14,
+        marginBottom: 8,
+        color: 'var(--lufa-token-color-text-secondary)',
+      };
+
+      const containerStyle: React.CSSProperties = {
+        padding: 16,
+        background: 'var(--lufa-token-color-background-primary)',
+        border: '1px solid var(--lufa-token-color-text-secondary)',
+        borderRadius: 4,
+        marginBottom: 16,
+      };
+
+      const component = await mount(
+        <div style={{ padding: 24, background: 'var(--lufa-token-color-background-primary)' }}>
+          {/* Modes with Light Theme */}
+          <div style={sectionTitleStyle}>Menu - Mode Variants (Light Theme)</div>
+          {modes.map((mode) => (
+            <div key={mode} style={containerStyle}>
+              <div style={labelStyle}>Mode: {mode}</div>
+              <Menu items={itemsWithIcons} mode={mode} theme="light" />
+            </div>
+          ))}
+
+          {/* Modes with Dark Theme */}
+          <div style={sectionTitleStyle}>Mode Variants (Dark Theme)</div>
+          {modes.map((mode) => (
+            <div key={mode} style={containerStyle}>
+              <div style={labelStyle}>Mode: {mode}</div>
+              <Menu items={itemsWithIcons} mode={mode} theme="dark" />
+            </div>
+          ))}
+
+          {/* With Icons and Selection */}
+          <div style={sectionTitleStyle}>With Icons and Selection</div>
+          {themes.map((theme) => (
+            <div key={theme} style={containerStyle}>
+              <div style={labelStyle}>Theme: {theme} (Profile selected)</div>
+              <Menu items={itemsWithIcons} selectedKey="profile" theme={theme} />
+            </div>
+          ))}
+
+          {/* With Disabled Items */}
+          <div style={sectionTitleStyle}>With Disabled Items</div>
+          {themes.map((theme) => (
+            <div key={theme} style={containerStyle}>
+              <div style={labelStyle}>Theme: {theme}</div>
+              <Menu items={itemsWithDisabled} theme={theme} />
+            </div>
+          ))}
+
+          {/* With Submenu (Open State) */}
+          <div style={sectionTitleStyle}>With Submenu (Expanded)</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Submenu expanded</div>
+            <Menu items={itemsWithSubmenu} mode="vertical" />
+            <div style={{ marginTop: 8, fontSize: 12, color: 'var(--lufa-token-color-text-secondary)' }}>
+              Note: Click "Files" to see submenu expand/collapse
+            </div>
+          </div>
+
+          {/* Horizontal with Submenu */}
+          <div style={containerStyle}>
+            <div style={labelStyle}>Horizontal mode with submenu</div>
+            <Menu items={itemsWithSubmenu} mode="horizontal" />
+          </div>
+
+          {/* With Links */}
+          <div style={sectionTitleStyle}>With Links (href)</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Items as links</div>
+            <Menu items={itemsWithLinks} />
+          </div>
+
+          {/* All Combinations */}
+          <div style={sectionTitleStyle}>Combination Examples</div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Horizontal + Icons + Selection + Light</div>
+            <Menu items={itemsWithIcons} mode="horizontal" selectedKey="home" theme="light" />
+          </div>
+          <div style={containerStyle}>
+            <div style={labelStyle}>Inline + Icons + Selection + Dark</div>
             <Menu items={itemsWithIcons} mode="inline" selectedKey="settings" theme="dark" />
           </div>
         </div>
       );
 
-      await expect(component).toHaveScreenshot('menu-all-variants-chromium-darwin.png', {
+      await expect(component).toHaveScreenshot('menu-all-variants-dark-chromium-darwin.png', {
         fullPage: true,
         animations: 'disabled',
       });
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

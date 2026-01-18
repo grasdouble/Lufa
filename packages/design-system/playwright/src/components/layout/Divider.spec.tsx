@@ -311,7 +311,7 @@ test.describe('Divider Component', () => {
       const verticalLabelStyle = { fontSize: '14px', color: '#666', marginTop: '8px' };
 
       const component = await mount(
-        <div style={{ padding: '32px', background: '#f9f9f9', fontFamily: 'sans-serif' }}>
+        <div style={{ padding: '32px', background: '#ffffff', fontFamily: 'sans-serif', width: '900px' }}>
           {/* Horizontal Dividers - Variants */}
           <div style={sectionStyle}>
             <h2 style={titleStyle}>Horizontal Variants</h2>
@@ -444,10 +444,206 @@ test.describe('Divider Component', () => {
               />
             </div>
           </div>
-        </div>
+        </div>,
+        { animations: 'disabled' }
       );
 
-      await expect(component).toHaveScreenshot('divider-all-variants.png');
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('divider-all-variants.png', {
+        animations: 'disabled',
+      });
+    });
+
+    test('should match snapshot for all variants in dark mode', async ({ mount, page }) => {
+      // Set dark mode before mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const sectionStyle = { marginBottom: '32px' };
+      const titleStyle = {
+        fontSize: '18px',
+        fontWeight: 'bold',
+        marginBottom: '16px',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const containerStyle = { width: '600px' };
+      const verticalContainerStyle = { display: 'flex', gap: '24px', alignItems: 'flex-start', height: '200px' };
+      const verticalLabelStyle = {
+        fontSize: '14px',
+        color: 'var(--lufa-token-color-text-secondary)',
+        marginTop: '8px',
+      };
+      const labelStyle = {
+        fontSize: '12px',
+        color: 'var(--lufa-token-color-text-secondary)',
+        marginBottom: '8px',
+      };
+      const labelStyleTop = {
+        fontSize: '12px',
+        color: 'var(--lufa-token-color-text-secondary)',
+        marginTop: '4px',
+      };
+      const labelStyleBottom = {
+        fontSize: '12px',
+        color: 'var(--lufa-token-color-text-secondary)',
+        marginBottom: '4px',
+      };
+
+      const component = await mount(
+        <div
+          style={{
+            padding: '32px',
+            background: 'var(--lufa-token-color-background-primary)',
+            fontFamily: 'sans-serif',
+            width: '900px',
+          }}
+        >
+          {/* Horizontal Dividers - Variants */}
+          <div style={sectionStyle}>
+            <h2 style={titleStyle}>Horizontal Variants</h2>
+            <div style={containerStyle}>
+              <div style={{ marginBottom: '16px' }}>
+                <p style={labelStyle}>Solid (default)</p>
+                <Divider variant="solid" />
+              </div>
+              <div>
+                <p style={labelStyle}>Dashed</p>
+                <Divider variant="dashed" />
+              </div>
+            </div>
+          </div>
+
+          {/* Horizontal Dividers - With Labels and Alignments */}
+          <div style={sectionStyle}>
+            <h2 style={titleStyle}>Horizontal with Labels</h2>
+            <div style={containerStyle}>
+              <div style={{ marginBottom: '16px' }}>
+                <p style={labelStyle}>Center (default)</p>
+                <Divider label="Center Label" align="center" />
+              </div>
+              <div style={{ marginBottom: '16px' }}>
+                <p style={labelStyle}>Start</p>
+                <Divider label="Start Label" align="start" />
+              </div>
+              <div style={{ marginBottom: '16px' }}>
+                <p style={labelStyle}>End</p>
+                <Divider label="End Label" align="end" />
+              </div>
+              <div>
+                <p style={labelStyle}>Dashed with Label</p>
+                <Divider label="Dashed Label" variant="dashed" />
+              </div>
+            </div>
+          </div>
+
+          {/* Spacing Options */}
+          <div style={sectionStyle}>
+            <h2 style={titleStyle}>Spacing Options</h2>
+            <div style={containerStyle}>
+              <div style={{ border: '1px dashed #ddd', padding: '8px' }}>
+                <p style={labelStyleBottom}>None</p>
+                <Divider spacing="none" label="No Spacing" />
+                <p style={labelStyleTop}>Content below</p>
+              </div>
+              <div style={{ border: '1px dashed #ddd', padding: '8px', marginTop: '16px' }}>
+                <p style={labelStyleBottom}>Small</p>
+                <Divider spacing="sm" label="Small Spacing" />
+                <p style={labelStyleTop}>Content below</p>
+              </div>
+              <div style={{ border: '1px dashed #ddd', padding: '8px', marginTop: '16px' }}>
+                <p style={labelStyleBottom}>Medium (default)</p>
+                <Divider spacing="md" label="Medium Spacing" />
+                <p style={labelStyleTop}>Content below</p>
+              </div>
+              <div style={{ border: '1px dashed #ddd', padding: '8px', marginTop: '16px' }}>
+                <p style={labelStyleBottom}>Large</p>
+                <Divider spacing="lg" label="Large Spacing" />
+                <p style={labelStyleTop}>Content below</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Custom Lengths */}
+          <div style={sectionStyle}>
+            <h2 style={titleStyle}>Custom Lengths (Horizontal)</h2>
+            <div style={containerStyle}>
+              <div style={{ marginBottom: '16px' }}>
+                <p style={labelStyle}>Full width (default)</p>
+                <Divider label="100%" />
+              </div>
+              <div style={{ marginBottom: '16px' }}>
+                <p style={labelStyle}>50% width</p>
+                <Divider label="50%" length="50%" />
+              </div>
+              <div>
+                <p style={labelStyle}>300px width</p>
+                <Divider label="300px" length={300} />
+              </div>
+            </div>
+          </div>
+
+          {/* Vertical Dividers */}
+          <div style={sectionStyle}>
+            <h2 style={titleStyle}>Vertical Dividers</h2>
+            <div style={verticalContainerStyle}>
+              <div style={{ textAlign: 'center' }}>
+                <Divider orientation="vertical" variant="solid" />
+                <p style={verticalLabelStyle}>Solid</p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <Divider orientation="vertical" variant="dashed" />
+                <p style={verticalLabelStyle}>Dashed</p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <Divider orientation="vertical" spacing="none" />
+                <p style={verticalLabelStyle}>No Spacing</p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <Divider orientation="vertical" spacing="sm" />
+                <p style={verticalLabelStyle}>Small Spacing</p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <Divider orientation="vertical" spacing="lg" />
+                <p style={verticalLabelStyle}>Large Spacing</p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <Divider orientation="vertical" length={150} />
+                <p style={verticalLabelStyle}>150px Height</p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <Divider orientation="vertical" length="80%" />
+                <p style={verticalLabelStyle}>80% Height</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Complex Combinations */}
+          <div style={sectionStyle}>
+            <h2 style={titleStyle}>Complex Combinations</h2>
+            <div style={containerStyle}>
+              <Divider
+                variant="dashed"
+                spacing="lg"
+                align="start"
+                label={<strong>Bold Label with Icon ★</strong>}
+                length="80%"
+              />
+            </div>
+          </div>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('divider-all-variants-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

@@ -256,8 +256,8 @@ test.describe('Paper Component', () => {
       };
 
       const component = await mount(
-        <div style={{ padding: '32px', background: '#f9f9f9', width: 'fit-content', minWidth: '900px' }}>
-          <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '24px', color: '#222' }}>
+        <div style={{ padding: '32px', background: '#ffffff', width: '900px' }}>
+          <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '24px', color: '#333' }}>
             Paper Component Variants
           </h1>
 
@@ -368,10 +368,195 @@ test.describe('Paper Component', () => {
               </Paper>
             </div>
           </div>
-        </div>
+        </div>,
+        { animations: 'disabled' }
       );
 
-      await expect(component).toHaveScreenshot('paper-all-variants.png');
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('paper-all-variants.png', {
+        animations: 'disabled',
+      });
+    });
+
+    test('should match snapshot for all variants and options in dark mode', async ({ mount, page }) => {
+      // Set dark mode before mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const variants = ['default', 'elevated', 'outlined', 'filled'] as const;
+      const paddings = ['none', 'small', 'medium', 'large'] as const;
+      const radiuses = ['none', 'small', 'medium', 'large', 'full'] as const;
+      const elevations = ['none', 'small', 'medium', 'large', 'xlarge'] as const;
+
+      const sectionTitleStyle = {
+        fontSize: '20px',
+        fontWeight: 'bold',
+        marginTop: '32px',
+        marginBottom: '16px',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+
+      const subsectionTitleStyle = {
+        fontSize: '16px',
+        fontWeight: '600',
+        marginTop: '16px',
+        marginBottom: '12px',
+        color: 'var(--lufa-token-color-text-secondary)',
+      };
+
+      const gridStyle = {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        gap: '16px',
+        marginBottom: '24px',
+      };
+
+      const labelStyle = {
+        fontSize: '12px',
+        fontWeight: '500',
+        color: 'var(--lufa-token-color-text-secondary)',
+        marginBottom: '4px',
+        textTransform: 'capitalize' as const,
+      };
+
+      const component = await mount(
+        <div
+          style={{
+            padding: '32px',
+            background: 'var(--lufa-token-color-background-primary)',
+            width: '900px',
+          }}
+        >
+          <h1
+            style={{
+              fontSize: '28px',
+              fontWeight: 'bold',
+              marginBottom: '24px',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Paper Component Variants (Dark Mode)
+          </h1>
+
+          {/* Variants Section */}
+          <div style={sectionTitleStyle}>1. Variants</div>
+          <div style={gridStyle}>
+            {variants.map((variant) => (
+              <div key={variant}>
+                <div style={labelStyle}>{variant}</div>
+                <Paper variant={variant} padding="medium">
+                  <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {variant}
+                  </div>
+                </Paper>
+              </div>
+            ))}
+          </div>
+
+          {/* Padding Options Section */}
+          <div style={sectionTitleStyle}>2. Padding Options</div>
+          <div style={subsectionTitleStyle}>Applied to all variants</div>
+          {variants.map((variant) => (
+            <div key={`padding-${variant}`}>
+              <div style={{ ...subsectionTitleStyle, fontSize: '14px', marginTop: '12px' }}>{variant} variant</div>
+              <div style={gridStyle}>
+                {paddings.map((padding) => (
+                  <div key={padding}>
+                    <div style={labelStyle}>{padding}</div>
+                    <Paper variant={variant} padding={padding}>
+                      <div>Content with {padding} padding</div>
+                    </Paper>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Radius Options Section */}
+          <div style={sectionTitleStyle}>3. Radius Options</div>
+          <div style={gridStyle}>
+            {radiuses.map((radius) => (
+              <div key={radius}>
+                <div style={labelStyle}>{radius}</div>
+                <Paper variant="outlined" radius={radius} padding="medium">
+                  <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {radius}
+                  </div>
+                </Paper>
+              </div>
+            ))}
+          </div>
+
+          {/* Elevation Options Section */}
+          <div style={sectionTitleStyle}>4. Elevation Options (Elevated Variant Only)</div>
+          <div style={gridStyle}>
+            {elevations.map((elevation) => (
+              <div key={elevation}>
+                <div style={labelStyle}>{elevation}</div>
+                <Paper variant="elevated" elevation={elevation} padding="medium">
+                  <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {elevation}
+                  </div>
+                </Paper>
+              </div>
+            ))}
+          </div>
+
+          {/* Elevation Not Applied to Other Variants */}
+          <div style={subsectionTitleStyle}>Elevation ignored on non-elevated variants</div>
+          <div style={gridStyle}>
+            {['default', 'outlined', 'filled'].map((variant) => (
+              <div key={variant}>
+                <div style={labelStyle}>{variant} (elevation=xlarge)</div>
+                <Paper variant={variant as 'default' | 'outlined' | 'filled'} elevation="xlarge" padding="medium">
+                  <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    No elevation applied
+                  </div>
+                </Paper>
+              </div>
+            ))}
+          </div>
+
+          {/* Complex Combinations */}
+          <div style={sectionTitleStyle}>5. Complex Combinations</div>
+          <div style={gridStyle}>
+            <div>
+              <div style={labelStyle}>elevated + large padding + large radius + xlarge elevation</div>
+              <Paper variant="elevated" padding="large" radius="large" elevation="xlarge">
+                <div style={{ minHeight: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  Maximum elevation
+                </div>
+              </Paper>
+            </div>
+            <div>
+              <div style={labelStyle}>outlined + none padding + none radius</div>
+              <Paper variant="outlined" padding="none" radius="none">
+                <div style={{ minHeight: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  No padding or radius
+                </div>
+              </Paper>
+            </div>
+            <div>
+              <div style={labelStyle}>filled + small padding + full radius</div>
+              <Paper variant="filled" padding="small" radius="full">
+                <div style={{ minHeight: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  Pill shape
+                </div>
+              </Paper>
+            </div>
+          </div>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('paper-all-variants-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

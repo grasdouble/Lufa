@@ -80,8 +80,12 @@ test.describe('Badge Component', () => {
       const variants = ['default', 'primary', 'success', 'warning', 'danger', 'info'] as const;
       const sizes = ['sm', 'md', 'lg'] as const;
       const component = await mount(
-        <div style={{ padding: '20px', width: 'fit-content' }}>
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Sizes</h1>
+        <div style={{ padding: '32px', background: '#ffffff', width: '900px' }}>
+          <h1 style={{ marginBottom: '24px', fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
+            Badge Component - All Variants
+          </h1>
+
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>Sizes</h2>
           <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
             {sizes.map((size) => (
               <Badge key={size} size={size}>
@@ -89,7 +93,10 @@ test.describe('Badge Component', () => {
               </Badge>
             ))}
           </div>
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Variants</h1>
+
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555', marginTop: '32px' }}>
+            Variants
+          </h2>
           <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
             {variants.map((variant) => (
               <Badge key={variant} variant={variant}>
@@ -97,7 +104,10 @@ test.describe('Badge Component', () => {
               </Badge>
             ))}
           </div>
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Dot & Rounded</h1>
+
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555', marginTop: '32px' }}>
+            Dot & Rounded
+          </h2>
           <div style={{ display: 'flex', gap: '16px' }}>
             <Badge dot>Dot</Badge>
             <Badge rounded>Rounded</Badge>
@@ -105,9 +115,109 @@ test.describe('Badge Component', () => {
               Dot+Rounded
             </Badge>
           </div>
-        </div>
+        </div>,
+        { animations: 'disabled' }
       );
-      await expect(component).toHaveScreenshot('badge-all-variants.png');
+
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('badge-all-variants.png', {
+        animations: 'disabled',
+      });
+    });
+
+    test('should match snapshot for all size and variant combinations in dark mode', async ({ mount, page }) => {
+      // Set dark mode before mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const variants = ['default', 'primary', 'success', 'warning', 'danger', 'info'] as const;
+      const sizes = ['sm', 'md', 'lg'] as const;
+      const component = await mount(
+        <div
+          style={{
+            padding: '32px',
+            width: '900px',
+            backgroundColor: 'var(--lufa-token-color-background-primary)',
+          }}
+        >
+          <h1
+            style={{
+              marginBottom: '24px',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Badge Component - All Variants (Dark Mode)
+          </h1>
+
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-secondary)',
+            }}
+          >
+            Sizes
+          </h2>
+          <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
+            {sizes.map((size) => (
+              <Badge key={size} size={size}>
+                {size}
+              </Badge>
+            ))}
+          </div>
+
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-secondary)',
+              marginTop: '32px',
+            }}
+          >
+            Variants
+          </h2>
+          <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
+            {variants.map((variant) => (
+              <Badge key={variant} variant={variant}>
+                {variant}
+              </Badge>
+            ))}
+          </div>
+
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-secondary)',
+              marginTop: '32px',
+            }}
+          >
+            Dot & Rounded
+          </h2>
+          <div style={{ display: 'flex', gap: '16px' }}>
+            <Badge dot>Dot</Badge>
+            <Badge rounded>Rounded</Badge>
+            <Badge dot rounded>
+              Dot+Rounded
+            </Badge>
+          </div>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('badge-all-variants-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });
