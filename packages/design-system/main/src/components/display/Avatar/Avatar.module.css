@@ -1,138 +1,136 @@
 @import '../../../css/component-resets.css';
 @import '@grasdouble/lufa_design-system-tokens/style.css';
 
-@layer components {
-  .container {
-    position: relative;
-    display: inline-block;
-  }
+.container {
+  position: relative;
+  display: inline-block;
+}
 
-  .avatar {
-    /* Image reset */
-    display: block;
-    max-width: 100%;
-    height: auto;
+.avatar {
+  /* Image reset */
+  display: block;
+  max-width: 100%;
+  height: auto;
 
-    /* Ring */
-    box-shadow: 0 0 0 2px var(--lufa-token-color-background-primary);
+  /* Ring */
+  box-shadow: 0 0 0 2px var(--lufa-token-color-background-primary);
 
-    /* Object fit */
-    object-fit: cover;
-  }
+  /* Object fit */
+  object-fit: cover;
+}
 
-  /* Sizes */
-  .size-xs {
-    width: 1.5rem; /* 24px */
-    height: 1.5rem;
-  }
+/* Sizes */
+.size-xs {
+  width: 1.5rem; /* 24px */
+  height: 1.5rem;
+}
 
-  .size-sm {
-    width: 2rem; /* 32px */
-    height: 2rem;
-  }
+.size-sm {
+  width: 2rem; /* 32px */
+  height: 2rem;
+}
 
-  .size-md {
-    width: 2.5rem; /* 40px */
-    height: 2.5rem;
-  }
+.size-md {
+  width: 2.5rem; /* 40px */
+  height: 2.5rem;
+}
 
-  .size-lg {
-    width: 3rem; /* 48px */
-    height: 3rem;
-  }
+.size-lg {
+  width: 3rem; /* 48px */
+  height: 3rem;
+}
 
-  .size-xl {
-    width: 4rem; /* 64px */
-    height: 4rem;
-  }
+.size-xl {
+  width: 4rem; /* 64px */
+  height: 4rem;
+}
 
-  /* Variants */
-  .variant-circle {
-    border-radius: var(--lufa-token-radius-full);
-  }
+/* Variants */
+.variant-circle {
+  border-radius: var(--lufa-token-radius-full);
+}
 
-  .variant-square {
-    border-radius: var(--lufa-token-radius-lg);
-  }
+.variant-square {
+  border-radius: var(--lufa-token-radius-lg);
+}
 
-  .variant-count {
-    border-radius: var(--lufa-token-radius-full);
-    background-color: var(--lufa-token-color-background-secondary);
-    color: var(--lufa-token-color-text-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: var(--lufa-token-font-weight-semibold);
-    font-size: var(--lufa-token-font-size-sm);
-  }
+.variant-count {
+  border-radius: var(--lufa-token-radius-full);
+  background-color: var(--lufa-token-color-background-secondary);
+  color: var(--lufa-token-color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--lufa-token-font-weight-semibold);
+  font-size: var(--lufa-token-font-size-sm);
+}
 
-  /* Status indicator */
-  .status {
-    position: absolute;
-    display: block;
-    border-radius: var(--lufa-token-radius-full);
-    box-shadow: 0 0 0 2px var(--lufa-token-color-background-primary);
-  }
+/* Status indicator */
+.status {
+  position: absolute;
+  display: block;
+  border-radius: var(--lufa-token-radius-full);
+  box-shadow: 0 0 0 2px var(--lufa-token-color-background-primary);
+}
 
-  .status-size-xs {
-    width: 0.375rem; /* 6px */
-    height: 0.375rem;
-  }
+.status-size-xs {
+  width: 0.375rem; /* 6px */
+  height: 0.375rem;
+}
 
-  .status-size-sm {
-    width: 0.5rem; /* 8px */
-    height: 0.5rem;
-  }
+.status-size-sm {
+  width: 0.5rem; /* 8px */
+  height: 0.5rem;
+}
 
-  .status-size-md {
-    width: 0.625rem; /* 10px */
-    height: 0.625rem;
-  }
+.status-size-md {
+  width: 0.625rem; /* 10px */
+  height: 0.625rem;
+}
 
-  .status-size-lg {
-    width: 0.75rem; /* 12px */
-    height: 0.75rem;
-  }
+.status-size-lg {
+  width: 0.75rem; /* 12px */
+  height: 0.75rem;
+}
 
-  .status-size-xl {
-    width: 1rem; /* 16px */
-    height: 1rem;
-  }
+.status-size-xl {
+  width: 1rem; /* 16px */
+  height: 1rem;
+}
 
-  /* Status colors */
-  .status-online {
-    background-color: var(--lufa-token-color-success-default);
-  }
+/* Status colors */
+.status-online {
+  background-color: var(--lufa-token-color-success-default);
+}
 
-  .status-offline {
-    background-color: var(--lufa-token-color-text-disabled);
-  }
+.status-offline {
+  background-color: var(--lufa-token-color-text-disabled);
+}
 
-  .status-away {
-    background-color: var(--lufa-token-color-warning-default);
-  }
+.status-away {
+  background-color: var(--lufa-token-color-warning-default);
+}
 
-  .status-busy {
-    background-color: var(--lufa-token-color-error-default);
-  }
+.status-busy {
+  background-color: var(--lufa-token-color-error-default);
+}
 
-  /* Status positions - Circle */
-  .status-position-top {
-    top: 0;
-    right: 0;
-  }
+/* Status positions - Circle */
+.status-position-top {
+  top: 0;
+  right: 0;
+}
 
-  .status-position-bottom {
-    right: 0;
-    bottom: 0;
-  }
+.status-position-bottom {
+  right: 0;
+  bottom: 0;
+}
 
-  /* Status positions - Square */
-  .status-square.status-position-top {
-    transform: translateX(33.333333%) translateY(-33.333333%);
-  }
+/* Status positions - Square */
+.status-square.status-position-top {
+  transform: translateX(33.333333%) translateY(-33.333333%);
+}
 
-  .status-square.status-position-bottom {
-    transform: translateX(33.333333%) translateY(33.333333%);
-  }
+.status-square.status-position-bottom {
+  transform: translateX(33.333333%) translateY(33.333333%);
 }

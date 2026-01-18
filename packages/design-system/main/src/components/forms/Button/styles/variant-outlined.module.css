@@ -1,105 +1,103 @@
-@layer components {
-  /* ========================================
-     OUTLINED VARIANT - Using CSS Variables
-     ======================================== */
+/* ========================================
+   OUTLINED VARIANT - Using CSS Variables
+   ======================================== */
 
-  .variantOutlined {
-    background: transparent;
-    border-color: var(--btn-border);
-    color: var(--btn-color);
-  }
+.variantOutlined {
+  background: transparent;
+  border-color: var(--btn-border);
+  color: var(--btn-color);
+}
 
-  .variantOutlined:is(
-    :focus-visible:not(:disabled),
-    :hover:not(:disabled),
-    [data-test-state='focus'],
-    [data-test-state='hover']
-  ) {
-    background: var(--btn-bg-hover);
-    border-color: var(--btn-border-hover);
-    color: var(--btn-color-hover);
-    box-shadow: var(--btn-shadow-hover, var(--lufa-token-shadow-md));
-    transform: translateY(-1px);
-  }
+.variantOutlined:is(
+  :focus-visible:not(:disabled),
+  :hover:not(:disabled),
+  [data-test-state='focus'],
+  [data-test-state='hover']
+) {
+  background: var(--btn-bg-hover);
+  border-color: var(--btn-border-hover);
+  color: var(--btn-color-hover);
+  box-shadow: var(--btn-shadow-hover, var(--lufa-token-shadow-md));
+  transform: translateY(-1px);
+}
 
-  .variantOutlined:disabled {
-    background: var(--btn-bg-disabled);
-    border-color: var(--btn-border-disabled);
-    color: var(--btn-color-disabled);
-  }
+.variantOutlined:disabled {
+  background: var(--btn-bg-disabled);
+  border-color: var(--btn-border-disabled);
+  color: var(--btn-color-disabled);
+}
 
-  .variantOutlined:is(:focus-visible, [data-test-state='focus']) {
-    outline: var(--btn-outline);
-    outline-offset: var(--btn-outline-offset);
-    box-shadow: var(--btn-ring);
-  }
+.variantOutlined:is(:focus-visible, [data-test-state='focus']) {
+  outline: var(--btn-outline);
+  outline-offset: var(--btn-outline-offset);
+  box-shadow: var(--btn-ring);
+}
 
-  /* Outlined Colors - Variable Assignments */
-  .variantOutlined.colorPrimary {
-    --btn-border: var(--lufa-token-color-interactive-default);
-    --btn-color: var(--lufa-token-color-interactive-default);
-    --btn-bg-hover: var(--lufa-token-color-interactive-default);
-    --btn-border-hover: var(--lufa-token-color-interactive-default);
-    --btn-color-hover: var(--lufa-token-color-text-inverse);
-    --btn-bg-disabled: var(--lufa-token-color-background-tertiary);
-    --btn-border-disabled: var(--lufa-token-color-text-disabled);
-    --btn-color-disabled: var(--lufa-token-color-text-disabled);
-    --btn-outline: 2px solid var(--lufa-token-color-interactive-focus);
-    --btn-ring: 0 0 0 4px color-mix(in srgb, var(--lufa-token-color-interactive-focus) 20%, transparent);
-  }
+/* Outlined Colors - Variable Assignments */
+.variantOutlined.colorPrimary {
+  --btn-border: var(--lufa-token-color-interactive-default);
+  --btn-color: var(--lufa-token-color-interactive-default);
+  --btn-bg-hover: var(--lufa-token-color-interactive-default);
+  --btn-border-hover: var(--lufa-token-color-interactive-default);
+  --btn-color-hover: var(--lufa-token-color-text-inverse);
+  --btn-bg-disabled: var(--lufa-token-color-background-tertiary);
+  --btn-border-disabled: var(--lufa-token-color-text-disabled);
+  --btn-color-disabled: var(--lufa-token-color-text-disabled);
+  --btn-outline: 2px solid var(--lufa-token-color-interactive-focus);
+  --btn-ring: 0 0 0 4px color-mix(in srgb, var(--lufa-token-color-interactive-focus) 20%, transparent);
+}
 
-  .variantOutlined.colorSecondary {
-    --btn-border: var(--lufa-token-color-text-secondary);
-    --btn-color: var(--lufa-token-color-text-secondary);
-    --btn-bg-hover: var(--lufa-token-color-text-secondary);
-    --btn-border-hover: var(--lufa-token-color-text-secondary);
-    --btn-color-hover: var(--lufa-token-color-text-inverse);
-    --btn-bg-disabled: var(--lufa-token-color-background-tertiary);
-    --btn-border-disabled: var(--lufa-token-color-text-disabled);
-    --btn-color-disabled: var(--lufa-token-color-text-disabled);
-    --btn-outline: 2px solid var(--lufa-token-color-text-secondary);
-    --btn-ring: 0 0 0 4px color-mix(in srgb, var(--lufa-token-color-text-secondary) 20%, transparent);
-  }
+.variantOutlined.colorSecondary {
+  --btn-border: var(--lufa-token-color-text-secondary);
+  --btn-color: var(--lufa-token-color-text-secondary);
+  --btn-bg-hover: var(--lufa-token-color-text-secondary);
+  --btn-border-hover: var(--lufa-token-color-text-secondary);
+  --btn-color-hover: var(--lufa-token-color-text-inverse);
+  --btn-bg-disabled: var(--lufa-token-color-background-tertiary);
+  --btn-border-disabled: var(--lufa-token-color-text-disabled);
+  --btn-color-disabled: var(--lufa-token-color-text-disabled);
+  --btn-outline: 2px solid var(--lufa-token-color-text-secondary);
+  --btn-ring: 0 0 0 4px color-mix(in srgb, var(--lufa-token-color-text-secondary) 20%, transparent);
+}
 
-  .variantOutlined.colorSuccess {
-    --btn-border: var(--lufa-token-color-success-border);
-    --btn-color: var(--lufa-token-color-success-text);
-    --btn-bg-hover: var(--lufa-token-color-success-default);
-    --btn-border-hover: var(--lufa-token-color-success-default);
-    --btn-color-hover: var(--lufa-token-color-text-inverse);
-    --btn-bg-disabled: var(--lufa-token-color-success-light);
-    --btn-border-disabled: var(--lufa-token-color-success-lighter);
-    --btn-color-disabled: var(--lufa-token-color-success-lighter);
-    --btn-outline: 2px solid var(--lufa-token-color-success-default);
-    --btn-ring: 0 0 0 4px color-mix(in srgb, var(--lufa-token-color-success-default) 20%, transparent);
-    --btn-shadow-hover: 0 1px 3px color-mix(in srgb, var(--lufa-token-color-success-default) 20%, transparent);
-  }
+.variantOutlined.colorSuccess {
+  --btn-border: var(--lufa-token-color-success-border);
+  --btn-color: var(--lufa-token-color-success-text);
+  --btn-bg-hover: var(--lufa-token-color-success-default);
+  --btn-border-hover: var(--lufa-token-color-success-default);
+  --btn-color-hover: var(--lufa-token-color-text-inverse);
+  --btn-bg-disabled: var(--lufa-token-color-success-light);
+  --btn-border-disabled: var(--lufa-token-color-success-lighter);
+  --btn-color-disabled: var(--lufa-token-color-success-lighter);
+  --btn-outline: 2px solid var(--lufa-token-color-success-default);
+  --btn-ring: 0 0 0 4px color-mix(in srgb, var(--lufa-token-color-success-default) 20%, transparent);
+  --btn-shadow-hover: 0 1px 3px color-mix(in srgb, var(--lufa-token-color-success-default) 20%, transparent);
+}
 
-  .variantOutlined.colorWarning {
-    --btn-border: var(--lufa-token-color-warning-border);
-    --btn-color: var(--lufa-token-color-warning-text);
-    --btn-bg-hover: var(--lufa-token-color-warning-default);
-    --btn-border-hover: var(--lufa-token-color-warning-default);
-    --btn-color-hover: var(--lufa-token-color-text-inverse);
-    --btn-bg-disabled: var(--lufa-token-color-warning-light);
-    --btn-border-disabled: var(--lufa-token-color-warning-lighter);
-    --btn-color-disabled: var(--lufa-token-color-warning-lighter);
-    --btn-outline: 2px solid var(--lufa-token-color-warning-default);
-    --btn-ring: 0 0 0 4px color-mix(in srgb, var(--lufa-token-color-warning-default) 20%, transparent);
-    --btn-shadow-hover: 0 1px 3px color-mix(in srgb, var(--lufa-token-color-warning-default) 20%, transparent);
-  }
+.variantOutlined.colorWarning {
+  --btn-border: var(--lufa-token-color-warning-border);
+  --btn-color: var(--lufa-token-color-warning-text);
+  --btn-bg-hover: var(--lufa-token-color-warning-default);
+  --btn-border-hover: var(--lufa-token-color-warning-default);
+  --btn-color-hover: var(--lufa-token-color-text-inverse);
+  --btn-bg-disabled: var(--lufa-token-color-warning-light);
+  --btn-border-disabled: var(--lufa-token-color-warning-lighter);
+  --btn-color-disabled: var(--lufa-token-color-warning-lighter);
+  --btn-outline: 2px solid var(--lufa-token-color-warning-default);
+  --btn-ring: 0 0 0 4px color-mix(in srgb, var(--lufa-token-color-warning-default) 20%, transparent);
+  --btn-shadow-hover: 0 1px 3px color-mix(in srgb, var(--lufa-token-color-warning-default) 20%, transparent);
+}
 
-  .variantOutlined.colorDanger {
-    --btn-border: var(--lufa-token-color-error-border);
-    --btn-color: var(--lufa-token-color-error-text);
-    --btn-bg-hover: var(--lufa-token-color-error-default);
-    --btn-border-hover: var(--lufa-token-color-error-default);
-    --btn-color-hover: var(--lufa-token-color-text-inverse);
-    --btn-bg-disabled: var(--lufa-token-color-error-light);
-    --btn-border-disabled: var(--lufa-token-color-error-lighter);
-    --btn-color-disabled: var(--lufa-token-color-error-lighter);
-    --btn-outline: 2px solid var(--lufa-token-color-error-default);
-    --btn-ring: 0 0 0 4px color-mix(in srgb, var(--lufa-token-color-error-default) 20%, transparent);
-    --btn-shadow-hover: 0 1px 3px color-mix(in srgb, var(--lufa-token-color-error-default) 20%, transparent);
-  }
+.variantOutlined.colorDanger {
+  --btn-border: var(--lufa-token-color-error-border);
+  --btn-color: var(--lufa-token-color-error-text);
+  --btn-bg-hover: var(--lufa-token-color-error-default);
+  --btn-border-hover: var(--lufa-token-color-error-default);
+  --btn-color-hover: var(--lufa-token-color-text-inverse);
+  --btn-bg-disabled: var(--lufa-token-color-error-light);
+  --btn-border-disabled: var(--lufa-token-color-error-lighter);
+  --btn-color-disabled: var(--lufa-token-color-error-lighter);
+  --btn-outline: 2px solid var(--lufa-token-color-error-default);
+  --btn-ring: 0 0 0 4px color-mix(in srgb, var(--lufa-token-color-error-default) 20%, transparent);
+  --btn-shadow-hover: 0 1px 3px color-mix(in srgb, var(--lufa-token-color-error-default) 20%, transparent);
 }

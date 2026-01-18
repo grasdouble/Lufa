@@ -1,28 +1,26 @@
-@layer components {
-  .center {
-    min-width: 0;
-  }
+.center {
+  min-width: 0;
+}
 
-  .block {
-    display: flex;
-    width: 100%;
-  }
+.block {
+  display: flex;
+  width: 100%;
+}
 
-  .inline {
-    display: inline-flex;
-    width: auto;
-  }
+.inline {
+  display: inline-flex;
+  width: auto;
+}
 
-  .axisBoth {
-    justify-content: center;
-    align-items: center;
-  }
+.axisBoth {
+  justify-content: center;
+  align-items: center;
+}
 
-  .axisHorizontal {
-    justify-content: center;
-  }
+.axisHorizontal {
+  justify-content: center;
+}
 
-  .axisVertical {
-    align-items: center;
-  }
+.axisVertical {
+  align-items: center;
 }

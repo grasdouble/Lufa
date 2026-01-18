@@ -1,14 +1,12 @@
-@layer components {
-  .container {
-    display: flex;
-    align-items: center;
-  }
+.container {
+  display: flex;
+  align-items: center;
+}
 
-  .avatar {
-    margin-left: calc(var(--lufa-token-spacing-md) * -1);
-  }
+.avatar {
+  margin-left: calc(var(--lufa-token-spacing-md) * -1);
+}
 
-  .avatar:first-child {
-    margin-left: 0;
-  }
+.avatar:first-child {
+  margin-left: 0;
 }

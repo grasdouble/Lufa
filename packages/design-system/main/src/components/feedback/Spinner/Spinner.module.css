@@ -9,23 +9,21 @@
   }
 }
 
-@layer components {
-  .spinner {
-    animation: spin 1s linear infinite;
-  }
+.spinner {
+  animation: spin 1s linear infinite;
+}
 
-  .spinner-small {
-    width: 1rem; /* 16px */
-    height: 1rem; /* 16px */
-  }
+.spinner-small {
+  width: 1rem; /* 16px */
+  height: 1rem; /* 16px */
+}
 
-  .spinner-medium {
-    width: 2rem; /* 32px */
-    height: 2rem; /* 32px */
-  }
+.spinner-medium {
+  width: 2rem; /* 32px */
+  height: 2rem; /* 32px */
+}
 
-  .spinner-large {
-    width: 4rem; /* 64px */
-    height: 4rem; /* 64px */
-  }
+.spinner-large {
+  width: 4rem; /* 64px */
+  height: 4rem; /* 64px */
 }

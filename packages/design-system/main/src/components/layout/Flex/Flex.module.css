@@ -1,71 +1,69 @@
-@layer components {
-  .flex {
-    --lufa-flex-gap: var(--lufa-token-spacing-md);
-    gap: var(--lufa-flex-gap);
-    min-width: 0;
-  }
+.flex {
+  --lufa-flex-gap: var(--lufa-token-spacing-md);
+  gap: var(--lufa-flex-gap);
+  min-width: 0;
+}
 
-  .block {
-    display: flex;
-  }
+.block {
+  display: flex;
+}
 
-  .inline {
-    display: inline-flex;
-  }
+.inline {
+  display: inline-flex;
+}
 
-  /* Direction */
-  .direction-row {
-    flex-direction: row;
-  }
-  .direction-column {
-    flex-direction: column;
-  }
+/* Direction */
+.direction-row {
+  flex-direction: row;
+}
+.direction-column {
+  flex-direction: column;
+}
 
-  /* Align */
-  .align-start {
-    align-items: flex-start;
-  }
-  .align-center {
-    align-items: center;
-  }
-  .align-end {
-    align-items: flex-end;
-  }
-  .align-stretch {
-    align-items: stretch;
-  }
-  .align-baseline {
-    align-items: baseline;
-  }
+/* Align */
+.align-start {
+  align-items: flex-start;
+}
+.align-center {
+  align-items: center;
+}
+.align-end {
+  align-items: flex-end;
+}
+.align-stretch {
+  align-items: stretch;
+}
+.align-baseline {
+  align-items: baseline;
+}
 
-  /* Justify */
-  .justify-start {
-    justify-content: flex-start;
-  }
-  .justify-center {
-    justify-content: center;
-  }
-  .justify-end {
-    justify-content: flex-end;
-  }
-  .justify-between {
-    justify-content: space-between;
-  }
-  .justify-around {
-    justify-content: space-around;
-  }
-  .justify-evenly {
-    justify-content: space-evenly;
-  }
+/* Justify */
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
 
-  /* Wrap */
-  .wrap-nowrap {
-    flex-wrap: nowrap;
-  }
-  .wrap-wrap {
-    flex-wrap: wrap;
-  }
-  .wrap-wrap-reverse {
-    flex-wrap: wrap-reverse;
-  }
+/* Wrap */
+.wrap-nowrap {
+  flex-wrap: nowrap;
+}
+.wrap-wrap {
+  flex-wrap: wrap;
+}
+.wrap-wrap-reverse {
+  flex-wrap: wrap-reverse;
 }

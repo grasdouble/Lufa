@@ -1,155 +1,153 @@
-@layer components {
-  .link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--lufa-token-spacing-xs);
-    color: var(--lufa-token-color-text-link);
-    text-decoration: none;
-    position: relative;
-    transition: color var(--lufa-token-timing-fast);
-    font-weight: inherit;
-  }
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lufa-token-spacing-xs);
+  color: var(--lufa-token-color-text-link);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--lufa-token-timing-fast);
+  font-weight: inherit;
+}
 
-  .link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    border-radius: var(--lufa-token-radius-sm);
-    height: var(--lufa-token-border-width-hairline);
-    width: 0;
-    background: currentColor;
-    transition: all var(--lufa-token-timing-fast);
-  }
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: var(--lufa-token-radius-sm);
+  height: var(--lufa-token-border-width-hairline);
+  width: 0;
+  background: currentColor;
+  transition: all var(--lufa-token-timing-fast);
+}
 
-  .link:hover::after,
-  .link:focus-visible::after {
-    width: 100%;
-    background-color: var(--lufa-token-color-text-link-hover);
-  }
+.link:hover::after,
+.link:focus-visible::after {
+  width: 100%;
+  background-color: var(--lufa-token-color-text-link-hover);
+}
 
-  .link:hover,
-  .link:focus-visible {
-    color: var(--lufa-token-color-text-link-hover);
-  }
+.link:hover,
+.link:focus-visible {
+  color: var(--lufa-token-color-text-link-hover);
+}
 
-  .link:focus-visible {
-    outline-color: var(--lufa-token-color-border-focus);
-    outline-width: var(--lufa-token-border-width-focus);
-    outline-style: solid;
-    outline-offset: var(--lufa-token-spacing-xxs);
-    border-radius: var(--lufa-token-radius-sm);
-  }
+.link:focus-visible {
+  outline-color: var(--lufa-token-color-border-focus);
+  outline-width: var(--lufa-token-border-width-focus);
+  outline-style: solid;
+  outline-offset: var(--lufa-token-spacing-xxs);
+  border-radius: var(--lufa-token-radius-sm);
+}
 
-  /* Variant overrides - variantDefault uses base .link styles with animated underline */
+/* Variant overrides - variantDefault uses base .link styles with animated underline */
 
-  .variantUnderline {
-    text-decoration: underline;
-    text-decoration-color: var(--lufa-token-color-border-default);
-  }
+.variantUnderline {
+  text-decoration: underline;
+  text-decoration-color: var(--lufa-token-color-border-default);
+}
 
-  .variantUnderline::after {
-    display: none;
-  }
+.variantUnderline::after {
+  display: none;
+}
 
-  .variantButton {
-    color: var(--lufa-token-color-text-inverse);
-    background-color: var(--lufa-token-color-interactive-default);
-    padding-left: var(--lufa-token-spacing-md);
-    padding-right: var(--lufa-token-spacing-md);
-    padding-top: var(--lufa-token-spacing-sm);
-    padding-bottom: var(--lufa-token-spacing-sm);
-    border-radius: var(--lufa-token-radius-lg);
-    text-decoration: none;
-  }
+.variantButton {
+  color: var(--lufa-token-color-text-inverse);
+  background-color: var(--lufa-token-color-interactive-default);
+  padding-left: var(--lufa-token-spacing-md);
+  padding-right: var(--lufa-token-spacing-md);
+  padding-top: var(--lufa-token-spacing-sm);
+  padding-bottom: var(--lufa-token-spacing-sm);
+  border-radius: var(--lufa-token-radius-lg);
+  text-decoration: none;
+}
 
-  .variantButton::after {
-    display: none;
-  }
+.variantButton::after {
+  display: none;
+}
 
-  .variantButton:hover,
-  .variantButton:focus-visible {
-    background-color: var(--lufa-token-color-interactive-hover);
-    color: var(--lufa-token-color-text-inverse);
-  }
+.variantButton:hover,
+.variantButton:focus-visible {
+  background-color: var(--lufa-token-color-interactive-hover);
+  color: var(--lufa-token-color-text-inverse);
+}
 
-  /* Color variants */
-  .colorPrimary {
-    color: var(--lufa-token-color-interactive-default);
-  }
+/* Color variants */
+.colorPrimary {
+  color: var(--lufa-token-color-interactive-default);
+}
 
-  .colorPrimary:hover,
-  .colorPrimary:focus-visible {
-    color: var(--lufa-token-color-interactive-hover);
-  }
+.colorPrimary:hover,
+.colorPrimary:focus-visible {
+  color: var(--lufa-token-color-interactive-hover);
+}
 
-  .colorSecondary {
-    color: var(--lufa-token-color-text-secondary);
-  }
+.colorSecondary {
+  color: var(--lufa-token-color-text-secondary);
+}
 
-  .colorSecondary:hover,
-  .colorSecondary:focus-visible {
-    color: var(--lufa-token-color-text-primary);
-  }
+.colorSecondary:hover,
+.colorSecondary:focus-visible {
+  color: var(--lufa-token-color-text-primary);
+}
 
-  .colorSuccess {
-    color: var(--lufa-token-color-success-default);
-  }
+.colorSuccess {
+  color: var(--lufa-token-color-success-default);
+}
 
-  .colorSuccess:hover,
-  .colorSuccess:focus-visible {
-    color: var(--lufa-token-color-success-hover);
-  }
+.colorSuccess:hover,
+.colorSuccess:focus-visible {
+  color: var(--lufa-token-color-success-hover);
+}
 
-  .colorWarning {
-    color: var(--lufa-token-color-warning-default);
-  }
+.colorWarning {
+  color: var(--lufa-token-color-warning-default);
+}
 
-  .colorWarning:hover,
-  .colorWarning:focus-visible {
-    color: var(--lufa-token-color-warning-hover);
-  }
+.colorWarning:hover,
+.colorWarning:focus-visible {
+  color: var(--lufa-token-color-warning-hover);
+}
 
-  .colorDanger {
-    color: var(--lufa-token-color-error-default);
-  }
+.colorDanger {
+  color: var(--lufa-token-color-error-default);
+}
 
-  .colorDanger:hover,
-  .colorDanger:focus-visible {
-    color: var(--lufa-token-color-error-hover);
-  }
+.colorDanger:hover,
+.colorDanger:focus-visible {
+  color: var(--lufa-token-color-error-hover);
+}
 
-  .colorInherit {
-    color: inherit;
-  }
+.colorInherit {
+  color: inherit;
+}
 
-  .colorInherit:hover,
-  .colorInherit:focus-visible {
-    color: inherit;
-    opacity: var(--lufa-token-opacity-disabled);
-  }
+.colorInherit:hover,
+.colorInherit:focus-visible {
+  color: inherit;
+  opacity: var(--lufa-token-opacity-disabled);
+}
 
-  /* Size variants */
-  .sizeSmall {
-    font-size: var(--lufa-token-font-size-sm);
-    gap: var(--lufa-token-spacing-xxs);
-  }
+/* Size variants */
+.sizeSmall {
+  font-size: var(--lufa-token-font-size-sm);
+  gap: var(--lufa-token-spacing-xxs);
+}
 
-  .sizeMedium {
-    font-size: var(--lufa-token-font-size-base);
-    gap: var(--lufa-token-spacing-xs);
-  }
+.sizeMedium {
+  font-size: var(--lufa-token-font-size-base);
+  gap: var(--lufa-token-spacing-xs);
+}
 
-  .sizeLarge {
-    font-size: var(--lufa-token-font-size-lg);
-    gap: var(--lufa-token-spacing-2xs);
-  }
+.sizeLarge {
+  font-size: var(--lufa-token-font-size-lg);
+  gap: var(--lufa-token-spacing-2xs);
+}
 
-  /* Icons */
-  .startIcon,
-  .endIcon,
-  .externalIcon {
-    display: inline-flex;
-    flex-shrink: 0;
-  }
+/* Icons */
+.startIcon,
+.endIcon,
+.externalIcon {
+  display: inline-flex;
+  flex-shrink: 0;
 }

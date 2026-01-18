@@ -1,122 +1,120 @@
-@layer components {
-  .badge {
-    /* Themable badge structure */
-    --badge-border-radius: var(--lufa-token-radius-md);
-    --badge-font-weight: var(--lufa-token-font-weight-medium);
-    --badge-padding-x: var(--lufa-token-spacing-sm);
-    --badge-padding-y: var(--lufa-token-spacing-xxs);
-    --badge-gap: var(--lufa-token-spacing-xs);
-    --badge-transition: var(--lufa-token-timing-fast);
-    --badge-ring-width: var(--lufa-token-border-width-hairline);
-    --badge-bg: var(--lufa-token-color-background-secondary);
-    --badge-text: var(--lufa-token-color-text-secondary);
-    --badge-ring: var(--lufa-token-color-border-default);
+.badge {
+  /* Themable badge structure */
+  --badge-border-radius: var(--lufa-token-radius-md);
+  --badge-font-weight: var(--lufa-token-font-weight-medium);
+  --badge-padding-x: var(--lufa-token-spacing-sm);
+  --badge-padding-y: var(--lufa-token-spacing-xxs);
+  --badge-gap: var(--lufa-token-spacing-xs);
+  --badge-transition: var(--lufa-token-timing-fast);
+  --badge-ring-width: var(--lufa-token-border-width-hairline);
+  --badge-bg: var(--lufa-token-color-background-secondary);
+  --badge-text: var(--lufa-token-color-text-secondary);
+  --badge-ring: var(--lufa-token-color-border-default);
 
-    border-radius: var(--badge-border-radius);
-    font-weight: var(--badge-font-weight);
-    padding-inline: var(--badge-padding-x);
-    padding-block: var(--badge-padding-y);
-    gap: var(--badge-gap);
-    background: var(--badge-bg);
-    color: var(--badge-text);
-    box-shadow: inset 0 0 0 var(--badge-ring-width) var(--badge-ring);
-    transition:
-      color var(--badge-transition),
-      background var(--badge-transition);
+  border-radius: var(--badge-border-radius);
+  font-weight: var(--badge-font-weight);
+  padding-inline: var(--badge-padding-x);
+  padding-block: var(--badge-padding-y);
+  gap: var(--badge-gap);
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  box-shadow: inset 0 0 0 var(--badge-ring-width) var(--badge-ring);
+  transition:
+    color var(--badge-transition),
+    background var(--badge-transition);
 
-    /* Layout (not themable) */
-    display: inline-flex;
-    align-items: center;
-  }
+  /* Layout (not themable) */
+  display: inline-flex;
+  align-items: center;
+}
 
-  /* Size variants */
-  .size-sm {
-    --badge-padding-x: var(--lufa-token-spacing-xs);
-    --badge-padding-y: var(--lufa-token-spacing-xxs);
-    --badge-font-size: var(--lufa-token-font-size-xs);
-    font-size: var(--badge-font-size);
-  }
+/* Size variants */
+.size-sm {
+  --badge-padding-x: var(--lufa-token-spacing-xs);
+  --badge-padding-y: var(--lufa-token-spacing-xxs);
+  --badge-font-size: var(--lufa-token-font-size-xs);
+  font-size: var(--badge-font-size);
+}
 
-  .size-md {
-    --badge-padding-x: var(--lufa-token-spacing-sm);
-    --badge-padding-y: var(--lufa-token-spacing-xxs);
-    --badge-font-size: var(--lufa-token-font-size-sm);
-    font-size: var(--badge-font-size);
-  }
+.size-md {
+  --badge-padding-x: var(--lufa-token-spacing-sm);
+  --badge-padding-y: var(--lufa-token-spacing-xxs);
+  --badge-font-size: var(--lufa-token-font-size-sm);
+  font-size: var(--badge-font-size);
+}
 
-  .size-lg {
-    --badge-padding-x: var(--lufa-token-spacing-md);
-    --badge-padding-y: var(--lufa-token-spacing-xs);
-    --badge-font-size: var(--lufa-token-font-size-base);
-    font-size: var(--badge-font-size);
-  }
+.size-lg {
+  --badge-padding-x: var(--lufa-token-spacing-md);
+  --badge-padding-y: var(--lufa-token-spacing-xs);
+  --badge-font-size: var(--lufa-token-font-size-base);
+  font-size: var(--badge-font-size);
+}
 
-  /* Rounded variant */
-  .rounded {
-    --badge-border-radius: var(--lufa-token-radius-full);
-    border-radius: var(--badge-border-radius);
-  }
+/* Rounded variant */
+.rounded {
+  --badge-border-radius: var(--lufa-token-radius-full);
+  border-radius: var(--badge-border-radius);
+}
 
-  /* Dot indicator */
-  .dot {
-    --badge-dot-size: var(--lufa-token-spacing-2xs);
-    --badge-dot-color: var(--lufa-token-color-text-tertiary);
-    width: var(--badge-dot-size);
-    height: var(--badge-dot-size);
-    background: var(--badge-dot-color);
-    border-radius: var(--lufa-token-radius-full);
-    flex-shrink: 0;
-  }
+/* Dot indicator */
+.dot {
+  --badge-dot-size: var(--lufa-token-spacing-2xs);
+  --badge-dot-color: var(--lufa-token-color-text-tertiary);
+  width: var(--badge-dot-size);
+  height: var(--badge-dot-size);
+  background: var(--badge-dot-color);
+  border-radius: var(--lufa-token-radius-full);
+  flex-shrink: 0;
+}
 
-  /* Color variants (each overrides the base color tokens) */
-  .variant-default {
-    --badge-bg: var(--lufa-token-color-background-secondary);
-    --badge-text: var(--lufa-token-color-text-secondary);
-    --badge-ring: var(--lufa-token-color-border-default);
-  }
-  .variant-primary {
-    --badge-bg: var(--lufa-token-color-interactive-focus);
-    --badge-text: var(--lufa-token-color-interactive-default);
-    --badge-ring: var(--lufa-token-color-interactive-default);
-  }
-  .variant-success {
-    --badge-bg: var(--lufa-token-color-success-lighter);
-    --badge-text: var(--lufa-token-color-success-text);
-    --badge-ring: var(--lufa-token-color-success-border);
-  }
-  .variant-warning {
-    --badge-bg: var(--lufa-token-color-warning-lighter);
-    --badge-text: var(--lufa-token-color-warning-text);
-    --badge-ring: var(--lufa-token-color-warning-border);
-  }
-  .variant-danger {
-    --badge-bg: var(--lufa-token-color-error-lighter);
-    --badge-text: var(--lufa-token-color-error-text);
-    --badge-ring: var(--lufa-token-color-error-border);
-  }
-  .variant-info {
-    --badge-bg: var(--lufa-token-color-info-lighter);
-    --badge-text: var(--lufa-token-color-info-text);
-    --badge-ring: var(--lufa-token-color-info-border);
-  }
+/* Color variants (each overrides the base color tokens) */
+.variant-default {
+  --badge-bg: var(--lufa-token-color-background-secondary);
+  --badge-text: var(--lufa-token-color-text-secondary);
+  --badge-ring: var(--lufa-token-color-border-default);
+}
+.variant-primary {
+  --badge-bg: var(--lufa-token-color-interactive-focus);
+  --badge-text: var(--lufa-token-color-interactive-default);
+  --badge-ring: var(--lufa-token-color-interactive-default);
+}
+.variant-success {
+  --badge-bg: var(--lufa-token-color-success-lighter);
+  --badge-text: var(--lufa-token-color-success-text);
+  --badge-ring: var(--lufa-token-color-success-border);
+}
+.variant-warning {
+  --badge-bg: var(--lufa-token-color-warning-lighter);
+  --badge-text: var(--lufa-token-color-warning-text);
+  --badge-ring: var(--lufa-token-color-warning-border);
+}
+.variant-danger {
+  --badge-bg: var(--lufa-token-color-error-lighter);
+  --badge-text: var(--lufa-token-color-error-text);
+  --badge-ring: var(--lufa-token-color-error-border);
+}
+.variant-info {
+  --badge-bg: var(--lufa-token-color-info-lighter);
+  --badge-text: var(--lufa-token-color-info-text);
+  --badge-ring: var(--lufa-token-color-info-border);
+}
 
-  /* Dot color variants */
-  .variant-default .dot {
-    --badge-dot-color: var(--lufa-token-color-text-tertiary);
-  }
-  .variant-primary .dot {
-    --badge-dot-color: var(--lufa-token-color-interactive-default);
-  }
-  .variant-success .dot {
-    --badge-dot-color: var(--lufa-token-color-success-default);
-  }
-  .variant-warning .dot {
-    --badge-dot-color: var(--lufa-token-color-warning-default);
-  }
-  .variant-danger .dot {
-    --badge-dot-color: var(--lufa-token-color-error-default);
-  }
-  .variant-info .dot {
-    --badge-dot-color: var(--lufa-token-color-info-default);
-  }
+/* Dot color variants */
+.variant-default .dot {
+  --badge-dot-color: var(--lufa-token-color-text-tertiary);
+}
+.variant-primary .dot {
+  --badge-dot-color: var(--lufa-token-color-interactive-default);
+}
+.variant-success .dot {
+  --badge-dot-color: var(--lufa-token-color-success-default);
+}
+.variant-warning .dot {
+  --badge-dot-color: var(--lufa-token-color-warning-default);
+}
+.variant-danger .dot {
+  --badge-dot-color: var(--lufa-token-color-error-default);
+}
+.variant-info .dot {
+  --badge-dot-color: var(--lufa-token-color-info-default);
 }

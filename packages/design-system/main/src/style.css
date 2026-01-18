@@ -3,16 +3,19 @@
  * 
  * Foundation, tokens, and utilities for the Lufa Design System.
  * Uses vanilla CSS with CSS Modules and token-based CSS custom properties.
+ * 
+ * Philosophy: Component Library Approach
+ * - No global CSS layers (for maximum compatibility)
+ * - Components use CSS Modules (scoped styles)
+ * - Minimal global reset (essential only)
+ * - Tokens available globally via CSS custom properties
  */
-
-/* Layer definition */
-@layer base, components, utilities;
 
 /* ============================================================================
    FOUNDATION
    ============================================================================ */
 
-/* Vanilla CSS foundation (reset, base styles) */
+/* Vanilla CSS foundation (minimal reset, no global layers) */
 @import './css/foundation.css';
 
 /* Component reset utilities (vanilla CSS) */
@@ -71,11 +74,11 @@
  * 
  * Example component CSS Module:
  * 
- * @layer components {
- *   .button {
- *     background-color: var(--lufa-token-color-interactive-default);
- *     padding: var(--lufa-token-spacing-base);
- *     border-radius: var(--lufa-token-radius-base);
- *   }
+ * .button {
+ *   background-color: var(--lufa-token-color-interactive-default);
+ *   padding: var(--lufa-token-spacing-base);
+ *   border-radius: var(--lufa-token-radius-base);
  * }
+ * 
+ * Note: No @layer wrappers needed - CSS Modules provide scoping
  */

@@ -1,98 +1,96 @@
-@layer components {
-  /* ========================================
-     LINK VARIANT - Using CSS Variables
-     ======================================== */
+/* ========================================
+   LINK VARIANT - Using CSS Variables
+   ======================================== */
 
-  .variantLink {
-    border-width: 0;
-    padding: 0;
-    box-shadow: none;
-    height: auto;
-    border-radius: 0;
-    text-underline-offset: 4px;
-    font-weight: var(--lufa-token-font-weight-normal);
-    justify-content: flex-start;
-    display: inline-flex;
-    position: relative;
-    width: fit-content;
-    min-width: unset;
-    color: var(--btn-color);
-  }
+.variantLink {
+  border-width: 0;
+  padding: 0;
+  box-shadow: none;
+  height: auto;
+  border-radius: 0;
+  text-underline-offset: 4px;
+  font-weight: var(--lufa-token-font-weight-normal);
+  justify-content: flex-start;
+  display: inline-flex;
+  position: relative;
+  width: fit-content;
+  min-width: unset;
+  color: var(--btn-color);
+}
 
-  .variantLink::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: currentColor;
-    transition-property: all;
-    transition-duration: var(--lufa-token-duration-normal);
-    transition-timing-function: ease-out;
-  }
+.variantLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition-property: all;
+  transition-duration: var(--lufa-token-duration-normal);
+  transition-timing-function: ease-out;
+}
 
-  .variantLink:is(
+.variantLink:is(
+  :focus-visible:not(:disabled),
+  :hover:not(:disabled),
+  [data-test-state='focus'],
+  [data-test-state='hover']
+) {
+  color: var(--btn-color-hover);
+}
+
+.variantLink:is(
     :focus-visible:not(:disabled),
     :hover:not(:disabled),
     [data-test-state='focus'],
     [data-test-state='hover']
-  ) {
-    color: var(--btn-color-hover);
-  }
+  )::after {
+  width: 100%;
+}
 
-  .variantLink:is(
-      :focus-visible:not(:disabled),
-      :hover:not(:disabled),
-      [data-test-state='focus'],
-      [data-test-state='hover']
-    )::after {
-    width: 100%;
-  }
+.variantLink:disabled {
+  color: var(--btn-color-disabled);
+  text-decoration: none;
+}
 
-  .variantLink:disabled {
-    color: var(--btn-color-disabled);
-    text-decoration: none;
-  }
+.variantLink:is(:focus-visible, [data-test-state='focus']) {
+  outline: var(--btn-outline);
+  outline-offset: var(--btn-outline-offset);
+}
 
-  .variantLink:is(:focus-visible, [data-test-state='focus']) {
-    outline: var(--btn-outline);
-    outline-offset: var(--btn-outline-offset);
-  }
+/* Link Colors - Variable Assignments */
+.variantLink.colorPrimary {
+  --btn-color: var(--lufa-token-color-text-link);
+  --btn-color-hover: var(--lufa-token-color-text-link-hover);
+  --btn-color-disabled: var(--lufa-token-color-interactive-disabled);
+  --btn-outline: 2px solid var(--lufa-token-color-interactive-focus);
+}
 
-  /* Link Colors - Variable Assignments */
-  .variantLink.colorPrimary {
-    --btn-color: var(--lufa-token-color-text-link);
-    --btn-color-hover: var(--lufa-token-color-text-link-hover);
-    --btn-color-disabled: var(--lufa-token-color-interactive-disabled);
-    --btn-outline: 2px solid var(--lufa-token-color-interactive-focus);
-  }
+.variantLink.colorSecondary {
+  --btn-color: var(--lufa-token-color-text-secondary);
+  --btn-color-hover: var(--lufa-token-color-text-secondary);
+  --btn-color-disabled: var(--lufa-token-color-text-disabled);
+  --btn-outline: 2px solid var(--lufa-token-color-text-secondary);
+}
 
-  .variantLink.colorSecondary {
-    --btn-color: var(--lufa-token-color-text-secondary);
-    --btn-color-hover: var(--lufa-token-color-text-secondary);
-    --btn-color-disabled: var(--lufa-token-color-text-disabled);
-    --btn-outline: 2px solid var(--lufa-token-color-text-secondary);
-  }
+.variantLink.colorSuccess {
+  --btn-color: var(--lufa-token-color-success-text);
+  --btn-color-hover: var(--lufa-token-color-success-hover);
+  --btn-color-disabled: var(--lufa-token-color-success-lighter);
+  --btn-outline: 2px solid var(--lufa-token-color-success-default);
+}
 
-  .variantLink.colorSuccess {
-    --btn-color: var(--lufa-token-color-success-text);
-    --btn-color-hover: var(--lufa-token-color-success-hover);
-    --btn-color-disabled: var(--lufa-token-color-success-lighter);
-    --btn-outline: 2px solid var(--lufa-token-color-success-default);
-  }
+.variantLink.colorWarning {
+  --btn-color: var(--lufa-token-color-warning-text);
+  --btn-color-hover: var(--lufa-token-color-warning-hover);
+  --btn-color-disabled: var(--lufa-token-color-warning-lighter);
+  --btn-outline: 2px solid var(--lufa-token-color-warning-default);
+}
 
-  .variantLink.colorWarning {
-    --btn-color: var(--lufa-token-color-warning-text);
-    --btn-color-hover: var(--lufa-token-color-warning-hover);
-    --btn-color-disabled: var(--lufa-token-color-warning-lighter);
-    --btn-outline: 2px solid var(--lufa-token-color-warning-default);
-  }
-
-  .variantLink.colorDanger {
-    --btn-color: var(--lufa-token-color-error-text);
-    --btn-color-hover: var(--lufa-token-color-error-hover);
-    --btn-color-disabled: var(--lufa-token-color-error-lighter);
-    --btn-outline: 2px solid var(--lufa-token-color-error-default);
-  }
+.variantLink.colorDanger {
+  --btn-color: var(--lufa-token-color-error-text);
+  --btn-color-hover: var(--lufa-token-color-error-hover);
+  --btn-color-disabled: var(--lufa-token-color-error-lighter);
+  --btn-outline: 2px solid var(--lufa-token-color-error-default);
 }

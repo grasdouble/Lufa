@@ -1,44 +1,42 @@
 /* Lufa Design System - Container Query Definitions */
 
-@layer utilities {
-  /* Container types for responsive components */
+/* Container types for responsive components */
 
-  /* Layout containers */
-  .container-layout {
-    container-type: inline-size;
-    container-name: layout;
-  }
+/* Layout containers */
+.container-layout {
+  container-type: inline-size;
+  container-name: layout;
+}
 
-  .container-card {
-    container-type: inline-size;
-    container-name: card;
-  }
+.container-card {
+  container-type: inline-size;
+  container-name: card;
+}
 
-  .container-content {
-    container-type: inline-size;
-    container-name: content;
-  }
+.container-content {
+  container-type: inline-size;
+  container-name: content;
+}
 
-  .container-sidebar {
-    container-type: inline-size;
-    container-name: sidebar;
-  }
+.container-sidebar {
+  container-type: inline-size;
+  container-name: sidebar;
+}
 
-  .container-modal {
-    container-type: inline-size;
-    container-name: modal;
-  }
+.container-modal {
+  container-type: inline-size;
+  container-name: modal;
+}
 
-  .container-testimonial {
-    container-type: inline-size;
-    container-name: testimonial;
-  }
+.container-testimonial {
+  container-type: inline-size;
+  container-name: testimonial;
+}
 
-  /* Generic container for components */
-  .container-component {
-    container-type: inline-size;
-    container-name: component;
-  }
+/* Generic container for components */
+.container-component {
+  container-type: inline-size;
+  container-name: component;
 }
 
 /* Container query breakpoints reference (from tokens) */

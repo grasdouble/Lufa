@@ -1,148 +1,146 @@
-@layer components {
-  .container {
-    width: 100%;
-  }
+.container {
+  width: 100%;
+}
 
-  .align-center {
-    margin-left: auto;
-    margin-right: auto;
-  }
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .align-start {
-    margin-left: 0;
-    margin-right: auto;
-  }
+.align-start {
+  margin-left: 0;
+  margin-right: auto;
+}
 
-  .align-end {
-    margin-left: auto;
-    margin-right: 0;
-  }
+.align-end {
+  margin-left: auto;
+  margin-right: 0;
+}
 
-  .size-xs {
-    max-width: var(--lufa-token-container-xs);
-  }
+.size-xs {
+  max-width: var(--lufa-token-container-xs);
+}
 
-  .size-sm {
-    max-width: var(--lufa-token-container-sm);
-  }
+.size-sm {
+  max-width: var(--lufa-token-container-sm);
+}
 
-  .size-md {
-    max-width: var(--lufa-token-container-md);
-  }
+.size-md {
+  max-width: var(--lufa-token-container-md);
+}
 
-  .size-lg {
-    max-width: var(--lufa-token-container-lg);
-  }
+.size-lg {
+  max-width: var(--lufa-token-container-lg);
+}
 
-  .size-xl {
-    max-width: var(--lufa-token-container-xl);
-  }
+.size-xl {
+  max-width: var(--lufa-token-container-xl);
+}
 
-  .size-full {
-    max-width: var(--lufa-token-container-full);
-  }
+.size-full {
+  max-width: var(--lufa-token-container-full);
+}
 
-  .size-fluid {
-    max-width: var(--lufa-token-container-fluid);
-  }
+.size-fluid {
+  max-width: var(--lufa-token-container-fluid);
+}
 
-  .paddingX-none {
-    padding-left: var(--lufa-token-spacing-none);
-    padding-right: var(--lufa-token-spacing-none);
-  }
+.paddingX-none {
+  padding-left: var(--lufa-token-spacing-none);
+  padding-right: var(--lufa-token-spacing-none);
+}
 
-  .paddingX-xxs {
-    padding-left: var(--lufa-token-spacing-xxs);
-    padding-right: var(--lufa-token-spacing-xxs);
-  }
+.paddingX-xxs {
+  padding-left: var(--lufa-token-spacing-xxs);
+  padding-right: var(--lufa-token-spacing-xxs);
+}
 
-  .paddingX-xs {
-    padding-left: var(--lufa-token-spacing-xs);
-    padding-right: var(--lufa-token-spacing-xs);
-  }
+.paddingX-xs {
+  padding-left: var(--lufa-token-spacing-xs);
+  padding-right: var(--lufa-token-spacing-xs);
+}
 
-  .paddingX-sm {
-    padding-left: var(--lufa-token-spacing-sm);
-    padding-right: var(--lufa-token-spacing-sm);
-  }
+.paddingX-sm {
+  padding-left: var(--lufa-token-spacing-sm);
+  padding-right: var(--lufa-token-spacing-sm);
+}
 
-  .paddingX-md {
-    padding-left: var(--lufa-token-spacing-md);
-    padding-right: var(--lufa-token-spacing-md);
-  }
+.paddingX-md {
+  padding-left: var(--lufa-token-spacing-md);
+  padding-right: var(--lufa-token-spacing-md);
+}
 
-  .paddingX-base {
-    padding-left: var(--lufa-token-spacing-base);
-    padding-right: var(--lufa-token-spacing-base);
-  }
+.paddingX-base {
+  padding-left: var(--lufa-token-spacing-base);
+  padding-right: var(--lufa-token-spacing-base);
+}
 
-  .paddingX-lg {
-    padding-left: var(--lufa-token-spacing-lg);
-    padding-right: var(--lufa-token-spacing-lg);
-  }
+.paddingX-lg {
+  padding-left: var(--lufa-token-spacing-lg);
+  padding-right: var(--lufa-token-spacing-lg);
+}
 
-  .paddingX-xl {
-    padding-left: var(--lufa-token-spacing-xl);
-    padding-right: var(--lufa-token-spacing-xl);
-  }
+.paddingX-xl {
+  padding-left: var(--lufa-token-spacing-xl);
+  padding-right: var(--lufa-token-spacing-xl);
+}
 
-  .paddingX-2xl {
-    padding-left: var(--lufa-token-spacing-2xl);
-    padding-right: var(--lufa-token-spacing-2xl);
-  }
+.paddingX-2xl {
+  padding-left: var(--lufa-token-spacing-2xl);
+  padding-right: var(--lufa-token-spacing-2xl);
+}
 
-  .paddingX-3xl {
-    padding-left: var(--lufa-token-spacing-3xl);
-    padding-right: var(--lufa-token-spacing-3xl);
-  }
+.paddingX-3xl {
+  padding-left: var(--lufa-token-spacing-3xl);
+  padding-right: var(--lufa-token-spacing-3xl);
+}
 
-  .paddingY-none {
-    padding-top: var(--lufa-token-spacing-none);
-    padding-bottom: var(--lufa-token-spacing-none);
-  }
+.paddingY-none {
+  padding-top: var(--lufa-token-spacing-none);
+  padding-bottom: var(--lufa-token-spacing-none);
+}
 
-  .paddingY-xxs {
-    padding-top: var(--lufa-token-spacing-xxs);
-    padding-bottom: var(--lufa-token-spacing-xxs);
-  }
+.paddingY-xxs {
+  padding-top: var(--lufa-token-spacing-xxs);
+  padding-bottom: var(--lufa-token-spacing-xxs);
+}
 
-  .paddingY-xs {
-    padding-top: var(--lufa-token-spacing-xs);
-    padding-bottom: var(--lufa-token-spacing-xs);
-  }
+.paddingY-xs {
+  padding-top: var(--lufa-token-spacing-xs);
+  padding-bottom: var(--lufa-token-spacing-xs);
+}
 
-  .paddingY-sm {
-    padding-top: var(--lufa-token-spacing-sm);
-    padding-bottom: var(--lufa-token-spacing-sm);
-  }
+.paddingY-sm {
+  padding-top: var(--lufa-token-spacing-sm);
+  padding-bottom: var(--lufa-token-spacing-sm);
+}
 
-  .paddingY-md {
-    padding-top: var(--lufa-token-spacing-md);
-    padding-bottom: var(--lufa-token-spacing-md);
-  }
+.paddingY-md {
+  padding-top: var(--lufa-token-spacing-md);
+  padding-bottom: var(--lufa-token-spacing-md);
+}
 
-  .paddingY-base {
-    padding-top: var(--lufa-token-spacing-base);
-    padding-bottom: var(--lufa-token-spacing-base);
-  }
+.paddingY-base {
+  padding-top: var(--lufa-token-spacing-base);
+  padding-bottom: var(--lufa-token-spacing-base);
+}
 
-  .paddingY-lg {
-    padding-top: var(--lufa-token-spacing-lg);
-    padding-bottom: var(--lufa-token-spacing-lg);
-  }
+.paddingY-lg {
+  padding-top: var(--lufa-token-spacing-lg);
+  padding-bottom: var(--lufa-token-spacing-lg);
+}
 
-  .paddingY-xl {
-    padding-top: var(--lufa-token-spacing-xl);
-    padding-bottom: var(--lufa-token-spacing-xl);
-  }
+.paddingY-xl {
+  padding-top: var(--lufa-token-spacing-xl);
+  padding-bottom: var(--lufa-token-spacing-xl);
+}
 
-  .paddingY-2xl {
-    padding-top: var(--lufa-token-spacing-2xl);
-    padding-bottom: var(--lufa-token-spacing-2xl);
-  }
+.paddingY-2xl {
+  padding-top: var(--lufa-token-spacing-2xl);
+  padding-bottom: var(--lufa-token-spacing-2xl);
+}
 
-  .paddingY-3xl {
-    padding-top: var(--lufa-token-spacing-3xl);
-    padding-bottom: var(--lufa-token-spacing-3xl);
-  }
+.paddingY-3xl {
+  padding-top: var(--lufa-token-spacing-3xl);
+  padding-bottom: var(--lufa-token-spacing-3xl);
 }

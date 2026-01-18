@@ -1,171 +1,169 @@
-@layer components {
-  .pagination {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--lufa-token-spacing-base);
-  }
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--lufa-token-spacing-base);
+}
 
-  .nav {
-    display: flex;
-    align-items: center;
-    gap: var(--lufa-token-spacing-xs);
-  }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--lufa-token-spacing-xs);
+}
 
-  .button {
-    /* Button reset */
-    font-family: inherit;
-    font-size: 100%;
-    line-height: inherit;
-    color: inherit;
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
-    background-image: none;
-    border: 0;
-    cursor: pointer;
+.button {
+  /* Button reset */
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  background-image: none;
+  border: 0;
+  cursor: pointer;
 
-    /* Button styles */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-width: var(--lufa-token-border-width-hairline);
-    border-style: var(--lufa-token-border-style-solid);
-    border-color: var(--lufa-token-color-border-default);
-    border-radius: var(--lufa-token-radius-md);
-    transition: var(--lufa-token-transition-fast);
-    min-width: var(--lufa-token-size-md);
-  }
+  /* Button styles */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-width: var(--lufa-token-border-width-hairline);
+  border-style: var(--lufa-token-border-style-solid);
+  border-color: var(--lufa-token-color-border-default);
+  border-radius: var(--lufa-token-radius-md);
+  transition: var(--lufa-token-transition-fast);
+  min-width: var(--lufa-token-size-md);
+}
 
-  .button:hover:not(:disabled) {
-    background-color: var(--lufa-token-color-background-secondary);
-    border-color: var(--lufa-token-color-interactive-hover);
-  }
+.button:hover:not(:disabled) {
+  background-color: var(--lufa-token-color-background-secondary);
+  border-color: var(--lufa-token-color-interactive-hover);
+}
 
-  .button:disabled {
-    cursor: var(--lufa-token-cursor-not-allowed);
-    opacity: var(--lufa-token-opacity-disabled);
-  }
+.button:disabled {
+  cursor: var(--lufa-token-cursor-not-allowed);
+  opacity: var(--lufa-token-opacity-disabled);
+}
 
-  .page {
-    color: var(--lufa-token-color-text-primary);
-  }
+.page {
+  color: var(--lufa-token-color-text-primary);
+}
 
-  .active {
-    background-color: var(--lufa-token-color-interactive-default);
-    color: var(--lufa-token-color-text-inverse);
-    border-color: var(--lufa-token-color-interactive-default);
-    font-weight: var(--lufa-token-font-weight-medium);
-  }
+.active {
+  background-color: var(--lufa-token-color-interactive-default);
+  color: var(--lufa-token-color-text-inverse);
+  border-color: var(--lufa-token-color-interactive-default);
+  font-weight: var(--lufa-token-font-weight-medium);
+}
 
-  .active:hover {
-    background-color: var(--lufa-token-color-interactive-hover);
-    border-color: var(--lufa-token-color-interactive-hover);
-  }
+.active:hover {
+  background-color: var(--lufa-token-color-interactive-hover);
+  border-color: var(--lufa-token-color-interactive-hover);
+}
 
-  .prev,
-  .next {
-    font-weight: var(--lufa-token-font-weight-bold);
-  }
+.prev,
+.next {
+  font-weight: var(--lufa-token-font-weight-bold);
+}
 
-  .ellipsis {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--lufa-token-color-text-secondary);
-    min-width: var(--lufa-token-size-md);
-  }
+.ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lufa-token-color-text-secondary);
+  min-width: var(--lufa-token-size-md);
+}
 
-  .sizeChanger {
-    display: flex;
-    align-items: center;
-    gap: var(--lufa-token-spacing-sm);
-  }
+.sizeChanger {
+  display: flex;
+  align-items: center;
+  gap: var(--lufa-token-spacing-sm);
+}
 
-  .select {
-    /* Input reset */
-    font-family: inherit;
-    font-size: 100%;
-    line-height: inherit;
-    color: inherit;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: transparent;
+.select {
+  /* Input reset */
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
 
-    /* Select styles */
-    border-radius: var(--lufa-token-radius-md);
-    padding-left: var(--lufa-token-spacing-md);
-    padding-right: var(--lufa-token-spacing-md);
-    padding-top: var(--lufa-token-spacing-2xs);
-    padding-bottom: var(--lufa-token-spacing-2xs);
-    border-width: var(--lufa-token-border-width-hairline);
-    border-style: var(--lufa-token-border-style-solid);
-    border-color: var(--lufa-token-color-border-default);
-    background-color: var(--lufa-token-color-background-primary);
-    color: var(--lufa-token-color-text-primary);
-    cursor: var(--lufa-token-cursor-pointer);
-  }
+  /* Select styles */
+  border-radius: var(--lufa-token-radius-md);
+  padding-left: var(--lufa-token-spacing-md);
+  padding-right: var(--lufa-token-spacing-md);
+  padding-top: var(--lufa-token-spacing-2xs);
+  padding-bottom: var(--lufa-token-spacing-2xs);
+  border-width: var(--lufa-token-border-width-hairline);
+  border-style: var(--lufa-token-border-style-solid);
+  border-color: var(--lufa-token-color-border-default);
+  background-color: var(--lufa-token-color-background-primary);
+  color: var(--lufa-token-color-text-primary);
+  cursor: var(--lufa-token-cursor-pointer);
+}
 
-  .quickJumper {
-    display: flex;
-    align-items: center;
-    gap: var(--lufa-token-spacing-sm);
-    font-size: var(--lufa-token-font-size-sm);
-    color: var(--lufa-token-color-text-primary);
-  }
+.quickJumper {
+  display: flex;
+  align-items: center;
+  gap: var(--lufa-token-spacing-sm);
+  font-size: var(--lufa-token-font-size-sm);
+  color: var(--lufa-token-color-text-primary);
+}
 
-  .input {
-    /* Input reset */
-    font-family: inherit;
-    font-size: 100%;
-    line-height: inherit;
-    color: inherit;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: transparent;
+.input {
+  /* Input reset */
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
 
-    /* Input styles */
-    width: var(--lufa-token-size-lg);
-    border-radius: var(--lufa-token-radius-md);
-    padding-left: var(--lufa-token-spacing-sm);
-    padding-right: var(--lufa-token-spacing-sm);
-    padding-top: var(--lufa-token-spacing-xs);
-    padding-bottom: var(--lufa-token-spacing-xs);
-    border-width: var(--lufa-token-border-width-hairline);
-    border-style: var(--lufa-token-border-style-solid);
-    border-color: var(--lufa-token-color-border-default);
-    background-color: var(--lufa-token-color-background-primary);
-    color: var(--lufa-token-color-text-primary);
-    text-align: center;
-  }
+  /* Input styles */
+  width: var(--lufa-token-size-lg);
+  border-radius: var(--lufa-token-radius-md);
+  padding-left: var(--lufa-token-spacing-sm);
+  padding-right: var(--lufa-token-spacing-sm);
+  padding-top: var(--lufa-token-spacing-xs);
+  padding-bottom: var(--lufa-token-spacing-xs);
+  border-width: var(--lufa-token-border-width-hairline);
+  border-style: var(--lufa-token-border-style-solid);
+  border-color: var(--lufa-token-color-border-default);
+  background-color: var(--lufa-token-color-background-primary);
+  color: var(--lufa-token-color-text-primary);
+  text-align: center;
+}
 
-  /* Sizes */
-  .sizeSmall .button {
-    padding-left: var(--lufa-token-spacing-sm);
-    padding-right: var(--lufa-token-spacing-sm);
-    padding-top: var(--lufa-token-spacing-xs);
-    padding-bottom: var(--lufa-token-spacing-xs);
-    font-size: var(--lufa-token-font-size-sm);
-    min-width: var(--lufa-token-size-sm);
-  }
+/* Sizes */
+.sizeSmall .button {
+  padding-left: var(--lufa-token-spacing-sm);
+  padding-right: var(--lufa-token-spacing-sm);
+  padding-top: var(--lufa-token-spacing-xs);
+  padding-bottom: var(--lufa-token-spacing-xs);
+  font-size: var(--lufa-token-font-size-sm);
+  min-width: var(--lufa-token-size-sm);
+}
 
-  .sizeMedium .button {
-    padding-left: var(--lufa-token-spacing-md);
-    padding-right: var(--lufa-token-spacing-md);
-    padding-top: var(--lufa-token-spacing-2xs);
-    padding-bottom: var(--lufa-token-spacing-2xs);
-    font-size: var(--lufa-token-font-size-base);
-    min-width: var(--lufa-token-size-md);
-  }
+.sizeMedium .button {
+  padding-left: var(--lufa-token-spacing-md);
+  padding-right: var(--lufa-token-spacing-md);
+  padding-top: var(--lufa-token-spacing-2xs);
+  padding-bottom: var(--lufa-token-spacing-2xs);
+  font-size: var(--lufa-token-font-size-base);
+  min-width: var(--lufa-token-size-md);
+}
 
-  .sizeLarge .button {
-    padding-left: var(--lufa-token-spacing-base);
-    padding-right: var(--lufa-token-spacing-base);
-    padding-top: var(--lufa-token-spacing-sm);
-    padding-bottom: var(--lufa-token-spacing-sm);
-    font-size: var(--lufa-token-font-size-lg);
-    min-width: var(--lufa-token-size-touch-target);
-  }
+.sizeLarge .button {
+  padding-left: var(--lufa-token-spacing-base);
+  padding-right: var(--lufa-token-spacing-base);
+  padding-top: var(--lufa-token-spacing-sm);
+  padding-bottom: var(--lufa-token-spacing-sm);
+  font-size: var(--lufa-token-font-size-lg);
+  min-width: var(--lufa-token-size-touch-target);
 }

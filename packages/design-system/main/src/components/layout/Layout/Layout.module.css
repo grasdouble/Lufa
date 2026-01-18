@@ -1,100 +1,98 @@
-@layer components {
-  .layout {
-    width: 100%;
-    display: grid;
-    min-width: 0;
-    min-height: 0;
-    gap: var(--lufa-token-spacing-md);
-  }
+.layout {
+  width: 100%;
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  gap: var(--lufa-token-spacing-md);
+}
 
-  .gap-none {
-    gap: var(--lufa-token-spacing-none);
-  }
-  .gap-sm {
-    gap: var(--lufa-token-spacing-sm);
-  }
-  .gap-md {
-    gap: var(--lufa-token-spacing-md);
-  }
-  .gap-lg {
-    gap: var(--lufa-token-spacing-lg);
-  }
-  .gap-xl {
-    gap: var(--lufa-token-spacing-xl);
-  }
+.gap-none {
+  gap: var(--lufa-token-spacing-none);
+}
+.gap-sm {
+  gap: var(--lufa-token-spacing-sm);
+}
+.gap-md {
+  gap: var(--lufa-token-spacing-md);
+}
+.gap-lg {
+  gap: var(--lufa-token-spacing-lg);
+}
+.gap-xl {
+  gap: var(--lufa-token-spacing-xl);
+}
 
-  .noSidebar {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      'header'
-      'content'
-      'footer';
-  }
+.noSidebar {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'header'
+    'content'
+    'footer';
+}
 
-  .withSidebar {
-    grid-template-areas:
-      'header header'
-      'sidebar content'
-      'footer footer';
-  }
+.withSidebar {
+  grid-template-areas:
+    'header header'
+    'sidebar content'
+    'footer footer';
+}
 
-  .sidebarLeft {
-    grid-template-columns: var(--lufa-token-dimensions-sidebar-width-default) minmax(0, 1fr);
-  }
+.sidebarLeft {
+  grid-template-columns: var(--lufa-token-dimensions-sidebar-width-default) minmax(0, 1fr);
+}
 
-  .sidebarRight {
-    grid-template-areas:
-      'header header'
-      'content sidebar'
-      'footer footer';
-    grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-default);
-  }
+.sidebarRight {
+  grid-template-areas:
+    'header header'
+    'content sidebar'
+    'footer footer';
+  grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-default);
+}
 
-  .sidebarWidth-collapsed {
-    grid-template-columns: var(--lufa-token-dimensions-sidebar-width-collapsed) minmax(0, 1fr);
-  }
+.sidebarWidth-collapsed {
+  grid-template-columns: var(--lufa-token-dimensions-sidebar-width-collapsed) minmax(0, 1fr);
+}
 
-  .sidebarWidth-default {
-    grid-template-columns: var(--lufa-token-dimensions-sidebar-width-default) minmax(0, 1fr);
-  }
+.sidebarWidth-default {
+  grid-template-columns: var(--lufa-token-dimensions-sidebar-width-default) minmax(0, 1fr);
+}
 
-  .sidebarWidth-wide {
-    grid-template-columns: var(--lufa-token-dimensions-sidebar-width-wide) minmax(0, 1fr);
-  }
+.sidebarWidth-wide {
+  grid-template-columns: var(--lufa-token-dimensions-sidebar-width-wide) minmax(0, 1fr);
+}
 
-  .sidebarRight.sidebarWidth-collapsed {
-    grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-collapsed);
-  }
+.sidebarRight.sidebarWidth-collapsed {
+  grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-collapsed);
+}
 
-  .sidebarRight.sidebarWidth-default {
-    grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-default);
-  }
+.sidebarRight.sidebarWidth-default {
+  grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-default);
+}
 
-  .sidebarRight.sidebarWidth-wide {
-    grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-wide);
-  }
+.sidebarRight.sidebarWidth-wide {
+  grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-wide);
+}
 
-  .header {
-    grid-area: header;
-    min-width: 0;
-    min-height: 0;
-  }
+.header {
+  grid-area: header;
+  min-width: 0;
+  min-height: 0;
+}
 
-  .sidebar {
-    grid-area: sidebar;
-    min-width: 0;
-    min-height: 0;
-  }
+.sidebar {
+  grid-area: sidebar;
+  min-width: 0;
+  min-height: 0;
+}
 
-  .content {
-    grid-area: content;
-    min-width: 0;
-    min-height: 0;
-  }
+.content {
+  grid-area: content;
+  min-width: 0;
+  min-height: 0;
+}
 
-  .footer {
-    grid-area: footer;
-    min-width: 0;
-    min-height: 0;
-  }
+.footer {
+  grid-area: footer;
+  min-width: 0;
+  min-height: 0;
 }

@@ -4,117 +4,115 @@
  * Zero @apply directives - pure CSS with var(--lufa-token-*)
  */
 
-@layer components {
-  /* ========================================
-     Base Kbd Styles
-     ======================================== */
+/* ========================================
+   Base Kbd Styles
+   ======================================== */
 
-  .kbd {
-    /* Layout */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+.kbd {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    /* Typography */
-    font-family: var(--lufa-token-font-family-mono);
-    font-weight: var(--lufa-token-font-weight-semibold);
-    line-height: var(--lufa-token-line-height-tight);
-    text-align: center;
-    white-space: nowrap;
+  /* Typography */
+  font-family: var(--lufa-token-font-family-mono);
+  font-weight: var(--lufa-token-font-weight-semibold);
+  line-height: var(--lufa-token-line-height-tight);
+  text-align: center;
+  white-space: nowrap;
 
-    /* Spacing */
-    padding-inline: var(--lufa-token-spacing-sm);
-    padding-block: var(--lufa-token-spacing-xs);
+  /* Spacing */
+  padding-inline: var(--lufa-token-spacing-sm);
+  padding-block: var(--lufa-token-spacing-xs);
 
-    /* Visual */
-    border-radius: var(--lufa-token-radius-sm);
-    border-width: var(--lufa-token-border-width-hairline);
-    border-style: var(--lufa-token-border-style-solid);
-    border-color: var(--lufa-token-color-border-default);
-    background-color: var(--lufa-token-color-background-secondary);
-    color: var(--lufa-token-color-text-primary);
-    box-shadow: var(--lufa-token-shadow-sm);
+  /* Visual */
+  border-radius: var(--lufa-token-radius-sm);
+  border-width: var(--lufa-token-border-width-hairline);
+  border-style: var(--lufa-token-border-style-solid);
+  border-color: var(--lufa-token-color-border-default);
+  background-color: var(--lufa-token-color-background-secondary);
+  color: var(--lufa-token-color-text-primary);
+  box-shadow: var(--lufa-token-shadow-sm);
 
-    /* Animation */
-    transition-property: all;
-    transition-duration: var(--lufa-token-timing-fast);
-    transition-timing-function: var(--lufa-token-easing-ease-out);
+  /* Animation */
+  transition-property: all;
+  transition-duration: var(--lufa-token-timing-fast);
+  transition-timing-function: var(--lufa-token-easing-ease-out);
 
-    /* Interaction */
-    cursor: var(--lufa-token-cursor-default);
-    user-select: none;
-  }
+  /* Interaction */
+  cursor: var(--lufa-token-cursor-default);
+  user-select: none;
+}
 
-  /* ========================================
-     Size Variants
-     ======================================== */
+/* ========================================
+   Size Variants
+   ======================================== */
 
-  .sizeSmall {
-    font-size: var(--lufa-token-font-size-xs);
-    padding-inline: var(--lufa-token-spacing-xs);
-    padding-block: var(--lufa-token-spacing-xxs);
-    min-width: var(--lufa-token-spacing-xl);
-  }
+.sizeSmall {
+  font-size: var(--lufa-token-font-size-xs);
+  padding-inline: var(--lufa-token-spacing-xs);
+  padding-block: var(--lufa-token-spacing-xxs);
+  min-width: var(--lufa-token-spacing-xl);
+}
 
-  .sizeMedium {
-    font-size: var(--lufa-token-font-size-sm);
-    padding-inline: var(--lufa-token-spacing-sm);
-    padding-block: var(--lufa-token-spacing-xs);
-    min-width: var(--lufa-token-spacing-2xl);
-  }
+.sizeMedium {
+  font-size: var(--lufa-token-font-size-sm);
+  padding-inline: var(--lufa-token-spacing-sm);
+  padding-block: var(--lufa-token-spacing-xs);
+  min-width: var(--lufa-token-spacing-2xl);
+}
 
-  .sizeLarge {
-    font-size: var(--lufa-token-font-size-base);
-    padding-inline: var(--lufa-token-spacing-md);
-    padding-block: var(--lufa-token-spacing-sm);
-    min-width: var(--lufa-token-spacing-3xl);
-  }
+.sizeLarge {
+  font-size: var(--lufa-token-font-size-base);
+  padding-inline: var(--lufa-token-spacing-md);
+  padding-block: var(--lufa-token-spacing-sm);
+  min-width: var(--lufa-token-spacing-3xl);
+}
 
-  /* ========================================
-     Visual Variants
-     ======================================== */
+/* ========================================
+   Visual Variants
+   ======================================== */
 
-  .variantDefault {
-    background-color: var(--lufa-token-color-background-secondary);
-    border-color: var(--lufa-token-color-border-default);
-    color: var(--lufa-token-color-text-primary);
-    box-shadow: var(--lufa-token-shadow-sm);
-  }
+.variantDefault {
+  background-color: var(--lufa-token-color-background-secondary);
+  border-color: var(--lufa-token-color-border-default);
+  color: var(--lufa-token-color-text-primary);
+  box-shadow: var(--lufa-token-shadow-sm);
+}
 
-  .variantOutlined {
-    background-color: transparent;
-    border-color: var(--lufa-token-color-border-medium);
-    color: var(--lufa-token-color-text-primary);
-    box-shadow: none;
-  }
+.variantOutlined {
+  background-color: transparent;
+  border-color: var(--lufa-token-color-border-medium);
+  color: var(--lufa-token-color-text-primary);
+  box-shadow: none;
+}
 
-  .variantSolid {
-    background-color: var(--lufa-token-color-text-primary);
-    border-color: var(--lufa-token-color-text-primary);
-    color: var(--lufa-token-color-text-inverse);
-    box-shadow: var(--lufa-token-shadow-md);
-  }
+.variantSolid {
+  background-color: var(--lufa-token-color-text-primary);
+  border-color: var(--lufa-token-color-text-primary);
+  color: var(--lufa-token-color-text-inverse);
+  box-shadow: var(--lufa-token-shadow-md);
+}
 
-  /* ========================================
-     Hover States (Optional Enhancement)
-     ======================================== */
+/* ========================================
+   Hover States (Optional Enhancement)
+   ======================================== */
 
-  .kbd:hover {
-    transform: var(--lufa-token-transform-scale-up);
-  }
+.kbd:hover {
+  transform: var(--lufa-token-transform-scale-up);
+}
 
-  .variantDefault:hover {
-    background-color: var(--lufa-token-color-background-tertiary);
-    border-color: var(--lufa-token-color-border-medium);
-  }
+.variantDefault:hover {
+  background-color: var(--lufa-token-color-background-tertiary);
+  border-color: var(--lufa-token-color-border-medium);
+}
 
-  .variantOutlined:hover {
-    background-color: var(--lufa-token-color-background-secondary);
-    border-color: var(--lufa-token-color-border-strong);
-  }
+.variantOutlined:hover {
+  background-color: var(--lufa-token-color-background-secondary);
+  border-color: var(--lufa-token-color-border-strong);
+}
 
-  .variantSolid:hover {
-    background-color: var(--lufa-token-color-text-secondary);
-    box-shadow: var(--lufa-token-shadow-lg);
-  }
+.variantSolid:hover {
+  background-color: var(--lufa-token-color-text-secondary);
+  box-shadow: var(--lufa-token-shadow-lg);
 }

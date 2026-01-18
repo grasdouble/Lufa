@@ -29,5 +29,18 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-/* Import Lufa Design System CSS (vanilla CSS with design tokens) */
-@import '@grasdouble/lufa_design-system/style.css';
+/**
+ * Lufa Design System Integration
+ * 
+ * Import only tokens (CSS custom properties) and theme (light/dark mode).
+ * This avoids importing Lufa's foundation reset which would conflict with Docusaurus.
+ * 
+ * Components use CSS Modules which are automatically scoped, so Lufa components
+ * will use Lufa styling while Docusaurus UI uses Infima styling.
+ */
+
+/* Import Lufa tokens (CSS custom properties only) */
+@import '@grasdouble/lufa_design-system-tokens/style.css';
+
+/* Import Lufa theme for light/dark mode support */
+@import '@grasdouble/lufa_design-system-themes/default.css';

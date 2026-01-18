@@ -1,98 +1,96 @@
-@layer components {
-  .card {
-    border-radius: var(--lufa-token-radius-lg);
-    transition-duration: var(--lufa-token-duration-base);
-    transition-property: all;
-    transition-timing-function: ease-in-out;
-    background-color: var(--lufa-token-color-background-primary);
-  }
+.card {
+  border-radius: var(--lufa-token-radius-lg);
+  transition-duration: var(--lufa-token-duration-base);
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  background-color: var(--lufa-token-color-background-primary);
+}
 
-  /* Variants */
-  .variantDefault {
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--lufa-token-color-border-default);
-  }
+/* Variants */
+.variantDefault {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--lufa-token-color-border-default);
+}
 
-  .variantElevated {
-    box-shadow: var(--lufa-token-shadow-md);
-  }
+.variantElevated {
+  box-shadow: var(--lufa-token-shadow-md);
+}
 
-  .variantOutlined {
-    border-width: 2px;
-    border-style: solid;
-    border-color: var(--lufa-token-color-border-medium);
-  }
+.variantOutlined {
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--lufa-token-color-border-medium);
+}
 
-  .variantFilled {
-    background-color: var(--lufa-token-color-background-secondary);
-  }
+.variantFilled {
+  background-color: var(--lufa-token-color-background-secondary);
+}
 
-  .variantGlass {
-    background-color: color-mix(in srgb, var(--lufa-token-color-background-primary) 80%, transparent);
-    backdrop-filter: blur(4px);
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--lufa-token-color-border-light);
-  }
+.variantGlass {
+  background-color: color-mix(in srgb, var(--lufa-token-color-background-primary) 80%, transparent);
+  backdrop-filter: blur(4px);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--lufa-token-color-border-light);
+}
 
-  /* Padding */
-  .paddingNone {
-    padding: 0;
-  }
+/* Padding */
+.paddingNone {
+  padding: 0;
+}
 
-  .paddingSmall {
-    padding: var(--lufa-token-spacing-base);
-  }
+.paddingSmall {
+  padding: var(--lufa-token-spacing-base);
+}
 
-  .paddingMedium {
-    padding: var(--lufa-token-spacing-xl);
-  }
+.paddingMedium {
+  padding: var(--lufa-token-spacing-xl);
+}
 
-  .paddingLarge {
-    padding: var(--lufa-token-spacing-2xl);
-  }
+.paddingLarge {
+  padding: var(--lufa-token-spacing-2xl);
+}
 
-  /* Interactive states */
-  .hoverable:hover {
-    box-shadow: var(--lufa-token-shadow-lg);
-    transform: var(--lufa-token-transform-hover-lift);
-  }
+/* Interactive states */
+.hoverable:hover {
+  box-shadow: var(--lufa-token-shadow-lg);
+  transform: var(--lufa-token-transform-hover-lift);
+}
 
-  .clickable {
-    cursor: var(--lufa-token-cursor-pointer);
-  }
+.clickable {
+  cursor: var(--lufa-token-cursor-pointer);
+}
 
-  /* Header */
-  .header {
-    margin-bottom: var(--lufa-token-spacing-base);
-  }
+/* Header */
+.header {
+  margin-bottom: var(--lufa-token-spacing-base);
+}
 
-  .title {
-    color: var(--lufa-token-color-text-primary);
-    font-size: var(--lufa-token-font-size-lg);
-    font-weight: var(--lufa-token-font-weight-semibold);
-    margin: 0;
-  }
+.title {
+  color: var(--lufa-token-color-text-primary);
+  font-size: var(--lufa-token-font-size-lg);
+  font-weight: var(--lufa-token-font-weight-semibold);
+  margin: 0;
+}
 
-  .subtitle {
-    color: var(--lufa-token-color-text-secondary);
-    font-size: var(--lufa-token-font-size-sm);
-    margin: 0;
-    margin-top: var(--lufa-token-spacing-xs);
-  }
+.subtitle {
+  color: var(--lufa-token-color-text-secondary);
+  font-size: var(--lufa-token-font-size-sm);
+  margin: 0;
+  margin-top: var(--lufa-token-spacing-xs);
+}
 
-  /* Content */
-  .content {
-    color: var(--lufa-token-color-text-secondary);
-  }
+/* Content */
+.content {
+  color: var(--lufa-token-color-text-secondary);
+}
 
-  /* Footer */
-  .footer {
-    margin-top: var(--lufa-token-spacing-base);
-    padding-top: var(--lufa-token-spacing-base);
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-top-color: var(--lufa-token-color-border-default);
-  }
+/* Footer */
+.footer {
+  margin-top: var(--lufa-token-spacing-base);
+  padding-top: var(--lufa-token-spacing-base);
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: var(--lufa-token-color-border-default);
 }
