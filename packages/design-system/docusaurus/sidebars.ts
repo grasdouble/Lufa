@@ -31,7 +31,6 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Components',
       items: [
-        'components/overview',
         {
           type: 'category',
           label: 'Layout',
@@ -96,11 +95,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Guides',
-      items: [
-        'guides/contributing',
-        'guides/migration',
-        'guides/component-documentation-template',
-      ],
+      items: ['guides/contributing', 'guides/migration', 'guides/component-documentation-template'],
     },
     'changelog',
   ],
