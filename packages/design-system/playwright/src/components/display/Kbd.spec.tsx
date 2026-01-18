@@ -205,7 +205,7 @@ test.describe('Kbd Component', () => {
 
   test.describe('Edge Cases', () => {
     test('should handle empty string children', async ({ mount }) => {
-      const component = await mount(<Kbd>{''}</Kbd>);
+      const component = await mount(<Kbd />);
       await expect(component).toBeVisible();
     });
 

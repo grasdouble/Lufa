@@ -5,7 +5,6 @@ import { Grid } from '@grasdouble/lufa_design-system';
 test.describe('Grid Component', () => {
   test.describe('Visual Regression', () => {
     test('visual regression: all variants and options in light mode', async ({ mount }) => {
-      const columns = ['single', 'double', 'triple', 'quad', 'six', 'eight', 'twelve', 'sixteen'] as const;
       const gutters = ['none', 'xs', 'sm', 'md', 'lg', 'xl'] as const;
 
       const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
@@ -290,7 +289,6 @@ test.describe('Grid Component', () => {
       // Set dark mode BEFORE mounting
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
-      const columns = ['single', 'double', 'triple', 'quad', 'six', 'eight', 'twelve', 'sixteen'] as const;
       const gutters = ['none', 'xs', 'sm', 'md', 'lg', 'xl'] as const;
 
       const sectionTitleStyle = {

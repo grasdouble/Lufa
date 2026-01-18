@@ -6,7 +6,6 @@ test.describe('Center Component', () => {
   test.describe('Visual Regression', () => {
     test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const axes = ['both', 'horizontal', 'vertical'] as const;
-      const inlineOptions = [false, true];
       const minHeights = [100, 200, '10rem'];
 
       const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
@@ -60,7 +59,7 @@ test.describe('Center Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>inline=true (uses inline-flex)</p>
               <div style={{ ...containerStyle, height: 150 }}>
-                <Center inline={true}>
+                <Center inline>
                   <div style={inlineBoxStyle}>Inline Center</div>
                 </Center>
                 <span style={{ marginLeft: 16, color: '#666' }}>← inline-flex allows content to flow</span>
@@ -107,7 +106,7 @@ test.describe('Center Component', () => {
               <div>
                 <p style={labelStyle}>axis="horizontal" + inline=true + minHeight=150</p>
                 <div style={containerStyle}>
-                  <Center axis="horizontal" inline={true} minHeight={150}>
+                  <Center axis="horizontal" inline minHeight={150}>
                     <div style={inlineBoxStyle}>Combined 1</div>
                   </Center>
                 </div>
@@ -169,7 +168,6 @@ test.describe('Center Component', () => {
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
       const axes = ['both', 'horizontal', 'vertical'] as const;
-      const inlineOptions = [false, true];
       const minHeights = [100, 200, '10rem'];
 
       const sectionTitleStyle = {
@@ -239,7 +237,7 @@ test.describe('Center Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>inline=true (uses inline-flex)</p>
               <div style={{ ...containerStyle, height: 150 }}>
-                <Center inline={true}>
+                <Center inline>
                   <div style={inlineBoxStyle}>Inline Center</div>
                 </Center>
                 <span style={{ marginLeft: 16, color: 'var(--lufa-token-color-text-secondary)' }}>
@@ -288,7 +286,7 @@ test.describe('Center Component', () => {
               <div>
                 <p style={labelStyle}>axis="horizontal" + inline=true + minHeight=150</p>
                 <div style={containerStyle}>
-                  <Center axis="horizontal" inline={true} minHeight={150}>
+                  <Center axis="horizontal" inline minHeight={150}>
                     <div style={inlineBoxStyle}>Combined 1</div>
                   </Center>
                 </div>

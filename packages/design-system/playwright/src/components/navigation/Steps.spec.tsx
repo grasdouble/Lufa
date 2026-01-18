@@ -4,7 +4,7 @@ import { expect, test } from '@playwright/experimental-ct-react';
 import type { StepItem } from '@grasdouble/lufa_design-system';
 import { Steps } from '@grasdouble/lufa_design-system';
 
-import { CartIcon, CheckIcon, DoneIcon, PaymentIcon, UserIcon } from './Steps.fixtures';
+import { CartIcon, DoneIcon, PaymentIcon, UserIcon } from './Steps.fixtures';
 
 const basicSteps: StepItem[] = [
   { title: 'Step 1', description: 'First step description' },

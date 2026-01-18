@@ -442,11 +442,6 @@ test.describe('Menu Component', () => {
         marginBottom: 16,
       };
 
-      const darkContainerStyle: React.CSSProperties = {
-        ...containerStyle,
-        background: '#1a1a1a',
-      };
-
       const component = await mount(
         <div style={{ padding: 24, background: 'var(--lufa-token-color-background-primary)', width: '900px' }}>
           {/* Modes with Light Theme */}

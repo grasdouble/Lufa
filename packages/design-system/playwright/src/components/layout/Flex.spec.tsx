@@ -223,7 +223,7 @@ test.describe('Flex Component', () => {
             <div>
               <p style={labelStyle}>inline=true (display: inline-flex)</p>
               <div style={containerStyle}>
-                <Flex inline={true}>
+                <Flex inline>
                   <div style={boxStyle}>1</div>
                   <div style={boxStyle}>2</div>
                 </Flex>
@@ -552,7 +552,7 @@ test.describe('Flex Component', () => {
             <div>
               <p style={labelStyle}>inline=true (display: inline-flex)</p>
               <div style={containerStyle}>
-                <Flex inline={true}>
+                <Flex inline>
                   <div style={boxStyle}>1</div>
                   <div style={boxStyle}>2</div>
                 </Flex>

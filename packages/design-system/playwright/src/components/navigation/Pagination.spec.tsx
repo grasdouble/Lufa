@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { expect, test } from '@playwright/experimental-ct-react';
 
 import { Pagination } from '@grasdouble/lufa_design-system';
@@ -484,7 +483,7 @@ test.describe('Pagination', () => {
     expect(changedPage).toBe(7);
   });
 
-  test('size changer is keyboard accessible', async ({ mount, page }) => {
+  test('size changer is keyboard accessible', async ({ mount }) => {
     let newSize = 0;
     const component = await mount(
       <Pagination

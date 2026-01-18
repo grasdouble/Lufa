@@ -40,7 +40,7 @@ export const LinkWithRef = () => {
   return (
     <>
       <div data-testid="tag-name">{tagName}</div>
-      <button data-testid="check-ref" onClick={() => setTagName(ref.current?.tagName || 'null')}>
+      <button data-testid="check-ref" onClick={() => setTagName(ref.current?.tagName ?? 'null')}>
         Check Ref
       </button>
       <Link href="#" ref={ref}>

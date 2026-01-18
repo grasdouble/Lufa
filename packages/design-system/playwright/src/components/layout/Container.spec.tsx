@@ -83,7 +83,7 @@ test.describe('Container Component', () => {
               {paddingOptions.map((padding) => (
                 <div key={padding}>
                   <p style={labelStyle}>paddingY="{padding}"</p>
-                  <Container size="sm" paddingY={padding as any}>
+                  <Container size="sm" paddingY={padding}>
                     <div style={paddingBoxStyle}>
                       <div style={contentStyle}>paddingY: {padding}</div>
                     </div>
@@ -290,7 +290,7 @@ test.describe('Container Component', () => {
               {paddingOptions.map((padding) => (
                 <div key={padding}>
                   <p style={labelStyle}>paddingY="{padding}"</p>
-                  <Container size="sm" paddingY={padding as any}>
+                  <Container size="sm" paddingY={padding}>
                     <div style={paddingBoxStyle}>
                       <div style={contentStyle}>paddingY: {padding}</div>
                     </div>

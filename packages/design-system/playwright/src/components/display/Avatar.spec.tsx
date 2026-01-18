@@ -313,8 +313,7 @@ test.describe('Avatar Component', () => {
             <Avatar src={imageSample} variant="square" />
             <Avatar variant="count" count={99} />
           </div>
-        </div>,
-        { animations: 'disabled' }
+        </div>
       );
 
       await component.page().waitForTimeout(100);

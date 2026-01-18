@@ -18,7 +18,7 @@ test.describe('AspectRatio Component', () => {
       const customRatios = [1, 2, 0.5, 21 / 9, 9 / 16];
 
       const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
-      const subTitleStyle = { fontWeight: 600, fontSize: 16, margin: '24px 0 12px 0', color: '#333' };
+
       const labelStyle = { fontSize: 12, color: '#666', marginBottom: 4, textAlign: 'center' as const };
       const boxStyle = {
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -160,12 +160,7 @@ test.describe('AspectRatio Component', () => {
         margin: '0 0 16px 0',
         color: 'var(--lufa-token-color-text-primary)',
       };
-      const subTitleStyle = {
-        fontWeight: 600,
-        fontSize: 16,
-        margin: '24px 0 12px 0',
-        color: 'var(--lufa-token-color-text-primary)',
-      };
+
       const labelStyle = {
         fontSize: 12,
         color: 'var(--lufa-token-color-text-secondary)',

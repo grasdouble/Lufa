@@ -5,7 +5,6 @@ import { Space } from '@grasdouble/lufa_design-system';
 test.describe('Space Component', () => {
   test.describe('Visual Regression', () => {
     test('visual regression: all variants and options in light mode', async ({ mount }) => {
-      const directions = ['horizontal', 'vertical'] as const;
       const sizes = [
         'none',
         'xxs',
@@ -171,7 +170,7 @@ test.describe('Space Component', () => {
                     }}
                   >
                     <div style={{ ...boxStyle, fontSize: 12 }}>A</div>
-                    <Space direction="vertical" size={size as any} />
+                    <Space direction="vertical" size={size} />
                     <div style={{ ...boxStyle, fontSize: 12 }}>B</div>
                   </div>
                 </div>
@@ -309,7 +308,6 @@ test.describe('Space Component', () => {
       // Set dark mode BEFORE mounting
       await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
-      const directions = ['horizontal', 'vertical'] as const;
       const sizes = [
         'none',
         'xxs',
@@ -487,7 +485,7 @@ test.describe('Space Component', () => {
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Size Comparison (Vertical)</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
-              {['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'].map((size) => (
+              {(['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] as const).map((size) => (
                 <div key={size}>
                   <p style={{ ...labelStyle, textAlign: 'center' as const }}>{size}</p>
                   <div
@@ -500,7 +498,7 @@ test.describe('Space Component', () => {
                     }}
                   >
                     <div style={{ ...boxStyle, fontSize: 12 }}>A</div>
-                    <Space direction="vertical" size={size as any} />
+                    <Space direction="vertical" size={size} />
                     <div style={{ ...boxStyle, fontSize: 12 }}>B</div>
                   </div>
                 </div>

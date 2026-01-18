@@ -81,7 +81,7 @@ test.describe('Layout Component', () => {
               <div key={position} style={{ marginBottom: 24 }}>
                 <p style={labelStyle}>sidebar=true + sidebarPosition="{position}"</p>
                 <div style={containerStyle}>
-                  <Layout sidebar={true} sidebarPosition={position}>
+                  <Layout sidebar sidebarPosition={position}>
                     <LayoutHeader>
                       <div style={headerStyle}>Header</div>
                     </LayoutHeader>
@@ -108,7 +108,7 @@ test.describe('Layout Component', () => {
               <div key={width} style={{ marginBottom: 24 }}>
                 <p style={labelStyle}>sidebarWidth="{width}"</p>
                 <div style={containerStyle}>
-                  <Layout sidebar={true} sidebarPosition="left" sidebarWidth={width}>
+                  <Layout sidebar sidebarPosition="left" sidebarWidth={width}>
                     <LayoutHeader>
                       <div style={headerStyle}>Header</div>
                     </LayoutHeader>
@@ -135,7 +135,7 @@ test.describe('Layout Component', () => {
               <div key={gap} style={{ marginBottom: 24 }}>
                 <p style={labelStyle}>gap="{gap}" (with sidebar)</p>
                 <div style={containerStyle}>
-                  <Layout sidebar={true} sidebarPosition="left" gap={gap}>
+                  <Layout sidebar sidebarPosition="left" gap={gap}>
                     <LayoutHeader>
                       <div style={headerStyle}>Header</div>
                     </LayoutHeader>
@@ -161,7 +161,7 @@ test.describe('Layout Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>sidebar=true + sidebarPosition="right" + sidebarWidth="wide" + gap="lg"</p>
               <div style={containerStyle}>
-                <Layout sidebar={true} sidebarPosition="right" sidebarWidth="wide" gap="lg">
+                <Layout sidebar sidebarPosition="right" sidebarWidth="wide" gap="lg">
                   <LayoutHeader>
                     <div style={headerStyle}>Header</div>
                   </LayoutHeader>
@@ -181,7 +181,7 @@ test.describe('Layout Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>sidebar=true + sidebarPosition="left" + sidebarWidth="collapsed" + gap="sm"</p>
               <div style={containerStyle}>
-                <Layout sidebar={true} sidebarPosition="left" sidebarWidth="collapsed" gap="sm">
+                <Layout sidebar sidebarPosition="left" sidebarWidth="collapsed" gap="sm">
                   <LayoutHeader>
                     <div style={headerStyle}>Header</div>
                   </LayoutHeader>
@@ -245,7 +245,7 @@ test.describe('Layout Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>With Sidebar but no footer</p>
               <div style={containerStyle}>
-                <Layout sidebar={true} sidebarPosition="left">
+                <Layout sidebar sidebarPosition="left">
                   <LayoutHeader>
                     <div style={headerStyle}>Header</div>
                   </LayoutHeader>
@@ -267,7 +267,7 @@ test.describe('Layout Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>Dashboard Layout (left sidebar, default width)</p>
               <div style={containerStyle}>
-                <Layout sidebar={true} sidebarPosition="left" sidebarWidth="default" gap="md">
+                <Layout sidebar sidebarPosition="left" sidebarWidth="default" gap="md">
                   <LayoutHeader>
                     <div style={headerStyle}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -310,7 +310,7 @@ test.describe('Layout Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>Documentation Layout (right sidebar, wide)</p>
               <div style={containerStyle}>
-                <Layout sidebar={true} sidebarPosition="right" sidebarWidth="wide" gap="lg">
+                <Layout sidebar sidebarPosition="right" sidebarWidth="wide" gap="lg">
                   <LayoutHeader>
                     <div style={headerStyle}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -489,7 +489,7 @@ test.describe('Layout Component', () => {
               <div key={position} style={{ marginBottom: 24 }}>
                 <p style={labelStyle}>sidebar=true + sidebarPosition="{position}"</p>
                 <div style={containerStyle}>
-                  <Layout sidebar={true} sidebarPosition={position}>
+                  <Layout sidebar sidebarPosition={position}>
                     <LayoutHeader>
                       <div style={headerStyle}>Header</div>
                     </LayoutHeader>
@@ -516,7 +516,7 @@ test.describe('Layout Component', () => {
               <div key={width} style={{ marginBottom: 24 }}>
                 <p style={labelStyle}>sidebarWidth="{width}"</p>
                 <div style={containerStyle}>
-                  <Layout sidebar={true} sidebarPosition="left" sidebarWidth={width}>
+                  <Layout sidebar sidebarPosition="left" sidebarWidth={width}>
                     <LayoutHeader>
                       <div style={headerStyle}>Header</div>
                     </LayoutHeader>
@@ -543,7 +543,7 @@ test.describe('Layout Component', () => {
               <div key={gap} style={{ marginBottom: 24 }}>
                 <p style={labelStyle}>gap="{gap}" (with sidebar)</p>
                 <div style={containerStyle}>
-                  <Layout sidebar={true} sidebarPosition="left" gap={gap}>
+                  <Layout sidebar sidebarPosition="left" gap={gap}>
                     <LayoutHeader>
                       <div style={headerStyle}>Header</div>
                     </LayoutHeader>
@@ -569,7 +569,7 @@ test.describe('Layout Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>sidebar=true + sidebarPosition="right" + sidebarWidth="wide" + gap="lg"</p>
               <div style={containerStyle}>
-                <Layout sidebar={true} sidebarPosition="right" sidebarWidth="wide" gap="lg">
+                <Layout sidebar sidebarPosition="right" sidebarWidth="wide" gap="lg">
                   <LayoutHeader>
                     <div style={headerStyle}>Header</div>
                   </LayoutHeader>
@@ -589,7 +589,7 @@ test.describe('Layout Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>sidebar=true + sidebarPosition="left" + sidebarWidth="collapsed" + gap="sm"</p>
               <div style={containerStyle}>
-                <Layout sidebar={true} sidebarPosition="left" sidebarWidth="collapsed" gap="sm">
+                <Layout sidebar sidebarPosition="left" sidebarWidth="collapsed" gap="sm">
                   <LayoutHeader>
                     <div style={headerStyle}>Header</div>
                   </LayoutHeader>
@@ -653,7 +653,7 @@ test.describe('Layout Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>With Sidebar but no footer</p>
               <div style={containerStyle}>
-                <Layout sidebar={true} sidebarPosition="left">
+                <Layout sidebar sidebarPosition="left">
                   <LayoutHeader>
                     <div style={headerStyle}>Header</div>
                   </LayoutHeader>
@@ -675,7 +675,7 @@ test.describe('Layout Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>Dashboard Layout (left sidebar, default width)</p>
               <div style={containerStyle}>
-                <Layout sidebar={true} sidebarPosition="left" sidebarWidth="default" gap="md">
+                <Layout sidebar sidebarPosition="left" sidebarWidth="default" gap="md">
                   <LayoutHeader>
                     <div style={headerStyle}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -718,7 +718,7 @@ test.describe('Layout Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>Documentation Layout (right sidebar, wide)</p>
               <div style={containerStyle}>
-                <Layout sidebar={true} sidebarPosition="right" sidebarWidth="wide" gap="lg">
+                <Layout sidebar sidebarPosition="right" sidebarWidth="wide" gap="lg">
                   <LayoutHeader>
                     <div style={headerStyle}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
