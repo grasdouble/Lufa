@@ -48,17 +48,17 @@
   /* Sizes */
   .sizeSmall {
     width: 100%;
-    max-width: var(--lufa-token-max-width-modal-sm);
+    max-width: var(--lufa-token-max-width-md); /* 32rem / 512px */
   }
 
   .sizeMedium {
     width: 100%;
-    max-width: var(--lufa-token-max-width-modal);
+    max-width: var(--lufa-token-max-width-2xl); /* 42rem / 672px */
   }
 
   .sizeLarge {
     width: 100%;
-    max-width: var(--lufa-token-max-width-modal-lg);
+    max-width: var(--lufa-token-max-width-4xl); /* 56rem / 896px */
   }
 
   .sizeFullscreen {
