@@ -2,35 +2,78 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 import clsx from 'clsx';
 
-import styles from './styles/index.module.css';
+import styles from './Button.module.css';
 
 export type ButtonProps = {
-  /** Button content - can be text, icons, or any React elements */
+  /**
+   * Button content
+   */
   children?: ReactNode;
-  /** Deprecated: Use children instead. Label text for the button */
-  label?: string;
-  /** Visual variant */
+
+  /**
+   * Visual style variant
+   * @default 'solid'
+   */
   variant?: 'solid' | 'outlined' | 'text' | 'ghost' | 'link';
-  /** Color scheme */
+
+  /**
+   * Color scheme
+   * @default 'primary'
+   */
   color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
-  /** Button size */
+
+  /**
+   * Button size
+   * @default 'medium'
+   */
   size?: 'small' | 'medium' | 'large';
-  /** Full width button */
+
+  /**
+   * Full width button
+   * @default false
+   */
   fullWidth?: boolean;
-  /** Loading state */
+
+  /**
+   * Loading state - shows spinner and disables interaction
+   * @default false
+   */
   loading?: boolean;
-  /** Icon before text */
+
+  /**
+   * Icon before text
+   */
   startIcon?: ReactNode;
-  /** Icon after text */
+
+  /**
+   * Icon after text
+   */
   endIcon?: ReactNode;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-/** Modern Button component with flexible content and variants */
+/**
+ * Button component with multiple variants, colors, and sizes.
+ * Supports loading states, icons, and full accessibility.
+ *
+ * @example
+ * ```tsx
+ * <Button variant="solid" color="primary" size="medium">
+ *   Click me
+ * </Button>
+ *
+ * <Button variant="outlined" color="danger" startIcon={<TrashIcon />}>
+ *   Delete
+ * </Button>
+ *
+ * <Button variant="solid" loading>
+ *   Saving...
+ * </Button>
+ * ```
+ */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
-      label,
       variant = 'solid',
       color = 'primary',
       size = 'medium',
@@ -39,51 +82,38 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       startIcon,
       endIcon,
       disabled,
-      className = '',
+      className,
+      type = 'button',
       ...props
     },
     ref
   ) => {
-    const variantClass = {
-      solid: styles.variantSolid,
-      outlined: styles.variantOutlined,
-      text: styles.variantText,
-      ghost: styles.variantGhost,
-      link: styles.variantLink,
-    }[variant];
+    const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
-    const colorClass = {
-      primary: styles.colorPrimary,
-      secondary: styles.colorSecondary,
-      success: styles.colorSuccess,
-      warning: styles.colorWarning,
-      danger: styles.colorDanger,
-    }[color];
-
-    const sizeClass = {
-      small: styles.sizeSmall,
-      medium: styles.sizeMedium,
-      large: styles.sizeLarge,
-    }[size];
-
-    const classNames = clsx(
-      styles.button,
-      variantClass,
-      colorClass,
-      sizeClass,
-      fullWidth && styles.fullWidth,
-      loading && styles.loading,
-      disabled && styles.disabled,
-      className
-    );
-
-    const content = children ?? label;
+    const variantClass = styles[`variant${capitalize(variant)}` as keyof typeof styles];
+    const colorClass = styles[`color${capitalize(color)}` as keyof typeof styles];
+    const sizeClass = styles[`size${capitalize(size)}` as keyof typeof styles];
 
     return (
-      <button ref={ref} className={classNames} disabled={disabled ?? loading} {...props}>
+      <button
+        ref={ref}
+        type={type}
+        className={clsx(
+          styles.button,
+          variantClass,
+          colorClass,
+          sizeClass,
+          fullWidth && styles.fullWidth,
+          loading && styles.loading,
+          className
+        )}
+        disabled={disabled || loading}
+        aria-busy={loading}
+        {...props}
+      >
         {loading && (
-          <span className={styles.spinner}>
-            <svg className={styles.spinnerIcon} fill="none" viewBox="0 0 24 24">
+          <span className={styles.spinner} aria-label="Loading">
+            <svg className={styles.spinnerIcon} fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <circle className={styles.spinnerCircle} cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path
                 className={styles.spinnerPath}
@@ -93,9 +123,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             </svg>
           </span>
         )}
-        {!loading && startIcon && <span className={styles.startIcon}>{startIcon}</span>}
-        <span className={styles.content}>{content}</span>
-        {!loading && endIcon && <span className={styles.endIcon}>{endIcon}</span>}
+        {!loading && startIcon && (
+          <span className={styles.startIcon} aria-hidden="true">
+            {startIcon}
+          </span>
+        )}
+        <span className={styles.content}>{children}</span>
+        {!loading && endIcon && (
+          <span className={styles.endIcon} aria-hidden="true">
+            {endIcon}
+          </span>
+        )}
       </button>
     );
   }
