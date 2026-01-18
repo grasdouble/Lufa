@@ -658,8 +658,10 @@ test.describe('Visual Regression', () => {
 
 Before marking visual regression complete:
 
+**Light Mode:**
+
 - [ ] Fixed width container (not `fit-content`)
-- [ ] White background (`#ffffff`) or token-based background for dark mode
+- [ ] White background (`#ffffff`)
 - [ ] Animations disabled in mount options
 - [ ] Animations disabled in screenshot options
 - [ ] 100ms wait before screenshot
@@ -668,94 +670,51 @@ Before marking visual regression complete:
 - [ ] Grid layout with explicit sizing
 - [ ] Proper spacing and padding
 - [ ] Tested 3+ times with no diffs
-- [ ] Dark mode snapshot (if component uses theme tokens)
 
-### Dark Mode Visual Regression Testing
+**Dark Mode:**
 
-Components that use design tokens for colors should have dark mode visual regression tests. The theme CSS uses `:root[data-mode='dark']` selectors, so you must set the attribute on the document element.
+- [ ] `page` added to test parameters: `async ({ mount, page })`
+- [ ] `data-mode="dark"` set on `document.documentElement` BEFORE mounting
+- [ ] Token-based background: `var(--lufa-token-color-background-primary)`
+- [ ] Token-based text colors: `var(--lufa-token-color-text-primary)`
+- [ ] Cleanup: `removeAttribute('data-mode')` after screenshot
+- [ ] Same variants as light mode test
+- [ ] Tested 3+ times with no diffs
 
-**Critical**: The `data-mode="dark"` attribute MUST be set on the `:root` (document element), NOT on a wrapper div. CSS selectors like `:root[data-mode='dark']` only match the `<html>` element.
+### Dark Mode Quick Reference
 
-**Pattern for dark mode testing**:
+> **Full documentation**: See "Section 5: Visual Regression (REQUIRED - BOTH Light AND Dark Mode)" above for complete examples.
+
+**Essential pattern**:
 
 ```typescript
-test('should match snapshot for all variants in dark mode', async ({ mount, page }) => {
-  // CRITICAL: Set dark mode on the root element BEFORE mounting
+test('dark mode snapshot', async ({ mount, page }) => {
+  // 1. Set dark mode on document root BEFORE mounting
   await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
+  // 2. Mount with token-based colors (NOT hardcoded)
   const component = await mount(
-    <div style={{
-      padding: '32px',
-      width: '900px',
-      // Use token variables - they automatically adapt to dark mode
-      background: 'var(--lufa-token-color-background-primary)',
-    }}>
-      <h1 style={{
-        marginBottom: '24px',
-        fontSize: '28px',
-        fontWeight: 'bold',
-        // Use token for text color
-        color: 'var(--lufa-token-color-text-primary)',
-      }}>
-        Component Name - Dark Mode
-      </h1>
-
-      <section style={{ marginBottom: '40px' }}>
-        <h2 style={{
-          marginBottom: '16px',
-          fontSize: '20px',
-          fontWeight: '600',
-          color: 'var(--lufa-token-color-text-secondary)',
-        }}>
-          Section Title
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-          {/* Components here - they will use dark mode tokens automatically */}
-        </div>
-      </section>
-    </div>,
-    { animations: 'disabled' }
+    <div style={{ background: 'var(--lufa-token-color-background-primary)' }}>
+      <MyComponent />
+    </div>
   );
 
-  await component.page().waitForTimeout(100);
+  // 3. Take screenshot
+  await expect(component).toHaveScreenshot('component-dark.png');
 
-  await expect(component).toHaveScreenshot('component-name-dark-mode.png', {
-    animations: 'disabled',
-  });
-
-  // Clean up: remove dark mode attribute to avoid affecting other tests
+  // 4. Clean up
   await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
 });
 ```
 
-**Key points for dark mode testing**:
+**Why this is required**:
 
-1. **Add `page` to test parameters**: `async ({ mount, page })` - you need `page` to manipulate the document
-2. **Set attribute on documentElement**: Use `page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'))` BEFORE mounting
-3. **Use CSS token variables**: Instead of hardcoded colors like `#ffffff` or `#1a1a1a`, use `var(--lufa-token-color-background-primary)` - they automatically adapt to dark mode
-4. **Clean up after test**: Remove the attribute to prevent affecting other tests
+- Theme CSS uses `:root[data-mode='dark']` selector
+- `:root` = `<html>` element, NOT any div
+- `data-mode` on a div does NOTHING
 
-**❌ WRONG - Setting data-mode on a div**:
-
-```typescript
-// This will NOT work - CSS uses :root[data-mode='dark'] selector
-const component = await mount(
-  <div data-mode="dark" style={{ background: '#1a1a1a' }}>
-    <MyComponent />
-  </div>
-);
-```
-
-**✅ CORRECT - Setting data-mode on document element**:
-
-```typescript
-await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
-const component = await mount(
-  <div style={{ background: 'var(--lufa-token-color-background-primary)' }}>
-    <MyComponent />
-  </div>
-);
-```
+**❌ WRONG**: `<div data-mode="dark">` - will NOT activate dark mode
+**✅ CORRECT**: `page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'))`
 
 ---
 
