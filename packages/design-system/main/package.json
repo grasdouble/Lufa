@@ -10,7 +10,8 @@
       "import": "./dist/lufa-ui.mjs",
       "default": "./dist/lufa-ui.mjs"
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css",
+    "./foundation.css": "./dist/foundation.css"
   },
   "main": "./dist/lufa-ui.mjs",
   "module": "./dist/lufa-ui.mjs",
@@ -21,7 +22,7 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && node scripts/build-foundation.mjs",
     "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly --outDir dist",
     "dev": "vite build --watch",
     "lint": "eslint ./src",

@@ -32,15 +32,15 @@
 /**
  * Lufa Design System Integration
  * 
- * Import only tokens (CSS custom properties) and theme (light/dark mode).
- * This avoids importing Lufa's foundation reset which would conflict with Docusaurus.
+ * Import Lufa tokens + utilities (no foundation reset) and theme.
+ * This avoids conflicts with Docusaurus's Infima styling.
  * 
  * Components use CSS Modules which are automatically scoped, so Lufa components
  * will use Lufa styling while Docusaurus UI uses Infima styling.
  */
 
-/* Import Lufa tokens (CSS custom properties only) */
-@import '@grasdouble/lufa_design-system-tokens/style.css';
+/* Import Lufa Design System (tokens + utilities, no reset) */
+@import '@grasdouble/lufa_design-system/style.css';
 
 /* Import Lufa theme for light/dark mode support */
 @import '@grasdouble/lufa_design-system-themes/default.css';

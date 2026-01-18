@@ -1,24 +1,32 @@
 /**
- * Lufa Design System - CSS Entry Point
+ * Lufa Design System - CSS Entry Point (Tokens + Utilities Only)
  * 
- * Foundation, tokens, and utilities for the Lufa Design System.
- * Uses vanilla CSS with CSS Modules and token-based CSS custom properties.
+ * This file provides design tokens and utilities WITHOUT any global reset.
+ * Components use CSS Modules for scoped styling.
  * 
  * Philosophy: Component Library Approach
  * - No global CSS layers (for maximum compatibility)
+ * - No global reset (host app controls document styling)
  * - Components use CSS Modules (scoped styles)
- * - Minimal global reset (essential only)
  * - Tokens available globally via CSS custom properties
+ * 
+ * Import Strategy:
+ * ```css
+ * // Option 1: Tokens + utilities only (no reset) - Recommended for most cases
+ * @import '@grasdouble/lufa_design-system/style.css';
+ * @import '@grasdouble/lufa_design-system-themes/default.css';
+ * 
+ * // Option 2: With foundation reset (for standalone apps)
+ * @import '@grasdouble/lufa_design-system/foundation.css';
+ * @import '@grasdouble/lufa_design-system-themes/default.css';
+ * ```
  */
 
 /* ============================================================================
-   FOUNDATION
+   UTILITIES
    ============================================================================ */
 
-/* Vanilla CSS foundation (minimal reset, no global layers) */
-@import './css/foundation.css';
-
-/* Component reset utilities (vanilla CSS) */
+/* Component reset utilities (button, input, etc.) */
 @import './css/component-resets.css';
 
 /* Container query definitions */
