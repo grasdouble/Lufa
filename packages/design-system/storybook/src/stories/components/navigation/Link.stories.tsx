@@ -71,19 +71,46 @@ export const Variants: Story = {
   render: () => (
     <Stack gap="spacious">
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Default</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Default
+        </h4>
         <Link variant="default" href="/page">
           Go to page
         </Link>
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Underline</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Underline
+        </h4>
         <Link variant="underline" href="/page">
           Go to page
         </Link>
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Button</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Button
+        </h4>
         <Link variant="button" href="/page">
           Go to page
         </Link>
@@ -112,11 +139,11 @@ export const Colors: Story = {
               style={{
                 fontFamily: 'monospace',
                 fontSize: '12px',
-                color: tokens.color.text.secondary,
+                color: 'var(--lufa-token-color-text-secondary)',
                 textAlign: 'center',
                 padding: '6px 8px',
-                backgroundColor: tokens.color.background.primary,
-                border: `1px solid ${tokens.color.border.light}`,
+                backgroundColor: 'var(--lufa-token-color-background-primary)',
+                border: '1px solid var(--lufa-token-color-border-light)',
                 borderRadius: '10px',
               }}
             >
@@ -130,10 +157,10 @@ export const Colors: Story = {
                 style={{
                   fontFamily: 'monospace',
                   fontSize: '12px',
-                  color: tokens.color.text.secondary,
+                  color: 'var(--lufa-token-color-text-secondary)',
                   padding: '6px 8px',
-                  backgroundColor: tokens.color.background.primary,
-                  border: `1px solid ${tokens.color.border.light}`,
+                  backgroundColor: 'var(--lufa-token-color-background-primary)',
+                  border: '1px solid var(--lufa-token-color-border-light)',
                   borderRadius: '10px',
                 }}
               >
@@ -142,7 +169,7 @@ export const Colors: Story = {
               {(['primary', 'secondary', 'success', 'warning', 'danger', 'inherit'] as const).map((colorKey) => (
                 <div key={`cell-${variantKey}-${colorKey}`}>
                   {colorKey === 'inherit' ? (
-                    <div style={{ color: tokens.color.success.default }}>
+                    <div style={{ color: 'var(--lufa-token-color-success-default)' }}>
                       <Link variant={variantKey} color={colorKey} href="/page">
                         Link
                       </Link>
@@ -182,13 +209,31 @@ export const ExternalLinks: Story = {
   render: () => (
     <Stack gap="spacious">
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Auto External Indicator</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Auto External Indicator
+        </h4>
         <Link external href="https://example.com">
           Visit external site
         </Link>
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Custom Icon</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Custom Icon
+        </h4>
         <Link href="https://example.com" endIcon={<ExternalIcon />}>
           Visit external site
         </Link>
@@ -216,7 +261,7 @@ export const WithIcons: Story = {
 export const InText: Story = {
   render: () => (
     <div style={{ maxWidth: '600px', lineHeight: '1.6' }}>
-      <p>
+      <p style={{ color: 'var(--lufa-token-color-text-primary)' }}>
         This is a paragraph with an{' '}
         <Link href="/inline" variant="underline">
           inline link
@@ -227,7 +272,7 @@ export const InText: Story = {
         </Link>{' '}
         that open in a new tab.
       </p>
-      <p style={{ marginTop: '16px' }}>
+      <p style={{ marginTop: '16px', color: 'var(--lufa-token-color-text-primary)' }}>
         For more information, please{' '}
         <Link href="/contact" color="primary">
           contact us
@@ -254,25 +299,61 @@ export const AllStates: Story = {
   render: () => (
     <Stack gap="spacious">
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Default State</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Default State
+        </h4>
         <Link variant="default" href="#">
           Default link
         </Link>
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Hover State (hover over the link)</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Hover State (hover over the link)
+        </h4>
         <Link variant="default" href="#">
           Hover over me
         </Link>
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Focus State (use Tab key)</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Focus State (use Tab key)
+        </h4>
         <Link variant="default" href="#">
           Focus with keyboard
         </Link>
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Active State (click and hold)</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Active State (click and hold)
+        </h4>
         <Link variant="default" href="#">
           Click and hold
         </Link>
@@ -291,15 +372,31 @@ export const ThemeShowcase: Story = {
     },
   },
   render: () => (
-    <div className="p-6">
-      <h3 className="text-text-primary text-lg font-semibold mb-4">Link Colors (Theme Aware)</h3>
-      <p className="text-text-secondary mb-6">
+    <div style={{ padding: '24px' }}>
+      <h3
+        style={{
+          fontSize: '18px',
+          fontWeight: 600,
+          marginBottom: '16px',
+          color: 'var(--lufa-token-color-text-primary)',
+        }}
+      >
+        Link Colors (Theme Aware)
+      </h3>
+      <p style={{ marginBottom: '24px', color: 'var(--lufa-token-color-text-secondary)' }}>
         All link colors automatically adapt to the current theme. Use the theme switcher in the toolbar.
       </p>
 
       <Stack gap="spacious">
         <div>
-          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+          <h4
+            style={{
+              marginBottom: '12px',
+              fontSize: '14px',
+              fontWeight: 600,
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
             Primary
           </h4>
           <Link color="primary" href="#">
@@ -307,7 +404,14 @@ export const ThemeShowcase: Story = {
           </Link>
         </div>
         <div>
-          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+          <h4
+            style={{
+              marginBottom: '12px',
+              fontSize: '14px',
+              fontWeight: 600,
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
             Secondary
           </h4>
           <Link color="secondary" href="#">
@@ -315,7 +419,14 @@ export const ThemeShowcase: Story = {
           </Link>
         </div>
         <div>
-          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+          <h4
+            style={{
+              marginBottom: '12px',
+              fontSize: '14px',
+              fontWeight: 600,
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
             Success
           </h4>
           <Link color="success" href="#">
@@ -323,7 +434,14 @@ export const ThemeShowcase: Story = {
           </Link>
         </div>
         <div>
-          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+          <h4
+            style={{
+              marginBottom: '12px',
+              fontSize: '14px',
+              fontWeight: 600,
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
             Warning
           </h4>
           <Link color="warning" href="#">
@@ -331,15 +449,29 @@ export const ThemeShowcase: Story = {
           </Link>
         </div>
         <div>
-          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+          <h4
+            style={{
+              marginBottom: '12px',
+              fontSize: '14px',
+              fontWeight: 600,
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
             Danger
           </h4>
           <Link color="danger" href="#">
             Danger color link
           </Link>
         </div>
-        <div className="text-success-default">
-          <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }} className="text-text-primary">
+        <div style={{ color: 'var(--lufa-token-color-success-default)' }}>
+          <h4
+            style={{
+              marginBottom: '12px',
+              fontSize: '14px',
+              fontWeight: 600,
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
             Inherit (inside success colored text)
           </h4>
           <span>This text is success colored with an </span>
@@ -365,7 +497,14 @@ export const AccessibilityDemo: Story = {
   render: () => (
     <Stack gap="spacious">
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
           Keyboard Navigation (Tab through these links)
         </h4>
         <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -375,18 +514,32 @@ export const AccessibilityDemo: Story = {
         </div>
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
           External Link with Screen Reader Indicator
         </h4>
         <Link external href="https://example.com">
           Opens in new tab
         </Link>
-        <p style={{ fontSize: '12px', color: tokens.color.text.secondary, marginTop: '8px' }}>
+        <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginTop: '8px' }}>
           The arrow icon has an aria-label indicating it opens in a new tab
         </p>
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
           Underlined Link (Better for colorblind users)
         </h4>
         <Link variant="underline" href="#">
