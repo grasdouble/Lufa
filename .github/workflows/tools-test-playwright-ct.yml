@@ -67,6 +67,9 @@ jobs:
       - name: Build design system tokens
         run: pnpm ds:tokens:build
 
+      - name: Build design system themes
+        run: pnpm ds:themes:build
+
       - name: Build design system main
         run: pnpm ds:main:build
 
@@ -149,6 +152,7 @@ jobs:
         run: |
           pnpm ds:primitives:build
           pnpm ds:tokens:build
+          pnpm ds:themes:build
           pnpm ds:main:build
 
       # Step 8: Update Linux snapshots

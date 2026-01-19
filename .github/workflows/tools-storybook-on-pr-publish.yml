@@ -52,15 +52,19 @@ jobs:
       - name: Build Lufa Design System Tokens
         run: pnpm ds:tokens:build
 
-      # Step 7: Build Lufa Design System
+      # Step 7: Build Lufa Design System Themes
+      - name: Build Lufa Design System Themes
+        run: pnpm ds:themes:build
+
+      # Step 8: Build Lufa Design System
       - name: Build Lufa Design System
         run: pnpm ds:main:build
 
-      # Step 8: Build Storybook
+      # Step 9: Build Storybook
       - name: Build Storybook
         run: pnpm ds:storybook:build
 
-      # Step 9: Deploy to GitHub Pages
+      # Step 10: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
