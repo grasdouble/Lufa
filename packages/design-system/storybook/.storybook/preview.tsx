@@ -58,32 +58,24 @@ const ThemeAndModeWrapper = ({ theme, mode, children }: { theme: string; mode: s
     }
 
     // Apply mode attribute
-    if (mode === 'auto') {
+    if (mode === 'auto' || mode === '' || mode == null || mode === undefined) {
       root.removeAttribute('data-mode');
     } else {
       root.setAttribute('data-mode', mode);
     }
   }, [theme, mode]);
 
-  // Determine effective mode for background color
-  let effectiveMode = mode;
-  if (mode === 'auto') {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    effectiveMode = prefersDark ? 'dark' : 'light';
-  }
-
-  const backgroundColor = effectiveMode === 'dark' ? '#0a0a0a' : '#ffffff';
-
   return (
     <div
       style={{
-        backgroundColor,
+        backgroundColor: 'var(--lufa-token-color-background-primary)',
+        color: 'var(--lufa-token-color-text-primary)',
         minHeight: '100vh',
         padding: '2rem',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        transition: 'background-color 0.3s ease',
+        transition: 'background-color 0.3s ease, color 0.3s ease',
       }}
     >
       {children}
