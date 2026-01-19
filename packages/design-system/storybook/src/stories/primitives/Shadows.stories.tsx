@@ -22,15 +22,25 @@ export const AllShadows: Story = {
         and interactive affordance.
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '24px',
+          padding: '32px',
+          backgroundColor: 'var(--lufa-token-color-background-tertiary)',
+          borderRadius: '16px',
+        }}
+      >
         {Object.entries(primitives.shadow).map(([key, value]) => (
           <div key={key} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <div
               style={{
                 padding: '32px',
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                backgroundColor: 'var(--lufa-token-color-surface-raised)',
                 borderRadius: '12px',
                 boxShadow: value,
+                border: '1px solid var(--lufa-token-color-border-light)',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -58,7 +68,7 @@ export const AllShadows: Story = {
                 fontSize: '10px',
                 color: 'var(--lufa-token-color-text-secondary)',
                 padding: '8px',
-                backgroundColor: 'var(--lufa-token-color-surface-raised)',
+                backgroundColor: 'var(--lufa-token-color-surface-default)',
                 borderRadius: '4px',
                 wordBreak: 'break-all',
               }}
@@ -102,13 +112,17 @@ export const UsageExamples: Story = {
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
               gap: '16px',
+              padding: '24px',
+              backgroundColor: 'var(--lufa-token-color-background-tertiary)',
+              borderRadius: '12px',
             }}
           >
             <div
               style={{
                 padding: '20px',
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                backgroundColor: 'var(--lufa-token-color-surface-raised)',
                 borderRadius: '12px',
+                border: '1px solid var(--lufa-token-color-border-light)',
                 boxShadow: primitives.shadow.sm,
               }}
             >
@@ -120,8 +134,9 @@ export const UsageExamples: Story = {
             <div
               style={{
                 padding: '20px',
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                backgroundColor: 'var(--lufa-token-color-surface-raised)',
                 borderRadius: '12px',
+                border: '1px solid var(--lufa-token-color-border-light)',
                 boxShadow: primitives.shadow.md,
               }}
             >
@@ -139,8 +154,8 @@ export const UsageExamples: Story = {
             <button
               style={{
                 padding: '12px 24px',
-                backgroundColor: primitives.color.chromatic.blue[500],
-                color: primitives.color.neutral.white,
+                backgroundColor: 'var(--lufa-primitive-color-chromatic-blue-500)',
+                color: 'var(--lufa-primitive-color-neutral-white)',
                 border: 'none',
                 borderRadius: '8px',
                 fontWeight: '500',
@@ -156,8 +171,9 @@ export const UsageExamples: Story = {
             <div
               style={{
                 padding: '16px',
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                backgroundColor: 'var(--lufa-token-color-surface-raised)',
                 borderRadius: '8px',
+                border: '1px solid var(--lufa-token-color-border-light)',
                 cursor: 'pointer',
                 boxShadow: primitives.shadow.md,
                 transition: 'box-shadow 150ms',
@@ -178,8 +194,9 @@ export const UsageExamples: Story = {
           <div
             style={{
               width: '240px',
-              backgroundColor: 'var(--lufa-token-color-surface-default)',
+              backgroundColor: 'var(--lufa-token-color-surface-raised)',
               borderRadius: '8px',
+              border: '1px solid var(--lufa-token-color-border-light)',
               boxShadow: primitives.shadow.lg,
               overflow: 'hidden',
             }}
@@ -193,10 +210,10 @@ export const UsageExamples: Story = {
                   borderTop: i > 0 ? `1px solid var(--lufa-token-color-background-tertiary)` : 'none',
                   transition: 'background-color 150ms',
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--lufa-token-color-surface-raised)')}
-                onMouseLeave={(e) =>
+                onMouseEnter={(e) =>
                   (e.currentTarget.style.backgroundColor = 'var(--lufa-token-color-surface-default)')
                 }
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--lufa-token-color-surface-raised)')}
               >
                 {item}
               </div>
@@ -213,8 +230,9 @@ export const UsageExamples: Story = {
             style={{
               maxWidth: '500px',
               padding: '32px',
-              backgroundColor: 'var(--lufa-token-color-surface-default)',
+              backgroundColor: 'var(--lufa-token-color-surface-raised)',
               borderRadius: '16px',
+              border: '1px solid var(--lufa-token-color-border-light)',
               boxShadow: primitives.shadow.xl,
             }}
           >
@@ -239,8 +257,8 @@ export const UsageExamples: Story = {
               <button
                 style={{
                   padding: '10px 20px',
-                  backgroundColor: primitives.color.chromatic.red[500],
-                  color: primitives.color.neutral.white,
+                  backgroundColor: 'var(--lufa-primitive-color-chromatic-red-500)',
+                  color: 'var(--lufa-primitive-color-neutral-white)',
                   border: 'none',
                   borderRadius: '6px',
                   fontWeight: '500',
@@ -262,8 +280,8 @@ export const UsageExamples: Story = {
             style={{
               width: '64px',
               height: '64px',
-              backgroundColor: primitives.color.chromatic.blue[500],
-              color: primitives.color.neutral.white,
+              backgroundColor: 'var(--lufa-primitive-color-chromatic-blue-500)',
+              color: 'var(--lufa-primitive-color-neutral-white)',
               border: 'none',
               borderRadius: '50%',
               fontSize: '24px',
@@ -283,22 +301,33 @@ export const UsageExamples: Story = {
 
         <div>
           <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '16px' }}>Elevation Comparison</h3>
-          <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-end', flexWrap: 'wrap' }}>
+          <div
+            style={{
+              display: 'flex',
+              gap: '24px',
+              alignItems: 'flex-end',
+              flexWrap: 'wrap',
+              padding: '32px',
+              backgroundColor: 'var(--lufa-token-color-background-tertiary)',
+              borderRadius: '12px',
+            }}
+          >
             {['none', 'xs', 'sm', 'md', 'lg', 'xl'].map((level) => (
               <div
                 key={level}
                 style={{
-                  width: '80px',
+                  width: '100px',
                   height: `${80 + (level === 'none' ? 0 : ['xs', 'sm', 'md', 'lg', 'xl'].indexOf(level) * 20)}px`,
-                  backgroundColor: 'var(--lufa-token-color-surface-default)',
+                  backgroundColor: 'var(--lufa-token-color-surface-raised)',
                   borderRadius: '8px',
+                  border: '1px solid var(--lufa-token-color-border-light)',
                   boxShadow: primitives.shadow[level as keyof typeof primitives.shadow],
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '12px',
+                  fontSize: '14px',
                   fontWeight: '600',
-                  color: 'var(--lufa-token-color-text-secondary)',
+                  color: 'var(--lufa-token-color-text-primary)',
                 }}
               >
                 {level}

@@ -58,9 +58,9 @@ export const MaxWidth: Story = {
               style={{
                 maxWidth: value,
                 padding: '16px',
-                backgroundColor: primitives.color.chromatic.blue[500],
+                backgroundColor: 'var(--lufa-primitive-color-chromatic-blue-500)',
                 borderRadius: '6px',
-                color: primitives.color.neutral.white,
+                color: 'var(--lufa-primitive-color-neutral-white)',
                 fontSize: '12px',
               }}
             >
@@ -89,12 +89,14 @@ export const Sizes: Story = {
                 width: value,
                 height: value,
                 backgroundColor:
-                  key === '44' ? primitives.color.chromatic.green[500] : primitives.color.chromatic.blue[500],
+                  key === '44'
+                    ? 'var(--lufa-primitive-color-chromatic-green-500)'
+                    : 'var(--lufa-primitive-color-chromatic-blue-500)',
                 borderRadius: '6px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: primitives.color.neutral.white,
+                color: 'var(--lufa-primitive-color-neutral-white)',
                 fontSize: '12px',
                 fontWeight: '600',
                 boxShadow: primitives.shadow.xs,
@@ -162,12 +164,12 @@ export const Grid: Story = {
                   key={i}
                   style={{
                     height: '40px',
-                    backgroundColor: primitives.color.chromatic.blue[500],
+                    backgroundColor: 'var(--lufa-primitive-color-chromatic-blue-500)',
                     borderRadius: '4px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: primitives.color.neutral.white,
+                    color: 'var(--lufa-primitive-color-neutral-white)',
                     fontSize: '10px',
                     fontWeight: '600',
                   }}
@@ -206,7 +208,7 @@ export const Grid: Story = {
                   key={i}
                   style={{
                     height: '40px',
-                    backgroundColor: primitives.color.chromatic.blue[500],
+                    backgroundColor: 'var(--lufa-primitive-color-chromatic-blue-500)',
                     borderRadius: '4px',
                   }}
                 />
@@ -270,44 +272,140 @@ export const Blur: Story = {
         Primitive blur values for backdrop-filter effects. Use for frosted glass overlays and modern UI.
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
         {Object.entries(primitives.blur).map(([key, value]) => (
           <div
             key={key}
             style={{
               position: 'relative',
-              height: '150px',
-              borderRadius: '12px',
+              height: '200px',
+              borderRadius: '16px',
               overflow: 'hidden',
+              border: '2px solid var(--lufa-token-color-border-default)',
             }}
           >
+            {/* High-contrast background pattern */}
             <div
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundImage: `linear-gradient(135deg, ${primitives.color.chromatic.blue[500]} 0%, ${primitives.color.chromatic.purple[500]} 100%)`,
+                backgroundImage: `
+                  repeating-linear-gradient(
+                    45deg,
+                    var(--lufa-primitive-color-chromatic-blue-600) 0px,
+                    var(--lufa-primitive-color-chromatic-blue-600) 20px,
+                    var(--lufa-primitive-color-chromatic-purple-600) 20px,
+                    var(--lufa-primitive-color-chromatic-purple-600) 40px,
+                    var(--lufa-primitive-color-chromatic-pink-600) 40px,
+                    var(--lufa-primitive-color-chromatic-pink-600) 60px,
+                    var(--lufa-primitive-color-chromatic-orange-600) 60px,
+                    var(--lufa-primitive-color-chromatic-orange-600) 80px
+                  )
+                `,
               }}
-            />
+            >
+              {/* Add text pattern to show blur effect on text */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(3, 1fr)',
+                  gap: '4px',
+                  padding: '8px',
+                }}
+              >
+                {Array.from({ length: 9 }).map((_, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '14px',
+                      fontWeight: 'bold',
+                      color: 'var(--lufa-primitive-color-neutral-white)',
+                      textShadow: '0 0 4px rgba(0,0,0,0.5)',
+                    }}
+                  >
+                    Aa
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Blurred overlay */}
             <div
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundColor: `color-mix(in oklab, var(--lufa-token-color-surface-default) 30%, transparent)`,
+                backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-default) 20%, transparent)',
                 backdropFilter: `blur(${value})`,
                 WebkitBackdropFilter: `blur(${value})`,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
+                gap: '8px',
               }}
             >
-              <div style={{ fontSize: '18px', fontWeight: '600', color: 'var(--lufa-token-color-text-primary)' }}>
+              <div
+                style={{
+                  fontSize: '20px',
+                  fontWeight: '700',
+                  color: 'var(--lufa-token-color-text-primary)',
+                  textShadow: '0 2px 8px var(--lufa-token-color-surface-default)',
+                  backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-default) 60%, transparent)',
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                }}
+              >
                 blur[{key}]
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-primary)' }}>{value}</div>
+              <div
+                style={{
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-default) 80%, transparent)',
+                  padding: '4px 12px',
+                  borderRadius: '6px',
+                }}
+              >
+                {value}
+              </div>
             </div>
           </div>
         ))}
+      </div>
+
+      <div
+        style={{
+          marginTop: '40px',
+          padding: '24px',
+          backgroundColor: 'var(--lufa-token-color-info-light)',
+          borderRadius: '12px',
+          border: '1px solid var(--lufa-token-color-info-border)',
+        }}
+      >
+        <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>Blur Usage</h3>
+        <ul style={{ margin: 0, paddingLeft: '20px', lineHeight: '1.6' }}>
+          <li>
+            <strong>none (0px)</strong> - No blur effect
+          </li>
+          <li>
+            <strong>sm (4px)</strong> - Subtle frosted glass effect
+          </li>
+          <li>
+            <strong>md (8px)</strong> - Standard overlay blur
+          </li>
+          <li>
+            <strong>lg (16px)</strong> - Strong privacy blur
+          </li>
+          <li>
+            <strong>xl (24px)</strong> - Maximum blur for dramatic effects
+          </li>
+        </ul>
       </div>
     </div>
   ),

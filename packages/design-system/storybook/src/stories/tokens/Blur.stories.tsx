@@ -25,7 +25,7 @@ export const AllBlurLevels: Story = {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
           gap: '24px',
           marginBottom: '32px',
         }}
@@ -35,21 +35,61 @@ export const AllBlurLevels: Story = {
             key={key}
             style={{
               position: 'relative',
-              height: '200px',
-              borderRadius: '12px',
+              height: '220px',
+              borderRadius: '16px',
               overflow: 'hidden',
-              border: `1px solid var(--lufa-token-color-border-light)`,
+              border: '2px solid var(--lufa-token-color-border-default)',
             }}
           >
-            {/* Background image/pattern */}
+            {/* High-contrast background pattern with text */}
             <div
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundImage: `linear-gradient(45deg, var(--lufa-token-color-interactive-focus) 25%, var(--lufa-token-color-success-default) 25%, var(--lufa-token-color-success-default) 50%, var(--lufa-token-color-interactive-focus) 50%, var(--lufa-token-color-interactive-focus) 75%, var(--lufa-token-color-success-default) 75%, var(--lufa-token-color-success-default))`,
-                backgroundSize: '40px 40px',
+                backgroundImage: `
+                  repeating-linear-gradient(
+                    45deg,
+                    var(--lufa-primitive-color-chromatic-blue-600) 0px,
+                    var(--lufa-primitive-color-chromatic-blue-600) 20px,
+                    var(--lufa-primitive-color-chromatic-purple-600) 20px,
+                    var(--lufa-primitive-color-chromatic-purple-600) 40px,
+                    var(--lufa-primitive-color-chromatic-pink-600) 40px,
+                    var(--lufa-primitive-color-chromatic-pink-600) 60px,
+                    var(--lufa-primitive-color-chromatic-orange-600) 60px,
+                    var(--lufa-primitive-color-chromatic-orange-600) 80px
+                  )
+                `,
               }}
-            />
+            >
+              {/* Add text pattern to show blur effect on text */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(3, 1fr)',
+                  gap: '4px',
+                  padding: '8px',
+                }}
+              >
+                {Array.from({ length: 9 }).map((_, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '16px',
+                      fontWeight: 'bold',
+                      color: 'var(--lufa-primitive-color-neutral-white)',
+                      textShadow: '0 0 4px rgba(0,0,0,0.5)',
+                    }}
+                  >
+                    Aa
+                  </div>
+                ))}
+              </div>
+            </div>
 
             {/* Blurred overlay */}
             <div
@@ -58,27 +98,39 @@ export const AllBlurLevels: Story = {
                 inset: 0,
                 backdropFilter: `blur(${value})`,
                 WebkitBackdropFilter: `blur(${value})`,
-                backgroundColor: `color-mix(in oklab, var(--lufa-token-color-background-primary) 70%, transparent)`,
+                backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-default) 20%, transparent)',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: '20px',
+                gap: '8px',
               }}
             >
               <div
                 style={{
                   fontFamily: 'monospace',
-                  fontWeight: '600',
-                  fontSize: '14px',
-                  marginBottom: '4px',
+                  fontWeight: '700',
+                  fontSize: '18px',
                   color: 'var(--lufa-token-color-text-primary)',
+                  textShadow: '0 2px 8px var(--lufa-token-color-surface-default)',
+                  backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-default) 60%, transparent)',
+                  padding: '8px 16px',
+                  borderRadius: '8px',
                 }}
               >
                 blur.{key}
               </div>
               <div
-                style={{ fontFamily: 'monospace', fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}
+                style={{
+                  fontFamily: 'monospace',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-default) 80%, transparent)',
+                  padding: '4px 12px',
+                  borderRadius: '6px',
+                }}
               >
                 {value}
               </div>
@@ -162,32 +214,66 @@ export const UsageExamples: Story = {
         <div
           style={{
             position: 'relative',
-            height: '300px',
-            borderRadius: '12px',
+            height: '320px',
+            borderRadius: '16px',
             overflow: 'hidden',
-            backgroundImage: 'url(https://images.unsplash.com/photo-1557683316-973673baf926?w=800&h=400&fit=crop)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            border: '2px solid var(--lufa-token-color-border-default)',
+            backgroundImage: `
+              repeating-linear-gradient(
+                90deg,
+                var(--lufa-primitive-color-chromatic-blue-400) 0px,
+                var(--lufa-primitive-color-chromatic-cyan-400) 50px,
+                var(--lufa-primitive-color-chromatic-teal-400) 100px,
+                var(--lufa-primitive-color-chromatic-green-400) 150px,
+                var(--lufa-primitive-color-chromatic-emerald-400) 200px
+              )
+            `,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
+          {/* Add decorative circles */}
+          <div
+            style={{
+              position: 'absolute',
+              width: '200px',
+              height: '200px',
+              borderRadius: '50%',
+              background: 'var(--lufa-primitive-color-chromatic-purple-500)',
+              top: '-50px',
+              left: '10%',
+              opacity: 0.6,
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              width: '150px',
+              height: '150px',
+              borderRadius: '50%',
+              background: 'var(--lufa-primitive-color-chromatic-pink-500)',
+              bottom: '-30px',
+              right: '15%',
+              opacity: 0.6,
+            }}
+          />
+
           <div
             style={{
               backdropFilter: `blur(${tokens.blur.subtle})`,
               WebkitBackdropFilter: `blur(${tokens.blur.subtle})`,
-              backgroundColor: `color-mix(in oklab, var(--lufa-token-color-background-primary) 70%, transparent)`,
+              backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-default) 70%, transparent)',
               padding: '32px',
-              borderRadius: '12px',
-              maxWidth: '400px',
-              border: `1px solid color-mix(in oklab, var(--lufa-token-color-background-primary) 30%, transparent)`,
+              borderRadius: '16px',
+              maxWidth: '450px',
+              border: '1px solid color-mix(in oklab, var(--lufa-token-color-border-light) 50%, transparent)',
               boxShadow: tokens.shadow.lg,
             }}
           >
             <h3
               style={{
-                fontSize: '24px',
+                fontSize: '28px',
                 fontWeight: '700',
                 marginBottom: '12px',
                 color: 'var(--lufa-token-color-text-primary)',
@@ -195,13 +281,33 @@ export const UsageExamples: Story = {
             >
               Frosted Glass Effect
             </h3>
-            <p style={{ color: 'var(--lufa-token-color-text-secondary)', lineHeight: 1.6 }}>
-              Using blur.subtle for a gentle frosted glass appearance that doesn't obscure the background too much.
+            <p style={{ color: 'var(--lufa-token-color-text-secondary)', lineHeight: 1.6, marginBottom: '16px' }}>
+              Using{' '}
+              <code
+                style={{
+                  fontFamily: 'monospace',
+                  backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-raised) 80%, transparent)',
+                  padding: '2px 6px',
+                  borderRadius: '4px',
+                }}
+              >
+                blur.subtle
+              </code>{' '}
+              for a gentle frosted glass appearance that maintains readability while adding visual depth.
             </p>
+            <div
+              style={{
+                fontSize: '14px',
+                color: 'var(--lufa-token-color-text-tertiary)',
+                fontStyle: 'italic',
+              }}
+            >
+              The colorful gradient behind remains partially visible, creating an elegant overlay effect.
+            </div>
           </div>
         </div>
         <p style={{ marginTop: '12px', fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
-          Using blur.subtle for frosted glass cards
+          Using blur.subtle for frosted glass cards with decorative backgrounds
         </p>
       </div>
 
@@ -211,29 +317,53 @@ export const UsageExamples: Story = {
         <div
           style={{
             position: 'relative',
-            height: '300px',
-            borderRadius: '12px',
+            height: '320px',
+            borderRadius: '16px',
             overflow: 'hidden',
+            border: '2px solid var(--lufa-token-color-border-default)',
             backgroundColor: 'var(--lufa-token-color-background-tertiary)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          {/* Mock background content */}
-          <div style={{ padding: '40px', textAlign: 'center' }}>
+          {/* Mock background content - more detailed */}
+          <div style={{ padding: '40px', textAlign: 'center', width: '100%' }}>
             <div
               style={{
-                fontSize: '18px',
-                fontWeight: '600',
-                marginBottom: '16px',
-                color: 'var(--lufa-token-color-text-secondary)',
+                fontSize: '24px',
+                fontWeight: '700',
+                marginBottom: '20px',
+                color: 'var(--lufa-token-color-text-primary)',
               }}
             >
-              Background Content
+              Page Content Behind Modal
             </div>
-            <div style={{ color: 'var(--lufa-token-color-text-disabled)' }}>
-              This content is behind the modal overlay
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: '12px',
+                maxWidth: '600px',
+                margin: '0 auto',
+              }}
+            >
+              {['Feature 1', 'Feature 2', 'Feature 3', 'Item A', 'Item B', 'Item C'].map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    padding: '16px',
+                    backgroundColor: 'var(--lufa-token-color-surface-raised)',
+                    borderRadius: '8px',
+                    border: '1px solid var(--lufa-token-color-border-light)',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    color: 'var(--lufa-token-color-text-secondary)',
+                  }}
+                >
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
 
@@ -252,34 +382,48 @@ export const UsageExamples: Story = {
           >
             <div
               style={{
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                backgroundColor: 'var(--lufa-token-color-surface-raised)',
                 padding: '32px',
-                borderRadius: '12px',
+                borderRadius: '16px',
                 maxWidth: '400px',
+                border: '2px solid var(--lufa-token-color-border-default)',
                 boxShadow: tokens.shadow.xl,
               }}
             >
-              <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px' }}>Modal Dialog</h3>
-              <p style={{ color: 'var(--lufa-token-color-text-secondary)', marginBottom: '20px' }}>
-                The background is blurred using blur.base to focus attention on this modal.
+              <h3 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '12px' }}>Modal Dialog</h3>
+              <p style={{ color: 'var(--lufa-token-color-text-secondary)', marginBottom: '20px', lineHeight: 1.6 }}>
+                The background content is blurred using{' '}
+                <code
+                  style={{
+                    fontFamily: 'monospace',
+                    backgroundColor: 'var(--lufa-token-color-surface-default)',
+                    padding: '2px 6px',
+                    borderRadius: '4px',
+                  }}
+                >
+                  blur.base
+                </code>{' '}
+                to focus attention on this modal while maintaining context.
               </p>
               <button
                 style={{
-                  padding: '10px 20px',
+                  padding: '12px 24px',
                   backgroundColor: 'var(--lufa-token-color-interactive-focus)',
                   color: 'var(--lufa-token-color-text-inverse)',
                   border: 'none',
-                  borderRadius: '6px',
+                  borderRadius: '8px',
                   cursor: 'pointer',
+                  fontWeight: '600',
+                  fontSize: '14px',
                 }}
               >
-                Confirm
+                Confirm Action
               </button>
             </div>
           </div>
         </div>
         <p style={{ marginTop: '12px', fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
-          Using blur.base for modal overlays
+          Using blur.base for modal overlays to maintain focus without losing context
         </p>
       </div>
 
@@ -289,33 +433,84 @@ export const UsageExamples: Story = {
         <div
           style={{
             position: 'relative',
-            height: '300px',
-            borderRadius: '12px',
+            height: '320px',
+            borderRadius: '16px',
             overflow: 'hidden',
-            backgroundColor: 'var(--lufa-token-color-surface-default)',
+            border: '2px solid var(--lufa-token-color-border-default)',
+            backgroundColor: 'var(--lufa-token-color-surface-raised)',
             padding: '32px',
           }}
         >
-          {/* Mock sensitive content */}
-          <div style={{ marginBottom: '24px' }}>
+          {/* Mock sensitive content - more detailed */}
+          <div>
             <div
               style={{
-                fontSize: '14px',
-                fontWeight: '600',
-                marginBottom: '8px',
-                color: 'var(--lufa-token-color-text-secondary)',
+                fontSize: '18px',
+                fontWeight: '700',
+                marginBottom: '16px',
+                color: 'var(--lufa-token-color-text-primary)',
               }}
             >
-              Personal Information
+              Personal Information Dashboard
             </div>
-            <div style={{ color: 'var(--lufa-token-color-text-disabled)' }}>
-              Name: John Doe
-              <br />
-              Email: john.doe@example.com
-              <br />
-              Phone: +1 234 567 8900
-              <br />
-              Address: 123 Main St, City, Country
+            <div
+              style={{
+                display: 'grid',
+                gap: '12px',
+                color: 'var(--lufa-token-color-text-secondary)',
+                fontSize: '14px',
+              }}
+            >
+              <div
+                style={{
+                  padding: '12px',
+                  backgroundColor: 'var(--lufa-token-color-surface-default)',
+                  borderRadius: '8px',
+                  border: '1px solid var(--lufa-token-color-border-light)',
+                }}
+              >
+                <strong>Name:</strong> John Doe
+              </div>
+              <div
+                style={{
+                  padding: '12px',
+                  backgroundColor: 'var(--lufa-token-color-surface-default)',
+                  borderRadius: '8px',
+                  border: '1px solid var(--lufa-token-color-border-light)',
+                }}
+              >
+                <strong>Email:</strong> john.doe@example.com
+              </div>
+              <div
+                style={{
+                  padding: '12px',
+                  backgroundColor: 'var(--lufa-token-color-surface-default)',
+                  borderRadius: '8px',
+                  border: '1px solid var(--lufa-token-color-border-light)',
+                }}
+              >
+                <strong>Phone:</strong> +1 (234) 567-8900
+              </div>
+              <div
+                style={{
+                  padding: '12px',
+                  backgroundColor: 'var(--lufa-token-color-surface-default)',
+                  borderRadius: '8px',
+                  border: '1px solid var(--lufa-token-color-border-light)',
+                }}
+              >
+                <strong>Address:</strong> 123 Main Street, Apt 4B, Springfield, ST 12345
+              </div>
+              <div
+                style={{
+                  padding: '12px',
+                  backgroundColor: 'var(--lufa-token-color-surface-default)',
+                  borderRadius: '8px',
+                  border: '1px solid var(--lufa-token-color-border-light)',
+                }}
+              >
+                <strong>SSN:</strong> ***-**-1234
+              </div>
             </div>
           </div>
 
@@ -326,21 +521,23 @@ export const UsageExamples: Story = {
               inset: '32px',
               backdropFilter: `blur(${tokens.blur.extraStrong})`,
               WebkitBackdropFilter: `blur(${tokens.blur.extraStrong})`,
-              backgroundColor: `color-mix(in oklab, var(--lufa-token-color-background-inverse) 30%, transparent)`,
-              borderRadius: '8px',
+              backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-background-inverse) 40%, transparent)',
+              borderRadius: '12px',
+              border: '2px solid var(--lufa-token-color-border-default)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}
           >
             <div style={{ textAlign: 'center', color: 'var(--lufa-token-color-text-inverse)' }}>
-              <div style={{ fontSize: '48px', marginBottom: '12px' }}>🔒</div>
-              <div style={{ fontSize: '16px', fontWeight: '600' }}>Content Hidden for Privacy</div>
+              <div style={{ fontSize: '64px', marginBottom: '16px' }}>🔒</div>
+              <div style={{ fontSize: '20px', fontWeight: '700', marginBottom: '8px' }}>Content Hidden for Privacy</div>
+              <div style={{ fontSize: '14px', opacity: 0.9 }}>Click to reveal sensitive information</div>
             </div>
           </div>
         </div>
         <p style={{ marginTop: '12px', fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
-          Using blur.extraStrong for maximum privacy
+          Using blur.extraStrong for maximum privacy - completely obscures sensitive data
         </p>
       </div>
 
