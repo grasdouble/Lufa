@@ -55,7 +55,7 @@ export const Sizes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Small
@@ -68,7 +68,7 @@ export const Sizes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Medium (Default)
@@ -81,7 +81,7 @@ export const Sizes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Large
@@ -166,7 +166,7 @@ export const DifferentPageCounts: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Few Pages (5)
@@ -179,7 +179,7 @@ export const DifferentPageCounts: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Many Pages (50)
@@ -192,7 +192,7 @@ export const DifferentPageCounts: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Beginning
@@ -205,7 +205,7 @@ export const DifferentPageCounts: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           End

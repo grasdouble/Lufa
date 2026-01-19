@@ -95,7 +95,7 @@ export const Types: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Line (Default)
@@ -108,7 +108,7 @@ export const Types: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Card
@@ -121,7 +121,7 @@ export const Types: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Pill
@@ -141,7 +141,7 @@ export const Positions: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Top (Default)
@@ -154,7 +154,7 @@ export const Positions: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Bottom
@@ -168,7 +168,7 @@ export const Positions: Story = {
               marginBottom: '12px',
               fontSize: '14px',
               fontWeight: 600,
-              color: 'var(--lufa-token-color-text-primary)',
+              
             }}
           >
             Left
@@ -181,7 +181,7 @@ export const Positions: Story = {
               marginBottom: '12px',
               fontSize: '14px',
               fontWeight: 600,
-              color: 'var(--lufa-token-color-text-primary)',
+              
             }}
           >
             Right
@@ -202,7 +202,7 @@ export const Sizes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Small
@@ -215,7 +215,7 @@ export const Sizes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Medium (Default)
@@ -228,7 +228,7 @@ export const Sizes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Large
@@ -256,7 +256,7 @@ export const Controlled: Story = {
             borderRadius: '8px',
           }}
         >
-          <div style={{ fontSize: '14px', marginBottom: '8px', color: 'var(--lufa-token-color-text-primary)' }}>
+          <div style={{ fontSize: '14px', marginBottom: '8px' }}>
             Active tab: <strong>{activeKey}</strong>
           </div>
           <div style={{ display: 'flex', gap: '8px' }}>
@@ -376,7 +376,7 @@ export const ProductDetails: Story = {
                     marginBottom: '12px',
                   }}
                 >
-                  <div style={{ fontWeight: 600, marginBottom: '8px', color: 'var(--lufa-token-color-text-primary)' }}>
+                  <div style={{ fontWeight: 600, marginBottom: '8px' }}>
                     Great product!
                   </div>
                   <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
@@ -390,7 +390,7 @@ export const ProductDetails: Story = {
                     borderRadius: '8px',
                   }}
                 >
-                  <div style={{ fontWeight: 600, marginBottom: '8px', color: 'var(--lufa-token-color-text-primary)' }}>
+                  <div style={{ fontWeight: 600, marginBottom: '8px' }}>
                     Excellent quality
                   </div>
                   <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
@@ -432,7 +432,7 @@ export const Dashboard: Story = {
                       fontSize: '32px',
                       fontWeight: 700,
                       marginBottom: '8px',
-                      color: 'var(--lufa-token-color-text-primary)',
+                      
                     }}
                   >
                     1,234
@@ -452,7 +452,7 @@ export const Dashboard: Story = {
                       fontSize: '32px',
                       fontWeight: 700,
                       marginBottom: '8px',
-                      color: 'var(--lufa-token-color-text-primary)',
+                      
                     }}
                   >
                     567
@@ -474,7 +474,7 @@ export const Dashboard: Story = {
                       fontSize: '32px',
                       fontWeight: 700,
                       marginBottom: '8px',
-                      color: 'var(--lufa-token-color-text-primary)',
+                      
                     }}
                   >
                     89%

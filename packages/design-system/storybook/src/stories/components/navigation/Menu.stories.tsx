@@ -110,7 +110,7 @@ export const Modes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Vertical (Default)
@@ -123,7 +123,7 @@ export const Modes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Horizontal
@@ -136,7 +136,7 @@ export const Modes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Inline
@@ -156,7 +156,7 @@ export const Themes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Light Theme
@@ -169,7 +169,7 @@ export const Themes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Dark Theme
@@ -232,7 +232,7 @@ export const SidebarNavigation: Story = {
             marginBottom: '16px',
             fontSize: '16px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Dashboard

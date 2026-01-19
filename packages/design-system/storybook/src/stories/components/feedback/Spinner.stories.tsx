@@ -108,7 +108,7 @@ export const AllVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-xl)' }}>
       <div>
-        <h3 style={{ marginBottom: 'var(--lufa-token-spacing-base)', color: 'var(--lufa-token-color-text-primary)' }}>
+        <h3 style={{ marginBottom: 'var(--lufa-token-spacing-base)' }}>
           Mode A
         </h3>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-xl)' }}>
@@ -118,7 +118,7 @@ export const AllVariants: Story = {
         </div>
       </div>
       <div>
-        <h3 style={{ marginBottom: 'var(--lufa-token-spacing-base)', color: 'var(--lufa-token-color-text-primary)' }}>
+        <h3 style={{ marginBottom: 'var(--lufa-token-spacing-base)' }}>
           Mode B
         </h3>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-xl)' }}>

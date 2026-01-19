@@ -57,7 +57,7 @@ export const Variants: Story = {
           style={{
             marginBottom: 'var(--lufa-token-spacing-sm)',
             fontSize: 'var(--lufa-token-font-size-sm)',
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Text
@@ -69,7 +69,7 @@ export const Variants: Story = {
           style={{
             marginBottom: 'var(--lufa-token-spacing-sm)',
             fontSize: 'var(--lufa-token-font-size-sm)',
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Circular
@@ -81,7 +81,7 @@ export const Variants: Story = {
           style={{
             marginBottom: 'var(--lufa-token-spacing-sm)',
             fontSize: 'var(--lufa-token-font-size-sm)',
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Rectangular
@@ -100,7 +100,7 @@ export const Animations: Story = {
           style={{
             marginBottom: 'var(--lufa-token-spacing-sm)',
             fontSize: 'var(--lufa-token-font-size-sm)',
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Pulse (Default)
@@ -112,7 +112,7 @@ export const Animations: Story = {
           style={{
             marginBottom: 'var(--lufa-token-spacing-sm)',
             fontSize: 'var(--lufa-token-font-size-sm)',
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           Wave
@@ -124,7 +124,7 @@ export const Animations: Story = {
           style={{
             marginBottom: 'var(--lufa-token-spacing-sm)',
             fontSize: 'var(--lufa-token-font-size-sm)',
-            color: 'var(--lufa-token-color-text-primary)',
+            
           }}
         >
           No Animation

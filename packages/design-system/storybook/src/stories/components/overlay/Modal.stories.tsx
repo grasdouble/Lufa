@@ -244,7 +244,7 @@ export const FormModal: Story = {
                     display: 'block',
                     marginBottom: 'var(--lufa-token-spacing-xs)',
                     fontWeight: 'var(--lufa-token-font-weight-medium)',
-                    color: 'var(--lufa-token-color-text-primary)',
+                    
                   }}
                 >
                   Name
@@ -260,7 +260,7 @@ export const FormModal: Story = {
                     border:
                       'var(--lufa-token-border-width-hairline) var(--lufa-token-border-style-solid) var(--lufa-token-color-border-default)',
                     borderRadius: 'var(--lufa-token-radius-md)',
-                    color: 'var(--lufa-token-color-text-primary)',
+                    
                     backgroundColor: 'var(--lufa-token-color-background-primary)',
                   }}
                 />
@@ -271,7 +271,7 @@ export const FormModal: Story = {
                     display: 'block',
                     marginBottom: 'var(--lufa-token-spacing-xs)',
                     fontWeight: 'var(--lufa-token-font-weight-medium)',
-                    color: 'var(--lufa-token-color-text-primary)',
+                    
                   }}
                 >
                   Email
@@ -287,7 +287,7 @@ export const FormModal: Story = {
                     border:
                       'var(--lufa-token-border-width-hairline) var(--lufa-token-border-style-solid) var(--lufa-token-color-border-default)',
                     borderRadius: 'var(--lufa-token-radius-md)',
-                    color: 'var(--lufa-token-color-text-primary)',
+                    
                     backgroundColor: 'var(--lufa-token-color-background-primary)',
                   }}
                 />
