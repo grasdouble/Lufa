@@ -8,19 +8,31 @@
   "author": "",
   "main": "index.js",
   "scripts": {
+    "compress-snapshots": "bash scripts/compress-snapshots-manual.sh",
+    "docker:update-snapshots-linux": "bash scripts/docker-update-snapshots-linux.sh",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "playwright test -c playwright-ct.config.ts",
     "test-ct": "playwright test -c playwright-ct.config.ts",
     "test-ct:ui": "playwright test -c playwright-ct.config.ts --ui",
-    "test-ct:update-snapshots": "playwright test -c playwright-ct.config.ts --update-snapshots"
+    "test-ct:update-snapshots": "playwright test -c playwright-ct.config.ts --update-snapshots",
+    "validate-system": "bash scripts/validate-snapshot-system.sh"
+  },
+  "lint-staged": {
+    "**/__snapshots__/**/*.png": "bash packages/design-system/playwright/scripts/compress-snapshots-precommit.sh"
   },
   "devDependencies": {
+    "@grasdouble/lufa_config_eslint": "workspace:^",
+    "@grasdouble/lufa_config_tsconfig": "workspace:^",
     "@grasdouble/lufa_design-system": "workspace:^",
     "@playwright/experimental-ct-react": "^1.57.0",
     "@types/node": "^25.0.6",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
+    "eslint": "^9.22.0",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.3",
+    "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@10.8.1"
 }

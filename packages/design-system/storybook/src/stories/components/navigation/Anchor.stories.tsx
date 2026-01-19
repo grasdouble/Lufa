@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Anchor, Container, Stack } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Navigation/Anchor',
@@ -97,11 +96,11 @@ export const Colors: Story = {
               style={{
                 fontFamily: 'monospace',
                 fontSize: '12px',
-                color: tokens.color.text.secondary,
+                color: 'var(--lufa-token-color-text-secondary)',
                 textAlign: 'center',
                 padding: '6px 8px',
-                backgroundColor: tokens.color.background.primary,
-                border: `1px solid ${tokens.color.border.light}`,
+                backgroundColor: 'var(--lufa-token-color-background-primary)',
+                border: '1px solid var(--lufa-token-color-border-light)',
                 borderRadius: '10px',
               }}
             >
@@ -115,17 +114,17 @@ export const Colors: Story = {
                 style={{
                   fontFamily: 'monospace',
                   fontSize: '12px',
-                  color: tokens.color.text.secondary,
+                  color: 'var(--lufa-token-color-text-secondary)',
                   padding: '6px 8px',
-                  backgroundColor: tokens.color.background.primary,
-                  border: `1px solid ${tokens.color.border.light}`,
+                  backgroundColor: 'var(--lufa-token-color-background-primary)',
+                  border: '1px solid var(--lufa-token-color-border-light)',
                   borderRadius: '10px',
                 }}
               >
                 {variantKey}
               </div>
               {(['primary', 'secondary', 'inherit'] as const).map((colorKey) => (
-                <div key={`cell-${variantKey}-${colorKey}`}>
+                <div key={`cell-${variantKey}-${colorKey}`} style={{ color: 'var(--lufa-token-color-text-primary)' }}>
                   <Anchor variant={variantKey} color={colorKey} href={`#${variantKey}-${colorKey}`}>
                     Jump to section
                   </Anchor>
@@ -158,10 +157,18 @@ export const WithIcons: Story = {
 export const InContext: Story = {
   render: () => (
     <div>
-      <h2 id="intro" style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 700 }}>
+      <h2
+        id="intro"
+        style={{
+          marginBottom: '16px',
+          fontSize: '24px',
+          fontWeight: 700,
+          color: 'var(--lufa-token-color-text-primary)',
+        }}
+      >
         Introduction
       </h2>
-      <p style={{ marginBottom: '24px', lineHeight: '1.6' }}>
+      <p style={{ marginBottom: '24px', lineHeight: '1.6', color: 'var(--lufa-token-color-text-primary)' }}>
         This is a long document with multiple sections. Use the table of contents below to navigate.
       </p>
 
@@ -169,11 +176,20 @@ export const InContext: Story = {
         style={{
           marginBottom: '32px',
           padding: '16px',
-          backgroundColor: tokens.color.background.secondary,
+          backgroundColor: 'var(--lufa-token-color-background-secondary)',
           borderRadius: '8px',
         }}
       >
-        <h3 style={{ marginBottom: '12px', fontSize: '16px', fontWeight: 600 }}>Table of Contents</h3>
+        <h3
+          style={{
+            marginBottom: '12px',
+            fontSize: '16px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Table of Contents
+        </h3>
         <Stack gap="condensed">
           <Anchor href="#intro" variant="subtle">
             Introduction
@@ -190,20 +206,48 @@ export const InContext: Story = {
         </Stack>
       </nav>
 
-      <h2 id="features" style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 700 }}>
+      <h2
+        id="features"
+        style={{
+          marginBottom: '16px',
+          fontSize: '24px',
+          fontWeight: 700,
+          color: 'var(--lufa-token-color-text-primary)',
+        }}
+      >
         Features
       </h2>
-      <p style={{ marginBottom: '24px', lineHeight: '1.6' }}>Content about features...</p>
+      <p style={{ marginBottom: '24px', lineHeight: '1.6', color: 'var(--lufa-token-color-text-primary)' }}>
+        Content about features...
+      </p>
 
-      <h2 id="usage" style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 700 }}>
+      <h2
+        id="usage"
+        style={{
+          marginBottom: '16px',
+          fontSize: '24px',
+          fontWeight: 700,
+          color: 'var(--lufa-token-color-text-primary)',
+        }}
+      >
         Usage Guide
       </h2>
-      <p style={{ marginBottom: '24px', lineHeight: '1.6' }}>Content about usage...</p>
+      <p style={{ marginBottom: '24px', lineHeight: '1.6', color: 'var(--lufa-token-color-text-primary)' }}>
+        Content about usage...
+      </p>
 
-      <h2 id="examples" style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 700 }}>
+      <h2
+        id="examples"
+        style={{
+          marginBottom: '16px',
+          fontSize: '24px',
+          fontWeight: 700,
+          color: 'var(--lufa-token-color-text-primary)',
+        }}
+      >
         Examples
       </h2>
-      <p style={{ lineHeight: '1.6' }}>Content about examples...</p>
+      <p style={{ lineHeight: '1.6', color: 'var(--lufa-token-color-text-primary)' }}>Content about examples...</p>
     </div>
   ),
 };

@@ -38,7 +38,7 @@
     color: inherit;
   }
 
-  .item:hover:not(.disabled) {
+  .item:hover:not(.disabled):not(.selected) {
     background-color: var(--lufa-token-color-background-secondary);
   }
 
@@ -48,7 +48,7 @@
     font-weight: var(--lufa-token-font-weight-medium);
   }
 
-  .selected:hover {
+  .selected:hover:not(.disabled) {
     background-color: var(--lufa-token-color-interactive-hover);
   }
 

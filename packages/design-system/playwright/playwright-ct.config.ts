@@ -34,6 +34,7 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
+    // Keep for now only one browser!
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },
@@ -41,6 +42,15 @@ export default defineConfig({
     // {
     //   name: 'webkit',
     //   use: { ...devices['Desktop Safari'] },
+    // },
+    // /* Mobile viewports for responsive testing */
+    // {
+    //   name: 'mobile-chrome',
+    //   use: { ...devices['Pixel 5'] },
+    // },
+    // {
+    //   name: 'mobile-safari',
+    //   use: { ...devices['iPhone 13'] },
     // },
   ],
 });

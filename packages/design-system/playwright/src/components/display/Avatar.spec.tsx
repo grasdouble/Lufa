@@ -279,10 +279,14 @@ test.describe('Avatar Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants', async ({ mount }) => {
+    test('should match snapshot for all variants in light mode', async ({ mount }) => {
       const component = await mount(
-        <div style={{ padding: '20px', width: 'fit-content' }}>
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Sizes</h1>
+        <div style={{ padding: '32px', background: '#ffffff', width: '900px' }}>
+          <h1 style={{ marginBottom: '24px', fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
+            Avatar Component - All Variants
+          </h1>
+
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>Sizes</h2>
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginBottom: '32px' }}>
             <Avatar src={imageSample} size="xs" />
             <Avatar src={imageSample} size="sm" />
@@ -291,7 +295,9 @@ test.describe('Avatar Component', () => {
             <Avatar src={imageSample} size="xl" />
           </div>
 
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Status</h1>
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555', marginTop: '32px' }}>
+            Status
+          </h2>
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginBottom: '32px' }}>
             <Avatar src={imageSample} status="online" />
             <Avatar src={imageSample} status="offline" />
@@ -299,7 +305,9 @@ test.describe('Avatar Component', () => {
             <Avatar src={imageSample} status="busy" />
           </div>
 
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Variants</h1>
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555', marginTop: '32px' }}>
+            Variants
+          </h2>
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
             <Avatar src={imageSample} variant="circle" />
             <Avatar src={imageSample} variant="square" />
@@ -307,7 +315,101 @@ test.describe('Avatar Component', () => {
           </div>
         </div>
       );
-      await expect(component).toHaveScreenshot('avatar-all-variants.png');
+
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('avatar-all-variants-light.png', {
+        animations: 'disabled',
+      });
+    });
+
+    test('should match snapshot for all variants in dark mode', async ({ mount, page }) => {
+      // Set dark mode on the root element
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const component = await mount(
+        <div
+          style={{
+            padding: '32px',
+            width: '900px',
+            background: 'var(--lufa-token-color-background-primary)',
+          }}
+        >
+          <h1
+            style={{
+              marginBottom: '24px',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Avatar Component - All Variants (Dark Mode)
+          </h1>
+
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-secondary)',
+            }}
+          >
+            Sizes
+          </h2>
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginBottom: '32px' }}>
+            <Avatar src={imageSample} size="xs" />
+            <Avatar src={imageSample} size="sm" />
+            <Avatar src={imageSample} size="md" />
+            <Avatar src={imageSample} size="lg" />
+            <Avatar src={imageSample} size="xl" />
+          </div>
+
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-secondary)',
+              marginTop: '32px',
+            }}
+          >
+            Status
+          </h2>
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginBottom: '32px' }}>
+            <Avatar src={imageSample} status="online" />
+            <Avatar src={imageSample} status="offline" />
+            <Avatar src={imageSample} status="away" />
+            <Avatar src={imageSample} status="busy" />
+          </div>
+
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-secondary)',
+              marginTop: '32px',
+            }}
+          >
+            Variants
+          </h2>
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+            <Avatar src={imageSample} variant="circle" />
+            <Avatar src={imageSample} variant="square" />
+            <Avatar variant="count" count={99} />
+          </div>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('avatar-all-variants-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up: remove dark mode attribute
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

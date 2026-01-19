@@ -2,7 +2,6 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Menu, Stack } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Navigation/Menu',
@@ -106,15 +105,42 @@ export const Modes: Story = {
   render: () => (
     <Stack gap="spacious">
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Vertical (Default)</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Vertical (Default)
+        </h4>
         <Menu items={basicItems} mode="vertical" />
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Horizontal</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Horizontal
+        </h4>
         <Menu items={basicItems} mode="horizontal" />
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Inline</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Inline
+        </h4>
         <Menu items={basicItems} mode="inline" />
       </div>
     </Stack>
@@ -125,12 +151,36 @@ export const Themes: Story = {
   render: () => (
     <Stack gap="spacious">
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Light Theme</h4>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Light Theme
+        </h4>
         <Menu items={itemsWithIcons} theme="light" />
       </div>
       <div>
-        <h4 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600 }}>Dark Theme</h4>
-        <div style={{ padding: '16px', backgroundColor: tokens.color.background.inverse, borderRadius: '8px' }}>
+        <h4
+          style={{
+            marginBottom: '12px',
+            fontSize: '14px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Dark Theme
+        </h4>
+        <div
+          style={{
+            padding: '16px',
+            backgroundColor: 'var(--lufa-token-color-background-inverse)',
+            borderRadius: '8px',
+          }}
+        >
           <Menu items={itemsWithIcons} theme="dark" />
         </div>
       </div>
@@ -173,11 +223,20 @@ export const SidebarNavigation: Story = {
         style={{
           width: '280px',
           padding: '16px',
-          backgroundColor: tokens.color.background.secondary,
+          backgroundColor: 'var(--lufa-token-color-background-secondary)',
           borderRadius: '8px',
         }}
       >
-        <h3 style={{ marginBottom: '16px', fontSize: '16px', fontWeight: 600 }}>Dashboard</h3>
+        <h3
+          style={{
+            marginBottom: '16px',
+            fontSize: '16px',
+            fontWeight: 600,
+            color: 'var(--lufa-token-color-text-primary)',
+          }}
+        >
+          Dashboard
+        </h3>
         <Menu
           items={[
             { key: 'dashboard', label: 'Dashboard', icon: <HomeIcon /> },

@@ -75,8 +75,8 @@
     --badge-ring: var(--lufa-token-color-border-default);
   }
   .variant-primary {
-    --badge-bg: var(--lufa-token-color-interactive-focus);
-    --badge-text: var(--lufa-token-color-interactive-default);
+    --badge-bg: var(--lufa-token-color-interactive-default);
+    --badge-text: var(--lufa-token-color-text-inverse);
     --badge-ring: var(--lufa-token-color-interactive-default);
   }
   .variant-success {

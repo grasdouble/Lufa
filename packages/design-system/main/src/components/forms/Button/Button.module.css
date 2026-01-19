@@ -1,0 +1,497 @@
+/* ========================================
+   Base Button Styles
+   ======================================== */
+
+.button {
+  /* Reset */
+  appearance: none;
+  border: none;
+  margin: 0;
+  font-family: inherit;
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lufa-token-spacing-xs);
+  position: relative;
+  overflow: hidden;
+
+  /* Typography */
+  font-weight: var(--lufa-token-font-weight-semibold);
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Visual */
+  border-radius: var(--lufa-token-radius-md);
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+
+  /* Animation */
+  transition-property: transform, background-color, color, box-shadow, border-color;
+  transition-duration: var(--lufa-token-duration-fast);
+  transition-timing-function: ease-out;
+
+  /* Interaction */
+  cursor: pointer;
+  user-select: none;
+
+  /* Modern enhancements */
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: var(--lufa-token-shadow-base);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--lufa-token-color-interactive-focus);
+    outline-offset: 2px;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}
+
+/* ========================================
+   Layout Modifiers
+   ======================================== */
+
+.fullWidth {
+  width: 100%;
+}
+
+/* ========================================
+   Size Variants
+   ======================================== */
+
+.sizeSmall {
+  padding-inline: var(--lufa-token-spacing-base);
+  padding-block: var(--lufa-token-spacing-xs);
+  font-size: var(--lufa-token-font-size-sm);
+  line-height: var(--lufa-token-line-height-tight);
+  height: var(--lufa-token-size-md);
+  gap: var(--lufa-token-spacing-2xs);
+}
+
+.sizeMedium {
+  padding-inline: var(--lufa-token-spacing-lg);
+  padding-block: var(--lufa-token-spacing-sm);
+  font-size: var(--lufa-token-font-size-base);
+  line-height: var(--lufa-token-line-height-base);
+  height: var(--lufa-token-size-touch-target);
+  gap: var(--lufa-token-spacing-xs);
+}
+
+.sizeLarge {
+  padding-inline: var(--lufa-token-spacing-xl);
+  padding-block: var(--lufa-token-spacing-md);
+  font-size: var(--lufa-token-font-size-lg);
+  line-height: var(--lufa-token-line-height-relaxed);
+  height: var(--lufa-token-size-lg);
+  gap: var(--lufa-token-spacing-sm);
+}
+
+/* ========================================
+   Variant: Solid
+   ======================================== */
+
+.variantSolid {
+  box-shadow: var(--lufa-token-shadow-sm);
+
+  &:hover:not(:disabled) {
+    box-shadow: var(--lufa-token-shadow-md);
+  }
+}
+
+/* Solid + Primary */
+.variantSolid.colorPrimary {
+  background-color: var(--lufa-token-color-interactive-default);
+  color: var(--lufa-token-color-text-inverse);
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-interactive-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--lufa-token-color-interactive-active);
+  }
+}
+
+/* Solid + Secondary */
+.variantSolid.colorSecondary {
+  background-color: var(--lufa-token-color-background-secondary);
+  color: var(--lufa-token-color-text-primary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-background-tertiary);
+  }
+}
+
+/* Solid + Success */
+.variantSolid.colorSuccess {
+  background-color: var(--lufa-token-color-success-default);
+  color: var(--lufa-token-color-text-inverse);
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-success-hover);
+  }
+}
+
+/* Solid + Warning */
+.variantSolid.colorWarning {
+  background-color: var(--lufa-token-color-warning-default);
+  color: var(--lufa-token-color-text-inverse);
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-warning-hover);
+  }
+}
+
+/* Solid + Danger */
+.variantSolid.colorDanger {
+  background-color: var(--lufa-token-color-error-default);
+  color: var(--lufa-token-color-text-inverse);
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-error-hover);
+  }
+}
+
+/* ========================================
+   Variant: Outlined
+   ======================================== */
+
+.variantOutlined {
+  background-color: transparent;
+  box-shadow: none;
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-background-secondary);
+    box-shadow: var(--lufa-token-shadow-sm);
+  }
+}
+
+/* Outlined + Primary */
+.variantOutlined.colorPrimary {
+  border-color: var(--lufa-token-color-interactive-default);
+  color: var(--lufa-token-color-interactive-default);
+
+  &:hover:not(:disabled) {
+    border-color: var(--lufa-token-color-interactive-hover);
+    color: var(--lufa-token-color-interactive-hover);
+  }
+}
+
+/* Outlined + Secondary */
+.variantOutlined.colorSecondary {
+  border-color: var(--lufa-token-color-border-default);
+  color: var(--lufa-token-color-text-primary);
+
+  &:hover:not(:disabled) {
+    border-color: var(--lufa-token-color-border-medium);
+  }
+}
+
+/* Outlined + Success */
+.variantOutlined.colorSuccess {
+  border-color: var(--lufa-token-color-success-border);
+  color: var(--lufa-token-color-success-default);
+
+  &:hover:not(:disabled) {
+    border-color: var(--lufa-token-color-success-default);
+    color: var(--lufa-token-color-success-hover);
+  }
+}
+
+/* Outlined + Warning */
+.variantOutlined.colorWarning {
+  border-color: var(--lufa-token-color-warning-border);
+  color: var(--lufa-token-color-warning-default);
+
+  &:hover:not(:disabled) {
+    border-color: var(--lufa-token-color-warning-default);
+    color: var(--lufa-token-color-warning-hover);
+  }
+}
+
+/* Outlined + Danger */
+.variantOutlined.colorDanger {
+  border-color: var(--lufa-token-color-error-border);
+  color: var(--lufa-token-color-error-default);
+
+  &:hover:not(:disabled) {
+    border-color: var(--lufa-token-color-error-default);
+    color: var(--lufa-token-color-error-hover);
+  }
+}
+
+/* ========================================
+   Variant: Text
+   ======================================== */
+
+.variantText {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-background-secondary);
+    box-shadow: none;
+  }
+}
+
+/* Text + Primary */
+.variantText.colorPrimary {
+  color: var(--lufa-token-color-interactive-default);
+
+  &:hover:not(:disabled) {
+    color: var(--lufa-token-color-interactive-hover);
+  }
+}
+
+/* Text + Secondary */
+.variantText.colorSecondary {
+  color: var(--lufa-token-color-text-primary);
+
+  &:hover:not(:disabled) {
+    color: var(--lufa-token-color-text-secondary);
+  }
+}
+
+/* Text + Success */
+.variantText.colorSuccess {
+  color: var(--lufa-token-color-success-default);
+
+  &:hover:not(:disabled) {
+    color: var(--lufa-token-color-success-hover);
+  }
+}
+
+/* Text + Warning */
+.variantText.colorWarning {
+  color: var(--lufa-token-color-warning-default);
+
+  &:hover:not(:disabled) {
+    color: var(--lufa-token-color-warning-hover);
+  }
+}
+
+/* Text + Danger */
+.variantText.colorDanger {
+  color: var(--lufa-token-color-error-default);
+
+  &:hover:not(:disabled) {
+    color: var(--lufa-token-color-error-hover);
+  }
+}
+
+/* ========================================
+   Variant: Ghost
+   ======================================== */
+
+.variantGhost {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+
+  &:hover:not(:disabled) {
+    box-shadow: none;
+  }
+}
+
+/* Ghost + Primary */
+.variantGhost.colorPrimary {
+  color: var(--lufa-token-color-interactive-default);
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-background-secondary);
+    color: var(--lufa-token-color-interactive-hover);
+  }
+}
+
+/* Ghost + Secondary */
+.variantGhost.colorSecondary {
+  color: var(--lufa-token-color-text-secondary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-background-secondary);
+    color: var(--lufa-token-color-text-primary);
+  }
+}
+
+/* Ghost + Success */
+.variantGhost.colorSuccess {
+  color: var(--lufa-token-color-success-default);
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-background-secondary);
+    color: var(--lufa-token-color-success-hover);
+  }
+}
+
+/* Ghost + Warning */
+.variantGhost.colorWarning {
+  color: var(--lufa-token-color-warning-default);
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-background-secondary);
+    color: var(--lufa-token-color-warning-hover);
+  }
+}
+
+/* Ghost + Danger */
+.variantGhost.colorDanger {
+  color: var(--lufa-token-color-error-default);
+
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-background-secondary);
+    color: var(--lufa-token-color-error-hover);
+  }
+}
+
+/* ========================================
+   Variant: Link
+   ======================================== */
+
+.variantLink {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  padding-inline: 0;
+  height: auto;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  &:hover:not(:disabled) {
+    text-decoration-thickness: 2px;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+/* Link + Primary */
+.variantLink.colorPrimary {
+  color: var(--lufa-token-color-interactive-default);
+
+  &:hover:not(:disabled) {
+    color: var(--lufa-token-color-interactive-hover);
+  }
+}
+
+/* Link + Secondary */
+.variantLink.colorSecondary {
+  color: var(--lufa-token-color-text-secondary);
+
+  &:hover:not(:disabled) {
+    color: var(--lufa-token-color-text-primary);
+  }
+}
+
+/* Link + Success */
+.variantLink.colorSuccess {
+  color: var(--lufa-token-color-success-default);
+
+  &:hover:not(:disabled) {
+    color: var(--lufa-token-color-success-hover);
+  }
+}
+
+/* Link + Warning */
+.variantLink.colorWarning {
+  color: var(--lufa-token-color-warning-default);
+
+  &:hover:not(:disabled) {
+    color: var(--lufa-token-color-warning-hover);
+  }
+}
+
+/* Link + Danger */
+.variantLink.colorDanger {
+  color: var(--lufa-token-color-error-default);
+
+  &:hover:not(:disabled) {
+    color: var(--lufa-token-color-error-hover);
+  }
+}
+
+/* ========================================
+   Loading State
+   ======================================== */
+
+.loading {
+  cursor: wait;
+  pointer-events: none;
+
+  & .content {
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   Icons & Content
+   ======================================== */
+
+.startIcon,
+.endIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ========================================
+   Spinner
+   ======================================== */
+
+.spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinnerIcon {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  animation: spin 1s linear infinite;
+}
+
+.spinnerCircle {
+  opacity: 0.25;
+}
+
+.spinnerPath {
+  opacity: 0.75;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

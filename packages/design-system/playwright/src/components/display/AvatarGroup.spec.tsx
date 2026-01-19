@@ -111,13 +111,17 @@ test.describe('AvatarGroup Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all group size and variant combinations', async ({ mount }) => {
+    test('should match snapshot for all group size and variant combinations in light mode', async ({ mount }) => {
       const component = await mount(
-        <div style={{ padding: '20px', width: 'fit-content' }}>
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Sizes</h1>
+        <div style={{ padding: '32px', background: '#ffffff', width: '900px' }}>
+          <h1 style={{ marginBottom: '24px', fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
+            AvatarGroup - All Variants
+          </h1>
+
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>Sizes</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginBottom: '32px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <span style={{ width: 60, display: 'inline-block' }}>xs</span>
+              <span style={{ width: 60, display: 'inline-block', color: '#666' }}>xs</span>
               <AvatarGroup size="xs">
                 <Avatar src={imageSample} />
                 <Avatar src={imageSample} />
@@ -125,7 +129,7 @@ test.describe('AvatarGroup Component', () => {
               </AvatarGroup>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <span style={{ width: 60, display: 'inline-block' }}>sm</span>
+              <span style={{ width: 60, display: 'inline-block', color: '#666' }}>sm</span>
               <AvatarGroup size="sm">
                 <Avatar src={imageSample} />
                 <Avatar src={imageSample} />
@@ -133,7 +137,7 @@ test.describe('AvatarGroup Component', () => {
               </AvatarGroup>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <span style={{ width: 60, display: 'inline-block' }}>md</span>
+              <span style={{ width: 60, display: 'inline-block', color: '#666' }}>md</span>
               <AvatarGroup size="md">
                 <Avatar src={imageSample} />
                 <Avatar src={imageSample} />
@@ -141,7 +145,7 @@ test.describe('AvatarGroup Component', () => {
               </AvatarGroup>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <span style={{ width: 60, display: 'inline-block' }}>lg</span>
+              <span style={{ width: 60, display: 'inline-block', color: '#666' }}>lg</span>
               <AvatarGroup size="lg">
                 <Avatar src={imageSample} />
                 <Avatar src={imageSample} />
@@ -149,7 +153,7 @@ test.describe('AvatarGroup Component', () => {
               </AvatarGroup>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <span style={{ width: 60, display: 'inline-block' }}>xl</span>
+              <span style={{ width: 60, display: 'inline-block', color: '#666' }}>xl</span>
               <AvatarGroup size="xl">
                 <Avatar src={imageSample} />
                 <Avatar src={imageSample} />
@@ -158,10 +162,10 @@ test.describe('AvatarGroup Component', () => {
             </div>
           </div>
 
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Max + Count</h1>
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>Max + Count</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <span style={{ width: 60, display: 'inline-block' }}>max=2</span>
+              <span style={{ width: 60, display: 'inline-block', color: '#666' }}>max=2</span>
               <AvatarGroup max={2} size="md">
                 <Avatar src={imageSample} />
                 <Avatar src={imageSample} />
@@ -170,7 +174,7 @@ test.describe('AvatarGroup Component', () => {
               </AvatarGroup>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <span style={{ width: 60, display: 'inline-block' }}>max=3</span>
+              <span style={{ width: 60, display: 'inline-block', color: '#666' }}>max=3</span>
               <AvatarGroup max={3} size="md">
                 <Avatar src={imageSample} />
                 <Avatar src={imageSample} />
@@ -180,9 +184,191 @@ test.describe('AvatarGroup Component', () => {
               </AvatarGroup>
             </div>
           </div>
-        </div>
+        </div>,
+        { animations: 'disabled' }
       );
-      await expect(component).toHaveScreenshot('avatar-group-all-variants.png');
+
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('avatar-group-all-variants-light.png', {
+        animations: 'disabled',
+      });
+    });
+
+    test('should match snapshot for all group size and variant combinations in dark mode', async ({ mount, page }) => {
+      // Set dark mode on document root BEFORE mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const component = await mount(
+        <div
+          style={{
+            padding: '32px',
+            width: '900px',
+            background: 'var(--lufa-token-color-background-primary)',
+          }}
+        >
+          <h1
+            style={{
+              marginBottom: '24px',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            AvatarGroup - All Variants (Dark Mode)
+          </h1>
+
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-secondary)',
+            }}
+          >
+            Sizes
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginBottom: '32px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <span
+                style={{
+                  width: 60,
+                  display: 'inline-block',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                }}
+              >
+                xs
+              </span>
+              <AvatarGroup size="xs">
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+              </AvatarGroup>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <span
+                style={{
+                  width: 60,
+                  display: 'inline-block',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                }}
+              >
+                sm
+              </span>
+              <AvatarGroup size="sm">
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+              </AvatarGroup>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <span
+                style={{
+                  width: 60,
+                  display: 'inline-block',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                }}
+              >
+                md
+              </span>
+              <AvatarGroup size="md">
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+              </AvatarGroup>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <span
+                style={{
+                  width: 60,
+                  display: 'inline-block',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                }}
+              >
+                lg
+              </span>
+              <AvatarGroup size="lg">
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+              </AvatarGroup>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <span
+                style={{
+                  width: 60,
+                  display: 'inline-block',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                }}
+              >
+                xl
+              </span>
+              <AvatarGroup size="xl">
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+              </AvatarGroup>
+            </div>
+          </div>
+
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-secondary)',
+            }}
+          >
+            Max + Count
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <span
+                style={{
+                  width: 60,
+                  display: 'inline-block',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                }}
+              >
+                max=2
+              </span>
+              <AvatarGroup max={2} size="md">
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+              </AvatarGroup>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <span
+                style={{
+                  width: 60,
+                  display: 'inline-block',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                }}
+              >
+                max=3
+              </span>
+              <AvatarGroup max={3} size="md">
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+                <Avatar src={imageSample} />
+              </AvatarGroup>
+            </div>
+          </div>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      await component.page().waitForTimeout(100);
+      await expect(component).toHaveScreenshot('avatar-group-all-variants-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

@@ -44,13 +44,9 @@ const parameters: Parameters = {
 };
 
 /**
- * Custom decorator to handle theme (default/ocean/forest) and mode (light/dark/auto)
- * Applies data-theme and data-mode attributes to the document root
+ * Component wrapper for theme and mode handling
  */
-const withThemeAndMode: Decorator = (Story, context) => {
-  const theme = context.globals.theme || 'default';
-  const mode = context.globals.mode || 'auto';
-
+const ThemeAndModeWrapper = ({ theme, mode, children }: { theme: string; mode: string; children: React.ReactNode }) => {
   useEffect(() => {
     const root = document.documentElement;
 
@@ -90,8 +86,23 @@ const withThemeAndMode: Decorator = (Story, context) => {
         transition: 'background-color 0.3s ease',
       }}
     >
-      <Story />
+      {children}
     </div>
+  );
+};
+
+/**
+ * Custom decorator to handle theme (default/ocean/forest) and mode (light/dark/auto)
+ * Applies data-theme and data-mode attributes to the document root
+ */
+const withThemeAndMode: Decorator = (Story, context) => {
+  const theme: string = context.globals.theme ?? 'default';
+  const mode: string = context.globals.mode ?? 'auto';
+
+  return (
+    <ThemeAndModeWrapper theme={theme} mode={mode}>
+      <Story />
+    </ThemeAndModeWrapper>
   );
 };
 
