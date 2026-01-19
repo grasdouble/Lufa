@@ -9,12 +9,14 @@
   "main": "index.js",
   "scripts": {
     "compress-snapshots": "bash scripts/compress-snapshots-manual.sh",
+    "docker:update-snapshots-linux": "bash scripts/docker-update-snapshots-linux.sh",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "playwright test -c playwright-ct.config.ts",
     "test-ct": "playwright test -c playwright-ct.config.ts",
     "test-ct:ui": "playwright test -c playwright-ct.config.ts --ui",
-    "test-ct:update-snapshots": "playwright test -c playwright-ct.config.ts --update-snapshots"
+    "test-ct:update-snapshots": "playwright test -c playwright-ct.config.ts --update-snapshots",
+    "validate-system": "bash scripts/validate-snapshot-system.sh"
   },
   "lint-staged": {
     "**/__snapshots__/**/*.png": "bash packages/design-system/playwright/scripts/compress-snapshots-precommit.sh"

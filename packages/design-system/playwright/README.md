@@ -2,6 +2,12 @@
 
 Component tests for the Lufa Design System using [Playwright Component Testing](https://playwright.dev/docs/test-components).
 
+## 📚 Documentation
+
+- **[Snapshot Management System](./SNAPSHOT-MANAGEMENT-SYSTEM.md)** - Complete guide to compression, Docker, and GitHub Actions workflows
+- **[Docker Linux Snapshots](./DOCKER-LINUX-SNAPSHOTS.md)** - Cross-platform snapshot generation
+- **[Compression Scripts](./scripts/README.md)** - Technical details on snapshot compression
+
 ## Quick Start
 
 ```bash

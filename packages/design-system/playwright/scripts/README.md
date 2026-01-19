@@ -1,20 +1,34 @@
-# Playwright Snapshot Compression Scripts
+# Playwright Snapshot Scripts
 
-This directory contains scripts for compressing Playwright snapshot images to reduce repository size.
+This directory contains scripts for managing Playwright snapshot images.
 
 ## Overview
 
-Two compression scripts are provided with different optimization levels:
+Four types of scripts are provided:
 
 - **`compress-snapshots-precommit.sh`** - Automatic compression via pre-commit hook (staged files only, **level 3** for speed)
 - **`compress-snapshots-manual.sh`** - Manual compression of all snapshots (**level 6** for maximum compression)
+- **`docker-update-snapshots-linux.sh`** - Generate Linux snapshots using Docker (for CI/CD compatibility)
+- **`validate-snapshot-system.sh`** - Validates that the entire snapshot management system is properly configured
 
-Both scripts use [oxipng](https://github.com/shssoichiro/oxipng) for 100% lossless PNG compression.
+### Compression Scripts
+
+Both compression scripts use [oxipng](https://github.com/shssoichiro/oxipng) for 100% lossless PNG compression.
 
 **Why different levels?**
 
 - **Level 3 (pre-commit)**: Fast (~1 second per file), runs frequently, good compression
 - **Level 6 (manual)**: Maximum compression (~3-6 seconds per file), runs rarely, best results
+
+### Linux Snapshot Generation
+
+**Need Linux snapshots for CI?** See [DOCKER-LINUX-SNAPSHOTS.md](../DOCKER-LINUX-SNAPSHOTS.md) for comprehensive guide.
+
+Quick start:
+
+```bash
+pnpm ds:test:docker:update-snapshots-linux
+```
 
 ---
 
@@ -469,8 +483,159 @@ Based on Lufa's snapshot compression strategy:
 
 ---
 
+## validate-snapshot-system.sh
+
+**Purpose**: Validates that the entire snapshot management system is properly configured and ready to use.
+
+**Usage**:
+
+```bash
+# From root
+pnpm ds:test:validate-system
+
+# From Playwright package
+pnpm validate-system
+
+# Direct bash execution
+bash packages/design-system/playwright/scripts/validate-snapshot-system.sh
+```
+
+### What it checks
+
+**Required Tools**:
+
+- ✓ oxipng installed (version check)
+- ⚠ Docker installed and running (optional - for Linux snapshots)
+- ✓ pnpm installed (version check)
+- ✓ Node.js installed (version check)
+
+**Scripts**:
+
+- ✓ Compression scripts exist and are executable
+- ✓ Docker script exists and is executable
+- ✓ Validation script itself is executable
+
+**Pre-commit Setup**:
+
+- ✓ Pre-commit hook exists
+- ✓ Pre-commit hook runs lint-staged
+- ✓ lint-staged configuration in package.json
+- ✓ lint-staged references compression script
+
+**GitHub Actions**:
+
+- ✓ Workflow file exists
+- ✓ Workflow includes snapshot update job
+- ✓ Workflow checks for snapshot-update label
+- ✓ GitHub label 'snapshot-update' exists
+
+**Documentation**:
+
+- ✓ SNAPSHOT-MANAGEMENT-SYSTEM.md exists
+- ✓ DOCKER-LINUX-SNAPSHOTS.md exists
+- ✓ scripts/README.md exists
+- ✓ README-SNAPSHOT-UPDATE.md exists
+
+**Snapshot Directories**:
+
+- ✓ Snapshot directory exists
+- ⚠ Darwin/Linux snapshot directories (reports file counts)
+
+**Package Scripts**:
+
+- ✓ All npm scripts are configured in root package.json
+
+### Output
+
+The script provides a color-coded summary:
+
+- 🟢 **Green checkmark** (✓) - Check passed
+- 🔴 **Red cross** (✗) - Check failed (critical)
+- 🟡 **Yellow warning** (⚠) - Warning (non-critical)
+
+**Exit codes**:
+
+- `0` - All critical checks passed
+- `1` - One or more critical checks failed
+
+### Example output
+
+```
+╔════════════════════════════════════════════════════════════════╗
+║  Snapshot Management System Validation                        ║
+╚════════════════════════════════════════════════════════════════╝
+
+▶ Checking Required Tools
+  ✓ oxipng installed (version 10.0.0)
+  ✓ Docker installed and running (version 27.3.1)
+  ✓ pnpm installed (version 10.28.0)
+  ✓ Node.js installed (v24.9.0)
+
+▶ Checking Scripts
+  ✓ compress-snapshots-precommit.sh exists and is executable
+  ✓ compress-snapshots-manual.sh exists and is executable
+  ✓ docker-update-snapshots-linux.sh exists and is executable
+
+...
+
+╔════════════════════════════════════════════════════════════════╗
+║  Summary                                                       ║
+╚════════════════════════════════════════════════════════════════╝
+
+  ✓ Passed:   28
+  ✗ Failed:   0
+  ⚠ Warnings: 2
+
+✓ All critical checks passed!
+
+Next steps:
+  1. Run tests: pnpm ds:test
+  2. Update snapshots: pnpm ds:test:update-snapshots
+  3. For Linux snapshots: pnpm ds:test:docker:update-snapshots-linux
+  4. Or use GitHub Actions: gh pr edit --add-label snapshot-update
+```
+
+### Use cases
+
+**Initial setup verification**:
+
+```bash
+# After cloning repository
+pnpm install
+pnpm ds:test:validate-system
+```
+
+**Troubleshooting**:
+
+```bash
+# If compression not working
+pnpm ds:test:validate-system
+# Check output for missing dependencies or misconfigured scripts
+```
+
+**CI/CD validation** (future enhancement):
+
+```yaml
+# Add to GitHub Actions workflow
+- name: Validate snapshot system
+  run: pnpm ds:test:validate-system
+```
+
+**Team onboarding**:
+
+```bash
+# Quick check for new developers
+pnpm ds:test:validate-system
+# Shows what's configured and what needs setup
+```
+
+---
+
 ## Related Documentation
 
+- **[Snapshot Management System](../SNAPSHOT-MANAGEMENT-SYSTEM.md)** - Complete overview of all three methods
+- **[Docker Linux Snapshots](../DOCKER-LINUX-SNAPSHOTS.md)** - Cross-platform snapshot generation guide
+- **[GitHub Actions Snapshot Updates](../../../../.github/workflows/README-SNAPSHOT-UPDATE.md)** - PR label method guide
 - [Playwright README](../README.md) - Component testing guide
 - [Root Scripts README](../../../../scripts/README.md) - Other utility scripts
 - [AGENTS.md](../../../../AGENTS.md) - AI agent development guide
