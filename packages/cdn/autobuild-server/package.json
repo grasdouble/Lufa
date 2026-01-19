@@ -43,16 +43,16 @@
     "@types/escape-html": "^1.0.4",
     "@types/express": "^5.0.6",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^25.0.6",
+    "@types/node": "^25.0.9",
     "@types/pacote": "^11.1.8",
     "esbuild": "^0.27.2",
     "eslint": "^9.39.2",
     "nodemon": "^3.1.11",
-    "prettier": "^3.7.4",
-    "prettier-plugin-packagejson": "^2.5.20",
+    "prettier": "^3.8.0",
+    "prettier-plugin-packagejson": "^2.5.22",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.52.0"
+    "typescript-eslint": "^8.53.0"
   },
   "engines": {
     "node": ">=18"
