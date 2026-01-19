@@ -14,8 +14,13 @@ test.describe('Layout Component', () => {
       const sidebarWidths = ['collapsed', 'default', 'wide'] as const;
       const gaps = ['none', 'sm', 'md', 'lg', 'xl'] as const;
 
-      const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
-      const labelStyle = { fontSize: 12, color: '#666', marginBottom: 8 };
+      const sectionTitleStyle = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '0 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const labelStyle = { fontSize: 12, color: 'var(--lufa-token-color-text-secondary)', marginBottom: 8 };
       const headerStyle = {
         background: '#667eea',
         color: 'white',
@@ -44,16 +49,28 @@ test.describe('Layout Component', () => {
       };
       const footerStyle = {
         background: '#ffdd57',
-        color: '#333',
+        color: 'var(--lufa-token-color-text-primary)',
         padding: 16,
         fontWeight: 600,
         fontSize: 14,
         textAlign: 'center' as const,
       };
-      const containerStyle = { border: '2px solid #ccc', background: '#f5f5f5', marginBottom: 24, overflow: 'hidden' };
+      const containerStyle = {
+        border: '2px solid var(--lufa-token-color-border-default)',
+        background: 'var(--lufa-token-color-background-secondary)',
+        marginBottom: 24,
+        overflow: 'hidden',
+      };
 
       const component = await mount(
-        <div style={{ padding: 32, background: '#ffffff', fontFamily: 'sans-serif', width: '900px' }}>
+        <div
+          style={{
+            padding: 32,
+            background: 'var(--lufa-token-color-background-primary)',
+            fontFamily: 'sans-serif',
+            width: '900px',
+          }}
+        >
           {/* Basic Layout - No Sidebar */}
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Basic Layout (No Sidebar)</h2>
@@ -440,7 +457,7 @@ test.describe('Layout Component', () => {
       };
       const footerStyle = {
         background: '#ffdd57',
-        color: '#333',
+        color: 'var(--lufa-token-color-text-primary)',
         padding: 16,
         fontWeight: 600,
         fontSize: 14,

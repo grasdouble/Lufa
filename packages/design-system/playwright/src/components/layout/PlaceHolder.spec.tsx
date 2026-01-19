@@ -9,12 +9,29 @@ test.describe('Placeholder Component', () => {
       const widths = ['auto', 'small', 'medium', 'large', 'full'] as const;
       const solidColors = ['#667eea', '#764ba2', '#48c774', '#ffdd57', '#ff3860', '#333333'];
 
-      const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
-      const labelStyle = { fontSize: 12, color: '#666', marginBottom: 8 };
-      const containerStyle = { border: '2px dashed #ccc', background: '#fff', padding: 16, marginBottom: 16 };
+      const sectionTitleStyle = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '0 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const labelStyle = { fontSize: 12, color: 'var(--lufa-token-color-text-secondary)', marginBottom: 8 };
+      const containerStyle = {
+        border: '2px dashed var(--lufa-token-color-border-default)',
+        background: 'var(--lufa-token-color-background-primary)',
+        padding: 16,
+        marginBottom: 16,
+      };
 
       const component = await mount(
-        <div style={{ padding: 32, background: '#ffffff', fontFamily: 'sans-serif', width: '900px' }}>
+        <div
+          style={{
+            padding: 32,
+            background: 'var(--lufa-token-color-background-primary)',
+            fontFamily: 'sans-serif',
+            width: '900px',
+          }}
+        >
           {/* Height Options */}
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Height Options</h2>
@@ -104,7 +121,7 @@ test.describe('Placeholder Component', () => {
           {/* Text Color Contrast */}
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Automatic Text Color Contrast</h2>
-            <p style={{ fontSize: 14, color: '#666', marginBottom: 16 }}>
+            <p style={{ fontSize: 14, color: 'var(--lufa-token-color-text-secondary)', marginBottom: 16 }}>
               Component automatically chooses light/dark text based on background luminance
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
@@ -246,7 +263,7 @@ test.describe('Placeholder Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>Empty State</p>
               <Placeholder height="large" width="full" color="#f5f5f5">
-                <div style={{ textAlign: 'center', color: '#666' }}>
+                <div style={{ textAlign: 'center', color: 'var(--lufa-token-color-text-secondary)' }}>
                   <div style={{ fontSize: 48 }}>📭</div>
                   <div style={{ fontSize: 18, fontWeight: 600, marginTop: 8 }}>No Content</div>
                   <div style={{ fontSize: 14, marginTop: 4 }}>There's nothing here yet</div>

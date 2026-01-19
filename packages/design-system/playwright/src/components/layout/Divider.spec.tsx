@@ -305,23 +305,43 @@ test.describe('Divider Component', () => {
   test.describe('Visual Regression', () => {
     test('should match snapshot for all variants in light mode', async ({ mount }) => {
       const sectionStyle = { marginBottom: '32px' };
-      const titleStyle = { fontSize: '18px', fontWeight: 'bold', marginBottom: '16px', color: '#333' };
+      const titleStyle = {
+        fontSize: '18px',
+        fontWeight: 'bold',
+        marginBottom: '16px',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
       const containerStyle = { width: '600px' };
       const verticalContainerStyle = { display: 'flex', gap: '24px', alignItems: 'flex-start', height: '200px' };
-      const verticalLabelStyle = { fontSize: '14px', color: '#666', marginTop: '8px' };
+      const verticalLabelStyle = {
+        fontSize: '14px',
+        color: 'var(--lufa-token-color-text-secondary)',
+        marginTop: '8px',
+      };
 
       const component = await mount(
-        <div style={{ padding: '32px', background: '#ffffff', fontFamily: 'sans-serif', width: '900px' }}>
+        <div
+          style={{
+            padding: '32px',
+            background: 'var(--lufa-token-color-background-primary)',
+            fontFamily: 'sans-serif',
+            width: '900px',
+          }}
+        >
           {/* Horizontal Dividers - Variants */}
           <div style={sectionStyle}>
             <h2 style={titleStyle}>Horizontal Variants</h2>
             <div style={containerStyle}>
               <div style={{ marginBottom: '16px' }}>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>Solid (default)</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '8px' }}>
+                  Solid (default)
+                </p>
                 <Divider variant="solid" />
               </div>
               <div>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>Dashed</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '8px' }}>
+                  Dashed
+                </p>
                 <Divider variant="dashed" />
               </div>
             </div>
@@ -332,19 +352,27 @@ test.describe('Divider Component', () => {
             <h2 style={titleStyle}>Horizontal with Labels</h2>
             <div style={containerStyle}>
               <div style={{ marginBottom: '16px' }}>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>Center (default)</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '8px' }}>
+                  Center (default)
+                </p>
                 <Divider label="Center Label" align="center" />
               </div>
               <div style={{ marginBottom: '16px' }}>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>Start</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '8px' }}>
+                  Start
+                </p>
                 <Divider label="Start Label" align="start" />
               </div>
               <div style={{ marginBottom: '16px' }}>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>End</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '8px' }}>
+                  End
+                </p>
                 <Divider label="End Label" align="end" />
               </div>
               <div>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>Dashed with Label</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '8px' }}>
+                  Dashed with Label
+                </p>
                 <Divider label="Dashed Label" variant="dashed" />
               </div>
             </div>
@@ -355,24 +383,40 @@ test.describe('Divider Component', () => {
             <h2 style={titleStyle}>Spacing Options</h2>
             <div style={containerStyle}>
               <div style={{ border: '1px dashed #ddd', padding: '8px' }}>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>None</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '4px' }}>
+                  None
+                </p>
                 <Divider spacing="none" label="No Spacing" />
-                <p style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>Content below</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginTop: '4px' }}>
+                  Content below
+                </p>
               </div>
               <div style={{ border: '1px dashed #ddd', padding: '8px', marginTop: '16px' }}>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>Small</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '4px' }}>
+                  Small
+                </p>
                 <Divider spacing="sm" label="Small Spacing" />
-                <p style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>Content below</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginTop: '4px' }}>
+                  Content below
+                </p>
               </div>
               <div style={{ border: '1px dashed #ddd', padding: '8px', marginTop: '16px' }}>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>Medium (default)</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '4px' }}>
+                  Medium (default)
+                </p>
                 <Divider spacing="md" label="Medium Spacing" />
-                <p style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>Content below</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginTop: '4px' }}>
+                  Content below
+                </p>
               </div>
               <div style={{ border: '1px dashed #ddd', padding: '8px', marginTop: '16px' }}>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>Large</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '4px' }}>
+                  Large
+                </p>
                 <Divider spacing="lg" label="Large Spacing" />
-                <p style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>Content below</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginTop: '4px' }}>
+                  Content below
+                </p>
               </div>
             </div>
           </div>
@@ -382,15 +426,21 @@ test.describe('Divider Component', () => {
             <h2 style={titleStyle}>Custom Lengths (Horizontal)</h2>
             <div style={containerStyle}>
               <div style={{ marginBottom: '16px' }}>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>Full width (default)</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '8px' }}>
+                  Full width (default)
+                </p>
                 <Divider label="100%" />
               </div>
               <div style={{ marginBottom: '16px' }}>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>50% width</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '8px' }}>
+                  50% width
+                </p>
                 <Divider label="50%" length="50%" />
               </div>
               <div>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>300px width</p>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginBottom: '8px' }}>
+                  300px width
+                </p>
                 <Divider label="300px" length={300} />
               </div>
             </div>

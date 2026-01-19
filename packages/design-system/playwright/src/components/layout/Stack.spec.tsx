@@ -12,8 +12,13 @@ test.describe('Stack Component', () => {
       const justifies = ['start', 'center', 'end', 'space-between', 'space-evenly'] as const;
       const paddings = ['none', 'condensed', 'normal', 'spacious'] as const;
 
-      const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
-      const labelStyle = { fontSize: 12, color: '#666', marginBottom: 8 };
+      const sectionTitleStyle = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '0 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const labelStyle = { fontSize: 12, color: 'var(--lufa-token-color-text-secondary)', marginBottom: 8 };
       const boxStyle = {
         background: '#667eea',
         color: 'white',
@@ -23,13 +28,24 @@ test.describe('Stack Component', () => {
         fontSize: 14,
         textAlign: 'center' as const,
       };
-      const containerStyle = { border: '2px dashed #ccc', background: '#fff', marginBottom: 16 };
+      const containerStyle = {
+        border: '2px dashed var(--lufa-token-color-border-default)',
+        background: 'var(--lufa-token-color-background-primary)',
+        marginBottom: 16,
+      };
       const tallBoxStyle = { ...boxStyle, height: 100 };
       const shortBoxStyle = { ...boxStyle, height: 40 };
       const baselineBoxStyle = { ...boxStyle, fontSize: 24, lineHeight: 1 };
 
       const component = await mount(
-        <div style={{ padding: 32, background: '#ffffff', fontFamily: 'sans-serif', width: '900px' }}>
+        <div
+          style={{
+            padding: 32,
+            background: 'var(--lufa-token-color-background-primary)',
+            fontFamily: 'sans-serif',
+            width: '900px',
+          }}
+        >
           {/* Gap Options */}
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Gap Options</h2>
@@ -268,8 +284,19 @@ test.describe('Stack Component', () => {
               <p style={labelStyle}>Form Layout (vertical stack)</p>
               <div style={containerStyle}>
                 <Stack direction="vertical" gap="normal" padding="normal">
-                  <div style={{ background: '#f5f5f5', padding: 12, borderRadius: 4 }}>
-                    <label style={{ display: 'block', fontSize: 12, color: '#666', marginBottom: 4 }}>Email</label>
+                  <div
+                    style={{ background: 'var(--lufa-token-color-background-secondary)', padding: 12, borderRadius: 4 }}
+                  >
+                    <label
+                      style={{
+                        display: 'block',
+                        fontSize: 12,
+                        color: 'var(--lufa-token-color-text-secondary)',
+                        marginBottom: 4,
+                      }}
+                    >
+                      Email
+                    </label>
                     <input
                       type="email"
                       placeholder="your@email.com"
@@ -282,8 +309,19 @@ test.describe('Stack Component', () => {
                       }}
                     />
                   </div>
-                  <div style={{ background: '#f5f5f5', padding: 12, borderRadius: 4 }}>
-                    <label style={{ display: 'block', fontSize: 12, color: '#666', marginBottom: 4 }}>Password</label>
+                  <div
+                    style={{ background: 'var(--lufa-token-color-background-secondary)', padding: 12, borderRadius: 4 }}
+                  >
+                    <label
+                      style={{
+                        display: 'block',
+                        fontSize: 12,
+                        color: 'var(--lufa-token-color-text-secondary)',
+                        marginBottom: 4,
+                      }}
+                    >
+                      Password
+                    </label>
                     <input
                       type="password"
                       placeholder="••••••••"
@@ -309,9 +347,18 @@ test.describe('Stack Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>Card Footer Actions</p>
               <div style={containerStyle}>
-                <div style={{ background: '#f5f5f5', padding: 16, borderRadius: 4, marginBottom: 12 }}>
+                <div
+                  style={{
+                    background: 'var(--lufa-token-color-background-secondary)',
+                    padding: 16,
+                    borderRadius: 4,
+                    marginBottom: 12,
+                  }}
+                >
                   <div style={{ fontWeight: 600, marginBottom: 8 }}>Card Title</div>
-                  <div style={{ fontSize: 14, color: '#666' }}>Card content goes here</div>
+                  <div style={{ fontSize: 14, color: 'var(--lufa-token-color-text-secondary)' }}>
+                    Card content goes here
+                  </div>
                 </div>
                 <Stack direction="horizontal" justify="end" gap="condensed" padding="none">
                   <button style={{ ...boxStyle, background: '#999', border: 'none', cursor: 'pointer', fontSize: 12 }}>
@@ -359,7 +406,9 @@ test.describe('Stack Component', () => {
                       <div style={{ fontSize: 32, flexShrink: 0 }}>{feature.icon}</div>
                       <div>
                         <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 4 }}>{feature.title}</div>
-                        <div style={{ fontSize: 14, color: '#666' }}>{feature.desc}</div>
+                        <div style={{ fontSize: 14, color: 'var(--lufa-token-color-text-secondary)' }}>
+                          {feature.desc}
+                        </div>
                       </div>
                     </Stack>
                   ))}
