@@ -2,6 +2,9 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 import styles from './Paper.module.css';
 
+// Safe fallback for styles to prevent property access on undefined
+const safeStyles = styles ?? ({} as typeof styles);
+
 export type PaperProps = ComponentPropsWithoutRef<'div'> & {
   /**
    * Content to be rendered inside the Paper
@@ -58,40 +61,40 @@ export const Paper = ({
   ...props
 }: PaperProps) => {
   const variantClass = {
-    default: styles.variantDefault,
-    elevated: styles.variantElevated,
-    outlined: styles.variantOutlined,
-    filled: styles.variantFilled,
+    default: safeStyles.variantDefault,
+    elevated: safeStyles.variantElevated,
+    outlined: safeStyles.variantOutlined,
+    filled: safeStyles.variantFilled,
   }[variant];
 
   const paddingClass = {
-    none: styles.paddingNone,
-    small: styles.paddingSmall,
-    medium: styles.paddingMedium,
-    large: styles.paddingLarge,
+    none: safeStyles.paddingNone,
+    small: safeStyles.paddingSmall,
+    medium: safeStyles.paddingMedium,
+    large: safeStyles.paddingLarge,
   }[padding];
 
   const radiusClass = {
-    none: styles.radiusNone,
-    small: styles.radiusSmall,
-    medium: styles.radiusMedium,
-    large: styles.radiusLarge,
-    full: styles.radiusFull,
+    none: safeStyles.radiusNone,
+    small: safeStyles.radiusSmall,
+    medium: safeStyles.radiusMedium,
+    large: safeStyles.radiusLarge,
+    full: safeStyles.radiusFull,
   }[radius];
 
   const elevationClass =
     variant === 'elevated'
       ? {
-          none: styles.elevationNone,
-          small: styles.elevationSmall,
-          medium: styles.elevationMedium,
-          large: styles.elevationLarge,
-          xlarge: styles.elevationXlarge,
+          none: safeStyles.elevationNone,
+          small: safeStyles.elevationSmall,
+          medium: safeStyles.elevationMedium,
+          large: safeStyles.elevationLarge,
+          xlarge: safeStyles.elevationXlarge,
         }[elevation]
       : '';
 
   const paperClassName = `
-    ${styles.paper}
+    ${safeStyles.paper}
     ${variantClass}
     ${paddingClass}
     ${radiusClass}

@@ -34,7 +34,7 @@ export type ButtonStyles = {
   readonly colorSuccess: string;
   readonly colorWarning: string;
   readonly colorDanger: string;
-}
+};
 
 declare const styles: ButtonStyles;
 export default styles;
