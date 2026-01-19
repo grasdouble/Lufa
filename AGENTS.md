@@ -59,7 +59,9 @@ pnpm ds:all:build              # Design system (correct order)
 pnpm all:build                 # Everything
 
 # Testing
-pnpm --filter @grasdouble/lufa_design-system test-ct
+pnpm ds:test                   # Run all component tests
+pnpm ds:test:ui                # Run tests in UI mode
+pnpm all:test                  # Run all tests in workspace
 
 # Quality checks
 pnpm all:lint && pnpm all:prettier
@@ -118,7 +120,7 @@ Lufa is a personal learning monorepo for exploring modern web application develo
 - **Build Tool:** Vite 7.x with custom plugins
 - **Microfrontend Framework:** Single-SPA
 - **UI Framework:** React 19 with TypeScript 5.x
-- **Styling:** Tailwind CSS 4.x with design tokens
+- **Styling:** CSS Modules with design tokens (vanilla CSS)
 - **Testing:** Playwright (component testing)
 - **Version Management:** Changesets for semantic versioning
 - **Documentation:** Storybook 8, Docusaurus 3
@@ -313,7 +315,7 @@ export const spacingTokens = {
 - ✅ Components MUST use tokens only
 - ❌ Components MUST NOT import from primitives
 - ❌ Components MUST NOT hard-code design values
-- Use Tailwind CSS utilities with token-based CSS custom properties
+- Use CSS Modules with token-based CSS custom properties
 
 **Example:**
 
@@ -382,19 +384,29 @@ Configuration files:
 The design system uses **Playwright component testing** for React components.
 
 ```bash
-# Run component tests for design system
-pnpm --filter @grasdouble/lufa_design-system test-ct
+# Run component tests (recommended - from root)
+pnpm ds:test
 
-# Or run from the package directory
-cd packages/design-system/main
+# Run component tests in UI mode (interactive debugging)
+pnpm ds:test:ui
+
+# Run all tests across workspace
+pnpm all:test
+
+# Update snapshots after intentional design changes
+pnpm ds:test:update-snapshots
+
+# Or run from the Playwright package directory
+cd packages/design-system/playwright
 pnpm test-ct
 ```
 
 **Test Configuration:**
 
-- Config file: `packages/design-system/main/playwright-ct.config.ts`
-- Test files: Co-located with components as `*.spec.tsx` or in separate test directories
+- Config file: `packages/design-system/playwright/playwright-ct.config.ts`
+- Test files: Located in `packages/design-system/playwright/src/components/`
 - Uses `@playwright/experimental-ct-react` for component testing
+- Supports 5 browsers: Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari
 
 **Testing Guidelines:**
 
@@ -403,13 +415,13 @@ pnpm test-ct
 - Test accessibility features (keyboard navigation, ARIA, focus management)
 - Test all component variants and states
 - Use `await expect()` for auto-retrying assertions
-- Follow patterns in `.github/instructions/playwright-typescript.instructions.md`
+- Follow patterns in `.github/instructions/lufa-design-system-playwright-ct.instructions.md`
 
 **Example test structure:**
 
 ```typescript
 import { test, expect } from '@playwright/experimental-ct-react';
-import { Button } from './Button';
+import { Button } from '@grasdouble/lufa_design-system';
 
 test('renders with correct variant', async ({ mount }) => {
   const component = await mount(<Button variant="primary">Click me</Button>);
@@ -424,6 +436,7 @@ test('renders with correct variant', async ({ mount }) => {
 - Test all variants, states, and interactive behaviors
 - Test accessibility features (keyboard, ARIA, focus)
 - Cover edge cases and error handling
+- All tests must include visual regression snapshots
 
 ## Build and Deployment
 
@@ -947,9 +960,10 @@ Button.displayName = 'Button';
 **Technology-specific instructions** (`.github/instructions/`):
 
 - `lufa-design-system.instructions.md` - Design system standards (detailed patterns)
+- `lufa-design-system-storybook-stories.instructions.md` - Storybook story writing guide (AI agents)
+- `lufa-design-system-docusaurus-docs.instructions.md` - Docusaurus API documentation guide (AI agents)
 - `a11y.instructions.md` - Accessibility guidelines (WCAG 2.1 AA)
 - `reactjs.instructions.md` - React best practices
-- `tailwindcss.instructions.md` - Tailwind CSS patterns
 - `typescript-5-es2022.instructions.md` - TypeScript guidelines
 - `playwright-typescript.instructions.md` - Playwright testing
 - `performance-optimization.instructions.md` - Performance patterns
@@ -1145,7 +1159,10 @@ pnpm all:lint             # Lint all packages
 pnpm all:prettier         # Format all packages
 
 # Testing
-pnpm --filter @grasdouble/lufa_design-system test-ct
+pnpm ds:test              # Run all component tests
+pnpm ds:test:ui           # Run tests in UI mode
+pnpm all:test             # Run all tests in workspace
+pnpm ds:test:update-snapshots  # Update visual regression snapshots
 
 # Version Management
 pnpm changeset            # Create changeset for releases
@@ -1184,11 +1201,11 @@ This project follows the [AGENTS.md standard](https://agents.md/) and maintains 
 
 ### Supported Agents and Their Files
 
-| Agent                        | Primary File                                                       | Status          | Notes                                          |
-| ---------------------------- | ------------------------------------------------------------------ | --------------- | ---------------------------------------------- |
-| **GitHub Copilot**           | [.github/copilot-instructions.md](.github/copilot-instructions.md) | ✅ Full Support | Path-scoped instructions with YAML frontmatter |
-| **Claude Code**              | [CLAUDE.md](CLAUDE.md)                                             | ✅ Full Support | Quick reference, links to AGENTS.md            |
-| **OpenAI Codex Extension**   | [config.toml](config.toml)                                         | ✅ Full Support | TOML configuration with custom instructions    |
+| Agent                      | Primary File                                                       | Status          | Notes                                          |
+| -------------------------- | ------------------------------------------------------------------ | --------------- | ---------------------------------------------- |
+| **GitHub Copilot**         | [.github/copilot-instructions.md](.github/copilot-instructions.md) | ✅ Full Support | Path-scoped instructions with YAML frontmatter |
+| **Claude Code**            | [CLAUDE.md](CLAUDE.md)                                             | ✅ Full Support | Quick reference, links to AGENTS.md            |
+| **OpenAI Codex Extension** | [config.toml](config.toml)                                         | ✅ Full Support | TOML configuration with custom instructions    |
 
 ### File Organization Strategy
 
@@ -1229,6 +1246,7 @@ To prevent desynchronization between AI documentation files, this project includ
 **Validation Script**: [scripts/validate-ai-docs.sh](scripts/validate-ai-docs.sh)
 
 **What it validates**:
+
 - Three-layer architecture consistency across AGENTS.md, CLAUDE.md, and .github/copilot-instructions.md
 - Critical rules (token usage, primitives restrictions) documented in all files
 - Build commands consistency
@@ -1238,6 +1256,7 @@ To prevent desynchronization between AI documentation files, this project includ
 - Package scope consistency
 
 **Running validation**:
+
 ```bash
 # Via npm script (recommended)
 pnpm validate:docs
@@ -1257,6 +1276,7 @@ When the codebase evolves, AI documentation should be kept up-to-date. This proj
 **Maintenance Guide**: [.github/instructions/multi-agent-documentation-maintenance.instructions.md](.github/instructions/multi-agent-documentation-maintenance.instructions.md)
 
 **What it covers**:
+
 - **Quick Decision Guide**: Should I update AI docs? What files to update? (decision trees and tables)
 - **Templates**: For creating new `.instructions.md` files and prompts
 - **Workflows**: Step-by-step instructions for common maintenance tasks
@@ -1265,6 +1285,7 @@ When the codebase evolves, AI documentation should be kept up-to-date. This proj
 - **Implementation History**: 5 phases documenting how the system evolved
 
 **When to consult this guide**:
+
 - ✅ You just made code changes and wonder if docs need updating
 - ✅ You're adding new technology or patterns to the project
 - ✅ You want to create new agent-specific instructions
@@ -1314,16 +1335,16 @@ This detailed matrix shows which features are supported by each AI agent.
 
 **For This Project (Lufa)**:
 
-| Workflow                      | Recommended Agent(s)           | Why                                               |
-| ----------------------------- | ------------------------------ | ------------------------------------------------- |
-| **Design System Development** | Claude Code, GitHub Copilot    | CLAUDE.md optimized, path-scoped rules            |
-| **Component Testing**         | GitHub Copilot                 | Path-scoped to test files, good test generation   |
-| **Documentation Updates**     | Claude Code                    | Good at reading context, following AGENTS.md      |
-| **Refactoring**               | GitHub Copilot                 | IDE integration, multi-file changes               |
-| **Learning the Codebase**     | Claude Code                    | Can read AGENTS.md comprehensively                |
-| **Quick Fixes**               | GitHub Copilot                 | Fastest in-editor suggestions                     |
-| **Complex Multi-File Tasks**  | OpenAI Codex Extension         | Autonomous mode, handles full features end-to-end |
-| **Async Long-Running Tasks**  | OpenAI Codex Extension         | Cloud sandboxes, work while you focus elsewhere   |
+| Workflow                      | Recommended Agent(s)        | Why                                               |
+| ----------------------------- | --------------------------- | ------------------------------------------------- |
+| **Design System Development** | Claude Code, GitHub Copilot | CLAUDE.md optimized, path-scoped rules            |
+| **Component Testing**         | GitHub Copilot              | Path-scoped to test files, good test generation   |
+| **Documentation Updates**     | Claude Code                 | Good at reading context, following AGENTS.md      |
+| **Refactoring**               | GitHub Copilot              | IDE integration, multi-file changes               |
+| **Learning the Codebase**     | Claude Code                 | Can read AGENTS.md comprehensively                |
+| **Quick Fixes**               | GitHub Copilot              | Fastest in-editor suggestions                     |
+| **Complex Multi-File Tasks**  | OpenAI Codex Extension      | Autonomous mode, handles full features end-to-end |
+| **Async Long-Running Tasks**  | OpenAI Codex Extension      | Cloud sandboxes, work while you focus elsewhere   |
 
 ### Agent-Specific Setup Instructions
 

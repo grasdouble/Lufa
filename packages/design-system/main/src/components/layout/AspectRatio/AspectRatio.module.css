@@ -1,9 +1,7 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .aspectRatio {
-    @apply w-full;
-    @apply reset-figure;
+    width: 100%;
+    margin: 0;
     position: relative;
     overflow: hidden;
   }
@@ -16,27 +14,27 @@
   }
 
   .ratio-square {
-    aspect-ratio: var(--lufa-aspect-ratio-square);
+    aspect-ratio: var(--lufa-token-aspect-ratio-square);
   }
   .ratio-traditional {
-    aspect-ratio: var(--lufa-aspect-ratio-traditional);
+    aspect-ratio: var(--lufa-token-aspect-ratio-traditional);
   }
   .ratio-photo {
-    aspect-ratio: var(--lufa-aspect-ratio-photo);
+    aspect-ratio: var(--lufa-token-aspect-ratio-photo);
   }
   .ratio-video {
-    aspect-ratio: var(--lufa-aspect-ratio-video);
+    aspect-ratio: var(--lufa-token-aspect-ratio-video);
   }
   .ratio-ultrawide {
-    aspect-ratio: var(--lufa-aspect-ratio-ultrawide);
+    aspect-ratio: var(--lufa-token-aspect-ratio-ultrawide);
   }
   .ratio-vertical {
-    aspect-ratio: var(--lufa-aspect-ratio-vertical);
+    aspect-ratio: var(--lufa-token-aspect-ratio-vertical);
   }
   .ratio-portrait {
-    aspect-ratio: var(--lufa-aspect-ratio-portrait);
+    aspect-ratio: var(--lufa-token-aspect-ratio-portrait);
   }
   .ratio-portraitDisplay {
-    aspect-ratio: var(--lufa-aspect-ratio-portrait-display);
+    aspect-ratio: var(--lufa-token-aspect-ratio-portrait-display);
   }
 }

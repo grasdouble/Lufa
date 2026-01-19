@@ -1,97 +1,135 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .menu {
-    @apply w-full;
+    width: 100%;
   }
 
   .list {
-    @apply reset-list;
-    @apply flex flex-col gap-1;
+    /* reset-list */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* flex flex-col gap-1 */
+    display: flex;
+    flex-direction: column;
+    gap: var(--lufa-token-spacing-xs);
   }
 
   .listItem {
-    @apply list-none;
-    @apply flex;
+    list-style: none;
+    display: flex;
   }
 
   .item {
-    @apply flex items-center gap-2;
-    @apply rounded-md px-4 py-2;
-    @apply transition-all duration-200;
-    @apply cursor-pointer;
+    /* flex items-center gap-2 */
+    display: flex;
+    align-items: center;
+    gap: var(--lufa-token-spacing-sm);
+    /* rounded-md px-4 py-2 */
+    border-radius: var(--lufa-token-radius-md);
+    padding-left: var(--lufa-token-spacing-base);
+    padding-right: var(--lufa-token-spacing-base);
+    padding-top: var(--lufa-token-spacing-sm);
+    padding-bottom: var(--lufa-token-spacing-sm);
+    /* transition-all duration-200 */
+    transition: var(--lufa-token-transition-fast);
+    /* cursor-pointer */
+    cursor: var(--lufa-token-cursor-pointer);
     text-decoration: none;
     color: inherit;
   }
 
-  .item:hover:not(.disabled) {
-    @apply bg-background-secondary;
+  .item:hover:not(.disabled):not(.selected) {
+    background-color: var(--lufa-token-color-background-secondary);
   }
 
   .selected {
-    @apply bg-interactive-default text-text-inverse;
-    @apply font-medium;
+    background-color: var(--lufa-token-color-interactive-default);
+    color: var(--lufa-token-color-text-inverse);
+    font-weight: var(--lufa-token-font-weight-medium);
   }
 
-  .selected:hover {
-    @apply bg-interactive-hover;
+  .selected:hover:not(.disabled) {
+    background-color: var(--lufa-token-color-interactive-hover);
   }
 
   .disabled {
-    @apply cursor-not-allowed opacity-50;
+    cursor: var(--lufa-token-cursor-not-allowed);
+    opacity: var(--lufa-token-opacity-disabled);
   }
 
   .icon {
-    @apply inline-flex items-center text-base;
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--lufa-token-font-size-base);
   }
 
   .label {
-    @apply flex-1;
+    flex: 1;
   }
 
   .arrow {
-    @apply inline-flex items-center text-sm;
-    @apply transition-transform duration-200;
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--lufa-token-font-size-sm);
+    transition: transform var(--lufa-token-timing-fast) var(--lufa-token-easing-ease-out);
   }
 
   .arrowOpen {
-    @apply rotate-90;
+    transform: var(--lufa-token-transform-rotate90);
   }
 
   .submenu {
-    @apply reset-list;
-    @apply flex flex-col gap-1;
-    @apply mt-1 ml-6;
+    /* reset-list */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* flex flex-col gap-1 */
+    display: flex;
+    flex-direction: column;
+    gap: var(--lufa-token-spacing-xs);
+    /* mt-1 ml-6 */
+    margin-top: var(--lufa-token-spacing-xs);
+    margin-left: var(--lufa-token-spacing-lg);
   }
 
   /* Modes */
   .modeVertical .list {
-    @apply flex-col;
+    flex-direction: column;
   }
 
   .modeHorizontal .list {
-    @apply flex-row flex-wrap items-center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
   }
 
   .modeHorizontal .item {
-    @apply px-3 py-2;
-    @apply h-10;
+    padding-left: var(--lufa-token-spacing-md);
+    padding-right: var(--lufa-token-spacing-md);
+    padding-top: var(--lufa-token-spacing-sm);
+    padding-bottom: var(--lufa-token-spacing-sm);
+    height: var(--lufa-token-dimensions-button-height-default);
   }
 
   .modeInline .list {
-    @apply flex-col;
+    flex-direction: column;
   }
 
   .modeInline .submenu {
-    @apply border-border-light ml-4 border-l-2 pl-4;
+    border-left: var(--lufa-token-border-width-thin) var(--lufa-token-border-style-solid)
+      var(--lufa-token-color-border-light);
+    margin-left: var(--lufa-token-spacing-base);
+    padding-left: var(--lufa-token-spacing-base);
   }
 
   /* Themes */
   .themeLight {
-    @apply bg-background-primary text-text-secondary;
+    background-color: var(--lufa-token-color-background-primary);
+    color: var(--lufa-token-color-text-secondary);
   }
 
   .themeDark {
-    @apply bg-background-inverse text-text-inverse;
+    background-color: var(--lufa-token-color-background-inverse);
+    color: var(--lufa-token-color-text-inverse);
   }
 }

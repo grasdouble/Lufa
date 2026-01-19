@@ -1,46 +1,61 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .anchor {
-    @apply inline-flex items-center gap-1;
-    @apply transition-colors duration-200;
-    @apply cursor-pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: var(--lufa-token-transition-fast);
+    cursor: pointer;
     text-decoration: none;
   }
 
   /* Variants */
   .variantDefault {
-    @apply no-underline;
+    text-decoration: none;
   }
 
   .variantUnderline {
-    @apply underline underline-offset-4;
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   .variantSubtle {
-    @apply no-underline opacity-70;
-    @apply hover:opacity-100;
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+  .variantSubtle:hover {
+    opacity: 1;
   }
 
   /* Colors */
   .colorPrimary {
-    @apply text-interactive-default;
-    @apply hover:text-interactive-hover;
+    color: var(--lufa-token-color-interactive-default);
+  }
+
+  .colorPrimary:hover {
+    color: var(--lufa-token-color-interactive-hover);
   }
 
   .colorSecondary {
-    @apply text-gray-600 dark:text-gray-400;
-    @apply hover:text-gray-900 dark:hover:text-gray-100;
+    color: var(--lufa-token-color-text-secondary);
+  }
+
+  .colorSecondary:hover {
+    color: var(--lufa-token-color-text-primary);
   }
 
   .colorInherit {
-    @apply text-inherit;
-    @apply hover:opacity-80;
+    color: inherit;
+  }
+
+  .colorInherit:hover {
+    opacity: 0.8;
   }
 
   /* Icons */
   .startIcon,
   .endIcon {
-    @apply inline-flex items-center;
+    display: inline-flex;
+    align-items: center;
   }
 }

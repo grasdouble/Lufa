@@ -17,7 +17,7 @@ export const AllSizes: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Sizes Primitives</h1>
-      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
         Fixed size values for element-level dimensions: icons, buttons, avatars, and touch targets. Includes WCAG 2.5.5
         minimum touch target size (44px).
       </p>
@@ -36,15 +36,17 @@ export const AllSizes: Story = {
                 gap: '24px',
                 alignItems: 'center',
                 padding: '16px',
-                backgroundColor: primitives.color.neutral.neutral[50],
+                backgroundColor: 'var(--lufa-token-color-surface-raised)',
                 borderRadius: '8px',
                 border: isTouchTarget
                   ? `2px solid ${primitives.color.chromatic.blue[600]}`
-                  : `1px solid ${primitives.color.neutral.neutral[200]}`,
+                  : `1px solid var(--lufa-token-color-border-light)`,
               }}
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>size[{key}]</div>
-              <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+              <div
+                style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)', fontSize: '12px' }}
+              >
                 {value}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -59,7 +61,7 @@ export const AllSizes: Story = {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: primitives.color.neutral.white,
+                    color: 'var(--lufa-token-color-surface-default)',
                     fontSize: Math.min(Number(key) / 3, 16) + 'px',
                     fontWeight: '600',
                     flexShrink: 0,
@@ -67,7 +69,7 @@ export const AllSizes: Story = {
                 >
                   {key}
                 </div>
-                <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>
+                <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>
                   {sizeNum === 0 && 'Zero size - collapse element'}
                   {sizeNum === 16 && 'Small icons'}
                   {sizeNum === 24 && 'Standard icons, small avatars'}
@@ -89,9 +91,9 @@ export const AllSizes: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: primitives.color.chromatic.blue[100],
+          backgroundColor: 'var(--lufa-token-color-info-light)',
           borderRadius: '12px',
-          border: `1px solid ${primitives.color.chromatic.blue[400]}`,
+          border: `1px solid var(--lufa-token-color-info-border)`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>WCAG 2.5.5 - Touch Target Size</h3>
@@ -106,9 +108,9 @@ export const AllSizes: Story = {
         style={{
           marginTop: '24px',
           padding: '24px',
-          backgroundColor: primitives.color.chromatic.orange[100],
+          backgroundColor: 'var(--lufa-token-color-warning-light)',
           borderRadius: '12px',
-          border: `1px solid ${primitives.color.chromatic.orange[300]}`,
+          border: `1px solid var(--lufa-token-color-warning-border)`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>Usage Guidelines</h3>
@@ -155,7 +157,7 @@ export const UsageExamples: Story = {
                 marginBottom: '8px',
               }}
             />
-            <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>{size}px</div>
+            <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>{size}px</div>
           </div>
         ))}
       </div>
@@ -169,7 +171,7 @@ export const UsageExamples: Story = {
             height: primitives.size[32],
             padding: '0 16px',
             backgroundColor: primitives.color.chromatic.blue[500],
-            color: primitives.color.neutral.white,
+            color: 'var(--lufa-token-color-surface-default)',
             border: 'none',
             borderRadius: '6px',
             fontSize: '14px',
@@ -183,7 +185,7 @@ export const UsageExamples: Story = {
             height: primitives.size[44],
             padding: '0 20px',
             backgroundColor: primitives.color.chromatic.blue[600],
-            color: primitives.color.neutral.white,
+            color: 'var(--lufa-token-color-surface-default)',
             border: 'none',
             borderRadius: '6px',
             fontSize: '16px',
@@ -197,7 +199,7 @@ export const UsageExamples: Story = {
             height: primitives.size[48],
             padding: '0 24px',
             backgroundColor: primitives.color.chromatic.blue[700],
-            color: primitives.color.neutral.white,
+            color: 'var(--lufa-token-color-surface-default)',
             border: 'none',
             borderRadius: '6px',
             fontSize: '16px',
@@ -222,14 +224,14 @@ export const UsageExamples: Story = {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: primitives.color.neutral.white,
+                color: 'var(--lufa-token-color-surface-default)',
                 fontSize: Math.min(size / 2.5, 24) + 'px',
                 fontWeight: '600',
               }}
             >
               A
             </div>
-            <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>{size}px</div>
+            <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>{size}px</div>
           </div>
         ))}
       </div>
@@ -242,7 +244,7 @@ export const UsageExamples: Story = {
           style={{
             height: primitives.size[32],
             padding: '0 12px',
-            border: `1px solid ${primitives.color.neutral.neutral[300]}`,
+            border: `1px solid var(--lufa-token-color-border-default)`,
             borderRadius: '6px',
             fontSize: '14px',
           }}
@@ -264,7 +266,7 @@ export const UsageExamples: Story = {
           style={{
             height: primitives.size[48],
             padding: '0 16px',
-            border: `1px solid ${primitives.color.neutral.neutral[300]}`,
+            border: `1px solid var(--lufa-token-color-border-default)`,
             borderRadius: '6px',
             fontSize: '16px',
           }}

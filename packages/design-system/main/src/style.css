@@ -1,10 +1,87 @@
 /**
- * Lufa Design System - Main CSS Entry
- * This file consolidates all CSS including primitives, tokens, and Tailwind
+ * Lufa Design System - CSS Entry Point
+ * 
+ * Foundation, tokens, and utilities for the Lufa Design System.
+ * Uses vanilla CSS with CSS Modules and token-based CSS custom properties.
  */
 
-/* Import primitives and tokens CSS variables */
-@import '@grasdouble/lufa_design-system-primitives/style.css';
+/* Layer definition */
+@layer base, components, utilities;
+
+/* ============================================================================
+   FOUNDATION
+   ============================================================================ */
+
+/* Vanilla CSS foundation (reset, base styles) */
+@import './css/foundation.css';
+
+/* Component reset utilities (vanilla CSS) */
+@import './css/component-resets.css';
+
+/* Container query definitions */
+@import './css/container-queries.css';
+
+/* ============================================================================
+   DESIGN TOKENS
+   ============================================================================ */
+
+/* Import design tokens (CSS custom properties already generated) */
 @import '@grasdouble/lufa_design-system-tokens/style.css';
 
-@import './tailwind.css';
+/* ============================================================================
+   DEFAULT THEME
+   ============================================================================ */
+
+/* Default theme with light and dark mode support */
+@import './css/theme.css';
+
+/* ============================================================================
+   THEME SYSTEM
+   ============================================================================ */
+
+/**
+ * Theme System Architecture:
+ *
+ * The design system includes the default theme out of the box.
+ * Additional themes can be loaded from the themes package.
+ *
+ * Available Themes:
+ * - Default theme (included): Light + dark mode support
+ * - @grasdouble/lufa_design-system-themes/ocean.css  : Ocean theme (light + dark)
+ * - @grasdouble/lufa_design-system-themes/forest.css : Forest theme (light + dark)
+ *
+ * Usage with additional themes:
+ * ```css
+ * @import '@grasdouble/lufa_design-system/style.css';
+ * @import '@grasdouble/lufa_design-system-themes/ocean.css';
+ * ```
+ *
+ * Theme switching with data attributes:
+ * - data-theme="default|ocean|forest" : Choose theme (default if not set)
+ * - data-mode="light|dark|auto"       : Choose color mode (auto = system preference)
+ *
+ * Examples:
+ * - <html>                                      : Default theme, auto mode
+ * - <html data-mode="dark">                     : Default theme, dark mode
+ * - <html data-theme="ocean">                   : Ocean theme, auto mode
+ * - <html data-theme="forest" data-mode="dark"> : Forest theme, dark mode
+ */
+
+/* ============================================================================
+   COMPONENT STYLES
+   ============================================================================ */
+
+/**
+ * Component-specific CSS is imported via CSS Modules in each component.
+ * This file only provides the foundation, tokens, and utilities.
+ * 
+ * Example component CSS Module:
+ * 
+ * @layer components {
+ *   .button {
+ *     background-color: var(--lufa-token-color-interactive-default);
+ *     padding: var(--lufa-token-spacing-base);
+ *     border-radius: var(--lufa-token-radius-base);
+ *   }
+ * }
+ */

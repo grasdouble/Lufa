@@ -1,86 +1,86 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   /* Gap */
   .gap-none {
-    @apply gap-0;
+    gap: var(--lufa-token-spacing-none);
   }
   .gap-condensed {
-    @apply gap-2;
+    gap: var(--lufa-token-spacing-sm);
   }
   .gap-normal {
-    @apply gap-4;
+    gap: var(--lufa-token-spacing-base);
   }
   .gap-spacious {
-    @apply gap-6;
+    gap: var(--lufa-token-spacing-lg);
   }
 
   /* Direction */
   .direction-horizontal {
-    @apply flex flex-row;
+    display: flex;
+    flex-direction: row;
   }
   .direction-vertical {
-    @apply flex flex-col;
+    display: flex;
+    flex-direction: column;
   }
 
   /* Align */
   .align-stretch {
-    @apply items-stretch;
+    align-items: stretch;
   }
   .align-start {
-    @apply items-start;
+    align-items: flex-start;
   }
   .align-center {
-    @apply items-center;
+    align-items: center;
   }
   .align-end {
-    @apply items-end;
+    align-items: flex-end;
   }
   .align-baseline {
-    @apply items-baseline;
+    align-items: baseline;
   }
 
   /* Wrap */
   .wrap-wrap {
-    @apply flex-wrap;
+    flex-wrap: wrap;
   }
   .wrap-nowrap {
-    @apply flex-nowrap;
+    flex-wrap: nowrap;
   }
 
   /* Justify */
   .justify-start {
-    @apply justify-start;
+    justify-content: flex-start;
   }
   .justify-center {
-    @apply justify-center;
+    justify-content: center;
   }
   .justify-end {
-    @apply justify-end;
+    justify-content: flex-end;
   }
   .justify-space-between {
-    @apply justify-between;
+    justify-content: space-between;
   }
   .justify-space-evenly {
-    @apply justify-evenly;
+    justify-content: space-evenly;
   }
 
   /* Padding */
   .padding-none {
-    @apply p-0;
+    padding: var(--lufa-token-spacing-none);
   }
   .padding-condensed {
-    @apply p-2;
+    padding: var(--lufa-token-spacing-sm);
   }
   .padding-normal {
-    @apply p-4;
+    padding: var(--lufa-token-spacing-base);
   }
   .padding-spacious {
-    @apply p-6;
+    padding: var(--lufa-token-spacing-lg);
   }
 
   /* StackItem - Grow */
   .grow {
-    @apply flex-grow;
+    flex-grow: 1;
   }
 }

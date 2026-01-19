@@ -29,5 +29,5 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-/* Import Lufa Design System CSS without Tailwind preflight (no reset) */
+/* Import Lufa Design System CSS (vanilla CSS with design tokens) */
 @import '@grasdouble/lufa_design-system/style.css';

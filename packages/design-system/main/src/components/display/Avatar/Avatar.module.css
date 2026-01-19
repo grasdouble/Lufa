@@ -1,113 +1,138 @@
-@reference '../../../tailwind.css';
+@import '../../../css/component-resets.css';
+@import '@grasdouble/lufa_design-system-tokens/style.css';
 
 @layer components {
   .container {
-    @apply relative inline-block;
+    position: relative;
+    display: inline-block;
   }
 
   .avatar {
-    @apply reset-image;
-    @apply ring-background-primary ring-2;
-    @apply object-cover;
+    /* Image reset */
+    display: block;
+    max-width: 100%;
+    height: auto;
+
+    /* Ring */
+    box-shadow: 0 0 0 2px var(--lufa-token-color-background-primary);
+
+    /* Object fit */
+    object-fit: cover;
   }
 
   /* Sizes */
   .size-xs {
-    @apply h-6 w-6;
+    width: 1.5rem; /* 24px */
+    height: 1.5rem;
   }
 
   .size-sm {
-    @apply h-8 w-8;
+    width: 2rem; /* 32px */
+    height: 2rem;
   }
 
   .size-md {
-    @apply h-10 w-10;
+    width: 2.5rem; /* 40px */
+    height: 2.5rem;
   }
 
   .size-lg {
-    @apply h-12 w-12;
+    width: 3rem; /* 48px */
+    height: 3rem;
   }
 
   .size-xl {
-    @apply h-16 w-16;
+    width: 4rem; /* 64px */
+    height: 4rem;
   }
 
   /* Variants */
   .variant-circle {
-    @apply rounded-full;
+    border-radius: var(--lufa-token-radius-full);
   }
 
   .variant-square {
-    @apply rounded-lg;
+    border-radius: var(--lufa-token-radius-lg);
   }
 
   .variant-count {
-    @apply rounded-full;
-    @apply bg-background-secondary;
-    @apply text-text-secondary;
-    @apply flex items-center justify-center;
-    @apply font-semibold;
-    @apply text-sm;
+    border-radius: var(--lufa-token-radius-full);
+    background-color: var(--lufa-token-color-background-secondary);
+    color: var(--lufa-token-color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--lufa-token-font-weight-semibold);
+    font-size: var(--lufa-token-font-size-sm);
   }
 
   /* Status indicator */
   .status {
-    @apply absolute block rounded-full;
-    @apply ring-background-primary ring-2;
+    position: absolute;
+    display: block;
+    border-radius: var(--lufa-token-radius-full);
+    box-shadow: 0 0 0 2px var(--lufa-token-color-background-primary);
   }
 
   .status-size-xs {
-    @apply h-1.5 w-1.5;
+    width: 0.375rem; /* 6px */
+    height: 0.375rem;
   }
 
   .status-size-sm {
-    @apply h-2 w-2;
+    width: 0.5rem; /* 8px */
+    height: 0.5rem;
   }
 
   .status-size-md {
-    @apply h-2.5 w-2.5;
+    width: 0.625rem; /* 10px */
+    height: 0.625rem;
   }
 
   .status-size-lg {
-    @apply h-3 w-3;
+    width: 0.75rem; /* 12px */
+    height: 0.75rem;
   }
 
   .status-size-xl {
-    @apply h-4 w-4;
+    width: 1rem; /* 16px */
+    height: 1rem;
   }
 
   /* Status colors */
   .status-online {
-    @apply bg-success-default;
+    background-color: var(--lufa-token-color-success-default);
   }
 
   .status-offline {
-    @apply bg-text-disabled;
+    background-color: var(--lufa-token-color-text-disabled);
   }
 
   .status-away {
-    @apply bg-warning-default;
+    background-color: var(--lufa-token-color-warning-default);
   }
 
   .status-busy {
-    @apply bg-error-default;
+    background-color: var(--lufa-token-color-error-default);
   }
 
   /* Status positions - Circle */
   .status-position-top {
-    @apply top-0 right-0;
+    top: 0;
+    right: 0;
   }
 
   .status-position-bottom {
-    @apply right-0 bottom-0;
+    right: 0;
+    bottom: 0;
   }
 
   /* Status positions - Square */
   .status-square.status-position-top {
-    @apply translate-x-1/3 -translate-y-1/3;
+    transform: translateX(33.333333%) translateY(-33.333333%);
   }
 
   .status-square.status-position-bottom {
-    @apply translate-x-1/3 translate-y-1/3;
+    transform: translateX(33.333333%) translateY(33.333333%);
   }
 }

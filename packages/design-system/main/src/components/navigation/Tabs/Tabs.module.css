@@ -1,186 +1,257 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .tabs {
-    @apply w-full;
+    width: 100%;
   }
 
   .tabList {
-    @apply flex;
+    display: flex;
   }
 
   .tab {
-    @apply reset-button;
-    @apply inline-flex items-center gap-2;
-    @apply transition-all duration-200;
-    @apply cursor-pointer;
-    @apply relative;
+    /* Button reset (inlined from reset-button) */
+    appearance: none;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    outline: none;
+    /* Tab-specific styles */
+    display: inline-flex;
+    align-items: center;
+    gap: var(--lufa-token-spacing-sm);
+    transition: all var(--lufa-token-timing-fast) var(--lufa-token-easing-ease-out);
+    cursor: var(--lufa-token-cursor-pointer);
+    position: relative;
   }
 
   .tab:focus-visible {
-    @apply outline-interactive-focus outline-2 outline-offset-2;
+    outline: 2px solid var(--lufa-token-color-interactive-focus);
+    outline-offset: 2px;
   }
 
   .tabDisabled {
-    @apply cursor-not-allowed opacity-50;
+    cursor: var(--lufa-token-cursor-not-allowed);
+    opacity: var(--lufa-token-opacity-disabled);
   }
 
   .icon {
-    @apply inline-flex items-center;
+    display: inline-flex;
+    align-items: center;
   }
 
   .tabContent {
-    @apply py-4;
+    padding-top: var(--lufa-token-spacing-base);
+    padding-bottom: var(--lufa-token-spacing-base);
   }
 
   /* Type: Line */
   .typeLine .tabList {
-    @apply border-b-2 border-gray-200 dark:border-gray-700;
+    border-bottom: var(--lufa-token-border-width-thin) solid var(--lufa-token-color-border-light);
   }
 
   .typeLine .tab {
-    @apply px-4 py-2;
-    @apply text-gray-600 dark:text-gray-400;
-    @apply border-b-2 border-transparent;
-    @apply -mb-0.5;
+    padding-left: var(--lufa-token-spacing-base);
+    padding-right: var(--lufa-token-spacing-base);
+    padding-top: var(--lufa-token-spacing-sm);
+    padding-bottom: var(--lufa-token-spacing-sm);
+    color: var(--lufa-token-color-text-secondary);
+    border-bottom: var(--lufa-token-border-width-thin) solid transparent;
+    margin-bottom: -2px;
   }
 
-  .typeLine .tab:hover:not(.tabDisabled) {
-    @apply text-interactive-default;
-    @apply border-interactive-default/50;
+  .typeLine .tab:hover:not(.tabDisabled):not(.tabActive) {
+    color: var(--lufa-token-color-interactive-default);
+    border-bottom-color: color-mix(in srgb, var(--lufa-token-color-interactive-default) 50%, transparent);
   }
 
   .typeLine .tabActive {
-    @apply text-interactive-default;
-    @apply border-interactive-default;
-    @apply font-medium;
+    color: var(--lufa-token-color-interactive-default);
+    border-bottom-color: var(--lufa-token-color-interactive-default);
+    font-weight: var(--lufa-token-font-weight-medium);
+  }
+
+  .typeLine .tabActive:hover:not(.tabDisabled) {
+    color: var(--lufa-token-color-interactive-default);
+    border-bottom-color: var(--lufa-token-color-interactive-default);
   }
 
   /* Type: Card */
   .typeCard .tabList {
-    @apply gap-1;
-    @apply border-b border-gray-200 dark:border-gray-700;
+    gap: var(--lufa-token-spacing-xs);
+    border-bottom: var(--lufa-token-border-width-hairline) solid var(--lufa-token-color-border-light);
   }
 
   .typeCard .tab {
-    @apply rounded-t-md px-4 py-2;
-    @apply text-gray-600 dark:text-gray-400;
-    @apply bg-gray-100 dark:bg-gray-800;
-    @apply border border-gray-200 dark:border-gray-700;
-    @apply border-b-0;
-    @apply -mb-px;
+    border-top-left-radius: var(--lufa-token-radius-md);
+    border-top-right-radius: var(--lufa-token-radius-md);
+    padding-left: var(--lufa-token-spacing-base);
+    padding-right: var(--lufa-token-spacing-base);
+    padding-top: var(--lufa-token-spacing-sm);
+    padding-bottom: var(--lufa-token-spacing-sm);
+    color: var(--lufa-token-color-text-secondary);
+    background-color: var(--lufa-token-color-background-secondary);
+    border: var(--lufa-token-border-width-hairline) solid var(--lufa-token-color-border-light);
+    border-bottom: 0;
+    margin-bottom: -1px;
   }
 
-  .typeCard .tab:hover:not(.tabDisabled) {
-    @apply bg-gray-200 dark:bg-gray-700;
+  .typeCard .tab:hover:not(.tabDisabled):not(.tabActive) {
+    background-color: var(--lufa-token-color-background-tertiary);
   }
 
   .typeCard .tabActive {
-    @apply bg-white dark:bg-gray-900;
-    @apply text-interactive-default;
-    @apply font-medium;
+    background-color: var(--lufa-token-color-background-primary);
+    color: var(--lufa-token-color-interactive-default);
+    font-weight: var(--lufa-token-font-weight-medium);
+  }
+
+  .typeCard .tabActive:hover:not(.tabDisabled) {
+    background-color: var(--lufa-token-color-background-primary);
   }
 
   /* Type: Pill */
   .typePill .tabList {
-    @apply gap-2;
-    @apply rounded-lg p-1;
-    @apply bg-gray-100 dark:bg-gray-800;
+    gap: var(--lufa-token-spacing-sm);
+    border-radius: var(--lufa-token-radius-lg);
+    padding: var(--lufa-token-spacing-xs);
+    background-color: var(--lufa-token-color-background-secondary);
   }
 
   .typePill .tab {
-    @apply rounded-md px-4 py-2;
-    @apply text-gray-600 dark:text-gray-400;
+    border-radius: var(--lufa-token-radius-md);
+    padding-left: var(--lufa-token-spacing-base);
+    padding-right: var(--lufa-token-spacing-base);
+    padding-top: var(--lufa-token-spacing-sm);
+    padding-bottom: var(--lufa-token-spacing-sm);
+    color: var(--lufa-token-color-text-secondary);
   }
 
-  .typePill .tab:hover:not(.tabDisabled) {
-    @apply bg-gray-200 dark:bg-gray-700;
+  .typePill .tab:hover:not(.tabDisabled):not(.tabActive) {
+    background-color: var(--lufa-token-color-background-tertiary);
   }
 
   .typePill .tabActive {
-    @apply bg-white dark:bg-gray-900;
-    @apply text-interactive-default;
-    @apply font-medium;
-    @apply shadow-sm;
+    background-color: var(--lufa-token-color-background-primary);
+    color: var(--lufa-token-color-interactive-default);
+    font-weight: var(--lufa-token-font-weight-medium);
+    box-shadow: var(--lufa-token-shadow-sm);
+  }
+
+  .typePill .tabActive:hover:not(.tabDisabled) {
+    background-color: var(--lufa-token-color-background-primary);
+    box-shadow: var(--lufa-token-shadow-sm);
   }
 
   /* Position: Top */
   .positionTop {
-    @apply flex flex-col;
+    display: flex;
+    flex-direction: column;
   }
 
   .positionTop .tabList {
-    @apply flex-row;
+    flex-direction: row;
   }
 
   /* Position: Bottom */
   .positionBottom {
-    @apply flex flex-col-reverse;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   .positionBottom .tabList {
-    @apply flex-row;
+    flex-direction: row;
   }
 
   .positionBottom.typeLine .tabList {
-    @apply border-t-2 border-b-0;
+    border-top: var(--lufa-token-border-width-thin) solid var(--lufa-token-color-border-light);
+    border-bottom: 0;
   }
 
   .positionBottom.typeLine .tab {
-    @apply border-t-2 border-b-0;
-    @apply -mt-0.5 mb-0;
+    border-top: var(--lufa-token-border-width-thin) solid transparent;
+    border-bottom: 0;
+    margin-top: -2px;
+    margin-bottom: 0;
   }
 
   .positionBottom.typeCard .tabList {
-    @apply border-t border-b-0;
+    border-top: var(--lufa-token-border-width-hairline) solid var(--lufa-token-color-border-light);
+    border-bottom: 0;
   }
 
   .positionBottom.typeCard .tab {
-    @apply rounded-t-none rounded-b-md;
-    @apply border-t-0 border-b;
-    @apply -mt-px mb-0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: var(--lufa-token-radius-md);
+    border-bottom-right-radius: var(--lufa-token-radius-md);
+    border-top: 0;
+    border-bottom: var(--lufa-token-border-width-hairline) solid var(--lufa-token-color-border-light);
+    margin-top: -1px;
+    margin-bottom: 0;
   }
 
   /* Position: Left */
   .positionLeft {
-    @apply flex flex-row;
+    display: flex;
+    flex-direction: row;
   }
 
   .positionLeft .tabList {
-    @apply flex-col;
-    @apply border-r-2 border-gray-200 dark:border-gray-700;
+    flex-direction: column;
+    border-right: var(--lufa-token-border-width-thin) solid var(--lufa-token-color-border-light);
   }
 
   .positionLeft.typeLine .tab {
-    @apply border-r-2 border-b-0;
-    @apply -mr-0.5 mb-0;
+    border-right: var(--lufa-token-border-width-thin) solid transparent;
+    border-bottom: 0;
+    margin-right: -2px;
+    margin-bottom: 0;
   }
 
   /* Position: Right */
   .positionRight {
-    @apply flex flex-row-reverse;
+    display: flex;
+    flex-direction: row-reverse;
   }
 
   .positionRight .tabList {
-    @apply flex-col;
-    @apply border-l-2 border-gray-200 dark:border-gray-700;
+    flex-direction: column;
+    border-left: var(--lufa-token-border-width-thin) solid var(--lufa-token-color-border-light);
   }
 
   .positionRight.typeLine .tab {
-    @apply border-b-0 border-l-2;
-    @apply mb-0 -ml-0.5;
+    border-bottom: 0;
+    border-left: var(--lufa-token-border-width-thin) solid transparent;
+    margin-bottom: 0;
+    margin-left: -2px;
   }
 
   /* Sizes */
   .sizeSmall .tab {
-    @apply px-3 py-1.5 text-sm;
+    padding-left: var(--lufa-token-spacing-md);
+    padding-right: var(--lufa-token-spacing-md);
+    padding-top: var(--lufa-token-spacing-2xs);
+    padding-bottom: var(--lufa-token-spacing-2xs);
+    font-size: var(--lufa-token-font-size-sm);
   }
 
   .sizeMedium .tab {
-    @apply px-4 py-2 text-base;
+    padding-left: var(--lufa-token-spacing-base);
+    padding-right: var(--lufa-token-spacing-base);
+    padding-top: var(--lufa-token-spacing-sm);
+    padding-bottom: var(--lufa-token-spacing-sm);
+    font-size: var(--lufa-token-font-size-base);
   }
 
   .sizeLarge .tab {
-    @apply px-5 py-2.5 text-lg;
+    padding-left: var(--lufa-token-spacing-md-lg);
+    padding-right: var(--lufa-token-spacing-md-lg);
+    padding-top: var(--lufa-token-spacing-sm-md);
+    padding-bottom: var(--lufa-token-spacing-sm-md);
+    font-size: var(--lufa-token-font-size-lg);
   }
 }

@@ -18,7 +18,7 @@ export const AllBreakpoints: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Breakpoint Primitives</h1>
-      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
         Primitive breakpoint values for responsive design. Follow mobile-first approach: these represent minimum widths
         for each breakpoint.
       </p>
@@ -33,16 +33,16 @@ export const AllBreakpoints: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: primitives.color.neutral.neutral[50],
+              backgroundColor: 'var(--lufa-token-color-surface-raised)',
               borderRadius: '8px',
-              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+              border: '1px solid var(--lufa-token-color-border-light)',
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>breakpoint[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: primitives.color.neutral.neutral[600], fontSize: '12px' }}>
+            <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)', fontSize: '12px' }}>
               {value}
             </div>
-            <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>
+            <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>
               {key === '480' && 'Mobile landscape'}
               {key === '768' && 'Tablet portrait'}
               {key === '1024' && 'Tablet landscape / Small desktop'}
@@ -58,9 +58,9 @@ export const AllBreakpoints: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: primitives.color.chromatic.blue[100],
+          backgroundColor: 'var(--lufa-token-color-info-light)',
           borderRadius: '12px',
-          border: `1px solid ${primitives.color.chromatic.blue[300]}`,
+          border: '1px solid var(--lufa-token-color-info-border)',
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>Mobile-First Strategy</h3>
@@ -68,7 +68,11 @@ export const AllBreakpoints: Story = {
           Default styles apply to all screen sizes. Use media queries with min-width to progressively enhance for larger
           screens. Example:{' '}
           <code
-            style={{ padding: '2px 6px', backgroundColor: primitives.color.chromatic.blue[50], borderRadius: '4px' }}
+            style={{
+              padding: '2px 6px',
+              backgroundColor: 'var(--lufa-token-color-surface-raised)',
+              borderRadius: '4px',
+            }}
           >
             @media (min-width: 768px)
           </code>
@@ -129,14 +133,14 @@ export const ResponsiveExample: Story = {
               key={i}
               style={{
                 padding: '20px',
-                backgroundColor: primitives.color.neutral.white,
-                border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                border: '1px solid var(--lufa-token-color-border-default)',
                 borderRadius: '8px',
                 textAlign: 'center',
               }}
             >
               <div style={{ fontSize: '24px', fontWeight: '600', marginBottom: '8px' }}>Card {i}</div>
-              <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+              <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
                 {windowWidth >= 1024 && '3 columns'}
                 {windowWidth >= 768 && windowWidth < 1024 && '2 columns'}
                 {windowWidth < 768 && '1 column'}
@@ -145,7 +149,7 @@ export const ResponsiveExample: Story = {
           ))}
         </div>
 
-        <p style={{ marginTop: '24px', fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>
+        <p style={{ marginTop: '24px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
           Resize your browser window to see the responsive behavior in action.
         </p>
       </div>

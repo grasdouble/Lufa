@@ -1,13 +1,13 @@
 import type { TestimonialStyleProps } from '../Testimonial';
 
 export const TestimonialOne = ({ imgUrl, testimonial, from, position }: TestimonialStyleProps) => (
-  <section className="bg-white pt-24 pb-16 sm:pt-32 sm:pb-24 xl:pb-32 dark:bg-gray-900">
-    <div className="bg-gray-900 pb-20 sm:pb-24 xl:pb-0 dark:bg-white">
+  <section className="bg-background-primary pt-24 pb-16 sm:pt-32 sm:pb-24 xl:pb-32">
+    <div className="bg-background-inverse pb-20 sm:pb-24 xl:pb-0">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
         <div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
           <div className="width-full relative aspect-[2/1] h-full md:mx-8 xl:mx-0 xl:aspect-auto">
             <img
-              className="absolute inset-0 h-full w-full rounded-2xl bg-gray-800 object-cover shadow-2xl"
+              className="absolute inset-0 h-full w-full rounded-2xl bg-background-tertiary object-cover shadow-2xl"
               src={imgUrl}
               alt=""
             />
@@ -19,7 +19,7 @@ export const TestimonialOne = ({ imgUrl, testimonial, from, position }: Testimon
               viewBox="0 0 162 128"
               fill="none"
               aria-hidden="true"
-              className="absolute top-0 left-0 -z-10 h-32 stroke-white/20 dark:stroke-gray-900/20"
+              className="absolute top-0 left-0 -z-10 h-32 stroke-text-inverse opacity-20"
             >
               <path
                 id="b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb"
@@ -27,12 +27,12 @@ export const TestimonialOne = ({ imgUrl, testimonial, from, position }: Testimon
               />
               <use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x="86" />
             </svg>
-            <blockquote className="text-xl leading-8 font-semibold text-white sm:text-2xl sm:leading-9 dark:text-gray-900">
+            <blockquote className="text-xl leading-8 font-semibold text-text-inverse sm:text-2xl sm:leading-9">
               <p>{testimonial}</p>
             </blockquote>
             <figcaption className="mt-8 text-base">
-              <div className="font-semibold text-white dark:text-gray-900">{from}</div>
-              <div className="mt-1 text-gray-400">{position}</div>
+              <div className="font-semibold text-text-inverse">{from}</div>
+              <div className="mt-1 text-text-secondary">{position}</div>
             </figcaption>
           </figure>
         </div>

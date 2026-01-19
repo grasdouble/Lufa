@@ -21,7 +21,7 @@ export const TimingTokens: Story = {
     return (
       <div style={{ padding: '20px', maxWidth: '1000px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Timing Tokens</h1>
-        <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
+        <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
           Standardized animation durations for consistent motion design. Click boxes to see timing in action.
         </p>
 
@@ -43,7 +43,10 @@ export const TimingTokens: Story = {
                 style={{
                   width: '100%',
                   height: '100px',
-                  backgroundColor: activeBox === key ? tokens.color.interactive.focus : tokens.color.border.light,
+                  backgroundColor:
+                    activeBox === key
+                      ? 'var(--lufa-token-color-interactive-focus)'
+                      : 'var(--lufa-token-color-border-light)',
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
@@ -55,7 +58,10 @@ export const TimingTokens: Story = {
                 <span
                   style={{
                     fontWeight: '600',
-                    color: activeBox === key ? tokens.color.text.inverse : tokens.color.text.tertiary,
+                    color:
+                      activeBox === key
+                        ? 'var(--lufa-token-color-text-inverse)'
+                        : 'var(--lufa-token-color-text-tertiary)',
                   }}
                 >
                   Click me
@@ -63,7 +69,7 @@ export const TimingTokens: Story = {
               </div>
               <div style={{ marginTop: '8px', fontSize: '12px' }}>
                 <div style={{ fontWeight: '600' }}>{key}</div>
-                <div style={{ color: tokens.color.text.tertiary, fontFamily: 'monospace' }}>{value}</div>
+                <div style={{ color: 'var(--lufa-token-color-text-tertiary)', fontFamily: 'monospace' }}>{value}</div>
               </div>
             </div>
           ))}
@@ -72,9 +78,9 @@ export const TimingTokens: Story = {
         <div
           style={{
             padding: '20px',
-            backgroundColor: tokens.color.background.secondary,
+            backgroundColor: 'var(--lufa-token-color-background-secondary)',
             borderRadius: '8px',
-            border: `1px solid ${tokens.color.border.light}`,
+            border: `1px solid var(--lufa-token-color-border-light)`,
           }}
         >
           <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>WCAG 2.1 Guidelines</h3>
@@ -82,7 +88,7 @@ export const TimingTokens: Story = {
             style={{
               margin: '0',
               paddingLeft: '20px',
-              color: tokens.color.text.tertiary,
+              color: 'var(--lufa-token-color-text-tertiary)',
               fontSize: '14px',
               lineHeight: '1.6',
             }}
@@ -104,7 +110,7 @@ export const EasingTokens: Story = {
     return (
       <div style={{ padding: '20px', maxWidth: '1000px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Easing Tokens</h1>
-        <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
+        <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
           Animation easing curves for natural motion. Click to see each easing in action.
         </p>
 
@@ -126,9 +132,9 @@ export const EasingTokens: Story = {
                 style={{
                   width: '100%',
                   height: '80px',
-                  backgroundColor: tokens.color.background.secondary,
+                  backgroundColor: 'var(--lufa-token-color-background-secondary)',
                   borderRadius: '8px',
-                  border: `1px solid ${tokens.color.border.light}`,
+                  border: `1px solid var(--lufa-token-color-border-light)`,
                   padding: '12px',
                   cursor: 'pointer',
                   position: 'relative',
@@ -136,7 +142,9 @@ export const EasingTokens: Story = {
                 }}
               >
                 <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '4px' }}>{key}</div>
-                <div style={{ fontSize: '10px', color: tokens.color.text.tertiary, fontFamily: 'monospace' }}>
+                <div
+                  style={{ fontSize: '10px', color: 'var(--lufa-token-color-text-tertiary)', fontFamily: 'monospace' }}
+                >
                   {value}
                 </div>
                 <div
@@ -146,7 +154,7 @@ export const EasingTokens: Story = {
                     left: 0,
                     width: activeEasing === key ? '100%' : '0%',
                     height: '4px',
-                    backgroundColor: tokens.color.interactive.focus,
+                    backgroundColor: 'var(--lufa-token-color-interactive-focus)',
                     transition: `width 600ms ${value}`,
                   }}
                 />
@@ -158,9 +166,9 @@ export const EasingTokens: Story = {
         <div
           style={{
             padding: '20px',
-            backgroundColor: tokens.color.background.secondary,
+            backgroundColor: 'var(--lufa-token-color-background-secondary)',
             borderRadius: '8px',
-            border: `1px solid ${tokens.color.border.light}`,
+            border: `1px solid var(--lufa-token-color-border-light)`,
           }}
         >
           <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: '600' }}>Usage Guidelines</h3>
@@ -168,7 +176,7 @@ export const EasingTokens: Story = {
             style={{
               margin: '0',
               paddingLeft: '20px',
-              color: tokens.color.text.tertiary,
+              color: 'var(--lufa-token-color-text-tertiary)',
               fontSize: '14px',
               lineHeight: '1.6',
             }}
@@ -199,7 +207,7 @@ export const MotionPresets: Story = {
     return (
       <div style={{ padding: '20px', maxWidth: '1000px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Motion Presets</h1>
-        <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
+        <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
           Pre-configured motion tokens combining timing, easing, and properties for common UI patterns.
         </p>
 
@@ -209,9 +217,9 @@ export const MotionPresets: Story = {
               key={key}
               style={{
                 padding: '20px',
-                backgroundColor: tokens.color.background.secondary,
+                backgroundColor: 'var(--lufa-token-color-background-secondary)',
                 borderRadius: '8px',
-                border: `1px solid ${tokens.color.border.light}`,
+                border: `1px solid var(--lufa-token-color-border-light)`,
               }}
             >
               <div
@@ -224,10 +232,16 @@ export const MotionPresets: Story = {
               >
                 <div>
                   <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontWeight: '600' }}>{key}</h3>
-                  <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, fontFamily: 'monospace' }}>
+                  <div
+                    style={{
+                      fontSize: '12px',
+                      color: 'var(--lufa-token-color-text-tertiary)',
+                      fontFamily: 'monospace',
+                    }}
+                  >
                     duration: {config.duration} | easing: {config.easing}
                   </div>
-                  <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, marginTop: '4px' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)', marginTop: '4px' }}>
                     properties: {config.properties}
                   </div>
                 </div>
@@ -238,8 +252,8 @@ export const MotionPresets: Story = {
                   }}
                   style={{
                     padding: '8px 16px',
-                    backgroundColor: tokens.color.interactive.focus,
-                    color: tokens.color.text.inverse,
+                    backgroundColor: 'var(--lufa-token-color-interactive-focus)',
+                    color: 'var(--lufa-token-color-text-inverse)',
                     border: 'none',
                     borderRadius: '6px',
                     cursor: 'pointer',
@@ -254,7 +268,7 @@ export const MotionPresets: Story = {
                 style={{
                   width: activeMotion === key ? '100%' : '20%',
                   height: '40px',
-                  backgroundColor: tokens.color.interactive.focus,
+                  backgroundColor: 'var(--lufa-token-color-interactive-focus)',
                   borderRadius: '6px',
                   transition: `all ${config.duration} ${config.easing}`,
                   display: 'flex',
@@ -262,7 +276,7 @@ export const MotionPresets: Story = {
                   justifyContent: 'center',
                 }}
               >
-                <span style={{ color: tokens.color.text.inverse, fontSize: '12px', fontWeight: '600' }}>
+                <span style={{ color: 'var(--lufa-token-color-text-inverse)', fontSize: '12px', fontWeight: '600' }}>
                   {activeMotion === key ? 'Animating!' : 'Demo'}
                 </span>
               </div>

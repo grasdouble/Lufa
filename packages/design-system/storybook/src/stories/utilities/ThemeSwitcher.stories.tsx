@@ -15,23 +15,23 @@ const meta = {
         component: `
 # Theme Switcher
 
-The ThemeSwitcher component demonstrates the power of our semantic design system. By using semantic color tokens like \`bg-interactive-default\`, \`text-text-primary\`, and \`border-border-default\`, all components automatically adapt to different themes without any code changes.
+The ThemeSwitcher component demonstrates the power of our semantic design system. By using semantic color tokens via CSS custom properties (e.g., \`var(--lufa-token-color-text-primary)\`), all components automatically adapt to different themes without any code changes.
 
 ## How It Works
 
-1. **CSS Variables Token**: All semantic tokens are defined as CSS variables in \`token/colors.css\`
-2. **Tailwind Integration**: The \`@theme\` directive maps these variables to Tailwind utilities
-3. **Theme Overrides**: Theme files (ocean.css, forest.css) override the CSS variables for specific \`data-theme\` attributes
-4. **Automatic Adaptation**: Components using semantic utilities automatically pick up the new values
+1. **CSS Variables**: All semantic tokens are defined as CSS custom properties in the tokens package
+2. **Design Tokens**: TypeScript token definitions are built into CSS variables
+3. **Theme Overrides**: Theme files (ocean.css, forest.css) override CSS variables for specific \`data-theme\` attributes
+4. **Automatic Adaptation**: Components using CSS Modules with token-based variables automatically pick up theme values
 
 ## Architecture
 
 \`\`\`
-TypeScript Tokens → CSS Variables → Tailwind @theme → Semantic Utilities
-                                                              ↓
-                                        Components (bg-interactive-default)
-                                                              ↓
-                                        Theme Override (data-theme="ocean")
+TypeScript Tokens → Build Process → CSS Custom Properties
+                                              ↓
+                              Components (CSS Modules with tokens)
+                                              ↓
+                              Theme Override (data-theme="ocean")
 \`\`\`
 
 ## Creating New Themes
@@ -63,9 +63,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   render: () => (
-    <div style={{ padding: '2rem', minHeight: '100vh' }} className="bg-background-primary">
-      <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-        <Typography variant="h2" style={{ marginBottom: '0.5rem' }}>
+    <div style={{ padding: 'var(--spacing-xl)', minHeight: '100vh' }} className="bg-background-primary">
+      <div style={{ marginBottom: 'var(--spacing-xl)', textAlign: 'center' }}>
+        <Typography variant="h2" style={{ marginBottom: 'var(--spacing-xs)' }}>
           Theme Switcher Demo
         </Typography>
         <Typography variant="body" color="secondary">
@@ -74,7 +74,7 @@ export const Interactive: Story = {
       </div>
 
       {/* Theme Switcher - Centered */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'var(--spacing-2xl)' }}>
         <ThemeSwitcher variant="tabs" showLabel />
       </div>
 
@@ -84,15 +84,15 @@ export const Interactive: Story = {
           maxWidth: '1200px',
           margin: '0 auto',
           display: 'grid',
-          gap: '2rem',
+          gap: 'var(--spacing-xl)',
         }}
       >
         {/* Buttons Section */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: '1rem' }}>
+          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
             Buttons
           </Typography>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 'var(--spacing-md)', flexWrap: 'wrap' }}>
             <Button variant="solid" color="primary">
               Primary
             </Button>
@@ -116,10 +116,10 @@ export const Interactive: Story = {
 
         {/* Badges Section */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: '1rem' }}>
+          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
             Badges
           </Typography>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: 'var(--spacing-md)', flexWrap: 'wrap', alignItems: 'center' }}>
             <Badge variant="default">Default</Badge>
             <Badge variant="primary">Primary</Badge>
             <Badge variant="success">Success</Badge>
@@ -131,10 +131,10 @@ export const Interactive: Story = {
 
         {/* Alerts Section */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: '1rem' }}>
+          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
             Alerts
           </Typography>
-          <div style={{ display: 'grid', gap: '1rem' }}>
+          <div style={{ display: 'grid', gap: 'var(--spacing-md)' }}>
             <Alert variant="info" title="Info Alert">
               This is an informational message using semantic colors
             </Alert>
@@ -152,30 +152,30 @@ export const Interactive: Story = {
 
         {/* Cards Section */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: '1rem' }}>
+          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
             Cards
           </Typography>
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-              gap: '1rem',
+              gap: 'var(--spacing-md)',
             }}
           >
             <Card variant="default" padding="medium">
-              <Typography variant="h5" style={{ marginBottom: '0.5rem' }}>
+              <Typography variant="h5" style={{ marginBottom: 'var(--spacing-xs)' }}>
                 Default Card
               </Typography>
               <Typography variant="body">Card content adapts to theme colors</Typography>
             </Card>
             <Card variant="elevated" padding="medium">
-              <Typography variant="h5" style={{ marginBottom: '0.5rem' }}>
+              <Typography variant="h5" style={{ marginBottom: 'var(--spacing-xs)' }}>
                 Elevated Card
               </Typography>
               <Typography variant="body">With shadow styling</Typography>
             </Card>
             <Card variant="outlined" padding="medium">
-              <Typography variant="h5" style={{ marginBottom: '0.5rem' }}>
+              <Typography variant="h5" style={{ marginBottom: 'var(--spacing-xs)' }}>
                 Outlined Card
               </Typography>
               <Typography variant="body">Border-styled card</Typography>
@@ -185,10 +185,10 @@ export const Interactive: Story = {
 
         {/* Input Section */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: '1rem' }}>
+          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
             Input Fields
           </Typography>
-          <div style={{ display: 'grid', gap: '1rem', maxWidth: '500px' }}>
+          <div style={{ display: 'grid', gap: 'var(--spacing-md)', maxWidth: '500px' }}>
             <Input label="Username" placeholder="Enter your username" />
             <Input label="Email" placeholder="your@email.com" variant="outlined" />
             <Input label="Password" type="password" placeholder="••••••••" />
@@ -198,14 +198,14 @@ export const Interactive: Story = {
 
         {/* Color Swatches */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: '1rem' }}>
+          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
             Semantic Color System
           </Typography>
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-              gap: '1rem',
+              gap: 'var(--spacing-md)',
             }}
           >
             <ColorSwatch color="interactive-default" label="Interactive Default" />

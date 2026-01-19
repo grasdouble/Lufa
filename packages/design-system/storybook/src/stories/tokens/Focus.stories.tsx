@@ -18,7 +18,7 @@ export const FocusStyles: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Focus Tokens</h1>
-      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
         Standardized focus indicators for keyboard navigation. WCAG 2.1 requires minimum 2px indicator with 3:1
         contrast.
       </p>
@@ -29,9 +29,9 @@ export const FocusStyles: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: tokens.color.background.secondary,
+              backgroundColor: 'var(--lufa-token-color-background-secondary)',
               borderRadius: '8px',
-              border: `1px solid ${tokens.color.border.light}`,
+              border: `1px solid var(--lufa-token-color-border-light)`,
             }}
           >
             <div style={{ marginBottom: '16px' }}>
@@ -45,7 +45,9 @@ export const FocusStyles: Story = {
               >
                 tokens.focus.{key}
               </div>
-              <div style={{ fontFamily: 'monospace', fontSize: '11px', color: tokens.color.text.tertiary }}>
+              <div
+                style={{ fontFamily: 'monospace', fontSize: '11px', color: 'var(--lufa-token-color-text-tertiary)' }}
+              >
                 width: {value.width} | style: {value.style} | color: {value.color} | offset: {value.offset}
                 {'shadow' in value && value.shadow && ` | shadow: ${value.shadow}`}
               </div>
@@ -54,8 +56,8 @@ export const FocusStyles: Story = {
             <button
               style={{
                 padding: '12px 24px',
-                backgroundColor: tokens.color.interactive.focus,
-                color: tokens.color.text.inverse,
+                backgroundColor: 'var(--lufa-token-color-interactive-focus)',
+                color: 'var(--lufa-token-color-text-inverse)',
                 border: 'none',
                 borderRadius: '6px',
                 fontSize: '14px',
@@ -74,7 +76,7 @@ export const FocusStyles: Story = {
               Tab to focus ({key})
             </button>
 
-            <div style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary }}>
+            <div style={{ marginTop: '12px', fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
               {key === 'default' && 'Standard focus ring for most elements'}
               {key === 'thick' && 'High visibility focus for critical actions'}
               {key === 'inset' && 'Focus ring contained within element bounds'}
@@ -89,15 +91,15 @@ export const FocusStyles: Story = {
         style={{
           marginTop: '32px',
           padding: '16px',
-          backgroundColor: tokens.color.info.light,
-          border: `1px solid ${tokens.color.info.border}`,
+          backgroundColor: 'var(--lufa-token-color-info-light)',
+          border: `1px solid var(--lufa-token-color-info-border)`,
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: 'var(--lufa-token-color-info-text)' }}>
           WCAG 2.1 Focus Requirements
         </div>
-        <ul style={{ margin: 0, paddingLeft: '20px', color: tokens.color.info.text, fontSize: '14px' }}>
+        <ul style={{ margin: 0, paddingLeft: '20px', color: 'var(--lufa-token-color-info-text)', fontSize: '14px' }}>
           <li>Minimum 2px indicator thickness (WCAG 2.4.7 Focus Visible)</li>
           <li>Minimum 3:1 contrast against adjacent colors (WCAG 2.4.11 Focus Appearance, Level AA)</li>
           <li>Focus indicator should be visible around entire element</li>
@@ -115,9 +117,16 @@ export const InteractiveDemo: Story = {
     return (
       <div style={{ padding: '20px', maxWidth: '1400px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Focus Utility Helper</h1>
-        <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
+        <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
           Use{' '}
-          <code style={{ padding: '2px 6px', backgroundColor: tokens.color.background.tertiary, borderRadius: '4px' }}>
+          <code
+            style={{
+              padding: '2px 6px',
+              backgroundColor: 'var(--lufa-token-color-background-tertiary)',
+              borderRadius: '4px',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
             getFocusStyle()
           </code>{' '}
           helper to apply focus styles in CSS-in-JS or styled-components.
@@ -136,9 +145,13 @@ export const InteractiveDemo: Story = {
               key={key}
               style={{
                 padding: '16px',
-                backgroundColor: key === 'inverse' ? tokens.color.background.inverse : tokens.color.surface.default,
-                color: key === 'inverse' ? tokens.color.text.inverse : tokens.color.text.primary,
-                border: `2px solid ${tokens.color.border.light}`,
+                backgroundColor:
+                  key === 'inverse'
+                    ? 'var(--lufa-token-color-background-inverse)'
+                    : 'var(--lufa-token-color-surface-default)',
+                color:
+                  key === 'inverse' ? 'var(--lufa-token-color-text-inverse)' : 'var(--lufa-token-color-text-primary)',
+                border: `2px solid var(--lufa-token-color-border-light)`,
                 borderRadius: '8px',
                 fontSize: '14px',
                 fontWeight: '500',
@@ -149,12 +162,12 @@ export const InteractiveDemo: Story = {
               onBlur={() => setFocusedElement(null)}
               onMouseEnter={(e) => {
                 if (key !== 'inverse') {
-                  e.currentTarget.style.backgroundColor = tokens.color.background.tertiary;
+                  e.currentTarget.style.backgroundColor = 'var(--lufa-token-color-background-tertiary)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (key !== 'inverse') {
-                  e.currentTarget.style.backgroundColor = tokens.color.surface.default;
+                  e.currentTarget.style.backgroundColor = 'var(--lufa-token-color-surface-default)';
                 }
               }}
             >
@@ -167,16 +180,16 @@ export const InteractiveDemo: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: tokens.color.background.secondary,
+              backgroundColor: 'var(--lufa-token-color-background-secondary)',
               borderRadius: '8px',
-              border: `1px solid ${tokens.color.border.light}`,
+              border: `1px solid var(--lufa-token-color-border-light)`,
             }}
           >
             <div
               style={{
                 fontFamily: 'monospace',
                 fontSize: '12px',
-                color: tokens.color.text.tertiary,
+                color: 'var(--lufa-token-color-text-tertiary)',
                 marginBottom: '8px',
               }}
             >
@@ -186,8 +199,8 @@ export const InteractiveDemo: Story = {
               style={{
                 margin: 0,
                 padding: '12px',
-                backgroundColor: tokens.color.background.inverse,
-                color: tokens.color.success.default,
+                backgroundColor: 'var(--lufa-token-color-background-inverse)',
+                color: 'var(--lufa-token-color-success-default)',
                 borderRadius: '6px',
                 fontSize: '12px',
                 overflow: 'auto',
@@ -198,7 +211,7 @@ export const InteractiveDemo: Story = {
           </div>
         )}
 
-        <div style={{ marginTop: '24px', fontSize: '14px', color: tokens.color.text.tertiary }}>
+        <div style={{ marginTop: '24px', fontSize: '14px', color: 'var(--lufa-token-color-text-tertiary)' }}>
           💡 <strong>Tip:</strong> Tab through the buttons above to see each focus style in action. The code snippet
           updates to show how to use the getFocusStyle() helper.
         </div>

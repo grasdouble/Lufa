@@ -391,3 +391,285 @@ export const GroupSizes: Story = {
     </div>
   ),
 };
+
+/**
+ * Comprehensive showcase of all Avatar variants.
+ * Perfect for visual regression testing and documentation screenshots.
+ * Use the Storybook toolbar to switch between light/dark modes.
+ */
+export const AllVariants: Story = {
+  render: () => <AvatarShowcase />,
+  parameters: {
+    layout: 'fullscreen',
+    backgrounds: { disable: true },
+  },
+};
+
+/**
+ * Helper component that renders all Avatar variants.
+ * Deduplicates the rendering logic and uses design tokens for theming.
+ */
+function AvatarShowcase() {
+  return (
+    <div
+      style={{
+        padding: tokens.spacing['2xl'],
+        background: tokens.color.background.primary,
+        minHeight: '100vh',
+        minWidth: '1200px',
+      }}
+    >
+      {/* Header */}
+      <div style={{ marginBottom: tokens.spacing.xl }}>
+        <h1
+          style={{
+            fontSize: tokens.fontSize['2xl'],
+            fontWeight: tokens.fontWeight.bold,
+            color: tokens.color.text.primary,
+            marginBottom: tokens.spacing.sm,
+          }}
+        >
+          Avatar Component - All Variants
+        </h1>
+        <p style={{ fontSize: tokens.fontSize.base, color: tokens.color.text.secondary }}>
+          Comprehensive showcase of all sizes, shapes, status indicators, and group configurations. Use the Storybook
+          toolbar to switch between light/dark modes.
+        </p>
+      </div>
+
+      {/* Sizes Section */}
+      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+        <h2
+          style={{
+            fontSize: tokens.fontSize.xl,
+            fontWeight: tokens.fontWeight.semibold,
+            color: tokens.color.text.primary,
+            marginBottom: tokens.spacing.base,
+            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            paddingBottom: tokens.spacing.sm,
+          }}
+        >
+          1. Sizes (xs, sm, md, lg, xl)
+        </h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.lg }}>
+          {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
+            <div key={size} style={{ textAlign: 'center' }}>
+              <Avatar src={sampleImage} size={size} alt={`${size} avatar`} />
+              <p
+                style={{
+                  marginTop: tokens.spacing.xs,
+                  fontSize: tokens.fontSize.xs,
+                  color: tokens.color.text.tertiary,
+                }}
+              >
+                {size}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Shape Variants Section */}
+      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+        <h2
+          style={{
+            fontSize: tokens.fontSize.xl,
+            fontWeight: tokens.fontWeight.semibold,
+            color: tokens.color.text.primary,
+            marginBottom: tokens.spacing.base,
+            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            paddingBottom: tokens.spacing.sm,
+          }}
+        >
+          2. Shape Variants (Circle, Square)
+        </h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.xl }}>
+          {(['circle', 'square'] as const).map((variant) => (
+            <div key={variant} style={{ textAlign: 'center' }}>
+              <Avatar src={sampleImage} variant={variant} size="lg" />
+              <p
+                style={{
+                  marginTop: tokens.spacing.sm,
+                  fontSize: tokens.fontSize.sm,
+                  color: tokens.color.text.tertiary,
+                }}
+              >
+                {variant.charAt(0).toUpperCase() + variant.slice(1)}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Status Indicators Section */}
+      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+        <h2
+          style={{
+            fontSize: tokens.fontSize.xl,
+            fontWeight: tokens.fontWeight.semibold,
+            color: tokens.color.text.primary,
+            marginBottom: tokens.spacing.base,
+            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            paddingBottom: tokens.spacing.sm,
+          }}
+        >
+          3. Status Indicators (Online, Away, Busy, Offline)
+        </h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.lg }}>
+          {(['online', 'away', 'busy', 'offline'] as const).map((status) => (
+            <div key={status} style={{ textAlign: 'center' }}>
+              <Avatar src={sampleImage} size="lg" status={status} />
+              <p
+                style={{
+                  marginTop: tokens.spacing.sm,
+                  fontSize: tokens.fontSize.sm,
+                  color: tokens.color.text.tertiary,
+                }}
+              >
+                {status.charAt(0).toUpperCase() + status.slice(1)}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Status Positions Section */}
+      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+        <h2
+          style={{
+            fontSize: tokens.fontSize.xl,
+            fontWeight: tokens.fontWeight.semibold,
+            color: tokens.color.text.primary,
+            marginBottom: tokens.spacing.base,
+            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            paddingBottom: tokens.spacing.sm,
+          }}
+        >
+          4. Status Positions (Top, Bottom × Circle, Square)
+        </h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.lg }}>
+          {[
+            { position: 'top', variant: 'circle', label: 'Top (Circle)' },
+            { position: 'bottom', variant: 'circle', label: 'Bottom (Circle)' },
+            { position: 'top', variant: 'square', label: 'Top (Square)' },
+            { position: 'bottom', variant: 'square', label: 'Bottom (Square)' },
+          ].map(({ position, variant, label }) => (
+            <div key={label} style={{ textAlign: 'center' }}>
+              <Avatar
+                src={sampleImage}
+                size="lg"
+                status="online"
+                statusPosition={position as 'top' | 'bottom'}
+                variant={variant as 'circle' | 'square'}
+              />
+              <p
+                style={{
+                  marginTop: tokens.spacing.sm,
+                  fontSize: tokens.fontSize.xs,
+                  color: tokens.color.text.tertiary,
+                }}
+              >
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Count Variant Section */}
+      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+        <h2
+          style={{
+            fontSize: tokens.fontSize.xl,
+            fontWeight: tokens.fontWeight.semibold,
+            color: tokens.color.text.primary,
+            marginBottom: tokens.spacing.base,
+            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            paddingBottom: tokens.spacing.sm,
+          }}
+        >
+          5. Count Variant (All Sizes)
+        </h2>
+        <div style={{ display: 'flex', gap: tokens.spacing.lg, alignItems: 'center' }}>
+          {[
+            { size: 'xs', count: '+5' },
+            { size: 'sm', count: '+10' },
+            { size: 'md', count: '+25' },
+            { size: 'lg', count: '+99' },
+            { size: 'xl', count: '5K' },
+          ].map(({ size, count }) => (
+            <div key={size} style={{ textAlign: 'center' }}>
+              <Avatar variant="count" count={count} size={size as 'xs' | 'sm' | 'md' | 'lg' | 'xl'} />
+              <p
+                style={{
+                  marginTop: tokens.spacing.sm,
+                  fontSize: tokens.fontSize.xs,
+                  color: tokens.color.text.tertiary,
+                }}
+              >
+                {size}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Avatar Groups Section */}
+      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+        <h2
+          style={{
+            fontSize: tokens.fontSize.xl,
+            fontWeight: tokens.fontWeight.semibold,
+            color: tokens.color.text.primary,
+            marginBottom: tokens.spacing.base,
+            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            paddingBottom: tokens.spacing.sm,
+          }}
+        >
+          6. Avatar Groups
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
+          <div>
+            <p
+              style={{
+                marginBottom: tokens.spacing.sm,
+                fontSize: tokens.fontSize.sm,
+                color: tokens.color.text.secondary,
+              }}
+            >
+              Basic Group (4 avatars with status):
+            </p>
+            <AvatarGroup size="md">
+              <Avatar src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc" status="online" />
+              <Avatar src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" status="away" />
+              <Avatar src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" status="busy" />
+              <Avatar src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" />
+            </AvatarGroup>
+          </div>
+          <div>
+            <p
+              style={{
+                marginBottom: tokens.spacing.sm,
+                fontSize: tokens.fontSize.sm,
+                color: tokens.color.text.secondary,
+              }}
+            >
+              Group with Count (max=3, shows +6 more):
+            </p>
+            <AvatarGroup size="md" max={3}>
+              <Avatar src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc" status="online" />
+              <Avatar src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" status="away" />
+              <Avatar src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" status="busy" />
+              <Avatar src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" />
+              <Avatar src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80" />
+              <Avatar src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e" />
+              <Avatar src="https://images.unsplash.com/photo-1554151228-14d9def656e4" />
+              <Avatar src="https://images.unsplash.com/photo-1517841905240-472988babdf9" />
+              <Avatar src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6" />
+            </AvatarGroup>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

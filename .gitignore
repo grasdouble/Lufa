@@ -8,6 +8,7 @@ Thumbs.db
 node_modules
 .pnp
 .pnp.js
+.pnpm-store
 
 # testing
 coverage
@@ -50,3 +51,6 @@ dist
 # Temporary files
 *.tmp
 .eslintcache
+
+# Playwright cache (build artifacts)
+.cache

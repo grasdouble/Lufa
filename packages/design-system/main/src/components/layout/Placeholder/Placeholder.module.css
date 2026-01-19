@@ -1,18 +1,24 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .placeholder {
     /* Modern base styles */
-    @apply flex items-center justify-center;
-    @apply rounded-lg;
-    @apply px-4;
-    @apply text-sm font-medium text-white;
-    @apply duration-base transition-all;
-    @apply shadow-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--lufa-token-radius-lg);
+    padding-left: var(--lufa-token-spacing-base); /* 16px */
+    padding-right: var(--lufa-token-spacing-base);
+    font-size: var(--lufa-token-font-size-sm);
+    font-weight: var(--lufa-token-font-weight-medium);
+    color: var(--lufa-token-color-text-inverse); /* Default to light text */
+    transition: var(--lufa-token-transition-base);
+    box-shadow: var(--lufa-token-shadow-sm);
 
     /* Default background with gradient */
-    @apply bg-linear-to-br from-violet-400 to-violet-600;
-    /* @apply hover:from-violet-600 hover:to-violet-700; */
+    background-image: linear-gradient(
+      to bottom right,
+      var(--lufa-primitive-color-chromatic-violet-400),
+      var(--lufa-primitive-color-chromatic-violet-600)
+    );
 
     /* Hover effect for custom colors using filter */
     &:hover {
@@ -20,45 +26,73 @@
     }
   }
 
+  /* Text color variants for contrast */
+  .textLight {
+    color: var(--lufa-token-color-text-inverse); /* White text for dark backgrounds */
+  }
+
+  .textDark {
+    color: var(--lufa-token-color-text-primary); /* Dark text for light backgrounds */
+  }
+
+  /* Dark mode adaptations - invert light backgrounds */
+  :where([data-mode='dark']) .placeholder.textDark,
+  :where([data-theme='dark']) .placeholder.textDark {
+    /* If text is dark (meaning bg was light), invert the background */
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :where(:root:not([data-mode='light'])) .placeholder.textDark,
+    :where([data-mode='auto']) .placeholder.textDark {
+      /* If text is dark (meaning bg was light), invert the background */
+      filter: invert(1) hue-rotate(180deg);
+    }
+  }
+
   /* Height variants */
   .heightSmall {
-    @apply h-10 min-h-10; /* 40px */
+    height: var(--lufa-token-spacing-xl-2xl); /* 40px */
+    min-height: var(--lufa-token-spacing-xl-2xl);
   }
 
   .heightMedium {
-    @apply h-20 min-h-20; /* 80px */
+    height: var(--lufa-token-spacing-3xl-4xl); /* 80px */
+    min-height: var(--lufa-token-spacing-3xl-4xl);
   }
 
   .heightLarge {
-    @apply h-32 min-h-32; /* 128px */
+    height: var(--lufa-token-spacing-5xl); /* 128px */
+    min-height: var(--lufa-token-spacing-5xl);
   }
 
   .heightAuto {
-    @apply h-auto min-h-10;
+    height: auto;
+    min-height: var(--lufa-token-spacing-xl-2xl);
   }
 
   .heightFull {
-    @apply h-full;
+    height: 100%;
   }
 
   /* Width variants */
   .widthAuto {
-    @apply min-w-24;
+    min-width: var(--lufa-token-spacing-4xl); /* 96px */
   }
 
   .widthSmall {
-    @apply w-32; /* 128px */
+    width: var(--lufa-token-spacing-5xl); /* 128px */
   }
 
   .widthMedium {
-    @apply w-60; /* 240px */
+    width: 240px; /* No exact token match */
   }
 
   .widthLarge {
-    @apply w-96; /* 384px */
+    width: 384px; /* No exact token match */
   }
 
   .widthFull {
-    @apply w-full;
+    width: 100%;
   }
 }

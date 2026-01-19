@@ -75,6 +75,7 @@
 
 - 6af7149: reorganize design-system splitting prmitive, tokens and the design system
 - dba64f6: Add token, implement tailwind theme, update and add components
+  _Note: Tailwind was later replaced with vanilla CSS tokens in January 2026_
 - 6c4eb34: Add colors and improve placeholder component
 - 1d9de21: Add divider component
 

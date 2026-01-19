@@ -7,4 +7,4 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 # Temporary disabled
-/__snapshots__/
+# /__snapshots__/

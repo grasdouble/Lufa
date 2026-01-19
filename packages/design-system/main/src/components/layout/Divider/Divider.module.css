@@ -1,60 +1,79 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .divider {
-    @apply text-text-secondary;
+    color: var(--lufa-token-color-text-secondary);
   }
 
   .horizontal {
-    @apply gap-md flex w-full items-center;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: var(--lufa-token-spacing-md);
   }
 
   .vertical {
-    @apply min-h-lg flex h-1 flex-col items-center justify-center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 1px;
+    min-height: var(--lufa-token-spacing-lg);
   }
 
   .line {
-    @apply border-border-light;
+    border-color: var(--lufa-token-color-border-light);
   }
 
   .lineHorizontal {
-    @apply flex-1 border-t;
+    flex: 1;
+    border-top-width: 1px;
+    border-top-style: solid;
   }
 
   .lineVertical {
-    @apply h-full border-l;
+    height: 100%;
+    border-left-width: 1px;
+    border-left-style: solid;
   }
 
   .variantSolid {
-    @apply border-solid;
+    border-style: solid;
   }
 
   .variantDashed {
-    @apply border-dashed;
+    border-style: dashed;
   }
 
   .label {
-    @apply px-sm text-text-secondary text-sm font-medium whitespace-nowrap;
+    padding-left: var(--lufa-token-spacing-sm);
+    padding-right: var(--lufa-token-spacing-sm);
+    color: var(--lufa-token-color-text-secondary);
+    font-size: var(--lufa-token-font-size-sm);
+    font-weight: var(--lufa-token-font-weight-medium);
+    white-space: nowrap;
   }
 
   .spacingNone {
-    @apply my-none;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .spacingSm {
-    @apply my-sm;
+    margin-top: var(--lufa-token-spacing-sm);
+    margin-bottom: var(--lufa-token-spacing-sm);
   }
 
   .spacingMd {
-    @apply my-md;
+    margin-top: var(--lufa-token-spacing-md);
+    margin-bottom: var(--lufa-token-spacing-md);
   }
 
   .spacingLg {
-    @apply my-lg;
+    margin-top: var(--lufa-token-spacing-lg);
+    margin-bottom: var(--lufa-token-spacing-lg);
   }
 
   .horizontal.alignCenter .lineHorizontal {
-    @apply flex-1;
+    flex: 1;
   }
 
   .horizontal.alignStart .lineHorizontal:first-of-type {

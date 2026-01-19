@@ -1,97 +1,271 @@
-@reference '../../../tailwind.css';
+/* Container */
+.container {
+  display: inline-flex;
+  flex-direction: column;
+}
 
-@layer components {
-  .container {
-    @apply inline-flex flex-col;
+.fullWidth {
+  width: 100%;
+}
+
+/* Label */
+.label {
+  color: var(--lufa-token-color-text-primary);
+  margin-block-end: var(--lufa-token-spacing-xs);
+  display: block;
+  font-size: var(--lufa-token-font-size-sm);
+  font-weight: var(--lufa-token-font-weight-medium);
+  line-height: var(--lufa-token-line-height-snug);
+  transition: color var(--lufa-token-duration-fast);
+}
+
+.required {
+  color: var(--lufa-token-color-error-default);
+  margin-inline-start: var(--lufa-token-spacing-xs);
+}
+
+/* Input Wrapper */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Base Input */
+.input {
+  /* Reset input styles */
+  font-family: inherit;
+  line-height: inherit;
+  margin: 0;
+
+  /* Base styles */
+  width: 100%;
+  transition-property: border-color, background-color, box-shadow, transform;
+  transition-duration: var(--lufa-token-duration-base);
+  transition-timing-function: ease;
+  border-radius: var(--lufa-token-radius-md);
+  color: var(--lufa-token-color-text-primary);
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  background-color: transparent;
+
+  /* Modern enhancements */
+  &::placeholder {
+    color: var(--lufa-token-color-text-tertiary);
+    transition: color var(--lufa-token-duration-fast);
   }
 
-  .fullWidth {
-    @apply w-full;
+  /* Focus state with modern focus ring */
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--lufa-token-color-interactive-focus);
+    transform: translateY(-1px);
   }
 
-  .label {
-    @apply text-text-primary mb-1 block text-sm font-medium;
+  /* Hover state for placeholder */
+  &:hover::placeholder {
+    color: var(--lufa-token-color-text-secondary);
+  }
+}
+
+/* Sizes */
+.sizeSmall {
+  padding-inline: var(--lufa-token-spacing-sm);
+  padding-block: var(--lufa-token-spacing-xs);
+  font-size: var(--lufa-token-font-size-sm);
+  line-height: var(--lufa-token-line-height-tight);
+  height: var(--lufa-token-size-md);
+}
+
+.sizeMedium {
+  padding-inline: var(--lufa-token-spacing-base);
+  padding-block: var(--lufa-token-spacing-sm);
+  font-size: var(--lufa-token-font-size-base);
+  line-height: var(--lufa-token-line-height-base);
+  height: var(--lufa-token-size-touch-target);
+}
+
+.sizeLarge {
+  padding-inline: var(--lufa-token-spacing-lg);
+  padding-block: var(--lufa-token-spacing-md);
+  font-size: var(--lufa-token-font-size-lg);
+  line-height: var(--lufa-token-line-height-relaxed);
+  height: var(--lufa-token-size-lg);
+}
+
+/* Variants */
+.variantOutlined {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--lufa-token-color-border-default);
+  background-color: var(--lufa-token-color-background-primary);
+  box-shadow: var(--lufa-token-shadow-sm);
+
+  /* Hover state with subtle lift */
+  &:hover:not(:disabled) {
+    border-color: var(--lufa-token-color-border-medium);
+    box-shadow: var(--lufa-token-shadow-base);
   }
 
-  .required {
-    @apply text-error-default ml-1;
+  /* Focus state with enhanced shadow */
+  &:focus {
+    border-color: var(--lufa-token-color-interactive-default);
+    box-shadow:
+      var(--lufa-token-shadow-base),
+      0 0 0 3px var(--lufa-token-color-interactive-focus);
+  }
+}
+
+/* Filled variant */
+.variantFilled {
+  background-color: var(--lufa-token-color-background-secondary);
+  border: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+
+  /* Hover state */
+  &:hover:not(:disabled) {
+    background-color: var(--lufa-token-color-background-tertiary);
   }
 
-  .inputWrapper {
-    @apply relative flex items-center;
+  /* Focus state */
+  &:focus {
+    background-color: var(--lufa-token-color-background-primary);
+    border-color: var(--lufa-token-color-interactive-default);
+  }
+}
+
+/* States */
+.error {
+  border-color: var(--lufa-token-color-error-border);
+  animation: shake 0.3s ease-in-out;
+
+  /* Error focus state */
+  &:focus {
+    box-shadow:
+      var(--lufa-token-shadow-base),
+      0 0 0 3px var(--lufa-token-color-error-default);
+    border-color: var(--lufa-token-color-error-border);
   }
 
-  .input {
-    @apply reset-input;
-    @apply w-full;
-    @apply duration-base transition-all;
-    @apply rounded-md;
-    @apply text-text-primary placeholder:text-text-tertiary;
-    @apply focus:ring-interactive-focus focus:ring-2 focus:ring-offset-0 focus:outline-none;
+  /* Error hover state */
+  &:hover:not(:disabled) {
+    border-color: var(--lufa-token-color-error-default);
+  }
+}
+
+.disabled {
+  background-color: var(--lufa-token-color-background-secondary);
+  color: var(--lufa-token-color-text-disabled);
+  cursor: var(--lufa-token-cursor-not-allowed);
+  opacity: 0.6;
+  box-shadow: none;
+  transform: none;
+
+  /* Override hover states */
+  &:hover {
+    border-color: var(--lufa-token-color-border-default);
+    box-shadow: none;
+    transform: none;
   }
 
-  /* Sizes */
-  .sizeSmall {
-    @apply px-sm text-sm;
-    height: var(--lufa-token-height-input-sm);
+  /* Override focus states */
+  &:focus {
+    box-shadow: none;
+    transform: none;
   }
+}
 
-  .sizeMedium {
-    @apply px-base text-base;
-    height: var(--lufa-token-height-input);
+/* Adornments */
+.hasStartAdornment {
+  padding-inline-start: var(--lufa-token-spacing-xl-2xl);
+}
+
+.hasEndAdornment {
+  padding-inline-end: var(--lufa-token-spacing-xl-2xl);
+}
+
+.startAdornment {
+  color: var(--lufa-token-color-text-tertiary);
+  position: absolute;
+  inset-inline-start: var(--lufa-token-spacing-md);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  transition: color var(--lufa-token-duration-fast);
+}
+
+.endAdornment {
+  color: var(--lufa-token-color-text-tertiary);
+  position: absolute;
+  inset-inline-end: var(--lufa-token-spacing-md);
+  display: flex;
+  align-items: center;
+  transition: color var(--lufa-token-duration-fast);
+}
+
+/* Adornment color change on focus using :has() */
+.inputWrapper:has(.input:focus) .startAdornment,
+.inputWrapper:has(.input:focus) .endAdornment {
+  color: var(--lufa-token-color-text-secondary);
+}
+
+/* Helper/Error text */
+.helperText {
+  color: var(--lufa-token-color-text-secondary);
+  margin-block-start: var(--lufa-token-spacing-xs);
+  font-size: var(--lufa-token-font-size-sm);
+  line-height: var(--lufa-token-line-height-tight);
+  animation: fadeIn 0.2s ease-in;
+}
+
+.errorText {
+  color: var(--lufa-token-color-error-text);
+  margin-block-start: var(--lufa-token-spacing-xs);
+  font-size: var(--lufa-token-font-size-sm);
+  line-height: var(--lufa-token-line-height-tight);
+  animation: slideIn 0.2s ease-out;
+}
+
+/* Animations */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
   }
-
-  .sizeLarge {
-    @apply px-lg text-lg;
-    height: var(--lufa-token-height-input-lg);
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
   }
-
-  /* Variants */
-  .variantOutlined {
-    @apply border-border-default bg-background-primary border;
-    @apply hover:border-border-medium;
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
   }
+}
 
-  .variantFilled {
-    @apply bg-background-secondary border-none;
-    @apply hover:bg-background-tertiary;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-
-  /* States */
-  .error {
-    @apply border-error-border;
-    @apply focus:ring-error-default;
+  to {
+    opacity: 1;
   }
+}
 
-  .disabled {
-    @apply bg-background-secondary text-text-disabled;
-    cursor: var(--lufa-token-cursor-not-allowed);
-    @apply hover:border-border-default;
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
   }
-
-  /* Adornments */
-  .hasStartAdornment {
-    @apply pl-10;
-  }
-
-  .hasEndAdornment {
-    @apply pr-10;
-  }
-
-  .startAdornment {
-    @apply text-text-tertiary absolute left-3 flex items-center;
-  }
-
-  .endAdornment {
-    @apply text-text-tertiary absolute right-3 flex items-center;
-  }
-
-  /* Helper/Error text */
-  .helperText {
-    @apply text-text-secondary mt-1 text-sm;
-  }
-
-  .errorText {
-    @apply text-error-text mt-1 text-sm;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -8,7 +8,6 @@ import {
   meetsWCAG,
   WCAG_STANDARDS,
 } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '8. Utilities/Accessibility',
@@ -36,7 +35,7 @@ export const ContrastChecker: Story = {
     return (
       <div style={{ padding: '20px', maxWidth: '800px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Contrast Ratio Checker</h1>
-        <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary }}>
+        <p style={{ marginBottom: '32px', color: 'var(--color-text-tertiary)' }}>
           Check if your color combinations meet WCAG 2.1 accessibility standards.
         </p>
 
@@ -56,7 +55,7 @@ export const ContrastChecker: Story = {
                 onChange={(e) => setForeground(e.target.value)}
                 style={{
                   padding: '8px 12px',
-                  border: `1px solid ${tokens.color.border.default}`,
+                  border: '1px solid var(--color-border-default)',
                   borderRadius: '6px',
                   fontFamily: 'monospace',
                   width: '120px',
@@ -80,7 +79,7 @@ export const ContrastChecker: Story = {
                 onChange={(e) => setBackground(e.target.value)}
                 style={{
                   padding: '8px 12px',
-                  border: `1px solid ${tokens.color.border.default}`,
+                  border: '1px solid var(--color-border-default)',
                   borderRadius: '6px',
                   fontFamily: 'monospace',
                   width: '120px',
@@ -95,7 +94,7 @@ export const ContrastChecker: Story = {
             backgroundColor: background,
             padding: '40px',
             borderRadius: '12px',
-            border: `1px solid ${tokens.color.border.light}`,
+            border: '1px solid var(--color-border-light)',
             marginBottom: '32px',
           }}
         >
@@ -111,7 +110,7 @@ export const ContrastChecker: Story = {
         <div
           style={{
             padding: '24px',
-            backgroundColor: tokens.color.background.tertiary,
+            backgroundColor: 'var(--color-background-tertiary)',
             borderRadius: '12px',
             marginBottom: '24px',
           }}
@@ -122,23 +121,23 @@ export const ContrastChecker: Story = {
             <div
               style={{
                 padding: '16px',
-                backgroundColor: tokens.color.surface.default,
+                backgroundColor: 'var(--color-surface-default)',
                 borderRadius: '8px',
               }}
             >
               <div style={{ fontSize: '32px', fontWeight: '700', marginBottom: '4px' }}>{ratio.toFixed(2)}:1</div>
-              <div style={{ color: tokens.color.text.tertiary, fontSize: '14px' }}>Contrast Ratio</div>
+              <div style={{ color: 'var(--color-text-tertiary)', fontSize: '14px' }}>Contrast Ratio</div>
             </div>
 
             <div
               style={{
                 padding: '16px',
-                backgroundColor: tokens.color.surface.default,
+                backgroundColor: 'var(--color-surface-default)',
                 borderRadius: '8px',
               }}
             >
               <div style={{ fontSize: '24px', fontWeight: '700', marginBottom: '4px' }}>{level}</div>
-              <div style={{ color: tokens.color.text.tertiary, fontSize: '14px' }}>Level</div>
+              <div style={{ color: 'var(--color-text-tertiary)', fontSize: '14px' }}>Level</div>
             </div>
           </div>
 
@@ -148,7 +147,7 @@ export const ContrastChecker: Story = {
                 display: 'flex',
                 justifyContent: 'space-between',
                 padding: '12px',
-                backgroundColor: tokens.color.surface.default,
+                backgroundColor: 'var(--color-surface-default)',
                 borderRadius: '6px',
               }}
             >
@@ -156,7 +155,7 @@ export const ContrastChecker: Story = {
               <span
                 style={{
                   fontWeight: '600',
-                  color: meetsAA ? tokens.color.success.default : tokens.color.error.default,
+                  color: meetsAA ? 'var(--color-success-default)' : 'var(--color-error-default)',
                 }}
               >
                 {meetsAA ? '✓ Pass' : '✗ Fail'}
@@ -168,7 +167,7 @@ export const ContrastChecker: Story = {
                 display: 'flex',
                 justifyContent: 'space-between',
                 padding: '12px',
-                backgroundColor: tokens.color.surface.default,
+                backgroundColor: 'var(--color-surface-default)',
                 borderRadius: '6px',
               }}
             >
@@ -176,7 +175,7 @@ export const ContrastChecker: Story = {
               <span
                 style={{
                   fontWeight: '600',
-                  color: meetsAAA ? tokens.color.success.default : tokens.color.error.default,
+                  color: meetsAAA ? 'var(--color-success-default)' : 'var(--color-error-default)',
                 }}
               >
                 {meetsAAA ? '✓ Pass' : '✗ Fail'}
@@ -188,7 +187,7 @@ export const ContrastChecker: Story = {
                 display: 'flex',
                 justifyContent: 'space-between',
                 padding: '12px',
-                backgroundColor: tokens.color.surface.default,
+                backgroundColor: 'var(--color-surface-default)',
                 borderRadius: '6px',
               }}
             >
@@ -196,7 +195,7 @@ export const ContrastChecker: Story = {
               <span
                 style={{
                   fontWeight: '600',
-                  color: meetsAALarge ? tokens.color.success.default : tokens.color.error.default,
+                  color: meetsAALarge ? 'var(--color-success-default)' : 'var(--color-error-default)',
                 }}
               >
                 {meetsAALarge ? '✓ Pass' : '✗ Fail'}
@@ -208,7 +207,7 @@ export const ContrastChecker: Story = {
                 display: 'flex',
                 justifyContent: 'space-between',
                 padding: '12px',
-                backgroundColor: tokens.color.surface.default,
+                backgroundColor: 'var(--color-surface-default)',
                 borderRadius: '6px',
               }}
             >
@@ -216,7 +215,7 @@ export const ContrastChecker: Story = {
               <span
                 style={{
                   fontWeight: '600',
-                  color: meetsAAALarge ? tokens.color.success.default : tokens.color.error.default,
+                  color: meetsAAALarge ? 'var(--color-success-default)' : 'var(--color-error-default)',
                 }}
               >
                 {meetsAAALarge ? '✓ Pass' : '✗ Fail'}
@@ -228,9 +227,9 @@ export const ContrastChecker: Story = {
         <div
           style={{
             padding: '16px',
-            backgroundColor: tokens.color.info.light,
+            backgroundColor: 'var(--color-info-light)',
             borderRadius: '8px',
-            borderLeft: `4px solid ${tokens.color.info.border}`,
+            borderLeft: '4px solid var(--color-info-border)',
           }}
         >
           <strong>Tip:</strong> Large text is defined as 18pt (24px) or larger, or 14pt (18.66px) or larger when bold.
@@ -244,14 +243,14 @@ export const WCAGStandards: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '800px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>WCAG 2.1 Standards</h1>
-      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary }}>
+      <p style={{ marginBottom: '32px', color: 'var(--color-text-tertiary)' }}>
         Understanding the contrast ratio requirements for different compliance levels.
       </p>
 
       <div
         style={{
           padding: '24px',
-          backgroundColor: tokens.color.background.tertiary,
+          backgroundColor: 'var(--color-background-tertiary)',
           borderRadius: '12px',
           marginBottom: '24px',
         }}
@@ -263,15 +262,17 @@ export const WCAGStandards: Story = {
               display: 'flex',
               justifyContent: 'space-between',
               padding: '16px',
-              backgroundColor: tokens.color.surface.default,
+              backgroundColor: 'var(--color-surface-default)',
               borderRadius: '8px',
             }}
           >
             <div>
               <div style={{ fontWeight: '600', marginBottom: '4px' }}>Normal Text</div>
-              <div style={{ fontSize: '14px', color: tokens.color.text.tertiary }}>14pt or smaller (under 18.66px)</div>
+              <div style={{ fontSize: '14px', color: 'var(--color-text-tertiary)' }}>
+                14pt or smaller (under 18.66px)
+              </div>
             </div>
-            <div style={{ fontSize: '24px', fontWeight: '700', color: tokens.color.interactive.default }}>
+            <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--color-interactive-default)' }}>
               {WCAG_STANDARDS.AA.normalText}:1
             </div>
           </div>
@@ -281,17 +282,17 @@ export const WCAGStandards: Story = {
               display: 'flex',
               justifyContent: 'space-between',
               padding: '16px',
-              backgroundColor: tokens.color.surface.default,
+              backgroundColor: 'var(--color-surface-default)',
               borderRadius: '8px',
             }}
           >
             <div>
               <div style={{ fontWeight: '600', marginBottom: '4px' }}>Large Text</div>
-              <div style={{ fontSize: '14px', color: tokens.color.text.tertiary }}>
+              <div style={{ fontSize: '14px', color: 'var(--color-text-tertiary)' }}>
                 18pt+ (24px+) or 14pt+ bold (18.66px+)
               </div>
             </div>
-            <div style={{ fontSize: '24px', fontWeight: '700', color: tokens.color.interactive.default }}>
+            <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--color-interactive-default)' }}>
               {WCAG_STANDARDS.AA.largeText}:1
             </div>
           </div>
@@ -301,15 +302,17 @@ export const WCAGStandards: Story = {
               display: 'flex',
               justifyContent: 'space-between',
               padding: '16px',
-              backgroundColor: tokens.color.surface.default,
+              backgroundColor: 'var(--color-surface-default)',
               borderRadius: '8px',
             }}
           >
             <div>
               <div style={{ fontWeight: '600', marginBottom: '4px' }}>UI Components</div>
-              <div style={{ fontSize: '14px', color: tokens.color.text.tertiary }}>Graphical objects and controls</div>
+              <div style={{ fontSize: '14px', color: 'var(--color-text-tertiary)' }}>
+                Graphical objects and controls
+              </div>
             </div>
-            <div style={{ fontSize: '24px', fontWeight: '700', color: tokens.color.interactive.default }}>
+            <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--color-interactive-default)' }}>
               {WCAG_STANDARDS.AA.uiComponents}:1
             </div>
           </div>
@@ -319,7 +322,7 @@ export const WCAGStandards: Story = {
       <div
         style={{
           padding: '24px',
-          backgroundColor: tokens.color.success.light,
+          backgroundColor: 'var(--color-success-light)',
           borderRadius: '12px',
           marginBottom: '24px',
         }}
@@ -331,15 +334,17 @@ export const WCAGStandards: Story = {
               display: 'flex',
               justifyContent: 'space-between',
               padding: '16px',
-              backgroundColor: tokens.color.surface.default,
+              backgroundColor: 'var(--color-surface-default)',
               borderRadius: '8px',
             }}
           >
             <div>
               <div style={{ fontWeight: '600', marginBottom: '4px' }}>Normal Text</div>
-              <div style={{ fontSize: '14px', color: tokens.color.text.tertiary }}>14pt or smaller (under 18.66px)</div>
+              <div style={{ fontSize: '14px', color: 'var(--color-text-tertiary)' }}>
+                14pt or smaller (under 18.66px)
+              </div>
             </div>
-            <div style={{ fontSize: '24px', fontWeight: '700', color: tokens.color.success.default }}>
+            <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--color-success-default)' }}>
               {WCAG_STANDARDS.AAA.normalText}:1
             </div>
           </div>
@@ -349,17 +354,17 @@ export const WCAGStandards: Story = {
               display: 'flex',
               justifyContent: 'space-between',
               padding: '16px',
-              backgroundColor: tokens.color.surface.default,
+              backgroundColor: 'var(--color-surface-default)',
               borderRadius: '8px',
             }}
           >
             <div>
               <div style={{ fontWeight: '600', marginBottom: '4px' }}>Large Text</div>
-              <div style={{ fontSize: '14px', color: tokens.color.text.tertiary }}>
+              <div style={{ fontSize: '14px', color: 'var(--color-text-tertiary)' }}>
                 18pt+ (24px+) or 14pt+ bold (18.66px+)
               </div>
             </div>
-            <div style={{ fontSize: '24px', fontWeight: '700', color: tokens.color.success.default }}>
+            <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--color-success-default)' }}>
               {WCAG_STANDARDS.AAA.largeText}:1
             </div>
           </div>
@@ -369,9 +374,9 @@ export const WCAGStandards: Story = {
       <div
         style={{
           padding: '16px',
-          backgroundColor: tokens.color.info.light,
+          backgroundColor: 'var(--color-info-light)',
           borderRadius: '8px',
-          borderLeft: `4px solid ${tokens.color.info.border}`,
+          borderLeft: '4px solid var(--color-info-border)',
         }}
       >
         <strong>Note:</strong> The Lufa Design System aims for AAA compliance wherever possible. All semantic color
@@ -390,7 +395,7 @@ export const TextColorSuggestion: Story = {
     return (
       <div style={{ padding: '20px', maxWidth: '600px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Text Color Suggestion</h1>
-        <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary }}>
+        <p style={{ marginBottom: '32px', color: 'var(--color-text-tertiary)' }}>
           Automatically suggests the best text color (black or white) for any background color.
         </p>
 
@@ -409,7 +414,7 @@ export const TextColorSuggestion: Story = {
               onChange={(e) => setBgColor(e.target.value)}
               style={{
                 padding: '8px 12px',
-                border: `1px solid ${tokens.color.border.default}`,
+                border: '1px solid var(--color-border-default)',
                 borderRadius: '6px',
                 fontFamily: 'monospace',
                 width: '120px',
@@ -424,7 +429,7 @@ export const TextColorSuggestion: Story = {
             padding: '40px',
             borderRadius: '12px',
             marginBottom: '24px',
-            border: `1px solid ${tokens.color.border.light}`,
+            border: '1px solid var(--color-border-light)',
           }}
         >
           <h2 style={{ color: suggestedTextColor, marginBottom: '12px' }}>Suggested Text Color</h2>
@@ -437,7 +442,7 @@ export const TextColorSuggestion: Story = {
         <div
           style={{
             padding: '20px',
-            backgroundColor: tokens.color.background.tertiary,
+            backgroundColor: 'var(--color-background-tertiary)',
             borderRadius: '8px',
           }}
         >
@@ -447,7 +452,7 @@ export const TextColorSuggestion: Story = {
               style={{
                 marginLeft: '8px',
                 padding: '4px 8px',
-                backgroundColor: tokens.color.surface.default,
+                backgroundColor: 'var(--color-surface-default)',
                 borderRadius: '4px',
                 fontFamily: 'monospace',
               }}
@@ -462,10 +467,10 @@ export const TextColorSuggestion: Story = {
                 marginLeft: '8px',
                 color:
                   ratio >= 7
-                    ? tokens.color.success.default
+                    ? 'var(--color-success-default)'
                     : ratio >= 4.5
-                      ? tokens.color.warning.default
-                      : tokens.color.error.default,
+                      ? 'var(--color-warning-default)'
+                      : 'var(--color-error-default)',
                 fontWeight: '600',
               }}
             >

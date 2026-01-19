@@ -96,12 +96,16 @@ test.describe('Card Component', () => {
   });
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants and paddings', async ({ mount }) => {
+    test('should match snapshot for all variants and paddings in light mode', async ({ mount }) => {
       const variants = ['default', 'elevated', 'outlined', 'filled'] as const;
       const paddings = ['none', 'small', 'medium', 'large'] as const;
       const component = await mount(
-        <div style={{ padding: '20px', width: 'fit-content' }}>
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Variants</h1>
+        <div style={{ padding: '32px', background: '#ffffff', width: '900px' }}>
+          <h1 style={{ marginBottom: '24px', fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
+            Card Component - All Variants
+          </h1>
+
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555' }}>Variants</h2>
           <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
             {variants.map((variant) => (
               <Card key={variant} variant={variant} title={variant}>
@@ -109,7 +113,10 @@ test.describe('Card Component', () => {
               </Card>
             ))}
           </div>
-          <h1 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 'bold' }}>Paddings</h1>
+
+          <h2 style={{ marginBottom: '16px', fontSize: '20px', fontWeight: '600', color: '#555', marginTop: '32px' }}>
+            Paddings
+          </h2>
           <div style={{ display: 'flex', gap: '16px' }}>
             {paddings.map((padding) => (
               <Card key={padding} padding={padding} title={padding}>
@@ -117,9 +124,90 @@ test.describe('Card Component', () => {
               </Card>
             ))}
           </div>
-        </div>
+        </div>,
+        { animations: 'disabled' }
       );
-      await expect(component).toHaveScreenshot('card-all-variants.png');
+
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('card-all-variants-light.png', {
+        animations: 'disabled',
+      });
+    });
+
+    test('should match snapshot for all variants and paddings in dark mode', async ({ mount, page }) => {
+      // Set dark mode before mounting
+      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
+
+      const variants = ['default', 'elevated', 'outlined', 'filled'] as const;
+      const paddings = ['none', 'small', 'medium', 'large'] as const;
+      const component = await mount(
+        <div
+          style={{
+            padding: '32px',
+            width: '900px',
+            background: 'var(--lufa-token-color-background-primary)',
+          }}
+        >
+          <h1
+            style={{
+              marginBottom: '24px',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-token-color-text-primary)',
+            }}
+          >
+            Card Component - All Variants (Dark Mode)
+          </h1>
+
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-secondary)',
+            }}
+          >
+            Variants
+          </h2>
+          <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
+            {variants.map((variant) => (
+              <Card key={variant} variant={variant} title={variant}>
+                Body
+              </Card>
+            ))}
+          </div>
+
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-token-color-text-secondary)',
+              marginTop: '32px',
+            }}
+          >
+            Paddings
+          </h2>
+          <div style={{ display: 'flex', gap: '16px' }}>
+            {paddings.map((padding) => (
+              <Card key={padding} padding={padding} title={padding}>
+                Body
+              </Card>
+            ))}
+          </div>
+        </div>,
+        { animations: 'disabled' }
+      );
+
+      await component.page().waitForTimeout(100);
+
+      await expect(component).toHaveScreenshot('card-all-variants-dark.png', {
+        animations: 'disabled',
+      });
+
+      // Clean up dark mode
+      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
     });
   });
 });

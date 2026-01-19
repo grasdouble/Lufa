@@ -1,28 +1,26 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .layout {
-    @apply w-full;
+    width: 100%;
     display: grid;
     min-width: 0;
     min-height: 0;
-    gap: var(--lufa-spacing-md);
+    gap: var(--lufa-token-spacing-md);
   }
 
   .gap-none {
-    gap: var(--lufa-spacing-none);
+    gap: var(--lufa-token-spacing-none);
   }
   .gap-sm {
-    gap: var(--lufa-spacing-sm);
+    gap: var(--lufa-token-spacing-sm);
   }
   .gap-md {
-    gap: var(--lufa-spacing-md);
+    gap: var(--lufa-token-spacing-md);
   }
   .gap-lg {
-    gap: var(--lufa-spacing-lg);
+    gap: var(--lufa-token-spacing-lg);
   }
   .gap-xl {
-    gap: var(--lufa-spacing-xl);
+    gap: var(--lufa-token-spacing-xl);
   }
 
   .noSidebar {
@@ -41,7 +39,7 @@
   }
 
   .sidebarLeft {
-    grid-template-columns: var(--lufa-dimensions-sidebar-width-default) minmax(0, 1fr);
+    grid-template-columns: var(--lufa-token-dimensions-sidebar-width-default) minmax(0, 1fr);
   }
 
   .sidebarRight {
@@ -49,31 +47,31 @@
       'header header'
       'content sidebar'
       'footer footer';
-    grid-template-columns: minmax(0, 1fr) var(--lufa-dimensions-sidebar-width-default);
+    grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-default);
   }
 
   .sidebarWidth-collapsed {
-    grid-template-columns: var(--lufa-dimensions-sidebar-width-collapsed) minmax(0, 1fr);
+    grid-template-columns: var(--lufa-token-dimensions-sidebar-width-collapsed) minmax(0, 1fr);
   }
 
   .sidebarWidth-default {
-    grid-template-columns: var(--lufa-dimensions-sidebar-width-default) minmax(0, 1fr);
+    grid-template-columns: var(--lufa-token-dimensions-sidebar-width-default) minmax(0, 1fr);
   }
 
   .sidebarWidth-wide {
-    grid-template-columns: var(--lufa-dimensions-sidebar-width-wide) minmax(0, 1fr);
+    grid-template-columns: var(--lufa-token-dimensions-sidebar-width-wide) minmax(0, 1fr);
   }
 
   .sidebarRight.sidebarWidth-collapsed {
-    grid-template-columns: minmax(0, 1fr) var(--lufa-dimensions-sidebar-width-collapsed);
+    grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-collapsed);
   }
 
   .sidebarRight.sidebarWidth-default {
-    grid-template-columns: minmax(0, 1fr) var(--lufa-dimensions-sidebar-width-default);
+    grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-default);
   }
 
   .sidebarRight.sidebarWidth-wide {
-    grid-template-columns: minmax(0, 1fr) var(--lufa-dimensions-sidebar-width-wide);
+    grid-template-columns: minmax(0, 1fr) var(--lufa-token-dimensions-sidebar-width-wide);
   }
 
   .header {

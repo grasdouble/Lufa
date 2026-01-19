@@ -4,7 +4,7 @@
      ======================================== */
 
   .variantGhost {
-    @apply border-transparent;
+    border-color: transparent;
     color: var(--btn-color);
   }
 
@@ -29,37 +29,37 @@
 
   /* Ghost Colors - Variable Assignments */
   .variantGhost.colorPrimary {
-    --btn-color: theme(colors.interactive.default);
-    --btn-bg-hover: theme(colors.interactive.focus);
-    --btn-color-disabled: theme(colors.interactive.disabled);
-    --btn-outline: 1px solid theme(colors.interactive.focus);
+    --btn-color: var(--lufa-token-color-interactive-default);
+    --btn-bg-hover: var(--lufa-token-color-interactive-focus);
+    --btn-color-disabled: var(--lufa-token-color-interactive-disabled);
+    --btn-outline: 1px solid var(--lufa-token-color-interactive-focus);
   }
 
   .variantGhost.colorSecondary {
-    --btn-color: theme(colors.text.secondary);
-    --btn-bg-hover: theme(colors.background.tertiary);
-    --btn-color-disabled: theme(colors.text.disabled);
-    --btn-outline: 1px solid theme(colors.text.secondary);
+    --btn-color: var(--lufa-token-color-text-secondary);
+    --btn-bg-hover: var(--lufa-token-color-background-tertiary);
+    --btn-color-disabled: var(--lufa-token-color-text-disabled);
+    --btn-outline: 1px solid var(--lufa-token-color-text-secondary);
   }
 
   .variantGhost.colorSuccess {
-    --btn-color: theme(colors.success.text);
-    --btn-bg-hover: theme(colors.success.light);
-    --btn-color-disabled: theme(colors.success.lighter);
-    --btn-outline: 1px solid theme(colors.success.default);
+    --btn-color: var(--lufa-token-color-success-text);
+    --btn-bg-hover: var(--lufa-token-color-success-light);
+    --btn-color-disabled: var(--lufa-token-color-success-lighter);
+    --btn-outline: 1px solid var(--lufa-token-color-success-default);
   }
 
   .variantGhost.colorWarning {
-    --btn-color: theme(colors.warning.text);
-    --btn-bg-hover: theme(colors.warning.light);
-    --btn-color-disabled: theme(colors.warning.lighter);
-    --btn-outline: 1px solid theme(colors.warning.default);
+    --btn-color: var(--lufa-token-color-warning-text);
+    --btn-bg-hover: var(--lufa-token-color-warning-light);
+    --btn-color-disabled: var(--lufa-token-color-warning-lighter);
+    --btn-outline: 1px solid var(--lufa-token-color-warning-default);
   }
 
   .variantGhost.colorDanger {
-    --btn-color: theme(colors.error.text);
-    --btn-bg-hover: theme(colors.error.light);
-    --btn-color-disabled: theme(colors.error.lighter);
-    --btn-outline: 1px solid theme(colors.error.default);
+    --btn-color: var(--lufa-token-color-error-text);
+    --btn-bg-hover: var(--lufa-token-color-error-light);
+    --btn-color-disabled: var(--lufa-token-color-error-lighter);
+    --btn-outline: 1px solid var(--lufa-token-color-error-default);
   }
 }

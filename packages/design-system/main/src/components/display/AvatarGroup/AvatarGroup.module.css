@@ -1,11 +1,14 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .container {
-    @apply flex items-center;
+    display: flex;
+    align-items: center;
   }
 
   .avatar {
-    @apply -ml-3 first:ml-0;
+    margin-left: calc(var(--lufa-token-spacing-md) * -1);
+  }
+
+  .avatar:first-child {
+    margin-left: 0;
   }
 }

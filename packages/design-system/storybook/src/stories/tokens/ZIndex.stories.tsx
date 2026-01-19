@@ -17,7 +17,7 @@ export const AllZIndexLayers: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Z-Index Tokens</h1>
-      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
         Semantic z-index values for consistent layering and stacking order across the application.
       </p>
 
@@ -31,14 +31,16 @@ export const AllZIndexLayers: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: tokens.color.background.secondary,
+              backgroundColor: 'var(--lufa-token-color-background-secondary)',
               borderRadius: '8px',
-              border: `1px solid ${tokens.color.border.light}`,
+              border: `1px solid var(--lufa-token-color-border-light)`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>zIndex.{key}</div>
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>{value}</div>
-            <div style={{ fontSize: '12px', color: tokens.color.text.tertiary }}>
+            <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '12px' }}>
+              {value}
+            </div>
+            <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
               {key === 'base' && 'Normal content layer'}
               {key === 'dropdown' && 'Dropdowns, menus'}
               {key === 'sticky' && 'Sticky headers, footers'}
@@ -61,7 +63,7 @@ export const LayeringVisualization: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Z-Index Layering</h1>
-      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
         Visual demonstration of how different z-index values stack on top of each other.
       </p>
 
@@ -69,7 +71,7 @@ export const LayeringVisualization: Story = {
         style={{
           position: 'relative',
           height: '300px',
-          backgroundColor: tokens.color.background.tertiary,
+          backgroundColor: 'var(--lufa-token-color-background-tertiary)',
           borderRadius: '8px',
           overflow: 'hidden',
         }}
@@ -83,7 +85,7 @@ export const LayeringVisualization: Story = {
             width: '80%',
             maxWidth: '600px',
             textAlign: 'center',
-            color: tokens.color.text.secondary,
+            color: 'var(--lufa-token-color-text-secondary)',
           }}
         >
           Layering visualization - each layer stacks on top
@@ -96,7 +98,7 @@ export const LayeringVisualization: Story = {
             bottom: '20px',
             left: '20px',
             padding: '12px 16px',
-            backgroundColor: tokens.color.background.tertiary,
+            backgroundColor: 'var(--lufa-token-color-background-tertiary)',
             borderRadius: '6px',
             fontSize: '12px',
             zIndex: tokens.zIndex.base,
@@ -112,7 +114,7 @@ export const LayeringVisualization: Story = {
             bottom: '40px',
             left: '60px',
             padding: '12px 16px',
-            backgroundColor: tokens.color.info.lighter,
+            backgroundColor: 'var(--lufa-token-color-info-lighter)',
             borderRadius: '6px',
             fontSize: '12px',
             zIndex: tokens.zIndex.dropdown,
@@ -128,7 +130,7 @@ export const LayeringVisualization: Story = {
             bottom: '60px',
             left: '100px',
             padding: '12px 16px',
-            backgroundColor: tokens.color.info.border,
+            backgroundColor: 'var(--lufa-token-color-info-border)',
             borderRadius: '6px',
             fontSize: '12px',
             zIndex: tokens.zIndex.modal,
@@ -144,8 +146,8 @@ export const LayeringVisualization: Story = {
             bottom: '80px',
             left: '140px',
             padding: '12px 16px',
-            backgroundColor: tokens.color.info.default,
-            color: tokens.color.text.inverse,
+            backgroundColor: 'var(--lufa-token-color-info-default)',
+            color: 'var(--lufa-token-color-text-inverse)',
             borderRadius: '6px',
             fontSize: '12px',
             zIndex: tokens.zIndex.tooltip,

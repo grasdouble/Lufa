@@ -17,7 +17,7 @@ export const AllOpacity: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Opacity Primitives</h1>
-      <p style={{ marginBottom: '32px', color: primitives.color.neutral.neutral[600], fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
         Primitive opacity values for transparency. CAUTION: Opacity reduces effective contrast - verify WCAG compliance
         when using opacity on text.
       </p>
@@ -31,9 +31,9 @@ export const AllOpacity: Story = {
               flexDirection: 'column',
               gap: '12px',
               padding: '16px',
-              backgroundColor: primitives.color.neutral.neutral[50],
+              backgroundColor: 'var(--lufa-token-color-surface-raised)',
               borderRadius: '8px',
-              border: `1px solid ${primitives.color.neutral.neutral[200]}`,
+              border: `1px solid var(--lufa-token-color-border-light)`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>opacity[{key}]</div>
@@ -43,7 +43,7 @@ export const AllOpacity: Story = {
                 height: '100px',
                 borderRadius: '6px',
                 overflow: 'hidden',
-                backgroundColor: primitives.color.neutral.neutral[0],
+                backgroundColor: 'var(--lufa-token-color-surface-default)',
               }}
             >
               <div
@@ -55,7 +55,7 @@ export const AllOpacity: Story = {
                   justifyContent: 'center',
                   fontSize: '32px',
                   fontWeight: '600',
-                  color: primitives.color.neutral.neutral[600],
+                  color: 'var(--lufa-token-color-text-secondary)',
                 }}
               >
                 Background
@@ -76,7 +76,7 @@ export const AllOpacity: Story = {
                 {key}%
               </div>
             </div>
-            <div style={{ fontSize: '11px', color: primitives.color.neutral.neutral[600] }}>
+            <div style={{ fontSize: '11px', color: 'var(--lufa-token-color-text-secondary)' }}>
               {Number(key) <= 25 && '⚠️ Decorative only - never for text'}
               {Number(key) === 50 && '⚠️ May violate WCAG for text'}
               {Number(key) === 75 && '⚠️ Verify contrast for text'}
@@ -90,9 +90,9 @@ export const AllOpacity: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: primitives.color.chromatic.orange[100],
+          backgroundColor: 'var(--lufa-token-color-warning-light)',
           borderRadius: '12px',
-          border: `1px solid ${primitives.color.chromatic.orange[300]}`,
+          border: `1px solid var(--lufa-token-color-warning-border)`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>WCAG Warnings</h3>
@@ -140,7 +140,7 @@ export const UsageExamples: Story = {
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundColor: primitives.color.neutral.black,
+                backgroundColor: 'var(--lufa-token-color-text-primary)',
                 opacity: primitives.opacity[75],
                 display: 'flex',
                 alignItems: 'center',
@@ -150,7 +150,7 @@ export const UsageExamples: Story = {
               <div
                 style={{
                   padding: '32px',
-                  backgroundColor: primitives.color.neutral.neutral[0],
+                  backgroundColor: 'var(--lufa-token-color-surface-default)',
                   borderRadius: '12px',
                   boxShadow: primitives.shadow.xl,
                   textAlign: 'center',
@@ -161,12 +161,14 @@ export const UsageExamples: Story = {
                     fontSize: '20px',
                     fontWeight: '600',
                     marginBottom: '8px',
-                    color: primitives.color.neutral.black,
+                    color: 'var(--lufa-token-color-text-primary)',
                   }}
                 >
                   Modal Dialog
                 </div>
-                <div style={{ fontSize: '14px', color: primitives.color.neutral.neutral[600] }}>75% black overlay</div>
+                <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
+                  75% black overlay
+                </div>
               </div>
             </div>
           </div>
@@ -225,7 +227,7 @@ export const UsageExamples: Story = {
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundColor: primitives.color.neutral.black,
+                backgroundColor: 'var(--lufa-token-color-text-primary)',
                 opacity: 0,
                 transition: 'opacity 150ms',
                 display: 'flex',
@@ -249,7 +251,7 @@ export const UsageExamples: Story = {
             <div
               style={{
                 height: '20px',
-                backgroundColor: primitives.color.neutral.neutral[200],
+                backgroundColor: 'var(--lufa-token-color-border-light)',
                 borderRadius: '4px',
                 opacity: primitives.opacity[50],
               }}
@@ -257,7 +259,7 @@ export const UsageExamples: Story = {
             <div
               style={{
                 height: '20px',
-                backgroundColor: primitives.color.neutral.neutral[200],
+                backgroundColor: 'var(--lufa-token-color-border-light)',
                 borderRadius: '4px',
                 width: '80%',
                 opacity: primitives.opacity[50],
@@ -266,7 +268,7 @@ export const UsageExamples: Story = {
             <div
               style={{
                 height: '20px',
-                backgroundColor: primitives.color.neutral.neutral[200],
+                backgroundColor: 'var(--lufa-token-color-border-light)',
                 borderRadius: '4px',
                 width: '60%',
                 opacity: primitives.opacity[50],

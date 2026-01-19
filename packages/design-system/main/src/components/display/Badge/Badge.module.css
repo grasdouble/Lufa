@@ -1,90 +1,122 @@
-@reference '../../../tailwind.css';
-
 @layer components {
   .badge {
-    @apply gap-xs inline-flex items-center;
-    @apply font-medium;
-    @apply px-sm py-xxs;
-    @apply rounded-md;
-    @apply ring-1 ring-inset;
-    @apply duration-fast transition-colors;
+    /* Themable badge structure */
+    --badge-border-radius: var(--lufa-token-radius-md);
+    --badge-font-weight: var(--lufa-token-font-weight-medium);
+    --badge-padding-x: var(--lufa-token-spacing-sm);
+    --badge-padding-y: var(--lufa-token-spacing-xxs);
+    --badge-gap: var(--lufa-token-spacing-xs);
+    --badge-transition: var(--lufa-token-timing-fast);
+    --badge-ring-width: var(--lufa-token-border-width-hairline);
+    --badge-bg: var(--lufa-token-color-background-secondary);
+    --badge-text: var(--lufa-token-color-text-secondary);
+    --badge-ring: var(--lufa-token-color-border-default);
+
+    border-radius: var(--badge-border-radius);
+    font-weight: var(--badge-font-weight);
+    padding-inline: var(--badge-padding-x);
+    padding-block: var(--badge-padding-y);
+    gap: var(--badge-gap);
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    box-shadow: inset 0 0 0 var(--badge-ring-width) var(--badge-ring);
+    transition:
+      color var(--badge-transition),
+      background var(--badge-transition);
+
+    /* Layout (not themable) */
+    display: inline-flex;
+    align-items: center;
   }
 
-  /* Sizes */
+  /* Size variants */
   .size-sm {
-    @apply px-xs py-xxs text-xs;
+    --badge-padding-x: var(--lufa-token-spacing-xs);
+    --badge-padding-y: var(--lufa-token-spacing-xxs);
+    --badge-font-size: var(--lufa-token-font-size-xs);
+    font-size: var(--badge-font-size);
   }
 
   .size-md {
-    @apply px-sm py-xxs text-sm;
+    --badge-padding-x: var(--lufa-token-spacing-sm);
+    --badge-padding-y: var(--lufa-token-spacing-xxs);
+    --badge-font-size: var(--lufa-token-font-size-sm);
+    font-size: var(--badge-font-size);
   }
 
   .size-lg {
-    @apply px-md py-xs text-base;
+    --badge-padding-x: var(--lufa-token-spacing-md);
+    --badge-padding-y: var(--lufa-token-spacing-xs);
+    --badge-font-size: var(--lufa-token-font-size-base);
+    font-size: var(--badge-font-size);
   }
 
   /* Rounded variant */
   .rounded {
-    @apply rounded-full;
+    --badge-border-radius: var(--lufa-token-radius-full);
+    border-radius: var(--badge-border-radius);
   }
 
   /* Dot indicator */
   .dot {
-    @apply h-1.5 w-1.5 rounded-full;
+    --badge-dot-size: var(--lufa-token-spacing-2xs);
+    --badge-dot-color: var(--lufa-token-color-text-tertiary);
+    width: var(--badge-dot-size);
+    height: var(--badge-dot-size);
+    background: var(--badge-dot-color);
+    border-radius: var(--lufa-token-radius-full);
+    flex-shrink: 0;
   }
 
-  /* Color variants */
+  /* Color variants (each overrides the base color tokens) */
   .variant-default {
-    @apply bg-background-secondary text-text-secondary;
-    @apply ring-border-default;
+    --badge-bg: var(--lufa-token-color-background-secondary);
+    --badge-text: var(--lufa-token-color-text-secondary);
+    --badge-ring: var(--lufa-token-color-border-default);
   }
-
-  .variant-default .dot {
-    @apply bg-text-tertiary;
-  }
-
   .variant-primary {
-    @apply bg-interactive-focus text-interactive-default;
-    @apply ring-interactive-default;
+    --badge-bg: var(--lufa-token-color-interactive-default);
+    --badge-text: var(--lufa-token-color-text-inverse);
+    --badge-ring: var(--lufa-token-color-interactive-default);
   }
-
-  .variant-primary .dot {
-    @apply bg-interactive-default;
-  }
-
   .variant-success {
-    @apply bg-success-lighter text-success-text;
-    @apply ring-success-border;
+    --badge-bg: var(--lufa-token-color-success-lighter);
+    --badge-text: var(--lufa-token-color-success-text);
+    --badge-ring: var(--lufa-token-color-success-border);
   }
-
-  .variant-success .dot {
-    @apply bg-success-default;
-  }
-
   .variant-warning {
-    @apply bg-warning-lighter text-warning-text;
-    @apply ring-warning-border;
+    --badge-bg: var(--lufa-token-color-warning-lighter);
+    --badge-text: var(--lufa-token-color-warning-text);
+    --badge-ring: var(--lufa-token-color-warning-border);
   }
-
-  .variant-warning .dot {
-    @apply bg-warning-default;
-  }
-
   .variant-danger {
-    @apply bg-error-lighter text-error-text;
-    @apply ring-error-border;
+    --badge-bg: var(--lufa-token-color-error-lighter);
+    --badge-text: var(--lufa-token-color-error-text);
+    --badge-ring: var(--lufa-token-color-error-border);
   }
-
-  .variant-danger .dot {
-    @apply bg-error-default;
-  }
-
   .variant-info {
-    @apply bg-info-lighter text-info-text;
-    @apply ring-info-border;
+    --badge-bg: var(--lufa-token-color-info-lighter);
+    --badge-text: var(--lufa-token-color-info-text);
+    --badge-ring: var(--lufa-token-color-info-border);
   }
 
+  /* Dot color variants */
+  .variant-default .dot {
+    --badge-dot-color: var(--lufa-token-color-text-tertiary);
+  }
+  .variant-primary .dot {
+    --badge-dot-color: var(--lufa-token-color-interactive-default);
+  }
+  .variant-success .dot {
+    --badge-dot-color: var(--lufa-token-color-success-default);
+  }
+  .variant-warning .dot {
+    --badge-dot-color: var(--lufa-token-color-warning-default);
+  }
+  .variant-danger .dot {
+    --badge-dot-color: var(--lufa-token-color-error-default);
+  }
   .variant-info .dot {
-    @apply bg-info-default;
+    --badge-dot-color: var(--lufa-token-color-info-default);
   }
 }

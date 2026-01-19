@@ -1,5 +1,7 @@
 declare const styles: {
   readonly placeholder: string;
+  readonly textLight: string;
+  readonly textDark: string;
   readonly heightSmall: string;
   readonly heightMedium: string;
   readonly heightLarge: string;
