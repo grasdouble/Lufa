@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Badge } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Display/Badge',
@@ -55,7 +54,7 @@ export const Playground: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: tokens.spacing.sm, flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-sm)', flexWrap: 'wrap' }}>
       <Badge variant="default">Default</Badge>
       <Badge variant="primary">Primary</Badge>
       <Badge variant="success">Success</Badge>
@@ -68,7 +67,7 @@ export const Variants: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.sm }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-sm)' }}>
       <Badge size="sm" variant="primary">
         Small
       </Badge>
@@ -84,7 +83,7 @@ export const Sizes: Story = {
 
 export const WithDot: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: tokens.spacing.sm, flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-sm)', flexWrap: 'wrap' }}>
       <Badge variant="default" dot>
         Default
       </Badge>
@@ -109,7 +108,7 @@ export const WithDot: Story = {
 
 export const Rounded: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: tokens.spacing.sm, flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-sm)', flexWrap: 'wrap' }}>
       <Badge variant="default" rounded>
         Default
       </Badge>
@@ -134,18 +133,25 @@ export const Rounded: Story = {
 
 export const UseCases: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.xs }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--lufa-token-spacing-base)',
+        maxWidth: 'var(--lufa-token-max-width-xs)',
+      }}
+    >
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Status Indicators
         </h3>
-        <div style={{ display: 'flex', gap: tokens.spacing.sm, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-sm)', flexWrap: 'wrap' }}>
           <Badge variant="success" dot rounded>
             Active
           </Badge>
@@ -163,14 +169,14 @@ export const UseCases: Story = {
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Tags
         </h3>
-        <div style={{ display: 'flex', gap: tokens.spacing.sm, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-sm)', flexWrap: 'wrap' }}>
           <Badge variant="primary">React</Badge>
           <Badge variant="info">TypeScript</Badge>
           <Badge variant="success">Vite</Badge>
@@ -180,19 +186,21 @@ export const UseCases: Story = {
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Counts
         </h3>
-        <div style={{ display: 'flex', gap: tokens.spacing.sm, flexWrap: 'wrap', alignItems: 'center' }}>
-          <span style={{ fontSize: tokens.fontSize.sm }}>Messages</span>
+        <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-sm)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <span style={{ fontSize: 'var(--lufa-token-font-size-sm)' }}>Messages</span>
           <Badge variant="danger" rounded size="sm">
             99+
           </Badge>
-          <span style={{ fontSize: tokens.fontSize.sm, marginLeft: tokens.spacing.base }}>Notifications</span>
+          <span style={{ fontSize: 'var(--lufa-token-font-size-sm)', marginLeft: 'var(--lufa-token-spacing-base)' }}>
+            Notifications
+          </span>
           <Badge variant="primary" rounded size="sm">
             5
           </Badge>

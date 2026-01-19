@@ -2,7 +2,6 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button, Input } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '3. Forms/Input',
@@ -61,7 +60,14 @@ export const Required: Story = {
 
 export const Size: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.xs }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--lufa-token-spacing-base)',
+        maxWidth: 'var(--lufa-token-max-width-xs)',
+      }}
+    >
       <Input size="small" label="Small" placeholder="Small input" />
       <Input size="medium" label="Medium" placeholder="Medium input (default)" />
       <Input size="large" label="Large" placeholder="Large input" />
@@ -71,7 +77,14 @@ export const Size: Story = {
 
 export const Variant: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.xs }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--lufa-token-spacing-base)',
+        maxWidth: 'var(--lufa-token-max-width-xs)',
+      }}
+    >
       <Input variant="outlined" label="Outlined" placeholder="Outlined variant (default)" />
       <Input variant="filled" label="Filled" placeholder="Filled variant" />
     </div>
@@ -116,7 +129,12 @@ export const StartAdornment: Story = {
     label: 'Search',
     placeholder: 'Search...',
     startAdornment: (
-      <svg width={tokens.iconSize.xs} height={tokens.iconSize.xs} fill="currentColor" viewBox="0 0 20 20">
+      <svg
+        width="var(--lufa-token-icon-size-xs)"
+        height="var(--lufa-token-icon-size-xs)"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
         <path
           fillRule="evenodd"
           d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
@@ -131,7 +149,11 @@ export const EndAdornment: Story = {
   args: {
     label: 'Website',
     placeholder: 'example',
-    endAdornment: <span style={{ color: tokens.color.text.secondary, fontSize: tokens.fontSize.sm }}>.com</span>,
+    endAdornment: (
+      <span style={{ color: 'var(--lufa-token-color-text-secondary)', fontSize: 'var(--lufa-token-font-size-sm)' }}>
+        .com
+      </span>
+    ),
   },
 };
 
@@ -150,16 +172,21 @@ export const PasswordFieldExample: Story = {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               style={{
-                border: tokens.borderStyle.none,
+                border: 'var(--lufa-token-border-style-none)',
                 background: 'none',
                 cursor: 'pointer',
-                padding: tokens.spacing.none,
+                padding: 'var(--lufa-token-spacing-none)',
                 display: 'flex',
-                color: tokens.color.text.secondary,
+                color: 'var(--lufa-token-color-text-secondary)',
               }}
             >
               {showPassword ? (
-                <svg width={tokens.iconSize.sm} height={tokens.iconSize.sm} fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  width="var(--lufa-token-icon-size-sm)"
+                  height="var(--lufa-token-icon-size-sm)"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                   <path
                     fillRule="evenodd"
@@ -168,7 +195,12 @@ export const PasswordFieldExample: Story = {
                   />
                 </svg>
               ) : (
-                <svg width={tokens.iconSize.sm} height={tokens.iconSize.sm} fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  width="var(--lufa-token-icon-size-sm)"
+                  height="var(--lufa-token-icon-size-sm)"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path
                     fillRule="evenodd"
                     d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z"
@@ -191,10 +223,10 @@ export const FormExample: Story = {
   render: () => (
     <form
       style={{
-        maxWidth: tokens.maxWidth.md,
+        maxWidth: 'var(--lufa-token-max-width-md)',
         display: 'flex',
         flexDirection: 'column',
-        gap: tokens.spacing.base,
+        gap: 'var(--lufa-token-spacing-base)',
       }}
       onSubmit={(e) => {
         e.preventDefault();
@@ -204,7 +236,7 @@ export const FormExample: Story = {
       <Input label="Email" type="email" placeholder="john@example.com" required fullWidth />
       <Input label="Phone" type="tel" placeholder="+1 (555) 123-4567" fullWidth />
       <Input label="Website" type="url" placeholder="https://example.com" helperText="Optional" fullWidth />
-      <div style={{ display: 'flex', gap: tokens.spacing.md, justifyContent: 'flex-end' }}>
+      <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-md)', justifyContent: 'flex-end' }}>
         <Button type="reset" variant="outlined" color="secondary">
           Reset
         </Button>

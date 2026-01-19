@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Paper } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Display/Paper',
@@ -58,7 +57,7 @@ export const Playground: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: tokens.spacing.base }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'var(--lufa-token-spacing-base)' }}>
       <Paper variant="default">
         <h3 style={{ marginTop: 0 }}>Default</h3>
         <p style={{ marginBottom: 0 }}>Standard paper with subtle border</p>
@@ -81,7 +80,7 @@ export const Variants: Story = {
 
 export const Padding: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-base)' }}>
       <Paper padding="none" variant="outlined">
         No padding
       </Paper>
@@ -100,7 +99,7 @@ export const Padding: Story = {
 
 export const Radius: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-base)' }}>
       <Paper radius="none" variant="outlined">
         No border radius
       </Paper>
@@ -122,7 +121,7 @@ export const Radius: Story = {
 
 export const Elevation: Story = {
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: tokens.spacing.lg }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--lufa-token-spacing-lg)' }}>
       <Paper variant="elevated" elevation="none">
         <h4 style={{ marginTop: 0 }}>None</h4>
         <p style={{ marginBottom: 0 }}>No shadow</p>
@@ -149,33 +148,47 @@ export const Elevation: Story = {
 
 export const UseCases: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-lg)' }}>
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.base }}>Dashboard Widget</h3>
+        <h3 style={{ marginBottom: 'var(--lufa-token-spacing-base)' }}>Dashboard Widget</h3>
         <Paper variant="elevated" padding="large">
-          <h4 style={{ marginTop: 0, marginBottom: tokens.spacing.sm }}>Total Revenue</h4>
-          <p style={{ fontSize: tokens.fontSize['2xl'], fontWeight: tokens.fontWeight.bold, margin: 0 }}>$24,567</p>
-          <p style={{ fontSize: tokens.fontSize.sm, color: tokens.color.text.secondary, marginTop: tokens.spacing.xs }}>
+          <h4 style={{ marginTop: 0, marginBottom: 'var(--lufa-token-spacing-sm)' }}>Total Revenue</h4>
+          <p
+            style={{
+              fontSize: 'var(--lufa-token-font-size-2xl)',
+              fontWeight: 'var(--lufa-token-font-weight-bold)',
+              margin: 0,
+            }}
+          >
+            $24,567
+          </p>
+          <p
+            style={{
+              fontSize: 'var(--lufa-token-font-size-sm)',
+              color: 'var(--lufa-token-color-text-secondary)',
+              marginTop: 'var(--lufa-token-spacing-xs)',
+            }}
+          >
             +12.5% from last month
           </p>
         </Paper>
       </div>
 
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.base }}>Information Panel</h3>
+        <h3 style={{ marginBottom: 'var(--lufa-token-spacing-base)' }}>Information Panel</h3>
         <Paper variant="filled" padding="medium">
-          <h4 style={{ marginTop: 0, marginBottom: tokens.spacing.sm }}>Pro Tip</h4>
-          <p style={{ marginBottom: 0, fontSize: tokens.fontSize.sm }}>
+          <h4 style={{ marginTop: 0, marginBottom: 'var(--lufa-token-spacing-sm)' }}>Pro Tip</h4>
+          <p style={{ marginBottom: 0, fontSize: 'var(--lufa-token-font-size-sm)' }}>
             Use keyboard shortcuts to navigate faster. Press ⌘K to open the command palette.
           </p>
         </Paper>
       </div>
 
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.base }}>Content Container</h3>
+        <h3 style={{ marginBottom: 'var(--lufa-token-spacing-base)' }}>Content Container</h3>
         <Paper variant="outlined" padding="large">
           <h4 style={{ marginTop: 0 }}>Article Title</h4>
-          <p style={{ color: tokens.color.text.secondary, fontSize: tokens.fontSize.sm }}>
+          <p style={{ color: 'var(--lufa-token-color-text-secondary)', fontSize: 'var(--lufa-token-font-size-sm)' }}>
             Published on January 17, 2026
           </p>
           <p>
@@ -186,23 +199,29 @@ export const UseCases: Story = {
       </div>
 
       <div>
-        <h3 style={{ marginBottom: tokens.spacing.base }}>Image Gallery Item</h3>
+        <h3 style={{ marginBottom: 'var(--lufa-token-spacing-base)' }}>Image Gallery Item</h3>
         <Paper variant="elevated" padding="none" radius="large">
           <div
             style={{
               height: '200px',
-              backgroundColor: tokens.color.background.tertiary,
-              borderRadius: `${tokens.radius.large} ${tokens.radius.large} 0 0`,
+              backgroundColor: 'var(--lufa-token-color-background-tertiary)',
+              borderRadius: `var(--lufa-token-radius-lg) var(--lufa-token-radius-lg) 0 0`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}
           >
-            <span style={{ color: tokens.color.text.secondary }}>Image Placeholder</span>
+            <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>Image Placeholder</span>
           </div>
-          <div style={{ padding: tokens.spacing.base }}>
-            <h4 style={{ margin: 0, marginBottom: tokens.spacing.xs }}>Photo Title</h4>
-            <p style={{ margin: 0, fontSize: tokens.fontSize.sm, color: tokens.color.text.secondary }}>
+          <div style={{ padding: 'var(--lufa-token-spacing-base)' }}>
+            <h4 style={{ margin: 0, marginBottom: 'var(--lufa-token-spacing-xs)' }}>Photo Title</h4>
+            <p
+              style={{
+                margin: 0,
+                fontSize: 'var(--lufa-token-font-size-sm)',
+                color: 'var(--lufa-token-color-text-secondary)',
+              }}
+            >
               Beautiful landscape
             </p>
           </div>
@@ -214,7 +233,7 @@ export const UseCases: Story = {
 
 export const Combinations: Story = {
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: tokens.spacing.base }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'var(--lufa-token-spacing-base)' }}>
       <Paper variant="elevated" elevation="small" padding="small" radius="small">
         <strong>Small & Subtle</strong>
         <br />

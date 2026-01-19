@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button, Container, Stack } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '3. Forms/Button',
@@ -43,7 +42,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const ArrowRightIcon = () => (
-  <svg width={tokens.iconSize.xs} height={tokens.iconSize.xs} viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+  <svg
+    width="var(--lufa-token-icon-size-xs)"
+    height="var(--lufa-token-icon-size-xs)"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    aria-hidden
+  >
     <path
       fillRule="evenodd"
       d="M10.293 3.293a1 1 0 011.414 0l6 6a.997.997 0 01.083.094 1 1 0 010 1.226.997.997 0 01-.083.094l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -53,7 +58,13 @@ const ArrowRightIcon = () => (
 );
 
 const SearchIcon = () => (
-  <svg width={tokens.iconSize.xs} height={tokens.iconSize.xs} viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+  <svg
+    width="var(--lufa-token-icon-size-xs)"
+    height="var(--lufa-token-icon-size-xs)"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    aria-hidden
+  >
     <path
       fillRule="evenodd"
       d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
@@ -74,13 +85,13 @@ export const Playground: Story = {
 export const Color: Story = {
   render: () => (
     <Container size="xl" paddingX="none">
-      <div style={{ width: tokens.maxWidth.full, overflowX: 'auto' }}>
+      <div style={{ width: 'var(--lufa-token-max-width-full)', overflowX: 'auto' }}>
         <div
           style={{
-            minWidth: tokens.maxWidth['4xl'],
+            minWidth: 'var(--lufa-token-max-width-4xl)',
             display: 'grid',
-            gridTemplateColumns: `${tokens.spacing['5xl']} repeat(5, minmax(0, 1fr))`,
-            gap: tokens.spacing.md,
+            gridTemplateColumns: `var(--lufa-token-spacing-5xl) repeat(5, minmax(0, 1fr))`,
+            gap: 'var(--lufa-token-spacing-md)',
             alignItems: 'center',
           }}
         >
@@ -90,13 +101,13 @@ export const Color: Story = {
               key={`header-${colorKey}`}
               style={{
                 fontFamily: 'monospace',
-                fontSize: tokens.fontSize.xs,
-                color: tokens.color.text.secondary,
+                fontSize: 'var(--lufa-token-font-size-xs)',
+                color: 'var(--lufa-token-color-text-secondary)',
                 textAlign: 'center',
-                padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
-                backgroundColor: tokens.color.background.primary,
-                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-                borderRadius: tokens.radius.lg,
+                padding: `var(--lufa-token-spacing-2xs) var(--lufa-token-spacing-sm)`,
+                backgroundColor: 'var(--lufa-token-color-background-primary)',
+                border: `var(--lufa-token-border-width-hairline) var(--lufa-token-border-style-solid) var(--lufa-token-color-border-light)`,
+                borderRadius: 'var(--lufa-token-radius-lg)',
               }}
             >
               {colorKey}
@@ -108,12 +119,12 @@ export const Color: Story = {
               <div
                 style={{
                   fontFamily: 'monospace',
-                  fontSize: tokens.fontSize.xs,
-                  color: tokens.color.text.secondary,
-                  padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
-                  backgroundColor: tokens.color.background.primary,
-                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-                  borderRadius: tokens.radius.lg,
+                  fontSize: 'var(--lufa-token-font-size-xs)',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  padding: `var(--lufa-token-spacing-2xs) var(--lufa-token-spacing-sm)`,
+                  backgroundColor: 'var(--lufa-token-color-background-primary)',
+                  border: `var(--lufa-token-border-width-hairline) var(--lufa-token-border-style-solid) var(--lufa-token-color-border-light)`,
+                  borderRadius: 'var(--lufa-token-radius-lg)',
                 }}
               >
                 {variantKey}
@@ -194,7 +205,7 @@ export const Disabled: Story = {
 
 export const FullWidth: Story = {
   render: () => (
-    <div style={{ maxWidth: tokens.maxWidth.sm }}>
+    <div style={{ maxWidth: 'var(--lufa-token-max-width-sm)' }}>
       <Stack direction="vertical" gap="normal">
         <Button fullWidth>Full width</Button>
         <Button fullWidth variant="outlined">

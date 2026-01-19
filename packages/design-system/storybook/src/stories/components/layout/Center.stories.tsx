@@ -10,7 +10,6 @@ import {
   Stack,
   Typography,
 } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/Center',
@@ -56,10 +55,10 @@ export const Playground: Story = {
         {...args}
         style={{
           ...args.style,
-          backgroundColor: tokens.color.background.secondary,
-          borderRadius: tokens.radius.lg,
-          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-          padding: tokens.spacing.base,
+          backgroundColor: 'var(--lufa-token-color-background-secondary)',
+          borderRadius: 'var(--lufa-token-radius-lg)',
+          border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
+          padding: 'var(--lufa-token-spacing-base)',
         }}
       >
         <Placeholder height="medium" width="auto">
@@ -73,26 +72,35 @@ export const Playground: Story = {
 export const Axis: Story = {
   render: () => (
     <Container size="xl" paddingX="none">
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: tokens.spacing.base }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+          gap: 'var(--lufa-token-spacing-base)',
+        }}
+      >
         {(['both', 'horizontal', 'vertical'] as const).map((axis) => (
           <div
             key={axis}
             style={{
-              backgroundColor: tokens.color.background.secondary,
-              borderRadius: tokens.radius.lg,
-              padding: tokens.spacing.base,
+              backgroundColor: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: 'var(--lufa-token-radius-lg)',
+              padding: 'var(--lufa-token-spacing-base)',
             }}
           >
             <div
-              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}
+              style={{
+                fontFamily: 'monospace',
+
+                marginBottom: 'var(--lufa-token-spacing-sm)',
+              }}
             >
               axis: {axis}
             </div>
             <div
               style={{
-                color: tokens.color.text.tertiary,
-                fontSize: tokens.fontSize.xs,
-                marginBottom: tokens.spacing.md,
+                fontSize: 'var(--lufa-token-font-size-xs)',
+                marginBottom: 'var(--lufa-token-spacing-md)',
               }}
             >
               {axis === 'horizontal' && 'Center on X only'}
@@ -101,12 +109,12 @@ export const Axis: Story = {
             </div>
             <Center
               axis={axis}
-              minHeight={tokens.size['4xl']}
+              minHeight="var(--lufa-token-size-4xl)"
               style={{
-                backgroundColor: tokens.color.background.primary,
-                borderRadius: tokens.radius.lg,
-                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-                padding: tokens.spacing.base,
+                backgroundColor: 'var(--lufa-token-color-background-primary)',
+                borderRadius: 'var(--lufa-token-radius-lg)',
+                border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
+                padding: 'var(--lufa-token-spacing-base)',
                 position: 'relative',
               }}
             >
@@ -114,9 +122,9 @@ export const Axis: Story = {
                 aria-hidden
                 style={{
                   position: 'absolute',
-                  inset: tokens.spacing.base,
-                  border: `${tokens.borderWidth.thin} ${tokens.borderStyle.dashed} ${tokens.color.border.default}`,
-                  borderRadius: tokens.radius.lg,
+                  inset: 'var(--lufa-token-spacing-base)',
+                  border: `${'var(--lufa-token-border-width-thin)'} ${'var(--lufa-token-border-style-dashed)'} ${'var(--lufa-token-color-border-default)'}`,
+                  borderRadius: 'var(--lufa-token-radius-lg)',
                   pointerEvents: 'none',
                 }}
               />
@@ -125,10 +133,10 @@ export const Axis: Story = {
                 style={{
                   position: 'absolute',
                   top: '50%',
-                  left: tokens.spacing.base,
-                  right: tokens.spacing.base,
-                  height: tokens.borderWidth.hairline,
-                  backgroundColor: tokens.color.border.light,
+                  left: 'var(--lufa-token-spacing-base)',
+                  right: 'var(--lufa-token-spacing-base)',
+                  height: 'var(--lufa-token-border-width-hairline)',
+                  backgroundColor: 'var(--lufa-token-color-border-light)',
                   pointerEvents: 'none',
                 }}
               />
@@ -137,14 +145,14 @@ export const Axis: Story = {
                 style={{
                   position: 'absolute',
                   left: '50%',
-                  top: tokens.spacing.base,
-                  bottom: tokens.spacing.base,
-                  width: tokens.borderWidth.hairline,
-                  backgroundColor: tokens.color.border.light,
+                  top: 'var(--lufa-token-spacing-base)',
+                  bottom: 'var(--lufa-token-spacing-base)',
+                  width: 'var(--lufa-token-border-width-hairline)',
+                  backgroundColor: 'var(--lufa-token-color-border-light)',
                   pointerEvents: 'none',
                 }}
               />
-              <Placeholder color={tokens.color.interactive.default} height="small" width="small">
+              <Placeholder height="small" width="small">
                 Target
               </Placeholder>
             </Center>
@@ -159,64 +167,76 @@ export const Inline: Story = {
   render: () => (
     <Stack direction="vertical" gap="normal">
       <div>
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
+        <div
+          style={{
+            fontFamily: 'monospace',
+            color: 'var(--lufa-token-color-text-secondary)',
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+          }}
+        >
           inline: true
         </div>
         <div
           style={{
-            backgroundColor: tokens.color.background.secondary,
-            padding: tokens.spacing.base,
-            borderRadius: tokens.radius.lg,
+            backgroundColor: 'var(--lufa-token-color-background-secondary)',
+            padding: 'var(--lufa-token-spacing-base)',
+            borderRadius: 'var(--lufa-token-radius-lg)',
           }}
         >
-          <span style={{ color: tokens.color.text.secondary }}>Text before</span>
+          <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>Text before</span>
           <Center
             inline
             axis="both"
             style={{
-              backgroundColor: tokens.color.background.primary,
-              borderRadius: tokens.radius.lg,
-              padding: `${tokens.spacing.sm} ${tokens.spacing.md}`,
-              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-              margin: `0 ${tokens.spacing.md}`,
+              backgroundColor: 'var(--lufa-token-color-background-primary)',
+              borderRadius: 'var(--lufa-token-radius-lg)',
+              padding: `${'var(--lufa-token-spacing-sm)'} ${'var(--lufa-token-spacing-md)'}`,
+              border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
+              margin: `0 ${'var(--lufa-token-spacing-md)'}`,
             }}
           >
-            <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
+            <Placeholder height="small" width="auto">
               Badge
             </Placeholder>
           </Center>
-          <span style={{ color: tokens.color.text.secondary }}>Text after (same line)</span>
+          <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>Text after (same line)</span>
         </div>
       </div>
 
       <div>
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
+        <div
+          style={{
+            fontFamily: 'monospace',
+            color: 'var(--lufa-token-color-text-secondary)',
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+          }}
+        >
           inline: false
         </div>
         <div
           style={{
-            backgroundColor: tokens.color.background.secondary,
-            padding: tokens.spacing.base,
-            borderRadius: tokens.radius.lg,
+            backgroundColor: 'var(--lufa-token-color-background-secondary)',
+            padding: 'var(--lufa-token-spacing-base)',
+            borderRadius: 'var(--lufa-token-radius-lg)',
           }}
         >
-          <span style={{ color: tokens.color.text.secondary }}>Text before</span>
+          <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>Text before</span>
           <Center
             inline={false}
             axis="both"
             style={{
-              backgroundColor: tokens.color.background.primary,
-              borderRadius: tokens.radius.lg,
-              padding: tokens.spacing.base,
-              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-              margin: `${tokens.spacing.md} 0`,
+              backgroundColor: 'var(--lufa-token-color-background-primary)',
+              borderRadius: 'var(--lufa-token-radius-lg)',
+              padding: 'var(--lufa-token-spacing-base)',
+              border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
+              margin: `${'var(--lufa-token-spacing-md)'} 0`,
             }}
           >
-            <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
+            <Placeholder height="small" width="auto">
               Block
             </Placeholder>
           </Center>
-          <span style={{ color: tokens.color.text.secondary }}>Text after (next line)</span>
+          <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>Text after (next line)</span>
         </div>
       </div>
     </Stack>
@@ -228,46 +248,61 @@ export const Examples: Story = {
     <Container size="xl" paddingX="none">
       <Stack direction="vertical" gap="spacious">
         <div>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: 'var(--lufa-token-color-text-secondary)',
+              marginBottom: 'var(--lufa-token-spacing-md)',
+            }}
+          >
             Empty state
           </div>
           <Card variant="outlined" padding="large" title="Search results" subtitle="Try adjusting your filters">
             <Center
               axis="both"
-              minHeight={tokens.size['4xl']}
-              style={{ backgroundColor: tokens.color.background.secondary, borderRadius: tokens.radius.lg }}
+              minHeight="var(--lufa-token-size-4xl)"
+              style={{
+                backgroundColor: 'var(--lufa-token-color-background-secondary)',
+                borderRadius: 'var(--lufa-token-radius-lg)',
+              }}
             >
               <Stack direction="vertical" gap="normal" align="center">
-                <Placeholder color={tokens.color.background.primary} height="small" width="auto">
+                <Placeholder height="small" width="auto">
                   Icon
                 </Placeholder>
                 <Typography variant="body" color="secondary">
-                  Aucun résultat
+                  No result
                 </Typography>
-                <Button variant="solid">Réessayer</Button>
+                <Button variant="solid">Retry</Button>
               </Stack>
             </Center>
           </Card>
         </div>
 
         <div>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: 'var(--lufa-token-color-text-secondary)',
+              marginBottom: 'var(--lufa-token-spacing-md)',
+            }}
+          >
             Loading
           </div>
           <div
             style={{
-              backgroundColor: tokens.color.background.secondary,
-              borderRadius: tokens.radius.lg,
-              padding: tokens.spacing.base,
+              backgroundColor: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: 'var(--lufa-token-radius-lg)',
+              padding: 'var(--lufa-token-spacing-base)',
             }}
           >
             <Center
               axis="both"
-              minHeight={tokens.maxWidth['3xs']}
+              minHeight="var(--lufa-token-max-width-3xs)"
               style={{
-                backgroundColor: tokens.color.background.primary,
-                borderRadius: tokens.radius.lg,
-                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                backgroundColor: 'var(--lufa-token-color-background-primary)',
+                borderRadius: 'var(--lufa-token-radius-lg)',
+                border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
               }}
             >
               <Stack direction="vertical" gap="normal" align="center">
@@ -281,7 +316,13 @@ export const Examples: Story = {
         </div>
 
         <div>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: 'var(--lufa-token-color-text-secondary)',
+              marginBottom: 'var(--lufa-token-spacing-md)',
+            }}
+          >
             Footer CTA
           </div>
           <Card

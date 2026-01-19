@@ -9,7 +9,6 @@ import {
   Placeholder,
   Stack,
 } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/Layout',
@@ -55,14 +54,14 @@ export const Playground: Story = {
       <Layout
         {...args}
         style={{
-          backgroundColor: tokens.color.background.secondary,
-          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-          borderRadius: tokens.radius.xl,
-          padding: tokens.spacing.base,
+          backgroundColor: 'var(--lufa-token-color-background-secondary)',
+          border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
+          borderRadius: 'var(--lufa-token-radius-xl)',
+          padding: 'var(--lufa-token-spacing-base)',
         }}
       >
         <Layout.Header>
-          <Placeholder color={tokens.color.interactive.default} height="small" width="full">
+          <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="full">
             Header
           </Placeholder>
         </Layout.Header>
@@ -70,13 +69,13 @@ export const Playground: Story = {
         {args.sidebar && (
           <Layout.Sidebar>
             <Stack direction="vertical" gap="normal">
-              <Placeholder color={tokens.color.background.primary} height="small" width="full">
+              <Placeholder color={'var(--lufa-token-color-background-primary)'} height="small" width="full">
                 Nav 1
               </Placeholder>
-              <Placeholder color={tokens.color.background.primary} height="small" width="full">
+              <Placeholder color={'var(--lufa-token-color-background-primary)'} height="small" width="full">
                 Nav 2
               </Placeholder>
-              <Placeholder color={tokens.color.background.primary} height="small" width="full">
+              <Placeholder color={'var(--lufa-token-color-background-primary)'} height="small" width="full">
                 Nav 3
               </Placeholder>
             </Stack>
@@ -85,17 +84,17 @@ export const Playground: Story = {
 
         <Layout.Content>
           <Stack direction="vertical" gap="normal">
-            <Placeholder color={tokens.color.background.primary} height="large" width="full">
+            <Placeholder color={'var(--lufa-token-color-background-primary)'} height="large" width="full">
               Content
             </Placeholder>
-            <Placeholder color={tokens.color.background.primary} height="medium" width="full">
+            <Placeholder color={'var(--lufa-token-color-background-primary)'} height="medium" width="full">
               More content
             </Placeholder>
           </Stack>
         </Layout.Content>
 
         <Layout.Footer>
-          <Placeholder color={tokens.color.background.primary} height="small" width="full">
+          <Placeholder color={'var(--lufa-token-color-background-primary)'} height="small" width="full">
             Footer
           </Placeholder>
         </Layout.Footer>
@@ -107,7 +106,13 @@ export const Playground: Story = {
 export const SidebarPositions: Story = {
   render: () => (
     <Container size="xl" paddingX="none">
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: tokens.spacing.lg }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+          gap: 'var(--lufa-token-spacing-lg)',
+        }}
+      >
         {([LAYOUT_SIDEBAR_POSITION.left, LAYOUT_SIDEBAR_POSITION.right] as const).map((position) => (
           <Layout
             key={position}
@@ -116,34 +121,38 @@ export const SidebarPositions: Story = {
             sidebarWidth={LAYOUT_SIDEBAR_WIDTH.default}
             gap={LAYOUT_GAP.md}
             style={{
-              backgroundColor: tokens.color.background.secondary,
-              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-              borderRadius: tokens.radius.xl,
-              padding: tokens.spacing.base,
+              backgroundColor: 'var(--lufa-token-color-background-secondary)',
+              border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
+              borderRadius: 'var(--lufa-token-radius-xl)',
+              padding: 'var(--lufa-token-spacing-base)',
             }}
           >
             <Layout.Header>
               <div
-                style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}
+                style={{
+                  fontFamily: 'monospace',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  marginBottom: 'var(--lufa-token-spacing-sm)',
+                }}
               >
                 sidebarPosition: {position}
               </div>
-              <Placeholder color={tokens.color.interactive.default} height="small" width="full">
+              <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="full">
                 Header
               </Placeholder>
             </Layout.Header>
             <Layout.Sidebar>
-              <Placeholder color={tokens.color.background.primary} height="large" width="full">
+              <Placeholder color={'var(--lufa-token-color-background-primary)'} height="large" width="full">
                 Sidebar
               </Placeholder>
             </Layout.Sidebar>
             <Layout.Content>
-              <Placeholder color={tokens.color.background.primary} height="large" width="full">
+              <Placeholder color={'var(--lufa-token-color-background-primary)'} height="large" width="full">
                 Content
               </Placeholder>
             </Layout.Content>
             <Layout.Footer>
-              <Placeholder color={tokens.color.background.primary} height="small" width="full">
+              <Placeholder color={'var(--lufa-token-color-background-primary)'} height="small" width="full">
                 Footer
               </Placeholder>
             </Layout.Footer>
@@ -166,34 +175,38 @@ export const SidebarWidths: Story = {
             sidebarWidth={width}
             gap={LAYOUT_GAP.md}
             style={{
-              backgroundColor: tokens.color.background.secondary,
-              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-              borderRadius: tokens.radius.xl,
-              padding: tokens.spacing.base,
+              backgroundColor: 'var(--lufa-token-color-background-secondary)',
+              border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
+              borderRadius: 'var(--lufa-token-radius-xl)',
+              padding: 'var(--lufa-token-spacing-base)',
             }}
           >
             <Layout.Header>
               <div
-                style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}
+                style={{
+                  fontFamily: 'monospace',
+                  color: 'var(--lufa-token-color-text-secondary)',
+                  marginBottom: 'var(--lufa-token-spacing-sm)',
+                }}
               >
                 sidebarWidth: {width}
               </div>
-              <Placeholder color={tokens.color.interactive.default} height="small" width="full">
+              <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="full">
                 Header
               </Placeholder>
             </Layout.Header>
             <Layout.Sidebar>
-              <Placeholder color={tokens.color.background.primary} height="large" width="full">
+              <Placeholder color={'var(--lufa-token-color-background-primary)'} height="large" width="full">
                 Sidebar
               </Placeholder>
             </Layout.Sidebar>
             <Layout.Content>
-              <Placeholder color={tokens.color.background.primary} height="large" width="full">
+              <Placeholder color={'var(--lufa-token-color-background-primary)'} height="large" width="full">
                 Content
               </Placeholder>
             </Layout.Content>
             <Layout.Footer>
-              <Placeholder color={tokens.color.background.primary} height="small" width="full">
+              <Placeholder color={'var(--lufa-token-color-background-primary)'} height="small" width="full">
                 Footer
               </Placeholder>
             </Layout.Footer>
@@ -211,24 +224,24 @@ export const WithoutSidebar: Story = {
         sidebar={false}
         gap={LAYOUT_GAP.md}
         style={{
-          backgroundColor: tokens.color.background.secondary,
-          border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-          borderRadius: tokens.radius.xl,
-          padding: tokens.spacing.base,
+          backgroundColor: 'var(--lufa-token-color-background-secondary)',
+          border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
+          borderRadius: 'var(--lufa-token-radius-xl)',
+          padding: 'var(--lufa-token-spacing-base)',
         }}
       >
         <Layout.Header>
-          <Placeholder color={tokens.color.interactive.default} height="small" width="full">
+          <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="full">
             Header
           </Placeholder>
         </Layout.Header>
         <Layout.Content>
-          <Placeholder color={tokens.color.background.primary} height="large" width="full">
+          <Placeholder color={'var(--lufa-token-color-background-primary)'} height="large" width="full">
             Content
           </Placeholder>
         </Layout.Content>
         <Layout.Footer>
-          <Placeholder color={tokens.color.background.primary} height="small" width="full">
+          <Placeholder color={'var(--lufa-token-color-background-primary)'} height="small" width="full">
             Footer
           </Placeholder>
         </Layout.Footer>

@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Placeholder } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/Placeholder',
@@ -65,13 +64,20 @@ export const Playground: Story = {
 
 export const Height: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.sm }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--lufa-token-spacing-base)',
+        maxWidth: 'var(--lufa-token-max-width-sm)',
+      }}
+    >
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Small
@@ -81,9 +87,9 @@ export const Height: Story = {
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Medium (default)
@@ -93,9 +99,9 @@ export const Height: Story = {
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Large
@@ -105,9 +111,9 @@ export const Height: Story = {
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Auto
@@ -126,13 +132,13 @@ export const Height: Story = {
 
 export const Width: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-base)' }}>
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Auto
@@ -142,9 +148,9 @@ export const Width: Story = {
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Small
@@ -154,9 +160,9 @@ export const Width: Story = {
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Medium
@@ -166,9 +172,9 @@ export const Width: Story = {
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Large
@@ -178,9 +184,9 @@ export const Width: Story = {
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Full (100%)
@@ -193,13 +199,20 @@ export const Width: Story = {
 
 export const Color: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.sm }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--lufa-token-spacing-base)',
+        maxWidth: 'var(--lufa-token-max-width-sm)',
+      }}
+    >
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Default (Violet Gradient)
@@ -209,50 +222,50 @@ export const Color: Story = {
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Solid - Interactive (Blue)
         </h3>
-        <Placeholder color={tokens.color.interactive.default}>Solid Blue</Placeholder>
+        <Placeholder color={'var(--lufa-token-color-interactive-default)'}>Solid Blue</Placeholder>
       </div>
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Solid - Success (Green)
         </h3>
-        <Placeholder color={tokens.color.success.default}>Solid Green</Placeholder>
+        <Placeholder color={'var(--lufa-token-color-success-default)'}>Solid Green</Placeholder>
       </div>
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Solid - Error (Red)
         </h3>
-        <Placeholder color={tokens.color.error.default}>Solid Red</Placeholder>
+        <Placeholder color={'var(--lufa-token-color-error-default)'}>Solid Red</Placeholder>
       </div>
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Solid - Warning (Orange)
         </h3>
-        <Placeholder color={tokens.color.warning.default}>Solid Orange</Placeholder>
+        <Placeholder color={'var(--lufa-token-color-warning-default)'}>Solid Orange</Placeholder>
       </div>
     </div>
   ),
@@ -260,74 +273,96 @@ export const Color: Story = {
 
 export const ColorGradient: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base, maxWidth: tokens.maxWidth.sm }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--lufa-token-spacing-base)',
+        maxWidth: 'var(--lufa-token-max-width-sm)',
+      }}
+    >
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Blue to Purple
         </h3>
-        <Placeholder colorFrom={tokens.color.interactive.default} colorTo={tokens.color.brand.secondary}>
+        <Placeholder
+          colorFrom={'var(--lufa-token-color-interactive-default)'}
+          colorTo={'var(--lufa-token-color-brand-secondary)'}
+        >
           Blue → Purple
         </Placeholder>
       </div>
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Green to Teal
         </h3>
-        <Placeholder colorFrom={tokens.color.success.default} colorTo={tokens.color.info.default}>
+        <Placeholder
+          colorFrom={'var(--lufa-token-color-success-default)'}
+          colorTo={'var(--lufa-token-color-info-default)'}
+        >
           Green → Teal
         </Placeholder>
       </div>
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Orange to Red
         </h3>
-        <Placeholder colorFrom={tokens.color.warning.default} colorTo={tokens.color.error.default}>
+        <Placeholder
+          colorFrom={'var(--lufa-token-color-warning-default)'}
+          colorTo={'var(--lufa-token-color-error-default)'}
+        >
           Orange → Red
         </Placeholder>
       </div>
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Purple to Pink
         </h3>
-        <Placeholder colorFrom={tokens.color.brand.secondary} colorTo={tokens.color.brand.accent}>
+        <Placeholder
+          colorFrom={'var(--lufa-token-color-brand-secondary)'}
+          colorTo={'var(--lufa-token-color-brand-accent)'}
+        >
           Purple → Pink
         </Placeholder>
       </div>
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.sm,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Dark to Light
         </h3>
-        <Placeholder colorFrom={tokens.color.background.inverse} colorTo={tokens.color.background.secondary}>
+        <Placeholder
+          colorFrom={'var(--lufa-token-color-background-inverse)'}
+          colorTo={'var(--lufa-token-color-background-secondary)'}
+        >
           Dark → Light
         </Placeholder>
       </div>
@@ -337,32 +372,32 @@ export const ColorGradient: Story = {
 
 export const CombinedWithAndHeight: Story = {
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: tokens.spacing.base }}>
-      <Placeholder height="small" width="small" color={tokens.color.interactive.default}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--lufa-token-spacing-base)' }}>
+      <Placeholder height="small" width="small" color={'var(--lufa-token-color-interactive-default)'}>
         Small × Small
       </Placeholder>
-      <Placeholder height="small" width="medium" color={tokens.color.success.default}>
+      <Placeholder height="small" width="medium" color={'var(--lufa-token-color-success-default)'}>
         Small × Medium
       </Placeholder>
-      <Placeholder height="small" width="large" color={tokens.color.error.default}>
+      <Placeholder height="small" width="large" color={'var(--lufa-token-color-error-default)'}>
         Small × Large
       </Placeholder>
-      <Placeholder height="medium" width="small" color={tokens.color.brand.secondary}>
+      <Placeholder height="medium" width="small" color={'var(--lufa-token-color-brand-secondary)'}>
         Medium × Small
       </Placeholder>
-      <Placeholder height="medium" width="medium" color={tokens.color.info.default}>
+      <Placeholder height="medium" width="medium" color={'var(--lufa-token-color-info-default)'}>
         Medium × Medium
       </Placeholder>
-      <Placeholder height="medium" width="large" color={tokens.color.warning.default}>
+      <Placeholder height="medium" width="large" color={'var(--lufa-token-color-warning-default)'}>
         Medium × Large
       </Placeholder>
-      <Placeholder height="large" width="small" color={tokens.color.interactive.hover}>
+      <Placeholder height="large" width="small" color={'var(--lufa-token-color-interactive-hover)'}>
         Large × Small
       </Placeholder>
-      <Placeholder height="large" width="medium" color={tokens.color.success.hover}>
+      <Placeholder height="large" width="medium" color={'var(--lufa-token-color-success-hover)'}>
         Large × Medium
       </Placeholder>
-      <Placeholder height="large" width="large" color={tokens.color.warning.default}>
+      <Placeholder height="large" width="large" color={'var(--lufa-token-color-warning-default)'}>
         Large × Large
       </Placeholder>
     </div>
@@ -373,51 +408,51 @@ export const LayoutExample: Story = {
   render: () => (
     <div
       style={{
-        maxWidth: tokens.maxWidth['4xl'],
-        padding: tokens.spacing['md-lg'],
-        backgroundColor: tokens.color.background.tertiary,
-        borderRadius: tokens.radius.base,
+        maxWidth: 'var(--lufa-token-max-width-4xl)',
+        padding: 'var(--lufa-token-spacing-md-lg)',
+        backgroundColor: 'var(--lufa-token-color-background-tertiary)',
+        borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
-      <h2 style={{ marginBottom: tokens.spacing.base }}>Dashboard Layout Example</h2>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
-        <Placeholder height="small" width="full" color={tokens.color.interactive.default}>
+      <h2 style={{ marginBottom: 'var(--lufa-token-spacing-base)' }}>Dashboard Layout Example</h2>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-base)' }}>
+        <Placeholder height="small" width="full" color={'var(--lufa-token-color-interactive-default)'}>
           Header - Small Height, Full Width
         </Placeholder>
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: `${tokens.dimension.sidebarWidthDefault} 1fr`,
-            gap: tokens.spacing.base,
+            gridTemplateColumns: `${'var(--lufa-token-dimension-sidebar-width-default)'} 1fr`,
+            gap: 'var(--lufa-token-spacing-base)',
           }}
         >
-          <Placeholder height="full" width="full" color={tokens.color.brand.secondary}>
+          <Placeholder height="full" width="full" color={'var(--lufa-token-color-brand-secondary)'}>
             Sidebar
           </Placeholder>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
-            <Placeholder height="medium" width="full" color={tokens.color.success.light}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-base)' }}>
+            <Placeholder height="medium" width="full" color={'var(--lufa-token-color-success-light)'}>
               Content Area
             </Placeholder>
             <div
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: tokens.spacing.base,
+                gap: 'var(--lufa-token-spacing-base)',
               }}
             >
-              <Placeholder height="small" color={tokens.color.warning.light}>
+              <Placeholder height="small" color={'var(--lufa-token-color-warning-light)'}>
                 Card 1
               </Placeholder>
-              <Placeholder height="small" color={tokens.color.warning.light}>
+              <Placeholder height="small" color={'var(--lufa-token-color-warning-light)'}>
                 Card 2
               </Placeholder>
-              <Placeholder height="small" color={tokens.color.warning.light}>
+              <Placeholder height="small" color={'var(--lufa-token-color-warning-light)'}>
                 Card 3
               </Placeholder>
             </div>
           </div>
         </div>
-        <Placeholder height="small" width="full" color={tokens.color.text.secondary}>
+        <Placeholder height="small" width="full" color={'var(--lufa-token-color-text-secondary)'}>
           Footer - Small Height, Full Width
         </Placeholder>
       </div>

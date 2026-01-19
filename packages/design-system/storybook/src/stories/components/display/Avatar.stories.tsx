@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Avatar, AvatarGroup } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Display/Avatar',
@@ -67,7 +66,7 @@ export const Playground: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-base)' }}>
       <Avatar src={sampleImage} size="xs" alt="Extra small" />
       <Avatar src={sampleImage} size="sm" alt="Small" />
       <Avatar src={sampleImage} size="md" alt="Medium" />
@@ -79,16 +78,28 @@ export const Sizes: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.xl }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-xl)' }}>
       <div style={{ textAlign: 'center' }}>
         <Avatar src={sampleImage} variant="circle" size="lg" />
-        <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+        <p
+          style={{
+            marginTop: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-xs)',
+            color: 'var(--lufa-token-color-text-tertiary)',
+          }}
+        >
           Circle
         </p>
       </div>
       <div style={{ textAlign: 'center' }}>
         <Avatar src={sampleImage} variant="square" size="lg" />
-        <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+        <p
+          style={{
+            marginTop: 'var(--lufa-token-spacing-sm)',
+            fontSize: 'var(--lufa-token-font-size-xs)',
+            color: 'var(--lufa-token-color-text-tertiary)',
+          }}
+        >
           Square
         </p>
       </div>
@@ -98,22 +109,26 @@ export const Variants: Story = {
 
 export const StatusIndicators: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-lg)' }}>
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.base,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-base)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Status Types
         </h3>
-        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-base)' }}>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: 'var(--lufa-token-spacing-sm)',
+                fontSize: 'var(--lufa-token-font-size-xs)',
+                color: 'var(--lufa-token-color-text-tertiary)',
+              }}
             >
               Online
             </p>
@@ -121,7 +136,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="away" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: 'var(--lufa-token-spacing-sm)',
+                fontSize: 'var(--lufa-token-font-size-xs)',
+                color: 'var(--lufa-token-color-text-tertiary)',
+              }}
             >
               Away
             </p>
@@ -129,7 +148,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="busy" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: 'var(--lufa-token-spacing-sm)',
+                fontSize: 'var(--lufa-token-font-size-xs)',
+                color: 'var(--lufa-token-color-text-tertiary)',
+              }}
             >
               Busy
             </p>
@@ -137,7 +160,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="offline" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: 'var(--lufa-token-spacing-sm)',
+                fontSize: 'var(--lufa-token-font-size-xs)',
+                color: 'var(--lufa-token-color-text-tertiary)',
+              }}
             >
               Offline
             </p>
@@ -147,18 +174,22 @@ export const StatusIndicators: Story = {
       <div>
         <h3
           style={{
-            marginBottom: tokens.spacing.base,
-            fontSize: tokens.fontSize.sm,
-            fontWeight: tokens.fontWeight.semibold,
+            marginBottom: 'var(--lufa-token-spacing-base)',
+            fontSize: 'var(--lufa-token-font-size-sm)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
           }}
         >
           Status Positions
         </h3>
-        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-base)' }}>
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="top" variant="circle" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: 'var(--lufa-token-spacing-sm)',
+                fontSize: 'var(--lufa-token-font-size-xs)',
+                color: 'var(--lufa-token-color-text-tertiary)',
+              }}
             >
               Top (Circle)
             </p>
@@ -166,7 +197,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="bottom" variant="circle" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: 'var(--lufa-token-spacing-sm)',
+                fontSize: 'var(--lufa-token-font-size-xs)',
+                color: 'var(--lufa-token-color-text-tertiary)',
+              }}
             >
               Bottom (Circle)
             </p>
@@ -174,7 +209,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="top" variant="square" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: 'var(--lufa-token-spacing-sm)',
+                fontSize: 'var(--lufa-token-font-size-xs)',
+                color: 'var(--lufa-token-color-text-tertiary)',
+              }}
             >
               Top (Square)
             </p>
@@ -182,7 +221,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="bottom" variant="square" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: 'var(--lufa-token-spacing-sm)',
+                fontSize: 'var(--lufa-token-font-size-xs)',
+                color: 'var(--lufa-token-color-text-tertiary)',
+              }}
             >
               Bottom (Square)
             </p>
@@ -198,17 +241,23 @@ export const CountVariant: Story = {
     <div>
       <h3
         style={{
-          marginBottom: tokens.spacing.base,
-          fontSize: tokens.fontSize.sm,
-          fontWeight: tokens.fontWeight.semibold,
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          fontWeight: 'var(--lufa-token-font-weight-semibold)',
         }}
       >
         Count Variant
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          color: 'var(--lufa-token-color-text-tertiary)',
+        }}
+      >
         Display numeric counts instead of images
       </p>
-      <div style={{ display: 'flex', gap: tokens.spacing.base, alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-base)', alignItems: 'center' }}>
         <Avatar variant="count" count="+5" size="xs" />
         <Avatar variant="count" count="+10" size="sm" />
         <Avatar variant="count" count="+25" size="md" />
@@ -224,14 +273,20 @@ export const GroupBasic: Story = {
     <div>
       <h3
         style={{
-          marginBottom: tokens.spacing.base,
-          fontSize: tokens.fontSize.sm,
-          fontWeight: tokens.fontWeight.semibold,
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          fontWeight: 'var(--lufa-token-font-weight-semibold)',
         }}
       >
         Basic Avatar Group
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          color: 'var(--lufa-token-color-text-tertiary)',
+        }}
+      >
         Avatars automatically overlap without manual styling
       </p>
       <AvatarGroup size="md">
@@ -249,20 +304,30 @@ export const GroupWithCount: Story = {
     <div>
       <h3
         style={{
-          marginBottom: tokens.spacing.base,
-          fontSize: tokens.fontSize.sm,
-          fontWeight: tokens.fontWeight.semibold,
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          fontWeight: 'var(--lufa-token-font-weight-semibold)',
         }}
       >
         Avatar Group with Count
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          color: 'var(--lufa-token-color-text-tertiary)',
+        }}
+      >
         Display remaining avatars count automatically using the max prop
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-lg)' }}>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             max=3 (shows +6 more)
           </p>
@@ -280,7 +345,11 @@ export const GroupWithCount: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             max=5 (shows +4 more)
           </p>
@@ -306,20 +375,30 @@ export const GroupSizes: Story = {
     <div>
       <h3
         style={{
-          marginBottom: tokens.spacing.base,
-          fontSize: tokens.fontSize.sm,
-          fontWeight: tokens.fontWeight.semibold,
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          fontWeight: 'var(--lufa-token-font-weight-semibold)',
         }}
       >
         Avatar Group Sizes
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          color: 'var(--lufa-token-color-text-tertiary)',
+        }}
+      >
         Control size for all avatars in the group
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing['md-lg'] }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-md-lg)' }}>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             Extra Small (xs)
           </p>
@@ -333,7 +412,11 @@ export const GroupSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             Small (sm)
           </p>
@@ -347,7 +430,11 @@ export const GroupSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             Medium (md)
           </p>
@@ -361,7 +448,11 @@ export const GroupSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             Large (lg)
           </p>
@@ -375,7 +466,11 @@ export const GroupSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             Extra Large (xl)
           </p>
@@ -413,53 +508,53 @@ function AvatarShowcase() {
   return (
     <div
       style={{
-        padding: tokens.spacing['2xl'],
-        background: tokens.color.background.primary,
+        padding: 'var(--lufa-token-spacing-2xl)',
+        background: 'var(--lufa-token-color-background-primary)',
         minHeight: '100vh',
         minWidth: '1200px',
       }}
     >
       {/* Header */}
-      <div style={{ marginBottom: tokens.spacing.xl }}>
+      <div style={{ marginBottom: 'var(--lufa-token-spacing-xl)' }}>
         <h1
           style={{
-            fontSize: tokens.fontSize['2xl'],
-            fontWeight: tokens.fontWeight.bold,
-            color: tokens.color.text.primary,
-            marginBottom: tokens.spacing.sm,
+            fontSize: 'var(--lufa-token-font-size-2xl)',
+            fontWeight: 'var(--lufa-token-font-weight-bold)',
+            color: 'var(--lufa-token-color-text-primary)',
+            marginBottom: 'var(--lufa-token-spacing-sm)',
           }}
         >
           Avatar Component - All Variants
         </h1>
-        <p style={{ fontSize: tokens.fontSize.base, color: tokens.color.text.secondary }}>
+        <p style={{ fontSize: 'var(--lufa-token-font-size-base)', color: 'var(--lufa-token-color-text-secondary)' }}>
           Comprehensive showcase of all sizes, shapes, status indicators, and group configurations. Use the Storybook
           toolbar to switch between light/dark modes.
         </p>
       </div>
 
       {/* Sizes Section */}
-      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+      <section style={{ marginBottom: 'var(--lufa-token-spacing-2xl)' }}>
         <h2
           style={{
-            fontSize: tokens.fontSize.xl,
-            fontWeight: tokens.fontWeight.semibold,
-            color: tokens.color.text.primary,
-            marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
-            paddingBottom: tokens.spacing.sm,
+            fontSize: 'var(--lufa-token-font-size-xl)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            color: 'var(--lufa-token-color-text-primary)',
+            marginBottom: 'var(--lufa-token-spacing-base)',
+            borderBottom: `1px solid ${'var(--lufa-token-color-border-primary)'}`,
+            paddingBottom: 'var(--lufa-token-spacing-sm)',
           }}
         >
           1. Sizes (xs, sm, md, lg, xl)
         </h2>
-        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.lg }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-lg)' }}>
           {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
             <div key={size} style={{ textAlign: 'center' }}>
               <Avatar src={sampleImage} size={size} alt={`${size} avatar`} />
               <p
                 style={{
-                  marginTop: tokens.spacing.xs,
-                  fontSize: tokens.fontSize.xs,
-                  color: tokens.color.text.tertiary,
+                  marginTop: 'var(--lufa-token-spacing-xs)',
+                  fontSize: 'var(--lufa-token-font-size-xs)',
+                  color: 'var(--lufa-token-color-text-tertiary)',
                 }}
               >
                 {size}
@@ -470,28 +565,28 @@ function AvatarShowcase() {
       </section>
 
       {/* Shape Variants Section */}
-      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+      <section style={{ marginBottom: 'var(--lufa-token-spacing-2xl)' }}>
         <h2
           style={{
-            fontSize: tokens.fontSize.xl,
-            fontWeight: tokens.fontWeight.semibold,
-            color: tokens.color.text.primary,
-            marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
-            paddingBottom: tokens.spacing.sm,
+            fontSize: 'var(--lufa-token-font-size-xl)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            color: 'var(--lufa-token-color-text-primary)',
+            marginBottom: 'var(--lufa-token-spacing-base)',
+            borderBottom: `1px solid ${'var(--lufa-token-color-border-primary)'}`,
+            paddingBottom: 'var(--lufa-token-spacing-sm)',
           }}
         >
           2. Shape Variants (Circle, Square)
         </h2>
-        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.xl }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-xl)' }}>
           {(['circle', 'square'] as const).map((variant) => (
             <div key={variant} style={{ textAlign: 'center' }}>
               <Avatar src={sampleImage} variant={variant} size="lg" />
               <p
                 style={{
-                  marginTop: tokens.spacing.sm,
-                  fontSize: tokens.fontSize.sm,
-                  color: tokens.color.text.tertiary,
+                  marginTop: 'var(--lufa-token-spacing-sm)',
+                  fontSize: 'var(--lufa-token-font-size-sm)',
+                  color: 'var(--lufa-token-color-text-tertiary)',
                 }}
               >
                 {variant.charAt(0).toUpperCase() + variant.slice(1)}
@@ -502,28 +597,28 @@ function AvatarShowcase() {
       </section>
 
       {/* Status Indicators Section */}
-      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+      <section style={{ marginBottom: 'var(--lufa-token-spacing-2xl)' }}>
         <h2
           style={{
-            fontSize: tokens.fontSize.xl,
-            fontWeight: tokens.fontWeight.semibold,
-            color: tokens.color.text.primary,
-            marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
-            paddingBottom: tokens.spacing.sm,
+            fontSize: 'var(--lufa-token-font-size-xl)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            color: 'var(--lufa-token-color-text-primary)',
+            marginBottom: 'var(--lufa-token-spacing-base)',
+            borderBottom: `1px solid ${'var(--lufa-token-color-border-primary)'}`,
+            paddingBottom: 'var(--lufa-token-spacing-sm)',
           }}
         >
           3. Status Indicators (Online, Away, Busy, Offline)
         </h2>
-        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.lg }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-lg)' }}>
           {(['online', 'away', 'busy', 'offline'] as const).map((status) => (
             <div key={status} style={{ textAlign: 'center' }}>
               <Avatar src={sampleImage} size="lg" status={status} />
               <p
                 style={{
-                  marginTop: tokens.spacing.sm,
-                  fontSize: tokens.fontSize.sm,
-                  color: tokens.color.text.tertiary,
+                  marginTop: 'var(--lufa-token-spacing-sm)',
+                  fontSize: 'var(--lufa-token-font-size-sm)',
+                  color: 'var(--lufa-token-color-text-tertiary)',
                 }}
               >
                 {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -534,20 +629,20 @@ function AvatarShowcase() {
       </section>
 
       {/* Status Positions Section */}
-      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+      <section style={{ marginBottom: 'var(--lufa-token-spacing-2xl)' }}>
         <h2
           style={{
-            fontSize: tokens.fontSize.xl,
-            fontWeight: tokens.fontWeight.semibold,
-            color: tokens.color.text.primary,
-            marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
-            paddingBottom: tokens.spacing.sm,
+            fontSize: 'var(--lufa-token-font-size-xl)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            color: 'var(--lufa-token-color-text-primary)',
+            marginBottom: 'var(--lufa-token-spacing-base)',
+            borderBottom: `1px solid ${'var(--lufa-token-color-border-primary)'}`,
+            paddingBottom: 'var(--lufa-token-spacing-sm)',
           }}
         >
           4. Status Positions (Top, Bottom × Circle, Square)
         </h2>
-        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.lg }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-lg)' }}>
           {[
             { position: 'top', variant: 'circle', label: 'Top (Circle)' },
             { position: 'bottom', variant: 'circle', label: 'Bottom (Circle)' },
@@ -564,9 +659,9 @@ function AvatarShowcase() {
               />
               <p
                 style={{
-                  marginTop: tokens.spacing.sm,
-                  fontSize: tokens.fontSize.xs,
-                  color: tokens.color.text.tertiary,
+                  marginTop: 'var(--lufa-token-spacing-sm)',
+                  fontSize: 'var(--lufa-token-font-size-xs)',
+                  color: 'var(--lufa-token-color-text-tertiary)',
                 }}
               >
                 {label}
@@ -577,20 +672,20 @@ function AvatarShowcase() {
       </section>
 
       {/* Count Variant Section */}
-      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+      <section style={{ marginBottom: 'var(--lufa-token-spacing-2xl)' }}>
         <h2
           style={{
-            fontSize: tokens.fontSize.xl,
-            fontWeight: tokens.fontWeight.semibold,
-            color: tokens.color.text.primary,
-            marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
-            paddingBottom: tokens.spacing.sm,
+            fontSize: 'var(--lufa-token-font-size-xl)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            color: 'var(--lufa-token-color-text-primary)',
+            marginBottom: 'var(--lufa-token-spacing-base)',
+            borderBottom: `1px solid ${'var(--lufa-token-color-border-primary)'}`,
+            paddingBottom: 'var(--lufa-token-spacing-sm)',
           }}
         >
           5. Count Variant (All Sizes)
         </h2>
-        <div style={{ display: 'flex', gap: tokens.spacing.lg, alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-lg)', alignItems: 'center' }}>
           {[
             { size: 'xs', count: '+5' },
             { size: 'sm', count: '+10' },
@@ -602,9 +697,9 @@ function AvatarShowcase() {
               <Avatar variant="count" count={count} size={size as 'xs' | 'sm' | 'md' | 'lg' | 'xl'} />
               <p
                 style={{
-                  marginTop: tokens.spacing.sm,
-                  fontSize: tokens.fontSize.xs,
-                  color: tokens.color.text.tertiary,
+                  marginTop: 'var(--lufa-token-spacing-sm)',
+                  fontSize: 'var(--lufa-token-font-size-xs)',
+                  color: 'var(--lufa-token-color-text-tertiary)',
                 }}
               >
                 {size}
@@ -615,26 +710,26 @@ function AvatarShowcase() {
       </section>
 
       {/* Avatar Groups Section */}
-      <section style={{ marginBottom: tokens.spacing['2xl'] }}>
+      <section style={{ marginBottom: 'var(--lufa-token-spacing-2xl)' }}>
         <h2
           style={{
-            fontSize: tokens.fontSize.xl,
-            fontWeight: tokens.fontWeight.semibold,
-            color: tokens.color.text.primary,
-            marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
-            paddingBottom: tokens.spacing.sm,
+            fontSize: 'var(--lufa-token-font-size-xl)',
+            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            color: 'var(--lufa-token-color-text-primary)',
+            marginBottom: 'var(--lufa-token-spacing-base)',
+            borderBottom: `1px solid ${'var(--lufa-token-color-border-primary)'}`,
+            paddingBottom: 'var(--lufa-token-spacing-sm)',
           }}
         >
           6. Avatar Groups
         </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-lg)' }}>
           <div>
             <p
               style={{
-                marginBottom: tokens.spacing.sm,
-                fontSize: tokens.fontSize.sm,
-                color: tokens.color.text.secondary,
+                marginBottom: 'var(--lufa-token-spacing-sm)',
+                fontSize: 'var(--lufa-token-font-size-sm)',
+                color: 'var(--lufa-token-color-text-secondary)',
               }}
             >
               Basic Group (4 avatars with status):
@@ -649,9 +744,9 @@ function AvatarShowcase() {
           <div>
             <p
               style={{
-                marginBottom: tokens.spacing.sm,
-                fontSize: tokens.fontSize.sm,
-                color: tokens.color.text.secondary,
+                marginBottom: 'var(--lufa-token-spacing-sm)',
+                fontSize: 'var(--lufa-token-font-size-sm)',
+                color: 'var(--lufa-token-color-text-secondary)',
               }}
             >
               Group with Count (max=3, shows +6 more):

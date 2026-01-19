@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Avatar, AvatarGroup } from '@grasdouble/lufa_design-system';
-import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Display/AvatarGroup',
@@ -62,14 +61,20 @@ export const BasicGroup: Story = {
     <div>
       <h3
         style={{
-          marginBottom: tokens.spacing.base,
-          fontSize: tokens.fontSize.sm,
-          fontWeight: tokens.fontWeight.semibold,
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          fontWeight: 'var(--lufa-token-font-weight-semibold)',
         }}
       >
         Basic Usage
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-xs)',
+          color: 'var(--lufa-token-color-text-tertiary)',
+        }}
+      >
         Avatars automatically overlap without manual styling
       </p>
       <AvatarGroup size="md">
@@ -87,20 +92,30 @@ export const WithMaxLimit: Story = {
     <div>
       <h3
         style={{
-          marginBottom: tokens.spacing.base,
-          fontSize: tokens.fontSize.sm,
-          fontWeight: tokens.fontWeight.semibold,
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          fontWeight: 'var(--lufa-token-font-weight-semibold)',
         }}
       >
         Max Limit with Count
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-xs)',
+          color: 'var(--lufa-token-color-text-tertiary)',
+        }}
+      >
         Use max prop to limit displayed avatars and show remaining count
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-lg)' }}>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             max=2 of 8 avatars
           </p>
@@ -112,7 +127,11 @@ export const WithMaxLimit: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             max=4 of 8 avatars
           </p>
@@ -124,7 +143,11 @@ export const WithMaxLimit: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             max=6 of 8 avatars
           </p>
@@ -144,20 +167,30 @@ export const DifferentSizes: Story = {
     <div>
       <h3
         style={{
-          marginBottom: tokens.spacing.base,
-          fontSize: tokens.fontSize.sm,
-          fontWeight: tokens.fontWeight.semibold,
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          fontWeight: 'var(--lufa-token-font-weight-semibold)',
         }}
       >
         Size Variants
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-xs)',
+          color: 'var(--lufa-token-color-text-tertiary)',
+        }}
+      >
         Control size for all avatars in the group
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing['md-lg'] }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-md-lg)' }}>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             Extra Small (xs)
           </p>
@@ -169,7 +202,11 @@ export const DifferentSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             Small (sm)
           </p>
@@ -181,7 +218,11 @@ export const DifferentSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             Medium (md)
           </p>
@@ -193,7 +234,11 @@ export const DifferentSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             Large (lg)
           </p>
@@ -205,7 +250,11 @@ export const DifferentSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: 'var(--lufa-token-spacing-sm)',
+              fontSize: 'var(--lufa-token-font-size-xs)',
+              color: 'var(--lufa-token-color-text-tertiary)',
+            }}
           >
             Extra Large (xl)
           </p>
@@ -225,14 +274,20 @@ export const WithStatuses: Story = {
     <div>
       <h3
         style={{
-          marginBottom: tokens.spacing.base,
-          fontSize: tokens.fontSize.sm,
-          fontWeight: tokens.fontWeight.semibold,
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          fontWeight: 'var(--lufa-token-font-weight-semibold)',
         }}
       >
         With Status Indicators
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-xs)',
+          color: 'var(--lufa-token-color-text-tertiary)',
+        }}
+      >
         Combine group functionality with status indicators
       </p>
       <AvatarGroup size="md" max={4}>
@@ -252,22 +307,28 @@ export const RealWorldExample: Story = {
     <div>
       <h3
         style={{
-          marginBottom: tokens.spacing.base,
-          fontSize: tokens.fontSize.sm,
-          fontWeight: tokens.fontWeight.semibold,
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-sm)',
+          fontWeight: 'var(--lufa-token-font-weight-semibold)',
         }}
       >
         Real-world Example
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: 'var(--lufa-token-spacing-base)',
+          fontSize: 'var(--lufa-token-font-size-xs)',
+          color: 'var(--lufa-token-color-text-tertiary)',
+        }}
+      >
         Team members on a project
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-base)' }}>
         <div
           style={{
-            padding: tokens.spacing.base,
-            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-            borderRadius: tokens.radius.base,
+            padding: 'var(--lufa-token-spacing-base)',
+            border: `var(--lufa-token-border-width-hairline) var(--lufa-token-border-style-solid) var(--lufa-token-color-border-light)`,
+            borderRadius: 'var(--lufa-token-radius-base)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -276,14 +337,16 @@ export const RealWorldExample: Story = {
           <div>
             <h4
               style={{
-                fontSize: tokens.fontSize.sm,
-                fontWeight: tokens.fontWeight.semibold,
-                marginBottom: tokens.spacing.xs,
+                fontSize: 'var(--lufa-token-font-size-sm)',
+                fontWeight: 'var(--lufa-token-font-weight-semibold)',
+                marginBottom: 'var(--lufa-token-spacing-xs)',
               }}
             >
               Design System Project
             </h4>
-            <p style={{ fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>12 team members</p>
+            <p style={{ fontSize: 'var(--lufa-token-font-size-xs)', color: 'var(--lufa-token-color-text-tertiary)' }}>
+              12 team members
+            </p>
           </div>
           <AvatarGroup size="sm" max={5}>
             {sampleAvatars.map((src, index) => (
@@ -293,9 +356,9 @@ export const RealWorldExample: Story = {
         </div>
         <div
           style={{
-            padding: tokens.spacing.base,
-            border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
-            borderRadius: tokens.radius.base,
+            padding: 'var(--lufa-token-spacing-base)',
+            border: `var(--lufa-token-border-width-hairline) var(--lufa-token-border-style-solid) var(--lufa-token-color-border-light)`,
+            borderRadius: 'var(--lufa-token-radius-base)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -304,14 +367,16 @@ export const RealWorldExample: Story = {
           <div>
             <h4
               style={{
-                fontSize: tokens.fontSize.sm,
-                fontWeight: tokens.fontWeight.semibold,
-                marginBottom: tokens.spacing.xs,
+                fontSize: 'var(--lufa-token-font-size-sm)',
+                fontWeight: 'var(--lufa-token-font-weight-semibold)',
+                marginBottom: 'var(--lufa-token-spacing-xs)',
               }}
             >
               Mobile App Development
             </h4>
-            <p style={{ fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>8 team members</p>
+            <p style={{ fontSize: 'var(--lufa-token-font-size-xs)', color: 'var(--lufa-token-color-text-tertiary)' }}>
+              8 team members
+            </p>
           </div>
           <AvatarGroup size="sm" max={5}>
             {sampleAvatars.map((src, index) => (
