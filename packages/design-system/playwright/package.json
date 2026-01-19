@@ -8,12 +8,16 @@
   "author": "",
   "main": "index.js",
   "scripts": {
+    "compress-snapshots": "bash scripts/compress-snapshots-manual.sh",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "playwright test -c playwright-ct.config.ts",
     "test-ct": "playwright test -c playwright-ct.config.ts",
     "test-ct:ui": "playwright test -c playwright-ct.config.ts --ui",
     "test-ct:update-snapshots": "playwright test -c playwright-ct.config.ts --update-snapshots"
+  },
+  "lint-staged": {
+    "**/__snapshots__/**/*.png": "bash packages/design-system/playwright/scripts/compress-snapshots-precommit.sh"
   },
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",

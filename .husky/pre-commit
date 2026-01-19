@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+# Run lint-staged to process staged files
+# Configuration is in each package's package.json ("lint-staged" field)
+npx lint-staged

@@ -7,6 +7,7 @@ This directory contains utility scripts for the Lufa project.
 **Purpose**: Validates consistency across AI documentation files to prevent desynchronization.
 
 **Usage**:
+
 ```bash
 # Via npm script (recommended)
 pnpm validate:docs
@@ -55,12 +56,14 @@ bash scripts/validate-ai-docs.sh
    - Ensures package naming conventions are consistent
 
 **Exit codes**:
+
 - `0`: All validations passed (may have warnings)
 - `1`: Validation failed with errors
 
 **CI Integration**:
 
 The script runs automatically via GitHub Actions:
+
 - On pull requests that modify AI documentation
 - On pushes to `main` branch
 - Can be triggered manually via workflow_dispatch
@@ -69,13 +72,13 @@ See [.github/workflows/validate-docs.yml](../.github/workflows/validate-docs.yml
 
 **Common errors and fixes**:
 
-| Error | Fix |
-|-------|-----|
+| Error                            | Fix                                                             |
+| -------------------------------- | --------------------------------------------------------------- |
 | Three-layer architecture differs | Ensure all three files have identical architecture descriptions |
-| Build commands missing | Add missing build commands to the affected file |
-| Broken markdown link | Fix the link path or create the missing file |
-| Token package reference missing | Add `@grasdouble/lufa_design-system-tokens` reference |
-| Unsupported YAML field | Remove unsupported fields from `.instructions.md` frontmatter |
+| Build commands missing           | Add missing build commands to the affected file                 |
+| Broken markdown link             | Fix the link path or create the missing file                    |
+| Token package reference missing  | Add `@grasdouble/lufa_design-system-tokens` reference           |
+| Unsupported YAML field           | Remove unsupported fields from `.instructions.md` frontmatter   |
 
 **Example output**:
 
@@ -125,11 +128,40 @@ Checking package scope consistency...
 **Maintenance**:
 
 When adding new critical information to AI documentation:
+
 1. Update all three files simultaneously (`AGENTS.md`, `CLAUDE.md`, `.github/copilot-instructions.md`)
 2. Run `pnpm validate:docs` locally before committing
 3. Consider adding new validation checks to the script if needed
 
 **Related documentation**:
+
 - [AGENTS.md](../AGENTS.md) - Primary AI documentation
 - [CLAUDE.md](../CLAUDE.md) - Claude Code quick reference
 - [.github/copilot-instructions.md](../.github/copilot-instructions.md) - GitHub Copilot instructions
+
+---
+
+## Playwright Snapshot Compression
+
+The snapshot compression scripts have been moved to the Playwright package where they belong.
+
+📍 **Location**: `packages/design-system/playwright/scripts/`
+
+📚 **Full Documentation**: [packages/design-system/playwright/scripts/README.md](../packages/design-system/playwright/scripts/README.md)
+
+**Quick usage**:
+
+```bash
+# Manual compression (all snapshots)
+pnpm ds:test:compress-snapshots
+
+# Pre-commit hook (automatic for staged snapshots)
+# Runs automatically when you commit snapshot files
+```
+
+**Scripts**:
+
+- `compress-snapshots-precommit.sh` - Automatic compression via pre-commit hook
+- `compress-snapshots-manual.sh` - Manual compression of all snapshots
+
+See the [Playwright scripts README](../packages/design-system/playwright/scripts/README.md) for detailed documentation, usage examples, troubleshooting, and technical details.
