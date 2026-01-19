@@ -1,5 +1,5 @@
 ---
-"@grasdouble/lufa_design-system-playwright": patch
+"@grasdouble/lufa_design-system-playwright": minor
 ---
 
 Add CI/CD integration and cross-browser testing for Playwright component tests

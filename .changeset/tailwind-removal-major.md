@@ -1,5 +1,10 @@
 ---
-"@grasdouble/lufa_design-system": major
+"@grasdouble/lufa_design-system": minor
+"@grasdouble/lufa_design-system-docusaurus": minor
+"@grasdouble/lufa_design-system-storybook": minor
+"@grasdouble/lufa_design-system-themes": minor
+"@grasdouble/lufa_microfrontend_home": minor
+"@grasdouble/lufa_plugin_vscode_lufa-ds-preview": minor
 ---
 
 Remove Tailwind CSS and migrate all components to vanilla CSS with design tokens
