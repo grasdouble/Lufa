@@ -106,7 +106,7 @@ jobs:
   update-linux-snapshots:
     name: Update Linux Snapshots
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 60
     # Only run when the 'snapshot-update' label is added to a PR
     if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'snapshot-update')
 
