@@ -188,9 +188,14 @@ jobs:
           # Verify installation
           oxipng --version
 
-      # Step 12: Compress snapshots
+      # Step 12: Compress snapshots (level 6 for CI artifacts)
       - name: Compress snapshots
         run: pnpm ds:test:compress-snapshots
+        # Note: We compress manually with level 6 (maximum) before committing.
+        # The pre-commit hook (level 3) will run during git commit but won't
+        # re-compress already optimized files. This ensures CI snapshots get
+        # maximum compression (~10% better than level 3) while the hook still
+        # validates that compression is working correctly.
 
       # Step 13: Commit and push updated snapshots
       - name: Commit and push snapshots
@@ -203,6 +208,7 @@ jobs:
             echo "No snapshot changes detected"
             echo "updated=false" >> $GITHUB_OUTPUT
           else
+            # Pre-commit hook will run here but won't re-compress (files already optimized)
             git commit -m "test: update Linux snapshots (automated)"
             git push
             echo "updated=true" >> $GITHUB_OUTPUT
