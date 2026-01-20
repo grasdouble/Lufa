@@ -21,7 +21,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm clean && tsc && tsx scripts/generate-css.ts && tsx scripts/generate-map.ts",
+    "build": "pnpm clean && tsx scripts/generate-css-from-source.ts && tsx scripts/generate-js-from-source.ts && tsc && tsx scripts/generate-map.ts",
     "clean": "rm -rf dist",
     "lint": "eslint .",
     "prettier": "prettier --write ."
