@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button, Stack, Steps } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Navigation/Steps',
@@ -187,7 +188,7 @@ export const Wizard: Story = {
         key="step-0"
         style={{
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-background-secondary)',
+          backgroundColor: tokens.color.background.secondary,
           borderRadius: '8px',
         }}
       >
@@ -198,7 +199,7 @@ export const Wizard: Story = {
         key="step-1"
         style={{
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-background-secondary)',
+          backgroundColor: tokens.color.background.secondary,
           borderRadius: '8px',
         }}
       >
@@ -209,7 +210,7 @@ export const Wizard: Story = {
         key="step-2"
         style={{
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-background-secondary)',
+          backgroundColor: tokens.color.background.secondary,
           borderRadius: '8px',
         }}
       >
@@ -220,7 +221,7 @@ export const Wizard: Story = {
         key="step-3"
         style={{
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-background-secondary)',
+          backgroundColor: tokens.color.background.secondary,
           borderRadius: '8px',
         }}
       >
@@ -262,13 +263,13 @@ export const VerticalWithContent: Story = {
           style={{
             flex: 1,
             padding: '24px',
-            backgroundColor: 'var(--lufa-token-color-background-secondary)',
+            backgroundColor: tokens.color.background.secondary,
             borderRadius: '8px',
           }}
         >
           <h3 style={{ marginBottom: '16px' }}>{basicSteps[current].title}</h3>
           <p>{basicSteps[current].description}</p>
-          <p style={{ marginTop: '16px', color: 'var(--lufa-token-color-text-secondary)' }}>
+          <p style={{ marginTop: '16px', color: tokens.color.text.secondary }}>
             Content for step {current + 1} would go here...
           </p>
         </div>

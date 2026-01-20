@@ -12,6 +12,7 @@ import {
   SPACE_SIZE,
   Stack,
 } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/Flex',
@@ -72,19 +73,19 @@ export const Playground: Story = {
             <div
               style={{
                 fontFamily: 'monospace',
-                fontSize: 'var(--lufa-token-font-size-sm)',
-                color: 'var(--lufa-token-color-text-secondary)',
-                marginBottom: 'var(--lufa-token-spacing-sm)',
-                fontWeight: 'var(--lufa-token-font-weight-semibold)',
+                fontSize: tokens.fontSize.sm,
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.sm,
+                fontWeight: tokens.fontWeight.semibold,
               }}
             >
               direction: row
             </div>
             <div
               style={{
-                backgroundColor: 'var(--lufa-token-color-background-secondary)',
-                borderRadius: 'var(--lufa-token-radius-lg)',
-                padding: 'var(--lufa-token-spacing-base)',
+                backgroundColor: tokens.color.background.secondary,
+                borderRadius: tokens.radius.lg,
+                padding: tokens.spacing.base,
               }}
             >
               <Flex
@@ -92,17 +93,17 @@ export const Playground: Story = {
                 direction={FLEX_DIRECTION.row}
                 style={{
                   ...args.style,
-                  backgroundColor: 'var(--lufa-token-color-background-primary)',
-                  borderRadius: 'var(--lufa-token-radius-lg)',
-                  border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-                  padding: 'var(--lufa-token-spacing-base)',
-                  minHeight: 'var(--lufa-token-size-4xl)', // Add minimum height to show vertical alignment
+                  backgroundColor: tokens.color.background.primary,
+                  borderRadius: tokens.radius.lg,
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  padding: tokens.spacing.base,
+                  minHeight: tokens.size['4xl'], // Add minimum height to show vertical alignment
                 }}
               >
                 {Array.from({ length: 6 }).map((_, index) => (
                   <Placeholder
                     key={index}
-                    color={'var(--lufa-token-color-interactive-default)'}
+                    color={tokens.color.interactive.default}
                     height={heights[index]}
                     width="auto"
                   >
@@ -118,19 +119,19 @@ export const Playground: Story = {
             <div
               style={{
                 fontFamily: 'monospace',
-                fontSize: 'var(--lufa-token-font-size-sm)',
-                color: 'var(--lufa-token-color-text-secondary)',
-                marginBottom: 'var(--lufa-token-spacing-sm)',
-                fontWeight: 'var(--lufa-token-font-weight-semibold)',
+                fontSize: tokens.fontSize.sm,
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.sm,
+                fontWeight: tokens.fontWeight.semibold,
               }}
             >
               direction: column
             </div>
             <div
               style={{
-                backgroundColor: 'var(--lufa-token-color-background-secondary)',
-                borderRadius: 'var(--lufa-token-radius-lg)',
-                padding: 'var(--lufa-token-spacing-base)',
+                backgroundColor: tokens.color.background.secondary,
+                borderRadius: tokens.radius.lg,
+                padding: tokens.spacing.base,
               }}
             >
               <Flex
@@ -138,20 +139,15 @@ export const Playground: Story = {
                 direction={FLEX_DIRECTION.column}
                 style={{
                   ...args.style,
-                  backgroundColor: 'var(--lufa-token-color-background-primary)',
-                  borderRadius: 'var(--lufa-token-radius-lg)',
-                  border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-                  padding: 'var(--lufa-token-spacing-base)',
-                  minHeight: 'var(--lufa-token-size-4xl)', // Add minimum height to show vertical spacing
+                  backgroundColor: tokens.color.background.primary,
+                  borderRadius: tokens.radius.lg,
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  padding: tokens.spacing.base,
+                  minHeight: tokens.size['4xl'], // Add minimum height to show vertical spacing
                 }}
               >
                 {Array.from({ length: 6 }).map((_, index) => (
-                  <Placeholder
-                    key={index}
-                    color={'var(--lufa-token-color-success-default)'}
-                    height="small"
-                    width="auto"
-                  >
+                  <Placeholder key={index} color={tokens.color.success.default} height="small" width="auto">
                     {index + 1}
                   </Placeholder>
                 ))}
@@ -174,15 +170,15 @@ export const Alignment: Story = {
         style={{
           width,
           height,
-          borderRadius: 'var(--lufa-token-radius-lg)',
-          backgroundColor: 'var(--lufa-token-color-interactive-default)',
-          color: 'var(--lufa-token-color-text-inverse)',
+          borderRadius: tokens.radius.lg,
+          backgroundColor: tokens.color.interactive.default,
+          color: tokens.color.text.inverse,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           fontFamily: 'monospace',
-          fontWeight: 'var(--lufa-token-font-weight-bold)',
-          fontSize: 'var(--lufa-token-font-size-xs)',
+          fontWeight: tokens.fontWeight.bold,
+          fontSize: tokens.fontSize.xs,
         }}
       >
         {label}
@@ -191,13 +187,13 @@ export const Alignment: Story = {
 
     return (
       <Container size="full" paddingX="none">
-        <div style={{ width: 'var(--lufa-token-max-width-full)', overflowX: 'auto' }}>
+        <div style={{ width: tokens.maxWidth.full, overflowX: 'auto' }}>
           <div
             style={{
-              minWidth: 'var(--lufa-token-max-width-8xl)',
+              minWidth: tokens.maxWidth['8xl'],
               display: 'grid',
-              gridTemplateColumns: `${'var(--lufa-token-spacing-5xl)'} repeat(${justifies.length}, ${'var(--lufa-token-dimension-sidebar-width-wide)'})`,
-              gap: 'var(--lufa-token-spacing-md)',
+              gridTemplateColumns: `${tokens.spacing['5xl']} repeat(${justifies.length}, ${tokens.dimension.sidebarWidth.wide})`,
+              gap: tokens.spacing.md,
               alignItems: 'stretch',
             }}
           >
@@ -207,13 +203,13 @@ export const Alignment: Story = {
                 key={`header-${justify}`}
                 style={{
                   fontFamily: 'monospace',
-                  fontSize: 'var(--lufa-token-font-size-xs)',
-                  color: 'var(--lufa-token-color-text-secondary)',
+                  fontSize: tokens.fontSize.xs,
+                  color: tokens.color.text.secondary,
                   textAlign: 'center',
-                  padding: `${'var(--lufa-token-spacing-2xs)'} ${'var(--lufa-token-spacing-sm)'}`,
-                  backgroundColor: 'var(--lufa-token-color-background-primary)',
-                  border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-                  borderRadius: 'var(--lufa-token-radius-lg)',
+                  padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
+                  backgroundColor: tokens.color.background.primary,
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  borderRadius: tokens.radius.lg,
                 }}
               >
                 justify: {justify}
@@ -225,12 +221,12 @@ export const Alignment: Story = {
                 <div
                   style={{
                     fontFamily: 'monospace',
-                    fontSize: 'var(--lufa-token-font-size-xs)',
-                    color: 'var(--lufa-token-color-text-secondary)',
-                    padding: `${'var(--lufa-token-spacing-2xs)'} ${'var(--lufa-token-spacing-sm)'}`,
-                    backgroundColor: 'var(--lufa-token-color-background-primary)',
-                    border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-                    borderRadius: 'var(--lufa-token-radius-lg)',
+                    fontSize: tokens.fontSize.xs,
+                    color: tokens.color.text.secondary,
+                    padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
+                    backgroundColor: tokens.color.background.primary,
+                    border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                    borderRadius: tokens.radius.lg,
                     display: 'flex',
                     alignItems: 'center',
                   }}
@@ -241,24 +237,24 @@ export const Alignment: Story = {
                   <div
                     key={`${align}-${justify}`}
                     style={{
-                      backgroundColor: 'var(--lufa-token-color-background-primary)',
-                      border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-                      borderRadius: 'var(--lufa-token-radius-lg)',
-                      padding: 'var(--lufa-token-spacing-base)',
+                      backgroundColor: tokens.color.background.primary,
+                      border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                      borderRadius: tokens.radius.lg,
+                      padding: tokens.spacing.base,
                       overflow: 'hidden',
                     }}
                   >
-                    <div style={{ position: 'relative', height: 'var(--lufa-token-size-4xl)' }}>
+                    <div style={{ position: 'relative', height: tokens.size['4xl'] }}>
                       {/* Guides */}
                       <div
                         aria-hidden
                         style={{
                           position: 'absolute',
-                          left: 'var(--lufa-token-spacing-md)',
-                          right: 'var(--lufa-token-spacing-md)',
+                          left: tokens.spacing.md,
+                          right: tokens.spacing.md,
                           top: '50%',
-                          height: 'var(--lufa-token-border-width-hairline)',
-                          backgroundColor: 'var(--lufa-token-color-border-light)',
+                          height: tokens.borderWidth.hairline,
+                          backgroundColor: tokens.color.border.light,
                           pointerEvents: 'none',
                         }}
                       />
@@ -266,11 +262,11 @@ export const Alignment: Story = {
                         aria-hidden
                         style={{
                           position: 'absolute',
-                          top: 'var(--lufa-token-spacing-md)',
-                          bottom: 'var(--lufa-token-spacing-md)',
+                          top: tokens.spacing.md,
+                          bottom: tokens.spacing.md,
                           left: '50%',
-                          width: 'var(--lufa-token-border-width-hairline)',
-                          backgroundColor: 'var(--lufa-token-color-border-light)',
+                          width: tokens.borderWidth.hairline,
+                          backgroundColor: tokens.color.border.light,
                           pointerEvents: 'none',
                         }}
                       />
@@ -278,11 +274,11 @@ export const Alignment: Story = {
                         aria-hidden
                         style={{
                           position: 'absolute',
-                          top: 'var(--lufa-token-spacing-md)',
-                          bottom: 'var(--lufa-token-spacing-md)',
-                          left: 'var(--lufa-token-spacing-md)',
-                          width: 'var(--lufa-token-border-width-hairline)',
-                          backgroundColor: 'var(--lufa-token-color-border-light)',
+                          top: tokens.spacing.md,
+                          bottom: tokens.spacing.md,
+                          left: tokens.spacing.md,
+                          width: tokens.borderWidth.hairline,
+                          backgroundColor: tokens.color.border.light,
                           pointerEvents: 'none',
                         }}
                       />
@@ -290,11 +286,11 @@ export const Alignment: Story = {
                         aria-hidden
                         style={{
                           position: 'absolute',
-                          top: 'var(--lufa-token-spacing-md)',
-                          bottom: 'var(--lufa-token-spacing-md)',
-                          right: 'var(--lufa-token-spacing-md)',
-                          width: 'var(--lufa-token-border-width-hairline)',
-                          backgroundColor: 'var(--lufa-token-color-border-light)',
+                          top: tokens.spacing.md,
+                          bottom: tokens.spacing.md,
+                          right: tokens.spacing.md,
+                          width: tokens.borderWidth.hairline,
+                          backgroundColor: tokens.color.border.light,
                           pointerEvents: 'none',
                         }}
                       />
@@ -304,17 +300,13 @@ export const Alignment: Story = {
                         justify={justify}
                         gap={SPACE_SIZE.none}
                         style={{
-                          height: 'var(--lufa-token-max-width-full)',
-                          padding: 'var(--lufa-token-spacing-md)',
+                          height: tokens.maxWidth.full,
+                          padding: tokens.spacing.md,
                         }}
                       >
-                        <Box label="A" width={'var(--lufa-token-size-lg)'} height={'var(--lufa-token-size-md)'} />
-                        <Box label="B" width={'var(--lufa-token-size-xl)'} height={'var(--lufa-token-size-xl)'} />
-                        <Box
-                          label="C"
-                          width={'var(--lufa-token-size-lg)'}
-                          height={'var(--lufa-token-spacing-xl-2xl)'}
-                        />
+                        <Box label="A" width={tokens.size.lg} height={tokens.size.md} />
+                        <Box label="B" width={tokens.size.xl} height={tokens.size.xl} />
+                        <Box label="C" width={tokens.size.lg} height={tokens.spacing['xl-2xl']} />
                       </Flex>
                     </div>
                   </div>
@@ -336,17 +328,17 @@ export const Gap: Story = {
           <div
             key={gap}
             style={{
-              backgroundColor: 'var(--lufa-token-color-background-secondary)',
-              borderRadius: 'var(--lufa-token-radius-lg)',
-              padding: 'var(--lufa-token-spacing-base)',
+              backgroundColor: tokens.color.background.secondary,
+              borderRadius: tokens.radius.lg,
+              padding: tokens.spacing.base,
               overflow: 'auto',
             }}
           >
             <div
               style={{
                 fontFamily: 'monospace',
-                color: 'var(--lufa-token-color-text-secondary)',
-                marginBottom: 'var(--lufa-token-spacing-md)',
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.md,
               }}
             >
               gap: {gap}
@@ -355,9 +347,9 @@ export const Gap: Story = {
               wrap={FLEX_WRAP.wrap}
               gap={gap}
               style={{
-                backgroundColor: 'var(--lufa-token-color-background-primary)',
-                borderRadius: 'var(--lufa-token-radius-lg)',
-                padding: 'var(--lufa-token-spacing-base)',
+                backgroundColor: tokens.color.background.primary,
+                borderRadius: tokens.radius.lg,
+                padding: tokens.spacing.base,
               }}
             >
               {Array.from({ length: 10 }).map((_, index) => (
@@ -381,16 +373,16 @@ export const Wrap: Story = {
           <div
             key={wrap}
             style={{
-              backgroundColor: 'var(--lufa-token-color-background-secondary)',
-              borderRadius: 'var(--lufa-token-radius-lg)',
-              padding: 'var(--lufa-token-spacing-base)',
+              backgroundColor: tokens.color.background.secondary,
+              borderRadius: tokens.radius.lg,
+              padding: tokens.spacing.base,
             }}
           >
             <div
               style={{
                 fontFamily: 'monospace',
-                color: 'var(--lufa-token-color-text-secondary)',
-                marginBottom: 'var(--lufa-token-spacing-md)',
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.md,
               }}
             >
               wrap: {wrap}
@@ -399,9 +391,9 @@ export const Wrap: Story = {
               wrap={wrap}
               gap="md"
               style={{
-                backgroundColor: 'var(--lufa-token-color-background-primary)',
-                borderRadius: 'var(--lufa-token-radius-lg)',
-                padding: 'var(--lufa-token-spacing-base)',
+                backgroundColor: tokens.color.background.primary,
+                borderRadius: tokens.radius.lg,
+                padding: tokens.spacing.base,
               }}
             >
               {Array.from({ length: 5 }).map((_, index) => (

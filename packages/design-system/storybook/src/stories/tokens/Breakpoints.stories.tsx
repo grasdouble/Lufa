@@ -18,7 +18,7 @@ export const AllBreakpoints: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Breakpoint Tokens</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Standardized responsive breakpoints for mobile-first design. Use min-width media queries.
       </p>
 
@@ -32,16 +32,16 @@ export const AllBreakpoints: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: 'var(--lufa-token-color-background-secondary)',
+              backgroundColor: tokens.color.background.secondary,
               borderRadius: '8px',
-              border: `1px solid var(--lufa-token-color-border-light)`,
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>breakpoint.{key}</div>
-            <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '12px' }}>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
               {value}
             </div>
-            <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
+            <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, }}>
               {key === 'xs' && 'Mobile landscape (480px+)'}
               {key === 'sm' && 'Small tablet (768px+)'}
               {key === 'md' && 'Tablet (1024px+)'}
@@ -57,23 +57,23 @@ export const AllBreakpoints: Story = {
         style={{
           marginTop: '32px',
           padding: '16px',
-          backgroundColor: 'var(--lufa-token-color-info-light)',
-          border: `1px solid var(--lufa-token-color-info-border)`,
+          backgroundColor: tokens.color.info.light,
+          border: `1px solid ${tokens.color.info.border}`,
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: 'var(--lufa-token-color-info-text)' }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text, }}>
           Mobile-First Approach
         </div>
-        <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-info-text)', marginBottom: '12px' }}>
+        <div style={{ fontSize: '14px', color: tokens.color.info.text, marginBottom: '12px' }}>
           Start with mobile styles and progressively enhance for larger screens using min-width media queries.
         </div>
         <pre
           style={{
             margin: 0,
             padding: '12px',
-            backgroundColor: 'var(--lufa-token-color-background-inverse)',
-            color: 'var(--lufa-token-color-success-default)',
+            backgroundColor: tokens.color.background.inverse,
+            color: tokens.color.success.default,
             borderRadius: '6px',
             fontSize: '12px',
             overflow: 'auto',
@@ -129,16 +129,16 @@ export const ResponsiveDemo: Story = {
     return (
       <div style={{ padding: '20px', maxWidth: '1400px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Responsive Breakpoint Demo</h1>
-        <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
+        <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
           Resize your browser window to see the active breakpoint change.
         </p>
 
         <div
           style={{
             padding: '24px',
-            backgroundColor: 'var(--lufa-token-color-interactive-focus)',
+            backgroundColor: tokens.color.interactive.focus,
             borderRadius: '8px',
-            color: 'var(--lufa-token-color-text-inverse)',
+            color: tokens.color.text.inverse,
             textAlign: 'center',
             marginBottom: '32px',
           }}
@@ -147,7 +147,7 @@ export const ResponsiveDemo: Story = {
           <div style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '8px' }}>{currentWidth}px</div>
           <div style={{ fontSize: '20px', fontWeight: '600' }}>
             Active breakpoint:{' '}
-            <span style={{ color: 'var(--lufa-token-color-warning-default)' }}>{activeBreakpoint}</span>
+            <span style={{ color: tokens.color.warning.default, }}>{activeBreakpoint}</span>
           </div>
         </div>
 
@@ -168,9 +168,9 @@ export const ResponsiveDemo: Story = {
                 style={{
                   padding: '16px',
                   backgroundColor: isActive
-                    ? 'var(--lufa-token-color-success-default)'
-                    : 'var(--lufa-token-color-background-tertiary)',
-                  color: isActive ? 'var(--lufa-token-color-text-inverse)' : 'var(--lufa-token-color-text-secondary)',
+                    ? '${tokens.color.success.default}'
+                    : '${tokens.color.background.tertiary}',
+                  color: isActive ? '${tokens.color.text.inverse}' : '${tokens.color.text.secondary}',
                   borderRadius: '6px',
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -201,16 +201,16 @@ export const ResponsiveDemo: Story = {
           style={{
             marginTop: '32px',
             padding: '16px',
-            backgroundColor: 'var(--lufa-token-color-warning-light)',
-            border: `1px solid var(--lufa-token-color-warning-border)`,
+            backgroundColor: tokens.color.warning.light,
+            border: `1px solid ${tokens.color.warning.border}`,
             borderRadius: '8px',
           }}
         >
-          <div style={{ fontWeight: '600', marginBottom: '8px', color: 'var(--lufa-token-color-warning-text)' }}>
+          <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.warning.text, }}>
             💡 Responsive Design Tips
           </div>
           <ul
-            style={{ margin: 0, paddingLeft: '20px', color: 'var(--lufa-token-color-warning-text)', fontSize: '14px' }}
+            style={{ margin: 0, paddingLeft: '20px', color: tokens.color.warning.text, fontSize: '14px' }}
           >
             <li>Design mobile-first: start with smallest screen, enhance for larger</li>
             <li>Test at actual breakpoint values, not just approximate sizes</li>

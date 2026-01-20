@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button, Card, Placeholder } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Display/Card',
@@ -65,7 +66,7 @@ export const Ttile: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'var(--lufa-token-spacing-base)' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: tokens.spacing.base }}>
       <Card variant="default" title="Default">
         Standard card with border
       </Card>
@@ -84,7 +85,7 @@ export const Variants: Story = {
 
 export const Padding: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-base)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
       <Card padding="none" title="No Padding">
         Content with no padding
       </Card>
@@ -107,7 +108,7 @@ export const Footer: Story = {
     subtitle: 'This card has footer actions',
     children: 'Card content that describes something interesting.',
     footer: (
-      <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-sm)' }}>
+      <div style={{ display: 'flex', gap: tokens.spacing.sm }}>
         <Button variant="solid">Primary</Button>
         <Button variant="text">Cancel</Button>
       </div>
@@ -117,7 +118,7 @@ export const Footer: Story = {
 
 export const Hoverable: Story = {
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--lufa-token-spacing-base)' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: tokens.spacing.base }}>
       <Card variant="elevated" hoverable title="Hover Me">
         This card has hover effects
       </Card>
@@ -147,25 +148,25 @@ export const Clickable: Story = {
 
 export const UsageExamples: Story = {
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--lufa-token-spacing-base)' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: tokens.spacing.base }}>
       <Card
         variant="elevated"
         hoverable
         padding="none"
         footer={
-          <div style={{ padding: 'var(--lufa-token-spacing-base)' }}>
+          <div style={{ padding: tokens.spacing.base }}>
             <Button variant="solid" fullWidth>
               Add to Cart
             </Button>
           </div>
         }
       >
-        <Placeholder height="large" width="full" color="var(--lufa-token-color-interactive-default)">
+        <Placeholder height="large" width="full" color={tokens.color.interactive.default}>
           Product image
         </Placeholder>
-        <div style={{ padding: 'var(--lufa-token-spacing-base)' }}>
-          <h3 style={{ margin: 0, marginBottom: 'var(--lufa-token-spacing-sm)' }}>Product Name</h3>
-          <p style={{ margin: 0, color: 'var(--lufa-token-color-text-secondary)' }}>$99.99</p>
+        <div style={{ padding: tokens.spacing.base }}>
+          <h3 style={{ margin: 0, marginBottom: tokens.spacing.sm }}>Product Name</h3>
+          <p style={{ margin: 0, color: tokens.color.text.secondary }}>$99.99</p>
         </div>
       </Card>
       <Card
@@ -173,17 +174,17 @@ export const UsageExamples: Story = {
         hoverable
         padding="none"
         footer={
-          <div style={{ padding: 'var(--lufa-token-spacing-base)' }}>
+          <div style={{ padding: tokens.spacing.base }}>
             <Button variant="solid">Add to Cart</Button>
           </div>
         }
       >
-        <Placeholder height="large" width="full" color="var(--lufa-token-color-success-default)">
+        <Placeholder height="large" width="full" color={tokens.color.success.default}>
           Product image
         </Placeholder>
-        <div style={{ padding: 'var(--lufa-token-spacing-base)' }}>
-          <h3 style={{ margin: 0, marginBottom: 'var(--lufa-token-spacing-sm)' }}>Another Product</h3>
-          <p style={{ margin: 0, color: 'var(--lufa-token-color-text-secondary)' }}>$149.99</p>
+        <div style={{ padding: tokens.spacing.base }}>
+          <h3 style={{ margin: 0, marginBottom: tokens.spacing.sm }}>Another Product</h3>
+          <p style={{ margin: 0, color: tokens.color.text.secondary }}>$149.99</p>
         </div>
       </Card>
       <Card
@@ -191,17 +192,17 @@ export const UsageExamples: Story = {
         hoverable
         padding="none"
         footer={
-          <div style={{ padding: 'var(--lufa-token-spacing-base)' }}>
+          <div style={{ padding: tokens.spacing.base }}>
             <Button variant="solid">Add to Cart</Button>
           </div>
         }
       >
-        <Placeholder height="large" width="full" color="var(--lufa-token-color-error-default)">
+        <Placeholder height="large" width="full" color={tokens.color.error.default}>
           Product image
         </Placeholder>
-        <div style={{ padding: 'var(--lufa-token-spacing-base)' }}>
-          <h3 style={{ margin: 0, marginBottom: 'var(--lufa-token-spacing-sm)' }}>Premium Item</h3>
-          <p style={{ margin: 0, color: 'var(--lufa-token-color-text-secondary)' }}>$249.99</p>
+        <div style={{ padding: tokens.spacing.base }}>
+          <h3 style={{ margin: 0, marginBottom: tokens.spacing.sm }}>Premium Item</h3>
+          <p style={{ margin: 0, color: tokens.color.text.secondary }}>$249.99</p>
         </div>
       </Card>
     </div>

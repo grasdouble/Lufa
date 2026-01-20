@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { ASPECT_RATIO, AspectRatio, Container, Placeholder, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/AspectRatio',
@@ -37,16 +38,16 @@ export const Playground: Story = {
     <Container size="md" paddingX="none">
       <div
         style={{
-          backgroundColor: 'var(--lufa-token-color-background-secondary)',
-          borderRadius: 'var(--lufa-token-radius-lg)',
-          padding: 'var(--lufa-token-spacing-base)',
+          backgroundColor: tokens.color.background.secondary,
+          borderRadius: tokens.radius.lg,
+          padding: tokens.spacing.base,
         }}
       >
         <div
           style={{
             fontFamily: 'monospace',
-            color: 'var(--lufa-token-color-text-secondary)',
-            marginBottom: 'var(--lufa-token-spacing-md)',
+            color: tokens.color.text.secondary,
+            marginBottom: tokens.spacing.md,
           }}
         >
           ratio: {String(args.ratio)}
@@ -55,13 +56,12 @@ export const Playground: Story = {
           {...args}
           style={{
             ...args.style,
-            borderRadius: 'var(--lufa-token-radius-lg)',
-            outline:
-              'var(--lufa-token-border-width-hairline) var(--lufa-token-border-style-solid) var(--lufa-token-color-border-light)',
-            backgroundColor: 'var(--lufa-token-color-background-primary)',
+            borderRadius: tokens.radius.lg,
+            outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+            backgroundColor: tokens.color.background.primary,
           }}
         >
-          <Placeholder color="var(--lufa-token-color-interactive-default)" height="full" width="full">
+          <Placeholder color={tokens.color.interactive.default} height="full" width="full">
             Media
           </Placeholder>
         </AspectRatio>
@@ -78,8 +78,8 @@ export const Ratio: Story = {
           <div
             style={{
               fontFamily: 'monospace',
-              color: 'var(--lufa-token-color-text-secondary)',
-              marginBottom: 'var(--lufa-token-spacing-md)',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.md,
             }}
           >
             landscape & square
@@ -88,7 +88,7 @@ export const Ratio: Story = {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
-              gap: 'var(--lufa-token-spacing-base)',
+              gap: tokens.spacing.base,
             }}
           >
             {(
@@ -103,9 +103,9 @@ export const Ratio: Story = {
               <div
                 key={ratio}
                 style={{
-                  backgroundColor: 'var(--lufa-token-color-background-secondary)',
-                  borderRadius: 'var(--lufa-token-radius-lg)',
-                  padding: 'var(--lufa-token-spacing-base)',
+                  backgroundColor: tokens.color.background.secondary,
+                  borderRadius: tokens.radius.lg,
+                  padding: tokens.spacing.base,
                 }}
               >
                 <div
@@ -113,17 +113,15 @@ export const Ratio: Story = {
                     display: 'flex',
                     alignItems: 'baseline',
                     justifyContent: 'space-between',
-                    marginBottom: 'var(--lufa-token-spacing-md)',
+                    marginBottom: tokens.spacing.md,
                   }}
                 >
-                  <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)' }}>
-                    ratio: {ratio}
-                  </div>
+                  <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary }}>ratio: {ratio}</div>
                   <div
                     style={{
                       fontFamily: 'monospace',
-                      color: 'var(--lufa-token-color-text-tertiary)',
-                      fontSize: 'var(--lufa-token-font-size-xs)',
+                      color: tokens.color.text.tertiary,
+                      fontSize: tokens.fontSize.xs,
                     }}
                   >
                     {ratio}
@@ -132,23 +130,23 @@ export const Ratio: Story = {
                 <AspectRatio
                   ratio={ratio}
                   style={{
-                    borderRadius: 'var(--lufa-token-radius-lg)',
-                    outline: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-                    backgroundColor: 'var(--lufa-token-color-background-primary)',
+                    borderRadius: tokens.radius.lg,
+                    outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                    backgroundColor: tokens.color.background.primary,
                   }}
                 >
                   <div
                     style={{
                       width: '100%',
                       height: '100%',
-                      backgroundImage: `linear-gradient(135deg, ${'var(--lufa-token-color-interactive-default)'} 0%, ${'var(--lufa-token-color-brand-secondary)'} 100%)`,
+                      backgroundImage: `linear-gradient(135deg, ${tokens.color.interactive.default} 0%, ${tokens.color.brand.secondary} 100%)`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: 'var(--lufa-token-color-text-inverse)',
+                      color: tokens.color.text.inverse,
                       fontFamily: 'monospace',
-                      fontSize: 'var(--lufa-token-font-size-xs)',
-                      fontWeight: 'var(--lufa-token-font-weight-bold)',
+                      fontSize: tokens.fontSize.xs,
+                      fontWeight: tokens.fontWeight.bold,
                     }}
                   >
                     {ratio}
@@ -163,8 +161,8 @@ export const Ratio: Story = {
           <div
             style={{
               fontFamily: 'monospace',
-              color: 'var(--lufa-token-color-text-secondary)',
-              marginBottom: 'var(--lufa-token-spacing-md)',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.md,
             }}
           >
             portrait
@@ -173,16 +171,16 @@ export const Ratio: Story = {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-              gap: 'var(--lufa-token-spacing-base)',
+              gap: tokens.spacing.base,
             }}
           >
             {([ASPECT_RATIO.vertical, ASPECT_RATIO.portrait, ASPECT_RATIO.portraitDisplay] as const).map((ratio) => (
               <div
                 key={ratio}
                 style={{
-                  backgroundColor: 'var(--lufa-token-color-background-secondary)',
-                  borderRadius: 'var(--lufa-token-radius-lg)',
-                  padding: 'var(--lufa-token-spacing-base)',
+                  backgroundColor: tokens.color.background.secondary,
+                  borderRadius: tokens.radius.lg,
+                  padding: tokens.spacing.base,
                 }}
               >
                 <div
@@ -190,17 +188,15 @@ export const Ratio: Story = {
                     display: 'flex',
                     alignItems: 'baseline',
                     justifyContent: 'space-between',
-                    marginBottom: 'var(--lufa-token-spacing-md)',
+                    marginBottom: tokens.spacing.md,
                   }}
                 >
-                  <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)' }}>
-                    ratio: {ratio}
-                  </div>
+                  <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary }}>ratio: {ratio}</div>
                   <div
                     style={{
                       fontFamily: 'monospace',
-                      color: 'var(--lufa-token-color-text-tertiary)',
-                      fontSize: 'var(--lufa-token-font-size-xs)',
+                      color: tokens.color.text.tertiary,
+                      fontSize: tokens.fontSize.xs,
                     }}
                   >
                     {ratio}
@@ -209,25 +205,25 @@ export const Ratio: Story = {
                 <AspectRatio
                   ratio={ratio}
                   style={{
-                    borderRadius: 'var(--lufa-token-radius-lg)',
-                    outline: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-                    backgroundColor: 'var(--lufa-token-color-background-primary)',
-                    maxWidth: 'var(--lufa-token-max-width-3xs)',
-                    margin: `${'var(--lufa-token-spacing-none)'} auto`,
+                    borderRadius: tokens.radius.lg,
+                    outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                    backgroundColor: tokens.color.background.primary,
+                    maxWidth: tokens.maxWidth['3xs'],
+                    margin: `${tokens.spacing.none} auto`,
                   }}
                 >
                   <div
                     style={{
                       width: '100%',
                       height: '100%',
-                      backgroundImage: `linear-gradient(135deg, ${'var(--lufa-token-color-interactive-default)'} 0%, ${'var(--lufa-token-color-brand-secondary)'} 100%)`,
+                      backgroundImage: `linear-gradient(135deg, ${tokens.color.interactive.default} 0%, ${tokens.color.brand.secondary} 100%)`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: 'var(--lufa-token-color-text-inverse)',
+                      color: tokens.color.text.inverse,
                       fontFamily: 'monospace',
-                      fontSize: 'var(--lufa-token-font-size-xs)',
-                      fontWeight: 'var(--lufa-token-font-weight-bold)',
+                      fontSize: tokens.fontSize.xs,
+                      fontWeight: tokens.fontWeight.bold,
                     }}
                   >
                     {ratio}
@@ -249,7 +245,7 @@ export const CustomRatios: Story = {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-          gap: 'var(--lufa-token-spacing-base)',
+          gap: tokens.spacing.base,
         }}
       >
         {[
@@ -260,16 +256,16 @@ export const CustomRatios: Story = {
           <div
             key={item.label}
             style={{
-              backgroundColor: 'var(--lufa-token-color-background-secondary)',
-              borderRadius: 'var(--lufa-token-radius-lg)',
-              padding: 'var(--lufa-token-spacing-base)',
+              backgroundColor: tokens.color.background.secondary,
+              borderRadius: tokens.radius.lg,
+              padding: tokens.spacing.base,
             }}
           >
             <div
               style={{
                 fontFamily: 'monospace',
-                color: 'var(--lufa-token-color-text-secondary)',
-                marginBottom: 'var(--lufa-token-spacing-md)',
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.md,
               }}
             >
               {item.label}
@@ -277,12 +273,12 @@ export const CustomRatios: Story = {
             <AspectRatio
               ratio={item.ratio}
               style={{
-                borderRadius: 'var(--lufa-token-radius-lg)',
-                outline: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-                backgroundColor: 'var(--lufa-token-color-background-primary)',
+                borderRadius: tokens.radius.lg,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                backgroundColor: tokens.color.background.primary,
               }}
             >
-              <Placeholder color="var(--lufa-token-color-interactive-default)" height="full" width="full">
+              <Placeholder color={tokens.color.interactive.default} height="full" width="full">
                 Media
               </Placeholder>
             </AspectRatio>

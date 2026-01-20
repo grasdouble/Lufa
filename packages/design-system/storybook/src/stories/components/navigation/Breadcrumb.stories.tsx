@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Breadcrumb, Container, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Navigation/Breadcrumb',
@@ -26,13 +27,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const HomeIcon = () => (
-  <svg
-    width="var(--lufa-token-icon-size-xs)"
-    height="var(--lufa-token-icon-size-xs)"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-    aria-hidden
-  >
+  <svg width={tokens.iconSize.xs} height={tokens.iconSize.xs} viewBox="0 0 20 20" fill="currentColor" aria-hidden>
     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
   </svg>
 );
@@ -64,9 +59,9 @@ export const Sizes: Story = {
       <div>
         <h4
           style={{
-            marginBottom: 'var(--lufa-token-spacing-md)',
-            fontSize: 'var(--lufa-token-font-size-sm)',
-            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
           }}
         >
           Small
@@ -79,9 +74,9 @@ export const Sizes: Story = {
       <div>
         <h4
           style={{
-            marginBottom: 'var(--lufa-token-spacing-md)',
-            fontSize: 'var(--lufa-token-font-size-sm)',
-            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
           }}
         >
           Medium (Default)
@@ -94,9 +89,9 @@ export const Sizes: Story = {
       <div>
         <h4
           style={{
-            marginBottom: 'var(--lufa-token-spacing-md)',
-            fontSize: 'var(--lufa-token-font-size-sm)',
-            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
           }}
         >
           Large
@@ -116,9 +111,9 @@ export const CustomSeparator: Story = {
       <div>
         <h4
           style={{
-            marginBottom: 'var(--lufa-token-spacing-md)',
-            fontSize: 'var(--lufa-token-font-size-sm)',
-            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
           }}
         >
           Arrow Separator
@@ -131,9 +126,9 @@ export const CustomSeparator: Story = {
       <div>
         <h4
           style={{
-            marginBottom: 'var(--lufa-token-spacing-md)',
-            fontSize: 'var(--lufa-token-font-size-sm)',
-            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
           }}
         >
           Chevron Separator
@@ -146,9 +141,9 @@ export const CustomSeparator: Story = {
       <div>
         <h4
           style={{
-            marginBottom: 'var(--lufa-token-spacing-md)',
-            fontSize: 'var(--lufa-token-font-size-sm)',
-            fontWeight: 'var(--lufa-token-font-weight-semibold)',
+            marginBottom: tokens.spacing.md,
+            fontSize: tokens.fontSize.sm,
+            fontWeight: tokens.fontWeight.semibold,
           }}
         >
           Dot Separator

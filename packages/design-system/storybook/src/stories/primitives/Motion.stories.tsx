@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import primitives from '@grasdouble/lufa_design-system-primitives';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '0. Primitives/Motion',
@@ -17,7 +18,7 @@ export const Timing: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Motion Primitives - Timing</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Primitive timing values for animations. Keep interactions under 400ms to feel responsive. Extended timings
         (500-1000ms) available for complex animations and page transitions. Combine with easing curves for natural
         motion.
@@ -33,15 +34,13 @@ export const Timing: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: 'var(--lufa-token-color-surface-raised)',
+              backgroundColor: tokens.color.surface.raised,
               borderRadius: '8px',
-              border: `1px solid var(--lufa-token-color-border-light)`,
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>timing[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)', fontSize: '12px' }}>
-              {value}
-            </div>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, fontSize: '12px' }}>{value}</div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <button
                 style={{
@@ -59,7 +58,7 @@ export const Timing: Story = {
               >
                 Hover Me
               </button>
-              <span style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>
+              <span style={{ fontSize: '12px', color: tokens.color.text.secondary }}>
                 {key === '0' && 'Instant (no animation)'}
                 {key === '50' && 'Ultra-fast micro-interactions'}
                 {key === '75' && 'Fast micro-interactions'}
@@ -83,9 +82,9 @@ export const Timing: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-info-light)',
+          backgroundColor: tokens.color.info.light,
           borderRadius: '12px',
-          border: `1px solid var(--lufa-token-color-info-border)`,
+          border: `1px solid ${tokens.color.info.border}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>Performance Guidelines</h3>
@@ -103,7 +102,7 @@ export const Easing: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Motion Primitives - Easing</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Primitive easing curve values. Prefer easeOut for most UI transitions - it feels most natural.
       </p>
 
@@ -113,16 +112,14 @@ export const Easing: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: 'var(--lufa-token-color-surface-raised)',
+              backgroundColor: tokens.color.surface.raised,
               borderRadius: '8px',
-              border: `1px solid var(--lufa-token-color-border-light)`,
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>easing.{key}</div>
-              <div
-                style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)', fontSize: '11px' }}
-              >
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, fontSize: '11px' }}>
                 {value}
               </div>
             </div>
@@ -163,7 +160,7 @@ export const Easing: Story = {
                 />
               </div>
             </div>
-            <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)', marginTop: '12px' }}>
+            <div style={{ fontSize: '12px', color: tokens.color.text.secondary, marginTop: '12px' }}>
               {key === 'easeIn' && 'Start slow, accelerate - Use sparingly (feels unnatural)'}
               {key === 'easeOut' && 'Start fast, decelerate - Most common, feels natural'}
               {key === 'easeInOut' && 'Smooth acceleration/deceleration - Good for state changes'}
@@ -210,7 +207,7 @@ export const CombinedExamples: Story = {
           >
             Hover Me (100ms easeOut)
           </button>
-          <p style={{ marginTop: '12px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
+          <p style={{ marginTop: '12px', fontSize: '14px', color: tokens.color.text.secondary }}>
             Quick, responsive feedback for micro-interactions
           </p>
         </div>
@@ -227,9 +224,9 @@ export const CombinedExamples: Story = {
               }}
               style={{
                 padding: '10px 20px',
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
-                color: 'var(--lufa-token-color-text-primary)',
-                border: `1px solid var(--lufa-token-color-border-light)`,
+                backgroundColor: tokens.color.surface.default,
+                color: tokens.color.text.primary,
+                border: `1px solid ${tokens.color.border.light}`,
                 borderRadius: '6px',
                 fontSize: '14px',
                 fontWeight: '500',
@@ -244,7 +241,7 @@ export const CombinedExamples: Story = {
                 top: 'calc(100% + 8px)',
                 left: 0,
                 minWidth: '200px',
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                backgroundColor: tokens.color.surface.default,
                 borderRadius: '8px',
                 boxShadow: primitives.shadow.lg,
                 opacity: 0,
@@ -262,9 +259,7 @@ export const CombinedExamples: Story = {
                     cursor: 'pointer',
                     transition: `background-color ${primitives.timing[100]} ${primitives.easing.easeOut}`,
                   }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor = 'var(--lufa-token-color-surface-raised)')
-                  }
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = tokens.color.surface.raised)}
                   onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                 >
                   {opt}
@@ -272,7 +267,7 @@ export const CombinedExamples: Story = {
               ))}
             </div>
           </div>
-          <p style={{ marginTop: '12px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
+          <p style={{ marginTop: '12px', fontSize: '14px', color: tokens.color.text.secondary }}>
             150ms easeOut for smooth, quick appearance
           </p>
         </div>
@@ -329,7 +324,7 @@ export const CombinedExamples: Story = {
               data-modal-content
               style={{
                 padding: '32px',
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                backgroundColor: tokens.color.surface.default,
                 borderRadius: '16px',
                 maxWidth: '500px',
                 boxShadow: primitives.shadow.xl,
@@ -338,7 +333,7 @@ export const CombinedExamples: Story = {
               }}
             >
               <h4 style={{ margin: '0 0 16px 0', fontSize: '24px', fontWeight: '600' }}>Modal Title</h4>
-              <p style={{ margin: '0 0 24px 0', color: 'var(--lufa-token-color-text-secondary)' }}>
+              <p style={{ margin: '0 0 24px 0', color: tokens.color.text.secondary }}>
                 This modal uses 250ms easeInOut for a balanced, smooth transition.
               </p>
               <button
@@ -367,7 +362,7 @@ export const CombinedExamples: Story = {
               </button>
             </div>
           </div>
-          <p style={{ marginTop: '12px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
+          <p style={{ marginTop: '12px', fontSize: '14px', color: tokens.color.text.secondary }}>
             250ms easeInOut for important UI transitions
           </p>
         </div>

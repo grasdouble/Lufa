@@ -2,6 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import primitives from '@grasdouble/lufa_design-system-primitives';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '0. Primitives/Breakpoints',
@@ -18,7 +19,7 @@ export const AllBreakpoints: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Breakpoint Primitives</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Primitive breakpoint values for responsive design. Follow mobile-first approach: these represent minimum widths
         for each breakpoint.
       </p>
@@ -33,16 +34,14 @@ export const AllBreakpoints: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: 'var(--lufa-token-color-surface-raised)',
+              backgroundColor: tokens.color.surface.raised,
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>breakpoint[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)', fontSize: '12px' }}>
-              {value}
-            </div>
-            <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, fontSize: '12px' }}>{value}</div>
+            <div style={{ fontSize: '12px', color: tokens.color.text.secondary }}>
               {key === '480' && 'Mobile landscape'}
               {key === '768' && 'Tablet portrait'}
               {key === '1024' && 'Tablet landscape / Small desktop'}
@@ -58,9 +57,9 @@ export const AllBreakpoints: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-info-light)',
+          backgroundColor: tokens.color.info.light,
           borderRadius: '12px',
-          border: '1px solid var(--lufa-token-color-info-border)',
+          border: `1px solid ${tokens.color.info.border}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>Mobile-First Strategy</h3>
@@ -70,7 +69,7 @@ export const AllBreakpoints: Story = {
           <code
             style={{
               padding: '2px 6px',
-              backgroundColor: 'var(--lufa-token-color-surface-raised)',
+              backgroundColor: tokens.color.surface.raised,
               borderRadius: '4px',
             }}
           >
@@ -133,14 +132,14 @@ export const ResponsiveExample: Story = {
               key={i}
               style={{
                 padding: '20px',
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
-                border: '1px solid var(--lufa-token-color-border-default)',
+                backgroundColor: tokens.color.surface.default,
+                border: `1px solid ${tokens.color.border.default}`,
                 borderRadius: '8px',
                 textAlign: 'center',
               }}
             >
               <div style={{ fontSize: '24px', fontWeight: '600', marginBottom: '8px' }}>Card {i}</div>
-              <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
+              <div style={{ fontSize: '14px', color: tokens.color.text.secondary }}>
                 {windowWidth >= 1024 && '3 columns'}
                 {windowWidth >= 768 && windowWidth < 1024 && '2 columns'}
                 {windowWidth < 768 && '1 column'}
@@ -149,7 +148,7 @@ export const ResponsiveExample: Story = {
           ))}
         </div>
 
-        <p style={{ marginTop: '24px', fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
+        <p style={{ marginTop: '24px', fontSize: '14px', color: tokens.color.text.secondary }}>
           Resize your browser window to see the responsive behavior in action.
         </p>
       </div>

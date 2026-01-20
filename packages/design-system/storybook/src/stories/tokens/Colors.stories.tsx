@@ -27,14 +27,14 @@ const SemanticColorCard = ({
     style={{
       marginBottom: '32px',
       padding: '20px',
-      backgroundColor: 'var(--lufa-token-color-background-secondary)',
+      backgroundColor: tokens.color.background.secondary,
       borderRadius: '12px',
-      border: `1px solid var(--lufa-token-color-border-light)`,
+      border: `1px solid ${tokens.color.border.light}`,
     }}
   >
     <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontWeight: '600' }}>{title}</h3>
     {description && (
-      <p style={{ margin: '0 0 16px 0', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '14px' }}>
+      <p style={{ margin: '0 0 16px 0', color: tokens.color.text.tertiary, fontSize: '14px' }}>
         {description}
       </p>
     )}
@@ -47,13 +47,13 @@ const SemanticColorCard = ({
               height: '80px',
               backgroundColor: value,
               borderRadius: '6px',
-              border: `1px solid var(--lufa-token-color-border-light)`,
-              boxShadow: 'var(--lufa-token-shadow-xs)',
+              border: `1px solid ${tokens.color.border.light}`,
+              boxShadow: tokens.shadow.xs,
             }}
           />
           <div style={{ fontSize: '12px' }}>
             <div style={{ fontWeight: '600', marginBottom: '2px' }}>{key}</div>
-            <div style={{ color: 'var(--lufa-token-color-text-tertiary)', fontFamily: 'monospace', fontSize: '11px' }}>
+            <div style={{ color: tokens.color.text.tertiary, fontFamily: 'monospace', fontSize: '11px' }}>
               {value}
             </div>
           </div>
@@ -67,7 +67,7 @@ export const AllSemantic: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1200px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Semantic Colors</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Intent-based color tokens for consistent usage across components. All semantic colors meet WCAG 2.1
         accessibility standards when used as intended.
       </p>
@@ -140,29 +140,29 @@ export const TextColors: Story = {
         color={tokens.color.text}
         description="Colors for different text hierarchies and states"
       />
-      <div style={{ padding: '20px', backgroundColor: 'var(--lufa-token-color-surface-default)', borderRadius: '8px' }}>
+      <div style={{ padding: '20px', backgroundColor: tokens.color.surface.default, borderRadius: '8px' }}>
         <h4 style={{ marginBottom: '16px' }}>Examples</h4>
-        <p style={{ color: 'var(--lufa-token-color-text-primary)', marginBottom: '8px' }}>
+        <p style={{ color: tokens.color.text.primary, marginBottom: '8px' }}>
           Primary text - Main content
         </p>
-        <p style={{ color: 'var(--lufa-token-color-text-secondary)', marginBottom: '8px' }}>
+        <p style={{ color: tokens.color.text.secondary, marginBottom: '8px' }}>
           Secondary text - Supporting content
         </p>
-        <p style={{ color: 'var(--lufa-token-color-text-tertiary)', marginBottom: '8px' }}>
+        <p style={{ color: tokens.color.text.tertiary, marginBottom: '8px' }}>
           Tertiary text - Helper text
         </p>
-        <p style={{ color: 'var(--lufa-token-color-text-disabled)', marginBottom: '8px' }}>Disabled text</p>
+        <p style={{ color: tokens.color.text.disabled, marginBottom: '8px' }}>Disabled text</p>
         <div
           style={{
-            backgroundColor: 'var(--lufa-token-color-background-inverse)',
+            backgroundColor: tokens.color.background.inverse,
             padding: '12px',
             borderRadius: '6px',
             marginBottom: '8px',
           }}
         >
-          <p style={{ color: 'var(--lufa-token-color-text-inverse)', margin: 0 }}>Inverse text on dark background</p>
+          <p style={{ color: tokens.color.text.inverse, margin: 0 }}>Inverse text on dark background</p>
         </div>
-        <a href="#" style={{ color: 'var(--lufa-token-color-text-link)' }}>
+        <a href="#" style={{ color: tokens.color.text.link, }}>
           Link text
         </a>
       </div>
@@ -178,13 +178,13 @@ export const InteractiveColors: Story = {
         color={tokens.color.interactive}
         description="Colors for interactive elements like buttons and links"
       />
-      <div style={{ padding: '20px', backgroundColor: 'var(--lufa-token-color-surface-default)', borderRadius: '8px' }}>
+      <div style={{ padding: '20px', backgroundColor: tokens.color.surface.default, borderRadius: '8px' }}>
         <h4 style={{ marginBottom: '16px' }}>Button Examples</h4>
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
           <button
             style={{
-              backgroundColor: 'var(--lufa-token-color-interactive-default)',
-              color: 'var(--lufa-token-color-text-inverse)',
+              backgroundColor: tokens.color.interactive.default,
+              color: tokens.color.text.inverse,
               padding: '10px 20px',
               borderRadius: '6px',
               border: 'none',
@@ -196,8 +196,8 @@ export const InteractiveColors: Story = {
           </button>
           <button
             style={{
-              backgroundColor: 'var(--lufa-token-color-interactive-hover)',
-              color: 'var(--lufa-token-color-text-inverse)',
+              backgroundColor: tokens.color.interactive.hover,
+              color: tokens.color.text.inverse,
               padding: '10px 20px',
               borderRadius: '6px',
               border: 'none',
@@ -209,8 +209,8 @@ export const InteractiveColors: Story = {
           </button>
           <button
             style={{
-              backgroundColor: 'var(--lufa-token-color-interactive-active)',
-              color: 'var(--lufa-token-color-text-inverse)',
+              backgroundColor: tokens.color.interactive.active,
+              color: tokens.color.text.inverse,
               padding: '10px 20px',
               borderRadius: '6px',
               border: 'none',
@@ -222,8 +222,8 @@ export const InteractiveColors: Story = {
           </button>
           <button
             style={{
-              backgroundColor: 'var(--lufa-token-color-interactive-disabled)',
-              color: 'var(--lufa-token-color-text-disabled)',
+              backgroundColor: tokens.color.interactive.disabled,
+              color: tokens.color.text.disabled,
               padding: '10px 20px',
               borderRadius: '6px',
               border: 'none',
@@ -267,7 +267,7 @@ export const StatusColors: Story = {
       <div
         style={{
           padding: '20px',
-          backgroundColor: 'var(--lufa-token-color-surface-default)',
+          backgroundColor: tokens.color.surface.default,
           borderRadius: '8px',
           marginTop: '24px',
         }}
@@ -276,44 +276,44 @@ export const StatusColors: Story = {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <div
             style={{
-              backgroundColor: 'var(--lufa-token-color-success-light)',
-              color: 'var(--lufa-token-color-success-text)',
+              backgroundColor: tokens.color.success.light,
+              color: tokens.color.success.text,
               padding: '16px',
               borderRadius: '6px',
-              borderLeft: `4px solid var(--lufa-token-color-success-default)`,
+              borderLeft: `4px solid ${tokens.color.success.default}`,
             }}
           >
             <strong>Success:</strong> Operation completed successfully!
           </div>
           <div
             style={{
-              backgroundColor: 'var(--lufa-token-color-warning-light)',
-              color: 'var(--lufa-token-color-warning-text)',
+              backgroundColor: tokens.color.warning.light,
+              color: tokens.color.warning.text,
               padding: '16px',
               borderRadius: '6px',
-              borderLeft: `4px solid var(--lufa-token-color-warning-default)`,
+              borderLeft: `4px solid ${tokens.color.warning.default}`,
             }}
           >
             <strong>Warning:</strong> Please review this information.
           </div>
           <div
             style={{
-              backgroundColor: 'var(--lufa-token-color-error-light)',
-              color: 'var(--lufa-token-color-error-text)',
+              backgroundColor: tokens.color.error.light,
+              color: tokens.color.error.text,
               padding: '16px',
               borderRadius: '6px',
-              borderLeft: `4px solid var(--lufa-token-color-error-default)`,
+              borderLeft: `4px solid ${tokens.color.error.default}`,
             }}
           >
             <strong>Error:</strong> Something went wrong!
           </div>
           <div
             style={{
-              backgroundColor: 'var(--lufa-token-color-info-light)',
-              color: 'var(--lufa-token-color-info-text)',
+              backgroundColor: tokens.color.info.light,
+              color: tokens.color.info.text,
               padding: '16px',
               borderRadius: '6px',
-              borderLeft: `4px solid var(--lufa-token-color-info-default)`,
+              borderLeft: `4px solid ${tokens.color.info.default}`,
             }}
           >
             <strong>Info:</strong> Here&apos;s some helpful information.
@@ -335,7 +335,7 @@ export const BrandColors: Story = {
       <div
         style={{
           padding: '20px',
-          backgroundColor: 'var(--lufa-token-color-surface-default)',
+          backgroundColor: tokens.color.surface.default,
           borderRadius: '8px',
           marginTop: '24px',
         }}
@@ -344,8 +344,8 @@ export const BrandColors: Story = {
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
           <button
             style={{
-              backgroundColor: 'var(--lufa-token-color-brand-primary)',
-              color: 'var(--lufa-token-color-text-inverse)',
+              backgroundColor: tokens.color.brand.primary,
+              color: tokens.color.text.inverse,
               padding: '12px 24px',
               borderRadius: '6px',
               border: 'none',
@@ -358,8 +358,8 @@ export const BrandColors: Story = {
           </button>
           <button
             style={{
-              backgroundColor: 'var(--lufa-token-color-brand-secondary)',
-              color: 'var(--lufa-token-color-text-inverse)',
+              backgroundColor: tokens.color.brand.secondary,
+              color: tokens.color.text.inverse,
               padding: '12px 24px',
               borderRadius: '6px',
               border: 'none',
@@ -372,8 +372,8 @@ export const BrandColors: Story = {
           </button>
           <button
             style={{
-              backgroundColor: 'var(--lufa-token-color-brand-accent)',
-              color: 'var(--lufa-token-color-text-inverse)',
+              backgroundColor: tokens.color.brand.accent,
+              color: tokens.color.text.inverse,
               padding: '12px 24px',
               borderRadius: '6px',
               border: 'none',

@@ -17,7 +17,7 @@ export const AllIconSizes: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Icon Size Tokens</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Standardized icon dimensions for consistent visual hierarchy. Icon glyphs are separate from hit targets - aim
         for a 44×44px touch target (WCAG 2.5.5) using padding or size.touchTarget around smaller icons.
       </p>
@@ -31,11 +31,11 @@ export const AllIconSizes: Story = {
               key={key}
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-token-color-background-secondary)',
+                backgroundColor: tokens.color.background.secondary,
                 borderRadius: '8px',
                 border: isTouchReady
-                  ? `2px solid var(--lufa-token-color-interactive-default)`
-                  : `1px solid var(--lufa-token-color-border-light)`,
+                  ? `2px solid ${tokens.color.interactive.default}`
+                  : `1px solid ${tokens.color.border.light}`,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -54,7 +54,7 @@ export const AllIconSizes: Story = {
                   iconSize.{key}
                 </div>
                 <div
-                  style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '12px' }}
+                  style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}
                 >
                   {value}
                 </div>
@@ -65,13 +65,13 @@ export const AllIconSizes: Story = {
                   width: value,
                   height: value,
                   backgroundColor: isTouchReady
-                    ? 'var(--lufa-token-color-interactive-default)'
-                    : 'var(--lufa-token-color-interactive-focus)',
+                    ? '${tokens.color.interactive.default}'
+                    : '${tokens.color.interactive.focus}',
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--lufa-token-color-text-inverse)',
+                  color: tokens.color.text.inverse,
                   fontSize: `calc(${value} * 0.6)`,
                   boxShadow: tokens.shadow.sm,
                 }}
@@ -79,7 +79,7 @@ export const AllIconSizes: Story = {
                 ★
               </div>
 
-              <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)', textAlign: 'center' }}>
+              <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, textAlign: 'center' }}>
                 {key === '2xs' && 'Tiny icons (dense UI)'}
                 {key === 'xs' && 'Inline with text'}
                 {key === 'sm' && 'Compact UI icons'}
@@ -97,15 +97,15 @@ export const AllIconSizes: Story = {
         style={{
           marginTop: '32px',
           padding: '16px',
-          backgroundColor: 'var(--lufa-token-color-info-light)',
-          border: `1px solid var(--lufa-token-color-info-border)`,
+          backgroundColor: tokens.color.info.light,
+          border: `1px solid ${tokens.color.info.border}`,
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: 'var(--lufa-token-color-info-text)' }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text, }}>
           Icon Button Guidelines
         </div>
-        <ul style={{ margin: 0, paddingLeft: '20px', color: 'var(--lufa-token-color-info-text)', fontSize: '14px' }}>
+        <ul style={{ margin: 0, paddingLeft: '20px', color: tokens.color.info.text, fontSize: '14px' }}>
           <li>Icon-only buttons should hit 44×44px (use padding or size.touchTarget around smaller icons)</li>
           <li>Default icon size is 24px; use 32px+ for primary actions</li>
           <li>Ensure sufficient color contrast: 3:1 for non-text content (WCAG 1.4.11)</li>
@@ -135,8 +135,8 @@ export const UsageExamples: Story = {
                 style={{
                   width: tokens.size.touchTarget,
                   height: tokens.size.touchTarget,
-                  backgroundColor: 'var(--lufa-token-color-interactive-focus)',
-                  color: 'var(--lufa-token-color-text-inverse)',
+                  backgroundColor: tokens.color.interactive.focus,
+                  color: tokens.color.text.inverse,
                   border: 'none',
                   borderRadius: '8px',
                   display: 'flex',
@@ -152,7 +152,7 @@ export const UsageExamples: Story = {
             );
           })}
         </div>
-        <p style={{ marginTop: '12px', fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
+        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary, }}>
           Icon-only buttons shown inside size.touchTarget (44x44px) hit areas
         </p>
       </div>
@@ -166,12 +166,12 @@ export const UsageExamples: Story = {
               style={{
                 width: tokens.iconSize.xs,
                 height: tokens.iconSize.xs,
-                backgroundColor: 'var(--lufa-token-color-success-default)',
+                backgroundColor: tokens.color.success.default,
                 borderRadius: '50%',
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'var(--lufa-token-color-text-inverse)',
+                color: tokens.color.text.inverse,
                 fontSize: '10px',
               }}
             >
@@ -184,12 +184,12 @@ export const UsageExamples: Story = {
               style={{
                 width: tokens.iconSize.sm,
                 height: tokens.iconSize.sm,
-                backgroundColor: 'var(--lufa-token-color-interactive-focus)',
+                backgroundColor: tokens.color.interactive.focus,
                 borderRadius: '4px',
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'var(--lufa-token-color-text-inverse)',
+                color: tokens.color.text.inverse,
                 fontSize: '12px',
               }}
             >
@@ -208,7 +208,7 @@ export const UsageExamples: Story = {
             display: 'flex',
             gap: '8px',
             padding: '12px',
-            backgroundColor: 'var(--lufa-token-color-background-inverse)',
+            backgroundColor: tokens.color.background.inverse,
             borderRadius: '8px',
           }}
         >
@@ -220,7 +220,7 @@ export const UsageExamples: Story = {
                 width: tokens.iconSize.md,
                 height: tokens.iconSize.md,
                 backgroundColor: 'transparent',
-                color: 'var(--lufa-token-color-text-inverse)',
+                color: tokens.color.text.inverse,
                 border: 'none',
                 borderRadius: '6px',
                 display: 'flex',
@@ -235,7 +235,7 @@ export const UsageExamples: Story = {
             </button>
           ))}
         </nav>
-        <p style={{ marginTop: '12px', fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
+        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary, }}>
           Navigation bar with medium (md) icons
         </p>
       </div>
@@ -256,9 +256,9 @@ export const UsageExamples: Story = {
               style={{
                 padding: '24px',
                 textAlign: 'center',
-                backgroundColor: 'var(--lufa-token-color-background-secondary)',
+                backgroundColor: tokens.color.background.secondary,
                 borderRadius: '8px',
-                border: `1px solid var(--lufa-token-color-border-light)`,
+                border: `1px solid ${tokens.color.border.light}`,
               }}
             >
               <div
@@ -266,15 +266,15 @@ export const UsageExamples: Story = {
                   width: tokens.iconSize['2xl'],
                   height: tokens.iconSize['2xl'],
                   backgroundColor: [
-                    'var(--lufa-token-color-interactive-focus)',
-                    'var(--lufa-token-color-success-default)',
-                    'var(--lufa-token-color-warning-default)',
+                    '${tokens.color.interactive.focus}',
+                    '${tokens.color.success.default}',
+                    '${tokens.color.warning.default}',
                   ][index],
                   borderRadius: '12px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--lufa-token-color-text-inverse)',
+                  color: tokens.color.text.inverse,
                   fontSize: '48px',
                   margin: '0 auto 16px',
                 }}
@@ -282,7 +282,7 @@ export const UsageExamples: Story = {
                 {['⚡', '🔒', '✓'][index]}
               </div>
               <div style={{ fontWeight: '600', marginBottom: '4px' }}>{feature}</div>
-              <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>Using iconSize.2xl</div>
+              <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, }}>Using iconSize.2xl</div>
             </div>
           ))}
         </div>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Menu, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Navigation/Menu',
@@ -110,7 +111,6 @@ export const Modes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            
           }}
         >
           Vertical (Default)
@@ -123,7 +123,6 @@ export const Modes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            
           }}
         >
           Horizontal
@@ -136,7 +135,6 @@ export const Modes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            
           }}
         >
           Inline
@@ -156,7 +154,6 @@ export const Themes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            
           }}
         >
           Light Theme
@@ -169,7 +166,6 @@ export const Themes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            
           }}
         >
           Dark Theme
@@ -177,7 +173,7 @@ export const Themes: Story = {
         <div
           style={{
             padding: '16px',
-            backgroundColor: 'var(--lufa-token-color-background-inverse)',
+            backgroundColor: tokens.color.background.inverse,
             borderRadius: '8px',
           }}
         >
@@ -223,7 +219,7 @@ export const SidebarNavigation: Story = {
         style={{
           width: '280px',
           padding: '16px',
-          backgroundColor: 'var(--lufa-token-color-background-secondary)',
+          backgroundColor: tokens.color.background.secondary,
           borderRadius: '8px',
         }}
       >
@@ -232,7 +228,6 @@ export const SidebarNavigation: Story = {
             marginBottom: '16px',
             fontSize: '16px',
             fontWeight: 600,
-            
           }}
         >
           Dashboard

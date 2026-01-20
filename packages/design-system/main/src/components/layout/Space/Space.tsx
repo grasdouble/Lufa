@@ -2,6 +2,8 @@ import type { ElementType, HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 import clsx from 'clsx';
 
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
 import { SPACE_DIRECTION, SPACE_SIZE } from './Space.constants';
 import styles from './Space.module.css';
 
@@ -22,7 +24,7 @@ export type SpaceProps = {
 const toCssLength = (value: SpaceSize | undefined) => {
   if (value === undefined) return undefined;
   if (typeof value === 'number') return `${value}px`;
-  if (typeof value === 'string' && value in SPACE_SIZE) return `var(--lufa-token-spacing-${value})`;
+  if (typeof value === 'string' && value in SPACE_SIZE) return tokens.spacing[value];
   return value;
 };
 

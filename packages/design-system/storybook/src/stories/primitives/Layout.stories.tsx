@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import primitives from '@grasdouble/lufa_design-system-primitives';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '0. Primitives/Layout',
@@ -20,7 +21,7 @@ export const MaxWidth: Story = {
       <p
         style={{
           marginBottom: '32px',
-          color: 'var(--lufa-token-color-text-secondary)',
+          color: tokens.color.text.secondary,
           fontSize: '16px',
           maxWidth: '768px',
         }}
@@ -46,7 +47,7 @@ export const MaxWidth: Story = {
               <div
                 style={{
                   fontFamily: 'monospace',
-                  color: 'var(--lufa-token-color-text-secondary)',
+                  color: tokens.color.text.secondary,
                   fontSize: '12px',
                   minWidth: '100px',
                 }}
@@ -58,9 +59,9 @@ export const MaxWidth: Story = {
               style={{
                 maxWidth: value,
                 padding: '16px',
-                backgroundColor: 'var(--lufa-primitive-color-chromatic-blue-500)',
+                backgroundColor: primitives.color.chromatic.blue[500],
                 borderRadius: '6px',
-                color: 'var(--lufa-primitive-color-neutral-white)',
+                color: primitives.color.neutral.white,
                 fontSize: '12px',
               }}
             >
@@ -77,7 +78,7 @@ export const Sizes: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Size Primitives</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Primitive size values for element dimensions. Includes WCAG minimum 44px touch target.
       </p>
 
@@ -89,14 +90,12 @@ export const Sizes: Story = {
                 width: value,
                 height: value,
                 backgroundColor:
-                  key === '44'
-                    ? 'var(--lufa-primitive-color-chromatic-green-500)'
-                    : 'var(--lufa-primitive-color-chromatic-blue-500)',
+                  key === '44' ? primitives.color.chromatic.green[500] : primitives.color.chromatic.blue[500],
                 borderRadius: '6px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'var(--lufa-primitive-color-neutral-white)',
+                color: primitives.color.neutral.white,
                 fontSize: '12px',
                 fontWeight: '600',
                 boxShadow: primitives.shadow.xs,
@@ -104,7 +103,7 @@ export const Sizes: Story = {
             >
               {key}
             </div>
-            <div style={{ fontFamily: 'monospace', fontSize: '11px', color: 'var(--lufa-token-color-text-secondary)' }}>
+            <div style={{ fontFamily: 'monospace', fontSize: '11px', color: tokens.color.text.secondary }}>
               {value}
               {key === '44' && ' ✓'}
             </div>
@@ -116,9 +115,9 @@ export const Sizes: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-success-light)',
+          backgroundColor: tokens.color.success.light,
           borderRadius: '12px',
-          border: `1px solid var(--lufa-token-color-success-border)`,
+          border: `1px solid ${tokens.color.success.border}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>WCAG Touch Target</h3>
@@ -134,7 +133,7 @@ export const Grid: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Grid Primitives</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Primitive grid values for columns and gutters. 12-column grid is industry standard.
       </p>
 
@@ -146,7 +145,7 @@ export const Grid: Story = {
               style={{
                 fontFamily: 'monospace',
                 fontSize: '12px',
-                color: 'var(--lufa-token-color-text-secondary)',
+                color: tokens.color.text.secondary,
                 marginBottom: '8px',
               }}
             >
@@ -164,12 +163,12 @@ export const Grid: Story = {
                   key={i}
                   style={{
                     height: '40px',
-                    backgroundColor: 'var(--lufa-primitive-color-chromatic-blue-500)',
+                    backgroundColor: primitives.color.chromatic.blue[500],
                     borderRadius: '4px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--lufa-primitive-color-neutral-white)',
+                    color: primitives.color.neutral.white,
                     fontSize: '10px',
                     fontWeight: '600',
                   }}
@@ -190,7 +189,7 @@ export const Grid: Story = {
               style={{
                 fontFamily: 'monospace',
                 fontSize: '12px',
-                color: 'var(--lufa-token-color-text-secondary)',
+                color: tokens.color.text.secondary,
                 marginBottom: '8px',
               }}
             >
@@ -208,7 +207,7 @@ export const Grid: Story = {
                   key={i}
                   style={{
                     height: '40px',
-                    backgroundColor: 'var(--lufa-primitive-color-chromatic-blue-500)',
+                    backgroundColor: primitives.color.chromatic.blue[500],
                     borderRadius: '4px',
                   }}
                 />
@@ -225,7 +224,7 @@ export const AspectRatio: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>AspectRatio Primitives</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Primitive aspect-ratio values for media containers and responsive images.
       </p>
 
@@ -235,7 +234,7 @@ export const AspectRatio: Story = {
             <div
               style={{
                 aspectRatio: value,
-                backgroundColor: 'var(--lufa-token-color-border-light)',
+                backgroundColor: tokens.color.border.light,
                 borderRadius: '8px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -245,9 +244,9 @@ export const AspectRatio: Story = {
               }}
             >
               <div style={{ fontSize: '16px', fontWeight: '600', marginBottom: '4px' }}>{value}</div>
-              <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>{key}</div>
+              <div style={{ fontSize: '12px', color: tokens.color.text.secondary }}>{key}</div>
             </div>
-            <div style={{ fontSize: '11px', color: 'var(--lufa-token-color-text-secondary)' }}>
+            <div style={{ fontSize: '11px', color: tokens.color.text.secondary }}>
               {key === 'square' && '1:1 - Avatars, social posts'}
               {key === 'traditionalPhotoMonitor' && '4:3 - Classic photos'}
               {key === 'classicPhotography' && '3:2 - Photography'}
@@ -268,7 +267,7 @@ export const Blur: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Blur Primitives</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Primitive blur values for backdrop-filter effects. Use for frosted glass overlays and modern UI.
       </p>
 
@@ -281,7 +280,7 @@ export const Blur: Story = {
               height: '200px',
               borderRadius: '16px',
               overflow: 'hidden',
-              border: '2px solid var(--lufa-token-color-border-default)',
+              border: `2px solid ${tokens.color.border.default}`,
             }}
           >
             {/* High-contrast background pattern */}
@@ -292,14 +291,14 @@ export const Blur: Story = {
                 backgroundImage: `
                   repeating-linear-gradient(
                     45deg,
-                    var(--lufa-primitive-color-chromatic-blue-600) 0px,
-                    var(--lufa-primitive-color-chromatic-blue-600) 20px,
-                    var(--lufa-primitive-color-chromatic-purple-600) 20px,
-                    var(--lufa-primitive-color-chromatic-purple-600) 40px,
-                    var(--lufa-primitive-color-chromatic-pink-600) 40px,
-                    var(--lufa-primitive-color-chromatic-pink-600) 60px,
-                    var(--lufa-primitive-color-chromatic-orange-600) 60px,
-                    var(--lufa-primitive-color-chromatic-orange-600) 80px
+                    ${primitives.color.chromatic.blue[600]} 0px,
+                    ${primitives.color.chromatic.blue[600]} 20px,
+                    ${primitives.color.chromatic.purple[600]} 20px,
+                    ${primitives.color.chromatic.purple[600]} 40px,
+                    ${primitives.color.chromatic.pink[600]} 40px,
+                    ${primitives.color.chromatic.pink[600]} 60px,
+                    ${primitives.color.chromatic.orange[600]} 60px,
+                    ${primitives.color.chromatic.orange[600]} 80px
                   )
                 `,
               }}
@@ -324,7 +323,7 @@ export const Blur: Story = {
                       justifyContent: 'center',
                       fontSize: '14px',
                       fontWeight: 'bold',
-                      color: 'var(--lufa-primitive-color-neutral-white)',
+                      color: primitives.color.neutral.white,
                       textShadow: '0 0 4px rgba(0,0,0,0.5)',
                     }}
                   >
@@ -339,7 +338,7 @@ export const Blur: Story = {
               style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-default) 20%, transparent)',
+                backgroundColor: `color-mix(in oklab, ${tokens.color.surface.default} 20%, transparent)`,
                 backdropFilter: `blur(${value})`,
                 WebkitBackdropFilter: `blur(${value})`,
                 display: 'flex',
@@ -353,9 +352,9 @@ export const Blur: Story = {
                 style={{
                   fontSize: '20px',
                   fontWeight: '700',
-                  color: 'var(--lufa-token-color-text-primary)',
-                  textShadow: '0 2px 8px var(--lufa-token-color-surface-default)',
-                  backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-default) 60%, transparent)',
+                  color: tokens.color.text.primary,
+                  textShadow: `0 2px 8px ${tokens.color.surface.default}`,
+                  backgroundColor: `color-mix(in oklab, ${tokens.color.surface.default} 60%, transparent)`,
                   padding: '8px 16px',
                   borderRadius: '8px',
                 }}
@@ -366,8 +365,8 @@ export const Blur: Story = {
                 style={{
                   fontSize: '14px',
                   fontWeight: '600',
-                  color: 'var(--lufa-token-color-text-secondary)',
-                  backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-default) 80%, transparent)',
+                  color: tokens.color.text.secondary,
+                  backgroundColor: `color-mix(in oklab, ${tokens.color.surface.default} 80%, transparent)`,
                   padding: '4px 12px',
                   borderRadius: '6px',
                 }}
@@ -383,9 +382,9 @@ export const Blur: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-info-light)',
+          backgroundColor: tokens.color.info.light,
           borderRadius: '12px',
-          border: '1px solid var(--lufa-token-color-info-border)',
+          border: `1px solid ${tokens.color.info.border}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>Blur Usage</h3>
@@ -415,7 +414,7 @@ export const ZIndex: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Z-Index Primitives</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Primitive z-index values for stacking order. Use 10-unit increments to prevent conflicts.
       </p>
 
@@ -429,16 +428,14 @@ export const ZIndex: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: 'var(--lufa-token-color-surface-raised)',
+              backgroundColor: tokens.color.surface.raised,
               borderRadius: '8px',
-              border: `1px solid var(--lufa-token-color-border-light)`,
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>zIndex[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)', fontSize: '12px' }}>
-              {value}
-            </div>
-            <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, fontSize: '12px' }}>{value}</div>
+            <div style={{ fontSize: '12px', color: tokens.color.text.secondary }}>
               {key === '0' && 'Default layer (normal flow)'}
               {key === '10' && 'Sticky headers, fixed nav'}
               {key === '20' && 'Dropdowns, select menus'}
@@ -458,9 +455,9 @@ export const ZIndex: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-info-light)',
+          backgroundColor: tokens.color.info.light,
           borderRadius: '12px',
-          border: `1px solid var(--lufa-token-color-info-border)`,
+          border: `1px solid ${tokens.color.info.border}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>Stacking Strategy</h3>

@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Container, Grid, GRID_COLUMNS, GRID_GUTTER, Placeholder, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/Grid',
@@ -34,7 +35,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const DemoCell = ({ label }: { label: string }) => (
-  <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="full">
+  <Placeholder color={tokens.color.interactive.default} height="small" width="full">
     {label}
   </Placeholder>
 );
@@ -60,8 +61,8 @@ export const Columns: Story = {
           <div
             style={{
               fontFamily: 'monospace',
-              color: 'var(--lufa-token-color-text-secondary)',
-              marginBottom: 'var(--lufa-token-spacing-md)',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.md,
             }}
           >
             columns: {columns}
@@ -70,10 +71,10 @@ export const Columns: Story = {
             size="xl"
             paddingX="none"
             style={{
-              backgroundColor: 'var(--lufa-token-color-background-primary)',
-              border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-              borderRadius: 'var(--lufa-token-radius-lg)',
-              padding: 'var(--lufa-token-spacing-base)',
+              backgroundColor: tokens.color.background.primary,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.lg,
+              padding: tokens.spacing.base,
             }}
           >
             <Grid columns={columns} gutter={GRID_GUTTER.sm}>
@@ -96,8 +97,8 @@ export const Gutters: Story = {
           <div
             style={{
               fontFamily: 'monospace',
-              color: 'var(--lufa-token-color-text-secondary)',
-              marginBottom: 'var(--lufa-token-spacing-md)',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.md,
             }}
           >
             gutter: {gutter}
@@ -106,10 +107,10 @@ export const Gutters: Story = {
             size="xl"
             paddingX="none"
             style={{
-              backgroundColor: 'var(--lufa-token-color-background-primary)',
-              border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-              borderRadius: 'var(--lufa-token-radius-lg)',
-              padding: 'var(--lufa-token-spacing-base)',
+              backgroundColor: tokens.color.background.primary,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+              borderRadius: tokens.radius.lg,
+              padding: tokens.spacing.base,
             }}
           >
             <Grid columns={GRID_COLUMNS.quad} gutter={gutter}>
@@ -130,13 +131,13 @@ export const ColumnGutterMatrix: Story = {
     const gutterValues = [GRID_GUTTER.none, GRID_GUTTER.sm, GRID_GUTTER.md, GRID_GUTTER.lg] as const;
 
     return (
-      <div style={{ width: 'var(--lufa-token-max-width-full)', overflowX: 'auto' }}>
+      <div style={{ width: tokens.maxWidth.full, overflowX: 'auto' }}>
         <div
           style={{
-            minWidth: 'var(--lufa-token-max-width-4xl)',
+            minWidth: tokens.maxWidth['4xl'],
             display: 'grid',
-            gridTemplateColumns: `${'var(--lufa-token-spacing-5xl)'} repeat(${columnsValues.length}, minmax(0, 1fr))`,
-            gap: 'var(--lufa-token-spacing-md)',
+            gridTemplateColumns: `${tokens.spacing['5xl']} repeat(${columnsValues.length}, minmax(0, 1fr))`,
+            gap: tokens.spacing.md,
             alignItems: 'stretch',
           }}
         >
@@ -146,13 +147,13 @@ export const ColumnGutterMatrix: Story = {
               key={`header-${columns}`}
               style={{
                 fontFamily: 'monospace',
-                fontSize: 'var(--lufa-token-font-size-xs)',
-                color: 'var(--lufa-token-color-text-secondary)',
+                fontSize: tokens.fontSize.xs,
+                color: tokens.color.text.secondary,
                 textAlign: 'center',
-                padding: `${'var(--lufa-token-spacing-2xs)'} ${'var(--lufa-token-spacing-sm)'}`,
-                backgroundColor: 'var(--lufa-token-color-background-primary)',
-                border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-                borderRadius: 'var(--lufa-token-radius-lg)',
+                padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
+                backgroundColor: tokens.color.background.primary,
+                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                borderRadius: tokens.radius.lg,
               }}
             >
               columns: {columns}
@@ -164,12 +165,12 @@ export const ColumnGutterMatrix: Story = {
               <div
                 style={{
                   fontFamily: 'monospace',
-                  fontSize: 'var(--lufa-token-font-size-xs)',
-                  color: 'var(--lufa-token-color-text-secondary)',
-                  padding: `${'var(--lufa-token-spacing-2xs)'} ${'var(--lufa-token-spacing-sm)'}`,
-                  backgroundColor: 'var(--lufa-token-color-background-primary)',
-                  border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-                  borderRadius: 'var(--lufa-token-radius-lg)',
+                  fontSize: tokens.fontSize.xs,
+                  color: tokens.color.text.secondary,
+                  padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
+                  backgroundColor: tokens.color.background.primary,
+                  border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                  borderRadius: tokens.radius.lg,
                   display: 'flex',
                   alignItems: 'center',
                 }}
@@ -181,10 +182,10 @@ export const ColumnGutterMatrix: Story = {
                 <div
                   key={`${gutter}-${columns}`}
                   style={{
-                    backgroundColor: 'var(--lufa-token-color-background-primary)',
-                    border: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-solid)'} ${'var(--lufa-token-color-border-light)'}`,
-                    borderRadius: 'var(--lufa-token-radius-lg)',
-                    padding: 'var(--lufa-token-spacing-base)',
+                    backgroundColor: tokens.color.background.primary,
+                    border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
+                    borderRadius: tokens.radius.lg,
+                    padding: tokens.spacing.base,
                   }}
                 >
                   <Grid columns={columns} gutter={gutter}>

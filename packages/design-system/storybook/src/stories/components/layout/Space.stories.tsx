@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Container, Placeholder, Space, SPACE_DIRECTION, SPACE_SIZE, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '2. Layout/Space',
@@ -33,17 +34,17 @@ const DemoLabel = ({ label, value }: { label: string; value?: string }) => (
     style={{
       display: 'flex',
       alignItems: 'baseline',
-      gap: 'var(--lufa-token-spacing-md)',
-      marginBottom: 'var(--lufa-token-spacing-md)',
+      gap: tokens.spacing.md,
+      marginBottom: tokens.spacing.md,
     }}
   >
-    <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)' }}>{label}</div>
+    <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary }}>{label}</div>
     {value && (
       <div
         style={{
           fontFamily: 'monospace',
-          color: 'var(--lufa-token-color-text-tertiary)',
-          fontSize: 'var(--lufa-token-font-size-xs)',
+          color: tokens.color.text.tertiary,
+          fontSize: tokens.fontSize.xs,
         }}
       >
         {value}
@@ -62,15 +63,15 @@ export const Playground: Story = {
     <Container size="md" paddingX="none">
       <div
         style={{
-          backgroundColor: 'var(--lufa-token-color-background-secondary)',
-          borderRadius: 'var(--lufa-token-radius-lg)',
-          padding: 'var(--lufa-token-spacing-base)',
+          backgroundColor: tokens.color.background.secondary,
+          borderRadius: tokens.radius.lg,
+          padding: tokens.spacing.base,
         }}
       >
         <DemoLabel label={`direction: ${args.direction}, size: ${String(args.size)}`} />
         {args.direction === SPACE_DIRECTION.horizontal ? (
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="auto">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
               Before
             </Placeholder>
             <Space
@@ -78,18 +79,18 @@ export const Playground: Story = {
               as="span"
               style={{
                 ...args.style,
-                height: 'var(--lufa-token-size-md)',
-                backgroundColor: 'var(--lufa-token-color-brand-secondary)',
-                outline: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-dashed)'} ${'var(--lufa-token-color-border-medium)'}`,
+                height: tokens.size.md,
+                backgroundColor: tokens.color.brand.secondary,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
               }}
             />
-            <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="auto">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
               After
             </Placeholder>
           </div>
         ) : (
           <>
-            <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="full">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="full">
               Before
             </Placeholder>
             <Space
@@ -97,12 +98,12 @@ export const Playground: Story = {
               as="div"
               style={{
                 ...args.style,
-                height: 'var(--lufa-token-size-md)',
-                backgroundColor: 'var(--lufa-token-color-brand-secondary)',
-                outline: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-dashed)'} ${'var(--lufa-token-color-border-medium)'}`,
+                height: tokens.size.md,
+                backgroundColor: tokens.color.brand.secondary,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
               }}
             />
-            <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="full">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="full">
               After
             </Placeholder>
           </>
@@ -133,24 +134,24 @@ export const VerticalSizes: Story = {
             <div
               key={size}
               style={{
-                backgroundColor: 'var(--lufa-token-color-background-tertiary)',
-                outline: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-dashed)'} ${'var(--lufa-token-color-border-medium)'}`,
-                padding: 'var(--lufa-token-spacing-base)',
+                backgroundColor: tokens.color.background.tertiary,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
+                padding: tokens.spacing.base,
               }}
             >
               <DemoLabel label={`size: ${size}`} />
-              <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="full">
+              <Placeholder color={tokens.color.interactive.default} height="small" width="full">
                 A
               </Placeholder>
               <Space
                 direction={SPACE_DIRECTION.vertical}
                 size={size}
                 style={{
-                  backgroundColor: 'var(--lufa-token-color-brand-secondary)',
-                  outline: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-dashed)'} ${'var(--lufa-token-color-border-medium)'}`,
+                  backgroundColor: tokens.color.brand.secondary,
+                  outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
                 }}
               />
-              <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="full">
+              <Placeholder color={tokens.color.interactive.default} height="small" width="full">
                 B
               </Placeholder>
             </div>
@@ -181,14 +182,14 @@ export const HorizontalSizes: Story = {
           <div
             key={size}
             style={{
-              backgroundColor: 'var(--lufa-token-color-background-tertiary)',
-              outline: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-dashed)'} ${'var(--lufa-token-color-border-medium)'}`,
-              padding: 'var(--lufa-token-spacing-base)',
+              backgroundColor: tokens.color.background.tertiary,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
+              padding: tokens.spacing.base,
             }}
           >
             <DemoLabel label={`size: ${size}`} />
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="auto">
+              <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
                 A
               </Placeholder>
               <Space
@@ -196,12 +197,12 @@ export const HorizontalSizes: Story = {
                 direction={SPACE_DIRECTION.horizontal}
                 size={size}
                 style={{
-                  height: 'var(--lufa-token-size-md)',
-                  backgroundColor: 'var(--lufa-token-color-brand-secondary)',
-                  outline: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-dashed)'} ${'var(--lufa-token-color-border-medium)'}`,
+                  height: tokens.size.md,
+                  backgroundColor: tokens.color.brand.secondary,
+                  outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
                 }}
               />
-              <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="auto">
+              <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
                 B
               </Placeholder>
             </div>
@@ -226,24 +227,24 @@ export const CustomSizes: Story = {
           <div
             key={item.label}
             style={{
-              backgroundColor: 'var(--lufa-token-color-background-tertiary)',
-              outline: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-dashed)'} ${'var(--lufa-token-color-border-medium)'}`,
-              padding: 'var(--lufa-token-spacing-base)',
+              backgroundColor: tokens.color.background.tertiary,
+              outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
+              padding: tokens.spacing.base,
             }}
           >
             <DemoLabel label={item.label} />
-            <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="full">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="full">
               A
             </Placeholder>
             <Space
               direction={SPACE_DIRECTION.vertical}
               size={item.size}
               style={{
-                backgroundColor: 'var(--lufa-token-color-brand-secondary)',
-                outline: `${'var(--lufa-token-border-width-hairline)'} ${'var(--lufa-token-border-style-dashed)'} ${'var(--lufa-token-color-border-medium)'}`,
+                backgroundColor: tokens.color.brand.secondary,
+                outline: `${tokens.borderWidth.hairline} ${tokens.borderStyle.dashed} ${tokens.color.border.medium}`,
               }}
             />
-            <Placeholder color={'var(--lufa-token-color-interactive-default)'} height="small" width="full">
+            <Placeholder color={tokens.color.interactive.default} height="small" width="full">
               B
             </Placeholder>
           </div>
