@@ -223,9 +223,9 @@ export const CombinedExample: Story = {
               style={{
                 padding: '24px',
                 backgroundColor: 'var(--lufa-token-color-surface-raised)',
-                borderRadius: tokens.radius.lg,
+                borderRadius: 'var(--lufa-token-radius-lg)',
                 border: '1px solid var(--lufa-token-color-border-light)',
-                boxShadow: tokens.shadow.md,
+                boxShadow: 'var(--lufa-token-shadow-md)',
               }}
             >
               <h4 style={{ margin: 0, marginBottom: '8px', fontSize: '18px', fontWeight: 600 }}>Card Title</h4>
@@ -255,8 +255,8 @@ export const CombinedExample: Story = {
                 backgroundColor: 'var(--lufa-token-color-interactive-default)',
                 color: 'var(--lufa-token-color-text-inverse)',
                 border: 'none',
-                borderRadius: tokens.radius.base,
-                boxShadow: tokens.shadow.sm,
+                borderRadius: 'var(--lufa-token-radius-base)',
+                boxShadow: 'var(--lufa-token-shadow-sm)',
                 cursor: 'pointer',
                 fontSize: '14px',
                 fontWeight: 600,
@@ -284,9 +284,9 @@ export const CombinedExample: Story = {
               style={{
                 padding: '32px',
                 backgroundColor: 'var(--lufa-token-color-surface-raised)',
-                borderRadius: tokens.radius.xl,
+                borderRadius: 'var(--lufa-token-radius-xl)',
                 border: '2px solid var(--lufa-token-color-border-default)',
-                boxShadow: tokens.shadow.xl,
+                boxShadow: 'var(--lufa-token-shadow-xl)',
                 maxWidth: '400px',
               }}
             >
@@ -310,7 +310,7 @@ export const CombinedExample: Story = {
                     backgroundColor: 'var(--lufa-token-color-interactive-default)',
                     color: 'var(--lufa-token-color-text-inverse)',
                     border: 'none',
-                    borderRadius: tokens.radius.base,
+                    borderRadius: 'var(--lufa-token-radius-base)',
                     cursor: 'pointer',
                     fontWeight: 600,
                   }}
@@ -324,7 +324,7 @@ export const CombinedExample: Story = {
                     backgroundColor: 'var(--lufa-token-color-surface-default)',
                     color: 'var(--lufa-token-color-text-primary)',
                     border: '1px solid var(--lufa-token-color-border-default)',
-                    borderRadius: tokens.radius.base,
+                    borderRadius: 'var(--lufa-token-radius-base)',
                     cursor: 'pointer',
                     fontWeight: 600,
                   }}

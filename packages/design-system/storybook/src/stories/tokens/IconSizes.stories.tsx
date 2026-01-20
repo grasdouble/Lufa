@@ -152,7 +152,7 @@ export const UsageExamples: Story = {
             );
           })}
         </div>
-        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary }}>
+        <p style={{ marginTop: '12px', fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
           Icon-only buttons shown inside size.touchTarget (44x44px) hit areas
         </p>
       </div>
@@ -235,7 +235,7 @@ export const UsageExamples: Story = {
             </button>
           ))}
         </nav>
-        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary }}>
+        <p style={{ marginTop: '12px', fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
           Navigation bar with medium (md) icons
         </p>
       </div>

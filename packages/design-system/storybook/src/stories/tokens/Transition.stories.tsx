@@ -26,45 +26,46 @@ export const AllTransitions: Story = {
     };
 
     return (
-      <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['8xl'] }}>
+      <div style={{ padding: 'var(--lufa-token-spacing-md-lg)', maxWidth: 'var(--lufa-token-max-width-8xl)' }}>
         <h1
           style={{
-            fontSize: tokens.fontSize['5xl'],
-            fontWeight: tokens.fontWeight.bold,
-            marginBottom: tokens.spacing.base,
+            fontSize: 'var(--lufa-token-font-size-5xl)',
+            fontWeight: 'var(--lufa-token-font-weight-bold)',
+            marginBottom: 'var(--lufa-token-spacing-base)',
           }}
         >
           Transition Tokens
         </h1>
         <p
           style={{
-            marginBottom: tokens.spacing.xl,
+            marginBottom: 'var(--lufa-token-spacing-xl)',
             color: 'var(--lufa-token-color-text-tertiary)',
-            fontSize: tokens.fontSize.base,
+            fontSize: 'var(--lufa-token-font-size-base)',
           }}
         >
           Pre-configured CSS transition strings for common UI interactions. Simpler than motion tokens for basic
           transitions.
         </p>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.xl }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-xl)' }}>
           {Object.entries(tokens.transition).map(([key, value]) => (
             <div
               key={key}
               style={{
                 padding: tokens.spacing.lg,
                 backgroundColor: 'var(--lufa-token-color-background-secondary)',
-                borderRadius: tokens.radius.base,
-                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} var(--lufa-token-color-border-light)`,
+                borderRadius: 'var(--lufa-token-radius-base)',
+                border:
+                  'var(--lufa-token-border-width-hairline) var(--lufa-token-border-style-solid) var(--lufa-token-color-border-light)',
               }}
             >
-              <div style={{ marginBottom: tokens.spacing.base }}>
+              <div style={{ marginBottom: 'var(--lufa-token-spacing-base)' }}>
                 <div
                   style={{
                     fontFamily: 'monospace',
-                    fontWeight: tokens.fontWeight.semibold,
-                    fontSize: tokens.fontSize.sm,
-                    marginBottom: tokens.spacing.sm,
+                    fontWeight: 'var(--lufa-token-font-weight-semibold)',
+                    fontSize: 'var(--lufa-token-font-size-sm)',
+                    marginBottom: 'var(--lufa-token-spacing-sm)',
                   }}
                 >
                   transition.{key}
@@ -178,24 +179,24 @@ export const InteractiveExamples: Story = {
     const [selectedColor, setSelectedColor] = useState(tokens.color.interactive.focus);
 
     return (
-      <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['8xl'] }}>
+      <div style={{ padding: 'var(--lufa-token-spacing-md-lg)', maxWidth: 'var(--lufa-token-max-width-8xl)' }}>
         <h1
           style={{
-            fontSize: tokens.fontSize['5xl'],
-            fontWeight: tokens.fontWeight.bold,
-            marginBottom: tokens.spacing.base,
+            fontSize: 'var(--lufa-token-font-size-5xl)',
+            fontWeight: 'var(--lufa-token-font-weight-bold)',
+            marginBottom: 'var(--lufa-token-spacing-base)',
           }}
         >
           Transition Usage Examples
         </h1>
 
         {/* Fast Transitions - Hover Effects */}
-        <div style={{ marginBottom: tokens.spacing['2xl'] }}>
+        <div style={{ marginBottom: 'var(--lufa-token-spacing-2xl)' }}>
           <h2
             style={{
-              fontSize: tokens.fontSize['2xl'],
-              fontWeight: tokens.fontWeight.semibold,
-              marginBottom: tokens.spacing.base,
+              fontSize: 'var(--lufa-token-font-size-2xl)',
+              fontWeight: 'var(--lufa-token-font-weight-semibold)',
+              marginBottom: 'var(--lufa-token-spacing-base)',
             }}
           >
             Fast Transitions (Hover Effects)

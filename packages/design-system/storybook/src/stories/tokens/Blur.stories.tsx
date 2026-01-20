@@ -167,8 +167,8 @@ export const AllBlurLevels: Story = {
         >
           {`.frosted-glass {
   background-color: rgba(255, 255, 255, 0.8); /* Fallback */
-  backdrop-filter: blur(${tokens.blur.base});
-  -webkit-backdrop-filter: blur(${tokens.blur.base});
+  backdrop-filter: blur(var(--lufa-token-blur-base));
+  -webkit-backdrop-filter: blur(var(--lufa-token-blur-base));
 }
 
 /* Feature detection */
@@ -261,14 +261,14 @@ export const UsageExamples: Story = {
 
           <div
             style={{
-              backdropFilter: `blur(${tokens.blur.subtle})`,
-              WebkitBackdropFilter: `blur(${tokens.blur.subtle})`,
+              backdropFilter: `blur(var(--lufa-token-blur-subtle))`,
+              WebkitBackdropFilter: `blur(var(--lufa-token-blur-subtle))`,
               backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-surface-default) 70%, transparent)',
               padding: '32px',
               borderRadius: '16px',
               maxWidth: '450px',
               border: '1px solid color-mix(in oklab, var(--lufa-token-color-border-light) 50%, transparent)',
-              boxShadow: tokens.shadow.lg,
+              boxShadow: 'var(--lufa-token-shadow-lg)',
             }}
           >
             <h3
@@ -372,8 +372,8 @@ export const UsageExamples: Story = {
             style={{
               position: 'absolute',
               inset: 0,
-              backdropFilter: `blur(${tokens.blur.base})`,
-              WebkitBackdropFilter: `blur(${tokens.blur.base})`,
+              backdropFilter: `blur(var(--lufa-token-blur-base))`,
+              WebkitBackdropFilter: `blur(var(--lufa-token-blur-base))`,
               backgroundColor: 'var(--lufa-token-color-background-overlay)',
               display: 'flex',
               alignItems: 'center',
@@ -387,7 +387,7 @@ export const UsageExamples: Story = {
                 borderRadius: '16px',
                 maxWidth: '400px',
                 border: '2px solid var(--lufa-token-color-border-default)',
-                boxShadow: tokens.shadow.xl,
+                boxShadow: 'var(--lufa-token-shadow-xl)',
               }}
             >
               <h3 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '12px' }}>Modal Dialog</h3>
@@ -519,8 +519,8 @@ export const UsageExamples: Story = {
             style={{
               position: 'absolute',
               inset: '32px',
-              backdropFilter: `blur(${tokens.blur.extraStrong})`,
-              WebkitBackdropFilter: `blur(${tokens.blur.extraStrong})`,
+              backdropFilter: `blur(var(--lufa-token-blur-extra-strong))`,
+              WebkitBackdropFilter: `blur(var(--lufa-token-blur-extra-strong))`,
               backgroundColor: 'color-mix(in oklab, var(--lufa-token-color-background-inverse) 40%, transparent)',
               borderRadius: '12px',
               border: '2px solid var(--lufa-token-color-border-default)',

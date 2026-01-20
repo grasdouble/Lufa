@@ -48,7 +48,7 @@ const SemanticColorCard = ({
               backgroundColor: value,
               borderRadius: '6px',
               border: `1px solid var(--lufa-token-color-border-light)`,
-              boxShadow: tokens.shadow.xs,
+              boxShadow: 'var(--lufa-token-shadow-xs)',
             }}
           />
           <div style={{ fontSize: '12px' }}>

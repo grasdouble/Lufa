@@ -265,7 +265,7 @@ export const ModalSizeComparison: Story = {
               style={{
                 backgroundColor: 'var(--lufa-token-color-surface-default)',
                 borderRadius: '8px',
-                boxShadow: tokens.shadow.lg,
+                boxShadow: 'var(--lufa-token-shadow-lg)',
                 overflow: 'hidden',
                 border: `2px solid var(--lufa-token-color-brand-primary)`,
               }}
@@ -308,7 +308,7 @@ export const ModalSizeComparison: Story = {
               style={{
                 backgroundColor: 'var(--lufa-token-color-surface-default)',
                 borderRadius: '8px',
-                boxShadow: tokens.shadow.lg,
+                boxShadow: 'var(--lufa-token-shadow-lg)',
                 overflow: 'hidden',
                 border: `2px solid var(--lufa-token-color-success-default)`,
               }}
@@ -351,7 +351,7 @@ export const ModalSizeComparison: Story = {
               style={{
                 backgroundColor: 'var(--lufa-token-color-surface-default)',
                 borderRadius: '8px',
-                boxShadow: tokens.shadow.lg,
+                boxShadow: 'var(--lufa-token-shadow-lg)',
                 overflow: 'hidden',
                 border: `2px solid var(--lufa-token-color-warning-default)`,
               }}
