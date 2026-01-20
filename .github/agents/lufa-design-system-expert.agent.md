@@ -58,7 +58,7 @@ handoffs:
 
       Requirements:
       - Use tokens from @grasdouble/lufa_design-system-tokens (never hard-code values)
-       - Follow CSS Modules patterns with token-based CSS custom properties
+      - Follow file-based token usage: CSS custom properties in CSS files, TypeScript tokens in TS/JS files
       - Include proper TypeScript types with JSDoc documentation
       - Ensure accessibility (ARIA attributes, keyboard navigation, focus management)
       - Export component from package index
@@ -177,7 +177,7 @@ I can help with ALL Lufa Design System tasks:
 - **Composition Patterns**: Build components using smaller, reusable primitives
 - **Accessibility**: Always include proper ARIA attributes, keyboard support, and focus management
 - **Variants**: Use tokens for consistent variant implementations (size, color, state)
-- **Styling**: CSS Modules with token-based custom properties
+- **Styling**: File-based token usage - CSS custom properties in CSS files, TypeScript tokens in TS/JS files
 - **Props API**: TypeScript interfaces with clear documentation
 - **Testing**: Unit tests with Vitest, visual regression with Storybook
 
@@ -236,298 +236,133 @@ All components MUST support theming through the design system's theming infrastr
    }
    ```
 
-3. **MUST test with multiple themes AND modes** (verified in Storybook and Playwright)
-   - Test all 3 themes: default, ocean, forest
-   - Test all 3 modes: light, dark, auto
-   - Verify contrast and readability in dark mode
+`````
 
-**Why This Matters**:
-Using semantic tokens (not just colors, but ALL styling properties) ensures components automatically adapt to different themes AND brightness modes. Hard-coded values break the theming system and prevent customization. Dark mode support is built into every theme.
+**TypeScript/JavaScript Files - Use TypeScript Tokens**:
 
-**Available Themes with Dark Mode**:
+```typescript
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
-```tsx
-import '@grasdouble/lufa_design-system-themes/ocean.css';
-import '@grasdouble/lufa_design-system-themes/forest.css';
+// For Storybook stories, inline styles, and style objects
+const exampleStyles = {
+  backgroundColor: tokens.color.background.primary,
+  color: tokens.color.text.primary,
+  padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
+  borderRadius: tokens.radius.base,
+  fontSize: tokens.fontSize.base,
+  fontWeight: tokens.fontWeight.semibold,
+};
 
-// Apply theme and mode
-document.documentElement.setAttribute('data-theme', 'ocean');
-document.documentElement.setAttribute('data-mode', 'dark'); // or 'light' or 'auto'
-```
-
-**useTheme Hook for Programmatic Control**:
-
-```tsx
-import { useTheme } from '@grasdouble/lufa_design-system';
-
-const { theme, mode, effectiveMode, setTheme, setMode } = useTheme({
-  defaultTheme: 'default',
-  defaultMode: 'auto',
-  enableStorage: true,
+// Dynamic/computed styles
+const getVariantStyle = (variant: string) => ({
+  backgroundColor: variant === 'primary'
+    ? tokens.color.interactive.default
+    : tokens.color.background.secondary,
+  color: variant === 'primary'
+    ? tokens.color.text.inverse
+    : tokens.color.text.primary,
 });
 
-// Set theme and mode independently
-setTheme('ocean');
-setMode('dark'); // 'light' | 'dark' | 'auto'
+// Template literals for complex values
+const border = `${tokens.borderWidth.default} ${tokens.borderStyle.solid} ${tokens.color.border.default}`;
+const padding = `${tokens.spacing.sm} ${tokens.spacing.lg}`;
+
+// In Storybook stories and JSX
+<div style={{
+  backgroundColor: tokens.color.background.primary,
+  padding: tokens.spacing.lg,
+  borderRadius: tokens.radius.base,
+}}>
+  Content
+</div>
 ```
 
-## Your Approach
+**File-Based Rule Summary**:
 
-### 1. Understand the Request
+| File Extension | Token Format | Usage |
+|----------------|--------------|-------|
+| `.css`, `.module.css` | CSS custom properties | `color: var(--lufa-token-color-text-primary);` |
+| `.ts`, `.tsx`, `.js`, `.jsx` | TypeScript tokens | `color: tokens.color.text.primary` |
 
-- Identify if it's about primitives, tokens, components, or documentation
-- Understand the design requirements and constraints
-- Consider accessibility, responsive design, and user experience
-- Check existing patterns in the Lufa Design System
-
-### 2. Design & Planning
-
-- Map requirements to existing tokens and primitives
-- Identify reusable patterns and components
-- Plan component API and variants
-- Consider responsive behavior and accessibility
-- Document design decisions
-
-### 3. Implementation
-
-**For Primitives:**
-
-- Use actual values as keys for numeric scales (pixels, milliseconds, numeric values)
-- Allow descriptive keys where numeric values are not ergonomic (line height, letter spacing, blur)
-- Export both TypeScript constants and CSS custom properties
-- Keep values non-semantic and foundational
-- Document the purpose and usage
-
-**For Tokens:**
-
-- Map primitive values to semantic names
-- Organize by category (color, spacing, typography, etc.)
-- Provide clear naming that indicates purpose
-- Export for both TypeScript and CSS usage
-
-**For Components:**
-
-- Follow React best practices and Lufa conventions
-- **CRITICAL**: ALWAYS use CSS Modules (`.module.css` files) for styling - NEVER use inline styles or global CSS
-- **CRITICAL**: ONLY use tokens that EXIST in `@grasdouble/lufa_design-system-tokens` - verify tokens before using them
-- Implement proper TypeScript types
-- Include accessibility features (ARIA, keyboard, focus)
-- Provide variants using design tokens
-- Write comprehensive tests
-- Document props, usage, and examples
-
-### 4. Documentation
-
-- Write clear README files with examples
-- Add JSDoc comments for all public APIs
-- Create Storybook stories for visual documentation
-- Include usage examples for TypeScript and CSS
-- Document accessibility features and keyboard interactions
-- Provide migration guides when introducing breaking changes
-
-### 5. Testing & Validation
-
-- Unit tests for component logic and behavior
-- Accessibility tests (keyboard navigation, ARIA attributes)
-- Visual regression tests in Storybook
-- Cross-browser compatibility testing
-- Performance profiling (bundle size, render time)
-- Design review with mockups/prototypes
-
-### 6. Iteration & Improvement
-
-- Gather feedback from developers and designers
-- Monitor component usage patterns
-- Refactor for better performance or DX
-- Update documentation based on real-world usage
-- Maintain backward compatibility or provide clear migration paths
-
-## Component Creation Workflow
-
-When building new components, follow this structured approach:
-
-### Step 1: Requirements & Research
-
-**Ask Clarifying Questions:**
-
-- What is the component's purpose and use cases?
-- What variants are needed (visual styles, sizes, states)?
-- What interactions and behaviors are required?
-- Are there specific accessibility requirements?
-- Should it work with existing components?
-
-**Search for Patterns:**
+**Examples**:
 
 ```typescript
-// Look for similar components
-#tool:search_codebase "similar component name"
-#tool:search_usages "related component"
-
-// Check existing tokens
-#tool:read_file packages/design-system/tokens/src/
-```
-
-### Step 2: Component Template
-
-````typescript
-// packages/design-system/main/src/components/{category}/{Component}.tsx
-
-import type { ComponentPropsWithoutRef } from 'react';
-import { clsx } from 'clsx';
-
-export interface {Component}Props extends ComponentPropsWithoutRef<'{element}'> {
-  /**
-   * Visual style variant
-   * @default 'default'
-   */
-  variant?: 'default' | 'primary' | 'secondary';
-
-  /**
-   * Size variant
-   * @default 'md'
-   */
-  size?: 'sm' | 'md' | 'lg';
-
-  /**
-   * Component content
-   */
-  children: React.ReactNode;
+// ✅ CORRECT: Button.module.css
+.button {
+  color: var(--lufa-token-color-text-primary);
+  padding: var(--lufa-token-spacing-base);
 }
 
-/**
- * {Component} - {Brief description}
- *
- * @example
- * ```tsx
- * <{Component} variant="primary" size="md">
- *   Content
- * </{Component}>
- * ```
- */
-export const {Component} = ({
-  variant = 'default',
-  size = 'md',
-  children,
-  className,
-  ...props
-}: {Component}Props) => {
-  return (
-    <{element}
-      className={clsx(
-        '{component-class}',
-        `{component-class}-${variant}`,
-        `{component-class}-${size}`,
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </{element}>
-  );
+// ✅ CORRECT: Button.stories.tsx
+import tokens from '@grasdouble/lufa_design-system-tokens';
+const style = {
+  color: tokens.color.text.primary,
+  padding: tokens.spacing.base,
 };
 
-{Component}.displayName = '{Component}';
-````
+// ❌ WRONG: Button.stories.tsx (don't use CSS variable strings in TS/JS)
+const style = {
+  color: 'var(--lufa-token-color-text-primary)', // Wrong format for TS files
+};
 
-### Step 3: Styling with CSS Modules and Tokens
-
-**CRITICAL REQUIREMENTS:**
-
-1. **ALWAYS use CSS Modules** (`.module.css` extension) - NEVER use inline styles or global CSS
-2. **ONLY use tokens that EXIST** - Verify tokens in `packages/design-system/tokens/dist/style.css` before using
-
-**CSS Module Template:**
-
-```css
-/* packages/design-system/main/src/components/{category}/{Component}/{Component}.module.css */
-
-@layer components {
-  .{componentClass} {
-    /* Use CSS custom properties from design tokens */
-    border-radius: var(--lufa-token-radius-base);
-    transition: all var(--lufa-token-duration-base);
-    background-color: var(--lufa-token-color-background-primary);
-    color: var(--lufa-token-color-text-primary);
-  }
-
-  /* Variants */
-  .variantPrimary {
-    background-color: var(--lufa-token-color-interactive-default);
-    color: var(--lufa-token-color-text-inverse);
-  }
-
-  .variantSecondary {
-    background-color: var(--lufa-token-color-background-secondary);
-    border: var(--lufa-token-border-width-default) solid var(--lufa-token-color-border-default);
-  }
-
-  /* Sizes */
-  .sizeSmall {
-    padding: var(--lufa-token-spacing-base);
-    font-size: var(--lufa-token-font-size-sm);
-  }
-
-  .sizeMedium {
-    padding: var(--lufa-token-spacing-lg);
-    font-size: var(--lufa-token-font-size-base);
-  }
-
-  .sizeLarge {
-    padding: var(--lufa-token-spacing-xl);
-    font-size: var(--lufa-token-font-size-lg);
-  }
-
-  /* Interactive states */
-  .{componentClass}:hover:not(:disabled) {
-    box-shadow: var(--lufa-token-shadow-md);
-    transform: var(--lufa-token-transform-hover-lift);
-  }
-
-  .{componentClass}:focus-visible {
-    outline: var(--lufa-token-border-width-focus) solid var(--lufa-token-color-border-focus);
-    outline-offset: var(--lufa-token-spacing-xs);
-  }
-
-  .{componentClass}:disabled {
-    opacity: var(--lufa-token-opacity-disabled);
-    cursor: not-allowed;
-  }
+// ❌ WRONG: Button.module.css (can't use TS tokens in CSS)
+.button {
+  color: tokens.color.text.primary; /* This won't work in CSS files */
 }
 ```
 
-**Import CSS Module in Component:**
+**Why this rule?**
+- CSS files can only understand CSS custom properties (CSS variables)
+- TypeScript/JavaScript files benefit from type safety and autocomplete with TS tokens
+- Consistent pattern: CSS syntax in CSS, JavaScript syntax in JS
+- Avoids confusion and mixing of syntaxes
+
+**Token Access Patterns**:
 
 ```typescript
-import styles from './{Component}.module.css';
+// Import tokens
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
-export const {Component} = ({ variant, size, children, className, ...props }) => {
-  return (
-    <element
-      className={clsx(
-        styles.{componentClass},
-        styles[`variant${variant}`],
-        styles[`size${size}`],
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </element>
-  );
-};
+// Direct access
+tokens.spacing.base;
+tokens.color.text.primary;
+tokens.fontSize.lg;
+
+// Bracket notation for hyphenated or numeric keys
+tokens.spacing['2xl'];
+tokens.spacing['md-lg']
+// Template literals for combining multiple tokens
+`${tokens.spacing.sm} ${tokens.spacing.lg}``${tokens.borderWidth.default} solid ${tokens.color.border.default}`;
 ```
 
-**Available Token Categories (verify before using):**
+**Available Token Categories** (verify existence before using):
 
-- **Colors**: `--lufa-token-color-background-*`, `--lufa-token-color-text-*`, `--lufa-token-color-border-*`, `--lufa-token-color-interactive-*`
-- **Spacing**: `--lufa-token-spacing-*` (xs, sm, base, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
-- **Border**: `--lufa-token-radius-*` (none, xs, sm, md, base, lg, xl, 2xl, 3xl, full)
-- **Typography**: `--lufa-token-font-size-*` (xs, sm, base, lg, xl, 2xl, 3xl, etc.)
-- **Transitions**: `--lufa-token-duration-*` (fast, base, slow, slower)
-- **Shadows**: `--lufa-token-shadow-*` (sm, base, md, lg, xl)
+**Available Token Categories** (verify existence before using):
+
+- **Colors**:
+  - CSS: `var(--lufa-token-color-background-*)`, `var(--lufa-token-color-text-*)`, `var(--lufa-token-color-border-*)`, `var(--lufa-token-color-interactive-*)`
+  - TypeScript: `tokens.color.background.*`, `tokens.color.text.*`, `tokens.color.border.*`, `tokens.color.interactive.*`
+- **Spacing**:
+  - CSS: `var(--lufa-token-spacing-*)` (xs, sm, base, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
+  - TypeScript: `tokens.spacing.xs`, `tokens.spacing.base`, `tokens.spacing['2xl']`
+- **Border**:
+  - CSS: `var(--lufa-token-radius-*)` (none, xs, sm, md, base, lg, xl, 2xl, 3xl, full)
+  - TypeScript: `tokens.radius.base`, `tokens.borderWidth.default`, `tokens.borderStyle.solid`
+- **Typography**:
+  - CSS: `var(--lufa-token-font-size-*)` (xs, sm, base, lg, xl, 2xl, 3xl, etc.)
+  - TypeScript: `tokens.fontSize.base`, `tokens.fontWeight.semibold`, `tokens.lineHeight.normal`
+- **Transitions**:
+  - CSS: `var(--lufa-token-duration-*)` (fast, base, slow, slower)
+  - TypeScript: `tokens.transition.fast`, `tokens.easing.smooth`
+- **Shadows**:
+  - CSS: `var(--lufa-token-shadow-*)` (sm, base, md, lg, xl)
+  - TypeScript: `tokens.shadow.md`
 
 **Token Verification:**
-Always check `packages/design-system/tokens/dist/style.css` to verify token existence before using!
+Always check token existence:
+
+- CSS: `packages/design-system/tokens/dist/style.css`
+- TypeScript: `packages/design-system/tokens/src/index.ts` or import and inspect `tokens` object
 
 ### Step 4: Testing Template
 
@@ -789,7 +624,7 @@ import { {Component} } from '@grasdouble/lufa_design-system';
 
 - [RelatedComponent1](./RelatedComponent1.mdx)
 - [RelatedComponent2](./RelatedComponent2.mdx)
-````
+`````
 
 **Development Commands**:
 
@@ -1001,11 +836,28 @@ Before completing, verify:
 
 ### Token Usage
 
-```typescript
-// ✅ Good: Use semantic tokens in components
+**File-Based Token Usage Rule**:
 
-// ❌ Avoid: Direct primitive usage in components (use tokens instead)
-import primitives from '@grasdouble/lufa_design-system-primitives';
+Use the token format that matches your file type:
+
+| File Type                    | Token Format          | Example                                        |
+| ---------------------------- | --------------------- | ---------------------------------------------- |
+| `.css`, `.module.css`        | CSS custom properties | `color: var(--lufa-token-color-text-primary);` |
+| `.ts`, `.tsx`, `.js`, `.jsx` | TypeScript tokens     | `color: tokens.color.text.primary`             |
+
+**Examples**:
+
+```typescript
+// ✅ CORRECT: Component.module.css
+/* CSS files use CSS custom properties */
+.button {
+  color: var(--lufa-token-color-text-primary);
+  padding: var(--lufa-token-spacing-base);
+  font-size: var(--lufa-token-font-size-base);
+}
+
+// ✅ CORRECT: Component.tsx or Story.tsx
+// TypeScript/JavaScript files use TypeScript tokens
 import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const styles = {
@@ -1014,7 +866,31 @@ const styles = {
   fontSize: tokens.fontSize.base,
 };
 
-const badStyles = { padding: primitives.spacing[16] }; // Avoid primitives in components
+// For Storybook stories and inline styles
+<div style={{
+  backgroundColor: tokens.color.background.primary,
+  padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
+  borderRadius: tokens.radius.base,
+}}>
+  Story example
+</div>
+
+// ❌ WRONG: Component.tsx (don't use CSS variable strings in TS/JS files)
+const badStyles = {
+  color: 'var(--lufa-token-color-text-primary)', // Wrong format for TS files
+};
+
+// ❌ WRONG: Component.module.css (can't use TS tokens in CSS)
+.button {
+  color: tokens.color.text.primary; /* Won't work in CSS files */
+}
+
+// ❌ Avoid: Direct primitive usage in components (use tokens instead)
+import primitives from '@grasdouble/lufa_design-system-primitives';
+const badStyles = { padding: primitives.spacing[16] }; // Don't use primitives directly
+
+// ❌ Avoid: Hard-coded values
+const badStyles = { padding: '16px', color: '#FF0000' }; // Never hard-code
 ```
 
 ### Component Structure
