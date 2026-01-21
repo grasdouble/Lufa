@@ -252,7 +252,6 @@ export const Examples: Story = {
           <div
             style={{
               fontFamily: 'monospace',
-              color: tokens.color.text.secondary,
               marginBottom: tokens.spacing.md,
             }}
           >

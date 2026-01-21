@@ -19,29 +19,29 @@
 }
 
 /* Ensure proper color inheritance for story content */
-#storybook-root h1,
+/* #storybook-root h1,
 #storybook-root h2,
 #storybook-root h3,
 #storybook-root h4,
 #storybook-root h5,
 #storybook-root h6 {
   color: inherit;
-}
+} */
 
 /* Override browser defaults for form elements to inherit theme colors */
-#storybook-root input,
+/* #storybook-root input,
 #storybook-root textarea,
 #storybook-root select {
   color: var(--lufa-token-color-text-primary);
   background-color: var(--lufa-token-color-surface-default);
-}
+} */
 
-#storybook-root input::placeholder,
+/* #storybook-root input::placeholder,
 #storybook-root textarea::placeholder {
   color: var(--lufa-token-color-text-tertiary);
   opacity: 1;
-}
+} */
 
 #storybook-root button {
-  color: inherit;
+  /* color: inherit; */
 }
