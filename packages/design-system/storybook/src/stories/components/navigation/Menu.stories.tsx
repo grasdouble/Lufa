@@ -173,7 +173,7 @@ export const Themes: Story = {
         <div
           style={{
             padding: '16px',
-            backgroundColor: tokens.color.background.inverse,
+            backgroundColor: tokens.color.surface.overlay,
             borderRadius: '8px',
           }}
         >

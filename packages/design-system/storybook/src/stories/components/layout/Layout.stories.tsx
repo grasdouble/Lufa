@@ -70,13 +70,13 @@ export const Playground: Story = {
         {args.sidebar && (
           <Layout.Sidebar>
             <Stack direction="vertical" gap="normal">
-              <Placeholder color={tokens.color.background.primary} height="small" width="full">
+              <Placeholder color={tokens.color.background.primary} textColor="dark" height="small" width="full">
                 Nav 1
               </Placeholder>
-              <Placeholder color={tokens.color.background.primary} height="small" width="full">
+              <Placeholder color={tokens.color.background.primary} textColor="dark" height="small" width="full">
                 Nav 2
               </Placeholder>
-              <Placeholder color={tokens.color.background.primary} height="small" width="full">
+              <Placeholder color={tokens.color.background.primary} textColor="dark" height="small" width="full">
                 Nav 3
               </Placeholder>
             </Stack>
@@ -85,17 +85,17 @@ export const Playground: Story = {
 
         <Layout.Content>
           <Stack direction="vertical" gap="normal">
-            <Placeholder color={tokens.color.background.primary} height="large" width="full">
+            <Placeholder color={tokens.color.background.primary} textColor="dark" height="large" width="full">
               Content
             </Placeholder>
-            <Placeholder color={tokens.color.background.primary} height="medium" width="full">
+            <Placeholder color={tokens.color.background.primary} textColor="dark" height="medium" width="full">
               More content
             </Placeholder>
           </Stack>
         </Layout.Content>
 
         <Layout.Footer>
-          <Placeholder color={tokens.color.background.primary} height="small" width="full">
+          <Placeholder color={tokens.color.background.primary} textColor="dark" height="small" width="full">
             Footer
           </Placeholder>
         </Layout.Footer>
@@ -143,17 +143,17 @@ export const SidebarPositions: Story = {
               </Placeholder>
             </Layout.Header>
             <Layout.Sidebar>
-              <Placeholder color={tokens.color.background.primary} height="large" width="full">
+              <Placeholder color={tokens.color.background.primary} textColor="dark" height="large" width="full">
                 Sidebar
               </Placeholder>
             </Layout.Sidebar>
             <Layout.Content>
-              <Placeholder color={tokens.color.background.primary} height="large" width="full">
+              <Placeholder color={tokens.color.background.primary} textColor="dark" height="large" width="full">
                 Content
               </Placeholder>
             </Layout.Content>
             <Layout.Footer>
-              <Placeholder color={tokens.color.background.primary} height="small" width="full">
+              <Placeholder color={tokens.color.background.primary} textColor="dark" height="small" width="full">
                 Footer
               </Placeholder>
             </Layout.Footer>
@@ -197,17 +197,17 @@ export const SidebarWidths: Story = {
               </Placeholder>
             </Layout.Header>
             <Layout.Sidebar>
-              <Placeholder color={tokens.color.background.primary} height="large" width="full">
+              <Placeholder color={tokens.color.background.primary} textColor="dark" height="large" width="full">
                 Sidebar
               </Placeholder>
             </Layout.Sidebar>
             <Layout.Content>
-              <Placeholder color={tokens.color.background.primary} height="large" width="full">
+              <Placeholder color={tokens.color.background.primary} textColor="dark" height="large" width="full">
                 Content
               </Placeholder>
             </Layout.Content>
             <Layout.Footer>
-              <Placeholder color={tokens.color.background.primary} height="small" width="full">
+              <Placeholder color={tokens.color.background.primary} textColor="dark" height="small" width="full">
                 Footer
               </Placeholder>
             </Layout.Footer>
@@ -237,12 +237,12 @@ export const WithoutSidebar: Story = {
           </Placeholder>
         </Layout.Header>
         <Layout.Content>
-          <Placeholder color={tokens.color.background.primary} height="large" width="full">
+          <Placeholder color={tokens.color.background.primary} textColor="dark" height="large" width="full">
             Content
           </Placeholder>
         </Layout.Content>
         <Layout.Footer>
-          <Placeholder color={tokens.color.background.primary} height="small" width="full">
+          <Placeholder color={tokens.color.background.primary} textColor="dark" height="small" width="full">
             Footer
           </Placeholder>
         </Layout.Footer>

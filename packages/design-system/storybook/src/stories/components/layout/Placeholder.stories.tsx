@@ -416,7 +416,7 @@ export const LayoutExample: Story = {
             Sidebar
           </Placeholder>
           <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
-            <Placeholder height="medium" width="full" color={tokens.color.success.light}>
+            <Placeholder height="medium" width="full" color={tokens.color.success.light} textColor="dark">
               Content Area
             </Placeholder>
             <div
@@ -426,13 +426,13 @@ export const LayoutExample: Story = {
                 gap: tokens.spacing.base,
               }}
             >
-              <Placeholder height="small" color={tokens.color.warning.light}>
+              <Placeholder height="small" color={tokens.color.warning.light} textColor="dark">
                 Card 1
               </Placeholder>
-              <Placeholder height="small" color={tokens.color.warning.light}>
+              <Placeholder height="small" color={tokens.color.warning.light} textColor="dark">
                 Card 2
               </Placeholder>
-              <Placeholder height="small" color={tokens.color.warning.light}>
+              <Placeholder height="small" color={tokens.color.warning.light} textColor="dark">
                 Card 3
               </Placeholder>
             </div>

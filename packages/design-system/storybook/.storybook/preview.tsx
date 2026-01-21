@@ -89,7 +89,7 @@ const ThemeAndModeWrapper = ({ theme, mode, children }: { theme: string; mode: s
  */
 const withThemeAndMode: Decorator = (Story, context) => {
   const theme: string = context.globals.theme ?? 'default';
-  const mode: string = context.globals.mode ?? 'auto';
+  const mode: string = context.globals.mode ?? 'light';
 
   return (
     <ThemeAndModeWrapper theme={theme} mode={mode}>
@@ -118,7 +118,7 @@ const preview: Preview = {
     },
     mode: {
       description: 'Color mode (light/dark/auto)',
-      defaultValue: 'auto',
+      defaultValue: 'light',
       toolbar: {
         title: 'Mode',
         icon: 'contrast',

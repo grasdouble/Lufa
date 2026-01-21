@@ -42,9 +42,7 @@ export const AllSizes: Story = {
               }}
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>size.{key}</div>
-              <div
-                style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}
-              >
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
                 {value}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -52,15 +50,13 @@ export const AllSizes: Story = {
                   style={{
                     width: value,
                     height: value,
-                    backgroundColor: isTouchTarget
-                      ? '${tokens.color.interactive.default}'
-                      : '${tokens.color.interactive.focus}',
+                    backgroundColor: isTouchTarget ? tokens.color.interactive.default : tokens.color.interactive.focus,
                     borderRadius: '6px',
                     boxShadow: tokens.shadow.xs,
                     flexShrink: 0,
                   }}
                 />
-                <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, }}>
+                <div style={{ fontSize: '12px', color: tokens.color.text.tertiary }}>
                   {key === 'none' && 'No size'}
                   {key === 'xs' && 'Icons (inline)'}
                   {key === 'sm' && 'Small icons, avatars'}
@@ -87,10 +83,10 @@ export const AllSizes: Story = {
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text, }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text }}>
           WCAG 2.5.5 Target Size
         </div>
-        <div style={{ fontSize: '14px', color: tokens.color.info.text, }}>
+        <div style={{ fontSize: '14px', color: tokens.color.info.text }}>
           Interactive elements should have a minimum touch target of 44×44px to ensure accessibility on touch devices.
           Use size.touchTarget or larger for all interactive elements.
         </div>

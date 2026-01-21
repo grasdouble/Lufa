@@ -159,7 +159,7 @@ export const AllBlurLevels: Story = {
           style={{
             margin: 0,
             padding: '12px',
-            backgroundColor: tokens.color.background.inverse,
+            backgroundColor: tokens.color.surface.overlay,
             color: tokens.color.success.default,
             borderRadius: '6px',
             fontSize: '12px',

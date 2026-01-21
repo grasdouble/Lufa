@@ -26,7 +26,7 @@ export const AllTransitions: Story = {
     };
 
     return (
-      <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['8xl'], }}>
+      <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['8xl'] }}>
         <h1
           style={{
             fontSize: tokens.fontSize['5xl'],
@@ -47,7 +47,7 @@ export const AllTransitions: Story = {
           transitions.
         </p>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.xl, }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.xl }}>
           {Object.entries(tokens.transition).map(([key, value]) => (
             <div
               key={key}
@@ -58,7 +58,7 @@ export const AllTransitions: Story = {
                 border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
               }}
             >
-              <div style={{ marginBottom: tokens.spacing.base, }}>
+              <div style={{ marginBottom: tokens.spacing.base }}>
                 <div
                   style={{
                     fontFamily: 'monospace',
@@ -88,8 +88,8 @@ export const AllTransitions: Story = {
                 style={{
                   padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
                   backgroundColor: activeTransitions[key]
-                    ? '${tokens.color.success.default}'
-                    : '${tokens.color.interactive.focus}',
+                    ? tokens.color.success.default
+                    : tokens.color.interactive.focus,
                   color: tokens.color.text.inverse,
                   border: tokens.borderStyle.none,
                   borderRadius: tokens.radius.base,
@@ -151,7 +151,7 @@ export const AllTransitions: Story = {
             style={{
               margin: 0,
               padding: tokens.spacing.md,
-              backgroundColor: tokens.color.background.inverse,
+              backgroundColor: tokens.color.surface.overlay,
               color: tokens.color.success.default,
               borderRadius: tokens.radius.md,
               fontSize: tokens.fontSize.xs,
@@ -178,7 +178,7 @@ export const InteractiveExamples: Story = {
     const [selectedColor, setSelectedColor] = useState(tokens.color.interactive.focus);
 
     return (
-      <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['8xl'], }}>
+      <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['8xl'] }}>
         <h1
           style={{
             fontSize: tokens.fontSize['5xl'],
@@ -190,7 +190,7 @@ export const InteractiveExamples: Story = {
         </h1>
 
         {/* Fast Transitions - Hover Effects */}
-        <div style={{ marginBottom: tokens.spacing['2xl'], }}>
+        <div style={{ marginBottom: tokens.spacing['2xl'] }}>
           <h2
             style={{
               fontSize: tokens.fontSize['2xl'],
@@ -215,13 +215,8 @@ export const InteractiveExamples: Story = {
                 style={{
                   padding: tokens.spacing.lg,
                   backgroundColor:
-                    hoveredCard === card
-                      ? '${tokens.color.interactive.focus}'
-                      : '${tokens.color.background.tertiary}',
-                  color:
-                    hoveredCard === card
-                      ? '${tokens.color.text.inverse}'
-                      : '${tokens.color.text.primary}',
+                    hoveredCard === card ? tokens.color.interactive.focus : tokens.color.background.tertiary,
+                  color: hoveredCard === card ? tokens.color.text.inverse : tokens.color.text.primary,
                   borderRadius: tokens.radius.base,
                   textAlign: 'center',
                   cursor: 'pointer',
@@ -350,11 +345,11 @@ export const InteractiveExamples: Story = {
           </h2>
           <div style={{ display: 'flex', gap: tokens.spacing.md, marginBottom: tokens.spacing.base }}>
             {[
-              '${tokens.color.interactive.focus}',
-              '${tokens.color.success.default}',
-              '${tokens.color.warning.default}',
-              '${tokens.color.error.default}',
-              '${tokens.color.brand.secondary}',
+              tokens.color.interactive.focus,
+              tokens.color.success.default,
+              tokens.color.warning.default,
+              tokens.color.error.default,
+              tokens.color.brand.secondary,
             ].map((color) => (
               <button
                 key={color}

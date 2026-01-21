@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Overview: Story = {
   render: () => (
-    <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['5xl'], }}>
+    <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['5xl'] }}>
       <h1
         style={{
           fontSize: tokens.fontSize['5xl'],
@@ -35,7 +35,7 @@ export const Overview: Story = {
         Standardized spacing values based on a 4px/8px rhythm for consistent layouts and visual hierarchy.
       </p>
 
-      <div style={{ marginBottom: tokens.spacing['xl-2xl'], }}>
+      <div style={{ marginBottom: tokens.spacing['xl-2xl'] }}>
         <h2
           style={{
             fontSize: tokens.fontSize['2xl'],
@@ -55,23 +55,23 @@ export const Overview: Story = {
           }}
         >
           <div
-            style={{ color: tokens.color.text.tertiary, marginBottom: tokens.spacing.md, }}
+            style={{ color: tokens.color.text.tertiary, marginBottom: tokens.spacing.md }}
           >{`import tokens from '@grasdouble/lufa_design-system-tokens';`}</div>
-          <div style={{ marginBottom: tokens.spacing.sm, }}>
-            <span style={{ color: tokens.color.brand.secondary, }}>const</span>{' '}
-            <span style={{ color: tokens.color.error.text, }}>styles</span> ={' '}
-            <span style={{ color: tokens.color.success.text, }}>{'{'}</span>
+          <div style={{ marginBottom: tokens.spacing.sm }}>
+            <span style={{ color: tokens.color.brand.secondary }}>const</span>{' '}
+            <span style={{ color: tokens.color.error.text }}>styles</span> ={' '}
+            <span style={{ color: tokens.color.success.text }}>{'{'}</span>
           </div>
-          <div style={{ marginLeft: tokens.spacing['md-lg'], marginBottom: tokens.spacing.sm, }}>
-            <span style={{ color: tokens.color.warning.text, }}>padding</span>: tokens.spacing.base,{' '}
-            <span style={{ color: tokens.color.text.tertiary, }}>// 16px</span>
+          <div style={{ marginLeft: tokens.spacing['md-lg'], marginBottom: tokens.spacing.sm }}>
+            <span style={{ color: tokens.color.warning.text }}>padding</span>: tokens.spacing.base,{' '}
+            <span style={{ color: tokens.color.text.tertiary }}>// 16px</span>
           </div>
-          <div style={{ marginLeft: tokens.spacing['md-lg'], marginBottom: tokens.spacing.sm, }}>
-            <span style={{ color: tokens.color.warning.text, }}>margin</span>: tokens.spacing.lg,{' '}
-            <span style={{ color: tokens.color.text.tertiary, }}>// 24px</span>
+          <div style={{ marginLeft: tokens.spacing['md-lg'], marginBottom: tokens.spacing.sm }}>
+            <span style={{ color: tokens.color.warning.text }}>margin</span>: tokens.spacing.lg,{' '}
+            <span style={{ color: tokens.color.text.tertiary }}>// 24px</span>
           </div>
           <div>
-            <span style={{ color: tokens.color.success.text, }}>{'}'}</span>;
+            <span style={{ color: tokens.color.success.text }}>{'}'}</span>;
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ export const Overview: Story = {
       >
         All Spacing Tokens
       </h2>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.md, }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.md }}>
         {Object.entries(tokens.spacing).map(([key, value]) => (
           <div
             key={key}
@@ -121,12 +121,12 @@ export const Overview: Story = {
               style={{
                 flex: '0 0 auto',
                 height: tokens.spacing['xl-2xl'],
-                width: value === tokens.spacing.none ? '${tokens.spacing.xxs}' : value,
+                width: value === tokens.spacing.none ? tokens.spacing.xxs : value,
                 backgroundColor: tokens.color.interactive.default,
                 border:
                   value === tokens.spacing.none
-                    ? '${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.interactive.default}'
-                    : '${tokens.borderStyle.none}',
+                    ? `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.interactive.default}`
+                    : tokens.borderStyle.none,
               }}
             />
             <div
@@ -165,9 +165,9 @@ export const Overview: Story = {
 
 export const SpacingGrid: Story = {
   render: () => (
-    <div style={{ padding: tokens.spacing['md-lg'], }}>
-      <h2 style={{ marginBottom: tokens.spacing.base, }}>4px/8px Rhythm</h2>
-      <p style={{ marginBottom: tokens.spacing.lg, color: tokens.color.text.tertiary, }}>
+    <div style={{ padding: tokens.spacing['md-lg'] }}>
+      <h2 style={{ marginBottom: tokens.spacing.base }}>4px/8px Rhythm</h2>
+      <p style={{ marginBottom: tokens.spacing.lg, color: tokens.color.text.tertiary }}>
         Our spacing system uses a 4px/8px rhythm for consistent visual hierarchy and alignment
       </p>
       <div
@@ -186,8 +186,7 @@ export const SpacingGrid: Story = {
             style={{
               width: tokens.spacing.sm,
               height: tokens.spacing.sm,
-              backgroundColor:
-                i % 8 === 0 ? '${tokens.color.interactive.default}' : '${tokens.color.info.lighter}',
+              backgroundColor: i % 8 === 0 ? tokens.color.interactive.default : tokens.color.info.lighter,
             }}
           />
         ))}
@@ -207,14 +206,12 @@ export const SpacingGrid: Story = {
 
 export const PracticalExamples: Story = {
   render: () => (
-    <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['3xl'], }}>
-      <h2 style={{ marginBottom: tokens.spacing.lg, }}>Practical Examples</h2>
+    <div style={{ padding: tokens.spacing['md-lg'], maxWidth: tokens.maxWidth['3xl'] }}>
+      <h2 style={{ marginBottom: tokens.spacing.lg }}>Practical Examples</h2>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.xl, }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.xl }}>
         <div>
-          <h3 style={{ marginBottom: tokens.spacing.md, fontSize: tokens.fontSize.base, }}>
-            Card with Base Spacing
-          </h3>
+          <h3 style={{ marginBottom: tokens.spacing.md, fontSize: tokens.fontSize.base }}>Card with Base Spacing</h3>
           <div
             style={{
               padding: tokens.spacing.base,
@@ -255,10 +252,10 @@ export const PracticalExamples: Story = {
         </div>
 
         <div>
-          <h3 style={{ marginBottom: tokens.spacing.md, fontSize: tokens.fontSize.base, }}>
+          <h3 style={{ marginBottom: tokens.spacing.md, fontSize: tokens.fontSize.base }}>
             Button Group with Small Gap
           </h3>
-          <div style={{ display: 'flex', gap: tokens.spacing.sm, }}>
+          <div style={{ display: 'flex', gap: tokens.spacing.sm }}>
             <button
               style={{
                 padding: `${tokens.spacing.sm} ${tokens.spacing.base}`,
@@ -296,10 +293,8 @@ export const PracticalExamples: Story = {
         </div>
 
         <div>
-          <h3 style={{ marginBottom: tokens.spacing.md, fontSize: tokens.fontSize.base, }}>
-            List with Medium Gap
-          </h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.md, }}>
+          <h3 style={{ marginBottom: tokens.spacing.md, fontSize: tokens.fontSize.base }}>List with Medium Gap</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.md }}>
             {['Item 1', 'Item 2', 'Item 3'].map((item, i) => (
               <div
                 key={i}

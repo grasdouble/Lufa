@@ -53,9 +53,7 @@ export const AllIconSizes: Story = {
                 >
                   iconSize.{key}
                 </div>
-                <div
-                  style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}
-                >
+                <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
                   {value}
                 </div>
               </div>
@@ -64,9 +62,7 @@ export const AllIconSizes: Story = {
                 style={{
                   width: value,
                   height: value,
-                  backgroundColor: isTouchReady
-                    ? '${tokens.color.interactive.default}'
-                    : '${tokens.color.interactive.focus}',
+                  backgroundColor: isTouchReady ? tokens.color.interactive.default : tokens.color.interactive.focus,
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
@@ -102,7 +98,7 @@ export const AllIconSizes: Story = {
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text, }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text }}>
           Icon Button Guidelines
         </div>
         <ul style={{ margin: 0, paddingLeft: '20px', color: tokens.color.info.text, fontSize: '14px' }}>
@@ -152,7 +148,7 @@ export const UsageExamples: Story = {
             );
           })}
         </div>
-        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary, }}>
+        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary }}>
           Icon-only buttons shown inside size.touchTarget (44x44px) hit areas
         </p>
       </div>
@@ -235,7 +231,7 @@ export const UsageExamples: Story = {
             </button>
           ))}
         </nav>
-        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary, }}>
+        <p style={{ marginTop: '12px', fontSize: '12px', color: tokens.color.text.tertiary }}>
           Navigation bar with medium (md) icons
         </p>
       </div>
@@ -266,9 +262,9 @@ export const UsageExamples: Story = {
                   width: tokens.iconSize['2xl'],
                   height: tokens.iconSize['2xl'],
                   backgroundColor: [
-                    '${tokens.color.interactive.focus}',
-                    '${tokens.color.success.default}',
-                    '${tokens.color.warning.default}',
+                    tokens.color.interactive.focus,
+                    tokens.color.success.default,
+                    tokens.color.warning.default,
                   ][index],
                   borderRadius: '12px',
                   display: 'flex',
@@ -282,7 +278,7 @@ export const UsageExamples: Story = {
                 {['⚡', '🔒', '✓'][index]}
               </div>
               <div style={{ fontWeight: '600', marginBottom: '4px' }}>{feature}</div>
-              <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, }}>Using iconSize.2xl</div>
+              <div style={{ fontSize: '12px', color: tokens.color.text.tertiary }}>Using iconSize.2xl</div>
             </div>
           ))}
         </div>

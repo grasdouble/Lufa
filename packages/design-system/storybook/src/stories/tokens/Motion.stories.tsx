@@ -18,6 +18,16 @@ export const TimingTokens: Story = {
   render: () => {
     const [activeBox, setActiveBox] = useState<string | null>(null);
 
+    // Duration mapping for setTimeout (in ms) since tokens are CSS variables
+    const timingMap: Record<string, number> = {
+      none: 0,
+      instant: 100,
+      fast: 150,
+      base: 250,
+      slow: 400,
+      deliberate: 600,
+    };
+
     return (
       <div style={{ padding: '20px', maxWidth: '1000px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Timing Tokens</h1>
@@ -38,15 +48,13 @@ export const TimingTokens: Story = {
               <div
                 onClick={() => {
                   setActiveBox(key);
-                  setTimeout(() => setActiveBox(null), parseInt(value));
+                  const duration = timingMap[key as keyof typeof timingMap] || 250;
+                  setTimeout(() => setActiveBox(null), duration);
                 }}
                 style={{
                   width: '100%',
                   height: '100px',
-                  backgroundColor:
-                    activeBox === key
-                      ? '${tokens.color.interactive.focus}'
-                      : '${tokens.color.border.light}',
+                  backgroundColor: activeBox === key ? tokens.color.interactive.focus : tokens.color.border.light,
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
@@ -58,10 +66,7 @@ export const TimingTokens: Story = {
                 <span
                   style={{
                     fontWeight: '600',
-                    color:
-                      activeBox === key
-                        ? '${tokens.color.text.inverse}'
-                        : '${tokens.color.text.tertiary}',
+                    color: activeBox === key ? tokens.color.text.inverse : tokens.color.text.tertiary,
                   }}
                 >
                   Click me
@@ -142,9 +147,7 @@ export const EasingTokens: Story = {
                 }}
               >
                 <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '4px' }}>{key}</div>
-                <div
-                  style={{ fontSize: '10px', color: tokens.color.text.tertiary, fontFamily: 'monospace' }}
-                >
+                <div style={{ fontSize: '10px', color: tokens.color.text.tertiary, fontFamily: 'monospace' }}>
                   {value}
                 </div>
                 <div
@@ -204,6 +207,17 @@ export const MotionPresets: Story = {
   render: () => {
     const [activeMotion, setActiveMotion] = useState<string | null>(null);
 
+    // Duration mapping for setTimeout (in ms) since tokens are CSS variables
+    const durationMap: Record<string, number> = {
+      fade: 150,
+      scale: 250,
+      slide: 250,
+      color: 150,
+      all: 150,
+      collapse: 400,
+      scroll: 400,
+    };
+
     return (
       <div style={{ padding: '20px', maxWidth: '1000px' }}>
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Motion Presets</h1>
@@ -248,7 +262,8 @@ export const MotionPresets: Story = {
                 <button
                   onClick={() => {
                     setActiveMotion(key);
-                    setTimeout(() => setActiveMotion(null), parseInt(config.duration) + 100);
+                    const duration = durationMap[key as keyof typeof durationMap] || 250;
+                    setTimeout(() => setActiveMotion(null), duration + 100);
                   }}
                   style={{
                     padding: '8px 16px',

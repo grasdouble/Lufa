@@ -3,6 +3,16 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import tokens from '@grasdouble/lufa_design-system-tokens';
 
+// Breakpoint values for JavaScript comparison (tokens use CSS variables)
+const breakpointValues = {
+  xs: 480,
+  sm: 768,
+  md: 1024,
+  lg: 1280,
+  xl: 1440,
+  '2xl': 1920,
+} as const;
+
 const meta = {
   title: '1. Tokens/Breakpoints',
   parameters: {
@@ -28,7 +38,7 @@ export const AllBreakpoints: Story = {
             key={key}
             style={{
               display: 'grid',
-              gridTemplateColumns: '150px 100px 1fr',
+              gridTemplateColumns: '150px 200px 1fr',
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
@@ -38,10 +48,22 @@ export const AllBreakpoints: Story = {
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>breakpoint.{key}</div>
-            <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
-              {value}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <div
+                style={{
+                  fontFamily: 'monospace',
+                  color: tokens.color.text.primary,
+                  fontSize: '12px',
+                  fontWeight: '600',
+                }}
+              >
+                {breakpointValues[key as keyof typeof breakpointValues]}px
+              </div>
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '11px' }}>
+                {value}
+              </div>
             </div>
-            <div style={{ fontSize: '12px', color: tokens.color.text.tertiary, }}>
+            <div style={{ fontSize: '12px', color: tokens.color.text.tertiary }}>
               {key === 'xs' && 'Mobile landscape (480px+)'}
               {key === 'sm' && 'Small tablet (768px+)'}
               {key === 'md' && 'Tablet (1024px+)'}
@@ -62,7 +84,7 @@ export const AllBreakpoints: Story = {
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text, }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text }}>
           Mobile-First Approach
         </div>
         <div style={{ fontSize: '14px', color: tokens.color.info.text, marginBottom: '12px' }}>
@@ -72,7 +94,7 @@ export const AllBreakpoints: Story = {
           style={{
             margin: 0,
             padding: '12px',
-            backgroundColor: tokens.color.background.inverse,
+            backgroundColor: tokens.color.surface.overlay,
             color: tokens.color.success.default,
             borderRadius: '6px',
             fontSize: '12px',
@@ -84,14 +106,14 @@ export const AllBreakpoints: Story = {
   width: 100%;
 }
 
-/* Tablet and up */
+/* Tablet and up (1024px) */
 @media (min-width: ${tokens.breakpoint.md}) {
   .element {
     width: 50%;
   }
 }
 
-/* Desktop and up */
+/* Desktop and up (1280px) */
 @media (min-width: ${tokens.breakpoint.lg}) {
   .element {
     width: 33.333%;
@@ -105,26 +127,28 @@ export const AllBreakpoints: Story = {
 
 export const ResponsiveDemo: Story = {
   render: () => {
-    const [currentWidth, setCurrentWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+    const [currentWidth, setCurrentWidth] = useState(() => (typeof window !== 'undefined' ? window.innerWidth : 1024));
 
     useEffect(() => {
-      const handleResize = () => setCurrentWidth(window.innerWidth);
+      const handleResize = () => {
+        setCurrentWidth(window.innerWidth);
+      };
+
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const getActiveBreakpoint = () => {
-      const widthNum = currentWidth;
-      if (widthNum >= parseInt(tokens.breakpoint['2xl'])) return '2xl';
-      if (widthNum >= parseInt(tokens.breakpoint.xl)) return 'xl';
-      if (widthNum >= parseInt(tokens.breakpoint.lg)) return 'lg';
-      if (widthNum >= parseInt(tokens.breakpoint.md)) return 'md';
-      if (widthNum >= parseInt(tokens.breakpoint.sm)) return 'sm';
-      if (widthNum >= parseInt(tokens.breakpoint.xs)) return 'xs';
+    const getActiveBreakpoint = (width: number): string => {
+      if (width >= breakpointValues['2xl']) return '2xl';
+      if (width >= breakpointValues.xl) return 'xl';
+      if (width >= breakpointValues.lg) return 'lg';
+      if (width >= breakpointValues.md) return 'md';
+      if (width >= breakpointValues.sm) return 'sm';
+      if (width >= breakpointValues.xs) return 'xs';
       return 'mobile';
     };
 
-    const activeBreakpoint = getActiveBreakpoint();
+    const activeBreakpoint = getActiveBreakpoint(currentWidth);
 
     return (
       <div style={{ padding: '20px', maxWidth: '1400px' }}>
@@ -134,6 +158,7 @@ export const ResponsiveDemo: Story = {
         </p>
 
         <div
+          key={`${currentWidth}-${activeBreakpoint}`}
           style={{
             padding: '24px',
             backgroundColor: tokens.color.interactive.focus,
@@ -146,8 +171,7 @@ export const ResponsiveDemo: Story = {
           <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '8px' }}>Current viewport width</div>
           <div style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '8px' }}>{currentWidth}px</div>
           <div style={{ fontSize: '20px', fontWeight: '600' }}>
-            Active breakpoint:{' '}
-            <span style={{ color: tokens.color.warning.default, }}>{activeBreakpoint}</span>
+            Active breakpoint: <span style={{ color: tokens.color.warning.default }}>{activeBreakpoint}</span>
           </div>
         </div>
 
@@ -167,10 +191,8 @@ export const ResponsiveDemo: Story = {
                 key={key}
                 style={{
                   padding: '16px',
-                  backgroundColor: isActive
-                    ? '${tokens.color.success.default}'
-                    : '${tokens.color.background.tertiary}',
-                  color: isActive ? '${tokens.color.text.inverse}' : '${tokens.color.text.secondary}',
+                  backgroundColor: isActive ? tokens.color.success.default : tokens.color.background.tertiary,
+                  color: isActive ? tokens.color.text.inverse : tokens.color.text.secondary,
                   borderRadius: '6px',
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -206,12 +228,10 @@ export const ResponsiveDemo: Story = {
             borderRadius: '8px',
           }}
         >
-          <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.warning.text, }}>
+          <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.warning.text }}>
             💡 Responsive Design Tips
           </div>
-          <ul
-            style={{ margin: 0, paddingLeft: '20px', color: tokens.color.warning.text, fontSize: '14px' }}
-          >
+          <ul style={{ margin: 0, paddingLeft: '20px', color: tokens.color.warning.text, fontSize: '14px' }}>
             <li>Design mobile-first: start with smallest screen, enhance for larger</li>
             <li>Test at actual breakpoint values, not just approximate sizes</li>
             <li>Consider content reflow between breakpoints</li>
