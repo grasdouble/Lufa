@@ -126,11 +126,11 @@ pnpm ds:main:prettier
 | [@grasdouble/lufa_design-system-tokens](../tokens/)         | Semantic design tokens         |
 | [@grasdouble/lufa_design-system-themes](../themes/)         | Theme variants (Ocean, Forest) |
 | [Storybook](../storybook/)                                  | Interactive component explorer |
-| [Documentation](../documentation/)                          | Comprehensive guides           |
+| [Documentation](../docusaurus/)                             | Comprehensive guides           |
 
 ## Resources
 
-- [Component Documentation](../documentation/)
+- [Component Documentation](../docusaurus/)
 - [Design System Instructions](../../../.github/instructions/lufa-design-system.instructions.md)
 - [Storybook](https://storybook.example.com)
 - [Contributing Guide](../../../CONTRIBUTING.md)

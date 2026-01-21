@@ -11,9 +11,19 @@ test.describe('Flex Component', () => {
       const wraps = ['nowrap', 'wrap', 'wrap-reverse'] as const;
       const gaps = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
 
-      const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
-      const subTitleStyle = { fontWeight: 600, fontSize: 16, margin: '24px 0 12px 0', color: '#333' };
-      const labelStyle = { fontSize: 12, color: '#666', marginBottom: 8 };
+      const sectionTitleStyle = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '0 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const subTitleStyle = {
+        fontWeight: 600,
+        fontSize: 16,
+        margin: '24px 0 12px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const labelStyle = { fontSize: 12, color: 'var(--lufa-token-color-text-secondary)', marginBottom: 8 };
       const boxStyle = {
         background: '#667eea',
         color: 'white',
@@ -24,13 +34,25 @@ test.describe('Flex Component', () => {
         minWidth: 80,
         textAlign: 'center' as const,
       };
-      const containerStyle = { border: '2px dashed #ccc', background: '#fff', padding: 16, marginBottom: 16 };
+      const containerStyle = {
+        border: '2px dashed var(--lufa-token-color-border-default)',
+        background: 'var(--lufa-token-color-background-primary)',
+        padding: 16,
+        marginBottom: 16,
+      };
       const tallBoxStyle = { ...boxStyle, height: 100 };
       const shortBoxStyle = { ...boxStyle, height: 40 };
       const baselineBoxStyle = { ...boxStyle, fontSize: 24, lineHeight: 1 };
 
       const component = await mount(
-        <div style={{ padding: 32, background: '#ffffff', fontFamily: 'sans-serif', width: '900px' }}>
+        <div
+          style={{
+            padding: 32,
+            background: 'var(--lufa-token-color-background-primary)',
+            fontFamily: 'sans-serif',
+            width: '900px',
+          }}
+        >
           {/* Direction Options */}
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Direction Options</h2>
@@ -217,7 +239,9 @@ test.describe('Flex Component', () => {
                   <div style={boxStyle}>1</div>
                   <div style={boxStyle}>2</div>
                 </Flex>
-                <span style={{ marginLeft: 16, color: '#666' }}>← Takes full width</span>
+                <span style={{ marginLeft: 16, color: 'var(--lufa-token-color-text-secondary)' }}>
+                  ← Takes full width
+                </span>
               </div>
             </div>
             <div>
@@ -227,7 +251,9 @@ test.describe('Flex Component', () => {
                   <div style={boxStyle}>1</div>
                   <div style={boxStyle}>2</div>
                 </Flex>
-                <span style={{ marginLeft: 16, color: '#666' }}>← Only as wide as content</span>
+                <span style={{ marginLeft: 16, color: 'var(--lufa-token-color-text-secondary)' }}>
+                  ← Only as wide as content
+                </span>
               </div>
             </div>
           </div>
@@ -276,7 +302,16 @@ test.describe('Flex Component', () => {
             <div style={{ marginBottom: 16 }}>
               <p style={labelStyle}>Card Actions (justify="end", gap="sm")</p>
               <div style={containerStyle}>
-                <div style={{ background: '#f5f5f5', padding: 16, borderRadius: 4, marginBottom: 8 }}>Card Content</div>
+                <div
+                  style={{
+                    background: 'var(--lufa-token-color-background-secondary)',
+                    padding: 16,
+                    borderRadius: 4,
+                    marginBottom: 8,
+                  }}
+                >
+                  Card Content
+                </div>
                 <Flex justify="end" gap="sm">
                   <div style={{ ...boxStyle, background: '#999' }}>Cancel</div>
                   <div style={{ ...boxStyle, background: '#667eea' }}>Submit</div>

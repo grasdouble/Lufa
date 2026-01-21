@@ -10,8 +10,13 @@ test.describe('Container Component', () => {
       const aligns = ['start', 'center', 'end'] as const;
       const paddingOptions = ['none', 'xs', 'sm', 'md', 'base', 'lg', 'xl'] as const;
 
-      const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
-      const labelStyle = { fontSize: 12, color: '#666', marginBottom: 8 };
+      const sectionTitleStyle = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '0 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const labelStyle = { fontSize: 12, color: 'var(--lufa-token-color-text-secondary)', marginBottom: 8 };
       const contentStyle = {
         background: '#667eea',
         color: 'white',
@@ -21,11 +26,23 @@ test.describe('Container Component', () => {
         fontSize: 14,
         textAlign: 'center' as const,
       };
-      const viewportStyle = { border: '2px solid #ccc', background: '#f5f5f5', padding: 8, marginBottom: 16 };
+      const viewportStyle = {
+        border: '2px solid var(--lufa-token-color-border-default)',
+        background: 'var(--lufa-token-color-background-secondary)',
+        padding: 8,
+        marginBottom: 16,
+      };
       const paddingBoxStyle = { background: 'rgba(102, 126, 234, 0.1)', border: '2px dashed #667eea' };
 
       const component = await mount(
-        <div style={{ padding: 32, background: '#ffffff', fontFamily: 'sans-serif', width: '900px' }}>
+        <div
+          style={{
+            padding: 32,
+            background: 'var(--lufa-token-color-background-primary)',
+            fontFamily: 'sans-serif',
+            width: '900px',
+          }}
+        >
           {/* Size Options */}
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Size Options (Max-width constraints)</h2>
@@ -155,12 +172,12 @@ test.describe('Container Component', () => {
                     style={{
                       ...contentStyle,
                       background: 'white',
-                      color: '#333',
+                      color: 'var(--lufa-token-color-text-primary)',
                       textAlign: 'left' as const,
                       lineHeight: 1.6,
                     }}
                   >
-                    <h3 style={{ marginTop: 0, color: '#111' }}>Article Title</h3>
+                    <h3 style={{ marginTop: 0, color: 'var(--lufa-token-color-text-primary)' }}>Article Title</h3>
                     <p style={{ margin: 0 }}>
                       This is article content in a centered, medium-width container with comfortable padding for
                       reading.

@@ -28,8 +28,13 @@ test.describe('Space Component', () => {
       ] as const;
       const customSizes = [8, 16, 32, 64];
 
-      const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
-      const labelStyle = { fontSize: 12, color: '#666', marginBottom: 8 };
+      const sectionTitleStyle = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '0 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const labelStyle = { fontSize: 12, color: 'var(--lufa-token-color-text-secondary)', marginBottom: 8 };
       const boxStyle = {
         background: '#667eea',
         color: 'white',
@@ -39,15 +44,33 @@ test.describe('Space Component', () => {
         fontSize: 14,
         display: 'inline-block',
       };
-      const containerStyle = { border: '2px dashed #ccc', background: '#fff', padding: 16, marginBottom: 16 };
-      const measurementLabelStyle = { fontSize: 10, color: '#999', fontFamily: 'monospace' };
+      const containerStyle = {
+        border: '2px dashed var(--lufa-token-color-border-default)',
+        background: 'var(--lufa-token-color-background-primary)',
+        padding: 16,
+        marginBottom: 16,
+      };
+      const measurementLabelStyle = {
+        fontSize: 10,
+        color: 'var(--lufa-token-color-text-tertiary)',
+        fontFamily: 'monospace',
+      };
 
       const component = await mount(
-        <div style={{ padding: 32, background: '#ffffff', fontFamily: 'sans-serif', width: '900px' }}>
+        <div
+          style={{
+            padding: 32,
+            background: 'var(--lufa-token-color-background-primary)',
+            fontFamily: 'sans-serif',
+            width: '900px',
+          }}
+        >
           {/* Vertical Direction - All Token Sizes */}
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Vertical Direction - Token Sizes</h2>
-            <p style={{ fontSize: 14, color: '#666', marginBottom: 16 }}>Creates vertical spacing between elements</p>
+            <p style={{ fontSize: 14, color: 'var(--lufa-token-color-text-secondary)', marginBottom: 16 }}>
+              Creates vertical spacing between elements
+            </p>
             {sizes.map((size) => (
               <div key={size} style={{ marginBottom: 24 }}>
                 <p style={labelStyle}>size="{size}" (vertical)</p>
@@ -64,7 +87,9 @@ test.describe('Space Component', () => {
           {/* Horizontal Direction - All Token Sizes */}
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Horizontal Direction - Token Sizes</h2>
-            <p style={{ fontSize: 14, color: '#666', marginBottom: 16 }}>Creates horizontal spacing between elements</p>
+            <p style={{ fontSize: 14, color: 'var(--lufa-token-color-text-secondary)', marginBottom: 16 }}>
+              Creates horizontal spacing between elements
+            </p>
 
             {/* Show smaller sizes */}
             <div style={{ marginBottom: 24 }}>
@@ -194,8 +219,19 @@ test.describe('Space Component', () => {
             <div style={{ marginBottom: 24 }}>
               <p style={labelStyle}>Form Field Spacing (medium vertical space)</p>
               <div style={containerStyle}>
-                <div style={{ background: '#f5f5f5', padding: 12, borderRadius: 4 }}>
-                  <label style={{ display: 'block', fontSize: 12, color: '#666', marginBottom: 4 }}>First Name</label>
+                <div
+                  style={{ background: 'var(--lufa-token-color-background-secondary)', padding: 12, borderRadius: 4 }}
+                >
+                  <label
+                    style={{
+                      display: 'block',
+                      fontSize: 12,
+                      color: 'var(--lufa-token-color-text-secondary)',
+                      marginBottom: 4,
+                    }}
+                  >
+                    First Name
+                  </label>
                   <input
                     type="text"
                     placeholder="Enter first name"
@@ -209,8 +245,19 @@ test.describe('Space Component', () => {
                   />
                 </div>
                 <Space direction="vertical" size="md" />
-                <div style={{ background: '#f5f5f5', padding: 12, borderRadius: 4 }}>
-                  <label style={{ display: 'block', fontSize: 12, color: '#666', marginBottom: 4 }}>Last Name</label>
+                <div
+                  style={{ background: 'var(--lufa-token-color-background-secondary)', padding: 12, borderRadius: 4 }}
+                >
+                  <label
+                    style={{
+                      display: 'block',
+                      fontSize: 12,
+                      color: 'var(--lufa-token-color-text-secondary)',
+                      marginBottom: 4,
+                    }}
+                  >
+                    Last Name
+                  </label>
                   <input
                     type="text"
                     placeholder="Enter last name"
@@ -257,17 +304,23 @@ test.describe('Space Component', () => {
               <div style={containerStyle}>
                 <div style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: 8, padding: 16 }}>
                   <div style={{ fontWeight: 600, marginBottom: 8 }}>Card 1</div>
-                  <div style={{ fontSize: 14, color: '#666' }}>This is the first card in the stack</div>
+                  <div style={{ fontSize: 14, color: 'var(--lufa-token-color-text-secondary)' }}>
+                    This is the first card in the stack
+                  </div>
                 </div>
                 <Space direction="vertical" size="lg" />
                 <div style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: 8, padding: 16 }}>
                   <div style={{ fontWeight: 600, marginBottom: 8 }}>Card 2</div>
-                  <div style={{ fontSize: 14, color: '#666' }}>This is the second card in the stack</div>
+                  <div style={{ fontSize: 14, color: 'var(--lufa-token-color-text-secondary)' }}>
+                    This is the second card in the stack
+                  </div>
                 </div>
                 <Space direction="vertical" size="lg" />
                 <div style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: 8, padding: 16 }}>
                   <div style={{ fontWeight: 600, marginBottom: 8 }}>Card 3</div>
-                  <div style={{ fontSize: 14, color: '#666' }}>This is the third card in the stack</div>
+                  <div style={{ fontSize: 14, color: 'var(--lufa-token-color-text-secondary)' }}>
+                    This is the third card in the stack
+                  </div>
                 </div>
               </div>
             </div>

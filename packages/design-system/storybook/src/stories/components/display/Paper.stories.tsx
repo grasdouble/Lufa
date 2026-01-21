@@ -154,8 +154,22 @@ export const UseCases: Story = {
         <h3 style={{ marginBottom: tokens.spacing.base }}>Dashboard Widget</h3>
         <Paper variant="elevated" padding="large">
           <h4 style={{ marginTop: 0, marginBottom: tokens.spacing.sm }}>Total Revenue</h4>
-          <p style={{ fontSize: tokens.fontSize['2xl'], fontWeight: tokens.fontWeight.bold, margin: 0 }}>$24,567</p>
-          <p style={{ fontSize: tokens.fontSize.sm, color: tokens.color.text.secondary, marginTop: tokens.spacing.xs }}>
+          <p
+            style={{
+              fontSize: tokens.fontSize['2xl'],
+              fontWeight: tokens.fontWeight.bold,
+              margin: 0,
+            }}
+          >
+            $24,567
+          </p>
+          <p
+            style={{
+              fontSize: tokens.fontSize.sm,
+              color: tokens.color.text.secondary,
+              marginTop: tokens.spacing.xs,
+            }}
+          >
             +12.5% from last month
           </p>
         </Paper>
@@ -192,7 +206,7 @@ export const UseCases: Story = {
             style={{
               height: '200px',
               backgroundColor: tokens.color.background.tertiary,
-              borderRadius: `${tokens.radius.large} ${tokens.radius.large} 0 0`,
+              borderRadius: `${tokens.spacing.lg} ${tokens.spacing.lg} 0 0`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -202,7 +216,13 @@ export const UseCases: Story = {
           </div>
           <div style={{ padding: tokens.spacing.base }}>
             <h4 style={{ margin: 0, marginBottom: tokens.spacing.xs }}>Photo Title</h4>
-            <p style={{ margin: 0, fontSize: tokens.fontSize.sm, color: tokens.color.text.secondary }}>
+            <p
+              style={{
+                margin: 0,
+                fontSize: tokens.fontSize.sm,
+                color: tokens.color.text.secondary,
+              }}
+            >
               Beautiful landscape
             </p>
           </div>

@@ -43,7 +43,12 @@ export const Playground: Story = {
           padding: tokens.spacing.base,
         }}
       >
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+        <div
+          style={{
+            fontFamily: 'monospace',
+            marginBottom: tokens.spacing.md,
+          }}
+        >
           ratio: {String(args.ratio)}
         </div>
         <AspectRatio
@@ -69,7 +74,13 @@ export const Ratio: Story = {
     <Container size="xl" paddingX="none">
       <Stack direction="vertical" gap="spacious">
         <div>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.md,
+            }}
+          >
             landscape & square
           </div>
           <div
@@ -112,7 +123,7 @@ export const Ratio: Story = {
                       fontSize: tokens.fontSize.xs,
                     }}
                   >
-                    {tokens.aspectRatio[ratio]}
+                    {ratio}
                   </div>
                 </div>
                 <AspectRatio
@@ -137,7 +148,7 @@ export const Ratio: Story = {
                       fontWeight: tokens.fontWeight.bold,
                     }}
                   >
-                    {tokens.aspectRatio[ratio]}
+                    {ratio}
                   </div>
                 </AspectRatio>
               </div>
@@ -146,7 +157,13 @@ export const Ratio: Story = {
         </div>
 
         <div>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.md,
+            }}
+          >
             portrait
           </div>
           <div
@@ -181,7 +198,7 @@ export const Ratio: Story = {
                       fontSize: tokens.fontSize.xs,
                     }}
                   >
-                    {tokens.aspectRatio[ratio]}
+                    {ratio}
                   </div>
                 </div>
                 <AspectRatio
@@ -208,7 +225,7 @@ export const Ratio: Story = {
                       fontWeight: tokens.fontWeight.bold,
                     }}
                   >
-                    {tokens.aspectRatio[ratio]}
+                    {ratio}
                   </div>
                 </AspectRatio>
               </div>
@@ -223,7 +240,13 @@ export const Ratio: Story = {
 export const CustomRatios: Story = {
   render: () => (
     <Container size="xl" paddingX="none">
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: tokens.spacing.base }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+          gap: tokens.spacing.base,
+        }}
+      >
         {[
           { label: 'ratio: 1', ratio: 1 },
           { label: 'ratio: 2', ratio: 2 },
@@ -238,7 +261,11 @@ export const CustomRatios: Story = {
             }}
           >
             <div
-              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+              style={{
+                fontFamily: 'monospace',
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.md,
+              }}
             >
               {item.label}
             </div>

@@ -129,7 +129,7 @@
   }
 
   .themeDark {
-    background-color: var(--lufa-token-color-background-inverse);
+    background-color: var(--lufa-token-color-surface-overlay);
     color: var(--lufa-token-color-text-inverse);
   }
 }

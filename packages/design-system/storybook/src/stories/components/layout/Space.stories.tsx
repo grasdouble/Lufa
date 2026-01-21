@@ -30,10 +30,23 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const DemoLabel = ({ label, value }: { label: string; value?: string }) => (
-  <div style={{ display: 'flex', alignItems: 'baseline', gap: tokens.spacing.md, marginBottom: tokens.spacing.md }}>
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'baseline',
+      gap: tokens.spacing.md,
+      marginBottom: tokens.spacing.md,
+    }}
+  >
     <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary }}>{label}</div>
     {value && (
-      <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: tokens.fontSize.xs }}>
+      <div
+        style={{
+          fontFamily: 'monospace',
+          color: tokens.color.text.tertiary,
+          fontSize: tokens.fontSize.xs,
+        }}
+      >
         {value}
       </div>
     )}
@@ -55,14 +68,7 @@ export const Playground: Story = {
           padding: tokens.spacing.base,
         }}
       >
-        <DemoLabel
-          label={`direction: ${args.direction}, size: ${String(args.size)}`}
-          value={
-            typeof args.size === 'string' && args.size in SPACE_SIZE
-              ? tokens.spacing[args.size as keyof typeof tokens.spacing]
-              : undefined
-          }
-        />
+        <DemoLabel label={`direction: ${args.direction}, size: ${String(args.size)}`} />
         {args.direction === SPACE_DIRECTION.horizontal ? (
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
@@ -133,7 +139,7 @@ export const VerticalSizes: Story = {
                 padding: tokens.spacing.base,
               }}
             >
-              <DemoLabel label={`size: ${size}`} value={tokens.spacing[size]} />
+              <DemoLabel label={`size: ${size}`} />
               <Placeholder color={tokens.color.interactive.default} height="small" width="full">
                 A
               </Placeholder>
@@ -181,7 +187,7 @@ export const HorizontalSizes: Story = {
               padding: tokens.spacing.base,
             }}
           >
-            <DemoLabel label={`size: ${size}`} value={tokens.spacing[size]} />
+            <DemoLabel label={`size: ${size}`} />
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
                 A

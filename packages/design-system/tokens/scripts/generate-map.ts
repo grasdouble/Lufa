@@ -21,21 +21,45 @@ const toSafePath = (segments: string[]): string => {
   }, '');
 };
 
-const flattenPaths = (obj: unknown, segments: string[], out: Record<string, string>): void => {
+/**
+ * Resolve a CSS variable reference to its actual value
+ * @param value - String that may contain var(--lufa-token-*)
+ * @param cssMap - Map of CSS variable names to their actual values
+ * @returns The resolved value or the original if not a CSS variable
+ */
+const resolveCssVariable = (value: string, cssMap: Record<string, string>): string => {
+  // Match var(--lufa-token-name) or var(--lufa-token-name, fallback)
+  const varMatch = /^var\(--lufa-token-([a-z0-9-]+)(?:,\s*[^)]+)?\)$/i.exec(value);
+  if (varMatch) {
+    const varName = `--lufa-token-${varMatch[1]}`;
+    return cssMap[varName] ?? value;
+  }
+  return value;
+};
+
+const flattenPaths = (
+  obj: unknown,
+  segments: string[],
+  out: Record<string, string>,
+  cssMap: Record<string, string>
+): void => {
   if (typeof obj === 'string' || typeof obj === 'number') {
-    out[toSafePath(segments)] = String(obj);
+    const stringValue = String(obj);
+    // Resolve CSS variable references to actual values
+    const resolvedValue = resolveCssVariable(stringValue, cssMap);
+    out[toSafePath(segments)] = resolvedValue;
     return;
   }
 
   if (!obj || typeof obj !== 'object') return;
 
   if (Array.isArray(obj)) {
-    obj.forEach((value, index) => flattenPaths(value, [...segments, String(index)], out));
+    obj.forEach((value, index) => flattenPaths(value, [...segments, String(index)], out, cssMap));
     return;
   }
 
   for (const [key, value] of Object.entries(obj)) {
-    flattenPaths(value, [...segments, key], out);
+    flattenPaths(value, [...segments, key], out, cssMap);
   }
 };
 
@@ -49,23 +73,28 @@ const parseCssVariables = (cssText: string): Record<string, string> => {
   return css;
 };
 
-const buildPaths = (moduleExports: Record<string, unknown>, root: string): Record<string, string> => {
+const buildPaths = (
+  moduleExports: Record<string, unknown>,
+  root: string,
+  cssMap: Record<string, string>
+): Record<string, string> => {
   const paths: Record<string, string> = {};
   // Use the default export as the canonical root to avoid `tokens.default.*` paths.
   const defaultExport = moduleExports.default;
 
   if (defaultExport && typeof defaultExport === 'object') {
-    flattenPaths(defaultExport, [root], paths);
+    flattenPaths(defaultExport, [root], paths, cssMap);
   }
 
   for (const [name, value] of Object.entries(moduleExports)) {
     if (name === 'default') continue;
     if (typeof value === 'function' || value === undefined) continue;
     if (value && typeof value === 'object') {
-      flattenPaths(value, [root, name], paths);
+      flattenPaths(value, [root, name], paths, cssMap);
       continue;
     }
-    paths[toSafePath([root, name])] = String(value);
+    const stringValue = String(value);
+    paths[toSafePath([root, name])] = resolveCssVariable(stringValue, cssMap);
   }
   return paths;
 };
@@ -78,11 +107,8 @@ const outputFile = resolve(distDir, 'tokens.map.json');
 
 const buildMap = async (): Promise<TokenMap> => {
   const css = parseCssVariables(readFileSync(cssFile, 'utf8'));
-  const moduleExports = (await import(pathToFileURL(resolve(distDir, 'index.js')).href)) as Record<
-    string,
-    unknown
-  >;
-  const paths = buildPaths(moduleExports, 'tokens');
+  const moduleExports = (await import(pathToFileURL(resolve(distDir, 'index.js')).href)) as Record<string, unknown>;
+  const paths = buildPaths(moduleExports, 'tokens', css);
 
   return {
     version: 1,

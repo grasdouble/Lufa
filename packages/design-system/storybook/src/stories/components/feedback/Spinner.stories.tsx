@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Spinner } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '5. Feedback/Spinner',
@@ -49,14 +50,14 @@ export const Playground: Story = {
 
 export const AllSizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-xl)' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.xl }}>
       <div style={{ textAlign: 'center' }}>
         <Spinner size="small" mode="A" />
         <p
           style={{
-            marginTop: 'var(--lufa-token-spacing-sm)',
-            fontSize: 'var(--lufa-token-font-size-xs)',
-            color: 'var(--lufa-token-color-text-tertiary)',
+            marginTop: tokens.spacing.sm,
+            fontSize: tokens.fontSize.xs,
+            color: tokens.color.text.tertiary,
           }}
         >
           Small
@@ -66,9 +67,9 @@ export const AllSizes: Story = {
         <Spinner size="medium" mode="A" />
         <p
           style={{
-            marginTop: 'var(--lufa-token-spacing-sm)',
-            fontSize: 'var(--lufa-token-font-size-xs)',
-            color: 'var(--lufa-token-color-text-tertiary)',
+            marginTop: tokens.spacing.sm,
+            fontSize: tokens.fontSize.xs,
+            color: tokens.color.text.tertiary,
           }}
         >
           Medium
@@ -78,9 +79,9 @@ export const AllSizes: Story = {
         <Spinner size="large" mode="A" />
         <p
           style={{
-            marginTop: 'var(--lufa-token-spacing-sm)',
-            fontSize: 'var(--lufa-token-font-size-xs)',
-            color: 'var(--lufa-token-color-text-tertiary)',
+            marginTop: tokens.spacing.sm,
+            fontSize: tokens.fontSize.xs,
+            color: tokens.color.text.tertiary,
           }}
         >
           Large
@@ -106,22 +107,18 @@ export const ModeB: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--lufa-token-spacing-xl)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.xl }}>
       <div>
-        <h3 style={{ marginBottom: 'var(--lufa-token-spacing-base)', color: 'var(--lufa-token-color-text-primary)' }}>
-          Mode A
-        </h3>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-xl)' }}>
+        <h3 style={{ marginBottom: tokens.spacing.base }}>Mode A</h3>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.xl }}>
           <Spinner size="small" mode="A" />
           <Spinner size="medium" mode="A" />
           <Spinner size="large" mode="A" />
         </div>
       </div>
       <div>
-        <h3 style={{ marginBottom: 'var(--lufa-token-spacing-base)', color: 'var(--lufa-token-color-text-primary)' }}>
-          Mode B
-        </h3>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lufa-token-spacing-xl)' }}>
+        <h3 style={{ marginBottom: tokens.spacing.base }}>Mode B</h3>
+        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.xl }}>
           <Spinner size="small" mode="B" />
           <Spinner size="medium" mode="B" />
           <Spinner size="large" mode="B" />
@@ -137,35 +134,33 @@ export const InContext: Story = {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-lg)',
-        padding: 'var(--lufa-token-spacing-md-lg)',
+        gap: tokens.spacing.lg,
+        padding: tokens.spacing['md-lg'],
       }}
     >
       <div
         style={{
-          padding: 'var(--lufa-token-spacing-xl-2xl)',
-          backgroundColor: 'var(--lufa-token-color-background-tertiary)',
-          borderRadius: 'var(--lufa-token-radius-base)',
+          padding: tokens.spacing['xl-2xl'],
+          backgroundColor: tokens.color.background.tertiary,
+          borderRadius: tokens.radius.base,
           textAlign: 'center',
         }}
       >
         <Spinner size="large" mode="A" />
-        <p style={{ marginTop: 'var(--lufa-token-spacing-base)', color: 'var(--lufa-token-color-text-tertiary)' }}>
-          Loading content...
-        </p>
+        <p style={{ marginTop: tokens.spacing.base, color: tokens.color.text.tertiary }}>Loading content...</p>
       </div>
 
       <button
         style={{
-          padding: 'var(--lufa-token-spacing-md) var(--lufa-token-spacing-lg)',
-          backgroundColor: 'var(--lufa-token-color-interactive-default)',
-          color: 'var(--lufa-token-color-text-inverse)',
-          border: 'var(--lufa-token-border-style-none)',
-          borderRadius: 'var(--lufa-token-radius-md)',
+          padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
+          backgroundColor: tokens.color.interactive.default,
+          color: tokens.color.text.inverse,
+          border: tokens.borderStyle.none,
+          borderRadius: tokens.radius.md,
           cursor: 'not-allowed',
           display: 'flex',
           alignItems: 'center',
-          gap: 'var(--lufa-token-spacing-sm)',
+          gap: tokens.spacing.sm,
           justifyContent: 'center',
         }}
         disabled
@@ -178,11 +173,11 @@ export const InContext: Story = {
         style={{
           display: 'inline-flex',
           alignItems: 'center',
-          gap: 'var(--lufa-token-spacing-sm)',
-          padding: 'var(--lufa-token-spacing-sm) var(--lufa-token-spacing-base)',
-          backgroundColor: 'var(--lufa-token-color-info-light)',
-          borderRadius: 'var(--lufa-token-radius-md)',
-          color: 'var(--lufa-token-color-interactive-default)',
+          gap: tokens.spacing.sm,
+          padding: `${tokens.spacing.sm} ${tokens.spacing.base}`,
+          backgroundColor: tokens.color.info.light,
+          borderRadius: tokens.radius.md,
+          color: tokens.color.interactive.default,
         }}
       >
         <Spinner size="small" mode="A" />

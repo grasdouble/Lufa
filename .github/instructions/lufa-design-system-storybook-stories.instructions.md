@@ -491,6 +491,28 @@ Don't create controls for these prop types:
 
 ## Quality Standards
 
+### Rule 0: File-Based Token Usage
+
+**CRITICAL**: Storybook stories are `.tsx` files, therefore you MUST use **TypeScript tokens** (not CSS custom properties).
+
+```typescript
+// ✅ CORRECT: Stories are .tsx files, use TypeScript tokens
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
+<div style={{
+  padding: tokens.spacing.lg,
+  backgroundColor: tokens.color.background.primary,
+}} />
+
+// ❌ WRONG: Don't use CSS variable strings in .tsx files
+<div style={{ padding: 'var(--lufa-token-spacing-lg)' }} /> {/* Wrong! */}
+```
+
+**File-Based Rule Summary**:
+
+- `.css`, `.module.css` files → CSS custom properties `var(--lufa-token-*)`
+- `.ts`, `.tsx`, `.js`, `.jsx` files → TypeScript tokens `tokens.color.text.primary`
+
 ### Rule 1: Always Use Design Tokens
 
 **CRITICAL**: Stories MUST use design tokens for ALL styling decisions.

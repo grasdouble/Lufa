@@ -565,7 +565,7 @@ A: Possible but not recommended - Docker execution takes 3-5 minutes, which may 
 ## Related Documentation
 
 - [Playwright Component Testing README](../README.md)
-- [Snapshot Compression Scripts](README.md)
+- [Snapshot Compression Scripts](../scripts/README.md)
 - [Playwright Docker Documentation](https://playwright.dev/docs/docker)
 - [AGENTS.md - Testing Instructions](../../../../AGENTS.md#testing-instructions)
 

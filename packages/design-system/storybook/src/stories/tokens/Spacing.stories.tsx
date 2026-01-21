@@ -28,7 +28,7 @@ export const Overview: Story = {
       <p
         style={{
           marginBottom: tokens.spacing.xl,
-          color: 'var(--lufa-token-color-text-tertiary)',
+          color: tokens.color.text.tertiary,
           fontSize: tokens.fontSize.base,
         }}
       >
@@ -48,30 +48,30 @@ export const Overview: Story = {
         <div
           style={{
             padding: tokens.spacing['md-lg'],
-            backgroundColor: 'var(--lufa-token-color-background-secondary)',
+            backgroundColor: tokens.color.background.secondary,
             borderRadius: tokens.radius.base,
             fontFamily: 'monospace',
             fontSize: tokens.fontSize.sm,
           }}
         >
           <div
-            style={{ color: 'var(--lufa-token-color-text-tertiary)', marginBottom: tokens.spacing.md }}
+            style={{ color: tokens.color.text.tertiary, marginBottom: tokens.spacing.md }}
           >{`import tokens from '@grasdouble/lufa_design-system-tokens';`}</div>
           <div style={{ marginBottom: tokens.spacing.sm }}>
-            <span style={{ color: 'var(--lufa-token-color-brand-secondary)' }}>const</span>{' '}
-            <span style={{ color: 'var(--lufa-token-color-error-text)' }}>styles</span> ={' '}
-            <span style={{ color: 'var(--lufa-token-color-success-text)' }}>{'{'}</span>
+            <span style={{ color: tokens.color.brand.secondary }}>const</span>{' '}
+            <span style={{ color: tokens.color.error.text }}>styles</span> ={' '}
+            <span style={{ color: tokens.color.success.text }}>{'{'}</span>
           </div>
           <div style={{ marginLeft: tokens.spacing['md-lg'], marginBottom: tokens.spacing.sm }}>
-            <span style={{ color: 'var(--lufa-token-color-warning-text)' }}>padding</span>: tokens.spacing.base,{' '}
-            <span style={{ color: 'var(--lufa-token-color-text-tertiary)' }}>// 16px</span>
+            <span style={{ color: tokens.color.warning.text }}>padding</span>: tokens.spacing.base,{' '}
+            <span style={{ color: tokens.color.text.tertiary }}>// 16px</span>
           </div>
           <div style={{ marginLeft: tokens.spacing['md-lg'], marginBottom: tokens.spacing.sm }}>
-            <span style={{ color: 'var(--lufa-token-color-warning-text)' }}>margin</span>: tokens.spacing.lg,{' '}
-            <span style={{ color: 'var(--lufa-token-color-text-tertiary)' }}>// 24px</span>
+            <span style={{ color: tokens.color.warning.text }}>margin</span>: tokens.spacing.lg,{' '}
+            <span style={{ color: tokens.color.text.tertiary }}>// 24px</span>
           </div>
           <div>
-            <span style={{ color: 'var(--lufa-token-color-success-text)' }}>{'}'}</span>;
+            <span style={{ color: tokens.color.success.text }}>{'}'}</span>;
           </div>
         </div>
       </div>
@@ -93,8 +93,8 @@ export const Overview: Story = {
               display: 'flex',
               alignItems: 'center',
               padding: `${tokens.spacing.md} ${tokens.spacing.base}`,
-              backgroundColor: 'var(--lufa-token-color-surface-default)',
-              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} var(--lufa-token-color-border-light)`,
+              backgroundColor: tokens.color.surface.default,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
               borderRadius: tokens.radius.base,
             }}
           >
@@ -111,7 +111,7 @@ export const Overview: Story = {
             <div
               style={{
                 flex: `0 0 ${tokens.spacing['3xl-4xl']}`,
-                color: 'var(--lufa-token-color-text-tertiary)',
+                color: tokens.color.text.tertiary,
                 fontSize: tokens.fontSize.sm,
               }}
             >
@@ -122,17 +122,17 @@ export const Overview: Story = {
                 flex: '0 0 auto',
                 height: tokens.spacing['xl-2xl'],
                 width: value === tokens.spacing.none ? tokens.spacing.xxs : value,
-                backgroundColor: 'var(--lufa-token-color-interactive-default)',
+                backgroundColor: tokens.color.interactive.default,
                 border:
                   value === tokens.spacing.none
-                    ? `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} var(--lufa-token-color-interactive-default)`
+                    ? `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.interactive.default}`
                     : tokens.borderStyle.none,
               }}
             />
             <div
               style={{
                 marginLeft: tokens.spacing.base,
-                color: 'var(--lufa-token-color-text-tertiary)',
+                color: tokens.color.text.tertiary,
                 fontSize: tokens.fontSize.xs,
               }}
             >
@@ -167,7 +167,7 @@ export const SpacingGrid: Story = {
   render: () => (
     <div style={{ padding: tokens.spacing['md-lg'] }}>
       <h2 style={{ marginBottom: tokens.spacing.base }}>4px/8px Rhythm</h2>
-      <p style={{ marginBottom: tokens.spacing.lg, color: 'var(--lufa-token-color-text-tertiary)' }}>
+      <p style={{ marginBottom: tokens.spacing.lg, color: tokens.color.text.tertiary }}>
         Our spacing system uses a 4px/8px rhythm for consistent visual hierarchy and alignment
       </p>
       <div
@@ -175,9 +175,9 @@ export const SpacingGrid: Story = {
           display: 'grid',
           gridTemplateColumns: 'repeat(8, 1fr)',
           gap: tokens.borderWidth.hairline,
-          backgroundColor: 'var(--lufa-token-color-border-light)',
+          backgroundColor: tokens.color.border.light,
           padding: tokens.borderWidth.hairline,
-          maxWidth: tokens.maxWidth.xs,
+          maxWidth: tokens.maxWidth['xs'],
         }}
       >
         {Array.from({ length: 64 }).map((_, i) => (
@@ -186,8 +186,7 @@ export const SpacingGrid: Story = {
             style={{
               width: tokens.spacing.sm,
               height: tokens.spacing.sm,
-              backgroundColor:
-                i % 8 === 0 ? 'var(--lufa-token-color-interactive-default)' : 'var(--lufa-token-color-info-lighter)',
+              backgroundColor: i % 8 === 0 ? tokens.color.interactive.default : tokens.color.info.lighter,
             }}
           />
         ))}
@@ -196,7 +195,7 @@ export const SpacingGrid: Story = {
         style={{
           marginTop: tokens.spacing.base,
           fontSize: tokens.fontSize.xs,
-          color: 'var(--lufa-token-color-text-tertiary)',
+          color: tokens.color.text.tertiary,
         }}
       >
         Each square = 8px × 8px
@@ -216,8 +215,8 @@ export const PracticalExamples: Story = {
           <div
             style={{
               padding: tokens.spacing.base,
-              backgroundColor: 'var(--lufa-token-color-surface-default)',
-              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} var(--lufa-token-color-border-light)`,
+              backgroundColor: tokens.color.surface.default,
+              border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
               borderRadius: tokens.radius.base,
             }}
           >
@@ -231,7 +230,13 @@ export const PracticalExamples: Story = {
             >
               Card Title
             </h4>
-            <p style={{ margin: 0, color: 'var(--lufa-token-color-text-tertiary)', fontSize: tokens.fontSize.sm }}>
+            <p
+              style={{
+                margin: 0,
+                color: tokens.color.text.tertiary,
+                fontSize: tokens.fontSize.sm,
+              }}
+            >
               Content with consistent spacing
             </p>
           </div>
@@ -239,7 +244,7 @@ export const PracticalExamples: Story = {
             style={{
               marginTop: tokens.spacing.sm,
               fontSize: tokens.fontSize.xs,
-              color: 'var(--lufa-token-color-text-tertiary)',
+              color: tokens.color.text.tertiary,
             }}
           >
             padding: spacing.base (16px)
@@ -254,8 +259,8 @@ export const PracticalExamples: Story = {
             <button
               style={{
                 padding: `${tokens.spacing.sm} ${tokens.spacing.base}`,
-                backgroundColor: 'var(--lufa-token-color-interactive-default)',
-                color: 'var(--lufa-token-color-text-inverse)',
+                backgroundColor: tokens.color.interactive.default,
+                color: tokens.color.text.inverse,
                 border: tokens.borderStyle.none,
                 borderRadius: tokens.radius.md,
                 cursor: 'pointer',
@@ -266,9 +271,9 @@ export const PracticalExamples: Story = {
             <button
               style={{
                 padding: `${tokens.spacing.sm} ${tokens.spacing.base}`,
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
-                color: 'var(--lufa-token-color-interactive-default)',
-                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} var(--lufa-token-color-interactive-default)`,
+                backgroundColor: tokens.color.surface.default,
+                color: tokens.color.interactive.default,
+                border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.interactive.default}`,
                 borderRadius: tokens.radius.md,
                 cursor: 'pointer',
               }}
@@ -280,7 +285,7 @@ export const PracticalExamples: Story = {
             style={{
               marginTop: tokens.spacing.sm,
               fontSize: tokens.fontSize.xs,
-              color: 'var(--lufa-token-color-text-tertiary)',
+              color: tokens.color.text.tertiary,
             }}
           >
             gap: spacing.sm (8px)
@@ -295,7 +300,7 @@ export const PracticalExamples: Story = {
                 key={i}
                 style={{
                   padding: tokens.spacing.md,
-                  backgroundColor: 'var(--lufa-token-color-background-tertiary)',
+                  backgroundColor: tokens.color.background.tertiary,
                   borderRadius: tokens.radius.md,
                 }}
               >
@@ -307,7 +312,7 @@ export const PracticalExamples: Story = {
             style={{
               marginTop: tokens.spacing.sm,
               fontSize: tokens.fontSize.xs,
-              color: 'var(--lufa-token-color-text-tertiary)',
+              color: tokens.color.text.tertiary,
             }}
           >
             gap: spacing.md (12px)

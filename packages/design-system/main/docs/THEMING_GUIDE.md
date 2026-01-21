@@ -1542,8 +1542,6 @@ test.describe('Button - Theming', () => {
 ### Documentation
 
 - [DARK_MODE_GUIDE.md](./DARK_MODE_GUIDE.md) - Comprehensive dark mode documentation
-- [AGENTS.md](../AGENTS.md) - Complete development guide
-- [CLAUDE.md](../CLAUDE.md) - Quick reference for design system architecture
 
 ### External Resources
 
@@ -1596,4 +1594,4 @@ The Lufa Design System's theming architecture provides:
 ✅ **Accessible** - WCAG 2.1 AA compliant by default
 ✅ **Type-Safe** - Full TypeScript support
 
-For questions or issues, refer to the [Troubleshooting](#troubleshooting) section or consult the [AGENTS.md](../AGENTS.md) development guide.
+For questions or issues, refer to the [Troubleshooting](#troubleshooting) section.

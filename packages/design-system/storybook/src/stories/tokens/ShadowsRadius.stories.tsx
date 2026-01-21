@@ -17,7 +17,7 @@ export const ShadowTokens: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1000px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Shadow Tokens</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Standardized shadow values for elevation and depth, following Material Design principles.
       </p>
 
@@ -27,6 +27,9 @@ export const ShadowTokens: Story = {
           gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
           gap: '32px',
           marginBottom: '40px',
+          padding: '32px',
+          backgroundColor: tokens.color.background.tertiary,
+          borderRadius: '16px',
         }}
       >
         {Object.entries(tokens.shadow).map(([key, value]) => (
@@ -35,8 +38,9 @@ export const ShadowTokens: Story = {
               style={{
                 width: '100%',
                 height: '150px',
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                backgroundColor: tokens.color.surface.raised,
                 borderRadius: '8px',
+                border: `1px solid ${tokens.color.border.light}`,
                 boxShadow: value,
                 display: 'flex',
                 alignItems: 'center',
@@ -47,14 +51,15 @@ export const ShadowTokens: Story = {
               <div
                 style={{
                   fontFamily: 'monospace',
-                  fontSize: '16px',
-                  fontWeight: 600,
+                  fontSize: '18px',
+                  fontWeight: 700,
                   marginBottom: '8px',
+                  color: tokens.color.text.primary,
                 }}
               >
                 {key}
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
+              <div style={{ fontSize: '13px', color: tokens.color.text.secondary, }}>
                 {key === 'none' && 'No shadow'}
                 {key === 'xs' && 'Subtle elevation'}
                 {key === 'sm' && 'Small elevation'}
@@ -73,8 +78,9 @@ export const ShadowTokens: Story = {
                 marginTop: '12px',
                 fontSize: '11px',
                 fontFamily: 'monospace',
-                color: 'var(--lufa-token-color-text-tertiary)',
+                color: tokens.color.text.tertiary,
                 wordBreak: 'break-all',
+                textAlign: 'center',
               }}
             >
               shadow.{key}
@@ -88,17 +94,17 @@ export const ShadowTokens: Story = {
         <div
           style={{
             padding: '20px',
-            backgroundColor: 'var(--lufa-token-color-background-secondary)',
+            backgroundColor: tokens.color.background.secondary,
             borderRadius: '8px',
             fontFamily: 'monospace',
             fontSize: '14px',
           }}
         >
           <div
-            style={{ color: 'var(--lufa-token-color-text-tertiary)', marginBottom: '12px' }}
+            style={{ color: tokens.color.text.tertiary, marginBottom: '12px' }}
           >{`import tokens from '@grasdouble/lufa_design-system-tokens';`}</div>
           <div>
-            <span style={{ color: 'var(--lufa-token-color-warning-text)' }}>boxShadow</span>: tokens.shadow.md
+            <span style={{ color: tokens.color.warning.text, }}>boxShadow</span>: tokens.shadow.md
           </div>
         </div>
       </div>
@@ -110,7 +116,7 @@ export const RadiusTokens: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1000px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Border Radius Tokens</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Standardized border radius values for consistent rounded corners.
       </p>
 
@@ -128,13 +134,13 @@ export const RadiusTokens: Story = {
               style={{
                 width: '100%',
                 height: '120px',
-                backgroundColor: 'var(--lufa-token-color-interactive-default)',
+                backgroundColor: tokens.color.interactive.default,
                 borderRadius: value,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexDirection: 'column',
-                color: 'var(--lufa-token-color-text-inverse)',
+                color: tokens.color.text.inverse,
               }}
             >
               <div
@@ -153,7 +159,7 @@ export const RadiusTokens: Story = {
               style={{
                 marginTop: '8px',
                 fontSize: '12px',
-                color: 'var(--lufa-token-color-text-tertiary)',
+                color: tokens.color.text.tertiary,
                 textAlign: 'center',
               }}
             >
@@ -177,17 +183,17 @@ export const RadiusTokens: Story = {
         <div
           style={{
             padding: '20px',
-            backgroundColor: 'var(--lufa-token-color-background-secondary)',
+            backgroundColor: tokens.color.background.secondary,
             borderRadius: '8px',
             fontFamily: 'monospace',
             fontSize: '14px',
           }}
         >
           <div
-            style={{ color: 'var(--lufa-token-color-text-tertiary)', marginBottom: '12px' }}
+            style={{ color: tokens.color.text.tertiary, marginBottom: '12px' }}
           >{`import tokens from '@grasdouble/lufa_design-system-tokens';`}</div>
           <div>
-            <span style={{ color: 'var(--lufa-token-color-warning-text)' }}>borderRadius</span>: tokens.radius.base
+            <span style={{ color: tokens.color.warning.text, }}>borderRadius</span>: tokens.radius.base
           </div>
         </div>
       </div>
@@ -199,7 +205,7 @@ export const CombinedExample: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '800px' }}>
       <h2 style={{ marginBottom: '24px' }}>Shadows & Radius Combined</h2>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, }}>
         Examples showing shadow and border radius working together
       </p>
 
@@ -208,37 +214,58 @@ export const CombinedExample: Story = {
           <h3 style={{ marginBottom: '12px', fontSize: '16px' }}>Elevated Card</h3>
           <div
             style={{
-              padding: '24px',
-              backgroundColor: 'var(--lufa-token-color-surface-default)',
-              borderRadius: tokens.radius.lg,
-              boxShadow: tokens.shadow.md,
+              padding: '32px',
+              backgroundColor: tokens.color.background.tertiary,
+              borderRadius: '12px',
             }}
           >
-            <h4 style={{ margin: 0, marginBottom: '8px', fontSize: '18px', fontWeight: 600 }}>Card Title</h4>
-            <p style={{ margin: 0, color: 'var(--lufa-token-color-text-tertiary)', fontSize: '14px' }}>
-              This card uses shadow.md and radius.lg for a subtle elevated appearance.
-            </p>
+            <div
+              style={{
+                padding: '24px',
+                backgroundColor: tokens.color.surface.raised,
+                borderRadius: tokens.radius.lg,
+                border: `1px solid ${tokens.color.border.light}`,
+                boxShadow: tokens.shadow.md,
+              }}
+            >
+              <h4 style={{ margin: 0, marginBottom: '8px', fontSize: '18px', fontWeight: 600 }}>Card Title</h4>
+              <p style={{ margin: 0, color: tokens.color.text.secondary, fontSize: '14px' }}>
+                This card uses shadow.md and radius.lg for a subtle elevated appearance.
+              </p>
+            </div>
           </div>
+          <p style={{ marginTop: '8px', fontSize: '12px', color: tokens.color.text.tertiary, }}>
+            radius.lg + shadow.md + contrast background
+          </p>
         </div>
 
         <div>
           <h3 style={{ marginBottom: '12px', fontSize: '16px' }}>Button with Shadow</h3>
-          <button
+          <div
             style={{
-              padding: '12px 24px',
-              backgroundColor: 'var(--lufa-token-color-interactive-default)',
-              color: 'var(--lufa-token-color-text-inverse)',
-              border: 'none',
-              borderRadius: tokens.radius.base,
-              boxShadow: tokens.shadow.sm,
-              cursor: 'pointer',
-              fontSize: '14px',
-              fontWeight: 600,
+              padding: '24px',
+              backgroundColor: tokens.color.background.tertiary,
+              borderRadius: '12px',
+              display: 'inline-block',
             }}
           >
-            Elevated Button
-          </button>
-          <p style={{ marginTop: '8px', fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
+            <button
+              style={{
+                padding: '12px 24px',
+                backgroundColor: tokens.color.interactive.default,
+                color: tokens.color.text.inverse,
+                border: 'none',
+                borderRadius: tokens.radius.base,
+                boxShadow: tokens.shadow.sm,
+                cursor: 'pointer',
+                fontSize: '14px',
+                fontWeight: 600,
+              }}
+            >
+              Elevated Button
+            </button>
+          </div>
+          <p style={{ marginTop: '8px', fontSize: '12px', color: tokens.color.text.tertiary, }}>
             radius.base + shadow.sm
           </p>
         </div>
@@ -248,54 +275,67 @@ export const CombinedExample: Story = {
           <div
             style={{
               padding: '32px',
-              backgroundColor: 'var(--lufa-token-color-surface-default)',
-              borderRadius: tokens.radius.xl,
-              boxShadow: tokens.shadow.xl,
-              maxWidth: '400px',
+              backgroundColor: tokens.color.background.tertiary,
+              borderRadius: '12px',
+              display: 'inline-block',
             }}
           >
-            <h4 style={{ margin: 0, marginBottom: '16px', fontSize: '20px', fontWeight: 600 }}>Dialog Title</h4>
-            <p
+            <div
               style={{
-                margin: 0,
-                marginBottom: '24px',
-                color: 'var(--lufa-token-color-text-tertiary)',
-                fontSize: '14px',
+                padding: '32px',
+                backgroundColor: tokens.color.surface.raised,
+                borderRadius: tokens.radius.xl,
+                border: `2px solid ${tokens.color.border.default}`,
+                boxShadow: tokens.shadow.xl,
+                maxWidth: '400px',
               }}
             >
-              Large shadow and radius create strong visual separation for modals.
-            </p>
-            <div style={{ display: 'flex', gap: '12px' }}>
-              <button
+              <h4 style={{ margin: 0, marginBottom: '16px', fontSize: '20px', fontWeight: 600 }}>Dialog Title</h4>
+              <p
                 style={{
-                  flex: 1,
-                  padding: '10px',
-                  backgroundColor: 'var(--lufa-token-color-interactive-default)',
-                  color: 'var(--lufa-token-color-text-inverse)',
-                  border: 'none',
-                  borderRadius: tokens.radius.base,
-                  cursor: 'pointer',
+                  margin: 0,
+                  marginBottom: '24px',
+                  color: tokens.color.text.secondary,
+                  fontSize: '14px',
+                  lineHeight: 1.6,
                 }}
               >
-                Confirm
-              </button>
-              <button
-                style={{
-                  flex: 1,
-                  padding: '10px',
-                  backgroundColor: 'var(--lufa-token-color-surface-default)',
-                  color: 'var(--lufa-token-color-text-tertiary)',
-                  border: `1px solid var(--lufa-token-color-border-light)`,
-                  borderRadius: tokens.radius.base,
-                  cursor: 'pointer',
-                }}
-              >
-                Cancel
-              </button>
+                Large shadow and radius create strong visual separation for modals.
+              </p>
+              <div style={{ display: 'flex', gap: '12px' }}>
+                <button
+                  style={{
+                    flex: 1,
+                    padding: '10px',
+                    backgroundColor: tokens.color.interactive.default,
+                    color: tokens.color.text.inverse,
+                    border: 'none',
+                    borderRadius: tokens.radius.base,
+                    cursor: 'pointer',
+                    fontWeight: 600,
+                  }}
+                >
+                  Confirm
+                </button>
+                <button
+                  style={{
+                    flex: 1,
+                    padding: '10px',
+                    backgroundColor: tokens.color.surface.default,
+                    color: tokens.color.text.primary,
+                    border: `1px solid ${tokens.color.border.default}`,
+                    borderRadius: tokens.radius.base,
+                    cursor: 'pointer',
+                    fontWeight: 600,
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
-          <p style={{ marginTop: '8px', fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
-            radius.xl + shadow.xl
+          <p style={{ marginTop: '8px', fontSize: '12px', color: tokens.color.text.tertiary, }}>
+            radius.xl + shadow.xl + strong elevation
           </p>
         </div>
       </div>

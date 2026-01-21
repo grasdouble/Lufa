@@ -9,42 +9,64 @@
 
 **Part of the [Lufa Design System](../README.md)** - Layer 2: Semantic Tokens
 
+## ⚡ Key Feature: CSS Variable Integration
+
+**All tokens export CSS variable references by default**, enabling:
+
+- ✅ Runtime theming without recompilation
+- ✅ Single source of truth (CSS file defines actual values)
+- ✅ Full TypeScript type safety
+- ✅ Better DevTools experience (see both semantic names and actual values)
+
+```typescript
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
+// TypeScript tokens are CSS variable references
+tokens.spacing.base         // 'var(--lufa-token-space-spacing-base)'
+tokens.color.text.primary   // 'var(--lufa-token-color-color-text-primary)'
+tokens.shadow.md            // 'var(--lufa-token-elevation-shadow-md)'
+
+// Use directly in inline styles - browser resolves automatically
+<div style={{ padding: tokens.spacing.base }}>Content</div>
+```
+
 ## Installation
 
 ```bash
 pnpm add @grasdouble/lufa_design-system-tokens
 ```
 
-## Philosophy
-
-Tokens provide **semantic, intent-based naming** on top of primitives. They map primitive values to meaningful contexts like `primary`, `success`, `base`, `lg`, and more.
-
 ## Usage
 
-### TypeScript/JavaScript
+### TypeScript/JavaScript (CSS Variable Refs)
 
 ```typescript
 import tokens from '@grasdouble/lufa_design-system-tokens';
+import '@grasdouble/lufa_design-system-tokens/style.css'; // Import CSS once
 
-// Semantic color tokens
-const primaryText = tokens.color.text.primary;
-const successBg = tokens.color.success.light;
+// All token values are CSS variable references
+const styles = {
+  padding: tokens.spacing.base,           // 'var(--lufa-token-space-spacing-base)'
+  color: tokens.color.text.primary,       // 'var(--lufa-token-color-color-text-primary)'
+  fontSize: tokens.fontSize.lg,           // 'var(--lufa-token-typography-font-size-lg)'
+  boxShadow: tokens.shadow.md,            // 'var(--lufa-token-elevation-shadow-md)'
+  borderRadius: tokens.radius.md,         // 'var(--lufa-token-border-radius-md)'
+};
 
-// Spacing tokens (semantic names)
-const compactSpacing = tokens.spacing.sm;
-const defaultSpacing = tokens.spacing.base;
-
-// Typography tokens
-const headingSize = tokens.fontSize['6xl'];
-const boldWeight = tokens.fontWeight.bold;
-
-// Layout tokens
-const navbarHeight = tokens.dimension.navbarHeightDefault;
-const modalWidth = tokens.dimension.modalWidthDefault;
-
-// Motion tokens
-const fastTransition = tokens.transition.fast;
-const hoverCursor = tokens.cursor.pointer;
+// React component example
+function Button({ children }) {
+  return (
+    <button style={{
+      padding: `${tokens.spacing.sm} ${tokens.spacing.md}`,
+      fontSize: tokens.fontSize.base,
+      borderRadius: tokens.radius.base,
+      background: tokens.color.interactive.default,
+      color: tokens.color.text.inverse,
+    }}>
+      {children}
+    </button>
+  );
+}
 ```
 
 ### CSS Custom Properties
@@ -72,14 +94,24 @@ const hoverCursor = tokens.cursor.pointer;
   border-radius: var(--lufa-token-radius-base);
   box-shadow: var(--lufa-token-shadow-md);
 
-  /* Dimensions: --lufa-token-dimensions-{component}-{size} */
-  height: var(--lufa-token-dimensions-navbar-height-default);
-  width: var(--lufa-token-dimensions-modal-width-default);
-
   /* Motion: --lufa-token-{property}-{variant} */
   transition: var(--lufa-token-transition-fast);
   cursor: var(--lufa-token-cursor-pointer);
-  transform: var(--lufa-token-transform-hover-lift);
+}
+```
+
+### Runtime Theming
+
+Change theme at runtime without recompiling:
+
+```typescript
+// Change any token value dynamically
+document.documentElement.style.setProperty('--lufa-token-color-color-text-primary', '#FF0000');
+
+// Dark mode example
+function enableDarkMode() {
+  document.documentElement.style.setProperty('--lufa-token-color-background-primary', '#1a1a1a');
+  document.documentElement.style.setProperty('--lufa-token-color-text-primary', '#ffffff');
 }
 ```
 
@@ -110,7 +142,7 @@ const hoverCursor = tokens.cursor.pointer;
 - **blur** (7) - `none`, `subtle`, `base`, `medium`, `strong`, `extraStrong`, `max`
 - **opacity** (7) - `invisible`, `subtle`, `light`, `medium`, `disabled`, `faint`, `full`
 - **cursor** (17) - `auto`, `default`, `pointer`, `grab`, `grabbing`, `move`, `text`, `wait`, `notAllowed`, `help`, `zoomIn`, `zoomOut`, `crosshair`, `resizeVertical`, `resizeHorizontal`, `resizeDiagonal1`, `resizeDiagonal2`
-- **transform** (24) - Scale (`scaleNone`, `scaleDown`, `scaleDownMore`, `scaleUp`, `scaleUpMore`, `scaleUpLarge`), Rotate (`rotateNone`, `rotate45`, `rotate90`, `rotate180`, `rotate270`, `rotateMinus45`, `rotateMinus90`, `rotateMinus180`), Translate (`translateNone`, `translateUpSmall`, `translateUp`, `translateUpLarge`, `translateDownSmall`, `translateDown`, `translateDownLarge`), Combined (`hoverLift`, `hoverLiftMore`, `pressedDown`)
+- **transform** (24) - Scale, Rotate, Translate, Combined (`hoverLift`, `hoverLiftMore`, `pressedDown`)
 
 ### 📐 **Elevation** (21 tokens)
 
@@ -163,3 +195,108 @@ const hoverCursor = tokens.cursor.pointer;
 - **355 CSS custom properties** generated in `dist/style.css`
 
 All tokens map to values from `@grasdouble/lufa_design-system-primitives` for consistency and maintainability. Composite presets (e.g., `typographyScale`, `motion`, `focus`) are JS-only helpers and are not exported as CSS variables.
+
+## How It Works
+
+### Build Process
+
+```
+1. TypeScript Compilation (tsc)
+   ├─ Compiles src/tokens/**/*.ts → dist/tokens/**/*.js
+   └─ Tokens reference primitives (actual values)
+
+2. CSS Generation (generate-css.ts)
+   ├─ Reads compiled tokens
+   ├─ Generates dist/style.css with CSS custom properties
+   └─ Example: --lufa-token-spacing-base: 16px;
+
+3. Transform to CSS Refs (transform-to-css-refs.ts)
+   ├─ Imports compiled token values
+   ├─ Transforms values to CSS variable references
+   ├─ Overwrites dist/tokens/**/*.js files
+   └─ Example: spacing.base = 'var(--lufa-token-spacing-base)'
+
+4. Token Map Generation (generate-map.ts)
+   └─ Creates dist/tokens.map.json for tooling
+```
+
+### Result
+
+After the build:
+
+- **TypeScript tokens** (`dist/tokens/**/*.js`) export CSS variable strings
+- **CSS file** (`dist/style.css`) contains the actual design values
+- **Single import** for both TypeScript and CSS usage
+
+## Benefits
+
+### ✅ Runtime Theming
+
+CSS variables can be changed at runtime without recompiling JavaScript.
+
+### ✅ Single Source of Truth
+
+- One CSS file (`style.css`) defines all actual values
+- TypeScript imports reference the same CSS variables
+- No duplication between JS and CSS
+
+### ✅ Type Safety
+
+TypeScript types are preserved with full autocomplete support.
+
+### ✅ Better DevTools Experience
+
+Inspect element shows both the semantic name (`var(--lufa-token-spacing-base)`) and the actual value (`16px`).
+
+### ✅ CSS-in-JS Compatibility
+
+Works seamlessly with inline styles, styled-components, Emotion, and any CSS-in-JS library.
+
+## Token Naming Convention
+
+CSS variables follow this pattern:
+
+```
+--lufa-token-{category}-{subcategory}-{name}
+```
+
+Examples:
+
+| TypeScript Path             | CSS Variable                            | Value                      |
+| --------------------------- | --------------------------------------- | -------------------------- |
+| `tokens.spacing.base`       | `--lufa-token-space-spacing-base`       | `16px`                     |
+| `tokens.color.text.primary` | `--lufa-token-color-color-text-primary` | `oklch(21% 0 0)`           |
+| `tokens.shadow.md`          | `--lufa-token-elevation-shadow-md`      | `0 4px 6px -1px rgba(...)` |
+| `tokens.fontSize.lg`        | `--lufa-token-typography-font-size-lg`  | `18px`                     |
+
+## Development
+
+### Building
+
+```bash
+pnpm build
+```
+
+Runs the full build pipeline: TypeScript compilation → CSS generation → transformation → map generation.
+
+### Adding New Tokens
+
+1. **Create token in source** (`src/tokens/`)
+2. **Export from index** (`src/index.ts`)
+3. **Add to transformation script** (`scripts/transform-to-css-refs.ts`)
+4. **Build** (`pnpm build`)
+
+See [TECHNICAL.md](./TECHNICAL.md) for detailed development documentation.
+
+## Related Documentation
+
+- **Design System Architecture**: See [Design System README](../README.md)
+- **Primitives Package**: See `@grasdouble/lufa_design-system-primitives`
+- **Technical Details**: See [TECHNICAL.md](./TECHNICAL.md)
+- **Storybook Stories**: See `/packages/design-system/storybook/`
+
+---
+
+**Package**: `@grasdouble/lufa_design-system-tokens`  
+**Version**: 0.4.0  
+**License**: MIT

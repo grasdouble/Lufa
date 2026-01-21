@@ -73,7 +73,13 @@ export const Playground: Story = {
 export const Axis: Story = {
   render: () => (
     <Container size="xl" paddingX="none">
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: tokens.spacing.base }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+          gap: tokens.spacing.base,
+        }}
+      >
         {(['both', 'horizontal', 'vertical'] as const).map((axis) => (
           <div
             key={axis}
@@ -84,13 +90,16 @@ export const Axis: Story = {
             }}
           >
             <div
-              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}
+              style={{
+                fontFamily: 'monospace',
+
+                marginBottom: tokens.spacing.sm,
+              }}
             >
               axis: {axis}
             </div>
             <div
               style={{
-                color: tokens.color.text.tertiary,
                 fontSize: tokens.fontSize.xs,
                 marginBottom: tokens.spacing.md,
               }}
@@ -144,7 +153,7 @@ export const Axis: Story = {
                   pointerEvents: 'none',
                 }}
               />
-              <Placeholder color={tokens.color.interactive.default} height="small" width="small">
+              <Placeholder height="small" width="small">
                 Target
               </Placeholder>
             </Center>
@@ -159,7 +168,13 @@ export const Inline: Story = {
   render: () => (
     <Stack direction="vertical" gap="normal">
       <div>
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
+        <div
+          style={{
+            fontFamily: 'monospace',
+            color: tokens.color.text.secondary,
+            marginBottom: tokens.spacing.sm,
+          }}
+        >
           inline: true
         </div>
         <div
@@ -181,7 +196,7 @@ export const Inline: Story = {
               margin: `0 ${tokens.spacing.md}`,
             }}
           >
-            <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
+            <Placeholder height="small" width="auto">
               Badge
             </Placeholder>
           </Center>
@@ -190,7 +205,13 @@ export const Inline: Story = {
       </div>
 
       <div>
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
+        <div
+          style={{
+            fontFamily: 'monospace',
+            color: tokens.color.text.secondary,
+            marginBottom: tokens.spacing.sm,
+          }}
+        >
           inline: false
         </div>
         <div
@@ -212,7 +233,7 @@ export const Inline: Story = {
               margin: `${tokens.spacing.md} 0`,
             }}
           >
-            <Placeholder color={tokens.color.interactive.default} height="small" width="auto">
+            <Placeholder height="small" width="auto">
               Block
             </Placeholder>
           </Center>
@@ -228,30 +249,44 @@ export const Examples: Story = {
     <Container size="xl" paddingX="none">
       <Stack direction="vertical" gap="spacious">
         <div>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              marginBottom: tokens.spacing.md,
+            }}
+          >
             Empty state
           </div>
           <Card variant="outlined" padding="large" title="Search results" subtitle="Try adjusting your filters">
             <Center
               axis="both"
               minHeight={tokens.size['4xl']}
-              style={{ backgroundColor: tokens.color.background.secondary, borderRadius: tokens.radius.lg }}
+              style={{
+                backgroundColor: tokens.color.background.secondary,
+                borderRadius: tokens.radius.lg,
+              }}
             >
               <Stack direction="vertical" gap="normal" align="center">
-                <Placeholder color={tokens.color.background.primary} height="small" width="auto">
+                <Placeholder height="small" width="auto">
                   Icon
                 </Placeholder>
                 <Typography variant="body" color="secondary">
-                  Aucun résultat
+                  No result
                 </Typography>
-                <Button variant="solid">Réessayer</Button>
+                <Button variant="solid">Retry</Button>
               </Stack>
             </Center>
           </Card>
         </div>
 
         <div>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.md,
+            }}
+          >
             Loading
           </div>
           <div
@@ -271,7 +306,7 @@ export const Examples: Story = {
               }}
             >
               <Stack direction="vertical" gap="normal" align="center">
-                <Spinner size="md" />
+                <Spinner size="medium" />
                 <Typography variant="bodySmall" color="secondary">
                   Chargement…
                 </Typography>
@@ -281,7 +316,13 @@ export const Examples: Story = {
         </div>
 
         <div>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.md,
+            }}
+          >
             Footer CTA
           </div>
           <Card

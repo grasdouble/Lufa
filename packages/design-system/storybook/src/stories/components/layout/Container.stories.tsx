@@ -111,7 +111,11 @@ export const Sizes: Story = {
             }}
           >
             <div
-              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+              style={{
+                fontFamily: 'monospace',
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.md,
+              }}
             >
               size: {size}
             </div>
@@ -138,7 +142,11 @@ export const Align: Story = {
         {(['start', 'center', 'end'] as const).map((align) => (
           <div key={align}>
             <div
-              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+              style={{
+                fontFamily: 'monospace',
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.md,
+              }}
             >
               align: {align}
             </div>
@@ -179,7 +187,7 @@ export const Padding: Story = {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: `${tokens.spacing['5xl']} repeat(${values.length}, minmax(0, 1fr))`,
+            gridTemplateColumns: `${spacing['5xl']} repeat(${values.length}, minmax(0, 1fr))`,
             gap: tokens.spacing.md,
             alignItems: 'stretch',
           }}
@@ -193,7 +201,7 @@ export const Padding: Story = {
                 fontSize: tokens.fontSize.xs,
                 color: tokens.color.text.secondary,
                 textAlign: 'center',
-                padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
+                padding: `${spacing['2xs']} ${tokens.spacing.sm}`,
                 backgroundColor: tokens.color.background.primary,
                 border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
                 borderRadius: tokens.radius.lg,
@@ -213,7 +221,7 @@ export const Padding: Story = {
                   color: tokens.color.text.secondary,
                   display: 'flex',
                   alignItems: 'center',
-                  padding: `${tokens.spacing['2xs']} ${tokens.spacing.sm}`,
+                  padding: `${spacing['2xs']} ${tokens.spacing.sm}`,
                   backgroundColor: tokens.color.background.primary,
                   border: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
                   borderRadius: tokens.radius.lg,
@@ -230,7 +238,7 @@ export const Padding: Story = {
                   paddingX={paddingX}
                   paddingY={paddingY}
                   style={{
-                    minHeight: tokens.spacing['5xl'],
+                    minHeight: spacing['5xl'],
                     backgroundColor: tokens.color.background.primary,
                     border: `${tokens.borderWidth.thin} ${tokens.borderStyle.dashed} ${tokens.color.border.default}`,
                     borderRadius: tokens.radius.lg,
@@ -240,7 +248,7 @@ export const Padding: Story = {
                     style={{
                       width: tokens.maxWidth.full,
                       height: tokens.maxWidth.full,
-                      minHeight: tokens.spacing['4xl'],
+                      minHeight: spacing['4xl'],
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'space-between',
@@ -249,7 +257,7 @@ export const Padding: Story = {
                     <div
                       style={{
                         width: tokens.maxWidth.full,
-                        height: tokens.spacing['xl-2xl'],
+                        height: spacing['xl-2xl'],
                         backgroundColor: tokens.color.interactive.default,
                         borderRadius: tokens.radius.lg,
                         outline: `${tokens.borderWidth.thin} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
@@ -266,7 +274,7 @@ export const Padding: Story = {
                     <div
                       style={{
                         width: tokens.maxWidth.full,
-                        height: tokens.spacing['xl-2xl'],
+                        height: spacing['xl-2xl'],
                         backgroundColor: tokens.color.interactive.default,
                         borderRadius: tokens.radius.lg,
                         outline: `${tokens.borderWidth.thin} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
@@ -320,7 +328,13 @@ export const As: Story = {
           paddingY="lg"
           style={{ backgroundColor: tokens.color.background.primary }}
         >
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.sm,
+            }}
+          >
             {'<header>'}
           </div>
           <Placeholder color={tokens.color.interactive.default} height="small">
@@ -340,7 +354,13 @@ export const As: Story = {
             borderBottom: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
           }}
         >
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.sm,
+            }}
+          >
             {'<nav>'}
           </div>
           <div style={{ display: 'flex', gap: tokens.spacing.sm, flexWrap: 'wrap' }}>
@@ -359,7 +379,7 @@ export const As: Story = {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: `minmax(0, 1fr) ${tokens.dimension.sidebarWidthWide}`,
+            gridTemplateColumns: `minmax(0, 1fr) ${tokens.dimension.sidebar.width.wide}`,
           }}
         >
           <Container
@@ -371,7 +391,11 @@ export const As: Story = {
             style={{ backgroundColor: tokens.color.background.primary }}
           >
             <div
-              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+              style={{
+                fontFamily: 'monospace',
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.md,
+              }}
             >
               {'<main>'}
             </div>
@@ -447,7 +471,11 @@ export const As: Story = {
             }}
           >
             <div
-              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+              style={{
+                fontFamily: 'monospace',
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.md,
+              }}
             >
               {'<aside>'}
             </div>
@@ -473,7 +501,13 @@ export const As: Story = {
             borderTop: `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`,
           }}
         >
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.sm }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.sm,
+            }}
+          >
             {'<footer>'}
           </div>
           <Placeholder color={tokens.color.background.secondary} height="small">

@@ -8,8 +8,13 @@ test.describe('Center Component', () => {
       const axes = ['both', 'horizontal', 'vertical'] as const;
       const minHeights = [100, 200, '10rem'];
 
-      const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
-      const labelStyle = { fontSize: 12, color: '#666', marginBottom: 8 };
+      const sectionTitleStyle = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '0 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const labelStyle = { fontSize: 12, color: 'var(--lufa-token-color-text-secondary)', marginBottom: 8 };
       const boxStyle = {
         background: '#667eea',
         color: 'white',
@@ -18,7 +23,11 @@ test.describe('Center Component', () => {
         fontWeight: 600,
         fontSize: 14,
       };
-      const containerStyle = { border: '2px dashed #ccc', background: '#fff', marginBottom: 24 };
+      const containerStyle = {
+        border: '2px dashed var(--lufa-token-color-border-default)',
+        background: 'var(--lufa-token-color-background-primary)',
+        marginBottom: 24,
+      };
       const inlineBoxStyle = {
         background: '#764ba2',
         color: 'white',
@@ -29,7 +38,14 @@ test.describe('Center Component', () => {
       };
 
       const component = await mount(
-        <div style={{ padding: 32, background: '#ffffff', fontFamily: 'sans-serif', width: '900px' }}>
+        <div
+          style={{
+            padding: 32,
+            background: 'var(--lufa-token-color-background-primary)',
+            fontFamily: 'sans-serif',
+            width: '900px',
+          }}
+        >
           {/* Axis Options */}
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Centering Axis</h2>
@@ -62,7 +78,9 @@ test.describe('Center Component', () => {
                 <Center inline>
                   <div style={inlineBoxStyle}>Inline Center</div>
                 </Center>
-                <span style={{ marginLeft: 16, color: '#666' }}>← inline-flex allows content to flow</span>
+                <span style={{ marginLeft: 16, color: 'var(--lufa-token-color-text-secondary)' }}>
+                  ← inline-flex allows content to flow
+                </span>
               </div>
             </div>
           </div>
@@ -132,7 +150,7 @@ test.describe('Center Component', () => {
                   <Center>
                     <div style={{ textAlign: 'center' }}>
                       <div style={{ fontSize: 48, color: '#667eea' }}>⟳</div>
-                      <div style={{ color: '#666', marginTop: 8 }}>Loading...</div>
+                      <div style={{ color: 'var(--lufa-token-color-text-secondary)', marginTop: 8 }}>Loading...</div>
                     </div>
                   </Center>
                 </div>
@@ -141,7 +159,7 @@ test.describe('Center Component', () => {
                 <p style={labelStyle}>Empty State</p>
                 <div style={{ ...containerStyle, height: 200 }}>
                   <Center>
-                    <div style={{ textAlign: 'center', color: '#666' }}>
+                    <div style={{ textAlign: 'center', color: 'var(--lufa-token-color-text-secondary)' }}>
                       <div style={{ fontSize: 48 }}>📭</div>
                       <div style={{ marginTop: 8, fontWeight: 600 }}>No items found</div>
                       <div style={{ fontSize: 12, marginTop: 4 }}>Try adjusting your filters</div>

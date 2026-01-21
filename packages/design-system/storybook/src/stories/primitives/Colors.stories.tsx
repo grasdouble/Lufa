@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import primitives from '@grasdouble/lufa_design-system-primitives';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '0. Primitives/Colors',
@@ -63,7 +64,7 @@ export const AllColors: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>All Primitive Colors</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Complete set of primitive color scales in OKLCH format. Includes 17 chromatic palettes and 5 neutral scales, all
         optimized for WCAG 2.1 contrast ratios.
       </p>
@@ -127,7 +128,7 @@ export const AllColors: Story = {
             color: primitives.color.neutral.black,
             borderRadius: '4px',
             alignItems: 'center',
-            border: '1px solid var(--lufa-token-color-border-light)',
+            border: `1px solid ${tokens.color.border.light}`,
           }}
         >
           <div style={{ fontFamily: 'monospace', fontSize: '14px' }}>--lufa-primitive-color-neutral-white</div>
@@ -144,7 +145,7 @@ export const Neutrals: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Neutral Colors</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Achromatic color scales for text, backgrounds, and borders. Neutral includes extended range (0-1000) for pure
         white and black.
       </p>
@@ -187,7 +188,7 @@ export const Neutrals: Story = {
             color: primitives.color.neutral.black,
             borderRadius: '4px',
             alignItems: 'center',
-            border: '1px solid var(--lufa-token-color-border-light)',
+            border: `1px solid ${tokens.color.border.light}`,
           }}
         >
           <div style={{ fontFamily: 'monospace', fontSize: '14px' }}>--lufa-primitive-color-neutral-white</div>
@@ -204,7 +205,7 @@ export const Chromatic: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Chromatic Colors</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Vibrant color scales for brand, accents, and data visualization. All colors in OKLCH format for perceptual
         uniformity.
       </p>
@@ -251,7 +252,7 @@ export const ContrastGuide: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Contrast Guidelines</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         Understanding WCAG 2.1 contrast ratios for accessible color usage. Each shade is optimized for specific use
         cases.
       </p>
@@ -259,9 +260,9 @@ export const ContrastGuide: Story = {
       <div
         style={{
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-surface-raised)',
+          backgroundColor: tokens.color.surface.raised,
           borderRadius: '12px',
-          border: '1px solid var(--lufa-token-color-border-light)',
+          border: `1px solid ${tokens.color.border.light}`,
           marginBottom: '24px',
         }}
       >
@@ -272,128 +273,101 @@ export const ContrastGuide: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: 'var(--lufa-token-color-surface-default)',
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <strong>Shades 50-300:</strong> Low contrast (~1-2:1)
             <br />
-            <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>
-              Use for backgrounds, subtle borders. AAA on dark backgrounds.
-            </span>
+            <span>Use for backgrounds, subtle borders. AAA on dark backgrounds.</span>
           </div>
           <div
             style={{
               padding: '16px',
-              backgroundColor: 'var(--lufa-token-color-surface-default)',
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <strong>Shade 400:</strong> Medium contrast (~2.5-3:1)
             <br />
-            <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>
-              Use for large text only. AA large text compliance.
-            </span>
+            <span>Use for large text only. AA large text compliance.</span>
           </div>
           <div
             style={{
               padding: '16px',
-              backgroundColor: 'var(--lufa-token-color-surface-default)',
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <strong>Shade 500:</strong> Medium-high contrast (~2.5-4:1)
             <br />
-            <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>
-              Use for large text or non-text elements. AA large text only.
-            </span>
+            <span>Use for large text or non-text elements. AA large text only.</span>
           </div>
           <div
             style={{
               padding: '16px',
-              backgroundColor: 'var(--lufa-token-color-surface-default)',
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <strong>Shade 600:</strong> High contrast (~4.5-6:1)
             <br />
-            <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>
-              Use for normal text. AA normal text compliance.
-            </span>
+            <span>Use for normal text. AA normal text compliance.</span>
           </div>
           <div
             style={{
               padding: '16px',
-              backgroundColor: 'var(--lufa-token-color-surface-default)',
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <strong>Shades 700+:</strong> Very high contrast (≥7:1)
             <br />
-            <span style={{ color: 'var(--lufa-token-color-text-secondary)' }}>
-              Use for emphasis text. AAA normal text compliance.
-            </span>
+            <span>Use for emphasis text. AAA normal text compliance.</span>
           </div>
           <div
             style={{
               padding: '16px',
-              backgroundColor: primitives.color.neutral.white,
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <strong>Shade 400:</strong> Medium contrast (~2.5-3:1)
             <br />
-            <span style={{ color: primitives.color.neutral.neutral[600] }}>
-              Use for large text only. AA large text compliance.
-            </span>
+            <span>Use for large text only. AA large text compliance.</span>
           </div>
           <div
             style={{
               padding: '16px',
-              backgroundColor: primitives.color.neutral.white,
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <strong>Shade 500:</strong> Medium-high contrast (~2.5-4:1)
             <br />
-            <span style={{ color: primitives.color.neutral.neutral[600] }}>
-              Use for large text or non-text elements. AA large text only.
-            </span>
+            <span>Use for large text or non-text elements. AA large text only.</span>
           </div>
           <div
             style={{
               padding: '16px',
-              backgroundColor: primitives.color.neutral.white,
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <strong>Shade 600:</strong> High contrast (~4.5-6:1)
             <br />
-            <span style={{ color: primitives.color.neutral.neutral[600] }}>
-              Use for normal text. AA normal text compliance.
-            </span>
+            <span>Use for normal text. AA normal text compliance.</span>
           </div>
           <div
             style={{
               padding: '16px',
-              backgroundColor: primitives.color.neutral.white,
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <strong>Shades 700+:</strong> Very high contrast (≥7:1)
             <br />
-            <span style={{ color: primitives.color.neutral.neutral[600] }}>
-              Use for emphasis text. AAA normal text compliance.
-            </span>
+            <span>Use for emphasis text. AAA normal text compliance.</span>
           </div>
         </div>
       </div>
@@ -401,9 +375,9 @@ export const ContrastGuide: Story = {
       <div
         style={{
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-surface-raised)',
+          backgroundColor: tokens.color.surface.raised,
           borderRadius: '12px',
-          border: '1px solid var(--lufa-token-color-border-light)',
+          border: `1px solid ${tokens.color.border.light}`,
         }}
       >
         <h3 style={{ margin: '0 0 16px 0', fontSize: '20px', fontWeight: '600' }}>Example: Blue Scale</h3>
@@ -450,7 +424,7 @@ export const ContrastGuide: Story = {
             }}
           >
             <div style={{ color: primitives.color.chromatic.blue[600], fontWeight: '600' }}>Blue 600 on White</div>
-            <div style={{ fontSize: '12px', color: primitives.color.neutral.neutral[600] }}>AA Compliant</div>
+            <div style={{ fontSize: '12px', color: tokens.color.text.secondary }}>AA Compliant</div>
           </div>
         </div>
       </div>

@@ -69,7 +69,14 @@ export const Playground: Story = {
 
     if (isVertical) {
       return (
-        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base, height: tokens.spacing['5xl'] }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: tokens.spacing.base,
+            height: tokens.spacing['5xl'],
+          }}
+        >
           <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
           <Divider {...args} length="100%" />
           <Placeholder color={tokens.color.interactive.default}>Right</Placeholder>
@@ -79,9 +86,13 @@ export const Playground: Story = {
 
     return (
       <div style={{ width: tokens.maxWidth.full }}>
-        <Placeholder color={tokens.color.interactive.default}>Add content here to see spacing in context.</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>
+          Add content here to see spacing in context.
+        </Placeholder>
         <Divider {...args} />
-        <Placeholder color={tokens.color.interactive.default}>Add content here to see spacing in context.</Placeholder>
+        <Placeholder color={tokens.color.interactive.default}>
+          Add content here to see spacing in context.
+        </Placeholder>
       </div>
     );
   },
@@ -117,7 +128,13 @@ export const Orientation: Story = {
           padding: tokens.spacing.base,
         }}
       >
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+        <div
+          style={{
+            fontFamily: 'monospace',
+            color: tokens.color.text.secondary,
+            marginBottom: tokens.spacing.md,
+          }}
+        >
           orientation: horizontal
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
@@ -136,10 +153,23 @@ export const Orientation: Story = {
           padding: tokens.spacing.base,
         }}
       >
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+        <div
+          style={{
+            fontFamily: 'monospace',
+            color: tokens.color.text.secondary,
+            marginBottom: tokens.spacing.md,
+          }}
+        >
           orientation: vertical
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base, height: tokens.size['4xl'] }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: tokens.spacing.base,
+            height: tokens.size['4xl'],
+          }}
+        >
           <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
           <div
             style={{
@@ -162,7 +192,14 @@ export const Orientation: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ width: tokens.maxWidth.full, display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
+    <div
+      style={{
+        width: tokens.maxWidth.full,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: tokens.spacing.base,
+      }}
+    >
       <Divider label="Solid" variant="solid" />
       <Divider label="Dashed" variant="dashed" />
     </div>
@@ -264,7 +301,13 @@ export const Length: Story = {
           marginBottom: tokens.spacing.base,
         }}
       >
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+        <div
+          style={{
+            fontFamily: 'monospace',
+            color: tokens.color.text.secondary,
+            marginBottom: tokens.spacing.md,
+          }}
+        >
           horizontal lengths
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>
@@ -282,17 +325,36 @@ export const Length: Story = {
           padding: tokens.spacing.base,
         }}
       >
-        <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+        <div
+          style={{
+            fontFamily: 'monospace',
+            color: tokens.color.text.secondary,
+            marginBottom: tokens.spacing.md,
+          }}
+        >
           vertical lengths
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.base, height: tokens.size['4xl'] }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: tokens.spacing.base,
+            height: tokens.size['4xl'],
+          }}
+        >
           <Placeholder color={tokens.color.interactive.default}>Left</Placeholder>
           <Divider orientation="vertical" length={80} />
           <Divider orientation="vertical" length={140} />
           <Divider orientation="vertical" length="100%" />
           <Placeholder color={tokens.color.interactive.default}>Right</Placeholder>
         </div>
-        <div style={{ marginTop: tokens.spacing.md, color: tokens.color.text.secondary, fontSize: tokens.fontSize.xs }}>
+        <div
+          style={{
+            marginTop: tokens.spacing.md,
+            color: tokens.color.text.secondary,
+            fontSize: tokens.fontSize.xs,
+          }}
+        >
           For vertical dividers, <code style={{ fontFamily: 'monospace' }}>length</code> controls height.
         </div>
       </div>

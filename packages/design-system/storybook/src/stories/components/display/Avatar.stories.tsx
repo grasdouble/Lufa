@@ -82,13 +82,25 @@ export const Variants: Story = {
     <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.xl }}>
       <div style={{ textAlign: 'center' }}>
         <Avatar src={sampleImage} variant="circle" size="lg" />
-        <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+        <p
+          style={{
+            marginTop: tokens.spacing.sm,
+            fontSize: tokens.fontSize.xs,
+            color: tokens.color.text.tertiary,
+          }}
+        >
           Circle
         </p>
       </div>
       <div style={{ textAlign: 'center' }}>
         <Avatar src={sampleImage} variant="square" size="lg" />
-        <p style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+        <p
+          style={{
+            marginTop: tokens.spacing.sm,
+            fontSize: tokens.fontSize.xs,
+            color: tokens.color.text.tertiary,
+          }}
+        >
           Square
         </p>
       </div>
@@ -113,7 +125,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: tokens.spacing.sm,
+                fontSize: tokens.fontSize.xs,
+                color: tokens.color.text.tertiary,
+              }}
             >
               Online
             </p>
@@ -121,7 +137,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="away" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: tokens.spacing.sm,
+                fontSize: tokens.fontSize.xs,
+                color: tokens.color.text.tertiary,
+              }}
             >
               Away
             </p>
@@ -129,7 +149,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="busy" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: tokens.spacing.sm,
+                fontSize: tokens.fontSize.xs,
+                color: tokens.color.text.tertiary,
+              }}
             >
               Busy
             </p>
@@ -137,7 +161,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="offline" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: tokens.spacing.sm,
+                fontSize: tokens.fontSize.xs,
+                color: tokens.color.text.tertiary,
+              }}
             >
               Offline
             </p>
@@ -158,7 +186,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="top" variant="circle" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: tokens.spacing.sm,
+                fontSize: tokens.fontSize.xs,
+                color: tokens.color.text.tertiary,
+              }}
             >
               Top (Circle)
             </p>
@@ -166,7 +198,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="bottom" variant="circle" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: tokens.spacing.sm,
+                fontSize: tokens.fontSize.xs,
+                color: tokens.color.text.tertiary,
+              }}
             >
               Bottom (Circle)
             </p>
@@ -174,7 +210,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="top" variant="square" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: tokens.spacing.sm,
+                fontSize: tokens.fontSize.xs,
+                color: tokens.color.text.tertiary,
+              }}
             >
               Top (Square)
             </p>
@@ -182,7 +222,11 @@ export const StatusIndicators: Story = {
           <div style={{ textAlign: 'center' }}>
             <Avatar src={sampleImage} size="lg" status="online" statusPosition="bottom" variant="square" />
             <p
-              style={{ marginTop: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+              style={{
+                marginTop: tokens.spacing.sm,
+                fontSize: tokens.fontSize.xs,
+                color: tokens.color.text.tertiary,
+              }}
             >
               Bottom (Square)
             </p>
@@ -205,7 +249,13 @@ export const CountVariant: Story = {
       >
         Count Variant
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          color: tokens.color.text.tertiary,
+        }}
+      >
         Display numeric counts instead of images
       </p>
       <div style={{ display: 'flex', gap: tokens.spacing.base, alignItems: 'center' }}>
@@ -231,7 +281,13 @@ export const GroupBasic: Story = {
       >
         Basic Avatar Group
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          color: tokens.color.text.tertiary,
+        }}
+      >
         Avatars automatically overlap without manual styling
       </p>
       <AvatarGroup size="md">
@@ -256,13 +312,23 @@ export const GroupWithCount: Story = {
       >
         Avatar Group with Count
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          color: tokens.color.text.tertiary,
+        }}
+      >
         Display remaining avatars count automatically using the max prop
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             max=3 (shows +6 more)
           </p>
@@ -280,7 +346,11 @@ export const GroupWithCount: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             max=5 (shows +4 more)
           </p>
@@ -313,13 +383,23 @@ export const GroupSizes: Story = {
       >
         Avatar Group Sizes
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.sm, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.sm,
+          color: tokens.color.text.tertiary,
+        }}
+      >
         Control size for all avatars in the group
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing['md-lg'] }}>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             Extra Small (xs)
           </p>
@@ -333,7 +413,11 @@ export const GroupSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             Small (sm)
           </p>
@@ -347,7 +431,11 @@ export const GroupSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             Medium (md)
           </p>
@@ -361,7 +449,11 @@ export const GroupSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             Large (lg)
           </p>
@@ -375,7 +467,11 @@ export const GroupSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             Extra Large (xl)
           </p>
@@ -445,7 +541,7 @@ function AvatarShowcase() {
             fontWeight: tokens.fontWeight.semibold,
             color: tokens.color.text.primary,
             marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            borderBottom: `1px solid ${tokens.color.border.default}`,
             paddingBottom: tokens.spacing.sm,
           }}
         >
@@ -477,7 +573,7 @@ function AvatarShowcase() {
             fontWeight: tokens.fontWeight.semibold,
             color: tokens.color.text.primary,
             marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            borderBottom: `1px solid ${tokens.color.border.default}`,
             paddingBottom: tokens.spacing.sm,
           }}
         >
@@ -509,7 +605,7 @@ function AvatarShowcase() {
             fontWeight: tokens.fontWeight.semibold,
             color: tokens.color.text.primary,
             marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            borderBottom: `1px solid ${tokens.color.border.default}`,
             paddingBottom: tokens.spacing.sm,
           }}
         >
@@ -541,7 +637,7 @@ function AvatarShowcase() {
             fontWeight: tokens.fontWeight.semibold,
             color: tokens.color.text.primary,
             marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            borderBottom: `1px solid ${tokens.color.border.default}`,
             paddingBottom: tokens.spacing.sm,
           }}
         >
@@ -584,7 +680,7 @@ function AvatarShowcase() {
             fontWeight: tokens.fontWeight.semibold,
             color: tokens.color.text.primary,
             marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            borderBottom: `1px solid ${tokens.color.border.default}`,
             paddingBottom: tokens.spacing.sm,
           }}
         >
@@ -622,7 +718,7 @@ function AvatarShowcase() {
             fontWeight: tokens.fontWeight.semibold,
             color: tokens.color.text.primary,
             marginBottom: tokens.spacing.base,
-            borderBottom: `1px solid ${tokens.color.border.primary}`,
+            borderBottom: `1px solid ${tokens.color.border.default}`,
             paddingBottom: tokens.spacing.sm,
           }}
         >
