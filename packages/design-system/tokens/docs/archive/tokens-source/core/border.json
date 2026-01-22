@@ -1,0 +1,43 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$description": "Core border and radius tokens",
+  "radius": {
+    "none": { "$type": "dimension", "$value": "{primitive.radius.0}" },
+    "xs": { "$type": "dimension", "$value": "{primitive.radius.2}" },
+    "sm": { "$type": "dimension", "$value": "{primitive.radius.4}" },
+    "md": { "$type": "dimension", "$value": "{primitive.radius.6}" },
+    "base": { "$type": "dimension", "$value": "{primitive.radius.8}", "$description": "Default border radius - 8px" },
+    "lg": { "$type": "dimension", "$value": "{primitive.radius.12}" },
+    "xl": { "$type": "dimension", "$value": "{primitive.radius.16}" },
+    "2xl": { "$type": "dimension", "$value": "{primitive.radius.24}" },
+    "3xl": { "$type": "dimension", "$value": "{primitive.radius.32}" },
+    "full": { "$type": "dimension", "$value": "{primitive.radius.9999}", "$description": "Pill shape" }
+  },
+  "borderWidth": {
+    "none": { "$type": "dimension", "$value": "{primitive.borderWidth.0}" },
+    "hairline": { "$type": "dimension", "$value": "{primitive.borderWidth.1}" },
+    "thin": { "$type": "dimension", "$value": "{primitive.borderWidth.2}" },
+    "focus": { "$type": "dimension", "$value": "{primitive.borderWidth.3}" },
+    "thick": { "$type": "dimension", "$value": "{primitive.borderWidth.4}" },
+    "extraThick": { "$type": "dimension", "$value": "{primitive.borderWidth.8}" }
+  },
+  "borderStyle": {
+    "solid": { "$type": "string", "$value": "{primitive.borderStyle.solid}", "$description": "Solid line (default)" },
+    "dashed": {
+      "$type": "string",
+      "$value": "{primitive.borderStyle.dashed}",
+      "$description": "Dashed line (inactive/disabled states)"
+    },
+    "dotted": {
+      "$type": "string",
+      "$value": "{primitive.borderStyle.dotted}",
+      "$description": "Dotted line (subtle separation)"
+    },
+    "double": {
+      "$type": "string",
+      "$value": "{primitive.borderStyle.double}",
+      "$description": "Double line (decorative)"
+    },
+    "none": { "$type": "string", "$value": "{primitive.borderStyle.none}", "$description": "No border" }
+  }
+}

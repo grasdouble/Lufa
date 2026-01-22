@@ -1,0 +1,32 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "primitive": {
+    "shadow": {
+      "none": { "$type": "string", "$value": "none" },
+      "xs": { "$type": "string", "$value": "0 1px 2px 0 rgb(0 0 0 / 0.05)" },
+      "sm": { "$type": "string", "$value": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)" },
+      "md": { "$type": "string", "$value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)" },
+      "base": { "$type": "string", "$value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)" },
+      "lg": { "$type": "string", "$value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)" },
+      "xl": { "$type": "string", "$value": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" },
+      "2xl": { "$type": "string", "$value": "0 25px 50px -12px rgb(0 0 0 / 0.25)" },
+      "3xl": { "$type": "string", "$value": "0 30px 60px -15px rgb(0 0 0 / 0.3)" },
+      "4xl": { "$type": "string", "$value": "0 35px 70px -20px rgb(0 0 0 / 0.35)" },
+      "5xl": { "$type": "string", "$value": "0 40px 80px -25px rgb(0 0 0 / 0.4)" }
+    },
+    "zIndex": {
+      "0": { "$type": "number", "$value": 0 },
+      "10": { "$type": "number", "$value": 10 },
+      "20": { "$type": "number", "$value": 20 },
+      "30": { "$type": "number", "$value": 30 },
+      "40": { "$type": "number", "$value": 40 },
+      "50": { "$type": "number", "$value": 50 },
+      "100": { "$type": "number", "$value": 100 },
+      "500": { "$type": "number", "$value": 500 },
+      "900": { "$type": "number", "$value": 900 },
+      "999": { "$type": "number", "$value": 999 },
+      "1000": { "$type": "number", "$value": 1000 },
+      "9999": { "$type": "number", "$value": 9999 }
+    }
+  }
+}

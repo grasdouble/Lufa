@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lufa v2.0 - POC Performance CSS Cascade</title>
+    <style>
+      /* ============================================
+       SECTION 1: CSS Variables Setup
+       ============================================ */
+
+      /* Scenario A: 4 niveaux de cascade (Architecture Lufa v2.0) */
+      :root {
+        /* Primitives (Niveau 0) */
+        --lufa-primitive-blue-600: #2563eb;
+        --lufa-primitive-blue-700: #1d4ed8;
+        --lufa-primitive-gray-100: #f3f4f6;
+        --lufa-primitive-gray-800: #1f2937;
+        --lufa-primitive-spacing-4: 4px;
+        --lufa-primitive-spacing-8: 8px;
+        --lufa-primitive-spacing-16: 16px;
+        --lufa-primitive-radius-4: 4px;
+        --lufa-primitive-radius-8: 8px;
+        --lufa-primitive-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --lufa-primitive-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+        /* Core Tokens (Niveau 1) */
+        --lufa-core-primary: var(--lufa-primitive-blue-600);
+        --lufa-core-primary-hover: var(--lufa-primitive-blue-700);
+        --lufa-core-bg-light: var(--lufa-primitive-gray-100);
+        --lufa-core-text-dark: var(--lufa-primitive-gray-800);
+        --lufa-core-spacing-xs: var(--lufa-primitive-spacing-4);
+        --lufa-core-spacing-sm: var(--lufa-primitive-spacing-8);
+        --lufa-core-spacing-md: var(--lufa-primitive-spacing-16);
+        --lufa-core-radius-sm: var(--lufa-primitive-radius-4);
+        --lufa-core-radius-md: var(--lufa-primitive-radius-8);
+        --lufa-core-elevation-low: var(--lufa-primitive-shadow-sm);
+        --lufa-core-elevation-mid: var(--lufa-primitive-shadow-md);
+
+        /* Semantic Tokens (Niveau 2) */
+        --lufa-semantic-action-primary-bg: var(--lufa-core-primary);
+        --lufa-semantic-action-primary-bg-hover: var(--lufa-core-primary-hover);
+        --lufa-semantic-surface-bg: var(--lufa-core-bg-light);
+        --lufa-semantic-content-text: var(--lufa-core-text-dark);
+        --lufa-semantic-spacing-default: var(--lufa-core-spacing-md);
+        --lufa-semantic-spacing-compact: var(--lufa-core-spacing-sm);
+        --lufa-semantic-border-radius: var(--lufa-core-radius-md);
+        --lufa-semantic-elevation-card: var(--lufa-core-elevation-mid);
+
+        /* Component Tokens (Niveau 3 - optionnel) */
+        --lufa-component-button-bg: var(--lufa-semantic-action-primary-bg);
+        --lufa-component-button-bg-hover: var(--lufa-semantic-action-primary-bg-hover);
+        --lufa-component-button-padding: var(--lufa-semantic-spacing-default);
+        --lufa-component-button-radius: var(--lufa-semantic-border-radius);
+        --lufa-component-card-bg: var(--lufa-semantic-surface-bg);
+        --lufa-component-card-shadow: var(--lufa-semantic-elevation-card);
+      }
+
+      /* Scenario B: 2 niveaux (Optimisé - skip Core) */
+      [data-scenario='optimized'] {
+        /* Primitives (Niveau 0) */
+        --lufa-primitive-blue-600: #2563eb;
+        --lufa-primitive-spacing-16: 16px;
+        --lufa-primitive-radius-8: 8px;
+
+        /* Semantic Tokens (Niveau 1) - direct reference */
+        --lufa-semantic-action-primary-bg: var(--lufa-primitive-blue-600);
+        --lufa-semantic-spacing-default: var(--lufa-primitive-spacing-16);
+        --lufa-semantic-border-radius: var(--lufa-primitive-radius-8);
+
+        /* Component Tokens (Niveau 2) */
+        --lufa-component-button-bg: var(--lufa-semantic-action-primary-bg);
+        --lufa-component-button-padding: var(--lufa-semantic-spacing-default);
+        --lufa-component-button-radius: var(--lufa-semantic-border-radius);
+      }
+
+      /* Scenario C: Valeurs résolues (Baseline - no var()) */
+      [data-scenario='resolved'] {
+        --lufa-component-button-bg: #2563eb;
+        --lufa-component-button-bg-hover: #1d4ed8;
+        --lufa-component-button-padding: 16px;
+        --lufa-component-button-radius: 8px;
+        --lufa-component-card-bg: #f3f4f6;
+        --lufa-component-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      /* ============================================
+       SECTION 2: Component Styles
+       ============================================ */
+
+      .test-element {
+        background-color: var(--lufa-component-button-bg);
+        padding: var(--lufa-component-button-padding);
+        border-radius: var(--lufa-component-button-radius, 8px);
+        margin: var(--lufa-core-spacing-xs, 4px);
+        display: inline-block;
+        width: 80px;
+        height: 40px;
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        line-height: 40px;
+        box-shadow: var(--lufa-component-card-shadow, 0 2px 4px rgba(0, 0, 0, 0.1));
+        transition:
+          transform 0.2s,
+          background-color 0.2s;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .test-element:hover {
+        transform: translateY(-2px);
+        background-color: var(--lufa-component-button-bg-hover, var(--lufa-component-button-bg));
+      }
+
+      .test-element:active {
+        transform: translateY(0);
+      }
+
+      /* ============================================
+       SECTION 3: UI Controls & Layout
+       ============================================ */
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        padding: 20px;
+        background: #fafafa;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .controls {
+        background: white;
+        padding: 24px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      .controls h1 {
+        margin: 0 0 8px 0;
+        color: #1f2937;
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .controls p {
+        margin: 8px 0;
+        color: #6b7280;
+      }
+
+      .controls p strong {
+        color: #374151;
+      }
+
+      .controls code {
+        background: #f3f4f6;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-size: 13px;
+        color: #dc2626;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 10px;
+        margin: 15px 0;
+        flex-wrap: wrap;
+      }
+
+      button {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #2563eb;
+        color: white;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.2s;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      button:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      button.secondary {
+        background: #6b7280;
+      }
+
+      button.secondary:hover {
+        background: #4b5563;
+      }
+
+      button.danger {
+        background: #dc2626;
+      }
+
+      button.danger:hover {
+        background: #b91c1c;
+      }
+
+      .metrics {
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+        font-family: 'SF Mono', 'Courier New', monospace;
+        font-size: 14px;
+        border: 1px solid #e5e7eb;
+      }
+
+      .metrics h3 {
+        margin: 0 0 15px 0;
+        color: #374151;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 16px;
+      }
+
+      .metric-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .metric-row:last-child {
+        border-bottom: none;
+      }
+
+      .metric-label {
+        color: #6b7280;
+        font-weight: 500;
+      }
+
+      .metric-value {
+        font-weight: 700;
+        color: #1f2937;
+        text-align: right;
+      }
+
+      .metric-value.good {
+        color: #10b981;
+      }
+
+      .metric-value.warning {
+        color: #f59e0b;
+      }
+
+      .metric-value.bad {
+        color: #ef4444;
+      }
+
+      .test-container {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        min-height: 200px;
+      }
+
+      .scenario-info {
+        background: #eff6ff;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid #2563eb;
+      }
+
+      .scenario-info strong {
+        color: #1e40af;
+        font-weight: 600;
+      }
+
+      .scenario-info span {
+        color: #1f2937;
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: #9ca3af;
+      }
+
+      .empty-state-icon {
+        font-size: 48px;
+        margin-bottom: 16px;
+      }
+
+      .comparison-section {
+        background: #f0fdf4;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+        border-left: 4px solid #10b981;
+      }
+
+      .comparison-section h4 {
+        margin: 0 0 10px 0;
+        color: #065f46;
+        font-size: 14px;
+      }
+
+      .comparison-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        font-size: 13px;
+        color: #047857;
+      }
+
+      #test-area {
+        min-height: 100px;
+      }
+
+      /* Instructions Panel */
+      .instructions {
+        background: #fef3c7;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+        border-left: 4px solid #f59e0b;
+      }
+
+      .instructions h4 {
+        margin: 0 0 10px 0;
+        color: #92400e;
+        font-size: 14px;
+      }
+
+      .instructions ol {
+        margin: 0;
+        padding-left: 20px;
+        color: #78350f;
+      }
+
+      .instructions li {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================
+       SECTION 4: Controls UI
+       ============================================ -->
+    <div class="controls">
+      <h1>🔬 Lufa v2.0 - POC Performance CSS Cascade</h1>
+
+      <p>
+        <strong>Objectif:</strong> Mesurer l'impact de 3-4 niveaux de <code>var()</code> CSS imbriqués sur les
+        performances de rendering
+      </p>
+
+      <p><strong>Success Criteria:</strong> &lt;16ms (60fps) pour 1000 éléments</p>
+
+      <div class="button-group">
+        <button onclick="runTest('cascade-4', 1000)">📊 Test A: 4 Niveaux (1000 éléments)</button>
+        <button onclick="runTest('optimized', 1000)">⚡ Test B: 2 Niveaux (1000 éléments)</button>
+        <button onclick="runTest('resolved', 1000)">🎯 Test C: Résolu (1000 éléments)</button>
+      </div>
+
+      <div class="button-group">
+        <button class="secondary" onclick="runTest('cascade-4', 5000)">
+          🔥 Stress Test: 5000 éléments (4 niveaux)
+        </button>
+        <button class="secondary" onclick="runComparison()">📈 Comparaison Complète</button>
+        <button class="danger" onclick="clearTest()">🗑️ Nettoyer</button>
+      </div>
+
+      <div class="instructions">
+        <h4>💡 Instructions pour mesures détaillées</h4>
+        <ol>
+          <li>Ouvrir Chrome DevTools (F12) &gt; onglet <strong>Performance</strong></li>
+          <li>Cliquer sur <strong>Record</strong> (cercle rouge)</li>
+          <li>Lancer un test (bouton ci-dessus)</li>
+          <li>Arrêter l'enregistrement</li>
+          <li>Analyser: Rendering, Painting, Layout times</li>
+        </ol>
+      </div>
+
+      <div id="metrics" class="metrics" style="display: none">
+        <h3>📊 Résultats de Performance</h3>
+        <div id="metrics-content"></div>
+      </div>
+    </div>
+
+    <!-- ============================================
+       SECTION 5: Test Container
+       ============================================ -->
+    <div class="test-container">
+      <div class="scenario-info" id="scenario-info" style="display: none">
+        <div><strong>Scenario:</strong> <span id="scenario-name"></span></div>
+        <div><strong>Éléments:</strong> <span id="element-count"></span></div>
+        <div><strong>Niveaux CSS:</strong> <span id="cascade-depth"></span></div>
+      </div>
+
+      <div id="test-area">
+        <div class="empty-state">
+          <div class="empty-state-icon">🎯</div>
+          <div>Sélectionnez un test ci-dessus pour commencer</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================
+       SECTION 6: JavaScript Logic
+       ============================================ -->
+    <script>
+      // Global state
+      let comparisonResults = {};
+
+      // Utilitaires de mesure
+      const perf = window.performance;
+
+      /**
+       * Lance un test de performance
+       */
+      function runTest(scenario, elementCount) {
+        console.log(`🔬 Démarrage test: ${scenario} avec ${elementCount} éléments`);
+
+        // Clear previous test
+        clearTest();
+
+        // Update scenario info
+        updateScenarioInfo(scenario, elementCount);
+
+        // Force garbage collection si disponible
+        if (window.gc) {
+          window.gc();
+        }
+
+        // Mesure performance
+        const startTime = perf.now();
+
+        // Force layout avant test
+        document.body.offsetHeight;
+
+        // Performance mark
+        perf.mark('test-start');
+
+        // Créer les éléments
+        const container = document.getElementById('test-area');
+        const fragment = document.createDocumentFragment();
+
+        // Appliquer le scenario
+        if (scenario !== 'cascade-4') {
+          container.setAttribute('data-scenario', scenario);
+        } else {
+          container.removeAttribute('data-scenario');
+        }
+
+        // Générer éléments
+        for (let i = 0; i < elementCount; i++) {
+          const el = document.createElement('div');
+          el.className = 'test-element';
+          el.textContent = i + 1;
+          fragment.appendChild(el);
+        }
+
+        // Insertion dans le DOM
+        container.appendChild(fragment);
+
+        // Force reflow/repaint
+        const height = container.offsetHeight;
+
+        const endTime = perf.now();
+        const totalTime = endTime - startTime;
+
+        perf.mark('test-end');
+        perf.measure('test-duration', 'test-start', 'test-end');
+
+        // Attendre que le navigateur ait terminé le rendering
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            // Collecter métriques détaillées
+            collectMetrics(scenario, elementCount, totalTime);
+          });
+        });
+      }
+
+      /**
+       * Collecte et affiche les métriques
+       */
+      function collectMetrics(scenario, elementCount, domTime) {
+        // Obtenir les métriques de performance
+        const entries = perf.getEntriesByType('measure');
+        const testMeasure = entries.find((e) => e.name === 'test-duration');
+
+        // Estimation FPS (basée sur 16.67ms par frame pour 60fps)
+        const targetFrameTime = 16.67;
+        const estimatedFPS = Math.min(60, Math.round(60 * (targetFrameTime / domTime)));
+
+        // Déterminer le status
+        const status = domTime < 16 ? 'good' : domTime < 33 ? 'warning' : 'bad';
+        const statusText = domTime < 16 ? '✅ PASS' : domTime < 33 ? '⚠️ WARNING (30fps)' : '❌ FAIL';
+        const statusEmoji = domTime < 16 ? '✅' : domTime < 33 ? '⚠️' : '❌';
+
+        // Calculer détails
+        const cascadeDepth =
+          scenario === 'cascade-4'
+            ? '4 niveaux (Primitives → Core → Semantic → Component)'
+            : scenario === 'optimized'
+              ? '2 niveaux (Primitives → Semantic → Component)'
+              : '0 niveau (valeurs résolues directement)';
+
+        const cascadeNumber = scenario === 'cascade-4' ? 4 : scenario === 'optimized' ? 2 : 0;
+
+        // Calcul overhead vs baseline (si test résolu existe)
+        let overheadInfo = '';
+        let overheadMs = 'N/A';
+        let overheadPercent = 'N/A';
+
+        if (comparisonResults['resolved'] && scenario !== 'resolved') {
+          const baseline = comparisonResults['resolved'];
+          const overhead = (((domTime - baseline) / baseline) * 100).toFixed(1);
+          const overheadValue = (domTime - baseline).toFixed(2);
+          overheadMs = `+${overheadValue} ms`;
+          overheadPercent = `+${overhead}%`;
+          overheadInfo = `
+          <div class="metric-row">
+            <span class="metric-label">Overhead vs Baseline:</span>
+            <span class="metric-value ${overhead > 20 ? 'bad' : overhead > 10 ? 'warning' : 'good'}">
+              ${overheadMs} (${overheadPercent})
+            </span>
+          </div>
+        `;
+        }
+
+        // Stocker résultat pour comparaison
+        comparisonResults[scenario] = domTime;
+
+        // Préparer texte pour copier-coller dans markdown
+        const markdownText = `**Métriques automatiques:**
+- Total Rendering Time: ${domTime.toFixed(2)} ms
+- Estimated FPS: ${estimatedFPS} fps
+- Status: ${statusText}
+- Overhead vs Baseline: ${overheadMs !== 'N/A' ? `${overheadMs} (${overheadPercent})` : "N/A (lancer Test C d'abord)"}
+
+**Chrome DevTools Performance:**
+- Rendering: [À compléter] ms
+- Painting: [À compléter] ms
+- Layout: [À compléter] ms
+- Composite: [À compléter] ms`;
+
+        const metricsHTML = `
+        <div class="metric-row">
+          <span class="metric-label">Scenario:</span>
+          <span class="metric-value">${scenario.toUpperCase()}</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Éléments:</span>
+          <span class="metric-value">${elementCount.toLocaleString()}</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Cascade Depth:</span>
+          <span class="metric-value">${cascadeNumber} niveau${cascadeNumber > 1 ? 'x' : ''}</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Total Rendering Time:</span>
+          <span class="metric-value ${status}">${domTime.toFixed(2)} ms</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Performance.measure:</span>
+          <span class="metric-value">${testMeasure ? testMeasure.duration.toFixed(2) : 'N/A'} ms</span>
+        </div>
+        ${overheadInfo}
+        <div class="metric-row">
+          <span class="metric-label">Estimated FPS:</span>
+          <span class="metric-value ${status}">${estimatedFPS} fps</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Status (Target: &lt;16ms):</span>
+          <span class="metric-value ${status}"><strong>${statusText}</strong></span>
+        </div>
+      `;
+
+        // Section copier-coller pour markdown (removed - will be created with DOM API below)
+        // This legacy innerHTML approach caused btoa() encoding issues with Unicode characters
+
+        // Insérer les métriques de base
+        document.getElementById('metrics-content').innerHTML = metricsHTML;
+
+        // Créer la section copier-coller en DOM pur
+        const copyDiv = document.createElement('div');
+        copyDiv.style.background = '#fef3c7';
+        copyDiv.style.padding = '15px';
+        copyDiv.style.borderRadius = '8px';
+        copyDiv.style.marginTop = '20px';
+        copyDiv.style.borderLeft = '4px solid #f59e0b';
+
+        const headerDiv = document.createElement('div');
+        headerDiv.style.display = 'flex';
+        headerDiv.style.justifyContent = 'space-between';
+        headerDiv.style.alignItems = 'center';
+        headerDiv.style.marginBottom = '10px';
+
+        const h4 = document.createElement('h4');
+        h4.style.margin = '0';
+        h4.style.color = '#92400e';
+        h4.style.fontSize = '14px';
+        h4.textContent = '📋 Copier pour Markdown';
+
+        const copyBtn = document.createElement('button');
+        copyBtn.textContent = '📋 Copier';
+        copyBtn.style.padding = '6px 12px';
+        copyBtn.style.fontSize = '12px';
+        copyBtn.onclick = function () {
+          copyToClipboard(markdownText);
+        };
+
+        headerDiv.appendChild(h4);
+        headerDiv.appendChild(copyBtn);
+
+        const pre = document.createElement('pre');
+        pre.style.background = 'white';
+        pre.style.padding = '10px';
+        pre.style.borderRadius = '4px';
+        pre.style.overflowX = 'auto';
+        pre.style.fontSize = '12px';
+        pre.style.margin = '0';
+        pre.style.whiteSpace = 'pre-wrap';
+        pre.style.wordWrap = 'break-word';
+        pre.textContent = markdownText;
+
+        copyDiv.appendChild(headerDiv);
+        copyDiv.appendChild(pre);
+
+        document.getElementById('metrics-content').appendChild(copyDiv);
+        document.getElementById('metrics').style.display = 'block';
+
+        // Log dans console
+        console.log('📊 Résultats:', {
+          scenario,
+          elementCount,
+          cascadeDepth: scenario === 'cascade-4' ? 4 : scenario === 'optimized' ? 2 : 0,
+          domTime: `${domTime.toFixed(2)}ms`,
+          estimatedFPS: `${estimatedFPS} fps`,
+          status: statusText,
+        });
+
+        // Recommendations
+        if (domTime >= 16) {
+          console.warn('⚠️ Performance sous le seuil 60fps');
+          console.log('💡 Recommandation: Considérer flatten en production (outputReferences: false)');
+        } else {
+          console.log('✅ Performance OK - Architecture validée');
+        }
+
+        // Memory info si disponible
+        if (performance.memory) {
+          console.log('💾 Memory:', {
+            usedJSHeapSize: `${(performance.memory.usedJSHeapSize / 1024 / 1024).toFixed(2)} MB`,
+            totalJSHeapSize: `${(performance.memory.totalJSHeapSize / 1024 / 1024).toFixed(2)} MB`,
+          });
+        }
+      }
+
+      /**
+       * Lance une comparaison complète des 3 scenarios
+       */
+      async function runComparison() {
+        console.log('📈 Démarrage comparaison complète...');
+
+        const scenarios = [
+          { name: 'resolved', label: 'Baseline (0 niveau)' },
+          { name: 'optimized', label: '2 Niveaux' },
+          { name: 'cascade-4', label: '4 Niveaux (v2.0)' },
+        ];
+
+        comparisonResults = {};
+
+        for (const scenario of scenarios) {
+          await new Promise((resolve) => {
+            console.log(`Testing ${scenario.label}...`);
+            runTest(scenario.name, 1000);
+            setTimeout(resolve, 1000); // Pause entre tests
+          });
+        }
+
+        // Afficher comparaison
+        setTimeout(() => {
+          displayComparison();
+        }, 1500);
+      }
+
+      /**
+       * Affiche tableau de comparaison
+       */
+      function displayComparison() {
+        const baseline = comparisonResults['resolved'];
+        const optimized = comparisonResults['optimized'];
+        const cascade4 = comparisonResults['cascade-4'];
+
+        if (!baseline || !optimized || !cascade4) {
+          console.warn('Comparaison incomplète');
+          return;
+        }
+
+        const overheadOptimized = (((optimized - baseline) / baseline) * 100).toFixed(1);
+        const overheadCascade4 = (((cascade4 - baseline) / baseline) * 100).toFixed(1);
+
+        const verdictPass = cascade4 < 16;
+        const verdictText = verdictPass ? '✅ Architecture v2.0 validée' : '⚠️ Envisager flatten production';
+
+        // Préparer tableau markdown
+        const markdownTable = `### Tableau de Comparaison (${comparisonResults['elementCount'] || 1000} éléments)
+
+| Scenario              | Cascade | Total Time | FPS | Overhead vs Baseline | Status  |
+| --------------------- | ------- | ---------- | --- | -------------------- | ------- |
+| **Baseline**          | 0       | ${baseline.toFixed(2)} ms     | ${Math.min(60, Math.round(60 * (16.67 / baseline)))} fps | -                    | ${baseline < 16 ? '✅' : baseline < 33 ? '⚠️' : '❌'} |
+| **2 Niveaux**         | 2       | ${optimized.toFixed(2)} ms     | ${Math.min(60, Math.round(60 * (16.67 / optimized)))} fps | +${(optimized - baseline).toFixed(2)} ms (+${overheadOptimized}%)     | ${optimized < 16 ? '✅' : optimized < 33 ? '⚠️' : '❌'} |
+| **4 Niveaux (v2.0)**  | 4       | ${cascade4.toFixed(2)} ms     | ${Math.min(60, Math.round(60 * (16.67 / cascade4)))} fps | +${(cascade4 - baseline).toFixed(2)} ms (+${overheadCascade4}%)     | ${cascade4 < 16 ? '✅' : cascade4 < 33 ? '⚠️' : '❌'} |
+
+**Success Criteria Atteint:** ${verdictPass ? '✅ OUI' : '❌ NON'} (< 16ms)
+
+**Verdict:** ${verdictText}`;
+
+        // Build comparison section using DOM API (safer than innerHTML with btoa)
+        const comparisonSection = document.createElement('div');
+        comparisonSection.className = 'comparison-section';
+
+        const compH4 = document.createElement('h4');
+        compH4.textContent = '📊 Comparaison des 3 Scenarios';
+        comparisonSection.appendChild(compH4);
+
+        // Baseline row
+        const baselineRow = document.createElement('div');
+        baselineRow.className = 'comparison-row';
+        baselineRow.innerHTML = `<span>Baseline (0 niveau):</span><strong>${baseline.toFixed(2)} ms</strong>`;
+        comparisonSection.appendChild(baselineRow);
+
+        // Optimized row
+        const optimizedRow = document.createElement('div');
+        optimizedRow.className = 'comparison-row';
+        optimizedRow.innerHTML = `<span>2 Niveaux:</span><strong>${optimized.toFixed(2)} ms (+${overheadOptimized}%)</strong>`;
+        comparisonSection.appendChild(optimizedRow);
+
+        // Cascade-4 row
+        const cascade4Row = document.createElement('div');
+        cascade4Row.className = 'comparison-row';
+        cascade4Row.innerHTML = `<span>4 Niveaux (v2.0):</span><strong>${cascade4.toFixed(2)} ms (+${overheadCascade4}%)</strong>`;
+        comparisonSection.appendChild(cascade4Row);
+
+        // Verdict row
+        const verdictRow = document.createElement('div');
+        verdictRow.className = 'comparison-row';
+        verdictRow.style.marginTop = '10px';
+        verdictRow.style.paddingTop = '10px';
+        verdictRow.style.borderTop = '1px solid #10b981';
+        verdictRow.innerHTML = `<span><strong>Verdict:</strong></span><strong>${verdictText}</strong>`;
+        comparisonSection.appendChild(verdictRow);
+
+        // Add comparison section to metrics
+        document.getElementById('metrics-content').appendChild(comparisonSection);
+
+        // Créer la section markdown pour comparaison en DOM pur
+        const copyCompDiv = document.createElement('div');
+        copyCompDiv.style.background = '#fef3c7';
+        copyCompDiv.style.padding = '15px';
+        copyCompDiv.style.borderRadius = '8px';
+        copyCompDiv.style.marginTop = '20px';
+        copyCompDiv.style.borderLeft = '4px solid #f59e0b';
+
+        const compHeaderDiv = document.createElement('div');
+        compHeaderDiv.style.display = 'flex';
+        compHeaderDiv.style.justifyContent = 'space-between';
+        compHeaderDiv.style.alignItems = 'center';
+        compHeaderDiv.style.marginBottom = '10px';
+
+        const compMarkdownH4 = document.createElement('h4');
+        compMarkdownH4.style.margin = '0';
+        compMarkdownH4.style.color = '#92400e';
+        compMarkdownH4.style.fontSize = '14px';
+        compMarkdownH4.textContent = '📋 Tableau Comparatif pour Markdown';
+
+        const compCopyBtn = document.createElement('button');
+        compCopyBtn.textContent = '📋 Copier';
+        compCopyBtn.style.padding = '6px 12px';
+        compCopyBtn.style.fontSize = '12px';
+        compCopyBtn.onclick = function () {
+          copyToClipboard(markdownTable);
+        };
+
+        compHeaderDiv.appendChild(compMarkdownH4);
+        compHeaderDiv.appendChild(compCopyBtn);
+
+        const compPre = document.createElement('pre');
+        compPre.style.background = 'white';
+        compPre.style.padding = '10px';
+        compPre.style.borderRadius = '4px';
+        compPre.style.overflowX = 'auto';
+        compPre.style.fontSize = '11px';
+        compPre.style.margin = '0';
+        compPre.style.whiteSpace = 'pre-wrap';
+        compPre.style.wordWrap = 'break-word';
+        compPre.textContent = markdownTable;
+
+        copyCompDiv.appendChild(compHeaderDiv);
+        copyCompDiv.appendChild(compPre);
+
+        document.getElementById('metrics-content').appendChild(copyCompDiv);
+
+        console.log('📊 Comparaison complète:', {
+          baseline: `${baseline.toFixed(2)}ms`,
+          optimized: `${optimized.toFixed(2)}ms (+${overheadOptimized}%)`,
+          cascade4: `${cascade4.toFixed(2)}ms (+${overheadCascade4}%)`,
+          verdict: cascade4 < 16 ? '✅ VALIDÉ' : '⚠️ ATTENTION',
+        });
+      }
+
+      /**
+       * Met à jour l'affichage du scenario
+       */
+      function updateScenarioInfo(scenario, elementCount) {
+        const cascadeDepth =
+          scenario === 'cascade-4'
+            ? 'Primitives → Core → Semantic → Component (4 niveaux)'
+            : scenario === 'optimized'
+              ? 'Primitives → Semantic → Component (2 niveaux)'
+              : 'Valeurs résolues directement (0 niveau var())';
+
+        document.getElementById('scenario-name').textContent = scenario.toUpperCase();
+        document.getElementById('element-count').textContent = elementCount.toLocaleString();
+        document.getElementById('cascade-depth').textContent = cascadeDepth;
+        document.getElementById('scenario-info').style.display = 'block';
+      }
+
+      /**
+       * Nettoie le test
+       */
+      function clearTest() {
+        const container = document.getElementById('test-area');
+        container.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-state-icon">🎯</div>
+          <div>Sélectionnez un test ci-dessus pour commencer</div>
+        </div>
+      `;
+        container.removeAttribute('data-scenario');
+        document.getElementById('metrics').style.display = 'none';
+        document.getElementById('scenario-info').style.display = 'none';
+
+        // Clear performance entries
+        perf.clearMarks();
+        perf.clearMeasures();
+
+        // Clear comparison results
+        comparisonResults = {};
+
+        console.log('🗑️ Test nettoyé');
+      }
+
+      /**
+       * Copie le texte dans le presse-papier
+       */
+      function copyToClipboard(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard
+            .writeText(text)
+            .then(() => {
+              alert(
+                '✅ Texte copié dans le presse-papier !\n\nVous pouvez maintenant le coller dans performance-results.md'
+              );
+              console.log('📋 Texte copié pour markdown:', text);
+            })
+            .catch((err) => {
+              console.error('❌ Erreur copie:', err);
+              fallbackCopy(text);
+            });
+        } else {
+          fallbackCopy(text);
+        }
+      }
+
+      /**
+       * Fallback pour navigateurs sans clipboard API
+       */
+      function fallbackCopy(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        try {
+          document.execCommand('copy');
+          alert(
+            '✅ Texte copié dans le presse-papier !\n\nVous pouvez maintenant le coller dans performance-results.md'
+          );
+          console.log('📋 Texte copié pour markdown:', text);
+        } catch (err) {
+          alert('❌ Impossible de copier automatiquement.\n\nVeuillez copier manuellement le texte affiché.');
+          console.log('📋 Texte à copier:', text);
+        }
+
+        document.body.removeChild(textarea);
+      }
+
+      // ============================================
+      // Instructions console
+      // ============================================
+      console.log(
+        '%c🔬 Lufa v2.0 POC Performance CSS Cascade',
+        'font-size: 18px; font-weight: bold; color: #2563eb; padding: 10px 0;'
+      );
+      console.log('%cPhase 0 - Action #1: Validation Performance', 'font-size: 14px; color: #6b7280;');
+      console.log('');
+      console.log('%cCommandes disponibles:', 'font-weight: bold;');
+      console.log('  runTest("cascade-4", 1000)   - Test 4 niveaux (Architecture v2.0)');
+      console.log('  runTest("optimized", 1000)   - Test 2 niveaux (Optimisé)');
+      console.log('  runTest("resolved", 1000)    - Test baseline (0 niveau)');
+      console.log('  runComparison()              - Comparaison automatique des 3');
+      console.log('  clearTest()                  - Nettoyer les résultats');
+      console.log('');
+      console.log('%c💡 Pour mesures détaillées:', 'font-weight: bold; color: #f59e0b;');
+      console.log('  1. Ouvrir Chrome DevTools > Performance');
+      console.log('  2. Cliquer Record');
+      console.log('  3. Lancer un test');
+      console.log('  4. Arrêter et analyser Rendering/Painting/Layout');
+      console.log('');
+      console.log('%cSuccess Criteria: <16ms (60fps) pour 1000 éléments', 'font-weight: bold; color: #10b981;');
+    </script>
+  </body>
+</html>

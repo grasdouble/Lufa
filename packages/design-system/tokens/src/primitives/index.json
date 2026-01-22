@@ -1,0 +1,12 @@
+{
+  "$include": [
+    "./color/palette.json",
+    "./spacing/scale.json",
+    "./typography/font-families.json",
+    "./typography/font-sizes.json",
+    "./typography/font-weights.json",
+    "./typography/line-heights.json",
+    "./shadow/elevation.json",
+    "./radius/scale.json"
+  ]
+}

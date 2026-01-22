@@ -1,0 +1,81 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "primitive": {
+    "fontSize": {
+      "12": { "$type": "dimension", "$value": "0.75rem" },
+      "14": { "$type": "dimension", "$value": "0.875rem" },
+      "16": { "$type": "dimension", "$value": "1rem" },
+      "18": { "$type": "dimension", "$value": "1.125rem" },
+      "20": { "$type": "dimension", "$value": "1.25rem" },
+      "24": { "$type": "dimension", "$value": "1.5rem" },
+      "30": { "$type": "dimension", "$value": "1.875rem" },
+      "36": { "$type": "dimension", "$value": "2.25rem" },
+      "48": { "$type": "dimension", "$value": "3rem" },
+      "60": { "$type": "dimension", "$value": "3.75rem" },
+      "72": { "$type": "dimension", "$value": "4.5rem" },
+      "96": { "$type": "dimension", "$value": "6rem" },
+      "128": { "$type": "dimension", "$value": "8rem" }
+    },
+    "fontWeight": {
+      "100": { "$type": "fontWeight", "$value": "100" },
+      "200": { "$type": "fontWeight", "$value": "200" },
+      "300": { "$type": "fontWeight", "$value": "300" },
+      "400": { "$type": "fontWeight", "$value": "400" },
+      "500": { "$type": "fontWeight", "$value": "500" },
+      "600": { "$type": "fontWeight", "$value": "600" },
+      "700": { "$type": "fontWeight", "$value": "700" },
+      "800": { "$type": "fontWeight", "$value": "800" },
+      "900": { "$type": "fontWeight", "$value": "900" }
+    },
+    "lineHeight": {
+      "none": { "$type": "number", "$value": "1" },
+      "tight": { "$type": "number", "$value": "1.25" },
+      "snug": { "$type": "number", "$value": "1.375" },
+      "normal": { "$type": "number", "$value": "1.5" },
+      "relaxed": { "$type": "number", "$value": "1.625" },
+      "loose": { "$type": "number", "$value": "2" }
+    },
+    "letterSpacing": {
+      "tighter": { "$type": "dimension", "$value": "-0.05em" },
+      "tight": { "$type": "dimension", "$value": "-0.025em" },
+      "normal": { "$type": "dimension", "$value": "0em" },
+      "wide": { "$type": "dimension", "$value": "0.025em" },
+      "wider": { "$type": "dimension", "$value": "0.05em" },
+      "widest": { "$type": "dimension", "$value": "0.1em" }
+    },
+    "fontFamily": {
+      "sans": {
+        "$type": "fontFamily",
+        "$value": [
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif"
+        ]
+      },
+      "serif": {
+        "$type": "fontFamily",
+        "$value": ["ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"]
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": [
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          "Liberation Mono",
+          "Courier New",
+          "monospace"
+        ]
+      }
+    }
+  }
+}

@@ -21,10 +21,12 @@
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm clean && tsx scripts/generate-css-from-source.ts && tsx scripts/generate-js-from-source.ts && tsc && tsx scripts/generate-map.ts",
+    "build": "style-dictionary build --config ./style-dictionary.config.js",
+    "build:watch": "style-dictionary build --config ./style-dictionary.config.js --watch",
     "clean": "rm -rf dist",
     "lint": "eslint .",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "validate": "node ../../../scripts/validate-token-metadata.js"
   },
   "dependencies": {
     "@grasdouble/lufa_design-system-primitives": "workspace:^"
@@ -38,6 +40,7 @@
     "eslint": "^9.39.2",
     "prettier": "^3.8.0",
     "prettier-plugin-packagejson": "^2.5.22",
+    "style-dictionary": "^4.4.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },

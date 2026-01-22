@@ -1,0 +1,177 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$description": "Core motion tokens - Transitions, timing, easing, animations",
+  "timing": {
+    "instant": { "$type": "duration", "$value": "{primitive.timing.instant}" },
+    "fast": { "$type": "duration", "$value": "{primitive.timing.fast}", "$description": "150ms - Quick interactions" },
+    "normal": {
+      "$type": "duration",
+      "$value": "{primitive.timing.normal}",
+      "$description": "250ms - Default transitions"
+    },
+    "slow": { "$type": "duration", "$value": "{primitive.timing.slow}", "$description": "350ms - Complex animations" },
+    "slower": { "$type": "duration", "$value": "{primitive.timing.slower}", "$description": "500ms - Page transitions" }
+  },
+  "easing": {
+    "linear": { "$type": "cubicBezier", "$value": "{primitive.easing.linear}" },
+    "easeIn": { "$type": "cubicBezier", "$value": "{primitive.easing.easeIn}" },
+    "easeOut": { "$type": "cubicBezier", "$value": "{primitive.easing.easeOut}" },
+    "easeInOut": { "$type": "cubicBezier", "$value": "{primitive.easing.easeInOut}" },
+    "gentle": {
+      "$type": "cubicBezier",
+      "$value": "{primitive.easing.gentle}",
+      "$description": "Gentle easing for subtle animations"
+    },
+    "sharp": { "$type": "cubicBezier", "$value": "{primitive.easing.sharp}" },
+    "bounce": { "$type": "cubicBezier", "$value": "{primitive.easing.bounce}" }
+  },
+  "advancedDuration": {
+    "$description": "Extended durations for complex animations and stagger effects",
+    "moderate": { "$type": "duration", "$value": "{primitive.timing.800}", "$description": "Moderate animations" },
+    "leisurely": { "$type": "duration", "$value": "{primitive.timing.1000}", "$description": "Leisurely animations" },
+    "extended": { "$type": "duration", "$value": "{primitive.timing.1500}", "$description": "Extended animations" },
+    "long": { "$type": "duration", "$value": "{primitive.timing.2000}", "$description": "Long animations" },
+    "veryLong": { "$type": "duration", "$value": "{primitive.timing.3000}", "$description": "Very long animations" },
+    "staggerTiny": { "$type": "duration", "$value": "{primitive.timing.50}", "$description": "Minimal stagger" },
+    "staggerSmall": { "$type": "duration", "$value": "{primitive.timing.75}", "$description": "Small stagger" },
+    "staggerBase": { "$type": "duration", "$value": "{primitive.timing.100}", "$description": "Base stagger" },
+    "staggerLarge": { "$type": "duration", "$value": "{primitive.timing.150}", "$description": "Large stagger" },
+    "staggerExtraLarge": {
+      "$type": "duration",
+      "$value": "{primitive.timing.200}",
+      "$description": "Extra large stagger"
+    }
+  },
+  "transition": {
+    "$description": "Pre-built CSS transition strings for common UI interactions",
+    "fast": {
+      "$type": "string",
+      "$value": "all 150ms cubic-bezier(0, 0, 0.2, 1)",
+      "$description": "Fast transition - micro-interactions, hovers"
+    },
+    "base": {
+      "$type": "string",
+      "$value": "all 250ms cubic-bezier(0.4, 0, 0.2, 1)",
+      "$description": "Base transition - most UI elements"
+    },
+    "slow": {
+      "$type": "string",
+      "$value": "all 400ms cubic-bezier(0.4, 0, 0.2, 1)",
+      "$description": "Slow transition - modals, drawers"
+    },
+    "colors": {
+      "$type": "string",
+      "$value": "color 150ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), border-color 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+      "$description": "Colors transition - color changes only"
+    },
+    "none": { "$type": "string", "$value": "none", "$description": "Disable transitions - reduced motion" }
+  },
+  "motion": {
+    "$description": "Pre-configured animation presets combining duration, easing, and properties",
+    "fade": {
+      "duration": { "$type": "duration", "$value": "{primitive.timing.150}" },
+      "easing": { "$type": "cubicBezier", "$value": "{primitive.easing.easeOut}" },
+      "properties": { "$type": "string", "$value": "opacity" },
+      "$description": "Fade in/out - tooltips, alerts, overlays"
+    },
+    "scale": {
+      "duration": { "$type": "duration", "$value": "{primitive.timing.250}" },
+      "easing": { "$type": "cubicBezier", "$value": "{primitive.easing.easeInOut}" },
+      "properties": { "$type": "string", "$value": "transform, opacity" },
+      "$description": "Scale transition - modals, popovers, zoom effects"
+    },
+    "slide": {
+      "duration": { "$type": "duration", "$value": "{primitive.timing.250}" },
+      "easing": { "$type": "cubicBezier", "$value": "{primitive.easing.easeOut}" },
+      "properties": { "$type": "string", "$value": "transform, opacity" },
+      "$description": "Slide transition - drawers, tooltips, dropdowns"
+    },
+    "color": {
+      "duration": { "$type": "duration", "$value": "{primitive.timing.150}" },
+      "easing": { "$type": "cubicBezier", "$value": "{primitive.easing.easeInOut}" },
+      "properties": { "$type": "string", "$value": "color, background-color, border-color" },
+      "$description": "Color transition - hover states, theme changes"
+    },
+    "all": {
+      "duration": { "$type": "duration", "$value": "{primitive.timing.150}" },
+      "easing": { "$type": "cubicBezier", "$value": "{primitive.easing.easeInOut}" },
+      "properties": { "$type": "string", "$value": "all" },
+      "$description": "All properties transition - general purpose"
+    },
+    "collapse": {
+      "duration": { "$type": "duration", "$value": "{primitive.timing.400}" },
+      "easing": { "$type": "cubicBezier", "$value": "{primitive.easing.gentle}" },
+      "properties": { "$type": "string", "$value": "height, opacity" },
+      "$description": "Collapse/expand - accordions, sections"
+    },
+    "scroll": {
+      "duration": { "$type": "duration", "$value": "{primitive.timing.400}" },
+      "easing": { "$type": "cubicBezier", "$value": "{primitive.easing.gentle}" },
+      "properties": { "$type": "string", "$value": "scroll-behavior" },
+      "$description": "Smooth scroll - anchor links, scroll-to-top"
+    }
+  },
+  "focus": {
+    "$description": "Standardized focus indicator configurations for keyboard navigation (WCAG 2.4.7)",
+    "default": {
+      "width": { "$type": "dimension", "$value": "{borderWidth.thin}" },
+      "style": { "$type": "string", "$value": "{borderStyle.solid}" },
+      "color": { "$type": "color", "$value": "{color.border.focus}" },
+      "offset": { "$type": "dimension", "$value": "2px" },
+      "radius": { "$type": "dimension", "$value": "{radius.sm}" },
+      "$description": "Default focus ring - solid outline (most UI elements)"
+    },
+    "thick": {
+      "width": { "$type": "dimension", "$value": "{borderWidth.focus}" },
+      "style": { "$type": "string", "$value": "{borderStyle.solid}" },
+      "color": { "$type": "color", "$value": "{color.border.focus}" },
+      "offset": { "$type": "dimension", "$value": "2px" },
+      "radius": { "$type": "dimension", "$value": "{radius.sm}" },
+      "$description": "Thick focus ring - high visibility (critical actions)"
+    },
+    "inset": {
+      "width": { "$type": "dimension", "$value": "{borderWidth.thin}" },
+      "style": { "$type": "string", "$value": "{borderStyle.solid}" },
+      "color": { "$type": "color", "$value": "{color.border.focus}" },
+      "offset": { "$type": "dimension", "$value": "-2px" },
+      "radius": { "$type": "dimension", "$value": "{radius.sm}" },
+      "$description": "Inset focus ring - contained within element (form inputs)"
+    },
+    "shadow": {
+      "width": { "$type": "dimension", "$value": "{borderWidth.thin}" },
+      "style": { "$type": "string", "$value": "{borderStyle.solid}" },
+      "color": { "$type": "color", "$value": "{color.border.focus}" },
+      "offset": { "$type": "dimension", "$value": "0px" },
+      "shadow": { "$type": "string", "$value": "0 0 0 3px rgb(37 99 235 / 0.2)" },
+      "radius": { "$type": "dimension", "$value": "{radius.sm}" },
+      "$description": "Focus ring with shadow - elevated appearance (cards, modals)"
+    },
+    "inverse": {
+      "width": { "$type": "dimension", "$value": "{borderWidth.thin}" },
+      "style": { "$type": "string", "$value": "{borderStyle.solid}" },
+      "color": { "$type": "color", "$value": "{color.text.primary}" },
+      "offset": { "$type": "dimension", "$value": "2px" },
+      "radius": { "$type": "dimension", "$value": "{radius.sm}" },
+      "$description": "Inverse focus ring - for dark backgrounds"
+    }
+  },
+  "shadow": {
+    "none": { "$type": "shadow", "$value": "{primitive.shadow.none}" },
+    "sm": { "$type": "shadow", "$value": "{primitive.shadow.sm}" },
+    "base": { "$type": "shadow", "$value": "{primitive.shadow.base}" },
+    "md": { "$type": "shadow", "$value": "{primitive.shadow.md}" },
+    "lg": { "$type": "shadow", "$value": "{primitive.shadow.lg}" },
+    "xl": { "$type": "shadow", "$value": "{primitive.shadow.xl}" },
+    "2xl": { "$type": "shadow", "$value": "{primitive.shadow.2xl}" }
+  },
+  "zIndex": {
+    "base": { "$type": "number", "$value": "{primitive.zIndex.0}" },
+    "dropdown": { "$type": "number", "$value": "{primitive.zIndex.10}" },
+    "sticky": { "$type": "number", "$value": "{primitive.zIndex.20}" },
+    "fixed": { "$type": "number", "$value": "{primitive.zIndex.30}" },
+    "modalBackdrop": { "$type": "number", "$value": "{primitive.zIndex.40}" },
+    "modal": { "$type": "number", "$value": "{primitive.zIndex.50}" },
+    "popover": { "$type": "number", "$value": "{primitive.zIndex.100}" },
+    "tooltip": { "$type": "number", "$value": "{primitive.zIndex.1000}" }
+  }
+}
