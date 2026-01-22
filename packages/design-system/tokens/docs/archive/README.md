@@ -1,8 +1,18 @@
-# Archive - Lufa Design System Tokens v1
+# Archive - Lufa Design System Tokens
 
-This directory contains archived documentation and code from the previous token system (v1.x).
+This directory contains archived documentation from previous versions and completed development phases.
 
 ## 📦 Contents
+
+### `phase-2/`
+
+**Phase 2 (Core Tokens) planning and preview documents** (January 23, 2026):
+
+- **PHASE_2_SUMMARY.txt** - Quick reference summary (superseded by completion summary)
+- **phase-2-planning.md** - Initial planning document (completed)
+- **phase-2-core-tokens-preview.html** - Interactive preview of proposed tokens
+
+**Status:** ✅ Phase 2 Complete - 58 Core Tokens implemented
 
 ### `v1-migration/`
 
@@ -28,18 +38,32 @@ tokens-source/
 
 The current token system is located at:
 
-- **Source:** `../../src/primitives/` (Phase 1: Primitive Tokens)
-- **Documentation:** `../../README.md`
+- **Source:**
+  - `../../src/primitives/` (Phase 1: 103 Primitive Tokens ✅)
+  - `../../src/core/` (Phase 2: 58 Core Tokens ✅)
+- **Documentation:** `../../README.md` and `../planning/`
 - **Build output:** `../../dist/`
+
+**Current Progress:** 161 / ~361 tokens (45% complete)
 
 ## 📝 Why Archived?
 
-These files were archived on **January 23, 2026** during the reorganization after completing Phase 1 Week 1 of the v2.0 token system. The new architecture uses:
+### v1-migration (January 23, 2026)
+
+Archived during Phase 1 reorganization. The new v2.0 architecture replaced the old system with a cleaner 4-level hierarchy.
+
+### phase-2 (January 23, 2026)
+
+Archived after Phase 2 completion. Planning documents are no longer needed for active development. Active documentation moved to `docs/planning/phase-2-completion-summary.md`.
+
+---
+
+**Current Architecture:**
 
 - ✅ 4-level token hierarchy (Primitives → Core → Semantic → Component)
 - ✅ DTCG format compliance
 - ✅ Style Dictionary v4.4.0
-- ✅ 103 primitive tokens (Phase 1 complete)
+- ✅ 161 tokens (Phase 1 + Phase 2 complete)
 
 ## 🔍 Reference
 
@@ -47,6 +71,6 @@ If you need to understand the migration history or compare the old vs. new archi
 
 ---
 
-**Archive Date:** January 23, 2026  
-**Reason:** Phase 1 Week 1 completion and documentation reorganization  
-**Archived by:** Noofreuuuh + Claude Code
+**Last Updated:** January 23, 2026  
+**Active Phases:** Phase 1 ✅ + Phase 2 ✅  
+**Next Phase:** Phase 3 - Semantic Tokens (~80 tokens)

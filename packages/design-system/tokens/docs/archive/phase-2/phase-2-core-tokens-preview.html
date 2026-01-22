@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lufa Design System - Core Tokens Preview</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+        background: #f9fafb;
+        color: #111827;
+        padding: 40px 20px;
+        line-height: 1.5;
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: #111827;
+      }
+
+      .subtitle {
+        font-size: 18px;
+        color: #6b7280;
+        margin-bottom: 48px;
+      }
+
+      .section {
+        background: white;
+        border-radius: 12px;
+        padding: 32px;
+        margin-bottom: 32px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-title {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .section-subtitle {
+        font-size: 16px;
+        color: #6b7280;
+        margin-bottom: 24px;
+      }
+
+      /* Color Swatches */
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .color-swatch {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .color-preview {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: white;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .color-info {
+        padding: 12px;
+        background: #f9fafb;
+      }
+
+      .color-name {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .color-details {
+        font-size: 12px;
+        color: #6b7280;
+        display: flex;
+        gap: 12px;
+      }
+
+      /* Spacing Preview */
+      .spacing-demo {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .spacing-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .spacing-visual {
+        background: #2563eb;
+        height: 40px;
+        border-radius: 4px;
+        flex-shrink: 0;
+      }
+
+      .spacing-label {
+        font-weight: 600;
+        min-width: 200px;
+      }
+
+      .spacing-value {
+        color: #6b7280;
+        font-family: ui-monospace, monospace;
+        font-size: 14px;
+      }
+
+      /* Component Examples */
+      .component-examples {
+        display: grid;
+        gap: 32px;
+      }
+
+      .example {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 24px;
+        background: #f9fafb;
+      }
+
+      .example-title {
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: #4b5563;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      /* Buttons */
+      .button-demo {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        border-radius: 6px;
+        border: none;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 150ms ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        background: #2563eb;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+      }
+
+      .btn-primary:active {
+        background: #1e40af;
+        transform: translateY(0);
+      }
+
+      .btn-secondary {
+        background: #a855f7;
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        background: #9333ea;
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary:active {
+        background: #7e22ce;
+        transform: translateY(0);
+      }
+
+      /* Cards */
+      .card-demo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        background: white;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        padding: 24px;
+        transition: all 150ms ease;
+      }
+
+      .card:hover {
+        background: #f3f4f6;
+        border-color: #9ca3af;
+      }
+
+      .card-title {
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+
+      .card-text {
+        color: #6b7280;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* Inputs */
+      .input-demo {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        max-width: 400px;
+      }
+
+      .input {
+        height: 40px;
+        padding: 8px 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: all 150ms ease;
+      }
+
+      .input:hover {
+        border-color: #9ca3af;
+      }
+
+      .input:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      /* Alerts */
+      .alert-demo {
+        display: grid;
+        gap: 16px;
+      }
+
+      .alert {
+        padding: 16px;
+        border-radius: 8px;
+        border-width: 1px;
+        border-style: solid;
+        display: flex;
+        align-items: start;
+        gap: 12px;
+      }
+
+      .alert-icon {
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+
+      .alert-content {
+        flex: 1;
+      }
+
+      .alert-title {
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .alert-text {
+        font-size: 14px;
+        opacity: 0.9;
+      }
+
+      .alert-success {
+        background: #dcfce7;
+        border-color: #86efac;
+        color: #166534;
+      }
+
+      .alert-error {
+        background: #fee2e2;
+        border-color: #fca5a5;
+        color: #991b1b;
+      }
+
+      .alert-warning {
+        background: #fef9c3;
+        border-color: #fde047;
+        color: #854d0e;
+      }
+
+      .alert-info {
+        background: #dbeafe;
+        border-color: #93c5fd;
+        color: #1e40af;
+      }
+
+      /* Typography */
+      .typography-demo {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .type-sample {
+        border-left: 4px solid #2563eb;
+        padding-left: 16px;
+      }
+
+      .type-label {
+        font-size: 12px;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 8px;
+      }
+
+      .type-example {
+        margin-bottom: 4px;
+      }
+
+      .type-specs {
+        font-size: 12px;
+        color: #6b7280;
+        font-family: ui-monospace, monospace;
+      }
+
+      /* Layout Demo */
+      .layout-demo {
+        border: 2px dashed #d1d5db;
+        padding: 24px;
+        background: white;
+        border-radius: 8px;
+      }
+
+      .layout-section {
+        background: #dbeafe;
+        border: 2px solid #2563eb;
+        padding: 32px;
+        border-radius: 8px;
+        margin-bottom: 64px;
+        text-align: center;
+        font-weight: 600;
+        color: #1e40af;
+      }
+
+      .layout-section:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Stats */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 32px;
+      }
+
+      .stat {
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #e5e7eb;
+        text-align: center;
+      }
+
+      .stat-value {
+        font-size: 32px;
+        font-weight: 700;
+        color: #2563eb;
+        margin-bottom: 4px;
+      }
+
+      .stat-label {
+        font-size: 14px;
+        color: #6b7280;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 32px;
+        }
+
+        .section {
+          padding: 20px;
+        }
+
+        .section-title {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎨 Lufa Design System</h1>
+      <p class="subtitle">Core Tokens Preview - Phase 2</p>
+
+      <!-- Summary Stats -->
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value">58</div>
+          <div class="stat-label">Core Tokens</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">6</div>
+          <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">103</div>
+          <div class="stat-label">Primitive Tokens</div>
+        </div>
+      </div>
+
+      <!-- 1. Brand Colors -->
+      <section class="section">
+        <h2 class="section-title">🎨 1. Brand Colors</h2>
+        <p class="section-subtitle">Primary brand identity colors with interactive states</p>
+
+        <h3 style="margin-bottom: 16px; font-size: 18px; color: #4b5563">Primary (Main actions, links, focus)</h3>
+        <div class="color-grid">
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #2563eb">Primary</div>
+            <div class="color-info">
+              <div class="color-name">brand.primary</div>
+              <div class="color-details">
+                <span>#2563eb</span>
+                <span>blue-600</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #1d4ed8">Primary Hover</div>
+            <div class="color-info">
+              <div class="color-name">brand.primary-hover</div>
+              <div class="color-details">
+                <span>#1d4ed8</span>
+                <span>blue-700</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #1e40af">Primary Active</div>
+            <div class="color-info">
+              <div class="color-name">brand.primary-active</div>
+              <div class="color-details">
+                <span>#1e40af</span>
+                <span>blue-800</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin: 24px 0 16px; font-size: 18px; color: #4b5563">Secondary (Accents, highlights)</h3>
+        <div class="color-grid">
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #a855f7">Secondary</div>
+            <div class="color-info">
+              <div class="color-name">brand.secondary</div>
+              <div class="color-details">
+                <span>#a855f7</span>
+                <span>purple-500</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #9333ea">Secondary Hover</div>
+            <div class="color-info">
+              <div class="color-name">brand.secondary-hover</div>
+              <div class="color-details">
+                <span>#9333ea</span>
+                <span>purple-600</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #7e22ce">Secondary Active</div>
+            <div class="color-info">
+              <div class="color-name">brand.secondary-active</div>
+              <div class="color-details">
+                <span>#7e22ce</span>
+                <span>purple-700</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-demo" style="margin-top: 24px">
+          <button class="btn btn-primary">Primary Button</button>
+          <button class="btn btn-secondary">Secondary Button</button>
+        </div>
+      </section>
+
+      <!-- 2. Neutral Colors -->
+      <section class="section">
+        <h2 class="section-title">⚪ 2. Neutral Colors</h2>
+        <p class="section-subtitle">Backgrounds, surfaces, borders, and text hierarchy</p>
+
+        <h3 style="margin-bottom: 16px; font-size: 18px; color: #4b5563">Backgrounds & Surfaces</h3>
+        <div class="color-grid">
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #f9fafb; color: #111827; text-shadow: none">Background</div>
+            <div class="color-info">
+              <div class="color-name">neutral.background</div>
+              <div class="color-details">
+                <span>#f9fafb</span>
+                <span>gray-50</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #f3f4f6; color: #111827; text-shadow: none">Surface</div>
+            <div class="color-info">
+              <div class="color-name">neutral.surface</div>
+              <div class="color-details">
+                <span>#f3f4f6</span>
+                <span>gray-100</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #e5e7eb; color: #111827; text-shadow: none">
+              Surface Hover
+            </div>
+            <div class="color-info">
+              <div class="color-name">neutral.surface-hover</div>
+              <div class="color-details">
+                <span>#e5e7eb</span>
+                <span>gray-200</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin: 24px 0 16px; font-size: 18px; color: #4b5563">Borders</h3>
+        <div class="color-grid">
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #d1d5db; color: #111827; text-shadow: none">Border</div>
+            <div class="color-info">
+              <div class="color-name">neutral.border</div>
+              <div class="color-details">
+                <span>#d1d5db</span>
+                <span>gray-300</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #9ca3af; color: white">Border Strong</div>
+            <div class="color-info">
+              <div class="color-name">neutral.border-strong</div>
+              <div class="color-details">
+                <span>#9ca3af</span>
+                <span>gray-400</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin: 24px 0 16px; font-size: 18px; color: #4b5563">Text Hierarchy</h3>
+        <div class="color-grid">
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #111827">Text Primary</div>
+            <div class="color-info">
+              <div class="color-name">neutral.text-primary</div>
+              <div class="color-details">
+                <span>#111827</span>
+                <span>gray-900</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #4b5563">Text Secondary</div>
+            <div class="color-info">
+              <div class="color-name">neutral.text-secondary</div>
+              <div class="color-details">
+                <span>#4b5563</span>
+                <span>gray-600</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #6b7280">Text Tertiary</div>
+            <div class="color-info">
+              <div class="color-name">neutral.text-tertiary</div>
+              <div class="color-details">
+                <span>#6b7280</span>
+                <span>gray-500</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #9ca3af">Text Disabled</div>
+            <div class="color-info">
+              <div class="color-name">neutral.text-disabled</div>
+              <div class="color-details">
+                <span>#9ca3af</span>
+                <span>gray-400</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-demo" style="margin-top: 24px">
+          <div class="card">
+            <div class="card-title">Example Card</div>
+            <div class="card-text">
+              This card uses neutral colors: white background, gray border, and text hierarchy.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Hover Me</div>
+            <div class="card-text">Hover to see the surface-hover state in action.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Semantic Colors -->
+      <section class="section">
+        <h2 class="section-title">✅ 3. Semantic Colors</h2>
+        <p class="section-subtitle">Feedback states: success, error, warning, info</p>
+
+        <div class="alert-demo">
+          <div class="alert alert-success">
+            <div class="alert-icon">✓</div>
+            <div class="alert-content">
+              <div class="alert-title">Success</div>
+              <div class="alert-text">
+                Your changes have been saved successfully. Colors: green-500 main, green-100 background, green-300
+                border.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-error">
+            <div class="alert-icon">✕</div>
+            <div class="alert-content">
+              <div class="alert-title">Error</div>
+              <div class="alert-text">
+                There was a problem processing your request. Colors: red-600 main, red-100 background, red-300 border.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-warning">
+            <div class="alert-icon">⚠</div>
+            <div class="alert-content">
+              <div class="alert-title">Warning</div>
+              <div class="alert-text">
+                This action cannot be undone. Please proceed with caution. Colors: yellow-500 main, yellow-100
+                background, yellow-300 border.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-info">
+            <div class="alert-icon">ℹ</div>
+            <div class="alert-content">
+              <div class="alert-title">Information</div>
+              <div class="alert-text">
+                Did you know? You can customize these colors in Phase 3. Colors: blue-500 main, blue-100 background,
+                blue-300 border.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin: 32px 0 16px; font-size: 18px; color: #4b5563">All Semantic Variants</h3>
+        <div class="color-grid">
+          <!-- Success -->
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #22c55e">Success</div>
+            <div class="color-info">
+              <div class="color-name">semantic.success</div>
+              <div class="color-details">
+                <span>#22c55e</span>
+                <span>green-500</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #dcfce7; color: #166534; text-shadow: none">
+              Success Subtle
+            </div>
+            <div class="color-info">
+              <div class="color-name">semantic.success-subtle</div>
+              <div class="color-details">
+                <span>#dcfce7</span>
+                <span>green-100</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Error -->
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #dc2626">Error</div>
+            <div class="color-info">
+              <div class="color-name">semantic.error</div>
+              <div class="color-details">
+                <span>#dc2626</span>
+                <span>red-600</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #fee2e2; color: #991b1b; text-shadow: none">Error Subtle</div>
+            <div class="color-info">
+              <div class="color-name">semantic.error-subtle</div>
+              <div class="color-details">
+                <span>#fee2e2</span>
+                <span>red-100</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Warning -->
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #eab308; color: #111827; text-shadow: none">Warning</div>
+            <div class="color-info">
+              <div class="color-name">semantic.warning</div>
+              <div class="color-details">
+                <span>#eab308</span>
+                <span>yellow-500</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #fef9c3; color: #854d0e; text-shadow: none">
+              Warning Subtle
+            </div>
+            <div class="color-info">
+              <div class="color-name">semantic.warning-subtle</div>
+              <div class="color-details">
+                <span>#fef9c3</span>
+                <span>yellow-100</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #3b82f6">Info</div>
+            <div class="color-info">
+              <div class="color-name">semantic.info</div>
+              <div class="color-details">
+                <span>#3b82f6</span>
+                <span>blue-500</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-preview" style="background: #dbeafe; color: #1e40af; text-shadow: none">Info Subtle</div>
+            <div class="color-info">
+              <div class="color-name">semantic.info-subtle</div>
+              <div class="color-details">
+                <span>#dbeafe</span>
+                <span>blue-100</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Layout Spacing -->
+      <section class="section">
+        <h2 class="section-title">📏 4. Layout Spacing</h2>
+        <p class="section-subtitle">Page-level spacing and layout dimensions</p>
+
+        <div class="spacing-demo">
+          <div class="spacing-item">
+            <div class="spacing-visual" style="width: 24px"></div>
+            <div class="spacing-label">layout.page-padding</div>
+            <div class="spacing-value">24px (spacing-24) - Desktop</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-visual" style="width: 16px"></div>
+            <div class="spacing-label">layout.page-padding-mobile</div>
+            <div class="spacing-value">16px (spacing-16) - Mobile</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-visual" style="width: 64px"></div>
+            <div class="spacing-label">layout.section-gap</div>
+            <div class="spacing-value">64px (spacing-64) - Desktop</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-visual" style="width: 48px"></div>
+            <div class="spacing-label">layout.section-gap-mobile</div>
+            <div class="spacing-value">48px (spacing-48) - Mobile</div>
+          </div>
+        </div>
+
+        <h3 style="margin: 32px 0 16px; font-size: 18px; color: #4b5563">Layout Example</h3>
+        <div class="layout-demo">
+          <div class="layout-section">Section 1 - Max-width: 1280px</div>
+          <div class="layout-section">Section 2 - Gap: 64px between sections</div>
+        </div>
+      </section>
+
+      <!-- 5. Component Spacing -->
+      <section class="section">
+        <h2 class="section-title">🔲 5. Component Spacing</h2>
+        <p class="section-subtitle">Internal spacing for common UI components</p>
+
+        <div class="component-examples">
+          <div class="example">
+            <div class="example-title">Buttons</div>
+            <div class="button-demo">
+              <button class="btn btn-primary">Button (16px × 8px padding)</button>
+              <button class="btn btn-secondary">Height ≈ 40px</button>
+            </div>
+            <div style="margin-top: 12px; font-size: 12px; color: #6b7280">
+              button-padding-x: 16px | button-padding-y: 8px | button-gap: 8px
+            </div>
+          </div>
+
+          <div class="example">
+            <div class="example-title">Form Inputs</div>
+            <div class="input-demo">
+              <input type="text" class="input" placeholder="Input height: 40px" />
+              <input type="email" class="input" placeholder="Padding: 12px × 8px" />
+            </div>
+            <div style="margin-top: 12px; font-size: 12px; color: #6b7280">
+              input-height: 40px | input-padding-x: 12px | input-padding-y: 8px
+            </div>
+          </div>
+
+          <div class="example">
+            <div class="example-title">Cards</div>
+            <div class="card-demo">
+              <div class="card">
+                <div class="card-title">Card Component</div>
+                <div class="card-text">Padding: 24px on all sides. Internal gap: 16px between title and text.</div>
+              </div>
+            </div>
+            <div style="margin-top: 12px; font-size: 12px; color: #6b7280">card-padding: 24px | card-gap: 16px</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Typography -->
+      <section class="section">
+        <h2 class="section-title">📝 6. Typography</h2>
+        <p class="section-subtitle">Font families, weights, and sizes</p>
+
+        <div class="typography-demo">
+          <div class="type-sample">
+            <div class="type-label">Heading (H1)</div>
+            <h1 class="type-example" style="margin-bottom: 8px">The Quick Brown Fox Jumps Over</h1>
+            <div class="type-specs">Font: System Sans | Weight: 700 (bold) | Size: 48px</div>
+          </div>
+
+          <div class="type-sample">
+            <div class="type-label">Heading (H2)</div>
+            <h2 class="type-example" style="margin-bottom: 8px; font-size: 32px; font-weight: 700">
+              The Quick Brown Fox Jumps Over
+            </h2>
+            <div class="type-specs">Font: System Sans | Weight: 700 (bold) | Size: 32px</div>
+          </div>
+
+          <div class="type-sample">
+            <div class="type-label">Body Text</div>
+            <p class="type-example" style="font-size: 16px; line-height: 1.5; margin-bottom: 8px">
+              This is body text at 16px with line-height of 1.5 (WCAG AA compliant). The quick brown fox jumps over the
+              lazy dog. System font stack provides excellent readability across all platforms.
+            </p>
+            <div class="type-specs">Font: System Sans | Weight: 400 (normal) | Size: 16px | Line-height: 1.5</div>
+          </div>
+
+          <div class="type-sample">
+            <div class="type-label">Small Text</div>
+            <p class="type-example" style="font-size: 14px; line-height: 1.5; margin-bottom: 8px">
+              Small text at 14px with the same 1.5 line-height. Used for captions, labels, and secondary information.
+            </p>
+            <div class="type-specs">Font: System Sans | Weight: 400 (normal) | Size: 14px | Line-height: 1.5</div>
+          </div>
+
+          <div class="type-sample">
+            <div class="type-label">Code</div>
+            <code
+              class="type-example"
+              style="
+                font-family: ui-monospace, monospace;
+                font-size: 14px;
+                display: block;
+                margin-bottom: 8px;
+                background: #f3f4f6;
+                padding: 12px;
+                border-radius: 4px;
+              "
+            >
+              const token = "primitive.color.blue.600";
+            </code>
+            <div class="type-specs">Font: System Mono | Weight: 400 (normal) | Size: 14px</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <div style="text-align: center; padding: 48px 0; color: #6b7280">
+        <p style="margin-bottom: 8px"><strong>Lufa Design System v2.0</strong></p>
+        <p style="font-size: 14px">Phase 2 - Core Tokens Preview</p>
+        <p style="font-size: 12px; margin-top: 16px">
+          Built with industry standards: Tailwind CSS colors, Material Design spacing, WCAG AA compliance
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

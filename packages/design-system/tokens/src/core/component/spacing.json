@@ -1,0 +1,106 @@
+{
+  "core": {
+    "component": {
+      "button-padding-x": {
+        "$value": "{primitive.spacing.16}",
+        "$type": "dimension",
+        "$description": "Horizontal padding inside buttons",
+        "metadata": {
+          "level": "core",
+          "category": "component",
+          "useCase": "Button horizontal padding, link button padding"
+        }
+      },
+      "button-padding-y": {
+        "$value": "{primitive.spacing.8}",
+        "$type": "dimension",
+        "$description": "Vertical padding inside buttons",
+        "metadata": {
+          "level": "core",
+          "category": "component",
+          "useCase": "Button vertical padding, link button padding"
+        }
+      },
+      "button-gap": {
+        "$value": "{primitive.spacing.8}",
+        "$type": "dimension",
+        "$description": "Spacing between button icon and text, or between button elements",
+        "metadata": {
+          "level": "core",
+          "category": "component",
+          "useCase": "Gap between button icon and label, spacing in button groups"
+        }
+      },
+      "input-height": {
+        "$value": "{primitive.spacing.40}",
+        "$type": "dimension",
+        "$description": "Standard height for text inputs, select dropdowns, and similar form controls",
+        "metadata": {
+          "level": "core",
+          "category": "component",
+          "useCase": "Text input height, select height, search bar height"
+        }
+      },
+      "input-padding-x": {
+        "$value": "{primitive.spacing.12}",
+        "$type": "dimension",
+        "$description": "Horizontal padding inside form inputs",
+        "metadata": {
+          "level": "core",
+          "category": "component",
+          "useCase": "Text input horizontal padding, select padding"
+        }
+      },
+      "input-padding-y": {
+        "$value": "{primitive.spacing.8}",
+        "$type": "dimension",
+        "$description": "Vertical padding inside form inputs",
+        "metadata": {
+          "level": "core",
+          "category": "component",
+          "useCase": "Text input vertical padding, textarea padding"
+        }
+      },
+      "card-padding": {
+        "$value": "{primitive.spacing.24}",
+        "$type": "dimension",
+        "$description": "Internal padding for card components",
+        "metadata": {
+          "level": "core",
+          "category": "component",
+          "useCase": "Card padding, panel padding, box padding"
+        }
+      },
+      "card-gap": {
+        "$value": "{primitive.spacing.16}",
+        "$type": "dimension",
+        "$description": "Spacing between elements inside cards (headings, content, actions)",
+        "metadata": {
+          "level": "core",
+          "category": "component",
+          "useCase": "Spacing between card header and body, card body and footer"
+        }
+      },
+      "modal-padding": {
+        "$value": "{primitive.spacing.32}",
+        "$type": "dimension",
+        "$description": "Internal padding for modal/dialog components",
+        "metadata": {
+          "level": "core",
+          "category": "component",
+          "useCase": "Modal content padding, dialog padding"
+        }
+      },
+      "modal-max-width": {
+        "$value": "600px",
+        "$type": "dimension",
+        "$description": "Maximum width for standard modal dialogs",
+        "metadata": {
+          "level": "core",
+          "category": "component",
+          "useCase": "Modal max-width, dialog max-width, popup max-width"
+        }
+      }
+    }
+  }
+}

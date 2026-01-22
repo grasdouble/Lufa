@@ -1,0 +1,11 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format.json",
+  "$include": [
+    "./brand/colors.json",
+    "./neutral/colors.json",
+    "./semantic/colors.json",
+    "./layout/spacing.json",
+    "./component/spacing.json",
+    "./typography/aliases.json"
+  ]
+}

@@ -5,38 +5,62 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](../../LICENSE.md)
 
-> **Phase 1 Week 1** - Primitive Tokens (Foundation Layer)
+> **Phase 2 Complete** - Core Tokens (Global Design Decisions)
 
 ## 📦 Overview
 
-This package contains the **primitive tokens** of Lufa Design System v2.0 - the base layer of our 4-level architecture. These tokens represent raw, non-semantic values that will serve as the foundation for higher-level tokens.
+This package contains the **design tokens** of Lufa Design System v2.0 - a 4-level token architecture built with Style Dictionary v4.4.0 and DTCG format.
+
+**Current Status:** 161 tokens across 2 levels (45% complete)
 
 **Token Architecture:**
 
 ```
 ┌─────────────────────────────────────────────┐
-│  Level 4: Component Tokens (Phase 4)       │ ⬅️ Component-specific
+│  Level 4: Component Tokens (Phase 4)       │ ⬅️ ~120 tokens (future)
 ├─────────────────────────────────────────────┤
-│  Level 3: Semantic Tokens (Phase 3)        │ ⬅️ Semantic contexts
+│  Level 3: Semantic Tokens (Phase 3)        │ ⬅️ ~80 tokens (next)
 ├─────────────────────────────────────────────┤
-│  Level 2: Core Tokens (Phase 2)            │ ⬅️ Global design decisions
+│  ✅ Level 2: Core Tokens (Phase 2)         │ ⬅️ 58 tokens (COMPLETE)
 ├─────────────────────────────────────────────┤
-│  ✅ Level 1: Primitive Tokens (Phase 1)    │ ⬅️ Raw values (YOU ARE HERE)
+│  ✅ Level 1: Primitive Tokens (Phase 1)    │ ⬅️ 103 tokens (COMPLETE)
 └─────────────────────────────────────────────┘
 ```
 
 ## 📊 Package Contents
 
-**103 primitive tokens created** distributed across 6 categories:
+**161 tokens created** distributed across multiple levels:
 
-| Category       | Tokens  | Description                                            |
-| -------------- | ------- | ------------------------------------------------------ |
-| **Colors**     | 60      | 6 color palettes × 9 shades                            |
-| **Spacing**    | 12      | Scale from 0px to 96px (4px base)                      |
-| **Typography** | 18      | Families (2), sizes (9), weights (4), line-heights (3) |
-| **Shadows**    | 6       | Elevations from none to xl                             |
-| **Radius**     | 7       | Rounding from none to full (circle)                    |
-| **TOTAL**      | **103** | Production-ready primitive tokens                      |
+### Level 1: Primitive Tokens (103 tokens)
+
+| Category       | Tokens  | Description                                                           |
+| -------------- | ------- | --------------------------------------------------------------------- |
+| **Colors**     | 60      | 6 color palettes × 10 shades (gray, blue, red, green, yellow, purple) |
+| **Spacing**    | 12      | Scale from 0px to 96px (4px base)                                     |
+| **Typography** | 18      | Families (2), sizes (9), weights (4), line-heights (3)                |
+| **Shadows**    | 6       | Elevations from none to xl                                            |
+| **Radius**     | 7       | Rounding from none to full (circle)                                   |
+| **Subtotal**   | **103** | Raw, non-semantic foundational values                                 |
+
+### Level 2: Core Tokens (58 tokens)
+
+| Category       | Tokens | Description                                                    |
+| -------------- | ------ | -------------------------------------------------------------- |
+| **Brand**      | 6      | Primary/secondary colors with hover/active states              |
+| **Neutral**    | 9      | Backgrounds, surfaces, borders, text hierarchy                 |
+| **Semantic**   | 16     | Success, error, warning, info (base + subtle + border + hover) |
+| **Layout**     | 8      | Page padding, section gaps, container widths                   |
+| **Component**  | 10     | Button, input, card, modal spacing standards                   |
+| **Typography** | 9      | Font families, weights, sizes for common use cases             |
+| **Subtotal**   | **58** | Global design decisions, alias to primitives                   |
+
+### Total
+
+| Level          | Tokens  | Status           |
+| -------------- | ------- | ---------------- |
+| **Primitives** | 103     | ✅ Complete      |
+| **Core**       | 58      | ✅ Complete      |
+| **TOTAL**      | **161** | **45% Complete** |
 
 ## 🚀 Installation
 

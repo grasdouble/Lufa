@@ -1,7 +1,10 @@
 import StyleDictionary from 'style-dictionary';
 
 export default {
-  source: ['src/primitives/**/*.json'],
+  log: {
+    verbosity: 'default',
+  },
+  source: ['src/primitives/**/*.json', 'src/core/**/*.json'],
   platforms: {
     css: {
       transformGroup: 'css',
@@ -11,7 +14,7 @@ export default {
           destination: 'tokens.css',
           format: 'css/variables',
           options: {
-            outputReferences: true, // Préserve la cascade à 4 niveaux
+            outputReferences: true, // Preserves 4-level token cascade
           },
         },
       ],
