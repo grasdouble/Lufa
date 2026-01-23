@@ -1,0 +1,126 @@
+{
+  "semantic": {
+    "typography": {
+      "heading-1": {
+        "$value": "{primitive.typography.font-size.5xl}",
+        "$type": "dimension",
+        "$description": "Font size for H1 headings - largest heading for page titles and hero sections",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "H1 headings, page titles, hero titles"
+        }
+      },
+      "heading-2": {
+        "$value": "{primitive.typography.font-size.4xl}",
+        "$type": "dimension",
+        "$description": "Font size for H2 headings - major section titles",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "H2 headings, major section titles"
+        }
+      },
+      "heading-3": {
+        "$value": "{primitive.typography.font-size.3xl}",
+        "$type": "dimension",
+        "$description": "Font size for H3 headings - subsection titles",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "H3 headings, subsection titles"
+        }
+      },
+      "heading-4": {
+        "$value": "{primitive.typography.font-size.2xl}",
+        "$type": "dimension",
+        "$description": "Font size for H4 headings - minor section titles",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "H4 headings, card titles"
+        }
+      },
+      "heading-5": {
+        "$value": "{primitive.typography.font-size.xl}",
+        "$type": "dimension",
+        "$description": "Font size for H5 headings - small section titles",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "H5 headings, list group titles"
+        }
+      },
+      "heading-6": {
+        "$value": "{primitive.typography.font-size.lg}",
+        "$type": "dimension",
+        "$description": "Font size for H6 headings - smallest heading level",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "H6 headings, inline section titles"
+        }
+      },
+      "body-large": {
+        "$value": "{primitive.typography.font-size.lg}",
+        "$type": "dimension",
+        "$description": "Large body text size - for emphasized paragraphs and lead text",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "Lead paragraphs, emphasized body text, introductions"
+        }
+      },
+      "body": {
+        "$value": "{primitive.typography.font-size.base}",
+        "$type": "dimension",
+        "$description": "Default body text size - standard for all paragraphs and content",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "Body text, paragraphs, standard content"
+        }
+      },
+      "body-small": {
+        "$value": "{primitive.typography.font-size.sm}",
+        "$type": "dimension",
+        "$description": "Small body text size - for secondary content and descriptions",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "Secondary text, descriptions, help text"
+        }
+      },
+      "caption": {
+        "$value": "{primitive.typography.font-size.xs}",
+        "$type": "dimension",
+        "$description": "Caption text size - smallest text for metadata and labels",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "Captions, footnotes, labels, timestamps, metadata"
+        }
+      },
+      "label": {
+        "$value": "{primitive.typography.font-size.sm}",
+        "$type": "dimension",
+        "$description": "Label text size - for form labels and UI labels",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "Form labels, input labels, UI component labels"
+        }
+      },
+      "button": {
+        "$value": "{primitive.typography.font-size.base}",
+        "$type": "dimension",
+        "$description": "Button text size - for button labels and CTAs",
+        "metadata": {
+          "level": "semantic",
+          "category": "typography",
+          "useCase": "Button text, CTA labels, action labels"
+        }
+      }
+    }
+  }
+}

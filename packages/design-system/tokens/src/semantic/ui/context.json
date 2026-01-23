@@ -1,0 +1,206 @@
+{
+  "semantic": {
+    "ui": {
+      "background-page": {
+        "$value": "{core.neutral.background}",
+        "$type": "color",
+        "$description": "Main page background - base canvas for entire application",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Root background, page wrapper, main container"
+        }
+      },
+      "background-surface": {
+        "$value": "{core.neutral.surface}",
+        "$type": "color",
+        "$description": "Surface background for cards, panels, and elevated content",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds"
+        }
+      },
+      "background-overlay": {
+        "$value": "rgba(0, 0, 0, 0.5)",
+        "$type": "color",
+        "$description": "Semi-transparent backdrop for modals and overlays",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Modal backdrops, drawer overlays, dialog backgrounds"
+        }
+      },
+      "background-success": {
+        "$value": "{core.semantic.success-subtle}",
+        "$type": "color",
+        "$description": "Background for success messages and positive feedback",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Success alerts, positive notifications, confirmation banners"
+        }
+      },
+      "background-error": {
+        "$value": "{core.semantic.error-subtle}",
+        "$type": "color",
+        "$description": "Background for error messages and validation failures",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Error alerts, validation messages, destructive action confirmations"
+        }
+      },
+      "background-warning": {
+        "$value": "{core.semantic.warning-subtle}",
+        "$type": "color",
+        "$description": "Background for warning messages and caution notices",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Warning alerts, caution banners, pending action notices"
+        }
+      },
+      "background-info": {
+        "$value": "{core.semantic.info-subtle}",
+        "$type": "color",
+        "$description": "Background for informational messages and neutral notifications",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Info alerts, tips, help messages, neutral notifications"
+        }
+      },
+      "text-primary": {
+        "$value": "{core.neutral.text-primary}",
+        "$type": "color",
+        "$description": "Primary text color for headings and body content",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Headings, body text, primary labels, main content"
+        }
+      },
+      "text-secondary": {
+        "$value": "{core.neutral.text-secondary}",
+        "$type": "color",
+        "$description": "Secondary text color for supporting content",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Descriptions, captions, metadata, secondary labels"
+        }
+      },
+      "text-tertiary": {
+        "$value": "{core.neutral.text-tertiary}",
+        "$type": "color",
+        "$description": "Tertiary text color for subtle content",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Placeholder text, timestamps, optional information"
+        }
+      },
+      "text-success": {
+        "$value": "{core.semantic.success}",
+        "$type": "color",
+        "$description": "Text color for success messages and positive feedback",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Success message text, positive status indicators, confirmation text"
+        }
+      },
+      "text-error": {
+        "$value": "{core.semantic.error}",
+        "$type": "color",
+        "$description": "Text color for error messages and validation failures",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Error message text, validation errors, destructive action warnings"
+        }
+      },
+      "text-warning": {
+        "$value": "{core.semantic.warning}",
+        "$type": "color",
+        "$description": "Text color for warning messages and caution notices",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Warning message text, caution labels, pending action notices"
+        }
+      },
+      "text-info": {
+        "$value": "{core.semantic.info}",
+        "$type": "color",
+        "$description": "Text color for informational messages",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Info message text, help content, neutral notifications"
+        }
+      },
+      "border-default": {
+        "$value": "{core.neutral.border}",
+        "$type": "color",
+        "$description": "Default border color for dividers and element boundaries",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Dividers, separators, card borders, section boundaries"
+        }
+      },
+      "border-strong": {
+        "$value": "{core.neutral.border-strong}",
+        "$type": "color",
+        "$description": "Stronger border for emphasis and visual hierarchy",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Emphasized borders, section separators, strong dividers"
+        }
+      },
+      "border-success": {
+        "$value": "{core.semantic.success-border}",
+        "$type": "color",
+        "$description": "Border color for success contexts",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Success alert borders, positive status borders"
+        }
+      },
+      "border-error": {
+        "$value": "{core.semantic.error-border}",
+        "$type": "color",
+        "$description": "Border color for error contexts",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Error alert borders, invalid input borders, destructive action borders"
+        }
+      },
+      "border-warning": {
+        "$value": "{core.semantic.warning-border}",
+        "$type": "color",
+        "$description": "Border color for warning contexts",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Warning alert borders, caution element borders"
+        }
+      },
+      "border-info": {
+        "$value": "{core.semantic.info-border}",
+        "$type": "color",
+        "$description": "Border color for informational contexts",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "useCase": "Info alert borders, help element borders"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "semantic": {
+    "button": {
+      "primary-background": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Primary button background - main call-to-action",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Primary action buttons, submit buttons, main CTAs"
+        }
+      },
+      "primary-background-hover": {
+        "$value": "{core.brand.primary-hover}",
+        "$type": "color",
+        "$description": "Primary button hover state background",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Hover state for primary buttons"
+        }
+      },
+      "primary-background-active": {
+        "$value": "{core.brand.primary-active}",
+        "$type": "color",
+        "$description": "Primary button active/pressed state background",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Active/pressed state for primary buttons"
+        }
+      },
+      "primary-text": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "Primary button text color - high contrast on primary background",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Text color for primary buttons"
+        }
+      },
+      "secondary-background": {
+        "$value": "{core.brand.secondary}",
+        "$type": "color",
+        "$description": "Secondary button background - alternative actions",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Secondary action buttons, alternative CTAs"
+        }
+      },
+      "secondary-background-hover": {
+        "$value": "{core.brand.secondary-hover}",
+        "$type": "color",
+        "$description": "Secondary button hover state background",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Hover state for secondary buttons"
+        }
+      },
+      "secondary-background-active": {
+        "$value": "{core.brand.secondary-active}",
+        "$type": "color",
+        "$description": "Secondary button active/pressed state background",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Active/pressed state for secondary buttons"
+        }
+      },
+      "secondary-text": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "Secondary button text color",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Text color for secondary buttons"
+        }
+      },
+      "ghost-background": {
+        "$value": "transparent",
+        "$type": "color",
+        "$description": "Ghost button background - transparent for subtle actions",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Ghost/tertiary buttons, subtle actions, inline actions"
+        }
+      },
+      "ghost-background-hover": {
+        "$value": "{core.neutral.surface-hover}",
+        "$type": "color",
+        "$description": "Ghost button hover state background - subtle fill",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Hover state for ghost buttons"
+        }
+      },
+      "ghost-text": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Ghost button text color - uses brand color for visibility",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Text color for ghost buttons"
+        }
+      },
+      "ghost-text-hover": {
+        "$value": "{core.brand.primary-hover}",
+        "$type": "color",
+        "$description": "Ghost button text hover color",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Hover state text for ghost buttons"
+        }
+      },
+      "outline-background": {
+        "$value": "transparent",
+        "$type": "color",
+        "$description": "Outline button background - transparent with visible border",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Outline buttons, bordered actions"
+        }
+      },
+      "outline-background-hover": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Outline button hover background - fills with brand color",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Hover state for outline buttons"
+        }
+      },
+      "outline-border": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Outline button border color",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Border for outline buttons"
+        }
+      },
+      "outline-border-hover": {
+        "$value": "{core.brand.primary-hover}",
+        "$type": "color",
+        "$description": "Outline button hover border color",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Hover state border for outline buttons"
+        }
+      },
+      "outline-text": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Outline button text color",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Text color for outline buttons"
+        }
+      },
+      "outline-text-hover": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "Outline button hover text color - switches to white on filled background",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Hover state text for outline buttons"
+        }
+      },
+      "destructive-background": {
+        "$value": "{core.semantic.error}",
+        "$type": "color",
+        "$description": "Destructive button background - for delete and dangerous actions",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Delete buttons, destructive actions, danger buttons"
+        }
+      },
+      "destructive-background-hover": {
+        "$value": "{core.semantic.error-hover}",
+        "$type": "color",
+        "$description": "Destructive button hover state background",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Hover state for destructive buttons"
+        }
+      },
+      "destructive-text": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "Destructive button text color",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Text color for destructive buttons"
+        }
+      },
+      "success-background": {
+        "$value": "{core.semantic.success}",
+        "$type": "color",
+        "$description": "Success button background - for positive confirmations",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Success buttons, confirmation actions, positive CTAs"
+        }
+      },
+      "success-background-hover": {
+        "$value": "{core.semantic.success-hover}",
+        "$type": "color",
+        "$description": "Success button hover state background",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Hover state for success buttons"
+        }
+      },
+      "success-text": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "Success button text color",
+        "metadata": {
+          "level": "semantic",
+          "category": "button",
+          "useCase": "Text color for success buttons"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format.json",
+  "$include": [
+    "./interactive/states.json",
+    "./ui/context.json",
+    "./variant/components.json",
+    "./typography/scale.json",
+    "./elevation/z-index.json"
+  ]
+}
