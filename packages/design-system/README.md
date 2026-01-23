@@ -204,14 +204,16 @@ function App() {
 Access semantic tokens for custom styling:
 
 ```tsx
-import tokens from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 const customStyles = {
-  padding: tokens.spacing.lg,
-  fontSize: tokens.fontSize.base,
-  color: tokens.color.text.primary,
+  padding: tokens.primitive.spacing['24'],
+  fontSize: tokens.primitive.typography.fontSize.base,
+  color: tokens.core.neutral.text.primary,
 };
 ```
+
+**Note:** Token imports should only be used in Storybook stories or documentation. React components should use CSS Modules with CSS custom properties.
 
 ### Using Primitives
 
