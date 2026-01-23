@@ -26,7 +26,7 @@
    ============================================================================ */
 
 /* Import design tokens (CSS custom properties already generated) */
-@import '@grasdouble/lufa_design-system-tokens/style.css';
+@import '@grasdouble/lufa_design-system-tokens/tokens.css';
 
 /* ============================================================================
    DEFAULT THEME

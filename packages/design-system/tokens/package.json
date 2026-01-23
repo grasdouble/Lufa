@@ -11,7 +11,8 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css",
+    "./tokens.css": "./dist/tokens.css"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",

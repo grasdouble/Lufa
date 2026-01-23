@@ -16,8 +16,8 @@
 // ============================================
 
 // Layout Primitives (with utilities)
-// export { Box } from './components/Box';
-// export type { BoxProps } from './components/Box';
+export { Box } from './Box';
+export type { BoxProps } from './Box';
 
 // export { Text } from './components/Text';
 // export type { TextProps } from './components/Text';
