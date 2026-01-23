@@ -35,6 +35,16 @@
   - Template README files for each subdirectory
   - **Perfect for: Starting your project immediately**
 
+**🤖 For AI Agents:**
+
+- **[AI-AGENT-RULES.md](AI-AGENT-RULES.md)** - 🤖 AI agent operational guide
+  - Activation checklist and navigation rules
+  - Delegation patterns (Mary Coordinator)
+  - File placement decision trees
+  - Tool usage guidelines
+  - Common mistakes to avoid
+  - **Perfect for: AI agents starting or resuming work**
+
 ### Quick Start for New Project
 
 ```bash
@@ -88,147 +98,29 @@ cp -r _bmad-output/analysis/_PROJECT-TEMPLATE _bmad-output/analysis/your-project
 
 ## 🤖 Workflow Rules for AI Agents
 
-### Critical Agent Coordination Protocol
+> **📌 For complete AI agent operational guidelines, see [AI-AGENT-RULES.md](AI-AGENT-RULES.md)**
 
-#### 👤 Role Definition: Mary (Analyst Agent)
+### Quick Reference
 
-**Mary's Responsibilities:**
+**Core Rules:**
 
-- **Coordinator & Validator** - Orchestrates work, validates deliverables
-- **NOT an Implementer** - Does not write code or execute implementation tasks
-- **Question Collector** - Aggregates questions from subagents and presents to user
+| Rule       | Description                                                                          | Full Details                                                                |
+| ---------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| **Rule 1** | **Mandatory Delegation** - Mary delegates ALL implementation to subagents            | [AI-AGENT-RULES.md § A](AI-AGENT-RULES.md#a-core-workflow-rules)            |
+| **Rule 2** | **Mary Validates, Doesn't Implement** - Coordinator & validator role only            | [AI-AGENT-RULES.md § A](AI-AGENT-RULES.md#a-core-workflow-rules)            |
+| **Rule 3** | **Update Documentation After Completion** - Update MASTER-STATUS.md after every task | [AI-AGENT-RULES.md § D](AI-AGENT-RULES.md#d-when-to-update-master-statusmd) |
+| **Rule 4** | **Subagent Status Protocol** - Standard format for reporting back                    | [AI-AGENT-RULES.md § A](AI-AGENT-RULES.md#a-core-workflow-rules)            |
+| **Rule 5** | **Question Aggregation Through Mary** - Collect, organize, present to user           | [AI-AGENT-RULES.md § A](AI-AGENT-RULES.md#a-core-workflow-rules)            |
 
-#### 📋 Rule 1: Mandatory Delegation
-
-**✅ ALL implementation tasks MUST be delegated to subagents using the Task tool**
-
-This includes:
-
-- Writing code (components, tokens, utilities)
-- Creating/modifying configuration files
-- Running builds or validation scripts
-- File operations (create, edit, move, delete)
-- Git operations (commit, branch management)
-- Test writing and execution
-
-**❌ Mary does NOT:**
-
-- Use `Edit`, `Write`, `Bash` tools directly for implementation
-- Write production code
-- Execute build commands
-- Commit changes
-
-**✅ Mary DOES:**
-
-- Use `Read`, `Grep`, `Glob` tools to gather context
-- Analyze current state and plan next steps
-- Delegate work via Task tool
-- Validate completed work
-- Update analysis documents (MASTER-STATUS.md, phase summaries)
-
-#### 📋 Rule 2: Mary as Coordinator
-
-**Workflow:**
+**Mary's Workflow:**
 
 ```
-User Request
+User Request → Mary reads status → Creates plan → Delegates (Task tool)
     ↓
-Mary reads current status (Read/Grep/Glob)
-    ↓
-Mary creates implementation plan
-    ↓
-Mary delegates to subagent(s) (Task tool)
-    ↓
-Subagent executes & reports back
-    ↓
-Mary validates deliverable
-    ↓
-Mary updates MASTER-STATUS.md
-    ↓
-Mary reports to user
+Subagent executes → Reports back → Mary validates → Updates docs → Reports to user
 ```
 
-**Example Delegation:**
-
-```markdown
-Task: "Implement Box component with system props"
-Context: [Provide token paths, requirements, patterns]
-Expected Output: [List specific files/deliverables]
-Questions to Ask User: [If any unknowns exist]
-```
-
-#### 📋 Rule 3: Validation Only, Not Execution
-
-**Mary's validation checklist:**
-
-- ✅ Files created in correct locations
-- ✅ Code follows project standards (from AGENTS.md)
-- ✅ Tests included and passing
-- ✅ Documentation updated
-- ✅ No errors reported by subagent
-
-**If validation fails:**
-
-1. Document specific issues clearly
-2. Delegate fix to subagent with precise instructions
-3. Re-validate after fix
-
-#### 📋 Rule 4: Subagent Status Protocol
-
-**Subagents must report back with:**
-
-```markdown
-## Status: [SUCCESS | BLOCKED | QUESTIONS]
-
-### Deliverables
-
-- [x] File 1: path/to/file.ts
-- [x] File 2: path/to/file.test.ts
-- [ ] File 3: path/to/file.md (blocked - see below)
-
-### Issues/Blockers
-
-- Issue 1: [Description]
-- Issue 2: [Description]
-
-### Questions for User (if any)
-
-1. Question about requirement X
-2. Question about approach Y
-```
-
-#### 📋 Rule 5: Question Aggregation
-
-**When subagent has questions:**
-
-1. **Mary collects questions** from subagent's report
-2. **Mary organizes questions** by priority/category
-3. **Mary presents to user** in clear format:
-
-```markdown
-## 🙋 Questions from Subagent - [Task Name]
-
-### High Priority (Blockers)
-
-1. **Token naming:** Should on-hover use `on-hover` or `onHover` pattern?
-   - Context: Affects 12 component tokens
-   - Impact: High (consistency across system)
-
-### Medium Priority (Clarifications)
-
-2. **Variant scope:** Should Button support `ghost` variant in v2.0?
-   - Context: Not in original scope doc
-   - Impact: Medium (adds 1 day of work)
-
-### Low Priority (Nice-to-have)
-
-3. **Documentation style:** Prefer JSDoc or separate .md files?
-   - Context: Component documentation approach
-   - Impact: Low (can standardize later)
-```
-
-4. **User answers**
-5. **Mary forwards answers** to subagent to continue work
+**For full delegation patterns, validation checklists, and tool usage, see [AI-AGENT-RULES.md](AI-AGENT-RULES.md)**
 
 ---
 

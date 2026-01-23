@@ -1140,249 +1140,31 @@ This verification was conducted after Phase 3 completion.
 
 ## 🤖 I) AI Agent Guidelines
 
-### Navigation Rules for AI Agents
-
-**Step 1: Always Start with MASTER-STATUS.md**
-
-```bash
-# First action when resuming work or starting new task
-Read: _bmad-output/analysis/[project-name]/MASTER-STATUS.md
-
-# Extract:
-- Current phase
-- Last updated date
-- Next steps section
-- Any blockers or questions
-```
-
-**Why:** Single source of truth. Everything else branches from here.
-
----
-
-**Step 2: Understand Project Structure**
-
-```bash
-# Read the navigation guide
-Read: _bmad-output/analysis/[project-name]/README.md
-
-# Scan directory structure
-Glob: _bmad-output/analysis/[project-name]/*
-```
-
----
-
-**Step 3: Context Gathering (as needed)**
-
-```bash
-# If you need phase details
-Read: summaries/phase-N-completion-summary.md
-
-# If you need deep analysis
-Read: studies/[relevant-study].md
-
-# If you need to understand history
-Read: archive/[relevant-archive]/README.md
-```
-
----
-
-### Where to Put New Files
-
-**Decision tree for AI agents:**
-
-```
-Creating a new file?
-│
-├─ Is it MASTER-STATUS.md or README.md?
-│   └─ Put at: [project-root]/
-│
-├─ Is it a phase completion summary?
-│   └─ Put at: summaries/phase-N-completion-summary.md
-│
-├─ Is it active work in progress?
-│   └─ Put at: current/phase-N-work-in-progress.md
-│
-├─ Is it detailed analysis, review, or proposal?
-│   └─ Put at: studies/[type]-[topic].md
-│
-├─ Is it completed/deprecated work?
-│   └─ Put at: archive/[category]/
-│
-└─ Is it initial planning/brainstorming?
-    └─ Put at: [project-root]/brainstorming-session-YYYY-MM-DD.md
-```
-
-**Default rule:** When in doubt, put in `current/` first. Can move later.
-
----
-
-### When to Update MASTER-STATUS
-
-✅ **Update MASTER-STATUS.md after:**
-
-- Completing a phase
-- Completing a major milestone within a phase
-- Resolving a blocker
-- Making a key decision
-- Adding/removing phases
-- Significant progress (>10% phase progress)
-
-❌ **Don't update MASTER-STATUS for:**
-
-- Minor edits to other documents
-- Typo fixes
-- Formatting changes
-- Adding study documents (unless they change status)
-
----
-
-### How to Reference Archived Work
-
-**Pattern in MASTER-STATUS.md:**
-
-```markdown
-## Phase 0: Critical Pre-Implementation Actions
-
-**Status:** ✅ COMPLETE
-**Documentation:** `summaries/phase-0-complete-summary.md`
-
-### Key Achievements
-
-- ✅ Architecture validated via POC (see `archive/pocs/performance-results.md`)
-- ✅ Automation complete
-- ✅ Scope defined
-
-**For intermediate summaries and detailed POC files:**
-See `archive/phase-0/` and `archive/pocs/`
-```
-
-**Why:** Give enough context that someone knows archived work exists, but don't clutter main status with old details.
-
----
-
-### Delegation Rules (Mary Coordinator Pattern)
-
-**From main analysis/README.md:**
-
-#### Rule 1: Mandatory Delegation
-
-Mary (AI coordinator) **MUST delegate ALL implementation** to subagents using Task tool.
-
-**What Mary does:**
-
-- Read MASTER-STATUS.md to understand current state
-- Plan next actions
-- Delegate via Task tool
-- Validate deliverables
-- Update MASTER-STATUS.md
-
-**What Mary does NOT do:**
-
-- Write production code
-- Use Edit/Write/Bash for implementation
-- Execute builds directly
-
----
-
-#### Rule 2: Mary Validates, Doesn't Implement
-
-**Validation checklist:**
-
-- ✅ Files in correct locations
-- ✅ Follows project standards
-- ✅ Tests pass
-- ✅ Documentation updated
-
-**If validation fails:**
-
-1. Document issues clearly
-2. Delegate fix to subagent
-3. Re-validate
-
----
-
-#### Rule 3: Update Documentation After Completion
-
-**After subagent reports success:**
-
-1. ✅ Validate deliverables (use Read/Grep)
-2. ✅ Update MASTER-STATUS.md:
-   - Change "Last Updated" date
-   - Update phase progress
-   - Move completed items to "Completed" section
-   - Add new next steps
-3. ✅ Create phase completion summary if phase done
-4. ✅ Move work from current/ to appropriate directory
-5. ✅ Report to user
-
----
-
-#### Rule 4: Questions Go Through Mary
-
-**When subagent has questions:**
-
-1. Subagent reports questions in structured format
-2. Mary collects and organizes questions
-3. Mary presents to user with context and priority
-4. User answers
-5. Mary forwards answers to subagent
-
-**Format for questions:**
-
-```markdown
-## 🙋 Questions from Subagent - [Task Name]
-
-### High Priority (Blockers)
-
-1. **[Topic]:** [Question]
-   - Context: [Why this matters]
-   - Impact: [What's blocked]
-
-### Medium Priority (Clarifications)
-
-2. **[Topic]:** [Question]
-   - Context: [Background]
-   - Impact: [Effect on work]
-
-### Low Priority (Nice-to-have)
-
-3. **[Topic]:** [Question]
-   - Context: [Context]
-   - Impact: [Minor impact]
-```
-
----
-
-### AI Agent Quick Reference
-
-**Starting work:**
-
-1. Read MASTER-STATUS.md
-2. Read README.md (for navigation)
-3. Plan next actions
-4. Delegate via Task tool (if Mary) or execute (if subagent)
-5. Report back
-
-**Completing phase:**
-
-1. Create phase-N-completion-summary.md in summaries/
-2. Update MASTER-STATUS.md
-3. Move current/ docs to appropriate locations
-4. Update roadmap if applicable
-5. Git commit (or provide command to user)
-
-**Creating new files:**
-
-- Active work → current/
-- Analysis/review → studies/
-- Phase summary → summaries/
-- Old/deprecated → archive/
-
-**Cross-referencing:**
-
-- Use relative paths
-- Link from MASTER-STATUS to all important docs
-- Link summaries ↔ studies (bidirectional)
+> **📌 For detailed AI agent operational guidelines, see [AI-AGENT-RULES.md](AI-AGENT-RULES.md)**
+
+**AI-AGENT-RULES.md contains:**
+
+- ✅ 3-step navigation process (where to start)
+- ✅ File placement decision tree (where files go)
+- ✅ Delegation rules (Mary Coordinator pattern)
+- ✅ When to update MASTER-STATUS
+- ✅ Tool usage guidelines (Read/Grep/Glob/Task)
+- ✅ Common mistakes to avoid
+- ✅ Phase completion checklist
+- ✅ Real example reference (design-system-new-architecture)
+
+**Quick Reference for This Guide:**
+
+When working with analysis projects, AI agents should:
+
+1. **Start with MASTER-STATUS.md** - Always read project status first
+2. **Use file placement decision tree** - See AI-AGENT-RULES.md Section C
+3. **Delegate implementation** - Mary coordinates, subagents execute (AI-AGENT-RULES.md Section F)
+4. **Update documentation** - After every completion (AI-AGENT-RULES.md Section D)
+5. **Use this guide for** - Structure templates, naming conventions, archive policy
+
+**This guide provides:** Templates and structure  
+**AI-AGENT-RULES.md provides:** Operational workflows and quick reference
 
 ---
 

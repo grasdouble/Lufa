@@ -133,24 +133,33 @@ your-project-name/
 
 ## 🤖 For AI Agents
 
-**Quick orientation:**
+### Essential Reading
+
+**📖 [AI-AGENT-RULES.md](AI-AGENT-RULES.md)** - Complete operational guide for AI agents
+
+**Before starting work on any analysis project:**
 
 ```bash
-# Step 1: Read status
+# Step 1: Read project status
 Read: _bmad-output/analysis/your-project-name/MASTER-STATUS.md
 
-# Step 2: Read navigation
+# Step 2: Read navigation guide
 Read: _bmad-output/analysis/your-project-name/README.md
 
-# Step 3: Execute or plan next actions
+# Step 3: Follow delegation patterns
+# See AI-AGENT-RULES.md Section F for Mary Coordinator workflow
 ```
 
-**Where to put new files:**
+**Quick File Placement:**
 
 - Phase summary → `summaries/phase-N-completion-summary.md`
 - Active work → `current/phase-N-work-in-progress.md`
 - Analysis → `studies/analysis-topic.md`
 - Completed → `archive/category/`
+
+**Full decision tree:** [AI-AGENT-RULES.md § C](AI-AGENT-RULES.md#c-file-placement-decision-tree)
+
+**Delegation rules:** [AI-AGENT-RULES.md § F](AI-AGENT-RULES.md#f-delegation-rules-mary-coordinator-pattern)
 
 ---
 
