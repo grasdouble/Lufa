@@ -5,80 +5,96 @@
         "$value": "0",
         "$type": "number",
         "$description": "Base z-index for normal content flow",
-        "metadata": {
-          "level": "semantic",
-          "category": "elevation",
-          "useCase": "Default content, normal document flow"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "elevation",
+            "useCase": "Default content, normal document flow"
+          }
         }
       },
       "dropdown": {
         "$value": "1000",
         "$type": "number",
         "$description": "Z-index for dropdown menus - above normal content",
-        "metadata": {
-          "level": "semantic",
-          "category": "elevation",
-          "useCase": "Dropdown menus, select options, context menus"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "elevation",
+            "useCase": "Dropdown menus, select options, context menus"
+          }
         }
       },
       "sticky": {
         "$value": "1100",
         "$type": "number",
         "$description": "Z-index for sticky positioned elements - above dropdowns",
-        "metadata": {
-          "level": "semantic",
-          "category": "elevation",
-          "useCase": "Sticky headers, sticky navigation, fixed toolbars"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "elevation",
+            "useCase": "Sticky headers, sticky navigation, fixed toolbars"
+          }
         }
       },
       "fixed": {
         "$value": "1200",
         "$type": "number",
         "$description": "Z-index for fixed positioned elements - above sticky elements",
-        "metadata": {
-          "level": "semantic",
-          "category": "elevation",
-          "useCase": "Fixed navigation bars, floating action buttons"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "elevation",
+            "useCase": "Fixed navigation bars, floating action buttons"
+          }
         }
       },
       "modal-backdrop": {
         "$value": "1300",
         "$type": "number",
         "$description": "Z-index for modal backdrops - overlays page content",
-        "metadata": {
-          "level": "semantic",
-          "category": "elevation",
-          "useCase": "Modal overlays, dialog backdrops, drawer overlays"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "elevation",
+            "useCase": "Modal overlays, dialog backdrops, drawer overlays"
+          }
         }
       },
       "modal": {
         "$value": "1400",
         "$type": "number",
         "$description": "Z-index for modal content - above modal backdrop",
-        "metadata": {
-          "level": "semantic",
-          "category": "elevation",
-          "useCase": "Modal dialogs, drawer panels, lightboxes"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "elevation",
+            "useCase": "Modal dialogs, drawer panels, lightboxes"
+          }
         }
       },
       "popover": {
         "$value": "1500",
         "$type": "number",
         "$description": "Z-index for popovers and tooltips - above modals",
-        "metadata": {
-          "level": "semantic",
-          "category": "elevation",
-          "useCase": "Popovers, tooltips, floating hints"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "elevation",
+            "useCase": "Popovers, tooltips, floating hints"
+          }
         }
       },
       "toast": {
         "$value": "1600",
         "$type": "number",
         "$description": "Z-index for toast notifications - highest layer for critical messages",
-        "metadata": {
-          "level": "semantic",
-          "category": "elevation",
-          "useCase": "Toast notifications, snackbars, system alerts"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "elevation",
+            "useCase": "Toast notifications, snackbars, system alerts"
+          }
         }
       }
     }

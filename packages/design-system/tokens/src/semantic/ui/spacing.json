@@ -5,55 +5,65 @@
         "$value": "{primitive.spacing.4}",
         "$type": "dimension",
         "$description": "Tight spacing for very dense layouts - minimal spacing between elements",
-        "metadata": {
-          "level": "semantic",
-          "category": "ui",
-          "subcategory": "spacing",
-          "useCase": "Icon-text spacing, minimal gaps, dense toolbars, button icon spacing"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "spacing",
+            "useCase": "Icon-text spacing, minimal gaps, dense toolbars, button icon spacing"
+          }
         }
       },
       "spacing-compact": {
         "$value": "{primitive.spacing.8}",
         "$type": "dimension",
         "$description": "Compact spacing for tight layouts and dense UIs",
-        "metadata": {
-          "level": "semantic",
-          "category": "ui",
-          "subcategory": "spacing",
-          "useCase": "Dense forms, compact cards, toolbar spacing, tight button padding"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "spacing",
+            "useCase": "Dense forms, compact cards, toolbar spacing, tight button padding"
+          }
         }
       },
       "spacing-default": {
         "$value": "{primitive.spacing.16}",
         "$type": "dimension",
         "$description": "Default spacing for standard layouts (most common)",
-        "metadata": {
-          "level": "semantic",
-          "category": "ui",
-          "subcategory": "spacing",
-          "useCase": "Standard button padding, card padding, form field spacing, list item gaps"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "spacing",
+            "useCase": "Standard button padding, card padding, form field spacing, list item gaps"
+          }
         }
       },
       "spacing-comfortable": {
         "$value": "{primitive.spacing.24}",
         "$type": "dimension",
         "$description": "Comfortable spacing for relaxed, breathable layouts",
-        "metadata": {
-          "level": "semantic",
-          "category": "ui",
-          "subcategory": "spacing",
-          "useCase": "Spacious cards, comfortable forms, section padding, hero components"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "spacing",
+            "useCase": "Spacious cards, comfortable forms, section padding, hero components"
+          }
         }
       },
       "spacing-spacious": {
         "$value": "{primitive.spacing.32}",
         "$type": "dimension",
         "$description": "Spacious spacing for generous, airy layouts",
-        "metadata": {
-          "level": "semantic",
-          "category": "ui",
-          "subcategory": "spacing",
-          "useCase": "Large components, hero sections, landing page spacing, emphasis areas"
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "spacing",
+            "useCase": "Large components, hero sections, landing page spacing, emphasis areas"
+          }
         }
       }
     }

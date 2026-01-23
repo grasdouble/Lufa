@@ -5,90 +5,108 @@
         "$value": "{primitive.typography.fontFamily.sans}",
         "$type": "fontFamily",
         "$description": "Font family for all heading levels (h1-h6)",
-        "metadata": {
-          "level": "core",
-          "category": "typography",
-          "useCase": "Headings, page titles, section titles"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "typography",
+            "useCase": "Headings, page titles, section titles"
+          }
         }
       },
       "body-font": {
         "$value": "{primitive.typography.fontFamily.sans}",
         "$type": "fontFamily",
         "$description": "Font family for body text and general content",
-        "metadata": {
-          "level": "core",
-          "category": "typography",
-          "useCase": "Body text, paragraphs, labels, UI text"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "typography",
+            "useCase": "Body text, paragraphs, labels, UI text"
+          }
         }
       },
       "code-font": {
         "$value": "{primitive.typography.fontFamily.mono}",
         "$type": "fontFamily",
         "$description": "Monospace font family for code and technical content",
-        "metadata": {
-          "level": "core",
-          "category": "typography",
-          "useCase": "Code blocks, inline code, technical identifiers, monospace data"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "typography",
+            "useCase": "Code blocks, inline code, technical identifiers, monospace data"
+          }
         }
       },
       "heading-weight": {
         "$value": "{primitive.typography.font-weight.bold}",
         "$type": "fontWeight",
         "$description": "Font weight for all heading levels",
-        "metadata": {
-          "level": "core",
-          "category": "typography",
-          "useCase": "H1-H6 font weight, page titles"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "typography",
+            "useCase": "H1-H6 font weight, page titles"
+          }
         }
       },
       "body-weight": {
         "$value": "{primitive.typography.font-weight.normal}",
         "$type": "fontWeight",
         "$description": "Font weight for body text",
-        "metadata": {
-          "level": "core",
-          "category": "typography",
-          "useCase": "Paragraphs, body text, normal text"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "typography",
+            "useCase": "Paragraphs, body text, normal text"
+          }
         }
       },
       "strong-weight": {
         "$value": "{primitive.typography.font-weight.semibold}",
         "$type": "fontWeight",
         "$description": "Font weight for emphasized/strong text",
-        "metadata": {
-          "level": "core",
-          "category": "typography",
-          "useCase": "Bold text, strong emphasis, labels, navigation items"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "typography",
+            "useCase": "Bold text, strong emphasis, labels, navigation items"
+          }
         }
       },
       "body-size": {
         "$value": "{primitive.typography.font-size.base}",
         "$type": "dimension",
         "$description": "Base font size for body text (16px)",
-        "metadata": {
-          "level": "core",
-          "category": "typography",
-          "useCase": "Body text, paragraphs, default UI text"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "typography",
+            "useCase": "Body text, paragraphs, default UI text"
+          }
         }
       },
       "body-line-height": {
         "$value": "{primitive.typography.line-height.normal}",
         "$type": "number",
         "$description": "Line height for body text (1.5 for optimal readability)",
-        "metadata": {
-          "level": "core",
-          "category": "typography",
-          "useCase": "Body text line spacing, paragraph line height"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "typography",
+            "useCase": "Body text line spacing, paragraph line height"
+          }
         }
       },
       "small-size": {
         "$value": "{primitive.typography.font-size.sm}",
         "$type": "dimension",
         "$description": "Font size for small text and captions",
-        "metadata": {
-          "level": "core",
-          "category": "typography",
-          "useCase": "Captions, metadata, timestamps, helper text, footnotes"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "typography",
+            "useCase": "Captions, metadata, timestamps, helper text, footnotes"
+          }
         }
       }
     }

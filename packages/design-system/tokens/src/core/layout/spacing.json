@@ -5,80 +5,96 @@
         "$value": "{primitive.spacing.24}",
         "$type": "dimension",
         "$description": "Horizontal padding for page container on desktop viewports",
-        "metadata": {
-          "level": "core",
-          "category": "layout",
-          "useCase": "Page container padding, main content area horizontal spacing"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Page container padding, main content area horizontal spacing"
+          }
         }
       },
       "page-padding-mobile": {
         "$value": "{primitive.spacing.16}",
         "$type": "dimension",
         "$description": "Horizontal padding for page container on mobile viewports",
-        "metadata": {
-          "level": "core",
-          "category": "layout",
-          "useCase": "Page container padding on mobile devices"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Page container padding on mobile devices"
+          }
         }
       },
       "section-gap": {
         "$value": "{primitive.spacing.64}",
         "$type": "dimension",
         "$description": "Vertical spacing between major page sections on desktop",
-        "metadata": {
-          "level": "core",
-          "category": "layout",
-          "useCase": "Spacing between hero section and content, between content sections"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Spacing between hero section and content, between content sections"
+          }
         }
       },
       "section-gap-mobile": {
         "$value": "{primitive.spacing.48}",
         "$type": "dimension",
         "$description": "Vertical spacing between major page sections on mobile",
-        "metadata": {
-          "level": "core",
-          "category": "layout",
-          "useCase": "Section spacing on mobile devices"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Section spacing on mobile devices"
+          }
         }
       },
       "container-max-width": {
         "$value": "1280px",
         "$type": "dimension",
         "$description": "Maximum width for centered content container (standard desktop)",
-        "metadata": {
-          "level": "core",
-          "category": "layout",
-          "useCase": "Max-width for main content wrapper, page container"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Max-width for main content wrapper, page container"
+          }
         }
       },
       "header-height": {
         "$value": "{primitive.spacing.64}",
         "$type": "dimension",
         "$description": "Standard height for page header/navigation bar",
-        "metadata": {
-          "level": "core",
-          "category": "layout",
-          "useCase": "Top navigation height, header height for fixed positioning"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Top navigation height, header height for fixed positioning"
+          }
         }
       },
       "sidebar-width": {
         "$value": "280px",
         "$type": "dimension",
         "$description": "Standard width for sidebar navigation (desktop)",
-        "metadata": {
-          "level": "core",
-          "category": "layout",
-          "useCase": "Side navigation width, sidebar panels"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Side navigation width, sidebar panels"
+          }
         }
       },
       "content-max-width": {
         "$value": "720px",
         "$type": "dimension",
         "$description": "Maximum width for readable text content (optimal reading length)",
-        "metadata": {
-          "level": "core",
-          "category": "layout",
-          "useCase": "Article content width, form width, text-heavy content containers"
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Article content width, form width, text-heavy content containers"
+          }
         }
       }
     }
