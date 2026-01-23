@@ -8,6 +8,7 @@ export default {
     'src/primitives/**/*.json',
     'src/core/**/*.json',
     'src/semantic/**/*.json',
+    'src/component/**/*.json',
     '!src/**/index.json', // Exclude index.json files to avoid metadata collisions
   ],
   platforms: {

@@ -1,0 +1,90 @@
+{
+  "primitive": {
+    "motion": {
+      "duration": {
+        "instant": {
+          "$value": "100ms",
+          "$type": "duration",
+          "$description": "Instant duration for immediate feedback (100ms)",
+          "metadata": {
+            "level": "primitive",
+            "category": "motion",
+            "useCase": "Hover feedback, toggle switches, immediate interactions"
+          }
+        },
+        "fast": {
+          "$value": "150ms",
+          "$type": "duration",
+          "$description": "Fast duration for quick transitions (150ms)",
+          "metadata": {
+            "level": "primitive",
+            "category": "motion",
+            "useCase": "Button clicks, dropdown open/close, tooltip appear"
+          }
+        },
+        "normal": {
+          "$value": "250ms",
+          "$type": "duration",
+          "$description": "Normal duration for standard transitions (250ms)",
+          "metadata": {
+            "level": "primitive",
+            "category": "motion",
+            "useCase": "Modal open, panel slide, standard animations"
+          }
+        },
+        "slow": {
+          "$value": "400ms",
+          "$type": "duration",
+          "$description": "Slow duration for deliberate transitions (400ms)",
+          "metadata": {
+            "level": "primitive",
+            "category": "motion",
+            "useCase": "Page transitions, complex animations, emphasized movement"
+          }
+        }
+      },
+      "easing": {
+        "linear": {
+          "$value": "cubic-bezier(0, 0, 1, 1)",
+          "$type": "cubicBezier",
+          "$description": "Linear easing - constant speed (no acceleration)",
+          "metadata": {
+            "level": "primitive",
+            "category": "motion",
+            "useCase": "Progress bars, loading indicators, mechanical movement"
+          }
+        },
+        "ease-in": {
+          "$value": "cubic-bezier(0.4, 0, 1, 1)",
+          "$type": "cubicBezier",
+          "$description": "Ease-in - slow start, fast end (accelerating)",
+          "metadata": {
+            "level": "primitive",
+            "category": "motion",
+            "useCase": "Elements leaving screen, fade out, collapse"
+          }
+        },
+        "ease-out": {
+          "$value": "cubic-bezier(0, 0, 0.2, 1)",
+          "$type": "cubicBezier",
+          "$description": "Ease-out - fast start, slow end (decelerating)",
+          "metadata": {
+            "level": "primitive",
+            "category": "motion",
+            "useCase": "Elements entering screen, fade in, expand"
+          }
+        },
+        "ease-in-out": {
+          "$value": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "$type": "cubicBezier",
+          "$description": "Ease-in-out - slow start and end (smooth)",
+          "metadata": {
+            "level": "primitive",
+            "category": "motion",
+            "useCase": "Modal open/close, smooth transitions, general purpose"
+          }
+        }
+      }
+    }
+  }
+}

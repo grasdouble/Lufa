@@ -1,0 +1,61 @@
+{
+  "semantic": {
+    "ui": {
+      "radius-small": {
+        "$value": "{primitive.radius.scale.base}",
+        "$type": "dimension",
+        "$description": "Small border radius for subtle rounding (4px)",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "radius",
+          "useCase": "Badges, tags, tooltips, compact buttons, chips"
+        }
+      },
+      "radius-default": {
+        "$value": "{primitive.radius.scale.lg}",
+        "$type": "dimension",
+        "$description": "Default border radius for standard components (8px - most common)",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "radius",
+          "useCase": "Buttons, inputs, cards, modals, standard rounded corners"
+        }
+      },
+      "radius-medium": {
+        "$value": "{primitive.radius.scale.xl}",
+        "$type": "dimension",
+        "$description": "Medium border radius for emphasized rounding (12px)",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "radius",
+          "useCase": "Large cards, popovers, emphasized components, feature sections"
+        }
+      },
+      "radius-large": {
+        "$value": "16px",
+        "$type": "dimension",
+        "$description": "Large border radius for prominent rounding (16px)",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "radius",
+          "useCase": "Modal dialogs, hero cards, large panels, prominent components"
+        }
+      },
+      "radius-full": {
+        "$value": "{primitive.radius.scale.full}",
+        "$type": "dimension",
+        "$description": "Full border radius for pill-shaped elements (9999px)",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "radius",
+          "useCase": "Badges, pills, circular avatars, fully rounded buttons"
+        }
+      }
+    }
+  }
+}

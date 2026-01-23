@@ -200,6 +200,17 @@
           "category": "ui",
           "useCase": "Info alert borders, help element borders"
         }
+      },
+      "typography-caption": {
+        "$value": "{semantic.typography.caption}",
+        "$type": "dimension",
+        "$description": "Caption text size alias for UI components",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "typography",
+          "useCase": "Caption text, small labels, tooltip text, metadata"
+        }
       }
     }
   }
