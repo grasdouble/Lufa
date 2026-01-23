@@ -1,11 +1,13 @@
 {
   "extends": "@grasdouble/lufa_config_tsconfig/react-library.json",
-  "include": ["src/**/*"],
+  "include": ["dist/tokens.ts"],
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./dist",
     "types": ["node"],
-    "emitDeclarationOnly": true
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "allowJs": true
   },
-  "exclude": ["dist", "build", "node_modules", "scripts"]
+  "exclude": ["node_modules", "scripts"]
 }

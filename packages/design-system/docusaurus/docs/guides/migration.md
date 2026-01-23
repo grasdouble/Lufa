@@ -50,7 +50,6 @@ If you're using design tokens directly:
 ```bash
 # Update token packages
 pnpm update @grasdouble/lufa_design-system-tokens
-pnpm update @grasdouble/lufa_design-system-primitives
 ```
 
 ### Step 4: Run Tests

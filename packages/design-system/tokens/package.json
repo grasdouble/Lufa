@@ -7,22 +7,21 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
+      "types": "./dist/tokens.d.ts",
+      "import": "./dist/tokens.js",
+      "default": "./dist/tokens.js"
     },
-    "./style.css": "./dist/style.css",
     "./tokens.css": "./dist/tokens.css"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/tokens.js",
+  "module": "./dist/tokens.js",
+  "types": "./dist/tokens.d.ts",
   "files": [
     "dist",
     "README.md"
   ],
   "scripts": {
-    "build": "style-dictionary build --config ./style-dictionary.config.js",
+    "build": "pnpm clean && style-dictionary build --config ./style-dictionary.config.js && tsc",
     "build:watch": "style-dictionary build --config ./style-dictionary.config.js --watch",
     "clean": "rm -rf dist",
     "lint": "eslint .",

@@ -1,8 +1,5 @@
 /* Lufa Design System - Vanilla CSS Foundation */
 
-/* Import primitives (raw values) */
-@import '@grasdouble/lufa_design-system-primitives/style.css';
-
 /* Layer definition */
 @layer base, components, utilities;
 
