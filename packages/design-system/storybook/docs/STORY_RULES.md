@@ -421,12 +421,16 @@ const CustomBox = () => <div>...</div>;
 Story colors (`storyColors.ts`) are built from design system primitives:
 
 ```typescript
-// storyColors.ts uses DS primitives internally:
-import {
-  LufaPrimitiveColorBlue100,
-  LufaPrimitiveColorBlue500,
+// storyColors.ts uses DS token values internally:
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
+
+export const PRIMARY_COLORS = {
+  blue: {
+    main: tokens.primitive.color.blue['500'], // #3b82f6
+    light: tokens.primitive.color.blue['100'], // #dbeafe
+  },
   // ...
-} from '@grasdouble/lufa_design-system-tokens';
+};
 ```
 
 This ensures:

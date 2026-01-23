@@ -1,6 +1,6 @@
 # ESLint Rule: No Token Imports in Components
 
-This document explains the ESLint rule that prevents importing design token JS/TS exports in React components.
+This document explains the ESLint rule that prevents importing design tokens in React components.
 
 ---
 
@@ -8,7 +8,9 @@ This document explains the ESLint rule that prevents importing design token JS/T
 
 **Prevent non-themable styling patterns in React components.**
 
-Components must use CSS Modules with CSS custom properties for all styling. Direct token imports bypass the theming system and create hardcoded, non-themable values.
+Components must use CSS Modules with CSS custom properties for all styling. Direct token imports (even from JSON) bypass the theming system and create hardcoded, non-themable values.
+
+**Note:** As of the latest refactor, JS/TS token exports (`tokens.js`, `tokens.d.ts`) have been **removed entirely**. Only CSS and JSON files are now exported. This rule still blocks JSON imports to enforce architectural best practices.
 
 ---
 
@@ -63,23 +65,30 @@ The rule is **disabled** for:
 // src/components/Button/Button.tsx
 
 // ❌ ERROR - ESLint will block this
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 export const Button = () => (
-  <button style={{ color: LufaPrimitiveColorBlue600 }}>Click</button>
+  <button style={{ color: tokens.primitive.color.blue['600'] }}>Click</button>
 );
 ```
 
 **Error message:**
 
 ```
-error  ❌ Do not import token JS/TS exports in React components.
+error  ❌ Do not import tokens in React components.
 
 ✅ Use CSS Modules with CSS custom properties instead:
    .button { color: var(--lufa-primitive-color-blue-600); }
 
 📚 See: packages/design-system/tokens/docs/USAGE_GUIDELINES.md  no-restricted-imports
 ```
+
+**Why this is blocked:**
+
+- Hardcoded values cannot be themed
+- Inline styles bypass CSS cascade
+- Not performant (JS execution for styling)
+- Violates design system architecture
 
 ---
 
@@ -109,7 +118,7 @@ export const Button = () => <button className={styles.button}>Click</button>;
 // src/components/Button/Button.stories.tsx
 
 // ✅ ALLOWED - Story files are exempt
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 import { Button } from './Button';
 
@@ -118,7 +127,7 @@ export default {
   component: Button,
   parameters: {
     design: {
-      tokenValue: LufaPrimitiveColorBlue600, // For documentation
+      primaryColor: tokens.primitive.color.blue['600'], // For documentation
     },
   },
 };
@@ -132,7 +141,7 @@ export default {
 // src/components/Button/Button.test.tsx
 
 // ✅ ALLOWED - Test files are exempt
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 import { render } from '@testing-library/react';
 import { Button } from './Button';
 
@@ -140,7 +149,7 @@ test('button has correct color', () => {
   const { container } = render(<Button />);
   // Use token value for assertion
   expect(container.querySelector('button')).toHaveStyle({
-    color: LufaPrimitiveColorBlue600,
+    color: tokens.primitive.color.blue['600'],
   });
 });
 ```
@@ -153,12 +162,14 @@ test('button has correct color', () => {
 // src/utils/theme-generator.ts
 
 // ✅ ALLOWED - Utility files are exempt
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 export const generateTheme = () => ({
-  primary: LufaPrimitiveColorBlue600,
+  primary: tokens.primitive.color.blue['600'],
 });
 ```
+
+**Note:** Utility files are exempt, but consider if CSS custom properties would be a better solution for your use case.
 
 ---
 
@@ -188,10 +199,10 @@ pnpm lint
 
 ```typescript
 // Button.tsx
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 export const Button = () => (
-  <button style={{ color: LufaPrimitiveColorBlue600 }}>Click</button>
+  <button style={{ color: tokens.primitive.color.blue['600'] }}>Click</button>
 );
 ```
 

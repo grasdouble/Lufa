@@ -1,5 +1,26 @@
 # Design Tokens Usage Guidelines
 
+> ⚠️ **IMPORTANT UPDATE (January 2026):**  
+> JS/TS token exports (`tokens.js`, `tokens.d.ts`) have been **removed** as of tokens v0.5.0.  
+> The package now exports only:
+>
+> - `tokens.css` - CSS custom properties for components
+> - `tokens-values.json` - Simple values for Storybook/documentation
+> - `tokens-metadata.json` - Full metadata (descriptions, WCAG, etc.)
+>
+> **Migration:**
+>
+> ```typescript
+> // ❌ OLD (no longer works)
+> import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+> // ✅ NEW (for Storybook/docs only)
+> import tokens from '@grasdouble/lufa_design-system-tokens/values';
+>
+> const blue600 = tokens.primitive.color.blue['600'];
+> ```
+>
+> **For React components:** No change needed - continue using CSS Modules with CSS custom properties.
+
 This document provides detailed guidelines on how to correctly use Lufa Design System tokens in different contexts.
 
 ---
