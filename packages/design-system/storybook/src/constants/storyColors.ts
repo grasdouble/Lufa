@@ -32,9 +32,9 @@
  * ```
  */
 
-// Import tokens from JSON documentation (not JS exports)
+// Import tokens from JSON values (simple values for Storybook usage)
 // This approach ensures we're using the canonical token values without deprecated JS exports
-import tokens from '@grasdouble/lufa_design-system-tokens/dist/tokens-docs.json';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 /**
  * Color definition with main color and light background variant

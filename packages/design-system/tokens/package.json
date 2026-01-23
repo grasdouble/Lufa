@@ -6,11 +6,12 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    ".": "./dist/tokens-docs.json",
+    ".": "./dist/tokens-values.json",
     "./tokens.css": "./dist/tokens.css",
-    "./dist/tokens-docs.json": "./dist/tokens-docs.json"
+    "./values": "./dist/tokens-values.json",
+    "./metadata": "./dist/tokens-metadata.json"
   },
-  "main": "./dist/tokens-docs.json",
+  "main": "./dist/tokens-values.json",
   "files": [
     "dist",
     "README.md"

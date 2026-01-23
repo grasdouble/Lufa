@@ -7,7 +7,7 @@ import Heading from '@theme/Heading';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 
-import tokens from '@grasdouble/lufa_design-system-tokens/dist/tokens-docs.json';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 import styles from './index.module.css';
 
