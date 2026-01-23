@@ -423,8 +423,8 @@ Story colors (`storyColors.ts`) are built from design system primitives:
 ```typescript
 // storyColors.ts uses DS primitives internally:
 import {
-  PrimitiveColorBlue100,
-  PrimitiveColorBlue500,
+  LufaPrimitiveColorBlue100,
+  LufaPrimitiveColorBlue500,
   // ...
 } from '@grasdouble/lufa_design-system-tokens';
 ```
