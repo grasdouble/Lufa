@@ -531,7 +531,7 @@ pnpm --filter @grasdouble/lufa_design-system generate:utilities Box
 
 - Utilities system: `packages/design-system/main/scripts/README.md`
 - Token architecture: `_bmad-output/phase-5-preparation-complete-summary.md`
-- Phase 5A plan: `_bmad-output/analysis/brainstorming-session-2026-01-22.md`
+- Phase 5A plan: `_bmad-output/analysis/design-system-new-architecture/brainstorming-session-2026-01-22.md`
 
 ---
 

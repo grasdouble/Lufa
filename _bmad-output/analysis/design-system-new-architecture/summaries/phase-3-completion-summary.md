@@ -532,7 +532,7 @@ Primitive Tokens (Level 1)
 
 - Phase 1: `phase-1-completion-summary.md` (103 primitives)
 - Phase 2: `phase-2-completion-summary.md` (58 core)
-- Brainstorming: `brainstorming-session-2026-01-22.md` (architecture decisions)
+- Brainstorming: `../brainstorming-session-2026-01-22.md` (architecture decisions)
 
 ---
 

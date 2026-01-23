@@ -101,8 +101,8 @@ Phase 0: Actions Critiques PRÉ-Implémentation
 
 **Livrables:**
 
-- ✅ `_bmad-output/pocs/css-cascade-performance-test.html` (fixed, working)
-- ✅ `_bmad-output/pocs/performance-results.md` (complete with all test data)
+- ✅ `archive/pocs/css-cascade-performance-test.html` (fixed, working)
+- ✅ `archive/pocs/performance-results.md` (complete with all test data)
 
 ---
 

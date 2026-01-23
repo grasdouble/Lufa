@@ -307,7 +307,7 @@ semantic/
 ## 📚 Reference Links
 
 - **Original Phase 3 Summary:** `_bmad-output/analysis/phase-3-completion-summary.md`
-- **Architecture Decisions:** `_bmad-output/analysis/brainstorming-session-2026-01-22.md`
+- **Architecture Decisions:** `../brainstorming-session-2026-01-22.md`
 - **Current Build Config:** `packages/design-system/tokens/style-dictionary.config.js`
 - **Phase 3 Tokens:** `packages/design-system/tokens/src/semantic/**/*.json`
 
@@ -315,9 +315,9 @@ semantic/
 
 ## 🔗 Related Documents
 
-- [MASTER-STATUS.md](./_MASTER-STATUS.md) - Overall project status
-- [roadmap-implementation-v2.0.md](./roadmap-implementation-v2.0.md) - Phase 0-8 roadmap
-- [phase-3-completion-summary.md](./phase-3-completion-summary.md) - Phase 3 original completion
+- [MASTER-STATUS.md](../MASTER-STATUS.md) - Overall project status
+- [roadmap-implementation-v2.0.md](../roadmap-implementation-v2.0.md) - Phase 0-8 roadmap
+- [phase-3-completion-summary.md](../summaries/phase-3-completion-summary.md) - Phase 3 original completion
 - [tokens-verification-primitives-core.md](./tokens-verification-primitives-core.md) - Phase 1-2 verification
 
 ---

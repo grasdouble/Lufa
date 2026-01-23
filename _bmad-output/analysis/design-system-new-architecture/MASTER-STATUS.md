@@ -672,7 +672,7 @@ Current:        99% ████████████████████
 
 - **Scope Definition:** `docs/roadmap/v2.0-scope.md`
 - **Onboarding Guide:** `docs/contributors/your-first-token.md`
-- **POC Performance:** `_bmad-output/pocs/performance-results.md`
+- **POC Performance:** `archive/pocs/performance-results.md`
 
 ### Code & Scripts
 

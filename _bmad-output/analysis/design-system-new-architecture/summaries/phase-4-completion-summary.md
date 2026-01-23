@@ -532,23 +532,23 @@ src/component/
 
 **Phase Summaries:**
 
-- [Phase 0 Summary](./_bmad-output/analysis/phase-0-complete-summary.md)
-- [Phase 1 Summary](./_bmad-output/analysis/phase-1-completion-summary.md)
-- [Phase 2 Summary](./_bmad-output/analysis/phase-2-completion-summary.md)
-- [Phase 3 Summary](./_bmad-output/analysis/phase-3-completion-summary.md)
-- [Phase 3 Extension](./_bmad-output/analysis/phase-3-extended-additional-semantic-tokens.md)
+- [Phase 0 Summary](./phase-0-complete-summary.md)
+- [Phase 1 Summary](./phase-1-completion-summary.md)
+- [Phase 2 Summary](./phase-2-completion-summary.md)
+- [Phase 3 Summary](./phase-3-completion-summary.md)
+- [Phase 3 Extension](./phase-3-extended-additional-semantic-tokens.md)
 - **Phase 4 Summary** (this document)
 
 **Architecture Decisions:**
 
-- [Brainstorming Session 2026-01-22](./_bmad-output/analysis/brainstorming-session-2026-01-22.md)
-- [Token Cleanup Proposal](./_bmad-output/analysis/proposition-nettoyage-tokens-aliases.md)
-- [Phase 4 Blocker Analysis](./_bmad-output/analysis/phase-4-blocker-missing-semantic-tokens.md)
+- [Brainstorming Session 2026-01-22](../brainstorming-session-2026-01-22.md)
+- [Token Cleanup Proposal](./proposition-nettoyage-tokens-aliases.md)
+- [Phase 4 Blocker Analysis](../studies/phase-4-blocker-missing-semantic-tokens.md)
 
 **Project Status:**
 
-- [Master Status](./_bmad-output/analysis/MASTER-STATUS.md)
-- [Roadmap v2.0](./_bmad-output/analysis/roadmap-implementation-v2.0.md)
+- [Master Status](../MASTER-STATUS.md)
+- [Roadmap v2.0](../roadmap-implementation-v2.0.md)
 
 ---
 

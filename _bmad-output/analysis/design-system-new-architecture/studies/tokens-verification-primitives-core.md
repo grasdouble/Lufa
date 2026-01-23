@@ -646,7 +646,7 @@ Les 2 ajustements identifiés sont **non-bloquants** et peuvent être adressés 
 
 **Documents consultés:**
 
-1. `_bmad-output/analysis/brainstorming-session-2026-01-22.md` (57KB) - Décisions architecturales
+1. `../brainstorming-session-2026-01-22.md` (57KB) - Décisions architecturales
 2. `packages/design-system/tokens/src/primitives/**/*.json` - Primitives Phase 1
 3. `packages/design-system/tokens/src/core/**/*.json` - Core Phase 2
 4. `_bmad-output/analysis/phase-1-completion-summary.md` - Phase 1 détails

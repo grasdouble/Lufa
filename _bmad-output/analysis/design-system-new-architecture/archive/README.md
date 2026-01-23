@@ -10,8 +10,10 @@ This directory contains archived documentation from previous versions, completed
 
 ```
 archive/
+├── pocs/                       # Phase 0 POC performance tests
 ├── phase-0/                    # Phase 0 intermediate summaries
 ├── phase-2/                    # Phase 2 planning documents
+├── phase-5a/                   # Phase 5A empty (placeholder)
 ├── v1-migration/               # v1.x → v2.0 migration docs
 ├── tokens-source-v1/           # Complete v1.x token architecture
 ├── sessions/                   # Working session summaries
@@ -22,7 +24,23 @@ archive/
 
 ## 📁 Archive Contents
 
-### 1. phase-0/ (4 files)
+### 1. pocs/ (2 files + README)
+
+**Phase 0 POC performance tests** - CSS cascade performance validation
+
+- `README.md` - POC archive explanation
+- `css-cascade-performance-test.html` - Interactive performance test HTML
+- `performance-results.md` - Complete test results and findings
+
+**Why archived:** POC complete. Architecture validated for production (8.00ms << 16ms target).
+
+**Key findings:** 4-level CSS cascade performs at 60fps with negligible overhead (+1.3%).
+
+**Reference:** `phase-0/phase-0-action-1-summary.md`
+
+---
+
+### 2. phase-0/ (4 files)
 
 **Phase 0 intermediate summaries** - superseded by `phase-0-complete-summary.md`
 
@@ -37,7 +55,7 @@ archive/
 
 ---
 
-### 2. phase-2/ (4 files)
+### 3. phase-2/ (4 files)
 
 **Phase 2 planning and preview documents** - planning complete, tokens implemented
 
@@ -56,7 +74,19 @@ archive/
 
 ---
 
-### 3. v1-migration/ (4 files)
+### 4. phase-5a/ (empty placeholder)
+
+**Phase 5A placeholder** - reserved for future archiving
+
+- Currently empty (Phase 5A work is active in `current/phase-5a/`)
+
+**Why exists:** Placeholder to maintain consistent archive structure.
+
+**Active work:** `current/phase-5a/`
+
+---
+
+### 5. v1-migration/ (4 files)
 
 **v1.x TypeScript → v2.0 JSON migration documentation**
 
@@ -71,7 +101,7 @@ archive/
 
 ---
 
-### 4. tokens-source-v1/ (15 JSON files, ~60 KB)
+### 6. tokens-source-v1/ (15 JSON files, ~60 KB)
 
 **Complete v1.x token architecture** before v2.0 refactoring
 
@@ -98,7 +128,7 @@ tokens-source-v1/
 
 ---
 
-### 5. sessions/ (3 files)
+### 7. sessions/ (3 files)
 
 **Working session summaries** - historical records of major work sessions
 
@@ -111,7 +141,7 @@ tokens-source-v1/
 
 ---
 
-### 6. tools/ (2 files)
+### 8. tools/ (2 files)
 
 **Archived automation tools** - superseded by AI routine
 
@@ -128,12 +158,15 @@ tokens-source-v1/
 
 | Need                       | Archive Location                           |
 | -------------------------- | ------------------------------------------ |
+| POC performance tests      | `pocs/`                                    |
 | Phase 0 intermediate docs  | `phase-0/`                                 |
 | Phase 2 planning process   | `phase-2/`                                 |
 | v1 → v2 migration history  | `v1-migration/`                            |
 | v1.x token architecture    | `tokens-source-v1/`                        |
 | Working session records    | `sessions/`                                |
 | Archived automation tools  | `tools/`                                   |
+| Performance test HTML      | `pocs/css-cascade-performance-test.html`   |
+| Performance results        | `pocs/performance-results.md`              |
 | Old token values reference | `tokens-source-v1/primitives/`             |
 | Migration tracking         | `v1-migration/MIGRATION_STATUS.md`         |
 | Phase 2 preview (visual)   | `phase-2/phase-2-core-tokens-preview.html` |
@@ -145,13 +178,15 @@ tokens-source-v1/
 
 | Category          | Files  | Total Size  | Oldest Date    | Newest Date    |
 | ----------------- | ------ | ----------- | -------------- | -------------- |
-| phase-0/          | 4      | ~60 KB      | 2026-01-22     | 2026-01-22     |
+| pocs/             | 3      | ~44 KB      | 2026-01-22     | 2026-01-23     |
+| phase-0/          | 4      | ~60 KB      | 2026-01-22     | 2026-01-23     |
 | phase-2/          | 4      | ~52 KB      | 2026-01-23     | 2026-01-23     |
+| phase-5a/         | 0      | 0 KB        | -              | -              |
 | v1-migration/     | 4      | ~46 KB      | 2026-01-22     | 2026-01-22     |
 | tokens-source-v1/ | 16     | ~60 KB      | 2026-01-21     | 2026-01-22     |
 | sessions/         | 4      | ~30 KB      | 2026-01-23     | 2026-01-23     |
 | tools/            | 2      | ~5 KB       | 2026-01-23     | 2026-01-23     |
-| **Total**         | **34** | **~253 KB** | **2026-01-21** | **2026-01-23** |
+| **Total**         | **37** | **~297 KB** | **2026-01-21** | **2026-01-23** |
 
 ---
 

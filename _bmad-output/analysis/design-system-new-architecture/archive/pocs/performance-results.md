@@ -340,9 +340,9 @@ Test Method: Automated via Chrome DevTools MCP protocol
 
 ## 🔗 Références
 
-- **Roadmap v2.0:** `_bmad-output/analysis/roadmap-implementation-v2.0.md`
-- **Brainstorming Session:** `_bmad-output/analysis/brainstorming-session-2026-01-22.md`
-- **Test HTML:** `_bmad-output/pocs/css-cascade-performance-test.html`
+- **Roadmap v2.0:** `../../roadmap-implementation-v2.0.md`
+- **Brainstorming Session:** `../../brainstorming-session-2026-01-22.md`
+- **Test HTML:** `css-cascade-performance-test.html`
 
 ---
 

@@ -58,7 +58,7 @@ Component Tokens (Niveau 3)
 
 ### Critical Bugs in POC HTML
 
-**File:** `_bmad-output/pocs/css-cascade-performance-test.html`
+**File:** `archive/pocs/css-cascade-performance-test.html`
 
 **Issues Found:**
 
@@ -138,8 +138,8 @@ Temps (ms)
 
 ### Completed
 
-- ✅ `_bmad-output/pocs/css-cascade-performance-test.html` - Fixed and working POC
-- ✅ `_bmad-output/pocs/performance-results.md` - Complete test results documentation
+- ✅ `archive/pocs/css-cascade-performance-test.html` - Fixed and working POC
+- ✅ `archive/pocs/performance-results.md` - Complete test results documentation
 - ✅ `_bmad-output/analysis/roadmap-implementation-v2.0.md` - Updated with Phase 0 Action #1 completion
 - ✅ `_bmad-output/analysis/phase-0-action-1-summary.md` - This summary document
 
@@ -153,8 +153,8 @@ Temps (ms)
 
 **Files:**
 
-- POC HTML: `_bmad-output/pocs/css-cascade-performance-test.html`
-- Results: `_bmad-output/pocs/performance-results.md`
+- POC HTML: `archive/pocs/css-cascade-performance-test.html`
+- Results: `archive/pocs/performance-results.md`
 - Raw console output: Captured in test runs
 
 ---
@@ -213,9 +213,9 @@ Once all Phase 0 actions complete, move to:
 ## 🔗 Related Documents
 
 - **Roadmap:** `_bmad-output/analysis/roadmap-implementation-v2.0.md`
-- **Brainstorming:** `_bmad-output/analysis/brainstorming-session-2026-01-22.md`
-- **Test Results:** `_bmad-output/pocs/performance-results.md`
-- **POC HTML:** `_bmad-output/pocs/css-cascade-performance-test.html`
+- **Brainstorming:** `../../brainstorming-session-2026-01-22.md`
+- **Test Results:** `../pocs/performance-results.md`
+- **POC HTML:** `../pocs/css-cascade-performance-test.html`
 
 ---
 

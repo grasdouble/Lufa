@@ -45,8 +45,8 @@ Valider que l'architecture 4-niveaux ne cause pas de problème de performance re
 
 ### Livrables
 
-1. ✅ `_bmad-output/pocs/css-cascade-performance-test.html` (POC fixé)
-2. ✅ `_bmad-output/pocs/performance-results.md` (résultats complets)
+1. ✅ `../archive/pocs/css-cascade-performance-test.html` (POC fixé)
+2. ✅ `../archive/pocs/performance-results.md` (résultats complets)
 3. ✅ `_bmad-output/analysis/roadmap-implementation-v2.0.md` (mis à jour)
 4. ✅ `_bmad-output/analysis/phase-0-action-1-summary.md` (récapitulatif)
 
@@ -203,8 +203,8 @@ Après Action #3:   99% confidence (maintenu - solidifié par scope)
 
 **Créés:**
 
-1. `_bmad-output/pocs/css-cascade-performance-test.html` (783 lignes)
-2. `_bmad-output/pocs/performance-results.md` (352 lignes)
+1. `../archive/pocs/css-cascade-performance-test.html` (783 lignes)
+2. `../archive/pocs/performance-results.md` (352 lignes)
 3. `_bmad-output/analysis/phase-0-action-1-summary.md` (250+ lignes)
 
 **Modifiés:**
@@ -415,9 +415,9 @@ Phase 3-6: Tooling, Documentation, Testing, Release
 
 **Action #1 (Performance):**
 
-- 📊 [Performance Results](../pocs/performance-results.md)
-- 🧪 [POC HTML](../pocs/css-cascade-performance-test.html)
-- 📝 [Summary Action #1](./phase-0-action-1-summary.md)
+- 📊 [Performance Results](../archive/pocs/performance-results.md)
+- 🧪 [POC HTML](../archive/pocs/css-cascade-performance-test.html)
+- 📝 [Summary Action #1](./archive/phase-0/phase-0-action-1-summary.md)
 
 **Action #2 (Maintenance):**
 
@@ -425,7 +425,7 @@ Phase 3-6: Tooling, Documentation, Testing, Release
 - ✂️ [VSCode Snippets](../../.vscode/lufa-tokens.code-snippets)
 - 📚 [Onboarding Guide](../../docs/contributors/your-first-token.md)
 - 🤖 [GitHub Workflow](../../.github/workflows/validate-tokens.yml)
-- 📝 [Summary Action #2](./phase-0-action-2-summary.md)
+- 📝 [Summary Action #2](./archive/phase-0/phase-0-action-2-summary.md)
 
 **Action #3 (Scope):**
 
@@ -434,9 +434,9 @@ Phase 3-6: Tooling, Documentation, Testing, Release
 
 **Global:**
 
-- 🗺️ [Roadmap v2.0](./roadmap-implementation-v2.0.md) (mis à jour - confidence 99%)
-- 💡 [Brainstorming Session](./brainstorming-session-2026-01-22.md)
-- 📋 [Actions #1 & #2 Summary](./phase-0-actions-1-2-complete-summary.md)
+- 🗺️ [Roadmap v2.0](../roadmap-implementation-v2.0.md) (mis à jour - confidence 99%)
+- 💡 [Brainstorming Session](../brainstorming-session-2026-01-22.md)
+- 📋 [Actions #1 & #2 Summary](./archive/phase-0/phase-0-actions-1-2-complete-summary.md)
 
 ---
 

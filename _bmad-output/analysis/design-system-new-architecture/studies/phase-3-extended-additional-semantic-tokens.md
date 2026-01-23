@@ -342,10 +342,10 @@ $ grep -c "^  --component-" dist/tokens.css
 
 ## 📚 Related Documentation
 
-- **Original Phase 3 Summary:** `phase-3-completion-summary.md` (78 tokens)
+- **Original Phase 3 Summary:** `../summaries/phase-3-completion-summary.md` (78 tokens)
 - **Phase 4 Blocker Report:** `phase-4-blocker-missing-semantic-tokens.md`
-- **Phase 4 Completion:** `phase-4-completion-summary.md` (to be created)
-- **Architecture Decisions:** `brainstorming-session-2026-01-22.md`
+- **Phase 4 Completion:** `../summaries/phase-4-completion-summary.md` (to be created)
+- **Architecture Decisions:** `../brainstorming-session-2026-01-22.md`
 
 ---
 

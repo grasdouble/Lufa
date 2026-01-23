@@ -1,385 +1,569 @@
-# 📁 Analysis Documentation
+# 📊 Analysis Projects Index
 
-Ce dossier contient l'analyse, la planification et le suivi du projet **Lufa Design System v2.0**.
-
----
-
-## 🎯 Documents Principaux (À Consulter Régulièrement)
-
-### 1. ⭐ MASTER-STATUS.md (16KB)
-
-**Rôle:** Status actuel du projet - Quick reference
-
-**Quand le consulter:**
-
-- 🚀 Début de session → "Où en sommes-nous?"
-- 💬 Quelqu'un demande le status
-- 📊 Besoin de métriques rapides
-- ✅ Voir prochaines actions immédiates
-
-**Contenu:**
-
-- Executive summary (progress bars)
-- Phase status overview (table complète)
-- Détails phases 0-8
-- Métriques & risques
-- FAQs & immediate next actions
-
-**Mise à jour:** Après chaque phase complétée
+> **Purpose:** This directory contains structured analysis and planning documentation for complex, multi-phase projects in the Lufa monorepo. Each subdirectory represents a distinct analysis project with its own lifecycle, phases, and deliverables.
 
 ---
 
-### 2. ⭐ roadmap-implementation-v2.0.md (24KB)
+## 📘 Documentation Resources
 
-**Rôle:** Plan détaillé complet - Phases 0-8
+### For Creating New Projects
 
-**Quand le consulter:**
+**🚀 Start here:**
 
-- 📅 Planification d'une nouvelle phase
-- 🔍 Détails d'une phase spécifique
-- 📝 Voir toutes les tasks d'une phase
-- 🎯 Comprendre les phases futures
+- **[QUICK-START.md](QUICK-START.md)** - ⚡ 5-minute quick reference for creating new projects
+  - 3-step setup process
+  - Verification checklist
+  - Common questions answered
+  - **Perfect for: Getting started fast**
 
-**Contenu:**
+**📚 Deep dive:**
 
-- Vue d'ensemble avec catégories (TOKENS → COMPONENTS → TOOLING)
-- Phase 0: Actions critiques (3 actions)
-- Phases 1-4: Tokens (architecture 4 niveaux)
-- Phases 5-6: Composants React
-- Phases 7-8: Tooling & Release
-- Métriques de succès
-- Risques & timeline
+- **[PROJECT-ORGANIZATION-GUIDE.md](PROJECT-ORGANIZATION-GUIDE.md)** - 📖 Comprehensive guide (1754 lines)
+  - Complete directory structure templates
+  - File naming conventions
+  - Detailed workflow instructions
+  - AI agent guidelines
+  - Real-world example walkthroughs
+  - Decision trees and checklists
+  - **Perfect for: Understanding the system deeply**
 
-**Mise à jour:** Après chaque phase complétée
+**📦 Ready to use:**
+
+- **[\_PROJECT-TEMPLATE/](_PROJECT-TEMPLATE/)** - 📦 Template directory to copy
+  - All required files with placeholders
+  - Pre-configured subdirectories (archive, current, summaries, studies)
+  - Template README files for each subdirectory
+  - **Perfect for: Starting your project immediately**
+
+### Quick Start for New Project
+
+```bash
+# 1. Copy template
+cp -r _bmad-output/analysis/_PROJECT-TEMPLATE _bmad-output/analysis/your-project-name
+
+# 2. Fill in templates (replace {placeholders})
+# Edit: MASTER-STATUS.md, README.md, and subdirectory READMEs
+
+# 3. Add to this index (see "Active Projects" table below)
+
+# 4. Start working!
+```
+
+**See [QUICK-START.md](QUICK-START.md) for 5-minute setup guide or [PROJECT-ORGANIZATION-GUIDE.md](PROJECT-ORGANIZATION-GUIDE.md) Section F for detailed instructions.**
 
 ---
 
-### 3. ⭐ Phase Summaries
+## 🎯 Active Projects
 
-**Phase Completion Summaries:**
+| Project Name                      | Status               | Current Phase               | Last Updated | Entry Point        |
+| --------------------------------- | -------------------- | --------------------------- | ------------ | ------------------ |
+| `design-system-new-architecture/` | 🟢 Phase 5 Prep Done | Phase 5A - React Components | 2026-01-23   | `MASTER-STATUS.md` |
 
-- `phase-0-complete-summary.md` (18KB) - Détails complets Phase 0
-- `phase-1-completion-summary.md` (27KB) - Détails Phase 1: Primitive Tokens (103 tokens)
-- `phase-2-completion-summary.md` (22KB) - Détails Phase 2: Core Tokens (58 tokens)
+### Project Details
 
-**Quand les consulter:**
+#### 🎨 Design System New Architecture (v2.0)
 
-- 🔍 Besoin de détails sur une phase spécifique
-- 📚 Référence sur les tokens créés
-- 🎯 Comprendre les décisions techniques
-- 📊 Voir les résultats et livrables
+**Goal:** Rebuild design system with proper 4-layer token architecture (Primitives → Core → Semantic → Component)
 
-**Mise à jour:** Créés après chaque phase complétée
+**Progress:**
 
----
+- ✅ 438 tokens created (100% architecture complete)
+- ✅ DTCG format compliance: 100%
+- ✅ Phases 0-5 Prep: Complete
+- ⏳ Next: Phase 5A - React Component Implementation (7 components)
 
-## 🛠️ Système de Maintenance
+**Key Achievements:**
 
-### 4. 🤖 AI-ROUTINE-auto-update-docs.md (10KB) ⭐ **AUTOMATIQUE**
+- Architecture validated via performance POC (8ms << 16ms threshold)
+- Automation tools deployed (93% time reduction)
+- Strict scope defined (anti-scope-creep strategy)
 
-**Rôle:** Routine automatique de Mary (AI) pour mise à jour docs
+**Next Steps:**
 
-**Ce qui se passe automatiquement:**
-
-- ✅ Après chaque phase complétée, Mary met à jour automatiquement:
-  - phase-X-completion-summary.md (créé)
-  - MASTER-STATUS.md (mis à jour)
-  - roadmap-implementation-v2.0.md (mis à jour)
-- ✅ Vérifie la cohérence entre les 2 docs
-- ✅ Calcule les métriques (token count, %)
-- ✅ Fournit commande git prête
-
-**Tu n'as plus besoin de:**
-
-- ❌ Demander "mets à jour les docs"
-- ❌ Calculer les métriques manuellement
-- ❌ Vérifier la cohérence
-- ❌ Te rappeler quoi mettre à jour
-
-**Tu dois juste:** Review + Git commit (commande fournie) ✅
+1. Implement 4 core components: Box, Text, Stack, Icon
+2. Implement 3 UI components: Button, Badge, Divider
+3. Estimated duration: 1-2 weeks
 
 ---
 
-### 5. 📋 CHECKLIST-update-documentation.md (8KB)
+## 🤖 Workflow Rules for AI Agents
 
-**Rôle:** Guide étape par étape (si mise à jour manuelle nécessaire)
+### Critical Agent Coordination Protocol
 
-**Quand l'utiliser:**
+#### 👤 Role Definition: Mary (Analyst Agent)
 
-- 🔧 En cas de problème avec routine AI
-- 📚 Pour comprendre le processus de mise à jour
-- 🔍 Vérifier qu'on n'a rien oublié
+**Mary's Responsibilities:**
 
-**Contenu:**
+- **Coordinator & Validator** - Orchestrates work, validates deliverables
+- **NOT an Implementer** - Does not write code or execute implementation tasks
+- **Question Collector** - Aggregates questions from subagents and presents to user
 
-- Checklist en 5 étapes
-- Sections à mettre à jour dans chaque document
-- Vérifications croisées
-- Exemple concret (Phase 3)
+#### 📋 Rule 1: Mandatory Delegation
+
+**✅ ALL implementation tasks MUST be delegated to subagents using the Task tool**
+
+This includes:
+
+- Writing code (components, tokens, utilities)
+- Creating/modifying configuration files
+- Running builds or validation scripts
+- File operations (create, edit, move, delete)
+- Git operations (commit, branch management)
+- Test writing and execution
+
+**❌ Mary does NOT:**
+
+- Use `Edit`, `Write`, `Bash` tools directly for implementation
+- Write production code
+- Execute build commands
+- Commit changes
+
+**✅ Mary DOES:**
+
+- Use `Read`, `Grep`, `Glob` tools to gather context
+- Analyze current state and plan next steps
+- Delegate work via Task tool
+- Validate completed work
+- Update analysis documents (MASTER-STATUS.md, phase summaries)
+
+#### 📋 Rule 2: Mary as Coordinator
+
+**Workflow:**
+
+```
+User Request
+    ↓
+Mary reads current status (Read/Grep/Glob)
+    ↓
+Mary creates implementation plan
+    ↓
+Mary delegates to subagent(s) (Task tool)
+    ↓
+Subagent executes & reports back
+    ↓
+Mary validates deliverable
+    ↓
+Mary updates MASTER-STATUS.md
+    ↓
+Mary reports to user
+```
+
+**Example Delegation:**
+
+```markdown
+Task: "Implement Box component with system props"
+Context: [Provide token paths, requirements, patterns]
+Expected Output: [List specific files/deliverables]
+Questions to Ask User: [If any unknowns exist]
+```
+
+#### 📋 Rule 3: Validation Only, Not Execution
+
+**Mary's validation checklist:**
+
+- ✅ Files created in correct locations
+- ✅ Code follows project standards (from AGENTS.md)
+- ✅ Tests included and passing
+- ✅ Documentation updated
+- ✅ No errors reported by subagent
+
+**If validation fails:**
+
+1. Document specific issues clearly
+2. Delegate fix to subagent with precise instructions
+3. Re-validate after fix
+
+#### 📋 Rule 4: Subagent Status Protocol
+
+**Subagents must report back with:**
+
+```markdown
+## Status: [SUCCESS | BLOCKED | QUESTIONS]
+
+### Deliverables
+
+- [x] File 1: path/to/file.ts
+- [x] File 2: path/to/file.test.ts
+- [ ] File 3: path/to/file.md (blocked - see below)
+
+### Issues/Blockers
+
+- Issue 1: [Description]
+- Issue 2: [Description]
+
+### Questions for User (if any)
+
+1. Question about requirement X
+2. Question about approach Y
+```
+
+#### 📋 Rule 5: Question Aggregation
+
+**When subagent has questions:**
+
+1. **Mary collects questions** from subagent's report
+2. **Mary organizes questions** by priority/category
+3. **Mary presents to user** in clear format:
+
+```markdown
+## 🙋 Questions from Subagent - [Task Name]
+
+### High Priority (Blockers)
+
+1. **Token naming:** Should on-hover use `on-hover` or `onHover` pattern?
+   - Context: Affects 12 component tokens
+   - Impact: High (consistency across system)
+
+### Medium Priority (Clarifications)
+
+2. **Variant scope:** Should Button support `ghost` variant in v2.0?
+   - Context: Not in original scope doc
+   - Impact: Medium (adds 1 day of work)
+
+### Low Priority (Nice-to-have)
+
+3. **Documentation style:** Prefer JSDoc or separate .md files?
+   - Context: Component documentation approach
+   - Impact: Low (can standardize later)
+```
+
+4. **User answers**
+5. **Mary forwards answers** to subagent to continue work
 
 ---
 
-### 6. 📖 MAINTENANCE-SYSTEM.md (8KB)
+## 📁 Project Structure Guidelines
 
-**Rôle:** Documentation du système de maintenance
-
-**Quand le consulter:**
-
-- 🤔 "Comment maintenir les docs à jour?"
-- 🛠️ Comprendre les outils disponibles
-- 📊 Workflow recommandés
-- ❓ FAQ sur la maintenance
-
-**Contenu:**
-
-- 3 approches (Manual, Script, AI)
-- Outils disponibles (checklist, script bash)
-- Vérifications critiques
-- Exemples complets
-
----
-
-## 📚 Documents Historiques
-
-### 7. brainstorming-session-2026-01-22.md (57KB)
-
-**Rôle:** Session initiale de brainstorming v2.0
-
-**Quand le consulter:**
-
-- 🧠 Comprendre les décisions initiales
-- 🎯 Voir les alternatives considérées
-- 📖 Contexte historique du projet
-
-**Contenu:**
-
-- Brainstorming complet architecture
-- Décisions prises (4 niveaux tokens, etc.)
-- Alternatives rejetées et pourquoi
-
----
-
-## 📦 Archives
-
-### 📁 archive/ (5 sous-dossiers, 30 fichiers, ~243 KB)
-
-**Structure complète:**
+### Required Structure for Each Project
 
 ```
-archive/
-├── phase-0/          (4 files) - Phase 0 intermediate summaries
-├── phase-2/          (4 files) - Phase 2 planning documents
-├── v1-migration/     (4 files) - v1.x → v2.0 migration docs
-├── tokens-source-v1/ (15 files) - Complete v1.x token architecture
-└── sessions/         (3 files) - Working session summaries
-```
-
-**Voir:** `_bmad-output/analysis/archive/README.md` pour détails complets
-
-**Raison archivage:**
-
-- Summaries intermédiaires remplacés par docs complets
-- Planning documents après complétion des phases
-- Migration docs après migration complète
-- Ancienne architecture v1.x (référence historique)
-- Session records (historique des décisions)
-
----
-
-## 🚀 Quick Start Guide
-
-### Scénario 1: "Je démarre une session de travail"
-
-```
-1. Ouvrir MASTER-STATUS.md
-2. Lire "Executive Summary" (30 secondes)
-3. Voir "What's Next" → Phase 3: Semantic Tokens
-4. Lire "Immediate Next Actions" → Step-by-step guide
-```
-
-### Scénario 2: "Je viens de finir Phase 3"
-
-```
-1. Mary met à jour AUTOMATIQUEMENT:
-   - phase-3-completion-summary.md
-   - MASTER-STATUS.md
-   - roadmap-implementation-v2.0.md
-2. Mary t'informe avec vérification cohérence
-3. Mary fournit commande git
-4. Tu fais: git add + commit (commande fournie)
-```
-
-**Temps total:** ~2 minutes (juste review + commit) ✅
-
-1. Créer phase-3-completion-summary.md
-2. Lancer: bash scripts/update-docs-after-phase.sh
-3. Copier-coller les snippets générés
-4. Suivre CHECKLIST-update-documentation.md
-5. Vérifier cohérence MASTER-STATUS ↔ Roadmap
-6. Git commit
-
-```
-
-### Scénario 3: "Je veux planifier Phase 5"
-
-```
-
-1. Ouvrir roadmap-implementation-v2.0.md
-2. Chercher "## Phase 5: Core Components"
-3. Lire objectifs, composants, livrables
-4. Consulter docs/roadmap/v2.0-scope.md pour détails
-
-```
-
-### Scénario 4: "On me demande le status du projet"
-
-```
-
-1. Ouvrir MASTER-STATUS.md
-2. Section "Executive Summary":
-   - 241/361 tokens (67%)
-   - Phase 3 COMPLETE
-   - Phase 4 NEXT
-3. Partager ce document (1 page résumé)
-
-```
-
----
-
-## 📊 Structure Logique
-
-```
-
-\_bmad-output/analysis/
+project-name/
+├── MASTER-STATUS.md           # 🔴 REQUIRED - Single source of truth
+│   ├── Executive Summary
+│   ├── Current Phase Status
+│   ├── Next Steps
+│   ├── Phase History
+│   └── Links to detailed docs
 │
-├── 🎯 STATUS & PLANNING (Active)
-│ ├── MASTER-STATUS.md ← Status actuel (quick ref)
-│ ├── roadmap-implementation-v2.0.md ← Plan détaillé (phases 0-8)
-│ ├── phase-0-complete-summary.md ← Détails Phase 0
-│ ├── phase-1-completion-summary.md ← Détails Phase 1
-│ └── phase-2-completion-summary.md ← Détails Phase 2
-│
-├── 🛠️ MAINTENANCE SYSTEM (Outils)
-│ ├── AI-ROUTINE-auto-update-docs.md ⭐ ← Routine automatique Mary
-│ ├── CHECKLIST-update-documentation.md ← Guide mise à jour (backup)
-│ └── MAINTENANCE-SYSTEM.md ← Documentation système
-│
-├── 📚 HISTORY (Référence)
-│ └── brainstorming-session-2026-01-22.md ← Brainstorming initial
-│
-└── 📦 ARCHIVES (Historical)
-├── phase-0/ ← Summaries Phase 0 intermédiaires
-└── sessions/ ← Session summaries (working sessions)
-
+├── phase-N-completion-summary.md   # One per completed phase
+├── phase-N-session-notes.md        # Detailed work logs
+├── decisions/                       # Architecture Decision Records (ADRs)
+│   └── 001-token-architecture.md
+├── archive/                         # 🗄️ Old phases/sessions
+│   ├── phase-0/
+│   └── phase-1/
+└── deliverables/                    # Final outputs (optional)
+    └── v2.0-scope.md
 ```
 
----
+### Naming Conventions
 
-## 🔍 Comment Trouver Une Information
+- **Projects:** `kebab-case` (e.g., `design-system-new-architecture`)
+- **Status files:** `MASTER-STATUS.md` (uppercase, required)
+- **Phase docs:** `phase-N-[type]-[descriptor].md`
+- **Decisions:** `NNN-short-title.md` (3-digit number)
 
-| Question                          | Document à Consulter                             |
-| --------------------------------- | ------------------------------------------------ |
-| Où en est le projet?              | MASTER-STATUS.md (Executive Summary)             |
-| Combien de tokens créés?          | MASTER-STATUS.md (Metrics)                       |
-| Quelle est la prochaine phase?    | MASTER-STATUS.md (What's Next)                   |
-| Comment faire Phase 3?            | MASTER-STATUS.md (Immediate Next Actions)        |
-| Détails Phase 5 (futures)?        | roadmap-implementation-v2.0.md (Phase 5 section) |
-| Résultats Phase 0?                | phase-0-complete-summary.md                      |
-| Résultats Phase 1?                | phase-1-completion-summary.md                    |
-| Résultats Phase 2?                | phase-2-completion-summary.md                    |
-| Pourquoi 7 composants seulement?  | phase-0-complete-summary.md (Action #3)          |
-| Performance validée?              | phase-0-complete-summary.md (Action #1: 8.00ms)  |
-| Comment mettre à jour les docs?   | MAINTENANCE-SYSTEM.md                            |
-| Checklist après phase?            | CHECKLIST-update-documentation.md                |
-| Décisions architecture initiales? | brainstorming-session-2026-01-22.md              |
-| Pourquoi fichiers archivés?       | archive/\*/README.md                             |
+### Content Guidelines
+
+#### MASTER-STATUS.md Template
+
+```markdown
+# 📋 MASTER STATUS - [Project Name]
+
+**Last Updated:** YYYY-MM-DD
+**Overall Status:** [🟢 On Track | 🟡 At Risk | 🔴 Blocked]
+**Current Phase:** Phase N - [Name]
+**Confidence:** [0-100%]
 
 ---
 
-## 📝 Conventions
+## 🎯 Executive Summary
 
-### Nommage Fichiers
+### Current Progress
 
-- `MASTER-STATUS.md` - ALL CAPS = document central
-- `roadmap-implementation-v2.0.md` - Lowercase avec version
-- `phase-X-complete-summary.md` - Pattern phase summaries
-- `YYYY-MM-DD-session-name.md` - Sessions archivées avec date
+[High-level status with progress bars]
 
-### Format Documents
+### What's Next
 
-- **Markdown** (.md) - Tous les documents
-- **Headers** avec emojis pour quick scanning
-- **Tables** pour données structurées
-- **Code blocks** pour exemples
-- **Checkboxes** [x] pour tasks complétées
-
-### Mise à Jour
-
-- **Fréquence:** Après chaque phase complétée
-- **Responsable:** Noofreuuuh + Mary (AI)
-- **Vérification:** Cohérence MASTER-STATUS ↔ Roadmap
-- **Git:** Commit explicite après chaque mise à jour
+[Immediate next steps, 3-5 items max]
 
 ---
 
-## 🤖 Support AI
+## 📊 Phase Status Overview
 
-**Mary (AI Business Analyst)** peut aider avec:
+| Phase | Status | Duration | Completed | Documentation |
+| ----- | ------ | -------- | --------- | ------------- |
+| ...   | ...    | ...      | ...       | ...           |
 
-- ✅ Mise à jour automatique après phase
-- ✅ Vérification cohérence documents
-- ✅ Création phase summaries
-- ✅ Génération métriques
-- ✅ Réponses questions sur le projet
+---
 
-**Commande rapide:**
+## [Detailed Phase Sections]
 
+## 📚 Key Decisions
+
+## 🚧 Known Issues/Risks
+
+## 📝 Notes
 ```
 
-"Phase X complétée avec Y tokens. Mets à jour MASTER-STATUS et roadmap."
+### Archive Policy
 
+**When to archive:**
+
+- Phase is 100% complete
+- All deliverables validated and merged
+- Documentation finalized
+- No active work remaining
+
+**What to archive:**
+
+- Session notes from completed phases
+- Draft documents superseded by finals
+- Experimental POCs (keep final decision docs)
+- Old versions of living documents
+
+**What stays at root:**
+
+- MASTER-STATUS.md (always current)
+- Active phase documents
+- Key decision records (ADRs)
+- Latest completion summaries (last 2-3 phases)
+
+---
+
+## 🚀 How to Start/Resume Work
+
+### For AI Agents (Mary Protocol)
+
+#### Step 1: Orient Yourself
+
+```bash
+# Read the master status
+Read: _bmad-output/analysis/[project-name]/MASTER-STATUS.md
+
+# Extract:
+- Current phase
+- Last completed actions
+- Next steps section
+- Any blockers/questions
 ```
 
----
+#### Step 2: Understand Context
 
-## 📈 Métriques Documentation
+```bash
+# Read recent phase completion (if just finished a phase)
+Read: phase-N-completion-summary.md
 
-**Documentation saine =**
-
-- ✅ MASTER-STATUS et Roadmap synchronisés
-- ✅ Dates de mise à jour récentes (<7 jours)
-- ✅ Token counts identiques
-- ✅ Toutes phases ont summaries
-- ✅ Git commits réguliers
-
-**Signes d'alerte =**
-
-- ❌ Différences token count entre docs
-- ❌ Dates > 2 semaines
-- ❌ Phase complétée sans summary
-- ❌ Statuts incohérents
-
----
-
-## 🔗 Liens Externes
-
-**Autres documentations projet:**
-
-- `docs/roadmap/v2.0-scope.md` - Scope détaillé v2.0 (7 composants)
-- `docs/contributors/your-first-token.md` - Guide onboarding
-- `packages/design-system/tokens/docs/planning/USAGE_EXAMPLES.md` - Examples d'usage tokens
-- `.github/workflows/validate-tokens.yml` - CI validation
-
----
-
-## 📞 Maintenance
-
-**Document Maintenu Par:** Mary (AI Business Analyst) + Noofreuuuh
-**Dernière Mise à Jour:** 2026-01-23
-**Statut:** 🟢 Active
-**Prochaine Révision:** Après Phase 3 complétée
-
----
-
-**Ce README est le guide de navigation du dossier `analysis/`. Consulte-le pour savoir quel document lire selon ton besoin!** 📚
+# Check for open questions or decisions needed
+Grep: "TODO" | "QUESTION" | "DECISION NEEDED"
 ```
+
+#### Step 3: Plan Next Actions
+
+**Mary creates implementation plan:**
+
+```markdown
+## Implementation Plan - Phase N: [Name]
+
+### Tasks
+
+1. Task 1: [Description]
+   - Subagent: [Type - e.g., "code", "test", "docs"]
+   - Inputs: [Files/context needed]
+   - Outputs: [Expected deliverables]
+2. Task 2: [Description]
+   ...
+
+### Dependencies
+
+- Task 2 depends on Task 1 completion
+- Task 3 can run parallel to Task 2
+
+### Questions for User (if any)
+
+1. Question about X
+2. Clarification needed on Y
+```
+
+#### Step 4: Delegate to Subagent
+
+**Use Task tool with clear instructions:**
+
+```markdown
+Task: [Concise title - max 60 chars]
+
+Context:
+
+- Current phase: Phase N
+- Goal: [What to accomplish]
+- Related files: [Paths to read]
+- Standards: See AGENTS.md sections X, Y, Z
+
+Instructions:
+
+1. [Step-by-step, numbered]
+2. [Be specific about files/paths]
+3. [Include testing requirements]
+
+Expected Deliverables:
+
+- [ ] File 1: path/to/file.ext
+- [ ] File 2: path/to/test.ext
+- [ ] Documentation update in X
+
+Questions to Ask User (if blockers arise):
+
+- [Provide template for what info you need]
+
+Report Back Format:
+Use Rule 4 status protocol (see analysis/README.md)
+```
+
+#### Step 5: Validate & Update
+
+**After subagent reports back:**
+
+1. **Validate deliverables** (use Read/Grep to check)
+2. **If issues found:** Delegate fix to subagent
+3. **If successful:**
+   - Update MASTER-STATUS.md (current phase progress)
+   - Create phase completion summary if phase done
+   - Report to user with summary
+
+### For Human Contributors
+
+#### Quick Start
+
+1. **Navigate to project:**
+
+   ```bash
+   cd _bmad-output/analysis/[project-name]/
+   ```
+
+2. **Read master status:**
+
+   ```bash
+   cat MASTER-STATUS.md | head -100
+   ```
+
+3. **Identify next action:**
+   - Look at "What's Next" section
+   - Check phase status table for current phase
+
+4. **Execute or delegate:**
+   - Simple tasks: Execute directly
+   - Complex tasks: Ask Mary (AI agent) to coordinate
+
+#### Status Update Protocol
+
+**After completing work:**
+
+1. Update MASTER-STATUS.md:
+   - Change "Last Updated" date
+   - Update phase status/progress
+   - Move completed items from "Next" to "Completed"
+   - Add new next steps
+
+2. Create completion summary if phase done:
+   - Use template from existing phase-N-completion-summary.md
+   - Document all deliverables
+   - Note any deviations from plan
+   - Highlight key decisions/learnings
+
+3. Archive old content:
+   - Move completed phase docs to `archive/phase-N/`
+   - Keep MASTER-STATUS.md clean and current
+
+---
+
+## 📚 Related Documentation
+
+### Project-Level Docs (in main repo root)
+
+- **[AGENTS.md](../../AGENTS.md)** - AI agent guidelines, code standards, architecture
+- **[CLAUDE.md](../../CLAUDE.md)** - Quick reference for Claude Code agent
+- **[CONTRIBUTING.md](../../CONTRIBUTING.md)** - Git workflow, PR process
+
+### Analysis-Specific Docs
+
+- **[Multi-Agent Documentation Maintenance](.github/instructions/multi-agent-documentation-maintenance.instructions.md)** - How to keep AI docs in sync
+- **[Design System Instructions](.github/instructions/lufa-design-system.instructions.md)** - Design system specific standards
+
+### Tool Documentation
+
+- **[Changesets Guide](../../docs/howto/How-to-use-changeset-in-Lufa.md)** - Version management workflow
+
+---
+
+## 🎓 Tips for Effective Analysis Management
+
+### For AI Agents
+
+1. **Always start with Read** - Never assume current state, always verify
+2. **Update MASTER-STATUS.md frequently** - After every completed task
+3. **Use Task tool liberally** - Delegate all implementation work
+4. **Ask questions early** - Don't guess requirements, ask user
+5. **Document decisions** - Create ADRs for architectural choices
+
+### For Humans
+
+1. **Keep MASTER-STATUS.md current** - It's the single source of truth
+2. **Archive aggressively** - Old docs create noise
+3. **Use emojis for status** - Visual scanning is faster (🟢🟡🔴✅⏳📋)
+4. **Link liberally** - Connect related docs with relative paths
+5. **Write for future you** - You'll forget context in 2 weeks
+
+### Common Pitfalls to Avoid
+
+❌ **Don't:**
+
+- Let MASTER-STATUS.md get stale (>1 week old)
+- Create parallel tracking systems (use one source of truth)
+- Skip phase completion summaries (future you needs them)
+- Commit without updating analysis docs
+- Create orphaned documents (always link from MASTER-STATUS.md)
+
+✅ **Do:**
+
+- Update status with every meaningful change
+- Archive completed work promptly
+- Document decisions at decision time (not later)
+- Keep next steps actionable (not vague)
+- Use consistent formatting across projects
+
+---
+
+## 📞 Support & Questions
+
+### For AI Agents
+
+If you encounter ambiguity or need clarification:
+
+1. **Check existing docs first:**
+   - AGENTS.md (architecture, standards)
+   - MASTER-STATUS.md (current project state)
+   - Phase completion summaries (past decisions)
+
+2. **If still unclear:** Use Rule 5 (Question Aggregation)
+   - Collect all questions
+   - Organize by priority
+   - Present to user in structured format
+
+3. **Never guess:**
+   - Incorrect assumptions waste time
+   - Ask user > implement wrong thing
+
+### For Humans
+
+Questions about:
+
+- **Workflow:** See this README (you're reading it!)
+- **Code Standards:** See [AGENTS.md](../../AGENTS.md)
+- **Design System:** See project MASTER-STATUS.md
+- **Git/PRs:** See [CONTRIBUTING.md](../../CONTRIBUTING.md)
+
+---
+
+**Last Updated:** 2026-01-23  
+**Maintained by:** Project contributors and Mary (AI coordinator)  
+**Version:** 1.0
