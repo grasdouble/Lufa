@@ -4,8 +4,12 @@ export default {
   log: {
     verbosity: 'default',
   },
-  source: ['src/primitives/**/*.json', 'src/core/**/*.json', 'src/semantic/**/*.json'],
-  include: [], // All sources are in 'source' - no external includes needed
+  source: [
+    'src/primitives/**/*.json',
+    'src/core/**/*.json',
+    'src/semantic/**/*.json',
+    '!src/**/index.json', // Exclude index.json files to avoid metadata collisions
+  ],
   platforms: {
     css: {
       transformGroup: 'css',
