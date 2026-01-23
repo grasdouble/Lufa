@@ -1,37 +1,17 @@
 # Design Tokens Usage Guidelines
 
-> ⚠️ **IMPORTANT UPDATE (January 2026):**  
-> JS/TS token exports (`tokens.js`, `tokens.d.ts`) have been **removed** as of tokens v0.5.0.  
-> The package now exports only:
->
-> - `tokens.css` - CSS custom properties for components
-> - `tokens-values.json` - Simple values for Storybook/documentation
-> - `tokens-metadata.json` - Full metadata (descriptions, WCAG, etc.)
->
-> **Migration:**
->
-> ```typescript
-> // ❌ OLD (no longer works)
-> import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
-> // ✅ NEW (for Storybook/docs only)
-> import tokens from '@grasdouble/lufa_design-system-tokens/values';
->
-> const blue600 = tokens.primitive.color.blue['600'];
-> ```
->
-> **For React components:** No change needed - continue using CSS Modules with CSS custom properties.
-
-This document provides detailed guidelines on how to correctly use Lufa Design System tokens in different contexts.
+This document provides guidelines on how to correctly use Lufa Design System tokens in different contexts.
 
 ---
 
 ## 🎯 Table of Contents
 
 1. [Core Principles](#core-principles)
-2. [Do's and Don'ts](#dos-and-donts)
-3. [Usage by Context](#usage-by-context)
-4. [Migration Guide](#migration-guide)
-5. [Enforcement](#enforcement)
+2. [Package Exports](#package-exports)
+3. [Best Practices](#best-practices)
+4. [Anti-Patterns](#anti-patterns)
+5. [Usage by Context](#usage-by-context)
+6. [Enforcement](#enforcement)
 
 ---
 
@@ -96,16 +76,167 @@ React Components (Button.tsx)
 
 ---
 
-## ✅ Do's and Don'ts
+## 📦 Package Exports
 
-### ❌ DO NOT: Import JS/TS Tokens in Components
+The `@grasdouble/lufa_design-system-tokens` package exports **three files**:
+
+### Available Exports
+
+| Export                    | Import Path                                        | Format | Use Case                                              |
+| ------------------------- | -------------------------------------------------- | ------ | ----------------------------------------------------- |
+| **CSS Custom Properties** | `@grasdouble/lufa_design-system-tokens/tokens.css` | CSS    | **Primary usage** - Import in root CSS for components |
+| **Token Values**          | `@grasdouble/lufa_design-system-tokens/values`     | JSON   | Storybook stories, documentation                      |
+| **Token Metadata**        | `@grasdouble/lufa_design-system-tokens/metadata`   | JSON   | Tooling, build scripts (includes WCAG, descriptions)  |
+
+### 1. CSS Custom Properties (Primary Usage)
+
+**File:** `tokens.css`  
+**Purpose:** Define CSS variables for component styling
+
+```css
+/* In your root CSS file (e.g., App.css, index.css) */
+@import '@grasdouble/lufa_design-system-tokens/tokens.css';
+```
+
+```css
+/* Then use in any CSS Module */
+.button {
+  background-color: var(--lufa-core-brand-primary);
+  padding: var(--lufa-primitive-spacing-16);
+}
+```
+
+**✅ Use for:** All React components, all CSS Modules, all styling
+
+### 2. Token Values JSON (Storybook/Documentation Only)
+
+**File:** `tokens-values.json`  
+**Purpose:** Access token values in JavaScript for documentation
 
 ```typescript
-// ❌ WRONG - Hardcoded value, not themable
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+// ✅ ALLOWED - In Storybook stories only
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
+
+// Access structure: tokens.{category}.{subcategory}.{name}
+const primaryColor = tokens.core.brand.primary; // "#2563eb"
+const blue600 = tokens.primitive.color.blue['600']; // "#2563eb"
+const spacing16 = tokens.primitive.spacing['16']; // "16px"
+```
+
+**⚠️ Important:** This is **ONLY** for Storybook stories and documentation. Do NOT use in React component files.
+
+### 3. Token Metadata JSON (Tooling Only)
+
+**File:** `tokens-metadata.json`  
+**Purpose:** Full token metadata for build scripts and tooling
+
+```typescript
+// ✅ ALLOWED - In build scripts/tooling only
+import metadata from '@grasdouble/lufa_design-system-tokens/metadata';
+
+// Includes: value, description, WCAG compliance, category, etc.
+console.log(metadata.primitive.color.blue['600']);
+// {
+//   value: "#2563eb",
+//   description: "Blue color, shade 600",
+//   category: "primitive",
+//   wcag: { ... }
+// }
+```
+
+**✅ Use for:** Build scripts, documentation generators, linters, design tools
+
+---
+
+## ✅ Best Practices
+
+### 1. Use Semantic Tokens When Available
+
+```css
+/* ✅ PREFERRED - Semantic tokens */
+.button {
+  background-color: var(--lufa-core-brand-primary);
+  color: var(--lufa-core-text-inverse);
+}
+
+/* ✅ ACCEPTABLE - Primitive tokens when no semantic exists */
+.button {
+  padding: var(--lufa-primitive-spacing-16);
+  border-radius: var(--lufa-primitive-radius-scale-base);
+}
+```
+
+### 2. Separate Concerns: Components vs Styles
+
+**Component files handle logic, CSS Modules handle presentation.**
+
+```typescript
+// ✅ CORRECT - Logic in component
+import styles from './Button.module.css';
+
+export const Button = ({ variant, children }) => (
+  <button className={styles[variant]}>{children}</button>
+);
+```
+
+```css
+/* ✅ CORRECT - Presentation in CSS */
+.primary {
+  background-color: var(--lufa-core-brand-primary);
+}
+
+.secondary {
+  background-color: var(--lufa-core-brand-secondary);
+}
+```
+
+### 3. Leverage CSS Variable Inheritance
+
+```css
+/* ✅ CORRECT - Override at component level */
+.card {
+  --local-padding: var(--lufa-primitive-spacing-24);
+}
+
+.card-header {
+  padding: var(--local-padding);
+}
+
+.card-body {
+  padding: var(--local-padding);
+}
+```
+
+### 4. Use Meaningful Class Names
+
+```css
+/* ✅ CORRECT - Semantic class names */
+.button-primary {
+  background-color: var(--lufa-core-brand-primary);
+}
+
+.button-large {
+  padding: var(--lufa-primitive-spacing-24);
+}
+
+/* ❌ AVOID - Utility-style class names */
+.bg-blue {
+  background-color: var(--lufa-primitive-color-blue-600);
+}
+```
+
+---
+
+## ❌ Anti-Patterns
+
+### Anti-Pattern 1: Importing JSON Tokens in Components
+
+```typescript
+// ❌ WRONG - JSON imports not allowed in components
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 export const Button = () => (
-  <button style={{ color: LufaPrimitiveColorBlue600 }}>Click</button>
+  <button style={{ color: tokens.primitive.color.blue['600'] }}>Click</button>
 );
 ```
 
@@ -117,10 +248,10 @@ export const Button = () => (
 4. ❌ Bypasses the CSS Module architecture
 5. ❌ No runtime theme switching support
 
-### ✅ DO: Use CSS Modules with CSS Variables
+**✅ Correct approach:**
 
 ```typescript
-// ✅ CORRECT - Themable via CSS
+// ✅ CORRECT - Use CSS Modules
 import styles from './Button.module.css';
 
 export const Button = () => <button className={styles.button}>Click</button>;
@@ -133,17 +264,9 @@ export const Button = () => <button className={styles.button}>Click</button>;
 }
 ```
 
-**Why this is correct:**
-
-1. ✅ CSS variables can be overridden by themes
-2. ✅ Follows component architecture (separation of concerns)
-3. ✅ Supports runtime theme switching
-4. ✅ Better performance (no JS execution for styling)
-5. ✅ Standard CSS cascade rules apply
-
 ---
 
-### ❌ DO NOT: Use Inline Styles with Token Values
+### Anti-Pattern 2: Using Inline Styles with Token Values
 
 ```typescript
 // ❌ WRONG - Even with CSS variables!
@@ -159,7 +282,7 @@ export const Button = () => (
 3. ❌ Hard to maintain and test
 4. ❌ No CSS Module scoping benefits
 
-### ✅ DO: Define Styles in CSS Modules
+**✅ Correct approach:**
 
 ```typescript
 // ✅ CORRECT
@@ -170,7 +293,7 @@ export const Button = () => <button className={styles.button}>Click</button>;
 
 ---
 
-### ❌ DO NOT: Hardcode Design Values
+### Anti-Pattern 3: Hardcoding Design Values
 
 ```typescript
 // ❌ WRONG - Magic numbers
@@ -179,13 +302,43 @@ export const Button = () => (
 );
 ```
 
-### ✅ DO: Reference Tokens via CSS Variables
+```css
+/* ❌ WRONG - Hardcoded values in CSS */
+.button {
+  padding: 16px;
+  background-color: #2563eb;
+}
+```
+
+**✅ Correct approach:**
 
 ```css
-/* ✅ CORRECT */
+/* ✅ CORRECT - Reference tokens */
 .button {
   padding: var(--lufa-primitive-spacing-16);
   color: var(--lufa-primitive-color-blue-600);
+}
+```
+
+---
+
+### Anti-Pattern 4: Missing Token Prefix
+
+```css
+/* ❌ WRONG - Missing lufa prefix */
+.button {
+  color: var(--primitive-color-blue-600);
+  padding: var(--spacing-16);
+}
+```
+
+**✅ Correct approach:**
+
+```css
+/* ✅ CORRECT - Always use --lufa- prefix */
+.button {
+  color: var(--lufa-primitive-color-blue-600);
+  padding: var(--lufa-primitive-spacing-16);
 }
 ```
 
@@ -195,15 +348,15 @@ export const Button = () => (
 
 ### 1. React Components (Strict Rules)
 
-**Rule:** NEVER import token JS/TS exports in component files.
+**Rule:** NEVER import JSON tokens in component files. Use CSS Modules only.
 
 ```typescript
 // Component file: src/components/Button/Button.tsx
 
 // ✅ ALLOWED
 
-// ❌ FORBIDDEN
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+// ❌ FORBIDDEN - JSON imports not allowed in components
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 import styles from './Button.module.css';
 ```
@@ -229,24 +382,24 @@ import styles from './Button.module.css';
   border-radius: var(--lufa-primitive-radius-scale-base);
 
   /* ❌ WRONG - Hardcoded values */
-  padding: 16px;
-  background-color: #2563eb;
+  /* padding: 16px; */
+  /* background-color: #2563eb; */
 
   /* ❌ WRONG - Missing lufa prefix */
-  color: var(--primitive-color-blue-600);
+  /* color: var(--primitive-color-blue-600); */
 }
 ```
 
 ---
 
-### 3. Storybook Stories (Allowed, with Caution)
+### 3. Storybook Stories (Documentation Only)
 
-**Rule:** JS/TS token imports are allowed ONLY in `.stories.tsx` files for documentation.
+**Rule:** JSON token imports are allowed ONLY in `.stories.tsx` files for documentation.
 
 ```typescript
 // Button.stories.tsx - ALLOWED
 
-import { LufaPrimitiveColorBlue500 } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 import { Button } from './Button';
 
@@ -256,7 +409,7 @@ export default {
   parameters: {
     design: {
       // ✅ ALLOWED - Displaying token value in Storybook docs
-      tokenValue: LufaPrimitiveColorBlue500,
+      tokenValue: tokens.primitive.color.blue['500'],
     },
   },
 };
@@ -266,7 +419,7 @@ export const Primary = {
   parameters: {
     docs: {
       description: {
-        story: `Uses primary brand color: ${LufaCoreBrandPrimary}`,
+        story: `Uses primary brand color: ${tokens.core.brand.primary}`,
       },
     },
   },
@@ -279,12 +432,12 @@ export const Primary = {
 
 ### 4. Tests (Allowed)
 
-**Rule:** JS/TS token imports are allowed in test files for assertions.
+**Rule:** JSON token imports are allowed in test files for assertions.
 
 ```typescript
 // Button.test.tsx - ALLOWED
 
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 import { render } from '@testing-library/react';
 import { Button } from './Button';
 
@@ -295,7 +448,7 @@ test('button uses correct primary color', () => {
   // ✅ ALLOWED - Verifying CSS variable value
   const styles = getComputedStyle(button);
   expect(styles.getPropertyValue('--lufa-primitive-color-blue-600')).toBe(
-    LufaPrimitiveColorBlue600
+    tokens.primitive.color.blue['600']
   );
 });
 ```
@@ -304,76 +457,21 @@ test('button uses correct primary color', () => {
 
 ### 5. Build Scripts and Tooling (Allowed)
 
-**Rule:** JS/TS token imports are allowed in build scripts and tooling.
+**Rule:** JSON token imports (values and metadata) are allowed in build scripts and tooling.
 
 ```typescript
 // scripts/generate-theme.ts - ALLOWED
 
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+import metadata from '@grasdouble/lufa_design-system-tokens/metadata';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 // ✅ ALLOWED - Build-time code generation
 const themeConfig = {
-  primary: LufaPrimitiveColorBlue600,
+  primary: tokens.primitive.color.blue['600'],
+  primaryMeta: metadata.primitive.color.blue['600'],
 };
 
 fs.writeFileSync('theme.json', JSON.stringify(themeConfig));
-```
-
----
-
-## 🔄 Migration Guide
-
-### Migrating Existing Code
-
-If you have existing code using JS/TS token imports in components:
-
-#### Step 1: Identify violations
-
-```bash
-# Find component files importing tokens
-grep -r "from '@grasdouble/lufa_design-system-tokens'" src/components/
-```
-
-#### Step 2: Extract styles to CSS Module
-
-**Before:**
-
-```typescript
-// Button.tsx - WRONG
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
-
-export const Button = () => (
-  <button style={{ color: LufaPrimitiveColorBlue600 }}>Click</button>
-);
-```
-
-**After:**
-
-```typescript
-// Button.tsx - CORRECT
-import styles from './Button.module.css';
-
-export const Button = () => <button className={styles.button}>Click</button>;
-```
-
-```css
-/* Button.module.css - NEW FILE */
-.button {
-  color: var(--lufa-primitive-color-blue-600);
-}
-```
-
-#### Step 3: Remove token imports
-
-```typescript
-// Remove this line:
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
-```
-
-#### Step 4: Run linter
-
-```bash
-pnpm lint
 ```
 
 ---
@@ -393,8 +491,15 @@ The following ESLint rule enforces correct token usage:
         "patterns": [
           {
             "group": ["@grasdouble/lufa_design-system-tokens"],
-            "importNames": ["Lufa*"],
-            "message": "Do not import token JS/TS exports in components. Use CSS Modules with CSS custom properties (var(--lufa-*)) instead. See packages/design-system/tokens/docs/USAGE_GUIDELINES.md"
+            "message": "Do not import tokens in components. Use CSS Modules with CSS custom properties (var(--lufa-*)) instead. For Storybook/docs, use: import tokens from '@grasdouble/lufa_design-system-tokens/values'. See packages/design-system/tokens/docs/USAGE_GUIDELINES.md"
+          },
+          {
+            "group": ["@grasdouble/lufa_design-system-tokens/values"],
+            "message": "Do not import token values JSON in components. Use CSS Modules with CSS custom properties (var(--lufa-*)) instead. Token values are only for Storybook stories and documentation. See packages/design-system/tokens/docs/USAGE_GUIDELINES.md"
+          },
+          {
+            "group": ["@grasdouble/lufa_design-system-tokens/metadata"],
+            "message": "Do not import token metadata in components. Use CSS Modules with CSS custom properties (var(--lufa-*)) instead. Metadata is only for build scripts and tooling. See packages/design-system/tokens/docs/USAGE_GUIDELINES.md"
           }
         ]
       }
@@ -413,7 +518,7 @@ The following ESLint rule enforces correct token usage:
 
 This rule:
 
-- ✅ Blocks token imports in component files
+- ✅ Blocks token imports in component files (all formats)
 - ✅ Allows imports in `.stories.tsx` files (Storybook)
 - ✅ Allows imports in `.test.tsx` files (Tests)
 - ✅ Allows imports in `scripts/` directory (Tooling)
@@ -437,24 +542,23 @@ Add this rule to your component package's ESLint config:
 
 ---
 
-## 🤝 Questions?
+## 🤝 Quick Decision Guide
 
-If you're unsure whether your use case is legitimate:
+If you're unsure whether your use case is correct:
 
 1. **Ask yourself:** "Does this need to change based on the theme?"
    - **Yes** → Use CSS Modules with CSS variables
    - **No** → Still use CSS Modules (consistency)
 
 2. **Check the context:**
-   - Component file (`.tsx`) → ❌ No token imports
-   - Story file (`.stories.tsx`) → ✅ Allowed for docs only
-   - Test file (`.test.tsx`) → ✅ Allowed for assertions
-   - Build script → ✅ Allowed
+   - Component file (`.tsx`) → ❌ No token imports (use CSS Modules)
+   - Story file (`.stories.tsx`) → ✅ Allowed for docs only (`/values` import)
+   - Test file (`.test.tsx`) → ✅ Allowed for assertions (`/values` import)
+   - Build script → ✅ Allowed (`/values` or `/metadata` imports)
 
 3. **When in doubt:** Use CSS Modules with CSS variables. This is ALWAYS correct.
 
 ---
 
-**Last Updated:** January 24, 2026  
-**Status:** Active - Enforced via ESLint  
-**Version:** 2.0 (Lufa prefix migration)
+**Last Updated:** January 23, 2026  
+**Status:** Active - Enforced via ESLint
