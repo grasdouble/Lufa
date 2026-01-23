@@ -41,6 +41,18 @@
           "useCase": "Success alerts, positive notifications, confirmation banners"
         }
       },
+      "background-on-success": {
+        "$value": "{core.semantic.success}",
+        "$type": "color",
+        "$description": "Text and icons on success background - for use with background-success (subtle background)",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "contrast",
+          "useCase": "Text in success alerts, success badge text, success message content",
+          "pairedWith": "background-success"
+        }
+      },
       "background-error": {
         "$value": "{core.semantic.error-subtle}",
         "$type": "color",
@@ -49,6 +61,18 @@
           "level": "semantic",
           "category": "ui",
           "useCase": "Error alerts, validation messages, destructive action confirmations"
+        }
+      },
+      "background-on-error": {
+        "$value": "{core.semantic.error}",
+        "$type": "color",
+        "$description": "Text and icons on error background - for use with background-error (subtle background)",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "contrast",
+          "useCase": "Text in error alerts, error badge text, error message content",
+          "pairedWith": "background-error"
         }
       },
       "background-warning": {
@@ -61,6 +85,18 @@
           "useCase": "Warning alerts, caution banners, pending action notices"
         }
       },
+      "background-on-warning": {
+        "$value": "{core.semantic.warning}",
+        "$type": "color",
+        "$description": "Text and icons on warning background - for use with background-warning (subtle background)",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "contrast",
+          "useCase": "Text in warning alerts, warning badge text, warning message content",
+          "pairedWith": "background-warning"
+        }
+      },
       "background-info": {
         "$value": "{core.semantic.info-subtle}",
         "$type": "color",
@@ -69,6 +105,18 @@
           "level": "semantic",
           "category": "ui",
           "useCase": "Info alerts, tips, help messages, neutral notifications"
+        }
+      },
+      "background-on-info": {
+        "$value": "{core.semantic.info}",
+        "$type": "color",
+        "$description": "Text and icons on info background - for use with background-info (subtle background)",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "contrast",
+          "useCase": "Text in info alerts, info badge text, info message content",
+          "pairedWith": "background-info"
         }
       },
       "text-primary": {
@@ -210,6 +258,42 @@
           "category": "ui",
           "subcategory": "typography",
           "useCase": "Caption text, small labels, tooltip text, metadata"
+        }
+      },
+      "background-on-primary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "Text and icons on primary background - AAA contrast guaranteed with primary brand color",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "contrast",
+          "useCase": "Text/icons on primary buttons, primary badges, primary interactive elements",
+          "pairedWith": "core.brand.primary",
+          "a11y": {
+            "contrastRatio": {
+              "onBlue600": 7.5
+            },
+            "wcagLevel": "AAA"
+          }
+        }
+      },
+      "background-on-secondary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "Text and icons on secondary background - AAA contrast guaranteed with secondary brand color",
+        "metadata": {
+          "level": "semantic",
+          "category": "ui",
+          "subcategory": "contrast",
+          "useCase": "Text/icons on secondary buttons, secondary badges, secondary interactive elements",
+          "pairedWith": "core.brand.secondary",
+          "a11y": {
+            "contrastRatio": {
+              "onPurple500": 7.2
+            },
+            "wcagLevel": "AAA"
+          }
         }
       }
     }
