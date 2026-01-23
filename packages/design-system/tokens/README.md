@@ -117,20 +117,20 @@ packages/design-system/tokens/
 **CSS Naming:**
 
 ```css
---primitive-color-{color}-{shade}
+--lufa-primitive-color-{color}-{shade}
 /* Examples: */
---primitive-color-gray-500
---primitive-color-blue-600
---primitive-color-red-50
+--lufa-primitive-color-gray-500
+--lufa-primitive-color-blue-600
+--lufa-primitive-color-red-50
 ```
 
 **TypeScript Usage:**
 
 ```typescript
-import tokens from '@grasdouble/lufa_design-system-tokens';
+import { LufaPrimitiveColorBlue600, LufaPrimitiveColorGray500 } from '@grasdouble/lufa_design-system-tokens';
 
-tokens.primitive.color.gray[500]; // "#6b7280"
-tokens.primitive.color.blue[600]; // "#2563eb"
+LufaPrimitiveColorGray500; // "#6b7280"
+LufaPrimitiveColorBlue600; // "#2563eb"
 ```
 
 ### 2. Spacing (12 tokens)
@@ -144,11 +144,11 @@ tokens.primitive.color.blue[600]; // "#2563eb"
 **CSS Naming:**
 
 ```css
---primitive-spacing-{value}
+--lufa-primitive-spacing-{value}
 /* Examples: */
---primitive-spacing-0    /* 0px */
---primitive-spacing-16   /* 16px */
---primitive-spacing-64   /* 64px */
+--lufa-primitive-spacing-0    /* 0px */
+--lufa-primitive-spacing-16   /* 16px */
+--lufa-primitive-spacing-64   /* 64px */
 ```
 
 ### 3. Typography (18 tokens)
@@ -180,10 +180,10 @@ tight: 1.25, normal: 1.5, relaxed: 1.75
 **CSS Naming:**
 
 ```css
---primitive-typography-font-family-sans
---primitive-typography-font-size-base     /* 16px */
---primitive-typography-font-weight-semibold  /* 600 */
---primitive-typography-line-height-normal /* 1.5 */
+--lufa-primitive-typography-font-family-sans
+--lufa-primitive-typography-font-size-base     /* 16px */
+--lufa-primitive-typography-font-weight-semibold  /* 600 */
+--lufa-primitive-typography-line-height-normal /* 1.5 */
 ```
 
 ### 4. Shadows (6 tokens)
@@ -191,12 +191,12 @@ tight: 1.25, normal: 1.5, relaxed: 1.75
 **6 elevation levels** (none, sm, base, md, lg, xl):
 
 ```css
---primitive-shadow-elevation-none    /* No shadow */
---primitive-shadow-elevation-sm      /* Elevation 1 */
---primitive-shadow-elevation-base    /* Elevation 2 */
---primitive-shadow-elevation-md      /* Elevation 3 */
---primitive-shadow-elevation-lg      /* Elevation 4 */
---primitive-shadow-elevation-xl      /* Elevation 5 */
+--lufa-primitive-shadow-elevation-none    /* No shadow */
+--lufa-primitive-shadow-elevation-sm      /* Elevation 1 */
+--lufa-primitive-shadow-elevation-base    /* Elevation 2 */
+--lufa-primitive-shadow-elevation-md      /* Elevation 3 */
+--lufa-primitive-shadow-elevation-lg      /* Elevation 4 */
+--lufa-primitive-shadow-elevation-xl      /* Elevation 5 */
 ```
 
 **Usage Examples:**
@@ -212,13 +212,13 @@ tight: 1.25, normal: 1.5, relaxed: 1.75
 **7 rounding levels** (none → full):
 
 ```css
---primitive-radius-scale-none    /* 0px - sharp corners */
---primitive-radius-scale-sm      /* 2px */
---primitive-radius-scale-base    /* 4px - standard */
---primitive-radius-scale-md      /* 6px */
---primitive-radius-scale-lg      /* 8px */
---primitive-radius-scale-xl      /* 12px */
---primitive-radius-scale-full    /* 9999px - circle */
+--lufa-primitive-radius-scale-none    /* 0px - sharp corners */
+--lufa-primitive-radius-scale-sm      /* 2px */
+--lufa-primitive-radius-scale-base    /* 4px - standard */
+--lufa-primitive-radius-scale-md      /* 6px */
+--lufa-primitive-radius-scale-lg      /* 8px */
+--lufa-primitive-radius-scale-xl      /* 12px */
+--lufa-primitive-radius-scale-full    /* 9999px - circle */
 ```
 
 ## 🛠️ Usage
@@ -231,41 +231,48 @@ tight: 1.25, normal: 1.5, relaxed: 1.75
 
 /* Use CSS Custom Properties */
 .my-component {
-  color: var(--primitive-color-blue-600);
-  padding: var(--primitive-spacing-16);
-  font-size: var(--primitive-typography-font-size-base);
-  font-weight: var(--primitive-typography-font-weight-semibold);
-  border-radius: var(--primitive-radius-scale-base);
-  box-shadow: var(--primitive-shadow-elevation-base);
+  color: var(--lufa-primitive-color-blue-600);
+  padding: var(--lufa-primitive-spacing-16);
+  font-size: var(--lufa-primitive-typography-font-size-base);
+  font-weight: var(--lufa-primitive-typography-font-weight-semibold);
+  border-radius: var(--lufa-primitive-radius-scale-base);
+  box-shadow: var(--lufa-primitive-shadow-elevation-base);
 }
 ```
 
 ### In TypeScript/JavaScript
 
 ```typescript
-import tokens from '@grasdouble/lufa_design-system-tokens';
+import {
+  LufaPrimitiveColorBlue600,
+  LufaPrimitiveRadiusScaleBase,
+  LufaPrimitiveShadowElevationBase,
+  LufaPrimitiveSpacing16,
+  LufaPrimitiveTypographyFontSizeBase,
+  LufaPrimitiveTypographyFontWeightSemibold,
+} from '@grasdouble/lufa_design-system-tokens';
 
-// Access tokens
+// Use in styles object
 const styles = {
-  color: tokens.primitive.color.blue[600],
-  padding: tokens.primitive.spacing[16],
-  fontSize: tokens.primitive.typography.fontSize.base,
-  fontWeight: tokens.primitive.typography.fontWeight.semibold,
-  borderRadius: tokens.primitive.radius.scale.base,
-  boxShadow: tokens.primitive.shadow.elevation.base,
+  color: LufaPrimitiveColorBlue600,
+  padding: LufaPrimitiveSpacing16,
+  fontSize: LufaPrimitiveTypographyFontSizeBase,
+  fontWeight: LufaPrimitiveTypographyFontWeightSemibold,
+  borderRadius: LufaPrimitiveRadiusScaleBase,
+  boxShadow: LufaPrimitiveShadowElevationBase,
 };
 ```
 
 ### In Storybook
 
 ```typescript
-import tokens from '@grasdouble/lufa_design-system-tokens';
+import { LufaPrimitiveColorBlue500 } from '@grasdouble/lufa_design-system-tokens';
 
 export default {
   title: 'Foundations/Colors',
   parameters: {
     design: {
-      token: tokens.primitive.color.blue[500],
+      token: LufaPrimitiveColorBlue500,
     },
   },
 };
