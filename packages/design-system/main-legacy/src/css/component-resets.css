@@ -1,0 +1,71 @@
+/**
+ * Reusable reset utilities for components (Vanilla CSS version)
+ * Each component imports only what it needs
+ * 
+ * VANILLA CSS VERSION - Used by migrated components
+ */
+
+@layer utilities {
+  /* Button reset utility */
+  /* Foundation utility - for internal use */
+  .reset-button {
+    appearance: none;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+  }
+
+  /* Input/Textarea reset utility */
+  /* Foundation utility - for internal use */
+  .reset-input {
+    appearance: none;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    outline: none;
+  }
+
+  /* Heading reset utility */
+  /* Foundation utility - for internal use */
+  .reset-heading {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  /* List reset utility */
+  /* Foundation utility - for internal use */
+  .reset-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Image reset utility */
+  /* Foundation utility - for internal use */
+  .reset-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Figure reset utility */
+  /* Foundation utility - for internal use */
+  .reset-figure {
+    margin: 0;
+  }
+}

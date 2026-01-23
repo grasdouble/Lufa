@@ -1,0 +1,6 @@
+{
+  "extends": "@grasdouble/lufa_config_tsconfig/react-library.json",
+  "include": ["src/**/*"],
+  "compilerOptions": {},
+  "exclude": ["dist", "build", "node_modules", "scripts"]
+}
