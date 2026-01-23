@@ -14,6 +14,7 @@ export default {
   platforms: {
     css: {
       transformGroup: 'css',
+      prefix: 'lufa', // CSS variables: --lufa-primitive-color-blue-600
       buildPath: 'dist/',
       files: [
         {
@@ -27,14 +28,16 @@ export default {
     },
     js: {
       transformGroup: 'js',
+      prefix: 'lufa', // JS exports: LufaPrimitiveColorBlue600
       buildPath: 'dist/',
       files: [
         {
-          destination: 'tokens.ts',
+          destination: 'tokens.js',
           format: 'javascript/es6',
-          options: {
-            outputReferences: true,
-          },
+        },
+        {
+          destination: 'tokens.d.ts',
+          format: 'typescript/es6-declarations',
         },
       ],
     },
