@@ -14,47 +14,47 @@
 /* ========================================== */
 
 .variant-h1 {
-  font-size: var(--semantic-typography-heading-1);
+  font-size: var(--lufa-semantic-typography-heading-1);
 }
 
 .variant-h2 {
-  font-size: var(--semantic-typography-heading-2);
+  font-size: var(--lufa-semantic-typography-heading-2);
 }
 
 .variant-h3 {
-  font-size: var(--semantic-typography-heading-3);
+  font-size: var(--lufa-semantic-typography-heading-3);
 }
 
 .variant-h4 {
-  font-size: var(--semantic-typography-heading-4);
+  font-size: var(--lufa-semantic-typography-heading-4);
 }
 
 .variant-h5 {
-  font-size: var(--semantic-typography-heading-5);
+  font-size: var(--lufa-semantic-typography-heading-5);
 }
 
 .variant-h6 {
-  font-size: var(--semantic-typography-heading-6);
+  font-size: var(--lufa-semantic-typography-heading-6);
 }
 
 .variant-body-large {
-  font-size: var(--semantic-typography-body-large);
+  font-size: var(--lufa-semantic-typography-body-large);
 }
 
 .variant-body {
-  font-size: var(--semantic-typography-body);
+  font-size: var(--lufa-semantic-typography-body);
 }
 
 .variant-body-small {
-  font-size: var(--semantic-typography-body-small);
+  font-size: var(--lufa-semantic-typography-body-small);
 }
 
 .variant-caption {
-  font-size: var(--semantic-typography-caption);
+  font-size: var(--lufa-semantic-typography-caption);
 }
 
 .variant-label {
-  font-size: var(--semantic-typography-label);
+  font-size: var(--lufa-semantic-typography-label);
 }
 
 /* ========================================== */

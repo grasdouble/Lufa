@@ -19,17 +19,17 @@ module.exports = {
     variant: {
       property: 'font-size',
       values: {
-        h1: '--semantic-typography-heading-1', // 48px
-        h2: '--semantic-typography-heading-2', // 36px
-        h3: '--semantic-typography-heading-3', // 30px
-        h4: '--semantic-typography-heading-4', // 24px
-        h5: '--semantic-typography-heading-5', // 20px
-        h6: '--semantic-typography-heading-6', // 18px
-        'body-large': '--semantic-typography-body-large', // 18px
-        body: '--semantic-typography-body', // 16px
-        'body-small': '--semantic-typography-body-small', // 14px
-        caption: '--semantic-typography-caption', // 12px
-        label: '--semantic-typography-label', // 14px
+        h1: '--lufa-semantic-typography-heading-1', // 48px
+        h2: '--lufa-semantic-typography-heading-2', // 36px
+        h3: '--lufa-semantic-typography-heading-3', // 30px
+        h4: '--lufa-semantic-typography-heading-4', // 24px
+        h5: '--lufa-semantic-typography-heading-5', // 20px
+        h6: '--lufa-semantic-typography-heading-6', // 18px
+        'body-large': '--lufa-semantic-typography-body-large', // 18px
+        body: '--lufa-semantic-typography-body', // 16px
+        'body-small': '--lufa-semantic-typography-body-small', // 14px
+        caption: '--lufa-semantic-typography-caption', // 12px
+        label: '--lufa-semantic-typography-label', // 14px
       },
     },
 
