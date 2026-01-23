@@ -4,27 +4,98 @@
 
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](../../LICENSE.md)
 
-> Theme variants for the Lufa Design System. Provides alternative color schemes that override token values.
+> **⚠️ Phase 6 Implementation - Coming Soon**
+
+Theme variants for the Lufa Design System v2. Will provide Token Architecture v2 based themes.
 
 **Part of the [Lufa Design System](../README.md)** - Pre-built Theme Variants
 
-## Installation
+---
+
+## 🚧 Current Status
+
+**Phase:** Phase 6 (not yet started)  
+**Available Themes:** Default only (in tokens package)  
+**Legacy Themes:** Archived in `packages/design-system/themes-legacy/`
+
+---
+
+## 🎯 Theme Architecture v2
+
+Themes in v2 will be generated from **token overrides** using Style Dictionary:
+
+```
+Token JSON → Style Dictionary → Theme CSS
+```
+
+**Benefits over legacy themes:**
+
+- ✅ Single source of truth (JSON token definitions)
+- ✅ Automatic consistency (derived tokens update)
+- ✅ Type-safe (TypeScript types generated)
+- ✅ Light/dark mode automatic
+- ✅ WCAG AAA contrast (pattern "on-X")
+
+---
+
+## 📋 Planned Themes
+
+### Default Theme
+
+**Status:** ✅ Available in Token Architecture v2
+
+**Location:** `@grasdouble/lufa_design-system-tokens`
+
+```tsx
+import '@grasdouble/lufa_design-system/style.css';
+
+// Default theme included automatically
+```
+
+---
+
+### Ocean Theme
+
+**Status:** ⏳ Phase 6
+
+**Color palette (from legacy):**
+
+- Primary: `#0077be` (ocean blue)
+- Secondary: `#00a8cc` (light cyan)
+
+**Personality:** Smooth, flowing, modern
+
+**Reference:** `packages/design-system/themes-legacy/src/ocean.css`
+
+---
+
+### Forest Theme
+
+**Status:** ⏳ Phase 6
+
+**Color palette (from legacy):**
+
+- Primary: `#2d5016` (forest green)
+- Secondary: `#6a994e` (light green)
+
+**Personality:** Organic, grounded, natural
+
+**Reference:** `packages/design-system/themes-legacy/src/forest.css`
+
+---
+
+## 🚀 Future Usage (Phase 6)
+
+### Installation
 
 ```bash
 pnpm add @grasdouble/lufa_design-system-themes
 ```
 
-## Available Themes
-
-- **Ocean** - Blue/aqua color scheme
-- **Forest** - Green/earth color scheme
-
-## Usage
-
 ### CSS Import
 
 ```css
-/* Import a theme */
+/* Import a theme (Phase 6) */
 @import '@grasdouble/lufa_design-system-themes/ocean.css';
 /* or */
 @import '@grasdouble/lufa_design-system-themes/forest.css';
@@ -32,83 +103,77 @@ pnpm add @grasdouble/lufa_design-system-themes
 
 ### Apply Theme
 
-Themes work by setting the `data-theme` attribute:
-
 ```html
 <!-- Ocean theme -->
-<div data-theme="ocean">
-  <p>This content uses the ocean theme</p>
-</div>
-
-<!-- Forest theme -->
-<div data-theme="forest">
-  <p>This content uses the forest theme</p>
-</div>
+<html data-theme="ocean" data-mode="dark">
+  <!-- Your app -->
+</html>
 ```
 
-### JavaScript/React
+### React/TypeScript
 
 ```tsx
 import '@grasdouble/lufa_design-system-themes/ocean.css';
 
 function App() {
-  return <div data-theme="ocean">{/* Your app content */}</div>;
+  return <div data-theme="ocean">{/* Your app */}</div>;
 }
 ```
 
-### Dynamic Theme Switching
+---
 
-```tsx
-import { useState } from 'react';
+## 🏗️ How to Create Themes (Phase 6)
 
-import '@grasdouble/lufa_design-system-themes/ocean.css';
-import '@grasdouble/lufa_design-system-themes/forest.css';
+### Step 1: Define Token Overrides
 
-function App() {
-  const [theme, setTheme] = useState('ocean');
+Create `packages/design-system/tokens/src/themes/ocean.json`:
 
-  return (
-    <div data-theme={theme}>
-      <button onClick={() => setTheme('ocean')}>Ocean</button>
-      <button onClick={() => setTheme('forest')}>Forest</button>
-      {/* Your app content */}
-    </div>
-  );
+```json
+{
+  "theme": {
+    "ocean": {
+      "color": {
+        "brand": {
+          "primary": { "$value": "#0077be" }
+        }
+      }
+    }
+  }
 }
 ```
 
-## How Themes Work
+### Step 2: Build Tokens
 
-Themes override CSS custom properties defined by the token package:
+```bash
+cd packages/design-system/tokens
+pnpm build
+# Generates dist/themes/ocean.css
+```
 
-**Color Properties**:
-- `--color-text-*` - Text colors
-- `--color-background-*` - Background colors
-- `--color-border-*` - Border colors
-- `--color-interactive-*` - Interactive element colors
-- `--color-success-*`, `--color-error-*`, etc. - State colors
-- `--color-brand-*` - Brand colors
+### Step 3: Copy to Themes Package
 
-**Visual Properties** (new):
-- `--border-radius-*` - Border radius (sm, base, lg, xl, etc.)
-- `--spacing-*` - Spacing values (sm, base, lg, xl, etc.)
-- `--transition-duration-*` - Animation speeds (fast, base, slow)
-- `--border-width-*` - Border widths (thin, thick, etc.)
-- `--opacity-*` - Opacity values (light, medium, etc.)
+```bash
+cd packages/design-system/themes
+pnpm build
+# Copies generated CSS to dist/
+```
 
-Each theme provides semantic overrides that maintain accessibility and design consistency while creating a unique visual identity.
+---
 
-### Theme Personalities
+## 📚 Documentation
 
-**Ocean Theme**: Smooth, flowing, modern
-- More rounded corners (larger border radius)
-- More spacious layout (increased spacing)
-- Slower, smoother transitions
-- Blue/aqua color palette
+**Token Architecture v2:** `packages/design-system/tokens/README.md`  
+**Legacy Themes (reference):** `packages/design-system/themes-legacy/`
 
-**Forest Theme**: Organic, grounded, natural
-- Less rounded corners (smaller border radius)
-- More compact layout (reduced spacing)
-- Faster, snappier transitions
-- Thicker borders for earthy feel
-- Green/earth color palette
+---
+
+## 🔜 Timeline
+
+- **Phase 5A (current):** Default theme only
+- **Phase 6:** Ocean + Forest themes recreation
+- **Phase 7+:** Additional custom themes
+
+---
+
+**Status:** 🚧 Placeholder for Phase 6  
+**Current:** Use default theme from tokens package

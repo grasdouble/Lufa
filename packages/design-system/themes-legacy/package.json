@@ -1,0 +1,42 @@
+{
+  "name": "@grasdouble/lufa_design-system-themes-legacy",
+  "version": "0.2.2",
+  "private": true,
+  "description": "Lufa Design System - Theme variants (ocean, forest, etc.)",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./default.css": "./dist/default.css",
+    "./ocean.css": "./dist/ocean.css",
+    "./forest.css": "./dist/forest.css"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "pnpm clean && tsx scripts/copy-themes.ts",
+    "clean": "rm -rf dist",
+    "lint": "eslint ./src --ext .ts,.tsx,.js,.jsx || true",
+    "prettier": "prettier --write ."
+  },
+  "dependencies": {
+    "@grasdouble/lufa_design-system-tokens": "workspace:^"
+  },
+  "devDependencies": {
+    "@grasdouble/lufa_config_eslint": "workspace:^",
+    "@grasdouble/lufa_config_prettier": "workspace:^",
+    "@grasdouble/lufa_config_tsconfig": "workspace:^",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
+    "@types/node": "^25.0.9",
+    "eslint": "^9.39.2",
+    "prettier": "^3.8.0",
+    "prettier-plugin-packagejson": "^2.5.22",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  }
+}

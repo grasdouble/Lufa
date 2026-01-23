@@ -1,0 +1,294 @@
+/**
+ * Alternative Theme: Ocean
+ * A blue/teal color scheme with smooth, flowing personality
+ * 
+ * Features:
+ * - More rounded corners (12px vs 8px)
+ * - More spacious layout (+12.5% spacing)
+ * - Slower transitions (300ms vs 250ms)
+ * - Both light and dark mode variants
+ */
+
+/**
+ * Ocean Theme - Light Mode (default)
+ */
+:root[data-theme='ocean'],
+:root[data-theme='ocean'][data-mode='light'] {
+  /* Text colors */
+  --lufa-token-color-text-primary: oklch(31.6% 0.068 237.1);
+  --lufa-token-color-text-secondary: oklch(37.5% 0.091 236.8);
+  --lufa-token-color-text-tertiary: oklch(58.8% 0.131 218.7);
+  --lufa-token-color-text-disabled: oklch(70.5% 0.014 254.6);
+  --lufa-token-color-text-inverse: oklch(98.2% 0.009 235.4);
+  --lufa-token-color-text-link: oklch(54.3% 0.135 236.6);
+  --lufa-token-color-text-link-hover: oklch(47% 0.12 237.2);
+
+  /* Background colors */
+  --lufa-token-color-background-primary: oklch(100% 0 0);
+  --lufa-token-color-background-secondary: oklch(98.2% 0.009 235.4);
+  --lufa-token-color-background-tertiary: oklch(95.7% 0.015 235.8);
+  --lufa-token-color-background-inverse: oklch(31.6% 0.068 237.1);
+  --lufa-token-color-background-overlay: oklch(31.6% 0.068 237.1 / 0.5);
+
+  /* Border colors */
+  --lufa-token-color-border-default: oklch(83.2% 0.093 232.1);
+  --lufa-token-color-border-light: oklch(91.6% 0.046 233.4);
+  --lufa-token-color-border-medium: oklch(74.8% 0.131 232.8);
+  --lufa-token-color-border-strong: oklch(54.3% 0.135 236.6);
+  --lufa-token-color-border-focus: oklch(66.9% 0.155 232.5);
+
+  /* Interactive colors */
+  --lufa-token-color-interactive-default: oklch(54.3% 0.135 236.6);
+  --lufa-token-color-interactive-hover: oklch(47% 0.12 237.2);
+  --lufa-token-color-interactive-active: oklch(37.5% 0.091 236.8);
+  --lufa-token-color-interactive-disabled: oklch(87.1% 0.007 254.3);
+  --lufa-token-color-interactive-focus: oklch(66.9% 0.155 232.5);
+
+  /* Success colors */
+  --lufa-token-color-success-default: oklch(55.8% 0.145 166.1);
+  --lufa-token-color-success-hover: oklch(48.7% 0.122 166.8);
+  --lufa-token-color-success-active: oklch(40.2% 0.097 167.9);
+  --lufa-token-color-success-light: oklch(96.1% 0.049 166.1);
+  --lufa-token-color-success-lighter: oklch(98.5% 0.024 166.2);
+  --lufa-token-color-success-border: oklch(87.3% 0.128 166);
+  --lufa-token-color-success-text: oklch(48.7% 0.122 166.8);
+
+  /* Warning colors */
+  --lufa-token-color-warning-default: oklch(57.6% 0.189 41.7);
+  --lufa-token-color-warning-hover: oklch(48.4% 0.159 40);
+  --lufa-token-color-warning-active: oklch(40.7% 0.131 39.3);
+  --lufa-token-color-warning-light: oklch(97.6% 0.037 85.8);
+  --lufa-token-color-warning-lighter: oklch(99% 0.018 91);
+  --lufa-token-color-warning-border: oklch(80.3% 0.146 85.9);
+  --lufa-token-color-warning-text: oklch(48.4% 0.159 40);
+
+  /* Error colors */
+  --lufa-token-color-error-default: oklch(54.3% 0.224 27.7);
+  --lufa-token-color-error-hover: oklch(45.7% 0.194 29.2);
+  --lufa-token-color-error-active: oklch(40.1% 0.162 27.8);
+  --lufa-token-color-error-light: oklch(94.1% 0.027 17.7);
+  --lufa-token-color-error-lighter: oklch(97.1% 0.013 17.4);
+  --lufa-token-color-error-border: oklch(82.1% 0.132 20.4);
+  --lufa-token-color-error-text: oklch(45.7% 0.194 29.2);
+
+  /* Info colors */
+  --lufa-token-color-info-default: oklch(58.8% 0.131 218.7);
+  --lufa-token-color-info-hover: oklch(49.5% 0.093 218.8);
+  --lufa-token-color-info-active: oklch(40.9% 0.071 218.9);
+  --lufa-token-color-info-light: oklch(97.7% 0.027 218.8);
+  --lufa-token-color-info-lighter: oklch(99.1% 0.012 218.9);
+  --lufa-token-color-info-border: oklch(87.7% 0.097 218.7);
+  --lufa-token-color-info-text: oklch(49.5% 0.093 218.8);
+
+  /* Brand colors */
+  --lufa-token-color-brand-primary: oklch(54.3% 0.135 236.6);
+  --lufa-token-color-brand-primary-hover: oklch(47% 0.12 237.2);
+  --lufa-token-color-brand-primary-active: oklch(37.5% 0.091 236.8);
+  --lufa-token-color-brand-secondary: oklch(58.8% 0.131 218.7);
+  --lufa-token-color-brand-secondary-hover: oklch(49.5% 0.093 218.8);
+  --lufa-token-color-brand-secondary-active: oklch(40.9% 0.071 218.9);
+  --lufa-token-color-brand-accent: oklch(70.4% 0.115 218.7);
+
+  /* Surface colors */
+  --lufa-token-color-surface-default: oklch(100% 0 0);
+  --lufa-token-color-surface-raised: oklch(98.2% 0.009 235.4);
+  --lufa-token-color-surface-overlay: oklch(95.7% 0.015 235.8);
+  --lufa-token-color-surface-inverse: oklch(31.6% 0.068 237.1);
+
+  /* Border Radius - More rounded for Ocean theme */
+  --border-radius-base: 0.75rem; /* 12px instead of default 8px */
+  --border-radius-lg: 1rem; /* 16px instead of default 12px */
+  --border-radius-xl: 1.5rem; /* 24px instead of default 16px */
+
+  /* Spacing - Slightly more spacious */
+  --spacing-base: 1.125rem; /* 18px instead of default 16px */
+  --spacing-lg: 1.75rem; /* 28px instead of default 24px */
+  --spacing-xl: 2.25rem; /* 36px instead of default 32px */
+
+  /* Transitions - Slightly slower for smoother feel */
+  --transition-duration-base: 300ms; /* Instead of default 250ms */
+  --transition-duration-slow: 500ms; /* Instead of default 400ms */
+
+  /* Opacity - Slightly more transparent overlays */
+  --opacity-light: 0.65; /* Instead of default 0.7 */
+  --opacity-medium: 0.8; /* Instead of default 0.85 */
+}
+
+/**
+ * Ocean Theme - Dark Mode
+ * Inverts lightness while maintaining ocean personality
+ */
+:root[data-theme='ocean'][data-mode='dark'] {
+  /* Text colors - lighter for dark backgrounds */
+  --lufa-token-color-text-primary: oklch(95.7% 0.015 235.8);
+  --lufa-token-color-text-secondary: oklch(91.6% 0.046 233.4);
+  --lufa-token-color-text-tertiary: oklch(83.2% 0.093 232.1);
+  --lufa-token-color-text-disabled: oklch(41.7% 0.014 254.6);
+  --lufa-token-color-text-inverse: oklch(31.6% 0.068 237.1);
+  --lufa-token-color-text-link: oklch(74.8% 0.131 232.8);
+  --lufa-token-color-text-link-hover: oklch(83.2% 0.093 232.1);
+
+  /* Background colors - dark ocean depths */
+  --lufa-token-color-background-primary: oklch(21.8% 0.041 237.3);
+  --lufa-token-color-background-secondary: oklch(31.6% 0.068 237.1);
+  --lufa-token-color-background-tertiary: oklch(37.5% 0.091 236.8);
+  --lufa-token-color-background-inverse: oklch(98.2% 0.009 235.4);
+  --lufa-token-color-background-overlay: oklch(21.8% 0.041 237.3 / 0.8);
+
+  /* Border colors - adjusted for dark mode */
+  --lufa-token-color-border-default: oklch(49.5% 0.093 218.8);
+  --lufa-token-color-border-light: oklch(37.5% 0.091 236.8);
+  --lufa-token-color-border-medium: oklch(58.8% 0.131 218.7);
+  --lufa-token-color-border-strong: oklch(74.8% 0.131 232.8);
+  --lufa-token-color-border-focus: oklch(83.2% 0.093 232.1);
+
+  /* Interactive colors - brighter for visibility on dark */
+  --lufa-token-color-interactive-default: oklch(74.8% 0.131 232.8);
+  --lufa-token-color-interactive-hover: oklch(83.2% 0.093 232.1);
+  --lufa-token-color-interactive-active: oklch(91.6% 0.046 233.4);
+  --lufa-token-color-interactive-disabled: oklch(31.7% 0.014 254.6);
+  --lufa-token-color-interactive-focus: oklch(83.2% 0.093 232.1);
+
+  /* Success colors - adjusted for dark mode */
+  --lufa-token-color-success-default: oklch(70.4% 0.153 166.1);
+  --lufa-token-color-success-hover: oklch(79.6% 0.128 166);
+  --lufa-token-color-success-active: oklch(87.3% 0.128 166);
+  --lufa-token-color-success-light: oklch(33.2% 0.077 167.9);
+  --lufa-token-color-success-lighter: oklch(19.1% 0.046 168.1);
+  --lufa-token-color-success-border: oklch(55.8% 0.145 166.1);
+  --lufa-token-color-success-text: oklch(87.3% 0.128 166);
+
+  /* Warning colors - adjusted for dark mode */
+  --lufa-token-color-warning-default: oklch(72.5% 0.169 70.4);
+  --lufa-token-color-warning-hover: oklch(80.3% 0.146 85.9);
+  --lufa-token-color-warning-active: oklch(86.8% 0.142 93.7);
+  --lufa-token-color-warning-light: oklch(33.5% 0.093 52.4);
+  --lufa-token-color-warning-lighter: oklch(21.2% 0.059 53.1);
+  --lufa-token-color-warning-border: oklch(57.6% 0.189 41.7);
+  --lufa-token-color-warning-text: oklch(86.8% 0.142 93.7);
+
+  /* Error colors - adjusted for dark mode */
+  --lufa-token-color-error-default: oklch(62.8% 0.258 27.3);
+  --lufa-token-color-error-hover: oklch(73.3% 0.204 23.2);
+  --lufa-token-color-error-active: oklch(82.1% 0.132 20.4);
+  --lufa-token-color-error-light: oklch(34.1% 0.128 27.8);
+  --lufa-token-color-error-lighter: oklch(20.4% 0.081 27.9);
+  --lufa-token-color-error-border: oklch(54.3% 0.224 27.7);
+  --lufa-token-color-error-text: oklch(82.1% 0.132 20.4);
+
+  /* Info colors - ocean cyan for dark mode */
+  --lufa-token-color-info-default: oklch(70.4% 0.115 218.7);
+  --lufa-token-color-info-hover: oklch(80.6% 0.116 218.7);
+  --lufa-token-color-info-active: oklch(87.7% 0.097 218.7);
+  --lufa-token-color-info-light: oklch(33.7% 0.056 219);
+  --lufa-token-color-info-lighter: oklch(23.2% 0.036 219);
+  --lufa-token-color-info-border: oklch(58.8% 0.131 218.7);
+  --lufa-token-color-info-text: oklch(87.7% 0.097 218.7);
+
+  /* Brand colors - ocean brand in dark mode */
+  --lufa-token-color-brand-primary: oklch(74.8% 0.131 232.8);
+  --lufa-token-color-brand-primary-hover: oklch(83.2% 0.093 232.1);
+  --lufa-token-color-brand-primary-active: oklch(91.6% 0.046 233.4);
+  --lufa-token-color-brand-secondary: oklch(70.4% 0.115 218.7);
+  --lufa-token-color-brand-secondary-hover: oklch(80.6% 0.116 218.7);
+  --lufa-token-color-brand-secondary-active: oklch(87.7% 0.097 218.7);
+  --lufa-token-color-brand-accent: oklch(66.9% 0.155 232.5);
+
+  /* Surface colors - layered depth */
+  --lufa-token-color-surface-default: oklch(21.8% 0.041 237.3);
+  --lufa-token-color-surface-raised: oklch(31.6% 0.068 237.1);
+  --lufa-token-color-surface-overlay: oklch(37.5% 0.091 236.8);
+  --lufa-token-color-surface-inverse: oklch(98.2% 0.009 235.4);
+
+  /* Visual properties inherited from light mode */
+  /* Border radius, spacing, and transitions remain the same for consistency */
+}
+
+/**
+ * Auto dark mode based on system preference
+ * Only applies if no explicit data-mode is set
+ */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme='ocean']:not([data-mode]) {
+    /* Text colors */
+    --lufa-token-color-text-primary: oklch(95.7% 0.015 235.8);
+    --lufa-token-color-text-secondary: oklch(91.6% 0.046 233.4);
+    --lufa-token-color-text-tertiary: oklch(83.2% 0.093 232.1);
+    --lufa-token-color-text-disabled: oklch(41.7% 0.014 254.6);
+    --lufa-token-color-text-inverse: oklch(31.6% 0.068 237.1);
+    --lufa-token-color-text-link: oklch(74.8% 0.131 232.8);
+    --lufa-token-color-text-link-hover: oklch(83.2% 0.093 232.1);
+
+    /* Background colors */
+    --lufa-token-color-background-primary: oklch(21.8% 0.041 237.3);
+    --lufa-token-color-background-secondary: oklch(31.6% 0.068 237.1);
+    --lufa-token-color-background-tertiary: oklch(37.5% 0.091 236.8);
+    --lufa-token-color-background-inverse: oklch(98.2% 0.009 235.4);
+    --lufa-token-color-background-overlay: oklch(21.8% 0.041 237.3 / 0.8);
+
+    /* Border colors */
+    --lufa-token-color-border-default: oklch(49.5% 0.093 218.8);
+    --lufa-token-color-border-light: oklch(37.5% 0.091 236.8);
+    --lufa-token-color-border-medium: oklch(58.8% 0.131 218.7);
+    --lufa-token-color-border-strong: oklch(74.8% 0.131 232.8);
+    --lufa-token-color-border-focus: oklch(83.2% 0.093 232.1);
+
+    /* Interactive colors */
+    --lufa-token-color-interactive-default: oklch(74.8% 0.131 232.8);
+    --lufa-token-color-interactive-hover: oklch(83.2% 0.093 232.1);
+    --lufa-token-color-interactive-active: oklch(91.6% 0.046 233.4);
+    --lufa-token-color-interactive-disabled: oklch(31.7% 0.014 254.6);
+    --lufa-token-color-interactive-focus: oklch(83.2% 0.093 232.1);
+
+    /* Success colors */
+    --lufa-token-color-success-default: oklch(70.4% 0.153 166.1);
+    --lufa-token-color-success-hover: oklch(79.6% 0.128 166);
+    --lufa-token-color-success-active: oklch(87.3% 0.128 166);
+    --lufa-token-color-success-light: oklch(33.2% 0.077 167.9);
+    --lufa-token-color-success-lighter: oklch(19.1% 0.046 168.1);
+    --lufa-token-color-success-border: oklch(55.8% 0.145 166.1);
+    --lufa-token-color-success-text: oklch(87.3% 0.128 166);
+
+    /* Warning colors */
+    --lufa-token-color-warning-default: oklch(72.5% 0.169 70.4);
+    --lufa-token-color-warning-hover: oklch(80.3% 0.146 85.9);
+    --lufa-token-color-warning-active: oklch(86.8% 0.142 93.7);
+    --lufa-token-color-warning-light: oklch(33.5% 0.093 52.4);
+    --lufa-token-color-warning-lighter: oklch(21.2% 0.059 53.1);
+    --lufa-token-color-warning-border: oklch(57.6% 0.189 41.7);
+    --lufa-token-color-warning-text: oklch(86.8% 0.142 93.7);
+
+    /* Error colors */
+    --lufa-token-color-error-default: oklch(62.8% 0.258 27.3);
+    --lufa-token-color-error-hover: oklch(73.3% 0.204 23.2);
+    --lufa-token-color-error-active: oklch(82.1% 0.132 20.4);
+    --lufa-token-color-error-light: oklch(34.1% 0.128 27.8);
+    --lufa-token-color-error-lighter: oklch(20.4% 0.081 27.9);
+    --lufa-token-color-error-border: oklch(54.3% 0.224 27.7);
+    --lufa-token-color-error-text: oklch(82.1% 0.132 20.4);
+
+    /* Info colors */
+    --lufa-token-color-info-default: oklch(70.4% 0.115 218.7);
+    --lufa-token-color-info-hover: oklch(80.6% 0.116 218.7);
+    --lufa-token-color-info-active: oklch(87.7% 0.097 218.7);
+    --lufa-token-color-info-light: oklch(33.7% 0.056 219);
+    --lufa-token-color-info-lighter: oklch(23.2% 0.036 219);
+    --lufa-token-color-info-border: oklch(58.8% 0.131 218.7);
+    --lufa-token-color-info-text: oklch(87.7% 0.097 218.7);
+
+    /* Brand colors */
+    --lufa-token-color-brand-primary: oklch(74.8% 0.131 232.8);
+    --lufa-token-color-brand-primary-hover: oklch(83.2% 0.093 232.1);
+    --lufa-token-color-brand-primary-active: oklch(91.6% 0.046 233.4);
+    --lufa-token-color-brand-secondary: oklch(70.4% 0.115 218.7);
+    --lufa-token-color-brand-secondary-hover: oklch(80.6% 0.116 218.7);
+    --lufa-token-color-brand-secondary-active: oklch(87.7% 0.097 218.7);
+    --lufa-token-color-brand-accent: oklch(66.9% 0.155 232.5);
+
+    /* Surface colors */
+    --lufa-token-color-surface-default: oklch(21.8% 0.041 237.3);
+    --lufa-token-color-surface-raised: oklch(31.6% 0.068 237.1);
+    --lufa-token-color-surface-overlay: oklch(37.5% 0.091 236.8);
+    --lufa-token-color-surface-inverse: oklch(98.2% 0.009 235.4);
+  }
+}
