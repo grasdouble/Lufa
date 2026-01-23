@@ -32,18 +32,9 @@
  * ```
  */
 
-import {
-  LufaPrimitiveColorBlue100,
-  LufaPrimitiveColorBlue500,
-  LufaPrimitiveColorGray100,
-  LufaPrimitiveColorGray300,
-  LufaPrimitiveColorGray500,
-  LufaPrimitiveColorGray800,
-  LufaPrimitiveColorGreen100,
-  LufaPrimitiveColorGreen500,
-  LufaPrimitiveColorPurple100,
-  LufaPrimitiveColorPurple500,
-} from '@grasdouble/lufa_design-system-tokens';
+// Import tokens from JSON documentation (not JS exports)
+// This approach ensures we're using the canonical token values without deprecated JS exports
+import tokens from '@grasdouble/lufa_design-system-tokens/dist/tokens-docs.json';
 
 /**
  * Color definition with main color and light background variant
@@ -69,8 +60,8 @@ export interface StoryColor {
 export const PRIMARY_COLORS = {
   /** Blue - From design system primitives (blue-500 / blue-100) */
   blue: {
-    main: LufaPrimitiveColorBlue500, // #3b82f6
-    light: LufaPrimitiveColorBlue100, // #dbeafe
+    main: tokens.primitive.color.blue['500'], // #3b82f6
+    light: tokens.primitive.color.blue['100'], // #dbeafe
     name: 'Blue',
   },
   /** Violet - Tailwind violet-500 / violet-100 (not in primitives yet) */
@@ -93,8 +84,8 @@ export const PRIMARY_COLORS = {
   },
   /** Green - From design system primitives (green-500 / green-100) */
   green: {
-    main: LufaPrimitiveColorGreen500, // #22c55e
-    light: LufaPrimitiveColorGreen100, // #dcfce7
+    main: tokens.primitive.color.green['500'], // #22c55e
+    light: tokens.primitive.color.green['100'], // #dcfce7
     name: 'Green',
   },
   /** Cyan - Tailwind cyan-500 / cyan-100 (not in primitives yet) */
@@ -210,13 +201,13 @@ export const AXIS_COLORS = {
  */
 export const NEUTRAL_COLORS = {
   /** Light gray background - From primitives (gray-100) */
-  backgroundLight: LufaPrimitiveColorGray100, // #f3f4f6
+  backgroundLight: tokens.primitive.color.gray['100'], // #f3f4f6
   /** Medium gray border - From primitives (gray-300) */
-  borderMedium: LufaPrimitiveColorGray300, // #d1d5db
+  borderMedium: tokens.primitive.color.gray['300'], // #d1d5db
   /** Slate border - Tailwind slate-200 (not in primitives yet) */
   borderSlate: '#e2e8f0',
   /** Dark gray text - From primitives (gray-800) */
-  textDark: LufaPrimitiveColorGray800, // #1f2937
+  textDark: tokens.primitive.color.gray['800'], // #1f2937
   /** Slate text - Tailwind slate-500 (not in primitives yet) */
   textSlate: '#64748b',
   /** White - Pure white */

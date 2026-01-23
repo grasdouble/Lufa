@@ -7,7 +7,7 @@ import Heading from '@theme/Heading';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 
-import { LufaPrimitiveSpacing16 } from '@grasdouble/lufa_design-system-tokens';
+import tokens from '@grasdouble/lufa_design-system-tokens/dist/tokens-docs.json';
 
 import styles from './index.module.css';
 
@@ -27,7 +27,7 @@ function HomepageHeader() {
           <Link
             className="button button--outline button--lg"
             to="/docs/getting-started/installation"
-            style={{ marginLeft: LufaPrimitiveSpacing16 }}
+            style={{ marginLeft: tokens.primitive.spacing['16'] }}
           >
             Installation Guide
           </Link>

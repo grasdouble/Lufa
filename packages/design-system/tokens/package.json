@@ -6,16 +6,11 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./dist/tokens.d.ts",
-      "import": "./dist/tokens.js",
-      "default": "./dist/tokens.js"
-    },
-    "./tokens.css": "./dist/tokens.css"
+    ".": "./dist/tokens-docs.json",
+    "./tokens.css": "./dist/tokens.css",
+    "./dist/tokens-docs.json": "./dist/tokens-docs.json"
   },
-  "main": "./dist/tokens.js",
-  "module": "./dist/tokens.js",
-  "types": "./dist/tokens.d.ts",
+  "main": "./dist/tokens-docs.json",
   "files": [
     "dist",
     "README.md"

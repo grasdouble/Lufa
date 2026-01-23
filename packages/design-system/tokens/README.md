@@ -95,8 +95,7 @@ packages/design-system/tokens/
 │           └── scale.json                    # 7 tokens (none-full)
 ├── dist/
 │   ├── tokens.css                            # CSS Custom Properties (103 variables)
-│   ├── tokens.ts                             # TypeScript exports
-│   └── tokens-docs.json                      # Documentation JSON
+│   └── tokens-docs.json                      # Documentation JSON (for Storybook/docs)
 ├── style-dictionary.config.js                # Style Dictionary configuration
 └── README.md                                 # This file
 ```
@@ -122,15 +121,6 @@ packages/design-system/tokens/
 --lufa-primitive-color-gray-500
 --lufa-primitive-color-blue-600
 --lufa-primitive-color-red-50
-```
-
-**TypeScript Usage:**
-
-```typescript
-import { LufaPrimitiveColorBlue600, LufaPrimitiveColorGray500 } from '@grasdouble/lufa_design-system-tokens';
-
-LufaPrimitiveColorGray500; // "#6b7280"
-LufaPrimitiveColorBlue600; // "#2563eb"
 ```
 
 ### 2. Spacing (12 tokens)
@@ -223,58 +213,11 @@ tight: 1.25, normal: 1.5, relaxed: 1.75
 
 ## 🛠️ Usage
 
-### ⚠️ Important: Do Not Use JS/TS Exports in React Components
-
-**The JS/TS exports are ONLY for documentation purposes** (Storybook stories, design token viewers, tests).
-
-**❌ DO NOT use JS/TS exports in React components:**
-
-```typescript
-// ❌ BAD - Not themable, hardcoded value
-import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
-
-export const Button = () => (
-  <button style={{ color: LufaPrimitiveColorBlue600 }}>Click me</button>
-);
-```
-
-**✅ ALWAYS use CSS Modules with CSS custom properties:**
-
-```typescript
-// ✅ GOOD - Themable via CSS variables
-import styles from './Button.module.css';
-
-export const Button = () => <button className={styles.button}>Click me</button>;
-```
-
-```css
-/* Button.module.css */
-.button {
-  color: var(--lufa-primitive-color-blue-600); /* Themable! */
-}
-```
-
-**Why?**
-
-1. 🎨 **Theming** - CSS variables can be overridden by themes
-2. 🏗️ **Architecture** - Components should only use their own CSS Modules
-3. 🔄 **Runtime flexibility** - CSS variables support dynamic theme switching
-4. ⚡ **Performance** - No JS execution needed for styling
-
-**Legitimate use cases for JS/TS exports:**
-
-- ✅ Storybook stories (displaying token values)
-- ✅ Design token documentation
-- ✅ Tests (verifying token values)
-- ✅ Build scripts and tooling
-
----
-
-### In CSS (Recommended)
+### In CSS (Recommended - Primary Usage)
 
 ```css
 /* Import generated file */
-@import '@grasdouble/lufa_design-system-tokens/dist/tokens.css';
+@import '@grasdouble/lufa_design-system-tokens/tokens.css';
 
 /* Use CSS Custom Properties */
 .my-component {
@@ -287,43 +230,57 @@ export const Button = () => <button className={styles.button}>Click me</button>;
 }
 ```
 
-### In TypeScript/JavaScript (Documentation Only)
+### In React Components (CSS Modules Pattern)
 
-> **⚠️ WARNING:** Do not use these exports in React components. See warning above.
+**✅ CORRECT - Use CSS Modules with CSS custom properties:**
 
 ```typescript
-import {
-  LufaPrimitiveColorBlue600,
-  LufaPrimitiveRadiusScaleBase,
-  LufaPrimitiveShadowElevationBase,
-  LufaPrimitiveSpacing16,
-  LufaPrimitiveTypographyFontSizeBase,
-  LufaPrimitiveTypographyFontWeightSemibold,
-} from '@grasdouble/lufa_design-system-tokens';
+// Button.tsx
+import styles from './Button.module.css';
 
-// Use in styles object (Storybook documentation only)
-const styles = {
-  color: LufaPrimitiveColorBlue600,
-  padding: LufaPrimitiveSpacing16,
-  fontSize: LufaPrimitiveTypographyFontSizeBase,
-  fontWeight: LufaPrimitiveTypographyFontWeightSemibold,
-  borderRadius: LufaPrimitiveRadiusScaleBase,
-  boxShadow: LufaPrimitiveShadowElevationBase,
-};
+export const Button = () => <button className={styles.button}>Click me</button>;
 ```
 
-### In Storybook (Documentation Only)
+```css
+/* Button.module.css */
+.button {
+  color: var(--lufa-primitive-color-blue-600); /* Themable! */
+  padding: var(--lufa-primitive-spacing-16);
+}
+```
 
-> **⚠️ WARNING:** Do not use these exports in React components. See warning above.
+**Why this pattern?**
+
+1. 🎨 **Theming** - CSS variables can be overridden by themes
+2. 🏗️ **Architecture** - Components should only use their own CSS Modules
+3. 🔄 **Runtime flexibility** - CSS variables support dynamic theme switching
+4. ⚡ **Performance** - No JS execution needed for styling
+
+### In Documentation/Storybook (JSON)
+
+For displaying token values in Storybook stories or documentation:
 
 ```typescript
-import { LufaPrimitiveColorBlue500 } from '@grasdouble/lufa_design-system-tokens';
+// Button.stories.tsx
+import tokens from '@grasdouble/lufa_design-system-tokens/dist/tokens-docs.json';
 
 export default {
-  title: 'Foundations/Colors',
+  title: 'Components/Button',
   parameters: {
     design: {
-      token: LufaPrimitiveColorBlue500,
+      primaryColor: tokens.primitive.color.blue['600'], // "#2563eb"
+      spacing: tokens.primitive.spacing['16'], // "16px"
+    },
+  },
+};
+
+// Display token value in story description
+export const Primary = {
+  parameters: {
+    docs: {
+      description: {
+        story: `Uses primary color: ${tokens.primitive.color.blue['600']}`,
+      },
     },
   },
 };
