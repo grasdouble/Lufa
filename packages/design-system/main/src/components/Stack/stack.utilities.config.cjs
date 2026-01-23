@@ -30,12 +30,12 @@ module.exports = {
     spacing: {
       property: 'gap',
       values: {
-        none: '--semantic-ui-spacing-tight', // 4px
-        tight: '--semantic-ui-spacing-tight',
-        compact: '--semantic-ui-spacing-compact', // 8px
-        default: '--semantic-ui-spacing-default', // 16px
-        comfortable: '--semantic-ui-spacing-comfortable', // 24px
-        spacious: '--semantic-ui-spacing-spacious', // 32px
+        none: '--lufa-semantic-ui-spacing-tight', // 4px
+        tight: '--lufa-semantic-ui-spacing-tight',
+        compact: '--lufa-semantic-ui-spacing-compact', // 8px
+        default: '--lufa-semantic-ui-spacing-default', // 16px
+        comfortable: '--lufa-semantic-ui-spacing-comfortable', // 24px
+        spacious: '--lufa-semantic-ui-spacing-spacious', // 32px
       },
     },
 

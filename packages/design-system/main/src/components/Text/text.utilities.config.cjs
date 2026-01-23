@@ -39,14 +39,14 @@ module.exports = {
     color: {
       property: 'color',
       values: {
-        primary: '--semantic-ui-text-primary',
-        secondary: '--semantic-ui-text-secondary',
-        tertiary: '--semantic-ui-text-tertiary',
-        success: '--semantic-ui-text-success',
-        error: '--semantic-ui-text-error',
-        warning: '--semantic-ui-text-warning',
-        info: '--semantic-ui-text-info',
-        inverse: '--semantic-ui-background-on-primary', // White text
+        primary: '--lufa-semantic-ui-text-primary',
+        secondary: '--lufa-semantic-ui-text-secondary',
+        tertiary: '--lufa-semantic-ui-text-tertiary',
+        success: '--lufa-semantic-ui-text-success',
+        error: '--lufa-semantic-ui-text-error',
+        warning: '--lufa-semantic-ui-text-warning',
+        info: '--lufa-semantic-ui-text-info',
+        inverse: '--lufa-semantic-ui-background-on-primary', // White text
       },
     },
 

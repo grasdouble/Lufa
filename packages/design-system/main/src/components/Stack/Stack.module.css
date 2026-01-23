@@ -26,27 +26,27 @@
 /* ========================================== */
 
 .spacing-none {
-  gap: var(--semantic-ui-spacing-tight);
+  gap: var(--lufa-semantic-ui-spacing-tight);
 }
 
 .spacing-tight {
-  gap: var(--semantic-ui-spacing-tight);
+  gap: var(--lufa-semantic-ui-spacing-tight);
 }
 
 .spacing-compact {
-  gap: var(--semantic-ui-spacing-compact);
+  gap: var(--lufa-semantic-ui-spacing-compact);
 }
 
 .spacing-default {
-  gap: var(--semantic-ui-spacing-default);
+  gap: var(--lufa-semantic-ui-spacing-default);
 }
 
 .spacing-comfortable {
-  gap: var(--semantic-ui-spacing-comfortable);
+  gap: var(--lufa-semantic-ui-spacing-comfortable);
 }
 
 .spacing-spacious {
-  gap: var(--semantic-ui-spacing-spacious);
+  gap: var(--lufa-semantic-ui-spacing-spacious);
 }
 
 /* ========================================== */

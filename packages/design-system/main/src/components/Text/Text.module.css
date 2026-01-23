@@ -62,35 +62,35 @@
 /* ========================================== */
 
 .color-primary {
-  color: var(--semantic-ui-text-primary);
+  color: var(--lufa-semantic-ui-text-primary);
 }
 
 .color-secondary {
-  color: var(--semantic-ui-text-secondary);
+  color: var(--lufa-semantic-ui-text-secondary);
 }
 
 .color-tertiary {
-  color: var(--semantic-ui-text-tertiary);
+  color: var(--lufa-semantic-ui-text-tertiary);
 }
 
 .color-success {
-  color: var(--semantic-ui-text-success);
+  color: var(--lufa-semantic-ui-text-success);
 }
 
 .color-error {
-  color: var(--semantic-ui-text-error);
+  color: var(--lufa-semantic-ui-text-error);
 }
 
 .color-warning {
-  color: var(--semantic-ui-text-warning);
+  color: var(--lufa-semantic-ui-text-warning);
 }
 
 .color-info {
-  color: var(--semantic-ui-text-info);
+  color: var(--lufa-semantic-ui-text-info);
 }
 
 .color-inverse {
-  color: var(--semantic-ui-background-on-primary);
+  color: var(--lufa-semantic-ui-background-on-primary);
 }
 
 /* ========================================== */
