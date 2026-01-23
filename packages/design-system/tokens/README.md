@@ -223,7 +223,54 @@ tight: 1.25, normal: 1.5, relaxed: 1.75
 
 ## 🛠️ Usage
 
-### In CSS
+### ⚠️ Important: Do Not Use JS/TS Exports in React Components
+
+**The JS/TS exports are ONLY for documentation purposes** (Storybook stories, design token viewers, tests).
+
+**❌ DO NOT use JS/TS exports in React components:**
+
+```typescript
+// ❌ BAD - Not themable, hardcoded value
+import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+
+export const Button = () => (
+  <button style={{ color: LufaPrimitiveColorBlue600 }}>Click me</button>
+);
+```
+
+**✅ ALWAYS use CSS Modules with CSS custom properties:**
+
+```typescript
+// ✅ GOOD - Themable via CSS variables
+import styles from './Button.module.css';
+
+export const Button = () => <button className={styles.button}>Click me</button>;
+```
+
+```css
+/* Button.module.css */
+.button {
+  color: var(--lufa-primitive-color-blue-600); /* Themable! */
+}
+```
+
+**Why?**
+
+1. 🎨 **Theming** - CSS variables can be overridden by themes
+2. 🏗️ **Architecture** - Components should only use their own CSS Modules
+3. 🔄 **Runtime flexibility** - CSS variables support dynamic theme switching
+4. ⚡ **Performance** - No JS execution needed for styling
+
+**Legitimate use cases for JS/TS exports:**
+
+- ✅ Storybook stories (displaying token values)
+- ✅ Design token documentation
+- ✅ Tests (verifying token values)
+- ✅ Build scripts and tooling
+
+---
+
+### In CSS (Recommended)
 
 ```css
 /* Import generated file */
@@ -240,7 +287,9 @@ tight: 1.25, normal: 1.5, relaxed: 1.75
 }
 ```
 
-### In TypeScript/JavaScript
+### In TypeScript/JavaScript (Documentation Only)
+
+> **⚠️ WARNING:** Do not use these exports in React components. See warning above.
 
 ```typescript
 import {
@@ -252,7 +301,7 @@ import {
   LufaPrimitiveTypographyFontWeightSemibold,
 } from '@grasdouble/lufa_design-system-tokens';
 
-// Use in styles object
+// Use in styles object (Storybook documentation only)
 const styles = {
   color: LufaPrimitiveColorBlue600,
   padding: LufaPrimitiveSpacing16,
@@ -263,7 +312,9 @@ const styles = {
 };
 ```
 
-### In Storybook
+### In Storybook (Documentation Only)
+
+> **⚠️ WARNING:** Do not use these exports in React components. See warning above.
 
 ```typescript
 import { LufaPrimitiveColorBlue500 } from '@grasdouble/lufa_design-system-tokens';
