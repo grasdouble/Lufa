@@ -15,6 +15,7 @@ module.exports = {
   base: {
     border: '0',
     margin: '0',
+    '--divider-color': 'var(--lufa-component-divider-color-default)',
   },
 
   utilities: {
@@ -33,11 +34,11 @@ module.exports = {
     // VARIANT - Color variants
     // ==========================================
     variant: {
-      property: 'background-color',
+      property: ['background-color', '--divider-color'],
       values: {
-        default: 'var(--lufa-component-divider-color-default)',
-        subtle: 'var(--lufa-component-divider-color-subtle)',
-        strong: 'var(--lufa-component-divider-color-strong)',
+        default: ['var(--lufa-component-divider-color-default)', 'var(--lufa-component-divider-color-default)'],
+        subtle: ['var(--lufa-component-divider-color-subtle)', 'var(--lufa-component-divider-color-subtle)'],
+        strong: ['var(--lufa-component-divider-color-strong)', 'var(--lufa-component-divider-color-strong)'],
       },
     },
 
@@ -95,15 +96,15 @@ module.exports = {
 
   // Custom classes that don't fit the utility pattern
   custom: {
-    // Override for horizontal + dashed combination
+    // Override for horizontal + dashed combination (uses --divider-color CSS variable)
     'orientation-horizontal.line-style-dashed': {
       'background-image':
-        'repeating-linear-gradient(to right, var(--lufa-component-divider-color-default) 0, var(--lufa-component-divider-color-default) 8px, transparent 8px, transparent 12px)',
+        'repeating-linear-gradient(to right, var(--divider-color) 0, var(--divider-color) 8px, transparent 8px, transparent 12px)',
     },
-    // Override for vertical + dashed combination
+    // Override for vertical + dashed combination (uses --divider-color CSS variable)
     'orientation-vertical.line-style-dashed': {
       'background-image':
-        'repeating-linear-gradient(to bottom, var(--lufa-component-divider-color-default) 0, var(--lufa-component-divider-color-default) 8px, transparent 8px, transparent 12px)',
+        'repeating-linear-gradient(to bottom, var(--divider-color) 0, var(--divider-color) 8px, transparent 8px, transparent 12px)',
     },
   },
 };

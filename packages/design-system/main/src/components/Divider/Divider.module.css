@@ -17,6 +17,7 @@
 .divider {
   border: 0;
   margin: 0;
+  --divider-color: var(--lufa-component-divider-color-default);
 }
 
 /* ========================================== */
@@ -41,14 +42,17 @@
 
 .variant-default {
   background-color: var(--lufa-component-divider-color-default);
+  --divider-color: var(--lufa-component-divider-color-default);
 }
 
 .variant-subtle {
   background-color: var(--lufa-component-divider-color-subtle);
+  --divider-color: var(--lufa-component-divider-color-subtle);
 }
 
 .variant-strong {
   background-color: var(--lufa-component-divider-color-strong);
+  --divider-color: var(--lufa-component-divider-color-strong);
 }
 
 /* ========================================== */
@@ -109,9 +113,9 @@
 /* ========================================== */
 
 .orientation-horizontal.line-style-dashed {
-  background-image: repeating-linear-gradient(to right, var(--lufa-component-divider-color-default) 0, var(--lufa-component-divider-color-default) 8px, transparent 8px, transparent 12px);
+  background-image: repeating-linear-gradient(to right, var(--divider-color) 0, var(--divider-color) 8px, transparent 8px, transparent 12px);
 }
 
 .orientation-vertical.line-style-dashed {
-  background-image: repeating-linear-gradient(to bottom, var(--lufa-component-divider-color-default) 0, var(--lufa-component-divider-color-default) 8px, transparent 8px, transparent 12px);
+  background-image: repeating-linear-gradient(to bottom, var(--divider-color) 0, var(--divider-color) 8px, transparent 8px, transparent 12px);
 }
