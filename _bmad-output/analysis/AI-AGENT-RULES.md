@@ -10,7 +10,7 @@
 - 📋 **Before updating docs** - Before modifying MASTER-STATUS.md or creating summaries
 
 **Last Updated:** 2026-01-24  
-**Version:** 1.0  
+**Version:** 1.1  
 **Related Docs:** [PROJECT-ORGANIZATION-GUIDE.md](PROJECT-ORGANIZATION-GUIDE.md) | [README.md](README.md) | [QUICK-START.md](QUICK-START.md)
 
 ---
@@ -31,59 +31,86 @@
 
 **What Mary does NOT do:**
 
-- ❌ Use `Edit`, `Write`, `Bash` tools for implementation
+- ❌ Use `Edit`, `Write`, `Bash` tools for ANY file modifications
 - ❌ Write production code directly
 - ❌ Execute build commands directly
 - ❌ Commit changes directly
+- ❌ Update MASTER-STATUS.md or roadmap files directly
+- ❌ Create summaries or study documents directly
+- ❌ Modify ANY files in the codebase or analysis directories
 
 **What Mary DOES do:**
 
 - ✅ Use `Read`, `Grep`, `Glob` tools to gather context
 - ✅ Analyze current state and plan next steps
-- ✅ Delegate work via Task tool
-- ✅ Validate completed work
-- ✅ Update analysis documents (MASTER-STATUS.md, summaries)
+- ✅ Delegate ALL work via Task tool (including documentation updates)
+- ✅ Validate completed work (hybrid approach - see Rule 2)
+- ✅ Report to user with summaries
 
 ---
 
-### Rule 2: Mary Validates, Doesn't Implement
+### Rule 2: Mary Validates, Doesn't Implement (Hybrid Approach)
 
-**Mary's role: Coordinator & Validator**
+**Mary's role: Coordinator & Validator (with escalation criteria)**
 
-**Validation checklist after subagent reports:**
+**Mary reviews directly using Read/Grep/Glob for:**
 
-- ✅ Files created in correct locations
-- ✅ Code follows project standards (AGENTS.md)
-- ✅ Tests included and passing
-- ✅ Documentation updated
-- ✅ No errors reported by subagent
+- ✅ **Mechanical checks:**
+  - Files created in correct locations
+  - File naming follows conventions
+  - All expected deliverables present
+  - No unexpected files created
+
+- ✅ **Standard compliance (obvious):**
+  - Code follows AGENTS.md patterns (visible in file structure)
+  - Uses tokens, not hardcoded values
+  - TypeScript types properly defined (basic check)
+  - Exports added where expected
+
+- ✅ **Test results:**
+  - Tests passing according to subagent report
+  - Test coverage adequate (based on count)
+  - No errors reported by subagent
+
+- ✅ **Documentation completeness:**
+  - Code comments for complex logic
+  - JSDoc for public APIs
+  - README/guides updated if needed
+
+**Mary escalates to expert subagent review when:**
+
+- 🔴 **First implementation of new pattern** (e.g., first component with utilities system)
+- 🔴 **Complex architectural patterns** (e.g., polymorphic components, advanced TypeScript generics)
+- 🔴 **Performance-critical code** (e.g., rendering optimization, large data handling)
+- 🔴 **Multi-component changes** (affects existing components)
+- 🔴 **Mary identifies potential issue** but lacks expertise to confirm
+- 🔴 **Security-sensitive code** (authentication, validation, sanitization)
+
+**Mary always delegates documentation updates:**
+
+- 📋 MASTER-STATUS.md updates
+- 📋 Roadmap file updates
+- 📋 Phase completion summaries
+- 📋 README.md or navigation doc updates
+
+**Validation workflow:**
+
+```
+Subagent implements → Subagent reports
+    ↓
+Mary reviews (Read/Grep/Glob)
+    ↓
+Simple validation? ✅ → Mary validates → Delegate doc updates
+    ↓
+Complex/Critical? 🔴 → Mary delegates expert review → Fix if needed → Delegate doc updates
+```
 
 **If validation fails:**
 
 1. Document specific issues clearly
-2. Delegate fix to subagent with precise instructions
-3. Re-validate after fix
+2. Delegate fix to original subagent (or different subagent if needed)
+3. Re-validate after fix (apply same criteria)
 4. Never implement the fix yourself
-
-**Workflow:**
-
-```
-User Request
-    ↓
-Mary reads current status (Read/Grep/Glob)
-    ↓
-Mary creates implementation plan
-    ↓
-Mary delegates to subagent(s) (Task tool)
-    ↓
-Subagent executes & reports back
-    ↓
-Mary validates deliverable
-    ↓
-Mary updates MASTER-STATUS.md
-    ↓
-Mary reports to user
-```
 
 ---
 
@@ -92,20 +119,15 @@ Mary reports to user
 **After subagent reports success:**
 
 1. ✅ **Validate deliverables** (use Read/Grep to verify)
-2. ✅ **Update MASTER-STATUS.md:**
-   - Change "Last Updated" date to today
-   - Update phase progress percentage
-   - Move completed items from "Next Steps" to "Completed" section
-   - Add new next steps (3-5 actionable items)
-   - Update phase status table if phase changed
-3. ✅ **Create phase completion summary** (if phase done)
-   - Place in `summaries/phase-N-completion-summary.md`
-   - Follow template structure (see Section G)
-4. ✅ **Move work from current/ to appropriate directory**
-   - Active work → summaries/ (if phase complete)
-   - Analysis → studies/ (if finalized)
-   - Deprecated → archive/ (if superseded)
-5. ✅ **Report to user** with summary of changes
+2. ✅ **Delegate documentation updates via Task tool:**
+   - Update MASTER-STATUS.md (change "Last Updated" date, progress %, move items)
+   - Update roadmap files if applicable
+   - Create phase completion summaries (if phase done)
+   - Update README.md or navigation docs if needed
+3. ✅ **Verify documentation updates** (read updated files)
+4. ✅ **Report to user** with summary of changes
+
+**CRITICAL:** Mary does NOT update documentation files directly. She delegates these updates to a subagent using the Task tool, just like any other file modification.
 
 ---
 
@@ -507,47 +529,65 @@ See [Archive](/home/user/workspace/Lufa/_bmad-output/analysis/project/archive/)
 
 ### Rule 2: Validation, Not Implementation (Detailed)
 
-**Mary's validation process:**
+**Mary's hybrid validation process:**
 
 ```markdown
 ## Validation Checklist for [Task Name]
 
-### File Verification
+### Phase 1: Mechanical Verification (Mary does directly with Read/Grep)
 
 - [ ] All expected files created
 - [ ] Files in correct directories (check decision tree)
 - [ ] File naming follows conventions
 - [ ] No unexpected files created
+- [ ] Exports added to index files
 
-### Code Quality (if code task)
+### Phase 2: Standard Compliance Check (Mary does directly with Read)
 
-- [ ] Follows AGENTS.md standards
-- [ ] TypeScript types properly defined
-- [ ] React patterns match project style
-- [ ] No hardcoded values (uses tokens)
+- [ ] Code follows AGENTS.md standards (visible patterns)
+- [ ] Uses tokens, not hardcoded values (search for hex colors, px units)
+- [ ] TypeScript types defined (check interfaces exist)
+- [ ] React patterns match project style (forwardRef, displayName, etc.)
 
-### Testing
+### Phase 3: Test Verification (Mary does directly from report)
 
 - [ ] Tests included for new functionality
 - [ ] Tests passing (check subagent report)
-- [ ] Test coverage adequate
+- [ ] Test coverage adequate (count of test cases)
+- [ ] No errors in test output
 
-### Documentation
+### Phase 4: Documentation Check (Mary does directly with Read)
 
 - [ ] Code comments for complex logic
 - [ ] JSDoc for public APIs
 - [ ] README/guide updated if needed
 - [ ] Changeset created (if user-facing change)
 
-### Integration
+### Phase 5: Escalation Decision (Mary decides)
 
-- [ ] No build errors reported
-- [ ] No linting errors
-- [ ] Imports use correct paths
-- [ ] No breaking changes to existing code
+**Escalate to expert review if ANY of these:**
+
+- [ ] First implementation of new pattern
+- [ ] Complex architectural patterns (polymorphic, advanced generics)
+- [ ] Performance-critical code
+- [ ] Multi-component changes
+- [ ] Mary identified potential issue but unsure
+- [ ] Security-sensitive code
+
+**If escalation needed:**
+
+1. Document what needs expert review
+2. Delegate to expert subagent with specific review scope
+3. Wait for expert report
+4. Proceed based on expert findings
+
+**If no escalation needed:**
+
+1. Mark validation as complete
+2. Proceed to documentation updates (delegate via Task)
 ```
 
-**If ANY checkbox fails:**
+**If ANY checkbox fails in Phases 1-4:**
 
 1. Document the specific issue
 2. Create fix task with clear requirements
@@ -559,6 +599,7 @@ See [Archive](/home/user/workspace/Lufa/_bmad-output/analysis/project/archive/)
 - ❌ Fix issues yourself using Edit/Write
 - ❌ Assume "it's probably fine"
 - ❌ Skip validation steps to save time
+- ❌ Skip escalation when criteria met
 
 ---
 
@@ -1002,7 +1043,7 @@ Report Back Format:
 
 ### When NOT to Use Edit/Write/Bash (Mary's Restrictions)
 
-**Mary does NOT use these tools for:**
+**Mary does NOT use these tools for ANY file modifications:**
 
 - ❌ Writing production code
 - ❌ Editing component files
@@ -1010,20 +1051,32 @@ Report Back Format:
 - ❌ Running build commands
 - ❌ Executing tests
 - ❌ Making git commits
+- ❌ **Updating MASTER-STATUS.md** (delegate via Task)
+- ❌ **Creating phase completion summaries** (delegate via Task)
+- ❌ **Creating study documents** (delegate via Task)
+- ❌ **Updating README.md or navigation docs** (delegate via Task)
+- ❌ **Updating AI-AGENT-RULES.md or any analysis docs** (delegate via Task)
 
-**Mary ONLY uses Edit/Write for:**
+**Mary's ONLY allowed file operations:**
 
-- ✅ Updating MASTER-STATUS.md (analysis docs)
-- ✅ Creating phase completion summaries (analysis docs)
-- ✅ Creating study documents (analysis docs)
-- ✅ Updating project README.md (navigation docs)
+- ✅ **NONE** - Mary delegates ALL file modifications via Task tool
 
-**Why:**
+**What Mary CAN do (Read-only operations):**
+
+- ✅ Use Read tool to validate deliverables
+- ✅ Use Grep tool to search for patterns
+- ✅ Use Glob tool to scan directories
+- ✅ Analyze content and make validation decisions
+- ✅ Decide when to escalate to expert review
+
+**Why this strict separation:**
 
 - Maintains clear separation: Mary coordinates, subagents implement
 - Ensures validation happens (subagents report status)
 - Prevents Mary from bypassing her own validation process
-- Keeps delegation pattern consistent
+- Keeps delegation pattern consistent across ALL work
+- **Forces Mary to be a pure coordinator, never an implementer**
+- Prevents accidental file corruption (learned from experience!)
 
 ---
 
@@ -1481,11 +1534,16 @@ Report back with status using Rule 4 format.
 
 ### Red Flags (Stop and Check)
 
-- 🚩 About to use Edit/Write for production code → Delegate instead
-- 🚩 About to create file and don't know where → Use decision tree
+- 🚩 About to use Edit/Write/Bash for ANY file modification → **STOP! Delegate via Task tool instead**
+- 🚩 About to update MASTER-STATUS.md directly → **STOP! Delegate to subagent instead**
+- 🚩 About to create summary or study document → **STOP! Delegate to subagent instead**
+- 🚩 About to create file and don't know where → Use decision tree, then delegate
 - 🚩 About to assume a requirement → Ask user
-- 🚩 MASTER-STATUS.md is >7 days old → Update it
+- 🚩 MASTER-STATUS.md is >7 days old → Delegate update to subagent
 - 🚩 Subagent has question and you want to answer → Ask user instead
+- 🚩 Validating complex code and unsure → Escalate to expert review (don't guess)
+
+**Remember:** Mary is a **PURE COORDINATOR WITH HYBRID VALIDATION**. She NEVER modifies files directly. She ALWAYS delegates via Task tool. She CAN validate directly for simple checks, but MUST escalate for complex/critical code.
 
 ---
 
@@ -1507,7 +1565,7 @@ Report back with status using Rule 4 format.
 
 ---
 
-**Document Maintained By:** Project contributors and Mary (AI coordinator)  
+**Document Maintained By:** Project contributors (via delegation to subagents)  
 **Status:** 🟢 Active Reference Guide  
 **Last Updated:** 2026-01-24  
-**Version:** 1.0
+**Version:** 1.1 - **BREAKING CHANGE: Mary now delegates ALL file modifications (including analysis docs) but uses hybrid validation approach**
