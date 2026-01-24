@@ -151,11 +151,19 @@ export const Default: Story = {
 export const PropType: Story = {
   name: 'Prop: type',
   render: () => {
+    const [selectedType, setSelectedType] = React.useState<string>('solid');
+
     const types = [
       { value: 'solid', label: 'solid', description: 'Filled background (default)' },
       { value: 'outline', label: 'outline', description: 'Border only, transparent background' },
       { value: 'ghost', label: 'ghost', description: 'No border, transparent background' },
     ] as const;
+
+    const generateCode = (type: string): string => {
+      return `<Button type="${type}" variant="primary">
+  ${type.charAt(0).toUpperCase() + type.slice(1)} Button
+</Button>`;
+    };
 
     return (
       <StoryContainer>
@@ -172,7 +180,13 @@ export const PropType: Story = {
               const colors = getColorByIndex(index);
 
               return (
-                <PropCard key={typeItem.value} label={`type="${typeItem.label}"`}>
+                <PropCard
+                  key={typeItem.value}
+                  label={`type="${typeItem.label}"`}
+                  highlight={selectedType === typeItem.value}
+                  onInteraction={() => setSelectedType(typeItem.value)}
+                  interactionType="click"
+                >
                   <div
                     style={{
                       backgroundColor: colors.light,
@@ -202,18 +216,7 @@ export const PropType: Story = {
             })}
           </div>
 
-          <CodeBlock
-            code={`{/* Solid (default) */}
-<Button type="solid">Solid Button</Button>
-
-{/* Outline */}
-<Button type="outline">Outline Button</Button>
-
-{/* Ghost */}
-<Button type="ghost">Ghost Button</Button>`}
-            language="jsx"
-            title="JSX"
-          />
+          <CodeBlock code={generateCode(selectedType)} language="jsx" title="JSX" />
         </div>
       </StoryContainer>
     );
@@ -227,6 +230,8 @@ export const PropType: Story = {
 export const PropVariant: Story = {
   name: 'Prop: variant',
   render: () => {
+    const [selectedVariant, setSelectedVariant] = React.useState<string>('primary');
+
     const variants = [
       { value: 'primary', label: 'primary', description: 'Primary action' },
       { value: 'secondary', label: 'secondary', description: 'Secondary action' },
@@ -236,6 +241,13 @@ export const PropVariant: Story = {
       { value: 'info', label: 'info', description: 'Informational' },
       { value: 'neutral', label: 'neutral', description: 'Neutral / Low-emphasis' },
     ] as const;
+
+    const generateCode = (variant: string): string => {
+      const label = variant.charAt(0).toUpperCase() + variant.slice(1);
+      return `<Button type="solid" variant="${variant}">
+  ${label}
+</Button>`;
+    };
 
     return (
       <StoryContainer>
@@ -252,7 +264,13 @@ export const PropVariant: Story = {
               const colors = getColorByIndex(index);
 
               return (
-                <PropCard key={variantItem.value} label={`variant="${variantItem.label}"`}>
+                <PropCard
+                  key={variantItem.value}
+                  label={`variant="${variantItem.label}"`}
+                  highlight={selectedVariant === variantItem.value}
+                  onInteraction={() => setSelectedVariant(variantItem.value)}
+                  interactionType="click"
+                >
                   <div
                     style={{
                       backgroundColor: colors.light,
@@ -282,18 +300,7 @@ export const PropVariant: Story = {
             })}
           </div>
 
-          <CodeBlock
-            code={`{/* Primary (default) */}
-<Button variant="primary">Primary</Button>
-
-{/* Success */}
-<Button variant="success">Success</Button>
-
-{/* Danger */}
-<Button variant="danger">Delete</Button>`}
-            language="jsx"
-            title="JSX"
-          />
+          <CodeBlock code={generateCode(selectedVariant)} language="jsx" title="JSX" />
         </div>
       </StoryContainer>
     );
@@ -364,11 +371,19 @@ export const TypeVariantMatrix: Story = {
 export const PropSize: Story = {
   name: 'Prop: size',
   render: () => {
+    const [selectedSize, setSelectedSize] = React.useState<string>('md');
+
     const sizes = [
       { value: 'sm', label: 'sm', height: '32px', description: 'Small' },
       { value: 'md', label: 'md', height: '40px', description: 'Medium (default)' },
       { value: 'lg', label: 'lg', height: '48px', description: 'Large' },
     ] as const;
+
+    const generateCode = (size: string): string => {
+      const sizeLabel = size.toUpperCase();
+      const description = sizes.find((s) => s.value === size)?.description || size;
+      return `<Button size="${size}">${description} Button</Button>`;
+    };
 
     return (
       <StoryContainer>
@@ -384,7 +399,13 @@ export const PropSize: Story = {
               const colors = getColorByIndex(index);
 
               return (
-                <PropCard key={sizeItem.value} label={`size="${sizeItem.label}"`}>
+                <PropCard
+                  key={sizeItem.value}
+                  label={`size="${sizeItem.label}"`}
+                  highlight={selectedSize === sizeItem.value}
+                  onInteraction={() => setSelectedSize(sizeItem.value)}
+                  interactionType="click"
+                >
                   <div
                     style={{
                       backgroundColor: colors.light,
@@ -411,13 +432,7 @@ export const PropSize: Story = {
             })}
           </div>
 
-          <CodeBlock
-            code={`<Button size="sm">Small Button</Button>
-<Button size="md">Medium Button</Button>
-<Button size="lg">Large Button</Button>`}
-            language="jsx"
-            title="JSX"
-          />
+          <CodeBlock code={generateCode(selectedSize)} language="jsx" title="JSX" />
         </div>
       </StoryContainer>
     );
@@ -431,6 +446,8 @@ export const PropSize: Story = {
 export const PropRadius: Story = {
   name: 'Prop: radius',
   render: () => {
+    const [selectedRadius, setSelectedRadius] = React.useState<string>('base');
+
     const radiusOptions = [
       { value: 'none', label: 'none', px: '0px', description: 'Sharp corners' },
       { value: 'sm', label: 'sm', px: '2px', description: 'Subtle rounding' },
@@ -438,6 +455,11 @@ export const PropRadius: Story = {
       { value: 'md', label: 'md', px: '12px', description: 'Emphasized rounding' },
       { value: 'full', label: 'full', px: '9999px', description: 'Pill shape' },
     ] as const;
+
+    const generateCode = (radius: string): string => {
+      const radiusLabel = radius.charAt(0).toUpperCase() + radius.slice(1);
+      return `<Button radius="${radius}">${radiusLabel}</Button>`;
+    };
 
     return (
       <StoryContainer>
@@ -453,7 +475,13 @@ export const PropRadius: Story = {
               const colors = getColorByIndex(index);
 
               return (
-                <PropCard key={radiusItem.value} label={`radius="${radiusItem.label}"`}>
+                <PropCard
+                  key={radiusItem.value}
+                  label={`radius="${radiusItem.label}"`}
+                  highlight={selectedRadius === radiusItem.value}
+                  onInteraction={() => setSelectedRadius(radiusItem.value)}
+                  interactionType="click"
+                >
                   <div
                     style={{
                       backgroundColor: colors.light,
@@ -481,13 +509,7 @@ export const PropRadius: Story = {
             })}
           </div>
 
-          <CodeBlock
-            code={`<Button radius="none">Sharp</Button>
-<Button radius="base">Default</Button>
-<Button radius="full">Pill</Button>`}
-            language="jsx"
-            title="JSX"
-          />
+          <CodeBlock code={generateCode(selectedRadius)} language="jsx" title="JSX" />
         </div>
       </StoryContainer>
     );
@@ -501,6 +523,8 @@ export const PropRadius: Story = {
 export const PropIcons: Story = {
   name: 'Prop: iconLeft / iconRight',
   render: () => {
+    const [selectedIconIndex, setSelectedIconIndex] = React.useState<number>(0);
+
     const iconExamples = [
       { config: { iconLeft: 'check' }, label: 'iconLeft="check"', children: 'Save' },
       { config: { iconRight: 'arrow-right' }, label: 'iconRight="arrow-right"', children: 'Next' },
@@ -511,6 +535,24 @@ export const PropIcons: Story = {
       },
       { config: { iconLeft: 'search' }, label: 'Icon-only', children: undefined, ariaLabel: 'Search' },
     ];
+
+    const generateCode = (index: number): string => {
+      const example = iconExamples[index];
+      const { config, children, ariaLabel } = example;
+
+      if (config.iconLeft && config.iconRight) {
+        return `<Button iconLeft="${config.iconLeft}" iconRight="${config.iconRight}">
+  ${children}
+</Button>`;
+      } else if (config.iconLeft && !children) {
+        return `<Button iconLeft="${config.iconLeft}" aria-label="${ariaLabel}" />`;
+      } else if (config.iconLeft) {
+        return `<Button iconLeft="${config.iconLeft}">${children}</Button>`;
+      } else if (config.iconRight) {
+        return `<Button iconRight="${config.iconRight}">${children}</Button>`;
+      }
+      return '<Button>Default</Button>';
+    };
 
     return (
       <StoryContainer>
@@ -526,7 +568,13 @@ export const PropIcons: Story = {
               const colors = getColorByIndex(index);
 
               return (
-                <PropCard key={index} label={example.label}>
+                <PropCard
+                  key={index}
+                  label={example.label}
+                  highlight={selectedIconIndex === index}
+                  onInteraction={() => setSelectedIconIndex(index)}
+                  interactionType="click"
+                >
                   <div
                     style={{
                       backgroundColor: colors.light,
@@ -546,23 +594,7 @@ export const PropIcons: Story = {
             })}
           </div>
 
-          <CodeBlock
-            code={`{/* Left icon */}
-<Button iconLeft="check">Save</Button>
-
-{/* Right icon */}
-<Button iconRight="arrow-right">Next</Button>
-
-{/* Both icons */}
-<Button iconLeft="check" iconRight="arrow-right">
-  Confirm
-</Button>
-
-{/* Icon-only (requires aria-label) */}
-<Button iconLeft="search" aria-label="Search" />`}
-            language="jsx"
-            title="JSX"
-          />
+          <CodeBlock code={generateCode(selectedIconIndex)} language="jsx" title="JSX" />
         </div>
       </StoryContainer>
     );
@@ -700,6 +732,25 @@ export const PropFullWidth: Story = {
 export const PropAs: Story = {
   name: 'Prop: as (Polymorphic)',
   render: () => {
+    const [selectedAs, setSelectedAs] = React.useState<'button' | 'a'>('button');
+
+    const asOptions = [
+      { value: 'button' as const, label: 'as="button" (default)', description: 'Button Element' },
+      { value: 'a' as const, label: 'as="a" (anchor)', description: 'Anchor Element' },
+    ];
+
+    const generateCode = (asValue: 'button' | 'a'): string => {
+      if (asValue === 'button') {
+        return `<Button as="button" onClick={handleClick}>
+  Button Element
+</Button>`;
+      } else {
+        return `<Button as="a" href="/home">
+  Link Button
+</Button>`;
+      }
+    };
+
     return (
       <StoryContainer>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -710,7 +761,12 @@ export const PropAs: Story = {
               gap: '20px',
             }}
           >
-            <PropCard label='as="button" (default)'>
+            <PropCard
+              label='as="button" (default)'
+              highlight={selectedAs === 'button'}
+              onInteraction={() => setSelectedAs('button')}
+              interactionType="click"
+            >
               <div
                 style={{
                   backgroundColor: STORY_COLORS.primary.blue.light,
@@ -726,7 +782,12 @@ export const PropAs: Story = {
               </div>
             </PropCard>
 
-            <PropCard label='as="a" (anchor)'>
+            <PropCard
+              label='as="a" (anchor)'
+              highlight={selectedAs === 'a'}
+              onInteraction={() => setSelectedAs('a')}
+              interactionType="click"
+            >
               <div
                 style={{
                   backgroundColor: STORY_COLORS.primary.violet.light,
@@ -743,19 +804,7 @@ export const PropAs: Story = {
             </PropCard>
           </div>
 
-          <CodeBlock
-            code={`{/* As button */}
-<Button as="button" onClick={handleClick}>
-  Button
-</Button>
-
-{/* As anchor */}
-<Button as="a" href="/home">
-  Link Button
-</Button>`}
-            language="jsx"
-            title="JSX"
-          />
+          <CodeBlock code={generateCode(selectedAs)} language="jsx" title="JSX" />
         </div>
       </StoryContainer>
     );
