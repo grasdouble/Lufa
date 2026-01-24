@@ -1,406 +1,102 @@
 # Lufa Design System
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
-[![React](https://img.shields.io/badge/React-19.x-61DAFB?style=flat-square&logo=react)](https://react.dev)
+A modern, token-based design system built with React, TypeScript, and Style Dictionary.
 
-> A comprehensive, three-layer design system built for modern web applications with accessibility, theming, and developer experience at its core.
+## 📚 Documentation
 
-## Overview
+**📖 Comprehensive documentation available in [`docs/`](./docs/index.md)**
 
-The Lufa Design System provides a complete foundation for building consistent, accessible, and themeable React applications. Built on a clear separation of concerns, it offers everything from raw primitives to production-ready components.
+### Quick Links
 
-### Architecture
+| Document | Purpose | Audience |
+|----------|---------|----------|
+| **[Documentation Index](./docs/index.md)** | Master navigation | Everyone |
+| **[Overview](./docs/overview.md)** | Project introduction | Everyone |
+| **[Architecture](./docs/architecture.md)** | System design & principles | Architects, Developers |
+| **[Development Guide](./docs/development-guide.md)** | Setup, workflows, troubleshooting | Developers |
+| **[Token Architecture](./docs/token-architecture.md)** | 4-level token system | Designers, Developers |
+| **[Component Inventory](./docs/component-inventory.md)** | Available components | Developers, Designers |
+| **[Build Configuration](./docs/build-configuration.md)** | Build pipeline details | DevOps, Build Engineers |
+| **[Testing Strategy](./docs/testing-strategy.md)** | Playwright CT approach | QA, Developers |
+| **[Storybook Patterns](./docs/storybook-patterns.md)** | Documentation patterns | Docs Writers |
 
-The design system follows a three-layer architecture, each serving a distinct purpose:
+### Learning Paths
 
-```
-┌─────────────────────────────────────────────┐
-│         React Components                    │
-│    (@grasdouble/lufa_design-system)         │
-│  Production-ready UI components with        │
-│  accessibility, composition patterns        │
-└─────────────────┬───────────────────────────┘
-                  │
-┌─────────────────▼───────────────────────────┐
-│         Semantic Tokens                     │
-│  (@grasdouble/lufa_design-system-tokens)    │
-│  Purpose-driven design decisions            │
-│  (primary, secondary, compact, spacious)    │
-└─────────────────┬───────────────────────────┘
-                  │
-┌─────────────────▼───────────────────────────┐
-│         Primitives                          │
-│  (@grasdouble/lufa_design-system-primitives)│
-│  Raw foundational values                    │
-│  (16px, 150ms, blue[600])                   │
-└─────────────────────────────────────────────┘
-```
+- **New Developer?** → [Overview](./docs/overview.md) → [Development Guide](./docs/development-guide.md) → [Component Inventory](./docs/component-inventory.md)
+- **Designer?** → [Token Architecture](./docs/token-architecture.md) → [Component Inventory](./docs/component-inventory.md) → Storybook
+- **Architect?** → [Architecture](./docs/architecture.md) → [Token Architecture](./docs/token-architecture.md) → [Build Configuration](./docs/build-configuration.md)
 
-**Layer 1: Primitives** - Non-semantic, raw values using actual measurements as keys  
-**Layer 2: Tokens** - Semantic design decisions mapped from primitives  
-**Layer 3: Components** - Accessible React components using tokens
-
-### Key Features
-
-- **Three-Layer Architecture** - Clear separation between primitives, tokens, and components
-- **448 Primitives** - Raw foundational values for all design aspects
-- **446 Token Values** - Semantic design decisions in TS (355 CSS custom properties)
-- **Type-Safe** - Full TypeScript support with strict mode
-- **Accessible** - WCAG 2.1 AA compliant components
-- **Themeable** - Token-based theming with dark mode support
-- **Interactive Documentation** - Storybook for component exploration
-- **Comprehensive Guides** - Docusaurus documentation site
-
-## Packages
-
-### Core Packages
-
-#### [@grasdouble/lufa_design-system](./main)
-
-The main component library with production-ready React components.
+## 🚀 Quick Start
 
 ```bash
-pnpm add @grasdouble/lufa_design-system
-```
-
-**What's included:**
-
-- Accessible React components (Button, Card, Input, etc.)
-- Compound component patterns
-- TypeScript definitions
-- CSS-based styling with design tokens
-
-[View Package →](./main)
-
-#### [@grasdouble/lufa_design-system-tokens](./tokens)
-
-Semantic design tokens providing purpose-based design decisions.
-
-```bash
-pnpm add @grasdouble/lufa_design-system-tokens
-```
-
-**What's included:**
-
-- 446 token values in TypeScript (including motion/focus presets)
-- 355 CSS custom properties in `dist/style.css`
-- Color, spacing, typography, motion tokens
-- CSS custom properties
-- TypeScript definitions
-
-[View Package →](./tokens)
-
-#### [@grasdouble/lufa_design-system-primitives](./primitives)
-
-Non-semantic, foundational design values.
-
-```bash
-pnpm add @grasdouble/lufa_design-system-primitives
-```
-
-**What's included:**
-
-- 448 primitive tokens
-- Value-based keys (16px, 150ms, etc.)
-- CSS custom properties
-- TypeScript definitions
-
-[View Package →](./primitives)
-
-#### [@grasdouble/lufa_design-system-themes](./themes)
-
-Pre-built theme variants for quick customization.
-
-```bash
-pnpm add @grasdouble/lufa_design-system-themes
-```
-
-**What's included:**
-
-- Ocean theme
-- Forest theme
-- Additional theme variants
-
-[View Package →](./themes)
-
-### Development Packages
-
-#### [@grasdouble/lufa_design-system-storybook](./storybook)
-
-Interactive component explorer and documentation.
-
-```bash
-pnpm ds:storybook:dev    # Start Storybook
-pnpm ds:storybook:build  # Build static site
-```
-
-**Features:**
-
-- Interactive component playground
-- Variant exploration
-- Accessibility testing
-- Code examples
-
-[View Package →](./storybook)
-
-#### [@grasdouble/lufa_design-system-docusaurus](./docusaurus)
-
-Comprehensive documentation site built with Docusaurus.
-
-```bash
-pnpm ds:docusaurus:dev    # Start docs server
-pnpm ds:docusaurus:build  # Build static site
-```
-
-**Features:**
-
-- Getting started guides
-- Design principles
-- Component guidelines
-- Migration guides
-
-[View Package →](./docusaurus)
-
-## Quick Start
-
-### Installation
-
-Install the main design system package:
-
-```bash
-pnpm add @grasdouble/lufa_design-system
-# or
-npm install @grasdouble/lufa_design-system
-# or
-yarn add @grasdouble/lufa_design-system
-```
-
-### Basic Usage
-
-```tsx
-import { Button, Card } from '@grasdouble/lufa_design-system';
-
-import '@grasdouble/lufa_design-system/style.css';
-
-function App() {
-  return (
-    <Card>
-      <Card.Header>
-        <h2>Welcome to Lufa</h2>
-      </Card.Header>
-      <Card.Body>
-        <p>Build amazing applications with our design system.</p>
-        <Button variant="primary" size="md">
-          Get Started
-        </Button>
-      </Card.Body>
-    </Card>
-  );
-}
-```
-
-### Using Tokens
-
-Access semantic tokens for custom styling:
-
-```tsx
-import tokens from '@grasdouble/lufa_design-system-tokens/values';
-
-const customStyles = {
-  padding: tokens.primitive.spacing['24'],
-  fontSize: tokens.primitive.typography.fontSize.base,
-  color: tokens.core.neutral.text.primary,
-};
-```
-
-**Note:** Token imports should only be used in Storybook stories or documentation. React components should use CSS Modules with CSS custom properties.
-
-### Using Primitives
-
-Access raw primitive values for advanced use cases:
-
-```tsx
-import primitives from '@grasdouble/lufa_design-system-primitives';
-
-const customStyles = {
-  padding: primitives.spacing[24],
-  fontSize: primitives.fontSize[16],
-  transition: `all ${primitives.timing[150]} ease-in-out`,
-};
-```
-
-## Development
-
-### Monorepo Structure
-
-```
-packages/design-system/
-├── main/              # React component library
-├── primitives/        # Non-semantic foundational values
-├── tokens/            # Semantic design tokens
-├── themes/            # Pre-built theme variants
-├── storybook/         # Interactive component explorer
-└── docusaurus/        # Docusaurus documentation
-```
-
-### Development Commands
-
-```bash
-# Install dependencies (from monorepo root)
+# Install dependencies
 pnpm install
 
-# Build all design system packages
+# Build all packages (required first time)
 pnpm ds:all:build
 
-# Start all in development mode
-pnpm ds:all:dev
-
-# Run Storybook
-pnpm ds:storybook:dev
-
-# Run documentation site
-pnpm ds:documentation:dev
-
-# Lint all packages
-pnpm ds:all:lint
-
-# Format code
-pnpm ds:all:prettier
+# Start development
+pnpm ds:storybook:dev  # Storybook on http://localhost:6006
+pnpm ds:all:dev        # All dev servers (Storybook + Docusaurus)
 ```
 
-### Building Individual Packages
+See **[Development Guide](./docs/development-guide.md)** for detailed instructions.
 
-```bash
-# Build main component library
-pnpm ds:main:build
+## 📦 Packages
 
-# Build primitives
-pnpm ds:primitives:build
+| Package | Description | Status |
+|---------|-------------|--------|
+| **tokens** | Design tokens (438 tokens, 4 levels, DTCG-compliant) | ✅ Complete |
+| **primitives** | Foundation primitives (spacing, colors, timing) | ✅ Complete |
+| **main** | React components library | 🚧 71% (5/7 components) |
+| **themes** | Theme configurations | ✅ Complete |
+| **storybook** | Interactive component documentation | ✅ Complete |
+| **docusaurus** | API documentation site | ✅ Complete |
+| **playwright** | Component testing suite (500+ tests) | ✅ Complete |
 
-# Build tokens
-pnpm ds:tokens:build
+## 🧪 Development Status
 
-# Build themes
-pnpm ds:themes:build
-```
+**Version**: 0.6.0
 
-## Design Principles
+**Components Progress**: 71% (5/7 complete)
+- ✅ **Box** - Layout primitive
+- ✅ **Stack** - Layout primitive (vertical/horizontal)
+- ✅ **Text** - Typography primitive
+- ✅ **Icon** - SVG icon wrapper
+- ✅ **Button** - Interactive component
+- 🚧 **Badge** - 30% complete
+- ❌ **Divider** - Not started
 
-### Value-Based Primitives
+**Token System**: 100% (438 tokens across 4 levels)
 
-Primitives use actual measurement values as keys for numeric scales; rhythm/optical scales use descriptive keys for readability:
+**Testing**: 500+ test cases (Playwright CT, 5 browsers)
 
-```typescript
-// ✅ Good: Clear and predictable
-spacing[16]; // "16px"
-timing[150]; // "150ms"
-fontSize[24]; // "1.5rem"
+## 🎯 Key Features
 
-// ❌ Avoid: Semantic names at primitive level
-spacing.small;
-timing.fast;
-fontSize.large;
-```
+- **Token-Based Design** - 4-level cascade (primitives → core → semantic → component)
+- **Type-Safe** - Full TypeScript support with generated types
+- **Accessible** - WCAG 2.1 AA compliant
+- **Polymorphic Components** - Flexible `as` prop for all primitives
+- **Performance Optimized** - 8ms CSS cascade (< 16ms target)
+- **Well Tested** - 500+ Playwright component tests
 
-### Purpose-Driven Tokens
+## 📖 Documentation Stats
 
-Tokens provide semantic meaning for design decisions:
+- **Total Documents**: 10 files
+- **Total Words**: ~60,000+
+- **Total Lines**: 8,338
+- **Coverage**: 100%
+- **Last Updated**: 2026-01-24
 
-```typescript
-// ✅ Good: Purpose-driven names
-spacing.lg; // Mapped from primitives.spacing[24]
-timing.fast; // Mapped from primitives.timing[150]
-fontSize.base; // Mapped from primitives.fontSize[16]
+## 🤝 Contributing
 
-// ❌ Avoid: Hard-coded values in tokens
-spacing.lg = '24px'; // Should map from primitives
-```
+See **[Development Guide > Git Workflow](./docs/development-guide.md#git-workflow)** for contribution guidelines.
 
-### Component Composition
+## 📝 License
 
-Components are built using tokens for consistency:
-
-```tsx
-// ✅ Good: Uses tokens
-const Button = styled.button`
-  padding: ${tokens.spacing.sm};
-  font-size: ${tokens.fontSize.base};
-`;
-
-// ❌ Avoid: Hard-coded values or primitives
-const Button = styled.button`
-  padding: 8px; // Use tokens instead
-  font-size: ${primitives.fontSize[16]}; // Use tokens instead
-`;
-```
-
-## Accessibility
-
-All components are built with accessibility in mind:
-
-- **WCAG 2.1 AA Compliant** - Meets accessibility standards
-- **Keyboard Navigation** - Full keyboard support
-- **ARIA Attributes** - Proper semantic markup
-- **Focus Management** - Visible focus indicators
-- **Screen Reader Support** - Meaningful announcements
-- **Color Contrast** - Meets minimum 4.5:1 ratio
-
-## Theming
-
-### Using Built-in Themes
-
-```tsx
-// Import a pre-built theme
-import '@grasdouble/lufa_design-system-themes/ocean.css';
-
-import { Button } from '@grasdouble/lufa_design-system';
-
-function App() {
-  return <Button>Ocean Theme</Button>;
-}
-```
-
-### Creating Custom Themes
-
-```css
-/* custom-theme.css */
-:root {
-  /* Override token values */
-  --lufa-token-color-text-primary: #1a1a1a;
-  --lufa-token-color-background-primary: #ffffff;
-  --lufa-token-spacing-base: 16px;
-}
-
-[data-theme='dark'] {
-  --lufa-token-color-text-primary: #ffffff;
-  --lufa-token-color-background-primary: #1a1a1a;
-}
-```
-
-## Resources
-
-### Documentation
-
-- **[Storybook](http://localhost:6006)** - Interactive component explorer
-- **[Docusaurus](http://localhost:3000)** - Comprehensive documentation
-- **[Contributing Guide](../../CONTRIBUTING.md)** - How to contribute
-
-### Package Links
-
-- [@grasdouble/lufa_design-system](./main) - Main component library
-- [@grasdouble/lufa_design-system-tokens](./tokens) - Semantic tokens
-- [@grasdouble/lufa_design-system-primitives](./primitives) - Foundational values
-- [@grasdouble/lufa_design-system-themes](./themes) - Pre-built themes
-
-### Community
-
-- **Issues**: [GitHub Issues](https://github.com/grasdouble/Lufa/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/grasdouble/Lufa/discussions)
-
-## Version Management
-
-We use [Changesets](https://github.com/changesets/changesets) for version management. See the [changeset guide](../../docs/howto/How-to-use-changeset-in-Lufa.md) for details.
+MIT
 
 ---
 
-Built with ❤️ by the Lufa team
+**Generated with**: BMM Document Project Workflow (Deep Scan)  
+**Documentation**: See [`docs/index.md`](./docs/index.md) for comprehensive guides
