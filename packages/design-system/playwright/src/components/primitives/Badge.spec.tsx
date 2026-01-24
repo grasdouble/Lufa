@@ -95,12 +95,32 @@ test.describe('Badge Component', () => {
     });
 
     test('should apply correct background colors for variants', async ({ mount }) => {
-      // Test that each variant has a background color (not transparent)
-      const variants = ['default', 'success', 'error', 'warning', 'info'] as const;
+      // Mount all variants at once to avoid React root conflicts
+      const component = await mount(
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <Badge variant="default" data-testid="badge-default">
+            default
+          </Badge>
+          <Badge variant="success" data-testid="badge-success">
+            success
+          </Badge>
+          <Badge variant="error" data-testid="badge-error">
+            error
+          </Badge>
+          <Badge variant="warning" data-testid="badge-warning">
+            warning
+          </Badge>
+          <Badge variant="info" data-testid="badge-info">
+            info
+          </Badge>
+        </div>
+      );
 
+      // Test each variant's background color
+      const variants = ['default', 'success', 'error', 'warning', 'info'] as const;
       for (const variant of variants) {
-        const component = await mount(<Badge variant={variant}>{variant}</Badge>);
-        const bgColor = await component.evaluate((el) => window.getComputedStyle(el).backgroundColor);
+        const badge = component.getByTestId(`badge-${variant}`);
+        const bgColor = await badge.evaluate((el) => window.getComputedStyle(el).backgroundColor);
         expect(bgColor).not.toBe('rgba(0, 0, 0, 0)'); // Not transparent
         expect(bgColor).toBeTruthy();
       }
@@ -129,9 +149,24 @@ test.describe('Badge Component', () => {
     });
 
     test('should have different font sizes for each size', async ({ mount }) => {
-      const smBadge = await mount(<Badge size="sm">Small</Badge>);
-      const mdBadge = await mount(<Badge size="md">Medium</Badge>);
-      const lgBadge = await mount(<Badge size="lg">Large</Badge>);
+      // Mount all sizes at once to avoid React root conflicts
+      const component = await mount(
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <Badge size="sm" data-testid="badge-sm">
+            Small
+          </Badge>
+          <Badge size="md" data-testid="badge-md">
+            Medium
+          </Badge>
+          <Badge size="lg" data-testid="badge-lg">
+            Large
+          </Badge>
+        </div>
+      );
+
+      const smBadge = component.getByTestId('badge-sm');
+      const mdBadge = component.getByTestId('badge-md');
+      const lgBadge = component.getByTestId('badge-lg');
 
       const smFontSize = await smBadge.evaluate((el) => window.getComputedStyle(el).fontSize);
       const mdFontSize = await mdBadge.evaluate((el) => window.getComputedStyle(el).fontSize);
@@ -147,9 +182,24 @@ test.describe('Badge Component', () => {
     });
 
     test('should have different padding for each size', async ({ mount }) => {
-      const smBadge = await mount(<Badge size="sm">S</Badge>);
-      const mdBadge = await mount(<Badge size="md">M</Badge>);
-      const lgBadge = await mount(<Badge size="lg">L</Badge>);
+      // Mount all sizes at once to avoid React root conflicts
+      const component = await mount(
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <Badge size="sm" data-testid="badge-sm">
+            S
+          </Badge>
+          <Badge size="md" data-testid="badge-md">
+            M
+          </Badge>
+          <Badge size="lg" data-testid="badge-lg">
+            L
+          </Badge>
+        </div>
+      );
+
+      const smBadge = component.getByTestId('badge-sm');
+      const mdBadge = component.getByTestId('badge-md');
+      const lgBadge = component.getByTestId('badge-lg');
 
       const smPadding = await smBadge.evaluate((el) => window.getComputedStyle(el).padding);
       const mdPadding = await mdBadge.evaluate((el) => window.getComputedStyle(el).padding);
@@ -219,29 +269,57 @@ test.describe('Badge Component', () => {
     });
 
     test('should work with all variants', async ({ mount }) => {
-      const variants = ['default', 'success', 'error', 'warning', 'info'] as const;
-
-      for (const variant of variants) {
-        const component = await mount(
-          <Badge variant={variant} dot>
-            {variant}
+      // Mount all variants with dot at once to avoid React root conflicts
+      const component = await mount(
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <Badge variant="default" dot data-testid="badge-default">
+            default
           </Badge>
-        );
-        const dot = component.locator('[class*="badge-dot"]');
+          <Badge variant="success" dot data-testid="badge-success">
+            success
+          </Badge>
+          <Badge variant="error" dot data-testid="badge-error">
+            error
+          </Badge>
+          <Badge variant="warning" dot data-testid="badge-warning">
+            warning
+          </Badge>
+          <Badge variant="info" dot data-testid="badge-info">
+            info
+          </Badge>
+        </div>
+      );
+
+      // Verify dot is visible for each variant
+      const variants = ['default', 'success', 'error', 'warning', 'info'] as const;
+      for (const variant of variants) {
+        const badge = component.getByTestId(`badge-${variant}`);
+        const dot = badge.locator('[class*="badge-dot"]');
         await expect(dot).toBeVisible();
       }
     });
 
     test('should work with all sizes', async ({ mount }) => {
-      const sizes = ['sm', 'md', 'lg'] as const;
-
-      for (const size of sizes) {
-        const component = await mount(
-          <Badge size={size} dot>
-            {size}
+      // Mount all sizes with dot at once to avoid React root conflicts
+      const component = await mount(
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <Badge size="sm" dot data-testid="badge-sm">
+            sm
           </Badge>
-        );
-        const dot = component.locator('[class*="badge-dot"]');
+          <Badge size="md" dot data-testid="badge-md">
+            md
+          </Badge>
+          <Badge size="lg" dot data-testid="badge-lg">
+            lg
+          </Badge>
+        </div>
+      );
+
+      // Verify dot is visible for each size
+      const sizes = ['sm', 'md', 'lg'] as const;
+      for (const size of sizes) {
+        const badge = component.getByTestId(`badge-${size}`);
+        const dot = badge.locator('[class*="badge-dot"]');
         await expect(dot).toBeVisible();
       }
     });
@@ -323,12 +401,20 @@ test.describe('Badge Component', () => {
     });
 
     test('should maintain styling when changing element type', async ({ mount }) => {
-      const spanBadge = await mount(<Badge variant="success">Span</Badge>);
-      const divBadge = await mount(
-        <Badge as="div" variant="success">
-          Div
-        </Badge>
+      // Mount both element types at once to avoid React root conflicts
+      const component = await mount(
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <Badge variant="success" data-testid="span-badge">
+            Span
+          </Badge>
+          <Badge as="div" variant="success" data-testid="div-badge">
+            Div
+          </Badge>
+        </div>
       );
+
+      const spanBadge = component.getByTestId('span-badge');
+      const divBadge = component.getByTestId('div-badge');
 
       // Both should have the same variant class
       await expect(spanBadge).toHaveClass(/_variant-success/);

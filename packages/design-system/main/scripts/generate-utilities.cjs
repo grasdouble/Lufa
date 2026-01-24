@@ -131,12 +131,33 @@ function generateBaseClasses(baseConfig, componentName) {
 }
 
 /**
+ * Generate custom CSS classes (non-utility component-specific styles)
+ * @param {object} customConfig - Custom classes configuration
+ * @returns {string[]} Array of CSS class strings
+ */
+function generateCustomClasses(customConfig) {
+  if (!customConfig) return [];
+
+  const classes = [];
+
+  for (const [className, styles] of Object.entries(customConfig)) {
+    const properties = Object.entries(styles)
+      .map(([prop, value]) => `  ${prop}: ${value};`)
+      .join('\n');
+
+    classes.push(`.${className} {\n${properties}\n}`);
+  }
+
+  return classes;
+}
+
+/**
  * Generate complete CSS file for a component
  * @param {object} config - Component configuration
  * @returns {string} Complete CSS file content
  */
 function generateCSSFile(config) {
-  const { component, utilities, base } = config;
+  const { component, utilities, base, custom } = config;
 
   // Header
   const header = `/**
@@ -168,6 +189,13 @@ function generateCSSFile(config) {
     const section = `/* ========================================== */\n/* ${utilityName.toUpperCase()} */\n/* ========================================== */\n\n`;
 
     allSections.push(section + utilityClasses.join('\n\n'));
+  }
+
+  // Generate custom classes if provided
+  if (custom) {
+    const customClasses = generateCustomClasses(custom);
+    const section = `/* ========================================== */\n/* CUSTOM CLASSES */\n/* ========================================== */\n\n`;
+    allSections.push(section + customClasses.join('\n\n'));
   }
 
   return header + allSections.join('\n\n') + '\n';

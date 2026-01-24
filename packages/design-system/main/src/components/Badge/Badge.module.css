@@ -74,3 +74,24 @@
   padding: var(--lufa-component-badge-padding-lg);
   font-size: var(--lufa-component-badge-font-size-lg);
 }
+
+/* ========================================== */
+/* CUSTOM CLASSES */
+/* ========================================== */
+
+.badge-content {
+  display: inline-block;
+}
+
+.badge-dot {
+  display: inline-block;
+  width: var(--lufa-component-badge-dot-size);
+  height: var(--lufa-component-badge-dot-size);
+  border-radius: 50%;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+.badge-with-dot {
+  padding-left: var(--lufa-semantic-ui-spacing-tight);
+}
