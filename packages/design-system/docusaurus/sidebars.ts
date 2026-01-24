@@ -37,6 +37,7 @@ const sidebars: SidebarsConfig = {
             'components/primitives/icon',
             'components/primitives/Button',
             'components/primitives/badge',
+            'components/primitives/divider',
           ],
         },
       ],
