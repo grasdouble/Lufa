@@ -35,6 +35,7 @@ const sidebars: SidebarsConfig = {
             'components/primitives/stack',
             'components/primitives/text',
             'components/primitives/icon',
+            'components/primitives/Button',
           ],
         },
       ],

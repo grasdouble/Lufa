@@ -1,0 +1,1474 @@
+---
+sidebar_position: 2
+---
+
+import { Button } from '@grasdouble/lufa_design-system';
+
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+
+# Button
+
+<DarkModeCompatible />
+
+An interactive action element with a two-dimensional variant system (type × variant) for flexible visual styling and semantic meaning.
+
+## Overview
+
+Use `Button` when you need…
+
+- A primary or secondary call-to-action (CTA) in forms, dialogs, or pages
+- Destructive actions (delete, remove) with clear danger styling
+- Success confirmations or informational actions with semantic colors
+- Navigation elements styled as buttons (via polymorphic `as="a"` prop)
+- Icon-only buttons for compact toolbars or actions
+- Loading states with built-in spinner animation
+- Accessible interactive elements that meet WCAG 2.1 AA standards
+
+## Import
+
+```tsx
+import { Button } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx title="src/App.tsx"
+import { Button } from '@grasdouble/lufa_design-system';
+
+function App() {
+  return (
+    <>
+      {/* Basic button */}
+      <Button>Click me</Button>
+
+      {/* Primary action */}
+      <Button type="solid" variant="primary">
+        Save Changes
+      </Button>
+
+      {/* Secondary action */}
+      <Button type="outline" variant="secondary">
+        Cancel
+      </Button>
+
+      {/* Destructive action */}
+      <Button type="solid" variant="danger" iconLeft="trash">
+        Delete
+      </Button>
+
+      {/* With loading state */}
+      <Button type="solid" variant="primary" loading>
+        Saving...
+      </Button>
+
+      {/* Button as link */}
+      <Button as="a" href="/home" type="ghost" variant="neutral">
+        Go Home
+      </Button>
+    </>
+  );
+}
+```
+
+## Anatomy
+
+The Button component is a single interactive element with optional icons and loading state:
+
+```
+┌─────────────────────────────────────────────────────┐
+│                      Button                         │
+│  ┌───────┐  ┌─────────────────┐  ┌───────┐        │
+│  │ Icon  │  │  Button Text    │  │ Icon  │        │
+│  │ Left  │  │   (children)    │  │ Right │        │
+│  │ (opt) │  │                 │  │ (opt) │        │
+│  └───────┘  └─────────────────┘  └───────┘        │
+│                                                     │
+│  * Loading spinner replaces iconLeft when loading  │
+└─────────────────────────────────────────────────────┘
+```
+
+**Component Structure:**
+
+- **Container**: Single `<button>` or `<a>` element (controlled by `as` prop)
+- **Icon Left** (optional): Icon on the left side of text
+- **Text Content**: Button label text (can be omitted for icon-only buttons)
+- **Icon Right** (optional): Icon on the right side of text
+- **Loading Spinner**: Replaces icon left when `loading={true}`
+
+**Visual Properties:**
+
+- **Type**: Visual style approach (`solid`, `outline`, `ghost`)
+- **Variant**: Semantic color intention (`primary`, `secondary`, `success`, `danger`, `warning`, `info`, `neutral`)
+- **Size**: Button dimensions (`sm`, `md`, `lg`)
+- **Radius**: Border radius (`none`, `sm`, `base`, `md`, `full`)
+- **States**: `disabled`, `loading` (with spinner)
+
+## API Reference
+
+### Props
+
+| Prop        | Type                                                                                    | Default     | Description                                          |
+| ----------- | --------------------------------------------------------------------------------------- | ----------- | ---------------------------------------------------- |
+| `type`      | `'solid' \| 'outline' \| 'ghost'`                                                       | `'solid'`   | Visual style type (filled, border-only, or minimal)  |
+| `variant`   | `'primary' \| 'secondary' \| 'success' \| 'danger' \| 'warning' \| 'info' \| 'neutral'` | `'primary'` | Semantic color variant                               |
+| `size`      | `'sm' \| 'md' \| 'lg'`                                                                  | `'md'`      | Button size                                          |
+| `radius`    | `'none' \| 'sm' \| 'base' \| 'md' \| 'full'`                                            | `'base'`    | Border radius                                        |
+| `iconLeft`  | `IconName`                                                                              | `undefined` | Icon to display on the left side                     |
+| `iconRight` | `IconName`                                                                              | `undefined` | Icon to display on the right side                    |
+| `loading`   | `boolean`                                                                               | `false`     | Loading state - shows spinner and disables button    |
+| `disabled`  | `boolean`                                                                               | `false`     | Disabled state - prevents interaction                |
+| `fullWidth` | `boolean`                                                                               | `false`     | Makes button stretch to 100% of container width      |
+| `as`        | `'button' \| 'a'`                                                                       | `'button'`  | HTML element to render (polymorphic)                 |
+| `children`  | `ReactNode`                                                                             | `undefined` | Button text content (optional for icon-only buttons) |
+| `className` | `string`                                                                                | `undefined` | Additional CSS classes                               |
+
+Also supports all standard HTML attributes for the underlying element:
+
+- **When `as="button"`**: All `<button>` attributes (`onClick`, `onFocus`, `onBlur`, `type`, `name`, `value`, `form`, etc.)
+- **When `as="a"`**: All `<a>` attributes (`href`, `target`, `rel`, `download`, etc.)
+- **Common attributes**: `id`, `aria-*`, `data-*`, `style`, `tabIndex`, `role`, etc.
+
+### Type System: Two-Dimensional Architecture
+
+The Button component uses a **two-dimensional variant system** for maximum flexibility:
+
+**Dimension 1: Type (Visual Style)**
+
+- `solid`: Filled background (highest emphasis)
+- `outline`: Border only with transparent background (medium emphasis)
+- `ghost`: No border, transparent background (lowest emphasis)
+
+**Dimension 2: Variant (Semantic Color)**
+
+- `primary`: Primary brand color for main actions
+- `secondary`: Secondary color for alternative actions
+- `success`: Green tones for positive actions (save, confirm, complete)
+- `danger`: Red tones for destructive actions (delete, remove, cancel)
+- `warning`: Amber/yellow tones for cautionary actions
+- `info`: Blue tones for informational actions
+- `neutral`: Gray tones for low-emphasis actions
+
+**Result: 21 Combinations (3 types × 7 variants)**
+
+This architecture allows you to independently control **visual emphasis** (type) and **semantic meaning** (variant).
+
+**Examples:**
+
+```tsx
+{
+  /* High emphasis primary action */
+}
+<Button type="solid" variant="primary">
+  Save Changes
+</Button>;
+
+{
+  /* Medium emphasis primary action */
+}
+<Button type="outline" variant="primary">
+  Learn More
+</Button>;
+
+{
+  /* Low emphasis primary action */
+}
+<Button type="ghost" variant="primary">
+  View Details
+</Button>;
+
+{
+  /* High emphasis destructive action */
+}
+<Button type="solid" variant="danger">
+  Delete Account
+</Button>;
+
+{
+  /* Medium emphasis destructive action */
+}
+<Button type="outline" variant="danger">
+  Remove Item
+</Button>;
+```
+
+### Type Values (Visual Style)
+
+**solid** (default)
+
+- Filled background with contrasting text
+- Highest visual emphasis
+- Best for primary actions, CTAs
+
+```tsx
+<Button type="solid" variant="primary">Primary Action</Button>
+<Button type="solid" variant="danger">Delete</Button>
+```
+
+**outline**
+
+- Border only, transparent background
+- Medium visual emphasis
+- Best for secondary actions, alternatives
+
+```tsx
+<Button type="outline" variant="primary">Secondary Action</Button>
+<Button type="outline" variant="neutral">Cancel</Button>
+```
+
+**ghost**
+
+- No border, transparent background
+- Lowest visual emphasis
+- Best for tertiary actions, navigation, toolbars
+
+```tsx
+<Button type="ghost" variant="neutral">Dismiss</Button>
+<Button type="ghost" variant="primary" iconLeft="search" />
+```
+
+### Variant Values (Semantic Colors)
+
+**primary** (default)
+
+- Primary brand color
+- Use for main actions, positive flow progression
+- Examples: "Save", "Continue", "Submit"
+
+```tsx
+<Button variant="primary">Save Changes</Button>
+<Button type="outline" variant="primary">Learn More</Button>
+```
+
+**secondary**
+
+- Secondary brand color
+- Use for alternative important actions
+- Examples: "Save Draft", "Export", "Share"
+
+```tsx
+<Button variant="secondary">Save Draft</Button>
+```
+
+**success**
+
+- Green color palette
+- Use for successful completions, confirmations
+- Examples: "Complete", "Confirm", "Approve"
+
+```tsx
+<Button variant="success" iconLeft="check">
+  Complete Task
+</Button>
+```
+
+**danger**
+
+- Red color palette
+- Use for destructive or irreversible actions
+- Examples: "Delete", "Remove", "Cancel Subscription"
+
+```tsx
+<Button variant="danger" iconLeft="trash">
+  Delete Item
+</Button>
+```
+
+**warning**
+
+- Amber/yellow color palette
+- Use for cautionary actions that need attention
+- Examples: "Warning", "Proceed with Caution"
+
+```tsx
+<Button variant="warning" iconLeft="alert-triangle">
+  Proceed Anyway
+</Button>
+```
+
+**info**
+
+- Blue color palette
+- Use for informational actions
+- Examples: "Learn More", "View Details", "Info"
+
+```tsx
+<Button variant="info" iconLeft="info">
+  View Details
+</Button>
+```
+
+**neutral**
+
+- Gray color palette
+- Use for low-emphasis, neutral actions
+- Examples: "Cancel", "Skip", "Back"
+
+```tsx
+<Button type="ghost" variant="neutral">
+  Cancel
+</Button>
+```
+
+### Size Values
+
+**sm** (small)
+
+- Height: `32px`
+- Font size: Small
+- Icon size: Extra small
+- Use for: Compact interfaces, toolbars, dense tables
+
+```tsx
+<Button size="sm">Small Button</Button>
+<Button size="sm" iconLeft="plus">Add</Button>
+```
+
+**md** (medium - default)
+
+- Height: `40px`
+- Font size: Medium
+- Icon size: Small
+- Use for: Standard UI elements, forms, general purposes
+
+```tsx
+<Button size="md">Medium Button</Button>
+```
+
+**lg** (large)
+
+- Height: `48px`
+- Font size: Large
+- Icon size: Medium
+- Use for: CTAs, hero sections, prominent actions
+
+```tsx
+<Button size="lg" iconRight="arrow-right">
+  Get Started
+</Button>
+```
+
+### Radius Values
+
+**none**
+
+- Border radius: `0px`
+- Sharp corners
+- Use for: Modern, geometric designs
+
+```tsx
+<Button radius="none">Sharp Corners</Button>
+```
+
+**sm** (small)
+
+- Border radius: `2px`
+- Subtle rounding
+- Use for: Minimal rounding preference
+
+```tsx
+<Button radius="sm">Subtle Rounding</Button>
+```
+
+**base** (default)
+
+- Border radius: `8px`
+- Standard rounding (inherited from base class)
+- Use for: Most buttons (recommended)
+
+```tsx
+<Button radius="base">Default Rounding</Button>
+```
+
+**md** (medium)
+
+- Border radius: `12px`
+- Emphasized rounding
+- Use for: Softer, friendlier appearance
+
+```tsx
+<Button radius="md">Medium Rounding</Button>
+```
+
+**full**
+
+- Border radius: `9999px`
+- Fully rounded (pill shape)
+- Use for: Pill buttons, floating actions
+
+```tsx
+<Button radius="full">Pill Button</Button>
+```
+
+### Icon Support
+
+The Button component supports icons on both sides of the text content:
+
+**iconLeft**
+
+- Icon displayed on the left side of text
+- Common for actions: save, delete, add, etc.
+
+```tsx
+<Button iconLeft="check">Save</Button>
+<Button iconLeft="plus">Add Item</Button>
+<Button iconLeft="trash">Delete</Button>
+```
+
+**iconRight**
+
+- Icon displayed on the right side of text
+- Common for navigation: next, forward, external link
+
+```tsx
+<Button iconRight="arrow-right">Next Step</Button>
+<Button iconRight="external-link">Open Link</Button>
+```
+
+**Both Icons**
+
+- Icons on both sides
+- Use sparingly for special emphasis
+
+```tsx
+<Button iconLeft="check" iconRight="arrow-right">
+  Confirm and Continue
+</Button>
+```
+
+**Icon-Only Buttons**
+
+- Omit `children` prop, provide only icon
+- **REQUIRED**: Add `aria-label` for accessibility
+
+```tsx
+<Button iconLeft="search" aria-label="Search" />
+<Button iconLeft="settings" aria-label="Settings" />
+<Button iconLeft="heart" aria-label="Favorite" />
+```
+
+**Icon Sizing**
+
+- Icons automatically resize based on button `size` prop
+- Small button (`sm`): Extra small icons
+- Medium button (`md`): Small icons
+- Large button (`lg`): Medium icons
+
+### States
+
+**disabled**
+
+- Prevents interaction
+- Applies visual disabled styling
+- Sets `disabled` attribute (for `<button>`) or `aria-disabled` (for `<a>`)
+
+```tsx
+<Button disabled>Disabled Button</Button>
+<Button disabled type="outline" variant="primary">
+  Disabled Outline
+</Button>
+```
+
+**loading**
+
+- Shows spinner animation
+- Automatically disables interaction
+- Replaces `iconLeft` with spinner
+- Keeps `iconRight` visible
+
+```tsx
+<Button loading>Loading...</Button>
+<Button loading iconLeft="check">Saving...</Button>
+```
+
+**Combining States**
+
+- `disabled` and `loading` can be combined
+- `loading` takes visual precedence
+
+```tsx
+<Button disabled loading>
+  Disabled and Loading
+</Button>
+```
+
+### Full Width
+
+Set `fullWidth={true}` to make the button stretch to 100% of its container width.
+
+```tsx
+<Button fullWidth>Full Width Button</Button>
+
+<div style={{ maxWidth: '400px' }}>
+  <Button fullWidth type="solid" variant="primary">
+    Primary Full Width
+  </Button>
+</div>
+```
+
+### Polymorphic Rendering (`as` prop)
+
+The Button component supports polymorphic rendering via the `as` prop. This allows you to render the button as different HTML elements while preserving all button styling and behavior.
+
+**as="button" (default)**
+
+- Renders as `<button>` element
+- Use for actions that don't navigate (forms, modals, toggles)
+- Supports `onClick`, `type="submit"`, etc.
+
+```tsx
+<Button as="button" onClick={handleClick}>
+  Button Element
+</Button>
+
+<Button as="button" type="submit">
+  Submit Form
+</Button>
+```
+
+**as="a"**
+
+- Renders as `<a>` element
+- Use for navigation actions
+- Supports `href`, `target`, `rel`, etc.
+- Provides full type safety for anchor attributes
+
+```tsx
+<Button as="a" href="/dashboard">
+  Go to Dashboard
+</Button>
+
+<Button as="a" href="https://example.com" target="_blank" rel="noopener noreferrer">
+  External Link
+</Button>
+
+<Button as="a" href="/docs" type="ghost" variant="primary">
+  View Documentation
+</Button>
+```
+
+**Type Safety**
+
+- TypeScript automatically infers correct props based on `as` value
+- When `as="button"`, button-specific props are available
+- When `as="a"`, anchor-specific props are available
+
+## Variants
+
+### Type Variants
+
+**Visual hierarchy with three types:**
+
+```tsx
+{
+  /* Solid - Highest emphasis */
+}
+<Button type="solid" variant="primary">
+  Solid Button
+</Button>;
+
+{
+  /* Outline - Medium emphasis */
+}
+<Button type="outline" variant="primary">
+  Outline Button
+</Button>;
+
+{
+  /* Ghost - Lowest emphasis */
+}
+<Button type="ghost" variant="primary">
+  Ghost Button
+</Button>;
+```
+
+### Variant Combinations (Type × Variant Matrix)
+
+The two-dimensional system creates 21 combinations. Here are examples of each type across all variants:
+
+**Solid Type (Filled Background)**
+
+```tsx
+<Button type="solid" variant="primary">Primary</Button>
+<Button type="solid" variant="secondary">Secondary</Button>
+<Button type="solid" variant="success">Success</Button>
+<Button type="solid" variant="danger">Danger</Button>
+<Button type="solid" variant="warning">Warning</Button>
+<Button type="solid" variant="info">Info</Button>
+<Button type="solid" variant="neutral">Neutral</Button>
+```
+
+**Outline Type (Border Only)**
+
+```tsx
+<Button type="outline" variant="primary">Primary</Button>
+<Button type="outline" variant="secondary">Secondary</Button>
+<Button type="outline" variant="success">Success</Button>
+<Button type="outline" variant="danger">Danger</Button>
+<Button type="outline" variant="warning">Warning</Button>
+<Button type="outline" variant="info">Info</Button>
+<Button type="outline" variant="neutral">Neutral</Button>
+```
+
+**Ghost Type (Minimal)**
+
+```tsx
+<Button type="ghost" variant="primary">Primary</Button>
+<Button type="ghost" variant="secondary">Secondary</Button>
+<Button type="ghost" variant="success">Success</Button>
+<Button type="ghost" variant="danger">Danger</Button>
+<Button type="ghost" variant="warning">Warning</Button>
+<Button type="ghost" variant="info">Info</Button>
+<Button type="ghost" variant="neutral">Neutral</Button>
+```
+
+### Size Variants
+
+```tsx
+{
+  /* Small - 32px height */
+}
+<Button size="sm">Small</Button>;
+
+{
+  /* Medium - 40px height (default) */
+}
+<Button size="md">Medium</Button>;
+
+{
+  /* Large - 48px height */
+}
+<Button size="lg">Large</Button>;
+```
+
+### Radius Variants
+
+```tsx
+{
+  /* Sharp corners */
+}
+<Button radius="none">None</Button>;
+
+{
+  /* Subtle rounding */
+}
+<Button radius="sm">Small</Button>;
+
+{
+  /* Default rounding */
+}
+<Button radius="base">Base</Button>;
+
+{
+  /* Emphasized rounding */
+}
+<Button radius="md">Medium</Button>;
+
+{
+  /* Pill shape */
+}
+<Button radius="full">Full</Button>;
+```
+
+### Icon Variants
+
+```tsx
+{
+  /* Icon on left */
+}
+<Button iconLeft="check">Save</Button>;
+
+{
+  /* Icon on right */
+}
+<Button iconRight="arrow-right">Next</Button>;
+
+{
+  /* Both icons */
+}
+<Button iconLeft="check" iconRight="arrow-right">
+  Confirm
+</Button>;
+
+{
+  /* Icon-only (requires aria-label) */
+}
+<Button iconLeft="search" aria-label="Search" />;
+```
+
+### State Variants
+
+```tsx
+{
+  /* Normal state */
+}
+<Button>Normal</Button>;
+
+{
+  /* Disabled state */
+}
+<Button disabled>Disabled</Button>;
+
+{
+  /* Loading state */
+}
+<Button loading>Loading...</Button>;
+```
+
+### Full Width Variant
+
+```tsx
+<div style={{ width: '100%', maxWidth: '400px' }}>
+  <Button fullWidth>Full Width Button</Button>
+</div>
+```
+
+### Polymorphic Variants
+
+```tsx
+{
+  /* As button element */
+}
+<Button as="button" onClick={() => alert('Clicked!')}>
+  Button Element
+</Button>;
+
+{
+  /* As anchor element */
+}
+<Button as="a" href="/home">
+  Link Button
+</Button>;
+```
+
+## Best Practices
+
+### Do ✅
+
+- Use `type="solid"` with `variant="primary"` for the most important action on the page
+- Use `type="outline"` or `type="ghost"` for secondary actions to create visual hierarchy
+- Use `variant="danger"` for destructive actions (delete, remove, cancel subscription)
+- Use `variant="success"` for positive confirmations (complete, approve, save)
+- Provide `aria-label` for icon-only buttons (accessibility requirement)
+- Use `loading` state during async operations to provide feedback
+- Use `as="a"` with `href` for navigation actions (links styled as buttons)
+- Combine `iconLeft` or `iconRight` with text for clearer action meaning
+- Use `fullWidth` for mobile layouts or single-column forms
+- Test keyboard navigation (Tab to focus, Enter/Space to activate)
+
+### Don't ❌
+
+- Don't use multiple `type="solid" variant="primary"` buttons on the same page (creates confusion about priority)
+- Don't use `variant="danger"` for non-destructive actions
+- Don't create icon-only buttons without `aria-label` (fails accessibility)
+- Don't disable buttons without explanation - show why it's disabled (tooltip, helper text)
+- Don't use `as="a"` without `href` attribute (invalid HTML, breaks navigation)
+- Don't use buttons for navigation when a regular link (`<a>`) would be more semantic
+- Don't override button colors with inline styles - use the variant system
+- Don't use tiny buttons (`size="sm"`) for critical actions (tap target too small on mobile)
+- Don't nest buttons inside buttons (invalid HTML)
+- Don't rely solely on color to convey meaning - use icons and text labels
+
+## Accessibility
+
+The Button component is designed with WCAG 2.1 AA compliance and includes comprehensive accessibility features.
+
+### Keyboard Navigation
+
+**Default Button (`as="button"`):**
+
+- **Tab**: Focus the button
+- **Enter**: Activate the button
+- **Space**: Activate the button
+- **Shift+Tab**: Move focus to previous element
+
+**Link Button (`as="a"`):**
+
+- **Tab**: Focus the link
+- **Enter**: Navigate to the href destination
+- **Shift+Tab**: Move focus to previous element
+
+**Disabled State:**
+
+- Disabled buttons cannot receive keyboard focus
+- Disabled buttons are skipped in tab order
+- Disabled state is announced by screen readers
+
+```tsx
+{
+  /* Keyboard accessible button */
+}
+<Button onClick={handleSubmit}>Submit Form</Button>;
+
+{
+  /* Keyboard accessible link */
+}
+<Button as="a" href="/dashboard">
+  Go to Dashboard
+</Button>;
+
+{
+  /* Disabled - not focusable */
+}
+<Button disabled>Disabled Button</Button>;
+```
+
+### Screen Reader Support
+
+**Button Element:**
+
+```tsx
+<Button>Save Changes</Button>
+// Screen reader announces: "Save Changes, button"
+```
+
+**With Icon:**
+
+```tsx
+<Button iconLeft="check">Save</Button>
+// Screen reader announces: "Save, button"
+// Icon is decorative (aria-hidden="true")
+```
+
+**Icon-Only with aria-label:**
+
+```tsx
+<Button iconLeft="search" aria-label="Search" />
+// Screen reader announces: "Search, button"
+```
+
+**Loading State:**
+
+```tsx
+<Button loading>Saving...</Button>
+// Screen reader announces: "Saving..., button, disabled, busy"
+// aria-disabled="true" and aria-busy="true" are set automatically
+```
+
+**Link Button:**
+
+```tsx
+<Button as="a" href="/home">
+  Go Home
+</Button>
+// Screen reader announces: "Go Home, link"
+```
+
+**Disabled Button:**
+
+```tsx
+<Button disabled>Disabled Button</Button>
+// Screen reader announces: "Disabled Button, button, dimmed" (or "unavailable")
+```
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Provide clear, descriptive button labels that explain the action
+- Add `aria-label` for icon-only buttons (required for accessibility)
+- Use semantic HTML (`as="a"` with `href` for navigation)
+- Ensure sufficient color contrast (all variants meet WCAG AA by default)
+- Test keyboard navigation (Tab, Enter, Space keys)
+- Use `loading` state with descriptive text ("Saving...", "Loading...")
+- Provide focus indicators (built-in via CSS `:focus-visible`)
+- Test with screen readers (NVDA, JAWS, VoiceOver)
+
+#### Don't ❌
+
+- Don't create icon-only buttons without `aria-label` (fails WCAG)
+- Don't disable buttons without explanation (add tooltip or helper text)
+- Don't use `onClick` on non-button elements (use `<button>` or `<a>`)
+- Don't rely solely on color to convey meaning (combine with icons/text)
+- Don't create buttons smaller than 44×44px touch target (mobile accessibility)
+- Don't nest interactive elements (button inside button)
+- Don't override focus styles without providing alternative focus indicators
+
+### ARIA Attributes
+
+The Button component automatically manages several ARIA attributes:
+
+**Automatic ARIA attributes:**
+
+- `aria-disabled="true"`: Set when `disabled={true}` or `loading={true}`
+- `aria-busy="true"`: Set when `loading={true}`
+- `aria-hidden="true"`: Set on icons (decorative)
+
+**Manual ARIA attributes (you should set):**
+
+- `aria-label`: Required for icon-only buttons
+- `aria-describedby`: Reference to description element
+- `aria-pressed`: For toggle buttons (not built-in)
+- `aria-expanded`: For expandable buttons (not built-in)
+
+```tsx
+{/* Icon-only button with aria-label */}
+<Button iconLeft="search" aria-label="Search products" />
+
+{/* Button with description */}
+<Button aria-describedby="delete-warning">Delete Account</Button>
+<span id="delete-warning">This action cannot be undone.</span>
+
+{/* Toggle button with aria-pressed */}
+<Button
+  aria-pressed={isActive}
+  onClick={handleToggle}
+>
+  {isActive ? 'Active' : 'Inactive'}
+</Button>
+```
+
+### Color Contrast
+
+All Button variants meet **WCAG 2.1 AA** contrast requirements:
+
+- **Normal text**: Minimum 4.5:1 contrast ratio
+- **Large text** (18pt+): Minimum 3:1 contrast ratio
+- **UI components**: Minimum 3:1 contrast ratio
+
+**Tested in both light and dark modes**. All semantic color tokens automatically adapt to the active theme while maintaining contrast requirements.
+
+**Examples:**
+
+```tsx
+{
+  /* ✅ WCAG AA compliant: solid primary button */
+}
+<Button type="solid" variant="primary">
+  Primary Action
+</Button>;
+
+{
+  /* ✅ WCAG AA compliant: outline danger button */
+}
+<Button type="outline" variant="danger">
+  Delete
+</Button>;
+
+{
+  /* ✅ WCAG AA compliant: ghost neutral button */
+}
+<Button type="ghost" variant="neutral">
+  Cancel
+</Button>;
+```
+
+### Focus Management
+
+**Built-in focus styles:**
+
+- Visible focus indicator with 2px outline
+- Focus indicator uses accessible colors (meets 3:1 contrast)
+- Focus-visible only (no focus indicator on mouse click)
+
+```tsx
+{
+  /* Focus indicator appears on keyboard focus */
+}
+<Button>Keyboard Focusable</Button>;
+
+{
+  /* Try: Tab to focus, Enter to activate */
+}
+```
+
+**Custom focus handling:**
+
+```tsx
+import { useRef } from 'react';
+
+function MyComponent() {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const handleFocus = () => {
+    // Custom focus logic
+    buttonRef.current?.focus();
+  };
+
+  return (
+    <Button ref={buttonRef} onFocus={handleFocus}>
+      Custom Focus Handling
+    </Button>
+  );
+}
+```
+
+## Common Patterns
+
+### Pattern 1: Form Actions
+
+Standard form button group with cancel and submit actions.
+
+```tsx title="src/components/Form.tsx"
+import { Button } from '@grasdouble/lufa_design-system';
+
+function UserForm() {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    await saveUser();
+    setLoading(false);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      {/* Form fields here */}
+
+      <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end', marginTop: '24px' }}>
+        <Button type="ghost" variant="neutral" disabled={loading}>
+          Cancel
+        </Button>
+        <Button type="solid" variant="primary" iconLeft="check" loading={loading} as="button" htmlType="submit">
+          Save Changes
+        </Button>
+      </div>
+    </form>
+  );
+}
+```
+
+### Pattern 2: Call-to-Action (CTA)
+
+Hero section with primary and secondary CTAs.
+
+```tsx title="src/components/Hero.tsx"
+import { Button } from '@grasdouble/lufa_design-system';
+
+function Hero() {
+  return (
+    <section style={{ textAlign: 'center', padding: '64px 24px' }}>
+      <h1 style={{ fontSize: '48px', marginBottom: '24px' }}>Build Better Products</h1>
+      <p style={{ fontSize: '20px', marginBottom: '40px', color: 'var(--lufa-token-color-text-secondary)' }}>
+        The complete design system for modern web applications.
+      </p>
+
+      <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
+        {/* Primary CTA - highest emphasis */}
+        <Button type="solid" variant="primary" size="lg" iconRight="arrow-right">
+          Get Started
+        </Button>
+
+        {/* Secondary CTA - medium emphasis */}
+        <Button type="outline" variant="primary" size="lg">
+          View Demo
+        </Button>
+      </div>
+    </section>
+  );
+}
+```
+
+### Pattern 3: Destructive Confirmation Dialog
+
+Modal dialog for destructive actions with clear cancel/confirm buttons.
+
+```tsx title="src/components/DeleteDialog.tsx"
+import { Button } from '@grasdouble/lufa_design-system';
+
+interface DeleteDialogProps {
+  itemName: string;
+  onCancel: () => void;
+  onConfirm: () => void;
+}
+
+function DeleteDialog({ itemName, onCancel, onConfirm }: DeleteDialogProps) {
+  const [loading, setLoading] = useState(false);
+
+  const handleDelete = async () => {
+    setLoading(true);
+    await onConfirm();
+    setLoading(false);
+  };
+
+  return (
+    <div role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+      <h2 id="dialog-title">Delete {itemName}?</h2>
+      <p id="dialog-description">
+        This action cannot be undone. Are you sure you want to permanently delete this item?
+      </p>
+
+      <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end', marginTop: '24px' }}>
+        {/* Cancel - neutral, low emphasis */}
+        <Button type="outline" variant="neutral" onClick={onCancel} disabled={loading}>
+          Keep Item
+        </Button>
+
+        {/* Delete - danger, high emphasis */}
+        <Button type="solid" variant="danger" iconLeft="trash" onClick={handleDelete} loading={loading}>
+          Delete Permanently
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
+
+### Pattern 4: Icon Toolbar
+
+Compact toolbar with icon-only buttons.
+
+```tsx title="src/components/Toolbar.tsx"
+import { Button } from '@grasdouble/lufa_design-system';
+
+function EditorToolbar() {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        gap: '4px',
+        padding: '8px',
+        backgroundColor: 'var(--lufa-token-color-background-surface)',
+        borderRadius: '8px',
+      }}
+      role="toolbar"
+      aria-label="Editor toolbar"
+    >
+      <Button type="ghost" variant="neutral" size="sm" iconLeft="bold" aria-label="Bold" />
+      <Button type="ghost" variant="neutral" size="sm" iconLeft="italic" aria-label="Italic" />
+      <Button type="ghost" variant="neutral" size="sm" iconLeft="underline" aria-label="Underline" />
+
+      {/* Divider */}
+      <div style={{ width: '1px', backgroundColor: 'var(--lufa-token-color-border-default)', margin: '4px 8px' }} />
+
+      <Button type="ghost" variant="neutral" size="sm" iconLeft="link" aria-label="Insert link" />
+      <Button type="ghost" variant="neutral" size="sm" iconLeft="image" aria-label="Insert image" />
+    </div>
+  );
+}
+```
+
+### Pattern 5: Navigation with Button Styling
+
+Link buttons for navigation (styled as buttons, semantic as links).
+
+```tsx title="src/components/Navigation.tsx"
+import { Button } from '@grasdouble/lufa_design-system';
+
+function Navigation() {
+  return (
+    <nav aria-label="Main navigation">
+      <div style={{ display: 'flex', gap: '8px' }}>
+        <Button as="a" href="/" type="ghost" variant="neutral">
+          Home
+        </Button>
+        <Button as="a" href="/products" type="ghost" variant="neutral">
+          Products
+        </Button>
+        <Button as="a" href="/docs" type="ghost" variant="neutral">
+          Documentation
+        </Button>
+        <Button as="a" href="/contact" type="ghost" variant="neutral">
+          Contact
+        </Button>
+
+        {/* CTA in navigation */}
+        <Button as="a" href="/signup" type="solid" variant="primary">
+          Sign Up
+        </Button>
+      </div>
+    </nav>
+  );
+}
+```
+
+### Pattern 6: Async State Management
+
+Managing loading states with async operations.
+
+```tsx title="src/components/AsyncAction.tsx"
+import { useState } from 'react';
+
+import { Button } from '@grasdouble/lufa_design-system';
+
+function AsyncAction() {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleAction = async () => {
+    setStatus('loading');
+    try {
+      await performAsyncAction();
+      setStatus('success');
+
+      // Reset after 2 seconds
+      setTimeout(() => setStatus('idle'), 2000);
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <div>
+      {status === 'idle' && (
+        <Button type="solid" variant="primary" onClick={handleAction}>
+          Start Action
+        </Button>
+      )}
+
+      {status === 'loading' && (
+        <Button type="solid" variant="primary" loading>
+          Processing...
+        </Button>
+      )}
+
+      {status === 'success' && (
+        <Button type="solid" variant="success" iconLeft="check" disabled>
+          Success!
+        </Button>
+      )}
+
+      {status === 'error' && (
+        <Button type="solid" variant="danger" iconLeft="alert-circle" onClick={handleAction}>
+          Retry
+        </Button>
+      )}
+    </div>
+  );
+}
+```
+
+## Related Components
+
+- **Icon** - Icons used within buttons (via `iconLeft`, `iconRight` props)
+- **IconButton** - Dedicated icon-only button component (if implemented)
+- **ButtonGroup** - Group of related buttons with unified styling (if implemented)
+- **Link** - Text link component (use for inline text links, not actions)
+- **Box** - Layout container (can be composed with Button for spacing)
+
+## TypeScript Support
+
+The Button component is fully typed with TypeScript and includes advanced polymorphic typing:
+
+```tsx
+import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
+
+/**
+ * Button type values - visual style approach
+ */
+type TypeValue = 'solid' | 'outline' | 'ghost';
+
+/**
+ * Button variant values - semantic color intention
+ */
+type VariantValue = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'neutral';
+
+/**
+ * Button size values
+ */
+type SizeValue = 'sm' | 'md' | 'lg';
+
+/**
+ * Button radius values
+ */
+type RadiusValue = 'none' | 'sm' | 'base' | 'md' | 'full';
+
+/**
+ * Valid HTML elements for polymorphic rendering
+ */
+type ValidButtonElements = 'button' | 'a';
+
+/**
+ * Button component props
+ */
+export interface ButtonProps<T extends ElementType = 'button'> {
+  type?: TypeValue;
+  variant?: VariantValue;
+  size?: SizeValue;
+  radius?: RadiusValue;
+  iconLeft?: IconName;
+  iconRight?: IconName;
+  loading?: boolean;
+  disabled?: boolean;
+  fullWidth?: boolean;
+  as?: T;
+  children?: ReactNode;
+  className?: string;
+}
+
+/**
+ * Combined props type including element-specific props
+ */
+type ButtonComponentProps<T extends ElementType> = ButtonProps<T> &
+  Omit<ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>;
+```
+
+**Benefits of TypeScript typing:**
+
+- **Type safety**: Props are validated at compile time
+- **IntelliSense**: Auto-complete for all prop values in your IDE
+- **Polymorphic typing**: When using `as` prop, element-specific attributes are typed correctly
+- **Documentation**: Hover over props to see JSDoc descriptions
+
+**Example with type safety:**
+
+```tsx
+// ✅ Type-safe: all props are valid
+<Button type="solid" variant="primary" size="md">Button</Button>
+
+// ✅ Type-safe: 'a' element allows 'href'
+<Button as="a" href="/home">Link Button</Button>
+
+// ❌ Type error: 'huge' is not a valid SizeValue
+<Button size="huge">Button</Button>
+
+// ❌ Type error: 'href' not valid for button element
+<Button as="button" href="/home">Button</Button>
+
+// ✅ Type-safe: correct polymorphic usage
+<Button as="a" href="https://example.com" target="_blank">
+  External Link
+</Button>
+```
+
+## Troubleshooting
+
+### Issue 1: Icon not visible
+
+**Problem**: Set `iconLeft` or `iconRight` but icon doesn't appear.
+
+**Solution**: Ensure the icon name is valid and exists in the Icon component's library. Check the Icon documentation for available icon names.
+
+```tsx
+{
+  /* ❌ Invalid icon name */
+}
+<Button iconLeft="invalid-icon">Button</Button>;
+
+{
+  /* ✅ Valid icon name */
+}
+<Button iconLeft="check">Button</Button>;
+```
+
+### Issue 2: Loading spinner replaces icon
+
+**Problem**: Set `iconLeft` but it disappears when `loading={true}`.
+
+**Solution**: This is expected behavior. The loading spinner replaces `iconLeft` to indicate loading state. `iconRight` remains visible.
+
+```tsx
+{
+  /* Loading spinner replaces iconLeft */
+}
+<Button iconLeft="check" loading>
+  Saving...
+</Button>;
+
+{
+  /* iconRight still visible during loading */
+}
+<Button iconRight="arrow-right" loading>
+  Next
+</Button>;
+```
+
+### Issue 3: Button doesn't navigate when clicked
+
+**Problem**: Used `as="a"` with `href` but button doesn't navigate.
+
+**Solution**: Check that you're not preventing default behavior in `onClick` handler, or ensure `href` is valid.
+
+```tsx
+{
+  /* ❌ Prevents navigation */
+}
+<Button as="a" href="/home" onClick={(e) => e.preventDefault()}>
+  Link
+</Button>;
+
+{
+  /* ✅ Allows navigation */
+}
+<Button as="a" href="/home">
+  Link
+</Button>;
+
+{
+  /* ✅ Navigation with custom logic */
+}
+<Button
+  as="a"
+  href="/home"
+  onClick={(e) => {
+    console.log('Navigating...');
+    // Don't call e.preventDefault()
+  }}
+>
+  Link
+</Button>;
+```
+
+### Issue 4: TypeScript error with `as` prop
+
+**Problem**: TypeScript complains about props when using `as` prop.
+
+**Solution**: Ensure you're using element-specific props correctly. The Button component automatically types props based on the `as` value.
+
+```tsx
+{/* ❌ Type error: 'href' not valid for button element */}
+<Button as="button" href="/page">Button</Button>
+
+{/* ✅ Correct: 'href' valid for anchor element */}
+<Button as="a" href="/page">Link</Button>
+
+{/* ✅ Correct: 'onClick' valid for both */}
+<Button as="button" onClick={handleClick}>Button</Button>
+<Button as="a" href="/page" onClick={handleClick}>Link</Button>
+```
+
+### Issue 5: Disabled button still clickable
+
+**Problem**: Set `disabled={true}` but button still responds to clicks.
+
+**Solution**: Disabled buttons should not respond to clicks. Check that you're not using `onClick` with `pointer-events` CSS override, or forcing clicks in tests.
+
+```tsx
+{
+  /* ✅ Disabled button (not clickable) */
+}
+<Button disabled onClick={handleClick}>
+  Disabled
+</Button>;
+
+{
+  /* ❌ Don't override pointer-events in styles */
+}
+<Button disabled style={{ pointerEvents: 'auto' }}>
+  Still Clickable (bad!)
+</Button>;
+```
+
+### Issue 6: Focus indicator not visible
+
+**Problem**: Button focus indicator doesn't appear when focused.
+
+**Solution**: Focus indicators only appear on keyboard focus (`:focus-visible`), not mouse clicks. Try pressing Tab to focus the button.
+
+```tsx
+{
+  /* Focus indicator appears on keyboard focus (Tab key) */
+}
+<Button>Keyboard Focusable</Button>;
+
+{
+  /* Test: Tab to focus, not click */
+}
+```
+
+### Issue 7: Icon-only button has no label for screen readers
+
+**Problem**: Created icon-only button but screen readers don't announce it properly.
+
+**Solution**: Always provide `aria-label` for icon-only buttons (required for accessibility).
+
+```tsx
+{
+  /* ❌ No label for screen readers */
+}
+<Button iconLeft="search" />;
+
+{
+  /* ✅ Accessible with aria-label */
+}
+<Button iconLeft="search" aria-label="Search" />;
+```
