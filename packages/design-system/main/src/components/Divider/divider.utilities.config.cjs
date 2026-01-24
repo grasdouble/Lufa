@@ -34,11 +34,11 @@ module.exports = {
     // VARIANT - Color variants
     // ==========================================
     variant: {
-      property: ['background-color', '--divider-color'],
+      property: '--divider-color',
       values: {
-        default: ['var(--lufa-component-divider-color-default)', 'var(--lufa-component-divider-color-default)'],
-        subtle: ['var(--lufa-component-divider-color-subtle)', 'var(--lufa-component-divider-color-subtle)'],
-        strong: ['var(--lufa-component-divider-color-strong)', 'var(--lufa-component-divider-color-strong)'],
+        default: 'var(--lufa-component-divider-color-default)',
+        subtle: 'var(--lufa-component-divider-color-subtle)',
+        strong: 'var(--lufa-component-divider-color-strong)',
       },
     },
 
@@ -85,11 +85,10 @@ module.exports = {
     // LINE STYLE - Solid or Dashed
     // ==========================================
     'line-style': {
-      property: 'background-image',
+      property: 'background-color',
       values: {
-        solid: 'none',
-        dashed:
-          'repeating-linear-gradient(to right, currentColor 0, currentColor 8px, transparent 8px, transparent 12px)',
+        solid: 'var(--divider-color)',
+        dashed: 'transparent',
       },
     },
   },

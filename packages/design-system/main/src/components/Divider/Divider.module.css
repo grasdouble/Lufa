@@ -41,17 +41,14 @@
 /* ========================================== */
 
 .variant-default {
-  background-color: var(--lufa-component-divider-color-default);
   --divider-color: var(--lufa-component-divider-color-default);
 }
 
 .variant-subtle {
-  background-color: var(--lufa-component-divider-color-subtle);
   --divider-color: var(--lufa-component-divider-color-subtle);
 }
 
 .variant-strong {
-  background-color: var(--lufa-component-divider-color-strong);
   --divider-color: var(--lufa-component-divider-color-strong);
 }
 
@@ -101,11 +98,11 @@
 /* ========================================== */
 
 .line-style-solid {
-  background-image: none;
+  background-color: var(--divider-color);
 }
 
 .line-style-dashed {
-  background-image: repeating-linear-gradient(to right, currentColor 0, currentColor 8px, transparent 8px, transparent 12px);
+  background-color: transparent;
 }
 
 /* ========================================== */
