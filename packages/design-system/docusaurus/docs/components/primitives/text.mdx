@@ -81,18 +81,20 @@ function App() {
 The Text component is a single typography element with customizable font properties:
 
 ```
-┌────────────────────────────────────────────────┐
-│  Text Component                                │
-│  ┌──────────────────────────────────────────┐  │
-│  │  variant: controls font-size             │  │
-│  │  color: semantic text color              │  │
-│  │  weight: font-weight (400-700)           │  │
-│  │  align: text-align (left/center/right)   │  │
-│  │  transform: text-transform               │  │
-│  │                                          │  │
-│  │  The quick brown fox jumps over...      │  │
-│  └──────────────────────────────────────────┘  │
-└────────────────────────────────────────────────┘
+┌──────────────────────────────────────────┐
+│  Text Component                          │
+│  ┌────────────────────────────────────┐  │
+│  │                                    │  │
+│  │  variant: h1-h6, body, caption    │  │
+│  │  color: primary, secondary, etc.  │  │
+│  │  weight: normal, medium, bold     │  │
+│  │  align: left, center, right       │  │
+│  │  transform: uppercase, etc.       │  │
+│  │                                    │  │
+│  │  The quick brown fox jumps...     │  │
+│  │                                    │  │
+│  └────────────────────────────────────┘  │
+└──────────────────────────────────────────┘
 ```
 
 **Component Structure:**
@@ -115,16 +117,16 @@ The Text component is a single typography element with customizable font propert
 
 ### Props
 
-| Prop        | Type                                                                                              | Default     | Description                            |
-| ----------- | ------------------------------------------------------------------------------------------------- | ----------- | -------------------------------------- |
-| `as`        | `'p' \| 'span' \| 'div' \| 'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' \| 'label' \| 'legend' \| 'figcaption'` | `'p'`       | HTML element to render                 |
+| Prop        | Type                                                                                                             | Default     | Description                            |
+| ----------- | ---------------------------------------------------------------------------------------------------------------- | ----------- | -------------------------------------- |
+| `as`        | `'p' \| 'span' \| 'div' \| 'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' \| 'label' \| 'legend' \| 'figcaption'`  | `'p'`       | HTML element to render                 |
 | `variant`   | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' \| 'body-large' \| 'body' \| 'body-small' \| 'caption' \| 'label'` | `'body'`    | Typography variant (semantic scale)    |
-| `color`     | `'primary' \| 'secondary' \| 'tertiary' \| 'success' \| 'error' \| 'warning' \| 'info' \| 'inverse'` | `'primary'` | Text color using semantic tokens       |
-| `weight`    | `'normal' \| 'medium' \| 'semibold' \| 'bold'`                                                    | `'normal'`  | Font weight                            |
-| `align`     | `'left' \| 'center' \| 'right' \| 'justify'`                                                      | `'left'`    | Text alignment                         |
-| `transform` | `'none' \| 'uppercase' \| 'lowercase' \| 'capitalize'`                                            | `'none'`    | Text transformation                    |
-| `className` | `string`                                                                                          | `undefined` | Additional CSS classes                 |
-| `children`  | `ReactNode`                                                                                       | `undefined` | Text content to render inside the Text |
+| `color`     | `'primary' \| 'secondary' \| 'tertiary' \| 'success' \| 'error' \| 'warning' \| 'info' \| 'inverse'`             | `'primary'` | Text color using semantic tokens       |
+| `weight`    | `'normal' \| 'medium' \| 'semibold' \| 'bold'`                                                                   | `'normal'`  | Font weight                            |
+| `align`     | `'left' \| 'center' \| 'right' \| 'justify'`                                                                     | `'left'`    | Text alignment                         |
+| `transform` | `'none' \| 'uppercase' \| 'lowercase' \| 'capitalize'`                                                           | `'none'`    | Text transformation                    |
+| `className` | `string`                                                                                                         | `undefined` | Additional CSS classes                 |
+| `children`  | `ReactNode`                                                                                                      | `undefined` | Text content to render inside the Text |
 
 Also supports all standard HTML attributes for the underlying element (e.g., `id`, `role`, `aria-*`, `data-*`, `style`, event handlers like `onClick`, `onKeyDown`, etc.).
 
@@ -484,21 +486,27 @@ All `color` prop values meet **WCAG 2.1 AA** contrast requirements:
 **Examples:**
 
 ```tsx
-{/* ✅ WCAG AA compliant: primary color + default background */}
-<Text color="primary">High contrast text</Text>
+{
+  /* ✅ WCAG AA compliant: primary color + default background */
+}
+<Text color="primary">High contrast text</Text>;
 
-{/* ✅ WCAG AA compliant: secondary color (less emphasis but still readable) */}
-<Text color="secondary">Secondary text with sufficient contrast</Text>
+{
+  /* ✅ WCAG AA compliant: secondary color (less emphasis but still readable) */
+}
+<Text color="secondary">Secondary text with sufficient contrast</Text>;
 
-{/* ✅ WCAG AA compliant: inverse color on colored background */}
+{
+  /* ✅ WCAG AA compliant: inverse color on colored background */
+}
 <div style={{ background: 'var(--lufa-token-color-background-primary)' }}>
   <Text color="inverse">Text on colored background</Text>
-</div>
+</div>;
 
-{/* ⚠️ Check contrast: custom colors may not meet WCAG */}
-<Text style={{ color: '#888888' }}>
-  May have insufficient contrast depending on background
-</Text>
+{
+  /* ⚠️ Check contrast: custom colors may not meet WCAG */
+}
+<Text style={{ color: '#888888' }}>May have insufficient contrast depending on background</Text>;
 ```
 
 ## Common Patterns
@@ -524,11 +532,11 @@ export function ArticleHeader({ category, title, author, date, readTime }: Artic
       <Text variant="label" color="secondary" weight="semibold" transform="uppercase">
         {category}
       </Text>
-      
+
       <Text as="h1" variant="h1" weight="bold" style={{ marginTop: '12px' }}>
         {title}
       </Text>
-      
+
       <Text variant="body" color="secondary" style={{ marginTop: '8px' }}>
         By {author} • {date} • {readTime} min read
       </Text>
@@ -543,7 +551,7 @@ export function ArticleHeader({ category, title, author, date, readTime }: Artic
   author="Jane Doe"
   date="Jan 24, 2026"
   readTime="5"
-/>
+/>;
 ```
 
 ### Pattern 2: Status Messages
@@ -610,41 +618,29 @@ interface FormFieldProps {
 export function FormField({ id, label, description, required, error, children }: FormFieldProps) {
   const descriptionId = description ? `${id}-description` : undefined;
   const errorId = error ? `${id}-error` : undefined;
-  
+
   return (
     <div style={{ marginBottom: '20px' }}>
-      <Text
-        as="label"
-        variant="label"
-        weight="semibold"
-        htmlFor={id}
-        style={{ display: 'block', marginBottom: '4px' }}
-      >
+      <Text as="label" variant="label" weight="semibold" htmlFor={id} style={{ display: 'block', marginBottom: '4px' }}>
         {label}
-        {required && <Text as="span" color="error"> *</Text>}
+        {required && (
+          <Text as="span" color="error">
+            {' '}
+            *
+          </Text>
+        )}
       </Text>
-      
+
       {description && (
-        <Text
-          id={descriptionId}
-          variant="caption"
-          color="tertiary"
-          style={{ display: 'block', marginBottom: '8px' }}
-        >
+        <Text id={descriptionId} variant="caption" color="tertiary" style={{ display: 'block', marginBottom: '8px' }}>
           {description}
         </Text>
       )}
-      
+
       {children}
-      
+
       {error && (
-        <Text
-          id={errorId}
-          variant="caption"
-          color="error"
-          role="alert"
-          style={{ display: 'block', marginTop: '4px' }}
-        >
+        <Text id={errorId} variant="caption" color="error" role="alert" style={{ display: 'block', marginTop: '4px' }}>
           {error}
         </Text>
       )}
@@ -661,7 +657,7 @@ export function FormField({ id, label, description, required, error, children }:
   error="Please enter a valid email address"
 >
   <input type="email" id="email" />
-</FormField>
+</FormField>;
 ```
 
 ### Pattern 4: Pricing Card
@@ -692,7 +688,7 @@ export function PricingCard({ plan, price, period, features, highlighted }: Pric
       <Text variant="label" color="secondary" weight="semibold" transform="uppercase">
         {plan}
       </Text>
-      
+
       <div style={{ marginTop: '8px', display: 'flex', alignItems: 'baseline', gap: '4px' }}>
         <Text variant="h2" weight="bold">
           {price}
@@ -701,7 +697,7 @@ export function PricingCard({ plan, price, period, features, highlighted }: Pric
           {period}
         </Text>
       </div>
-      
+
       <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
         {features.map((feature, index) => (
           <Text key={index} variant="body-small">
@@ -720,7 +716,7 @@ export function PricingCard({ plan, price, period, features, highlighted }: Pric
   period="/month"
   features={['Unlimited Projects', '100 GB Storage', 'Priority Support']}
   highlighted
-/>
+/>;
 ```
 
 ### Pattern 5: Dashboard Metric Card
@@ -750,17 +746,12 @@ export function MetricCard({ label, value, change, positive }: MetricCardProps) 
       <Text variant="label" color="secondary">
         {label}
       </Text>
-      
+
       <Text variant="h3" weight="bold" style={{ marginTop: '4px' }}>
         {value}
       </Text>
-      
-      <Text
-        variant="body-small"
-        color={positive ? 'success' : 'error'}
-        weight="semibold"
-        style={{ marginTop: '4px' }}
-      >
+
+      <Text variant="body-small" color={positive ? 'success' : 'error'} weight="semibold" style={{ marginTop: '4px' }}>
         {change} vs last month
       </Text>
     </div>
@@ -768,12 +759,7 @@ export function MetricCard({ label, value, change, positive }: MetricCardProps) 
 }
 
 // Usage
-<MetricCard
-  label="Total Users"
-  value="12,345"
-  change="+12.5%"
-  positive={true}
-/>
+<MetricCard label="Total Users" value="12,345" change="+12.5%" positive={true} />;
 ```
 
 ## Related Components
@@ -831,7 +817,19 @@ type TransformValue = 'none' | 'uppercase' | 'lowercase' | 'capitalize';
 /**
  * Valid HTML elements for polymorphic rendering
  */
-type ValidTextElements = 'p' | 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'label' | 'legend' | 'figcaption';
+type ValidTextElements =
+  | 'p'
+  | 'span'
+  | 'div'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'label'
+  | 'legend'
+  | 'figcaption';
 
 /**
  * Text component props with polymorphic `as` prop support
@@ -890,11 +888,15 @@ type TextComponentProps<T extends ElementType> = TextProps<T> & Omit<ComponentPr
 **Solution**: Ensure you're using semantic color tokens that adapt to the theme. Check the background color for sufficient contrast.
 
 ```tsx
-{/* ❌ Custom color may not have sufficient contrast */}
-<Text style={{ color: '#888888' }}>Low contrast text</Text>
+{
+  /* ❌ Custom color may not have sufficient contrast */
+}
+<Text style={{ color: '#888888' }}>Low contrast text</Text>;
 
-{/* ✅ Semantic color with guaranteed contrast */}
-<Text color="secondary">Proper contrast text</Text>
+{
+  /* ✅ Semantic color with guaranteed contrast */
+}
+<Text color="secondary">Proper contrast text</Text>;
 ```
 
 ### Issue 2: Heading hierarchy issues
@@ -924,18 +926,26 @@ type TextComponentProps<T extends ElementType> = TextProps<T> & Omit<ComponentPr
 **Solution**: Text alignment requires the parent container to have defined width. Inline elements may not show alignment.
 
 ```tsx
-{/* ❌ Alignment not visible on inline span */}
-<Text as="span" align="center">Inline text</Text>
+{
+  /* ❌ Alignment not visible on inline span */
+}
+<Text as="span" align="center">
+  Inline text
+</Text>;
 
-{/* ✅ Alignment visible on block element or within container */}
+{
+  /* ✅ Alignment visible on block element or within container */
+}
 <Text align="center" style={{ display: 'block' }}>
   Centered text
-</Text>
+</Text>;
 
-{/* ✅ Or use block-level element */}
+{
+  /* ✅ Or use block-level element */
+}
 <Text as="div" align="center">
   Centered text
-</Text>
+</Text>;
 ```
 
 ### Issue 4: Transform not working as expected
@@ -945,13 +955,17 @@ type TextComponentProps<T extends ElementType> = TextProps<T> & Omit<ComponentPr
 **Solution**: Text transformation is a CSS property and depends on the original text content. It doesn't change the actual data.
 
 ```tsx
-{/* Text transform is visual only - data remains unchanged */}
-<Text transform="uppercase">hello world</Text>
+{
+  /* Text transform is visual only - data remains unchanged */
+}
+<Text transform="uppercase">hello world</Text>;
 // Displays: HELLO WORLD
 // But value remains: "hello world"
 
-{/* For data transformation, modify the string directly */}
-<Text>{text.toUpperCase()}</Text>
+{
+  /* For data transformation, modify the string directly */
+}
+<Text>{text.toUpperCase()}</Text>;
 ```
 
 ### Issue 5: Dark mode text not readable
@@ -961,11 +975,15 @@ type TextComponentProps<T extends ElementType> = TextProps<T> & Omit<ComponentPr
 **Solution**: Use semantic color tokens instead of hardcoded colors. Semantic tokens automatically adapt to the theme.
 
 ```tsx
-{/* ❌ Hardcoded color doesn't adapt to dark mode */}
-<Text style={{ color: '#000000' }}>Black text (not readable in dark mode)</Text>
+{
+  /* ❌ Hardcoded color doesn't adapt to dark mode */
+}
+<Text style={{ color: '#000000' }}>Black text (not readable in dark mode)</Text>;
 
-{/* ✅ Semantic color adapts automatically */}
-<Text color="primary">Adaptive text</Text>
+{
+  /* ✅ Semantic color adapts automatically */
+}
+<Text color="primary">Adaptive text</Text>;
 ```
 
 ### Issue 6: Form label not associated with input

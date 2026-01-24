@@ -7,11 +7,11 @@ import { Icon } from '@grasdouble/lufa_design-system';
 import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
 import {
   ColorVariants,
+  IconGallery,
   LiveDemo,
   PolymorphicVariant,
   SizeVariants,
   TitleExamples,
-  IconGallery,
 } from '../../../src/dsExamples/primitives/icon';
 
 # Icon
@@ -74,19 +74,19 @@ function App() {
 The Icon component is a container element with an SVG icon inside:
 
 ```
-┌────────────────────────────────────────────┐
-│  Icon Component (Container)                │
-│  ┌──────────────────────────────────────┐  │
-│  │  as: element type (span/div/i)       │  │
-│  │  size: dimensions (16px-40px)        │  │
-│  │  color: semantic color token         │  │
-│  │                                      │  │
-│  │  ┌────────────────────────────────┐ │  │
-│  │  │        SVG Icon                │ │  │
-│  │  │    (Lucide React component)    │ │  │
-│  │  └────────────────────────────────┘ │  │
-│  └──────────────────────────────────────┘  │
-└────────────────────────────────────────────┘
+┌──────────────────────────────────────────┐
+│  Icon Container (as="span")              │
+│  ┌────────────────────────────────────┐  │
+│  │  size: xs/sm/md/lg/xl              │  │
+│  │  color: semantic token             │  │
+│  │                                    │  │
+│  │    ┌────────────────────────┐     │  │
+│  │    │     SVG Icon           │     │  │
+│  │    │  (Lucide React)        │     │  │
+│  │    └────────────────────────┘     │  │
+│  │                                    │  │
+│  └────────────────────────────────────┘  │
+└──────────────────────────────────────────┘
 ```
 
 **Component Structure:**
@@ -105,14 +105,14 @@ The Icon component is a container element with an SVG icon inside:
 
 ### Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `name` | `IconName` | Required | Icon name from Lucide React library |
-| `as` | `'span' \| 'div' \| 'i'` | `'span'` | HTML element to render as container |
-| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Size variant (dimensions) |
-| `color` | `'currentColor' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'warning' \| 'info' \| 'muted'` | `'currentColor'` | Color variant using semantic tokens |
-| `title` | `string` | `undefined` | Accessible title for screen readers (makes icon non-decorative) |
-| `className` | `string` | `undefined` | Additional CSS classes |
+| Prop        | Type                                                                                                   | Default          | Description                                                     |
+| ----------- | ------------------------------------------------------------------------------------------------------ | ---------------- | --------------------------------------------------------------- |
+| `name`      | `IconName`                                                                                             | Required         | Icon name from Lucide React library                             |
+| `as`        | `'span' \| 'div' \| 'i'`                                                                               | `'span'`         | HTML element to render as container                             |
+| `size`      | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`                                                                 | `'md'`           | Size variant (dimensions)                                       |
+| `color`     | `'currentColor' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'warning' \| 'info' \| 'muted'` | `'currentColor'` | Color variant using semantic tokens                             |
+| `title`     | `string`                                                                                               | `undefined`      | Accessible title for screen readers (makes icon non-decorative) |
+| `className` | `string`                                                                                               | `undefined`      | Additional CSS classes                                          |
 
 Also supports all standard HTML attributes for the underlying container element (e.g., `id`, `role`, `aria-*`, `data-*`, `style`, event handlers like `onClick`, `onKeyDown`, etc.).
 
@@ -121,21 +121,27 @@ Also supports all standard HTML attributes for the underlying container element 
 Available icon names from Lucide React library:
 
 **User & Navigation:**
+
 - `user`, `home`, `settings`, `menu`, `search`
 
 **Actions:**
+
 - `check`, `x`, `plus`, `minus`, `edit`, `trash`, `save`, `download`, `upload`
 
 **Chevrons:**
+
 - `chevron-down`, `chevron-up`, `chevron-left`, `chevron-right`
 
 **Arrows:**
+
 - `arrow-left`, `arrow-right`
 
 **Status:**
+
 - `alert-circle`, `info`, `check-circle`, `x-circle`
 
 **Miscellaneous:**
+
 - `external-link`, `eye`, `eye-off`, `heart`, `star`
 
 More icons can be added to the icon map as needed. See [Lucide Icons](https://lucide.dev/icons) for the full library.
@@ -151,7 +157,7 @@ More icons can be added to the icon map as needed. See [Lucide Icons](https://lu
 Icon size determines the width and height dimensions:
 
 - **xs**: 16x16px - Smallest size, inline with small text
-- **sm**: 20x20px - Small size, inline with body text  
+- **sm**: 20x20px - Small size, inline with body text
 - **md**: 24x24px - Default size, balanced for most uses (recommended)
 - **lg**: 32x32px - Large size, prominent display
 - **xl**: 40x40px - Extra large size, hero sections
@@ -192,25 +198,31 @@ All colors meet **WCAG 2.1 AA** contrast requirements.
 The `title` prop controls whether the icon is decorative or accessible:
 
 **Without title (decorative icon):**
+
 - Adds `aria-hidden="true"` to hide from screen readers
 - Use when icon is purely decorative or has adjacent text label
 
 **With title (accessible icon):**
+
 - Adds `role="img"` and `aria-label` for screen readers
 - Renders visually hidden text span
 - Use for icon-only buttons or standalone meaningful icons
 
 ```tsx
-{/* Decorative - icon has adjacent text */}
+{
+  /* Decorative - icon has adjacent text */
+}
 <button>
   <Icon name="plus" size="sm" />
   <span>Add Item</span>
-</button>
+</button>;
 
-{/* Accessible - icon-only button */}
+{
+  /* Accessible - icon-only button */
+}
 <button>
   <Icon name="trash" size="sm" color="error" title="Delete item" />
-</button>
+</button>;
 ```
 
 ### Polymorphic Element (`as` prop)
@@ -224,14 +236,20 @@ Renders Icon container as different HTML elements:
 The `as` prop provides full type safety - props are typed based on the chosen element.
 
 ```tsx
-{/* Default span */}
-<Icon name="star" />
+{
+  /* Default span */
+}
+<Icon name="star" />;
 
-{/* As div */}
-<Icon as="div" name="star" />
+{
+  /* As div */
+}
+<Icon as="div" name="star" />;
 
-{/* As i */}
-<Icon as="i" name="star" />
+{
+  /* As i */
+}
+<Icon as="i" name="star" />;
 ```
 
 ## Variants
@@ -285,22 +303,27 @@ The Icon component is designed with WCAG 2.1 AA compliance and provides flexible
 **When to use:** Icon is purely decorative or has adjacent text label
 
 ```tsx
-{/* ✅ Good: Icon with adjacent text */}
+{
+  /* ✅ Good: Icon with adjacent text */
+}
 <button>
   <Icon name="download" size="sm" />
   <span>Download File</span>
-</button>
+</button>;
 
-{/* ✅ Good: Icon in navigation with text */}
+{
+  /* ✅ Good: Icon in navigation with text */
+}
 <nav>
   <a href="/home">
     <Icon name="home" size="sm" />
     <span>Home</span>
   </a>
-</nav>
+</nav>;
 ```
 
 **Accessibility attributes:**
+
 - `aria-hidden="true"` - Hides icon from screen readers
 - No `role` or `aria-label` - Not announced to assistive technology
 
@@ -309,21 +332,28 @@ The Icon component is designed with WCAG 2.1 AA compliance and provides flexible
 **When to use:** Icon-only buttons, standalone meaningful icons, or icons that convey information
 
 ```tsx
-{/* ✅ Good: Icon-only button with title */}
+{
+  /* ✅ Good: Icon-only button with title */
+}
 <button>
   <Icon name="settings" size="md" title="Open settings" />
-</button>
+</button>;
 
-{/* ✅ Good: Status icon with title */}
-<Icon name="check-circle" size="lg" color="success" title="Operation successful" />
+{
+  /* ✅ Good: Status icon with title */
+}
+<Icon name="check-circle" size="lg" color="success" title="Operation successful" />;
 
-{/* ✅ Good: Navigation icon-only button */}
+{
+  /* ✅ Good: Navigation icon-only button */
+}
 <button>
   <Icon name="menu" size="md" title="Open menu" />
-</button>
+</button>;
 ```
 
 **Accessibility attributes:**
+
 - `role="img"` - Identifies as image for assistive technology
 - `aria-label="{title}"` - Provides accessible name
 - Visually hidden `<span>` with title text - Backup for older assistive technology
@@ -331,18 +361,21 @@ The Icon component is designed with WCAG 2.1 AA compliance and provides flexible
 ### Screen Reader Announcements
 
 **Decorative icon:**
+
 ```tsx
 <Icon name="chevron-right" />
 // Screen reader: (skips, not announced)
 ```
 
 **Accessible icon:**
+
 ```tsx
 <Icon name="check" title="Completed" />
 // Screen reader: "Completed, image"
 ```
 
 **Icon in button:**
+
 ```tsx
 <button>
   <Icon name="trash" title="Delete" />
@@ -358,13 +391,17 @@ Icons are **non-interactive by default**:
 - **Icon-only buttons**: Button receives focus, icon provides visual + accessible name
 
 ```tsx
-{/* Icon not focusable - button is */}
+{
+  /* Icon not focusable - button is */
+}
 <button>
   <Icon name="edit" title="Edit" />
-</button>
+</button>;
 
-{/* If icon must be focusable (rare), use tabIndex */}
-<Icon name="info" title="Help information" tabIndex={0} role="img" />
+{
+  /* If icon must be focusable (rare), use tabIndex */
+}
+<Icon name="info" title="Help information" tabIndex={0} role="img" />;
 ```
 
 ### Best Practices for Accessibility
@@ -481,7 +518,7 @@ const statusConfig: Record<StatusType, { icon: IconName; color: ColorValue }> = 
 
 export function StatusMessage({ type, message }: StatusMessageProps) {
   const { icon, color } = statusConfig[type];
-  
+
   return (
     <div
       role="alert"
@@ -512,8 +549,8 @@ export function StatusMessage({ type, message }: StatusMessageProps) {
 Create accessible icon-only buttons for toolbars and action menus.
 
 ```tsx title="src/components/IconButton.tsx"
-import { Icon } from '@grasdouble/lufa_design-system';
 import type { IconName } from '@grasdouble/lufa_design-system';
+import { Icon } from '@grasdouble/lufa_design-system';
 
 interface IconButtonProps {
   icon: IconName;
@@ -536,12 +573,7 @@ export function IconButton({ icon, label, onClick, variant = 'default' }: IconBu
         cursor: 'pointer',
       }}
     >
-      <Icon 
-        name={icon} 
-        size="md" 
-        color={variant === 'danger' ? 'error' : 'primary'} 
-        title={label}
-      />
+      <Icon name={icon} size="md" color={variant === 'danger' ? 'error' : 'primary'} title={label} />
     </button>
   );
 }
@@ -551,7 +583,7 @@ export function IconButton({ icon, label, onClick, variant = 'default' }: IconBu
   <IconButton icon="edit" label="Edit item" onClick={handleEdit} />
   <IconButton icon="trash" label="Delete item" onClick={handleDelete} variant="danger" />
   <IconButton icon="settings" label="Settings" onClick={handleSettings} />
-</div>
+</div>;
 ```
 
 ### Pattern 4: Navigation with Icons
@@ -559,8 +591,8 @@ export function IconButton({ icon, label, onClick, variant = 'default' }: IconBu
 Enhance navigation items with icons for better visual scanning.
 
 ```tsx title="src/components/NavItem.tsx"
-import { Icon } from '@grasdouble/lufa_design-system';
 import type { IconName } from '@grasdouble/lufa_design-system';
+import { Icon } from '@grasdouble/lufa_design-system';
 
 interface NavItemProps {
   icon: IconName;
@@ -595,7 +627,7 @@ export function NavItem({ icon, label, href, active = false }: NavItemProps) {
   <NavItem icon="home" label="Home" href="/" active />
   <NavItem icon="settings" label="Settings" href="/settings" />
   <NavItem icon="user" label="Profile" href="/profile" />
-</nav>
+</nav>;
 ```
 
 ### Pattern 5: Form Field with Icon
@@ -739,11 +771,15 @@ export interface IconProps<T extends ElementType = 'span'> {
 **Solution**: Ensure the icon name is valid and part of the icon map.
 
 ```tsx
-{/* ❌ Invalid icon name */}
-<Icon name="invalid-name" />
+{
+  /* ❌ Invalid icon name */
+}
+<Icon name="invalid-name" />;
 
-{/* ✅ Valid icon name */}
-<Icon name="user" />
+{
+  /* ✅ Valid icon name */
+}
+<Icon name="user" />;
 ```
 
 ### Issue 2: Icon color not changing
@@ -753,14 +789,20 @@ export interface IconProps<T extends ElementType = 'span'> {
 **Solution**: Ensure you're using semantic color values, not custom CSS colors.
 
 ```tsx
-{/* ❌ Custom color doesn't work with color prop */}
-<Icon name="heart" color="#FF0000" />
+{
+  /* ❌ Custom color doesn't work with color prop */
+}
+<Icon name="heart" color="#FF0000" />;
 
-{/* ✅ Use semantic color */}
-<Icon name="heart" color="error" />
+{
+  /* ✅ Use semantic color */
+}
+<Icon name="heart" color="error" />;
 
-{/* ✅ Or use style for custom colors */}
-<Icon name="heart" style={{ color: '#FF0000' }} />
+{
+  /* ✅ Or use style for custom colors */
+}
+<Icon name="heart" style={{ color: '#FF0000' }} />;
 ```
 
 ### Issue 3: Icon size not correct
@@ -770,17 +812,25 @@ export interface IconProps<T extends ElementType = 'span'> {
 **Solution**: Use appropriate size variant for context.
 
 ```tsx
-{/* For inline with small text */}
-<Icon name="info" size="xs" />
+{
+  /* For inline with small text */
+}
+<Icon name="info" size="xs" />;
 
-{/* For inline with body text */}
-<Icon name="check" size="sm" />
+{
+  /* For inline with body text */
+}
+<Icon name="check" size="sm" />;
 
-{/* For standalone or buttons */}
-<Icon name="star" size="md" />
+{
+  /* For standalone or buttons */
+}
+<Icon name="star" size="md" />;
 
-{/* For hero sections */}
-<Icon name="heart" size="xl" />
+{
+  /* For hero sections */
+}
+<Icon name="heart" size="xl" />;
 ```
 
 ### Issue 4: Accessibility warnings
@@ -790,21 +840,27 @@ export interface IconProps<T extends ElementType = 'span'> {
 **Solution**: Provide `title` for icon-only interactive elements, omit for decorative.
 
 ```tsx
-{/* ❌ Icon-only button without title */}
+{
+  /* ❌ Icon-only button without title */
+}
 <button>
   <Icon name="trash" />
-</button>
+</button>;
 
-{/* ✅ Icon-only button with title */}
+{
+  /* ✅ Icon-only button with title */
+}
 <button>
   <Icon name="trash" title="Delete item" />
-</button>
+</button>;
 
-{/* ✅ Decorative icon with text label */}
+{
+  /* ✅ Decorative icon with text label */
+}
 <button>
   <Icon name="trash" size="sm" />
   <span>Delete</span>
-</button>
+</button>;
 ```
 
 ### Issue 5: Icons not aligned with text
@@ -814,15 +870,19 @@ export interface IconProps<T extends ElementType = 'span'> {
 **Solution**: Icons use `vertical-align: middle` by default. Ensure proper flex container or adjust alignment.
 
 ```tsx
-{/* ✅ Flex container for alignment */}
+{
+  /* ✅ Flex container for alignment */
+}
 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
   <Icon name="check" size="sm" />
   <span>Success message</span>
-</div>
+</div>;
 
-{/* Or use inline-flex on parent */}
+{
+  /* Or use inline-flex on parent */
+}
 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
   <Icon name="info" size="xs" />
   Information
-</span>
+</span>;
 ```
