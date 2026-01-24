@@ -17,6 +17,104 @@ The Lufa Design System v2.0 contains **5 production-ready React components** bui
 
 ---
 
+## Component Progress
+
+**Overall Status:** 71% complete (5/7 components)
+
+| Component | Status  | Tests     | Documentation          | Priority    |
+| --------- | ------- | --------- | ---------------------- | ----------- |
+| Box       | ✅ 100% | 120 tests | Complete (881 lines)   | Core        |
+| Stack     | ✅ 100% | 86 tests  | Complete (870 lines)   | Core        |
+| Text      | ✅ 100% | 107 tests | Complete (900 lines)   | Core        |
+| Icon      | ✅ 100% | 106 tests | Complete (828 lines)   | Core        |
+| Button    | ✅ 100% | 61 tests  | Complete (1,475 lines) | UI          |
+| Badge     | 📋 0%   | Pending   | Pending                | **NEXT** 🎯 |
+| Divider   | 📋 0%   | Pending   | Pending                | After Badge |
+
+**Total:** 480 tests passing | 5 components production-ready
+
+### Next Priorities
+
+#### 1. Badge Component (NEXT - Estimated: 4-6 hours)
+
+**Why Badge next:**
+
+- Uses Box + Text composition (proven pattern)
+- Simpler than Button (fewer states, no complex interactions)
+- Visual indicators are common UI pattern
+- Component tokens already available (20 tokens in Phase 4)
+
+**Deliverables:**
+
+- `Badge.tsx` component (estimated ~200 lines)
+- `Badge.stories.tsx` (Storybook, estimated ~600 lines)
+- `Badge.spec.tsx` (Playwright tests, estimated ~40-50 tests)
+- `badge.mdx` (Docusaurus documentation, estimated ~800 lines)
+- `badge.tsx` (Live examples, estimated ~400 lines)
+
+**Props:**
+
+- `variant`: success, error, warning, info, neutral
+- `size`: sm, md
+- `dot`: boolean (visual indicator)
+
+**Test Coverage Plan:**
+
+- Basic Rendering: 5-7 tests
+- Variants: 15-20 tests (variant combinations)
+- User Interactions: 3-5 tests
+- Accessibility: 5-7 tests
+- Visual Regression: 2 tests (light/dark mode)
+- **Total:** ~40-50 tests
+
+**Composition Pattern:**
+
+```tsx
+// Badge uses Box + Text (proven pattern from Button)
+<Box as="span" className="badge badge-{variant} badge-{size}">
+  {dot && <span className="badge-dot" />}
+  <Text size="sm">{children}</Text>
+</Box>
+```
+
+#### 2. Divider Component (After Badge - Estimated: 2-3 hours)
+
+**Why Divider after Badge:**
+
+- Simplest component (uses Box only)
+- Quick win to complete Phase 5A
+- Common layout utility component
+
+**Deliverables:**
+
+- `Divider.tsx` component (estimated ~150 lines)
+- `Divider.stories.tsx` (Storybook, estimated ~400 lines)
+- `Divider.spec.tsx` (Playwright tests, estimated ~20-30 tests)
+- `divider.mdx` (Docusaurus documentation, estimated ~600 lines)
+
+**Props:**
+
+- `orientation`: horizontal, vertical
+- `thickness`: thin, medium, thick
+- `color`: semantic colors
+
+**Test Coverage Plan:**
+
+- Basic Rendering: 3-5 tests
+- Variants: 10-12 tests (orientation × thickness × color)
+- Accessibility: 3-5 tests
+- Visual Regression: 2 tests (light/dark mode)
+- **Total:** ~20-30 tests
+
+**Composition Pattern:**
+
+```tsx
+// Divider uses Box only (simplest composition)
+<Box as="hr" className="divider divider-{orientation} divider-{thickness}" aria-orientation={orientation} />
+```
+
+---
+
 ## Component Catalog
 
 ### 1. Box - Universal Layout Primitive

@@ -167,6 +167,130 @@ pnpm ds:test:update-snapshots
 
 ---
 
+## Roadmap & Current Status
+
+**Last Updated:** 2026-01-24  
+**Overall Progress:** Phase 5A - 71% complete  
+**Confidence:** 99%
+
+### Phases Completed ✅
+
+The Design System v2.0 follows an 8-phase implementation strategy, organized into three categories: **Tokens**, **Components**, and **Tooling & Release**.
+
+| Phase        | Name                      | Status      | Tokens/Components  | Completed       |
+| ------------ | ------------------------- | ----------- | ------------------ | --------------- |
+| **Phase 0**  | Actions Critiques         | ✅ Complete | 3 critical actions | 2026-01-22      |
+| **Phase 1**  | Primitive Tokens          | ✅ Complete | 111 tokens         | 2026-01-22      |
+| **Phase 2**  | Core Tokens               | ✅ Complete | 58 tokens          | 2026-01-23      |
+| **Phase 3**  | Semantic Tokens           | ✅ Complete | 103 tokens         | 2026-01-23      |
+| **Phase 4**  | Component Tokens          | ✅ Complete | 166 tokens         | 2026-01-23      |
+| **Phase 5P** | Preparation (on-X + DTCG) | ✅ Complete | 6 on-X tokens      | 2026-01-23      |
+| **Total**    | **Token Architecture**    | **✅ 100%** | **438 tokens**     | **Complete** 🎉 |
+
+### Current Phase: 5A - React Components 🟡
+
+**Progress:** 71% (5/7 components complete)
+
+```
+Component Implementation: ██████████████████░░ 71%
+
+✅ Box (100%)     - 120 tests | Docs complete | Live examples
+✅ Stack (100%)   - 86 tests  | Docs complete | Live examples
+✅ Text (100%)    - 107 tests | Docs complete | Live examples
+✅ Icon (100%)    - 106 tests | Docs complete | Live examples
+✅ Button (100%)  - 61 tests  | Docs complete | Live examples
+📋 Badge (0%)     - NOT STARTED ← NEXT PRIORITY
+📋 Divider (0%)   - NOT STARTED
+```
+
+**Metrics:**
+
+- **Tokens:** 438/438 (100% architecture complete)
+- **CSS Variables:** 440
+- **Tests:** 480 passing (Playwright CT)
+- **DTCG Conformity:** 100%
+- **Performance:** 8.00ms << 16ms target
+- **Confidence:** 99%
+
+**Next Immediate Actions:**
+
+1. 🎯 Complete Badge component (estimated: 4-6 hours)
+2. 🎯 Complete Divider component (estimated: 2-3 hours)
+3. 📝 Create Phase 5A completion summary
+4. 📊 Update metrics and documentation
+
+### Future Phases 📋
+
+**Phase 7: Tooling & Documentation** (2-3 weeks)
+
+- Theme template CSS + CLI validator
+- Storybook TokensCatalog
+- Docusaurus site
+- CI validation
+
+**Phase 8: Legacy Cleanup & Release v2.0** (3 weeks)
+
+- Migration v1 → v2
+- Test suite 100%
+- 🎉 Release v2.0.0
+
+**Timeline to v2.0 Release:** ~8-9 weeks remaining (from 11 weeks total)
+
+### Key Achievements 🎉
+
+- ✅ 438 tokens created across 4 architecture levels
+- ✅ 100% DTCG compliance maintained
+- ✅ Performance validated (8ms << 16ms)
+- ✅ Automation complete (93% time reduction in token maintenance)
+- ✅ 5 primitive components production-ready
+- ✅ 480 tests passing (Playwright CT)
+- ✅ Comprehensive documentation (60,000+ words)
+
+### Architectural Decisions Made
+
+Four critical architectural decisions establish the foundation of the Design System:
+
+1. **Component API Pattern:** Individual props (not styled-system `sx`)
+   - Example: `<Box padding="default" margin="compact" />`
+   - Better TypeScript autocomplete and simpler maintenance
+
+2. **Polymorphic Components:** `as` prop for semantic HTML flexibility
+   - Example: `<Box as="section" />`, `<Text as="h1" />`
+   - Improved accessibility and SEO
+
+3. **CSS Utilities System:** Auto-generated utilities from config files
+   - Config: `*.utilities.config.cjs` → Generated: `*.module.css`
+   - Zero runtime cost, token-based, type-safe
+
+4. **Test Strategy:** Playwright Component Testing
+   - 5-part test structure: Rendering, Variants, Interactions, A11y, Visual
+   - Real browser testing with built-in visual regression
+   - 480 tests passing across 5 components
+
+### Performance Validation (Phase 0 POC)
+
+- **Test:** 1000 elements with 4-level CSS variable cascade
+- **Result:** 8.00ms << 16ms (50% under 60fps threshold)
+- **Decision:** ✅ Proceed with full 4-level token architecture
+- **Impact:** +2% confidence boost (97% → 99%)
+
+### Pattern "on-X" for WCAG AAA
+
+- **Purpose:** Guarantee text contrast on colored backgrounds
+- **Tokens:** 6 tokens (on-primary, on-secondary, on-success, on-error, on-warning, on-info)
+- **Contrast:** 7.5:1 and 7.2:1 (WCAG AAA)
+- **Convention:** Follows Material Design pattern
+
+### Sources of Truth
+
+For detailed status and planning:
+
+- **Master Status:** `_bmad-output/analysis/design-system-new-architecture/MASTER-STATUS.md`
+- **Detailed Roadmap:** `_bmad-output/analysis/design-system-new-architecture/roadmap-implementation-v2.0.md`
+- **This Documentation:** `packages/design-system/docs/roadmap-and-status.md` (comprehensive overview)
+
+---
+
 ## Technology Stack
 
 ### Core
