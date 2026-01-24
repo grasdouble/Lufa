@@ -71,9 +71,22 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
 }) => {
   // Convert hex color to rgba for opacity
   const hexToRgba = (hex: string, alpha: number): string => {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
+    // Validate that hex is a string and starts with #
+    if (!hex || typeof hex !== 'string') {
+      console.warn('PaddingVisualizer: Invalid color provided:', hex);
+      return `rgba(200, 200, 200, ${alpha})`; // Fallback to gray
+    }
+
+    // If it's already an rgb/rgba, return as-is with opacity adjustment
+    if (hex.startsWith('rgb')) {
+      return hex.replace(/[\d.]+\)$/g, `${alpha})`);
+    }
+
+    // Handle hex colors
+    const cleanHex = hex.startsWith('#') ? hex : `#${hex}`;
+    const r = parseInt(cleanHex.slice(1, 3), 16);
+    const g = parseInt(cleanHex.slice(3, 5), 16);
+    const b = parseInt(cleanHex.slice(5, 7), 16);
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   };
 

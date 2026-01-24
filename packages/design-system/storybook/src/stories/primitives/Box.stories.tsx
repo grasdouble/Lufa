@@ -361,8 +361,9 @@ export const PropPadding: Story = {
     const [hoveredPadding, setHoveredPadding] = React.useState<string>('default');
 
     // Mapping of padding values to pixel sizes and colors
+    // Note: 'none' and 'tight' both map to 4px (tight spacing)
     const paddingValues = [
-      { value: 'none' as const, size: '0px', color: STORY_COLORS.neutral.borderMedium },
+      { value: 'none' as const, size: '4px', color: STORY_COLORS.neutral.borderMedium },
       { value: 'tight' as const, size: '4px', color: STORY_COLORS.primary.cyan },
       { value: 'compact' as const, size: '8px', color: STORY_COLORS.primary.green },
       { value: 'default' as const, size: '16px', color: STORY_COLORS.primary.blue },
