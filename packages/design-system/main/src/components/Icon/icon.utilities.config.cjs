@@ -12,6 +12,14 @@ module.exports = {
   component: 'Icon',
   outputFile: 'Icon.module.css',
 
+  // Base CSS for the component (non-utility fundamental styles)
+  base: {
+    display: 'inline-flex',
+    'align-items': 'center',
+    'justify-content': 'center',
+    'flex-shrink': '0',
+  },
+
   utilities: {
     // ==========================================
     // SIZE VARIANTS

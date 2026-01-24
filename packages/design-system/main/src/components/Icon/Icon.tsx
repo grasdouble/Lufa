@@ -63,6 +63,7 @@ import {
   XCircle,
 } from 'lucide-react';
 
+import additionalStyles from './Icon.additional.module.css';
 import styles from './Icon.module.css';
 
 // ============================================
@@ -208,6 +209,12 @@ const IconImpl = <T extends ElementType = 'span'>(
   // Get the Lucide icon component
   const LucideIcon = ICON_MAP[name];
 
+  // Guard: if icon name is not in map, render nothing or fallback
+  if (!LucideIcon) {
+    console.warn(`Icon "${name}" not found in ICON_MAP. Available icons:`, Object.keys(ICON_MAP).join(', '));
+    return null;
+  }
+
   // Build className from utility props
   const iconClassName = clsx(
     // Base icon class
@@ -239,7 +246,7 @@ const IconImpl = <T extends ElementType = 'span'>(
       {...htmlProps}
     >
       <LucideIcon strokeWidth={2} aria-hidden="true" />
-      {title && <span className={styles['visually-hidden']}>{title}</span>}
+      {title && <span className={additionalStyles['visually-hidden']}>{title}</span>}
     </Component>
   );
 };
