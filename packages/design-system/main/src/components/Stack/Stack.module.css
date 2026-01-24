@@ -13,7 +13,7 @@
 /* BASE CLASS */
 /* ========================================== */
 
-/* Base Stack class - Flexbox container */
+/* Base Stack class */
 .stack {
   display: flex;
 }

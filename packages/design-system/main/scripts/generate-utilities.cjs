@@ -90,12 +90,29 @@ function generateUtilityClasses(utilityName, utilityConfig) {
 }
 
 /**
+ * Generate base CSS classes (non-utility fundamental styles)
+ * @param {object} baseConfig - Base configuration object
+ * @param {string} componentName - Component name for class generation
+ * @returns {string} Base CSS classes
+ */
+function generateBaseClasses(baseConfig, componentName) {
+  if (!baseConfig) return '';
+
+  const className = `.${componentName.toLowerCase()}`;
+  const properties = Object.entries(baseConfig)
+    .map(([prop, value]) => `  ${prop}: ${value};`)
+    .join('\n');
+
+  return `/* Base ${componentName} class */\n${className} {\n${properties}\n}`;
+}
+
+/**
  * Generate complete CSS file for a component
  * @param {object} config - Component configuration
  * @returns {string} Complete CSS file content
  */
 function generateCSSFile(config) {
-  const { component, utilities } = config;
+  const { component, utilities, base } = config;
 
   // Header
   const header = `/**
@@ -111,19 +128,25 @@ function generateCSSFile(config) {
 
 `;
 
-  // Generate CSS classes for each utility
-  const allClasses = [];
+  // Generate base classes if provided
+  const allSections = [];
 
+  if (base) {
+    const baseSection = `/* ========================================== */\n/* BASE CLASS */\n/* ========================================== */\n\n${generateBaseClasses(base, component)}`;
+    allSections.push(baseSection);
+  }
+
+  // Generate CSS classes for each utility
   for (const [utilityName, utilityConfig] of Object.entries(utilities)) {
     const utilityClasses = generateUtilityClasses(utilityName, utilityConfig);
 
     // Add section comment
     const section = `/* ========================================== */\n/* ${utilityName.toUpperCase()} */\n/* ========================================== */\n\n`;
 
-    allClasses.push(section + utilityClasses.join('\n\n'));
+    allSections.push(section + utilityClasses.join('\n\n'));
   }
 
-  return header + allClasses.join('\n\n') + '\n';
+  return header + allSections.join('\n\n') + '\n';
 }
 
 // ==========================================

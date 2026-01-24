@@ -12,6 +12,11 @@ module.exports = {
   component: 'Stack',
   outputFile: 'Stack.module.css',
 
+  // Base CSS for the component (non-utility fundamental styles)
+  base: {
+    display: 'flex',
+  },
+
   utilities: {
     // ==========================================
     // LAYOUT - Direction
