@@ -360,8 +360,18 @@ export const PropPadding: Story = {
   render: () => {
     const [hoveredPadding, setHoveredPadding] = React.useState<string>('default');
 
+    // Mapping of padding values to pixel sizes and colors
+    const paddingValues = [
+      { value: 'none' as const, size: '0px', color: STORY_COLORS.neutral.borderMedium },
+      { value: 'tight' as const, size: '4px', color: STORY_COLORS.primary.cyan },
+      { value: 'compact' as const, size: '8px', color: STORY_COLORS.primary.green },
+      { value: 'default' as const, size: '16px', color: STORY_COLORS.primary.blue },
+      { value: 'comfortable' as const, size: '24px', color: STORY_COLORS.primary.violet },
+      { value: 'spacious' as const, size: '32px', color: STORY_COLORS.primary.pink },
+    ];
+
     const generateCode = (padding: string): string => {
-      return `<Box padding="${padding}" background="info" borderRadius="default">
+      return `<Box padding="${padding}" borderRadius="default">
   Content
 </Box>`;
     };
@@ -371,26 +381,28 @@ export const PropPadding: Story = {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {/* Grid of examples */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '20px' }}>
-            {(['none', 'tight', 'compact', 'default', 'comfortable', 'spacious'] as const).map((value) => (
+            {paddingValues.map(({ value, size, color }) => (
               <div key={value} onMouseEnter={() => setHoveredPadding(value)}>
                 <PropCard label={`padding="${value}"`} highlight={hoveredPadding === value}>
-                  <Box padding={value} background="info" borderRadius="default">
-                    <span
-                      style={{
-                        display: 'block',
-                        backgroundColor: STORY_COLORS.neutral.white,
-                        border: `2px solid ${STORY_COLORS.neutral.borderSlate}`,
-                        borderRadius: '4px',
-                        padding: '12px',
-                        fontSize: '13px',
-                        fontWeight: 600,
-                        color: STORY_COLORS.neutral.textSlate,
-                        textAlign: 'center',
-                      }}
-                    >
-                      Content
-                    </span>
-                  </Box>
+                  <PaddingVisualizer color={color} showLabel={value !== 'none'} label={size}>
+                    <Box padding={value} borderRadius="default">
+                      <span
+                        style={{
+                          display: 'block',
+                          backgroundColor: STORY_COLORS.neutral.white,
+                          border: `2px solid ${STORY_COLORS.neutral.borderSlate}`,
+                          borderRadius: '4px',
+                          padding: '12px',
+                          fontSize: '13px',
+                          fontWeight: 600,
+                          color: STORY_COLORS.neutral.textSlate,
+                          textAlign: 'center',
+                        }}
+                      >
+                        Content
+                      </span>
+                    </Box>
+                  </PaddingVisualizer>
                 </PropCard>
               </div>
             ))}
@@ -442,139 +454,69 @@ export const PropPaddingXY: Story = {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
             <div onMouseEnter={() => setHoveredVariant('paddingX')}>
               <PropCard label='paddingX="spacious" (← →)' highlight={hoveredVariant === 'paddingX'}>
-                <Box
-                  paddingX="spacious"
-                  borderRadius="default"
-                  style={{
-                    backgroundColor: STORY_COLORS.axis.x.light,
-                    border: `2px dashed ${STORY_COLORS.axis.x.main}`,
-                    position: 'relative',
-                  }}
-                >
-                  <div
-                    style={{
-                      backgroundColor: STORY_COLORS.axis.x.main,
-                      color: 'white',
-                      fontSize: '14px',
-                      fontWeight: 600,
-                      textAlign: 'center',
-                      padding: '16px',
-                      borderRadius: '4px',
-                    }}
-                  >
-                    ← Horizontal padding →
-                  </div>
-                  {/* Label showing padding value */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '4px',
-                      right: '4px',
-                      backgroundColor: STORY_COLORS.axis.x.main,
-                      color: 'white',
-                      fontSize: '10px',
-                      fontWeight: 600,
-                      padding: '2px 6px',
-                      borderRadius: '3px',
-                      zIndex: 10,
-                    }}
-                  >
-                    32px
-                  </div>
-                </Box>
+                <PaddingVisualizer color={STORY_COLORS.axis.x.main} showLabel label="32px">
+                  <Box paddingX="spacious" borderRadius="default">
+                    <div
+                      style={{
+                        backgroundColor: STORY_COLORS.axis.x.main,
+                        color: 'white',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        textAlign: 'center',
+                        padding: '16px',
+                        borderRadius: '4px',
+                      }}
+                    >
+                      ← Horizontal padding →
+                    </div>
+                  </Box>
+                </PaddingVisualizer>
               </PropCard>
             </div>
 
             <div onMouseEnter={() => setHoveredVariant('paddingY')}>
               <PropCard label='paddingY="spacious" (↑ ↓)' highlight={hoveredVariant === 'paddingY'}>
-                <Box
-                  paddingY="spacious"
-                  borderRadius="default"
-                  style={{
-                    backgroundColor: STORY_COLORS.axis.y.light,
-                    border: `2px dashed ${STORY_COLORS.axis.y.main}`,
-                    position: 'relative',
-                  }}
-                >
-                  <div
-                    style={{
-                      backgroundColor: STORY_COLORS.axis.y.main,
-                      color: 'white',
-                      fontSize: '14px',
-                      fontWeight: 600,
-                      textAlign: 'center',
-                      padding: '16px',
-                      borderRadius: '4px',
-                    }}
-                  >
-                    ↑<br />
-                    Vertical padding
-                    <br />↓
-                  </div>
-                  {/* Label showing padding value */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '4px',
-                      right: '4px',
-                      backgroundColor: STORY_COLORS.axis.y.main,
-                      color: 'white',
-                      fontSize: '10px',
-                      fontWeight: 600,
-                      padding: '2px 6px',
-                      borderRadius: '3px',
-                      zIndex: 10,
-                    }}
-                  >
-                    32px
-                  </div>
-                </Box>
+                <PaddingVisualizer color={STORY_COLORS.axis.y.main} showLabel label="32px">
+                  <Box paddingY="spacious" borderRadius="default">
+                    <div
+                      style={{
+                        backgroundColor: STORY_COLORS.axis.y.main,
+                        color: 'white',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        textAlign: 'center',
+                        padding: '16px',
+                        borderRadius: '4px',
+                      }}
+                    >
+                      ↑<br />
+                      Vertical padding
+                      <br />↓
+                    </div>
+                  </Box>
+                </PaddingVisualizer>
               </PropCard>
             </div>
 
             <div onMouseEnter={() => setHoveredVariant('combined')}>
               <PropCard label="paddingX + paddingY" highlight={hoveredVariant === 'combined'}>
-                <Box
-                  paddingX="spacious"
-                  paddingY="compact"
-                  borderRadius="default"
-                  style={{
-                    backgroundColor: STORY_COLORS.axis.combined.light,
-                    border: `2px dashed ${STORY_COLORS.axis.combined.main}`,
-                    position: 'relative',
-                  }}
-                >
-                  <div
-                    style={{
-                      backgroundColor: STORY_COLORS.axis.combined.main,
-                      color: 'white',
-                      fontSize: '14px',
-                      fontWeight: 600,
-                      textAlign: 'center',
-                      padding: '16px',
-                      borderRadius: '4px',
-                    }}
-                  >
-                    Different X/Y spacing
-                  </div>
-                  {/* Label showing padding values */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '4px',
-                      right: '4px',
-                      backgroundColor: STORY_COLORS.axis.combined.main,
-                      color: 'white',
-                      fontSize: '10px',
-                      fontWeight: 600,
-                      padding: '2px 6px',
-                      borderRadius: '3px',
-                      zIndex: 10,
-                    }}
-                  >
-                    X:32px Y:16px
-                  </div>
-                </Box>
+                <PaddingVisualizer color={STORY_COLORS.axis.combined.main} showLabel label="X:32px Y:8px">
+                  <Box paddingX="spacious" paddingY="compact" borderRadius="default">
+                    <div
+                      style={{
+                        backgroundColor: STORY_COLORS.axis.combined.main,
+                        color: 'white',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        textAlign: 'center',
+                        padding: '16px',
+                        borderRadius: '4px',
+                      }}
+                    >
+                      Different X/Y spacing
+                    </div>
+                  </Box>
+                </PaddingVisualizer>
               </PropCard>
             </div>
           </div>
@@ -603,7 +545,7 @@ export const PropPaddingIndividual: Story = {
     const [hoveredProp, setHoveredProp] = React.useState<string>('paddingTop');
 
     const generateCode = (prop: string): string => {
-      return `<Box ${prop}="spacious" background="surface" borderWidth="medium">
+      return `<Box ${prop}="spacious" borderRadius="default">
   Content
 </Box>`;
     };
@@ -618,49 +560,26 @@ export const PropPaddingIndividual: Story = {
               { prop: 'paddingRight', label: 'Right ←', ...STORY_COLORS.directional.right },
               { prop: 'paddingBottom', label: 'Bottom ↑', ...STORY_COLORS.directional.bottom },
               { prop: 'paddingLeft', label: 'Left →', ...STORY_COLORS.directional.left },
-            ].map(({ prop, label, main, light }) => (
+            ].map(({ prop, label, main }) => (
               <div key={prop} onMouseEnter={() => setHoveredProp(prop)}>
                 <PropCard label={`${prop}="spacious"`} highlight={hoveredProp === prop}>
-                  <Box
-                    {...{ [prop]: 'spacious' }}
-                    borderRadius="default"
-                    style={{
-                      backgroundColor: light,
-                      border: `2px dashed ${main}`,
-                      position: 'relative',
-                    }}
-                  >
-                    <div
-                      style={{
-                        backgroundColor: main,
-                        color: 'white',
-                        fontSize: '13px',
-                        fontWeight: 600,
-                        textAlign: 'center',
-                        padding: '20px',
-                        borderRadius: '4px',
-                      }}
-                    >
-                      {label}
-                    </div>
-                    {/* Label showing padding value */}
-                    <div
-                      style={{
-                        position: 'absolute',
-                        top: '4px',
-                        right: '4px',
-                        backgroundColor: main,
-                        color: 'white',
-                        fontSize: '10px',
-                        fontWeight: 600,
-                        padding: '2px 6px',
-                        borderRadius: '3px',
-                        zIndex: 10,
-                      }}
-                    >
-                      32px
-                    </div>
-                  </Box>
+                  <PaddingVisualizer color={main} showLabel label="32px">
+                    <Box {...{ [prop]: 'spacious' }} borderRadius="default">
+                      <div
+                        style={{
+                          backgroundColor: main,
+                          color: 'white',
+                          fontSize: '13px',
+                          fontWeight: 600,
+                          textAlign: 'center',
+                          padding: '20px',
+                          borderRadius: '4px',
+                        }}
+                      >
+                        {label}
+                      </div>
+                    </Box>
+                  </PaddingVisualizer>
                 </PropCard>
               </div>
             ))}
