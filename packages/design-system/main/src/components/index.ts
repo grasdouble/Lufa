@@ -19,11 +19,11 @@
 export { Box } from './Box';
 export type { BoxProps } from './Box';
 
-// export { Text } from './components/Text';
-// export type { TextProps } from './components/Text';
+export { Text } from './Text';
+export type { TextProps } from './Text';
 
-// export { Stack } from './components/Stack';
-// export type { StackProps } from './components/Stack';
+export { Stack } from './Stack';
+export type { StackProps } from './Stack';
 
 // UI Components
 // export { Icon } from './components/Icon';
