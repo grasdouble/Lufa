@@ -45,6 +45,7 @@ const COMPONENT_CONFIGS = {
   Icon: path.join(COMPONENTS_DIR, 'Icon/icon.utilities.config.cjs'),
   Button: path.join(COMPONENTS_DIR, 'Button/button.utilities.config.cjs'),
   Badge: path.join(COMPONENTS_DIR, 'Badge/badge.utilities.config.cjs'),
+  Divider: path.join(COMPONENTS_DIR, 'Divider/divider.utilities.config.cjs'),
 };
 
 // ==========================================

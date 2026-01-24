@@ -35,8 +35,8 @@ export type { ButtonProps } from './Button';
 export { Badge } from './Badge';
 export type { BadgeProps } from './Badge';
 
-// export { Divider } from './components/Divider';
-// export type { DividerProps } from './components/Divider';
+export { Divider } from './Divider';
+export type { DividerProps } from './Divider';
 
 // ============================================
 // FUTURE PHASES

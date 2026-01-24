@@ -12,6 +12,9 @@
     "badge": {
       "$include": "./badge/tokens.json"
     },
+    "divider": {
+      "$include": "./divider/tokens.json"
+    },
     "input": {
       "$include": "./input/tokens.json"
     },
