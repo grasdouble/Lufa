@@ -1,6 +1,6 @@
 # 📋 MASTER STATUS - Lufa Design System v2.0
 
-**Last Updated:** 2026-01-24  
+**Last Updated:** 2026-01-25  
 **Overall Status:** 🟡 Phase 5A IN PROGRESS - React Components (3/7 started)  
 **Confidence:** 99%  
 **Next Phase:** Phase 5A - React Component Implementation (52% complete)
@@ -47,17 +47,17 @@ Token Architecture Progress: █████████████████
 
 ## 📊 Phase Status Overview
 
-| Phase        | Status             | Progress | Duration | Completed       | Documentation                                                     |
-| ------------ | ------------------ | -------- | -------- | --------------- | ----------------------------------------------------------------- |
-| Phase 0      | ✅ Complete        | 100%     | 3 days   | 2026-01-22      | `phase-0-complete-summary.md`                                     |
-| Phase 1      | ✅ Complete        | 100%     | 1 day    | 2026-01-22      | `phase-1-completion-summary.md`                                   |
-| Phase 2      | ✅ Complete        | 100%     | 1 day    | 2026-01-23      | `phase-2-completion-summary.md`                                   |
-| Phase 3      | ✅ Complete        | 100%     | 1 day    | 2026-01-23      | `phase-3-completion-summary.md`                                   |
-| Phase 4      | ✅ Complete        | 100%     | 1 day    | 2026-01-23      | `phase-4-completion-summary.md`                                   |
-| Phase 5 Prep | ✅ Complete        | 100%     | 2h       | 2026-01-23      | `phase-5-preparation-complete-summary.md`                         |
-| **Phase 5A** | **🟡 In Progress** | **52%**  | **1-2w** | **In Progress** | **React Components (3/7 started: Box 100%, Stack 50%, Text 50%)** |
-| Phase 7      | 📋 Planned         | 0%       | 2-3 wks  | TBD             | Tooling & Documentation                                           |
-| Phase 8      | 📋 Planned         | 0%       | 3 wks    | TBD             | Legacy Cleanup & Release v2.0                                     |
+| Phase        | Status             | Progress | Duration | Completed       | Documentation                                                        |
+| ------------ | ------------------ | -------- | -------- | --------------- | -------------------------------------------------------------------- |
+| Phase 0      | ✅ Complete        | 100%     | 3 days   | 2026-01-22      | `phase-0-complete-summary.md`                                        |
+| Phase 1      | ✅ Complete        | 100%     | 1 day    | 2026-01-22      | `phase-1-completion-summary.md`                                      |
+| Phase 2      | ✅ Complete        | 100%     | 1 day    | 2026-01-23      | `phase-2-completion-summary.md`                                      |
+| Phase 3      | ✅ Complete        | 100%     | 1 day    | 2026-01-23      | `phase-3-completion-summary.md`                                      |
+| Phase 4      | ✅ Complete        | 100%     | 1 day    | 2026-01-23      | `phase-4-completion-summary.md`                                      |
+| Phase 5 Prep | ✅ Complete        | 100%     | 2h       | 2026-01-23      | `phase-5-preparation-complete-summary.md`                            |
+| **Phase 5A** | **🟡 In Progress** | **68%**  | **1-2w** | **In Progress** | **React Components (3/7 complete: Box 100%, Stack 100%, Text 100%)** |
+| Phase 7      | 📋 Planned         | 0%       | 2-3 wks  | TBD             | Tooling & Documentation                                              |
+| Phase 8      | 📋 Planned         | 0%       | 3 wks    | TBD             | Legacy Cleanup & Release v2.0                                        |
 
 ---
 
@@ -482,9 +482,9 @@ ce2020b - refactor(tokens): migrate metadata to DTCG $extensions.lufa - 440 toke
 
 ## ⏳ Phase 5A: React Component Implementation - IN PROGRESS 🎯
 
-**Status:** 🟡 IN PROGRESS (48% complete - 3/7 components started)  
+**Status:** 🟡 IN PROGRESS (68% complete - 3/7 components complete)  
 **Started:** 2026-01-23  
-**Last Updated:** 2026-01-24  
+**Last Updated:** 2026-01-25  
 **Duration:** 1-2 weeks (estimated)
 
 ### Objectives
@@ -494,11 +494,11 @@ Implement React components using the component tokens created in Phase 4.
 ### Progress Overview
 
 ```
-Component Implementation: ██████████░░░░░░░░░░ 52% (3/7 started)
+Component Implementation: █████████████░░░░░░░ 68% (3/7 complete)
 
-✅ Box (100%)    - Component ✅ | Story ✅ | Tests ✅ | Docs ✅
-⏳ Stack (50%)   - Component ⏳ | CSS ✅ | Story 📋 | Tests 📋
-⏳ Text (50%)    - Component ⏳ | CSS ✅ | Story 📋 | Tests 📋
+✅ Box (100%)    - Component ✅ | Story ✅ | Tests ✅ | Docs ✅ | Live ✅
+✅ Stack (100%)  - Component ✅ | Story ✅ | Tests ✅ | Docs ✅ | Live ✅
+✅ Text (100%)   - Component ✅ | Story ✅ | Tests ✅ | Docs ✅ | Live ✅
 📋 Icon (0%)     - Not started
 📋 Button (0%)   - Not started
 📋 Badge (0%)    - Not started
@@ -587,63 +587,67 @@ Component Implementation: ██████████░░░░░░░░
 
 ---
 
-#### ⏳ **Stack** - Vertical/horizontal layout (50% complete)
+#### ✅ **Stack** - Vertical/horizontal layout (100% complete) 🎉
 
 **Completed:**
 
+- ✅ Component: `Stack/Stack.tsx` (210 lines)
+- ✅ Barrel export: `Stack/index.ts`
 - ✅ CSS Module: `Stack.module.css` (119 lines, auto-generated)
 - ✅ Utilities config: `stack.utilities.config.cjs`
-- ✅ Utilities: direction, spacing, align, justify, wrap
-- ✅ Tokens: Uses semantic spacing (`--lufa-semantic-ui-spacing-*`)
+- ✅ Storybook: `stories/primitives/Stack.stories.tsx` (1,050 lines, 7 stories)
+- ✅ **Playwright tests:** `Stack.spec.tsx` (1,215 lines, 86 tests - 100% passing)
+- ✅ **Docusaurus documentation:** `stack.mdx` (870 lines, 17 sections)
+- ✅ **Live examples:** `dsExamples/primitives/stack.tsx` (400 lines, 7 components)
+- ✅ Export: Added to `index.ts`
+- ✅ Navigation: Added to `sidebars.ts`
 
-**Pending:**
+**Props:** `direction`, `spacing`, `align`, `justify`, `wrap`, `as` (polymorphic)
 
-- ⏳ **Component:** `Stack.tsx` (~250 lines estimated, based on Box pattern)
-- 📋 Storybook story: `Stack.stories.tsx` (~800 lines estimated)
-- 📋 Playwright tests: `Stack.spec.tsx`
-- 📋 Export in `index.ts`
-- 📋 Docusaurus API documentation
-
-**Design:**
-
-- Props: `direction`, `spacing`, `align`, `justify`, `wrap`
-- Polymorphic: `as` prop (default 'div')
-- Uses Flexbox layout
+**Status:** ✅ **COMPLETE - Second component 100% done!** 🎉
 
 **Files:**
 
-- `packages/design-system/main/src/components/Stack/Stack.module.css` ✅
-- `packages/design-system/main/src/components/Stack/stack.utilities.config.cjs` ✅
+- `packages/design-system/main/src/components/Stack/Stack.tsx`
+- `packages/design-system/main/src/components/Stack/Stack.module.css`
+- `packages/design-system/main/src/components/Stack/index.ts`
+- `packages/design-system/storybook/src/stories/primitives/Stack.stories.tsx`
+- `packages/design-system/playwright/src/components/primitives/Stack.spec.tsx`
+- `packages/design-system/docusaurus/docs/components/primitives/stack.mdx`
+- `packages/design-system/docusaurus/src/dsExamples/primitives/stack.tsx`
 
 ---
 
-#### ⏳ **Text** - Semantic typography (50% complete)
+#### ✅ **Text** - Semantic typography (100% complete) 🎉
 
 **Completed:**
 
+- ✅ Component: `Text/Text.tsx` (200 lines)
+- ✅ Barrel export: `Text/index.ts` (critical fix for clean imports)
 - ✅ CSS Module: `Text.module.css` (155 lines, auto-generated)
 - ✅ Utilities config: `text.utilities.config.cjs`
-- ✅ Utilities: variant, color, weight, align, transform
-- ✅ Tokens: Uses semantic typography and text colors
+- ✅ Storybook: `stories/primitives/Text.stories.tsx` (1,100 lines, 9 stories)
+- ✅ **Playwright tests:** `Text.spec.tsx` (977 lines, 107 tests - 100% passing)
+- ✅ **Docusaurus documentation:** `text.mdx` (900 lines, 17 sections)
+- ✅ **Live examples:** `dsExamples/primitives/text.tsx` (500 lines, 7 components)
+- ✅ Export: Added to `index.ts`
+- ✅ Navigation: Added to `sidebars.ts`
+- ✅ **Changeset created:** text-component-implementation.md
 
-**Pending:**
+**Props:** `variant` (h1-h6, body variants, caption, label), `color` (8 colors), `weight`, `align`, `transform`, `as` (polymorphic)
 
-- ⏳ **Component:** `Text.tsx` (~200 lines estimated, based on Box pattern)
-- 📋 Storybook story: `Text.stories.tsx` (~700 lines estimated)
-- 📋 Playwright tests: `Text.spec.tsx`
-- 📋 Export in `index.ts`
-- 📋 Docusaurus API documentation
-
-**Design:**
-
-- Props: `variant`, `color`, `weight`, `align`, `transform`
-- Polymorphic: `as` prop (default 'p')
-- Typography scale: h1-h6, body, caption, label
+**Status:** ✅ **COMPLETE - Third component 100% done!** 🎉
 
 **Files:**
 
-- `packages/design-system/main/src/components/Text/Text.module.css` ✅
-- `packages/design-system/main/src/components/Text/text.utilities.config.cjs` ✅
+- `packages/design-system/main/src/components/Text/Text.tsx`
+- `packages/design-system/main/src/components/Text/Text.module.css`
+- `packages/design-system/main/src/components/Text/index.ts`
+- `packages/design-system/storybook/src/stories/primitives/Text.stories.tsx`
+- `packages/design-system/playwright/src/components/primitives/Text.spec.tsx`
+- `packages/design-system/docusaurus/docs/components/primitives/text.mdx`
+- `packages/design-system/docusaurus/src/dsExamples/primitives/text.tsx`
+- `.changeset/text-component-implementation.md`
 
 ---
 
@@ -723,27 +727,27 @@ Component Implementation: ██████████░░░░░░░░
 
 ### Expected Deliverables
 
-**Completed (7/21 items):**
+**Completed (15/21 items):**
 
 - ✅ Box component with TypeScript (356 lines)
 - ✅ Box Storybook story (1373 lines)
 - ✅ Box Playwright tests (782 lines, 120 tests, 100% guidelines compliant)
 - ✅ Box Docusaurus documentation (881 lines, 24 props, 17 sections)
-- ✅ **Box live examples** (461 lines, 7 interactive components) 🆕
-- ✅ CSS Modules using semantic tokens (Box, Stack, Text)
-- ✅ Roadmap documentation updated (roadmap-implementation-v2.0.md synchronized)
+- ✅ Box live examples (461 lines, 7 interactive components)
+- ✅ **Stack component with TypeScript** (210 lines) 🆕
+- ✅ **Stack Storybook story** (1,050 lines, 7 stories) 🆕
+- ✅ **Stack Playwright tests** (1,215 lines, 86 tests - 100% passing) 🆕
+- ✅ **Stack Docusaurus documentation** (870 lines, 17 sections) 🆕
+- ✅ **Stack live examples** (400 lines, 7 components) 🆕
+- ✅ **Text component with TypeScript** (200 lines) 🆕
+- ✅ **Text Storybook story** (1,100 lines, 9 stories) 🆕
+- ✅ **Text Playwright tests** (977 lines, 107 tests - 100% passing) 🆕
+- ✅ **Text Docusaurus documentation** (900 lines, 17 sections) 🆕
+- ✅ **Text live examples** (500 lines, 7 components) 🆕
 
-**In Progress (2/21 items):**
+**Pending (6/21 items):**
 
-- ⏳ Stack component TypeScript
-- ⏳ Text component TypeScript
-
-**Pending (12/21 items):**
-
-- 📋 Playwright component tests (6 components: Stack, Text, Icon, Button, Badge, Divider)
-- 📋 Storybook stories (6 components: Stack, Text, Icon, Button, Badge, Divider)
-- 📋 Icon, Button, Badge, Divider components (.tsx + .module.css)
-- 📋 API documentation in Docusaurus (6 components: Stack, Text, Icon, Button, Badge, Divider)
+- 📋 Icon, Button, Badge, Divider components (.tsx + stories + tests + docs + live examples)
 - 📋 Phase 5A completion summary
 
 ---
@@ -951,47 +955,41 @@ Current:        99% ████████████████████
 
 ---
 
-### 🎯 Priority 2: Complete Stack and Text Components (CURRENT PRIORITY)
+### ✅ Priority 2: Complete Stack and Text Components - ✅ DONE 🎉
 
-**Next Actions:**
+**Completed on 2026-01-25:**
 
-1. **Create Stack.tsx component:**
-   - File: `packages/design-system/main/src/components/Stack/Stack.tsx`
-   - Props: direction, spacing, align, justify, wrap
-   - Polymorphic with `as` prop (default 'div')
-   - Pattern: Follow Box.tsx structure
-   - CSS: Already generated in `Stack.module.css`
-   - Export in `index.ts`
+1. ✅ **Stack component (100% complete):**
+   - Stack.tsx (210 lines) with polymorphic `as` prop
+   - Stack.stories.tsx (1,050 lines, 7 stories)
+   - Stack.spec.tsx (1,215 lines, 86 tests - 100% passing)
+   - stack.mdx (870 lines, 17 sections)
+   - stack.tsx live examples (400 lines, 7 components)
 
-2. **Create Text.tsx component:**
-   - File: `packages/design-system/main/src/components/Text/Text.tsx`
-   - Props: variant, color, weight, align, transform
-   - Polymorphic with `as` prop (default 'p')
-   - Pattern: Follow Box.tsx structure
-   - CSS: Already generated in `Text.module.css`
-   - Export in `index.ts`
+2. ✅ **Text component (100% complete):**
+   - Text.tsx (200 lines) with polymorphic `as` prop
+   - Text/index.ts barrel export (critical fix)
+   - Text.stories.tsx (1,100 lines, 9 stories)
+   - Text.spec.tsx (977 lines, 107 tests - 100% passing)
+   - text.mdx (900 lines, 17 sections)
+   - text.tsx live examples (500 lines, 7 components)
+   - Changeset created for version management
 
-3. **Create Storybook stories for Stack and Text:**
-   - `stories/primitives/Stack.stories.tsx`
-   - `stories/primitives/Text.stories.tsx`
-   - Pattern: Follow Box.stories.tsx structure (comprehensive, interactive)
-
-4. **Create Playwright tests for Stack and Text:**
-   - `Stack.spec.tsx`, `Text.spec.tsx`
-   - Test all props, polymorphism, accessibility
-   - **Pattern:** Follow Box.spec.tsx (120 tests, 100% guidelines compliant) 🆕
+**Commit:** `7acedd7` - feat(design-system): add Stack and Text primitive components
 
 ---
 
-### 🎯 Priority 3: Remaining Components (Icon, Button, Badge, Divider)
+### 🎯 Priority 3: Remaining Components (CURRENT PRIORITY)
 
-**Next Actions:**
+**Next component to implement:** Icon (recommended)
 
-5. **Plan and implement remaining 4 components:**
-   - Icon, Button, Badge, Divider
-   - Follow established patterns (utilities system, polymorphism, tokens)
-   - Full implementation: .tsx + .module.css + .stories.tsx + .spec.tsx
-   - **Test pattern:** Follow Box.spec.tsx (120 tests, 5-category structure, 100% guidelines compliant) 🆕
+**Why Icon next:**
+
+- Icon is a dependency for Button and Badge
+- Foundational primitive for all interactive components
+- Medium complexity (SVG handling, size/color variants)
+
+**Estimated effort:** 4-6 hours for complete Icon implementation
 
 ---
 
@@ -1020,7 +1018,7 @@ Current:        99% ████████████████████
 
 ### Q: What's the current status?
 
-**A:** Phase 5A in progress (52% complete). 438 tokens complete (100% architecture). **Box component 100% complete** with 120 tests passing, comprehensive Storybook story, complete Docusaurus documentation (881 lines), and 7 interactive live examples. Stack and Text CSS ready, awaiting .tsx implementation.
+**A:** Phase 5A in progress (68% complete - 3/7 components done). 438 tokens complete (100% architecture). **Box, Stack, and Text components 100% complete** with 313 total tests passing (120+86+107), comprehensive Storybook stories, complete Docusaurus documentation, and interactive live examples. Remaining: Icon, Button, Badge, Divider.
 
 ### Q: When will components be ready?
 
@@ -1060,6 +1058,9 @@ Current:        99% ████████████████████
 - ✅ **Documentation comprehensive** (6 phase summaries + guides)
 - ✅ **Architecture cleanup** (removed 44 redundant alias tokens)
 - ✅ **Box component** (100% complete: .tsx ✅ | Storybook ✅ | 120 tests ✅ | Docusaurus ✅ | Live examples ✅) 🎉
+- ✅ **Stack component** (100% complete: .tsx ✅ | Storybook ✅ | 86 tests ✅ | Docusaurus ✅ | Live examples ✅) 🎉 🆕
+- ✅ **Text component** (100% complete: .tsx ✅ | Storybook ✅ | 107 tests ✅ | Docusaurus ✅ | Live examples ✅) 🎉 🆕
+- ✅ **3 primitive components complete** (Box, Stack, Text) - Foundation layer ready 🆕
 - ✅ **Playwright CT guidelines** established (Box.spec.tsx as reference pattern)
 - ✅ **Docusaurus documentation pattern** established (box.mdx as reference - 17 sections, 24 props)
 - ✅ **Live examples pattern** established (box.tsx with 7 interactive components - LiveDemo + 6 variants) 🆕
