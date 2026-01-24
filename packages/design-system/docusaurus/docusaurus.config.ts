@@ -28,7 +28,7 @@ const config: Config = {
   organizationName: 'grasdouble', // Usually your GitHub org/user name.
   projectName: 'Lufa', // Usually your repo name.
 
-  onBrokenLinks: 'warn', // Temporarily set to warn to allow build
+  onBrokenLinks: 'warn', // Set to 'throw' when all internal links are created
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
