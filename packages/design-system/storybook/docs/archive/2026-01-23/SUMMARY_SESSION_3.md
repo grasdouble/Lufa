@@ -19,6 +19,7 @@ Mettre à jour la documentation des templates pour refléter le nouveau pattern 
 #### Ajouts:
 
 **a) Template 6: Prop Story avec CodeBlock Hover (JSX uniquement)**
+
 - Pattern complet avec hover interaction
 - Fonction `generateCode` pour code dynamique
 - Structure avec wrapper `<div onMouseEnter>`
@@ -27,15 +28,18 @@ Mettre à jour la documentation des templates pour refléter le nouveau pattern 
 - Gaps optimisés (24px entre sections, 12px dans grid)
 
 **b) Variantes du Template 6:**
+
 - **Variante A:** Props directionnelles (X/Y) avec code conditionnel
 - **Variante B:** Display types avec code complexe (flex, grid, inline-block)
 
 **c) Notes sur PropCard Label Position:**
+
 - Explication pourquoi les labels sont en bas (pas en haut)
 - Résout les problèmes d'alignement avec labels longs
 - Structure visuelle avec border-top separator
 
 **d) Arbre de Décision: Quel Template Utiliser**
+
 - Guide visuel pour choisir le bon template
 - Basé sur le type de prop, nombre de variantes, besoin HTML
 - Flowchart complet avec toutes les conditions
@@ -49,12 +53,14 @@ Mettre à jour la documentation des templates pour refléter le nouveau pattern 
 | Sélection | Persistent | Volatile |
 
 **f) Exemples Concrets par Type de Prop**
+
 - Tableau exhaustif: quel template pour `as`, `variant`, `padding`, `margin`, `background`, etc.
 - 15+ exemples de props avec recommandations
 
 #### Modifications:
 
 **g) Checklist Mise à Jour**
+
 - Section séparée pour Template 3 (Click + Tabs)
 - Section séparée pour Template 6 (Hover JSX)
 - Ajout de vérifications spécifiques:
@@ -65,6 +71,7 @@ Mettre à jour la documentation des templates pour refléter le nouveau pattern 
   - Code généré simplifié
 
 **h) Exemples de Référence Mis à Jour**
+
 - Liste complète des 11 stories Box.stories.tsx utilisant Template 6
 - Regroupement par template (1, 2, 3, 6)
 - Liens vers helpers et documentation
@@ -76,6 +83,7 @@ Mettre à jour la documentation des templates pour refléter le nouveau pattern 
 Historique complet des changements:
 
 **Version 1.1.0 (2026-01-23):**
+
 - ✨ Ajouté: Template 6 avec toutes ses caractéristiques
 - 🔄 Modifié: PropCard label position (top → bottom)
 - 📊 Ajouté: Arbre de décision et tableaux de comparaison
@@ -83,13 +91,16 @@ Historique complet des changements:
 - ✅ Checklist mise à jour
 
 **Version 1.0.0 (2026-01-23):**
+
 - 🎉 Version initiale avec 5 templates de base
 
 **Statistiques d'Utilisation:**
+
 - Box.stories.tsx: 13 stories total
 - Template 6 utilisé: 11 stories (85% des prop stories)
 
 **Prochaines Étapes:**
+
 - [ ] Appliquer à Stack.stories.tsx
 - [ ] Appliquer à Text.stories.tsx
 - [ ] Créer exemples Template 2
@@ -104,10 +115,12 @@ Guide pratique complet pour migrer des stories existantes:
 **Contenu:**
 
 **a) Quand Migrer?**
+
 - Checklist OUI/NON pour déterminer si migration nécessaire
 - Critères basés sur type de prop, nombre de variantes, besoin HTML
 
 **b) Étapes de Migration (6 étapes détaillées):**
+
 1. Préparer la story
 2. Ajouter le state pour hover
 3. Wrapper les PropCards avec div + onMouseEnter
@@ -116,11 +129,13 @@ Guide pratique complet pour migrer des stories existantes:
 6. Vérifier et tester
 
 **c) Cas Spéciaux:**
+
 - Cas 1: Props directionnelles (X/Y)
 - Cas 2: Display types (code complexe)
 - Cas 3: Beaucoup de variantes (13+ comme Background)
 
 **d) Problèmes Courants et Solutions:**
+
 - Problème 1: Code ne se met pas à jour au survol
 - Problème 2: Highlight ne s'affiche pas
 - Problème 3: Gap trop grand/petit
@@ -128,14 +143,17 @@ Guide pratique complet pour migrer des stories existantes:
 - Problème 5: Valeur initiale du state incorrecte
 
 **e) Checklist Complète de Migration:**
+
 - Avant de commencer (3 points)
 - Migration (7 points)
 - Après migration (7 points)
 
 **f) Exemples Avant/Après:**
+
 - PropPadding: Template 2 → Template 6 (code complet commenté)
 
 **g) Prochaines Stories à Migrer:**
+
 - Priorité Haute: Stack, Text (gap, direction, size, weight, color)
 - Priorité Moyenne: Button (variant, size)
 - Priorité Basse: Stories avec < 3 variantes
@@ -157,11 +175,13 @@ packages/design-system/storybook/
 ## 📊 Statistiques
 
 **STORY_TEMPLATES.md:**
+
 - Avant: 551 lignes
 - Après: ~800 lignes
 - Ajout: +250 lignes (~45% d'augmentation)
 
 **Nouveaux Fichiers:**
+
 - CHANGELOG_STORY_TEMPLATES.md: 150 lignes
 - MIGRATION_GUIDE.md: 450 lignes
 - SUMMARY_SESSION_3.md: 200 lignes
@@ -197,13 +217,13 @@ packages/design-system/storybook/
 
 ## 🔄 Comparaison Session 2 vs Session 3
 
-| Aspect | Session 2 | Session 3 |
-|--------|-----------|-----------|
-| **Focus** | Implémentation du code | Documentation du pattern |
+| Aspect                | Session 2                     | Session 3                                |
+| --------------------- | ----------------------------- | ---------------------------------------- |
+| **Focus**             | Implémentation du code        | Documentation du pattern                 |
 | **Fichiers modifiés** | Box.stories.tsx, PropCard.tsx | STORY_TEMPLATES.md + 3 nouveaux fichiers |
-| **Lignes de code** | ~500 lignes (11 stories) | ~850 lignes (documentation) |
-| **Durée** | ~3h | ~2h30 |
-| **Output** | Stories fonctionnelles | Documentation complète |
+| **Lignes de code**    | ~500 lignes (11 stories)      | ~850 lignes (documentation)              |
+| **Durée**             | ~3h                           | ~2h30                                    |
+| **Output**            | Stories fonctionnelles        | Documentation complète                   |
 
 ---
 
