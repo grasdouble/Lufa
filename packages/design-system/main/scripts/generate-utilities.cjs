@@ -44,6 +44,7 @@ const COMPONENT_CONFIGS = {
   Stack: path.join(COMPONENTS_DIR, 'Stack/stack.utilities.config.cjs'),
   Icon: path.join(COMPONENTS_DIR, 'Icon/icon.utilities.config.cjs'),
   Button: path.join(COMPONENTS_DIR, 'Button/button.utilities.config.cjs'),
+  Badge: path.join(COMPONENTS_DIR, 'Badge/badge.utilities.config.cjs'),
 };
 
 // ==========================================
