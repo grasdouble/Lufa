@@ -488,4 +488,5 @@ Each component is documented in:
 - [Tokens Package](../packages/design-system/tokens/README.md)
 - [Storybook Stories](../packages/design-system/storybook/docs/STORY_GUIDE.md)
 - [Playwright Tests](../packages/design-system/playwright/README.md)
-- [Three-Layer Architecture](./_bmad-output/analysis/design-system-new-architecture/MASTER-STATUS.md)
+- [Architecture & Decisions](./architecture.md)
+- [Roadmap & Status](./roadmap-and-status.md)

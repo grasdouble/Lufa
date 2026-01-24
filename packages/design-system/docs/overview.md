@@ -281,13 +281,15 @@ Four critical architectural decisions establish the foundation of the Design Sys
 - **Contrast:** 7.5:1 and 7.2:1 (WCAG AAA)
 - **Convention:** Follows Material Design pattern
 
-### Sources of Truth
+### Documentation
 
-For detailed status and planning:
+For detailed status, planning, and architectural information:
 
-- **Master Status:** `_bmad-output/analysis/design-system-new-architecture/MASTER-STATUS.md`
-- **Detailed Roadmap:** `_bmad-output/analysis/design-system-new-architecture/roadmap-implementation-v2.0.md`
-- **This Documentation:** `packages/design-system/docs/roadmap-and-status.md` (comprehensive overview)
+- **Roadmap & Status:** [`roadmap-and-status.md`](./roadmap-and-status.md) - Comprehensive roadmap, metrics, and progress (primary source of truth)
+- **Architecture:** [`architecture.md`](./architecture.md) - System architecture and design decisions
+- **Components:** [`component-inventory.md`](./component-inventory.md) - Component catalog and progress
+
+> **Note:** Previous BMM analysis documents have been archived for historical reference.
 
 ---
 

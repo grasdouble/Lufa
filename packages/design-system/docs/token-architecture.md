@@ -475,7 +475,7 @@ Themes override semantic and component tokens while keeping primitives unchanged
 
 ## Related Documentation
 
-- [MASTER-STATUS.md](./_bmad-output/analysis/design-system-new-architecture/MASTER-STATUS.md) - Complete project status
+- [Roadmap & Status](./roadmap-and-status.md) - Project roadmap and current status
+- [Architecture](./architecture.md) - Full architecture and design decisions
 - [Tokens README](../packages/design-system/tokens/README.md) - Package documentation
 - [Token Contributor Guide](../docs/contributors/your-first-token.md) - Adding tokens guide
-- [Design System Architecture](./architecture.md) - Full architecture document

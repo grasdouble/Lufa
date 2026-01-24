@@ -713,7 +713,7 @@ Primitive Tokens (Level 1)
    - File: `_bmad-output/analysis/design-system-new-architecture/phase-5a-completion-summary.md`
    - Document achievements, decisions, lessons learned
 
-8. **Update MASTER-STATUS.md:**
+8. **Update this roadmap document:**
    - Mark Phase 5A as complete
    - Update progress metrics
    - Prepare for Phase 7
@@ -722,11 +722,11 @@ Primitive Tokens (Level 1)
 
 ## 📂 Documentation References
 
-### Source of Truth Files
+### Source of Truth
 
-- **Master Status:** `_bmad-output/analysis/design-system-new-architecture/MASTER-STATUS.md`
-- **Detailed Roadmap:** `_bmad-output/analysis/design-system-new-architecture/roadmap-implementation-v2.0.md`
-- **This Document:** `packages/design-system/docs/roadmap-and-status.md`
+**This document (`roadmap-and-status.md`) is the primary source of truth for project roadmap, status, and progress tracking.**
+
+Previous BMM analysis documents have been archived to `_bmad-output/analysis/design-system-new-architecture/archive/` for historical reference.
 
 ### Phase Documentation
 
