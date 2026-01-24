@@ -2,6 +2,8 @@
 sidebar_position: 4
 ---
 
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
 import { Icon } from '@grasdouble/lufa_design-system';
 
 import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
@@ -34,7 +36,7 @@ Use `Icon` when you need…
 
 ## Live Demo
 
-<LiveDemo />
+<BrowserOnly>{() => <LiveDemo />}</BrowserOnly>
 
 ## Import
 
@@ -80,10 +82,10 @@ The Icon component is a container element with an SVG icon inside:
 │  │  size: xs/sm/md/lg/xl              │  │
 │  │  color: semantic token             │  │
 │  │                                    │  │
-│  │    ┌────────────────────────┐     │  │
-│  │    │     SVG Icon           │     │  │
-│  │    │  (Lucide React)        │     │  │
-│  │    └────────────────────────┘     │  │
+│  │    ┌────────────────────────┐      │  │
+│  │    │     SVG Icon           │      │  │
+│  │    │  (Lucide React)        │      │  │
+│  │    └────────────────────────┘      │  │
 │  │                                    │  │
 │  └────────────────────────────────────┘  │
 └──────────────────────────────────────────┘
@@ -256,23 +258,23 @@ The `as` prop provides full type safety - props are typed based on the chosen el
 
 ### Icon Gallery
 
-<IconGallery />
+<BrowserOnly>{() => <IconGallery />}</BrowserOnly>
 
 ### Size Variants
 
-<SizeVariants />
+<BrowserOnly>{() => <SizeVariants />}</BrowserOnly>
 
 ### Color Variants
 
-<ColorVariants />
+<BrowserOnly>{() => <ColorVariants />}</BrowserOnly>
 
 ### Title (Accessibility)
 
-<TitleExamples />
+<BrowserOnly>{() => <TitleExamples />}</BrowserOnly>
 
 ### Polymorphic (`as` prop)
 
-<PolymorphicVariant />
+<BrowserOnly>{() => <PolymorphicVariant />}</BrowserOnly>
 
 ## Best Practices
 
