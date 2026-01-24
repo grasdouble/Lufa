@@ -30,7 +30,12 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Primitives',
           collapsed: false,
-          items: ['components/primitives/box', 'components/primitives/stack', 'components/primitives/text'],
+          items: [
+            'components/primitives/box',
+            'components/primitives/stack',
+            'components/primitives/text',
+            'components/primitives/icon',
+          ],
         },
       ],
     },

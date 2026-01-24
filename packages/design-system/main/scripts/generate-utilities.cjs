@@ -42,6 +42,7 @@ const COMPONENT_CONFIGS = {
   Box: path.join(COMPONENTS_DIR, 'Box/box.utilities.config.cjs'),
   Text: path.join(COMPONENTS_DIR, 'Text/text.utilities.config.cjs'),
   Stack: path.join(COMPONENTS_DIR, 'Stack/stack.utilities.config.cjs'),
+  Icon: path.join(COMPONENTS_DIR, 'Icon/icon.utilities.config.cjs'),
 };
 
 // ==========================================

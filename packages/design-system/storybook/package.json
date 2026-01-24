@@ -22,9 +22,9 @@
   },
   "dependencies": {
     "@grasdouble/lufa_design-system": "workspace:^",
-    "@grasdouble/lufa_design-system-primitives": "workspace:^",
     "@grasdouble/lufa_design-system-themes": "workspace:^",
     "@grasdouble/lufa_design-system-tokens": "workspace:^",
+    "lucide-react": "^0.469.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
   },

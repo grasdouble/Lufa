@@ -325,6 +325,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      lucide-react:
+        specifier: ^0.469.0
+        version: 0.469.0(react@19.2.3)
       prism-react-renderer:
         specifier: ^2.4.1
         version: 2.4.1(react@19.2.3)
@@ -371,9 +374,6 @@ importers:
 
   packages/design-system/main:
     dependencies:
-      '@grasdouble/lufa_design-system-primitives':
-        specifier: workspace:^
-        version: link:../primitives
       '@grasdouble/lufa_design-system-tokens':
         specifier: workspace:^
         version: link:../tokens
@@ -386,91 +386,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-    devDependencies:
-      '@grasdouble/lufa_config_eslint':
-        specifier: workspace:^
-        version: link:../../config/eslint
-      '@grasdouble/lufa_config_prettier':
-        specifier: workspace:^
-        version: link:../../config/prettier
-      '@grasdouble/lufa_config_tsconfig':
-        specifier: workspace:^
-        version: link:../../config/tsconfig
-      '@ianvs/prettier-plugin-sort-imports':
-        specifier: ^4.7.0
-        version: 4.7.0(prettier@3.8.0)
-      '@playwright/experimental-ct-react':
-        specifier: ^1.57.0
-        version: 1.57.0(@types/node@25.0.9)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(yaml@2.8.2)
-      '@types/node':
-        specifier: ^25.0.9
-        version: 25.0.9
-      '@types/react':
-        specifier: ^19.2.8
-        version: 19.2.8
-      '@types/react-dom':
-        specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.8)
-      '@vitejs/plugin-react':
-        specifier: ^5.1.2
-        version: 5.1.2(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
-      eslint:
-        specifier: ^9.39.2
-        version: 9.39.2(jiti@2.6.1)
-      postcss:
-        specifier: ^8.5.6
-        version: 8.5.6
-      prettier:
-        specifier: ^3.8.0
-        version: 3.8.0
-      prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.0)
-      react:
-        specifier: ^19.2.3
-        version: 19.2.3
-      react-dom:
-        specifier: ^19.2.3
-        version: 19.2.3(react@19.2.3)
-      tsx:
-        specifier: ^4.21.0
-        version: 4.21.0
-      typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
-      vite:
-        specifier: ^7.3.1
-        version: 7.3.1(@types/node@25.0.9)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
-      vite-plugin-compression:
-        specifier: ^0.5.1
-        version: 0.5.1(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
-      vite-plugin-dts:
-        specifier: ^4.5.4
-        version: 4.5.4(@types/node@25.0.9)(rollup@4.55.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
-      vite-plugin-externalize-deps:
-        specifier: ^0.10.0
-        version: 0.10.0(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
-      vite-tsconfig-paths:
-        specifier: ^6.0.4
-        version: 6.0.4(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(less@4.2.2)(lightningcss@1.30.2)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
-
-  packages/design-system/main-legacy:
-    dependencies:
-      '@grasdouble/lufa_design-system-primitives':
-        specifier: workspace:^
-        version: link:../primitives
-      '@grasdouble/lufa_design-system-tokens':
-        specifier: workspace:^
-        version: link:../tokens
-      '@headlessui/react':
-        specifier: ^2.2.9
-        version: 2.2.9(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@heroicons/react':
-        specifier: ^2.2.0
-        version: 2.2.0(react@19.2.3)
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
+      lucide-react:
+        specifier: ^0.469.0
+        version: 0.469.0(react@19.2.3)
     devDependencies:
       '@grasdouble/lufa_config_eslint':
         specifier: workspace:^
@@ -565,6 +483,9 @@ importers:
       eslint:
         specifier: ^9.22.0
         version: 9.39.2(jiti@2.6.1)
+      lucide-react:
+        specifier: ^0.469.0
+        version: 0.469.0(react@19.2.3)
       react:
         specifier: ^19.2.3
         version: 19.2.3
@@ -575,53 +496,20 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
-  packages/design-system/primitives:
-    devDependencies:
-      '@grasdouble/lufa_config_eslint':
-        specifier: workspace:^
-        version: link:../../config/eslint
-      '@grasdouble/lufa_config_prettier':
-        specifier: workspace:^
-        version: link:../../config/prettier
-      '@grasdouble/lufa_config_tsconfig':
-        specifier: workspace:^
-        version: link:../../config/tsconfig
-      '@ianvs/prettier-plugin-sort-imports':
-        specifier: ^4.7.0
-        version: 4.7.0(prettier@3.8.0)
-      '@types/node':
-        specifier: ^25.0.9
-        version: 25.0.9
-      eslint:
-        specifier: ^9.39.2
-        version: 9.39.2(jiti@2.6.1)
-      prettier:
-        specifier: ^3.8.0
-        version: 3.8.0
-      prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.0)
-      tsx:
-        specifier: ^4.21.0
-        version: 4.21.0
-      typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
-
   packages/design-system/storybook:
     dependencies:
       '@grasdouble/lufa_design-system':
         specifier: workspace:^
         version: link:../main
-      '@grasdouble/lufa_design-system-primitives':
-        specifier: workspace:^
-        version: link:../primitives
       '@grasdouble/lufa_design-system-themes':
         specifier: workspace:^
         version: link:../themes
       '@grasdouble/lufa_design-system-tokens':
         specifier: workspace:^
         version: link:../tokens
+      lucide-react:
+        specifier: ^0.469.0
+        version: 0.469.0(react@19.2.3)
       react:
         specifier: ^19.2.3
         version: 19.2.3
@@ -725,10 +613,6 @@ importers:
         version: 5.9.3
 
   packages/design-system/tokens:
-    dependencies:
-      '@grasdouble/lufa_design-system-primitives':
-        specifier: workspace:^
-        version: link:../primitives
     devDependencies:
       '@grasdouble/lufa_config_eslint':
         specifier: workspace:^
@@ -831,9 +715,6 @@ importers:
 
   packages/plugins/vscode/vscode-lufa-ds-preview:
     dependencies:
-      '@grasdouble/lufa_design-system-primitives':
-        specifier: workspace:^
-        version: link:../../../design-system/primitives
       '@grasdouble/lufa_design-system-tokens':
         specifier: workspace:^
         version: link:../../../design-system/tokens
@@ -6979,6 +6860,11 @@ packages:
   lru-cache@6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
+
+  lucide-react@0.469.0:
+    resolution: {integrity: sha512-28vvUnnKQ/dBwiCQtwJw7QauYnE7yd2Cyp4tTTJpvglX4EMpbflcdBgrgToX2j71B3YvugK/NH3BGUk+E/p/Fw==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   lunr-languages@1.14.0:
     resolution: {integrity: sha512-hWUAb2KqM3L7J5bcrngszzISY4BxrXn/Xhbb9TTCJYEGqlR1nG67/M14sp09+PTIRklobrn57IAxcdcO/ZFyNA==}
@@ -17753,6 +17639,10 @@ snapshots:
   lru-cache@6.0.0:
     dependencies:
       yallist: 4.0.0
+
+  lucide-react@0.469.0(react@19.2.3):
+    dependencies:
+      react: 19.2.3
 
   lunr-languages@1.14.0: {}
 

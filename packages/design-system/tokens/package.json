@@ -24,9 +24,7 @@
     "prettier": "prettier --write .",
     "validate": "node ../../../scripts/validate-token-metadata.js"
   },
-  "dependencies": {
-    "@grasdouble/lufa_design-system-primitives": "workspace:^"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_prettier": "workspace:^",

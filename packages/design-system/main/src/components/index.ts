@@ -26,8 +26,8 @@ export { Stack } from './Stack';
 export type { StackProps } from './Stack';
 
 // UI Components
-// export { Icon } from './components/Icon';
-// export type { IconProps } from './components/Icon';
+export { Icon } from './Icon';
+export type { IconProps, IconName } from './Icon';
 
 // export { Button } from './components/Button';
 // export type { ButtonProps } from './components/Button';
