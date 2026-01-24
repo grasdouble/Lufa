@@ -55,5 +55,8 @@ dist
 # Playwright cache (build artifacts)
 .cache
 
+# Playwright visual regression snapshots (too large for repo)
+**/__snapshots__/
+
 # Git history tools (scripts and docs for commit rewriting)
 scripts/git-history-tools/
