@@ -29,8 +29,8 @@ export type { StackProps } from './Stack';
 export { Icon } from './Icon';
 export type { IconProps, IconName } from './Icon';
 
-// export { Button } from './components/Button';
-// export type { ButtonProps } from './components/Button';
+export { Button } from './Button';
+export type { ButtonProps } from './Button';
 
 // export { Badge } from './components/Badge';
 // export type { BadgeProps } from './components/Badge';

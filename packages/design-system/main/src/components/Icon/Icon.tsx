@@ -49,6 +49,7 @@ import {
   Heart,
   Home,
   Info,
+  Loader2,
   Menu,
   Minus,
   Plus,
@@ -108,6 +109,7 @@ const ICON_MAP = {
   info: Info,
   'check-circle': CheckCircle,
   'x-circle': XCircle,
+  loader: Loader2,
 
   // Miscellaneous
   'external-link': ExternalLink,
@@ -252,9 +254,8 @@ const IconImpl = <T extends ElementType = 'span'>(
 };
 
 // Forward ref with generic type support and displayName
-export const Icon = Object.assign(
-  forwardRef(IconImpl) as <T extends ElementType = 'span'>(
-    props: IconComponentProps<T> & { ref?: React.Ref<Element> }
-  ) => React.ReactElement,
-  { displayName: 'Icon' }
-);
+export const Icon = forwardRef(IconImpl) as <T extends ElementType = 'span'>(
+  props: IconComponentProps<T> & { ref?: React.Ref<Element> }
+) => React.ReactElement;
+
+Icon.displayName = 'Icon';

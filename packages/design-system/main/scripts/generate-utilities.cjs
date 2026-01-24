@@ -43,6 +43,7 @@ const COMPONENT_CONFIGS = {
   Text: path.join(COMPONENTS_DIR, 'Text/text.utilities.config.cjs'),
   Stack: path.join(COMPONENTS_DIR, 'Stack/stack.utilities.config.cjs'),
   Icon: path.join(COMPONENTS_DIR, 'Icon/icon.utilities.config.cjs'),
+  Button: path.join(COMPONENTS_DIR, 'Button/button.utilities.config.cjs'),
 };
 
 // ==========================================
@@ -54,17 +55,39 @@ const COMPONENT_CONFIGS = {
  * @param {string} utilityName - Name of the utility (e.g., 'padding')
  * @param {string} valueName - Name of the value (e.g., 'md')
  * @param {string|string[]} property - CSS property name(s)
- * @param {string} cssValue - CSS value (token or raw value)
+ * @param {string|string[]} cssValue - CSS value(s) (token or raw value)
  * @returns {string} CSS class string
  */
 function generateCSSClass(utilityName, valueName, property, cssValue) {
   const className = `.${utilityName}-${valueName}`;
   const properties = Array.isArray(property) ? property : [property];
 
-  // Check if cssValue is a CSS custom property (starts with --)
-  const value = cssValue.startsWith('--') ? `var(${cssValue})` : cssValue;
+  // Handle values based on type:
+  // - If cssValue is string and properties is array → replicate value for all properties
+  // - If cssValue is array → map 1:1 with properties
+  let values;
+  if (Array.isArray(cssValue)) {
+    values = cssValue;
+    // Validate array lengths match
+    if (properties.length !== values.length) {
+      throw new Error(
+        `Mismatch: ${properties.length} properties but ${values.length} values for ${utilityName}-${valueName}`
+      );
+    }
+  } else {
+    // Single value - replicate for all properties
+    values = properties.map(() => cssValue);
+  }
 
-  const cssProperties = properties.map((prop) => `  ${prop}: ${value};`).join('\n');
+  // Generate CSS property-value pairs
+  const cssProperties = properties
+    .map((prop, index) => {
+      const val = values[index];
+      // Check if value is a CSS custom property (starts with --)
+      const finalValue = typeof val === 'string' && val.startsWith('--') ? `var(${val})` : val;
+      return `  ${prop}: ${finalValue};`;
+    })
+    .join('\n');
 
   return `${className} {\n${cssProperties}\n}`;
 }
