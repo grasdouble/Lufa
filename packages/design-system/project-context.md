@@ -57,7 +57,7 @@ This file provides essential context for AI agents working on the design system.
 
 ### Architecture Fundamentals
 
-**Three-Layer Token System** (CRITICAL - Read [CLAUDE.md](../../CLAUDE.md)):
+**Three-Layer Token System** :
 
 ```
 Layer 3: Components (@grasdouble/lufa_design-system)
@@ -158,8 +158,6 @@ pnpm all:prettier              # Format all code
 | [docs/architecture.md](./docs/architecture.md)                 | System architecture             |
 | [docs/token-architecture.md](./docs/token-architecture.md)     | Token system details            |
 | [docs/testing-strategy.md](./docs/testing-strategy.md)         | Testing approach                |
-| [CLAUDE.md](../../CLAUDE.md)                                   | Quick reference for Claude Code |
-| [AGENTS.md](../../AGENTS.md)                                   | Comprehensive AI agent guide    |
 
 ---
 
