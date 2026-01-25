@@ -114,13 +114,21 @@ export function AllOrientations() {
 }
 
 /**
- * All variant demonstrations
+ * All emphasis level demonstrations
  */
-export function AllVariants() {
-  const variants: Array<{ value: DividerProps['variant']; label: string; description: string }> = [
-    { value: 'default', label: 'Default', description: 'Standard border color' },
-    { value: 'subtle', label: 'Subtle', description: 'Light, subdued color' },
-    { value: 'strong', label: 'Strong', description: 'Bold, emphasized color' },
+export function AllEmphasisLevels() {
+  const emphasisLevels: Array<{
+    value: DividerProps['emphasis'];
+    label: string;
+    color: string;
+    thickness: string;
+    description: string;
+  }> = [
+    { value: 'subtle', label: 'Subtle', color: 'gray.300', thickness: '1px', description: 'Minimal separation' },
+    { value: 'default', label: 'Default', color: 'gray.300', thickness: '1px', description: 'Standard separator' },
+    { value: 'moderate', label: 'Moderate', color: 'gray.300', thickness: '2px', description: 'Visible separation' },
+    { value: 'strong', label: 'Strong', color: 'gray.400', thickness: '2px', description: 'Emphasized separator' },
+    { value: 'bold', label: 'Bold', color: 'gray.400', thickness: '4px', description: 'Major section breaks' },
   ];
 
   return (
@@ -134,7 +142,7 @@ export function AllVariants() {
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
-      {variants.map(({ value, label, description }) => (
+      {emphasisLevels.map(({ value, label, color, thickness, description }) => (
         <div
           key={value}
           style={{
@@ -155,7 +163,7 @@ export function AllVariants() {
                 color: 'var(--lufa-token-color-text-primary)',
               }}
             >
-              variant="{value}"
+              emphasis="{value}"
             </span>
             <span
               style={{
@@ -163,70 +171,10 @@ export function AllVariants() {
                 color: 'var(--lufa-token-color-text-secondary)',
               }}
             >
-              {description}
+              {thickness} • {color} • {description}
             </span>
           </div>
-          <Divider variant={value} />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-/**
- * All thickness demonstrations
- */
-export function AllThickness() {
-  const thicknesses: Array<{ value: DividerProps['thickness']; label: string; pixels: string; description: string }> = [
-    { value: 'thin', label: 'Thin', pixels: '1px', description: 'Subtle separation (default)' },
-    { value: 'medium', label: 'Medium', pixels: '2px', description: 'Standard separation' },
-    { value: 'thick', label: 'Thick', pixels: '4px', description: 'Strong separation' },
-  ];
-
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
-        borderRadius: 'var(--lufa-token-radius-base)',
-      }}
-    >
-      {thicknesses.map(({ value, label, pixels, description }) => (
-        <div
-          key={value}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'var(--lufa-token-spacing-compact)',
-            padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
-            borderRadius: 'var(--lufa-token-radius-sm)',
-            backgroundColor: 'var(--lufa-token-color-background-base)',
-          }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            <span
-              style={{
-                fontSize: 'var(--lufa-token-font-size-sm)',
-                fontWeight: 'var(--lufa-token-font-weight-semibold)',
-                color: 'var(--lufa-token-color-text-primary)',
-              }}
-            >
-              thickness="{value}"
-            </span>
-            <span
-              style={{
-                fontSize: 'var(--lufa-token-font-size-xs)',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              {pixels} • {description}
-            </span>
-          </div>
-          <Divider thickness={value} />
+          <Divider emphasis={value} />
         </div>
       ))}
     </div>
@@ -357,7 +305,7 @@ export function LineStyles() {
         </div>
       ))}
 
-      {/* Show line styles with different thicknesses */}
+      {/* Show line styles with different emphasis levels */}
       <div
         style={{
           padding: 'var(--lufa-token-spacing-default)',
@@ -374,7 +322,7 @@ export function LineStyles() {
             marginBottom: '12px',
           }}
         >
-          Line Styles with Thickness Variants
+          Line Styles with Emphasis Levels
         </div>
 
         <div style={{ marginBottom: '16px' }}>
@@ -385,11 +333,13 @@ export function LineStyles() {
               marginBottom: '8px',
             }}
           >
-            Solid: Thin / Medium / Thick
+            Solid: All Emphasis Levels
           </div>
-          <Divider lineStyle="solid" thickness="thin" />
-          <Divider lineStyle="solid" thickness="medium" />
-          <Divider lineStyle="solid" thickness="thick" />
+          <Divider lineStyle="solid" emphasis="subtle" />
+          <Divider lineStyle="solid" emphasis="default" />
+          <Divider lineStyle="solid" emphasis="moderate" />
+          <Divider lineStyle="solid" emphasis="strong" />
+          <Divider lineStyle="solid" emphasis="bold" />
         </div>
 
         <div>
@@ -400,11 +350,13 @@ export function LineStyles() {
               marginBottom: '8px',
             }}
           >
-            Dashed: Thin / Medium / Thick
+            Dashed: All Emphasis Levels
           </div>
-          <Divider lineStyle="dashed" thickness="thin" />
-          <Divider lineStyle="dashed" thickness="medium" />
-          <Divider lineStyle="dashed" thickness="thick" />
+          <Divider lineStyle="dashed" emphasis="subtle" />
+          <Divider lineStyle="dashed" emphasis="default" />
+          <Divider lineStyle="dashed" emphasis="moderate" />
+          <Divider lineStyle="dashed" emphasis="strong" />
+          <Divider lineStyle="dashed" emphasis="bold" />
         </div>
       </div>
     </div>
@@ -482,11 +434,11 @@ export function RealWorldExamples() {
         <div style={{ fontSize: '13px', color: 'var(--lufa-token-color-text-primary)', padding: '8px 0' }}>
           Item 1 - First entry
         </div>
-        <Divider variant="subtle" spacing="compact" />
+        <Divider emphasis="subtle" spacing="compact" />
         <div style={{ fontSize: '13px', color: 'var(--lufa-token-color-text-primary)', padding: '8px 0' }}>
           Item 2 - Second entry
         </div>
-        <Divider variant="subtle" spacing="compact" />
+        <Divider emphasis="subtle" spacing="compact" />
         <div style={{ fontSize: '13px', color: 'var(--lufa-token-color-text-primary)', padding: '8px 0' }}>
           Item 3 - Third entry
         </div>

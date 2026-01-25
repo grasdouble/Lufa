@@ -4,8 +4,7 @@
  * Tests cover:
  * - Basic rendering
  * - Orientation (horizontal, vertical)
- * - Color variants (default, subtle, strong)
- * - Thickness levels (thin, medium, thick)
+ * - Emphasis levels (subtle, default, moderate, strong, bold)
  * - Spacing variants (compact, default, comfortable)
  * - Line styles (solid, dashed)
  * - Polymorphic rendering
@@ -30,14 +29,9 @@ test.describe('Divider Component', () => {
       await expect(component).toHaveClass(/orientation-horizontal/);
     });
 
-    test('renders with default variant', async ({ mount }) => {
+    test('renders with default emphasis', async ({ mount }) => {
       const component = await mount(<Divider />);
-      await expect(component).toHaveClass(/variant-default/);
-    });
-
-    test('renders with thin thickness by default', async ({ mount }) => {
-      const component = await mount(<Divider />);
-      await expect(component).toHaveClass(/thickness-thin/);
+      await expect(component).toHaveClass(/emphasis-default/);
     });
 
     test('renders with default spacing', async ({ mount }) => {
@@ -83,42 +77,26 @@ test.describe('Divider Component', () => {
   });
 
   // ==========================================
-  // COLOR VARIANTS
+  // EMPHASIS LEVELS
   // ==========================================
 
-  test.describe('Color Variants', () => {
-    test('renders all color variants', async ({ mount }) => {
+  test.describe('Emphasis Levels', () => {
+    test('renders all emphasis levels', async ({ mount }) => {
       const component = await mount(
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <Divider variant="default" data-testid="default" />
-          <Divider variant="subtle" data-testid="subtle" />
-          <Divider variant="strong" data-testid="strong" />
+          <Divider emphasis="subtle" data-testid="subtle" />
+          <Divider emphasis="default" data-testid="default" />
+          <Divider emphasis="moderate" data-testid="moderate" />
+          <Divider emphasis="strong" data-testid="strong" />
+          <Divider emphasis="bold" data-testid="bold" />
         </div>
       );
 
-      await expect(component.getByTestId('default')).toHaveClass(/variant-default/);
-      await expect(component.getByTestId('subtle')).toHaveClass(/variant-subtle/);
-      await expect(component.getByTestId('strong')).toHaveClass(/variant-strong/);
-    });
-  });
-
-  // ==========================================
-  // THICKNESS LEVELS
-  // ==========================================
-
-  test.describe('Thickness', () => {
-    test('renders all thickness levels', async ({ mount }) => {
-      const component = await mount(
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <Divider thickness="thin" data-testid="thin" />
-          <Divider thickness="medium" data-testid="medium" />
-          <Divider thickness="thick" data-testid="thick" />
-        </div>
-      );
-
-      await expect(component.getByTestId('thin')).toHaveClass(/thickness-thin/);
-      await expect(component.getByTestId('medium')).toHaveClass(/thickness-medium/);
-      await expect(component.getByTestId('thick')).toHaveClass(/thickness-thick/);
+      await expect(component.getByTestId('subtle')).toHaveClass(/emphasis-subtle/);
+      await expect(component.getByTestId('default')).toHaveClass(/emphasis-default/);
+      await expect(component.getByTestId('moderate')).toHaveClass(/emphasis-moderate/);
+      await expect(component.getByTestId('strong')).toHaveClass(/emphasis-strong/);
+      await expect(component.getByTestId('bold')).toHaveClass(/emphasis-bold/);
     });
   });
 
@@ -238,10 +216,10 @@ test.describe('Divider Component', () => {
     });
 
     test('merges custom className with component classes', async ({ mount }) => {
-      const component = await mount(<Divider className="custom-divider" variant="strong" />);
+      const component = await mount(<Divider className="custom-divider" emphasis="strong" />);
       await expect(component).toHaveClass(/custom-divider/);
       await expect(component).toHaveClass(/divider/);
-      await expect(component).toHaveClass(/variant-strong/);
+      await expect(component).toHaveClass(/emphasis-strong/);
     });
   });
 
@@ -250,25 +228,25 @@ test.describe('Divider Component', () => {
   // ==========================================
 
   test.describe('Prop Combinations', () => {
-    test('horizontal + thick + strong', async ({ mount }) => {
-      const component = await mount(<Divider orientation="horizontal" thickness="thick" variant="strong" />);
+    test('horizontal + bold emphasis + comfortable spacing', async ({ mount }) => {
+      const component = await mount(<Divider orientation="horizontal" emphasis="bold" spacing="comfortable" />);
       await expect(component).toHaveClass(/orientation-horizontal/);
-      await expect(component).toHaveClass(/thickness-thick/);
-      await expect(component).toHaveClass(/variant-strong/);
+      await expect(component).toHaveClass(/emphasis-bold/);
+      await expect(component).toHaveClass(/spacing-comfortable/);
     });
 
-    test('vertical + dashed + subtle', async ({ mount }) => {
-      const component = await mount(<Divider orientation="vertical" lineStyle="dashed" variant="subtle" />);
+    test('vertical + dashed + subtle emphasis', async ({ mount }) => {
+      const component = await mount(<Divider orientation="vertical" lineStyle="dashed" emphasis="subtle" />);
       await expect(component).toHaveClass(/orientation-vertical/);
       await expect(component).toHaveClass(/line-style-dashed/);
-      await expect(component).toHaveClass(/variant-subtle/);
+      await expect(component).toHaveClass(/emphasis-subtle/);
     });
 
-    test('horizontal + dashed + comfortable spacing', async ({ mount }) => {
-      const component = await mount(<Divider orientation="horizontal" lineStyle="dashed" spacing="comfortable" />);
+    test('horizontal + dashed + compact spacing', async ({ mount }) => {
+      const component = await mount(<Divider orientation="horizontal" lineStyle="dashed" spacing="compact" />);
       await expect(component).toHaveClass(/orientation-horizontal/);
       await expect(component).toHaveClass(/line-style-dashed/);
-      await expect(component).toHaveClass(/spacing-comfortable/);
+      await expect(component).toHaveClass(/spacing-compact/);
     });
   });
 
@@ -277,62 +255,52 @@ test.describe('Divider Component', () => {
   // ==========================================
 
   test.describe('Visual Regression', () => {
-    test('all variants visual snapshot', async ({ mount }) => {
+    test('all emphasis levels visual snapshot', async ({ mount }) => {
       const component = await mount(
         <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
           <div>
-            <h3>Horizontal Dividers</h3>
-            <Divider variant="subtle" />
-            <p>Content</p>
-            <Divider variant="default" />
-            <p>Content</p>
-            <Divider variant="strong" />
+            <h3>Horizontal Dividers - Emphasis Levels</h3>
+            <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>Subtle (gray.300, 1px)</p>
+            <Divider emphasis="subtle" />
+            <p style={{ fontSize: '12px', color: '#666', margin: '16px 0 8px' }}>Default (gray.300, 1px)</p>
+            <Divider emphasis="default" />
+            <p style={{ fontSize: '12px', color: '#666', margin: '16px 0 8px' }}>Moderate (gray.300, 2px)</p>
+            <Divider emphasis="moderate" />
+            <p style={{ fontSize: '12px', color: '#666', margin: '16px 0 8px' }}>Strong (gray.400, 2px)</p>
+            <Divider emphasis="strong" />
+            <p style={{ fontSize: '12px', color: '#666', margin: '16px 0 8px' }}>Bold (gray.400, 4px)</p>
+            <Divider emphasis="bold" />
           </div>
           <div style={{ display: 'flex', gap: '32px', height: '200px' }}>
             <div>
               <h3>Vertical Dividers</h3>
             </div>
-            <Divider orientation="vertical" variant="subtle" />
-            <div>Content</div>
-            <Divider orientation="vertical" variant="default" />
-            <div>Content</div>
-            <Divider orientation="vertical" variant="strong" />
+            <Divider orientation="vertical" emphasis="subtle" />
+            <div>Subtle</div>
+            <Divider orientation="vertical" emphasis="default" />
+            <div>Default</div>
+            <Divider orientation="vertical" emphasis="moderate" />
+            <div>Moderate</div>
+            <Divider orientation="vertical" emphasis="strong" />
+            <div>Strong</div>
+            <Divider orientation="vertical" emphasis="bold" />
+            <div>Bold</div>
           </div>
         </div>
       );
-      await expect(component).toHaveScreenshot('divider-variants.png');
-    });
-
-    test('all thickness levels visual snapshot', async ({ mount }) => {
-      const component = await mount(
-        <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          <div>
-            <p>Thin (1px)</p>
-            <Divider thickness="thin" variant="strong" />
-          </div>
-          <div>
-            <p>Medium (2px)</p>
-            <Divider thickness="medium" variant="strong" />
-          </div>
-          <div>
-            <p>Thick (4px)</p>
-            <Divider thickness="thick" variant="strong" />
-          </div>
-        </div>
-      );
-      await expect(component).toHaveScreenshot('divider-thickness.png');
+      await expect(component).toHaveScreenshot('divider-emphasis-levels.png');
     });
 
     test('line styles visual snapshot', async ({ mount }) => {
       const component = await mount(
         <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div>
-            <p>Solid</p>
-            <Divider lineStyle="solid" variant="strong" thickness="medium" />
+            <p>Solid - Strong Emphasis</p>
+            <Divider lineStyle="solid" emphasis="strong" />
           </div>
           <div>
-            <p>Dashed</p>
-            <Divider lineStyle="dashed" variant="strong" thickness="medium" />
+            <p>Dashed - Strong Emphasis</p>
+            <Divider lineStyle="dashed" emphasis="strong" />
           </div>
         </div>
       );
@@ -342,16 +310,16 @@ test.describe('Divider Component', () => {
     test('spacing variants visual snapshot', async ({ mount }) => {
       const component = await mount(
         <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', backgroundColor: '#f5f5f5' }}>
-          <div style={{ backgroundColor: '#fff', padding: '8px' }}>Compact Spacing</div>
-          <Divider spacing="compact" variant="strong" />
+          <div style={{ backgroundColor: '#fff', padding: '8px' }}>Compact Spacing (8px)</div>
+          <Divider spacing="compact" emphasis="strong" />
           <div style={{ backgroundColor: '#fff', padding: '8px' }}>Content</div>
 
-          <div style={{ backgroundColor: '#fff', padding: '8px', marginTop: '24px' }}>Default Spacing</div>
-          <Divider spacing="default" variant="strong" />
+          <div style={{ backgroundColor: '#fff', padding: '8px', marginTop: '24px' }}>Default Spacing (16px)</div>
+          <Divider spacing="default" emphasis="strong" />
           <div style={{ backgroundColor: '#fff', padding: '8px' }}>Content</div>
 
-          <div style={{ backgroundColor: '#fff', padding: '8px', marginTop: '24px' }}>Comfortable Spacing</div>
-          <Divider spacing="comfortable" variant="strong" />
+          <div style={{ backgroundColor: '#fff', padding: '8px', marginTop: '24px' }}>Comfortable Spacing (24px)</div>
+          <Divider spacing="comfortable" emphasis="strong" />
           <div style={{ backgroundColor: '#fff', padding: '8px' }}>Content</div>
         </div>
       );

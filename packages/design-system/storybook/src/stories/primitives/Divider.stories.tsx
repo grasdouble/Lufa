@@ -14,8 +14,7 @@ import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
  *
  * ## Features
  * - ✅ Two orientations: horizontal, vertical
- * - ✅ Three color variants: default, subtle, strong
- * - ✅ Three thickness options: thin (1px), medium (2px), thick (4px)
+ * - ✅ Five emphasis levels: subtle, default, moderate, strong, bold
  * - ✅ Three spacing variants: compact, default, comfortable
  * - ✅ Two line styles: solid, dashed
  * - ✅ Polymorphic rendering (hr, div)
@@ -39,24 +38,14 @@ const meta = {
         defaultValue: { summary: 'horizontal' },
       },
     },
-    variant: {
+    emphasis: {
       control: 'select',
-      options: ['default', 'subtle', 'strong'],
-      description: 'Color variant',
+      options: ['subtle', 'default', 'moderate', 'strong', 'bold'],
+      description: 'Visual emphasis level (combines color and thickness)',
       table: {
-        category: 'Variants',
-        type: { summary: 'VariantValue' },
+        category: 'Appearance',
+        type: { summary: 'EmphasisValue' },
         defaultValue: { summary: 'default' },
-      },
-    },
-    thickness: {
-      control: 'select',
-      options: ['thin', 'medium', 'thick'],
-      description: 'Divider thickness',
-      table: {
-        category: 'Size',
-        type: { summary: 'ThicknessValue' },
-        defaultValue: { summary: 'thin' },
       },
     },
     spacing: {
@@ -241,44 +230,46 @@ export const PropOrientation: Story = {
 };
 
 // ============================================
-// PROP: VARIANT (Color)
+// PROP: EMPHASIS
 // ============================================
 
-export const PropVariant: Story = {
-  name: 'Prop: variant',
+export const PropEmphasis: Story = {
+  name: 'Prop: emphasis',
   render: () => {
-    const [selectedVariant, setSelectedVariant] = React.useState<string>('default');
+    const [selectedEmphasis, setSelectedEmphasis] = React.useState<string>('default');
 
-    const variants = [
-      { value: 'default', label: 'default', description: 'Standard separator' },
-      { value: 'subtle', label: 'subtle', description: 'Light / Subtle' },
-      { value: 'strong', label: 'strong', description: 'Emphasized / Bold' },
+    const emphasisLevels = [
+      { value: 'subtle', label: 'subtle', color: 'gray.300', thickness: '1px', description: 'Minimal separation' },
+      { value: 'default', label: 'default', color: 'gray.300', thickness: '1px', description: 'Standard separator' },
+      { value: 'moderate', label: 'moderate', color: 'gray.300', thickness: '2px', description: 'Visible separation' },
+      { value: 'strong', label: 'strong', color: 'gray.400', thickness: '2px', description: 'Emphasized separator' },
+      { value: 'bold', label: 'bold', color: 'gray.400', thickness: '4px', description: 'Major section breaks' },
     ] as const;
 
-    const generateCode = (variant: string): string => {
-      return `<Divider variant="${variant}" />`;
+    const generateCode = (emphasis: string): string => {
+      return `<Divider emphasis="${emphasis}" />`;
     };
 
     return (
       <StoryContainer>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {/* Grid of variant examples */}
+          {/* Grid of emphasis examples */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
               gap: '20px',
             }}
           >
-            {variants.map((variantItem, index) => {
+            {emphasisLevels.map((emphasisItem, index) => {
               const colors = getColorByIndex(index);
 
               return (
                 <PropCard
-                  key={variantItem.value}
-                  label={`variant="${variantItem.label}"`}
-                  highlight={selectedVariant === variantItem.value}
-                  onInteraction={() => setSelectedVariant(variantItem.value)}
+                  key={emphasisItem.value}
+                  label={`emphasis="${emphasisItem.label}"`}
+                  highlight={selectedEmphasis === emphasisItem.value}
+                  onInteraction={() => setSelectedEmphasis(emphasisItem.value)}
                   interactionType="click"
                 >
                   <div
@@ -292,17 +283,27 @@ export const PropVariant: Story = {
                       alignItems: 'center',
                     }}
                   >
-                    <div style={{ width: '100%', maxWidth: '200px' }}>
-                      <Divider variant={variantItem.value} />
+                    <div style={{ width: '100%', maxWidth: '180px' }}>
+                      <Divider emphasis={emphasisItem.value} />
                     </div>
                     <div
                       style={{
-                        fontSize: '11px',
+                        fontSize: '10px',
                         color: STORY_COLORS.neutral.textSlate,
                         textAlign: 'center',
                       }}
                     >
-                      {variantItem.description}
+                      {emphasisItem.thickness} • {emphasisItem.color}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '11px',
+                        color: STORY_COLORS.neutral.text,
+                        textAlign: 'center',
+                        fontWeight: 500,
+                      }}
+                    >
+                      {emphasisItem.description}
                     </div>
                   </div>
                 </PropCard>
@@ -310,93 +311,49 @@ export const PropVariant: Story = {
             })}
           </div>
 
-          <CodeBlock code={generateCode(selectedVariant)} language="jsx" title="JSX" />
-        </div>
-      </StoryContainer>
-    );
-  },
-};
-
-// ============================================
-// PROP: THICKNESS
-// ============================================
-
-export const PropThickness: Story = {
-  name: 'Prop: thickness',
-  render: () => {
-    const [selectedThickness, setSelectedThickness] = React.useState<string>('thin');
-
-    const thicknesses = [
-      { value: 'thin', label: 'thin (default)', pixels: '1px', description: 'Subtle separation' },
-      {
-        value: 'medium',
-        label: 'medium',
-        pixels: '2px',
-        description: 'Standard separation',
-      },
-      {
-        value: 'thick',
-        label: 'thick',
-        pixels: '4px',
-        description: 'Strong separation',
-      },
-    ] as const;
-
-    const generateCode = (thickness: string): string => {
-      return `<Divider thickness="${thickness}" />`;
-    };
-
-    return (
-      <StoryContainer>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-              gap: '20px',
-            }}
-          >
-            {thicknesses.map((thicknessItem, index) => {
-              const colors = getColorByIndex(index);
-
-              return (
-                <PropCard
-                  key={thicknessItem.value}
-                  label={`thickness="${thicknessItem.label}"`}
-                  highlight={selectedThickness === thicknessItem.value}
-                  onInteraction={() => setSelectedThickness(thicknessItem.value)}
-                  interactionType="click"
-                >
+          {/* Visual comparison */}
+          <div>
+            <h3
+              style={{
+                fontSize: '14px',
+                fontWeight: 600,
+                color: STORY_COLORS.neutral.text,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginBottom: '16px',
+              }}
+            >
+              All Emphasis Levels (Side by Side)
+            </h3>
+            <div
+              style={{
+                backgroundColor: STORY_COLORS.primary.blue.light,
+                padding: '24px',
+                borderRadius: '8px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '20px',
+              }}
+            >
+              {emphasisLevels.map((level) => (
+                <div key={level.value}>
                   <div
                     style={{
-                      backgroundColor: colors.light,
-                      padding: '24px',
-                      borderRadius: '8px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '12px',
-                      alignItems: 'center',
+                      fontSize: '12px',
+                      color: STORY_COLORS.neutral.textSlate,
+                      marginBottom: '8px',
+                      fontFamily: 'monospace',
                     }}
                   >
-                    <div style={{ width: '100%', maxWidth: '200px' }}>
-                      <Divider thickness={thicknessItem.value} />
-                    </div>
-                    <div
-                      style={{
-                        fontSize: '11px',
-                        color: STORY_COLORS.neutral.textSlate,
-                        textAlign: 'center',
-                      }}
-                    >
-                      {thicknessItem.pixels} • {thicknessItem.description}
-                    </div>
+                    emphasis="{level.value}"
                   </div>
-                </PropCard>
-              );
-            })}
+                  <Divider emphasis={level.value} />
+                </div>
+              ))}
+            </div>
           </div>
 
-          <CodeBlock code={generateCode(selectedThickness)} language="jsx" title="JSX" />
+          <CodeBlock code={generateCode(selectedEmphasis)} language="jsx" title="JSX" />
         </div>
       </StoryContainer>
     );
@@ -568,7 +525,7 @@ export const PropLineStyle: Story = {
             })}
           </div>
 
-          {/* Show both line styles with different thicknesses */}
+          {/* Show both line styles with different emphasis levels */}
           <div>
             <h3
               style={{
@@ -580,7 +537,7 @@ export const PropLineStyle: Story = {
                 marginBottom: '16px',
               }}
             >
-              Line Styles with Different Thicknesses
+              Line Styles with Different Emphasis Levels
             </h3>
             <div
               style={{
@@ -600,11 +557,13 @@ export const PropLineStyle: Story = {
                     marginBottom: '8px',
                   }}
                 >
-                  Solid Thin / Medium / Thick
+                  Solid (All Emphasis Levels)
                 </div>
-                <Divider lineStyle="solid" thickness="thin" />
-                <Divider lineStyle="solid" thickness="medium" />
-                <Divider lineStyle="solid" thickness="thick" />
+                <Divider lineStyle="solid" emphasis="subtle" />
+                <Divider lineStyle="solid" emphasis="default" />
+                <Divider lineStyle="solid" emphasis="moderate" />
+                <Divider lineStyle="solid" emphasis="strong" />
+                <Divider lineStyle="solid" emphasis="bold" />
               </div>
               <div>
                 <div
@@ -614,11 +573,13 @@ export const PropLineStyle: Story = {
                     marginBottom: '8px',
                   }}
                 >
-                  Dashed Thin / Medium / Thick
+                  Dashed (All Emphasis Levels)
                 </div>
-                <Divider lineStyle="dashed" thickness="thin" />
-                <Divider lineStyle="dashed" thickness="medium" />
-                <Divider lineStyle="dashed" thickness="thick" />
+                <Divider lineStyle="dashed" emphasis="subtle" />
+                <Divider lineStyle="dashed" emphasis="default" />
+                <Divider lineStyle="dashed" emphasis="moderate" />
+                <Divider lineStyle="dashed" emphasis="strong" />
+                <Divider lineStyle="dashed" emphasis="bold" />
               </div>
             </div>
           </div>
@@ -801,15 +762,15 @@ export const UseCases: Story = {
               <div style={{ fontSize: '13px', color: STORY_COLORS.neutral.text, padding: '8px 0' }}>
                 Item 1 - First entry
               </div>
-              <Divider variant="subtle" spacing="compact" />
+              <Divider emphasis="subtle" spacing="compact" />
               <div style={{ fontSize: '13px', color: STORY_COLORS.neutral.text, padding: '8px 0' }}>
                 Item 2 - Second entry
               </div>
-              <Divider variant="subtle" spacing="compact" />
+              <Divider emphasis="subtle" spacing="compact" />
               <div style={{ fontSize: '13px', color: STORY_COLORS.neutral.text, padding: '8px 0' }}>
                 Item 3 - Third entry
               </div>
-              <Divider variant="subtle" spacing="compact" />
+              <Divider emphasis="subtle" spacing="compact" />
               <div style={{ fontSize: '13px', color: STORY_COLORS.neutral.text, padding: '8px 0' }}>
                 Item 4 - Fourth entry
               </div>
@@ -938,7 +899,7 @@ export const UseCases: Story = {
                 </div>
                 <div style={{ fontSize: '12px', color: STORY_COLORS.neutral.textSlate }}>Name, Email, Phone...</div>
               </div>
-              <Divider variant="strong" spacing="comfortable" />
+              <Divider emphasis="strong" spacing="comfortable" />
               <div>
                 <div
                   style={{
@@ -954,7 +915,7 @@ export const UseCases: Story = {
                   Street, City, Postal Code...
                 </div>
               </div>
-              <Divider variant="strong" spacing="comfortable" />
+              <Divider emphasis="strong" spacing="comfortable" />
               <div>
                 <div
                   style={{
@@ -1047,7 +1008,7 @@ export const UseCases: Story = {
 
 {/* List separation */}
 <div>Item 1</div>
-<Divider variant="subtle" spacing="compact" />
+<Divider emphasis="subtle" spacing="compact" />
 <div>Item 2</div>
 
 {/* Vertical toolbar */}
@@ -1060,7 +1021,7 @@ export const UseCases: Story = {
 
 {/* Form sections */}
 <div>Personal Info</div>
-<Divider variant="strong" spacing="comfortable" />
+<Divider emphasis="strong" spacing="comfortable" />
 <div>Address Info</div>
 
 {/* Card footer */}
@@ -1084,8 +1045,7 @@ export const Playground: Story = {
   name: 'Playground',
   args: {
     orientation: 'horizontal',
-    variant: 'default',
-    thickness: 'thin',
+    emphasis: 'default',
     spacing: 'default',
     lineStyle: 'solid',
     as: 'hr',
