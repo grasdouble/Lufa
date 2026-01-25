@@ -11,9 +11,19 @@ nextStepFile: './step-06-final-assessment.md'
 workflowFile: '{workflow_path}/workflow.md'
 outputFile: '{planning_artifacts}/implementation-readiness-report-{{date}}.md'
 epicsBestPractices: '{project-root}/_bmad/bmm/workflows/3-solutioning/create-epics-and-stories'
+
+# Data File References
+data_files:
+  - '../data/epic-quality-review-criteria.md'
 ---
 
 # Step 5: Epic Quality Review
+
+## DATA FILE REFERENCES:
+
+This step uses shared criteria and validation frameworks:
+
+- **../data/epic-quality-review-criteria.md**: Comprehensive epic quality standards, user value focus validation, epic independence rules, story quality assessment, acceptance criteria review, dependency analysis, database creation timing, greenfield vs brownfield indicators, best practices compliance checklist, quality assessment documentation by severity
 
 ## STEP GOAL:
 
@@ -53,6 +63,8 @@ To validate epics and stories against the best practices defined in create-epics
 
 ## EPIC QUALITY REVIEW PROCESS:
 
+**For detailed validation criteria and frameworks, see: ../data/epic-quality-review-criteria.md**
+
 ### 1. Initialize Best Practices Validation
 
 "Beginning **Epic Quality Review** against create-epics-and-stories standards.
@@ -68,145 +80,79 @@ Any deviation from best practices will be flagged as a defect."
 
 ### 2. Epic Structure Validation
 
-#### A. User Value Focus Check
+Validate epics using criteria from the framework:
 
-For each epic:
+**A. User Value Focus Check** - See **epic-quality-review-criteria.md** for:
 
-- **Epic Title:** Is it user-centric (what user can do)?
-- **Epic Goal:** Does it describe user outcome?
-- **Value Proposition:** Can users benefit from this epic alone?
+- Epic title, goal, and value proposition validation
+- Red flags (technical milestones) and borderline cases
+- Good examples of user-centric epics
 
-**Red flags (violations):**
+**B. Epic Independence Validation** - See **epic-quality-review-criteria.md** for:
 
-- "Setup Database" or "Create Models" - no user value
-- "API Development" - technical milestone
-- "Infrastructure Setup" - not user-facing
-- "Authentication System" - borderline (is it user value?)
-
-#### B. Epic Independence Validation
-
-Test epic independence:
-
-- **Epic 1:** Must stand alone completely
-- **Epic 2:** Can function using only Epic 1 output
-- **Epic 3:** Can function using Epic 1 & 2 outputs
-- **Rule:** Epic N cannot require Epic N+1 to work
-
-**Document failures:**
-
-- "Epic 2 requires Epic 3 features to function"
-- Stories in Epic 2 referencing Epic 3 components
-- Circular dependencies between epics
+- Independence rules (Epic N cannot require Epic N+1)
+- How to test independence
+- Common violations and proper dependency flow
 
 ### 3. Story Quality Assessment
 
-#### A. Story Sizing Validation
+Validate stories using criteria from the framework:
 
-Check each story:
+**A. Story Sizing Validation** - See **epic-quality-review-criteria.md** for:
 
-- **Clear User Value:** Does the story deliver something meaningful?
-- **Independent:** Can it be completed without future stories?
+- Clear user value and independence checks
+- Common violations (technical tasks, forward dependencies)
+- Good examples of properly sized stories
 
-**Common violations:**
+**B. Acceptance Criteria Review** - See **epic-quality-review-criteria.md** for:
 
-- "Setup all models" - not a USER story
-- "Create login UI (depends on Story 1.3)" - forward dependency
-
-#### B. Acceptance Criteria Review
-
-For each story's ACs:
-
-- **Given/When/Then Format:** Proper BDD structure?
-- **Testable:** Each AC can be verified independently?
-- **Complete:** Covers all scenarios including errors?
-- **Specific:** Clear expected outcomes?
-
-**Issues to find:**
-
-- Vague criteria like "user can login"
-- Missing error conditions
-- Incomplete happy path
-- Non-measurable outcomes
+- Given/When/Then format validation
+- Testable, complete, and specific criteria
+- Common issues (vague criteria, missing errors, incomplete happy path)
 
 ### 4. Dependency Analysis
 
-#### A. Within-Epic Dependencies
+Analyze dependencies using rules from the framework:
 
-Map story dependencies within each epic:
+**A. Within-Epic Dependencies** - See **epic-quality-review-criteria.md** for:
 
-- Story 1.1 must be completable alone
-- Story 1.2 can use Story 1.1 output
-- Story 1.3 can use Story 1.1 & 1.2 outputs
+- Proper story dependency flow (1.1 → 1.2 → 1.3)
+- Critical violations (forward dependencies, story ordering issues)
+- Proper vs forbidden story ordering patterns
 
-**Critical violations:**
+**B. Database/Entity Creation Timing** - See **epic-quality-review-criteria.md** for:
 
-- "This story depends on Story 1.4"
-- "Wait for future story to work"
-- Stories referencing features not yet implemented
-
-#### B. Database/Entity Creation Timing
-
-Validate database creation approach:
-
-- **Wrong:** Epic 1 Story 1 creates all tables upfront
-- **Right:** Each story creates tables it needs
-- **Check:** Are tables created only when first needed?
+- Wrong approach (database-first, all tables upfront)
+- Right approach (just-in-time table creation)
+- Good vs bad examples
 
 ### 5. Special Implementation Checks
 
-#### A. Starter Template Requirement
+Apply special checks using guidelines from the framework:
 
-Check if Architecture specifies starter template:
+**A. Starter Template Requirement** - See **epic-quality-review-criteria.md** for requirements
 
-- If YES: Epic 1 Story 1 must be "Set up initial project from starter template"
-- Verify story includes cloning, dependencies, initial configuration
-
-#### B. Greenfield vs Brownfield Indicators
-
-Greenfield projects should have:
-
-- Initial project setup story
-- Development environment configuration
-- CI/CD pipeline setup early
-
-Brownfield projects should have:
-
-- Integration points with existing systems
-- Migration or compatibility stories
+**B. Greenfield vs Brownfield Indicators** - See **epic-quality-review-criteria.md** for expected patterns
 
 ### 6. Best Practices Compliance Checklist
 
-For each epic, verify:
+Use the checklist from the framework for systematic validation.
 
-- [ ] Epic delivers user value
-- [ ] Epic can function independently
-- [ ] Stories appropriately sized
-- [ ] No forward dependencies
-- [ ] Database tables created when needed
-- [ ] Clear acceptance criteria
-- [ ] Traceability to FRs maintained
+See **epic-quality-review-criteria.md** for:
+
+- Per-epic validation checklist (7 items)
+- Per-story validation checklist (7 items)
 
 ### 7. Quality Assessment Documentation
 
-Document all findings by severity:
+Document all findings by severity using categories from the framework.
 
-#### 🔴 Critical Violations
+See **epic-quality-review-criteria.md** for:
 
-- Technical epics with no user value
-- Forward dependencies breaking independence
-- Epic-sized stories that cannot be completed
-
-#### 🟠 Major Issues
-
-- Vague acceptance criteria
-- Stories requiring future stories
-- Database creation violations
-
-#### 🟡 Minor Concerns
-
-- Formatting inconsistencies
-- Minor structure deviations
-- Documentation gaps
+- 🔴 Critical Violations (must fix)
+- 🟠 Major Issues (should fix)
+- 🟡 Minor Concerns (nice to fix)
+- Definitions, examples, and impact for each severity level
 
 ### 8. Autonomous Review Execution
 
