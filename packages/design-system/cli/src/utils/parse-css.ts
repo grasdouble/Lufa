@@ -97,6 +97,56 @@ export function extractCSSVarName(varReference: string): string | null {
 }
 
 /**
+ * Resolve a CSS variable value by following var() references
+ *
+ * @param value - The CSS value to resolve (may contain var())
+ * @param properties - Map of all CSS custom properties
+ * @param visitedVars - Track visited variables to prevent circular references
+ * @returns The resolved value (without var() references) or null if circular/not found
+ *
+ * @example
+ * // properties = {
+ * //   '--lufa-core-brand-primary': 'var(--lufa-primitive-color-blue-600)',
+ * //   '--lufa-primitive-color-blue-600': '#2563eb'
+ * // }
+ * resolveCSSVarValue('var(--lufa-core-brand-primary)', properties)
+ * // Returns: '#2563eb'
+ */
+export function resolveCSSVarValue(
+  value: string,
+  properties: Map<string, string>,
+  visitedVars: Set<string> = new Set()
+): string | null {
+  // If not a var() reference, return as-is
+  if (!isCSSVarReference(value)) {
+    return value;
+  }
+
+  // Extract variable name
+  const varName = extractCSSVarName(value);
+  if (!varName) {
+    return null;
+  }
+
+  // Check for circular reference
+  if (visitedVars.has(varName)) {
+    return null; // Circular reference detected
+  }
+
+  // Look up the variable value
+  const resolvedValue = properties.get(varName);
+  if (!resolvedValue) {
+    return null; // Variable not found
+  }
+
+  // Mark this variable as visited
+  visitedVars.add(varName);
+
+  // Recursively resolve if the value is also a var()
+  return resolveCSSVarValue(resolvedValue, properties, visitedVars);
+}
+
+/**
  * Check if a value is a valid hex color
  */
 export function isValidHexColor(value: string): boolean {
