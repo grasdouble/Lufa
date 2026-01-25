@@ -8,6 +8,7 @@ prdFile: '{prd_file_path}'
 prdFrontmatter: '{prd_frontmatter}'
 validationReportPath: '{validation_report_path}'
 domainComplexityData: '../data/domain-complexity.csv'
+domainRequirements: '../data/domain-compliance-requirements.md'
 ---
 
 # Step 8: Domain Compliance Validation
@@ -61,17 +62,25 @@ Validate domain-specific requirements are present for high-complexity domains (H
 
 **CRITICAL:** Follow this sequence exactly. Do not skip, reorder, or improvise unless user explicitly requests a change.
 
-### 1. Load Domain Complexity Data
+### 1. Lookup Domain Complexity Data
 
-Load and read the complete file at:
-`{domainComplexityData}` (../data/domain-complexity.csv)
+**Attempt subprocess for CSV lookup (Pattern 3 optimization):**
 
-This CSV contains:
-- Domain classifications and complexity levels (high/medium/low)
-- Required special sections for each domain
-- Key concerns and requirements for regulated industries
+"Load domain complexity data for {domain}:
 
-Internalize this data - it drives which domains require special compliance sections.
+1. Load {domainComplexityData} (../data/domain-complexity.csv)
+2. Find row matching `{domain}` from PRD frontmatter
+3. Return ONLY:
+   - Complexity level (high/medium/low)
+   - Required sections for this domain
+   - Key regulatory concerns
+
+Return structured domain data object, NOT entire CSV."
+
+**Graceful degradation (if no Task tool):**
+- Load complete CSV file
+- Manually find matching domain row
+- Extract complexity and requirements
 
 ### 2. Extract Domain Classification
 
@@ -83,19 +92,10 @@ Treat as "general" (low complexity) and proceed to step 4
 
 ### 2. Determine Domain Complexity
 
-**Low complexity domains (skip detailed checks):**
-- General
-- Consumer apps (standard e-commerce, social, productivity)
-- Content websites
-- Business tools (standard)
+Use complexity level returned from subprocess (or extracted from CSV).
 
-**High complexity domains (require special sections):**
-- Healthcare / Healthtech
-- Fintech / Financial services
-- GovTech / Public sector
-- EdTech (educational records, accredited courses)
-- Legal tech
-- Other regulated domains
+**If domain classification missing or "general":**
+Skip to step 4 (low complexity - no special checks needed)
 
 ### 3. For High-Complexity Domains: Validate Required Special Sections
 
@@ -105,30 +105,7 @@ Treat as "general" (low complexity) and proceed to step 4
 
 Based on {domain} requirements, check PRD for:
 
-**Healthcare:**
-- Clinical Requirements section
-- Regulatory Pathway (FDA, HIPAA, etc.)
-- Safety Measures
-- HIPAA Compliance (data privacy, security)
-- Patient safety considerations
-
-**Fintech:**
-- Compliance Matrix (SOC2, PCI-DSS, GDPR, etc.)
-- Security Architecture
-- Audit Requirements
-- Fraud Prevention measures
-- Financial transaction handling
-
-**GovTech:**
-- Accessibility Standards (WCAG 2.1 AA, Section 508)
-- Procurement Compliance
-- Security Clearance requirements
-- Data residency requirements
-
-**Other regulated domains:**
-- Check for domain-specific regulatory sections
-- Compliance requirements
-- Special considerations
+Load domain-specific requirements from {domainRequirements}
 
 For each required section:
 - Is it present in PRD?

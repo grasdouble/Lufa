@@ -57,6 +57,7 @@ Analyze product brief, research, and brainstorming documents for success criteri
 
 **If Input Documents Contain Success Criteria:**
 Guide user to refine existing success criteria:
+
 - Acknowledge what's already documented in their materials
 - Extract key success themes from brief, research, and brainstorming
 - Help user identify gaps and areas for expansion
@@ -66,6 +67,7 @@ Guide user to refine existing success criteria:
 
 **If No Success Criteria in Input Documents:**
 Start with user-centered success exploration:
+
 - Guide conversation toward defining what "worth it" means for users
 - Ask about the moment users realize their problem is solved
 - Explore specific user outcomes and emotional states
@@ -74,21 +76,27 @@ Start with user-centered success exploration:
 
 ### 2. Explore User Success Metrics
 
-Listen for specific user outcomes and help make them measurable:
+Guide the conversation to specific, measurable user outcomes. Start by listening for what they describe, then help them make it more specific.
+
+**Approach:** Ask 1-2 questions at a time, listen, then probe deeper based on their response.
+
+**Guidance:**
 
 - Guide from vague to specific: NOT "users are happy" → "users complete [key action] within [timeframe]"
-- Ask about emotional success: "When do they feel delighted/relieved/empowered?"
-- Identify success moments: "What's the 'aha!' moment?"
-- Define completion scenarios: "What does 'done' look like for the user?"
+- Explore emotional success moments: When do users feel delighted, relieved, or empowered?
+- Identify the 'aha!' moment and what 'done' looks like for the user
 
 ### 3. Define Business Success
 
-Transition to business metrics:
-- Guide conversation to business perspective on success
-- Explore timelines: What does 3-month success look like? 12-month success?
-- Identify key business metrics: revenue, user growth, engagement, or other measures?
-- Ask what specific metric would indicate "this is working"
-- Understand business success from their perspective
+Transition to business perspective on success. Explore progressively, don't ask all at once.
+
+**Approach:** Start with their immediate business goal, then probe into metrics and timelines.
+
+**Guidance:**
+
+- Explore timelines naturally: What does 3-month success look like? What about 12-month?
+- Identify key business metrics through conversation (revenue, user growth, engagement, etc.)
+- Ask: "What specific metric would tell you 'this is working'?"
 
 ### 4. Challenge Vague Metrics
 
@@ -102,6 +110,7 @@ Push for specificity on business metrics:
 ### 5. Connect to Product Differentiator
 
 Tie success metrics back to what makes the product special:
+
 - Connect success criteria to the product's unique differentiator
 - Ensure metrics reflect the specific value proposition
 - Adapt success criteria to domain context:
@@ -114,6 +123,7 @@ Tie success metrics back to what makes the product special:
 ### 6. Smart Scope Negotiation
 
 Guide scope definition through success lens:
+
 - Help user distinguish MVP (must work to be useful) from growth (competitive) and vision (dream)
 - Guide conversation through three scope levels:
   1. MVP: What's essential for proving the concept?
@@ -175,12 +185,14 @@ Present the success criteria content for user review, then display menu:
 Display: "**Select:** [A] Advanced Elicitation [P] Party Mode [C] Continue to User Journey Mapping (Step 4 of 11)"
 
 #### Menu Handling Logic:
-- IF A: Execute {advancedElicitationTask} with the current success criteria content, process the enhanced success metrics that come back, ask user "Accept these improvements to the success criteria? (y/n)", if yes update content with improvements then redisplay menu, if no keep original content then redisplay menu
-- IF P: Execute {partyModeWorkflow} with the current success criteria, process the collaborative improvements to metrics and scope, ask user "Accept these changes to the success criteria? (y/n)", if yes update content with improvements then redisplay menu, if no keep original content then redisplay menu
+
+- IF A: Execute {advancedElicitationTask}, and when finished redisplay the menu
+- IF P: Execute {partyModeWorkflow}, and when finished redisplay the menu
 - IF C: Append the final content to {outputFile}, update frontmatter by adding this step name to the end of the stepsCompleted array, then load, read entire file, then execute {nextStepFile}
-- IF Any other: help user respond, then redisplay menu
+- IF Any other: help user respond, then redisplay the menu
 
 #### EXECUTION RULES:
+
 - ALWAYS halt and wait for user input after presenting menu
 - ONLY proceed to next step when user selects 'C'
 - After other menu items execution, return to this menu

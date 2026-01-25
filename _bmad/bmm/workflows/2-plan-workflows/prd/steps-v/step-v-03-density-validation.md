@@ -61,17 +61,24 @@ Validate PRD meets BMAD information density standards by scanning for conversati
 
 **Try to use Task tool to spawn a subprocess:**
 
-"Perform information density validation on this PRD:
+'Perform information density validation on this PRD using grep patterns (Pattern 1 optimization):
 
-1. Load the PRD file
-2. Scan for the following anti-patterns:
-   - Conversational filler phrases (examples: 'The system will allow users to...', 'It is important to note that...', 'In order to')
-   - Wordy phrases (examples: 'Due to the fact that', 'In the event of', 'For the purpose of')
-   - Redundant phrases (examples: 'Future plans', 'Absolutely essential', 'Past history')
-3. Count violations by category with line numbers
-4. Classify severity: Critical (>10 violations), Warning (5-10), Pass (<5)
+**Use grep/regex to scan for anti-patterns efficiently:**
 
-Return structured findings with counts and examples."
+1. Run grep with regex patterns on {prdFile}:
+   - Conversational filler: grep -Ei "(The system will allow|It is important to note|In order to)" {prdFile}
+   - Wordy phrases: grep -Ei "(Due to the fact that|In the event of|At this point in time)" {prdFile}
+   - Redundant: grep -Ei "(Future plans|Past history|Absolutely essential|Completely finish)" {prdFile}
+
+2. Return ONLY:
+   - Total count per category
+   - Matching lines with line numbers (up to 10 examples max)
+   - DO NOT return full PRD content
+
+3. Classify severity: Critical (>10), Warning (5-10), Pass (<5)
+
+Return structured findings: {category: count, examples: [line_num, text]} for each category."
+
 
 ### 2. Graceful Degradation (if Task tool unavailable)
 

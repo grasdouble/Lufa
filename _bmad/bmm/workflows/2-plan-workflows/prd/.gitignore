@@ -1,0 +1,15 @@
+# BMAD Workflow Validation Reports
+# These are temporary artifacts generated during validation
+# They can be regenerated at any time by running the validation workflow
+
+validation-report-*.md
+
+# Temporary test outputs (if any)
+*.tmp
+*.bak
+*~
+
+# Python cache (from optimization scripts)
+__pycache__/
+*.py[cod]
+*$py.class
