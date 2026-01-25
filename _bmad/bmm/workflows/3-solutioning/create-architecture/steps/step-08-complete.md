@@ -140,105 +140,29 @@ Provide specific next steps for implementation:
 
 ### 4. Generate Completion Content
 
-Prepare the final content to append to the document:
+**Template Location:**
+`data/architecture-completion-template.md`
 
-#### Content Structure:
+Load the complete architecture completion template from the data file. This template provides:
 
-```markdown
-## Architecture Completion Summary
+- Workflow completion summary with statistics
+- Final architecture deliverables documentation
+- AI agent implementation guide
+- Development sequence phases
+- Quality assurance checklist
+- Project success factors
+- Architecture maintenance guidelines
 
-### Workflow Completion
+Using the template structure from `data/architecture-completion-template.md`:
 
-**Architecture Decision Workflow:** COMPLETED ✅
-**Total Steps Completed:** 8
-**Date Completed:** {{current_date}}
-**Document Location:** {planning_artifacts}/architecture.md
+1. **Complete workflow completion summary** with accurate statistics
+2. **Document final deliverables** including all architecture sections
+3. **Provide implementation handoff** with first priority and development sequence
+4. **Include quality assurance checklist** confirming all aspects are complete
+5. **Highlight project success factors** achieved through collaborative decisions
+6. **Add architecture maintenance guidelines** for future updates
 
-### Final Architecture Deliverables
-
-**📋 Complete Architecture Document**
-
-- All architectural decisions documented with specific versions
-- Implementation patterns ensuring AI agent consistency
-- Complete project structure with all files and directories
-- Requirements to architecture mapping
-- Validation confirming coherence and completeness
-
-**🏗️ Implementation Ready Foundation**
-
-- {{decision_count}} architectural decisions made
-- {{pattern_count}} implementation patterns defined
-- {{component_count}} architectural components specified
-- {{requirement_count}} requirements fully supported
-
-**📚 AI Agent Implementation Guide**
-
-- Technology stack with verified versions
-- Consistency rules that prevent implementation conflicts
-- Project structure with clear boundaries
-- Integration patterns and communication standards
-
-### Implementation Handoff
-
-**For AI Agents:**
-This architecture document is your complete guide for implementing {{project_name}}. Follow all decisions, patterns, and structures exactly as documented.
-
-**First Implementation Priority:**
-{{starter_template_command_or_initialization_step}}
-
-**Development Sequence:**
-
-1. Initialize project using documented starter template
-2. Set up development environment per architecture
-3. Implement core architectural foundations
-4. Build features following established patterns
-5. Maintain consistency with documented rules
-
-### Quality Assurance Checklist
-
-**✅ Architecture Coherence**
-
-- [x] All decisions work together without conflicts
-- [x] Technology choices are compatible
-- [x] Patterns support the architectural decisions
-- [x] Structure aligns with all choices
-
-**✅ Requirements Coverage**
-
-- [x] All functional requirements are supported
-- [x] All non-functional requirements are addressed
-- [x] Cross-cutting concerns are handled
-- [x] Integration points are defined
-
-**✅ Implementation Readiness**
-
-- [x] Decisions are specific and actionable
-- [x] Patterns prevent agent conflicts
-- [x] Structure is complete and unambiguous
-- [x] Examples are provided for clarity
-
-### Project Success Factors
-
-**🎯 Clear Decision Framework**
-Every technology choice was made collaboratively with clear rationale, ensuring all stakeholders understand the architectural direction.
-
-**🔧 Consistency Guarantee**
-Implementation patterns and rules ensure that multiple AI agents will produce compatible, consistent code that works together seamlessly.
-
-**📋 Complete Coverage**
-All project requirements are architecturally supported, with clear mapping from business needs to technical implementation.
-
-**🏗️ Solid Foundation**
-The chosen starter template and architectural patterns provide a production-ready foundation following current best practices.
-
----
-
-**Architecture Status:** READY FOR IMPLEMENTATION ✅
-
-**Next Phase:** Begin implementation using the architectural decisions and patterns documented herein.
-
-**Document Maintenance:** Update this architecture when major technical decisions are made during implementation.
-```
+The template ensures comprehensive completion documentation and clear implementation guidance for AI agents.
 
 ### 5. Complete Workflow Finalization
 

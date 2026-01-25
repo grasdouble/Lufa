@@ -32,8 +32,8 @@ This step will generate content and present choices:
 
 ## PROTOCOL INTEGRATION:
 
-- When 'A' selected: Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml
-- When 'P' selected: Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md
+- When 'A' selected: Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml
+- When 'P' selected: Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md
 - PROTOCOLS always return to display this step's A/P/C menu after the A or P have completed
 - User accepts/rejects protocol changes before proceeding
 
@@ -129,85 +129,14 @@ Map how components communicate and where boundaries exist:
 
 ### 4. Create Complete Project Tree
 
-Generate a comprehensive directory structure showing all files and directories:
+Generate a comprehensive directory structure showing all files and directories.
 
-**Technology-Specific Structure Examples:**
+**Important:** Use the technology-specific structure examples from `data/project-structure-document-template.md` as a reference. The template includes complete examples for:
 
-**Next.js Full-Stack:**
+- Next.js Full-Stack applications
+- API Backend (NestJS) applications
 
-```
-project-name/
-├── README.md
-├── package.json
-├── next.config.js
-├── tailwind.config.js
-├── tsconfig.json
-├── .env.local
-├── .env.example
-├── .gitignore
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── src/
-│   ├── app/
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   ├── components/
-│   │   ├── ui/
-│   │   ├── forms/
-│   │   └── features/
-│   ├── lib/
-│   │   ├── db.ts
-│   │   ├── auth.ts
-│   │   └── utils.ts
-│   ├── types/
-│   └── middleware.ts
-├── prisma/
-│   ├── schema.prisma
-│   └── migrations/
-├── tests/
-│   ├── __mocks__/
-│   ├── components/
-│   └── e2e/
-└── public/
-    └── assets/
-```
-
-**API Backend (NestJS):**
-
-```
-project-name/
-├── package.json
-├── nest-cli.json
-├── tsconfig.json
-├── .env
-├── .env.example
-├── .gitignore
-├── README.md
-├── src/
-│   ├── main.ts
-│   ├── app.module.ts
-│   ├── config/
-│   ├── modules/
-│   │   ├── auth/
-│   │   ├── users/
-│   │   └── common/
-│   ├── services/
-│   ├── repositories/
-│   ├── decorators/
-│   ├── pipes/
-│   ├── guards/
-│   └── interceptors/
-├── test/
-│   ├── unit/
-│   ├── integration/
-│   └── e2e/
-├── prisma/
-│   ├── schema.prisma
-│   └── migrations/
-└── docker-compose.yml
-```
+Adapt these examples to match the specific technology stack chosen for this project.
 
 ### 5. Map Requirements to Structure
 
@@ -233,78 +162,28 @@ Create explicit mapping from project requirements to specific files/directories:
 
 ### 6. Generate Structure Content
 
-Prepare the content to append to the document:
+**Template Location:**
+`data/project-structure-document-template.md`
 
-#### Content Structure:
+Load the complete project structure template from the data file. This template provides:
 
-```markdown
-## Project Structure & Boundaries
+- Complete directory structure with technology-specific examples
+- Architectural boundary definitions (API, Component, Service, Data)
+- Requirements to structure mapping patterns
+- Integration points and communication patterns
+- File organization standards
+- Development workflow integration guidelines
 
-### Complete Project Directory Structure
-```
+Using the template structure from `data/project-structure-document-template.md`:
 
-{{complete_project_tree_with_all_files_and_directories}}
+1. **Fill the complete project tree** based on technology stack and architectural decisions
+2. **Define all architectural boundaries** for API, components, services, and data access
+3. **Map requirements to specific directories** showing exactly where epics/features live
+4. **Document integration points** for internal and external communication
+5. **Specify file organization patterns** for configuration, source, tests, and assets
+6. **Include workflow integration details** for development, build, and deployment
 
-```
-
-### Architectural Boundaries
-
-**API Boundaries:**
-{{api_boundary_definitions_and_endpoints}}
-
-**Component Boundaries:**
-{{component_communication_patterns_and_boundaries}}
-
-**Service Boundaries:**
-{{service_integration_patterns_and_boundaries}}
-
-**Data Boundaries:**
-{{data_access_patterns_and_boundaries}}
-
-### Requirements to Structure Mapping
-
-**Feature/Epic Mapping:**
-{{mapping_of_epics_or_features_to_specific_directories}}
-
-**Cross-Cutting Concerns:**
-{{mapping_of_shared_functionality_to_locations}}
-
-### Integration Points
-
-**Internal Communication:**
-{{how_components_within_the_project_communicate}}
-
-**External Integrations:**
-{{third_party_service_integration_points}}
-
-**Data Flow:**
-{{how_data_flows_through_the_architecture}}
-
-### File Organization Patterns
-
-**Configuration Files:**
-{{where_and_how_config_files_are_organized}}
-
-**Source Organization:**
-{{how_source_code_is_structured_and_organized}}
-
-**Test Organization:**
-{{how_tests_are_structured_and_organized}}
-
-**Asset Organization:**
-{{how_static_and_dynamic_assets_are_organized}}
-
-### Development Workflow Integration
-
-**Development Server Structure:**
-{{how_the_project_is organized_for_development}}
-
-**Build Process Structure:**
-{{how_the_build_process_uses_the_project_structure}}
-
-**Deployment Structure:**
-{{how_the_project_structure_supports_deployment}}
-```
+The template includes examples for Next.js and NestJS projects that can be adapted to your specific technology choices.
 
 ### 7. Present Content and Menu
 
@@ -325,7 +204,7 @@ Show the generated project structure content and present choices:
 
 #### If 'A' (Advanced Elicitation):
 
-- Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml with current project structure
+- Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml with current project structure
 - Process enhanced organizational insights that come back
 - Ask user: "Accept these changes to the project structure? (y/n)"
 - If yes: Update content, then return to A/P/C menu
@@ -333,7 +212,7 @@ Show the generated project structure content and present choices:
 
 #### If 'P' (Party Mode):
 
-- Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md with project structure context
+- Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md with project structure context
 - Process collaborative insights about organization trade-offs
 - Ask user: "Accept these changes to the project structure? (y/n)"
 - If yes: Update content, then return to A/P/C menu

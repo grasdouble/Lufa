@@ -32,8 +32,8 @@ This step will generate content and present choices:
 
 ## PROTOCOL INTEGRATION:
 
-- When 'A' selected: Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml
-- When 'P' selected: Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md
+- When 'A' selected: Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml
+- When 'P' selected: Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md
 - PROTOCOLS always return to display this step's A/P/C menu after the A or P have completed
 - User accepts/rejects protocol changes before proceeding
 
@@ -119,172 +119,40 @@ Which approach makes the most sense for our project?"
 
 ### 3. Define Pattern Categories
 
-#### Naming Patterns
+**Pattern Categories Reference:**
+`data/pattern-categories-reference.md`
 
-**Database Naming:**
+Refer to the pattern categories reference guide for comprehensive examples of where AI agents could make different choices. This reference includes:
 
-- Table naming: users, Users, or user?
-- Column naming: user_id or userId?
-- Foreign key format: user_id or fk_user?
-- Index naming: idx_users_email or users_email_index?
+- **Naming Patterns:** Database, API, and code naming options
+- **Structure Patterns:** Project and file organization choices
+- **Format Patterns:** API and data format options
+- **Communication Patterns:** Event and state management choices
+- **Process Patterns:** Error handling and loading state options
 
-**API Naming:**
-
-- REST endpoint naming: /users or /user? Plural or singular?
-- Route parameter format: :id or {id}?
-- Query parameter naming: user_id or userId?
-- Header naming conventions: X-Custom-Header or Custom-Header?
-
-**Code Naming:**
-
-- Component naming: UserCard or user-card?
-- File naming: UserCard.tsx or user-card.tsx?
-- Function naming: getUserData or get_user_data?
-- Variable naming: userId or user_id?
-
-#### Structure Patterns
-
-**Project Organization:**
-
-- Where do tests live? **tests**/ or \*.test.ts co-located?
-- How are components organized? By feature or by type?
-- Where do shared utilities go?
-- How are services and repositories organized?
-
-**File Structure:**
-
-- Config file locations and naming
-- Static asset organization
-- Documentation placement
-- Environment file organization
-
-#### Format Patterns
-
-**API Formats:**
-
-- API response wrapper? {data: ..., error: ...} or direct response?
-- Error format? {message, code} or {error: {type, detail}}?
-- Date format in JSON? ISO strings or timestamps?
-- Success response structure?
-
-**Data Formats:**
-
-- JSON field naming: snake_case or camelCase?
-- Boolean representations: true/false or 1/0?
-- Null handling patterns
-- Array vs object for single items
-
-#### Communication Patterns
-
-**Event Systems:**
-
-- Event naming convention: user.created or UserCreated?
-- Event payload structure standards
-- Event versioning approach
-- Async event handling patterns
-
-**State Management:**
-
-- State update patterns: immutable updates or direct mutation?
-- Action naming conventions
-- Selector patterns
-- State organization principles
-
-#### Process Patterns
-
-**Error Handling:**
-
-- Global error handling approach
-- Error boundary patterns
-- User-facing error message format
-- Logging vs user error distinction
-
-**Loading States:**
-
-- Loading state naming conventions
-- Global vs local loading states
-- Loading state persistence
-- Loading UI patterns
+For each category, facilitate collaborative decisions with the user about which patterns to adopt for their project. Reference the guide to show concrete examples of potential conflicts and how different choices impact consistency.
 
 ### 4. Generate Patterns Content
 
-Prepare the content to append to the document:
+**Framework Location:**
+`data/implementation-patterns-framework.md`
 
-#### Content Structure:
+Load the complete implementation patterns framework from the data file. This framework provides:
 
-```markdown
-## Implementation Patterns & Consistency Rules
+- Comprehensive pattern categories (Naming, Structure, Format, Communication, Process)
+- Detailed subsections for each category with examples
+- Enforcement guidelines for AI agents
+- Good examples and anti-patterns
 
-### Pattern Categories Defined
+Using the framework structure from `data/implementation-patterns-framework.md`:
 
-**Critical Conflict Points Identified:**
-{{number_of_potential_conflicts}} areas where AI agents could make different choices
+1. **Fill all pattern categories** with project-specific decisions
+2. **Provide concrete examples** for each naming, structure, and format pattern
+3. **Define enforcement guidelines** that AI agents must follow
+4. **Include good examples and anti-patterns** to clarify expectations
+5. **Document verification methods** for pattern compliance
 
-### Naming Patterns
-
-**Database Naming Conventions:**
-{{database_naming_rules_with_examples}}
-
-**API Naming Conventions:**
-{{api_naming_rules_with_examples}}
-
-**Code Naming Conventions:**
-{{code_naming_rules_with_examples}}
-
-### Structure Patterns
-
-**Project Organization:**
-{{project_structure_rules_with_examples}}
-
-**File Structure Patterns:**
-{{file_organization_rules_with_examples}}
-
-### Format Patterns
-
-**API Response Formats:**
-{{api_response_structure_rules}}
-
-**Data Exchange Formats:**
-{{data_format_rules_with_examples}}
-
-### Communication Patterns
-
-**Event System Patterns:**
-{{event_naming_and_structure_rules}}
-
-**State Management Patterns:**
-{{state_update_and_organization_rules}}
-
-### Process Patterns
-
-**Error Handling Patterns:**
-{{consistent_error_handling_approaches}}
-
-**Loading State Patterns:**
-{{loading_state_management_rules}}
-
-### Enforcement Guidelines
-
-**All AI Agents MUST:**
-
-- {{mandatory_pattern_1}}
-- {{mandatory_pattern_2}}
-- {{mandatory_pattern_3}}
-
-**Pattern Enforcement:**
-
-- How to verify patterns are followed
-- Where to document pattern violations
-- Process for updating patterns
-
-### Pattern Examples
-
-**Good Examples:**
-{{concrete_examples_of_correct_pattern_usage}}
-
-**Anti-Patterns:**
-{{examples_of_what_to_avoid}}
-```
+The framework ensures all potential AI agent conflict points are addressed with clear, enforceable rules.
 
 ### 5. Present Content and Menu
 
@@ -305,7 +173,7 @@ Show the generated patterns content and present choices:
 
 #### If 'A' (Advanced Elicitation):
 
-- Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml with current patterns
+- Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml with current patterns
 - Process enhanced consistency rules that come back
 - Ask user: "Accept these additional pattern refinements? (y/n)"
 - If yes: Update content, then return to A/P/C menu
@@ -313,7 +181,7 @@ Show the generated patterns content and present choices:
 
 #### If 'P' (Party Mode):
 
-- Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md with implementation patterns context
+- Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md with implementation patterns context
 - Process collaborative insights about potential conflicts
 - Ask user: "Accept these changes to the implementation patterns? (y/n)"
 - If yes: Update content, then return to A/P/C menu

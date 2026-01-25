@@ -31,8 +31,8 @@ This step will generate content and present choices:
 
 ## PROTOCOL INTEGRATION:
 
-- When 'A' selected: Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml
-- When 'P' selected: Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md
+- When 'A' selected: Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml
+- When 'P' selected: Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md
 - PROTOCOLS always return to display this step's A/P/C menu after the A or P have completed
 - User accepts/rejects protocol changes before proceeding
 
@@ -53,59 +53,24 @@ Discover technical preferences and evaluate starter template options, leveraging
 ### 0. Check Technical Preferences & Context
 
 **Check Project Context for Existing Technical Preferences:**
-"Before we dive into starter templates, let me check if you have any technical preferences already documented.
 
-{{if_project_context_exists}}
-I found some technical rules in your project context file:
-{{extracted_technical_preferences_from_project_context}}
-
-**Project Context Technical Rules Found:**
-
-- Languages/Frameworks: {{languages_frameworks_from_context}}
-- Tools & Libraries: {{tools_from_context}}
-- Development Patterns: {{patterns_from_context}}
-- Platform Preferences: {{platforms_from_context}}
-
-{{else}}
-No existing technical preferences found in project context file. We'll establish your technical preferences now.
-{{/if_project_context}}"
+Review project context file for existing technical preferences (languages, frameworks, databases, tools, development patterns, platform preferences).
 
 **Discover User Technical Preferences:**
-"Based on your project context, let's discuss your technical preferences:
 
-{{primary_technology_category}} Preferences:
+Facilitate discussion about:
 
-- **Languages**: Do you have preferences between TypeScript/JavaScript, Python, Go, Rust, etc.?
-- **Frameworks**: Any existing familiarity or preferences (React, Vue, Angular, Next.js, etc.)?
-- **Databases**: Any preferences or existing infrastructure (PostgreSQL, MongoDB, MySQL, etc.)?
+- Languages/Frameworks preferences
+- Database and infrastructure preferences
+- Team experience level with technologies
+- Platform/Deployment preferences (AWS, Vercel, Railway, etc.)
+- Existing integrations and third-party services
 
-**Development Experience:**
-
-- What's your team's experience level with different technologies?
-- Are there any technologies you want to learn vs. what you're comfortable with?
-
-**Platform/Deployment Preferences:**
-
-- Cloud provider preferences (AWS, Vercel, Railway, etc.)?
-- Container preferences (Docker, Serverless, Traditional)?
-
-**Integrations:**
-
-- Any existing systems or APIs you need to integrate with?
-- Third-party services you plan to use (payment, authentication, analytics, etc.)?
-
-These preferences will help me recommend the most suitable starter templates and guide our architectural decisions."
+These preferences guide starter template recommendations and architectural decisions.
 
 ### 1. Identify Primary Technology Domain
 
-Based on project context analysis and technical preferences, identify the primary technology stack:
-
-- **Web application** → Look for Next.js, Vite, Remix, SvelteKit starters
-- **Mobile app** → Look for React Native, Expo, Flutter starters
-- **API/Backend** → Look for NestJS, Express, Fastify, Supabase starters
-- **CLI tool** → Look for CLI framework starters (oclif, commander, etc.)
-- **Full-stack** → Look for T3, RedwoodJS, Blitz, Next.js starters
-- **Desktop** → Look for Electron, Tauri starters
+Based on project context analysis and technical preferences, identify the primary technology stack (Web application, Mobile app, API/Backend, CLI tool, Full-stack, or Desktop).
 
 ### 2. UX Requirements Consideration
 
@@ -170,31 +135,13 @@ For each viable starter option, document:
 
 ### 6. Present Starter Options
 
-Based on user skill level and project needs:
+Present options based on user skill level (Expert: quick list with key decisions; Intermediate: explanations with recommendation; Beginner: friendly analogies with guidance).
 
-**For Expert Users:**
-"Found {{starter_name}} which provides:
-{{quick_decision_list_of_key_decisions}}
+For each option, highlight:
 
-This would establish our base architecture with these technical decisions already made. Use it?"
-
-**For Intermediate Users:**
-"I found {{starter_name}}, which is a well-maintained starter for {{project_type}} projects.
-
-It makes these architectural decisions for us:
-{{decision_list_with_explanations}}
-
-This gives us a solid foundation following current best practices. Should we use it?"
-
-**For Beginner Users:**
-"I found {{starter_name}}, which is like a pre-built foundation for your project.
-
-Think of it like buying a prefab house frame instead of cutting each board yourself.
-
-It makes these decisions for us:
-{{friendly_explanation_of_decisions}}
-
-This is a great starting point that follows best practices and saves us from making dozens of small technical choices. Should we use it?"
+- Key architectural decisions it makes
+- How it aligns with project needs
+- Maintenance and community support
 
 ### 7. Get Current CLI Commands
 
@@ -207,56 +154,29 @@ Search the web: "{{starter_name}} create new project command examples"
 
 ### 8. Generate Starter Template Content
 
-Prepare the content to append to the document:
+**Framework Location:**
+`data/starter-template-evaluation-framework.md`
 
-#### Content Structure:
+Load the complete starter template evaluation framework from the data file. This framework provides:
 
-````markdown
-## Starter Template Evaluation
+- Primary technology domain identification
+- Starter options comparison structure
+- Selected starter rationale and initialization command
+- Architectural decisions provided by starter
+- Integration with project requirements
+- Remaining architectural decisions to be made
 
-### Primary Technology Domain
+Using the framework structure from `data/starter-template-evaluation-framework.md`:
 
-{{identified_domain}} based on project requirements analysis
+1. **Document primary technology domain** identified from project analysis
+2. **Compare starter options considered** with pros/cons for each
+3. **Explain starter selection rationale** with key selection factors
+4. **Provide complete initialization command** with option explanations
+5. **Document all architectural decisions** provided by the starter (language, styling, build, testing, organization)
+6. **Show integration with requirements** including UX and technical preferences
+7. **List remaining decisions** not made by starter that require next steps
 
-### Starter Options Considered
-
-{{analysis_of_evaluated_starters}}
-
-### Selected Starter: {{starter_name}}
-
-**Rationale for Selection:**
-{{why_this_starter_was_chosen}}
-
-**Initialization Command:**
-
-```bash
-{{full_starter_command_with_options}}
-```
-````
-
-**Architectural Decisions Provided by Starter:**
-
-**Language & Runtime:**
-{{language_typescript_setup}}
-
-**Styling Solution:**
-{{styling_solution_configuration}}
-
-**Build Tooling:**
-{{build_tools_and_optimization}}
-
-**Testing Framework:**
-{{testing_setup_and_configuration}}
-
-**Code Organization:**
-{{project_structure_and_patterns}}
-
-**Development Experience:**
-{{development_tools_and_workflow}}
-
-**Note:** Project initialization using this command should be the first implementation story.
-
-```
+The framework ensures comprehensive documentation of starter evaluation and selection process.
 
 ### 9. Present Content and Menu
 
@@ -277,7 +197,7 @@ Show the generated content and present choices:
 
 #### If 'A' (Advanced Elicitation):
 
-- Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml with current starter analysis
+- Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml with current starter analysis
 - Process enhanced insights about starter options or custom approaches
 - Ask user: "Accept these changes to the starter template evaluation? (y/n)"
 - If yes: Update content, then return to A/P/C menu
@@ -285,7 +205,7 @@ Show the generated content and present choices:
 
 #### If 'P' (Party Mode):
 
-- Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md with starter evaluation context
+- Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md with starter evaluation context
 - Process collaborative insights about starter trade-offs
 - Ask user: "Accept these changes to the starter template evaluation? (y/n)"
 - If yes: Update content, then return to A/P/C menu
@@ -328,4 +248,7 @@ When user selects 'C', append the content directly to the document using the str
 After user selects 'C' and content is saved to document, load `./step-04-decisions.md` to begin making specific architectural decisions.
 
 Remember: Do NOT proceed to step-04 until user explicitly selects 'C' from the A/P/C menu and content is saved!
+
+```
+
 ```

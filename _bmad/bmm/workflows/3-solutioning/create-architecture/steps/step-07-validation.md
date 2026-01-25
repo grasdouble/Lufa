@@ -32,8 +32,8 @@ This step will generate content and present choices:
 
 ## PROTOCOL INTEGRATION:
 
-- When 'A' selected: Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml
-- When 'P' selected: Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md
+- When 'A' selected: Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml
+- When 'P' selected: Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md
 - PROTOCOLS always return to display this step's A/P/C menu after the A or P have completed
 - User accepts/rejects protocol changes before proceeding
 
@@ -177,108 +177,29 @@ These are optional refinements. Would you like to address any of these?"
 
 ### 6. Generate Validation Content
 
-Prepare the content to append to the document:
+**Template Location:**
+`data/architecture-validation-template.md`
 
-#### Content Structure:
+Load the complete architecture validation template from the data file. This template provides:
 
-```markdown
-## Architecture Validation Results
+- Coherence validation structure (decision compatibility, pattern consistency, structure alignment)
+- Requirements coverage validation (epic/feature coverage, FR coverage, NFR coverage)
+- Implementation readiness validation (decision, structure, and pattern completeness)
+- Gap analysis framework with priority levels
+- Architecture completeness checklist
+- Readiness assessment and implementation handoff guidelines
 
-### Coherence Validation ✅
+Using the template structure from `data/architecture-validation-template.md`:
 
-**Decision Compatibility:**
-{{assessment_of_how_all_decisions_work_together}}
+1. **Complete coherence validation** across all architectural dimensions
+2. **Verify requirements coverage** for all epics/features and FRs/NFRs
+3. **Assess implementation readiness** with comprehensive completeness checks
+4. **Perform gap analysis** identifying critical, important, and nice-to-have gaps
+5. **Fill completeness checklist** confirming all architectural aspects are addressed
+6. **Provide readiness assessment** with confidence level and key strengths
+7. **Document implementation handoff** with AI agent guidelines and first steps
 
-**Pattern Consistency:**
-{{verification_that_patterns_support_decisions}}
-
-**Structure Alignment:**
-{{confirmation_that_structure_supports_architecture}}
-
-### Requirements Coverage Validation ✅
-
-**Epic/Feature Coverage:**
-{{verification_that_all_epics_or_features_are_supported}}
-
-**Functional Requirements Coverage:**
-{{confirmation_that_all_FRs_are_architecturally_supported}}
-
-**Non-Functional Requirements Coverage:**
-{{verification_that_NFRs_are_addressed}}
-
-### Implementation Readiness Validation ✅
-
-**Decision Completeness:**
-{{assessment_of_decision_documentation_completeness}}
-
-**Structure Completeness:**
-{{evaluation_of_project_structure_completeness}}
-
-**Pattern Completeness:**
-{{verification_of_implementation_patterns_completeness}}
-
-### Gap Analysis Results
-
-{{gap_analysis_findings_with_priority_levels}}
-
-### Validation Issues Addressed
-
-{{description_of_any_issues_found_and_resolutions}}
-
-### Architecture Completeness Checklist
-
-**✅ Requirements Analysis**
-
-- [x] Project context thoroughly analyzed
-- [x] Scale and complexity assessed
-- [x] Technical constraints identified
-- [x] Cross-cutting concerns mapped
-
-**✅ Architectural Decisions**
-
-- [x] Critical decisions documented with versions
-- [x] Technology stack fully specified
-- [x] Integration patterns defined
-- [x] Performance considerations addressed
-
-**✅ Implementation Patterns**
-
-- [x] Naming conventions established
-- [x] Structure patterns defined
-- [x] Communication patterns specified
-- [x] Process patterns documented
-
-**✅ Project Structure**
-
-- [x] Complete directory structure defined
-- [x] Component boundaries established
-- [x] Integration points mapped
-- [x] Requirements to structure mapping complete
-
-### Architecture Readiness Assessment
-
-**Overall Status:** READY FOR IMPLEMENTATION
-
-**Confidence Level:** {{high/medium/low}} based on validation results
-
-**Key Strengths:**
-{{list_of_architecture_strengths}}
-
-**Areas for Future Enhancement:**
-{{areas_that_could_be_improved_later}}
-
-### Implementation Handoff
-
-**AI Agent Guidelines:**
-
-- Follow all architectural decisions exactly as documented
-- Use implementation patterns consistently across all components
-- Respect project structure and boundaries
-- Refer to this document for all architectural questions
-
-**First Implementation Priority:**
-{{starter_template_command_or_first_architectural_step}}
-```
+The template ensures comprehensive validation of architectural coherence, completeness, and readiness for consistent AI agent implementation.
 
 ### 7. Present Content and Menu
 
@@ -305,7 +226,7 @@ Show the validation results and present choices:
 
 #### If 'A' (Advanced Elicitation):
 
-- Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml with validation issues
+- Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml with validation issues
 - Process enhanced solutions for complex concerns
 - Ask user: "Accept these architectural improvements? (y/n)"
 - If yes: Update content, then return to A/P/C menu
@@ -313,7 +234,7 @@ Show the validation results and present choices:
 
 #### If 'P' (Party Mode):
 
-- Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md with validation context
+- Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md with validation context
 - Process collaborative insights on implementation readiness
 - Ask user: "Accept these changes to the validation results? (y/n)"
 - If yes: Update content, then return to A/P/C menu
