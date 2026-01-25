@@ -1,5 +1,9 @@
 # Step 6: Project Structure & Boundaries
 
+**Data File References:**
+
+- `../data/project-structure-document-template.md` - Complete project structure document templates and examples
+
 ## MANDATORY EXECUTION RULES (READ FIRST):
 
 - 🛑 NEVER generate content without user input
@@ -50,209 +54,68 @@ Define the complete project structure and architectural boundaries based on all 
 
 ## PROJECT STRUCTURE SEQUENCE:
 
+**See:** `../data/project-structure-document-template.md` for complete document structure and examples.
+
+**Quick Process Overview:**
+
 ### 1. Analyze Requirements Mapping
 
-Map project requirements to architectural components:
-
-**From Epics (if available):**
-"Epic: {{epic_name}} → Lives in {{module/directory/service}}"
-
-- User stories within the epic
-- Cross-epic dependencies
-- Shared components needed
-
-**From FR Categories (if no epics):**
-"FR Category: {{fr_category_name}} → Lives in {{module/directory/service}}"
-
-- Related functional requirements
-- Shared functionality across categories
-- Integration points between categories
+Map requirements to architectural components. From epics: "Epic → module/directory/service" with user stories, dependencies, shared components. From FR categories (if no epics): "FR Category → module/directory/service" with related FRs, shared functionality, integration points.
 
 ### 2. Define Project Directory Structure
 
-Based on technology stack and patterns, create the complete project structure:
-
-**Root Configuration Files:**
-
-- Package management files (package.json, requirements.txt, etc.)
-- Build and development configuration
-- Environment configuration files
-- CI/CD pipeline files
-- Documentation files
-
-**Source Code Organization:**
-
-- Application entry points
-- Core application structure
-- Feature/module organization
-- Shared utilities and libraries
-- Configuration and environment files
-
-**Test Organization:**
-
-- Unit test locations and structure
-- Integration test organization
-- End-to-end test structure
-- Test utilities and fixtures
-
-**Build and Distribution:**
-
-- Build output directories
-- Distribution files
-- Static assets
-- Documentation build
+Create complete project structure based on technology stack and patterns: Root configuration files, source code organization (src/components, src/services, src/utils, etc.), testing directories (unit, integration, e2e), documentation folders, deployment configs.
 
 ### 3. Define Integration Boundaries
 
-Map how components communicate and where boundaries exist:
-
-**API Boundaries:**
-
-- External API endpoints
-- Internal service boundaries
-- Authentication and authorization boundaries
-- Data access layer boundaries
-
-**Component Boundaries:**
-
-- Frontend component communication patterns
-- State management boundaries
-- Service communication patterns
-- Event-driven integration points
-
-**Data Boundaries:**
-
-- Database schema boundaries
-- Data access patterns
-- Caching boundaries
-- External data integration points
+Document clear boundaries between modules/services: Public APIs/interfaces exported, Internal implementation details (private), Cross-module communication patterns, Data flow between components, Testing boundaries and mocking strategies.
 
 ### 4. Create Complete Project Tree
 
-Generate a comprehensive directory structure showing all files and directories.
-
-**Important:** Use the technology-specific structure examples from `data/project-structure-document-template.md` as a reference. The template includes complete examples for:
-
-- Next.js Full-Stack applications
-- API Backend (NestJS) applications
-
-Adapt these examples to match the specific technology stack chosen for this project.
+Generate ASCII tree representation of complete project structure with actual file names (not placeholders), configuration files with extensions, test files co-located with source, documentation structure, special directories (assets, migrations, etc.).
 
 ### 5. Map Requirements to Structure
 
-Create explicit mapping from project requirements to specific files/directories:
-
-**Epic/Feature Mapping:**
-"Epic: User Management
-
-- Components: src/components/features/users/
-- Services: src/services/users/
-- API Routes: src/app/api/users/
-- Database: prisma/migrations/_*users*_
-- Tests: tests/features/users/"
-
-**Cross-Cutting Concerns:**
-"Authentication System
-
-- Components: src/components/auth/
-- Services: src/services/auth/
-- Middleware: src/middleware/auth.ts
-- Guards: src/guards/auth.guard.ts
-- Tests: tests/auth/"
+Create explicit mapping table: Requirement/Epic → Implementation Location → Key Files → Dependencies. This ensures all requirements have clear implementation homes.
 
 ### 6. Generate Structure Content
 
-**Template Location:**
-`data/project-structure-document-template.md`
+**Load framework from:** `../data/project-structure-document-template.md`
 
-Load the complete project structure template from the data file. This template provides:
+Using the framework structure, document complete project organization with:
 
-- Complete directory structure with technology-specific examples
-- Architectural boundary definitions (API, Component, Service, Data)
-- Requirements to structure mapping patterns
-- Integration points and communication patterns
-- File organization standards
-- Development workflow integration guidelines
+1. Requirements to components mapping
+2. Complete directory structure (ASCII tree)
+3. Module boundaries and interfaces
+4. Cross-cutting concerns organization
+5. Testing strategy alignment with structure
+6. Deployment artifact organization
 
-Using the template structure from `data/project-structure-document-template.md`:
+### 7-8. Present Content and Handle Menu
 
-1. **Fill the complete project tree** based on technology stack and architectural decisions
-2. **Define all architectural boundaries** for API, components, services, and data access
-3. **Map requirements to specific directories** showing exactly where epics/features live
-4. **Document integration points** for internal and external communication
-5. **Specify file organization patterns** for configuration, source, tests, and assets
-6. **Include workflow integration details** for development, build, and deployment
-
-The template includes examples for Next.js and NestJS projects that can be adapted to your specific technology choices.
-
-### 7. Present Content and Menu
-
-Show the generated project structure content and present choices:
-
-"I've created a complete project structure based on all our architectural decisions.
-
-**Here's what I'll add to the document:**
-
-[Show the complete markdown content from step 6]
-
-**What would you like to do?**
-[A] Advanced Elicitation - Explore innovative project organization approaches
-[P] Party Mode - Review structure from different development perspectives
-[C] Continue - Save this structure and move to architecture validation"
-
-### 8. Handle Menu Selection
-
-#### If 'A' (Advanced Elicitation):
-
-- Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml with current project structure
-- Process enhanced organizational insights that come back
-- Ask user: "Accept these changes to the project structure? (y/n)"
-- If yes: Update content, then return to A/P/C menu
-- If no: Keep original content, then return to A/P/C menu
-
-#### If 'P' (Party Mode):
-
-- Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md with project structure context
-- Process collaborative insights about organization trade-offs
-- Ask user: "Accept these changes to the project structure? (y/n)"
-- If yes: Update content, then return to A/P/C menu
-- If no: Keep original content, then return to A/P/C menu
-
-#### If 'C' (Continue):
-
-- Append the final content to `{planning_artifacts}/architecture.md`
-- Update frontmatter: `stepsCompleted: [1, 2, 3, 4, 5, 6]`
-- Load `./step-07-validation.md`
+Show generated structure content, present A/P/C menu, handle selection (A: Advanced Elicitation; P: Party Mode; C: Save to document, update frontmatter `stepsCompleted: [1, 2, 3, 4, 5, 6]`, load `./step-07-validation.md`).
 
 ## APPEND TO DOCUMENT:
 
-When user selects 'C', append the content directly to the document using the structure from step 6.
+When user selects 'C', append content using structure from `../data/project-structure-document-template.md`.
 
 ## SUCCESS METRICS:
 
-✅ Complete project tree defined with all files and directories
-✅ All architectural boundaries clearly documented
+✅ Complete project tree with all files/directories using framework template
+✅ Architectural boundaries clearly documented
 ✅ Requirements/epics mapped to specific locations
 ✅ Integration points and communication patterns defined
-✅ Project structure aligned with chosen technology stack
+✅ Structure aligned with technology stack
 ✅ A/P/C menu presented and handled correctly
-✅ Content properly appended to document when C selected
 
 ## FAILURE MODES:
 
-❌ Creating generic placeholder structure instead of specific, complete tree
-❌ Not mapping requirements to specific files and directories
-❌ Missing important integration boundaries
-❌ Not considering the chosen technology stack in structure design
-❌ Not defining how components communicate across boundaries
-❌ Not presenting A/P/C menu after content generation
-
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
-❌ **CRITICAL**: Making decisions without complete understanding of step requirements and protocols
+❌ Generic placeholders instead of real file names
+❌ Missing cross-module communication patterns
+❌ Incomplete requirements mapping
+❌ Not using data file framework for structure
+❌ Reading only partial step file
 
 ## NEXT STEP:
 
-After user selects 'C' and content is saved to document, load `./step-07-validation.md` to validate architectural coherence and completeness.
-
-Remember: Do NOT proceed to step-07 until user explicitly selects 'C' from the A/P/C menu and content is saved!
+After 'C' selected and content saved, load `./step-07-validation.md` for architecture validation. Do NOT proceed until user explicitly selects 'C'.
