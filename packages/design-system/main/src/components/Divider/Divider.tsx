@@ -8,6 +8,7 @@
  * - Horizontal and vertical orientation
  * - Five emphasis levels (subtle, default, moderate, strong, bold)
  * - Three spacing variants (compact, default, comfortable)
+ * - Three length options (full, medium, short)
  * - Two line styles (solid, dashed)
  * - Token-based design (component layer tokens)
  * - WCAG 2.1 AA compliant
@@ -27,8 +28,11 @@
  * // Bold divider with dashed style
  * <Divider emphasis="bold" lineStyle="dashed" />
  *
- * // Strong divider with comfortable spacing
- * <Divider emphasis="strong" spacing="comfortable" />
+ * // Medium length divider
+ * <Divider length="medium" />
+ *
+ * // Short decorative divider
+ * <Divider length="short" emphasis="strong" />
  * ```
  */
 
@@ -60,6 +64,11 @@ type SpacingValue = 'compact' | 'default' | 'comfortable';
  * Divider line style
  */
 type LineStyleValue = 'solid' | 'dashed';
+
+/**
+ * Divider length (width for horizontal, height for vertical)
+ */
+type LengthValue = 'full' | 'medium' | 'short';
 
 /**
  * Valid HTML elements for polymorphic rendering
@@ -102,6 +111,15 @@ export interface DividerProps<T extends ElementType = 'hr'> {
   lineStyle?: LineStyleValue;
 
   /**
+   * Divider length (controls width for horizontal, height for vertical)
+   * - full: 100% - spans entire container (default)
+   * - medium: 66% - partial separator
+   * - short: 33% - subtle accent
+   * @default 'full'
+   */
+  length?: LengthValue;
+
+  /**
    * Additional CSS classes
    */
   className?: string;
@@ -136,6 +154,7 @@ export const Divider = forwardRef(
       emphasis = 'default',
       spacing = 'default',
       lineStyle = 'solid',
+      length = 'full',
       className,
       as,
       ...props
@@ -152,6 +171,7 @@ export const Divider = forwardRef(
       styles[`emphasis-${emphasis}`],
       styles[`spacing-${spacing}`],
       styles[`line-style-${lineStyle}`],
+      styles[`length-${length}`],
       className
     );
 
@@ -173,4 +193,4 @@ Divider.displayName = 'Divider';
 // TYPE EXPORTS
 // ============================================
 
-export type { OrientationValue, EmphasisValue, SpacingValue, LineStyleValue };
+export type { OrientationValue, EmphasisValue, SpacingValue, LineStyleValue, LengthValue };

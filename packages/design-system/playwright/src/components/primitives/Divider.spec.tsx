@@ -137,6 +137,31 @@ test.describe('Divider Component', () => {
   });
 
   // ==========================================
+  // LENGTH VARIANTS
+  // ==========================================
+
+  test.describe('Length', () => {
+    test('renders with default full length', async ({ mount }) => {
+      const component = await mount(<Divider />);
+      await expect(component).toHaveClass(/length-full/);
+    });
+
+    test('renders all length variants', async ({ mount }) => {
+      const component = await mount(
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <Divider length="full" data-testid="full" />
+          <Divider length="medium" data-testid="medium" />
+          <Divider length="short" data-testid="short" />
+        </div>
+      );
+
+      await expect(component.getByTestId('full')).toHaveClass(/length-full/);
+      await expect(component.getByTestId('medium')).toHaveClass(/length-medium/);
+      await expect(component.getByTestId('short')).toHaveClass(/length-short/);
+    });
+  });
+
+  // ==========================================
   // POLYMORPHIC RENDERING
   // ==========================================
 
@@ -324,6 +349,40 @@ test.describe('Divider Component', () => {
         </div>
       );
       await expect(component).toHaveScreenshot('divider-spacing.png');
+    });
+
+    test('length variants visual snapshot', async ({ mount }) => {
+      const component = await mount(
+        <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+          <div>
+            <h3>Horizontal Dividers - Length Variants</h3>
+            <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>Full (100%)</p>
+            <Divider length="full" emphasis="strong" />
+
+            <p style={{ fontSize: '12px', color: '#666', margin: '16px 0 8px' }}>Medium (66%) - Centered</p>
+            <Divider length="medium" emphasis="strong" />
+
+            <p style={{ fontSize: '12px', color: '#666', margin: '16px 0 8px' }}>Short (33%) - Centered</p>
+            <Divider length="short" emphasis="strong" />
+          </div>
+
+          <div style={{ display: 'flex', gap: '48px' }}>
+            <div style={{ height: '200px' }}>
+              <h4 style={{ fontSize: '12px', marginBottom: '8px' }}>Vertical - Full</h4>
+              <Divider orientation="vertical" length="full" emphasis="strong" />
+            </div>
+            <div style={{ height: '200px' }}>
+              <h4 style={{ fontSize: '12px', marginBottom: '8px' }}>Vertical - Medium</h4>
+              <Divider orientation="vertical" length="medium" emphasis="strong" />
+            </div>
+            <div style={{ height: '200px' }}>
+              <h4 style={{ fontSize: '12px', marginBottom: '8px' }}>Vertical - Short</h4>
+              <Divider orientation="vertical" length="short" emphasis="strong" />
+            </div>
+          </div>
+        </div>
+      );
+      await expect(component).toHaveScreenshot('divider-length.png');
     });
   });
 });

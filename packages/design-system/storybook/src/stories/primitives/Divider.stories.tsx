@@ -16,6 +16,7 @@ import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
  * - ✅ Two orientations: horizontal, vertical
  * - ✅ Five emphasis levels: subtle, default, moderate, strong, bold
  * - ✅ Three spacing variants: compact, default, comfortable
+ * - ✅ Three length options: full, medium, short
  * - ✅ Two line styles: solid, dashed
  * - ✅ Polymorphic rendering (hr, div)
  * - ✅ WCAG 2.1 AA compliant contrast ratios
@@ -66,6 +67,16 @@ const meta = {
         category: 'Style',
         type: { summary: 'LineStyleValue' },
         defaultValue: { summary: 'solid' },
+      },
+    },
+    length: {
+      control: 'select',
+      options: ['full', 'medium', 'short'],
+      description: 'Divider length (width for horizontal, height for vertical)',
+      table: {
+        category: 'Size',
+        type: { summary: 'LengthValue' },
+        defaultValue: { summary: 'full' },
       },
     },
     as: {
@@ -592,6 +603,171 @@ export const PropLineStyle: Story = {
 };
 
 // ============================================
+// PROP: LENGTH
+// ============================================
+
+export const PropLength: Story = {
+  name: 'Prop: length',
+  render: () => {
+    const [selectedLength, setSelectedLength] = React.useState<string>('full');
+
+    const lengths = [
+      { value: 'full', label: 'full (default)', percentage: '100%', description: 'Spans entire container' },
+      { value: 'medium', label: 'medium', percentage: '66%', description: 'Partial separator (centered)' },
+      { value: 'short', label: 'short', percentage: '33%', description: 'Subtle accent (centered)' },
+    ] as const;
+
+    const generateCode = (length: string): string => {
+      return `<Divider length="${length}" />`;
+    };
+
+    return (
+      <StoryContainer>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '20px',
+            }}
+          >
+            {lengths.map((lengthItem, index) => {
+              const colors = getColorByIndex(index);
+
+              return (
+                <PropCard
+                  key={lengthItem.value}
+                  label={`length="${lengthItem.label}"`}
+                  highlight={selectedLength === lengthItem.value}
+                  onInteraction={() => setSelectedLength(lengthItem.value)}
+                  interactionType="click"
+                >
+                  <div
+                    style={{
+                      backgroundColor: colors.light,
+                      padding: '24px',
+                      borderRadius: '8px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '12px',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <div style={{ width: '100%', maxWidth: '200px' }}>
+                      <Divider length={lengthItem.value} emphasis="strong" />
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '11px',
+                        color: STORY_COLORS.neutral.textSlate,
+                        textAlign: 'center',
+                      }}
+                    >
+                      {lengthItem.percentage} • {lengthItem.description}
+                    </div>
+                  </div>
+                </PropCard>
+              );
+            })}
+          </div>
+
+          {/* Comparison of all lengths */}
+          <div>
+            <h3
+              style={{
+                fontSize: '14px',
+                fontWeight: 600,
+                color: STORY_COLORS.neutral.text,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginBottom: '16px',
+              }}
+            >
+              Horizontal Dividers - All Lengths
+            </h3>
+            <div
+              style={{
+                backgroundColor: STORY_COLORS.primary.blue.light,
+                padding: '24px',
+                borderRadius: '8px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '20px',
+              }}
+            >
+              {lengths.map((length) => (
+                <div key={length.value}>
+                  <div
+                    style={{
+                      fontSize: '12px',
+                      color: STORY_COLORS.neutral.textSlate,
+                      marginBottom: '8px',
+                      fontFamily: 'monospace',
+                    }}
+                  >
+                    length="{length.value}" ({length.percentage})
+                  </div>
+                  <Divider length={length.value} emphasis="strong" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Vertical dividers example */}
+          <div>
+            <h3
+              style={{
+                fontSize: '14px',
+                fontWeight: 600,
+                color: STORY_COLORS.neutral.text,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginBottom: '16px',
+              }}
+            >
+              Vertical Dividers - All Lengths
+            </h3>
+            <div
+              style={{
+                backgroundColor: STORY_COLORS.primary.violet.light,
+                padding: '24px',
+                borderRadius: '8px',
+                display: 'flex',
+                gap: '48px',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              {lengths.map((length) => (
+                <div
+                  key={length.value}
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}
+                >
+                  <div
+                    style={{
+                      fontSize: '11px',
+                      color: STORY_COLORS.neutral.text,
+                      fontFamily: 'monospace',
+                    }}
+                  >
+                    {length.value}
+                  </div>
+                  <div style={{ height: '150px', display: 'flex', alignItems: 'center' }}>
+                    <Divider orientation="vertical" length={length.value} emphasis="strong" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <CodeBlock code={generateCode(selectedLength)} language="jsx" title="JSX" />
+        </div>
+      </StoryContainer>
+    );
+  },
+};
+
+// ============================================
 // PROP: AS (Polymorphic)
 // ============================================
 
@@ -1048,6 +1224,7 @@ export const Playground: Story = {
     emphasis: 'default',
     spacing: 'default',
     lineStyle: 'solid',
+    length: 'full',
     as: 'hr',
   },
   render: (args) => {
