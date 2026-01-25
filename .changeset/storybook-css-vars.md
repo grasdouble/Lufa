@@ -1,5 +1,9 @@
 ---
 "@grasdouble/lufa_design-system-storybook": patch
+"@grasdouble/lufa_design-system": patch
+"@grasdouble/lufa_design-system-playwright": patch
+"@grasdouble/lufa_design-system-primitives": patch
+"@grasdouble/lufa_design-system-tokens": patch
 ---
 
 Replace TypeScript token imports with CSS custom properties in component stories
