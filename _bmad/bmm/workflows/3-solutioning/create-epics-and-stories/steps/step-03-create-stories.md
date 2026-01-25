@@ -17,6 +17,9 @@ partyModeWorkflow: '{project-root}/_bmad/core/workflows/party-mode/workflow.md'
 
 # Template References
 epicsTemplate: '{workflow_path}/templates/epics-template.md'
+
+# Data References
+storyCreationGuidelines: '{workflow_path}/data/story-creation-guidelines.md'
 ---
 
 # Step 3: Generate Epics and Stories
@@ -71,68 +74,24 @@ Load {outputFile} and review:
 
 ### 2. Explain Story Creation Approach
 
-**STORY CREATION GUIDELINES:**
+**Load Story Creation Guidelines:**
 
-For each epic, create stories that:
+Read the comprehensive story creation guidelines from `{storyCreationGuidelines}`. This document provides:
 
-- Follow the exact template structure
-- Are sized for single dev agent completion
-- Have clear user value
-- Include specific acceptance criteria
-- Reference requirements being fulfilled
+- **Story Creation Principles:** Database/entity creation, story dependencies, story sizing
+- **Story Format Template:** Complete As a/I want/So that structure with Given/When/Then acceptance criteria
+- **Good Story Examples:** Epic 1 (User Authentication), Epic 2 (Content Creation)
+- **Bad Story Examples:** What to avoid (no user value, too large, future dependencies)
+- **Acceptance Criteria Guidelines:** Format rules, coverage checklist, comprehensive examples
 
-**🚨 DATABASE/ENTITY CREATION PRINCIPLE:**
-Create tables/entities ONLY when needed by the story:
+**Key Principles to Follow:**
 
-- ❌ WRONG: Epic 1 Story 1 creates all 50 database tables
-- ✅ RIGHT: Each story creates/alters ONLY the tables it needs
+1. **Database/Entity Creation:** Create tables/entities ONLY when needed by the story
+2. **Story Dependencies:** Stories must be independently completable in sequence (no future dependencies)
+3. **Story Sizing:** Each story completable by a single dev agent in one session
+4. **User Value:** Every story provides clear user value
 
-**🔗 STORY DEPENDENCY PRINCIPLE:**
-Stories must be independently completable in sequence:
-
-- ❌ WRONG: Story 1.2 requires Story 1.3 to be completed first
-- ✅ RIGHT: Each story can be completed based only on previous stories
-- ❌ WRONG: "Wait for Story 1.4 to be implemented before this works"
-- ✅ RIGHT: "This story works independently and enables future stories"
-
-**STORY FORMAT (from template):**
-
-```
-### Story {N}.{M}: {story_title}
-
-As a {user_type},
-I want {capability},
-So that {value_benefit}.
-
-**Acceptance Criteria:**
-
-**Given** {precondition}
-**When** {action}
-**Then** {expected_outcome}
-**And** {additional_criteria}
-```
-
-**✅ GOOD STORY EXAMPLES:**
-
-_Epic 1: User Authentication_
-
-- Story 1.1: User Registration with Email
-- Story 1.2: User Login with Password
-- Story 1.3: Password Reset via Email
-
-_Epic 2: Content Creation_
-
-- Story 2.1: Create New Blog Post
-- Story 2.2: Edit Existing Blog Post
-- Story 2.3: Publish Blog Post
-
-**❌ BAD STORY EXAMPLES:**
-
-- Story: "Set up database" (no user value)
-- Story: "Create all models" (too large, no user value)
-- Story: "Build authentication system" (too large)
-- Story: "Login UI (depends on Story 1.3 API endpoint)" (future dependency!)
-- Story: "Edit post (requires Story 1.4 to be implemented first)" (wrong order!)
+Explain to the user the story creation approach based on these guidelines.
 
 ### 3. Process Epics Sequentially
 
@@ -160,15 +119,15 @@ Work with user to break down the epic into stories:
 For each story in the epic:
 
 1. **Story Title**: Clear, action-oriented
-2. **User Story**: Complete the As a/I want/So that format
-3. **Acceptance Criteria**: Write specific, testable criteria
+2. **User Story**: Complete the As a/I want/So that format (see `{storyCreationGuidelines}`)
+3. **Acceptance Criteria**: Write specific, testable criteria using Given/When/Then format
 
-**AC Writing Guidelines:**
+**Reference the Story Creation Guidelines** (`{storyCreationGuidelines}`) for:
 
-- Use Given/When/Then format
-- Each AC should be independently testable
-- Include edge cases and error conditions
-- Reference specific requirements when applicable
+- Complete story format template
+- AC writing guidelines (Given/When/Then format)
+- Good and bad examples
+- Coverage checklist (happy path, edge cases, error handling)
 
 #### D. Collaborative Review
 
