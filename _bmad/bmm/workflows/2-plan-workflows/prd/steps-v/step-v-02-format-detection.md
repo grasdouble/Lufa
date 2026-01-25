@@ -58,19 +58,35 @@ Detect if PRD follows BMAD format and route appropriately - classify as BMAD Sta
 
 **CRITICAL:** Follow this sequence exactly. Do not skip, reorder, or improvise unless user explicitly requests a change.
 
-### 1. Extract PRD Structure
+### 1. Extract PRD Structure (Pattern 1 Optimization - Grep)
 
-Load the complete PRD file and extract:
+**Attempt subprocess for header extraction:**
 
-**All Level 2 (##) headers:**
-- Scan through entire PRD document
-- Extract all ## section headers
-- List them in order
+"Extract Level 2 headers from PRD using grep (Pattern 1 optimization):
 
-**PRD frontmatter:**
-- Extract classification.domain if present
-- Extract classification.projectType if present
-- Note any other relevant metadata
+Run grep command to extract all ## headers:
+```
+grep -n "^## " {prdFile}
+```
+
+This will return all Level 2 headers with line numbers.
+
+**Return ONLY:**
+- List of headers with line numbers
+- Total header count
+- Format: [{line_num}: {header_text}]
+
+**Context-Saving Benefit:** Returns only headers (~10-30 lines) instead of loading full PRD (~180+ lines). Saves ~150-170 lines of parent context.
+
+Do NOT return full PRD content - only the ## headers."
+
+**Graceful degradation (if no Task tool):**
+Load {prdFile} and manually extract all ## Level 2 headers.
+
+**Also extract from frontmatter (if accessible):**
+- classification.domain
+- classification.projectType
+- Any other relevant metadata
 
 ### 2. Check for BMAD PRD Core Sections
 
@@ -179,6 +195,7 @@ Present MENU OPTIONS below for user selection
 - BMAD Standard/Variant PRDs proceed directly to next validation step
 - Non-Standard PRDs pause and present options to user
 - User can choose parity check, validate as-is, or exit
+- **Pattern 1 optimization**: Used grep to return only headers (~10-30 lines) instead of full PRD (~180+ lines)
 
 ### ❌ SYSTEM FAILURE:
 
