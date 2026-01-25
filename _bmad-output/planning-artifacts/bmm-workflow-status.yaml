@@ -26,7 +26,7 @@ user_description: 'Lufa Design System v2.0 refactoring - 438 tokens architecture
 brainstorm_requested: 'skipped'
 research_requested: 'none'
 document_project_requested: 'yes'
-brainstorm_file_existing: 'packages/design-system/docs/brainstorming/brainstorming-session-2026-01-22.md'
+brainstorm_file_existing: 'packages/design-system/_docs/brainstorming/brainstorming-session-2026-01-22.md'
 
 # Workflow execution path based on method-brownfield.yaml
 workflow_items:
@@ -54,7 +54,7 @@ workflow_items:
     workflows:
       - id: 'brainstorm-project'
         name: 'Brainstorm Project'
-        status: 'packages/design-system/docs/brainstorming/brainstorming-session-2026-01-22.md'
+        status: 'packages/design-system/_docs/brainstorming/brainstorming-session-2026-01-22.md'
         agent: 'analyst'
         command: '/bmad:bmm:workflows:brainstorming'
         workflow_file: '_bmad/core/workflows/brainstorming/workflow.md'
