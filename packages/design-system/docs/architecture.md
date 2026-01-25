@@ -1,8 +1,8 @@
 # Lufa Design System - Architecture Documentation
 
 **Generated:** 2026-01-24  
-**Version:** 0.6.0  
-**Status:** 71% Complete (5/7 components)  
+**Version:** 0.7.0  
+**Status:** 100% Complete (7/7 components)  
 **Workflow:** BMM Document Project - Deep Scan  
 **Agent:** Mary (Business Analyst)
 
@@ -10,16 +10,16 @@
 
 ## Executive Summary
 
-The Lufa Design System is a **token-based React component library** implementing a three-layer architecture (primitives → components → compositions) with a four-level token system. Currently at v0.6.0, the system provides 5 foundational components (Box, Stack, Text, Icon, Button) built on 438 semantic design tokens, tested across 5 browsers with 500+ test cases, and documented in 46+ interactive Storybook stories.
+The Lufa Design System is a **token-based React component library** implementing a three-layer architecture (primitives → components → compositions) with a four-level token system. Currently at v0.7.0, the system provides 7 production-ready components (Box, Stack, Text, Icon, Button, Badge, Divider) built on 438 semantic design tokens, tested across 5 browsers with 600+ test cases, and documented in 54+ interactive Storybook stories.
 
 ### Key Metrics
 
 | Metric              | Value           | Status                      |
 | ------------------- | --------------- | --------------------------- |
-| **Components**      | 5/7 (71%)       | 🟡 In Progress              |
+| **Components**      | 7/7 (100%)      | ✅ Complete                 |
 | **Tokens**          | 438 (100%)      | ✅ Complete                 |
-| **Test Coverage**   | 500+ tests      | ✅ Complete                 |
-| **Documentation**   | 46+ stories     | ✅ Complete                 |
+| **Test Coverage**   | 600+ tests      | ✅ Complete                 |
+| **Documentation**   | 54+ stories     | ✅ Complete                 |
 | **Browser Support** | 5 browsers      | ✅ Chromium (dev), 5 (prod) |
 | **Performance**     | 8ms CSS cascade | ✅ < 16ms target            |
 
@@ -574,8 +574,10 @@ Layer 3: Compositions (Future)
 ├── Modal (Box + Stack + Button)
 └── Form (Stack + Text + Input + Button)
 
-Layer 2: Components (1 complete)
-└── Button ✅ (Box + Icon + Text + interactions)
+Layer 2: Components (3 complete)
+├── Button ✅  (Box + Icon + Text + interactions)
+├── Badge ✅   (Status and label indicators with dot support)
+└── Divider ✅ (Visual separators with emphasis levels)
 
 Layer 1: Primitives (4 complete)
 ├── Box ✅       (Layout foundation: margin, padding, display)
@@ -586,17 +588,17 @@ Layer 1: Primitives (4 complete)
 
 **Component Status:**
 
-| Component | Layer     | Status         | Completion |
-| --------- | --------- | -------------- | ---------- |
-| Box       | Primitive | ✅ Complete    | 100%       |
-| Stack     | Primitive | ✅ Complete    | 100%       |
-| Text      | Primitive | ✅ Complete    | 100%       |
-| Icon      | Primitive | ✅ Complete    | 100%       |
-| Button    | Component | ✅ Complete    | 100%       |
-| Badge     | Component | 🔄 In Progress | 30%        |
-| Divider   | Primitive | 📋 Planned     | 0%         |
+| Component | Layer     | Status      | Completion |
+| --------- | --------- | ----------- | ---------- |
+| Box       | Primitive | ✅ Complete | 100%       |
+| Stack     | Primitive | ✅ Complete | 100%       |
+| Text      | Primitive | ✅ Complete | 100%       |
+| Icon      | Primitive | ✅ Complete | 100%       |
+| Button    | Component | ✅ Complete | 100%       |
+| Badge     | Component | ✅ Complete | 100%       |
+| Divider   | Primitive | ✅ Complete | 100%       |
 
-**Total Progress:** 5/7 components (71%)
+**Total Progress:** 7/7 components (100%)
 
 ### Primitive Components
 
@@ -1067,13 +1069,15 @@ test.describe('ComponentName', () => {
 
 | Component | Test Cases | Coverage                                                   |
 | --------- | ---------- | ---------------------------------------------------------- |
-| Box       | 50+        | Rendering, spacing, alignment, a11y, visual (2 modes)      |
-| Stack     | 40+        | Direction, gap, alignment, wrapping, visual (2 modes)      |
-| Text      | 45+        | Size, weight, color, alignment, semantic HTML, visual      |
-| Icon      | 35+        | Size, color, lucide integration, visual                    |
-| Button    | 60+        | Variants, sizes, states, icons, interactions, a11y, visual |
+| Box       | 120+       | Rendering, spacing, alignment, a11y, visual (2 modes)      |
+| Stack     | 86+        | Direction, gap, alignment, wrapping, visual (2 modes)      |
+| Text      | 107+       | Size, weight, color, alignment, semantic HTML, visual      |
+| Icon      | 106+       | Size, color, lucide integration, visual                    |
+| Button    | 61+        | Variants, sizes, states, icons, interactions, a11y, visual |
+| Badge     | 80+        | Variants, sizes, dot indicator, a11y, visual (2 modes)     |
+| Divider   | 50+        | Orientation, emphasis, spacing, line styles, a11y, visual  |
 
-**Total:** 500+ test cases
+**Total:** 610+ test cases
 
 ### Visual Regression Strategy
 

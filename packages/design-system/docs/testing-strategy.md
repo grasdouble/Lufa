@@ -10,7 +10,7 @@
 
 The Lufa Design System v2.0 uses **Playwright Component Testing** for comprehensive behavioral testing of all React components. The test suite covers 5 production-ready components with 100% coverage across functionality, variants, accessibility, and visual regression.
 
-**Status**: ✅ 5/5 components fully tested (100% complete)
+**Status**: ✅ 7/7 components fully tested (100% complete)
 
 **Test Coverage**:
 
@@ -19,8 +19,10 @@ The Lufa Design System v2.0 uses **Playwright Component Testing** for comprehens
 - ✅ Text - 978 lines of tests
 - ✅ Icon - ~600 lines of tests (estimated)
 - ✅ Stack - ~500 lines of tests (estimated)
+- ✅ Badge - 559 lines of tests
+- ✅ Divider - 329 lines of tests
 
-**Total**: ~4,200 lines of test code
+**Total**: ~5,060 lines of test code
 
 ---
 
