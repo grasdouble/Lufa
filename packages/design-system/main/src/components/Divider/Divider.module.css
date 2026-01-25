@@ -19,7 +19,6 @@
   margin: 0;
   --divider-color: var(--lufa-component-divider-emphasis-default-color);
   --divider-thickness: var(--lufa-component-divider-emphasis-default-thickness);
-  --divider-length: 100%;
 }
 
 /* ========================================== */
@@ -27,14 +26,14 @@
 /* ========================================== */
 
 .orientation-horizontal {
-  width: var(--divider-length);
+  width: 100%;
   height: var(--divider-thickness);
   display: block;
 }
 
 .orientation-vertical {
   width: var(--divider-thickness);
-  height: var(--divider-length);
+  height: 100%;
   display: inline-block;
 }
 
@@ -105,22 +104,6 @@
 }
 
 /* ========================================== */
-/* LENGTH */
-/* ========================================== */
-
-.length-full {
-  --divider-length: var(--lufa-component-divider-length-full);
-}
-
-.length-medium {
-  --divider-length: var(--lufa-component-divider-length-medium);
-}
-
-.length-short {
-  --divider-length: var(--lufa-component-divider-length-short);
-}
-
-/* ========================================== */
 /* CUSTOM CLASSES */
 /* ========================================== */
 
@@ -130,20 +113,4 @@
 
 .orientation-vertical.line-style-dashed {
   background-image: repeating-linear-gradient(to bottom, var(--divider-color) 0, var(--divider-color) 8px, transparent 8px, transparent 12px);
-}
-
-.orientation-horizontal.length-medium {
-  margin-inline: auto;
-}
-
-.orientation-horizontal.length-short {
-  margin-inline: auto;
-}
-
-.orientation-vertical.length-medium {
-  margin-block: auto;
-}
-
-.orientation-vertical.length-short {
-  margin-block: auto;
 }

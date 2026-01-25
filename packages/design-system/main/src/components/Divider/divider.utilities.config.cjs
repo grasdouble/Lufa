@@ -17,7 +17,6 @@ module.exports = {
     margin: '0',
     '--divider-color': 'var(--lufa-component-divider-emphasis-default-color)',
     '--divider-thickness': 'var(--lufa-component-divider-emphasis-default-thickness)',
-    '--divider-length': '100%',
   },
 
   utilities: {
@@ -27,8 +26,8 @@ module.exports = {
     orientation: {
       property: ['width', 'height', 'display'],
       values: {
-        horizontal: ['var(--divider-length)', 'var(--divider-thickness)', 'block'],
-        vertical: ['var(--divider-thickness)', 'var(--divider-length)', 'inline-block'],
+        horizontal: ['100%', 'var(--divider-thickness)', 'block'],
+        vertical: ['var(--divider-thickness)', '100%', 'inline-block'],
       },
     },
 
@@ -98,18 +97,6 @@ module.exports = {
         dashed: 'transparent',
       },
     },
-
-    // ==========================================
-    // LENGTH - Control divider length (base)
-    // ==========================================
-    length: {
-      property: '--divider-length',
-      values: {
-        full: 'var(--lufa-component-divider-length-full)',
-        medium: 'var(--lufa-component-divider-length-medium)',
-        short: 'var(--lufa-component-divider-length-short)',
-      },
-    },
   },
 
   // Custom classes that don't fit the utility pattern
@@ -123,22 +110,6 @@ module.exports = {
     'orientation-vertical.line-style-dashed': {
       'background-image':
         'repeating-linear-gradient(to bottom, var(--divider-color) 0, var(--divider-color) 8px, transparent 8px, transparent 12px)',
-    },
-
-    // Horizontal dividers with length - centered with margin-inline
-    'orientation-horizontal.length-medium': {
-      'margin-inline': 'auto',
-    },
-    'orientation-horizontal.length-short': {
-      'margin-inline': 'auto',
-    },
-
-    // Vertical dividers with length - centered with margin-block
-    'orientation-vertical.length-medium': {
-      'margin-block': 'auto',
-    },
-    'orientation-vertical.length-short': {
-      'margin-block': 'auto',
     },
   },
 };
