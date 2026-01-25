@@ -10,7 +10,7 @@ Phase 5A component documentation - coming soon.
 
 ### Primitives (Layout)
 
-- **[Box](./Box.md)** - Universal layout primitive _(to be documented)_
+- **[Box](./primitives/box)** - Universal layout primitive
 - **Text** - Typography component _(to be implemented)_
 - **Stack** - Vertical/horizontal layout _(to be implemented)_
 

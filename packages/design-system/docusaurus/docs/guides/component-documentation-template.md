@@ -375,7 +375,7 @@ import TabItem from '@theme/TabItem';
 
 ## Example: Complete Documentation
 
-See [Button component documentation](../components/forms/button.mdx) for a complete example following this template.
+See [Button component documentation](../components/primitives/Button.mdx) for a complete example following this template.
 
 ## Checklist for New Component Docs
 
@@ -407,7 +407,7 @@ Use this checklist when creating component documentation:
 
 ## Resources
 
-- [Button Component](../components/forms/button.mdx) - Example of well-documented component
+- [Button Component](../components/primitives/Button.mdx) - Example of well-documented component
 - [MDX Documentation](https://mdxjs.com/) - MDX syntax reference
 - [Docusaurus Docs](https://docusaurus.io/docs/markdown-features) - Markdown features
 - [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/) - Accessibility standards
