@@ -9,17 +9,18 @@
 
 ## 📋 Quick Navigation
 
-| Document                                                            | Purpose                                  | Audience                 | Est. Reading Time |
-| ------------------------------------------------------------------- | ---------------------------------------- | ------------------------ | ----------------- |
-| **[Project Overview](./overview.md)**                       | High-level introduction, getting started | Everyone                 | 15 min            |
-| **[Architecture](./architecture.md)**                 | System design, decisions, principles     | Architects, Developers   | 45 min            |
-| **[Development Guide](./development-guide.md)**       | Setup, workflows, troubleshooting        | Developers, Contributors | 30 min            |
-| **[Token Architecture](./token-architecture.md)**                   | 4-level token system details             | Designers, Developers    | 20 min            |
-| **[Build Configuration](./build-configuration.md)**                 | Vite, Style Dictionary, Playwright       | DevOps, Build Engineers  | 25 min            |
-| **[Source Tree Analysis](./source-tree.md)**               | Directory structure, entry points        | Developers, Onboarding   | 20 min            |
-| **[Component Inventory](./component-inventory.md)**              | Component catalog with props             | Developers, Designers    | 15 min            |
-| **[Testing Strategy](./testing-strategy.md)**              | Playwright CT, 5-part structure          | QA, Developers           | 15 min            |
-| **[Documentation Patterns](./storybook-patterns.md)** | Storybook CSF3 patterns                  | Docs Writers, Developers | 30 min            |
+| Document                                                 | Purpose                                  | Audience                 | Est. Reading Time |
+| -------------------------------------------------------- | ---------------------------------------- | ------------------------ | ----------------- |
+| **[Project Overview](./overview.md)**                    | High-level introduction, getting started | Everyone                 | 15 min            |
+| **[Development Policies](./development-policies.md)** ⭐ | Policies for current refactoring phase   | Developers, AI Agents    | 10 min            |
+| **[Architecture](./architecture.md)**                    | System design, decisions, principles     | Architects, Developers   | 45 min            |
+| **[Development Guide](./development-guide.md)**          | Setup, workflows, troubleshooting        | Developers, Contributors | 30 min            |
+| **[Token Architecture](./token-architecture.md)**        | 4-level token system details             | Designers, Developers    | 20 min            |
+| **[Build Configuration](./build-configuration.md)**      | Vite, Style Dictionary, Playwright       | DevOps, Build Engineers  | 25 min            |
+| **[Source Tree Analysis](./source-tree.md)**             | Directory structure, entry points        | Developers, Onboarding   | 20 min            |
+| **[Component Inventory](./component-inventory.md)**      | Component catalog with props             | Developers, Designers    | 15 min            |
+| **[Testing Strategy](./testing-strategy.md)**            | Playwright CT, 5-part structure          | QA, Developers           | 15 min            |
+| **[Documentation Patterns](./storybook-patterns.md)**    | Storybook CSF3 patterns                  | Docs Writers, Developers | 30 min            |
 
 ---
 
@@ -30,20 +31,22 @@
 **Read these in order:**
 
 1. **[Project Overview](./overview.md)** - Understand what Lufa DS is and why it exists
-2. **[Development Guide](./development-guide.md)** - Set up your environment and run your first build
-3. **[Component Inventory](./component-inventory.md)** - Explore available components
+2. **[Development Policies](./development-policies.md)** ⭐ - Current phase policies (AI agents should read this!)
+3. **[Development Guide](./development-guide.md)** - Set up your environment and run your first build
+4. **[Component Inventory](./component-inventory.md)** - Explore available components
 
-**Estimated time:** 1 hour
+**Estimated time:** 1 hour 10 min
 
 ### Onboarding as a Developer?
 
 **Follow this learning path:**
 
 1. **[Project Overview](./overview.md)** - Get context (15 min)
-2. **[Development Guide](./development-guide.md)** - Setup & workflows (30 min)
-3. **[Source Tree Analysis](./source-tree.md)** - Understand folder structure (20 min)
-4. **[Token Architecture](./token-architecture.md)** - Learn token system (20 min)
-5. **[Architecture](./architecture.md)** - Deep dive (45 min)
+2. **[Development Policies](./development-policies.md)** ⭐ - Current phase rules (10 min)
+3. **[Development Guide](./development-guide.md)** - Setup & workflows (30 min)
+4. **[Source Tree Analysis](./source-tree.md)** - Understand folder structure (20 min)
+5. **[Token Architecture](./token-architecture.md)** - Learn token system (20 min)
+6. **[Architecture](./architecture.md)** - Deep dive (45 min)
 
 **Total:** ~2.5 hours
 
