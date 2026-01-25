@@ -17,7 +17,8 @@
 .divider {
   border: 0;
   margin: 0;
-  --divider-color: var(--lufa-component-divider-color-default);
+  --divider-color: var(--lufa-component-divider-emphasis-default-color);
+  --divider-thickness: var(--lufa-component-divider-emphasis-default-thickness);
 }
 
 /* ========================================== */
@@ -26,46 +27,43 @@
 
 .orientation-horizontal {
   width: 100%;
-  height: var(--divider-thickness, var(--lufa-component-divider-thickness-thin));
+  height: var(--divider-thickness);
   display: block;
 }
 
 .orientation-vertical {
-  width: var(--divider-thickness, var(--lufa-component-divider-thickness-thin));
+  width: var(--divider-thickness);
   height: 100%;
   display: inline-block;
 }
 
 /* ========================================== */
-/* VARIANT */
+/* EMPHASIS */
 /* ========================================== */
 
-.variant-default {
-  --divider-color: var(--lufa-component-divider-color-default);
+.emphasis-subtle {
+  --divider-color: var(--lufa-component-divider-emphasis-subtle-color);
+  --divider-thickness: var(--lufa-component-divider-emphasis-subtle-thickness);
 }
 
-.variant-subtle {
-  --divider-color: var(--lufa-component-divider-color-subtle);
+.emphasis-default {
+  --divider-color: var(--lufa-component-divider-emphasis-default-color);
+  --divider-thickness: var(--lufa-component-divider-emphasis-default-thickness);
 }
 
-.variant-strong {
-  --divider-color: var(--lufa-component-divider-color-strong);
+.emphasis-moderate {
+  --divider-color: var(--lufa-component-divider-emphasis-moderate-color);
+  --divider-thickness: var(--lufa-component-divider-emphasis-moderate-thickness);
 }
 
-/* ========================================== */
-/* THICKNESS */
-/* ========================================== */
-
-.thickness-thin {
-  --divider-thickness: var(--lufa-component-divider-thickness-thin);
+.emphasis-strong {
+  --divider-color: var(--lufa-component-divider-emphasis-strong-color);
+  --divider-thickness: var(--lufa-component-divider-emphasis-strong-thickness);
 }
 
-.thickness-medium {
-  --divider-thickness: var(--lufa-component-divider-thickness-medium);
-}
-
-.thickness-thick {
-  --divider-thickness: var(--lufa-component-divider-thickness-thick);
+.emphasis-bold {
+  --divider-color: var(--lufa-component-divider-emphasis-bold-color);
+  --divider-thickness: var(--lufa-component-divider-emphasis-bold-thickness);
 }
 
 /* ========================================== */

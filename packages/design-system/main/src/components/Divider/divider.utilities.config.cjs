@@ -2,7 +2,7 @@
  * CSS Utilities Configuration for Divider Component
  *
  * This configuration defines the utility classes for the Divider component.
- * Classes are generated based on orientation, variant, thickness, spacing, and lineStyle combinations.
+ * Classes are generated based on orientation, emphasis, spacing, and lineStyle combinations.
  *
  * Generated CSS will be in Divider.module.css
  */
@@ -15,7 +15,8 @@ module.exports = {
   base: {
     border: '0',
     margin: '0',
-    '--divider-color': 'var(--lufa-component-divider-color-default)',
+    '--divider-color': 'var(--lufa-component-divider-emphasis-default-color)',
+    '--divider-thickness': 'var(--lufa-component-divider-emphasis-default-thickness)',
   },
 
   utilities: {
@@ -25,32 +26,37 @@ module.exports = {
     orientation: {
       property: ['width', 'height', 'display'],
       values: {
-        horizontal: ['100%', 'var(--divider-thickness, var(--lufa-component-divider-thickness-thin))', 'block'],
-        vertical: ['var(--divider-thickness, var(--lufa-component-divider-thickness-thin))', '100%', 'inline-block'],
+        horizontal: ['100%', 'var(--divider-thickness)', 'block'],
+        vertical: ['var(--divider-thickness)', '100%', 'inline-block'],
       },
     },
 
     // ==========================================
-    // VARIANT - Color variants
+    // EMPHASIS - Combined color + thickness
     // ==========================================
-    variant: {
-      property: '--divider-color',
+    emphasis: {
+      property: ['--divider-color', '--divider-thickness'],
       values: {
-        default: 'var(--lufa-component-divider-color-default)',
-        subtle: 'var(--lufa-component-divider-color-subtle)',
-        strong: 'var(--lufa-component-divider-color-strong)',
-      },
-    },
-
-    // ==========================================
-    // THICKNESS - Line thickness
-    // ==========================================
-    thickness: {
-      property: '--divider-thickness',
-      values: {
-        thin: 'var(--lufa-component-divider-thickness-thin)',
-        medium: 'var(--lufa-component-divider-thickness-medium)',
-        thick: 'var(--lufa-component-divider-thickness-thick)',
+        subtle: [
+          'var(--lufa-component-divider-emphasis-subtle-color)',
+          'var(--lufa-component-divider-emphasis-subtle-thickness)',
+        ],
+        default: [
+          'var(--lufa-component-divider-emphasis-default-color)',
+          'var(--lufa-component-divider-emphasis-default-thickness)',
+        ],
+        moderate: [
+          'var(--lufa-component-divider-emphasis-moderate-color)',
+          'var(--lufa-component-divider-emphasis-moderate-thickness)',
+        ],
+        strong: [
+          'var(--lufa-component-divider-emphasis-strong-color)',
+          'var(--lufa-component-divider-emphasis-strong-thickness)',
+        ],
+        bold: [
+          'var(--lufa-component-divider-emphasis-bold-color)',
+          'var(--lufa-component-divider-emphasis-bold-thickness)',
+        ],
       },
     },
 

@@ -6,8 +6,7 @@
  *
  * Features:
  * - Horizontal and vertical orientation
- * - Three color variants (default, subtle, strong)
- * - Three thickness options (thin, medium, thick)
+ * - Five emphasis levels (subtle, default, moderate, strong, bold)
  * - Three spacing variants (compact, default, comfortable)
  * - Two line styles (solid, dashed)
  * - Token-based design (component layer tokens)
@@ -23,13 +22,13 @@
  * <Divider orientation="vertical" />
  *
  * // Subtle divider with compact spacing
- * <Divider variant="subtle" spacing="compact" />
+ * <Divider emphasis="subtle" spacing="compact" />
  *
- * // Thick divider with dashed style
- * <Divider thickness="thick" lineStyle="dashed" />
+ * // Bold divider with dashed style
+ * <Divider emphasis="bold" lineStyle="dashed" />
  *
  * // Strong divider with comfortable spacing
- * <Divider variant="strong" spacing="comfortable" />
+ * <Divider emphasis="strong" spacing="comfortable" />
  * ```
  */
 
@@ -48,14 +47,9 @@ import styles from './Divider.module.css';
 type OrientationValue = 'horizontal' | 'vertical';
 
 /**
- * Divider color variant
+ * Divider emphasis level (combines color and thickness)
  */
-type VariantValue = 'default' | 'subtle' | 'strong';
-
-/**
- * Divider thickness
- */
-type ThicknessValue = 'thin' | 'medium' | 'thick';
+type EmphasisValue = 'subtle' | 'default' | 'moderate' | 'strong' | 'bold';
 
 /**
  * Divider spacing (margin around the divider)
@@ -85,16 +79,15 @@ export interface DividerProps<T extends ElementType = 'hr'> {
   orientation?: OrientationValue;
 
   /**
-   * Color variant
+   * Visual emphasis level (combines color and thickness)
+   * - subtle: Light color, 1px - minimal separation
+   * - default: Default color, 1px - standard separation
+   * - moderate: Default color, 2px - visible separation
+   * - strong: Dark color, 2px - emphasized separation
+   * - bold: Dark color, 4px - major section breaks
    * @default 'default'
    */
-  variant?: VariantValue;
-
-  /**
-   * Thickness of the divider line
-   * @default 'thin'
-   */
-  thickness?: ThicknessValue;
+  emphasis?: EmphasisValue;
 
   /**
    * Spacing around the divider (margin)
@@ -140,8 +133,7 @@ export const Divider = forwardRef(
   <T extends ElementType = 'hr'>(
     {
       orientation = 'horizontal',
-      variant = 'default',
-      thickness = 'thin',
+      emphasis = 'default',
       spacing = 'default',
       lineStyle = 'solid',
       className,
@@ -157,8 +149,7 @@ export const Divider = forwardRef(
     const dividerClasses = clsx(
       styles.divider,
       styles[`orientation-${orientation}`],
-      styles[`variant-${variant}`],
-      styles[`thickness-${thickness}`],
+      styles[`emphasis-${emphasis}`],
       styles[`spacing-${spacing}`],
       styles[`line-style-${lineStyle}`],
       className
@@ -182,4 +173,4 @@ Divider.displayName = 'Divider';
 // TYPE EXPORTS
 // ============================================
 
-export type { OrientationValue, VariantValue, ThicknessValue, SpacingValue, LineStyleValue };
+export type { OrientationValue, EmphasisValue, SpacingValue, LineStyleValue };
