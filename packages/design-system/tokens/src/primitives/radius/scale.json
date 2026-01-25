@@ -1,0 +1,92 @@
+{
+  "primitive": {
+    "radius": {
+      "scale": {
+        "none": {
+          "$value": "0px",
+          "$type": "dimension",
+          "$description": "No rounding - sharp corners",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "radius",
+              "useCase": "Square elements, strictly geometric design"
+            }
+          }
+        },
+        "sm": {
+          "$value": "2px",
+          "$type": "dimension",
+          "$description": "Small radius - slightly rounded corners",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "radius",
+              "useCase": "Badges, tags, small interface elements"
+            }
+          }
+        },
+        "base": {
+          "$value": "4px",
+          "$type": "dimension",
+          "$description": "Base radius - standard rounding for most elements",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "radius",
+              "useCase": "Buttons, inputs, standard cards"
+            }
+          }
+        },
+        "md": {
+          "$value": "6px",
+          "$type": "dimension",
+          "$description": "Medium radius - more pronounced rounding",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "radius",
+              "useCase": "Featured cards, panels"
+            }
+          }
+        },
+        "lg": {
+          "$value": "8px",
+          "$type": "dimension",
+          "$description": "Large radius - generous rounding",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "radius",
+              "useCase": "Modals, large cards, important surfaces"
+            }
+          }
+        },
+        "xl": {
+          "$value": "12px",
+          "$type": "dimension",
+          "$description": "Extra large radius - very pronounced rounding",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "radius",
+              "useCase": "Large surfaces, modern design"
+            }
+          }
+        },
+        "full": {
+          "$value": "9999px",
+          "$type": "dimension",
+          "$description": "Full radius - perfect circle or pill shape",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "radius",
+              "useCase": "Avatars, pill buttons, circular elements"
+            }
+          }
+        }
+      }
+    }
+  }
+}

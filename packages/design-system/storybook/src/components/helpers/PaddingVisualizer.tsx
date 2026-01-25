@@ -1,0 +1,139 @@
+import React from 'react';
+
+/**
+ * PaddingVisualizer Props
+ */
+export type PaddingVisualizerProps = {
+  /** Background color for the padding area visualization */
+  color: string;
+  /** Opacity of the background color (0-1) */
+  opacity?: number;
+  /** Whether to show a border around the content area */
+  showBorder?: boolean;
+  /** Whether to show a label with the padding value */
+  showLabel?: boolean;
+  /** Label text to display (e.g., "32px", "Top: 32px") */
+  label?: string;
+  /** Content inside the padding area */
+  children: React.ReactNode;
+}
+
+/**
+ * PaddingVisualizer
+ *
+ * Helper component to visualize padding areas in Storybook stories.
+ * Shows the padding space with a semi-transparent background color.
+ *
+ * **Use Case:**
+ * - Stories demonstrating padding properties (padding, paddingTop, paddingX, etc.)
+ * - Visual indication of how much padding is applied
+ * - Helps users understand the difference between padding variants
+ *
+ * **How it works:**
+ * - Wraps the content in a container with a background color
+ * - The Box component's padding creates space between the container edge and content
+ * - The background color fills the padding area, making it visible
+ * - Optional border around the content area for clearer separation
+ * - Optional label to show the exact padding value
+ *
+ * @example
+ * ```tsx
+ * <PaddingVisualizer color="#3b82f6" showLabel label="32px">
+ *   <Box paddingTop="spacious" background="surface">
+ *     Content with top padding
+ *   </Box>
+ * </PaddingVisualizer>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // With border and custom opacity
+ * <PaddingVisualizer
+ *   color="#ec4899"
+ *   opacity={0.2}
+ *   showBorder
+ *   showLabel
+ *   label="Top: 32px"
+ * >
+ *   <Box paddingTop="spacious">
+ *     Content
+ *   </Box>
+ * </PaddingVisualizer>
+ * ```
+ */
+export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
+  color,
+  opacity = 0.15,
+  showBorder = false,
+  showLabel = false,
+  label = '',
+  children,
+}) => {
+  // Convert hex color to rgba for opacity
+  const hexToRgba = (hex: string, alpha: number): string => {
+    // Validate that hex is a string and starts with #
+    if (!hex || typeof hex !== 'string') {
+      console.warn('PaddingVisualizer: Invalid color provided:', hex);
+      return `rgba(200, 200, 200, ${alpha})`; // Fallback to gray
+    }
+
+    // If it's already an rgb/rgba, return as-is with opacity adjustment
+    if (hex.startsWith('rgb')) {
+      return hex.replace(/[\d.]+\)$/g, `${alpha})`);
+    }
+
+    // Handle hex colors
+    const cleanHex = hex.startsWith('#') ? hex : `#${hex}`;
+    const r = parseInt(cleanHex.slice(1, 3), 16);
+    const g = parseInt(cleanHex.slice(3, 5), 16);
+    const b = parseInt(cleanHex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  const backgroundColor = hexToRgba(color, opacity);
+
+  return (
+    <div
+      style={{
+        position: 'relative',
+        backgroundColor,
+        borderRadius: '4px',
+      }}
+    >
+      {/* Label (if enabled) */}
+      {showLabel && label && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '4px',
+            right: '4px',
+            backgroundColor: color,
+            color: 'white',
+            fontSize: '10px',
+            fontWeight: 600,
+            padding: '2px 6px',
+            borderRadius: '3px',
+            zIndex: 10,
+            lineHeight: 1.4,
+          }}
+        >
+          {label}
+        </div>
+      )}
+
+      {/* Content wrapper with optional border */}
+      <div
+        style={{
+          ...(showBorder && {
+            border: `2px dashed ${color}`,
+            borderRadius: '4px',
+          }),
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
+
+PaddingVisualizer.displayName = 'PaddingVisualizer';

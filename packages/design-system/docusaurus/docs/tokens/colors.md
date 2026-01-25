@@ -2,140 +2,130 @@
 sidebar_position: 1
 ---
 
-# Colors
+# Color Tokens
 
-Lufa's semantic color system provides a consistent and accessible color palette with built-in dark mode support.
+Color tokens define the semantic color palette for the Lufa Design System. All colors are designed to meet WCAG 2.1 AA accessibility standards and automatically adapt to light and dark themes.
 
-## Color Philosophy
+## Token Structure
 
-Our color system is built on semantic naming rather than literal colors. This means colors are named by their purpose (e.g., `brand.primary`, `background.primary`) rather than their appearance (e.g., `blue-500`).
+Color tokens are organized in a three-layer hierarchy:
 
-## Color Tokens
-
-### Brand Colors
-
-Used for primary actions, links, and emphasis.
-
-```css
---lufa-token-color-brand-primary: /* Brand primary color */
---lufa-token-color-brand-primary-hover: /* Hover state */
---lufa-token-color-brand-primary-active: /* Active/pressed state */
---lufa-token-color-brand-secondary: /* Secondary brand color */
---lufa-token-color-brand-secondary-hover: /* Hover state */
---lufa-token-color-brand-secondary-active: /* Active/pressed state */
---lufa-token-color-brand-accent: /* Accent color */
+```
+Semantic Tokens (Layer 3)
+    ↓ References
+Core Tokens (Layer 2)
+    ↓ References
+Primitive Tokens (Layer 1)
 ```
 
-### Interactive Colors
+## Text Colors
+
+Semantic text colors with automatic contrast:
+
+| Token       | CSS Variable                        | Usage                           |
+| ----------- | ----------------------------------- | ------------------------------- |
+| `primary`   | `--lufa-token-color-text-primary`   | Default text, highest contrast  |
+| `secondary` | `--lufa-token-color-text-secondary` | Secondary text, medium emphasis |
+| `muted`     | `--lufa-token-color-text-muted`     | Tertiary text, least emphasis   |
+| `inverse`   | `--lufa-token-color-text-inverse`   | Text on colored backgrounds     |
+| `disabled`  | `--lufa-token-color-text-disabled`  | Disabled state text             |
+
+## State Colors
+
+Colors for UI states and feedback:
+
+| Token     | CSS Variable                      | Usage                               |
+| --------- | --------------------------------- | ----------------------------------- |
+| `success` | `--lufa-token-color-text-success` | Success messages, positive states   |
+| `error`   | `--lufa-token-color-text-error`   | Error messages, destructive actions |
+| `warning` | `--lufa-token-color-text-warning` | Warning messages, caution states    |
+| `info`    | `--lufa-token-color-text-info`    | Informational messages              |
+
+## Background Colors
+
+Semantic background colors:
+
+| Token     | CSS Variable                            | Usage                       |
+| --------- | --------------------------------------- | --------------------------- |
+| `base`    | `--lufa-token-color-background-base`    | Default background          |
+| `surface` | `--lufa-token-color-background-surface` | Elevated surfaces, cards    |
+| `overlay` | `--lufa-token-color-background-overlay` | Modal overlays              |
+| `primary` | `--lufa-token-color-background-primary` | Primary buttons, highlights |
+| `success` | `--lufa-token-color-background-success` | Success states              |
+| `error`   | `--lufa-token-color-background-error`   | Error states                |
+| `warning` | `--lufa-token-color-background-warning` | Warning states              |
+| `info`    | `--lufa-token-color-background-info`    | Info states                 |
+
+## Border Colors
+
+Semantic border colors:
+
+| Token    | CSS Variable                       | Usage              |
+| -------- | ---------------------------------- | ------------------ |
+| `base`   | `--lufa-token-color-border-base`   | Default borders    |
+| `subtle` | `--lufa-token-color-border-subtle` | Subtle dividers    |
+| `strong` | `--lufa-token-color-border-strong` | Emphasized borders |
+| `focus`  | `--lufa-token-color-border-focus`  | Focus rings        |
+
+## Usage in Components
+
+### CSS Modules
 
 ```css
---lufa-token-color-interactive-default: /* Default interactive state */
---lufa-token-color-interactive-hover: /* Hover state */
---lufa-token-color-interactive-active: /* Active/pressed state */
---lufa-token-color-interactive-disabled: /* Disabled state */
---lufa-token-color-interactive-focus: /* Focus state */
-```
-
-### Background Colors
-
-```css
---lufa-token-color-background-primary: /* Main background */
---lufa-token-color-background-secondary: /* Secondary surfaces */
---lufa-token-color-background-tertiary: /* Tertiary surfaces */
---lufa-token-color-background-inverse: /* Dark background */
---lufa-token-color-background-overlay: /* Overlay background */
-```
-
-### Text Colors
-
-```css
---lufa-token-color-text-primary: /* Primary text */
---lufa-token-color-text-secondary: /* Secondary text */
---lufa-token-color-text-tertiary: /* Tertiary/subtle text */
---lufa-token-color-text-disabled: /* Disabled text */
---lufa-token-color-text-inverse: /* Text on dark backgrounds */
---lufa-token-color-text-link: /* Link text */
---lufa-token-color-text-link-hover: /* Link hover */
-```
-
-### Border Colors
-
-```css
---lufa-token-color-border-default: /* Default borders */
---lufa-token-color-border-light: /* Subtle borders */
---lufa-token-color-border-medium: /* Medium borders */
---lufa-token-color-border-strong: /* Strong borders */
---lufa-token-color-border-focus: /* Focus indicators */
-```
-
-### Semantic Colors
-
-```css
-/* Each status provides: default, hover, active, light, lighter, border, text */
---lufa-token-color-success-default: /* Success state */
---lufa-token-color-success-light: /* Success background */
---lufa-token-color-success-border: /* Success border */
---lufa-token-color-success-text: /* Success text */
-```
-
-## Using Colors
-
-### In Components
-
-```tsx
-import { Button } from '@grasdouble/lufa_design-system';
-
-// Component variants automatically use semantic colors
-<Button variant="primary">Primary</Button>;
-```
-
-### In Custom Styles
-
-```css
-.my-element {
-  color: var(--lufa-token-color-text-primary);
-  background-color: var(--lufa-token-color-background-secondary);
-  border-color: var(--lufa-token-color-border-default);
+.button {
+  background: var(--lufa-token-color-background-primary);
+  color: var(--lufa-token-color-text-inverse);
+  border: 1px solid var(--lufa-token-color-border-base);
 }
 ```
 
-### With Inline Styles
-
-```tsx
-<div
-  style={{
-    color: 'var(--lufa-token-color-text-primary)',
-    backgroundColor: 'var(--lufa-token-color-background-primary)',
-  }}
->
-  Content
-</div>
-```
-
-## Dark Mode
-
-All color tokens automatically adapt to dark mode when the theme is switched. The design system handles this internally.
-
-```tsx
-// Dark mode is handled automatically
-<ThemeSwitcher />
-```
 
 ## Accessibility
 
-Our color system ensures:
+All color combinations in Lufa meet **WCAG 2.1 AA** standards:
 
-- **WCAG AA compliance** for text contrast ratios
-- **Consistent contrast** across light and dark modes
-- **Color-blind friendly** combinations
-- **Semantic meaning** beyond color alone
+- **Text colors**: Minimum 4.5:1 contrast ratio against backgrounds
+- **Large text**: Minimum 3:1 contrast ratio (18pt+ or 14pt+ bold)
+- **UI elements**: Minimum 3:1 contrast ratio for interactive elements
 
-## Customization
+## Dark Mode
 
-To customize colors in your application, see the [Theming Guide](../getting-started/theming).
+Color tokens automatically adapt to the user's color scheme preference:
 
-## Related
+```css
+/* Automatically switches based on prefers-color-scheme */
+:root {
+  --lufa-token-color-text-primary: #1a1a1a; /* Light mode */
+}
 
-- [Theming →](../getting-started/theming)
-- [Typography →](./typography)
-- [Components →](../components/overview)
+@media (prefers-color-scheme: dark) {
+  :root {
+    --lufa-token-color-text-primary: #f5f5f5; /* Dark mode */
+  }
+}
+```
+
+## Primitive Color Scale
+
+The underlying primitive color palette (not meant for direct use):
+
+- **Gray**: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+- **Blue**: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+- **Green**: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+- **Red**: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+- **Yellow**: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+- **Orange**: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+
+:::tip Best Practice
+Always use **semantic tokens** (e.g., `color.text.primary`) instead of primitive values (e.g., `gray[900]`). This ensures proper theme adaptation and accessibility.
+:::
+
+## Next Steps
+
+- [Typography Tokens](/docs/tokens/typography) - Font sizes, weights, and line heights
+- [Spacing Tokens](/docs/tokens/spacing) - Padding, margin, and gap values
+- [Component Overview](/docs/components/overview) - See color tokens in use
+
+:::note Work in Progress
+This documentation is being expanded with more examples and usage patterns.
+:::

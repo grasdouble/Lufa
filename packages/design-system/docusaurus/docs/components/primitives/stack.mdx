@@ -1,0 +1,856 @@
+---
+sidebar_position: 2
+---
+
+import { Stack } from '@grasdouble/lufa_design-system';
+
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import {
+  AlignVariants,
+  DirectionVariants,
+  JustifyVariants,
+  LiveDemo,
+  PolymorphicVariant,
+  SpacingVariants,
+  WrapVariant,
+} from '../../../src/dsExamples/primitives/stack';
+
+# Stack
+
+<DarkModeCompatible />
+
+A flexible layout component for arranging children in a vertical or horizontal stack with consistent spacing using CSS flexbox and gap.
+
+## Overview
+
+Use `Stack` when you need…
+
+- Vertical or horizontal layouts with automatic spacing between children
+- Consistent spacing using semantic design tokens (`none`, `tight`, `compact`, `default`, `comfortable`, `spacious`)
+- Flexbox alignment controls (`align`, `justify`) for cross-axis and main-axis positioning
+- Wrapping behavior for responsive horizontal layouts
+- Semantic HTML elements via the polymorphic `as` prop (`nav`, `ul`, `section`, etc.)
+- Performance-optimized layouts (uses CSS `gap` instead of margins, eliminating margin collapsing issues)
+- A foundation component for building navigation bars, toolbars, lists, and form groups
+
+## Live Demo
+
+<LiveDemo />
+
+## Import
+
+```tsx
+import { Stack } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx title="src/App.tsx"
+import { Stack } from '@grasdouble/lufa_design-system';
+
+function App() {
+  return (
+    <>
+      {/* Vertical stack with default spacing */}
+      <Stack spacing="default">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+      </Stack>
+
+      {/* Horizontal stack with comfortable spacing */}
+      <Stack direction="horizontal" spacing="comfortable" align="center">
+        <button>Cancel</button>
+        <button>Save</button>
+        <button>Submit</button>
+      </Stack>
+
+      {/* Navigation with semantic element */}
+      <Stack as="nav" direction="horizontal" spacing="default" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </Stack>
+    </>
+  );
+}
+```
+
+## Anatomy
+
+The Stack component is a single flex container with customizable direction, spacing, alignment, and justification:
+
+```
+Vertical Stack (direction="vertical"):
+┌─────────────────────────────────────────┐
+│  Stack Container (display: flex)        │
+│                                         │
+│  ┌─────────────────────────────────┐    │
+│  │  Child 1                        │    │
+│  └─────────────────────────────────┘    │
+│              ↕ gap                      │
+│  ┌─────────────────────────────────┐    │
+│  │  Child 2                        │    │
+│  └─────────────────────────────────┘    │
+│              ↕ gap                      │
+│  ┌─────────────────────────────────┐    │
+│  │  Child 3                        │    │
+│  └─────────────────────────────────┘    │
+└─────────────────────────────────────────┘
+
+Horizontal Stack (direction="horizontal"):
+┌─────────────────────────────────────────┐
+│  Stack Container (display: flex)        │
+│                                         │
+│  ┌───────┐     ┌───────┐     ┌───────┐  │
+│  │Child 1│  ↔  │Child 2│  ↔  │Child 3│  │
+│  └───────┘ gap └───────┘ gap └───────┘  │
+│                                         │
+└─────────────────────────────────────────┘
+```
+
+**Component Structure:**
+
+- **Container**: Single flex element (default `div`, customizable via `as` prop)
+- **Direction**: `vertical` (default, flex-direction: column) or `horizontal` (flex-direction: row)
+- **Spacing**: CSS `gap` property with semantic tokens (no margin collapsing issues)
+- **Alignment**: Cross-axis alignment via `align-items` CSS property
+- **Justification**: Main-axis distribution via `justify-content` CSS property
+- **Wrapping**: Optional flex-wrap for responsive horizontal layouts
+
+**Layout Properties:**
+
+- **Direction**: `vertical` (column) or `horizontal` (row)
+- **Spacing**: Semantic tokens (`none`, `tight`, `compact`, `default`, `comfortable`, `spacious`)
+- **Align**: Cross-axis alignment (`start`, `center`, `end`, `stretch`, `baseline`)
+- **Justify**: Main-axis distribution (`start`, `center`, `end`, `space-between`, `space-around`, `space-evenly`)
+- **Wrap**: Boolean for wrapping behavior (`true` = wrap, `false` = nowrap)
+
+## API Reference
+
+### Props
+
+| Prop        | Type                                                                                            | Default      | Description                                 |
+| ----------- | ----------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------- |
+| `as`        | `'div' \| 'section' \| 'article' \| 'header' \| 'footer' \| 'main' \| 'nav' \| 'aside' \| 'ul'` | `'div'`      | HTML element to render                      |
+| `direction` | `'vertical' \| 'horizontal'`                                                                    | `'vertical'` | Stack direction (column or row)             |
+| `spacing`   | `'none' \| 'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'`                    | `'default'`  | Gap between children using semantic tokens  |
+| `align`     | `'start' \| 'center' \| 'end' \| 'stretch' \| 'baseline'`                                       | `'stretch'`  | Cross-axis alignment (align-items)          |
+| `justify`   | `'start' \| 'center' \| 'end' \| 'space-between' \| 'space-around' \| 'space-evenly'`           | `'start'`    | Main-axis distribution (justify-content)    |
+| `wrap`      | `boolean`                                                                                       | `false`      | Enable flex wrapping for responsive layouts |
+| `className` | `string`                                                                                        | `undefined`  | Additional CSS classes                      |
+| `children`  | `ReactNode`                                                                                     | `undefined`  | Child elements to render inside the Stack   |
+
+Also supports all standard HTML attributes for the underlying element (e.g., `id`, `role`, `aria-*`, `data-*`, `style`, event handlers like `onClick`, `onKeyDown`, etc.).
+
+### Direction Values
+
+Controls the flex-direction of the Stack:
+
+- **vertical** (default): Children stack vertically (flex-direction: column)
+- **horizontal**: Children stack horizontally (flex-direction: row)
+
+```tsx
+// Vertical stack (default)
+<Stack spacing="default">
+  <div>Item 1</div>
+  <div>Item 2</div>
+</Stack>
+
+// Horizontal stack
+<Stack direction="horizontal" spacing="default">
+  <button>Cancel</button>
+  <button>Submit</button>
+</Stack>
+```
+
+### Spacing Values
+
+All spacing uses the same semantic token scale (applied via CSS `gap` property):
+
+- **none**: `0px` - No spacing (children touch each other)
+- **tight**: `4px` - Minimal spacing for very dense layouts
+- **compact**: `8px` - Small spacing for compact components
+- **default**: `16px` - Standard spacing for most use cases (recommended default)
+- **comfortable**: `24px` - Generous spacing for breathing room
+- **spacious**: `32px` - Large spacing for major sections
+
+**Benefits of CSS gap over margins:**
+
+- No margin collapsing issues
+- Cleaner code (no need for `:first-child` or `:last-child` selectors)
+- Automatic spacing between all children
+- Works with wrapping layouts
+
+### Align Values (Cross-Axis Alignment)
+
+Controls `align-items` CSS property (perpendicular to direction):
+
+- **start**: Align children to the start of the cross-axis
+- **center**: Center children along the cross-axis
+- **end**: Align children to the end of the cross-axis
+- **stretch** (default): Stretch children to fill the cross-axis
+- **baseline**: Align children along their text baseline
+
+**Cross-axis definition:**
+
+- Vertical stack (`direction="vertical"`): Cross-axis is horizontal (left-right)
+- Horizontal stack (`direction="horizontal"`): Cross-axis is vertical (top-bottom)
+
+```tsx
+// Horizontal stack with centered items (vertically centered)
+<Stack direction="horizontal" spacing="default" align="center">
+  <div style={{ height: '40px' }}>Short</div>
+  <div style={{ height: '80px' }}>Tall</div>
+  <div style={{ height: '40px' }}>Short</div>
+</Stack>
+```
+
+### Justify Values (Main-Axis Distribution)
+
+Controls `justify-content` CSS property (along the direction):
+
+- **start** (default): Pack children at the start of the main-axis
+- **center**: Center children along the main-axis
+- **end**: Pack children at the end of the main-axis
+- **space-between**: Distribute children evenly, first item at start, last item at end
+- **space-around**: Distribute children evenly with equal space around each
+- **space-evenly**: Distribute children with equal space between them
+
+**Main-axis definition:**
+
+- Vertical stack (`direction="vertical"`): Main-axis is vertical (top-bottom)
+- Horizontal stack (`direction="horizontal"`): Main-axis is horizontal (left-right)
+
+```tsx
+// Horizontal stack with space between items
+<Stack direction="horizontal" spacing="default" justify="space-between" style={{ width: '100%' }}>
+  <button>Left</button>
+  <button>Center</button>
+  <button>Right</button>
+</Stack>
+```
+
+### Wrap Values
+
+Controls `flex-wrap` CSS property:
+
+- **false** (default): No wrapping (flex-wrap: nowrap) - children stay in single line
+- **true**: Allow wrapping (flex-wrap: wrap) - children wrap to next line when needed
+
+Useful for responsive horizontal layouts that need to wrap on smaller screens.
+
+```tsx
+// Horizontal stack that wraps on narrow screens
+<Stack direction="horizontal" spacing="default" wrap={true}>
+  <button>Action 1</button>
+  <button>Action 2</button>
+  <button>Action 3</button>
+  <button>Action 4</button>
+  <button>Action 5</button>
+</Stack>
+```
+
+### Polymorphic Element (`as` prop)
+
+Renders Stack as different HTML elements for semantic markup:
+
+- **div** (default): Generic container
+- **section**: Thematic content section
+- **article**: Self-contained composition
+- **header**: Introductory content or navigation
+- **footer**: Footer for nearest sectioning element
+- **main**: Main content of the document
+- **nav**: Navigation links section
+- **aside**: Content tangentially related to main content
+- **ul**: Unordered list (use with `<li>` children)
+
+The `as` prop provides full type safety - props are typed based on the chosen element.
+
+```tsx
+// Type-safe: accepts <nav> HTML attributes
+<Stack as="nav" direction="horizontal" spacing="default" aria-label="Main navigation">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+</Stack>
+
+// Type-safe: accepts <ul> HTML attributes
+<Stack as="ul" spacing="default" style={{ listStyle: 'none', padding: 0 }}>
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
+</Stack>
+```
+
+## Variants
+
+### Direction Variants
+
+<DirectionVariants />
+
+### Spacing Variants
+
+<SpacingVariants />
+
+### Align Variants
+
+<AlignVariants />
+
+### Justify Variants
+
+<JustifyVariants />
+
+### Wrap Variant
+
+<WrapVariant />
+
+### Polymorphic (`as` prop)
+
+<PolymorphicVariant />
+
+## Best Practices
+
+### Do ✅
+
+- Use semantic HTML via the `as` prop for better accessibility (`<Stack as="nav">` for navigation)
+- Use `spacing` prop with semantic tokens for consistent visual rhythm
+- Combine `align` and `justify` for precise control over child positioning
+- Use `wrap={true}` for responsive horizontal layouts that need to wrap
+- Prefer `Stack` over custom flexbox divs for consistent spacing and token usage
+- Use `direction="horizontal"` with `justify="space-between"` for toolbar layouts
+- Use `as="ul"` with list-style reset for accessible list layouts
+
+### Don't ❌
+
+- Don't use `Stack` for single children - use `Box` instead
+- Don't add margins to Stack children - use `spacing` prop instead
+- Don't nest Stack inside Stack unnecessarily - flatten when possible
+- Don't forget to set `as="nav"` with `aria-label` for navigation stacks
+- Don't use inline styles for spacing - use `spacing` prop with semantic tokens
+- Don't mix `Stack` spacing with child margins - choose one approach
+- Don't use `justify` values when children fill available space (use `align` instead)
+
+## Accessibility
+
+The Stack component is designed with WCAG 2.1 AA compliance in mind and serves as an accessible layout primitive.
+
+### Keyboard Navigation
+
+Stack is a **non-interactive container by default** and does not receive keyboard focus. However:
+
+- **When used with `tabIndex={0}`**: Stack becomes focusable and can be navigated via Tab key
+- **When used as navigation (`as="nav"`)**: Focus management handled by child links/buttons
+- **When used as list (`as="ul"`)**: Screen readers announce list semantics and item count
+
+```tsx
+// Non-focusable container (default)
+<Stack spacing="default">
+  <div>Item 1</div>
+  <div>Item 2</div>
+</Stack>
+
+// Navigation with keyboard-accessible links
+<Stack as="nav" direction="horizontal" spacing="default" aria-label="Main navigation">
+  <a href="/" tabIndex={0}>Home</a>
+  <a href="/about" tabIndex={0}>About</a>
+  <a href="/contact" tabIndex={0}>Contact</a>
+</Stack>
+```
+
+### Screen Reader Support
+
+**For Standard Container:**
+
+```tsx
+<Stack spacing="default">
+  <div>Item 1</div>
+  <div>Item 2</div>
+</Stack>
+// Screen reader announces: "Item 1, Item 2" (no specific role)
+```
+
+**For Navigation:**
+
+```tsx
+<Stack as="nav" direction="horizontal" spacing="default" aria-label="Main navigation">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+</Stack>
+// Screen reader announces: "Main navigation, navigation landmark, Home link, About link"
+```
+
+**For Lists:**
+
+```tsx
+<Stack as="ul" spacing="default" style={{ listStyle: 'none', padding: 0 }}>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</Stack>
+// Screen reader announces: "List, 3 items. Item 1, Item 2, Item 3"
+```
+
+**With Custom ARIA:**
+
+```tsx
+<Stack role="group" aria-label="Action buttons" direction="horizontal" spacing="default">
+  <button>Save</button>
+  <button>Cancel</button>
+</Stack>
+// Screen reader announces: "Action buttons, group. Save button, Cancel button"
+```
+
+### Best Practices for Accessibility
+
+#### Do ✅
+
+- Use semantic HTML elements via `as` prop for landmarks (`<Stack as="nav">`, `<Stack as="main">`)
+- Provide `aria-label` or `aria-labelledby` for navigation stacks
+- Use `<Stack as="ul">` with `<li>` children for list semantics
+- Ensure sufficient spacing for touch targets (minimum 44x44px, use `spacing="comfortable"` or larger)
+- Use appropriate heading hierarchy within Stack children
+- Combine Stack with proper ARIA roles when needed (`role="group"`, `role="toolbar"`)
+- Ensure color contrast of Stack children meets WCAG AA standards
+
+#### Don't ❌
+
+- Don't use `<div>` when semantic HTML is appropriate (use `as="nav"`, `as="ul"`, etc.)
+- Don't create keyboard traps by making Stack focusable unnecessarily
+- Don't nest interactive Stack elements inside each other
+- Don't forget `aria-label` for navigation stacks
+- Don't use Stack to create custom radio/checkbox groups - use native form controls
+- Don't rely solely on spacing to convey meaning (combine with labels/icons)
+
+### ARIA Attributes
+
+The Stack component supports all standard ARIA attributes as props:
+
+```tsx
+<Stack
+  role="toolbar"
+  aria-label="Text formatting"
+  aria-orientation="horizontal"
+  direction="horizontal"
+  spacing="default"
+>
+  <button aria-label="Bold">B</button>
+  <button aria-label="Italic">I</button>
+  <button aria-label="Underline">U</button>
+</Stack>
+```
+
+**Commonly used ARIA attributes:**
+
+- `role`: Defines the role of the element (`toolbar`, `group`, `list`, etc.)
+- `aria-label`: Accessible name for the stack
+- `aria-labelledby`: ID of element that labels this stack
+- `aria-orientation`: Orientation hint for toolbars (`horizontal` or `vertical`)
+- `aria-describedby`: ID of element that describes this stack
+
+**Automatic ARIA handling:**
+
+The Stack component does not automatically add ARIA attributes except when using semantic elements via `as` prop. You must add ARIA attributes explicitly based on your use case.
+
+### Touch Target Size
+
+For accessibility, interactive elements should have minimum touch target size of 44x44 pixels (WCAG 2.1 Level AAA).
+
+**Recommendations:**
+
+- Use `spacing="comfortable"` (24px) or `spacing="spacious"` (32px) for button groups
+- Ensure buttons have sufficient padding (minimum 12px vertical, 16px horizontal)
+- Test on mobile devices to verify touch targets are easy to tap
+
+```tsx
+// ✅ Good: Comfortable spacing for touch targets
+<Stack direction="horizontal" spacing="comfortable">
+  <button style={{ padding: '12px 16px' }}>Save</button>
+  <button style={{ padding: '12px 16px' }}>Cancel</button>
+</Stack>
+
+// ⚠️ Caution: Tight spacing may be too small for touch
+<Stack direction="horizontal" spacing="tight">
+  <button style={{ padding: '4px 8px' }}>Small</button>
+  <button style={{ padding: '4px 8px' }}>Buttons</button>
+</Stack>
+```
+
+## Common Patterns
+
+### Pattern 1: Vertical Form Layout
+
+Create a vertical form with consistent spacing between fields.
+
+```tsx title="src/components/LoginForm.tsx"
+import { Stack } from '@grasdouble/lufa_design-system';
+
+export function LoginForm() {
+  return (
+    <Stack as="form" spacing="comfortable" style={{ maxWidth: '400px' }}>
+      <div>
+        <label htmlFor="email">Email</label>
+        <input id="email" type="email" style={{ width: '100%', padding: '8px' }} />
+      </div>
+
+      <div>
+        <label htmlFor="password">Password</label>
+        <input id="password" type="password" style={{ width: '100%', padding: '8px' }} />
+      </div>
+
+      <Stack direction="horizontal" spacing="default" justify="end">
+        <button type="button">Cancel</button>
+        <button type="submit">Login</button>
+      </Stack>
+    </Stack>
+  );
+}
+```
+
+### Pattern 2: Horizontal Navigation Bar
+
+Create a navigation bar with horizontal links and proper semantics.
+
+```tsx title="src/components/Navigation.tsx"
+import { Stack } from '@grasdouble/lufa_design-system';
+
+export function Navigation() {
+  return (
+    <Stack
+      as="nav"
+      direction="horizontal"
+      spacing="comfortable"
+      align="center"
+      justify="space-between"
+      aria-label="Main navigation"
+      style={{ padding: '16px 24px', background: '#f5f5f5' }}
+    >
+      {/* Logo */}
+      <div style={{ fontWeight: 'bold', fontSize: '20px' }}>Logo</div>
+
+      {/* Navigation links */}
+      <Stack direction="horizontal" spacing="comfortable">
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </Stack>
+
+      {/* Actions */}
+      <Stack direction="horizontal" spacing="default">
+        <button>Login</button>
+        <button style={{ background: '#007bff', color: 'white', padding: '8px 16px', border: 'none' }}>Sign Up</button>
+      </Stack>
+    </Stack>
+  );
+}
+```
+
+### Pattern 3: Card Grid with Wrapping
+
+Create a responsive card grid that wraps to multiple lines.
+
+```tsx title="src/components/CardGrid.tsx"
+import { Stack } from '@grasdouble/lufa_design-system';
+
+export function CardGrid() {
+  const items = [
+    { id: 1, title: 'Card 1', description: 'Description 1' },
+    { id: 2, title: 'Card 2', description: 'Description 2' },
+    { id: 3, title: 'Card 3', description: 'Description 3' },
+    { id: 4, title: 'Card 4', description: 'Description 4' },
+  ];
+
+  return (
+    <Stack direction="horizontal" spacing="comfortable" wrap={true}>
+      {items.map((item) => (
+        <div
+          key={item.id}
+          style={{
+            minWidth: '250px',
+            flex: '1 1 250px',
+            padding: '24px',
+            background: '#ffffff',
+            border: '1px solid #e0e0e0',
+            borderRadius: '8px',
+          }}
+        >
+          <h3 style={{ margin: '0 0 12px' }}>{item.title}</h3>
+          <p style={{ margin: 0, color: '#666' }}>{item.description}</p>
+        </div>
+      ))}
+    </Stack>
+  );
+}
+```
+
+### Pattern 4: Button Group with Alignment
+
+Create a button group with right-aligned actions.
+
+```tsx title="src/components/DialogActions.tsx"
+import { Stack } from '@grasdouble/lufa_design-system';
+
+export function DialogActions() {
+  return (
+    <Stack
+      direction="horizontal"
+      spacing="default"
+      justify="end"
+      style={{ padding: '16px', borderTop: '1px solid #e0e0e0' }}
+    >
+      <button style={{ padding: '8px 16px' }}>Cancel</button>
+      <button style={{ padding: '8px 16px', background: '#007bff', color: 'white', border: 'none' }}>Confirm</button>
+    </Stack>
+  );
+}
+```
+
+### Pattern 5: Sidebar with Sections
+
+Create a vertical sidebar with grouped sections.
+
+```tsx title="src/components/Sidebar.tsx"
+import { Stack } from '@grasdouble/lufa_design-system';
+
+export function Sidebar() {
+  return (
+    <Stack as="aside" spacing="spacious" style={{ width: '250px', padding: '24px', background: '#f9f9f9' }}>
+      {/* Section 1 */}
+      <Stack spacing="compact">
+        <h3 style={{ margin: '0 0 8px', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase' }}>Dashboard</h3>
+        <a href="/overview">Overview</a>
+        <a href="/analytics">Analytics</a>
+        <a href="/reports">Reports</a>
+      </Stack>
+
+      {/* Section 2 */}
+      <Stack spacing="compact">
+        <h3 style={{ margin: '0 0 8px', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase' }}>Settings</h3>
+        <a href="/profile">Profile</a>
+        <a href="/preferences">Preferences</a>
+        <a href="/security">Security</a>
+      </Stack>
+    </Stack>
+  );
+}
+```
+
+## Related Components
+
+- **Box** - Flexible container with spacing, background, and border utilities (Stack builds on Box patterns)
+- **Grid** - Grid layout primitive for two-dimensional layouts (use when you need columns and rows)
+- **Flex** - Flexbox layout primitive with more advanced flexbox controls (Stack is simpler, Flex is more powerful)
+- **Divider** - Visual separator (use between Stack children for visual hierarchy)
+- **Text** - Typography component (compose with Stack for text-heavy layouts)
+- **Container** - Max-width centered container (wrap Stack with Container for responsive layouts)
+
+## TypeScript Support
+
+The Stack component is fully typed with TypeScript and includes advanced polymorphic typing:
+
+```tsx
+import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
+
+/**
+ * Direction values (flexbox direction)
+ */
+type DirectionValue = 'vertical' | 'horizontal';
+
+/**
+ * Spacing values based on semantic tokens
+ */
+type SpacingValue = 'none' | 'tight' | 'compact' | 'default' | 'comfortable' | 'spacious';
+
+/**
+ * Align values (cross-axis alignment)
+ */
+type AlignValue = 'start' | 'center' | 'end' | 'stretch' | 'baseline';
+
+/**
+ * Justify values (main-axis distribution)
+ */
+type JustifyValue = 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
+
+/**
+ * Valid HTML elements for polymorphic rendering
+ */
+type ValidStackElements = 'div' | 'section' | 'article' | 'header' | 'footer' | 'main' | 'nav' | 'aside' | 'ul';
+
+/**
+ * Stack component props with polymorphic `as` prop support
+ */
+export interface StackProps<T extends ElementType = 'div'> {
+  as?: T;
+  direction?: DirectionValue;
+  spacing?: SpacingValue;
+  align?: AlignValue;
+  justify?: JustifyValue;
+  wrap?: boolean;
+  className?: string;
+  children?: ReactNode;
+}
+
+/**
+ * Combined props type including element-specific props
+ */
+type StackComponentProps<T extends ElementType> = StackProps<T> &
+  Omit<ComponentPropsWithoutRef<T>, keyof StackProps<T>>;
+```
+
+**Benefits of TypeScript typing:**
+
+- **Type safety**: Props are validated at compile time
+- **IntelliSense**: Auto-complete for all prop values in your IDE
+- **Polymorphic typing**: When using `as` prop, element-specific attributes are typed correctly
+- **Documentation**: Hover over props to see JSDoc descriptions
+
+**Example with type safety:**
+
+```tsx
+// ✅ Type-safe: 'nav' allows 'aria-label' attribute
+<Stack as="nav" direction="horizontal" spacing="default" aria-label="Main navigation">
+  <a href="/">Home</a>
+</Stack>
+
+// ✅ Type-safe: autocomplete shows SpacingValue options
+<Stack spacing="default">Content</Stack>
+
+// ❌ Type error: 'xlarge' is not a valid SpacingValue
+<Stack spacing="xlarge">Content</Stack>
+
+// ✅ Type-safe: ul-specific attributes
+<Stack as="ul" style={{ listStyle: 'none', padding: 0 }}>
+  <li>Item 1</li>
+  <li>Item 2</li>
+</Stack>
+```
+
+## Troubleshooting
+
+### Issue 1: Spacing not visible
+
+**Problem**: Set `spacing` prop but children appear to touch each other.
+
+**Solution**: Ensure children have visible backgrounds or borders to see spacing. If children are inline elements, spacing may collapse.
+
+```tsx
+{
+  /* ❌ Spacing not visible - inline elements */
+}
+<Stack spacing="default">
+  <span>Item 1</span>
+  <span>Item 2</span>
+</Stack>;
+
+{
+  /* ✅ Spacing visible - block elements with backgrounds */
+}
+<Stack spacing="default">
+  <div style={{ padding: '8px', background: '#e0e0e0' }}>Item 1</div>
+  <div style={{ padding: '8px', background: '#e0e0e0' }}>Item 2</div>
+</Stack>;
+```
+
+### Issue 2: Horizontal stack not wrapping
+
+**Problem**: Set `wrap={true}` but horizontal stack doesn't wrap to next line.
+
+**Solution**: Ensure Stack has constrained width and children have sufficient minimum width to trigger wrapping.
+
+```tsx
+{
+  /* ❌ No wrapping - Stack has no width constraint */
+}
+<Stack direction="horizontal" spacing="default" wrap={true}>
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</Stack>;
+
+{
+  /* ✅ Wrapping works - Stack has max-width, children have min-width */
+}
+<Stack direction="horizontal" spacing="default" wrap={true} style={{ maxWidth: '400px' }}>
+  <div style={{ minWidth: '150px' }}>Item 1</div>
+  <div style={{ minWidth: '150px' }}>Item 2</div>
+  <div style={{ minWidth: '150px' }}>Item 3</div>
+</Stack>;
+```
+
+### Issue 3: Align prop not working
+
+**Problem**: Set `align` prop but children don't appear aligned.
+
+**Solution**: `align` controls cross-axis alignment. Ensure Stack has sufficient height (for horizontal) or width (for vertical) to see alignment effect.
+
+```tsx
+{
+  /* ❌ Align not visible - no height constraint */
+}
+<Stack direction="horizontal" spacing="default" align="center">
+  <div>Short</div>
+  <div>Tall</div>
+</Stack>;
+
+{
+  /* ✅ Align visible - Stack has min-height */
+}
+<Stack direction="horizontal" spacing="default" align="center" style={{ minHeight: '100px', border: '1px solid #ccc' }}>
+  <div style={{ padding: '8px', background: '#e0e0e0' }}>Short</div>
+  <div style={{ padding: '40px 8px', background: '#e0e0e0' }}>Tall</div>
+</Stack>;
+```
+
+### Issue 4: Justify not working as expected
+
+**Problem**: Set `justify` prop but children don't distribute as expected.
+
+**Solution**: `justify` controls main-axis distribution. Ensure Stack has sufficient width (for horizontal) or height (for vertical) for distribution to take effect.
+
+```tsx
+{
+  /* ❌ Justify not visible - Stack has no width constraint */
+}
+<Stack direction="horizontal" spacing="default" justify="space-between">
+  <div>Left</div>
+  <div>Right</div>
+</Stack>;
+
+{
+  /* ✅ Justify visible - Stack has full width */
+}
+<Stack
+  direction="horizontal"
+  spacing="default"
+  justify="space-between"
+  style={{ width: '100%', border: '1px solid #ccc', padding: '16px' }}
+>
+  <div>Left</div>
+  <div>Right</div>
+</Stack>;
+```
+
+### Issue 5: Children have unexpected margins
+
+**Problem**: Stack spacing looks inconsistent due to child element margins.
+
+**Solution**: Remove margins from Stack children. Use `spacing` prop for consistent gaps.
+
+```tsx
+{
+  /* ❌ Inconsistent spacing - children have margins */
+}
+<Stack spacing="default">
+  <p style={{ margin: '16px 0' }}>Paragraph with margin</p>
+  <div>Div without margin</div>
+</Stack>;
+
+{
+  /* ✅ Consistent spacing - no child margins */
+}
+<Stack spacing="default">
+  <p style={{ margin: 0 }}>Paragraph without margin</p>
+  <div>Div without margin</div>
+</Stack>;
+```

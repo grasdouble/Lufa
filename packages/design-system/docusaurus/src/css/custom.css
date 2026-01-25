@@ -30,4 +30,5 @@
 }
 
 /* Import Lufa Design System CSS (vanilla CSS with design tokens) */
+@import '@grasdouble/lufa_design-system-tokens/tokens.css';
 @import '@grasdouble/lufa_design-system/style.css';

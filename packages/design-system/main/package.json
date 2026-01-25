@@ -21,20 +21,21 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "pnpm generate:utilities --all && vite build",
     "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly --outDir dist",
     "dev": "vite build --watch",
+    "generate:utilities": "node scripts/generate-utilities.cjs",
     "lint": "eslint ./src",
     "prettier": "prettier --write .",
     "preview": "vite preview",
     "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "dependencies": {
-    "@grasdouble/lufa_design-system-primitives": "workspace:^",
     "@grasdouble/lufa_design-system-tokens": "workspace:^",
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
-    "clsx": "^2.1.1"
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.469.0"
   },
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",

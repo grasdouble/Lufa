@@ -9,6 +9,7 @@ This directory contains automation scripts for maintaining the Docusaurus docume
 Automatically updates the changelog documentation from package CHANGELOG.md files.
 
 **Usage:**
+
 ```bash
 # From repository root
 pnpm --filter @grasdouble/lufa_design-system-docusaurus update-changelog
@@ -22,6 +23,7 @@ node scripts/update-changelog.js
 ```
 
 **What it does:**
+
 1. Reads `packages/design-system/main/CHANGELOG.md`
 2. Parses the 5 most recent releases
 3. Updates the "Recent Releases" section in `docs/changelog.md`
@@ -29,11 +31,13 @@ node scripts/update-changelog.js
 5. Preserves all other content
 
 **Version Filtering:**
+
 - Only includes versions >= 0.6.0 in the dropdown
 - This ensures only versions with proper documentation snapshots are shown
 - Earlier versions (0.5.x and below) are excluded to avoid showing incorrect historical docs
 
 **Output Example:**
+
 ```
 📖 Reading package CHANGELOG.md...
 🔍 Parsing releases...
@@ -54,11 +58,13 @@ node scripts/update-changelog.js
 **Automated Execution:**
 
 The script runs automatically via GitHub Actions:
+
 - After successful Release:Changesets workflow
 - When CHANGELOG.md files change on main branch
 - Manual trigger available
 
 The GitHub Actions workflow also:
+
 - **Detects version changes** - Compares version before and after script runs
 - **Creates version snapshots** - When version changes, creates versioned docs folder
 - **Submits PR** - All changes reviewed before merging
@@ -70,6 +76,7 @@ See [`.github/workflows/update-changelog-docs.yml`](../../../../.github/workflow
 ### Change Number of Releases Shown
 
 Edit `update-changelog.js`:
+
 ```javascript
 return releases.slice(0, 5); // Change 5 to desired number
 ```
@@ -77,6 +84,7 @@ return releases.slice(0, 5); // Change 5 to desired number
 ### Disable Config Updates
 
 Comment out in `updateChangelogDocs()`:
+
 ```javascript
 // const configUpdated = updateDocusaurusConfig(releases);
 ```
@@ -84,6 +92,7 @@ Comment out in `updateChangelogDocs()`:
 ### Customize Version Label Format
 
 Edit `buildVersionsConfig()`:
+
 ```javascript
 config += `              label: '${latestVersion} (Latest)',\n`;
 
@@ -117,6 +126,7 @@ When triggered by a release:
 5. **Create PR** - Submits all changes for review
 
 **Versioning Strategy:**
+
 - `docs/` (current) → Development/unreleased changes (always ahead)
 - `versioned_docs/version-X.Y.Z/` → Snapshot of released version X.Y.Z
 
@@ -160,11 +170,13 @@ versions: {
 ```
 
 **Version Filtering:**
+
 - **Included:** Versions >= 0.6.0 (versions with proper snapshots)
 - **Excluded:** Versions < 0.6.0 (0.5.x and earlier - no snapshots available)
 - This prevents showing incorrect/duplicate documentation for old versions
 
 **Version Snapshots:** When a new version >= 0.6.0 is released, the GitHub Actions workflow automatically:
+
 - Creates a snapshot folder `versioned_docs/version-X.Y.Z/` with the released documentation
 - Adds the version to the dropdown menu (if >= 0.6.0)
 - Keeps `docs/` as development version for ongoing work
@@ -177,17 +189,20 @@ versions: {
 **Error:** `Could not find Recent Releases section markers`
 
 **Fix:** Ensure `docs/changelog.md` contains:
+
 - A line starting with `## Recent Releases`
 - A line starting with `## Related Packages`
 
 ### No Changes Detected
 
 **Possible causes:**
+
 - CHANGELOG.md hasn't been updated
 - Documentation already has latest version
 - Version format doesn't match (must be `## X.Y.Z`)
 
 **Check versions:**
+
 ```bash
 # View latest in package CHANGELOG
 head -n 20 ../main/CHANGELOG.md
@@ -199,11 +214,13 @@ head -n 50 docs/changelog.md
 ### Config Not Updating
 
 **Possible causes:**
+
 - No `versions: { ... }` block in config
 - Pattern doesn't match
 - Config is optional - script continues if not found
 
 **Verify config has versions block:**
+
 ```bash
 grep -A 5 "versions:" docusaurus.config.ts
 ```
@@ -226,6 +243,7 @@ pnpm docusaurus docs:version 0.4.0
 ```
 
 This creates:
+
 - `versioned_docs/version-0.5.0/` - Snapshot of docs
 - `versioned_sidebars/version-0.5.0-sidebars.json` - Sidebar config
 - Updates `versions.json` - Version registry
@@ -243,6 +261,7 @@ The workflow creates a PR when changelog is updated:
 ```
 
 **Manual Trigger:**
+
 1. Go to Actions → "Update Changelog Documentation"
 2. Click "Run workflow"
 3. Review PR when created
@@ -311,6 +330,7 @@ if (diff.includes('0.5.1')) {
 ## Questions?
 
 For issues or questions about changelog automation:
+
 1. Check script inline comments
 2. Review this README
 3. Open an issue on [GitHub](https://github.com/grasdouble/Lufa/issues)

@@ -62,7 +62,6 @@
     "onStartupFinished"
   ],
   "dependencies": {
-    "@grasdouble/lufa_design-system-primitives": "workspace:^",
     "@grasdouble/lufa_design-system-tokens": "workspace:^",
     "culori": "^4.0.2"
   },

@@ -1,0 +1,78 @@
+{
+  "core": {
+    "brand": {
+      "primary": {
+        "$value": "{primitive.color.blue.600}",
+        "$type": "color",
+        "$description": "Primary brand color used for main actions, links, and focus states. Represents trust and reliability.",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "brand",
+            "useCase": "Primary buttons, links, focus indicators, active navigation items"
+          }
+        }
+      },
+      "primary-hover": {
+        "$value": "{primitive.color.blue.700}",
+        "$type": "color",
+        "$description": "Primary brand hover state - darker shade for interactive feedback",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "brand",
+            "useCase": "Hover state for primary buttons and clickable elements"
+          }
+        }
+      },
+      "primary-active": {
+        "$value": "{primitive.color.blue.800}",
+        "$type": "color",
+        "$description": "Primary brand active/pressed state - darkest shade for click feedback",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "brand",
+            "useCase": "Active/pressed state for primary buttons"
+          }
+        }
+      },
+      "secondary": {
+        "$value": "{primitive.color.purple.500}",
+        "$type": "color",
+        "$description": "Secondary brand color used for accents, highlights, and secondary actions",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "brand",
+            "useCase": "Secondary buttons, badges, decorative accents, highlights"
+          }
+        }
+      },
+      "secondary-hover": {
+        "$value": "{primitive.color.purple.600}",
+        "$type": "color",
+        "$description": "Secondary brand hover state",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "brand",
+            "useCase": "Hover state for secondary buttons"
+          }
+        }
+      },
+      "secondary-active": {
+        "$value": "{primitive.color.purple.700}",
+        "$type": "color",
+        "$description": "Secondary brand active/pressed state",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "brand",
+            "useCase": "Active/pressed state for secondary buttons"
+          }
+        }
+      }
+    }
+  }
+}

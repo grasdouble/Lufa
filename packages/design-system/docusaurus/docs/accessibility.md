@@ -1,188 +1,318 @@
+---
+sidebar_position: 10
+---
+
 # Accessibility
 
-Lufa Design System is built with accessibility as a core principle. All components follow WAI-ARIA guidelines and are tested to ensure they work well with assistive technologies.
+The Lufa Design System is built with accessibility as a core principle. All components meet or exceed WCAG 2.1 AA standards and follow best practices for inclusive design.
+
+## Accessibility Standards
+
+The design system adheres to:
+
+- **WCAG 2.1 Level AA** - All components meet this standard by default
+- **Section 508** - U.S. federal accessibility requirements
+- **ARIA Authoring Practices** - Proper ARIA patterns and roles
 
 ## Core Principles
 
-### Semantic HTML
+### 1. Semantic HTML
 
-All components use semantic HTML elements to provide meaningful structure for screen readers and other assistive technologies.
+All components use proper semantic HTML elements:
 
-### Keyboard Navigation
+```tsx
+// ✅ Good - semantic elements
+<Box as="section">
+  <Stack as="nav">
+    <Text as="h1">Page Title</Text>
+  </Stack>
+</Box>
 
-Every interactive component is fully keyboard accessible:
+// ❌ Bad - generic divs everywhere
+<div>
+  <div>
+    <div>Page Title</div>
+  </div>
+</div>
+```
 
-- **Tab** - Navigate between focusable elements
-- **Enter/Space** - Activate buttons and interactive elements
-- **Escape** - Close modals, dropdowns, and overlays
-- **Arrow keys** - Navigate within component groups
+### 2. Keyboard Navigation
 
-### Focus Management
+All interactive components are keyboard accessible:
 
-- Clear, visible focus indicators on all interactive elements
-- Focus is automatically managed in modals and dialogs
-- Focus traps prevent keyboard users from leaving modal contexts
+- **Tab**: Navigate between focusable elements
+- **Enter/Space**: Activate buttons and links
+- **Arrow keys**: Navigate within composite widgets
+- **Esc**: Close modals and overlays
 
-### Color Contrast
+### 3. Color Contrast
 
-All color combinations in the design system meet WCAG 2.1 AA standards:
+All color combinations meet WCAG 2.1 AA requirements:
 
-- Normal text: minimum 4.5:1 contrast ratio
-- Large text (18pt+): minimum 3:1 contrast ratio
-- Interactive elements: minimum 3:1 contrast ratio
+- **Normal text**: Minimum 4.5:1 contrast ratio
+- **Large text**: Minimum 3:1 contrast ratio (18pt+ or 14pt+ bold)
+- **UI components**: Minimum 3:1 contrast ratio for borders and icons
 
-## Component-Specific Features
+### 4. Screen Reader Support
 
-### Button
+Components provide clear context for screen readers:
 
-- Proper semantic `<button>` elements
-- Clear focus states with `focus-visible` styling
-- Loading states announced to screen readers
-- Icon buttons include `aria-label` for context
+- Descriptive labels and titles
+- ARIA attributes where appropriate
+- Visible and accessible focus indicators
+- Proper heading hierarchy
 
-### Typography
+## Component Accessibility Features
 
-- Heading hierarchy (h1-h6) for proper document structure
-- Responsive font sizes maintain readability
-- Line height optimized for readability (1.5 for body text)
+### Box Component
 
-### Modal
+- Polymorphic `as` prop for semantic HTML
+- Supports all ARIA attributes
+- Maintains accessibility when used as button/link
 
-- Focus trap keeps keyboard users within the modal
-- `aria-modal` and `role="dialog"` for proper announcement
-- Escape key closes the modal
-- Focus returns to trigger element on close
-- Body scroll locked when modal is open
+```tsx
+<Box as="article" aria-labelledby="title">
+  <Text as="h2" id="title">
+    Article Title
+  </Text>
+</Box>
+```
 
-### Form Components
+### Stack Component
 
-- Proper label associations with form controls
-- Error messages linked with `aria-describedby`
-- Required fields indicated with `aria-required`
-- Invalid states announced with `aria-invalid`
+- Semantic element options (nav, section, ul)
+- Proper list semantics when used as list container
+- Keyboard navigation support
 
-### Card
+```tsx
+<Stack as="nav" aria-label="Main navigation">
+  <a href="/home">Home</a>
+  <a href="/about">About</a>
+</Stack>
+```
 
-- Semantic article/section elements where appropriate
-- Clickable cards have proper link/button semantics
-- Images include alt text requirements
+### Text Component
 
-### Alert
+- Semantic heading levels (h1-h6)
+- Visual variant independent of semantic level
+- Proper reading order
 
-- Uses `role="alert"` or `role="status"` for announcements
-- Different severity levels conveyed through icons and text, not just color
-- Dismissible alerts are keyboard accessible
+```tsx
+<Text as="h1" variant="heading-4xl">Hero Title</Text>
+<Text as="h2" variant="heading-xl">Section Title</Text>
+<Text as="p" variant="body">Body text</Text>
+```
 
-### Badge
+### Icon Component
 
-- Decorative badges use `aria-hidden` when content is redundant
-- Status badges include `aria-label` when needed for context
+- Automatic ARIA handling
+- Decorative icons: `aria-hidden="true"`
+- Accessible icons: `role="img"` + `aria-label`
 
-## Dark Mode Accessibility
+```tsx
+// Decorative icon (default)
+<Icon name="chevron-right" />
 
-Our dark mode implementation maintains accessibility:
-
-- Contrast ratios are validated in both light and dark themes
-- Color tokens automatically adjust to maintain WCAG compliance
-- Users can override system preferences
+// Accessible icon with title
+<Icon name="alert-circle" title="Error notification" />
+```
 
 ## Testing for Accessibility
 
-### Screen Reader Testing
-
-Components have been tested with:
-
-- **macOS**: VoiceOver
-- **Windows**: NVDA, JAWS
-- **Mobile**: TalkBack (Android), VoiceOver (iOS)
-
-### Keyboard Testing
-
-All components pass keyboard-only navigation tests:
-
-- All interactive elements are reachable via keyboard
-- Focus order follows logical visual order
-- No keyboard traps (except intentional focus traps in modals)
-
 ### Automated Testing
 
-We use automated tools as a first line of defense:
+The design system includes automated accessibility tests:
 
-- ESLint plugin for JSX accessibility (`eslint-plugin-jsx-a11y`)
-- Axe DevTools for runtime accessibility checking
-- Lighthouse accessibility audits
+```tsx
+// Playwright component tests include a11y checks
+test('should have accessible structure', async ({ mount }) => {
+  const component = await mount(<Button>Click me</Button>);
 
-## Best Practices
+  // Check ARIA attributes
+  await expect(component).toHaveAttribute('role', 'button');
+  await expect(component).toBeEnabled();
 
-### When Using Lufa Components
+  // Check keyboard accessibility
+  await component.focus();
+  await expect(component).toBeFocused();
+});
+```
 
-1. **Provide meaningful labels**
+### Manual Testing Checklist
 
-   ```tsx
-   <Button aria-label="Close notification">
-     <Icon name="close" />
-   </Button>
-   ```
+When using Lufa components:
 
-2. **Use semantic HTML structure**
+- [ ] Test keyboard navigation (Tab, Enter, Escape, Arrows)
+- [ ] Verify focus indicators are visible
+- [ ] Test with screen reader (VoiceOver, NVDA, JAWS)
+- [ ] Check color contrast with browser tools
+- [ ] Verify text can be resized to 200%
+- [ ] Test without mouse/trackpad
+- [ ] Verify proper heading hierarchy
 
-   ```tsx
-   <main>
-     <Typography variant="h1">Page Title</Typography>
-     <section>
-       <Typography variant="h2">Section Title</Typography>
-       {/* content */}
-     </section>
-   </main>
-   ```
+## Common Accessibility Patterns
 
-3. **Include alt text for images**
+### Forms
 
-   ```tsx
-   <img src="logo.png" alt="Lufa Design System" />
-   ```
+```tsx
+<Stack spacing="compact" as="form">
+  <Text as="label" htmlFor="email" variant="label">
+    Email Address
+  </Text>
+  <Input id="email" type="email" aria-describedby="email-hint" required />
+  <Text id="email-hint" variant="caption" color="muted">
+    We'll never share your email.
+  </Text>
+</Stack>
+```
 
-4. **Handle loading and error states**
+### Navigation
 
-   ```tsx
-   <Button loading loadingText="Saving...">
-     Save Changes
-   </Button>
-   ```
+```tsx
+<Stack as="nav" aria-label="Main navigation" direction="horizontal">
+  <a href="/" aria-current="page">
+    Home
+  </a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+</Stack>
+```
 
-5. **Provide context for icon-only buttons**
-   ```tsx
-   <Button variant="ghost" aria-label="Edit profile">
-     <Icon name="edit" />
-   </Button>
-   ```
+### Landmarks
 
-## CSS Variable Theming
+```tsx
+<Box as="header" role="banner">
+  <Text as="h1">Site Title</Text>
+</Box>
 
-All design tokens use CSS variables with the `--lufa-token-` prefix, making it easy to override values while maintaining accessibility:
+<Box as="main" role="main">
+  <Text as="h2">Page Content</Text>
+</Box>
+
+<Box as="footer" role="contentinfo">
+  <Text>Footer content</Text>
+</Box>
+```
+
+### Skip Links
+
+```tsx
+<a href="#main-content" className="skip-link">
+  Skip to main content
+</a>
+
+<Box as="main" id="main-content" tabIndex={-1}>
+  {/* Page content */}
+</Box>
+```
+
+## ARIA Best Practices
+
+### Use Semantic HTML First
+
+```tsx
+// ✅ Prefer semantic HTML
+<button onClick={handleClick}>Click me</button>
+
+// ❌ Avoid unnecessary ARIA
+<div role="button" onClick={handleClick}>Click me</div>
+```
+
+### Label Interactive Elements
+
+```tsx
+// ✅ Visible label
+<button>Submit Form</button>
+
+// ✅ aria-label when no visible text
+<button aria-label="Close dialog">
+  <Icon name="x" />
+</button>
+
+// ❌ Icon without label
+<button><Icon name="x" /></button>
+```
+
+### Provide Status Updates
+
+```tsx
+// Live region for dynamic content
+<div role="status" aria-live="polite">
+  {successMessage}
+</div>
+
+// Alert for errors
+<div role="alert" aria-live="assertive">
+  {errorMessage}
+</div>
+```
+
+## Focus Management
+
+### Visible Focus Indicators
+
+All Lufa components have clear focus indicators:
 
 ```css
-:root {
-  /* Ensure sufficient contrast when overriding colors */
-  --lufa-token-color-text-primary: #1a1a1a;
-  --lufa-token-color-background-primary: #ffffff;
+.button:focus-visible {
+  outline: 2px solid var(--lufa-token-color-border-focus);
+  outline-offset: 2px;
+}
+```
+
+### Focus Trap
+
+For modals and overlays:
+
+```tsx
+<Modal open={isOpen} onClose={handleClose}>
+  {/* Focus is trapped within modal */}
+  <button>First focusable</button>
+  <button>Last focusable</button>
+</Modal>
+```
+
+## Reduced Motion
+
+Respect user's motion preferences:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 ```
 
 ## Resources
 
-- [WAI-ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/)
-- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
-- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
-- [Inclusive Components](https://inclusive-components.design/)
+### Tools
 
-## Reporting Accessibility Issues
+- **[axe DevTools](https://www.deque.com/axe/devtools/)** - Automated accessibility testing
+- **[WAVE](https://wave.webaim.org/)** - Web accessibility evaluation
+- **[Lighthouse](https://developers.google.com/web/tools/lighthouse)** - Built into Chrome DevTools
+- **[Screen Readers](https://www.nvaccess.org/)** - NVDA (Windows), VoiceOver (Mac), JAWS
 
-If you discover an accessibility issue with any Lufa component, please [open an issue on GitHub](https://github.com/grasdouble/Lufa/issues) with:
+### Guidelines
 
-- Component name and props used
-- Description of the accessibility barrier
-- Assistive technology and browser version (if applicable)
-- Steps to reproduce
+- **[WCAG 2.1](https://www.w3.org/WAI/WCAG21/quickref/)** - Web Content Accessibility Guidelines
+- **[ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)** - WAI-ARIA patterns
+- **[MDN Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility)** - Comprehensive guide
 
-We treat accessibility issues as high priority and aim to address them quickly.
+### Learning
+
+- **[WebAIM](https://webaim.org/)** - Web accessibility resources
+- **[A11y Project](https://www.a11yproject.com/)** - Community-driven accessibility guide
+- **[Inclusive Components](https://inclusive-components.design/)** - Accessible component patterns
+
+## Next Steps
+
+- [Component Overview](/docs/components/overview) - Explore accessible components
+- [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/) - Learn ARIA best practices
+- [Testing Guide](/docs/guides/testing) - Test your implementations
+
+:::tip Get Help
+If you encounter accessibility issues or have questions, please [open an issue](https://github.com/grasdouble/Lufa/issues) on GitHub.
+:::

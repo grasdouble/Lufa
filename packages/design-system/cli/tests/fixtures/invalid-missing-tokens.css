@@ -1,0 +1,20 @@
+/**
+ * Test Fixture: Invalid Theme - Missing Tokens
+ * 
+ * This theme is missing several required tokens to test completeness validation
+ */
+
+:root {
+  /* Only a few tokens defined - this should fail validation */
+  --lufa-primitive-color-gray-50: #f9fafb;
+  --lufa-primitive-color-gray-100: #f3f4f6;
+  --lufa-primitive-color-gray-200: #e5e7eb;
+
+  --lufa-primitive-color-blue-500: #3b82f6;
+  --lufa-primitive-color-blue-600: #2563eb;
+
+  --lufa-primitive-spacing-0: 0px;
+  --lufa-primitive-spacing-16: 16px;
+
+  /* Missing 440+ other required tokens */
+}
