@@ -8,110 +8,45 @@
 
 ## Overview
 
-The Lufa Design System v2.0 contains **5 production-ready React components** built on a **three-layer token architecture**. All components are WCAG 2.1 AA compliant, fully typed with TypeScript 5.9, and tested with Playwright Component Testing.
+The Lufa Design System v2.0 contains **7 production-ready React components** built on a **three-layer token architecture**. All components are WCAG 2.1 AA compliant, fully typed with TypeScript 5.9, and tested with Playwright Component Testing.
 
-**Status**: 5/7 components complete (71% complete)
+**Status**: 7/7 components complete (100% complete)
 
-- ✅ Completed: Box, Stack, Text, Icon, Button
-- 📋 Remaining: Badge, Divider
+- ✅ Completed: Box, Stack, Text, Icon, Button, Badge, Divider
 
 ---
 
 ## Component Progress
 
-**Overall Status:** 71% complete (5/7 components)
+**Overall Status:** 100% complete (7/7 components)
 
-| Component | Status  | Tests     | Documentation          | Priority    |
-| --------- | ------- | --------- | ---------------------- | ----------- |
-| Box       | ✅ 100% | 120 tests | Complete (881 lines)   | Core        |
-| Stack     | ✅ 100% | 86 tests  | Complete (870 lines)   | Core        |
-| Text      | ✅ 100% | 107 tests | Complete (900 lines)   | Core        |
-| Icon      | ✅ 100% | 106 tests | Complete (828 lines)   | Core        |
-| Button    | ✅ 100% | 61 tests  | Complete (1,475 lines) | UI          |
-| Badge     | 📋 0%   | Pending   | Pending                | **NEXT** 🎯 |
-| Divider   | 📋 0%   | Pending   | Pending                | After Badge |
+| Component | Status  | Tests     | Documentation          | Priority |
+| --------- | ------- | --------- | ---------------------- | -------- |
+| Box       | ✅ 100% | 120 tests | Complete (881 lines)   | Core     |
+| Stack     | ✅ 100% | 86 tests  | Complete (870 lines)   | Core     |
+| Text      | ✅ 100% | 107 tests | Complete (900 lines)   | Core     |
+| Icon      | ✅ 100% | 106 tests | Complete (828 lines)   | Core     |
+| Button    | ✅ 100% | 61 tests  | Complete (1,475 lines) | UI       |
+| Badge     | ✅ 100% | 559 lines | Complete               | UI       |
+| Divider   | ✅ 100% | 329 lines | Complete               | UI       |
 
-**Total:** 480 tests passing | 5 components production-ready
+**Total:** 554 tests passing | 7 components production-ready
 
-### Next Priorities
+### Phase 5A Complete 🎉
 
-#### 1. Badge Component (NEXT - Estimated: 4-6 hours)
+All 7 planned components for Phase 5A are now complete:
 
-**Why Badge next:**
+- ✅ **Layer 1 Primitives**: Box, Stack, Text, Icon, Divider
+- ✅ **Layer 2 Components**: Button, Badge
 
-- Uses Box + Text composition (proven pattern)
-- Simpler than Button (fewer states, no complex interactions)
-- Visual indicators are common UI pattern
-- Component tokens already available (20 tokens in Phase 4)
+### Next Steps
 
-**Deliverables:**
+**Phase 7: Tooling & Documentation** (2-3 weeks)
 
-- `Badge.tsx` component (estimated ~200 lines)
-- `Badge.stories.tsx` (Storybook, estimated ~600 lines)
-- `Badge.spec.tsx` (Playwright tests, estimated ~40-50 tests)
-- `badge.mdx` (Docusaurus documentation, estimated ~800 lines)
-- `badge.tsx` (Live examples, estimated ~400 lines)
-
-**Props:**
-
-- `variant`: success, error, warning, info, neutral
-- `size`: sm, md
-- `dot`: boolean (visual indicator)
-
-**Test Coverage Plan:**
-
-- Basic Rendering: 5-7 tests
-- Variants: 15-20 tests (variant combinations)
-- User Interactions: 3-5 tests
-- Accessibility: 5-7 tests
-- Visual Regression: 2 tests (light/dark mode)
-- **Total:** ~40-50 tests
-
-**Composition Pattern:**
-
-```tsx
-// Badge uses Box + Text (proven pattern from Button)
-<Box as="span" className="badge badge-{variant} badge-{size}">
-  {dot && <span className="badge-dot" />}
-  <Text size="sm">{children}</Text>
-</Box>
-```
-
-#### 2. Divider Component (After Badge - Estimated: 2-3 hours)
-
-**Why Divider after Badge:**
-
-- Simplest component (uses Box only)
-- Quick win to complete Phase 5A
-- Common layout utility component
-
-**Deliverables:**
-
-- `Divider.tsx` component (estimated ~150 lines)
-- `Divider.stories.tsx` (Storybook, estimated ~400 lines)
-- `Divider.spec.tsx` (Playwright tests, estimated ~20-30 tests)
-- `divider.mdx` (Docusaurus documentation, estimated ~600 lines)
-
-**Props:**
-
-- `orientation`: horizontal, vertical
-- `thickness`: thin, medium, thick
-- `color`: semantic colors
-
-**Test Coverage Plan:**
-
-- Basic Rendering: 3-5 tests
-- Variants: 10-12 tests (orientation × thickness × color)
-- Accessibility: 3-5 tests
-- Visual Regression: 2 tests (light/dark mode)
-- **Total:** ~20-30 tests
-
-**Composition Pattern:**
-
-```tsx
-// Divider uses Box only (simplest composition)
-<Box as="hr" className="divider divider-{orientation} divider-{thickness}" aria-orientation={orientation} />
-```
+- Theme Validation CLI
+- Storybook TokensCatalog interactive explorer
+- CI Validation enhancements
+- Enhanced Docusaurus documentation
 
 ---
 
@@ -286,6 +221,97 @@ The Lufa Design System v2.0 contains **5 production-ready React components** bui
 
 ---
 
+### 6. Badge - Status Indicator Component
+
+**File**: `Badge/Badge.tsx`  
+**Type**: Display component (status indicators)  
+**Purpose**: Visual status indicators with semantic color variants
+
+**Features**:
+
+- ✅ Multiple variants (success, error, warning, info, neutral)
+- ✅ Size variants (sm, md)
+- ✅ Optional dot indicator
+- ✅ Token-based styling
+- ✅ WCAG 2.1 AA compliant
+- ✅ Comprehensive testing (559 lines of tests)
+
+**Props**:
+
+- **Variant**: `variant` (success, error, warning, info, neutral)
+- **Size**: `size` (sm, md)
+- **Dot**: `dot` (boolean - visual indicator)
+
+**Example Usage**:
+
+```tsx
+<Badge variant="success" size="md">
+  Active
+</Badge>
+
+<Badge variant="error" dot>
+  Error
+</Badge>
+
+<Badge variant="warning" size="sm">
+  Pending
+</Badge>
+```
+
+**Composition Pattern**:
+
+```tsx
+// Badge uses Box + Text composition
+<Box as="span" className="badge badge-{variant} badge-{size}">
+  {dot && <span className="badge-dot" />}
+  <Text size="sm">{children}</Text>
+</Box>
+```
+
+---
+
+### 7. Divider - Visual Separator Component
+
+**File**: `Divider/Divider.tsx`  
+**Type**: Layout component (visual separation)  
+**Purpose**: Visual separator for content sections
+
+**Features**:
+
+- ✅ Orientation (horizontal, vertical)
+- ✅ Thickness variants
+- ✅ Semantic color variants
+- ✅ Token-based styling
+- ✅ Accessible (proper ARIA attributes)
+- ✅ Comprehensive testing (329 lines of tests)
+
+**Props**:
+
+- **Orientation**: `orientation` (horizontal, vertical)
+- **Thickness**: `thickness` (thin, medium, thick)
+- **Color**: `color` (semantic colors)
+
+**Example Usage**:
+
+```tsx
+<Divider orientation="horizontal" thickness="medium" />
+
+<Stack direction="horizontal">
+  <div>Content 1</div>
+  <Divider orientation="vertical" />
+  <div>Content 2</div>
+</Stack>
+```
+
+**Composition Pattern**:
+
+```tsx
+// Divider uses Box only (simplest composition)
+<Box as="hr" className="divider divider-{orientation} divider-{thickness}" aria-orientation={orientation} />
+```
+
+---
+
 ## Component Organization
 
 ### Directory Structure
@@ -308,6 +334,16 @@ packages/design-system/main/src/components/
 │   ├── Button.module.css
 │   ├── Button.additional.module.css  # Additional styles (animations, hover)
 │   ├── Button.spec.tsx
+│   └── index.ts
+├── Badge/
+│   ├── Badge.tsx
+│   ├── Badge.module.css
+│   ├── Badge.spec.tsx
+│   └── index.ts
+├── Divider/
+│   ├── Divider.tsx
+│   ├── Divider.module.css
+│   ├── Divider.spec.tsx
 │   └── index.ts
 └── index.ts                      # Main exports file
 ```
@@ -462,23 +498,28 @@ Each component is documented in:
 
 ## Next Steps
 
-### Remaining Components (2/7)
+### Phase 5A Complete! 🎉
 
-**Badge** (planned):
+All 7 planned components are now production-ready:
 
-- Display component for status indicators
-- Multiple variants (success, error, warning, info, neutral)
-- Size variants (sm, md, lg)
-- Icon support
-- Token-based styling
+- ✅ **Layer 1 Primitives**: Box, Stack, Text, Icon, Divider
+- ✅ **Layer 2 Components**: Button, Badge
 
-**Divider** (planned):
+### Future Component Additions (Phase 7+)
 
-- Layout component for visual separation
-- Orientation (horizontal, vertical)
-- Thickness variants
-- Color variants
-- Token-based styling
+**Layer 3 Compositions** (planned for v1.0.0+):
+
+- **Card** - Composable card container
+- **Modal** - Dialog and modal patterns
+- **Form** - Form layout and field components
+- **Input** - Text input fields
+- **Dropdown** - Select and dropdown components
+
+**Focus for Next Release (v0.8.0)**:
+
+- Enable full 5-browser test matrix in CI
+- Add compound component examples
+- Begin Phase 7 tooling (Theme Validation CLI, TokensCatalog)
 
 ---
 

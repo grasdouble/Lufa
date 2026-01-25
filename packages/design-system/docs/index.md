@@ -1,7 +1,7 @@
 # Lufa Design System - Documentation Index
 
 **Generated:** 2026-01-24  
-**Version:** 0.6.0  
+**Version:** 0.7.0  
 **Workflow:** BMM Document Project - Deep Scan  
 **Agent:** Mary (Business Analyst)
 
@@ -111,7 +111,7 @@ pnpm ds:storybook:dev  # Visit http://localhost:6006
 <summary><strong>Components & API</strong></summary>
 
 - **[Component Inventory](./component-inventory.md)** - Component catalog
-  - 5 components (Box, Stack, Text, Icon, Button)
+  - 7 components (Box, Stack, Text, Icon, Button, Badge, Divider)
   - Props reference
   - Usage examples
   - Composition patterns
@@ -150,7 +150,7 @@ pnpm ds:storybook:dev  # Visit http://localhost:6006
 - **[Testing Strategy](./testing-strategy.md)** - Test design
   - Playwright Component Testing
   - 5-part test structure
-  - 500+ test cases
+  - 554 test cases
   - Visual regression (5 browsers)
   - Snapshot management
 
@@ -261,13 +261,13 @@ pnpm ds:test:compress-snapshots
 | ---------------- | --------- | ----------- | ------------ |
 | **Architecture** | 1         | 15,000+     | ✅ Complete  |
 | **Development**  | 1         | 10,000+     | ✅ Complete  |
-| **Components**   | 2         | 14,000+     | ✅ Complete  |
+| **Components**   | 2         | 15,000+     | ✅ Complete  |
 | **Tokens**       | 1         | 5,000+      | ✅ Complete  |
 | **Build**        | 1         | 8,000+      | ✅ Complete  |
 | **Testing**      | 1         | 4,000+      | ✅ Complete  |
 | **Source Tree**  | 1         | 7,000+      | ✅ Complete  |
 
-**Total:** 10 documents, ~60,000+ words, 100% coverage
+**Total:** 10 documents, ~61,000+ words, 100% coverage
 
 ### Generated Files
 
