@@ -9,7 +9,13 @@
           "lufa": {
             "level": "core",
             "category": "neutral",
-            "useCase": "Page backgrounds, root container backgrounds"
+            "role": "content",
+            "useCase": "Page backgrounds, root container backgrounds",
+            "modes": {
+              "light": "{primitive.color.gray.50}",
+              "dark": "{primitive.color.gray.900}",
+              "high-contrast": "#ffffff"
+            }
           }
         }
       },
@@ -21,7 +27,13 @@
           "lufa": {
             "level": "core",
             "category": "neutral",
-            "useCase": "Cards, modals, dropdowns, panels"
+            "role": "content",
+            "useCase": "Cards, modals, dropdowns, panels",
+            "modes": {
+              "light": "{primitive.color.gray.100}",
+              "dark": "{primitive.color.gray.800}",
+              "high-contrast": "#f0f0f0"
+            }
           }
         }
       },
@@ -33,7 +45,13 @@
           "lufa": {
             "level": "core",
             "category": "neutral",
-            "useCase": "Hover state for list items, table rows, clickable cards"
+            "role": "action",
+            "useCase": "Hover state for list items, table rows, clickable cards",
+            "modes": {
+              "light": "{primitive.color.gray.200}",
+              "dark": "{primitive.color.gray.700}",
+              "high-contrast": "#e0e0e0"
+            }
           }
         }
       },
@@ -45,7 +63,13 @@
           "lufa": {
             "level": "core",
             "category": "neutral",
-            "useCase": "Input borders, card borders, dividers, separators"
+            "role": "content",
+            "useCase": "Input borders, card borders, dividers, separators",
+            "modes": {
+              "light": "{primitive.color.gray.300}",
+              "dark": "{primitive.color.gray.700}",
+              "high-contrast": "#000000"
+            }
           }
         }
       },
@@ -57,7 +81,13 @@
           "lufa": {
             "level": "core",
             "category": "neutral",
-            "useCase": "Emphasized borders, active input borders, strong dividers"
+            "role": "content",
+            "useCase": "Emphasized borders, active input borders, strong dividers",
+            "modes": {
+              "light": "{primitive.color.gray.400}",
+              "dark": "{primitive.color.gray.600}",
+              "high-contrast": "#000000"
+            }
           }
         }
       },
@@ -69,7 +99,13 @@
           "lufa": {
             "level": "core",
             "category": "neutral",
-            "useCase": "Body text, headings, primary labels"
+            "role": "content",
+            "useCase": "Body text, headings, primary labels",
+            "modes": {
+              "light": "{primitive.color.gray.900}",
+              "dark": "{primitive.color.gray.50}",
+              "high-contrast": "#000000"
+            }
           }
         }
       },
@@ -81,7 +117,13 @@
           "lufa": {
             "level": "core",
             "category": "neutral",
-            "useCase": "Secondary labels, descriptions, captions, metadata"
+            "role": "content",
+            "useCase": "Secondary labels, descriptions, captions, metadata",
+            "modes": {
+              "light": "{primitive.color.gray.600}",
+              "dark": "{primitive.color.gray.400}",
+              "high-contrast": "#333333"
+            }
           }
         }
       },
@@ -93,7 +135,13 @@
           "lufa": {
             "level": "core",
             "category": "neutral",
-            "useCase": "Placeholder text, timestamps, optional information"
+            "role": "content",
+            "useCase": "Placeholder text, timestamps, optional information",
+            "modes": {
+              "light": "{primitive.color.gray.500}",
+              "dark": "{primitive.color.gray.500}",
+              "high-contrast": "#666666"
+            }
           }
         }
       },
@@ -105,7 +153,13 @@
           "lufa": {
             "level": "core",
             "category": "neutral",
-            "useCase": "Disabled input text, disabled labels, inactive menu items"
+            "role": "content",
+            "useCase": "Disabled input text, disabled labels, inactive menu items",
+            "modes": {
+              "light": "{primitive.color.gray.400}",
+              "dark": "{primitive.color.gray.600}",
+              "high-contrast": "#999999"
+            }
           }
         }
       }
