@@ -1,5 +1,12 @@
 # Step 13: Responsive Design & Accessibility
 
+## DATA FILE REFERENCES:
+
+This step uses shared frameworks and templates:
+
+- **../data/ux-workflow-menu-handling.md**: A/P/C menu protocols, success metrics, failure modes
+- **../data/responsive-accessibility-framework.md**: Responsive strategy (Desktop/Tablet/Mobile), breakpoint strategy, accessibility levels (WCAG A/AA/AAA), testing strategy, implementation guidelines
+
 ## MANDATORY EXECUTION RULES (READ FIRST):
 
 - 🛑 NEVER generate content without user input
@@ -22,6 +29,8 @@
 
 ## COLLABORATION MENUS (A/P/C):
 
+For detailed A/P/C menu handling, see: **../data/ux-workflow-menu-handling.md**
+
 This step will generate content and present choices:
 
 - **A (Advanced Elicitation)**: Use discovery protocols to develop deeper responsive/accessibility insights
@@ -30,8 +39,10 @@ This step will generate content and present choices:
 
 ## PROTOCOL INTEGRATION:
 
-- When 'A' selected: Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml
-- When 'P' selected: Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md
+For detailed protocol integration, see: **../data/ux-workflow-menu-handling.md**
+
+- When 'A' selected: Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml
+- When 'P' selected: Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md
 - PROTOCOLS always return to this step's A/P/C menu
 - User accepts/rejects protocol changes before proceeding
 
@@ -48,116 +59,56 @@ Define responsive design strategy and accessibility requirements for the product
 
 ## RESPONSIVE & ACCESSIBILITY SEQUENCE:
 
+**For detailed frameworks and templates, see: ../data/responsive-accessibility-framework.md**
+
 ### 1. Define Responsive Strategy
 
-Establish how the design adapts across devices:
-"Let's define how {{project_name}} adapts across different screen sizes and devices.
+Establish how the design adapts across devices using questions from the framework:
 
-**Responsive Design Questions:**
+- **Desktop Strategy**: Extra screen real estate usage, multi-column layouts, desktop-specific features
+- **Tablet Strategy**: Touch-optimized interfaces, gesture interactions, information density
+- **Mobile Strategy**: Navigation approach (bottom nav vs hamburger), layout collapsing, critical information
 
-**Desktop Strategy:**
-
-- How should we use extra screen real estate?
-- Multi-column layouts, side navigation, or content density?
-- What desktop-specific features can we include?
-
-**Tablet Strategy:**
-
-- Should we use simplified layouts or touch-optimized interfaces?
-- How do gestures and touch interactions work on tablets?
-- What's the optimal information density for tablet screens?
-
-**Mobile Strategy:**
-
-- Bottom navigation or hamburger menu?
-- How do layouts collapse on small screens?
-- What's the most critical information to show mobile-first?"
+See **responsive-accessibility-framework.md** for complete facilitation scripts and questions.
 
 ### 2. Establish Breakpoint Strategy
 
-Define when and how layouts change:
-"**Breakpoint Strategy:**
-We need to define screen size breakpoints where layouts adapt.
+Define when and how layouts change using guidance from the framework:
 
-**Common Breakpoints:**
+- Standard vs custom breakpoints
+- Mobile-first vs desktop-first approach
+- Project-specific breakpoint considerations
 
-- Mobile: 320px - 767px
-- Tablet: 768px - 1023px
-- Desktop: 1024px+
-
-**For {{project_name}}, should we:**
-
-- Use standard breakpoints or custom ones?
-- Focus on mobile-first or desktop-first design?
-- Have specific breakpoints for your key use cases?"
+See **responsive-accessibility-framework.md** for common breakpoints and decision guidance.
 
 ### 3. Design Accessibility Strategy
 
-Define accessibility requirements and compliance level:
-"**Accessibility Strategy:**
-What level of WCAG compliance does {{project_name}} need?
+Define accessibility requirements and compliance level using WCAG guidance from the framework:
 
-**WCAG Levels:**
+- WCAG Level A/AA/AAA selection
+- Key accessibility considerations (contrast, keyboard, screen readers, touch targets)
+- Product-specific recommendations
 
-- **Level A (Basic)** - Essential accessibility for legal compliance
-- **Level AA (Recommended)** - Industry standard for good UX
-- **Level AAA (Highest)** - Exceptional accessibility (rarely needed)
-
-**Based on your product:**
-
-- [Recommendation based on user base, legal requirements, etc.]
-
-**Key Accessibility Considerations:**
-
-- Color contrast ratios (4.5:1 for normal text)
-- Keyboard navigation support
-- Screen reader compatibility
-- Touch target sizes (minimum 44x44px)
-- Focus indicators and skip links"
+See **responsive-accessibility-framework.md** for complete WCAG levels and accessibility checklist.
 
 ### 4. Define Testing Strategy
 
-Plan how to ensure responsive design and accessibility:
-"**Testing Strategy:**
+Plan comprehensive testing approach using strategies from the framework:
 
-**Responsive Testing:**
+- Responsive testing (devices, browsers, network performance)
+- Accessibility testing (automated tools, screen readers, keyboard navigation)
+- User testing with assistive technologies
 
-- Device testing on actual phones/tablets
-- Browser testing across Chrome, Firefox, Safari, Edge
-- Real device network performance testing
-
-**Accessibility Testing:**
-
-- Automated accessibility testing tools
-- Screen reader testing (VoiceOver, NVDA, JAWS)
-- Keyboard-only navigation testing
-- Color blindness simulation testing
-
-**User Testing:**
-
-- Include users with disabilities in testing
-- Test with diverse assistive technologies
-- Validate with actual target devices"
+See **responsive-accessibility-framework.md** for detailed testing approaches.
 
 ### 5. Document Implementation Guidelines
 
-Create specific guidelines for developers:
-"**Implementation Guidelines:**
+Create developer guidelines using templates from the framework:
 
-**Responsive Development:**
+- Responsive development practices
+- Accessibility development requirements
 
-- Use relative units (rem, %, vw, vh) over fixed pixels
-- Implement mobile-first media queries
-- Test touch targets and gesture areas
-- Optimize images and assets for different devices
-
-**Accessibility Development:**
-
-- Semantic HTML structure
-- ARIA labels and roles
-- Keyboard navigation implementation
-- Focus management and skip links
-- High contrast mode support"
+See **responsive-accessibility-framework.md** for complete implementation guidelines.
 
 ### 6. Generate Responsive & Accessibility Content
 
@@ -193,6 +144,8 @@ When saving to document, append these Level 2 and Level 3 sections:
 
 ### 7. Present Content and Menu
 
+For detailed menu handling procedures, see: **../data/ux-workflow-menu-handling.md**
+
 Show the generated responsive and accessibility content and present choices:
 "I've defined the responsive design and accessibility strategy for {{project_name}}. This ensures your product works beautifully across all devices and is accessible to all users.
 
@@ -207,9 +160,11 @@ Show the generated responsive and accessibility content and present choices:
 
 ### 8. Handle Menu Selection
 
+For detailed menu handling logic and protocols, see: **../data/ux-workflow-menu-handling.md**
+
 #### If 'A' (Advanced Elicitation):
 
-- Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml with the current responsive/accessibility content
+- Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml with the current responsive/accessibility content
 - Process the enhanced insights that come back
 - Ask user: "Accept these improvements to the responsive/accessibility strategy? (y/n)"
 - If yes: Update content with improvements, then return to A/P/C menu
@@ -217,7 +172,7 @@ Show the generated responsive and accessibility content and present choices:
 
 #### If 'P' (Party Mode):
 
-- Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md with the current responsive/accessibility strategy
+- Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md with the current responsive/accessibility strategy
 - Process the collaborative insights that come back
 - Ask user: "Accept these changes to the responsive/accessibility strategy? (y/n)"
 - If yes: Update content with improvements, then return to A/P/C menu
@@ -235,6 +190,8 @@ When user selects 'C', append the content directly to the document using the str
 
 ## SUCCESS METRICS:
 
+For complete success metrics and patterns, see: **../data/ux-workflow-menu-handling.md**
+
 ✅ Responsive strategy clearly defined for all device types
 ✅ Appropriate breakpoint strategy established
 ✅ Accessibility requirements determined and documented
@@ -244,6 +201,8 @@ When user selects 'C', append the content directly to the document using the str
 ✅ Content properly appended to document when C selected
 
 ## FAILURE MODES:
+
+For complete failure mode patterns, see: **../data/ux-workflow-menu-handling.md**
 
 ❌ Not considering all device types and screen sizes
 ❌ Accessibility requirements not properly researched

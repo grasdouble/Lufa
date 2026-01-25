@@ -1,5 +1,12 @@
 # Step 7: Defining Core Experience
 
+## DATA FILE REFERENCES:
+
+This step uses shared frameworks and templates:
+
+- **../data/ux-workflow-menu-handling.md**: A/P/C menu protocols, success metrics, failure modes
+- **../data/defining-experience-framework.md**: Famous product examples (Tinder, Snapchat, Instagram, Spotify), identifying defining experience questions, user mental model exploration, success criteria, novel vs established patterns, experience mechanics (4 phases)
+
 ## MANDATORY EXECUTION RULES (READ FIRST):
 
 - 🛑 NEVER generate content without user input
@@ -22,6 +29,8 @@
 
 ## COLLABORATION MENUS (A/P/C):
 
+For detailed A/P/C menu handling, see: **../data/ux-workflow-menu-handling.md**
+
 This step will generate content and present choices:
 
 - **A (Advanced Elicitation)**: Use discovery protocols to develop deeper experience insights
@@ -30,8 +39,10 @@ This step will generate content and present choices:
 
 ## PROTOCOL INTEGRATION:
 
-- When 'A' selected: Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml
-- When 'P' selected: Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md
+For detailed protocol integration, see: **../data/ux-workflow-menu-handling.md**
+
+- When 'A' selected: Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml
+- When 'P' selected: Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md
 - PROTOCOLS always return to this step's A/P/C menu
 - User accepts/rejects protocol changes before proceeding
 
@@ -48,106 +59,61 @@ Define the core interaction that, if nailed, makes everything else follow in the
 
 ## DEFINING EXPERIENCE SEQUENCE:
 
+**For detailed frameworks, examples, and templates, see: ../data/defining-experience-framework.md**
+
 ### 1. Identify the Defining Experience
 
-Focus on the core interaction:
-"Every successful product has a defining experience - the core interaction that, if we nail it, everything else follows.
+Focus on the core interaction using famous product examples and questions from the framework:
 
-**Think about these famous examples:**
+- Famous examples: Tinder (swipe to match), Snapchat (photos that disappear), Instagram (perfect moments with filters), Spotify (discover and play instantly)
+- What's the core action users will describe to friends?
+- What makes users feel successful?
+- If we get ONE thing perfectly right, what should it be?
 
-- Tinder: "Swipe to match with people"
-- Snapchat: "Share photos that disappear"
-- Instagram: "Share perfect moments with filters"
-- Spotify: "Discover and play any song instantly"
-
-**For {{project_name}}:**
-What's the core action that users will describe to their friends?
-What's the interaction that makes users feel successful?
-If we get ONE thing perfectly right, what should it be?"
+See **defining-experience-framework.md** for complete examples and facilitation scripts.
 
 ### 2. Explore the User's Mental Model
 
-Understand how users think about the core task:
-"**User Mental Model Questions:**
+Understand how users think about the core task using questions from the framework:
 
 - How do users currently solve this problem?
-- What mental model do they bring to this task?
-- What's their expectation for how this should work?
-- Where are they likely to get confused or frustrated?
+- What mental model do they bring?
+- What are their expectations?
+- Where might they get confused or frustrated?
 
-**Current Solutions:**
-
-- What do users love/hate about existing approaches?
-- What shortcuts or workarounds do they use?
-- What makes existing solutions feel magical or terrible?"
+See **defining-experience-framework.md** for complete mental model exploration questions.
 
 ### 3. Define Success Criteria for Core Experience
 
-Establish what makes the core interaction successful:
-"**Core Experience Success Criteria:**
+Establish what makes the core interaction successful using criteria from the framework:
 
-- What makes users say 'this just works'?
+- What makes users say "this just works"?
 - When do they feel smart or accomplished?
 - What feedback tells them they're doing it right?
 - How fast should it feel?
 - What should happen automatically?
 
-**Success Indicators:**
-
-- [Success indicator 1]
-- [Success indicator 2]
-- [Success indicator 3]"
+See **defining-experience-framework.md** for complete success criteria template.
 
 ### 4. Identify Novel vs. Established Patterns
 
-Determine if we need to innovate or can use proven patterns:
-"**Pattern Analysis:**
-Looking at your core experience, does this:
+Determine if innovation is needed or proven patterns can be used, using analysis from the framework:
 
-- Use established UX patterns that users already understand?
-- Require novel interaction design that needs user education?
-- Combine familiar patterns in innovative ways?
+- Novel patterns: Teaching users, familiar metaphors, what makes it different
+- Established patterns: Which proven patterns to adopt, unique twists on familiar interactions
 
-**If Novel:**
-
-- What makes this different from existing approaches?
-- How will we teach users this new pattern?
-- What familiar metaphors can we use?
-
-**If Established:**
-
-- Which proven patterns should we adopt?
-- How can we innovate within familiar patterns?
-- What's our unique twist on established interactions?"
+See **defining-experience-framework.md** for complete pattern analysis framework.
 
 ### 5. Define Experience Mechanics
 
-Break down the core interaction into details:
-"**Core Experience Mechanics:**
-Let's design the step-by-step flow for [defining experience]:
+Break down the core interaction using the 4-phase framework:
 
-**1. Initiation:**
+1. **Initiation**: How users start, what triggers action
+2. **Interaction**: What users do, controls used, system response
+3. **Feedback**: Success indicators, error handling
+4. **Completion**: Done state, successful outcome, what's next
 
-- How does the user start this action?
-- What triggers or invites them to begin?
-
-**2. Interaction:**
-
-- What does the user actually do?
-- What controls or inputs do they use?
-- How does the system respond?
-
-**3. Feedback:**
-
-- What tells users they're succeeding?
-- How do they know when it's working?
-- What happens if they make a mistake?
-
-**4. Completion:**
-
-- How do users know they're done?
-- What's the successful outcome?
-- What's next?"
+See **defining-experience-framework.md** for complete mechanics breakdown template.
 
 ### 6. Generate Defining Experience Content
 
@@ -183,6 +149,8 @@ When saving to document, append these Level 2 and Level 3 sections:
 
 ### 7. Present Content and Menu
 
+For detailed menu handling procedures, see: **../data/ux-workflow-menu-handling.md**
+
 Show the generated defining experience content and present choices:
 "I've defined the core experience for {{project_name}} - the interaction that will make users love this product.
 
@@ -197,9 +165,11 @@ Show the generated defining experience content and present choices:
 
 ### 8. Handle Menu Selection
 
+For detailed menu handling logic and protocols, see: **../data/ux-workflow-menu-handling.md**
+
 #### If 'A' (Advanced Elicitation):
 
-- Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml with the current defining experience content
+- Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml with the current defining experience content
 - Process the enhanced experience insights that come back
 - Ask user: "Accept these improvements to the defining experience? (y/n)"
 - If yes: Update content with improvements, then return to A/P/C menu
@@ -207,7 +177,7 @@ Show the generated defining experience content and present choices:
 
 #### If 'P' (Party Mode):
 
-- Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md with the current defining experience
+- Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md with the current defining experience
 - Process the collaborative experience insights that come back
 - Ask user: "Accept these changes to the defining experience? (y/n)"
 - If yes: Update content with improvements, then return to A/P/C menu
@@ -225,6 +195,8 @@ When user selects 'C', append the content directly to the document using the str
 
 ## SUCCESS METRICS:
 
+For complete success metrics and patterns, see: **../data/ux-workflow-menu-handling.md**
+
 ✅ Defining experience clearly articulated
 ✅ User mental model thoroughly analyzed
 ✅ Success criteria established for core interaction
@@ -234,6 +206,8 @@ When user selects 'C', append the content directly to the document using the str
 ✅ Content properly appended to document when C selected
 
 ## FAILURE MODES:
+
+For complete failure mode patterns, see: **../data/ux-workflow-menu-handling.md**
 
 ❌ Not identifying the true core interaction
 ❌ Missing user's mental model and expectations
