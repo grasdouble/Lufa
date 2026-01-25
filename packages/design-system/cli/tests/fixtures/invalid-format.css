@@ -1,0 +1,140 @@
+/**
+ * Test Fixture: Invalid Theme - Bad Formats
+ * 
+ * This theme has invalid value formats to test format validation
+ */
+
+:root {
+  /* INVALID: Color without # */
+  --lufa-primitive-color-gray-50: f9fafb;
+  --lufa-primitive-color-gray-100: #f3f4f6;
+  --lufa-primitive-color-gray-200: #e5e7eb;
+  --lufa-primitive-color-gray-300: #d1d5db;
+  --lufa-primitive-color-gray-400: #9ca3af;
+  --lufa-primitive-color-gray-500: #6b7280;
+  --lufa-primitive-color-gray-600: #4b5563;
+  --lufa-primitive-color-gray-700: #374151;
+  --lufa-primitive-color-gray-800: #1f2937;
+  --lufa-primitive-color-gray-900: #111827;
+
+  --lufa-primitive-color-blue-50: #eff6ff;
+  --lufa-primitive-color-blue-100: #dbeafe;
+  --lufa-primitive-color-blue-200: #bfdbfe;
+  --lufa-primitive-color-blue-300: #93c5fd;
+  --lufa-primitive-color-blue-400: #60a5fa;
+  --lufa-primitive-color-blue-500: #3b82f6;
+  --lufa-primitive-color-blue-600: #2563eb;
+  --lufa-primitive-color-blue-700: #1d4ed8;
+  --lufa-primitive-color-blue-800: #1e40af;
+  --lufa-primitive-color-blue-900: #1e3a8a;
+
+  --lufa-primitive-color-red-50: #fef2f2;
+  --lufa-primitive-color-red-100: #fee2e2;
+  --lufa-primitive-color-red-200: #fecaca;
+  --lufa-primitive-color-red-300: #fca5a5;
+  --lufa-primitive-color-red-400: #f87171;
+  --lufa-primitive-color-red-500: #ef4444;
+  --lufa-primitive-color-red-600: #dc2626;
+  --lufa-primitive-color-red-700: #b91c1c;
+  --lufa-primitive-color-red-800: #991b1b;
+  --lufa-primitive-color-red-900: #7f1d1d;
+
+  --lufa-primitive-color-green-50: #f0fdf4;
+  --lufa-primitive-color-green-100: #dcfce7;
+  --lufa-primitive-color-green-200: #bbf7d0;
+  --lufa-primitive-color-green-300: #86efac;
+  --lufa-primitive-color-green-400: #4ade80;
+  --lufa-primitive-color-green-500: #22c55e;
+  --lufa-primitive-color-green-600: #16a34a;
+  --lufa-primitive-color-green-700: #15803d;
+  --lufa-primitive-color-green-800: #166534;
+  --lufa-primitive-color-green-900: #14532d;
+
+  --lufa-primitive-color-yellow-50: #fefce8;
+  --lufa-primitive-color-yellow-100: #fef9c3;
+  --lufa-primitive-color-yellow-200: #fef08a;
+  --lufa-primitive-color-yellow-300: #fde047;
+  --lufa-primitive-color-yellow-400: #facc15;
+  --lufa-primitive-color-yellow-500: #eab308;
+  --lufa-primitive-color-yellow-600: #ca8a04;
+  --lufa-primitive-color-yellow-700: #a16207;
+  --lufa-primitive-color-yellow-800: #854d0e;
+  --lufa-primitive-color-yellow-900: #713f12;
+
+  --lufa-primitive-color-purple-50: #faf5ff;
+  --lufa-primitive-color-purple-100: #f3e8ff;
+  --lufa-primitive-color-purple-200: #e9d5ff;
+  --lufa-primitive-color-purple-300: #d8b4fe;
+  --lufa-primitive-color-purple-400: #c084fc;
+  --lufa-primitive-color-purple-500: #a855f7;
+  --lufa-primitive-color-purple-600: #9333ea;
+  --lufa-primitive-color-purple-700: #7e22ce;
+  --lufa-primitive-color-purple-800: #6b21a8;
+  --lufa-primitive-color-purple-900: #581c87;
+
+  /* INVALID: Duration without unit */
+  --lufa-primitive-motion-duration-instant: 100;
+  --lufa-primitive-motion-duration-fast: 150ms;
+  --lufa-primitive-motion-duration-normal: 250ms;
+  --lufa-primitive-motion-duration-slow: 400ms;
+
+  --lufa-primitive-motion-easing-linear: cubic-bezier(0, 0, 1, 1);
+  --lufa-primitive-motion-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --lufa-primitive-motion-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --lufa-primitive-motion-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --lufa-primitive-radius-scale-none: 0px;
+  --lufa-primitive-radius-scale-sm: 2px;
+  --lufa-primitive-radius-scale-base: 4px;
+  --lufa-primitive-radius-scale-md: 6px;
+  --lufa-primitive-radius-scale-lg: 8px;
+  --lufa-primitive-radius-scale-xl: 12px;
+  --lufa-primitive-radius-scale-full: 9999px;
+
+  --lufa-primitive-shadow-elevation-none: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --lufa-primitive-shadow-elevation-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  --lufa-primitive-shadow-elevation-base: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  --lufa-primitive-shadow-elevation-md: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+  --lufa-primitive-shadow-elevation-lg: 0px 8px 16px 0px rgba(0, 0, 0, 0.12);
+  --lufa-primitive-shadow-elevation-xl: 0px 12px 24px 0px rgba(0, 0, 0, 0.15);
+
+  /* INVALID: Spacing without unit */
+  --lufa-primitive-spacing-0: 0px;
+  --lufa-primitive-spacing-4: 4;
+  --lufa-primitive-spacing-8: 8px;
+  --lufa-primitive-spacing-12: 12px;
+  --lufa-primitive-spacing-16: 16px;
+  --lufa-primitive-spacing-24: 24px;
+  --lufa-primitive-spacing-32: 32px;
+  --lufa-primitive-spacing-40: 40px;
+  --lufa-primitive-spacing-48: 48px;
+  --lufa-primitive-spacing-64: 64px;
+  --lufa-primitive-spacing-80: 80px;
+  --lufa-primitive-spacing-96: 96px;
+
+  --lufa-primitive-typography-font-family-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --lufa-primitive-typography-font-family-mono:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --lufa-primitive-typography-font-size-xs: 12px;
+  --lufa-primitive-typography-font-size-sm: 14px;
+  --lufa-primitive-typography-font-size-base: 16px;
+  --lufa-primitive-typography-font-size-lg: 18px;
+  --lufa-primitive-typography-font-size-xl: 20px;
+  --lufa-primitive-typography-font-size-2xl: 24px;
+  --lufa-primitive-typography-font-size-3xl: 30px;
+  --lufa-primitive-typography-font-size-4xl: 36px;
+  --lufa-primitive-typography-font-size-5xl: 48px;
+
+  --lufa-primitive-typography-font-weight-normal: 400;
+  --lufa-primitive-typography-font-weight-medium: 500;
+  --lufa-primitive-typography-font-weight-semibold: 600;
+  --lufa-primitive-typography-font-weight-bold: 700;
+
+  --lufa-primitive-typography-line-height-tight: 1.25;
+  --lufa-primitive-typography-line-height-normal: 1.5;
+  --lufa-primitive-typography-line-height-relaxed: 1.75;
+
+  /* Truncated for brevity - rest of tokens... */
+}
