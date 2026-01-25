@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Alert, Badge, Button, Card, Input, Typography } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 import { ThemeSwitcher } from '../../components/ThemeSwitcher';
 
@@ -63,9 +64,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   render: () => (
-    <div style={{ padding: 'var(--spacing-xl)', minHeight: '100vh' }} className="bg-background-primary">
-      <div style={{ marginBottom: 'var(--spacing-xl)', textAlign: 'center' }}>
-        <Typography variant="h2" style={{ marginBottom: 'var(--spacing-xs)' }}>
+    <div style={{ padding: tokens.spacing.xl, minHeight: '100vh' }} className="bg-background-primary">
+      <div style={{ marginBottom: tokens.spacing.xl, textAlign: 'center' }}>
+        <Typography variant="h2" style={{ marginBottom: tokens.spacing.xs }}>
           Theme Switcher Demo
         </Typography>
         <Typography variant="body" color="secondary">
@@ -74,7 +75,7 @@ export const Interactive: Story = {
       </div>
 
       {/* Theme Switcher - Centered */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'var(--spacing-2xl)' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: tokens.spacing['2xl'] }}>
         <ThemeSwitcher variant="tabs" showLabel />
       </div>
 
@@ -84,15 +85,15 @@ export const Interactive: Story = {
           maxWidth: '1200px',
           margin: '0 auto',
           display: 'grid',
-          gap: 'var(--spacing-xl)',
+          gap: tokens.spacing.xl,
         }}
       >
         {/* Buttons Section */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
+          <Typography variant="h4" style={{ marginBottom: tokens.spacing.md }}>
             Buttons
           </Typography>
-          <div style={{ display: 'flex', gap: 'var(--spacing-md)', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: tokens.spacing.md, flexWrap: 'wrap' }}>
             <Button variant="solid" color="primary">
               Primary
             </Button>
@@ -116,10 +117,10 @@ export const Interactive: Story = {
 
         {/* Badges Section */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
+          <Typography variant="h4" style={{ marginBottom: tokens.spacing.md }}>
             Badges
           </Typography>
-          <div style={{ display: 'flex', gap: 'var(--spacing-md)', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: tokens.spacing.md, flexWrap: 'wrap', alignItems: 'center' }}>
             <Badge variant="default">Default</Badge>
             <Badge variant="primary">Primary</Badge>
             <Badge variant="success">Success</Badge>
@@ -131,10 +132,10 @@ export const Interactive: Story = {
 
         {/* Alerts Section */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
+          <Typography variant="h4" style={{ marginBottom: tokens.spacing.md }}>
             Alerts
           </Typography>
-          <div style={{ display: 'grid', gap: 'var(--spacing-md)' }}>
+          <div style={{ display: 'grid', gap: tokens.spacing.md }}>
             <Alert variant="info" title="Info Alert">
               This is an informational message using semantic colors
             </Alert>
@@ -152,30 +153,30 @@ export const Interactive: Story = {
 
         {/* Cards Section */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
+          <Typography variant="h4" style={{ marginBottom: tokens.spacing.md }}>
             Cards
           </Typography>
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-              gap: 'var(--spacing-md)',
+              gap: tokens.spacing.md,
             }}
           >
             <Card variant="default" padding="medium">
-              <Typography variant="h5" style={{ marginBottom: 'var(--spacing-xs)' }}>
+              <Typography variant="h5" style={{ marginBottom: tokens.spacing.xs }}>
                 Default Card
               </Typography>
               <Typography variant="body">Card content adapts to theme colors</Typography>
             </Card>
             <Card variant="elevated" padding="medium">
-              <Typography variant="h5" style={{ marginBottom: 'var(--spacing-xs)' }}>
+              <Typography variant="h5" style={{ marginBottom: tokens.spacing.xs }}>
                 Elevated Card
               </Typography>
               <Typography variant="body">With shadow styling</Typography>
             </Card>
             <Card variant="outlined" padding="medium">
-              <Typography variant="h5" style={{ marginBottom: 'var(--spacing-xs)' }}>
+              <Typography variant="h5" style={{ marginBottom: tokens.spacing.xs }}>
                 Outlined Card
               </Typography>
               <Typography variant="body">Border-styled card</Typography>
@@ -185,10 +186,10 @@ export const Interactive: Story = {
 
         {/* Input Section */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
+          <Typography variant="h4" style={{ marginBottom: tokens.spacing.md }}>
             Input Fields
           </Typography>
-          <div style={{ display: 'grid', gap: 'var(--spacing-md)', maxWidth: '500px' }}>
+          <div style={{ display: 'grid', gap: tokens.spacing.md, maxWidth: '500px' }}>
             <Input label="Username" placeholder="Enter your username" />
             <Input label="Email" placeholder="your@email.com" variant="outlined" />
             <Input label="Password" type="password" placeholder="••••••••" />
@@ -198,14 +199,14 @@ export const Interactive: Story = {
 
         {/* Color Swatches */}
         <section>
-          <Typography variant="h4" style={{ marginBottom: 'var(--spacing-md)' }}>
+          <Typography variant="h4" style={{ marginBottom: tokens.spacing.md }}>
             Semantic Color System
           </Typography>
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-              gap: 'var(--spacing-md)',
+              gap: tokens.spacing.md,
             }}
           >
             <ColorSwatch color="interactive-default" label="Interactive Default" />
@@ -246,48 +247,48 @@ export const Interactive: Story = {
 function ColorSwatch({ color, label }: { color: string; label: string }) {
   const colorMap: Record<string, { bg: string; border: string }> = {
     'interactive-default': {
-      bg: 'var(--color-interactive-default)',
-      border: 'var(--color-border-default)',
+      bg: tokens.color.interactive.default,
+      border: tokens.color.border.default,
     },
     'interactive-hover': {
-      bg: 'var(--color-interactive-hover)',
-      border: 'var(--color-border-default)',
+      bg: tokens.color.interactive.hover,
+      border: tokens.color.border.default,
     },
     'success-default': {
-      bg: 'var(--color-success-default)',
-      border: 'var(--color-success-border)',
+      bg: tokens.color.success.default,
+      border: tokens.color.success.border,
     },
     'warning-default': {
-      bg: 'var(--color-warning-default)',
-      border: 'var(--color-warning-border)',
+      bg: tokens.color.warning.default,
+      border: tokens.color.warning.border,
     },
     'error-default': {
-      bg: 'var(--color-error-default)',
-      border: 'var(--color-error-border)',
+      bg: tokens.color.error.default,
+      border: tokens.color.error.border,
     },
     'info-default': {
-      bg: 'var(--color-info-default)',
-      border: 'var(--color-info-border)',
+      bg: tokens.color.info.default,
+      border: tokens.color.info.border,
     },
   };
 
-  const colors = colorMap[color] || { bg: 'transparent', border: 'var(--color-border-default)' };
+  const colors = colorMap[color] || { bg: 'transparent', border: tokens.color.border.default };
 
   return (
     <div
       style={{
-        padding: 'var(--spacing-md)',
-        borderRadius: 'var(--radius-md)',
+        padding: tokens.spacing.md,
+        borderRadius: tokens.radius.md,
         border: `1px solid ${colors.border}`,
-        backgroundColor: 'var(--color-background-primary)',
+        backgroundColor: tokens.color.background.primary,
       }}
     >
       <div
         style={{
           width: '100%',
           height: '60px',
-          borderRadius: 'var(--radius-sm)',
-          marginBottom: 'var(--spacing-xs)',
+          borderRadius: tokens.radius.sm,
+          marginBottom: tokens.spacing.xs,
           backgroundColor: colors.bg,
         }}
       />

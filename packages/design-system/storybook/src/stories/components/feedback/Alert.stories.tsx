@@ -149,7 +149,14 @@ export const CustomIcon: Story = {
 
 export const UsageExamples: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg, maxWidth: tokens.maxWidth.lg }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: tokens.spacing.lg,
+        maxWidth: tokens.maxWidth.lg,
+      }}
+    >
       <div>
         <h3 style={{ marginBottom: tokens.spacing.sm }}>Form Validation</h3>
         <Alert variant="error" title="Validation Failed" closable>

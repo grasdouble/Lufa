@@ -73,6 +73,28 @@ export const spacing = {
 
 **Purpose**: Map primitive values to semantic, purpose-driven names
 
+**Token Access Methods** (both are supported):
+
+1. **CSS Custom Properties** - For use in CSS files:
+
+   ```css
+   .button {
+     color: var(--lufa-token-color-text-primary);
+     padding: var(--lufa-token-spacing-base);
+   }
+   ```
+
+2. **TypeScript Default Export** - For use in JavaScript/TypeScript:
+
+   ```typescript
+   import tokens from '@grasdouble/lufa_design-system-tokens';
+
+   const styles = {
+     color: tokens.color.text.primary,
+     padding: tokens.spacing.base,
+   };
+   ```
+
 **Key Principles**:
 
 - Use semantic names that describe purpose, not appearance
@@ -205,9 +227,12 @@ Button.displayName = 'Button';
 
 1. **ALWAYS use CSS Modules** - Create a `.module.css` file alongside your component
 2. **ONLY use tokens that EXIST** - Verify tokens in `packages/design-system/tokens/dist/style.css` before using
-3. **Use vanilla CSS** with design token CSS custom properties (`var(--lufa-token-*)`)
+3. **File-based token usage rule** (IMPORTANT):
+   - **CSS files** (`.css`, `.module.css`): MUST use CSS custom properties `var(--lufa-token-*)`
+   - **TypeScript/JavaScript files** (`.ts`, `.tsx`, `.js`, `.jsx`): MUST use TypeScript tokens `tokens.color.text.primary`
+   - Do NOT mix approaches - use the appropriate method for each file type
 
-**CSS Module Example**:
+**Option 1: CSS Custom Properties in CSS Files** (`.css`, `.module.css`):
 
 ```css
 /* Button.module.css */
@@ -266,14 +291,87 @@ className={clsx(
 )}
 ```
 
-**Available Token Categories** (always verify in `tokens/dist/style.css`):
+**Option 2: TypeScript Tokens in TypeScript/JavaScript Files** (`.ts`, `.tsx`, `.js`, `.jsx`):
 
-- **Colors**: `--lufa-token-color-background-*`, `--lufa-token-color-text-*`, `--lufa-token-color-border-*`, `--lufa-token-color-interactive-*`
-- **Spacing**: `--lufa-token-spacing-*` (xs, sm, base, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
-- **Border**: `--lufa-token-radius-*` (none, xs, sm, md, base, lg, xl, 2xl, 3xl, full)
-- **Typography**: `--lufa-token-font-size-*`, `--lufa-token-font-weight-*`, `--lufa-token-line-height-*`
-- **Transitions**: `--lufa-token-duration-*` (fast, base, slow, slower)
-- **Shadows**: `--lufa-token-shadow-*` (sm, base, md, lg, xl)
+```typescript
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
+// Inline styles (great for Storybook stories, documentation, prototypes)
+const inlineStyles = {
+  backgroundColor: tokens.color.background.primary,
+  color: tokens.color.text.primary,
+  padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
+  borderRadius: tokens.radius.base,
+  border: `${tokens.borderWidth.default} solid ${tokens.color.border.default}`,
+};
+
+// Dynamic/computed styles
+const getButtonStyle = (variant: string) => ({
+  backgroundColor: variant === 'primary' ? tokens.color.interactive.default : tokens.color.background.secondary,
+  padding: tokens.spacing.md,
+});
+
+// Template literals for complex values
+const complexBorder = `${tokens.borderWidth.hairline} ${tokens.borderStyle.solid} ${tokens.color.border.light}`;
+```
+
+**File-Based Usage Rule**:
+
+The rule is simple: **use the token format that matches your file type**.
+
+| File Type                    | Token Format          | Example                                        |
+| ---------------------------- | --------------------- | ---------------------------------------------- |
+| `.css`, `.module.css`        | CSS custom properties | `color: var(--lufa-token-color-text-primary);` |
+| `.ts`, `.tsx`, `.js`, `.jsx` | TypeScript tokens     | `color: tokens.color.text.primary`             |
+
+**Why this rule?**
+
+- **CSS files** can only use CSS custom properties (CSS variables)
+- **TypeScript/JavaScript files** benefit from type safety, autocomplete, and don't need CSS variable syntax
+- Consistent pattern: CSS syntax in CSS files, JavaScript syntax in JS files
+- Avoids mixing syntaxes within the same file
+
+**Examples**:
+
+```typescript
+// ✅ CORRECT: Button.module.css
+.button {
+  color: var(--lufa-token-color-text-primary);
+}
+
+// ✅ CORRECT: Button.tsx
+import tokens from '@grasdouble/lufa_design-system-tokens';
+const style = { color: tokens.color.text.primary };
+
+// ❌ WRONG: Button.tsx (don't use CSS variable syntax in TS files)
+const style = { color: 'var(--lufa-token-color-text-primary)' };
+
+// ❌ WRONG: Button.module.css (can't use TS tokens in CSS)
+.button {
+  color: tokens.color.text.primary; /* This won't work in CSS */
+}
+```
+
+**Available Token Categories** (always verify tokens exist before using):
+
+- **Colors**:
+  - CSS: `var(--lufa-token-color-background-*)`, `var(--lufa-token-color-text-*)`, `var(--lufa-token-color-border-*)`, `var(--lufa-token-color-interactive-*)`
+  - TypeScript: `tokens.color.background.*`, `tokens.color.text.*`, `tokens.color.border.*`, `tokens.color.interactive.*`
+- **Spacing**:
+  - CSS: `var(--lufa-token-spacing-*)` (xs, sm, base, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
+  - TypeScript: `tokens.spacing.xs`, `tokens.spacing.base`, etc.
+- **Border**:
+  - CSS: `var(--lufa-token-radius-*)` (none, xs, sm, md, base, lg, xl, 2xl, 3xl, full)
+  - TypeScript: `tokens.radius.base`, `tokens.borderWidth.default`, `tokens.borderStyle.solid`
+- **Typography**:
+  - CSS: `var(--lufa-token-font-size-*)`, `var(--lufa-token-font-weight-*)`, `var(--lufa-token-line-height-*)`
+  - TypeScript: `tokens.fontSize.base`, `tokens.fontWeight.semibold`, `tokens.lineHeight.normal`
+- **Transitions**:
+  - CSS: `var(--lufa-token-duration-*)` (fast, base, slow, slower)
+  - TypeScript: `tokens.transition.fast`, `tokens.easing.smooth`
+- **Shadows**:
+  - CSS: `var(--lufa-token-shadow-*)` (sm, base, md, lg, xl)
+  - TypeScript: `tokens.shadow.md`
 
 **Design & Visual Quality Requirements**:
 

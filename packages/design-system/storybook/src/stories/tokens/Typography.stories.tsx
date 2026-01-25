@@ -17,7 +17,7 @@ export const FontSizes: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Font Size Tokens</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic font size tokens with t-shirt sizing. WCAG requires minimum 16px for body text.
       </p>
 
@@ -27,9 +27,9 @@ export const FontSizes: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: 'var(--lufa-token-color-background-secondary)',
+              backgroundColor: tokens.color.background.secondary,
               borderRadius: '8px',
-              border: `1px solid var(--lufa-token-color-border-light)`,
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div
@@ -42,7 +42,7 @@ export const FontSizes: Story = {
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>fontSize.{key}</div>
               <div
-                style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '12px' }}
+                style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}
               >
                 {String(value)}
               </div>
@@ -59,7 +59,7 @@ export const LineHeights: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Line Height Tokens</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic line height tokens. WCAG requires minimum 1.5 for body text.
       </p>
 
@@ -69,9 +69,9 @@ export const LineHeights: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: 'var(--lufa-token-color-background-secondary)',
+              backgroundColor: tokens.color.background.secondary,
               borderRadius: '8px',
-              border: `1px solid var(--lufa-token-color-border-light)`,
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div
@@ -84,7 +84,7 @@ export const LineHeights: Story = {
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>lineHeight.{key}</div>
               <div
-                style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '12px' }}
+                style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}
               >
                 {String(value)}
               </div>
@@ -104,7 +104,7 @@ export const FontWeights: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Font Weight Tokens</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic font weight tokens from thin to black. WCAG recommends minimum 400 for body text.
       </p>
 
@@ -114,9 +114,9 @@ export const FontWeights: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: 'var(--lufa-token-color-background-secondary)',
+              backgroundColor: tokens.color.background.secondary,
               borderRadius: '8px',
-              border: `1px solid var(--lufa-token-color-border-light)`,
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div
@@ -125,7 +125,7 @@ export const FontWeights: Story = {
                 fontWeight: '600',
                 fontSize: '12px',
                 marginBottom: '8px',
-                color: 'var(--lufa-token-color-text-tertiary)',
+                color: tokens.color.text.tertiary,
               }}
             >
               fontWeight.{key} ({String(value)})
@@ -142,7 +142,7 @@ export const LetterSpacing: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Letter Spacing Tokens</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic letter spacing tokens. Wider spacing improves readability for users with dyslexia.
       </p>
 
@@ -152,9 +152,9 @@ export const LetterSpacing: Story = {
             key={key}
             style={{
               padding: '20px',
-              backgroundColor: 'var(--lufa-token-color-background-secondary)',
+              backgroundColor: tokens.color.background.secondary,
               borderRadius: '8px',
-              border: `1px solid var(--lufa-token-color-border-light)`,
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div
@@ -167,7 +167,7 @@ export const LetterSpacing: Story = {
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>letterSpacing.{key}</div>
               <div
-                style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '12px' }}
+                style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}
               >
                 {String(value)}
               </div>

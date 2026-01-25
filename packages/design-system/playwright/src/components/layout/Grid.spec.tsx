@@ -7,8 +7,13 @@ test.describe('Grid Component', () => {
     test('visual regression: all variants and options in light mode', async ({ mount }) => {
       const gutters = ['none', 'xs', 'sm', 'md', 'lg', 'xl'] as const;
 
-      const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
-      const labelStyle = { fontSize: 12, color: '#666', marginBottom: 8 };
+      const sectionTitleStyle = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '0 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
+      const labelStyle = { fontSize: 12, color: 'var(--lufa-token-color-text-secondary)', marginBottom: 8 };
       const boxStyle = {
         background: '#667eea',
         color: 'white',
@@ -22,7 +27,12 @@ test.describe('Grid Component', () => {
         alignItems: 'center',
         justifyContent: 'center',
       };
-      const containerStyle = { border: '2px dashed #ccc', background: '#fff', padding: 16, marginBottom: 24 };
+      const containerStyle = {
+        border: '2px dashed var(--lufa-token-color-border-default)',
+        background: 'var(--lufa-token-color-background-primary)',
+        padding: 16,
+        marginBottom: 24,
+      };
 
       // Helper to generate grid items
       const generateItems = (count: number) =>
@@ -33,7 +43,14 @@ test.describe('Grid Component', () => {
         ));
 
       const component = await mount(
-        <div style={{ padding: 32, background: '#ffffff', fontFamily: 'sans-serif', width: '900px' }}>
+        <div
+          style={{
+            padding: 32,
+            background: 'var(--lufa-token-color-background-primary)',
+            fontFamily: 'sans-serif',
+            width: '900px',
+          }}
+        >
           {/* Column Options */}
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Column Options</h2>
@@ -165,7 +182,7 @@ test.describe('Grid Component', () => {
                       style={{
                         ...boxStyle,
                         background: 'white',
-                        color: '#333',
+                        color: 'var(--lufa-token-color-text-primary)',
                         border: '1px solid #e0e0e0',
                         flexDirection: 'column',
                         gap: 8,
@@ -188,7 +205,7 @@ test.describe('Grid Component', () => {
                       </div>
                       <div style={{ padding: 12 }}>
                         <div style={{ fontWeight: 600 }}>Product {i + 1}</div>
-                        <div style={{ fontSize: 12, color: '#666' }}>$99.99</div>
+                        <div style={{ fontSize: 12, color: 'var(--lufa-token-color-text-secondary)' }}>$99.99</div>
                       </div>
                     </div>
                   ))}
@@ -212,12 +229,12 @@ test.describe('Grid Component', () => {
                         ...boxStyle,
                         flexDirection: 'column',
                         background: 'white',
-                        color: '#333',
+                        color: 'var(--lufa-token-color-text-primary)',
                         border: '1px solid #e0e0e0',
                       }}
                     >
                       <div style={{ fontSize: 24, fontWeight: 700, color: '#667eea' }}>{stat.value}</div>
-                      <div style={{ fontSize: 12, color: '#666' }}>{stat.label}</div>
+                      <div style={{ fontSize: 12, color: 'var(--lufa-token-color-text-secondary)' }}>{stat.label}</div>
                     </div>
                   ))}
                 </Grid>
@@ -255,7 +272,7 @@ test.describe('Grid Component', () => {
                       style={{
                         ...boxStyle,
                         background: 'white',
-                        color: '#333',
+                        color: 'var(--lufa-token-color-text-primary)',
                         border: '1px solid #e0e0e0',
                         flexDirection: 'column',
                         gap: 8,
@@ -265,8 +282,12 @@ test.describe('Grid Component', () => {
                       }}
                     >
                       <div style={{ fontSize: 32 }}>{feature.icon}</div>
-                      <div style={{ fontSize: 18, fontWeight: 700, color: '#111' }}>{feature.title}</div>
-                      <div style={{ fontSize: 14, color: '#666' }}>{feature.desc}</div>
+                      <div style={{ fontSize: 18, fontWeight: 700, color: 'var(--lufa-token-color-text-primary)' }}>
+                        {feature.title}
+                      </div>
+                      <div style={{ fontSize: 14, color: 'var(--lufa-token-color-text-secondary)' }}>
+                        {feature.desc}
+                      </div>
                     </div>
                   ))}
                 </Grid>

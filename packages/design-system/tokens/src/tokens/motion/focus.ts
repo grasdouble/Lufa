@@ -9,7 +9,7 @@
  * - thick: High visibility focus ring - critical actions, primary buttons
  * - inset: Contained within element - inputs, form fields
  * - shadow: Elevated appearance - cards, modals
- * - inverse: For dark backgrounds - dark mode, hero sections
+ * - inverse: For dark backgrounds - uses high contrast color (black in light mode)
  *
  * GUIDELINES:
  * - Always provide visible focus indicators
@@ -17,7 +17,7 @@
  * - Use thick for critical actions (submit, delete, confirm)
  * - Use inset for form inputs to avoid layout shift
  * - Use shadow for elevated components
- * - Use inverse on dark backgrounds
+ * - Use inverse on dark backgrounds (hero sections, dark cards, inverse surfaces)
  * - Never remove focus indicators without providing alternatives
  *
  * ACCESSIBILITY (CRITICAL):
@@ -90,11 +90,11 @@ export const focus = {
     shadow: '0 0 0 3px rgb(37 99 235 / 0.2)', // Blue with transparency
     radius: radius.sm,
   },
-  /** Inverse focus ring - for dark backgrounds (dark mode) */
+  /** Inverse focus ring - for dark backgrounds (uses high contrast color) */
   inverse: {
     width: borderWidth.thin, // 2px
     style: borderStyle.solid,
-    color: color.text.inverse,
+    color: color.text.primary, // Black in light mode, will be white when dark mode is implemented
     offset: '2px',
     radius: radius.sm,
   },

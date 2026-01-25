@@ -79,7 +79,7 @@ Storybook is automatically deployed on pull requests and merges to main.
 
 - [Design System](../main/) - Component library
 - [Design Tokens](../tokens/) - Semantic tokens
-- [Documentation](../documentation/) - Docusaurus docs
+- [Documentation](../docusaurus/) - Docusaurus docs
 
 ## Contributing
 

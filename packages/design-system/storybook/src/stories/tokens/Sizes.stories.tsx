@@ -17,7 +17,7 @@ export const AllSizes: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Size Tokens</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.tertiary, fontSize: '16px' }}>
         Semantic size tokens for common element dimensions. Includes WCAG 2.5.5 minimum touch target (44px).
       </p>
 
@@ -34,17 +34,15 @@ export const AllSizes: Story = {
                 gap: '24px',
                 alignItems: 'center',
                 padding: '16px',
-                backgroundColor: 'var(--lufa-token-color-background-secondary)',
+                backgroundColor: tokens.color.background.secondary,
                 borderRadius: '8px',
                 border: isTouchTarget
-                  ? `2px solid var(--lufa-token-color-interactive-default)`
-                  : `1px solid var(--lufa-token-color-border-light)`,
+                  ? `2px solid ${tokens.color.interactive.default}`
+                  : `1px solid ${tokens.color.border.light}`,
               }}
             >
               <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>size.{key}</div>
-              <div
-                style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-tertiary)', fontSize: '12px' }}
-              >
+              <div style={{ fontFamily: 'monospace', color: tokens.color.text.tertiary, fontSize: '12px' }}>
                 {value}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -52,15 +50,13 @@ export const AllSizes: Story = {
                   style={{
                     width: value,
                     height: value,
-                    backgroundColor: isTouchTarget
-                      ? 'var(--lufa-token-color-interactive-default)'
-                      : 'var(--lufa-token-color-interactive-focus)',
+                    backgroundColor: isTouchTarget ? tokens.color.interactive.default : tokens.color.interactive.focus,
                     borderRadius: '6px',
                     boxShadow: tokens.shadow.xs,
                     flexShrink: 0,
                   }}
                 />
-                <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-tertiary)' }}>
+                <div style={{ fontSize: '12px', color: tokens.color.text.tertiary }}>
                   {key === 'none' && 'No size'}
                   {key === 'xs' && 'Icons (inline)'}
                   {key === 'sm' && 'Small icons, avatars'}
@@ -82,15 +78,15 @@ export const AllSizes: Story = {
         style={{
           marginTop: '32px',
           padding: '16px',
-          backgroundColor: 'var(--lufa-token-color-info-light)',
-          border: `1px solid var(--lufa-token-color-info-border)`,
+          backgroundColor: tokens.color.info.light,
+          border: `1px solid ${tokens.color.info.border}`,
           borderRadius: '8px',
         }}
       >
-        <div style={{ fontWeight: '600', marginBottom: '8px', color: 'var(--lufa-token-color-info-text)' }}>
+        <div style={{ fontWeight: '600', marginBottom: '8px', color: tokens.color.info.text }}>
           WCAG 2.5.5 Target Size
         </div>
-        <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-info-text)' }}>
+        <div style={{ fontSize: '14px', color: tokens.color.info.text }}>
           Interactive elements should have a minimum touch target of 44×44px to ensure accessibility on touch devices.
           Use size.touchTarget or larger for all interactive elements.
         </div>
@@ -114,12 +110,12 @@ export const UsageExamples: Story = {
                 style={{
                   width: tokens.size[siz as keyof typeof tokens.size],
                   height: tokens.size[siz as keyof typeof tokens.size],
-                  backgroundColor: 'var(--lufa-token-color-interactive-focus)',
+                  backgroundColor: tokens.color.interactive.focus,
                   borderRadius: '4px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--lufa-token-color-text-inverse)',
+                  color: tokens.color.text.inverse,
                   fontSize: '10px',
                 }}
               >
@@ -141,8 +137,8 @@ export const UsageExamples: Story = {
               style={{
                 height: tokens.size[siz as keyof typeof tokens.size],
                 padding: '0 24px',
-                backgroundColor: 'var(--lufa-token-color-interactive-focus)',
-                color: 'var(--lufa-token-color-text-inverse)',
+                backgroundColor: tokens.color.interactive.focus,
+                color: tokens.color.text.inverse,
                 border: 'none',
                 borderRadius: '6px',
                 fontSize: '14px',
@@ -166,12 +162,12 @@ export const UsageExamples: Story = {
                 style={{
                   width: tokens.size[siz as keyof typeof tokens.size],
                   height: tokens.size[siz as keyof typeof tokens.size],
-                  backgroundColor: 'var(--lufa-token-color-success-default)',
+                  backgroundColor: tokens.color.success.default,
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--lufa-token-color-text-inverse)',
+                  color: tokens.color.text.inverse,
                   fontWeight: '600',
                 }}
               >
@@ -195,7 +191,7 @@ export const UsageExamples: Story = {
               style={{
                 height: tokens.size[siz as keyof typeof tokens.size],
                 padding: '0 16px',
-                border: `1px solid var(--lufa-token-color-border-default)`,
+                border: `1px solid ${tokens.color.border.default}`,
                 borderRadius: '6px',
                 fontSize: '14px',
               }}

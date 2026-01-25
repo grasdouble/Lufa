@@ -19,13 +19,13 @@
  * - Ensure adequate spacing between interactive icons
  */
 export const iconSize = {
-  12: 12,
-  16: 16,
-  20: 20,
-  24: 24,
-  32: 32,
-  40: 40,
-  48: 48,
+  12: '12px',
+  16: '16px',
+  20: '20px',
+  24: '24px',
+  32: '32px',
+  40: '40px',
+  48: '48px',
 } as const;
 
 export type IconSize = keyof typeof iconSize;

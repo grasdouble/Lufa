@@ -17,9 +17,19 @@ test.describe('AspectRatio Component', () => {
       ] as const;
       const customRatios = [1, 2, 0.5, 21 / 9, 9 / 16];
 
-      const sectionTitleStyle = { fontWeight: 700, fontSize: 20, margin: '0 0 16px 0', color: '#111' };
+      const sectionTitleStyle = {
+        fontWeight: 700,
+        fontSize: 20,
+        margin: '0 0 16px 0',
+        color: 'var(--lufa-token-color-text-primary)',
+      };
 
-      const labelStyle = { fontSize: 12, color: '#666', marginBottom: 4, textAlign: 'center' as const };
+      const labelStyle = {
+        fontSize: 12,
+        color: 'var(--lufa-token-color-text-secondary)',
+        marginBottom: 4,
+        textAlign: 'center' as const,
+      };
       const boxStyle = {
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         display: 'flex',
@@ -35,7 +45,15 @@ test.describe('AspectRatio Component', () => {
       const itemContainerStyle = { display: 'flex', flexDirection: 'column' as const };
 
       const component = await mount(
-        <div style={{ padding: 32, background: '#ffffff', fontFamily: 'sans-serif', maxWidth: 1200, width: '900px' }}>
+        <div
+          style={{
+            padding: 32,
+            background: 'var(--lufa-token-color-background-primary)',
+            fontFamily: 'sans-serif',
+            maxWidth: 1200,
+            width: '900px',
+          }}
+        >
           {/* Token-based Ratios */}
           <div style={{ marginBottom: 48 }}>
             <h2 style={sectionTitleStyle}>Token-based Aspect Ratios</h2>

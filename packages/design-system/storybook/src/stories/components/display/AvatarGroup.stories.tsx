@@ -69,7 +69,13 @@ export const BasicGroup: Story = {
       >
         Basic Usage
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.xs,
+          color: tokens.color.text.tertiary,
+        }}
+      >
         Avatars automatically overlap without manual styling
       </p>
       <AvatarGroup size="md">
@@ -94,13 +100,23 @@ export const WithMaxLimit: Story = {
       >
         Max Limit with Count
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.xs,
+          color: tokens.color.text.tertiary,
+        }}
+      >
         Use max prop to limit displayed avatars and show remaining count
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.lg }}>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             max=2 of 8 avatars
           </p>
@@ -112,7 +128,11 @@ export const WithMaxLimit: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             max=4 of 8 avatars
           </p>
@@ -124,7 +144,11 @@ export const WithMaxLimit: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             max=6 of 8 avatars
           </p>
@@ -151,13 +175,23 @@ export const DifferentSizes: Story = {
       >
         Size Variants
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.xs,
+          color: tokens.color.text.tertiary,
+        }}
+      >
         Control size for all avatars in the group
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing['md-lg'] }}>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             Extra Small (xs)
           </p>
@@ -169,7 +203,11 @@ export const DifferentSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             Small (sm)
           </p>
@@ -181,7 +219,11 @@ export const DifferentSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             Medium (md)
           </p>
@@ -193,7 +235,11 @@ export const DifferentSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             Large (lg)
           </p>
@@ -205,7 +251,11 @@ export const DifferentSizes: Story = {
         </div>
         <div>
           <p
-            style={{ marginBottom: tokens.spacing.sm, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}
+            style={{
+              marginBottom: tokens.spacing.sm,
+              fontSize: tokens.fontSize.xs,
+              color: tokens.color.text.tertiary,
+            }}
           >
             Extra Large (xl)
           </p>
@@ -232,7 +282,13 @@ export const WithStatuses: Story = {
       >
         With Status Indicators
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.xs,
+          color: tokens.color.text.tertiary,
+        }}
+      >
         Combine group functionality with status indicators
       </p>
       <AvatarGroup size="md" max={4}>
@@ -259,7 +315,13 @@ export const RealWorldExample: Story = {
       >
         Real-world Example
       </h3>
-      <p style={{ marginBottom: tokens.spacing.base, fontSize: tokens.fontSize.xs, color: tokens.color.text.tertiary }}>
+      <p
+        style={{
+          marginBottom: tokens.spacing.base,
+          fontSize: tokens.fontSize.xs,
+          color: tokens.color.text.tertiary,
+        }}
+      >
         Team members on a project
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing.base }}>

@@ -58,7 +58,13 @@ export const Columns: Story = {
     <Stack direction="vertical" gap="spacious">
       {Object.values(GRID_COLUMNS).map((columns) => (
         <div key={columns}>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.md,
+            }}
+          >
             columns: {columns}
           </div>
           <Container
@@ -88,7 +94,13 @@ export const Gutters: Story = {
     <Stack direction="vertical" gap="spacious">
       {Object.values(GRID_GUTTER).map((gutter) => (
         <div key={gutter}>
-          <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              color: tokens.color.text.secondary,
+              marginBottom: tokens.spacing.md,
+            }}
+          >
             gutter: {gutter}
           </div>
           <Container

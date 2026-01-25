@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Pagination, Stack } from '@grasdouble/lufa_design-system';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '4. Navigation/Pagination',
@@ -55,7 +56,6 @@ export const Sizes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
           }}
         >
           Small
@@ -68,7 +68,6 @@ export const Sizes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
           }}
         >
           Medium (Default)
@@ -81,7 +80,6 @@ export const Sizes: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
           }}
         >
           Large
@@ -133,7 +131,7 @@ export const FullFeatured: Story = {
           onChange={setCurrent}
           onPageSizeChange={setPageSize}
         />
-        <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>
+        <div style={{ fontSize: '14px', color: tokens.color.text.secondary }}>
           Showing {(current - 1) * pageSize + 1}-{Math.min(current * pageSize, 500)} of 500 items
         </div>
       </Stack>
@@ -166,7 +164,6 @@ export const DifferentPageCounts: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
           }}
         >
           Few Pages (5)
@@ -179,7 +176,6 @@ export const DifferentPageCounts: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
           }}
         >
           Many Pages (50)
@@ -192,7 +188,6 @@ export const DifferentPageCounts: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
           }}
         >
           Beginning
@@ -205,7 +200,6 @@ export const DifferentPageCounts: Story = {
             marginBottom: '12px',
             fontSize: '14px',
             fontWeight: 600,
-            color: 'var(--lufa-token-color-text-primary)',
           }}
         >
           End
@@ -235,12 +229,12 @@ export const DataTable: Story = {
       <div>
         <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '16px' }}>
           <thead>
-            <tr style={{ backgroundColor: 'var(--lufa-token-color-background-secondary)' }}>
+            <tr style={{ backgroundColor: tokens.color.background.secondary }}>
               <th
                 style={{
                   padding: '12px',
                   textAlign: 'left',
-                  borderBottom: '2px solid var(--lufa-token-color-border-light)',
+                  borderBottom: `2px solid ${tokens.color.border.light}`,
                 }}
               >
                 ID
@@ -249,7 +243,7 @@ export const DataTable: Story = {
                 style={{
                   padding: '12px',
                   textAlign: 'left',
-                  borderBottom: '2px solid var(--lufa-token-color-border-light)',
+                  borderBottom: `2px solid ${tokens.color.border.light}`,
                 }}
               >
                 Name
@@ -258,7 +252,7 @@ export const DataTable: Story = {
                 style={{
                   padding: '12px',
                   textAlign: 'left',
-                  borderBottom: '2px solid var(--lufa-token-color-border-light)',
+                  borderBottom: `2px solid ${tokens.color.border.light}`,
                 }}
               >
                 Description
@@ -268,13 +262,9 @@ export const DataTable: Story = {
           <tbody>
             {currentData.map((item) => (
               <tr key={item.id}>
-                <td style={{ padding: '12px', borderBottom: '1px solid var(--lufa-token-color-border-light)' }}>
-                  {item.id}
-                </td>
-                <td style={{ padding: '12px', borderBottom: '1px solid var(--lufa-token-color-border-light)' }}>
-                  {item.name}
-                </td>
-                <td style={{ padding: '12px', borderBottom: '1px solid var(--lufa-token-color-border-light)' }}>
+                <td style={{ padding: '12px', borderBottom: `1px solid ${tokens.color.border.light}` }}>{item.id}</td>
+                <td style={{ padding: '12px', borderBottom: `1px solid ${tokens.color.border.light}` }}>{item.name}</td>
+                <td style={{ padding: '12px', borderBottom: `1px solid ${tokens.color.border.light}` }}>
                   {item.description}
                 </td>
               </tr>

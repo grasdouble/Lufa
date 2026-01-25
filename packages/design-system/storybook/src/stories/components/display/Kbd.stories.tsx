@@ -196,7 +196,13 @@ export const KeyboardShortcuts: Story = {
 
 export const InText: Story = {
   render: () => (
-    <div style={{ maxWidth: '500px', fontSize: tokens.fontSize.sm, lineHeight: tokens.lineHeight.relaxed }}>
+    <div
+      style={{
+        maxWidth: '500px',
+        fontSize: tokens.fontSize.sm,
+        lineHeight: tokens.lineHeight.relaxed,
+      }}
+    >
       <p>
         Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to open the command palette, or use <Kbd>Ctrl</Kbd> <Kbd>P</Kbd> to quickly
         navigate to any file.

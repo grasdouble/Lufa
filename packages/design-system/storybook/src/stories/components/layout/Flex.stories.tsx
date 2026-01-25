@@ -192,7 +192,7 @@ export const Alignment: Story = {
             style={{
               minWidth: tokens.maxWidth['8xl'],
               display: 'grid',
-              gridTemplateColumns: `${tokens.spacing['5xl']} repeat(${justifies.length}, ${tokens.dimension.sidebarWidthWide})`,
+              gridTemplateColumns: `${tokens.spacing['5xl']} repeat(${justifies.length}, ${tokens.dimension.sidebarWidth.wide})`,
               gap: tokens.spacing.md,
               alignItems: 'stretch',
             }}
@@ -335,7 +335,11 @@ export const Gap: Story = {
             }}
           >
             <div
-              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+              style={{
+                fontFamily: 'monospace',
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.md,
+              }}
             >
               gap: {gap}
             </div>
@@ -375,7 +379,11 @@ export const Wrap: Story = {
             }}
           >
             <div
-              style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, marginBottom: tokens.spacing.md }}
+              style={{
+                fontFamily: 'monospace',
+                color: tokens.color.text.secondary,
+                marginBottom: tokens.spacing.md,
+              }}
             >
               wrap: {wrap}
             </div>

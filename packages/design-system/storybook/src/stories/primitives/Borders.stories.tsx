@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import primitives from '@grasdouble/lufa_design-system-primitives';
+import tokens from '@grasdouble/lufa_design-system-tokens';
 
 const meta = {
   title: '0. Primitives/Borders',
@@ -17,7 +18,7 @@ export const AllBorders: Story = {
   render: () => (
     <div style={{ padding: '20px', maxWidth: '1400px' }}>
       <h1 style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '16px' }}>Border Primitives</h1>
-      <p style={{ marginBottom: '32px', color: 'var(--lufa-token-color-text-secondary)', fontSize: '16px' }}>
+      <p style={{ marginBottom: '32px', color: tokens.color.text.secondary, fontSize: '16px' }}>
         token border widths and styles. WCAG requires minimum 2px thickness for focus indicators and 3:1 contrast for
         borders.
       </p>
@@ -33,15 +34,13 @@ export const AllBorders: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: 'var(--lufa-token-color-surface-raised)',
+              backgroundColor: tokens.color.surface.raised,
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>width[{key}]</div>
-            <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)', fontSize: '12px' }}>
-              {value}
-            </div>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, fontSize: '12px' }}>{value}</div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div
                 style={{
@@ -53,7 +52,7 @@ export const AllBorders: Story = {
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontSize: '12px',
-                  color: 'var(--lufa-token-color-text-secondary)',
+                  color: tokens.color.text.secondary,
                 }}
               >
                 {key === '0' && 'No border'}
@@ -78,15 +77,13 @@ export const AllBorders: Story = {
               gap: '16px',
               alignItems: 'center',
               padding: '16px',
-              backgroundColor: 'var(--lufa-token-color-surface-raised)',
+              backgroundColor: tokens.color.surface.raised,
               borderRadius: '8px',
-              border: '1px solid var(--lufa-token-color-border-light)',
+              border: `1px solid ${tokens.color.border.light}`,
             }}
           >
             <div style={{ fontFamily: 'monospace', fontWeight: '600', fontSize: '14px' }}>style.{key}</div>
-            <div style={{ fontFamily: 'monospace', color: 'var(--lufa-token-color-text-secondary)', fontSize: '12px' }}>
-              {value}
-            </div>
+            <div style={{ fontFamily: 'monospace', color: tokens.color.text.secondary, fontSize: '12px' }}>{value}</div>
             <div
               style={{
                 width: '200px',
@@ -97,7 +94,7 @@ export const AllBorders: Story = {
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '12px',
-                color: 'var(--lufa-token-color-text-secondary)',
+                color: tokens.color.text.secondary,
               }}
             >
               {key === 'solid' && 'Standard border'}
@@ -113,9 +110,9 @@ export const AllBorders: Story = {
         style={{
           marginTop: '40px',
           padding: '24px',
-          backgroundColor: 'var(--lufa-token-color-warning-light)',
+          backgroundColor: tokens.color.warning.light,
           borderRadius: '12px',
-          border: '1px solid var(--lufa-token-color-warning-border)',
+          border: `1px solid ${tokens.color.warning.border}`,
         }}
       >
         <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600' }}>WCAG Guidelines</h3>
@@ -147,13 +144,13 @@ export const UsageExamples: Story = {
             <div
               style={{
                 padding: '20px',
-                border: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} var(--lufa-token-color-border-default)`,
+                border: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} ${tokens.color.border.default}`,
                 borderRadius: '8px',
                 minWidth: '200px',
               }}
             >
               <div style={{ fontWeight: '600', marginBottom: '8px' }}>Subtle Card</div>
-              <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>1px solid border</div>
+              <div style={{ fontSize: '14px', color: tokens.color.text.secondary }}>1px solid border</div>
             </div>
             <div
               style={{
@@ -164,7 +161,7 @@ export const UsageExamples: Story = {
               }}
             >
               <div style={{ fontWeight: '600', marginBottom: '8px' }}>Emphasized Card</div>
-              <div style={{ fontSize: '14px', color: 'var(--lufa-token-color-text-secondary)' }}>2px solid border</div>
+              <div style={{ fontSize: '14px', color: tokens.color.text.secondary }}>2px solid border</div>
             </div>
           </div>
         </div>
@@ -175,7 +172,7 @@ export const UsageExamples: Story = {
             <button
               style={{
                 padding: '12px 24px',
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                backgroundColor: tokens.color.surface.default,
                 border: `${primitives.borderWidth[2]} ${primitives.borderStyle.solid} ${primitives.color.chromatic.blue[500]}`,
                 borderRadius: '6px',
                 fontWeight: '500',
@@ -189,7 +186,7 @@ export const UsageExamples: Story = {
             <button
               style={{
                 padding: '12px 24px',
-                backgroundColor: 'var(--lufa-token-color-surface-default)',
+                backgroundColor: tokens.color.surface.default,
                 border: `${primitives.borderWidth[3]} ${primitives.borderStyle.solid} ${primitives.color.chromatic.blue[500]}`,
                 borderRadius: '6px',
                 fontWeight: '500',
@@ -211,7 +208,7 @@ export const UsageExamples: Story = {
               placeholder="Default state (1px)"
               style={{
                 padding: '12px',
-                border: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} var(--lufa-token-color-border-default)`,
+                border: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} ${tokens.color.border.default}`,
                 borderRadius: '6px',
                 fontSize: '14px',
               }}
@@ -245,19 +242,19 @@ export const UsageExamples: Story = {
             <div style={{ padding: '16px 0' }}>Section 1</div>
             <div
               style={{
-                borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} var(--lufa-token-color-border-default)`,
+                borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.solid} ${tokens.color.border.default}`,
               }}
             />
             <div style={{ padding: '16px 0' }}>Section 2</div>
             <div
               style={{
-                borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.dashed} var(--lufa-token-color-border-default)`,
+                borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.dashed} ${tokens.color.border.default}`,
               }}
             />
             <div style={{ padding: '16px 0' }}>Section 3 (editable)</div>
             <div
               style={{
-                borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.dotted} var(--lufa-token-color-border-default)`,
+                borderTop: `${primitives.borderWidth[1]} ${primitives.borderStyle.dotted} ${tokens.color.border.default}`,
               }}
             />
             <div style={{ padding: '16px 0' }}>Section 4 (subtle)</div>

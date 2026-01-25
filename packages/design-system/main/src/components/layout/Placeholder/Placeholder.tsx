@@ -14,6 +14,11 @@ export type PlaceholderProps = {
   height?: 'small' | 'medium' | 'large' | 'auto' | 'full';
   /** Width variant */
   width?: 'auto' | 'small' | 'medium' | 'large' | 'full';
+  /**
+   * Text color override - use when automatic detection fails (e.g., with CSS variables)
+   * @default undefined (auto-detect based on background)
+   */
+  textColor?: 'light' | 'dark';
 };
 
 /**
@@ -25,8 +30,8 @@ function getRelativeLuminance(color: string): number {
   // Handle CSS custom properties - extract the variable value if possible
   if (color.startsWith('var(')) {
     // For CSS variables, we can't compute luminance at runtime
-    // Default to assuming dark background (return high luminance to trigger light text)
-    // This is a safe fallback since most token backgrounds are dark
+    // Default to assuming medium/dark backgrounds (most design system tokens)
+    // Return low luminance to trigger light text (which is more common for branded colors)
     return 0.5;
   }
 
@@ -102,6 +107,7 @@ export const Placeholder = ({
   colorTo,
   height = 'medium',
   width = 'auto',
+  textColor,
 }: PlaceholderProps) => {
   const heightClass = {
     small: styles.heightSmall,
@@ -119,9 +125,16 @@ export const Placeholder = ({
     full: styles.widthFull,
   }[width];
 
-  // Determine if we need to override text color
+  // Determine text color class
   let textColorClass = '';
-  if (color) {
+
+  if (textColor === 'light') {
+    // Explicit light text override
+    textColorClass = styles.textLight;
+  } else if (textColor === 'dark') {
+    // Explicit dark text override
+    textColorClass = styles.textDark;
+  } else if (color) {
     // For solid colors, calculate appropriate text color
     textColorClass = shouldUseLightText(color) ? styles.textLight : styles.textDark;
   } else if (colorFrom && colorTo) {

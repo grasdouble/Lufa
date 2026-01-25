@@ -159,7 +159,7 @@ pnpm ds:docusaurus:build  # Build static site
 - Component guidelines
 - Migration guides
 
-[View Package →](./documentation)
+[View Package →](./docusaurus)
 
 ## Quick Start
 
@@ -238,7 +238,7 @@ packages/design-system/
 ├── tokens/            # Semantic design tokens
 ├── themes/            # Pre-built theme variants
 ├── storybook/         # Interactive component explorer
-└── documentation/     # Docusaurus documentation
+└── docusaurus/        # Docusaurus documentation
 ```
 
 ### Development Commands
