@@ -16,6 +16,12 @@ import { validateFormat } from './validators/format.js';
 
 const program = new Command();
 
+type CLIOptions = {
+  template?: boolean;
+  verbose?: boolean;
+  color?: boolean;
+};
+
 program
   .name('lufa-validate-theme')
   .description('Validate a custom theme for Lufa Design System')
@@ -24,7 +30,7 @@ program
   .option('-t, --template', 'Output a theme template instead of validating')
   .option('-v, --verbose', 'Show detailed validation output')
   .option('--no-color', 'Disable colored output')
-  .action(async (themeFile: string | undefined, options) => {
+  .action(async (themeFile: string | undefined, options: CLIOptions) => {
     try {
       // Handle --template option
       if (options.template) {

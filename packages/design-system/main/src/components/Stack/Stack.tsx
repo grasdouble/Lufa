@@ -1,3 +1,9 @@
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
+import { forwardRef } from 'react';
+import { clsx } from 'clsx';
+
+import styles from './Stack.module.css';
+
 /**
  * Stack Component - Flexible Layout Primitive for Vertical/Horizontal Spacing
  *
@@ -41,11 +47,6 @@
  * ```
  */
 
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from 'react';
-import { clsx } from 'clsx';
-
-import styles from './Stack.module.css';
-
 // ============================================
 // TYPES
 // ============================================
@@ -75,17 +76,11 @@ type AlignValue = 'start' | 'center' | 'end' | 'stretch' | 'baseline';
 type JustifyValue = 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
 
 /**
- * Valid HTML elements for polymorphic rendering
- * Semantic HTML5 sectioning and grouping elements
- */
-type ValidStackElements = 'div' | 'section' | 'article' | 'header' | 'footer' | 'main' | 'nav' | 'aside' | 'ul' | 'ol';
-
-/**
  * Stack component props
  *
  * Generic type T allows proper typing when using `as` prop
  */
-export interface StackProps<T extends ElementType = 'div'> {
+export type StackProps<T extends ElementType = 'div'> = {
   /**
    * HTML element to render
    * @default 'div'
@@ -132,7 +127,7 @@ export interface StackProps<T extends ElementType = 'div'> {
    * Children elements
    */
   children?: React.ReactNode;
-}
+};
 
 /**
  * Combined props type including element-specific props
@@ -162,7 +157,7 @@ const StackImpl = <T extends ElementType = 'div'>(
   ref: React.Ref<Element>
 ) => {
   // Determine the element to render
-  const Component = (as || 'div') as ElementType;
+  const Component = as ?? 'div';
 
   // Build className from utility props
   const stackClassName = clsx(

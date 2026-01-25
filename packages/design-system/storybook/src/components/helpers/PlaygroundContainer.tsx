@@ -29,7 +29,7 @@ import { useState } from 'react';
  * };
  * ```
  */
-export interface PlaygroundContainerProps {
+export type PlaygroundContainerProps = {
   /**
    * The component being tested (usually with spread props from args)
    */

@@ -1,35 +1,5 @@
-/**
- * Icon Component - SVG Icon Wrapper with Lucide React Integration
- *
- * A flexible icon component that provides uniform SVG rendering with semantic sizing
- * and coloring based on design tokens. Integrates with Lucide React icon library.
- *
- * Features:
- * - String-based icon name API (`<Icon name="user" />`)
- * - Size variants (xs, sm, md, lg, xl) using semantic tokens
- * - Semantic color values (currentColor, primary, secondary, success, error, etc.)
- * - Accessibility support (title prop for screen readers, aria-hidden for decorative)
- * - Polymorphic `as` prop for semantic HTML elements
- * - Performance-optimized (CSS classes, not inline styles)
- * - Token-based design (semantic layer tokens)
- *
- * @example
- * ```tsx
- * // Basic icon
- * <Icon name="user" />
- *
- * // Icon with size and color
- * <Icon name="check" size="lg" color="success" />
- *
- * // Accessible icon with title
- * <Icon name="alert-circle" color="error" title="Error notification" />
- *
- * // Decorative icon (no title)
- * <Icon name="chevron-right" size="sm" />
- * ```
- */
-
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from 'react';
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
+import { forwardRef } from 'react';
 import { clsx } from 'clsx';
 import {
   AlertCircle,
@@ -67,6 +37,37 @@ import {
 import additionalStyles from './Icon.additional.module.css';
 import styles from './Icon.module.css';
 
+/**
+ * Icon Component - SVG Icon Wrapper with Lucide React Integration
+ *
+ * A flexible icon component that provides uniform SVG rendering with semantic sizing
+ * and coloring based on design tokens. Integrates with Lucide React icon library.
+ *
+ * Features:
+ * - String-based icon name API (`<Icon name="user" />`)
+ * - Size variants (xs, sm, md, lg, xl) using semantic tokens
+ * - Semantic color values (currentColor, primary, secondary, success, error, etc.)
+ * - Accessibility support (title prop for screen readers, aria-hidden for decorative)
+ * - Polymorphic `as` prop for semantic HTML elements
+ * - Performance-optimized (CSS classes, not inline styles)
+ * - Token-based design (semantic layer tokens)
+ *
+ * @example
+ * ```tsx
+ * // Basic icon
+ * <Icon name="user" />
+ *
+ * // Icon with size and color
+ * <Icon name="check" size="lg" color="success" />
+ *
+ * // Accessible icon with title
+ * <Icon name="alert-circle" color="error" title="Error notification" />
+ *
+ * // Decorative icon (no title)
+ * <Icon name="chevron-right" size="sm" />
+ * ```
+ */
+
 // ============================================
 // ICON MAPPING
 // ============================================
@@ -75,6 +76,7 @@ import styles from './Icon.module.css';
  * Map of icon names to Lucide React components
  * Add new icons here as needed
  */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 const ICON_MAP = {
   // User & Navigation
   user: User,
@@ -118,6 +120,7 @@ const ICON_MAP = {
   heart: Heart,
   star: Star,
 } as const;
+/* eslint-enable @typescript-eslint/no-unsafe-assignment */
 
 /**
  * Valid icon names from the icon map
@@ -141,17 +144,11 @@ type SizeValue = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type ColorValue = 'currentColor' | 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info' | 'muted';
 
 /**
- * Valid HTML elements for polymorphic rendering
- * Inline elements suitable for icon containers
- */
-type ValidIconElements = 'span' | 'div' | 'i';
-
-/**
  * Icon component props
  *
  * Generic type T allows proper typing when using `as` prop
  */
-export interface IconProps<T extends ElementType = 'span'> {
+export type IconProps<T extends ElementType = 'span'> = {
   /**
    * Icon name from Lucide React library
    * @see https://lucide.dev/icons
@@ -187,7 +184,7 @@ export interface IconProps<T extends ElementType = 'span'> {
    * @default undefined
    */
   className?: string;
-}
+};
 
 /**
  * Combined props type including element-specific props
@@ -206,9 +203,10 @@ const IconImpl = <T extends ElementType = 'span'>(
   ref: React.Ref<Element>
 ) => {
   // Determine the element to render
-  const Component = (as || 'span') as ElementType;
+  const Component = as ?? 'span';
 
   // Get the Lucide icon component
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const LucideIcon = ICON_MAP[name];
 
   // Guard: if icon name is not in map, render nothing or fallback
@@ -236,7 +234,7 @@ const IconImpl = <T extends ElementType = 'span'>(
   const isDecorative = !title;
   const ariaHidden = isDecorative ? true : undefined;
   const role = !isDecorative ? 'img' : undefined;
-  const ariaLabel = title || undefined;
+  const ariaLabel = title ?? undefined;
 
   return (
     <Component

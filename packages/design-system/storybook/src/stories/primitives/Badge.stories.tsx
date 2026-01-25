@@ -77,7 +77,6 @@ type Story = StoryObj<typeof meta>;
 // ============================================
 
 export const Default: Story = {
-  name: 'Default',
   render: () => {
     return (
       <StoryContainer>
@@ -86,7 +85,7 @@ export const Default: Story = {
             <Badge>New</Badge>
           </PropCard>
 
-          <CodeBlock code={`<Badge>New</Badge>`} language="jsx" title="JSX" />
+          <CodeBlock code="<Badge>New</Badge>" language="jsx" title="JSX" />
         </div>
       </StoryContainer>
     );
@@ -500,7 +499,6 @@ export const SizeVariantMatrix: Story = {
 // ============================================
 
 export const UseCases: Story = {
-  name: 'Use Cases',
   render: () => {
     return (
       <StoryContainer>
@@ -724,7 +722,6 @@ export const UseCases: Story = {
 // ============================================
 
 export const Playground: Story = {
-  name: 'Playground',
   args: {
     children: 'Badge',
     variant: 'default',

@@ -5,7 +5,8 @@
  * Allows importing .module.css files with TypeScript support
  */
 declare module '*.module.css' {
-  const classes: { readonly [key: string]: string };
+  type CSSModuleClasses = Readonly<Record<string, string>>;
+  const classes: CSSModuleClasses;
   export default classes;
 }
 

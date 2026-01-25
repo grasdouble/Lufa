@@ -5,7 +5,7 @@ import type { IconName } from '@grasdouble/lufa_design-system';
 import { Icon } from '@grasdouble/lufa_design-system';
 
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
-import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
+import { STORY_COLORS } from '../../constants/storyColors';
 
 /**
  * Icon - SVG Icon Wrapper Component
@@ -170,7 +170,7 @@ export const Playground: Story = {
  */
 export const PropName: Story = {
   render: () => {
-    const [hoveredIcon, setHoveredIcon] = React.useState<string>('user');
+    const [hoveredIcon, setHoveredIcon] = React.useState<IconName>('user');
 
     const iconCategories = [
       {
@@ -199,7 +199,7 @@ export const PropName: Story = {
       },
     ];
 
-    const generateCode = (iconName: string): string => {
+    const generateCode = (iconName: IconName): string => {
       return `<Icon name="${iconName}" />`;
     };
 
@@ -236,7 +236,12 @@ export const PropName: Story = {
           ))}
 
           {/* Code block */}
-          <CodeBlock code={generateCode(hoveredIcon)} language="jsx" title="JSX" subtitle={`name="${hoveredIcon}"`} />
+          <CodeBlock
+            code={generateCode(hoveredIcon)}
+            language="jsx"
+            title="JSX"
+            subtitle={`name="${hoveredIcon as string}"`}
+          />
         </div>
       </StoryContainer>
     );

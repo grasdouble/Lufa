@@ -1,3 +1,12 @@
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
+import { forwardRef } from 'react';
+import { clsx } from 'clsx';
+
+import type { IconName } from '../Icon';
+import { Icon } from '../Icon';
+import additionalStyles from './Button.additional.module.css';
+import styles from './Button.module.css';
+
 /**
  * Button Component - Interactive Action Element
  *
@@ -38,13 +47,6 @@
  * ```
  */
 
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from 'react';
-import { clsx } from 'clsx';
-
-import { Icon, IconName } from '../Icon';
-import additionalStyles from './Button.additional.module.css';
-import styles from './Button.module.css';
-
 // ============================================
 // TYPES
 // ============================================
@@ -70,16 +72,11 @@ type SizeValue = 'sm' | 'md' | 'lg';
 type RadiusValue = 'none' | 'sm' | 'base' | 'md' | 'full';
 
 /**
- * Valid HTML elements for polymorphic rendering
- */
-type ValidButtonElements = 'button' | 'a';
-
-/**
  * Button component props
  *
  * Generic type T allows proper typing when using `as` prop
  */
-export interface ButtonProps<T extends ElementType = 'button'> {
+export type ButtonProps<T extends ElementType = 'button'> = {
   /**
    * Visual style type
    * @default 'solid'
@@ -151,7 +148,7 @@ export interface ButtonProps<T extends ElementType = 'button'> {
    * @default undefined
    */
   className?: string;
-}
+};
 
 /**
  * Combined props type including element-specific props
@@ -185,7 +182,7 @@ const ButtonImpl = <T extends ElementType = 'button'>(
   ref: React.Ref<Element>
 ) => {
   // Determine the element to render
-  const Component = (as || 'button') as ElementType;
+  const Component = as ?? 'button';
 
   // Compute final disabled state (disabled or loading)
   const isDisabled = disabled || loading;
@@ -228,7 +225,7 @@ const ButtonImpl = <T extends ElementType = 'button'>(
   const elementSpecificProps =
     Component === 'button'
       ? {
-          type: (htmlProps as ComponentPropsWithoutRef<'button'>).type || 'button',
+          type: (htmlProps as ComponentPropsWithoutRef<'button'>).type ?? 'button',
           disabled: isDisabled,
         }
       : {};
@@ -240,7 +237,7 @@ const ButtonImpl = <T extends ElementType = 'button'>(
   };
 
   // Determine if this is an icon-only button (no text children)
-  const isIconOnly = !children && (iconLeft || iconRight);
+  const isIconOnly = !children && (iconLeft ?? iconRight);
 
   return (
     <Component ref={ref} className={buttonClassName} {...elementSpecificProps} {...ariaProps} {...htmlProps}>

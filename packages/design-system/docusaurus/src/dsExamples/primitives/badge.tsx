@@ -33,7 +33,7 @@ export function LiveDemo() {
  * All variant demonstrations
  */
 export function AllVariants() {
-  const variants: Array<{ value: BadgeProps['variant']; label: string; description: string }> = [
+  const variants: { value: BadgeProps['variant']; label: string; description: string }[] = [
     { value: 'default', label: 'Default', description: 'Neutral labels, general tags' },
     { value: 'success', label: 'Success', description: 'Active, published, completed' },
     { value: 'error', label: 'Error', description: 'Failed, blocked, offline' },
@@ -95,7 +95,7 @@ export function AllVariants() {
  * Size variants demonstration
  */
 export function AllSizes() {
-  const sizes: Array<{ value: BadgeProps['size']; label: string; fontSize: string }> = [
+  const sizes: { value: BadgeProps['size']; label: string; fontSize: string }[] = [
     { value: 'sm', label: 'Small', fontSize: '10px' },
     { value: 'md', label: 'Medium', fontSize: '12px' },
     { value: 'lg', label: 'Large', fontSize: '14px' },
@@ -372,7 +372,7 @@ export function NotificationBadges() {
  * Status labels for data lists
  */
 export function StatusLabels() {
-  interface User {
+  type User = {
     name: string;
     status: 'active' | 'inactive' | 'pending';
     role: string;

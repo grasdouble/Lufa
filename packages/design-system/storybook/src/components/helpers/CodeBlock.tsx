@@ -23,7 +23,6 @@ import React from 'react';
  */
 export const CodeBlock = ({
   code,
-  language = 'jsx',
   title,
   subtitle,
   emptyMessage = 'No code to display',
@@ -40,13 +39,12 @@ export const CodeBlock = ({
   /** Message to show when code is empty */
   emptyMessage?: string;
   /** Array of tabs with label and content */
-  tabs?: Array<{ label: string; content: string; language?: string }>;
+  tabs?: { label: string; content: string; language?: string }[];
 }) => {
   const [activeTab, setActiveTab] = React.useState(0);
 
   // Use tabs if provided, otherwise single code view
   const displayCode = tabs ? tabs[activeTab]?.content : code;
-  const displayLanguage = tabs ? tabs[activeTab]?.language || language : language;
 
   return (
     <div

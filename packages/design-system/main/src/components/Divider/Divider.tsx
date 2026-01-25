@@ -1,3 +1,9 @@
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
+import { forwardRef } from 'react';
+import { clsx } from 'clsx';
+
+import styles from './Divider.module.css';
+
 /**
  * Divider Component - Visual Separator
  *
@@ -31,11 +37,6 @@
  * <Divider emphasis="strong" spacing="comfortable" />
  * ```
  */
-
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from 'react';
-import { clsx } from 'clsx';
-
-import styles from './Divider.module.css';
 
 // ============================================
 // TYPES
@@ -71,7 +72,7 @@ type ValidDividerElements = 'hr' | 'div';
  *
  * Generic type T allows proper typing when using `as` prop
  */
-export interface DividerProps<T extends ElementType = 'hr'> {
+export type DividerProps<T extends ElementType = 'hr'> = {
   /**
    * Orientation of the divider
    * @default 'horizontal'
@@ -111,7 +112,7 @@ export interface DividerProps<T extends ElementType = 'hr'> {
    * @default 'hr' for horizontal, 'div' for vertical
    */
   as?: T extends ValidDividerElements ? T : ValidDividerElements;
-}
+};
 
 /**
  * Polymorphic props that merge DividerProps with element-specific props
@@ -143,7 +144,7 @@ export const Divider = forwardRef(
     ref: React.Ref<HTMLElement>
   ) => {
     // Default element based on orientation
-    const Component = (as || (orientation === 'horizontal' ? 'hr' : 'div')) as ElementType;
+    const Component = (as ?? (orientation === 'horizontal' ? 'hr' : 'div')) as ElementType;
 
     // Generate CSS classes
     const dividerClasses = clsx(

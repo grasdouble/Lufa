@@ -7,18 +7,18 @@
 import type { CSSCustomProperty } from '../utils/parse-css.js';
 import { isCSSVarReference, isValidDimension, isValidDuration, isValidHexColor } from '../utils/parse-css.js';
 
-export interface FormatError {
+export type FormatError = {
   token: string;
   value: string;
   expectedFormat: string;
   line: number;
-}
+};
 
-export interface FormatResult {
+export type FormatResult = {
   valid: boolean;
   errors: FormatError[];
   totalChecked: number;
-}
+};
 
 /**
  * Determine expected format based on token name

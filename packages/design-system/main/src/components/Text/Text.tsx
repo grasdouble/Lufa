@@ -1,3 +1,9 @@
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
+import { forwardRef } from 'react';
+import { clsx } from 'clsx';
+
+import styles from './Text.module.css';
+
 /**
  * Text Component - Typography Primitive
  *
@@ -37,11 +43,6 @@
  * </Text>
  * ```
  */
-
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from 'react';
-import { clsx } from 'clsx';
-
-import styles from './Text.module.css';
 
 // ============================================
 // TYPES
@@ -89,29 +90,11 @@ type AlignValue = 'left' | 'center' | 'right' | 'justify';
 type TransformValue = 'none' | 'uppercase' | 'lowercase' | 'capitalize';
 
 /**
- * Valid HTML elements for polymorphic rendering
- * Text and heading elements
- */
-type ValidTextElements =
-  | 'p'
-  | 'span'
-  | 'div'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'label'
-  | 'legend'
-  | 'figcaption';
-
-/**
  * Text component props
  *
  * Generic type T allows proper typing when using `as` prop
  */
-export interface TextProps<T extends ElementType = 'p'> {
+export type TextProps<T extends ElementType = 'p'> = {
   /**
    * HTML element to render
    * @default 'p'
@@ -158,7 +141,7 @@ export interface TextProps<T extends ElementType = 'p'> {
    * Children elements
    */
   children?: React.ReactNode;
-}
+};
 
 /**
  * Combined props type including element-specific props
@@ -187,7 +170,7 @@ const TextImpl = <T extends ElementType = 'p'>(
   ref: React.Ref<Element>
 ) => {
   // Determine the element to render
-  const Component = (as || 'p') as ElementType;
+  const Component = as ?? 'p';
 
   // Build className from utility props
   const textClassName = clsx(

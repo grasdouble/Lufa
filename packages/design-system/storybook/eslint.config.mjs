@@ -23,6 +23,10 @@ export default [
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',
+      // Storybook helper functions and story files have looser requirements
+      '@typescript-eslint/prefer-nullish-coalescing': 'off',
+      'react-hooks/rules-of-hooks': 'off',
+      'storybook/no-redundant-story-name': 'warn',
       // Console is often used in stories for demonstration
       'no-console': 'off',
     },

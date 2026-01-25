@@ -3,18 +3,17 @@ import lufaNodeConfig from '@grasdouble/lufa_config_eslint/node.mjs';
 export default [
   ...lufaNodeConfig,
   {
-    ignores: ['dist/**', 'src/**'],
+    ignores: ['dist/**', 'coverage/**', 'tests/**', '*.config.ts'],
   },
   {
-    files: ['scripts/**/*.ts'],
     languageOptions: {
       parserOptions: {
-        project: './scripts/tsconfig.json',
+        project: './tsconfig.json',
         tsconfigRootDir: import.meta.dirname,
       },
     },
     rules: {
-      // Allow console in build scripts
+      // Allow console in CLI application
       'no-console': 'off',
     },
   },

@@ -552,7 +552,7 @@ export const PropWrap: Story = {
                 <div
                   style={{ border: `2px dashed ${STORY_COLORS.neutral.borderMedium}`, padding: '8px', width: '100%' }}
                 >
-                  <Stack direction="horizontal" wrap={true} spacing="default">
+                  <Stack direction="horizontal" wrap spacing="default">
                     {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                       <div
                         key={i}

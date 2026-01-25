@@ -89,7 +89,6 @@ type Story = StoryObj<typeof meta>;
 // ============================================
 
 export const Default: Story = {
-  name: 'Default',
   render: () => {
     return (
       <StoryContainer>
@@ -102,7 +101,7 @@ export const Default: Story = {
             </div>
           </PropCard>
 
-          <CodeBlock code={`<Divider />`} language="jsx" title="JSX" />
+          <CodeBlock code="<Divider />" language="jsx" title="JSX" />
         </div>
       </StoryContainer>
     );
@@ -695,7 +694,6 @@ export const PropAs: Story = {
 // ============================================
 
 export const UseCases: Story = {
-  name: 'Use Cases',
   render: () => {
     return (
       <StoryContainer>
@@ -1042,7 +1040,6 @@ export const UseCases: Story = {
 // ============================================
 
 export const Playground: Story = {
-  name: 'Playground',
   args: {
     orientation: 'horizontal',
     emphasis: 'default',

@@ -6,11 +6,11 @@
 
 import { readFile } from 'fs/promises';
 
-export interface CSSCustomProperty {
+export type CSSCustomProperty = {
   name: string;
   value: string;
   line: number;
-}
+};
 
 /**
  * Parse CSS file and extract all custom properties
@@ -40,11 +40,11 @@ export function parseCSSContent(content: string): CSSCustomProperty[] {
 
   let match;
   while ((match = customPropRegex.exec(cleanContent)) !== null) {
-    const [fullMatch, name, value] = match;
+    const [name, value] = match;
 
     // Find the line number by counting newlines before this match
     const textBefore = cleanContent.substring(0, match.index);
-    const lineNumber = (textBefore.match(/\n/g) || []).length + 1;
+    const lineNumber = (textBefore.match(/\n/g) ?? []).length + 1;
 
     properties.push({
       name: name.trim(),
@@ -92,7 +92,7 @@ export function isCSSVarReference(value: string): boolean {
  * Example: var(--lufa-primitive-color-blue-500) -> --lufa-primitive-color-blue-500
  */
 export function extractCSSVarName(varReference: string): string | null {
-  const match = varReference.match(/^var\((--[\w-]+)\)$/);
+  const match = /^var\((--[\w-]+)\)$/.exec(varReference);
   return match ? match[1] : null;
 }
 
@@ -115,7 +115,7 @@ export function extractCSSVarName(varReference: string): string | null {
 export function resolveCSSVarValue(
   value: string,
   properties: Map<string, string>,
-  visitedVars: Set<string> = new Set()
+  visitedVars = new Set<string>()
 ): string | null {
   // If not a var() reference, return as-is
   if (!isCSSVarReference(value)) {

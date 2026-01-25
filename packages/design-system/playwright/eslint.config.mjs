@@ -18,6 +18,7 @@ export default [
       'playwright/index.tsx',
       'test-results/**',
       '__snapshots__/**',
+      '*.config.ts', // Ignore vite config files
     ],
   },
   {
@@ -27,6 +28,8 @@ export default [
       // Playwright's expect API causes false positives with unbound-method
       '@typescript-eslint/unbound-method': 'off',
       '@typescript-eslint/no-empty-function': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
       'react/no-unescaped-entities': 'off',
     },
   },

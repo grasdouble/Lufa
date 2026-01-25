@@ -39,7 +39,7 @@ import tokens from '@grasdouble/lufa_design-system-tokens/values';
 /**
  * Color definition with main color and light background variant
  */
-export interface StoryColor {
+export type StoryColor = {
   /** Main color (for Box backgrounds, borders, etc.) */
   main: string;
   /** Light background color (for container backgrounds) */

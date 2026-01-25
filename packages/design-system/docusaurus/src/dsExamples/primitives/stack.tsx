@@ -303,7 +303,7 @@ export function WrapVariant() {
         <Stack
           direction="horizontal"
           spacing="default"
-          wrap={true}
+          wrap
           style={{ border: '1px solid #ccc', padding: '16px', maxWidth: '400px' }}
         >
           <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', minWidth: '100px' }}>Item 1</div>

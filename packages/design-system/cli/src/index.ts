@@ -1,3 +1,9 @@
+// Import for internal use
+import { parseCSSFile } from './utils/parse-css.js';
+import { validateCompleteness } from './validators/completeness.js';
+import { validateContrast } from './validators/contrast.js';
+import { validateFormat } from './validators/format.js';
+
 /**
  * Lufa Design System CLI - Programmatic API
  *
@@ -36,11 +42,11 @@ export {
 /**
  * Validation result interface
  */
-export interface ValidationResult {
+export type ValidationResult = {
   valid: boolean;
   errors: string[];
   warnings?: string[];
-}
+};
 
 /**
  * Validate a theme file against all validation rules
@@ -52,7 +58,7 @@ export interface ValidationResult {
  * ```typescript
  * import { validateTheme } from '@grasdouble/lufa_design-system-cli';
  *
- * const result = validateTheme('./my-theme.css');
+ * const result = await validateTheme('./my-theme.css');
  * if (result.valid) {
  *   console.log('Theme is valid!');
  * } else {
@@ -60,26 +66,45 @@ export interface ValidationResult {
  * }
  * ```
  */
-export function validateTheme(themePath: string): ValidationResult {
-  const { validateCompleteness } = require('./validators/completeness.js');
-  const { validateContrast } = require('./validators/contrast.js');
-  const { validateFormat } = require('./validators/format.js');
+export async function validateTheme(themePath: string): Promise<ValidationResult> {
+  const properties = await parseCSSFile(themePath);
 
-  const completenessResult = validateCompleteness(themePath);
-  const contrastResult = validateContrast(themePath);
-  const formatResult = validateFormat(themePath);
+  const completenessResult = await validateCompleteness(properties);
+  const contrastResult = validateContrast(properties);
+  const formatResult = validateFormat(properties);
 
-  const allErrors = [...completenessResult.errors, ...contrastResult.errors, ...formatResult.errors];
+  const errors: string[] = [];
 
-  const allWarnings = [
-    ...(completenessResult.warnings || []),
-    ...(contrastResult.warnings || []),
-    ...(formatResult.warnings || []),
-  ];
+  // Convert completeness errors
+  if (!completenessResult.valid) {
+    errors.push(...completenessResult.missingTokens.map((token) => `Missing required token: ${token}`));
+  }
+
+  // Convert format errors
+  errors.push(
+    ...formatResult.errors.map(
+      (error) => `${error.token} (line ${error.line}): Invalid format - ${error.expectedFormat}`
+    )
+  );
+
+  // Convert contrast violations
+  errors.push(
+    ...contrastResult.violations.map(
+      (violation) =>
+        `Contrast violation: ${violation.foreground} on ${violation.background} (${violation.ratio}:1, needs ${violation.required}:1)`
+    )
+  );
+
+  const warnings: string[] = [];
+
+  // Extra tokens are warnings
+  if (completenessResult.extraTokens.length > 0) {
+    warnings.push(...completenessResult.extraTokens.map((token) => `Extra token (not in design system): ${token}`));
+  }
 
   return {
     valid: completenessResult.valid && contrastResult.valid && formatResult.valid,
-    errors: allErrors,
-    warnings: allWarnings.length > 0 ? allWarnings : undefined,
+    errors,
+    warnings: warnings.length > 0 ? warnings : undefined,
   };
 }

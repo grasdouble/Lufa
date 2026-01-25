@@ -8,25 +8,25 @@ import type { CSSCustomProperty } from '../utils/parse-css.js';
 import { resolveCSSVarValue } from '../utils/parse-css.js';
 import { getContrastRatio, meetsWCAG_AA_Text, meetsWCAG_AA_UI } from '../utils/wcag.js';
 
-export interface ContrastViolation {
+export type ContrastViolation = {
   foreground: string;
   background: string;
   ratio: number;
   required: number;
   type: 'text' | 'ui';
-}
+};
 
-export interface ContrastResult {
+export type ContrastResult = {
   valid: boolean;
   violations: ContrastViolation[];
   totalChecks: number;
-}
+};
 
 /**
  * Define color pairs that need to be checked for contrast
  * Format: [foreground-token-suffix, background-token-suffix, type]
  */
-const COLOR_PAIRS_TO_CHECK: Array<[string, string, 'text' | 'ui']> = [
+const COLOR_PAIRS_TO_CHECK: [string, string, 'text' | 'ui'][] = [
   // Text colors on backgrounds
   ['semantic-ui-text-primary', 'semantic-ui-background-page', 'text'],
   ['semantic-ui-text-primary', 'semantic-ui-background-surface', 'text'],
@@ -135,8 +135,8 @@ export function validateContrast(properties: CSSCustomProperty[]): ContrastResul
     }
 
     // Resolve CSS variable references (e.g., var(--lufa-primitive-color-gray-900))
-    const resolvedFg = resolveCSSVarValue(fgValue, tokenMap) || fgValue;
-    const resolvedBg = resolveCSSVarValue(bgValue, tokenMap) || bgValue;
+    const resolvedFg = resolveCSSVarValue(fgValue, tokenMap) ?? fgValue;
+    const resolvedBg = resolveCSSVarValue(bgValue, tokenMap) ?? bgValue;
 
     // Calculate contrast ratio with resolved values
     const ratio = getContrastRatio(resolvedFg, resolvedBg);

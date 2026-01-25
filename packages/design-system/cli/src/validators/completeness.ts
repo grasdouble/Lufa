@@ -10,13 +10,13 @@ import { fileURLToPath } from 'url';
 
 import type { CSSCustomProperty } from '../utils/parse-css.js';
 
-export interface CompletenessResult {
+export type CompletenessResult = {
   valid: boolean;
   totalRequired: number;
   totalDefined: number;
   missingTokens: string[];
   extraTokens: string[];
-}
+};
 
 /**
  * Get list of all required token names from the design system
@@ -36,7 +36,7 @@ export async function getRequiredTokens(): Promise<string[]> {
     const metadataPath = join(__dirname, '../../../tokens/dist/tokens-metadata.json');
 
     const metadataContent = await readFile(metadataPath, 'utf-8');
-    const tokensMetadata = JSON.parse(metadataContent);
+    const tokensMetadata = JSON.parse(metadataContent) as Record<string, unknown>;
 
     return extractTokenNamesFromMetadata(tokensMetadata);
   } catch (error) {
@@ -58,7 +58,7 @@ function camelToKebab(str: string): string {
 /**
  * Extract all token names from metadata JSON
  */
-function extractTokenNamesFromMetadata(metadata: any, prefix = ''): string[] {
+function extractTokenNamesFromMetadata(metadata: Record<string, unknown>, prefix = ''): string[] {
   const names: string[] = [];
 
   for (const [key, value] of Object.entries(metadata)) {
@@ -72,7 +72,7 @@ function extractTokenNamesFromMetadata(metadata: any, prefix = ''): string[] {
         names.push(`--lufa-${currentPath}`);
       } else {
         // Recurse into nested objects
-        names.push(...extractTokenNamesFromMetadata(value, currentPath));
+        names.push(...extractTokenNamesFromMetadata(value as Record<string, unknown>, currentPath));
       }
     }
   }

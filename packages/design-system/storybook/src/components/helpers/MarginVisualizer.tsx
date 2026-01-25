@@ -28,7 +28,7 @@
  * </MarginVisualizer>
  * ```
  */
-export interface MarginVisualizerProps {
+export type MarginVisualizerProps = {
   /**
    * The component with margin to visualize
    */

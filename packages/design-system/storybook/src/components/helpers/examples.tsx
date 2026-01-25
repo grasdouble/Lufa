@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { StoryObj } from '@storybook/react-vite';
 
 import { Box } from '@grasdouble/lufa_design-system';
 

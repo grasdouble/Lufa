@@ -246,7 +246,7 @@ export const Playground: Story = {
       );
 
     return (
-      <PlaygroundContainer defaultShowGrid={true} defaultShowAdjacentElements={false}>
+      <PlaygroundContainer defaultShowGrid defaultShowAdjacentElements={false}>
         <Box {...args}>{content}</Box>
       </PlaygroundContainer>
     );
@@ -329,12 +329,10 @@ export const PropAs: Story = {
               {
                 label: 'HTML',
                 content: generateHtmlOutput(selectedElement),
-                language: 'html',
               },
               {
                 label: 'JSX',
                 content: generateJsxCode(selectedElement),
-                language: 'jsx',
               },
             ]}
             title="Code"

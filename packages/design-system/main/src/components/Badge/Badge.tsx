@@ -1,3 +1,9 @@
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
+import { forwardRef } from 'react';
+import { clsx } from 'clsx';
+
+import styles from './Badge.module.css';
+
 /**
  * Badge Component - Status and Label Indicator
  *
@@ -31,11 +37,6 @@
  * ```
  */
 
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from 'react';
-import { clsx } from 'clsx';
-
-import styles from './Badge.module.css';
-
 // ============================================
 // TYPES
 // ============================================
@@ -60,7 +61,7 @@ type ValidBadgeElements = 'span' | 'div' | 'label';
  *
  * Generic type T allows proper typing when using `as` prop
  */
-export interface BadgeProps<T extends ElementType = 'span'> {
+export type BadgeProps<T extends ElementType = 'span'> = {
   /**
    * Semantic color variant
    * @default 'default'
@@ -94,7 +95,7 @@ export interface BadgeProps<T extends ElementType = 'span'> {
    * @default 'span'
    */
   as?: T;
-}
+};
 
 /**
  * Infer props from the element type
@@ -118,7 +119,7 @@ export const Badge = forwardRef(
     ref: React.ForwardedRef<HTMLElement>
   ) => {
     // Determine the element to render
-    const Component = (as || 'span') as ElementType;
+    const Component = (as ?? 'span') as ElementType;
 
     // Build className
     const badgeClassName = clsx(

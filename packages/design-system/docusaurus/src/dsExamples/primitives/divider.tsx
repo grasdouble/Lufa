@@ -45,7 +45,7 @@ export function LiveDemo() {
  * All orientation demonstrations
  */
 export function AllOrientations() {
-  const orientations: Array<{ value: DividerProps['orientation']; label: string; description: string }> = [
+  const orientations: { value: DividerProps['orientation']; label: string; description: string }[] = [
     { value: 'horizontal', label: 'Horizontal', description: 'Spans width (default)' },
     { value: 'vertical', label: 'Vertical', description: 'Spans height' },
   ];
@@ -61,7 +61,7 @@ export function AllOrientations() {
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
-      {orientations.map(({ value, label, description }) => (
+      {orientations.map(({ value, description }) => (
         <div
           key={value}
           style={{
@@ -117,13 +117,13 @@ export function AllOrientations() {
  * All emphasis level demonstrations
  */
 export function AllEmphasisLevels() {
-  const emphasisLevels: Array<{
+  const emphasisLevels: {
     value: DividerProps['emphasis'];
     label: string;
     color: string;
     thickness: string;
     description: string;
-  }> = [
+  }[] = [
     { value: 'subtle', label: 'Subtle', color: 'gray.300', thickness: '1px', description: 'Minimal separation' },
     { value: 'default', label: 'Default', color: 'gray.300', thickness: '1px', description: 'Standard separator' },
     { value: 'moderate', label: 'Moderate', color: 'gray.300', thickness: '2px', description: 'Visible separation' },
@@ -142,7 +142,7 @@ export function AllEmphasisLevels() {
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
-      {emphasisLevels.map(({ value, label, color, thickness, description }) => (
+      {emphasisLevels.map(({ value, color, thickness, description }) => (
         <div
           key={value}
           style={{
@@ -185,7 +185,7 @@ export function AllEmphasisLevels() {
  * All spacing demonstrations
  */
 export function AllSpacing() {
-  const spacings: Array<{ value: DividerProps['spacing']; label: string; margin: string; description: string }> = [
+  const spacings: { value: DividerProps['spacing']; label: string; margin: string; description: string }[] = [
     { value: 'compact', label: 'Compact', margin: '8px', description: 'Tight spacing' },
     { value: 'default', label: 'Default', margin: '16px', description: 'Standard spacing' },
     { value: 'comfortable', label: 'Comfortable', margin: '24px', description: 'Relaxed spacing' },
@@ -202,7 +202,7 @@ export function AllSpacing() {
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
-      {spacings.map(({ value, label, margin, description }) => (
+      {spacings.map(({ value, margin, description }) => (
         <div
           key={value}
           style={{
@@ -253,7 +253,7 @@ export function AllSpacing() {
  * Line style demonstrations
  */
 export function LineStyles() {
-  const lineStyles: Array<{ value: DividerProps['lineStyle']; label: string; description: string }> = [
+  const lineStyles: { value: DividerProps['lineStyle']; label: string; description: string }[] = [
     { value: 'solid', label: 'Solid', description: 'Continuous line (default)' },
     { value: 'dashed', label: 'Dashed', description: 'Dashed line pattern' },
   ];
@@ -269,7 +269,7 @@ export function LineStyles() {
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
-      {lineStyles.map(({ value, label, description }) => (
+      {lineStyles.map(({ value, description }) => (
         <div
           key={value}
           style={{

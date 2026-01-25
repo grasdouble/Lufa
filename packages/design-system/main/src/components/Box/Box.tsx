@@ -1,3 +1,9 @@
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
+import { forwardRef } from 'react';
+import { clsx } from 'clsx';
+
+import styles from './Box.module.css';
+
 /**
  * Box Component - Universal Layout Primitive
  *
@@ -34,11 +40,6 @@
  * </Box>
  * ```
  */
-
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from 'react';
-import { clsx } from 'clsx';
-
-import styles from './Box.module.css';
 
 // ============================================
 // TYPES
@@ -92,17 +93,11 @@ type BorderColorValue = 'default' | 'strong' | 'success' | 'error' | 'warning' |
 type DisplayValue = 'block' | 'inline-block' | 'flex' | 'inline-flex' | 'grid' | 'none';
 
 /**
- * Valid HTML elements for polymorphic rendering
- * Semantic HTML5 sectioning elements
- */
-type ValidBoxElements = 'div' | 'section' | 'article' | 'header' | 'footer' | 'main' | 'nav' | 'aside';
-
-/**
  * Box component props
  *
  * Generic type T allows proper typing when using `as` prop
  */
-export interface BoxProps<T extends ElementType = 'div'> {
+export type BoxProps<T extends ElementType = 'div'> = {
   /**
    * HTML element to render
    * @default 'div'
@@ -253,7 +248,7 @@ export interface BoxProps<T extends ElementType = 'div'> {
    * Children elements
    */
   children?: React.ReactNode;
-}
+};
 
 /**
  * Combined props type including element-specific props
@@ -302,7 +297,7 @@ const BoxImpl = <T extends ElementType = 'div'>(
   ref: React.Ref<Element>
 ) => {
   // Determine the element to render
-  const Component = (as || 'div') as ElementType;
+  const Component = as ?? 'div';
 
   // Build className from utility props
   const boxClassName = clsx(

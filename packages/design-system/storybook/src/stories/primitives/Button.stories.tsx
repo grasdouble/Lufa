@@ -128,7 +128,6 @@ type Story = StoryObj<typeof meta>;
 // ============================================
 
 export const Default: Story = {
-  name: 'Default',
   render: () => {
     return (
       <StoryContainer>
@@ -137,7 +136,7 @@ export const Default: Story = {
             <Button>Click me</Button>
           </PropCard>
 
-          <CodeBlock code={`<Button>Click me</Button>`} language="jsx" title="JSX" />
+          <CodeBlock code="<Button>Click me</Button>" language="jsx" title="JSX" />
         </div>
       </StoryContainer>
     );
@@ -380,8 +379,7 @@ export const PropSize: Story = {
     ] as const;
 
     const generateCode = (size: string): string => {
-      const sizeLabel = size.toUpperCase();
-      const description = sizes.find((s) => s.value === size)?.description || size;
+      const description = sizes.find((s) => s.value === size)?.description ?? size;
       return `<Button size="${size}">${description} Button</Button>`;
     };
 
@@ -734,11 +732,6 @@ export const PropAs: Story = {
   render: () => {
     const [selectedAs, setSelectedAs] = React.useState<'button' | 'a'>('button');
 
-    const asOptions = [
-      { value: 'button' as const, label: 'as="button" (default)', description: 'Button Element' },
-      { value: 'a' as const, label: 'as="a" (anchor)', description: 'Anchor Element' },
-    ];
-
     const generateCode = (asValue: 'button' | 'a'): string => {
       if (asValue === 'button') {
         return `<Button as="button" onClick={handleClick}>
@@ -816,7 +809,6 @@ export const PropAs: Story = {
 // ============================================
 
 export const UseCases: Story = {
-  name: 'Use Cases',
   render: () => {
     return (
       <StoryContainer>

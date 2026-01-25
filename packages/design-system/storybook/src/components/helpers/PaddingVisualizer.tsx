@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * PaddingVisualizer Props
  */
-export interface PaddingVisualizerProps {
+export type PaddingVisualizerProps = {
   /** Background color for the padding area visualization */
   color: string;
   /** Opacity of the background color (0-1) */

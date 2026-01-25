@@ -169,7 +169,7 @@ test.describe('Stack Component', () => {
 
     test.describe('Wrap Variants', () => {
       test('should apply wrap-wrap class when wrap={true}', async ({ mount }) => {
-        const component = await mount(<Stack wrap={true}>Content</Stack>);
+        const component = await mount(<Stack wrap>Content</Stack>);
         await expect(component).toHaveClass(/wrap-wrap/);
       });
 
@@ -319,7 +319,7 @@ test.describe('Stack Component', () => {
 
       test('should combine all layout props', async ({ mount }) => {
         const component = await mount(
-          <Stack direction="horizontal" spacing="comfortable" align="center" justify="space-between" wrap={true}>
+          <Stack direction="horizontal" spacing="comfortable" align="center" justify="space-between" wrap>
             <div>Item 1</div>
             <div>Item 2</div>
             <div>Item 3</div>
@@ -340,7 +340,7 @@ test.describe('Stack Component', () => {
             spacing="comfortable"
             align="center"
             justify="space-between"
-            wrap={true}
+            wrap
             className="complex-stack"
           >
             Complex stack
@@ -759,7 +759,7 @@ test.describe('Stack Component', () => {
               Justify Values (horizontal direction)
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {justifyValues.map((value, idx) => (
+              {justifyValues.map((value) => (
                 <div key={value}>
                   <div style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#666' }}>
                     justify=&quot;{value}&quot;
@@ -833,7 +833,7 @@ test.describe('Stack Component', () => {
                   wrap={'{true}'}
                 </div>
                 <div style={{ border: '2px dashed #ccc', padding: '8px', borderRadius: '4px', width: '100%' }}>
-                  <Stack direction="horizontal" wrap={true} spacing="default">
+                  <Stack direction="horizontal" wrap spacing="default">
                     {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                       <div
                         key={i}
@@ -939,7 +939,6 @@ test.describe('Stack Component', () => {
       const directionValues = ['vertical', 'horizontal'] as const;
       const spacingValues = ['none', 'tight', 'compact', 'default', 'comfortable', 'spacious'] as const;
       const alignValues = ['start', 'center', 'end', 'stretch', 'baseline'] as const;
-      const justifyValues = ['start', 'center', 'end', 'space-between', 'space-around', 'space-evenly'] as const;
 
       const component = await mount(
         <div

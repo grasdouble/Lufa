@@ -32,6 +32,7 @@ export default [
     files: ['src/dsExamples/**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/no-unnecessary-type-assertion': 'off',
+      'react/no-unescaped-entities': 'off',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
     },
   },

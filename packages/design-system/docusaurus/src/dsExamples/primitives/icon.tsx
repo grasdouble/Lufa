@@ -111,7 +111,7 @@ export function IconGallery() {
  * Size variants demonstration
  */
 export function SizeVariants() {
-  const sizes: Array<{ value: 'xs' | 'sm' | 'md' | 'lg' | 'xl'; label: string; pixels: string }> = [
+  const sizes: { value: 'xs' | 'sm' | 'md' | 'lg' | 'xl'; label: string; pixels: string }[] = [
     { value: 'xs', label: 'Extra Small', pixels: '16px' },
     { value: 'sm', label: 'Small', pixels: '20px' },
     { value: 'md', label: 'Medium', pixels: '24px' },
@@ -173,10 +173,10 @@ export function SizeVariants() {
  * Color variants demonstration
  */
 export function ColorVariants() {
-  const colors: Array<{
+  const colors: {
     value: 'currentColor' | 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info' | 'muted';
     label: string;
-  }> = [
+  }[] = [
     { value: 'currentColor', label: 'Current Color (inherit from parent)' },
     { value: 'primary', label: 'Primary' },
     { value: 'secondary', label: 'Secondary' },
