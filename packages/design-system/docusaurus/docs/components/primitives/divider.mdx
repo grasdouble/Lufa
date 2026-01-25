@@ -1,0 +1,980 @@
+---
+sidebar_position: 7
+---
+
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
+import { Divider } from '@grasdouble/lufa_design-system';
+
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+import { LiveDemo } from '../../../src/dsExamples/primitives/divider';
+
+# Divider
+
+<DarkModeCompatible />
+
+A visual separator component for creating boundaries between content sections, supporting both horizontal and vertical orientations.
+
+## Overview
+
+The Divider component provides a flexible way to visually separate content sections, list items, or UI elements. It offers multiple styling options including orientation, color variants, thickness levels, spacing control, and line styles.
+
+## Live Demo
+
+<BrowserOnly>{() => <LiveDemo />}</BrowserOnly>
+
+**When to use Divider:**
+
+- **Section breaks**: Separate major content sections in articles, documentation, or layouts
+- **List item separation**: Create visual boundaries between list items or grouped content
+- **Toolbar separators**: Use vertical dividers to separate toolbar buttons or menu items
+- **Form section dividers**: Break up long forms into logical sections
+- **Content group separation**: Distinguish between different content groups in cards or panels
+- **Visual hierarchy**: Create clear visual structure in complex layouts
+
+**When NOT to use Divider:**
+
+- When whitespace alone provides sufficient separation
+- Between every list item (can create visual clutter)
+- In place of borders for interactive elements (use CSS borders)
+- For purely decorative purposes without semantic meaning
+
+## Import
+
+```tsx
+import { Divider } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx
+// Basic horizontal divider (default)
+<Divider />
+
+// Horizontal divider between sections
+<div>Section 1</div>
+<Divider />
+<div>Section 2</div>
+
+// Vertical divider
+<div style={{ display: 'flex', alignItems: 'center' }}>
+  <span>Left</span>
+  <Divider orientation="vertical" />
+  <span>Right</span>
+</div>
+
+// Different variants
+<Divider variant="subtle" />    {/* Light color */}
+<Divider variant="default" />   {/* Standard color */}
+<Divider variant="strong" />    {/* Bold color */}
+
+// Different thicknesses
+<Divider thickness="thin" />    {/* 1px (default) */}
+<Divider thickness="medium" />  {/* 2px */}
+<Divider thickness="thick" />   {/* 4px */}
+
+// Spacing control
+<Divider spacing="compact" />      {/* 8px margin */}
+<Divider spacing="default" />      {/* 16px margin */}
+<Divider spacing="comfortable" />  {/* 24px margin */}
+
+// Dashed line style
+<Divider lineStyle="dashed" />
+
+// Combined props
+<Divider
+  variant="strong"
+  thickness="thick"
+  spacing="comfortable"
+/>
+```
+
+## Anatomy
+
+The Divider component is a self-closing visual element with no children. It consists of a single line element that can be styled in multiple ways.
+
+### Horizontal Divider
+
+```
+Section Above
+━━━━━━━━━━━━━━━━━━━━━━  ← Divider (horizontal line)
+Section Below
+```
+
+### Vertical Divider
+
+```
+Left │ Right  ← Divider (vertical line)
+     ↑
+  Divider
+```
+
+**Parts:**
+
+1. **Line element**: The visual separator itself (default: `<hr>` for horizontal, `<div>` for vertical)
+2. **Spacing**: Margin around the divider (controlled via `spacing` prop)
+
+**CSS Classes:**
+
+- `.divider`: Base class applied to all dividers
+- `.orientation-{name}`: Orientation styling (horizontal, vertical)
+- `.variant-{name}`: Color variant styling (default, subtle, strong)
+- `.thickness-{name}`: Thickness styling (thin, medium, thick)
+- `.spacing-{name}`: Spacing/margin styling (compact, default, comfortable)
+- `.line-style-{name}`: Line style (solid, dashed)
+
+## API Reference
+
+### Props
+
+| Prop          | Type                                      | Default          | Description                                          |
+| ------------- | ----------------------------------------- | ---------------- | ---------------------------------------------------- |
+| `orientation` | `'horizontal' \| 'vertical'`              | `'horizontal'`   | Direction of the divider line                        |
+| `variant`     | `'default' \| 'subtle' \| 'strong'`       | `'default'`      | Color variant defining visual weight                 |
+| `thickness`   | `'thin' \| 'medium' \| 'thick'`           | `'thin'`         | Thickness of the divider line (1px, 2px, 4px)        |
+| `spacing`     | `'compact' \| 'default' \| 'comfortable'` | `'default'`      | Margin around the divider (8px, 16px, 24px)          |
+| `lineStyle`   | `'solid' \| 'dashed'`                     | `'solid'`        | Visual style of the line                             |
+| `className`   | `string`                                  | -                | Additional CSS classes to apply                      |
+| `as`          | `ElementType`                             | `'hr'` / `'div'` | HTML element type to render                          |
+| `...rest`     | -                                         | -                | All other props are passed to the underlying element |
+
+**Note:** The default `as` value is `'hr'` for horizontal dividers (semantic separator) and `'div'` for vertical dividers (as `<hr>` is only semantically valid horizontally).
+
+### Orientation Values
+
+**horizontal (default)**
+
+- Renders as horizontal line across the width
+- Default element: `<hr>` (semantic separator)
+- Use for: Section breaks, content separation, list item dividers
+
+```tsx
+<div>Content above</div>
+<Divider orientation="horizontal" />
+<div>Content below</div>
+```
+
+**vertical**
+
+- Renders as vertical line across the height
+- Default element: `<div>` (as `<hr>` is only semantic for horizontal)
+- Use for: Toolbar separators, menu item dividers, sidebar layouts
+
+```tsx
+<div style={{ display: 'flex', alignItems: 'center' }}>
+  <button>Action 1</button>
+  <Divider orientation="vertical" />
+  <button>Action 2</button>
+</div>
+```
+
+### Variant Values
+
+**default**
+
+- Standard border color from design tokens
+- Use for: General-purpose separation, standard section breaks
+- Most common variant for typical use cases
+
+```tsx
+<Divider variant="default" />
+```
+
+**subtle**
+
+- Light, subdued border color
+- Use for: Gentle separation, when divider should be less prominent
+- Good for dense interfaces or frequent dividers
+
+```tsx
+<Divider variant="subtle" />
+```
+
+**strong**
+
+- Bold, emphasized border color
+- Use for: Major section breaks, important boundaries, strong visual hierarchy
+- Use sparingly to maintain emphasis
+
+```tsx
+<Divider variant="strong" />
+```
+
+### Thickness Values
+
+**thin (default)**
+
+- 1px line thickness
+- Use for: Subtle separation, most common use case
+- Best for: Standard section breaks, list items
+
+```tsx
+<Divider thickness="thin" />
+```
+
+**medium**
+
+- 2px line thickness
+- Use for: More prominent separation, medium emphasis
+- Best for: Secondary section breaks, form groups
+
+```tsx
+<Divider thickness="medium" />
+```
+
+**thick**
+
+- 4px line thickness
+- Use for: Strong visual separation, high emphasis
+- Best for: Major section breaks, page-level divisions
+
+```tsx
+<Divider thickness="thick" />
+```
+
+### Spacing Values
+
+The `spacing` prop controls the margin around the divider, affecting the visual space between the divider and surrounding content.
+
+**compact**
+
+- Margin: 8px (vertical for horizontal dividers, horizontal for vertical dividers)
+- Use for: Dense layouts, tight spacing, frequent dividers
+- Best for: List items, compact forms, toolbars
+
+```tsx
+<div>Item 1</div>
+<Divider spacing="compact" />
+<div>Item 2</div>
+```
+
+**default**
+
+- Margin: 16px
+- Use for: Standard layouts, general-purpose separation
+- Best for: Most use cases, balanced spacing
+
+```tsx
+<div>Section 1</div>
+<Divider spacing="default" />
+<div>Section 2</div>
+```
+
+**comfortable**
+
+- Margin: 24px
+- Use for: Relaxed layouts, major section breaks, spacious designs
+- Best for: Article sections, large content blocks
+
+```tsx
+<div>Major Section 1</div>
+<Divider spacing="comfortable" />
+<div>Major Section 2</div>
+```
+
+### Line Style Values
+
+**solid (default)**
+
+- Continuous line without breaks
+- Use for: Standard dividers, most common use case
+- Professional, clean appearance
+
+```tsx
+<Divider lineStyle="solid" />
+```
+
+**dashed**
+
+- Line composed of dashes (gaps between segments)
+- Use for: Visual variety, temporary dividers, less formal separation
+- Use sparingly for visual interest
+
+```tsx
+<Divider lineStyle="dashed" />
+```
+
+**Visual Comparison:**
+
+```tsx
+// Solid line
+<Divider lineStyle="solid" />
+// ━━━━━━━━━━━━━━━━━━━━
+
+// Dashed line
+<Divider lineStyle="dashed" />
+// ━  ━  ━  ━  ━  ━  ━  ━
+```
+
+### Polymorphic Rendering (`as` prop)
+
+The Divider component supports polymorphic rendering via the `as` prop. By default, horizontal dividers use `<hr>` (semantic separator) and vertical dividers use `<div>`.
+
+**as="hr" (default for horizontal)**
+
+- Semantic HTML separator element
+- Appropriate for horizontal content breaks
+- Screen readers announce as "separator"
+
+```tsx
+<Divider as="hr" />
+```
+
+**as="div" (default for vertical)**
+
+- Generic container element
+- Required for vertical dividers (as `<hr>` is only semantic horizontally)
+- Includes `role="separator"` for accessibility
+
+```tsx
+<Divider as="div" orientation="vertical" />
+```
+
+**Type Safety:**
+
+- TypeScript automatically infers correct props based on `as` value
+- When `as="hr"`, hr-specific props are available
+- When `as="div"`, div-specific props are available
+
+## Variants
+
+### Color Variants
+
+The three color variants provide different levels of visual emphasis:
+
+```tsx
+{
+  /* Subtle - light, unobtrusive */
+}
+<Divider variant="subtle" />;
+
+{
+  /* Default - standard, balanced */
+}
+<Divider variant="default" />;
+
+{
+  /* Strong - bold, emphasized */
+}
+<Divider variant="strong" />;
+```
+
+**When to use each variant:**
+
+- **subtle**: Dense interfaces, frequent dividers, background separation
+- **default**: General purpose, standard section breaks (most common)
+- **strong**: Major sections, important boundaries, strong hierarchy
+
+### Thickness Variants
+
+```tsx
+{
+  /* Thin - 1px (default) */
+}
+<Divider thickness="thin" />;
+
+{
+  /* Medium - 2px */
+}
+<Divider thickness="medium" />;
+
+{
+  /* Thick - 4px */
+}
+<Divider thickness="thick" />;
+```
+
+**Pixel specifications:**
+
+- **thin**: 1px - Subtle, most common
+- **medium**: 2px - Moderate emphasis
+- **thick**: 4px - Strong emphasis
+
+### Orientation Variants
+
+```tsx
+{
+  /* Horizontal - spans width */
+}
+<div>
+  <p>Content above</p>
+  <Divider orientation="horizontal" />
+  <p>Content below</p>
+</div>;
+
+{
+  /* Vertical - spans height */
+}
+<div style={{ display: 'flex', alignItems: 'center' }}>
+  <span>Left</span>
+  <Divider orientation="vertical" />
+  <span>Right</span>
+</div>;
+```
+
+**Layout requirements:**
+
+- **Horizontal**: Natural block-level flow, takes full width of container
+- **Vertical**: Requires flex or grid layout, takes height from parent container
+
+## Best Practices
+
+### Do ✅
+
+- **Use semantic HTML**: Prefer the default `<hr>` element for horizontal dividers (semantic meaning)
+- **Match spacing to layout**: Use `compact` for dense layouts, `comfortable` for spacious ones
+- **Choose appropriate variant**: Use `subtle` for frequent dividers, `strong` for major breaks
+- **Consider visual hierarchy**: Use thicker dividers sparingly for emphasis
+- **Use vertical dividers in toolbars**: Perfect for separating button groups
+- **Maintain consistency**: Use the same variant/thickness for similar separations
+- **Provide context**: Ensure dividers separate related content groups meaningfully
+- **Test with content**: Verify spacing feels appropriate with actual content
+
+### Don't ❌
+
+- **Don't overuse dividers**: Excessive dividers create visual clutter (use whitespace)
+- **Don't use strong variant everywhere**: Loses emphasis, makes interface heavy
+- **Don't mix line styles inconsistently**: Pick solid or dashed and stick with it
+- **Don't forget spacing prop**: Default spacing might not fit your layout
+- **Don't use dividers without spacing**: Content too close to divider looks cramped
+- **Don't use thick dividers for subtle separation**: Overpowers the content
+- **Don't use dividers where borders suffice**: Card borders are better than internal dividers
+- **Don't use dividers as decorative elements**: Should have semantic purpose
+
+## Accessibility
+
+The Divider component follows WCAG 2.1 AA accessibility guidelines:
+
+### Semantic HTML
+
+- **Horizontal dividers**: Use `<hr>` element by default (semantic separator)
+- **Vertical dividers**: Use `<div>` with `role="separator"` (as `<hr>` is only semantic horizontally)
+- **Screen readers**: Announce dividers as "separator" elements
+- **Semantic purpose**: Dividers represent thematic breaks in content
+
+```tsx
+{/* Semantic horizontal divider */}
+<Divider /> {/* Renders as <hr> */}
+
+{/* Semantic vertical divider */}
+<Divider orientation="vertical" /> {/* Renders as <div role="separator"> */}
+```
+
+### ARIA Attributes
+
+The component automatically applies appropriate ARIA attributes:
+
+- **`role="separator"`**: Applied to `<div>` elements (not needed for `<hr>`)
+- **`aria-orientation`**: Applied to both horizontal and vertical dividers
+  - `aria-orientation="horizontal"` for horizontal dividers
+  - `aria-orientation="vertical"` for vertical dividers
+
+```tsx
+{
+  /* Automatically includes ARIA attributes */
+}
+<Divider orientation="vertical" />;
+{
+  /* Renders: <div role="separator" aria-orientation="vertical" ...> */
+}
+```
+
+### Custom ARIA Attributes
+
+You can add custom ARIA attributes for specific use cases:
+
+```tsx
+{
+  /* Add aria-label for context */
+}
+<Divider aria-label="End of article content" />;
+
+{
+  /* Add aria-hidden to hide from screen readers (use sparingly) */
+}
+<Divider aria-hidden="true" />;
+```
+
+### Color Contrast
+
+All divider variants meet WCAG 2.1 AA contrast requirements:
+
+- **Contrast ratio**: Minimum 3:1 for UI components (non-text)
+- **Dark mode**: Automatically adjusts via design tokens
+- **Subtle variant**: Still meets minimum contrast requirements
+
+### Keyboard Navigation
+
+- Dividers are not focusable (non-interactive elements)
+- Screen readers navigate through dividers naturally
+- No keyboard interaction required
+
+## Common Patterns
+
+### Section Breaks in Articles
+
+Use dividers to separate major content sections in long-form content:
+
+```tsx
+<article>
+  <section>
+    <h2>Introduction</h2>
+    <p>Lorem ipsum dolor sit amet...</p>
+  </section>
+
+  <Divider spacing="comfortable" />
+
+  <section>
+    <h2>Main Content</h2>
+    <p>Consectetur adipiscing elit...</p>
+  </section>
+
+  <Divider spacing="comfortable" />
+
+  <section>
+    <h2>Conclusion</h2>
+    <p>Sed do eiusmod tempor...</p>
+  </section>
+</article>
+```
+
+### List Item Separation
+
+Create visual boundaries between list items without list styling:
+
+```tsx
+<div>
+  <div style={{ padding: '12px 0' }}>
+    <h3>Item 1</h3>
+    <p>First item description</p>
+  </div>
+
+  <Divider variant="subtle" spacing="compact" />
+
+  <div style={{ padding: '12px 0' }}>
+    <h3>Item 2</h3>
+    <p>Second item description</p>
+  </div>
+
+  <Divider variant="subtle" spacing="compact" />
+
+  <div style={{ padding: '12px 0' }}>
+    <h3>Item 3</h3>
+    <p>Third item description</p>
+  </div>
+</div>
+```
+
+### Toolbar Button Groups
+
+Use vertical dividers to separate button groups in toolbars:
+
+```tsx
+<div
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    padding: '8px',
+    background: '#f5f5f5',
+    borderRadius: '4px',
+  }}
+>
+  {/* Edit group */}
+  <button>Cut</button>
+  <button>Copy</button>
+  <button>Paste</button>
+
+  <Divider orientation="vertical" spacing="compact" />
+
+  {/* History group */}
+  <button>Undo</button>
+  <button>Redo</button>
+
+  <Divider orientation="vertical" spacing="compact" />
+
+  {/* Format group */}
+  <button>Bold</button>
+  <button>Italic</button>
+</div>
+```
+
+### Form Section Dividers
+
+Break up long forms into logical sections:
+
+```tsx
+<form>
+  <fieldset>
+    <legend>Personal Information</legend>
+    <input type="text" placeholder="Full Name" />
+    <input type="email" placeholder="Email" />
+    <input type="tel" placeholder="Phone" />
+  </fieldset>
+
+  <Divider variant="strong" spacing="comfortable" />
+
+  <fieldset>
+    <legend>Address Information</legend>
+    <input type="text" placeholder="Street Address" />
+    <input type="text" placeholder="City" />
+    <input type="text" placeholder="Postal Code" />
+  </fieldset>
+
+  <Divider variant="strong" spacing="comfortable" />
+
+  <fieldset>
+    <legend>Payment Information</legend>
+    <input type="text" placeholder="Card Number" />
+    <input type="text" placeholder="Expiry Date" />
+    <input type="text" placeholder="CVV" />
+  </fieldset>
+</form>
+```
+
+### Card Footer Separator
+
+Separate card content from footer actions:
+
+```tsx
+<div
+  style={{
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    overflow: 'hidden',
+  }}
+>
+  {/* Card content */}
+  <div style={{ padding: '24px' }}>
+    <h2>Card Title</h2>
+    <p>Main content of the card goes here...</p>
+  </div>
+
+  <Divider spacing="compact" />
+
+  {/* Card footer */}
+  <div
+    style={{
+      padding: '16px 24px',
+      background: '#fafafa',
+      display: 'flex',
+      justifyContent: 'flex-end',
+      gap: '12px',
+    }}
+  >
+    <button>Cancel</button>
+    <button>Submit</button>
+  </div>
+</div>
+```
+
+## Related Components
+
+- **[Box](./box)**: Container component for layout and spacing (dividers work well inside Box)
+- **[Stack](./stack)**: Layout component that can use dividers between children
+- **[Text](./text)**: Typography component often separated by dividers in content
+
+## TypeScript Support
+
+The Divider component provides comprehensive TypeScript support with full type safety.
+
+### Basic Usage with Types
+
+```tsx
+import type { DividerProps } from '@grasdouble/lufa_design-system';
+import { Divider } from '@grasdouble/lufa_design-system';
+
+// Component with explicit props type
+function SectionDivider(props: DividerProps) {
+  return <Divider {...props} />;
+}
+
+// Using specific prop types
+type DividerVariant = DividerProps['variant'];
+type DividerThickness = DividerProps['thickness'];
+
+function CustomDivider({ variant, thickness }: { variant: DividerVariant; thickness: DividerThickness }) {
+  return <Divider variant={variant} thickness={thickness} />;
+}
+```
+
+### Polymorphic Type Safety
+
+When using the `as` prop, TypeScript automatically infers the correct props for the element type:
+
+```tsx
+// As hr (default for horizontal) - HTMLHRElement props available
+<Divider as="hr" title="Section break" />
+
+// As div - HTMLDivElement props available
+<Divider as="div" role="separator" />
+
+// TypeScript error: htmlFor not valid for hr
+<Divider as="hr" htmlFor="input" />
+//                ^^^^^^^ Error: Property 'htmlFor' does not exist on HTMLHRElement
+```
+
+### Generic Polymorphic Component
+
+```tsx
+import { Divider } from '@grasdouble/lufa_design-system';
+import type { DividerProps } from '@grasdouble/lufa_design-system';
+import type { ElementType } from 'react';
+
+// Generic wrapper component
+function CustomDivider<T extends ElementType = 'hr'>(props: DividerProps<T>) {
+  return <Divider {...props} />;
+}
+
+// Usage with full type inference
+<CustomDivider as="hr" />
+<CustomDivider as="div" role="separator" />
+```
+
+### Exported Types
+
+```tsx
+import type {
+  DividerLineStyle, // 'solid' | 'dashed'
+  DividerOrientation, // 'horizontal' | 'vertical'
+  DividerProps, // Main component props
+  DividerSpacing, // 'compact' | 'default' | 'comfortable'
+  DividerThickness, // 'thin' | 'medium' | 'thick'
+  DividerVariant, // 'default' | 'subtle' | 'strong'
+} from '@grasdouble/lufa_design-system';
+```
+
+## Troubleshooting
+
+### Divider Not Visible
+
+**Problem**: Divider is rendered but not visible on the page.
+
+**Solutions**:
+
+1. Verify design system CSS is loaded:
+
+   ```tsx
+   import '@grasdouble/lufa_design-system/dist/style.css';
+   ```
+
+2. Check color contrast with background (try `variant="strong"`):
+
+   ```tsx
+   {/* If background is light and divider is subtle */}
+   <Divider variant="strong" /> {/* More visible */}
+   ```
+
+3. Increase thickness if divider is too thin:
+
+   ```tsx
+   <Divider thickness="medium" /> {/* or "thick" */}
+   ```
+
+4. Check if parent container has zero height (for vertical dividers):
+
+   ```tsx
+   {
+     /* ❌ Parent has no height */
+   }
+   <div>
+     <Divider orientation="vertical" />
+   </div>;
+
+   {
+     /* ✅ Parent has height */
+   }
+   <div style={{ height: '100px', display: 'flex' }}>
+     <Divider orientation="vertical" />
+   </div>;
+   ```
+
+### Vertical Divider Not Showing
+
+**Problem**: Vertical divider renders but doesn't appear.
+
+**Solutions**:
+
+1. Ensure parent uses flex or grid layout:
+
+   ```tsx
+   {
+     /* ❌ Wrong - parent not flex/grid */
+   }
+   <div>
+     <span>Left</span>
+     <Divider orientation="vertical" />
+     <span>Right</span>
+   </div>;
+
+   {
+     /* ✅ Correct - parent is flex */
+   }
+   <div style={{ display: 'flex', alignItems: 'center' }}>
+     <span>Left</span>
+     <Divider orientation="vertical" />
+     <span>Right</span>
+   </div>;
+   ```
+
+2. Give parent container explicit height:
+
+   ```tsx
+   <div
+     style={{
+       display: 'flex',
+       alignItems: 'stretch',
+       height: '50px',
+     }}
+   >
+     <button>Action 1</button>
+     <Divider orientation="vertical" />
+     <button>Action 2</button>
+   </div>
+   ```
+
+3. Ensure `alignItems` is set correctly:
+
+   ```tsx
+   {
+     /* Use stretch or center */
+   }
+   <div style={{ display: 'flex', alignItems: 'stretch' }}>
+     <Divider orientation="vertical" />
+   </div>;
+   ```
+
+### Spacing Too Large or Too Small
+
+**Problem**: Divider spacing doesn't match the layout.
+
+**Solutions**:
+
+1. Adjust `spacing` prop to match your layout:
+
+   ```tsx
+   {
+     /* Compact spacing (8px) */
+   }
+   <Divider spacing="compact" />;
+
+   {
+     /* Default spacing (16px) */
+   }
+   <Divider spacing="default" />;
+
+   {
+     /* Comfortable spacing (24px) */
+   }
+   <Divider spacing="comfortable" />;
+   ```
+
+2. Override spacing with custom className:
+
+   ```tsx
+   <Divider className="custom-spacing" />
+
+   // In CSS:
+   // .custom-spacing {
+   //   margin: 32px 0; /* Custom vertical spacing */
+   // }
+   ```
+
+3. Use Box component for fine-grained spacing control:
+
+   ```tsx
+   import { Box, Divider } from '@grasdouble/lufa_design-system';
+
+   <Box marginY="8px">
+     <Divider />
+   </Box>;
+   ```
+
+### Divider Takes Full Height/Width
+
+**Problem**: Divider spans more than expected.
+
+**Solutions**:
+
+1. For horizontal dividers, constrain parent width:
+
+   ```tsx
+   <div style={{ maxWidth: '600px' }}>
+     <Divider />
+   </div>
+   ```
+
+2. For vertical dividers, constrain parent height:
+
+   ```tsx
+   <div style={{ display: 'flex', height: '50px' }}>
+     <Divider orientation="vertical" />
+   </div>
+   ```
+
+3. Use explicit width/height constraints:
+
+   ```tsx
+   {
+     /* Horizontal with max-width */
+   }
+   <Divider style={{ maxWidth: '400px' }} />;
+
+   {
+     /* Vertical with height constraint - parent must be flex */
+   }
+   <div style={{ display: 'flex', height: '100px' }}>
+     <Divider orientation="vertical" />
+   </div>;
+   ```
+
+### Dashed Line Not Showing Correctly
+
+**Problem**: Dashed line appears as solid or has incorrect dash pattern.
+
+**Solutions**:
+
+1. Ensure sufficient thickness for visible dashes:
+
+   ```tsx
+   {/* ❌ Too thin to see dashes clearly */}
+   <Divider lineStyle="dashed" thickness="thin" />
+
+   {/* ✅ Better - medium or thick shows dashes clearly */}
+   <Divider lineStyle="dashed" thickness="medium" />
+   <Divider lineStyle="dashed" thickness="thick" />
+   ```
+
+2. Check if browser CSS is overriding border styles:
+
+   ```css
+   /* Avoid overriding these in your CSS */
+   .divider.line-style-dashed {
+     /* ... */
+   }
+   ```
+
+3. Verify border color is visible against background:
+
+   ```tsx
+   {
+     /* Use stronger variant for better contrast */
+   }
+   <Divider lineStyle="dashed" variant="strong" />;
+   ```
+
+## Changelog
+
+### v2.0.0 (Current)
+
+- ✅ Initial release of Divider component
+- ✅ Support for horizontal and vertical orientations
+- ✅ Three color variants (default, subtle, strong)
+- ✅ Three thickness levels (thin, medium, thick)
+- ✅ Three spacing options (compact, default, comfortable)
+- ✅ Two line styles (solid, dashed)
+- ✅ Polymorphic rendering with `as` prop
+- ✅ Full TypeScript support with generic types
+- ✅ WCAG 2.1 AA compliant
+- ✅ Token-based design system integration
+- ✅ Dark mode support via design tokens

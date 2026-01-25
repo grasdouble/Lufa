@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/lufa_design-system-docusaurus",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -40,6 +40,7 @@
     "@grasdouble/lufa_design-system-tokens": "workspace:^",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
+    "lucide-react": "^0.469.0",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"

@@ -224,7 +224,7 @@ git pull
 | --------------------------------------------------------------------------------------------------- | --------------------------------- |
 | [SNAPSHOT-MANAGEMENT-SYSTEM.md](./SNAPSHOT-MANAGEMENT-SYSTEM.md)                                    | This file - complete overview     |
 | [DOCKER-LINUX-SNAPSHOTS.md](./DOCKER-LINUX-SNAPSHOTS.md)                                            | Docker method detailed guide      |
-| [scripts/README.md](./scripts/README.md)                                                            | Compression scripts documentation |
+| [scripts/README.md](../scripts/README.md)                                                           | Compression scripts documentation |
 | [.github/workflows/README-SNAPSHOT-UPDATE.md](../../../.github/workflows/README-SNAPSHOT-UPDATE.md) | GitHub Actions label method guide |
 
 ---
@@ -781,7 +781,7 @@ gh pr edit --add-label snapshot-update
 
 - [SNAPSHOT-MANAGEMENT-SYSTEM.md](./SNAPSHOT-MANAGEMENT-SYSTEM.md) - This file
 - [DOCKER-LINUX-SNAPSHOTS.md](./DOCKER-LINUX-SNAPSHOTS.md) - Docker details
-- [scripts/README.md](./scripts/README.md) - Compression scripts
+- [scripts/README.md](../scripts/README.md) - Compression scripts
 - [.github/workflows/README-SNAPSHOT-UPDATE.md](../../../.github/workflows/README-SNAPSHOT-UPDATE.md) - GitHub Actions guide
 
 ---

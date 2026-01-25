@@ -50,7 +50,6 @@ If you're using design tokens directly:
 ```bash
 # Update token packages
 pnpm update @grasdouble/lufa_design-system-tokens
-pnpm update @grasdouble/lufa_design-system-primitives
 ```
 
 ### Step 4: Run Tests
@@ -144,17 +143,24 @@ If a prop name changes:
 
 ### Updating Token Imports
 
-If token paths change:
+**As of v0.5.0, token JS/TS exports have been removed:**
 
 ```tsx
-// ❌ Old
-import { colors } from '@grasdouble/lufa_design-system-tokens';
-const primaryColor = colors.primary;
+// ❌ Old (no longer works)
+import { LufaPrimitiveColorBlue600 } from '@grasdouble/lufa_design-system-tokens';
+// ✅ New (for Storybook/documentation only)
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
-// ✅ New
-import { color } from '@grasdouble/lufa_design-system-tokens';
-const primaryColor = color.primary.base;
+const primaryColor = LufaPrimitiveColorBlue600;
+
+const primaryColor = tokens.primitive.color.blue['600'];
+
+// ✅ Best (for React components)
+// Use CSS Modules with CSS custom properties:
+// .button { color: var(--lufa-primitive-color-blue-600); }
 ```
+
+**Important:** Token imports should only be used in Storybook stories or documentation. React components should always use CSS Modules with CSS custom properties for proper theming support.
 
 ### Handling Removed Components
 
@@ -162,13 +168,11 @@ If a component is removed or renamed:
 
 ```tsx
 // ❌ Old component removed
-import { OldButton } from '@grasdouble/lufa_design-system';
-
 // ✅ Use the replacement
-import { Button } from '@grasdouble/lufa_design-system';
+import { Button, OldButton } from '@grasdouble/lufa_design-system';
 
 // Map old props to new props
-<Button variant="solid" {...oldButtonProps} />
+<Button variant="solid" {...oldButtonProps} />;
 ```
 
 ## Deprecation Warnings
@@ -221,9 +225,7 @@ Our TypeScript definitions will help catch breaking changes:
 
 ```tsx
 // TypeScript will error on removed props
-<Button oldProp="value"> // ❌ TypeScript error
-  Click me
-</Button>
+<Button oldProp="value"> // ❌ TypeScript error Click me</Button>
 ```
 
 **Migration Tips:**
@@ -246,6 +248,7 @@ pnpm add @grasdouble/lufa_design-system@0.5.0
 ### Long-term Strategy
 
 1. **Pin versions** in `package.json` until you're ready to upgrade:
+
    ```json
    {
      "dependencies": {
@@ -255,6 +258,7 @@ pnpm add @grasdouble/lufa_design-system@0.5.0
    ```
 
 2. **Use version ranges cautiously**:
+
    ```json
    {
      "dependencies": {

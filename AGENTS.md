@@ -751,14 +751,21 @@ cd packages/design-system/main
 pnpm test-ct
 ```
 
-#### Pattern 5: CSS with Design Tokens
+#### Pattern 5: Token Usage (File-Based Rule)
+
+**File-Based Token Usage Rule**:
+
+- **CSS files** (`.css`, `.module.css`): Use CSS custom properties `var(--lufa-token-*)`
+- **TypeScript/JavaScript files** (`.ts`, `.tsx`, `.js`, `.jsx`): Use TypeScript tokens `tokens.color.text.primary`
+
+**CSS Files:**
 
 ```css
-/* File: packages/design-system/main/src/components/Button.css */
+/* File: packages/design-system/main/src/components/Button.module.css */
 
 @layer components {
   .btn {
-    /* ✅ Use tokens via CSS custom properties */
+    /* ✅ CSS files use CSS custom properties */
     padding: var(--lufa-spacing-default);
     font-size: var(--lufa-font-size-body);
     font-weight: var(--lufa-font-weight-semibold);
@@ -789,6 +796,28 @@ pnpm test-ct
     background: var(--lufa-color-background-primary-hover);
   }
 }
+```
+
+**TypeScript/JavaScript Files (for Storybook, inline styles):**
+
+```typescript
+// File: packages/design-system/storybook/src/stories/components/Button.stories.tsx
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
+// ✅ TypeScript files use TypeScript tokens
+const exampleStyles = {
+  padding: tokens.spacing.default,
+  fontSize: tokens.fontSize.body,
+  fontWeight: tokens.fontWeight.semibold,
+  borderRadius: tokens.radius.base,
+  backgroundColor: tokens.color.background.primary,
+  color: tokens.color.text.inverse,
+};
+
+// ❌ Don't use CSS variable strings in TS/JS files
+const badStyles = {
+  padding: 'var(--lufa-spacing-default)', // Wrong for TS files!
+};
 ```
 
 ---
@@ -855,12 +884,19 @@ export const Button = ({
 Button.displayName = 'Button';
 ````
 
-**CSS with tokens (use CSS custom properties):**
+**Token Usage (File-Based Rule):**
+
+| File Type                    | Token Format          | Example                                        |
+| ---------------------------- | --------------------- | ---------------------------------------------- |
+| `.css`, `.module.css`        | CSS custom properties | `color: var(--lufa-token-color-text-primary);` |
+| `.ts`, `.tsx`, `.js`, `.jsx` | TypeScript tokens     | `color: tokens.color.text.primary`             |
+
+**CSS files use CSS custom properties:**
 
 ```css
 @layer components {
   .btn {
-    /* ✅ Use tokens via CSS custom properties */
+    /* ✅ CSS files use CSS custom properties */
     padding: var(--lufa-spacing-default);
     font-size: var(--lufa-font-size-body);
     border-radius: var(--lufa-radius-base);
@@ -880,6 +916,20 @@ Button.displayName = 'Button';
     background: var(--lufa-color-background-primary-hover);
   }
 }
+```
+
+**TypeScript/JavaScript files use TypeScript tokens:**
+
+```typescript
+// For Storybook stories, inline styles, and style objects
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
+const styles = {
+  padding: tokens.spacing.default,
+  fontSize: tokens.fontSize.body,
+  borderRadius: tokens.radius.base,
+  backgroundColor: tokens.color.background.primary,
+};
 ```
 
 ### Workspace Dependencies Pattern

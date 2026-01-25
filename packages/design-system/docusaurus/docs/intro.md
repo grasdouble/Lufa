@@ -31,9 +31,9 @@ Learn about the core design tokens that power Lufa.
 
 Browse our collection of accessible React components.
 
-- **[Button](./components/forms/button)** - Primary interaction component
-- **[Card](./components/display/card)** - Content container
-- **[Typography](./components/typography)** - Text display component
+- **[Button](./components/primitives/Button)** - Primary interaction component
+- **[Badge](./components/primitives/badge)** - Status and label indicator
+- **[Box](./components/primitives/box)** - Universal layout primitive
 - [View all components →](./components/overview)
 
 ## Resources

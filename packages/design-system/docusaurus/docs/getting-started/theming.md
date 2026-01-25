@@ -2,92 +2,272 @@
 sidebar_position: 3
 ---
 
-# Theming
+# Theming Guide
 
-Customize Lufa Design System to match your brand.
+Customize the Lufa Design System to match your brand identity using design tokens and themes.
 
-## CSS Variables
+## Understanding the Token System
 
-All design tokens are exposed as CSS custom properties with the `--lufa-token-` prefix. This allows you to override them at runtime for theming.
+Lufa uses a three-layer architecture for styling:
 
-### Override Colors
+```
+┌─────────────────────────────────────────┐
+│         Layer 3: Components             │
+│    Use tokens only (semantic values)    │
+└─────────────────┬───────────────────────┘
+                  │
+┌─────────────────▼───────────────────────┐
+│         Layer 2: Tokens                 │
+│    Semantic names (primary, default)    │
+└─────────────────┬───────────────────────┘
+                  │
+┌─────────────────▼───────────────────────┐
+│         Layer 1: Primitives             │
+│    Raw values (16px, 150ms, #FF0000)    │
+└─────────────────────────────────────────┘
+```
 
-```css
+## Using Built-in Themes
+
+Lufa includes light and dark themes by default. Enable theme switching:
+
+```tsx title="src/App.tsx"
+import '@grasdouble/lufa_design-system/style.css';
+
+import { useState } from 'react';
+
+function App() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  // Apply theme to document root
+  document.documentElement.setAttribute('data-theme', theme);
+
+  return (
+    <div>
+      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>Toggle Theme</button>
+      {/* Your app content */}
+    </div>
+  );
+}
+```
+
+## Customizing Design Tokens
+
+Override design tokens using CSS custom properties:
+
+```css title="src/custom-theme.css"
 :root {
-  /* Override brand colors */
-  --lufa-token-color-brand-primary: #your-color;
-  --lufa-token-color-brand-secondary: #your-color;
+  /* Override color tokens */
+  --lufa-token-color-background-primary: #0066cc;
+  --lufa-token-color-background-primary-hover: #0052a3;
+
+  /* Override spacing tokens */
+  --lufa-token-spacing-default: 20px;
+  --lufa-token-spacing-comfortable: 28px;
+
+  /* Override typography tokens */
+  --lufa-token-font-size-body: 16px;
+  --lufa-token-font-weight-semibold: 600;
 }
 
-/* Dark mode overrides */
 [data-theme='dark'] {
-  --lufa-token-color-background-primary: #1a1a1a;
+  /* Custom dark theme overrides */
+  --lufa-token-color-background-surface: #1a1a1a;
   --lufa-token-color-text-primary: #ffffff;
 }
 ```
 
-### Override Typography
+Import your custom theme after the design system CSS:
+
+```tsx title="src/main.tsx"
+import '@grasdouble/lufa_design-system/style.css';
+import './custom-theme.css'; // Your overrides
+```
+
+## Available Token Categories
+
+### Color Tokens
 
 ```css
-:root {
-  /* Override heading sizes */
-  --lufa-token-font-size-6xl: 4rem;
-  --lufa-token-line-height-tight: 1.1;
+/* Background colors */
+--lufa-token-color-background-primary
+--lufa-token-color-background-surface
+--lufa-token-color-background-muted
 
-  /* Override font family */
-  --lufa-token-font-family-sans: 'Your Font', sans-serif;
+/* Text colors */
+--lufa-token-color-text-primary
+--lufa-token-color-text-secondary
+--lufa-token-color-text-muted
+--lufa-token-color-text-inverse
+
+/* Border colors */
+--lufa-token-color-border-default
+--lufa-token-color-border-focus
+--lufa-token-color-border-error
+
+/* State colors */
+--lufa-token-color-status-success
+--lufa-token-color-status-warning
+--lufa-token-color-status-error
+--lufa-token-color-status-info
+```
+
+### Spacing Tokens
+
+```css
+--lufa-token-spacing-compact       /* 8px */
+--lufa-token-spacing-default       /* 16px */
+--lufa-token-spacing-comfortable   /* 24px */
+--lufa-token-spacing-spacious      /* 32px */
+```
+
+### Typography Tokens
+
+```css
+/* Font sizes */
+--lufa-token-font-size-xs
+--lufa-token-font-size-sm
+--lufa-token-font-size-body
+--lufa-token-font-size-lg
+--lufa-token-font-size-xl
+
+/* Font weights */
+--lufa-token-font-weight-regular    /* 400 */
+--lufa-token-font-weight-medium     /* 500 */
+--lufa-token-font-weight-semibold   /* 600 */
+--lufa-token-font-weight-bold       /* 700 */
+
+/* Line heights */
+--lufa-token-line-height-tight
+--lufa-token-line-height-normal
+--lufa-token-line-height-relaxed
+```
+
+### Border Radius Tokens
+
+```css
+--lufa-token-radius-none
+--lufa-token-radius-sm
+--lufa-token-radius-base
+--lufa-token-radius-lg
+--lufa-token-radius-full
+```
+
+### Shadow Tokens
+
+```css
+--lufa-token-shadow-sm
+--lufa-token-shadow-base
+--lufa-token-shadow-md
+--lufa-token-shadow-lg
+--lufa-token-shadow-xl
+```
+
+## Creating a Custom Theme
+
+Create a complete theme by overriding all relevant tokens:
+
+```css title="src/themes/brand-theme.css"
+:root {
+  /* Brand Colors */
+  --lufa-token-color-background-primary: #6366f1;
+  --lufa-token-color-background-primary-hover: #4f46e5;
+  --lufa-token-color-text-inverse: #ffffff;
+
+  /* Surface Colors */
+  --lufa-token-color-background-surface: #ffffff;
+  --lufa-token-color-background-muted: #f9fafb;
+
+  /* Text Colors */
+  --lufa-token-color-text-primary: #111827;
+  --lufa-token-color-text-secondary: #6b7280;
+  --lufa-token-color-text-muted: #9ca3af;
+
+  /* Border Colors */
+  --lufa-token-color-border-default: #e5e7eb;
+  --lufa-token-color-border-focus: #6366f1;
+
+  /* Border Radius */
+  --lufa-token-radius-base: 12px;
+  --lufa-token-radius-lg: 16px;
+
+  /* Spacing Scale */
+  --lufa-token-spacing-default: 16px;
+  --lufa-token-spacing-comfortable: 24px;
+}
+
+[data-theme='dark'] {
+  /* Dark Theme Overrides */
+  --lufa-token-color-background-surface: #1f2937;
+  --lufa-token-color-background-muted: #111827;
+  --lufa-token-color-text-primary: #f9fafb;
+  --lufa-token-color-text-secondary: #d1d5db;
+  --lufa-token-color-border-default: #374151;
 }
 ```
 
-### Override Spacing
+## Using Tokens in JavaScript
 
-```css
-:root {
-  /* Make spacing more compact */
-  --lufa-token-spacing-base: 0.75rem;
-  --lufa-token-spacing-lg: 1.25rem;
+Access tokens programmatically:
+
+```tsx
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
+function CustomComponent() {
+  const styles = {
+    backgroundColor: tokens.color.background.surface,
+    padding: tokens.spacing.default,
+    borderRadius: tokens.radius.base,
+    color: tokens.color.text.primary,
+  };
+
+  return <div style={styles}>Themed content</div>;
 }
 ```
 
-## Dark Mode
+## Theme Validation
 
-Lufa supports dark mode out of the box. Apply the `dark` class or `data-theme="dark"` attribute:
+Use the Lufa CLI to validate your custom theme:
 
-```tsx
-// Using class
-<html className="dark">
-  <App />
-</html>
+```bash
+# Install the CLI (if not already installed)
+pnpm add -D @grasdouble/lufa_design-system-cli
 
-// Using data attribute
-<html data-theme="dark">
-  <App />
-</html>
+# Validate your theme
+pnpm lufa-ds-cli validate-theme ./src/themes/brand-theme.css
 ```
 
-## Theme Variants
+The validator checks:
 
-Lufa ships with built-in theme variants:
+- All required tokens are defined
+- CSS syntax is valid
+- Color contrast meets WCAG 2.1 AA standards
+- Token values are properly formatted
 
-```tsx
-// Import a theme variant
-import '@grasdouble/lufa_design-system/themes/ocean.css';
-import '@grasdouble/lufa_design-system/themes/forest.css';
-```
+## Best Practices
 
-## Available Variables
+### Do ✅
 
-All CSS variables are prefixed with `--lufa-token-` to avoid conflicts:
+- **Use CSS custom properties** for theming (not hardcoded values)
+- **Test both light and dark themes** for accessibility
+- **Maintain WCAG 2.1 AA contrast ratios** (4.5:1 for text, 3:1 for UI)
+- **Document custom tokens** in your project's style guide
+- **Use the CLI validator** before deploying theme changes
 
-- `--lufa-token-color-*` - Color tokens
-- `--lufa-token-spacing-*` - Spacing tokens
-- `--lufa-token-font-family-*` - Font families
-- `--lufa-token-font-size-*` - Font sizes
-- `--lufa-token-font-weight-*` - Font weights
-- `--lufa-token-line-height-*` - Line heights
-- `--lufa-token-letter-spacing-*` - Letter spacing
-- `--lufa-token-measure-*` - Measure (line length)
-- `--lufa-token-radius-*` - Border radius tokens
-- `--lufa-token-shadow-*` - Shadow tokens
+### Don't ❌
 
-[View all design tokens →](../tokens/colors)
+- **Don't hardcode colors** in component styles
+- **Don't skip dark mode** if your app supports it
+- **Don't override primitive values** (use tokens instead)
+- **Don't forget to test accessibility** after theme changes
+
+## Next Steps
+
+- [Explore Color Tokens](/docs/tokens/colors) - Complete color system reference
+- [Typography Tokens](/docs/tokens/typography) - Font and text styling
+- [Spacing Tokens](/docs/tokens/spacing) - Layout and spacing system
+- [Component Customization](/docs/components/overview) - Component-specific styling
+
+:::tip Need Help?
+Join our community on [GitHub Discussions](https://github.com/grasdouble/Lufa/discussions) for theming questions and examples.
+:::

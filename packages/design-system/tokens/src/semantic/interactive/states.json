@@ -1,0 +1,174 @@
+{
+  "semantic": {
+    "interactive": {
+      "background-default": {
+        "$value": "{core.neutral.surface}",
+        "$type": "color",
+        "$description": "Default background for interactive elements like buttons and inputs in their resting state",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Button backgrounds, input backgrounds, interactive card backgrounds"
+          }
+        }
+      },
+      "background-hover": {
+        "$value": "{core.neutral.surface-hover}",
+        "$type": "color",
+        "$description": "Background color when hovering over interactive elements - provides visual feedback",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Hover state for buttons, inputs, cards, list items"
+          }
+        }
+      },
+      "background-active": {
+        "$value": "{core.brand.primary-active}",
+        "$type": "color",
+        "$description": "Background color when pressing/clicking interactive elements - provides immediate feedback",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Active/pressed state for buttons and clickable elements"
+          }
+        }
+      },
+      "background-disabled": {
+        "$value": "{core.neutral.surface}",
+        "$type": "color",
+        "$description": "Background color for disabled interactive elements - indicates non-interactive state",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Disabled buttons, disabled inputs, non-interactive elements"
+          }
+        }
+      },
+      "border-default": {
+        "$value": "{core.neutral.border}",
+        "$type": "color",
+        "$description": "Default border color for interactive elements in resting state",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Input borders, button outlines, card borders"
+          }
+        }
+      },
+      "border-hover": {
+        "$value": "{core.neutral.border-strong}",
+        "$type": "color",
+        "$description": "Border color when hovering over interactive elements - stronger emphasis",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Hover state borders for inputs and outlined buttons"
+          }
+        }
+      },
+      "border-focus": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Border color for focused interactive elements - indicates keyboard focus and accessibility",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Focus rings, focused input borders, keyboard navigation indicators"
+          }
+        }
+      },
+      "border-disabled": {
+        "$value": "{core.neutral.border}",
+        "$type": "color",
+        "$description": "Border color for disabled interactive elements - subtle indication of disabled state",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Disabled input borders, disabled button outlines"
+          }
+        }
+      },
+      "text-default": {
+        "$value": "{core.neutral.text-primary}",
+        "$type": "color",
+        "$description": "Default text color for interactive elements in resting state",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Button labels, input text, interactive element labels"
+          }
+        }
+      },
+      "text-hover": {
+        "$value": "{core.neutral.text-primary}",
+        "$type": "color",
+        "$description": "Text color when hovering over interactive elements - maintains readability",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Hover state text for buttons and interactive elements"
+          }
+        }
+      },
+      "text-active": {
+        "$value": "{core.neutral.text-primary}",
+        "$type": "color",
+        "$description": "Text color when pressing/clicking interactive elements",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Active/pressed state text for buttons"
+          }
+        }
+      },
+      "text-disabled": {
+        "$value": "{core.neutral.text-disabled}",
+        "$type": "color",
+        "$description": "Text color for disabled interactive elements - low contrast indicates non-interactive",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Disabled button text, disabled input text, non-interactive labels"
+          }
+        }
+      },
+      "focus-ring": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Color for focus rings around interactive elements - ensures accessibility compliance",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Focus indicators, keyboard navigation rings, accessibility focus states"
+          }
+        }
+      },
+      "focus-ring-offset": {
+        "$value": "2px",
+        "$type": "dimension",
+        "$description": "Offset distance for focus rings from element edge - improves visibility",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "useCase": "Focus ring spacing, outline-offset for focused elements"
+          }
+        }
+      }
+    }
+  }
+}

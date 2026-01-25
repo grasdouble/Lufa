@@ -1,0 +1,114 @@
+{
+  "core": {
+    "neutral": {
+      "background": {
+        "$value": "{primitive.color.gray.50}",
+        "$type": "color",
+        "$description": "Page background color - lightest neutral for main canvas",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "neutral",
+            "useCase": "Page backgrounds, root container backgrounds"
+          }
+        }
+      },
+      "surface": {
+        "$value": "{primitive.color.gray.100}",
+        "$type": "color",
+        "$description": "Surface color for cards, panels, and elevated elements",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "neutral",
+            "useCase": "Cards, modals, dropdowns, panels"
+          }
+        }
+      },
+      "surface-hover": {
+        "$value": "{primitive.color.gray.200}",
+        "$type": "color",
+        "$description": "Hover state for interactive surfaces",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "neutral",
+            "useCase": "Hover state for list items, table rows, clickable cards"
+          }
+        }
+      },
+      "border": {
+        "$value": "{primitive.color.gray.300}",
+        "$type": "color",
+        "$description": "Default border color for dividers and element boundaries",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "neutral",
+            "useCase": "Input borders, card borders, dividers, separators"
+          }
+        }
+      },
+      "border-strong": {
+        "$value": "{primitive.color.gray.400}",
+        "$type": "color",
+        "$description": "Stronger border color for emphasis or focus states",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "neutral",
+            "useCase": "Emphasized borders, active input borders, strong dividers"
+          }
+        }
+      },
+      "text-primary": {
+        "$value": "{primitive.color.gray.900}",
+        "$type": "color",
+        "$description": "Primary text color - highest contrast for body text and headings",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "neutral",
+            "useCase": "Body text, headings, primary labels"
+          }
+        }
+      },
+      "text-secondary": {
+        "$value": "{primitive.color.gray.600}",
+        "$type": "color",
+        "$description": "Secondary text color - medium contrast for supporting text",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "neutral",
+            "useCase": "Secondary labels, descriptions, captions, metadata"
+          }
+        }
+      },
+      "text-tertiary": {
+        "$value": "{primitive.color.gray.500}",
+        "$type": "color",
+        "$description": "Tertiary text color - lower contrast for subtle text",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "neutral",
+            "useCase": "Placeholder text, timestamps, optional information"
+          }
+        }
+      },
+      "text-disabled": {
+        "$value": "{primitive.color.gray.400}",
+        "$type": "color",
+        "$description": "Disabled text color - lowest contrast for inactive elements",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "neutral",
+            "useCase": "Disabled input text, disabled labels, inactive menu items"
+          }
+        }
+      }
+    }
+  }
+}

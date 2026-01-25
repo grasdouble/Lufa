@@ -1,0 +1,589 @@
+/**
+ * Lufa Design System - Theme Template
+ * 
+ * This file contains all 438+ design tokens that can be customized to create your own theme.
+ * 
+ * HOW TO USE:
+ * 1. Copy this file and rename it (e.g., my-theme.css)
+ * 2. Customize the CSS custom property values to match your brand
+ * 3. Validate your theme: lufa-validate-theme my-theme.css
+ * 4. Import your theme in your application AFTER the base tokens
+ * 
+ * IMPORTANT NOTES:
+ * - All tokens must be defined (no missing tokens)
+ * - Color values must be valid hex codes (#RRGGBB or #RGB)
+ * - Dimension values must include units (px, rem, em)
+ * - Duration values must include units (ms, s)
+ * - You can reference other CSS variables using var(--lufa-...)
+ * - Color contrast will be validated for WCAG AA compliance
+ * 
+ * TOKEN STRUCTURE (4 levels):
+ * - Level 1: Primitives (raw values like #3B82F6, 16px, 150ms)
+ * - Level 2: Core tokens (brand colors, neutral palette)
+ * - Level 3: Semantic tokens (UI-level meanings like primary, hover, disabled)
+ * - Level 4: Component tokens (component-specific values)
+ */
+
+:root {
+  /* ========================================================================
+     LEVEL 1: PRIMITIVE TOKENS
+     Raw foundational values - colors, spacing, typography, motion, etc.
+     ======================================================================== */
+
+  /* --- Primitive Colors: Gray Scale --- */
+  --lufa-primitive-color-gray-50: #f9fafb;
+  --lufa-primitive-color-gray-100: #f3f4f6;
+  --lufa-primitive-color-gray-200: #e5e7eb;
+  --lufa-primitive-color-gray-300: #d1d5db;
+  --lufa-primitive-color-gray-400: #9ca3af;
+  --lufa-primitive-color-gray-500: #6b7280;
+  --lufa-primitive-color-gray-600: #4b5563;
+  --lufa-primitive-color-gray-700: #374151;
+  --lufa-primitive-color-gray-800: #1f2937;
+  --lufa-primitive-color-gray-900: #888888; /* Changed to fail contrast via var() chain */
+
+  /* --- Primitive Colors: Blue (Primary Brand) --- */
+  --lufa-primitive-color-blue-50: #eff6ff;
+  --lufa-primitive-color-blue-100: #dbeafe;
+  --lufa-primitive-color-blue-200: #bfdbfe;
+  --lufa-primitive-color-blue-300: #93c5fd;
+  --lufa-primitive-color-blue-400: #60a5fa;
+  --lufa-primitive-color-blue-500: #3b82f6;
+  --lufa-primitive-color-blue-600: #2563eb;
+  --lufa-primitive-color-blue-700: #1d4ed8;
+  --lufa-primitive-color-blue-800: #1e40af;
+  --lufa-primitive-color-blue-900: #1e3a8a;
+
+  /* --- Primitive Colors: Red (Error/Destructive) --- */
+  --lufa-primitive-color-red-50: #fef2f2;
+  --lufa-primitive-color-red-100: #fee2e2;
+  --lufa-primitive-color-red-200: #fecaca;
+  --lufa-primitive-color-red-300: #fca5a5;
+  --lufa-primitive-color-red-400: #f87171;
+  --lufa-primitive-color-red-500: #ef4444;
+  --lufa-primitive-color-red-600: #dc2626;
+  --lufa-primitive-color-red-700: #b91c1c;
+  --lufa-primitive-color-red-800: #991b1b;
+  --lufa-primitive-color-red-900: #7f1d1d;
+
+  /* --- Primitive Colors: Green (Success) --- */
+  --lufa-primitive-color-green-50: #f0fdf4;
+  --lufa-primitive-color-green-100: #dcfce7;
+  --lufa-primitive-color-green-200: #bbf7d0;
+  --lufa-primitive-color-green-300: #86efac;
+  --lufa-primitive-color-green-400: #4ade80;
+  --lufa-primitive-color-green-500: #22c55e;
+  --lufa-primitive-color-green-600: #16a34a;
+  --lufa-primitive-color-green-700: #15803d;
+  --lufa-primitive-color-green-800: #166534;
+  --lufa-primitive-color-green-900: #14532d;
+
+  /* --- Primitive Colors: Yellow (Warning) --- */
+  --lufa-primitive-color-yellow-50: #fefce8;
+  --lufa-primitive-color-yellow-100: #fef9c3;
+  --lufa-primitive-color-yellow-200: #fef08a;
+  --lufa-primitive-color-yellow-300: #fde047;
+  --lufa-primitive-color-yellow-400: #facc15;
+  --lufa-primitive-color-yellow-500: #eab308;
+  --lufa-primitive-color-yellow-600: #ca8a04;
+  --lufa-primitive-color-yellow-700: #a16207;
+  --lufa-primitive-color-yellow-800: #854d0e;
+  --lufa-primitive-color-yellow-900: #713f12;
+
+  /* --- Primitive Colors: Purple (Secondary Brand) --- */
+  --lufa-primitive-color-purple-50: #faf5ff;
+  --lufa-primitive-color-purple-100: #f3e8ff;
+  --lufa-primitive-color-purple-200: #e9d5ff;
+  --lufa-primitive-color-purple-300: #d8b4fe;
+  --lufa-primitive-color-purple-400: #c084fc;
+  --lufa-primitive-color-purple-500: #a855f7;
+  --lufa-primitive-color-purple-600: #9333ea;
+  --lufa-primitive-color-purple-700: #7e22ce;
+  --lufa-primitive-color-purple-800: #6b21a8;
+  --lufa-primitive-color-purple-900: #581c87;
+
+  /* --- Primitive Motion: Duration --- */
+  --lufa-primitive-motion-duration-instant: 100ms;
+  --lufa-primitive-motion-duration-fast: 150ms;
+  --lufa-primitive-motion-duration-normal: 250ms;
+  --lufa-primitive-motion-duration-slow: 400ms;
+
+  /* --- Primitive Motion: Easing --- */
+  --lufa-primitive-motion-easing-linear: cubic-bezier(0, 0, 1, 1);
+  --lufa-primitive-motion-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --lufa-primitive-motion-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --lufa-primitive-motion-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- Primitive Radius: Border Radius Scale --- */
+  --lufa-primitive-radius-scale-none: 0px;
+  --lufa-primitive-radius-scale-sm: 2px;
+  --lufa-primitive-radius-scale-base: 4px;
+  --lufa-primitive-radius-scale-md: 6px;
+  --lufa-primitive-radius-scale-lg: 8px;
+  --lufa-primitive-radius-scale-xl: 12px;
+  --lufa-primitive-radius-scale-full: 9999px;
+
+  /* --- Primitive Shadow: Elevation Scale --- */
+  --lufa-primitive-shadow-elevation-none: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --lufa-primitive-shadow-elevation-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  --lufa-primitive-shadow-elevation-base: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  --lufa-primitive-shadow-elevation-md: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+  --lufa-primitive-shadow-elevation-lg: 0px 8px 16px 0px rgba(0, 0, 0, 0.12);
+  --lufa-primitive-shadow-elevation-xl: 0px 12px 24px 0px rgba(0, 0, 0, 0.15);
+
+  /* --- Primitive Spacing: Size Scale --- */
+  --lufa-primitive-spacing-0: 0px;
+  --lufa-primitive-spacing-4: 4px;
+  --lufa-primitive-spacing-8: 8px;
+  --lufa-primitive-spacing-12: 12px;
+  --lufa-primitive-spacing-16: 16px;
+  --lufa-primitive-spacing-24: 24px;
+  --lufa-primitive-spacing-32: 32px;
+  --lufa-primitive-spacing-40: 40px;
+  --lufa-primitive-spacing-48: 48px;
+  --lufa-primitive-spacing-64: 64px;
+  --lufa-primitive-spacing-80: 80px;
+  --lufa-primitive-spacing-96: 96px;
+
+  /* --- Primitive Typography: Font Families --- */
+  --lufa-primitive-typography-font-family-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --lufa-primitive-typography-font-family-mono:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  /* --- Primitive Typography: Font Sizes --- */
+  --lufa-primitive-typography-font-size-xs: 12px;
+  --lufa-primitive-typography-font-size-sm: 14px;
+  --lufa-primitive-typography-font-size-base: 16px;
+  --lufa-primitive-typography-font-size-lg: 18px;
+  --lufa-primitive-typography-font-size-xl: 20px;
+  --lufa-primitive-typography-font-size-2xl: 24px;
+  --lufa-primitive-typography-font-size-3xl: 30px;
+  --lufa-primitive-typography-font-size-4xl: 36px;
+  --lufa-primitive-typography-font-size-5xl: 48px;
+
+  /* --- Primitive Typography: Font Weights --- */
+  --lufa-primitive-typography-font-weight-normal: 400;
+  --lufa-primitive-typography-font-weight-medium: 500;
+  --lufa-primitive-typography-font-weight-semibold: 600;
+  --lufa-primitive-typography-font-weight-bold: 700;
+
+  /* --- Primitive Typography: Line Heights --- */
+  --lufa-primitive-typography-line-height-tight: 1.25;
+  --lufa-primitive-typography-line-height-normal: 1.5;
+  --lufa-primitive-typography-line-height-relaxed: 1.75;
+
+  /* ========================================================================
+     LEVEL 2: CORE TOKENS
+     Brand colors, neutral palette, layout constants
+     ======================================================================== */
+
+  /* --- Core: Layout Dimensions --- */
+  --lufa-core-component-modal-max-width: 600px;
+  --lufa-core-layout-container-max-width: 1280px;
+  --lufa-core-layout-sidebar-width: 280px;
+  --lufa-core-layout-content-max-width: 720px;
+
+  /* --- Core: Brand Colors --- */
+  --lufa-core-brand-primary: var(--lufa-primitive-color-blue-600);
+  --lufa-core-brand-primary-hover: var(--lufa-primitive-color-blue-700);
+  --lufa-core-brand-primary-active: var(--lufa-primitive-color-blue-800);
+  --lufa-core-brand-secondary: var(--lufa-primitive-color-purple-500);
+  --lufa-core-brand-secondary-hover: var(--lufa-primitive-color-purple-600);
+  --lufa-core-brand-secondary-active: var(--lufa-primitive-color-purple-700);
+
+  /* --- Core: Component Spacing --- */
+  --lufa-core-component-button-padding-x: var(--lufa-primitive-spacing-16);
+  --lufa-core-component-button-padding-y: var(--lufa-primitive-spacing-8);
+  --lufa-core-component-button-gap: var(--lufa-primitive-spacing-8);
+  --lufa-core-component-input-height: var(--lufa-primitive-spacing-40);
+  --lufa-core-component-input-padding-x: var(--lufa-primitive-spacing-12);
+  --lufa-core-component-input-padding-y: var(--lufa-primitive-spacing-8);
+  --lufa-core-component-card-padding: var(--lufa-primitive-spacing-24);
+  --lufa-core-component-card-gap: var(--lufa-primitive-spacing-16);
+  --lufa-core-component-modal-padding: var(--lufa-primitive-spacing-32);
+
+  /* --- Core: Layout Spacing --- */
+  --lufa-core-layout-page-padding: var(--lufa-primitive-spacing-24);
+  --lufa-core-layout-page-padding-mobile: var(--lufa-primitive-spacing-16);
+  --lufa-core-layout-section-gap: var(--lufa-primitive-spacing-64);
+  --lufa-core-layout-section-gap-mobile: var(--lufa-primitive-spacing-48);
+  --lufa-core-layout-header-height: var(--lufa-primitive-spacing-64);
+
+  /* --- Core: Neutral Colors --- */
+  --lufa-core-neutral-background: var(--lufa-primitive-color-gray-50);
+  --lufa-core-neutral-surface: var(--lufa-primitive-color-gray-100);
+  --lufa-core-neutral-surface-hover: var(--lufa-primitive-color-gray-200);
+  --lufa-core-neutral-border: var(--lufa-primitive-color-gray-300);
+  --lufa-core-neutral-border-strong: var(--lufa-primitive-color-gray-400);
+  --lufa-core-neutral-text-primary: var(--lufa-primitive-color-gray-900);
+  --lufa-core-neutral-text-secondary: var(--lufa-primitive-color-gray-600);
+  --lufa-core-neutral-text-tertiary: var(--lufa-primitive-color-gray-500);
+  --lufa-core-neutral-text-disabled: var(--lufa-primitive-color-gray-400);
+
+  /* --- Core: Semantic State Colors --- */
+  --lufa-core-semantic-success: var(--lufa-primitive-color-green-500);
+  --lufa-core-semantic-success-subtle: var(--lufa-primitive-color-green-100);
+  --lufa-core-semantic-success-border: var(--lufa-primitive-color-green-300);
+  --lufa-core-semantic-success-hover: var(--lufa-primitive-color-green-600);
+  --lufa-core-semantic-error: var(--lufa-primitive-color-red-600);
+  --lufa-core-semantic-error-subtle: var(--lufa-primitive-color-red-100);
+  --lufa-core-semantic-error-border: var(--lufa-primitive-color-red-300);
+  --lufa-core-semantic-error-hover: var(--lufa-primitive-color-red-700);
+  --lufa-core-semantic-warning: var(--lufa-primitive-color-yellow-500);
+  --lufa-core-semantic-warning-subtle: var(--lufa-primitive-color-yellow-100);
+  --lufa-core-semantic-warning-border: var(--lufa-primitive-color-yellow-300);
+  --lufa-core-semantic-warning-hover: var(--lufa-primitive-color-yellow-600);
+  --lufa-core-semantic-info: var(--lufa-primitive-color-blue-500);
+  --lufa-core-semantic-info-subtle: var(--lufa-primitive-color-blue-100);
+  --lufa-core-semantic-info-border: var(--lufa-primitive-color-blue-300);
+  --lufa-core-semantic-info-hover: var(--lufa-primitive-color-blue-600);
+
+  /* --- Core: Typography --- */
+  --lufa-core-typography-heading-font: var(--lufa-primitive-typography-font-family-sans);
+  --lufa-core-typography-body-font: var(--lufa-primitive-typography-font-family-sans);
+  --lufa-core-typography-code-font: var(--lufa-primitive-typography-font-family-mono);
+  --lufa-core-typography-heading-weight: var(--lufa-primitive-typography-font-weight-bold);
+  --lufa-core-typography-body-weight: var(--lufa-primitive-typography-font-weight-normal);
+  --lufa-core-typography-strong-weight: var(--lufa-primitive-typography-font-weight-semibold);
+  --lufa-core-typography-body-size: var(--lufa-primitive-typography-font-size-base);
+  --lufa-core-typography-body-line-height: var(--lufa-primitive-typography-line-height-normal);
+  --lufa-core-typography-small-size: var(--lufa-primitive-typography-font-size-sm);
+
+  /* ========================================================================
+     LEVEL 3: SEMANTIC TOKENS
+     UI-level meanings - backgrounds, text, borders, interactions
+     ======================================================================== */
+
+  /* --- Semantic: Z-Index Layers --- */
+  --lufa-semantic-z-index-base: 0;
+  --lufa-semantic-z-index-dropdown: 1000;
+  --lufa-semantic-z-index-sticky: 1100;
+  --lufa-semantic-z-index-fixed: 1200;
+  --lufa-semantic-z-index-modal-backdrop: 1300;
+  --lufa-semantic-z-index-modal: 1400;
+  --lufa-semantic-z-index-popover: 1500;
+  --lufa-semantic-z-index-toast: 1600;
+
+  /* --- Semantic: Interactive Elements --- */
+  --lufa-semantic-interactive-focus-ring-offset: 2px;
+  --lufa-semantic-interactive-background-default: var(--lufa-core-neutral-surface);
+  --lufa-semantic-interactive-background-hover: var(--lufa-core-neutral-surface-hover);
+  --lufa-semantic-interactive-background-active: var(--lufa-core-brand-primary-active);
+  --lufa-semantic-interactive-background-disabled: var(--lufa-core-neutral-surface);
+  --lufa-semantic-interactive-border-default: var(--lufa-core-neutral-border);
+  --lufa-semantic-interactive-border-hover: var(--lufa-core-neutral-border-strong);
+  --lufa-semantic-interactive-border-focus: var(--lufa-core-brand-primary);
+  --lufa-semantic-interactive-border-disabled: var(--lufa-core-neutral-border);
+  --lufa-semantic-interactive-text-default: var(--lufa-core-neutral-text-primary);
+  --lufa-semantic-interactive-text-hover: var(--lufa-core-neutral-text-primary);
+  --lufa-semantic-interactive-text-active: var(--lufa-core-neutral-text-primary);
+  --lufa-semantic-interactive-text-disabled: var(--lufa-core-neutral-text-disabled);
+  --lufa-semantic-interactive-focus-ring: var(--lufa-core-brand-primary);
+
+  /* --- Semantic: UI Backgrounds --- */
+  --lufa-semantic-ui-background-overlay: rgba(0, 0, 0, 0.5);
+  --lufa-semantic-ui-background-on-primary: #ffffff;
+  --lufa-semantic-ui-background-on-secondary: #ffffff;
+  --lufa-semantic-ui-background-page: var(--lufa-core-neutral-background);
+  --lufa-semantic-ui-background-surface: var(--lufa-core-neutral-surface);
+  --lufa-semantic-ui-background-success: var(--lufa-core-semantic-success-subtle);
+  --lufa-semantic-ui-background-on-success: var(--lufa-core-semantic-success);
+  --lufa-semantic-ui-background-error: var(--lufa-core-semantic-error-subtle);
+  --lufa-semantic-ui-background-on-error: var(--lufa-core-semantic-error);
+  --lufa-semantic-ui-background-warning: var(--lufa-core-semantic-warning-subtle);
+  --lufa-semantic-ui-background-on-warning: var(--lufa-core-semantic-warning);
+  --lufa-semantic-ui-background-info: var(--lufa-core-semantic-info-subtle);
+  --lufa-semantic-ui-background-on-info: var(--lufa-core-semantic-info);
+
+  /* --- Semantic: UI Text --- */
+  --lufa-semantic-ui-text-primary: var(--lufa-core-neutral-text-primary);
+  --lufa-semantic-ui-text-secondary: var(--lufa-core-neutral-text-secondary);
+  --lufa-semantic-ui-text-tertiary: var(--lufa-core-neutral-text-tertiary);
+  --lufa-semantic-ui-text-success: var(--lufa-core-semantic-success);
+  --lufa-semantic-ui-text-error: var(--lufa-core-semantic-error);
+  --lufa-semantic-ui-text-warning: var(--lufa-core-semantic-warning);
+  --lufa-semantic-ui-text-info: var(--lufa-core-semantic-info);
+
+  /* --- Semantic: UI Borders --- */
+  --lufa-semantic-ui-border-default: var(--lufa-core-neutral-border);
+  --lufa-semantic-ui-border-strong: var(--lufa-core-neutral-border-strong);
+  --lufa-semantic-ui-border-success: var(--lufa-core-semantic-success-border);
+  --lufa-semantic-ui-border-error: var(--lufa-core-semantic-error-border);
+  --lufa-semantic-ui-border-warning: var(--lufa-core-semantic-warning-border);
+  --lufa-semantic-ui-border-info: var(--lufa-core-semantic-info-border);
+
+  /* --- Semantic: UI Radius --- */
+  --lufa-semantic-ui-radius-small: var(--lufa-primitive-radius-scale-base);
+  --lufa-semantic-ui-radius-default: var(--lufa-primitive-radius-scale-lg);
+  --lufa-semantic-ui-radius-medium: var(--lufa-primitive-radius-scale-xl);
+  --lufa-semantic-ui-radius-large: 16px;
+  --lufa-semantic-ui-radius-full: var(--lufa-primitive-radius-scale-full);
+
+  /* --- Semantic: UI Shadows --- */
+  --lufa-semantic-ui-shadow-small: var(--lufa-primitive-shadow-elevation-sm);
+  --lufa-semantic-ui-shadow-medium: var(--lufa-primitive-shadow-elevation-base);
+  --lufa-semantic-ui-shadow-large: var(--lufa-primitive-shadow-elevation-lg);
+  --lufa-semantic-ui-shadow-extra-large: var(--lufa-primitive-shadow-elevation-xl);
+
+  /* --- Semantic: UI Spacing --- */
+  --lufa-semantic-ui-spacing-tight: var(--lufa-primitive-spacing-4);
+  --lufa-semantic-ui-spacing-compact: var(--lufa-primitive-spacing-8);
+  --lufa-semantic-ui-spacing-default: var(--lufa-primitive-spacing-16);
+  --lufa-semantic-ui-spacing-comfortable: var(--lufa-primitive-spacing-24);
+  --lufa-semantic-ui-spacing-spacious: var(--lufa-primitive-spacing-32);
+
+  /* --- Semantic: UI Transitions --- */
+  --lufa-semantic-ui-transition-fast: var(--lufa-primitive-motion-duration-fast);
+  --lufa-semantic-ui-transition-normal: var(--lufa-primitive-motion-duration-normal);
+  --lufa-semantic-ui-transition-slow: var(--lufa-primitive-motion-duration-slow);
+  --lufa-semantic-ui-transition-timing-function: var(--lufa-primitive-motion-easing-ease-in-out);
+
+  /* --- Semantic: Typography Hierarchy --- */
+  --lufa-semantic-typography-heading-1: var(--lufa-primitive-typography-font-size-5xl);
+  --lufa-semantic-typography-heading-2: var(--lufa-primitive-typography-font-size-4xl);
+  --lufa-semantic-typography-heading-3: var(--lufa-primitive-typography-font-size-3xl);
+  --lufa-semantic-typography-heading-4: var(--lufa-primitive-typography-font-size-2xl);
+  --lufa-semantic-typography-heading-5: var(--lufa-primitive-typography-font-size-xl);
+  --lufa-semantic-typography-heading-6: var(--lufa-primitive-typography-font-size-lg);
+  --lufa-semantic-typography-body-large: var(--lufa-primitive-typography-font-size-lg);
+  --lufa-semantic-typography-body: var(--lufa-primitive-typography-font-size-base);
+  --lufa-semantic-typography-body-small: var(--lufa-primitive-typography-font-size-sm);
+  --lufa-semantic-typography-caption: var(--lufa-primitive-typography-font-size-xs);
+  --lufa-semantic-typography-label: var(--lufa-primitive-typography-font-size-sm);
+  --lufa-semantic-typography-button: var(--lufa-primitive-typography-font-size-base);
+  --lufa-semantic-ui-typography-caption: var(--lufa-semantic-typography-caption);
+
+  /* --- Semantic: Button States --- */
+  --lufa-semantic-button-primary-text: #ffffff;
+  --lufa-semantic-button-primary-background: var(--lufa-core-brand-primary);
+  --lufa-semantic-button-primary-background-hover: var(--lufa-core-brand-primary-hover);
+  --lufa-semantic-button-primary-background-active: var(--lufa-core-brand-primary-active);
+  --lufa-semantic-button-secondary-text: #ffffff;
+  --lufa-semantic-button-secondary-background: var(--lufa-core-brand-secondary);
+  --lufa-semantic-button-secondary-background-hover: var(--lufa-core-brand-secondary-hover);
+  --lufa-semantic-button-secondary-background-active: var(--lufa-core-brand-secondary-active);
+  --lufa-semantic-button-ghost-background: rgba(0, 0, 0, 0);
+  --lufa-semantic-button-ghost-background-hover: var(--lufa-core-neutral-surface-hover);
+  --lufa-semantic-button-ghost-text: var(--lufa-core-brand-primary);
+  --lufa-semantic-button-ghost-text-hover: var(--lufa-core-brand-primary-hover);
+  --lufa-semantic-button-outline-background: rgba(0, 0, 0, 0);
+  --lufa-semantic-button-outline-background-hover: var(--lufa-core-brand-primary);
+  --lufa-semantic-button-outline-border: var(--lufa-core-brand-primary);
+  --lufa-semantic-button-outline-border-hover: var(--lufa-core-brand-primary-hover);
+  --lufa-semantic-button-outline-text: var(--lufa-core-brand-primary);
+  --lufa-semantic-button-outline-text-hover: #ffffff;
+  --lufa-semantic-button-destructive-text: #ffffff;
+  --lufa-semantic-button-destructive-background: var(--lufa-core-semantic-error);
+  --lufa-semantic-button-destructive-background-hover: var(--lufa-core-semantic-error-hover);
+  --lufa-semantic-button-success-text: #ffffff;
+  --lufa-semantic-button-success-background: var(--lufa-core-semantic-success);
+  --lufa-semantic-button-success-background-hover: var(--lufa-core-semantic-success-hover);
+
+  /* ========================================================================
+     LEVEL 4: COMPONENT TOKENS
+     Component-specific values for Badge, Button, Card, Input, etc.
+     ======================================================================== */
+
+  /* --- Component: Badge --- */
+  --lufa-component-badge-padding-sm: 2px 6px;
+  --lufa-component-badge-padding-md: 4px 8px;
+  --lufa-component-badge-padding-lg: 6px 12px;
+  --lufa-component-badge-font-size-sm: 10px;
+  --lufa-component-badge-font-size-md: 12px;
+  --lufa-component-badge-font-size-lg: 14px;
+  --lufa-component-badge-dot-size: 6px;
+  --lufa-component-badge-border-radius: var(--lufa-semantic-ui-radius-full);
+  --lufa-component-badge-default-background: var(--lufa-semantic-ui-background-surface);
+  --lufa-component-badge-default-text: var(--lufa-semantic-ui-text-secondary);
+  --lufa-component-badge-default-border: var(--lufa-semantic-ui-border-default);
+  --lufa-component-badge-success-background: var(--lufa-semantic-ui-background-success);
+  --lufa-component-badge-success-text: var(--lufa-semantic-ui-text-success);
+  --lufa-component-badge-success-border: var(--lufa-semantic-ui-border-success);
+  --lufa-component-badge-error-background: var(--lufa-semantic-ui-background-error);
+  --lufa-component-badge-error-text: var(--lufa-semantic-ui-text-error);
+  --lufa-component-badge-error-border: var(--lufa-semantic-ui-border-error);
+  --lufa-component-badge-warning-background: var(--lufa-semantic-ui-background-warning);
+  --lufa-component-badge-warning-text: var(--lufa-semantic-ui-text-warning);
+  --lufa-component-badge-warning-border: var(--lufa-semantic-ui-border-warning);
+  --lufa-component-badge-info-background: var(--lufa-semantic-ui-background-info);
+  --lufa-component-badge-info-text: var(--lufa-semantic-ui-text-info);
+  --lufa-component-badge-info-border: var(--lufa-semantic-ui-border-info);
+
+  /* --- Component: Button --- */
+  --lufa-component-button-height-sm: 32px;
+  --lufa-component-button-height-md: 40px;
+  --lufa-component-button-height-lg: 48px;
+  --lufa-component-button-padding-sm: var(--lufa-semantic-ui-spacing-compact) var(--lufa-semantic-ui-spacing-default);
+  --lufa-component-button-padding-md: var(--lufa-semantic-ui-spacing-default)
+    var(--lufa-semantic-ui-spacing-comfortable);
+  --lufa-component-button-padding-lg: var(--lufa-semantic-ui-spacing-comfortable)
+    var(--lufa-semantic-ui-spacing-spacious);
+  --lufa-component-button-font-size-sm: var(--lufa-semantic-typography-body-small);
+  --lufa-component-button-font-size-md: var(--lufa-semantic-typography-button);
+  --lufa-component-button-font-size-lg: var(--lufa-semantic-typography-body-large);
+  --lufa-component-button-border-radius: var(--lufa-semantic-ui-radius-default);
+  --lufa-component-button-icon-spacing: var(--lufa-component-shared-icon-spacing);
+  --lufa-component-button-disabled-opacity: 0.5;
+  --lufa-component-button-disabled-cursor: not-allowed;
+  --lufa-component-button-primary-text: var(--lufa-semantic-button-primary-text);
+  --lufa-component-button-primary-background: var(--lufa-semantic-button-primary-background);
+  --lufa-component-button-primary-background-hover: var(--lufa-semantic-button-primary-background-hover);
+  --lufa-component-button-primary-background-active: var(--lufa-semantic-button-primary-background-active);
+  --lufa-component-button-secondary-text: var(--lufa-semantic-button-secondary-text);
+  --lufa-component-button-secondary-background: var(--lufa-semantic-button-secondary-background);
+  --lufa-component-button-secondary-background-hover: var(--lufa-semantic-button-secondary-background-hover);
+  --lufa-component-button-secondary-background-active: var(--lufa-semantic-button-secondary-background-active);
+  --lufa-component-button-ghost-background: var(--lufa-semantic-button-ghost-background);
+  --lufa-component-button-ghost-background-hover: var(--lufa-semantic-button-ghost-background-hover);
+  --lufa-component-button-ghost-text: var(--lufa-semantic-button-ghost-text);
+  --lufa-component-button-ghost-text-hover: var(--lufa-semantic-button-ghost-text-hover);
+  --lufa-component-button-outline-background: var(--lufa-semantic-button-outline-background);
+  --lufa-component-button-outline-background-hover: var(--lufa-semantic-button-outline-background-hover);
+  --lufa-component-button-outline-border: var(--lufa-semantic-button-outline-border);
+  --lufa-component-button-outline-border-hover: var(--lufa-semantic-button-outline-border-hover);
+  --lufa-component-button-outline-text: var(--lufa-semantic-button-outline-text);
+  --lufa-component-button-outline-text-hover: var(--lufa-semantic-button-outline-text-hover);
+  --lufa-component-button-destructive-text: var(--lufa-semantic-button-destructive-text);
+  --lufa-component-button-destructive-background: var(--lufa-semantic-button-destructive-background);
+  --lufa-component-button-destructive-background-hover: var(--lufa-semantic-button-destructive-background-hover);
+  --lufa-component-button-success-text: var(--lufa-semantic-button-success-text);
+  --lufa-component-button-success-background: var(--lufa-semantic-button-success-background);
+  --lufa-component-button-success-background-hover: var(--lufa-semantic-button-success-background-hover);
+
+  /* --- Component: Card --- */
+  --lufa-component-card-padding-sm: var(--lufa-semantic-ui-spacing-default);
+  --lufa-component-card-padding-md: var(--lufa-semantic-ui-spacing-comfortable);
+  --lufa-component-card-padding-lg: var(--lufa-semantic-ui-spacing-spacious);
+  --lufa-component-card-border-radius-sm: var(--lufa-semantic-ui-radius-small);
+  --lufa-component-card-border-radius-md: var(--lufa-semantic-ui-radius-medium);
+  --lufa-component-card-border-radius-lg: var(--lufa-semantic-ui-radius-large);
+  --lufa-component-card-shadow-sm: var(--lufa-semantic-ui-shadow-small);
+  --lufa-component-card-shadow-md: var(--lufa-semantic-ui-shadow-medium);
+  --lufa-component-card-shadow-lg: var(--lufa-semantic-ui-shadow-large);
+  --lufa-component-card-header-padding: var(--lufa-semantic-ui-spacing-default);
+  --lufa-component-card-footer-padding: var(--lufa-semantic-ui-spacing-default);
+  --lufa-component-card-hover-shadow: var(--lufa-semantic-ui-shadow-large);
+  --lufa-component-card-hover-transform: translateY(-2px);
+  --lufa-component-card-background: var(--lufa-semantic-ui-background-surface);
+  --lufa-component-card-border: var(--lufa-semantic-ui-border-default);
+  --lufa-component-card-header-border: var(--lufa-semantic-ui-border-default);
+  --lufa-component-card-footer-border: var(--lufa-semantic-ui-border-default);
+
+  /* --- Component: Divider --- */
+  --lufa-component-divider-spacing-compact: var(--lufa-semantic-ui-spacing-compact);
+  --lufa-component-divider-spacing-default: var(--lufa-semantic-ui-spacing-default);
+  --lufa-component-divider-spacing-comfortable: var(--lufa-semantic-ui-spacing-comfortable);
+  --lufa-component-divider-emphasis-subtle-thickness: 1px;
+  --lufa-component-divider-emphasis-default-thickness: 1px;
+  --lufa-component-divider-emphasis-moderate-thickness: 2px;
+  --lufa-component-divider-emphasis-strong-thickness: 2px;
+  --lufa-component-divider-emphasis-bold-thickness: 4px;
+  --lufa-component-divider-emphasis-subtle-color: var(--lufa-semantic-ui-border-default);
+  --lufa-component-divider-emphasis-default-color: var(--lufa-semantic-ui-border-default);
+  --lufa-component-divider-emphasis-moderate-color: var(--lufa-semantic-ui-border-default);
+  --lufa-component-divider-emphasis-strong-color: var(--lufa-semantic-ui-border-strong);
+  --lufa-component-divider-emphasis-bold-color: var(--lufa-semantic-ui-border-strong);
+
+  /* --- Component: Shared (Used by Multiple Components) --- */
+  --lufa-component-shared-divider-thickness: 1px;
+  --lufa-component-shared-divider-color: var(--lufa-semantic-ui-border-default);
+  --lufa-component-shared-icon-size-xs: 12px;
+  --lufa-component-shared-icon-size-sm: 16px;
+  --lufa-component-shared-icon-size-md: 20px;
+  --lufa-component-shared-icon-size-lg: 24px;
+  --lufa-component-shared-icon-spacing: var(--lufa-semantic-ui-spacing-tight);
+  --lufa-component-shared-focus-outline-width: 2px;
+  --lufa-component-shared-focus-outline-offset: 2px;
+  --lufa-component-shared-focus-outline-color: var(--lufa-semantic-interactive-focus-ring);
+  --lufa-component-shared-transition-duration-fast: 150ms;
+  --lufa-component-shared-transition-duration-normal: 250ms;
+  --lufa-component-shared-transition-timing-function: ease-in-out;
+
+  /* --- Component: Input --- */
+  --lufa-component-input-height-sm: 32px;
+  --lufa-component-input-height-md: 40px;
+  --lufa-component-input-height-lg: 48px;
+  --lufa-component-input-padding-sm: var(--lufa-semantic-ui-spacing-compact) var(--lufa-semantic-ui-spacing-default);
+  --lufa-component-input-padding-md: var(--lufa-semantic-ui-spacing-default) var(--lufa-semantic-ui-spacing-comfortable);
+  --lufa-component-input-padding-lg: var(--lufa-semantic-ui-spacing-comfortable)
+    var(--lufa-semantic-ui-spacing-spacious);
+  --lufa-component-input-font-size-sm: var(--lufa-semantic-typography-body-small);
+  --lufa-component-input-font-size-md: var(--lufa-semantic-typography-body);
+  --lufa-component-input-font-size-lg: var(--lufa-semantic-typography-body-large);
+  --lufa-component-input-border-width: 1px;
+  --lufa-component-input-border-radius: var(--lufa-semantic-ui-radius-default);
+  --lufa-component-input-label-font-size: var(--lufa-semantic-typography-label);
+  --lufa-component-input-label-spacing: var(--lufa-semantic-ui-spacing-compact);
+  --lufa-component-input-helper-text-font-size: var(--lufa-semantic-typography-caption);
+  --lufa-component-input-helper-text-spacing: var(--lufa-semantic-ui-spacing-compact);
+  --lufa-component-input-background-default: var(--lufa-semantic-ui-background-surface);
+  --lufa-component-input-background-hover: var(--lufa-semantic-interactive-background-hover);
+  --lufa-component-input-background-disabled: var(--lufa-semantic-interactive-background-disabled);
+  --lufa-component-input-border-default: var(--lufa-semantic-interactive-border-default);
+  --lufa-component-input-border-hover: var(--lufa-semantic-interactive-border-hover);
+  --lufa-component-input-border-focus: var(--lufa-semantic-interactive-border-focus);
+  --lufa-component-input-border-error: var(--lufa-semantic-ui-border-error);
+  --lufa-component-input-border-disabled: var(--lufa-semantic-interactive-border-disabled);
+  --lufa-component-input-text-default: var(--lufa-semantic-interactive-text-default);
+  --lufa-component-input-text-placeholder: var(--lufa-semantic-ui-text-tertiary);
+  --lufa-component-input-text-disabled: var(--lufa-semantic-interactive-text-disabled);
+  --lufa-component-input-label-color: var(--lufa-semantic-ui-text-secondary);
+  --lufa-component-input-helper-text-color: var(--lufa-semantic-ui-text-tertiary);
+  --lufa-component-input-helper-text-color-error: var(--lufa-semantic-ui-text-error);
+  --lufa-component-input-icon-spacing: var(--lufa-component-shared-icon-spacing);
+
+  /* --- Component: Modal --- */
+  --lufa-component-modal-backdrop-background: var(--lufa-semantic-ui-background-overlay);
+  --lufa-component-modal-backdrop-blur: 4px;
+  --lufa-component-modal-content-max-width-sm: 400px;
+  --lufa-component-modal-content-max-width-md: 600px;
+  --lufa-component-modal-content-max-width-lg: 800px;
+  --lufa-component-modal-content-max-width-xl: 1200px;
+  --lufa-component-modal-content-padding: var(--lufa-semantic-ui-spacing-comfortable);
+  --lufa-component-modal-content-border-radius: var(--lufa-semantic-ui-radius-large);
+  --lufa-component-modal-content-shadow: var(--lufa-semantic-ui-shadow-extra-large);
+  --lufa-component-modal-content-background: var(--lufa-semantic-ui-background-surface);
+  --lufa-component-modal-header-padding: var(--lufa-semantic-ui-spacing-comfortable);
+  --lufa-component-modal-header-border: var(--lufa-semantic-ui-border-default);
+  --lufa-component-modal-footer-padding: var(--lufa-semantic-ui-spacing-comfortable);
+  --lufa-component-modal-footer-border: var(--lufa-semantic-ui-border-default);
+  --lufa-component-modal-close-button-size: 32px;
+  --lufa-component-modal-close-button-position-offset: var(--lufa-semantic-ui-spacing-default);
+  --lufa-component-modal-close-button-color: var(--lufa-semantic-ui-text-secondary);
+  --lufa-component-modal-close-button-color-hover: var(--lufa-semantic-ui-text-primary);
+  --lufa-component-modal-z-index-backdrop: 1000;
+  --lufa-component-modal-z-index-content: 1001;
+  --lufa-component-modal-animation-duration-enter: var(--lufa-semantic-ui-transition-normal);
+  --lufa-component-modal-animation-duration-exit: var(--lufa-semantic-ui-transition-fast);
+  --lufa-component-modal-animation-timing-function: var(--lufa-component-shared-transition-timing-function);
+
+  /* --- Component: Tooltip --- */
+  --lufa-component-tooltip-max-width: 320px;
+  --lufa-component-tooltip-padding: var(--lufa-semantic-ui-spacing-compact) var(--lufa-semantic-ui-spacing-default);
+  --lufa-component-tooltip-border-radius: var(--lufa-semantic-ui-radius-small);
+  --lufa-component-tooltip-shadow: var(--lufa-semantic-ui-shadow-medium);
+  --lufa-component-tooltip-offset: var(--lufa-semantic-ui-spacing-compact);
+  --lufa-component-tooltip-arrow-width: 8px;
+  --lufa-component-tooltip-arrow-height: 4px;
+  --lufa-component-tooltip-animation-delay: 200ms;
+  --lufa-component-tooltip-animation-duration: var(--lufa-semantic-ui-transition-fast);
+  --lufa-component-tooltip-animation-timing-function: var(--lufa-component-shared-transition-timing-function);
+  --lufa-component-tooltip-z-index: 9999;
+  --lufa-component-tooltip-background: var(--lufa-semantic-ui-text-primary);
+  --lufa-component-tooltip-text: var(--lufa-semantic-ui-background-surface);
+  --lufa-component-tooltip-font-size: var(--lufa-semantic-ui-typography-caption);
+
+  /* --- Component: Popover --- */
+  --lufa-component-popover-max-width: 400px;
+  --lufa-component-popover-padding: var(--lufa-semantic-ui-spacing-default);
+  --lufa-component-popover-border-radius: var(--lufa-semantic-ui-radius-medium);
+  --lufa-component-popover-shadow: var(--lufa-semantic-ui-shadow-large);
+  --lufa-component-popover-offset: var(--lufa-semantic-ui-spacing-default);
+  --lufa-component-popover-arrow-width: 12px;
+  --lufa-component-popover-arrow-height: 6px;
+  --lufa-component-popover-z-index: 9999;
+  --lufa-component-popover-background: var(--lufa-semantic-ui-background-surface);
+  --lufa-component-popover-text: var(--lufa-semantic-ui-text-primary);
+  --lufa-component-popover-border: var(--lufa-semantic-ui-border-default);
+}

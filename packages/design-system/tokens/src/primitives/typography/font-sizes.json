@@ -1,0 +1,116 @@
+{
+  "primitive": {
+    "typography": {
+      "font-size": {
+        "xs": {
+          "$value": "12px",
+          "$type": "dimension",
+          "$description": "Extra small font size - used for tiny labels, footnotes",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Secondary labels, notes, timestamps"
+            }
+          }
+        },
+        "sm": {
+          "$value": "14px",
+          "$type": "dimension",
+          "$description": "Small font size - used for secondary text, descriptions",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Secondary text, short descriptions"
+            }
+          }
+        },
+        "base": {
+          "$value": "16px",
+          "$type": "dimension",
+          "$description": "Base font size - default size for body text",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Body text, standard paragraphs"
+            }
+          }
+        },
+        "lg": {
+          "$value": "18px",
+          "$type": "dimension",
+          "$description": "Large font size - used for emphasized text",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Emphasized text, lead paragraphs"
+            }
+          }
+        },
+        "xl": {
+          "$value": "20px",
+          "$type": "dimension",
+          "$description": "Extra large font size - used for subtitles",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Subtitles, level 5-6 headings"
+            }
+          }
+        },
+        "2xl": {
+          "$value": "24px",
+          "$type": "dimension",
+          "$description": "2x extra large font size - used for level 4 headings",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Level 4 headings"
+            }
+          }
+        },
+        "3xl": {
+          "$value": "30px",
+          "$type": "dimension",
+          "$description": "3x extra large font size - used for level 3 headings",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Level 3 headings"
+            }
+          }
+        },
+        "4xl": {
+          "$value": "36px",
+          "$type": "dimension",
+          "$description": "4x extra large font size - used for level 2 headings",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Level 2 headings"
+            }
+          }
+        },
+        "5xl": {
+          "$value": "48px",
+          "$type": "dimension",
+          "$description": "5x extra large font size - used for level 1 headings",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Level 1 headings, hero titles"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -32,6 +32,7 @@ View the complete changelog for the main design system package:
 #### 0.5.1 (Latest)
 
 **Patch Changes:**
+
 - 6c972e8: fix: prettier config
 - 2d37fc0: Update dependencies
 - 4d0893b: Update scripts and README files
@@ -49,22 +50,26 @@ View the complete changelog for the main design system package:
 #### 0.5.0
 
 **Minor Changes:**
+
 - 1f24429: Add navigation components and improve documentation
 
 #### 0.4.0
 
 **Minor Changes:**
+
 - 48c857f: Add missing layout components with documentation
 
 #### 0.3.1
 
 **Patch Changes:**
+
 - 93819d3: fix how to manage color on primitive
 - Updated dependencies [93819d3]
 
 #### 0.3.0
 
 **Patch Changes:**
+
 - 501cf5f: Rework how primitive, tokens and ds is working + align storybook and docusaurus
 - Updated dependencies [501cf5f]
 

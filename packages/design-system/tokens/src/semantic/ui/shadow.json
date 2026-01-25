@@ -1,0 +1,58 @@
+{
+  "semantic": {
+    "ui": {
+      "shadow-small": {
+        "$value": "{primitive.shadow.elevation.sm}",
+        "$type": "shadow",
+        "$description": "Small shadow for subtle elevation (cards, panels)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "shadow",
+            "useCase": "Light cards, badges, compact panels, subtle elevation"
+          }
+        }
+      },
+      "shadow-medium": {
+        "$value": "{primitive.shadow.elevation.base}",
+        "$type": "shadow",
+        "$description": "Medium shadow for standard elevation (default for cards)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "shadow",
+            "useCase": "Standard cards, elevated panels, default elevation"
+          }
+        }
+      },
+      "shadow-large": {
+        "$value": "{primitive.shadow.elevation.lg}",
+        "$type": "shadow",
+        "$description": "Large shadow for strong elevation (modals, popovers)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "shadow",
+            "useCase": "Modals, drawers, large popovers, emphasized elevation"
+          }
+        }
+      },
+      "shadow-extra-large": {
+        "$value": "{primitive.shadow.elevation.xl}",
+        "$type": "shadow",
+        "$description": "Extra large shadow for maximum elevation (floating elements)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "shadow",
+            "useCase": "Floating dialogs, important overlays, maximum elevation"
+          }
+        }
+      }
+    }
+  }
+}

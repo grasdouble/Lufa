@@ -499,10 +499,10 @@ These commits are signed by GitHub and can be verified.
 
 ## Related Documentation
 
-- [Snapshot Management System](../../packages/design-system/playwright/SNAPSHOT-MANAGEMENT-SYSTEM.md) - Complete overview
-- [Docker Linux Snapshots](../../packages/design-system/playwright/DOCKER-LINUX-SNAPSHOTS.md) - Local Docker method
-- [Scripts README](../../packages/design-system/playwright/scripts/README.md) - Compression scripts
-- [Playwright CT Instructions](../instructions/lufa-design-system-playwright-ct.instructions.md) - Testing guidelines
+- [Snapshot Management System](./SNAPSHOT-MANAGEMENT-SYSTEM.md) - Complete overview
+- [Docker Linux Snapshots](./DOCKER-LINUX-SNAPSHOTS.md) - Local Docker method
+- [Scripts README](../scripts/README.md) - Compression scripts
+- [Playwright CT Instructions](../../../../.github/instructions/lufa-design-system-playwright-ct.instructions.md) - Testing guidelines
 
 ## FAQ
 

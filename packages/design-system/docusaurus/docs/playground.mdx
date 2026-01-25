@@ -17,11 +17,7 @@ function ButtonDemo() {
 
   return (
     <Stack direction="vertical" gap="normal">
-      <Button
-        variant="solid"
-        color="primary"
-        onClick={() => setCount(count + 1)}
-      >
+      <Button variant="solid" color="primary" onClick={() => setCount(count + 1)}>
         Clicked {count} times
       </Button>
       <Typography variant="body">Counter: {count}</Typography>
@@ -64,15 +60,9 @@ function StackDemo() {
   return (
     <Stack direction="vertical" gap="spacious">
       <Stack direction="horizontal" gap="normal">
-        <div style={{ padding: '1rem', background: '#e0f2fe', borderRadius: '8px', minWidth: '100px' }}>
-          Box 1
-        </div>
-        <div style={{ padding: '1rem', background: '#ddd6fe', borderRadius: '8px', minWidth: '100px' }}>
-          Box 2
-        </div>
-        <div style={{ padding: '1rem', background: '#fce7f3', borderRadius: '8px', minWidth: '100px' }}>
-          Box 3
-        </div>
+        <div style={{ padding: '1rem', background: '#e0f2fe', borderRadius: '8px', minWidth: '100px' }}>Box 1</div>
+        <div style={{ padding: '1rem', background: '#ddd6fe', borderRadius: '8px', minWidth: '100px' }}>Box 2</div>
+        <div style={{ padding: '1rem', background: '#fce7f3', borderRadius: '8px', minWidth: '100px' }}>Box 3</div>
       </Stack>
 
       <Divider />
@@ -117,18 +107,13 @@ function CardDemo() {
       subtitle="A card with interactive elements"
       variant="elevated"
       footer={
-        <Button
-          variant={liked ? "solid" : "outline"}
-          color="primary"
-          onClick={() => setLiked(!liked)}
-        >
-          {liked ? "❤️ Liked" : "🤍 Like"}
+        <Button variant={liked ? 'solid' : 'outline'} color="primary" onClick={() => setLiked(!liked)}>
+          {liked ? '❤️ Liked' : '🤍 Like'}
         </Button>
       }
     >
       <Typography variant="body">
-        This is a card component with interactive elements.
-        Click the button below to toggle the like state.
+        This is a card component with interactive elements. Click the button below to toggle the like state.
       </Typography>
     </Card>
   );

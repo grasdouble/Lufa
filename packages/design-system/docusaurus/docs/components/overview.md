@@ -1,236 +1,158 @@
 ---
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 # Component Overview
 
-Explore the complete collection of components in the Lufa Design System.
+The Lufa Design System provides a comprehensive set of React components built with accessibility and customization in mind.
 
-## Available Components
+## Primitive Components
 
-### Core Components
+Primitive components are the foundational building blocks of the design system.
 
-#### [Button](./forms/button)
+### Layout Primitives
 
-Interactive buttons for actions and navigation with multiple variants.
+- **[Box](/docs/components/primitives/box)** - Flexible container with padding, margin, background, and border utilities
+- **[Stack](/docs/components/primitives/stack)** - Flexbox layout for vertical/horizontal stacking with consistent spacing
 
-```tsx
-<Button variant="solid" color="primary">
-  Click Me
-</Button>
-```
+### Content Primitives
 
-#### [Card](./display/card)
+- **[Text](/docs/components/primitives/text)** - Typography component with semantic variants and accessibility features
+- **[Icon](/docs/components/primitives/icon)** - SVG icon wrapper with semantic sizing and colors (Lucide React integration)
 
-Flexible container for grouping related content.
+### Interactive Primitives
 
-```tsx
-<Card>
-  <Typography variant="h3">Title</Typography>
-  <Typography variant="body">Content</Typography>
-</Card>
-```
+Coming soon:
 
-#### [Avatar](./display/avatar)
-
-Profile image component with size/shape variants and optional status indicator.
-
-```tsx
-<Avatar src="/image.jpg" alt="Jane Doe" status="online" />
-```
-
-#### [AvatarGroup](./display/avatar-group)
-
-Overlapped set of avatars with an optional "+N" count when truncated.
-
-```tsx
-<AvatarGroup max={3}>
-  <Avatar src="/a.jpg" />
-  <Avatar src="/b.jpg" />
-  <Avatar src="/c.jpg" />
-  <Avatar src="/d.jpg" />
-</AvatarGroup>
-```
-
-#### [Badge](./display/badge)
-
-Compact label for statuses, tags, and counters.
-
-```tsx
-<Badge variant="success" dot rounded>
-  Synced
-</Badge>
-```
-
-#### [Alert](./feedback/alert)
-
-Inline feedback message for communicating info, success, warning, or error states.
-
-```tsx
-<Alert variant="warning" title="Heads up">
-  Please double-check your input.
-</Alert>
-```
-
-#### [Spinner](./feedback/spinner)
-
-Loading indicator for async content and background operations.
-
-```tsx
-<Spinner size="small" />
-```
-
-#### [Typography](./typography)
-
-Text display component with semantic variants.
-
-```tsx
-<Typography variant="h1">Heading</Typography>
-<Typography variant="body">Body text</Typography>
-```
+- **Button** - Interactive button with variants, sizes, and states
+- **Badge** - Status and labeling component
+- **Divider** - Visual separator for content sections
 
 ## Component Categories
 
 ### Layout Components
 
-- **Container** - Page-level max-width container
-- **Grid** - Token-driven grid system
-- **Layout** - Page scaffold (header/sidebar/content/footer)
-- **Stack** - Vertical/horizontal stacking
-- **Divider** - Section separators
-- **Placeholder** - Prototyping blocks
-- **Space** - Simple spacer utility
-- **AspectRatio** - Media ratio container
-- **Center** - Flex centering helper
-- **Flex** - Generic flex container
+Components for structuring page layouts and organizing content.
+
+- Box
+- Stack
+- Grid (planned)
+- Container (planned)
+
+### Content Components
+
+Components for displaying text and media content.
+
+- Text
+- Icon
+- Heading (uses Text)
+- Image (planned)
 
 ### Form Components
 
-- **Button** - Actions and submissions
-- **Input** - (Coming soon) Text input fields
-- **Select** - (Coming soon) Dropdown selections
-- **Checkbox** - (Coming soon) Toggle options
-- **Radio** - (Coming soon) Single choice options
+Interactive form elements (planned).
 
-### Typography Components
-
-- **Typography** - Text display
-- **Heading** - (Coming soon) Specialized headings
-- **Text** - (Coming soon) Body text wrapper
+- Button
+- Input
+- Checkbox
+- Radio
+- Select
 
 ### Feedback Components
 
-- **Alert** - Status messages
-- **Spinner** - Loading indicator
-- **Toast** - (Coming soon) Notifications
+Components for displaying feedback and status (planned).
 
-### Display Components
+- Badge
+- Alert
+- Toast
+- Loading
 
-- **Card** - Surface container
-- **Avatar** - Profile image
-- **AvatarGroup** - Group of avatars with count
-- **Badge** - Label / status indicator
+## Design Principles
 
-### Navigation Components
+All Lufa components follow these core principles:
 
-- **Link** - Navigation links
-- **Menu** - Navigation menus
-- **Tabs** - Tabbed navigation
+### 1. Accessibility First
 
-## Component Features
-
-All Lufa components share these characteristics:
-
-### Accessible
-
-- WCAG 2.1 AA compliant
+- **WCAG 2.1 AA** compliant by default
+- Semantic HTML elements
 - Keyboard navigation support
-- Screen reader friendly
-- Proper ARIA attributes
+- Screen reader optimized
+- Focus management
 
-### Themeable
+### 2. Token-Based Design
 
-- Respects light/dark mode
-- Uses semantic design tokens
-- Customizable via CSS variables
-- Consistent styling
+- All design values use semantic tokens
+- Automatic light/dark theme support
+- Consistent spacing, colors, and typography
+- Easy customization
 
-### TypeScript
+### 3. Polymorphic API
 
-- Full type definitions
-- IntelliSense support
-- Type-safe props
-- Generic component types
+- `as` prop for semantic HTML flexibility
+- Type-safe props based on element type
+- Maintains accessibility with semantic elements
 
-### Responsive
+### 4. Performance Optimized
 
-- Mobile-first design
-- Flexible layouts
-- Touch-friendly sizing
-- Adaptive spacing
+- CSS Modules for scoped styles
+- CSS custom properties for theming
+- Tree-shakeable imports
+- Minimal runtime overhead
 
-## Usage
+### 5. Developer Experience
 
-### Import Components
+- Full TypeScript support
+- Clear prop APIs
+- Comprehensive documentation
+- Interactive examples
 
-```tsx
-import { Button, Card, Typography } from '@grasdouble/lufa_design-system';
-```
+## Usage Patterns
 
-### Import Styles
+### Composing Components
 
-```tsx
-import '@grasdouble/lufa_design-system/style.css';
-```
-
-### Use in Your App
+Lufa components are designed to be composed together:
 
 ```tsx
-function App() {
+import { Box, Icon, Stack, Text } from '@grasdouble/lufa_design-system';
+
+function UserCard({ name, email, role }) {
   return (
-    <Card>
-      <Typography variant="h2">Welcome</Typography>
-      <Typography variant="body">Start building with Lufa components.</Typography>
-      <Button variant="solid" color="primary">
-        Get Started
-      </Button>
-    </Card>
+    <Box padding="comfortable" background="surface" borderRadius="medium" borderWidth="thin" borderColor="default">
+      <Stack direction="vertical" spacing="compact">
+        <Stack direction="horizontal" spacing="compact" align="center">
+          <Icon name="user" color="primary" />
+          <Text variant="heading-sm">{name}</Text>
+        </Stack>
+        <Text variant="body-sm" color="secondary">
+          {email}
+        </Text>
+        <Text variant="caption" color="muted">
+          {role}
+        </Text>
+      </Stack>
+    </Box>
   );
 }
 ```
 
-## Design Principles
+## Component Status
 
-### Consistency
+| Component | Status     | Tests | Docs | Storybook |
+| --------- | ---------- | ----- | ---- | --------- |
+| Box       | ✅ Stable  | 120   | ✅   | ✅        |
+| Stack     | ✅ Stable  | 86    | ✅   | ✅        |
+| Text      | ✅ Stable  | 107   | ✅   | ✅        |
+| Icon      | ✅ Stable  | 106   | ✅   | ✅        |
+| Button    | 🚧 Planned | -     | -    | -         |
+| Badge     | 🚧 Planned | -     | -    | -         |
+| Divider   | 🚧 Planned | -     | -    | -         |
 
-Components follow consistent patterns for props, styling, and behavior.
+## Next Steps
 
-### Composability
+- Explore individual [component documentation](/docs/components/primitives/box)
+- Learn about [design tokens](/docs/tokens/colors)
+- Check out [Storybook](https://storybook.lufa-ds.grasdouble.com) for interactive examples
 
-Components work well together and can be composed to create complex UIs.
-
-### Flexibility
-
-Components provide sensible defaults but allow customization when needed.
-
-### Performance
-
-Optimized for fast rendering and minimal bundle size.
-
-## Browser Support
-
-- Chrome (latest 2 versions)
-- Firefox (latest 2 versions)
-- Safari (latest 2 versions)
-- Edge (latest 2 versions)
-
-## Storybook
-
-Explore interactive examples in [Storybook](https://lufa-design.sebastien-lemouillour.fr).
-
-## Related
-
-- [Getting Started →](../getting-started/installation)
-- [Usage Guide →](../getting-started/usage)
-- [Theming →](../getting-started/theming)
-- [Design Tokens →](../tokens/colors)
+:::note Work in Progress
+This design system is actively being developed. More components and features will be added regularly.
+:::

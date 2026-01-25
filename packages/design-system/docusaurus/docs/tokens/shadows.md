@@ -2,77 +2,97 @@
 sidebar_position: 4
 ---
 
-# Shadows
+# Shadow Tokens
 
-Shadows create depth and visual hierarchy in your interface by simulating elevation.
+Shadow tokens provide a consistent elevation system for creating depth and visual hierarchy in your UI.
 
-## Shadow System
+## Overview
 
-Lufa provides a set of elevation tokens that create consistent depth across your application.
+Lufa's shadow system uses semantic naming for different elevation levels, from subtle surface shadows to prominent floating overlays.
 
-### Shadow Tokens
+## Shadow Scale
 
-```css
---lufa-token-shadow-none: /* No shadow */
---lufa-token-shadow-xs: /* Subtle shadow for subtle elevation */
---lufa-token-shadow-sm: /* Small shadow for cards and buttons */
---lufa-token-shadow-md: /* Medium shadow for dropdowns */
---lufa-token-shadow-lg: /* Large shadow for modals */
---lufa-token-shadow-xl: /* Extra large shadow for overlays */
---lufa-token-shadow-2xl: /* Huge elevation */
---lufa-token-shadow-3xl: /* Dramatic elevation */
---lufa-token-shadow-4xl: /* Extreme elevation */
---lufa-token-shadow-5xl: /* Maximum elevation */
---lufa-token-shadow-inner: /* Inset shadow */
-```
+### Small Shadow (`--lufa-token-shadow-sm`)
 
-## Elevation Levels
+Subtle shadow for slightly elevated surfaces.
 
-Our shadow system represents different elevation levels:
+**Use cases:**
 
-### Level 0 - No Shadow
+- Hovering cards
+- Input fields with focus
+- Subtle raised buttons
 
-Flat elements at the base level of the interface.
-
-```css
-.flat-element {
-  box-shadow: none;
-}
-```
-
-### Level 1 - Subtle (xs)
-
-Slightly raised elements like inactive cards.
+**CSS:**
 
 ```css
 .card {
-  box-shadow: var(--lufa-token-shadow-xs);
-}
-```
-
-### Level 2 - Small (sm)
-
-Interactive elements like buttons and cards on hover.
-
-```css
-.button:hover {
   box-shadow: var(--lufa-token-shadow-sm);
 }
 ```
 
-### Level 3 - Medium (md)
+**JavaScript:**
 
-Floating elements like dropdowns and tooltips.
+```tsx
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
+const styles = {
+  boxShadow: tokens.shadow.sm,
+};
+```
+
+---
+
+### Base Shadow (`--lufa-token-shadow-base`)
+
+Standard shadow for most elevated components.
+
+**Use cases:**
+
+- Default cards
+- Dropdowns
+- Modals
+
+**CSS:**
 
 ```css
 .dropdown {
+  box-shadow: var(--lufa-token-shadow-base);
+}
+```
+
+---
+
+### Medium Shadow (`--lufa-token-shadow-md`)
+
+Moderate shadow for prominently elevated surfaces.
+
+**Use cases:**
+
+- Floating action buttons
+- Tooltips
+- Popovers
+
+**CSS:**
+
+```css
+.tooltip {
   box-shadow: var(--lufa-token-shadow-md);
 }
 ```
 
-### Level 4 - Large (lg)
+---
 
-Prominent elements like modals and dialogs.
+### Large Shadow (`--lufa-token-shadow-lg`)
+
+Strong shadow for high elevation surfaces.
+
+**Use cases:**
+
+- Modal overlays
+- Full-page overlays
+- Drawers
+
+**CSS:**
 
 ```css
 .modal {
@@ -80,153 +100,160 @@ Prominent elements like modals and dialogs.
 }
 ```
 
-### Level 5 - Extra Large (xl)
+---
 
-Maximum elevation for important overlays.
+### Extra Large Shadow (`--lufa-token-shadow-xl`)
+
+Maximum shadow for the highest elevation level.
+
+**Use cases:**
+
+- Critical alerts
+- Sticky headers
+- Floating notifications
+
+**CSS:**
 
 ```css
-.overlay {
+.alert-critical {
   box-shadow: var(--lufa-token-shadow-xl);
 }
 ```
 
-## Usage
+---
 
-### Static Shadows
+## Shadow Token Reference
 
-```css
-.card {
-  background-color: var(--lufa-token-color-background-primary);
-  border-radius: var(--lufa-token-radius-md);
-  padding: var(--lufa-token-spacing-lg);
-  box-shadow: var(--lufa-token-shadow-sm);
-}
-```
+| Token                | CSS Variable               | Light Mode Value                      | Dark Mode Value                       |
+| -------------------- | -------------------------- | ------------------------------------- | ------------------------------------- |
+| `tokens.shadow.sm`   | `--lufa-token-shadow-sm`   | `0 1px 2px 0 rgba(0, 0, 0, 0.05)`     | `0 1px 2px 0 rgba(0, 0, 0, 0.3)`      |
+| `tokens.shadow.base` | `--lufa-token-shadow-base` | `0 1px 3px 0 rgba(0, 0, 0, 0.1)`      | `0 1px 3px 0 rgba(0, 0, 0, 0.5)`      |
+| `tokens.shadow.md`   | `--lufa-token-shadow-md`   | `0 4px 6px -1px rgba(0, 0, 0, 0.1)`   | `0 4px 6px -1px rgba(0, 0, 0, 0.5)`   |
+| `tokens.shadow.lg`   | `--lufa-token-shadow-lg`   | `0 10px 15px -3px rgba(0, 0, 0, 0.1)` | `0 10px 15px -3px rgba(0, 0, 0, 0.5)` |
+| `tokens.shadow.xl`   | `--lufa-token-shadow-xl`   | `0 20px 25px -5px rgba(0, 0, 0, 0.1)` | `0 20px 25px -5px rgba(0, 0, 0, 0.5)` |
 
-### Interactive Shadows
+## Usage Examples
 
-Add depth on interaction:
-
-```css
-.interactive-card {
-  box-shadow: var(--lufa-token-shadow-xs);
-  transition: box-shadow 0.2s ease;
-}
-
-.interactive-card:hover {
-  box-shadow: var(--lufa-token-shadow-md);
-}
-
-.interactive-card:active {
-  box-shadow: var(--lufa-token-shadow-xs);
-}
-```
-
-### With React Components
+### Card with Elevation
 
 ```tsx
-<Card style={{ boxShadow: 'var(--lufa-token-shadow-md)' }}>
-  <Typography variant="h3">Elevated Card</Typography>
-</Card>
-```
+import { Box, Text } from '@grasdouble/lufa_design-system';
 
-## Best Practices
-
-### Hierarchy
-
-Use shadows to establish visual hierarchy:
-
-1. **Background**: No shadow
-2. **Cards**: xs or sm shadow
-3. **Floating UI**: md shadow
-4. **Modals**: lg shadow
-5. **Critical overlays**: xl shadow
-
-### Consistency
-
-- Use the same shadow level for similar components
-- Don't mix too many shadow levels in one view
-- Increase shadow on hover for interactive elements
-
-### Performance
-
-```css
-/* Use transform for better performance on hover */
-.button {
-  box-shadow: var(--lufa-token-shadow-sm);
-  transition:
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
-}
-
-.button:hover {
-  box-shadow: var(--lufa-token-shadow-md);
-  transform: translateY(-1px);
+function ElevatedCard() {
+  return (
+    <Box
+      padding="comfortable"
+      background="surface"
+      borderRadius="base"
+      style={{ boxShadow: 'var(--lufa-token-shadow-base)' }}
+    >
+      <Text variant="heading-md">Elevated Card</Text>
+      <Text>This card has a base shadow for elevation.</Text>
+    </Box>
+  );
 }
 ```
 
-### Dark Mode
+### Interactive Shadow on Hover
 
-Shadows automatically adapt to dark mode. In dark themes, shadows might be more subtle or use different techniques for elevation.
-
-## Common Patterns
-
-### Cards
-
-```css
+```css title="src/components/Card.module.css"
 .card {
   box-shadow: var(--lufa-token-shadow-sm);
-  border-radius: var(--lufa-token-radius-md);
+  transition: box-shadow var(--lufa-token-transition-fast);
 }
 
 .card:hover {
   box-shadow: var(--lufa-token-shadow-md);
 }
-```
 
-### Dropdowns
-
-```css
-.dropdown-menu {
-  box-shadow: var(--lufa-token-shadow-md);
-  border-radius: var(--lufa-token-radius-sm);
+.card:active {
+  box-shadow: var(--lufa-token-shadow-base);
 }
 ```
 
-### Modals
+### Modal with Maximum Elevation
 
-```css
-.modal {
-  box-shadow: var(--lufa-token-shadow-lg);
-  border-radius: var(--lufa-token-radius-lg);
+```tsx
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
+function Modal({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        boxShadow: tokens.shadow.xl,
+        backgroundColor: tokens.color.background.surface,
+        padding: tokens.spacing.comfortable,
+        borderRadius: tokens.radius.lg,
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 ```
 
-### Buttons
+## Dark Mode Considerations
+
+Shadows automatically adjust for dark mode:
+
+- **Light mode**: Softer, more subtle shadows (lower opacity)
+- **Dark mode**: Stronger, more defined shadows (higher opacity)
+
+This ensures shadows remain visible against dark backgrounds while maintaining appropriate visual hierarchy.
 
 ```css
-.button-elevated {
+/* Automatic dark mode adjustment */
+:root {
+  --lufa-token-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --lufa-token-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+}
+```
+
+## Best Practices
+
+### Do ✅
+
+- **Use semantic shadow tokens** instead of hardcoded values
+- **Apply shadows to elevated surfaces** (cards, modals, dropdowns)
+- **Increase shadow on hover** for interactive elements
+- **Reduce shadow on active** (pressed) state
+- **Test shadows in dark mode** for visibility
+
+### Don't ❌
+
+- **Don't hardcode box-shadow values** (use tokens)
+- **Don't use excessive shadows** (keep UI clean and minimal)
+- **Don't skip shadow transitions** (jarring instant changes)
+- **Don't use shadows for non-elevated elements** (flat buttons, dividers)
+
+## Accessibility Notes
+
+- Shadows provide **visual depth cues** but should not be the only indicator
+- Ensure sufficient **color contrast** independent of shadow
+- Shadows **do not affect accessibility** (screen readers ignore them)
+- Use shadows to **reinforce hierarchy**, not create it
+
+## Related Tokens
+
+- [Colors](/docs/tokens/colors) - Color tokens for backgrounds and borders
+- [Spacing](/docs/tokens/spacing) - Spacing tokens for layout
+- [Typography](/docs/tokens/typography) - Typography tokens for text styling
+
+:::tip Combine with Transitions
+Animate shadow changes for smooth interactions:
+
+```css
+.button {
   box-shadow: var(--lufa-token-shadow-sm);
-}
-
-.button-elevated:hover {
-  box-shadow: var(--lufa-token-shadow-md);
-}
-
-.button-elevated:active {
-  box-shadow: var(--lufa-token-shadow-xs);
+  transition: box-shadow var(--lufa-token-transition-fast);
 }
 ```
 
-## Accessibility
-
-- Don't rely solely on shadows to convey information
-- Ensure interactive elements have other visual indicators
-- Shadows should enhance, not define, the interface
-- Test with users who have low vision
-
-## Related
-
-- [Colors →](./colors)
-- [Spacing →](./spacing)
-- [Border Radius →](../getting-started/theming)
+:::

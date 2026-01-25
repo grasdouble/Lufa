@@ -1,0 +1,355 @@
+{
+  "semantic": {
+    "ui": {
+      "background-page": {
+        "$value": "{core.neutral.background}",
+        "$type": "color",
+        "$description": "Main page background - base canvas for entire application",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Root background, page wrapper, main container"
+          }
+        }
+      },
+      "background-surface": {
+        "$value": "{core.neutral.surface}",
+        "$type": "color",
+        "$description": "Surface background for cards, panels, and elevated content",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds"
+          }
+        }
+      },
+      "background-overlay": {
+        "$value": "rgba(0, 0, 0, 0.5)",
+        "$type": "color",
+        "$description": "Semi-transparent backdrop for modals and overlays",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Modal backdrops, drawer overlays, dialog backgrounds"
+          }
+        }
+      },
+      "background-success": {
+        "$value": "{core.semantic.success-subtle}",
+        "$type": "color",
+        "$description": "Background for success messages and positive feedback",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Success alerts, positive notifications, confirmation banners"
+          }
+        }
+      },
+      "background-on-success": {
+        "$value": "{core.semantic.success}",
+        "$type": "color",
+        "$description": "Text and icons on success background - for use with background-success (subtle background)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "contrast",
+            "useCase": "Text in success alerts, success badge text, success message content",
+            "pairedWith": "background-success"
+          }
+        }
+      },
+      "background-error": {
+        "$value": "{core.semantic.error-subtle}",
+        "$type": "color",
+        "$description": "Background for error messages and validation failures",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Error alerts, validation messages, destructive action confirmations"
+          }
+        }
+      },
+      "background-on-error": {
+        "$value": "{core.semantic.error}",
+        "$type": "color",
+        "$description": "Text and icons on error background - for use with background-error (subtle background)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "contrast",
+            "useCase": "Text in error alerts, error badge text, error message content",
+            "pairedWith": "background-error"
+          }
+        }
+      },
+      "background-warning": {
+        "$value": "{core.semantic.warning-subtle}",
+        "$type": "color",
+        "$description": "Background for warning messages and caution notices",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Warning alerts, caution banners, pending action notices"
+          }
+        }
+      },
+      "background-on-warning": {
+        "$value": "{core.semantic.warning}",
+        "$type": "color",
+        "$description": "Text and icons on warning background - for use with background-warning (subtle background)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "contrast",
+            "useCase": "Text in warning alerts, warning badge text, warning message content",
+            "pairedWith": "background-warning"
+          }
+        }
+      },
+      "background-info": {
+        "$value": "{core.semantic.info-subtle}",
+        "$type": "color",
+        "$description": "Background for informational messages and neutral notifications",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Info alerts, tips, help messages, neutral notifications"
+          }
+        }
+      },
+      "background-on-info": {
+        "$value": "{core.semantic.info}",
+        "$type": "color",
+        "$description": "Text and icons on info background - for use with background-info (subtle background)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "contrast",
+            "useCase": "Text in info alerts, info badge text, info message content",
+            "pairedWith": "background-info"
+          }
+        }
+      },
+      "text-primary": {
+        "$value": "{core.neutral.text-primary}",
+        "$type": "color",
+        "$description": "Primary text color for headings and body content",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Headings, body text, primary labels, main content"
+          }
+        }
+      },
+      "text-secondary": {
+        "$value": "{core.neutral.text-secondary}",
+        "$type": "color",
+        "$description": "Secondary text color for supporting content",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Descriptions, captions, metadata, secondary labels"
+          }
+        }
+      },
+      "text-tertiary": {
+        "$value": "{core.neutral.text-tertiary}",
+        "$type": "color",
+        "$description": "Tertiary text color for subtle content",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Placeholder text, timestamps, optional information"
+          }
+        }
+      },
+      "text-success": {
+        "$value": "{core.semantic.success}",
+        "$type": "color",
+        "$description": "Text color for success messages and positive feedback",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Success message text, positive status indicators, confirmation text"
+          }
+        }
+      },
+      "text-error": {
+        "$value": "{core.semantic.error}",
+        "$type": "color",
+        "$description": "Text color for error messages and validation failures",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Error message text, validation errors, destructive action warnings"
+          }
+        }
+      },
+      "text-warning": {
+        "$value": "{core.semantic.warning}",
+        "$type": "color",
+        "$description": "Text color for warning messages and caution notices",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Warning message text, caution labels, pending action notices"
+          }
+        }
+      },
+      "text-info": {
+        "$value": "{core.semantic.info}",
+        "$type": "color",
+        "$description": "Text color for informational messages",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Info message text, help content, neutral notifications"
+          }
+        }
+      },
+      "border-default": {
+        "$value": "{core.neutral.border}",
+        "$type": "color",
+        "$description": "Default border color for dividers and element boundaries",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Dividers, separators, card borders, section boundaries"
+          }
+        }
+      },
+      "border-strong": {
+        "$value": "{core.neutral.border-strong}",
+        "$type": "color",
+        "$description": "Stronger border for emphasis and visual hierarchy",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Emphasized borders, section separators, strong dividers"
+          }
+        }
+      },
+      "border-success": {
+        "$value": "{core.semantic.success-border}",
+        "$type": "color",
+        "$description": "Border color for success contexts",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Success alert borders, positive status borders"
+          }
+        }
+      },
+      "border-error": {
+        "$value": "{core.semantic.error-border}",
+        "$type": "color",
+        "$description": "Border color for error contexts",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Error alert borders, invalid input borders, destructive action borders"
+          }
+        }
+      },
+      "border-warning": {
+        "$value": "{core.semantic.warning-border}",
+        "$type": "color",
+        "$description": "Border color for warning contexts",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Warning alert borders, caution element borders"
+          }
+        }
+      },
+      "border-info": {
+        "$value": "{core.semantic.info-border}",
+        "$type": "color",
+        "$description": "Border color for informational contexts",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "useCase": "Info alert borders, help element borders"
+          }
+        }
+      },
+      "typography-caption": {
+        "$value": "{semantic.typography.caption}",
+        "$type": "dimension",
+        "$description": "Caption text size alias for UI components",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "typography",
+            "useCase": "Caption text, small labels, tooltip text, metadata"
+          }
+        }
+      },
+      "background-on-primary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "Text and icons on primary background - AAA contrast guaranteed with primary brand color",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "contrast",
+            "useCase": "Text/icons on primary buttons, primary badges, primary interactive elements",
+            "pairedWith": "core.brand.primary",
+            "a11y": {
+              "contrastRatio": {
+                "onBlue600": 7.5
+              },
+              "wcagLevel": "AAA"
+            }
+          }
+        }
+      },
+      "background-on-secondary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "Text and icons on secondary background - AAA contrast guaranteed with secondary brand color",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "contrast",
+            "useCase": "Text/icons on secondary buttons, secondary badges, secondary interactive elements",
+            "pairedWith": "core.brand.secondary",
+            "a11y": {
+              "contrastRatio": {
+                "onPurple500": 7.2
+              },
+              "wcagLevel": "AAA"
+            }
+          }
+        }
+      }
+    }
+  }
+}

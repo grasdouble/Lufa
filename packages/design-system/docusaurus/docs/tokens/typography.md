@@ -2,155 +2,177 @@
 sidebar_position: 2
 ---
 
-# Typography
+# Typography Tokens
 
-Lufa's typography system provides a consistent and scalable type scale for all text content.
-
-## Type Scale
-
-Our typography system is based on a modular scale that ensures visual hierarchy and readability.
-
-### Headings
-
-```css
---lufa-token-font-size-6xl: /* H1 (60px) */
---lufa-token-font-size-5xl: /* H2 (48px) */
---lufa-token-font-size-4xl: /* H3 (36px) */
---lufa-token-font-size-3xl: /* H4 (30px) */
---lufa-token-font-size-2xl: /* H5 (24px) */
---lufa-token-font-size-xl: /* H6 (20px) */
-```
-
-### Body Text
-
-```css
---lufa-token-font-size-base: /* 16px - Primary body text */
---lufa-token-font-size-sm: /* 14px - Secondary body text */
-```
-
-### Small Text
-
-```css
---lufa-token-font-size-xs: /* 12px - Captions and labels */
-```
+Typography tokens define the font system for the Lufa Design System, including font sizes, weights, line heights, and font families.
 
 ## Font Families
 
+| Token  | CSS Variable                    | Value                |
+| ------ | ------------------------------- | -------------------- |
+| `sans` | `--lufa-token-font-family-sans` | System font stack    |
+| `mono` | `--lufa-token-font-family-mono` | Monospace font stack |
+
+### System Font Stack
+
+The design system uses native system fonts for optimal performance and familiarity:
+
 ```css
---lufa-token-font-family-sans: /* System font stack for body text */
---lufa-token-font-family-serif: /* Serif stack for editorial content */
---lufa-token-font-family-mono: /* Monospace font for code */
+--lufa-token-font-family-sans:
+  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+--lufa-token-font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
 ```
 
-### Default Font Stack
+## Font Sizes
 
-```css
---lufa-token-font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-```
+Semantic font size tokens based on usage:
+
+| Token  | CSS Variable                  | Size | Usage             |
+| ------ | ----------------------------- | ---- | ----------------- |
+| `xs`   | `--lufa-token-font-size-xs`   | 12px | Captions, labels  |
+| `sm`   | `--lufa-token-font-size-sm`   | 14px | Small body text   |
+| `base` | `--lufa-token-font-size-body` | 16px | Default body text |
+| `lg`   | `--lufa-token-font-size-lg`   | 18px | Large body text   |
+| `xl`   | `--lufa-token-font-size-xl`   | 20px | Small headings    |
+| `2xl`  | `--lufa-token-font-size-2xl`  | 24px | Medium headings   |
+| `3xl`  | `--lufa-token-font-size-3xl`  | 30px | Large headings    |
+| `4xl`  | `--lufa-token-font-size-4xl`  | 36px | Hero headings     |
 
 ## Font Weights
 
-```css
---lufa-token-font-weight-thin: 100;
---lufa-token-font-weight-extra-light: 200;
---lufa-token-font-weight-light: 300;
---lufa-token-font-weight-regular: 400;
---lufa-token-font-weight-medium: 500;
---lufa-token-font-weight-semibold: 600;
---lufa-token-font-weight-bold: 700;
---lufa-token-font-weight-extra-bold: 800;
---lufa-token-font-weight-black: 900;
-```
+Semantic font weight tokens:
+
+| Token      | CSS Variable                        | Value | Usage            |
+| ---------- | ----------------------------------- | ----- | ---------------- |
+| `regular`  | `--lufa-token-font-weight-regular`  | 400   | Body text        |
+| `medium`   | `--lufa-token-font-weight-medium`   | 500   | Emphasized text  |
+| `semibold` | `--lufa-token-font-weight-semibold` | 600   | Headings, labels |
+| `bold`     | `--lufa-token-font-weight-bold`     | 700   | Strong emphasis  |
 
 ## Line Heights
 
-```css
---lufa-token-line-height-none: 1; /* Avoid for readable text */
---lufa-token-line-height-tight: 1.2; /* For headings */
---lufa-token-line-height-snug: 1.35; /* For large text */
---lufa-token-line-height-base: 1.5; /* For body text */
---lufa-token-line-height-relaxed: 1.65; /* For long-form content */
---lufa-token-line-height-loose: 1.8; /* For accessibility-focused text */
-```
+Line height tokens for different text contexts:
 
-## Typography Scale Presets (JS)
+| Token     | CSS Variable                       | Value | Usage             |
+| --------- | ---------------------------------- | ----- | ----------------- |
+| `tight`   | `--lufa-token-line-height-tight`   | 1.25  | Headings          |
+| `base`    | `--lufa-token-line-height-base`    | 1.5   | Body text         |
+| `relaxed` | `--lufa-token-line-height-relaxed` | 1.75  | Long-form content |
 
-Use `typographyScale` for pre-configured combinations of font size, weight, line height, and letter spacing:
+## Letter Spacing
 
-```ts
-import tokens from '@grasdouble/lufa_design-system-tokens';
+| Token    | CSS Variable                         | Value   | Usage            |
+| -------- | ------------------------------------ | ------- | ---------------- |
+| `tight`  | `--lufa-token-letter-spacing-tight`  | -0.02em | Headings         |
+| `normal` | `--lufa-token-letter-spacing-normal` | 0       | Body text        |
+| `wide`   | `--lufa-token-letter-spacing-wide`   | 0.05em  | Uppercase labels |
 
-const heading = tokens.typographyScale.h1;
-```
+## Usage in Components
 
-## Usage
-
-### With Typography Component
-
-```tsx
-import { Typography } from '@grasdouble/lufa_design-system';
-
-<Typography variant="h1">Main Heading</Typography>
-<Typography variant="h2">Subheading</Typography>
-<Typography variant="body1">Body text goes here.</Typography>
-<Typography variant="caption">Small caption text</Typography>
-```
-
-### With CSS Variables
+### CSS Modules
 
 ```css
 .heading {
-  font-size: var(--lufa-token-font-size-5xl);
-  font-weight: var(--lufa-token-font-weight-bold);
+  font-family: var(--lufa-token-font-family-sans);
+  font-size: var(--lufa-token-font-size-2xl);
+  font-weight: var(--lufa-token-font-weight-semibold);
   line-height: var(--lufa-token-line-height-tight);
 }
 
 .body {
-  font-size: var(--lufa-token-font-size-base);
   font-family: var(--lufa-token-font-family-sans);
+  font-size: var(--lufa-token-font-size-body);
+  font-weight: var(--lufa-token-font-weight-regular);
   line-height: var(--lufa-token-line-height-base);
 }
 ```
 
+### TypeScript/JavaScript
+
+```tsx
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
+const styles = {
+  fontSize: tokens.fontSize.body,
+  fontWeight: tokens.fontWeight.regular,
+  lineHeight: tokens.lineHeight.base,
+};
+```
+
+## Text Component Variants
+
+The `Text` component provides pre-configured typography variants:
+
+```tsx
+import { Text } from '@grasdouble/lufa_design-system';
+
+// Headings
+<Text variant="heading-4xl">Hero Heading</Text>
+<Text variant="heading-3xl">Large Heading</Text>
+<Text variant="heading-2xl">Medium Heading</Text>
+<Text variant="heading-xl">Small Heading</Text>
+
+// Body text
+<Text variant="body-lg">Large body text</Text>
+<Text variant="body">Default body text</Text>
+<Text variant="body-sm">Small body text</Text>
+
+// Specialized
+<Text variant="caption">Caption text</Text>
+<Text variant="code">Monospace code</Text>
+<Text variant="label">Form label</Text>
+```
+
+## Accessibility
+
+Typography tokens ensure readability and accessibility:
+
+- **Minimum size**: 16px for body text (WCAG AAA for low vision)
+- **Line height**: 1.5 for body text (WCAG Success Criterion 1.4.8)
+- **Color contrast**: Minimum 4.5:1 for body text
+- **Responsive**: Font sizes scale appropriately
+
 ## Responsive Typography
 
-Typography scales responsively based on viewport size. Consider using relative units:
+Typography tokens are designed to work across all screen sizes:
 
 ```css
-.responsive-heading {
-  font-size: clamp(var(--lufa-token-font-size-4xl), 5vw, var(--lufa-token-font-size-6xl));
+/* Base sizes work well on all devices */
+.text {
+  font-size: var(--lufa-token-font-size-body); /* 16px */
+}
+
+/* Optionally scale headings on larger screens */
+@media (min-width: 768px) {
+  .hero {
+    font-size: var(--lufa-token-font-size-4xl); /* 36px → could scale to 48px */
+  }
 }
 ```
 
 ## Best Practices
 
-### Hierarchy
+### Do ✅
 
-Use the type scale to establish clear visual hierarchy:
+- Use semantic tokens (e.g., `font-size-body`) for consistency
+- Pair font sizes with appropriate line heights
+- Use system fonts for better performance
+- Test readability at different sizes
 
-1. **H1**: Page title (once per page)
-2. **H2**: Major sections
-3. **H3**: Subsections
-4. **Body1**: Primary content
-5. **Body2**: Secondary content
-6. **Caption**: Metadata and labels
+### Don't ❌
 
-### Readability
+- Hardcode font values (e.g., `font-size: 16px`)
+- Use decorative fonts for body text
+- Set line-height below 1.25 for readability
+- Ignore contrast requirements
 
-- Keep line length between 45-75 characters
-- Use appropriate line-height for text size
-- Ensure sufficient contrast with background
-- Use sentence case for most UI text
+## Next Steps
 
-### Accessibility
+- [Text Component](/docs/components/primitives/text) - Typography component with variants
+- [Color Tokens](/docs/tokens/colors) - Color palette and usage
+- [Spacing Tokens](/docs/tokens/spacing) - Layout spacing system
 
-- Maintain semantic HTML hierarchy (don't skip heading levels)
-- Ensure text meets WCAG AA contrast requirements
-- Allow text to scale with user preferences
-- Provide sufficient spacing between lines
-
-## Related
-
-- [Colors →](./colors)
-- [Spacing →](./spacing)
-- [Typography Component →](../components/typography)
+:::note Work in Progress
+This documentation is being expanded with more examples and responsive patterns.
+:::

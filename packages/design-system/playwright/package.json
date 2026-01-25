@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/lufa_design-system-playwright",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "private": true,
   "description": "",
   "keywords": [],
@@ -30,6 +30,7 @@
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.22.0",
+    "lucide-react": "^0.469.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "typescript": "^5.9.3"

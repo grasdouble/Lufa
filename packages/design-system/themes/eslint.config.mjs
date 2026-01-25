@@ -1,16 +1,21 @@
-import lufaReactConfig from '@grasdouble/lufa_config_eslint/react.mjs';
+import lufaNodeConfig from '@grasdouble/lufa_config_eslint/node.mjs';
 
 export default [
-  ...lufaReactConfig,
+  ...lufaNodeConfig,
   {
-    ignores: ['scripts/**'],
+    ignores: ['dist/**', 'src/**'],
   },
   {
+    files: ['scripts/**/*.ts'],
     languageOptions: {
       parserOptions: {
-        project: './tsconfig.json',
+        project: './scripts/tsconfig.json',
         tsconfigRootDir: import.meta.dirname,
       },
+    },
+    rules: {
+      // Allow console in build scripts
+      'no-console': 'off',
     },
   },
 ];

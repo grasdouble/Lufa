@@ -2,121 +2,146 @@
 sidebar_position: 2
 ---
 
-# Usage
+# Usage Guide
 
-Learn how to use Lufa Design System components in your React application.
+Learn how to use Lufa Design System components in your React applications.
 
-## Basic Usage
+## Basic Component Usage
 
-After [installing](./installation) the design system, you can start using components in your React application.
+Import components from the main package:
 
-### Importing Components
+```tsx title="src/App.tsx"
+import { Badge, Box, Button, Icon, Stack, Text } from '@grasdouble/lufa_design-system';
 
-```tsx
-import { Button, Card, Typography } from '@grasdouble/lufa_design-system';
-
-import '@grasdouble/lufa_design-system/style.css';
-```
-
-### Using Components
-
-```tsx
 function App() {
   return (
-    <div className="p-4">
-      <Typography variant="h1">Welcome to Lufa</Typography>
-      <Card>
-        <Typography variant="body1">This is a card component with typography inside.</Typography>
-        <Button variant="primary" onClick={() => alert('Clicked!')}>
-          Click Me
+    <Box padding="default" background="surface">
+      <Stack direction="vertical" spacing="comfortable">
+        <Text variant="heading-lg">Welcome to Lufa</Text>
+        <Text>Start building with our components.</Text>
+        <Button variant="primary" size="md">
+          Get Started
         </Button>
-      </Card>
-    </div>
+      </Stack>
+    </Box>
   );
 }
 ```
 
-## Working with Themes
+## Component Composition
 
-Lufa Design System includes built-in theme support. Learn more about [theming](./theming).
+Lufa components are designed to work together seamlessly:
 
-### Accessing Theme Variables
+```tsx
+import { Badge, Box, Divider, Stack, Text } from '@grasdouble/lufa_design-system';
 
-You can use CSS custom properties (CSS variables) directly in your styles:
-
-```css
-.my-component {
-  color: var(--lufa-token-color-text-primary);
-  background-color: var(--lufa-token-color-background-primary);
-  padding: var(--lufa-token-spacing-md);
-  border-radius: var(--lufa-token-radius-md);
+function StatusCard() {
+  return (
+    <Box padding="comfortable" background="surface" borderRadius="base">
+      <Stack direction="vertical" spacing="compact">
+        <Stack direction="horizontal" spacing="compact" alignItems="center">
+          <Text variant="heading-md">Project Status</Text>
+          <Badge variant="success">Active</Badge>
+        </Stack>
+        <Divider />
+        <Text>Your project is running smoothly.</Text>
+      </Stack>
+    </Box>
+  );
 }
 ```
 
-### Available Token Categories
+## Using Design Tokens
 
-- **Colors**: `--lufa-token-color-*`
-- **Spacing**: `--lufa-token-spacing-*`
-- **Typography**: `--lufa-token-font-family-*`, `--lufa-token-font-size-*`, `--lufa-token-font-weight-*`, `--lufa-token-line-height-*`, `--lufa-token-letter-spacing-*`, `--lufa-token-measure-*`
-- **Shadows**: `--lufa-token-shadow-*`
-- **Border Radius**: `--lufa-token-radius-*`
-
-## Component Patterns
-
-### Button Variants
+Components use design tokens internally, but you can also use them directly:
 
 ```tsx
-<Button variant="primary">Primary Action</Button>
-<Button variant="secondary">Secondary Action</Button>
-<Button variant="outline">Outlined Button</Button>
-<Button variant="ghost">Ghost Button</Button>
+import tokens from '@grasdouble/lufa_design-system-tokens';
+
+function CustomComponent() {
+  const customStyles = {
+    padding: tokens.spacing.default,
+    fontSize: tokens.fontSize.body,
+    color: tokens.color.text.primary,
+  };
+
+  return <div style={customStyles}>Custom styled content</div>;
+}
 ```
 
-### Typography Variants
+## Responsive Layouts
+
+Use the Stack component for flexible, responsive layouts:
 
 ```tsx
-<Typography variant="h1">Heading 1</Typography>
-<Typography variant="h2">Heading 2</Typography>
-<Typography variant="body1">Body text</Typography>
-<Typography variant="caption">Caption text</Typography>
+import { Box, Stack, Text } from '@grasdouble/lufa_design-system';
+
+function ResponsiveGrid() {
+  return (
+    <Stack direction="horizontal" spacing="comfortable" wrap="wrap">
+      <Box padding="default" background="surface" style={{ flex: '1 1 300px' }}>
+        <Text variant="heading-sm">Card 1</Text>
+      </Box>
+      <Box padding="default" background="surface" style={{ flex: '1 1 300px' }}>
+        <Text variant="heading-sm">Card 2</Text>
+      </Box>
+      <Box padding="default" background="surface" style={{ flex: '1 1 300px' }}>
+        <Text variant="heading-sm">Card 3</Text>
+      </Box>
+    </Stack>
+  );
+}
 ```
 
-### Card Composition
+## Accessibility Best Practices
+
+All components follow accessibility best practices by default:
 
 ```tsx
-<Card>
-  <Typography variant="h3">Card Title</Typography>
-  <Typography variant="body2">
-    Card content goes here. Cards are flexible containers that can hold any content.
-  </Typography>
-  <Button variant="primary">Action</Button>
-</Card>
+import { Button, Icon, Text } from '@grasdouble/lufa_design-system';
+
+function AccessibleButton() {
+  return (
+    <Button variant="primary" aria-label="Delete item">
+      <Icon name="trash" decorative />
+      <Text>Delete</Text>
+    </Button>
+  );
+}
 ```
-
-## Accessibility
-
-All Lufa components are built with accessibility in mind:
-
-- Semantic HTML elements
-- ARIA attributes where appropriate
-- Keyboard navigation support
-- Screen reader friendly
-- Focus management
 
 ## TypeScript Support
 
-Lufa Design System is written in TypeScript and provides full type definitions:
+Full TypeScript type definitions are included:
 
 ```tsx
-import type { ButtonProps, TypographyProps } from '@grasdouble/lufa_design-system';
+import type { BoxProps, StackProps, TextProps } from '@grasdouble/lufa_design-system';
+import { Box, Stack, Text } from '@grasdouble/lufa_design-system';
 
-const MyButton: React.FC<ButtonProps> = (props) => {
-  return <Button {...props} />;
-};
+type CardProps = {
+  title: string;
+  children: React.ReactNode;
+} & BoxProps;
+
+function Card({ title, children, ...boxProps }: CardProps) {
+  return (
+    <Box padding="comfortable" background="surface" {...boxProps}>
+      <Stack direction="vertical" spacing="compact">
+        <Text variant="heading-md">{title}</Text>
+        {children}
+      </Stack>
+    </Box>
+  );
+}
 ```
 
 ## Next Steps
 
-- [Explore theming options →](./theming)
-- [Browse all components →](../components/overview)
-- [View component examples in Storybook →](https://lufa-design.sebastien-lemouillour.fr)
+- [Explore Components](/docs/components/overview) - Browse all available components
+- [Learn About Tokens](/docs/tokens/colors) - Understand the design token system
+- [Customize Theming](/docs/getting-started/theming) - Adapt the design system to your brand
+- [Test Your Code](/docs/guides/testing) - Ensure accessibility and quality
+
+:::tip Interactive Examples
+Try components in the [Playground](/docs/playground) with live code editing!
+:::

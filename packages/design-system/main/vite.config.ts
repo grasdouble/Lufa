@@ -50,9 +50,9 @@ export default defineConfig(({ command, mode, isPreview }) => {
           exclude: ['**/*.test.*'],
         }),
         externalizeDeps({
-          deps: false,
+          deps: true, // Externalize all dependencies EXCEPT those in 'except'
           devDeps: false,
-          except: [],
+          except: ['lucide-react'], // Bundle lucide-react into the library
           nodeBuiltins: false,
           optionalDeps: false,
           peerDeps: true,
@@ -84,6 +84,21 @@ export default defineConfig(({ command, mode, isPreview }) => {
               throw new Error('format not managed');
             }
             return output;
+          },
+        },
+        rollupOptions: {
+          // Override externalizeDeps plugin to bundle lucide-react
+          external: (id) => {
+            // Don't externalize lucide-react - bundle it
+            if (id === 'lucide-react') {
+              return false;
+            }
+            // Externalize react (peer dependency)
+            if (id === 'react' || id.startsWith('react/')) {
+              return true;
+            }
+            // Let externalizeDeps plugin handle the rest
+            return false;
           },
         },
       },

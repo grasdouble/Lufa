@@ -80,7 +80,7 @@ function generateRecentReleasesMarkdown(releases) {
       markdown += `**${release.changeType}:**\n`;
     }
 
-    release.changes.forEach(change => {
+    release.changes.forEach((change) => {
       markdown += `- ${change}\n`;
     });
 
@@ -138,15 +138,12 @@ function updateDocusaurusConfig(releases) {
 
     // Replace the versions block
     const updatedConfig =
-      configContent.substring(0, versionsStart) +
-      versionsConfig +
-      configContent.substring(versionsEnd);
+      configContent.substring(0, versionsStart) + versionsConfig + configContent.substring(versionsEnd);
 
     writeFileSync(DOCUSAURUS_CONFIG_PATH, updatedConfig, 'utf-8');
     console.log(`✅ Updated config with ${releases.length} versions`);
     console.log(`   Latest: ${latestVersion}`);
     return true;
-
   } catch (error) {
     console.error('⚠️  Error updating docusaurus.config.ts:', error.message);
     console.log('   Continuing anyway (this is optional)');
@@ -194,7 +191,7 @@ function buildVersionsConfig(releases) {
   config += `            },\n`;
 
   // Only add released versions >= 0.6.0 (versions with proper snapshots)
-  const includedVersions = releases.filter(release => isVersionIncluded(release.version));
+  const includedVersions = releases.filter((release) => isVersionIncluded(release.version));
 
   includedVersions.forEach((release) => {
     const version = release.version;
@@ -267,7 +264,6 @@ function updateChangelogDocs() {
     console.log('\n📋 Summary:');
     console.log(`   ✅ docs/changelog.md updated`);
     console.log(`   ${configUpdated ? '✅' : '⏭️'} docusaurus.config.ts ${configUpdated ? 'updated' : 'unchanged'}`);
-
   } catch (error) {
     console.error('❌ Error updating changelog:', error.message);
     process.exit(1);
