@@ -6,4 +6,30 @@
 user_name: Noofreuuuh
 communication_language: Français
 document_output_language: English
-output_folder: "{project-root}/_bmad-output"
+output_folder: '{project-root}/_bmad-output'
+
+# Output Organization Rules (Added: 2026-01-25)
+# All agents MUST follow these guidelines when creating output files
+output_guidelines:
+  temporary_outputs: '{project-root}/_bmad-output/tmp/'
+  permanent_outputs: '{project-root}/_bmad-output/'
+  rules:
+    - 'Session reports, verification reports, and work-in-progress documents MUST go in tmp/'
+    - 'tmp/ directory is gitignored - files there are NOT committed'
+    - 'Only final, permanent outputs (if any) should be in root _bmad-output/'
+    - 'When in doubt, put files in tmp/ - they can be moved to permanent later if needed'
+    - 'See {output_folder}/README.md for complete guidelines'
+
+# Git Operations Rules (Added: 2026-01-25)
+# 🚨 CRITICAL: All agents MUST follow these rules for git operations
+git_operations:
+  commit_authorization: 'NEVER commit without explicit user authorization'
+  rules:
+    - '🚨 NEVER run git commit without users explicit permission'
+    - '🚨 NEVER run git push without users explicit permission'
+    - 'ALWAYS prepare changes with git status and git diff first'
+    - 'ALWAYS ask user: Veux-tu que je commit ces changements maintenant?'
+    - 'WAIT for user response (yes/no/review) before ANY git commit/push'
+    - 'User MUST have final control over what gets committed and when'
+    - 'If user says no, just show what would be committed and stop'
+    - 'See {project-root}/_bmad/core/resources/git-operations-rules.md for details'
