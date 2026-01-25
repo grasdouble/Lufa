@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/lufa_design-system-themes",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "private": false,
   "description": "Lufa Design System - Theme variants (ocean, forest, etc.)",
   "license": "MIT",
