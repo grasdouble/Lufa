@@ -1,10 +1,10 @@
 # ADR-010: Extended Type Scale Strategy
 
-**Status:** Proposed  
+**Status:** Accepted - Deferred to v0.9.0+  
 **Date:** 2026-01-26  
 **Deciders:** Design System Team, Product Owner  
 **Subject:** typography-tokens  
-**Phase:** Planning (Phase 2D)
+**Phase:** Phase 2D Planning - Decision Finalized
 
 ---
 
@@ -265,6 +265,92 @@ If demand emerges quickly, we can:
 | Design direction shift            | Low        | Medium | Collaborate with design team, add in v0.9.0 roadmap |
 
 **Overall risk:** Low - acceptable to defer
+
+---
+
+## Implementation
+
+**Decision Date:** 2026-01-26  
+**Decision Outcome:** Accepted - Deferred to v0.9.0+  
+**Phase:** Phase 2D Typography Tokens  
+**Implementation Status:** N/A (Deferred)
+
+### Phase 2D Implementation (v0.5.0)
+
+Phase 2D implemented responsive typography and letter-spacing tokens as planned, but **explicitly deferred** the extended type scale (6xl, 7xl, 8xl) based on this ADR's recommendation.
+
+**What was implemented:**
+
+- ✅ Fluid typography with CSS clamp() for 2xl-5xl (Phase 2D Sprint 1)
+- ✅ Letter-spacing tokens: tighter, tight, normal, wide, wider (Phase 2D Sprint 1)
+- ✅ Badge component token refactoring (Phase 2D Sprint 1)
+- ✅ Comprehensive documentation (138 KB guides)
+- ✅ Storybook stories with interactive demos
+
+**What was deferred:**
+
+- ⏭️ 6xl (60px), 7xl (72px), 8xl (96px) font-size tokens
+- ⏭️ Display-level typography tokens for hero sections
+- ⏭️ Marketing page typography patterns
+
+**Rationale for deferral:**
+
+1. **No current demand** - Zero consumer requests for sizes > 48px
+2. **Budget conservation** - CSS budget at 96.1% (67.25 KB / 70 KB)
+3. **Demand-driven development** - Wait for concrete use cases before adding tokens
+4. **Current scale sufficient** - 5xl (48px) with fluid scaling serves all known needs
+
+**Files Modified (Phase 2D):**
+
+- `packages/design-system/tokens/src/primitives/typography/font-sizes.json` (updated 2xl-5xl with clamp)
+- `packages/design-system/tokens/src/primitives/typography/letter-spacing.json` (5 new tokens)
+- `packages/design-system/tokens/dist/tokens.css` (67.25 KB)
+
+**Commit:** 445737d (PR #132 - Phases 2A-2D Complete)  
+**Changeset:** `typography-tokens.md`  
+**Version:** tokens@0.5.0, main@0.8.0
+
+### Review Criteria for v0.9.0+
+
+The extended type scale (6xl-8xl) will be reconsidered when:
+
+1. **Concrete demand exists:**
+   - ≥3 consumer requests for typography > 48px
+   - Design mockups showing hero sections requiring larger text
+   - Marketing team requests for landing page typography
+
+2. **Use cases are validated:**
+   - Specific component needs identified (Hero, Banner, Display)
+   - Accessibility testing completed for large text
+   - Responsive behavior patterns defined
+
+3. **Budget allows:**
+   - CSS bundle < 68 KB (leaves 2 KB headroom before 70 KB limit)
+   - Alternative: Increase budget limit if justified by demand
+
+4. **Implementation plan exists:**
+   - Decision on static vs fluid sizing for 6xl-8xl
+   - Media query breakpoints defined (if fluid)
+   - Documentation and examples prepared
+
+**Next Review:** During Phase 3 planning or when demand criteria met
+
+### Success Metrics
+
+Since extended scale is **deferred**, success is measured by:
+
+- ✅ **Budget conservation:** Phase 2D stayed within budget (67.25 KB / 70 KB)
+- ✅ **Core features delivered:** Fluid typography + letter-spacing implemented
+- ✅ **Documentation complete:** 138 KB of guides and examples
+- ✅ **No blocking issues:** Current scale (xs-5xl) serves all known use cases
+- ✅ **Clear path forward:** Deferral criteria documented for future consideration
+
+### Related Documentation
+
+- **Phase 2D Implementation Summary:** `_bmad-output/subjects/typography-tokens/implementation/phase-2d-summary.md`
+- **Responsive Typography Guide:** `_bmad-output/subjects/typography-tokens/docs/responsive-typography-guide.md`
+- **Migration Guide:** `_bmad-output/subjects/typography-tokens/docs/migration-guide-v0-8-0.md`
+- **Changeset:** `.changeset/typography-tokens.md`
 
 ---
 
@@ -548,10 +634,10 @@ We're actively monitoring usage and will add extended tokens if demand emerges.
 
 ---
 
-**Status:** ✅ Proposed (Awaiting Approval)
-**Approved By:** [Pending]
-**Date Approved:** [Pending]
-**Review Date:** [Pending]
+**Status:** ✅ Accepted - Deferred to v0.9.0+
+**Approved By:** Design System Team
+**Date Approved:** 2026-01-26
+**Review Date:** During Phase 3 planning or when demand criteria met
 
 **Recommendation:** **APPROVE DEFERRAL** - Focus Phase 2D budget on higher-priority features (responsive typography, letter-spacing).
 ```
