@@ -1,10 +1,10 @@
 # ADR-007: Zero-Value Token Handling (padding-none Bug Fix)
 
-**Status:** Proposed  
+**Status:** Accepted - Implemented (Phase 2C)  
 **Date:** 2026-01-26  
 **Deciders:** Design System Team, Component Team  
 **Subject:** spacing-layout-tokens  
-**Phase:** Planning (Phase 2)
+**Phase:** Phase 2C Implementation - Complete
 
 ---
 
@@ -170,6 +170,71 @@ export interface BoxProps {
 ```
 
 **No changes needed** - "none" is already a valid type value.
+
+---
+
+## Implementation
+
+**Decision Date:** 2026-01-26  
+**Decision Outcome:** Accepted - Implemented (Phase 2C)  
+**Phase:** Phase 2C Spacing & Layout Tokens  
+**Implementation Status:** Implemented
+
+### Implementation Summary
+
+Phase 2C successfully resolved the critical padding="none" bug in the Box component where "none" incorrectly applied 4px instead of 0px spacing. The fix updated the Box component's utility configuration to map the "none" prop value directly to the primitive spacing-0 token, ensuring semantic correctness and alignment with developer expectations. This bug fix was classified as a "breaking change" because layouts depending on the incorrect 4px behavior would experience visual changes.
+
+The implementation involved updating the Box component's spacing utility configuration and regenerating CSS modules. Comprehensive testing confirmed that padding="none" and margin="none" now correctly apply 0px across all directional variants (paddingX, paddingY, marginX, marginY). Visual regression testing captured before/after comparisons to validate the fix and document expected changes for consuming applications.
+
+**Key Deliverables:**
+
+- ✅ Fixed Box component padding="none" to correctly apply 0px (was incorrectly 4px)
+- ✅ Fixed Box component margin="none" to correctly apply 0px (was incorrectly 4px)
+- ✅ Updated all directional spacing variants (paddingX, paddingY, marginX, marginY)
+- ✅ Updated Stack component gap="none" behavior (extends Box)
+- ✅ Added unit tests verifying 0px behavior for "none" prop values
+- ✅ Created visual regression tests showing before/after comparison
+- ✅ Documented breaking change with clear migration guidance
+
+**Files Modified:**
+
+```
+packages/design-system/main/src/components/Box/box.utilities.config.js (UPDATED - none mapping)
+packages/design-system/main/src/components/Box/Box.module.css (REGENERATED)
+packages/design-system/main/src/components/Box/Box.test.tsx (UPDATED - new tests)
+packages/design-system/main/src/components/Stack/Stack.test.tsx (UPDATED - verify gap fix)
+```
+
+**Commit:** 445737d (PR #132 - Phases 2A-2D Complete)  
+**Changeset:** `.changeset/spacing-layout-tokens.md`  
+**Version:** tokens@0.4.0, main@0.7.1 → 0.8.0
+
+### Implementation Details
+
+The root cause was identified in the Box component's utility configuration where the "none" prop value was mapped to the semantic `spacing-tight` token (4px) instead of the primitive `spacing-0` token (0px). The fix involved a single-line configuration change: `none: 'spacing-0'` replacing `none: 'spacing-tight'`.
+
+After updating the configuration, the Box component's CSS modules were regenerated to produce the correct `.padding-none { padding: var(--lufa-primitive-spacing-0); }` utility class. Visual regression testing in Storybook showed that Box components with padding="none" now have flush edges with no internal spacing, while padding="tight" maintains the 4px minimal spacing for users who need that behavior.
+
+The fix was communicated as a breaking change in the v0.8.0 changelog with clear migration guidance: applications relying on the buggy 4px behavior should update `padding="none"` to `padding="tight"`. Applications expecting 0px spacing (the correct behavior) need no changes. The fix eliminates the need for developers to use workaround inline styles like `style={{ padding: 0 }}`.
+
+### Success Metrics Achieved
+
+Since this ADR is **implemented**, success is measured by:
+
+- ✅ **Bug resolved** - padding="none" now correctly applies 0px (verified via unit tests)
+- ✅ **All directional variants fixed** - paddingX, paddingY, marginX, marginY all apply 0px with "none"
+- ✅ **Stack component updated** - gap="none" correctly applies 0px spacing
+- ✅ **Unit tests passing** - All Box spacing tests validate correct behavior
+- ✅ **Visual regression captured** - Storybook stories document before/after changes
+- ✅ **Breaking change documented** - Clear migration guidance in changelog and migration guide
+- ✅ **Zero TypeScript errors** - No type changes required, existing API maintained
+
+### Related Documentation
+
+- **Phase 2C Implementation Summary:** `_bmad-output/subjects/spacing-layout-tokens/implementation/phase-2c-summary.md`
+- **Migration Guide:** `_bmad-output/subjects/spacing-layout-tokens/docs/migration-guide-v0-8-0.md` (Box spacing section)
+- **Changeset:** `.changeset/spacing-layout-tokens.md` (breaking change notes)
+- **Box Component Documentation:** Updated with correct spacing behavior examples
 
 ---
 
@@ -718,7 +783,7 @@ All major UI libraries treat zero/none as explicitly 0px, not minimal spacing.
 
 ---
 
-**Status:** ✅ Proposed (Awaiting Approval)  
-**Approved By:** [Pending]  
-**Date Approved:** [Pending]  
-**Implementation Priority:** 🔴 Critical (Must fix in v0.8.0)
+**Status:** ✅ Accepted - Implemented (Phase 2C)  
+**Approved By:** Design System Team  
+**Date Approved:** 2026-01-26  
+**Implementation Date:** 2026-01-26

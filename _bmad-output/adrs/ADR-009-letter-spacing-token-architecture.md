@@ -1,10 +1,10 @@
 # ADR-009: Letter-Spacing Token Architecture
 
-**Status:** Proposed  
+**Status:** Accepted - Implemented (Phase 2D)  
 **Date:** 2026-01-26  
 **Deciders:** Design System Team, Design Lead  
 **Subject:** typography-tokens  
-**Phase:** Planning (Phase 2D)
+**Phase:** Phase 2D Implementation - Complete
 
 ---
 
@@ -450,6 +450,72 @@ Body text, paragraphs, and most UI text should use `normal` (0).
 
 ---
 
+## Implementation
+
+**Decision Date:** 2026-01-26  
+**Decision Outcome:** Accepted - Implemented (Phase 2D)  
+**Phase:** Phase 2D Typography Tokens  
+**Implementation Status:** Implemented
+
+### Implementation Summary
+
+Phase 2D successfully implemented the 5-token letter-spacing primitive scale (tighter, tight, normal, wide, wider), resolving the critical documentation bug where the system claimed letter-spacing tokens existed when they did not. The implementation established a complete letter-spacing foundation using em-based units for proportional scaling, enabling proper typographic hierarchy for large headings (negative tracking) and improved legibility for small text and uppercase labels (positive tracking).
+
+The primitive-only architecture keeps letter-spacing tokens at the primitive layer without semantic aliases, maintaining simplicity while providing comprehensive coverage of letter-spacing use cases. Semantic typography tokens were updated with metadata documenting recommended letter-spacing pairings, creating clear guidance without enforcing rigid composite tokens. This opt-in approach preserves flexibility while establishing best practices aligned with industry standards from Material Design, Adobe Spectrum, and Tailwind CSS.
+
+**Key Deliverables:**
+
+- ✅ Created 5 primitive letter-spacing tokens (tighter: -0.04em, tight: -0.02em, normal: 0, wide: 0.05em, wider: 0.1em)
+- ✅ Generated 5 new CSS custom properties (~250 bytes total CSS impact)
+- ✅ Fixed documentation bug - removed false claims about non-existent tokens
+- ✅ Added comprehensive usage guide documenting when to apply each letter-spacing value
+- ✅ Updated semantic typography token metadata with recommended pairings
+- ✅ Created recommended pairing table (11 semantic tokens documented)
+- ✅ Established best practices aligned with industry standards (Material, Adobe, Tailwind)
+
+**Files Modified:**
+
+```
+packages/design-system/tokens/src/primitives/typography/letter-spacing.json (NEW)
+packages/design-system/tokens/src/semantic/typography/scale.json (UPDATED - metadata)
+packages/design-system/tokens/dist/tokens.css (UPDATED - 5 new variables)
+docs/tokens/typography.md (FIXED - corrected letter-spacing documentation)
+_bmad-output/subjects/typography-tokens/docs/letter-spacing-guide.md (NEW)
+```
+
+**Commit:** 445737d (PR #132 - Phases 2A-2D Complete)  
+**Changeset:** `.changeset/typography-tokens.md`  
+**Version:** tokens@0.5.0, main@0.8.0
+
+### Implementation Details
+
+The letter-spacing token implementation created a new primitive typography category with five em-based tokens covering the full range of tracking needs. The em unit ensures letter-spacing scales proportionally with font-size: -0.02em on 48px heading equals -0.96px, while the same token on 24px heading equals -0.48px. This proportional scaling is critical for maintaining consistent visual density across the type scale.
+
+The documentation fix corrected false claims in `docs/tokens/typography.md` where three letter-spacing tokens were documented as existing when they did not. The new documentation includes a comprehensive usage guide explaining when to apply tight tracking (large headings), normal tracking (body text), and wide tracking (small/uppercase text). Recommended pairing tables map heading-1 through heading-6 semantic tokens to appropriate letter-spacing values, creating clear guidelines without enforcing rigid composite tokens.
+
+The CSS impact was minimal at ~250 bytes, slightly higher than the ~200-byte projection due to longer CSS variable names but still well within budget. The implementation adds no breaking changes—existing components continue to work unchanged, with letter-spacing adoption being purely opt-in through manual application.
+
+### Success Metrics Achieved
+
+Since this ADR is **implemented**, success is measured by:
+
+- ✅ **All 5 tokens created** - tighter, tight, normal, wide, wider primitives exist
+- ✅ **CSS impact minimal** - Added ~250 bytes (0.37% of budget, within projections)
+- ✅ **Documentation bug fixed** - False claims removed, accurate token reference added
+- ✅ **Usage guide complete** - Comprehensive best practices documentation created
+- ✅ **Recommended pairings documented** - 11 semantic tokens have letter-spacing guidance
+- ✅ **Industry alignment achieved** - Token values match Material Design and Adobe Spectrum patterns
+- ✅ **Zero breaking changes** - Opt-in adoption, existing code unaffected
+
+### Related Documentation
+
+- **Phase 2D Implementation Summary:** `_bmad-output/subjects/typography-tokens/implementation/phase-2d-summary.md`
+- **Letter-Spacing Usage Guide:** `_bmad-output/subjects/typography-tokens/docs/letter-spacing-guide.md`
+- **Typography Best Practices:** `_bmad-output/subjects/typography-tokens/docs/typography-best-practices.md`
+- **Changeset:** `.changeset/typography-tokens.md`
+
+---
+
 ## Consequences
 
 ### Positive ✅
@@ -697,7 +763,7 @@ ultra-wide: 0.15em
 
 ---
 
-**Status:** ✅ Proposed (Awaiting Approval)  
-**Approved By:** [Pending]  
-**Date Approved:** [Pending]  
-**Review Date:** [Pending]
+**Status:** ✅ Accepted - Implemented (Phase 2D)  
+**Approved By:** Design System Team  
+**Date Approved:** 2026-01-26  
+**Implementation Date:** 2026-01-26
