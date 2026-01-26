@@ -66,10 +66,12 @@ Related docs, standards, etc.
 
 ## Index
 
-| Number                                         | Title                      | Subject           | Status   | Date       |
-| ---------------------------------------------- | -------------------------- | ----------------- | -------- | ---------- |
-| [001](./ADR-001-modes-vs-themes-separation.md) | Modes vs Themes Separation | Theme Integration | Accepted | 2026-01-26 |
-| [002](./ADR-002-html-attributes-naming.md)     | HTML Attributes Naming     | Theme Integration | Accepted | 2026-01-26 |
+| Number                                               | Title                            | Subject                | Status   | Date       |
+| ---------------------------------------------------- | -------------------------------- | ---------------------- | -------- | ---------- |
+| [001](./ADR-001-modes-vs-themes-separation.md)       | Modes vs Themes Separation       | Theme Integration      | Accepted | 2026-01-26 |
+| [002](./ADR-002-html-attributes-naming.md)           | HTML Attributes Naming           | Theme Integration      | Accepted | 2026-01-26 |
+| [003](./ADR-003-high-contrast-token-strategy.md)     | High-Contrast Token Strategy     | Color Token Refinement | Accepted | 2026-01-26 |
+| [004](./ADR-004-alpha-opacity-token-architecture.md) | Alpha/Opacity Token Architecture | Color Token Refinement | Accepted | 2026-01-26 |
 
 ## Guidelines
 
@@ -118,6 +120,11 @@ ADRs are **immutable** once accepted. If a decision changes:
 - [ADR-001](./ADR-001-modes-vs-themes-separation.md) - Modes vs Themes
 - [ADR-002](./ADR-002-html-attributes-naming.md) - HTML Attributes
 
+**Color Token Refinement:**
+
+- [ADR-003](./ADR-003-high-contrast-token-strategy.md) - High-Contrast Strategy
+- [ADR-004](./ADR-004-alpha-opacity-token-architecture.md) - Alpha/Opacity Architecture
+
 **Badge Component:**
 
 - (Future ADRs)
@@ -127,10 +134,16 @@ ADRs are **immutable** once accepted. If a decision changes:
 **Architecture:**
 
 - ADR-001 - Package separation
+- ADR-003 - High-contrast token strategy
+- ADR-004 - Alpha/opacity token architecture
 
 **Naming:**
 
 - ADR-002 - Attribute conventions
+
+**Accessibility:**
+
+- ADR-003 - High-contrast token strategy
 
 ## External References
 
@@ -141,4 +154,4 @@ ADRs are **immutable** once accepted. If a decision changes:
 ---
 
 **Maintained by:** BMad Master Agent  
-**Last Updated:** 2026-01-26
+**Last Updated:** 2026-01-26 (4 ADRs)
