@@ -8,17 +8,26 @@ communication_language: Français
 document_output_language: English
 output_folder: '{project-root}/_bmad-output'
 
-# Output Organization Rules (Added: 2026-01-25)
+# Output Organization Rules (Updated: 2026-01-26)
 # All agents MUST follow these guidelines when creating output files
 output_guidelines:
+  structure_version: '2.0'
+  structure_type: 'subject-based'
   temporary_outputs: '{project-root}/_bmad-output/tmp/'
   permanent_outputs: '{project-root}/_bmad-output/'
   rules:
-    - 'Session reports, verification reports, and work-in-progress documents MUST go in tmp/'
-    - 'tmp/ directory is gitignored - files there are NOT committed'
-    - 'Only final, permanent outputs (if any) should be in root _bmad-output/'
-    - 'When in doubt, put files in tmp/ - they can be moved to permanent later if needed'
-    - 'See {output_folder}/README.md for complete guidelines'
+    - '🎯 STRUCTURE v2.0: All artifacts organized by subject in subjects/{name}/'
+    - '📁 Analysis → subjects/{name}/analysis/'
+    - '📁 Planning → subjects/{name}/planning/'
+    - '📁 Implementation → subjects/{name}/implementation/'
+    - '📁 ADRs → adrs/ (global, sequential: ADR-001, ADR-002, etc.)'
+    - '📁 Global files → global/ (cross-project tracking)'
+    - '📁 Temporary → tmp/ (gitignored, NOT committed)'
+    - '🚨 NEVER use flat structure (planning-artifacts/, implementation-artifacts/)'
+    - '✅ Each subject gets its own isolated folder under subjects/'
+    - 'See {output_folder}/README.md for complete v2.0 guidelines'
+    - 'See {output_folder}/NAMING-CONVENTIONS.md for naming standards'
+    - 'See _bmad/core/resources/output-organization-rules.md for detailed rules'
 
 # Git Operations Rules (Added: 2026-01-25)
 # 🚨 CRITICAL: All agents MUST follow these rules for git operations
