@@ -1,7 +1,7 @@
 ---
 "@grasdouble/lufa_design-system-tokens": minor
-"@grasdouble/lufa_design-system": minor
 "@grasdouble/lufa_design-system-storybook": patch
+"@grasdouble/lufa_design-system-docusaurus": patch
 ---
 
 # Typography Tokens
