@@ -147,6 +147,110 @@ function validateToken(token, tokenPath, filePath) {
     });
   }
 
+  // Validate themable value based on token type
+  if (hasThemable && token.$type) {
+    const themableValue = token.$extensions.lufa.themable;
+
+    // Rule 1: Colors MUST be themable
+    if (token.$type === 'color' && themableValue !== true) {
+      errors.push({
+        file: filePath,
+        token: tokenPath,
+        field: '$extensions.lufa.themable',
+        message: 'Color tokens must have themable: true (colors change according to theme)',
+        severity: 'error',
+      });
+    }
+
+    // Rule 2: Shadows MUST be themable
+    if (token.$type === 'shadow' && themableValue !== true) {
+      errors.push({
+        file: filePath,
+        token: tokenPath,
+        field: '$extensions.lufa.themable',
+        message: 'Shadow tokens must have themable: true (shadows adapt to theme)',
+        severity: 'error',
+      });
+    }
+
+    // Rule 3: Dimensions MUST NOT be themable
+    if (token.$type === 'dimension' && themableValue !== false) {
+      errors.push({
+        file: filePath,
+        token: tokenPath,
+        field: '$extensions.lufa.themable',
+        message: 'Dimension tokens must have themable: false (dimensions are structural)',
+        severity: 'error',
+      });
+    }
+
+    // Rule 4: Durations MUST NOT be themable
+    if (token.$type === 'duration' && themableValue !== false) {
+      errors.push({
+        file: filePath,
+        token: tokenPath,
+        field: '$extensions.lufa.themable',
+        message: 'Duration tokens must have themable: false (timing is consistent across themes)',
+        severity: 'error',
+      });
+    }
+
+    // Rule 5: Numbers MUST NOT be themable (z-index, counts, etc.)
+    if (token.$type === 'number' && themableValue !== false) {
+      errors.push({
+        file: filePath,
+        token: tokenPath,
+        field: '$extensions.lufa.themable',
+        message: 'Number tokens must have themable: false (numeric values are consistent across themes)',
+        severity: 'error',
+      });
+    }
+
+    // Rule 6: Font families SHOULD NOT be themable (warning)
+    if (token.$type === 'fontFamily' && themableValue === true) {
+      warnings.push({
+        file: filePath,
+        token: tokenPath,
+        field: '$extensions.lufa.themable',
+        message: 'Font family tokens are typically not themable. Are you sure this should change with theme?',
+        severity: 'warning',
+      });
+    }
+
+    // Rule 7: Font weights SHOULD NOT be themable (warning)
+    if (token.$type === 'fontWeight' && themableValue === true) {
+      warnings.push({
+        file: filePath,
+        token: tokenPath,
+        field: '$extensions.lufa.themable',
+        message: 'Font weight tokens are typically not themable. Are you sure this should change with theme?',
+        severity: 'warning',
+      });
+    }
+
+    // Rule 8: Cubic bezier (easing) MUST NOT be themable
+    if (token.$type === 'cubicBezier' && themableValue !== false) {
+      errors.push({
+        file: filePath,
+        token: tokenPath,
+        field: '$extensions.lufa.themable',
+        message: 'Cubic bezier (easing) tokens must have themable: false (animation curves are consistent)',
+        severity: 'error',
+      });
+    }
+
+    // Rule 9: Gradients SHOULD be themable (warning if not)
+    if (token.$type === 'gradient' && themableValue !== true) {
+      warnings.push({
+        file: filePath,
+        token: tokenPath,
+        field: '$extensions.lufa.themable',
+        message: 'Gradient tokens typically contain colors and should be themable: true',
+        severity: 'warning',
+      });
+    }
+  }
+
   // Validate $description is meaningful (not just token name)
   if (token.$description && token.$description.length < 10) {
     warnings.push({
@@ -289,7 +393,12 @@ function printResults() {
     console.log(`   • Add ${colors.gray}$description${colors.reset}: Describe the token's purpose`);
     console.log(`   • Add ${colors.gray}$type${colors.reset}: Specify DTCG type (color, dimension, etc.)`);
     console.log(`   • Add ${colors.gray}$extensions.lufa.themable${colors.reset}: Set to true or false`);
-    console.log(`   • See: ${colors.gray}docs/contributors/your-first-token.md${colors.reset} (coming soon)\n`);
+    console.log(``);
+    console.log(`   ${colors.bold}Themable rules:${colors.reset}`);
+    console.log(`   • ${colors.green}themable: true${colors.reset}  → color, shadow, gradient`);
+    console.log(`   • ${colors.red}themable: false${colors.reset} → dimension, duration, number, cubicBezier`);
+    console.log(``);
+    console.log(`   • See: ${colors.gray}packages/design-system/tokens/docs/THEMABLE_ATTRIBUTE.md${colors.reset}\n`);
   }
 
   console.log('='.repeat(80) + '\n');
