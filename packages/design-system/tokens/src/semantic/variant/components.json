@@ -38,7 +38,7 @@
         }
       },
       "primary-text": {
-        "$value": "#ffffff",
+        "$value": "{semantic.ui.background-on-primary}",
         "$type": "color",
         "$description": "Primary button text color - high contrast on primary background",
         "$extensions": {
@@ -86,7 +86,7 @@
         }
       },
       "secondary-text": {
-        "$value": "#ffffff",
+        "$value": "{semantic.ui.background-on-secondary}",
         "$type": "color",
         "$description": "Secondary button text color",
         "$extensions": {
@@ -206,7 +206,7 @@
         }
       },
       "outline-text-hover": {
-        "$value": "#ffffff",
+        "$value": "{primitive.color.hc.white}",
         "$type": "color",
         "$description": "Outline button hover text color - switches to white on filled background",
         "$extensions": {
@@ -242,7 +242,7 @@
         }
       },
       "destructive-text": {
-        "$value": "#ffffff",
+        "$value": "{primitive.color.hc.white}",
         "$type": "color",
         "$description": "Destructive button text color",
         "$extensions": {
@@ -278,7 +278,7 @@
         }
       },
       "success-text": {
-        "$value": "#ffffff",
+        "$value": "{primitive.color.hc.white}",
         "$type": "color",
         "$description": "Success button text color",
         "$extensions": {
@@ -286,6 +286,78 @@
             "level": "semantic",
             "category": "button",
             "useCase": "Text color for success buttons"
+          }
+        }
+      },
+      "warning-background": {
+        "$value": "{core.semantic.warning}",
+        "$type": "color",
+        "$description": "Warning button background - for caution actions",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Warning buttons, caution actions, alert CTAs"
+          }
+        }
+      },
+      "warning-background-hover": {
+        "$value": "{core.semantic.warning-hover}",
+        "$type": "color",
+        "$description": "Warning button hover state background",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Hover state for warning buttons"
+          }
+        }
+      },
+      "warning-text": {
+        "$value": "{primitive.color.hc.white}",
+        "$type": "color",
+        "$description": "Warning button text color",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Text color for warning buttons"
+          }
+        }
+      },
+      "info-background": {
+        "$value": "{core.semantic.info}",
+        "$type": "color",
+        "$description": "Info button background - for informational actions",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Info buttons, informational actions, help CTAs"
+          }
+        }
+      },
+      "info-background-hover": {
+        "$value": "{core.semantic.info-hover}",
+        "$type": "color",
+        "$description": "Info button hover state background",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Hover state for info buttons"
+          }
+        }
+      },
+      "info-text": {
+        "$value": "{primitive.color.hc.white}",
+        "$type": "color",
+        "$description": "Info button text color",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Text color for info buttons"
           }
         }
       }

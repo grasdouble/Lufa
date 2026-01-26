@@ -26,14 +26,106 @@
         }
       },
       "background-overlay": {
-        "$value": "rgba(0, 0, 0, 0.5)",
+        "$value": "{semantic.ui.overlay-backdrop}",
         "$type": "color",
-        "$description": "Semi-transparent backdrop for modals and overlays",
+        "$description": "DEPRECATED: Use overlay-backdrop instead. Kept for backwards compatibility.",
         "$extensions": {
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Modal backdrops, drawer overlays, dialog backgrounds"
+            "useCase": "Modal backdrops, drawer overlays, dialog backgrounds",
+            "deprecated": true,
+            "replacement": "semantic.ui.overlay-backdrop"
+          }
+        }
+      },
+      "overlay-backdrop": {
+        "$value": "{primitive.color.alpha.black.50}",
+        "$type": "color",
+        "$description": "Semi-transparent backdrop for modals, dialogs, and drawers",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "overlay",
+            "useCase": "Modal backdrops, dialog overlays, drawer backgrounds",
+            "modes": {
+              "light": "{primitive.color.alpha.black.50}",
+              "dark": "{primitive.color.alpha.black.80}",
+              "high-contrast": "{primitive.color.alpha.black.90}"
+            }
+          }
+        }
+      },
+      "overlay-hover": {
+        "$value": "{primitive.color.alpha.black.4}",
+        "$type": "color",
+        "$description": "Subtle overlay for hover states on interactive elements",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "overlay",
+            "useCase": "Hover state backgrounds for list items, cards, table rows",
+            "modes": {
+              "light": "{primitive.color.alpha.black.4}",
+              "dark": "{primitive.color.alpha.white.8}",
+              "high-contrast": "{primitive.color.alpha.white.16}"
+            }
+          }
+        }
+      },
+      "overlay-pressed": {
+        "$value": "{primitive.color.alpha.black.8}",
+        "$type": "color",
+        "$description": "Overlay for pressed/active states",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "overlay",
+            "useCase": "Pressed/active state overlays on buttons and interactive elements",
+            "modes": {
+              "light": "{primitive.color.alpha.black.8}",
+              "dark": "{primitive.color.alpha.white.16}",
+              "high-contrast": "{primitive.color.alpha.white.16}"
+            }
+          }
+        }
+      },
+      "overlay-selected": {
+        "$value": "{primitive.color.alpha.black.16}",
+        "$type": "color",
+        "$description": "Overlay for selected states in lists and menus",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "overlay",
+            "useCase": "Selected list items, active menu items, selected tabs",
+            "modes": {
+              "light": "{primitive.color.alpha.black.16}",
+              "dark": "{primitive.color.alpha.white.16}",
+              "high-contrast": "{primitive.color.alpha.white.16}"
+            }
+          }
+        }
+      },
+      "scrim": {
+        "$value": "{primitive.color.alpha.black.38}",
+        "$type": "color",
+        "$description": "Scrim overlay for bottom sheets and temporary surfaces",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "overlay",
+            "useCase": "Bottom sheets, temporary drawers, transient overlays",
+            "modes": {
+              "light": "{primitive.color.alpha.black.38}",
+              "dark": "{primitive.color.alpha.black.60}",
+              "high-contrast": "{primitive.color.alpha.black.80}"
+            }
           }
         }
       },
@@ -311,7 +403,7 @@
         }
       },
       "background-on-primary": {
-        "$value": "#ffffff",
+        "$value": "{primitive.color.hc.white}",
         "$type": "color",
         "$description": "Text and icons on primary background - AAA contrast guaranteed with primary brand color",
         "$extensions": {
@@ -321,6 +413,11 @@
             "subcategory": "contrast",
             "useCase": "Text/icons on primary buttons, primary badges, primary interactive elements",
             "pairedWith": "core.brand.primary",
+            "modes": {
+              "light": "{primitive.color.hc.white}",
+              "dark": "{primitive.color.hc.white}",
+              "high-contrast": "{primitive.color.hc.white}"
+            },
             "a11y": {
               "contrastRatio": {
                 "onBlue600": 7.5
@@ -331,7 +428,7 @@
         }
       },
       "background-on-secondary": {
-        "$value": "#ffffff",
+        "$value": "{primitive.color.hc.white}",
         "$type": "color",
         "$description": "Text and icons on secondary background - AAA contrast guaranteed with secondary brand color",
         "$extensions": {
@@ -341,6 +438,11 @@
             "subcategory": "contrast",
             "useCase": "Text/icons on secondary buttons, secondary badges, secondary interactive elements",
             "pairedWith": "core.brand.secondary",
+            "modes": {
+              "light": "{primitive.color.hc.white}",
+              "dark": "{primitive.color.hc.white}",
+              "high-contrast": "{primitive.color.hc.white}"
+            },
             "a11y": {
               "contrastRatio": {
                 "onPurple500": 7.2

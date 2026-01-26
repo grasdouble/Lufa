@@ -168,6 +168,84 @@
             "useCase": "Focus ring spacing, outline-offset for focused elements"
           }
         }
+      },
+      "disabled-opacity": {
+        "$value": "0.38",
+        "$type": "number",
+        "$description": "Opacity value for disabled interactive elements (Material Design standard)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Apply to buttons, inputs, and controls in disabled state"
+          }
+        }
+      },
+      "loading-opacity": {
+        "$value": "0.6",
+        "$type": "number",
+        "$description": "Opacity value for loading states and skeleton loaders",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Skeleton loaders, loading placeholders"
+          }
+        }
+      },
+      "placeholder-opacity": {
+        "$value": "0.5",
+        "$type": "number",
+        "$description": "Opacity value for placeholder text and empty states",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Input placeholders, empty state illustrations"
+          }
+        }
+      },
+      "focus-background": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Background color for focused interactive elements (rare use case)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Filled focus states (not just outline)"
+          }
+        }
+      },
+      "selected-background": {
+        "$value": "{semantic.ui.overlay-selected}",
+        "$type": "color",
+        "$description": "Background color for selected items in lists and menus",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Selected list items, active menu items, selected tabs"
+          }
+        }
+      },
+      "selected-text": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Text color for selected items",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Text in selected list items, active navigation"
+          }
+        }
       }
     }
   }

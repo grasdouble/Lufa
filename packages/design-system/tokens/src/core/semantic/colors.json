@@ -15,7 +15,7 @@
             "modes": {
               "light": "{primitive.color.green.500}",
               "dark": "{primitive.color.green.400}",
-              "high-contrast": "#00aa00"
+              "high-contrast": "{primitive.color.hc.green}"
             }
           }
         }
@@ -33,7 +33,7 @@
             "modes": {
               "light": "{primitive.color.green.100}",
               "dark": "{primitive.color.green.900}",
-              "high-contrast": "#e0ffe0"
+              "high-contrast": "{primitive.color.green.100}"
             }
           }
         }
@@ -51,7 +51,7 @@
             "modes": {
               "light": "{primitive.color.green.300}",
               "dark": "{primitive.color.green.700}",
-              "high-contrast": "#00aa00"
+              "high-contrast": "{primitive.color.hc.green}"
             }
           }
         }
@@ -69,7 +69,7 @@
             "modes": {
               "light": "{primitive.color.green.600}",
               "dark": "{primitive.color.green.300}",
-              "high-contrast": "#008800"
+              "high-contrast": "{primitive.color.hc.green}"
             }
           }
         }
@@ -87,7 +87,7 @@
             "modes": {
               "light": "{primitive.color.red.600}",
               "dark": "{primitive.color.red.400}",
-              "high-contrast": "#cc0000"
+              "high-contrast": "{primitive.color.hc.red}"
             }
           }
         }
@@ -105,7 +105,7 @@
             "modes": {
               "light": "{primitive.color.red.100}",
               "dark": "{primitive.color.red.900}",
-              "high-contrast": "#ffe0e0"
+              "high-contrast": "{primitive.color.red.100}"
             }
           }
         }
@@ -123,7 +123,7 @@
             "modes": {
               "light": "{primitive.color.red.300}",
               "dark": "{primitive.color.red.700}",
-              "high-contrast": "#cc0000"
+              "high-contrast": "{primitive.color.hc.red}"
             }
           }
         }
@@ -141,7 +141,7 @@
             "modes": {
               "light": "{primitive.color.red.700}",
               "dark": "{primitive.color.red.300}",
-              "high-contrast": "#990000"
+              "high-contrast": "{primitive.color.hc.red}"
             }
           }
         }
@@ -159,7 +159,7 @@
             "modes": {
               "light": "{primitive.color.yellow.500}",
               "dark": "{primitive.color.yellow.400}",
-              "high-contrast": "#cc8800"
+              "high-contrast": "{primitive.color.hc.yellow}"
             }
           }
         }
@@ -177,7 +177,7 @@
             "modes": {
               "light": "{primitive.color.yellow.100}",
               "dark": "{primitive.color.yellow.900}",
-              "high-contrast": "#fff8e0"
+              "high-contrast": "{primitive.color.yellow.100}"
             }
           }
         }
@@ -195,7 +195,7 @@
             "modes": {
               "light": "{primitive.color.yellow.300}",
               "dark": "{primitive.color.yellow.700}",
-              "high-contrast": "#cc8800"
+              "high-contrast": "{primitive.color.hc.yellow}"
             }
           }
         }
@@ -213,7 +213,7 @@
             "modes": {
               "light": "{primitive.color.yellow.600}",
               "dark": "{primitive.color.yellow.300}",
-              "high-contrast": "#996600"
+              "high-contrast": "{primitive.color.hc.yellow}"
             }
           }
         }
@@ -231,7 +231,7 @@
             "modes": {
               "light": "{primitive.color.blue.500}",
               "dark": "{primitive.color.blue.400}",
-              "high-contrast": "#0066cc"
+              "high-contrast": "{primitive.color.hc.blue}"
             }
           }
         }
@@ -249,7 +249,7 @@
             "modes": {
               "light": "{primitive.color.blue.100}",
               "dark": "{primitive.color.blue.900}",
-              "high-contrast": "#e0f0ff"
+              "high-contrast": "{primitive.color.blue.100}"
             }
           }
         }
@@ -267,7 +267,7 @@
             "modes": {
               "light": "{primitive.color.blue.300}",
               "dark": "{primitive.color.blue.700}",
-              "high-contrast": "#0066cc"
+              "high-contrast": "{primitive.color.hc.blue}"
             }
           }
         }
@@ -285,7 +285,7 @@
             "modes": {
               "light": "{primitive.color.blue.600}",
               "dark": "{primitive.color.blue.300}",
-              "high-contrast": "#004499"
+              "high-contrast": "{primitive.color.hc.blue}"
             }
           }
         }

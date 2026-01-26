@@ -14,7 +14,7 @@
             "modes": {
               "light": "{primitive.color.blue.600}",
               "dark": "{primitive.color.blue.500}",
-              "high-contrast": "#0000ff"
+              "high-contrast": "{primitive.color.hc.blue}"
             }
           }
         }
@@ -32,7 +32,7 @@
             "modes": {
               "light": "{primitive.color.blue.700}",
               "dark": "{primitive.color.blue.400}",
-              "high-contrast": "#0000cc"
+              "high-contrast": "{primitive.color.hc.blue}"
             }
           }
         }
@@ -50,7 +50,7 @@
             "modes": {
               "light": "{primitive.color.blue.800}",
               "dark": "{primitive.color.blue.600}",
-              "high-contrast": "#000099"
+              "high-contrast": "{primitive.color.hc.blue}"
             }
           }
         }
@@ -68,7 +68,7 @@
             "modes": {
               "light": "{primitive.color.purple.500}",
               "dark": "{primitive.color.purple.400}",
-              "high-contrast": "#9900ff"
+              "high-contrast": "{primitive.color.purple.600}"
             }
           }
         }
@@ -86,7 +86,7 @@
             "modes": {
               "light": "{primitive.color.purple.600}",
               "dark": "{primitive.color.purple.300}",
-              "high-contrast": "#7700cc"
+              "high-contrast": "{primitive.color.purple.700}"
             }
           }
         }
@@ -104,7 +104,7 @@
             "modes": {
               "light": "{primitive.color.purple.700}",
               "dark": "{primitive.color.purple.500}",
-              "high-contrast": "#550099"
+              "high-contrast": "{primitive.color.purple.800}"
             }
           }
         }
