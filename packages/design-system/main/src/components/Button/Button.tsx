@@ -179,7 +179,7 @@ const ButtonImpl = <T extends ElementType = 'button'>(
     className,
     ...htmlProps
   }: ButtonComponentProps<T>,
-  ref: React.Ref<Element>
+  ref: React.ForwardedRef<Element>
 ) => {
   // Determine the element to render
   const Component = as ?? 'button';
@@ -240,7 +240,13 @@ const ButtonImpl = <T extends ElementType = 'button'>(
   const isIconOnly = !children && (iconLeft ?? iconRight);
 
   return (
-    <Component ref={ref} className={buttonClassName} {...elementSpecificProps} {...ariaProps} {...htmlProps}>
+    <Component
+      ref={ref as React.Ref<never>}
+      className={buttonClassName}
+      {...elementSpecificProps}
+      {...ariaProps}
+      {...htmlProps}
+    >
       {/* Loading spinner (replaces left icon) */}
       {loading && <Icon name="loader" size={size === 'sm' ? 'xs' : size === 'lg' ? 'md' : 'sm'} aria-hidden="true" />}
 
@@ -263,9 +269,10 @@ const ButtonImpl = <T extends ElementType = 'button'>(
   );
 };
 
-// Forward ref with generic type support and displayName
-export const Button = forwardRef(ButtonImpl) as <T extends ElementType = 'button'>(
-  props: ButtonComponentProps<T> & { ref?: React.Ref<Element> }
+// Forward ref with generic type support
+const ButtonWithRef = forwardRef(ButtonImpl) as <T extends ElementType = 'button'>(
+  props: ButtonComponentProps<T> & { ref?: React.Ref<React.ComponentRef<T>> }
 ) => React.ReactElement;
 
-Button.displayName = 'Button';
+// Export with displayName
+export const Button = Object.assign(ButtonWithRef, { displayName: 'Button' });

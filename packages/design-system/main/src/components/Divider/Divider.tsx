@@ -130,45 +130,47 @@ export type PolymorphicDividerProps<T extends ElementType = 'hr'> = DividerProps
  * Creates a visual boundary between content sections.
  * Supports both horizontal and vertical orientations with customizable styling.
  */
-export const Divider = forwardRef(
-  <T extends ElementType = 'hr'>(
-    {
-      orientation = 'horizontal',
-      emphasis = 'default',
-      spacing = 'default',
-      lineStyle = 'solid',
-      className,
-      as,
-      ...props
-    }: PolymorphicDividerProps<T>,
-    ref: React.Ref<HTMLElement>
-  ) => {
-    // Default element based on orientation
-    const Component = (as ?? (orientation === 'horizontal' ? 'hr' : 'div')) as ElementType;
+const DividerImpl = <T extends ElementType = 'hr'>(
+  {
+    orientation = 'horizontal',
+    emphasis = 'default',
+    spacing = 'default',
+    lineStyle = 'solid',
+    className,
+    as,
+    ...props
+  }: PolymorphicDividerProps<T>,
+  ref: React.ForwardedRef<Element>
+) => {
+  // Default element based on orientation
+  const Component = (as ?? (orientation === 'horizontal' ? 'hr' : 'div')) as ElementType;
 
-    // Generate CSS classes
-    const dividerClasses = clsx(
-      styles.divider,
-      styles[`orientation-${orientation}`],
-      styles[`emphasis-${emphasis}`],
-      styles[`spacing-${spacing}`],
-      styles[`line-style-${lineStyle}`],
-      className
-    );
+  // Generate CSS classes
+  const dividerClasses = clsx(
+    styles.divider,
+    styles[`orientation-${orientation}`],
+    styles[`emphasis-${emphasis}`],
+    styles[`spacing-${spacing}`],
+    styles[`line-style-${lineStyle}`],
+    className
+  );
 
-    // ARIA attributes
-    const ariaProps = {
-      role: Component === 'div' ? 'separator' : undefined,
-      'aria-orientation': orientation,
-    };
+  // ARIA attributes
+  const ariaProps = {
+    role: Component === 'div' ? 'separator' : undefined,
+    'aria-orientation': orientation,
+  };
 
-    return <Component ref={ref} className={dividerClasses} {...ariaProps} {...props} />;
-  }
-) as <T extends ElementType = 'hr'>(
-  props: PolymorphicDividerProps<T> & { ref?: React.Ref<HTMLElement> }
+  return <Component ref={ref as React.Ref<never>} className={dividerClasses} {...ariaProps} {...props} />;
+};
+
+// Forward ref with generic type support
+const DividerWithRef = forwardRef(DividerImpl) as <T extends ElementType = 'hr'>(
+  props: PolymorphicDividerProps<T> & { ref?: React.Ref<React.ComponentRef<T>> }
 ) => React.ReactElement | null;
 
-Divider.displayName = 'Divider';
+// Export with displayName
+export const Divider = Object.assign(DividerWithRef, { displayName: 'Divider' });
 
 // ============================================
 // TYPE EXPORTS
