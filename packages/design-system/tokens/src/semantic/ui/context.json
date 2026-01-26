@@ -9,7 +9,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Root background, page wrapper, main container"
+            "useCase": "Root background, page wrapper, main container",
+            "themable": true
           }
         }
       },
@@ -21,11 +22,11 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds"
+            "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds",
+            "themable": true
           }
         }
       },
-
       "overlay-backdrop": {
         "$value": "{primitive.color.alpha.black.50}",
         "$type": "color",
@@ -40,7 +41,8 @@
               "light": "{primitive.color.alpha.black.50}",
               "dark": "{primitive.color.alpha.black.80}",
               "high-contrast": "{primitive.color.alpha.black.90}"
-            }
+            },
+            "themable": true
           }
         }
       },
@@ -58,7 +60,8 @@
               "light": "{primitive.color.alpha.black.4}",
               "dark": "{primitive.color.alpha.white.8}",
               "high-contrast": "{primitive.color.alpha.white.16}"
-            }
+            },
+            "themable": true
           }
         }
       },
@@ -76,7 +79,8 @@
               "light": "{primitive.color.alpha.black.8}",
               "dark": "{primitive.color.alpha.white.16}",
               "high-contrast": "{primitive.color.alpha.white.16}"
-            }
+            },
+            "themable": true
           }
         }
       },
@@ -94,7 +98,8 @@
               "light": "{primitive.color.alpha.black.16}",
               "dark": "{primitive.color.alpha.white.16}",
               "high-contrast": "{primitive.color.alpha.white.16}"
-            }
+            },
+            "themable": true
           }
         }
       },
@@ -112,7 +117,8 @@
               "light": "{primitive.color.alpha.black.38}",
               "dark": "{primitive.color.alpha.black.60}",
               "high-contrast": "{primitive.color.alpha.black.80}"
-            }
+            },
+            "themable": true
           }
         }
       },
@@ -124,7 +130,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Success alerts, positive notifications, confirmation banners"
+            "useCase": "Success alerts, positive notifications, confirmation banners",
+            "themable": true
           }
         }
       },
@@ -138,7 +145,8 @@
             "category": "ui",
             "subcategory": "contrast",
             "useCase": "Text in success alerts, success badge text, success message content",
-            "pairedWith": "background-success"
+            "pairedWith": "background-success",
+            "themable": true
           }
         }
       },
@@ -150,7 +158,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Error alerts, validation messages, destructive action confirmations"
+            "useCase": "Error alerts, validation messages, destructive action confirmations",
+            "themable": true
           }
         }
       },
@@ -164,7 +173,8 @@
             "category": "ui",
             "subcategory": "contrast",
             "useCase": "Text in error alerts, error badge text, error message content",
-            "pairedWith": "background-error"
+            "pairedWith": "background-error",
+            "themable": true
           }
         }
       },
@@ -176,7 +186,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Warning alerts, caution banners, pending action notices"
+            "useCase": "Warning alerts, caution banners, pending action notices",
+            "themable": true
           }
         }
       },
@@ -190,7 +201,8 @@
             "category": "ui",
             "subcategory": "contrast",
             "useCase": "Text in warning alerts, warning badge text, warning message content",
-            "pairedWith": "background-warning"
+            "pairedWith": "background-warning",
+            "themable": true
           }
         }
       },
@@ -202,7 +214,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Info alerts, tips, help messages, neutral notifications"
+            "useCase": "Info alerts, tips, help messages, neutral notifications",
+            "themable": true
           }
         }
       },
@@ -216,7 +229,8 @@
             "category": "ui",
             "subcategory": "contrast",
             "useCase": "Text in info alerts, info badge text, info message content",
-            "pairedWith": "background-info"
+            "pairedWith": "background-info",
+            "themable": true
           }
         }
       },
@@ -228,7 +242,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Headings, body text, primary labels, main content"
+            "useCase": "Headings, body text, primary labels, main content",
+            "themable": true
           }
         }
       },
@@ -240,7 +255,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Descriptions, captions, metadata, secondary labels"
+            "useCase": "Descriptions, captions, metadata, secondary labels",
+            "themable": true
           }
         }
       },
@@ -252,7 +268,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Placeholder text, timestamps, optional information"
+            "useCase": "Placeholder text, timestamps, optional information",
+            "themable": true
           }
         }
       },
@@ -264,7 +281,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Success message text, positive status indicators, confirmation text"
+            "useCase": "Success message text, positive status indicators, confirmation text",
+            "themable": true
           }
         }
       },
@@ -276,7 +294,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Error message text, validation errors, destructive action warnings"
+            "useCase": "Error message text, validation errors, destructive action warnings",
+            "themable": true
           }
         }
       },
@@ -288,7 +307,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Warning message text, caution labels, pending action notices"
+            "useCase": "Warning message text, caution labels, pending action notices",
+            "themable": true
           }
         }
       },
@@ -300,7 +320,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Info message text, help content, neutral notifications"
+            "useCase": "Info message text, help content, neutral notifications",
+            "themable": true
           }
         }
       },
@@ -312,7 +333,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Dividers, separators, card borders, section boundaries"
+            "useCase": "Dividers, separators, card borders, section boundaries",
+            "themable": true
           }
         }
       },
@@ -324,7 +346,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Emphasized borders, section separators, strong dividers"
+            "useCase": "Emphasized borders, section separators, strong dividers",
+            "themable": true
           }
         }
       },
@@ -336,7 +359,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Success alert borders, positive status borders"
+            "useCase": "Success alert borders, positive status borders",
+            "themable": true
           }
         }
       },
@@ -348,7 +372,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Error alert borders, invalid input borders, destructive action borders"
+            "useCase": "Error alert borders, invalid input borders, destructive action borders",
+            "themable": true
           }
         }
       },
@@ -360,7 +385,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Warning alert borders, caution element borders"
+            "useCase": "Warning alert borders, caution element borders",
+            "themable": true
           }
         }
       },
@@ -372,7 +398,8 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Info alert borders, help element borders"
+            "useCase": "Info alert borders, help element borders",
+            "themable": true
           }
         }
       },
@@ -385,7 +412,8 @@
             "level": "semantic",
             "category": "ui",
             "subcategory": "typography",
-            "useCase": "Caption text, small labels, tooltip text, metadata"
+            "useCase": "Caption text, small labels, tooltip text, metadata",
+            "themable": false
           }
         }
       },
@@ -410,7 +438,8 @@
                 "onBlue600": 7.5
               },
               "wcagLevel": "AAA"
-            }
+            },
+            "themable": true
           }
         }
       },
@@ -435,7 +464,8 @@
                 "onPurple500": 7.2
               },
               "wcagLevel": "AAA"
-            }
+            },
+            "themable": true
           }
         }
       }

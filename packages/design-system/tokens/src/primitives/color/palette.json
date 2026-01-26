@@ -10,8 +10,15 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["gray-900", "gray-800", "gray-700"],
-              "wcagAAA": ["gray-900"]
+              "wcagAALarge": [
+                "gray-900",
+                "gray-800",
+                "gray-700"
+              ],
+              "wcagAAA": [
+                "gray-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -23,8 +30,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["gray-900", "gray-800", "gray-700"],
-              "wcagAAA": ["gray-900", "gray-800"]
+              "wcagAALarge": [
+                "gray-900",
+                "gray-800",
+                "gray-700"
+              ],
+              "wcagAAA": [
+                "gray-900",
+                "gray-800"
+              ],
+              "themable": true
             }
           }
         },
@@ -36,8 +51,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["gray-900", "gray-800", "gray-700"],
-              "wcagAAA": ["gray-900", "gray-800"]
+              "wcagAALarge": [
+                "gray-900",
+                "gray-800",
+                "gray-700"
+              ],
+              "wcagAAA": [
+                "gray-900",
+                "gray-800"
+              ],
+              "themable": true
             }
           }
         },
@@ -49,8 +72,14 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["gray-900", "gray-800"],
-              "wcagAAA": ["gray-900"]
+              "wcagAALarge": [
+                "gray-900",
+                "gray-800"
+              ],
+              "wcagAAA": [
+                "gray-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -62,8 +91,11 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["gray-900"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "gray-900"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -75,8 +107,12 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["gray-50", "gray-100"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "gray-50",
+                "gray-100"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -88,8 +124,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["gray-50", "gray-100", "gray-200"],
-              "wcagAAA": ["gray-50", "gray-100"]
+              "wcagAALarge": [
+                "gray-50",
+                "gray-100",
+                "gray-200"
+              ],
+              "wcagAAA": [
+                "gray-50",
+                "gray-100"
+              ],
+              "themable": true
             }
           }
         },
@@ -101,8 +145,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["gray-50", "gray-100", "gray-200"],
-              "wcagAAA": ["gray-50", "gray-100", "gray-200"]
+              "wcagAALarge": [
+                "gray-50",
+                "gray-100",
+                "gray-200"
+              ],
+              "wcagAAA": [
+                "gray-50",
+                "gray-100",
+                "gray-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -114,8 +167,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["gray-50", "gray-100", "gray-200"],
-              "wcagAAA": ["gray-50", "gray-100", "gray-200"]
+              "wcagAALarge": [
+                "gray-50",
+                "gray-100",
+                "gray-200"
+              ],
+              "wcagAAA": [
+                "gray-50",
+                "gray-100",
+                "gray-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -127,8 +189,19 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["gray-50", "gray-100", "gray-200", "gray-300"],
-              "wcagAAA": ["gray-50", "gray-100", "gray-200", "gray-300"]
+              "wcagAALarge": [
+                "gray-50",
+                "gray-100",
+                "gray-200",
+                "gray-300"
+              ],
+              "wcagAAA": [
+                "gray-50",
+                "gray-100",
+                "gray-200",
+                "gray-300"
+              ],
+              "themable": true
             }
           }
         }
@@ -142,8 +215,15 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["blue-900", "blue-800", "blue-700"],
-              "wcagAAA": ["blue-900"]
+              "wcagAALarge": [
+                "blue-900",
+                "blue-800",
+                "blue-700"
+              ],
+              "wcagAAA": [
+                "blue-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -155,8 +235,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["blue-900", "blue-800", "blue-700"],
-              "wcagAAA": ["blue-900", "blue-800"]
+              "wcagAALarge": [
+                "blue-900",
+                "blue-800",
+                "blue-700"
+              ],
+              "wcagAAA": [
+                "blue-900",
+                "blue-800"
+              ],
+              "themable": true
             }
           }
         },
@@ -168,8 +256,14 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["blue-900", "blue-800"],
-              "wcagAAA": ["blue-900"]
+              "wcagAALarge": [
+                "blue-900",
+                "blue-800"
+              ],
+              "wcagAAA": [
+                "blue-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -181,8 +275,11 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["blue-900"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "blue-900"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -194,8 +291,12 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "blue-50",
+                "blue-100"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -207,8 +308,12 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "blue-50",
+                "blue-100"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -220,8 +325,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100", "blue-200"],
-              "wcagAAA": ["blue-50", "blue-100"]
+              "wcagAALarge": [
+                "blue-50",
+                "blue-100",
+                "blue-200"
+              ],
+              "wcagAAA": [
+                "blue-50",
+                "blue-100"
+              ],
+              "themable": true
             }
           }
         },
@@ -233,8 +346,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100", "blue-200"],
-              "wcagAAA": ["blue-50", "blue-100", "blue-200"]
+              "wcagAALarge": [
+                "blue-50",
+                "blue-100",
+                "blue-200"
+              ],
+              "wcagAAA": [
+                "blue-50",
+                "blue-100",
+                "blue-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -246,8 +368,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100", "blue-200"],
-              "wcagAAA": ["blue-50", "blue-100", "blue-200"]
+              "wcagAALarge": [
+                "blue-50",
+                "blue-100",
+                "blue-200"
+              ],
+              "wcagAAA": [
+                "blue-50",
+                "blue-100",
+                "blue-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -259,8 +390,18 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100", "blue-200", "blue-300"],
-              "wcagAAA": ["blue-50", "blue-100", "blue-200"]
+              "wcagAALarge": [
+                "blue-50",
+                "blue-100",
+                "blue-200",
+                "blue-300"
+              ],
+              "wcagAAA": [
+                "blue-50",
+                "blue-100",
+                "blue-200"
+              ],
+              "themable": true
             }
           }
         }
@@ -274,8 +415,15 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["red-900", "red-800", "red-700"],
-              "wcagAAA": ["red-900"]
+              "wcagAALarge": [
+                "red-900",
+                "red-800",
+                "red-700"
+              ],
+              "wcagAAA": [
+                "red-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -287,8 +435,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["red-900", "red-800", "red-700"],
-              "wcagAAA": ["red-900", "red-800"]
+              "wcagAALarge": [
+                "red-900",
+                "red-800",
+                "red-700"
+              ],
+              "wcagAAA": [
+                "red-900",
+                "red-800"
+              ],
+              "themable": true
             }
           }
         },
@@ -300,8 +456,14 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["red-900", "red-800"],
-              "wcagAAA": ["red-900"]
+              "wcagAALarge": [
+                "red-900",
+                "red-800"
+              ],
+              "wcagAAA": [
+                "red-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -313,8 +475,11 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["red-900"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "red-900"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -326,8 +491,12 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["red-50", "red-100"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "red-50",
+                "red-100"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -339,8 +508,12 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["red-50", "red-100"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "red-50",
+                "red-100"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -352,8 +525,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["red-50", "red-100", "red-200"],
-              "wcagAAA": ["red-50", "red-100"]
+              "wcagAALarge": [
+                "red-50",
+                "red-100",
+                "red-200"
+              ],
+              "wcagAAA": [
+                "red-50",
+                "red-100"
+              ],
+              "themable": true
             }
           }
         },
@@ -365,8 +546,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["red-50", "red-100", "red-200"],
-              "wcagAAA": ["red-50", "red-100", "red-200"]
+              "wcagAALarge": [
+                "red-50",
+                "red-100",
+                "red-200"
+              ],
+              "wcagAAA": [
+                "red-50",
+                "red-100",
+                "red-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -378,8 +568,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["red-50", "red-100", "red-200"],
-              "wcagAAA": ["red-50", "red-100", "red-200"]
+              "wcagAALarge": [
+                "red-50",
+                "red-100",
+                "red-200"
+              ],
+              "wcagAAA": [
+                "red-50",
+                "red-100",
+                "red-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -391,8 +590,18 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["red-50", "red-100", "red-200", "red-300"],
-              "wcagAAA": ["red-50", "red-100", "red-200"]
+              "wcagAALarge": [
+                "red-50",
+                "red-100",
+                "red-200",
+                "red-300"
+              ],
+              "wcagAAA": [
+                "red-50",
+                "red-100",
+                "red-200"
+              ],
+              "themable": true
             }
           }
         }
@@ -406,8 +615,15 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["green-900", "green-800", "green-700"],
-              "wcagAAA": ["green-900"]
+              "wcagAALarge": [
+                "green-900",
+                "green-800",
+                "green-700"
+              ],
+              "wcagAAA": [
+                "green-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -419,8 +635,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["green-900", "green-800", "green-700"],
-              "wcagAAA": ["green-900", "green-800"]
+              "wcagAALarge": [
+                "green-900",
+                "green-800",
+                "green-700"
+              ],
+              "wcagAAA": [
+                "green-900",
+                "green-800"
+              ],
+              "themable": true
             }
           }
         },
@@ -432,8 +656,14 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["green-900", "green-800"],
-              "wcagAAA": ["green-900"]
+              "wcagAALarge": [
+                "green-900",
+                "green-800"
+              ],
+              "wcagAAA": [
+                "green-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -445,8 +675,11 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["green-900"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "green-900"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -458,8 +691,11 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["green-900"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "green-900"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -471,8 +707,12 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["green-50", "green-100"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "green-50",
+                "green-100"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -484,8 +724,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["green-50", "green-100", "green-200"],
-              "wcagAAA": ["green-50", "green-100"]
+              "wcagAALarge": [
+                "green-50",
+                "green-100",
+                "green-200"
+              ],
+              "wcagAAA": [
+                "green-50",
+                "green-100"
+              ],
+              "themable": true
             }
           }
         },
@@ -497,8 +745,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["green-50", "green-100", "green-200"],
-              "wcagAAA": ["green-50", "green-100", "green-200"]
+              "wcagAALarge": [
+                "green-50",
+                "green-100",
+                "green-200"
+              ],
+              "wcagAAA": [
+                "green-50",
+                "green-100",
+                "green-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -510,8 +767,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["green-50", "green-100", "green-200"],
-              "wcagAAA": ["green-50", "green-100", "green-200"]
+              "wcagAALarge": [
+                "green-50",
+                "green-100",
+                "green-200"
+              ],
+              "wcagAAA": [
+                "green-50",
+                "green-100",
+                "green-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -523,8 +789,18 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["green-50", "green-100", "green-200", "green-300"],
-              "wcagAAA": ["green-50", "green-100", "green-200"]
+              "wcagAALarge": [
+                "green-50",
+                "green-100",
+                "green-200",
+                "green-300"
+              ],
+              "wcagAAA": [
+                "green-50",
+                "green-100",
+                "green-200"
+              ],
+              "themable": true
             }
           }
         }
@@ -538,8 +814,15 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["yellow-900", "yellow-800", "yellow-700"],
-              "wcagAAA": ["yellow-900"]
+              "wcagAALarge": [
+                "yellow-900",
+                "yellow-800",
+                "yellow-700"
+              ],
+              "wcagAAA": [
+                "yellow-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -551,8 +834,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["yellow-900", "yellow-800", "yellow-700"],
-              "wcagAAA": ["yellow-900", "yellow-800"]
+              "wcagAALarge": [
+                "yellow-900",
+                "yellow-800",
+                "yellow-700"
+              ],
+              "wcagAAA": [
+                "yellow-900",
+                "yellow-800"
+              ],
+              "themable": true
             }
           }
         },
@@ -564,8 +855,14 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["yellow-900", "yellow-800"],
-              "wcagAAA": ["yellow-900"]
+              "wcagAALarge": [
+                "yellow-900",
+                "yellow-800"
+              ],
+              "wcagAAA": [
+                "yellow-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -577,8 +874,11 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["yellow-900"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "yellow-900"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -590,8 +890,11 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["yellow-900"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "yellow-900"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -603,8 +906,11 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["yellow-900"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "yellow-900"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -616,8 +922,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200"],
-              "wcagAAA": ["yellow-50", "yellow-100"]
+              "wcagAALarge": [
+                "yellow-50",
+                "yellow-100",
+                "yellow-200"
+              ],
+              "wcagAAA": [
+                "yellow-50",
+                "yellow-100"
+              ],
+              "themable": true
             }
           }
         },
@@ -629,8 +943,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200"],
-              "wcagAAA": ["yellow-50", "yellow-100", "yellow-200"]
+              "wcagAALarge": [
+                "yellow-50",
+                "yellow-100",
+                "yellow-200"
+              ],
+              "wcagAAA": [
+                "yellow-50",
+                "yellow-100",
+                "yellow-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -642,8 +965,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200"],
-              "wcagAAA": ["yellow-50", "yellow-100", "yellow-200"]
+              "wcagAALarge": [
+                "yellow-50",
+                "yellow-100",
+                "yellow-200"
+              ],
+              "wcagAAA": [
+                "yellow-50",
+                "yellow-100",
+                "yellow-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -655,8 +987,18 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200", "yellow-300"],
-              "wcagAAA": ["yellow-50", "yellow-100", "yellow-200"]
+              "wcagAALarge": [
+                "yellow-50",
+                "yellow-100",
+                "yellow-200",
+                "yellow-300"
+              ],
+              "wcagAAA": [
+                "yellow-50",
+                "yellow-100",
+                "yellow-200"
+              ],
+              "themable": true
             }
           }
         }
@@ -670,8 +1012,15 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["purple-900", "purple-800", "purple-700"],
-              "wcagAAA": ["purple-900"]
+              "wcagAALarge": [
+                "purple-900",
+                "purple-800",
+                "purple-700"
+              ],
+              "wcagAAA": [
+                "purple-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -683,8 +1032,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["purple-900", "purple-800", "purple-700"],
-              "wcagAAA": ["purple-900", "purple-800"]
+              "wcagAALarge": [
+                "purple-900",
+                "purple-800",
+                "purple-700"
+              ],
+              "wcagAAA": [
+                "purple-900",
+                "purple-800"
+              ],
+              "themable": true
             }
           }
         },
@@ -696,8 +1053,14 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["purple-900", "purple-800"],
-              "wcagAAA": ["purple-900"]
+              "wcagAALarge": [
+                "purple-900",
+                "purple-800"
+              ],
+              "wcagAAA": [
+                "purple-900"
+              ],
+              "themable": true
             }
           }
         },
@@ -709,8 +1072,11 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["purple-900"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "purple-900"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -722,8 +1088,11 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["purple-900"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "purple-900"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -735,8 +1104,12 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["purple-50", "purple-100"],
-              "wcagAAA": []
+              "wcagAALarge": [
+                "purple-50",
+                "purple-100"
+              ],
+              "wcagAAA": [],
+              "themable": true
             }
           }
         },
@@ -748,8 +1121,16 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["purple-50", "purple-100", "purple-200"],
-              "wcagAAA": ["purple-50", "purple-100"]
+              "wcagAALarge": [
+                "purple-50",
+                "purple-100",
+                "purple-200"
+              ],
+              "wcagAAA": [
+                "purple-50",
+                "purple-100"
+              ],
+              "themable": true
             }
           }
         },
@@ -761,8 +1142,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["purple-50", "purple-100", "purple-200"],
-              "wcagAAA": ["purple-50", "purple-100", "purple-200"]
+              "wcagAALarge": [
+                "purple-50",
+                "purple-100",
+                "purple-200"
+              ],
+              "wcagAAA": [
+                "purple-50",
+                "purple-100",
+                "purple-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -774,8 +1164,17 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["purple-50", "purple-100", "purple-200"],
-              "wcagAAA": ["purple-50", "purple-100", "purple-200"]
+              "wcagAALarge": [
+                "purple-50",
+                "purple-100",
+                "purple-200"
+              ],
+              "wcagAAA": [
+                "purple-50",
+                "purple-100",
+                "purple-200"
+              ],
+              "themable": true
             }
           }
         },
@@ -787,8 +1186,18 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": ["purple-50", "purple-100", "purple-200", "purple-300"],
-              "wcagAAA": ["purple-50", "purple-100", "purple-200"]
+              "wcagAALarge": [
+                "purple-50",
+                "purple-100",
+                "purple-200",
+                "purple-300"
+              ],
+              "wcagAAA": [
+                "purple-50",
+                "purple-100",
+                "purple-200"
+              ],
+              "themable": true
             }
           }
         }
@@ -803,7 +1212,8 @@
               "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode text, borders, and icons"
+              "useCase": "High-contrast mode text, borders, and icons",
+              "themable": true
             }
           }
         },
@@ -816,7 +1226,8 @@
               "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode backgrounds and inverse text"
+              "useCase": "High-contrast mode backgrounds and inverse text",
+              "themable": true
             }
           }
         },
@@ -829,7 +1240,8 @@
               "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode primary buttons, links, focus indicators"
+              "useCase": "High-contrast mode primary buttons, links, focus indicators",
+              "themable": true
             }
           }
         },
@@ -842,7 +1254,8 @@
               "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode error messages, destructive buttons, validation"
+              "useCase": "High-contrast mode error messages, destructive buttons, validation",
+              "themable": true
             }
           }
         },
@@ -855,7 +1268,8 @@
               "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode success messages, positive indicators"
+              "useCase": "High-contrast mode success messages, positive indicators",
+              "themable": true
             }
           }
         },
@@ -868,104 +1282,195 @@
               "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode warning messages, alert banners"
+              "useCase": "High-contrast mode warning messages, alert banners",
+              "themable": true
             }
           }
         }
       },
       "alpha": {
         "black": {
-          "100": {
-            "$value": "rgba(0, 0, 0, 1.0)",
+          "4": {
+            "$value": "rgba(0, 0, 0, 0.04)",
             "$type": "color",
-            "$description": "Solid black - reference value"
-          },
-          "90": {
-            "$value": "rgba(0, 0, 0, 0.9)",
-            "$type": "color",
-            "$description": "90% opacity black - very strong overlay"
-          },
-          "80": {
-            "$value": "rgba(0, 0, 0, 0.8)",
-            "$type": "color",
-            "$description": "80% opacity black - strong overlay"
-          },
-          "60": {
-            "$value": "rgba(0, 0, 0, 0.6)",
-            "$type": "color",
-            "$description": "60% opacity black - medium overlay"
-          },
-          "50": {
-            "$value": "rgba(0, 0, 0, 0.5)",
-            "$type": "color",
-            "$description": "50% opacity black - balanced overlay"
-          },
-          "38": {
-            "$value": "rgba(0, 0, 0, 0.38)",
-            "$type": "color",
-            "$description": "38% opacity black - disabled state standard (Material Design)"
-          },
-          "16": {
-            "$value": "rgba(0, 0, 0, 0.16)",
-            "$type": "color",
-            "$description": "16% opacity black - subtle overlay"
+            "$description": "4% opacity black - ultra-subtle overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
           },
           "8": {
             "$value": "rgba(0, 0, 0, 0.08)",
             "$type": "color",
-            "$description": "8% opacity black - hover state overlay"
+            "$description": "8% opacity black - hover state overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
           },
-          "4": {
-            "$value": "rgba(0, 0, 0, 0.04)",
+          "16": {
+            "$value": "rgba(0, 0, 0, 0.16)",
             "$type": "color",
-            "$description": "4% opacity black - ultra-subtle overlay"
+            "$description": "16% opacity black - subtle overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "38": {
+            "$value": "rgba(0, 0, 0, 0.38)",
+            "$type": "color",
+            "$description": "38% opacity black - disabled state standard (Material Design)",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "50": {
+            "$value": "rgba(0, 0, 0, 0.5)",
+            "$type": "color",
+            "$description": "50% opacity black - balanced overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "60": {
+            "$value": "rgba(0, 0, 0, 0.6)",
+            "$type": "color",
+            "$description": "60% opacity black - medium overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "80": {
+            "$value": "rgba(0, 0, 0, 0.8)",
+            "$type": "color",
+            "$description": "80% opacity black - strong overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "90": {
+            "$value": "rgba(0, 0, 0, 0.9)",
+            "$type": "color",
+            "$description": "90% opacity black - very strong overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "100": {
+            "$value": "rgba(0, 0, 0, 1.0)",
+            "$type": "color",
+            "$description": "Solid black - reference value",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
           }
         },
         "white": {
-          "100": {
-            "$value": "rgba(255, 255, 255, 1.0)",
+          "4": {
+            "$value": "rgba(255, 255, 255, 0.04)",
             "$type": "color",
-            "$description": "Solid white - reference value"
-          },
-          "90": {
-            "$value": "rgba(255, 255, 255, 0.9)",
-            "$type": "color",
-            "$description": "90% opacity white - very strong overlay"
-          },
-          "80": {
-            "$value": "rgba(255, 255, 255, 0.8)",
-            "$type": "color",
-            "$description": "80% opacity white - strong overlay"
-          },
-          "60": {
-            "$value": "rgba(255, 255, 255, 0.6)",
-            "$type": "color",
-            "$description": "60% opacity white - medium overlay"
-          },
-          "50": {
-            "$value": "rgba(255, 255, 255, 0.5)",
-            "$type": "color",
-            "$description": "50% opacity white - balanced overlay"
-          },
-          "38": {
-            "$value": "rgba(255, 255, 255, 0.38)",
-            "$type": "color",
-            "$description": "38% opacity white - disabled state standard"
-          },
-          "16": {
-            "$value": "rgba(255, 255, 255, 0.16)",
-            "$type": "color",
-            "$description": "16% opacity white - subtle overlay"
+            "$description": "4% opacity white - ultra-subtle overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
           },
           "8": {
             "$value": "rgba(255, 255, 255, 0.08)",
             "$type": "color",
-            "$description": "8% opacity white - hover state overlay"
+            "$description": "8% opacity white - hover state overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
           },
-          "4": {
-            "$value": "rgba(255, 255, 255, 0.04)",
+          "16": {
+            "$value": "rgba(255, 255, 255, 0.16)",
             "$type": "color",
-            "$description": "4% opacity white - ultra-subtle overlay"
+            "$description": "16% opacity white - subtle overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "38": {
+            "$value": "rgba(255, 255, 255, 0.38)",
+            "$type": "color",
+            "$description": "38% opacity white - disabled state standard",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "50": {
+            "$value": "rgba(255, 255, 255, 0.5)",
+            "$type": "color",
+            "$description": "50% opacity white - balanced overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "60": {
+            "$value": "rgba(255, 255, 255, 0.6)",
+            "$type": "color",
+            "$description": "60% opacity white - medium overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "80": {
+            "$value": "rgba(255, 255, 255, 0.8)",
+            "$type": "color",
+            "$description": "80% opacity white - strong overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "90": {
+            "$value": "rgba(255, 255, 255, 0.9)",
+            "$type": "color",
+            "$description": "90% opacity white - very strong overlay",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
+          },
+          "100": {
+            "$value": "rgba(255, 255, 255, 1.0)",
+            "$type": "color",
+            "$description": "Solid white - reference value",
+            "$extensions": {
+              "lufa": {
+                "themable": true
+              }
+            }
           }
         }
       }
