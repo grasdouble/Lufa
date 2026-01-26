@@ -74,6 +74,17 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
   const defaultColor = 'var(--lufa-token-color-info-default)';
   const finalColor = color || defaultColor;
 
+  // Extract token name from CSS variable for educational purposes
+  const extractTokenName = (colorValue: string): string | null => {
+    if (colorValue && colorValue.startsWith('var(')) {
+      const match = colorValue.match(/--lufa-([a-z-]+)/);
+      return match ? match[1] : null;
+    }
+    return null;
+  };
+
+  const tokenName = extractTokenName(finalColor);
+
   // Convert hex color to rgba for opacity
   const hexToRgba = (hex: string, alpha: number): string => {
     // Validate that hex is a string and starts with #
@@ -109,6 +120,7 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
         backgroundColor,
         borderRadius: '4px',
       }}
+      title={tokenName ? `Token: ${tokenName}` : undefined}
     >
       {/* Label (if enabled) */}
       {showLabel && label && (
@@ -128,6 +140,31 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
           }}
         >
           {label}
+        </div>
+      )}
+
+      {/* Token name badge (shown when using token-based colors) */}
+      {tokenName && (
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '4px',
+            left: '4px',
+            fontSize: '9px',
+            fontWeight: 600,
+            color: 'var(--lufa-semantic-ui-text-secondary)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            padding: '2px 6px',
+            borderRadius: '3px',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
+            zIndex: 10,
+            pointerEvents: 'none',
+            fontFamily: 'monospace',
+            opacity: 0.8,
+          }}
+          title={`Using design token: --lufa-${tokenName}`}
+        >
+          🏷️ {tokenName}
         </div>
       )}
 

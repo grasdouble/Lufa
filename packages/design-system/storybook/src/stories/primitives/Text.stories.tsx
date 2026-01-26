@@ -218,6 +218,36 @@ export const PropColor: Story = {
   render: () => {
     const [hoveredColor, setHoveredColor] = React.useState<string>('primary');
 
+    {
+      /* 
+      💡 TOKEN EDUCATION: Semantic Text Colors
+      
+      Text color uses semantic UI text tokens:
+      
+      - color="primary" → var(--lufa-semantic-ui-text-primary)
+        Default text color for headings and body text
+        
+      - color="secondary" → var(--lufa-semantic-ui-text-secondary)
+        Supporting text with less emphasis
+        
+      - color="tertiary" → var(--lufa-semantic-ui-text-tertiary)
+        Subtle text with least emphasis (captions, metadata)
+        
+      - color="success/error/warning/info" → Semantic state colors
+        Used for status messages and feedback
+        
+      - color="inverse" → var(--lufa-semantic-ui-text-inverse)
+        Text on dark backgrounds (automatically switches in dark mode)
+      
+      ✅ Accessibility:
+      - All color combinations meet WCAG AA contrast ratios
+      - Automatically adjusts in light/dark/high-contrast modes
+      - Never use hard-coded text colors in production!
+      
+      Try switching themes to see automatic contrast adjustments!
+    */
+    }
+
     const colorValues = [
       { value: 'primary' as const, label: 'Primary', description: 'Default text color' },
       { value: 'secondary' as const, label: 'Secondary', description: 'Secondary text (less emphasis)' },

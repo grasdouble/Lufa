@@ -358,6 +358,28 @@ export const PropPadding: Story = {
   render: () => {
     const [hoveredPadding, setHoveredPadding] = React.useState<string>('default');
 
+    {
+      /* 
+      💡 TOKEN EDUCATION: Spacing System
+      
+      Box padding uses semantic spacing tokens:
+      - padding="none" → var(--lufa-semantic-spacing-none) = 0px
+      - padding="tight" → var(--lufa-semantic-spacing-tight) = 4px
+      - padding="compact" → var(--lufa-semantic-spacing-compact) = 8px
+      - padding="default" → var(--lufa-semantic-spacing-default) = 16px
+      - padding="comfortable" → var(--lufa-semantic-spacing-comfortable) = 24px
+      - padding="spacious" → var(--lufa-semantic-spacing-spacious) = 32px
+      
+      ✅ Benefits:
+      - Consistent spacing across entire application
+      - Easy to adjust globally (change token value once)
+      - Semantic naming makes intent clear
+      - Prevents arbitrary spacing values
+      
+      The blue visualization shows the padding area around content.
+    */
+    }
+
     // Mapping of padding values to pixel sizes and colors
     // Note: 'none' and 'tight' both map to 4px (tight spacing)
     const paddingValues = [
@@ -931,6 +953,33 @@ export const PropMarginIndividual: Story = {
 export const PropBackground: Story = {
   render: () => {
     const [hoveredBg, setHoveredBg] = React.useState<string>('surface');
+
+    {
+      /* 
+      💡 TOKEN EDUCATION: Semantic Background Colors
+      
+      Box background uses semantic UI tokens that adapt to themes:
+      
+      - background="page" → var(--lufa-semantic-ui-background-page)
+        Main page background color
+        
+      - background="surface" → var(--lufa-semantic-ui-background-surface)
+        Elevated surfaces like cards and panels
+        
+      - background="success/error/warning/info" → Semantic state backgrounds
+        Used for alerts, notifications, and status indicators
+        
+      - background="overlay" → var(--lufa-semantic-ui-overlay-backdrop)
+        Semi-transparent modal/dialog backdrops
+      
+      ✅ Theme Adaptation:
+      - Light mode: Light backgrounds, dark text
+      - Dark mode: Dark backgrounds, light text  
+      - High-contrast: Maximum contrast for accessibility
+      
+      Try switching themes to see automatic color adaptation!
+    */
+    }
 
     const generateCode = (bg: string): string => {
       return `<Box padding="comfortable" background="${bg}" borderRadius="default">
