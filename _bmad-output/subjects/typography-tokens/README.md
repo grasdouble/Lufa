@@ -1,6 +1,6 @@
 # Subject: Typography Tokens
 
-**Status:** 🔍 Analysis Phase (Phase 1 Complete)  
+**Status:** 📋 Planning Phase Complete (Phase 2 ✅)  
 **Priority:** High  
 **Design System Version:** Lufa v0.7.1  
 **Created:** January 26, 2026
@@ -40,6 +40,39 @@ Comprehensive analysis and enhancement of the **typography token system** in Luf
 **Overall Assessment:** 70% complete - Enhance existing system rather than rebuild
 
 **See full analysis:** [`analysis/typography-analysis-2026-01-26.md`](./analysis/typography-analysis-2026-01-26.md)
+
+---
+
+### Phase 2: Planning ✅ COMPLETE
+
+**Completion Date:** January 26, 2026
+
+**Key Decisions (ADRs):**
+
+- ✅ **ADR-008:** Responsive typography strategy → Conservative fluid clamp() for 4 heading tokens (2xl-5xl)
+- ✅ **ADR-009:** Letter-spacing token architecture → 5 primitive tokens (tighter, tight, normal, wide, wider)
+- ✅ **ADR-010:** Extended type scale strategy → DEFER 6xl-8xl to v0.9.0+ (no current demand)
+
+**Planning Artifacts:**
+
+- ✅ **Technical Spec:** Complete token definitions, CSS output, build system requirements
+- ✅ **Implementation Checklist:** 42 tasks across 4 sprints, 8-11 hours estimated (1.5-2 days)
+- ✅ **CSS Budget Plan:** +640 bytes total impact → 67.35 KB / 70 KB (96.2%, 2.65 KB remaining)
+- ✅ **Planning Summary:** Executive summary with timeline, risks, success metrics
+
+**Scope Finalized:**
+
+- ✅ Fluid typography for 4 heading tokens (2xl-5xl) using CSS clamp()
+- ✅ 5 letter-spacing primitive tokens (em-based units)
+- ✅ Badge component token refactoring (md→xs, lg→sm)
+- ✅ Documentation fixes (remove false letter-spacing claims)
+- ❌ Extended scale (6xl-8xl) deferred to v0.9.0+
+- ❌ Composite tokens deferred to future phase
+- ❌ Dark mode font-weight adjustments deferred to Phase 3
+
+**See planning documents:** [`planning/`](./planning/)
+
+**Next Step:** Review & approve ADRs, then begin Phase 3 (Implementation)
 
 ---
 
@@ -93,14 +126,35 @@ Lufa Design System's typography tokens provide a solid foundation but lack moder
   - Requirements definition (functional + non-functional)
   - Recommended type scale (enhanced with responsive options)
 
-### Planning Phase (Phase 2) - Coming Next
+### Planning Phase (Phase 2) - ✅ COMPLETE
 
-- ADR: Typography scale strategy (keep current vs modular scale)
-- ADR: Responsive typography approach (fluid clamp() vs fixed with breakpoints)
-- ADR: Letter-spacing token system design
-- ADR: Composite token structure
-- Implementation plan with phased rollout
-- Breaking change analysis and migration strategy
+- [**ADR-008: Responsive Typography Strategy**](../../adrs/ADR-008-responsive-typography-strategy.md)
+  - Decision: Conservative fluid typography using CSS clamp() for 4 heading tokens (2xl-5xl)
+  - Impact: ~240 bytes CSS
+  - Rationale: Mobile H1 too large (48px → 32px), desktop unchanged
+- [**ADR-009: Letter-Spacing Token Architecture**](../../adrs/ADR-009-letter-spacing-token-architecture.md)
+  - Decision: 5 letter-spacing primitive tokens (tighter, tight, normal, wide, wider)
+  - Impact: ~250 bytes CSS
+  - Fixes: Documentation bug (docs claim tokens exist but they don't)
+- [**ADR-010: Extended Type Scale Strategy**](../../adrs/ADR-010-extended-type-scale-strategy.md)
+  - Decision: DEFER 6xl/7xl/8xl tokens to v0.9.0+ (no current demand)
+  - Rationale: Saves 150-420 bytes, Yagni principle
+- [**Technical Specification**](./planning/technical-spec-typography.md)
+  - Complete token definitions with JSON structures
+  - CSS output examples, build system requirements
+  - Performance analysis: ~640 bytes total CSS impact
+- [**Implementation Checklist**](./planning/implementation-checklist.md)
+  - 42 actionable tasks across 4 sprints
+  - Total estimate: 8-11 hours (1.5-2 days full-time)
+  - Risk mitigation strategies with rollback plan
+- [**CSS Budget Optimization Plan**](./planning/css-budget-optimization-plan.md)
+  - Current: 66.71 KB / 70 KB (95.3%, 3.29 KB remaining)
+  - Phase 2D impact: +640 bytes → 67.35 KB (96.2%, 2.65 KB remaining)
+  - Emergency cuts defined if budget exceeded
+- [**Planning Summary**](./planning/planning-summary-typography.md)
+  - Executive summary consolidating all decisions
+  - Implementation timeline, resource requirements
+  - Success metrics and post-launch tracking plan
 
 ### Implementation Phase (Phase 3) - Future
 
@@ -152,14 +206,15 @@ Lufa Design System's typography tokens provide a solid foundation but lack moder
 - [x] Recommend enhanced type scale
 - [x] Document findings in `typography-analysis-2026-01-26.md`
 
-### Phase 2 (Planning)
+### Phase 2 (Planning) - ✅ COMPLETE
 
-- [ ] Create 4+ ADRs for major decisions
-- [ ] Define implementation phases (breaking changes, additive changes)
-- [ ] Create token addition/modification list
-- [ ] Define component update strategy
-- [ ] Write migration guide outline
-- [ ] Get stakeholder approval
+- [x] Create 3 ADRs for major decisions (ADR-008, ADR-009, ADR-010)
+- [x] Define implementation phases (4 sprints across 1.5-2 days)
+- [x] Create token addition/modification list (5 new, 7 updated tokens)
+- [x] Define component update strategy (Badge token refactoring)
+- [x] Write technical spec with CSS budget analysis (~640 bytes impact)
+- [x] Create implementation checklist (42 tasks with time estimates)
+- [ ] Get stakeholder approval (Next: Schedule review meeting)
 
 ### Phase 3 (Implementation)
 
@@ -182,13 +237,13 @@ Lufa Design System's typography tokens provide a solid foundation but lack moder
 
 ## Timeline (Estimated)
 
-| Phase                   | Duration      | Status                     |
-| ----------------------- | ------------- | -------------------------- |
-| Phase 1: Analysis       | 1 day         | ✅ Complete (Jan 26, 2026) |
-| Phase 2: Planning       | 2-3 days      | 🔄 Next                    |
-| Phase 3: Implementation | 3-5 days      | ⏳ Pending                 |
-| Phase 4: Documentation  | 1-2 days      | ⏳ Pending                 |
-| **Total**               | **7-11 days** | **14% Complete**           |
+| Phase                   | Duration       | Status                      |
+| ----------------------- | -------------- | --------------------------- |
+| Phase 1: Analysis       | 1 day          | ✅ Complete (Jan 26, 2026)  |
+| Phase 2: Planning       | 1 day          | ✅ Complete (Jan 26, 2026)  |
+| Phase 3: Implementation | 1.5-2 days     | 🔄 Next (Awaiting approval) |
+| Phase 4: Documentation  | Included in P3 | ⏳ Pending                  |
+| **Total**               | **3.5-4 days** | **50% Complete**            |
 
 ---
 

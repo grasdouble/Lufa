@@ -1,5 +1,14 @@
 import StyleDictionary from 'style-dictionary';
 
+import { cssWithMediaQueries } from './build/formats/css-with-media-queries.js';
+import { responsiveTransform } from './build/transforms/responsive.js';
+
+// Register custom transform for responsive tokens
+StyleDictionary.registerTransform(responsiveTransform);
+
+// Register custom format for CSS with media queries
+StyleDictionary.registerFormat(cssWithMediaQueries);
+
 /**
  * Custom format: JSON with full metadata (for documentation)
  * Preserves value, $type, $description, and $extensions in nested structure
@@ -148,10 +157,27 @@ export default {
       transformGroup: 'css',
       prefix: 'lufa', // CSS variables: --lufa-primitive-color-blue-600
       buildPath: 'dist/',
+      transforms: [
+        'attribute/cti',
+        'name/kebab',
+        'time/seconds',
+        'html/icon',
+        'size/rem',
+        'color/css',
+        'asset/url',
+        'fontFamily/css',
+        'cubicBezier/css',
+        'strokeStyle/css/shorthand',
+        'border/css/shorthand',
+        'typography/css/shorthand',
+        'transition/css/shorthand',
+        'shadow/css/shorthand',
+        'attribute/responsive', // Custom transform for responsive tokens
+      ],
       files: [
         {
           destination: 'tokens.css',
-          format: 'css/variables-with-modes',
+          format: 'css/variables-with-media-queries', // Use custom format with media queries
           options: {
             outputReferences: true, // Preserves 4-level token cascade
             prefix: 'lufa',

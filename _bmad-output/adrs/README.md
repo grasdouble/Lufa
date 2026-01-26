@@ -66,12 +66,18 @@ Related docs, standards, etc.
 
 ## Index
 
-| Number                                               | Title                            | Subject                | Status   | Date       |
-| ---------------------------------------------------- | -------------------------------- | ---------------------- | -------- | ---------- |
-| [001](./ADR-001-modes-vs-themes-separation.md)       | Modes vs Themes Separation       | Theme Integration      | Accepted | 2026-01-26 |
-| [002](./ADR-002-html-attributes-naming.md)           | HTML Attributes Naming           | Theme Integration      | Accepted | 2026-01-26 |
-| [003](./ADR-003-high-contrast-token-strategy.md)     | High-Contrast Token Strategy     | Color Token Refinement | Accepted | 2026-01-26 |
-| [004](./ADR-004-alpha-opacity-token-architecture.md) | Alpha/Opacity Token Architecture | Color Token Refinement | Accepted | 2026-01-26 |
+| Number                                                | Title                             | Subject                 | Status   | Date       |
+| ----------------------------------------------------- | --------------------------------- | ----------------------- | -------- | ---------- |
+| [001](./ADR-001-modes-vs-themes-separation.md)        | Modes vs Themes Separation        | Theme Integration       | Accepted | 2026-01-26 |
+| [002](./ADR-002-html-attributes-naming.md)            | HTML Attributes Naming            | Theme Integration       | Accepted | 2026-01-26 |
+| [003](./ADR-003-high-contrast-token-strategy.md)      | High-Contrast Token Strategy      | Color Token Refinement  | Accepted | 2026-01-26 |
+| [004](./ADR-004-alpha-opacity-token-architecture.md)  | Alpha/Opacity Token Architecture  | Color Token Refinement  | Accepted | 2026-01-26 |
+| [005](./ADR-005-breakpoint-token-strategy.md)         | Breakpoint Token Strategy         | Spacing & Layout Tokens | Accepted | 2026-01-26 |
+| [006](./ADR-006-responsive-spacing-architecture.md)   | Responsive Spacing Architecture   | Spacing & Layout Tokens | Accepted | 2026-01-26 |
+| [007](./ADR-007-zero-value-token-handling.md)         | Zero-Value Token Handling         | Spacing & Layout Tokens | Accepted | 2026-01-26 |
+| [008](./ADR-008-responsive-typography-strategy.md)    | Responsive Typography Strategy    | Typography Tokens       | Proposed | 2026-01-26 |
+| [009](./ADR-009-letter-spacing-token-architecture.md) | Letter-Spacing Token Architecture | Typography Tokens       | Proposed | 2026-01-26 |
+| [010](./ADR-010-extended-type-scale-strategy.md)      | Extended Type Scale Strategy      | Typography Tokens       | Proposed | 2026-01-26 |
 
 ## Guidelines
 
@@ -125,6 +131,12 @@ ADRs are **immutable** once accepted. If a decision changes:
 - [ADR-003](./ADR-003-high-contrast-token-strategy.md) - High-Contrast Strategy
 - [ADR-004](./ADR-004-alpha-opacity-token-architecture.md) - Alpha/Opacity Architecture
 
+**Spacing & Layout Tokens:**
+
+- [ADR-005](./ADR-005-breakpoint-token-strategy.md) - Breakpoint Token Strategy
+- [ADR-006](./ADR-006-responsive-spacing-architecture.md) - Responsive Spacing Architecture
+- [ADR-007](./ADR-007-zero-value-token-handling.md) - Zero-Value Token Handling
+
 **Badge Component:**
 
 - (Future ADRs)
@@ -136,6 +148,9 @@ ADRs are **immutable** once accepted. If a decision changes:
 - ADR-001 - Package separation
 - ADR-003 - High-contrast token strategy
 - ADR-004 - Alpha/opacity token architecture
+- ADR-005 - Breakpoint token strategy
+- ADR-006 - Responsive spacing architecture
+- ADR-007 - Zero-value token handling
 
 **Naming:**
 
@@ -144,6 +159,11 @@ ADRs are **immutable** once accepted. If a decision changes:
 **Accessibility:**
 
 - ADR-003 - High-contrast token strategy
+
+**Responsive Design:**
+
+- ADR-005 - Breakpoint token strategy
+- ADR-006 - Responsive spacing architecture
 
 ## External References
 
@@ -154,4 +174,4 @@ ADRs are **immutable** once accepted. If a decision changes:
 ---
 
 **Maintained by:** BMad Master Agent  
-**Last Updated:** 2026-01-26 (4 ADRs)
+**Last Updated:** 2026-01-26 (7 ADRs)
