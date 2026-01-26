@@ -28,16 +28,21 @@ The design system uses native system fonts for optimal performance and familiari
 
 Semantic font size tokens based on usage:
 
-| Token  | CSS Variable                  | Size | Usage             |
-| ------ | ----------------------------- | ---- | ----------------- |
-| `xs`   | `--lufa-token-font-size-xs`   | 12px | Captions, labels  |
-| `sm`   | `--lufa-token-font-size-sm`   | 14px | Small body text   |
-| `base` | `--lufa-token-font-size-body` | 16px | Default body text |
-| `lg`   | `--lufa-token-font-size-lg`   | 18px | Large body text   |
-| `xl`   | `--lufa-token-font-size-xl`   | 20px | Small headings    |
-| `2xl`  | `--lufa-token-font-size-2xl`  | 24px | Medium headings   |
-| `3xl`  | `--lufa-token-font-size-3xl`  | 30px | Large headings    |
-| `4xl`  | `--lufa-token-font-size-4xl`  | 36px | Hero headings     |
+| Token  | CSS Variable                  | Size (Desktop) | Fluid Range | Usage             |
+| ------ | ----------------------------- | -------------- | ----------- | ----------------- |
+| `xs`   | `--lufa-token-font-size-xs`   | 12px           | Static      | Captions, labels  |
+| `sm`   | `--lufa-token-font-size-sm`   | 14px           | Static      | Small body text   |
+| `base` | `--lufa-token-font-size-body` | 16px           | Static      | Default body text |
+| `lg`   | `--lufa-token-font-size-lg`   | 18px           | Static      | Large body text   |
+| `xl`   | `--lufa-token-font-size-xl`   | 20px           | Static      | Small headings    |
+| `2xl`  | `--lufa-token-font-size-2xl`  | 24px           | 20px → 24px | Medium headings   |
+| `3xl`  | `--lufa-token-font-size-3xl`  | 30px           | 24px → 30px | Large headings    |
+| `4xl`  | `--lufa-token-font-size-4xl`  | 36px           | 28px → 36px | XL headings       |
+| `5xl`  | `--lufa-token-font-size-5xl`  | 48px           | 32px → 48px | Hero headings     |
+
+:::info Fluid Typography
+Heading sizes (2xl-5xl) use CSS `clamp()` for responsive scaling between mobile and desktop viewports. Body text sizes (xs-xl) remain static for optimal readability.
+:::
 
 ## Font Weights
 
@@ -62,11 +67,33 @@ Line height tokens for different text contexts:
 
 ## Letter Spacing
 
-| Token    | CSS Variable                         | Value   | Usage            |
-| -------- | ------------------------------------ | ------- | ---------------- |
-| `tight`  | `--lufa-token-letter-spacing-tight`  | -0.02em | Headings         |
-| `normal` | `--lufa-token-letter-spacing-normal` | 0       | Body text        |
-| `wide`   | `--lufa-token-letter-spacing-wide`   | 0.05em  | Uppercase labels |
+Letter-spacing tokens for fine-tuning typography:
+
+| Token     | CSS Variable                          | Value   | Usage                              |
+| --------- | ------------------------------------- | ------- | ---------------------------------- |
+| `tighter` | `--lufa-token-letter-spacing-tighter` | -0.04em | Display text, extra large headings |
+| `tight`   | `--lufa-token-letter-spacing-tight`   | -0.02em | Large headings (H1-H3)             |
+| `normal`  | `--lufa-token-letter-spacing-normal`  | 0       | Body text (default)                |
+| `wide`    | `--lufa-token-letter-spacing-wide`    | 0.05em  | Small text, uppercase labels       |
+| `wider`   | `--lufa-token-letter-spacing-wider`   | 0.1em   | All-caps headings, button text     |
+
+:::tip Usage
+Letter-spacing is **not automatically applied** by components. Use it explicitly via CSS when needed:
+
+```css
+.hero-title {
+  font-size: var(--lufa-token-font-size-5xl);
+  letter-spacing: var(--lufa-token-letter-spacing-tight);
+}
+
+.uppercase-label {
+  font-size: var(--lufa-token-font-size-sm);
+  letter-spacing: var(--lufa-token-letter-spacing-wide);
+  text-transform: uppercase;
+}
+```
+
+:::
 
 ## Usage in Components
 
@@ -108,7 +135,8 @@ The `Text` component provides pre-configured typography variants:
 import { Text } from '@grasdouble/lufa_design-system';
 
 // Headings
-<Text variant="heading-4xl">Hero Heading</Text>
+<Text variant="heading-5xl">Hero Heading</Text>
+<Text variant="heading-4xl">XL Heading</Text>
 <Text variant="heading-3xl">Large Heading</Text>
 <Text variant="heading-2xl">Medium Heading</Text>
 <Text variant="heading-xl">Small Heading</Text>
@@ -135,21 +163,39 @@ Typography tokens ensure readability and accessibility:
 
 ## Responsive Typography
 
-Typography tokens are designed to work across all screen sizes:
+Typography tokens adapt automatically across screen sizes using CSS `clamp()` for headings:
 
 ```css
-/* Base sizes work well on all devices */
-.text {
-  font-size: var(--lufa-token-font-size-body); /* 16px */
+/* Heading tokens scale fluidly (2xl-5xl) */
+.hero-heading {
+  /* Automatically scales from 32px (mobile) to 48px (desktop) */
+  font-size: var(--lufa-token-font-size-5xl);
 }
 
-/* Optionally scale headings on larger screens */
-@media (min-width: 768px) {
-  .hero {
-    font-size: var(--lufa-token-font-size-4xl); /* 36px → could scale to 48px */
-  }
+.section-heading {
+  /* Automatically scales from 24px (mobile) to 30px (desktop) */
+  font-size: var(--lufa-token-font-size-3xl);
+}
+
+/* Body text remains static for readability */
+.body-text {
+  font-size: var(--lufa-token-font-size-body); /* Always 16px */
 }
 ```
+
+:::info How Fluid Typography Works
+The design system uses CSS `clamp()` for headings (2xl-5xl):
+
+```css
+/* Example: 5xl token */
+--lufa-token-font-size-5xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+/*                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/*                           min    preferred     max
+/*                           32px   viewport-based 48px
+```
+
+This provides smooth, automatic scaling without media queries. Body text (xs-xl) stays static at optimal reading sizes.
+:::
 
 ## Best Practices
 

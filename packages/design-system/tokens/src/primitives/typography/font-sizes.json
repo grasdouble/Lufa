@@ -63,50 +63,86 @@
           }
         },
         "2xl": {
-          "$value": "24px",
+          "$value": "clamp(1.25rem, 1rem + 1vw, 1.5rem)",
           "$type": "dimension",
-          "$description": "2x extra large font size - used for level 4 headings",
+          "$description": "2x extra large font size - fluid scaling from mobile to desktop",
           "$extensions": {
             "lufa": {
               "level": "primitive",
               "category": "typography",
-              "useCase": "Level 4 headings"
+              "useCase": "Level 4 headings",
+              "fluid": true,
+              "fluidRange": {
+                "min": "20px",
+                "max": "24px",
+                "viewport": {
+                  "min": "320px",
+                  "max": "1280px"
+                }
+              }
             }
           }
         },
         "3xl": {
-          "$value": "30px",
+          "$value": "clamp(1.5rem, 1.25rem + 1vw, 1.875rem)",
           "$type": "dimension",
-          "$description": "3x extra large font size - used for level 3 headings",
+          "$description": "3x extra large font size - fluid scaling from mobile to desktop",
           "$extensions": {
             "lufa": {
               "level": "primitive",
               "category": "typography",
-              "useCase": "Level 3 headings"
+              "useCase": "Level 3 headings",
+              "fluid": true,
+              "fluidRange": {
+                "min": "24px",
+                "max": "30px",
+                "viewport": {
+                  "min": "320px",
+                  "max": "1280px"
+                }
+              }
             }
           }
         },
         "4xl": {
-          "$value": "36px",
+          "$value": "clamp(1.75rem, 1.5rem + 1.25vw, 2.25rem)",
           "$type": "dimension",
-          "$description": "4x extra large font size - used for level 2 headings",
+          "$description": "4x extra large font size - fluid scaling from mobile to desktop",
           "$extensions": {
             "lufa": {
               "level": "primitive",
               "category": "typography",
-              "useCase": "Level 2 headings"
+              "useCase": "Level 2 headings",
+              "fluid": true,
+              "fluidRange": {
+                "min": "28px",
+                "max": "36px",
+                "viewport": {
+                  "min": "320px",
+                  "max": "1280px"
+                }
+              }
             }
           }
         },
         "5xl": {
-          "$value": "48px",
+          "$value": "clamp(2rem, 1.5rem + 2vw, 3rem)",
           "$type": "dimension",
-          "$description": "5x extra large font size - used for level 1 headings",
+          "$description": "5x extra large font size - fluid scaling from mobile to desktop",
           "$extensions": {
             "lufa": {
               "level": "primitive",
               "category": "typography",
-              "useCase": "Level 1 headings, hero titles"
+              "useCase": "Level 1 headings, hero titles",
+              "fluid": true,
+              "fluidRange": {
+                "min": "32px",
+                "max": "48px",
+                "viewport": {
+                  "min": "320px",
+                  "max": "1280px"
+                }
+              }
             }
           }
         }
