@@ -1,7 +1,10 @@
 /**
- * Lufa Design System - Forest Theme (Placeholder)
+ * Lufa Design System - Forest Theme (Phase 6 Implementation)
  *
- * This theme will be recreated in Phase 6 using Token Architecture v2.
+ * This theme will override brand tokens with forest-inspired colors.
+ * Currently a placeholder. Will be implemented in Phase 6.
+ *
+ * Usage: <html data-color-theme="forest" data-mode="dark">
  *
  * Color palette (from legacy):
  * - Primary: #2d5016 (forest green)
@@ -11,5 +14,15 @@
  */
 
 :root {
-  /* Phase 6: Token overrides will be generated here */
+  /* Phase 6: Forest brand color overrides */
+  /* Example:
+  [data-color-theme='forest'] {
+    --lufa-core-brand-primary: #10b981;
+    --lufa-core-brand-secondary: #059669;
+  }
+  [data-color-theme='forest'][data-mode='dark'] {
+    --lufa-core-brand-primary: #34d399;
+    --lufa-core-brand-secondary: #10b981;
+  }
+  */
 }

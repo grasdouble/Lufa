@@ -14,7 +14,7 @@
 /* ========================================== */
 
 .padding-none {
-  padding: var(--lufa-semantic-ui-spacing-tight);
+  padding: var(--lufa-primitive-spacing-0);
 }
 
 .padding-tight {
@@ -42,8 +42,8 @@
 /* ========================================== */
 
 .paddingX-none {
-  padding-left: var(--lufa-semantic-ui-spacing-tight);
-  padding-right: var(--lufa-semantic-ui-spacing-tight);
+  padding-left: var(--lufa-primitive-spacing-0);
+  padding-right: var(--lufa-primitive-spacing-0);
 }
 
 .paddingX-tight {
@@ -76,8 +76,8 @@
 /* ========================================== */
 
 .paddingY-none {
-  padding-top: var(--lufa-semantic-ui-spacing-tight);
-  padding-bottom: var(--lufa-semantic-ui-spacing-tight);
+  padding-top: var(--lufa-primitive-spacing-0);
+  padding-bottom: var(--lufa-primitive-spacing-0);
 }
 
 .paddingY-tight {
@@ -110,7 +110,7 @@
 /* ========================================== */
 
 .paddingTop-none {
-  padding-top: var(--lufa-semantic-ui-spacing-tight);
+  padding-top: var(--lufa-primitive-spacing-0);
 }
 
 .paddingTop-tight {
@@ -138,7 +138,7 @@
 /* ========================================== */
 
 .paddingRight-none {
-  padding-right: var(--lufa-semantic-ui-spacing-tight);
+  padding-right: var(--lufa-primitive-spacing-0);
 }
 
 .paddingRight-tight {
@@ -166,7 +166,7 @@
 /* ========================================== */
 
 .paddingBottom-none {
-  padding-bottom: var(--lufa-semantic-ui-spacing-tight);
+  padding-bottom: var(--lufa-primitive-spacing-0);
 }
 
 .paddingBottom-tight {
@@ -194,7 +194,7 @@
 /* ========================================== */
 
 .paddingLeft-none {
-  padding-left: var(--lufa-semantic-ui-spacing-tight);
+  padding-left: var(--lufa-primitive-spacing-0);
 }
 
 .paddingLeft-tight {
@@ -222,7 +222,7 @@
 /* ========================================== */
 
 .margin-none {
-  margin: var(--lufa-semantic-ui-spacing-tight);
+  margin: var(--lufa-primitive-spacing-0);
 }
 
 .margin-tight {
@@ -250,8 +250,8 @@
 /* ========================================== */
 
 .marginX-none {
-  margin-left: var(--lufa-semantic-ui-spacing-tight);
-  margin-right: var(--lufa-semantic-ui-spacing-tight);
+  margin-left: var(--lufa-primitive-spacing-0);
+  margin-right: var(--lufa-primitive-spacing-0);
 }
 
 .marginX-tight {
@@ -284,8 +284,8 @@
 /* ========================================== */
 
 .marginY-none {
-  margin-top: var(--lufa-semantic-ui-spacing-tight);
-  margin-bottom: var(--lufa-semantic-ui-spacing-tight);
+  margin-top: var(--lufa-primitive-spacing-0);
+  margin-bottom: var(--lufa-primitive-spacing-0);
 }
 
 .marginY-tight {
@@ -318,7 +318,7 @@
 /* ========================================== */
 
 .marginTop-none {
-  margin-top: var(--lufa-semantic-ui-spacing-tight);
+  margin-top: var(--lufa-primitive-spacing-0);
 }
 
 .marginTop-tight {
@@ -346,7 +346,7 @@
 /* ========================================== */
 
 .marginRight-none {
-  margin-right: var(--lufa-semantic-ui-spacing-tight);
+  margin-right: var(--lufa-primitive-spacing-0);
 }
 
 .marginRight-tight {
@@ -374,7 +374,7 @@
 /* ========================================== */
 
 .marginBottom-none {
-  margin-bottom: var(--lufa-semantic-ui-spacing-tight);
+  margin-bottom: var(--lufa-primitive-spacing-0);
 }
 
 .marginBottom-tight {
@@ -402,7 +402,7 @@
 /* ========================================== */
 
 .marginLeft-none {
-  margin-left: var(--lufa-semantic-ui-spacing-tight);
+  margin-left: var(--lufa-primitive-spacing-0);
 }
 
 .marginLeft-tight {
@@ -454,7 +454,7 @@
 }
 
 .background-overlay {
-  background-color: var(--lufa-semantic-ui-background-overlay);
+  background-color: var(--lufa-semantic-ui-overlay-backdrop);
 }
 
 .background-on-primary {

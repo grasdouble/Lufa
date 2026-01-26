@@ -105,6 +105,34 @@ const ColorScale = ({ colorName, shades }: { colorName: string; shades: number[]
  * ## Overview
  *
  * Complete color token system organized by semantic purpose.
+ *
+ * 💡 TOKEN EDUCATION: Three-Layer Token Architecture
+ *
+ * 1️⃣ **Primitive Tokens** (Base Layer)
+ *    - Raw color values: blue-500, gray-100, red-700
+ *    - Used as building blocks for semantic tokens
+ *    - Rarely used directly in components
+ *
+ * 2️⃣ **Semantic Tokens** (Meaning Layer)
+ *    - Purpose-driven: background-surface, text-primary, border-default
+ *    - Maps to primitive tokens
+ *    - Automatically adapts to light/dark/high-contrast modes
+ *    - **Use these for most UI elements**
+ *
+ * 3️⃣ **Component Tokens** (Component Layer)
+ *    - Component-specific: button-primary-background, input-border-focus
+ *    - Provides granular control for complex components
+ *    - Built on top of semantic tokens
+ *    - **Use these when available for your component**
+ *
+ * ✅ Best Practice Hierarchy:
+ *    1. Use component tokens (if available)
+ *    2. Use semantic tokens (for general UI)
+ *    3. Use primitive tokens (advanced use cases only)
+ *
+ * 🎨 Theme Support:
+ *    All tokens automatically switch values based on active theme mode.
+ *    Try switching between light/dark/high-contrast to see it in action!
  */
 export const Overview: Story = {
   render: () => (
@@ -165,7 +193,7 @@ export const Overview: Story = {
           description="Hover state for interactive surfaces"
         />
         <ColorSwatch
-          token="--lufa-semantic-ui-background-overlay"
+          token="--lufa-semantic-ui-overlay-backdrop"
           name="overlay"
           description="Modal backdrop, semi-transparent"
         />

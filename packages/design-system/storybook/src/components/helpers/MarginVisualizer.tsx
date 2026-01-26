@@ -14,9 +14,13 @@
  * - Showing how margin creates space around elements
  * - Demonstrating margin variants (tight, compact, default, comfortable, spacious)
  *
+ * **Note:** Default colors use design system tokens for theme consistency.
+ * Custom colors can be provided for specific visualization needs.
+ *
  * @example
  * ```tsx
- * <MarginVisualizer color="#3b82f6">
+ * // Using default token-based color
+ * <MarginVisualizer>
  *   <Box margin="spacious" padding="default">Content</Box>
  * </MarginVisualizer>
  * ```
@@ -36,7 +40,7 @@ export type MarginVisualizerProps = {
 
   /**
    * Background color (hex or named color)
-   * @default '#3b82f6' (blue)
+   * @default Uses info-default token for theme consistency
    */
   color?: string;
 
@@ -74,11 +78,11 @@ export type MarginVisualizerProps = {
    * Label text (e.g., "32px")
    */
   label?: string;
-}
+};
 
 export const MarginVisualizer = ({
   children,
-  color = '#3b82f6',
+  color, // Will use CSS variable as default if not provided
   opacity = 0.12,
   borderColor,
   borderWidth = 2,
@@ -86,10 +90,31 @@ export const MarginVisualizer = ({
   showLabel = false,
   label,
 }: MarginVisualizerProps) => {
-  const backgroundColor = `${color}${Math.round(opacity * 255)
-    .toString(16)
-    .padStart(2, '0')}`;
-  const computedBorderColor = borderColor || `${color}80`; // 50% opacity if not specified
+  // Use token-based color if no custom color provided
+  const defaultColor = 'var(--lufa-token-color-info-default)';
+  const finalColor = color || defaultColor;
+
+  // Extract token name from CSS variable for educational purposes
+  const extractTokenName = (colorValue: string): string | null => {
+    if (colorValue?.startsWith('var(')) {
+      const match = /--lufa-([a-z-]+)/.exec(colorValue);
+      return match ? match[1] : null;
+    }
+    return null;
+  };
+
+  const tokenName = extractTokenName(finalColor);
+
+  // For CSS variables, we can't compute hex alpha, so use rgba with opacity
+  const backgroundColor = finalColor.startsWith('var(')
+    ? `color-mix(in srgb, ${finalColor} ${opacity * 100}%, transparent)`
+    : `${finalColor}${Math.round(opacity * 255)
+        .toString(16)
+        .padStart(2, '0')}`;
+
+  const computedBorderColor =
+    borderColor ||
+    (finalColor.startsWith('var(') ? `color-mix(in srgb, ${finalColor} 50%, transparent)` : `${finalColor}80`);
 
   return (
     <div
@@ -100,6 +125,7 @@ export const MarginVisualizer = ({
         borderRadius: `${borderRadius}px`,
         position: 'relative',
       }}
+      title={tokenName ? `Token: ${tokenName}` : undefined}
     >
       {/* Optional dimension label */}
       {showLabel && label && (
@@ -110,16 +136,41 @@ export const MarginVisualizer = ({
             right: '4px',
             fontSize: '10px',
             fontWeight: 600,
-            color: color,
-            backgroundColor: 'white',
+            color: finalColor,
+            backgroundColor: 'var(--lufa-token-color-surface-default)',
             padding: '2px 6px',
             borderRadius: '3px',
-            border: `1px solid ${color}`,
+            border: `1px solid ${finalColor}`,
             zIndex: 10,
             pointerEvents: 'none',
           }}
         >
           {label}
+        </div>
+      )}
+
+      {/* Token name badge (shown when using token-based colors) */}
+      {tokenName && (
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '4px',
+            left: '4px',
+            fontSize: '9px',
+            fontWeight: 600,
+            color: 'var(--lufa-semantic-ui-text-secondary)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            padding: '2px 6px',
+            borderRadius: '3px',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
+            zIndex: 10,
+            pointerEvents: 'none',
+            fontFamily: 'monospace',
+            opacity: 0.8,
+          }}
+          title={`Using design token: --lufa-${tokenName}`}
+        >
+          🏷️ {tokenName}
         </div>
       )}
 

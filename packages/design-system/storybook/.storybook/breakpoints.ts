@@ -1,18 +1,25 @@
-// TODO: Replace with design system tokens when breakpoints are added to @grasdouble/lufa_design-system-tokens
-// See: packages/design-system/tokens/src/primitives/ for adding new tokens
-
 /**
  * Breakpoints for Storybook viewport configuration
- * Based on common device sizes and responsive design best practices
+ *
+ * Based on Lufa Design System breakpoint tokens (Sprint 1 - Phase 2.2)
+ * @see packages/design-system/tokens/src/primitives/breakpoint/scale.json
+ *
+ * These values match the primitive breakpoint tokens:
+ * - breakpoint-xs: 320px (mobile portrait)
+ * - breakpoint-sm: 640px (mobile landscape, large phones)
+ * - breakpoint-md: 768px (tablets portrait)
+ * - breakpoint-lg: 1024px (tablets landscape, small desktops)
+ * - breakpoint-xl: 1280px (desktop)
+ * - breakpoint-2xl: 1536px (large desktop, ultra-wide)
  */
 export const Breakpoints = {
   /** Extra small devices - Mobile portrait (320px) */
   xsmall: {
     width: 320,
   },
-  /** Small devices - Mobile landscape (576px) */
+  /** Small devices - Mobile landscape (640px) - Updated from 576px in Phase 2C Sprint 1 */
   small: {
-    width: 576,
+    width: 640,
   },
   /** Medium devices - Tablets (768px) */
   medium: {

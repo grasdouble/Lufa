@@ -64,7 +64,7 @@ React Components (Button.tsx)
 }
 
 /* Dark theme override */
-[data-theme='dark'] {
+[data-mode='dark'] {
   --lufa-core-brand-primary: #60a5fa; /* blue-400 */
 }
 

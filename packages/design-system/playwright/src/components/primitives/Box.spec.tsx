@@ -1070,7 +1070,7 @@ test.describe('Box Component', () => {
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
                 gap: '8px',
-                backgroundColor: 'var(--lufa-token-color-background-overlay)',
+                backgroundColor: 'var(--lufa-semantic-ui-overlay-backdrop)',
                 padding: '8px',
               }}
             >

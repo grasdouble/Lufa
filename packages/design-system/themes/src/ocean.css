@@ -1,7 +1,10 @@
 /**
- * Lufa Design System - Ocean Theme (Placeholder)
+ * Lufa Design System - Ocean Theme (Phase 6 Implementation)
  *
- * This theme will be recreated in Phase 6 using Token Architecture v2.
+ * This theme will override brand tokens with ocean-inspired colors.
+ * Currently a placeholder. Will be implemented in Phase 6.
+ *
+ * Usage: <html data-color-theme="ocean" data-mode="dark">
  *
  * Color palette (from legacy):
  * - Primary: #0077be (ocean blue)
@@ -11,5 +14,15 @@
  */
 
 :root {
-  /* Phase 6: Token overrides will be generated here */
+  /* Phase 6: Ocean brand color overrides */
+  /* Example:
+  [data-color-theme='ocean'] {
+    --lufa-core-brand-primary: #0ea5e9;
+    --lufa-core-brand-secondary: #06b6d4;
+  }
+  [data-color-theme='ocean'][data-mode='dark'] {
+    --lufa-core-brand-primary: #38bdf8;
+    --lufa-core-brand-secondary: #22d3ee;
+  }
+  */
 }

@@ -49,16 +49,16 @@ export const CodeBlock = ({
   return (
     <div
       style={{
-        background: '#1e293b',
+        background: 'var(--lufa-token-color-surface-inverse)',
         borderRadius: '12px',
         padding: '20px',
         fontFamily: 'monospace',
         fontSize: '13px',
         lineHeight: '1.6',
-        color: '#e2e8f0',
+        color: 'var(--lufa-token-color-text-inverse)',
         overflow: 'auto',
-        border: '1px solid #334155',
-        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        border: '1px solid var(--lufa-token-color-border-strong)',
+        boxShadow: '0 4px 6px var(--lufa-token-color-shadow-medium)',
       }}
     >
       {/* Header */}
@@ -70,7 +70,7 @@ export const CodeBlock = ({
             alignItems: 'center',
             marginBottom: '12px',
             paddingBottom: '12px',
-            borderBottom: '1px solid #334155',
+            borderBottom: '1px solid var(--lufa-token-color-border-strong)',
             flexWrap: 'wrap',
             gap: '12px',
           }}
@@ -79,7 +79,7 @@ export const CodeBlock = ({
             {title && (
               <span
                 style={{
-                  color: '#94a3b8',
+                  color: 'var(--lufa-token-color-text-tertiary)',
                   fontSize: '11px',
                   textTransform: 'uppercase',
                   letterSpacing: '0.5px',
@@ -91,7 +91,7 @@ export const CodeBlock = ({
             {subtitle && (
               <span
                 style={{
-                  color: '#60a5fa',
+                  color: 'var(--lufa-token-color-interactive-default)',
                   fontWeight: 600,
                 }}
               >
@@ -109,8 +109,14 @@ export const CodeBlock = ({
                   onClick={() => setActiveTab(index)}
                   style={{
                     padding: '6px 12px',
-                    background: activeTab === index ? '#3b82f6' : '#334155',
-                    color: activeTab === index ? '#ffffff' : '#94a3b8',
+                    background:
+                      activeTab === index
+                        ? 'var(--lufa-token-color-interactive-default)'
+                        : 'var(--lufa-token-color-border-strong)',
+                    color:
+                      activeTab === index
+                        ? 'var(--lufa-token-color-text-inverse)'
+                        : 'var(--lufa-token-color-text-tertiary)',
                     border: 'none',
                     borderRadius: '6px',
                     fontSize: '11px',
@@ -123,12 +129,12 @@ export const CodeBlock = ({
                   }}
                   onMouseEnter={(e) => {
                     if (activeTab !== index) {
-                      e.currentTarget.style.background = '#475569';
+                      e.currentTarget.style.background = 'var(--lufa-token-color-border-medium)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (activeTab !== index) {
-                      e.currentTarget.style.background = '#334155';
+                      e.currentTarget.style.background = 'var(--lufa-token-color-border-strong)';
                     }
                   }}
                 >
@@ -148,7 +154,9 @@ export const CodeBlock = ({
           wordBreak: 'break-word',
         }}
       >
-        {displayCode || <span style={{ color: '#94a3b8', fontStyle: 'italic' }}>{emptyMessage}</span>}
+        {displayCode || (
+          <span style={{ color: 'var(--lufa-token-color-text-tertiary)', fontStyle: 'italic' }}>{emptyMessage}</span>
+        )}
       </pre>
     </div>
   );

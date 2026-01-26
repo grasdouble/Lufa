@@ -168,6 +168,189 @@
             "useCase": "Focus ring spacing, outline-offset for focused elements"
           }
         }
+      },
+      "disabled-opacity": {
+        "$value": "0.38",
+        "$type": "number",
+        "$description": "Opacity value for disabled interactive elements (Material Design standard)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Apply to buttons, inputs, and controls in disabled state"
+          }
+        }
+      },
+      "loading-opacity": {
+        "$value": "0.6",
+        "$type": "number",
+        "$description": "Opacity value for loading states and skeleton loaders",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Skeleton loaders, loading placeholders"
+          }
+        }
+      },
+      "placeholder-opacity": {
+        "$value": "0.5",
+        "$type": "number",
+        "$description": "Opacity value for placeholder text and empty states",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Input placeholders, empty state illustrations"
+          }
+        }
+      },
+      "focus-background": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Background color for focused interactive elements (rare use case)",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Filled focus states (not just outline)"
+          }
+        }
+      },
+      "selected-background": {
+        "$value": "{semantic.ui.overlay-selected}",
+        "$type": "color",
+        "$description": "Background color for selected items in lists and menus",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Selected list items, active menu items, selected tabs"
+          }
+        }
+      },
+      "selected-text": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Text color for selected items",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "state",
+            "useCase": "Text in selected list items, active navigation"
+          }
+        }
+      },
+      "link-default": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Default link color for all link states in resting state",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Standard hyperlinks, navigation links, text links",
+            "a11y": "Maintains WCAG AA contrast in all modes"
+          }
+        }
+      },
+      "link-hover": {
+        "$value": "{core.brand.primary-hover}",
+        "$type": "color",
+        "$description": "Link color when hovering - provides visual feedback",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Hover state for links, enhanced interactivity indication"
+          }
+        }
+      },
+      "link-visited": {
+        "light": {
+          "$value": "{primitive.color.purple.600}",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "{primitive.color.purple.400}",
+          "$type": "color"
+        },
+        "high-contrast": {
+          "$value": "#9900ff",
+          "$type": "color"
+        },
+        "$type": "color",
+        "$description": "Color for visited links - helps users track navigation history",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Previously visited hyperlinks, navigation history",
+            "a11y": "Distinct from default link color for clarity"
+          }
+        }
+      },
+      "link-focus": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Link color when focused via keyboard - accessibility focus state",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Keyboard navigation focus, accessibility compliance",
+            "a11y": "Ensures focus ring is visible in all modes"
+          }
+        }
+      },
+      "link-active": {
+        "$value": "{core.brand.primary-active}",
+        "$type": "color",
+        "$description": "Link color when being clicked/activated",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Active click state for links, pressed state"
+          }
+        }
+      },
+      "link-underline-default": {
+        "$value": "underline",
+        "$type": "string",
+        "$description": "Default text decoration for links",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Standard link underline decoration"
+          }
+        }
+      },
+      "link-underline-hover": {
+        "$value": "underline",
+        "$type": "string",
+        "$description": "Text decoration for links on hover",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Hover state link decoration, can be 'none' for subtle effect"
+          }
+        }
       }
     }
   }

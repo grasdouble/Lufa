@@ -50,16 +50,16 @@ const ThemeAndModeWrapper = ({ theme, mode, children }: { theme: string; mode: s
   useEffect(() => {
     const root = document.documentElement;
 
-    // Apply theme attribute
+    // Apply theme attribute (Phase 6 - currently placeholder)
     if (theme === 'default') {
-      root.removeAttribute('data-theme');
+      root.removeAttribute('data-color-theme');
     } else {
-      root.setAttribute('data-theme', theme);
+      root.setAttribute('data-color-theme', theme);
     }
 
-    // Apply mode attribute
-    if (mode === 'auto' || mode === '' || mode == null || mode === undefined) {
-      root.removeAttribute('data-mode');
+    // Apply mode attribute (Phase 2A - active)
+    if (mode === '' || mode == null || mode === undefined) {
+      root.setAttribute('data-mode', 'light'); // Default to light
     } else {
       root.setAttribute('data-mode', mode);
     }
@@ -84,8 +84,8 @@ const ThemeAndModeWrapper = ({ theme, mode, children }: { theme: string; mode: s
 };
 
 /**
- * Custom decorator to handle theme (default/ocean/forest) and mode (light/dark/auto)
- * Applies data-theme and data-mode attributes to the document root
+ * Custom decorator to handle theme (default/ocean/forest) and mode (light/dark/high-contrast)
+ * Applies data-color-theme and data-mode attributes to the document root
  */
 const withThemeAndMode: Decorator = (Story, context) => {
   const theme: string = context.globals.theme ?? 'default';
@@ -117,7 +117,7 @@ const preview: Preview = {
       },
     },
     mode: {
-      description: 'Color mode (light/dark/auto)',
+      description: 'Color mode (accessibility)',
       defaultValue: 'light',
       toolbar: {
         title: 'Mode',
@@ -125,7 +125,7 @@ const preview: Preview = {
         items: [
           { value: 'light', title: '☀️ Light', icon: 'sun' },
           { value: 'dark', title: '🌙 Dark', icon: 'moon' },
-          { value: 'auto', title: '🔄 Auto', icon: 'sync' },
+          { value: 'high-contrast', title: '◐ High Contrast', icon: 'contrast' },
         ],
         dynamicTitle: true,
       },

@@ -1,0 +1,68 @@
+{
+  "core": {
+    "layout": {
+      "container": {
+        "sm": {
+          "$value": "{primitive.breakpoint.sm}",
+          "$type": "dimension",
+          "$description": "Small container max-width (640px)",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout-container",
+              "useCase": "Narrow content containers, forms, small sections"
+            }
+          }
+        },
+        "md": {
+          "$value": "{primitive.breakpoint.md}",
+          "$type": "dimension",
+          "$description": "Medium container max-width (768px)",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout-container",
+              "useCase": "Medium content containers, article width"
+            }
+          }
+        },
+        "lg": {
+          "$value": "{primitive.breakpoint.lg}",
+          "$type": "dimension",
+          "$description": "Large container max-width (1024px)",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout-container",
+              "useCase": "Standard page containers, main content areas"
+            }
+          }
+        },
+        "xl": {
+          "$value": "{primitive.breakpoint.xl}",
+          "$type": "dimension",
+          "$description": "Extra large container max-width (1280px)",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout-container",
+              "useCase": "Wide page containers, dashboard layouts"
+            }
+          }
+        },
+        "2xl": {
+          "$value": "{primitive.breakpoint.2xl}",
+          "$type": "dimension",
+          "$description": "2X extra large container max-width (1536px)",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout-container",
+              "useCase": "Ultra-wide containers, large screen layouts"
+            }
+          }
+        }
+      }
+    }
+  }
+}

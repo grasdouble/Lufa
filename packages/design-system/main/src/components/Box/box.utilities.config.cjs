@@ -19,7 +19,7 @@ module.exports = {
     padding: {
       property: 'padding',
       values: {
-        none: '--lufa-semantic-ui-spacing-tight', // 4px
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact', // 8px
         default: '--lufa-semantic-ui-spacing-default', // 16px
@@ -31,7 +31,7 @@ module.exports = {
     paddingX: {
       properties: ['padding-left', 'padding-right'],
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -43,7 +43,7 @@ module.exports = {
     paddingY: {
       properties: ['padding-top', 'padding-bottom'],
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -55,7 +55,7 @@ module.exports = {
     paddingTop: {
       property: 'padding-top',
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -67,7 +67,7 @@ module.exports = {
     paddingRight: {
       property: 'padding-right',
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -79,7 +79,7 @@ module.exports = {
     paddingBottom: {
       property: 'padding-bottom',
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -91,7 +91,7 @@ module.exports = {
     paddingLeft: {
       property: 'padding-left',
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -106,7 +106,7 @@ module.exports = {
     margin: {
       property: 'margin',
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -118,7 +118,7 @@ module.exports = {
     marginX: {
       properties: ['margin-left', 'margin-right'],
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -130,7 +130,7 @@ module.exports = {
     marginY: {
       properties: ['margin-top', 'margin-bottom'],
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -142,7 +142,7 @@ module.exports = {
     marginTop: {
       property: 'margin-top',
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -154,7 +154,7 @@ module.exports = {
     marginRight: {
       property: 'margin-right',
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -166,7 +166,7 @@ module.exports = {
     marginBottom: {
       property: 'margin-bottom',
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -178,7 +178,7 @@ module.exports = {
     marginLeft: {
       property: 'margin-left',
       values: {
-        none: '--lufa-semantic-ui-spacing-tight',
+        none: '--lufa-primitive-spacing-0', // 0px - Fixed bug ADR-007
         tight: '--lufa-semantic-ui-spacing-tight',
         compact: '--lufa-semantic-ui-spacing-compact',
         default: '--lufa-semantic-ui-spacing-default',
@@ -199,7 +199,7 @@ module.exports = {
         error: '--lufa-semantic-ui-background-error',
         warning: '--lufa-semantic-ui-background-warning',
         info: '--lufa-semantic-ui-background-info',
-        overlay: '--lufa-semantic-ui-background-overlay',
+        overlay: '--lufa-semantic-ui-overlay-backdrop',
         'on-primary': '--lufa-semantic-ui-background-on-primary',
         'on-secondary': '--lufa-semantic-ui-background-on-secondary',
         'on-success': '--lufa-semantic-ui-background-on-success',

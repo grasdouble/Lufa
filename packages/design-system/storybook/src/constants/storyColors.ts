@@ -7,6 +7,12 @@
  * **Important:** These colors are for visual demonstrations in Storybook stories ONLY.
  * For production components, always use semantic tokens from @grasdouble/lufa_design-system-tokens.
  *
+ * **Design Decision:** This file intentionally contains hard-coded color values for the following reasons:
+ * 1. **Consistency Across Themes:** Story examples need consistent colors regardless of active theme
+ * 2. **Contrast Demonstration:** Shows difference between hard-coded vs token-based approaches
+ * 3. **Extended Palette:** Provides colors not yet available in design system primitives
+ * 4. **Visual Stability:** Ensures story documentation looks the same for all users
+ *
  * **Usage Guidelines:**
  * - Use these colors consistently across all stories
  * - Primary colors for main examples
@@ -46,7 +52,7 @@ export type StoryColor = {
   light: string;
   /** Color name for reference */
   name: string;
-}
+};
 
 /**
  * Primary colors for stories
@@ -54,6 +60,13 @@ export type StoryColor = {
  * Uses design system primitives where available (blue, green, purple).
  * Additional colors (violet, pink, orange, cyan) use Tailwind CSS color values
  * as they are not yet available in the design system primitives.
+ *
+ * **Note on Hard-Coded Colors:** The violet, pink, orange, and cyan colors are intentionally
+ * hard-coded from Tailwind CSS because:
+ * 1. They provide visual variety for story demonstrations
+ * 2. They are not yet available in our primitive token set
+ * 3. They need to remain consistent across all themes for documentation clarity
+ * 4. This is acceptable for Storybook documentation (not production code)
  *
  * @see https://tailwindcss.com/docs/customizing-colors
  */
@@ -189,6 +202,10 @@ export const AXIS_COLORS = {
  *
  * Uses design system primitives (gray scale).
  * Use these for demonstration containers and content placeholders.
+ *
+ * **Note:** borderSlate, textSlate, and white are intentionally hard-coded because:
+ * - borderSlate/textSlate: Provide visual contrast not available in gray primitives
+ * - white: Universal reference color for documentation examples
  *
  * @example
  * ```tsx

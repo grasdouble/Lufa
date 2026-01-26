@@ -133,6 +133,22 @@ export const Default: Story = {
       <StoryContainer>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <PropCard label="Default Button">
+            {/* 
+              💡 TOKEN EDUCATION: This button automatically uses semantic design tokens
+              
+              Background: var(--lufa-component-button-primary-background)
+              Text: var(--lufa-component-button-primary-text)
+              Hover: var(--lufa-component-button-primary-background-hover)
+              Border: var(--lufa-component-button-primary-border)
+              
+              ✅ Benefits:
+              - Automatically adapts to light/dark/high-contrast modes
+              - Maintains WCAG AA accessibility standards
+              - Consistent with design system
+              - Easy to theme and customize
+              
+              Try switching theme modes in the toolbar to see automatic adaptation!
+            */}
             <Button>Click me</Button>
           </PropCard>
 
@@ -315,6 +331,34 @@ export const TypeVariantMatrix: Story = {
   render: () => {
     const types = ['solid', 'outline', 'ghost'] as const;
     const variants = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'neutral'] as const;
+
+    {
+      /* 
+      💡 TOKEN EDUCATION: 21 Button Combinations (3 types × 7 variants)
+      
+      Each combination uses component-specific tokens:
+      
+      Solid buttons:
+      - background: var(--lufa-component-button-{variant}-background)
+      - text: var(--lufa-component-button-{variant}-text)
+      - hover: var(--lufa-component-button-{variant}-background-hover)
+      
+      Outline buttons:
+      - border: var(--lufa-component-button-outline-border)
+      - text: var(--lufa-component-button-outline-text)
+      - hover-bg: var(--lufa-component-button-outline-background-hover)
+      
+      Ghost buttons:
+      - text: var(--lufa-component-button-ghost-text)
+      - hover-bg: var(--lufa-component-button-ghost-background-hover)
+      
+      ✅ All 21 combinations automatically adapt to light/dark/high-contrast themes!
+      ✅ No manual theme handling required
+      ✅ Accessible color contrast in all modes
+      
+      Try switching themes to see the magic! ✨
+    */
+    }
 
     return (
       <StoryContainer>
