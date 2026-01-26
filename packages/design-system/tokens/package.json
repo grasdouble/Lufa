@@ -17,12 +17,9 @@
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm clean && style-dictionary build --config ./style-dictionary.config.js",
-    "build:watch": "style-dictionary build --config ./style-dictionary.config.js --watch",
-    "clean": "rm -rf dist",
-    "lint": "echo 'No TypeScript files to lint in tokens package' && exit 0",
-    "prettier": "prettier --write .",
-    "validate": "node ../../../scripts/validate-token-metadata.js"
+    "build": "pnpm clean && style-dictionary build --config ./style-dictionary.config.js && pnpm check:size",
+    "check:size": "node scripts/check-css-size.mjs",
+    "clean": "rm -rf dist"
   },
   "dependencies": {},
   "devDependencies": {

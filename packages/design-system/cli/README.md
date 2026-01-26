@@ -180,19 +180,19 @@ $ npx lufa-validate-theme ./my-theme.css --verbose
 ```css
 /* custom-theme.css */
 :root,
-[data-theme='light'] {
+[data-mode='light'] {
   --lufa-core-neutral-background: #ffffff;
   --lufa-core-neutral-text-primary: #111827;
   /* ... more light mode tokens */
 }
 
-[data-theme='dark'] {
+[data-mode='dark'] {
   --lufa-core-neutral-background: #111827;
   --lufa-core-neutral-text-primary: #f9fafb;
   /* ... more dark mode tokens */
 }
 
-[data-theme='high-contrast'] {
+[data-mode='high-contrast'] {
   --lufa-core-neutral-background: #ffffff;
   --lufa-core-neutral-text-primary: #000000;
   /* ... more high-contrast tokens */

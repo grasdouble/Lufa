@@ -857,11 +857,11 @@ Semaine 11:   [████████████] Legacy Cleanup & Release
 **Architecture Multi-Modes:**
 
 ```
-Un seul nom de token → Valeur change selon [data-theme]
+Un seul nom de token → Valeur change selon [data-mode]
 ├─ light (default)
 ├─ dark
 ├─ high-contrast
-└─ custom themes (extensible)
+└─ custom themes (extensible avec data-color-theme)
 ```
 
 **Mécanisme:**
@@ -892,15 +892,15 @@ Un seul nom de token → Valeur change selon [data-theme]
 
 ```css
 :root,
-[data-theme='light'] {
+[data-mode='light'] {
   --lufa-color-background-primary: #ffffff;
 }
 
-[data-theme='dark'] {
+[data-mode='dark'] {
   --lufa-color-background-primary: #1f2937;
 }
 
-[data-theme='high-contrast'] {
+[data-mode='high-contrast'] {
   --lufa-color-background-primary: #000000;
 }
 ```
@@ -913,7 +913,7 @@ function useTheme() {
   const [theme, setTheme] = useState<'light' | 'dark' | 'high-contrast'>('light');
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-mode', theme);
     localStorage.setItem('lufa-theme', theme);
   }, [theme]);
 

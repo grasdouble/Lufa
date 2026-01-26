@@ -4,8 +4,8 @@ import React from 'react';
  * PaddingVisualizer Props
  */
 export type PaddingVisualizerProps = {
-  /** Background color for the padding area visualization */
-  color: string;
+  /** Background color for the padding area visualization. Uses info token by default for theme consistency. */
+  color?: string;
   /** Opacity of the background color (0-1) */
   opacity?: number;
   /** Whether to show a border around the content area */
@@ -16,7 +16,7 @@ export type PaddingVisualizerProps = {
   label?: string;
   /** Content inside the padding area */
   children: React.ReactNode;
-}
+};
 
 /**
  * PaddingVisualizer
@@ -38,7 +38,8 @@ export type PaddingVisualizerProps = {
  *
  * @example
  * ```tsx
- * <PaddingVisualizer color="#3b82f6" showLabel label="32px">
+ * // Using default token-based color
+ * <PaddingVisualizer showLabel label="32px">
  *   <Box paddingTop="spacious" background="surface">
  *     Content with top padding
  *   </Box>
@@ -47,7 +48,7 @@ export type PaddingVisualizerProps = {
  *
  * @example
  * ```tsx
- * // With border and custom opacity
+ * // With custom color, border and opacity
  * <PaddingVisualizer
  *   color="#ec4899"
  *   opacity={0.2}
@@ -62,19 +63,28 @@ export type PaddingVisualizerProps = {
  * ```
  */
 export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
-  color,
+  color, // Use token-based default if not provided
   opacity = 0.15,
   showBorder = false,
   showLabel = false,
   label = '',
   children,
 }) => {
+  // Use token-based color if no custom color provided
+  const defaultColor = 'var(--lufa-token-color-info-default)';
+  const finalColor = color || defaultColor;
+
   // Convert hex color to rgba for opacity
   const hexToRgba = (hex: string, alpha: number): string => {
     // Validate that hex is a string and starts with #
     if (!hex || typeof hex !== 'string') {
       console.warn('PaddingVisualizer: Invalid color provided:', hex);
       return `rgba(200, 200, 200, ${alpha})`; // Fallback to gray
+    }
+
+    // If it's a CSS variable, use color-mix
+    if (hex.startsWith('var(')) {
+      return `color-mix(in srgb, ${hex} ${alpha * 100}%, transparent)`;
     }
 
     // If it's already an rgb/rgba, return as-is with opacity adjustment
@@ -90,7 +100,7 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   };
 
-  const backgroundColor = hexToRgba(color, opacity);
+  const backgroundColor = hexToRgba(finalColor, opacity);
 
   return (
     <div
@@ -107,8 +117,8 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
             position: 'absolute',
             top: '4px',
             right: '4px',
-            backgroundColor: color,
-            color: 'white',
+            backgroundColor: finalColor,
+            color: 'var(--lufa-token-color-text-inverse)',
             fontSize: '10px',
             fontWeight: 600,
             padding: '2px 6px',
@@ -125,7 +135,7 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
       <div
         style={{
           ...(showBorder && {
-            border: `2px dashed ${color}`,
+            border: `2px dashed ${finalColor}`,
             borderRadius: '4px',
           }),
         }}

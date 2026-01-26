@@ -22,6 +22,48 @@
  * - Level 2: Core tokens (brand colors, neutral palette)
  * - Level 3: Semantic tokens (UI-level meanings like primary, hover, disabled)
  * - Level 4: Component tokens (component-specific values)
+ * 
+ * CUSTOMIZATION PATTERNS:
+ * 
+ * Pattern 1: Reference existing tokens (recommended for theme consistency)
+ * --lufa-core-brand-primary: var(--lufa-primitive-color-blue-600);
+ * 
+ * Pattern 2: Define custom brand colors (for unique brand identity)
+ * --lufa-primitive-color-brand-primary: #FF6B35;  /* Your brand orange */
+ * --lufa-core-brand-primary: var(--lufa-primitive-color-brand-primary);
+ * 
+ * Pattern 3: Override semantic tokens while maintaining mode support
+ * :root[data-mode='light'] {
+ *   --lufa-semantic-ui-background-page: #FAFAFA;
+ * }
+ * :root[data-mode='dark'] {
+ *   --lufa-semantic-ui-background-page: #0A0A0A;
+ * }
+ * 
+ * BEST PRACTICES:
+ * 1. Start by customizing Level 1 primitives for your brand colors
+ * 2. Use token references (var()) whenever possible for consistency
+ * 3. Test your theme in light, dark, and high-contrast modes
+ * 4. Validate accessibility with lufa-validate-theme command
+ * 5. Keep semantic meaning intact (don't make 'error' colors green!)
+ * 
+ * EXAMPLES:
+ * 
+ * Example 1: Custom brand colors with token references
+ * --lufa-primitive-color-brand-500: #7C3AED;  /* Purple brand */
+ * --lufa-core-brand-primary: var(--lufa-primitive-color-brand-500);
+ * --lufa-core-brand-primary-hover: var(--lufa-primitive-color-brand-600);
+ * 
+ * Example 2: Warm color palette theme
+ * --lufa-primitive-color-blue-500: #F59E0B;  /* Replace blue with amber */
+ * --lufa-primitive-color-blue-600: #D97706;
+ * --lufa-core-brand-primary: var(--lufa-primitive-color-blue-500);
+ * 
+ * Example 3: High-contrast theme modifications
+ * :root[data-mode='high-contrast'] {
+ *   --lufa-semantic-ui-border-default: #000000;  /* Pure black borders */
+ *   --lufa-semantic-ui-text-primary: #000000;    /* Maximum contrast text */
+ * }
  */
 
 :root {

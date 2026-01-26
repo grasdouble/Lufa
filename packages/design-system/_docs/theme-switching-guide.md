@@ -12,7 +12,9 @@ Lufa Design System supports three theme modes:
 - **Dark**
 - **High Contrast** (WCAG AAA compliant)
 
-Theme switching is CSS-based using the `data-theme` attribute on any parent element. No JavaScript is required for themes to work, but JavaScript enables dynamic switching.
+Theme switching is CSS-based using the `data-mode` attribute on any parent element. No JavaScript is required for themes to work, but JavaScript enables dynamic switching.
+
+**Note:** Use `data-mode` for accessibility modes (light, dark, high-contrast) and `data-color-theme` for brand color themes (ocean, forest, etc.). This guide covers accessibility modes.
 
 ## Quick Start
 
@@ -31,12 +33,12 @@ Theme switching is CSS-based using the `data-theme` attribute on any parent elem
     </div>
 
     <!-- Dark theme -->
-    <div class="card" data-theme="dark">
+    <div class="card" data-mode="dark">
       <p>This uses dark theme</p>
     </div>
 
     <!-- High contrast theme -->
-    <div class="card" data-theme="high-contrast">
+    <div class="card" data-mode="high-contrast">
       <p>This uses high contrast theme</p>
     </div>
   </body>
@@ -59,7 +61,7 @@ Theme switching is CSS-based using the `data-theme` attribute on any parent elem
 }
 ```
 
-The component automatically adapts to the theme based on the nearest `data-theme` ancestor.
+The component automatically adapts to the theme based on the nearest `data-mode` ancestor.
 
 ## React Implementation
 
@@ -72,7 +74,7 @@ function App() {
   const [theme, setTheme] = useState<'light' | 'dark' | 'high-contrast'>('light');
 
   return (
-    <div data-theme={theme}>
+    <div data-mode={theme}>
       <button onClick={() => setTheme('light')}>Light</button>
       <button onClick={() => setTheme('dark')}>Dark</button>
       <button onClick={() => setTheme('high-contrast')}>High Contrast</button>
@@ -111,7 +113,7 @@ export function useTheme() {
 
   useEffect(() => {
     localStorage.setItem('lufa-theme', theme);
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-mode', theme);
   }, [theme]);
 
   return { theme, setTheme: setThemeState };
@@ -125,7 +127,7 @@ function App() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div data-theme={theme}>
+    <div data-mode={theme}>
       <select value={theme} onChange={(e) => setTheme(e.target.value as Theme)}>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
@@ -145,30 +147,30 @@ You can apply themes at **any level** of your DOM tree:
 ### Global Theme (Entire App)
 
 ```tsx
-<html data-theme="dark">{/* Entire app uses dark theme */}</html>
+<html data-mode="dark">{/* Entire app uses dark theme */}</html>
 ```
 
 ### Section Theme (Part of App)
 
 ```tsx
 <main>
-  <section data-theme="light">{/* Light theme section */}</section>
+  <section data-mode="light">{/* Light theme section */}</section>
 
-  <section data-theme="dark">{/* Dark theme section */}</section>
+  <section data-mode="dark">{/* Dark theme section */}</section>
 </main>
 ```
 
 ### Component Theme (Single Component)
 
 ```tsx
-<Card data-theme="high-contrast">{/* Only this card uses high contrast */}</Card>
+<Card data-mode="high-contrast">{/* Only this card uses high contrast */}</Card>
 ```
 
 ## Available Theme Tokens
 
 ### Tokens That Adapt to Theme (31 tokens)
 
-These tokens change values based on `data-theme`:
+These tokens change values based on `data-mode`:
 
 **Neutral Colors (9):**
 
@@ -277,14 +279,13 @@ useEffect(() => {
 ### Manual Testing
 
 1. Open browser DevTools
-2. Add `data-theme` attribute to `<html>` or any element
-3. Observe color changes in real-time
+2. Add `data-mode` attribute to `<html>` or any element
 
 ```js
 // Console commands
-document.documentElement.setAttribute('data-theme', 'dark');
-document.documentElement.setAttribute('data-theme', 'light');
-document.documentElement.setAttribute('data-theme', 'high-contrast');
+document.documentElement.setAttribute('data-mode', 'dark');
+document.documentElement.setAttribute('data-mode', 'light');
+document.documentElement.setAttribute('data-mode', 'high-contrast');
 ```
 
 ### Automated Testing (Playwright/Cypress)
@@ -294,7 +295,7 @@ document.documentElement.setAttribute('data-theme', 'high-contrast');
 test('should render dark theme correctly', async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => {
-    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.setAttribute('data-mode', 'dark');
   });
 
   const background = await page.evaluate(() => {
@@ -311,13 +312,13 @@ test('should render dark theme correctly', async ({ page }) => {
 // Storybook story with theme variants
 export const AllThemes = () => (
   <>
-    <div data-theme="light">
+    <div data-mode="light">
       <YourComponent />
     </div>
-    <div data-theme="dark">
+    <div data-mode="dark">
       <YourComponent />
     </div>
-    <div data-theme="high-contrast">
+    <div data-mode="high-contrast">
       <YourComponent />
     </div>
   </>
@@ -329,9 +330,9 @@ export const AllThemes = () => (
 ### CSS Size Impact
 
 - **Total CSS file:** ~56 KB
-- **Light theme selectors:** 173 tokens (`:root, [data-theme='light']`)
-- **Dark theme selectors:** 31 tokens (`[data-theme='dark']`)
-- **High contrast selectors:** 31 tokens (`[data-theme='high-contrast']`)
+- **Light theme selectors:** 173 tokens (`:root, [data-mode='light']`)
+- **Dark theme selectors:** 31 tokens (`[data-mode='dark']`)
+- **High contrast selectors:** 31 tokens (`[data-mode='high-contrast']`)
 
 ### Runtime Performance
 
@@ -380,7 +381,7 @@ const lightTheme = {
 ```tsx
 import '@grasdouble/lufa-tokens/dist/tokens.css';
 
-<div data-theme="light">{/* Use CSS variables in components */}</div>;
+<div data-mode="light">{/* Use CSS variables in components */}</div>;
 ```
 
 ### From Styled Components Theme
@@ -419,12 +420,12 @@ const StyledCard = styled.div`
 
 ### Theme Not Switching
 
-**Problem:** Colors don't change when setting `data-theme`
+**Problem:** Colors don't change when setting `data-mode`
 
 **Solutions:**
 
 1. Verify tokens CSS is imported: `import '@grasdouble/lufa-tokens/dist/tokens.css'`
-2. Check `data-theme` value is exact: `'light'`, `'dark'`, or `'high-contrast'` (no typos)
+2. Check `data-mode` value is exact: `'light'`, `'dark'`, or `'high-contrast'` (no typos)
 3. Inspect computed styles in DevTools to see which theme selector is active
 4. Ensure no CSS specificity issues are overriding token values
 
@@ -439,7 +440,7 @@ const StyledCard = styled.div`
   // In <head> before any stylesheets
   (function () {
     const theme = localStorage.getItem('lufa-theme') || 'light';
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-mode', theme);
   })();
 </script>
 ```
@@ -464,10 +465,10 @@ function App() {
   useEffect(() => setMounted(true), []);
 
   if (!mounted) {
-    return <div data-theme="light">{/* Loading state */}</div>;
+    return <div data-mode="light">{/* Loading state */}</div>;
   }
 
-  return <div data-theme={theme}>{/* App */}</div>;
+  return <div data-mode={theme}>{/* App */}</div>;
 }
 ```
 

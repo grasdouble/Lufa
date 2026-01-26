@@ -25,20 +25,7 @@
           }
         }
       },
-      "background-overlay": {
-        "$value": "{semantic.ui.overlay-backdrop}",
-        "$type": "color",
-        "$description": "DEPRECATED: Use overlay-backdrop instead. Kept for backwards compatibility.",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Modal backdrops, drawer overlays, dialog backgrounds",
-            "deprecated": true,
-            "replacement": "semantic.ui.overlay-backdrop"
-          }
-        }
-      },
+
       "overlay-backdrop": {
         "$value": "{primitive.color.alpha.black.50}",
         "$type": "color",

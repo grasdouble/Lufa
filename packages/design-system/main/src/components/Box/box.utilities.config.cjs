@@ -199,7 +199,7 @@ module.exports = {
         error: '--lufa-semantic-ui-background-error',
         warning: '--lufa-semantic-ui-background-warning',
         info: '--lufa-semantic-ui-background-info',
-        overlay: '--lufa-semantic-ui-background-overlay',
+        overlay: '--lufa-semantic-ui-overlay-backdrop',
         'on-primary': '--lufa-semantic-ui-background-on-primary',
         'on-secondary': '--lufa-semantic-ui-background-on-secondary',
         'on-success': '--lufa-semantic-ui-background-on-success',

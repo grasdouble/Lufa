@@ -55,13 +55,20 @@
 
 **Interactive State Tokens**
 
-- Added 6 new interactive state tokens for consistent UI patterns
+- Added 13 new interactive state tokens for consistent UI patterns
   - `semantic.interactive.disabled-opacity` (0.38)
   - `semantic.interactive.loading-opacity` (0.6)
   - `semantic.interactive.placeholder-opacity` (0.5)
   - `semantic.interactive.focus-background`
   - `semantic.interactive.selected-background`
   - `semantic.interactive.selected-text`
+  - `semantic.interactive.link-default` - Standard link color
+  - `semantic.interactive.link-hover` - Link hover state
+  - `semantic.interactive.link-visited` - Visited link color (mode-aware)
+  - `semantic.interactive.link-focus` - Link keyboard focus color
+  - `semantic.interactive.link-active` - Link active/pressed color
+  - `semantic.interactive.link-underline-default` - Default link decoration
+  - `semantic.interactive.link-underline-hover` - Hover link decoration
 
 **Button Variant Tokens**
 
@@ -98,11 +105,12 @@
 
 #### 📊 Statistics
 
-- **New Tokens:** 38 (24 primitive + 14 semantic)
+- **New Tokens:** 45 (24 primitive + 21 semantic)
 - **Updated Tokens:** 31 core tokens
 - **Hard-Coded Colors Replaced:** 12 instances
-- **CSS File Size:** 61 KB (was 45 KB, +16 KB / +35%)
-- **Token Count:** 187 tokens (was 149, +38)
+- **CSS File Size:** 61.84 KB (was 45 KB, +16.84 KB / +37%)
+- **Token Count:** 194 tokens (was 149, +45)
+- **Documentation Files Updated:** 8 files (`data-theme` → `data-mode`)
 
 #### ✅ Accessibility
 
@@ -347,6 +355,41 @@ pnpm list @grasdouble/lufa_design-system-tokens
 --lufa-semantic-interactive-focus-background: var(--lufa-core-brand-primary);
 --lufa-semantic-interactive-selected-background: var(--lufa-semantic-ui-overlay-selected);
 --lufa-semantic-interactive-selected-text: var(--lufa-core-brand-primary);
+```
+
+### Link Tokens (Mode-Aware)
+
+```css
+/* Light mode */
+[data-mode='light'] {
+  --lufa-semantic-interactive-link-default: var(--lufa-core-brand-primary);
+  --lufa-semantic-interactive-link-hover: var(--lufa-core-brand-primary-hover);
+  --lufa-semantic-interactive-link-visited: var(--lufa-primitive-color-purple-600);
+  --lufa-semantic-interactive-link-focus: var(--lufa-core-brand-primary);
+  --lufa-semantic-interactive-link-active: var(--lufa-core-brand-primary-active);
+}
+
+/* Dark mode */
+[data-mode='dark'] {
+  --lufa-semantic-interactive-link-default: var(--lufa-core-brand-primary);
+  --lufa-semantic-interactive-link-hover: var(--lufa-core-brand-primary-hover);
+  --lufa-semantic-interactive-link-visited: var(--lufa-primitive-color-purple-400);
+  --lufa-semantic-interactive-link-focus: var(--lufa-core-brand-primary);
+  --lufa-semantic-interactive-link-active: var(--lufa-core-brand-primary-active);
+}
+
+/* High-contrast mode */
+[data-mode='high-contrast'] {
+  --lufa-semantic-interactive-link-default: #0000ff;
+  --lufa-semantic-interactive-link-hover: #0000ff;
+  --lufa-semantic-interactive-link-visited: #9900ff;
+  --lufa-semantic-interactive-link-focus: #0000ff;
+  --lufa-semantic-interactive-link-active: #0000ff;
+}
+
+/* Link decorations */
+--lufa-semantic-interactive-link-underline-default: underline;
+--lufa-semantic-interactive-link-underline-hover: underline;
 ```
 
 ### Button Variant Tokens

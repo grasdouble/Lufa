@@ -6,6 +6,41 @@
 
 This release introduces comprehensive improvements to the color token system, achieving 100% high-contrast coverage and adding systematic alpha/opacity support.
 
+## ⚠️ Breaking Changes
+
+### Removed Deprecated Token Alias
+
+**REMOVED:** `semantic.ui.background-overlay` token has been completely removed.
+
+**MIGRATION REQUIRED:**
+
+Replace all usages with `semantic.ui.overlay-backdrop`:
+
+```diff
+# CSS Files
+- background-color: var(--lufa-semantic-ui-background-overlay);
++ background-color: var(--lufa-semantic-ui-overlay-backdrop);
+
+# Token References (JSON)
+- "$value": "{semantic.ui.background-overlay}"
++ "$value": "{semantic.ui.overlay-backdrop}"
+```
+
+**Search & Replace Commands:**
+
+```bash
+# Find all usages
+grep -r "background-overlay" . --include="*.{css,json,ts,tsx,js,jsx}"
+
+# CSS files
+find . -name "*.css" -exec sed -i '' 's/--lufa-semantic-ui-background-overlay/--lufa-semantic-ui-overlay-backdrop/g' {} +
+
+# JSON files
+find . -name "*.json" -exec sed -i '' 's/semantic\.ui\.background-overlay/semantic.ui.overlay-backdrop/g' {} +
+```
+
+---
+
 ## ✨ Features
 
 ### High-Contrast Primitives (6 new tokens)
@@ -52,10 +87,9 @@ This release introduces comprehensive improvements to the color token system, ac
 
 ## 🗑️ Deprecations
 
-- `semantic.ui.background-overlay` → Use `semantic.ui.overlay-backdrop` instead
-  - Backward-compatible alias maintained for migration period
+**NONE** - The previously deprecated `semantic.ui.background-overlay` has been removed (see Breaking Changes above).
 
-## 📊 Metrics
+---
 
 - **High-contrast coverage:** 67% → 100% ✅
 - **New tokens added:** 38 (24 primitive + 14 semantic)

@@ -165,7 +165,7 @@ export const Overview: Story = {
           description="Hover state for interactive surfaces"
         />
         <ColorSwatch
-          token="--lufa-semantic-ui-background-overlay"
+          token="--lufa-semantic-ui-overlay-backdrop"
           name="overlay"
           description="Modal backdrop, semi-transparent"
         />

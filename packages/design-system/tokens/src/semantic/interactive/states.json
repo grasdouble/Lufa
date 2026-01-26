@@ -246,6 +246,111 @@
             "useCase": "Text in selected list items, active navigation"
           }
         }
+      },
+      "link-default": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Default link color for all link states in resting state",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Standard hyperlinks, navigation links, text links",
+            "a11y": "Maintains WCAG AA contrast in all modes"
+          }
+        }
+      },
+      "link-hover": {
+        "$value": "{core.brand.primary-hover}",
+        "$type": "color",
+        "$description": "Link color when hovering - provides visual feedback",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Hover state for links, enhanced interactivity indication"
+          }
+        }
+      },
+      "link-visited": {
+        "light": {
+          "$value": "{primitive.color.purple.600}",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "{primitive.color.purple.400}",
+          "$type": "color"
+        },
+        "high-contrast": {
+          "$value": "#9900ff",
+          "$type": "color"
+        },
+        "$type": "color",
+        "$description": "Color for visited links - helps users track navigation history",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Previously visited hyperlinks, navigation history",
+            "a11y": "Distinct from default link color for clarity"
+          }
+        }
+      },
+      "link-focus": {
+        "$value": "{core.brand.primary}",
+        "$type": "color",
+        "$description": "Link color when focused via keyboard - accessibility focus state",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Keyboard navigation focus, accessibility compliance",
+            "a11y": "Ensures focus ring is visible in all modes"
+          }
+        }
+      },
+      "link-active": {
+        "$value": "{core.brand.primary-active}",
+        "$type": "color",
+        "$description": "Link color when being clicked/activated",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Active click state for links, pressed state"
+          }
+        }
+      },
+      "link-underline-default": {
+        "$value": "underline",
+        "$type": "string",
+        "$description": "Default text decoration for links",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Standard link underline decoration"
+          }
+        }
+      },
+      "link-underline-hover": {
+        "$value": "underline",
+        "$type": "string",
+        "$description": "Text decoration for links on hover",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "interactive",
+            "subcategory": "link",
+            "useCase": "Hover state link decoration, can be 'none' for subtle effect"
+          }
+        }
       }
     }
   }

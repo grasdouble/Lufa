@@ -46,7 +46,7 @@ export const PropCard = ({
   interactionType?: 'click' | 'hover';
 }) => {
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.currentTarget.style.background = '#3b82f612';
+    e.currentTarget.style.background = 'var(--lufa-token-color-info-lighter)';
     e.currentTarget.style.transform = 'translateY(-2px)';
 
     if (interactionType === 'hover' && onInteraction) {
@@ -55,7 +55,7 @@ export const PropCard = ({
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.currentTarget.style.background = highlight ? '#3b82f608' : 'transparent';
+    e.currentTarget.style.background = highlight ? 'var(--lufa-token-color-info-light)' : 'transparent';
     e.currentTarget.style.transform = 'translateY(0)';
   };
 
@@ -73,7 +73,7 @@ export const PropCard = ({
         flexDirection: 'column',
         gap: '12px',
         padding: '16px',
-        background: highlight ? '#3b82f608' : 'transparent',
+        background: highlight ? 'var(--lufa-token-color-info-light)' : 'transparent',
         borderRadius: '12px',
         transition: 'all 0.2s ease',
         cursor: interactionType === 'click' ? 'pointer' : 'default',
@@ -89,11 +89,11 @@ export const PropCard = ({
           fontWeight: 600,
           textTransform: 'uppercase',
           letterSpacing: '0.5px',
-          color: '#6b7280',
+          color: 'var(--lufa-token-color-text-secondary)',
           fontFamily: 'monospace',
           textAlign: 'center',
           paddingTop: '8px',
-          borderTop: '1px solid #e5e7eb',
+          borderTop: '1px solid var(--lufa-token-color-border-light)',
         }}
       >
         {label}

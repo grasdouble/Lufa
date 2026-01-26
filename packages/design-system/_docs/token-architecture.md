@@ -432,7 +432,7 @@ Themes override semantic and component tokens while keeping primitives unchanged
 }
 
 /* Dark theme */
-[data-theme='dark'] {
+[data-mode='dark'] {
   --semantic-ui-background-page: var(--primitive-color-gray-900);
   --semantic-ui-text-primary: var(--primitive-color-gray-50);
 }

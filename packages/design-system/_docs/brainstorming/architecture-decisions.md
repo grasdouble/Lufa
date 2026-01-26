@@ -142,17 +142,17 @@ packages/design-system/tokens/src/
 ```css
 /* Multi-mode support */
 :root,
-[data-theme='light'] {
+[data-mode='light'] {
   --lufa-core-neutral-background: var(--lufa-primitive-color-gray-50);
   /* ... 173 tokens */
 }
 
-[data-theme='dark'] {
+[data-mode='dark'] {
   --lufa-core-neutral-background: var(--lufa-primitive-color-gray-900);
   /* ... 31 mode-specific tokens */
 }
 
-[data-theme='high-contrast'] {
+[data-mode='high-contrast'] {
   --lufa-core-neutral-background: #ffffff;
   /* ... 31 mode-specific tokens */
 }
@@ -284,8 +284,10 @@ pnpm clean
 **`css/variables-with-modes`** - Multi-mode CSS generation
 
 - Handles `modes` metadata
-- Generates `[data-theme]` selectors
+- Generates `[data-mode]` selectors for accessibility modes
 - Resolves primitive references
+
+**Note:** Use `data-mode` for accessibility modes (light/dark/high-contrast) and `data-color-theme` for brand color themes.
 
 ---
 
@@ -295,7 +297,7 @@ pnpm clean
 
 ### Approach
 
-**CSS-based theming** using `data-theme` attribute
+**CSS-based theming** using `data-mode` attribute for accessibility modes
 
 ### Supported Modes
 
@@ -335,14 +337,14 @@ pnpm clean
 
 ```tsx
 // HTML/React
-<div data-theme="dark">
+<div data-mode="dark">
   {/* Components automatically use dark theme */}
 </div>
 
 // CSS (automatic)
 .component {
   background: var(--lufa-core-neutral-background);
-  /* Resolves based on [data-theme] selector */
+  /* Resolves based on [data-mode] selector */
 }
 ```
 
