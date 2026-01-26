@@ -436,6 +436,5 @@ Comprehensive guides available:
 
 ---
 
-**Release:** v0.8.0-alpha.1  
 **Date:** 2026-01-26  
 **Status:** Ready for Testing
