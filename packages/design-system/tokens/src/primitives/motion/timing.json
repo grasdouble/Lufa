@@ -10,7 +10,8 @@
             "lufa": {
               "level": "primitive",
               "category": "motion",
-              "useCase": "Hover feedback, toggle switches, immediate interactions"
+              "useCase": "Hover feedback, toggle switches, immediate interactions",
+              "themable": false
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "level": "primitive",
               "category": "motion",
-              "useCase": "Button clicks, dropdown open/close, tooltip appear"
+              "useCase": "Button clicks, dropdown open/close, tooltip appear",
+              "themable": false
             }
           }
         },
@@ -34,7 +36,8 @@
             "lufa": {
               "level": "primitive",
               "category": "motion",
-              "useCase": "Modal open, panel slide, standard animations"
+              "useCase": "Modal open, panel slide, standard animations",
+              "themable": false
             }
           }
         },
@@ -46,7 +49,8 @@
             "lufa": {
               "level": "primitive",
               "category": "motion",
-              "useCase": "Page transitions, complex animations, emphasized movement"
+              "useCase": "Page transitions, complex animations, emphasized movement",
+              "themable": false
             }
           }
         }
@@ -60,7 +64,8 @@
             "lufa": {
               "level": "primitive",
               "category": "motion",
-              "useCase": "Progress bars, loading indicators, mechanical movement"
+              "useCase": "Progress bars, loading indicators, mechanical movement",
+              "themable": false
             }
           }
         },
@@ -72,7 +77,8 @@
             "lufa": {
               "level": "primitive",
               "category": "motion",
-              "useCase": "Elements leaving screen, fade out, collapse"
+              "useCase": "Elements leaving screen, fade out, collapse",
+              "themable": false
             }
           }
         },
@@ -84,7 +90,8 @@
             "lufa": {
               "level": "primitive",
               "category": "motion",
-              "useCase": "Elements entering screen, fade in, expand"
+              "useCase": "Elements entering screen, fade in, expand",
+              "themable": false
             }
           }
         },
@@ -96,7 +103,8 @@
             "lufa": {
               "level": "primitive",
               "category": "motion",
-              "useCase": "Modal open/close, smooth transitions, general purpose"
+              "useCase": "Modal open/close, smooth transitions, general purpose",
+              "themable": false
             }
           }
         }

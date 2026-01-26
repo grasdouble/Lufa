@@ -11,7 +11,8 @@
             "category": "breakpoint",
             "useCase": "mobile-first baseline",
             "devices": "small phones (320-639px)",
-            "mediaQuery": "@media (min-width: 320px)"
+            "mediaQuery": "@media (min-width: 320px)",
+            "themable": false
           }
         }
       },
@@ -25,7 +26,8 @@
             "category": "breakpoint",
             "useCase": "small tablet, large mobile",
             "devices": "large phones (640-767px)",
-            "mediaQuery": "@media (min-width: 640px)"
+            "mediaQuery": "@media (min-width: 640px)",
+            "themable": false
           }
         }
       },
@@ -39,7 +41,8 @@
             "category": "breakpoint",
             "useCase": "tablet layouts",
             "devices": "tablets portrait (768-1023px)",
-            "mediaQuery": "@media (min-width: 768px)"
+            "mediaQuery": "@media (min-width: 768px)",
+            "themable": false
           }
         }
       },
@@ -53,7 +56,8 @@
             "category": "breakpoint",
             "useCase": "desktop layouts",
             "devices": "tablets landscape, small desktops (1024-1279px)",
-            "mediaQuery": "@media (min-width: 1024px)"
+            "mediaQuery": "@media (min-width: 1024px)",
+            "themable": false
           }
         }
       },
@@ -67,7 +71,8 @@
             "category": "breakpoint",
             "useCase": "standard desktop",
             "devices": "desktops (1280-1535px)",
-            "mediaQuery": "@media (min-width: 1280px)"
+            "mediaQuery": "@media (min-width: 1280px)",
+            "themable": false
           }
         }
       },
@@ -81,7 +86,8 @@
             "category": "breakpoint",
             "useCase": "large screens",
             "devices": "large desktops (1536px+)",
-            "mediaQuery": "@media (min-width: 1536px)"
+            "mediaQuery": "@media (min-width: 1536px)",
+            "themable": false
           }
         }
       }

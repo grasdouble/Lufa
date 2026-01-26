@@ -12,7 +12,12 @@
               "category": "typography",
               "property": "letter-spacing",
               "useCase": "Display text, hero headings (60px+), 6xl-8xl sizes",
-              "recommendedFontSizes": ["6xl", "7xl", "8xl"]
+              "recommendedFontSizes": [
+                "6xl",
+                "7xl",
+                "8xl"
+              ],
+              "themable": false
             }
           }
         },
@@ -26,7 +31,12 @@
               "category": "typography",
               "property": "letter-spacing",
               "useCase": "Large headings (H1-H3), 3xl-5xl sizes",
-              "recommendedFontSizes": ["3xl", "4xl", "5xl"]
+              "recommendedFontSizes": [
+                "3xl",
+                "4xl",
+                "5xl"
+              ],
+              "themable": false
             }
           }
         },
@@ -40,7 +50,14 @@
               "category": "typography",
               "property": "letter-spacing",
               "useCase": "Body text, paragraphs, standard content (base-2xl)",
-              "recommendedFontSizes": ["sm", "base", "lg", "xl", "2xl"]
+              "recommendedFontSizes": [
+                "sm",
+                "base",
+                "lg",
+                "xl",
+                "2xl"
+              ],
+              "themable": false
             }
           }
         },
@@ -54,8 +71,12 @@
               "category": "typography",
               "property": "letter-spacing",
               "useCase": "Small text, captions, uppercase labels (xs-sm)",
-              "recommendedFontSizes": ["xs", "sm"],
-              "uppercaseRecommended": true
+              "recommendedFontSizes": [
+                "xs",
+                "sm"
+              ],
+              "uppercaseRecommended": true,
+              "themable": false
             }
           }
         },
@@ -70,7 +91,13 @@
               "property": "letter-spacing",
               "useCase": "All-caps headings, button text (uppercase), section labels",
               "uppercaseRequired": true,
-              "recommendedFontSizes": ["sm", "base", "lg", "xl"]
+              "recommendedFontSizes": [
+                "sm",
+                "base",
+                "lg",
+                "xl"
+              ],
+              "themable": false
             }
           }
         }

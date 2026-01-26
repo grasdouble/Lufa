@@ -75,175 +75,6 @@ function findJsonFiles(dir, fileList = []) {
 }
 
 /**
- * Determines if a token is structural and exempt from themable requirement
- * Structural tokens are foundational values that don't vary by theme/mode
- * @param {string} tokenPath - Dot-notation path to token
- * @param {object} token - Token object
- * @param {object} extensions - $extensions.lufa object
- * @returns {boolean} True if token is structural and exempt
- */
-function isStructuralToken(tokenPath, token, extensions) {
-  // Exempt by token level: primitives are foundational and non-themable
-  const structuralLevels = ['primitive'];
-  if (extensions?.level && structuralLevels.includes(extensions.level)) {
-    return true;
-  }
-
-  // Exempt by category: these categories are structural regardless of level
-  // Check both exact match and prefix match (e.g., "layout-container" contains "layout")
-  const structuralCategories = [
-    'typography', // Font sizes, weights, families (structural scale)
-    'spacing', // Spacing scales (structural consistency)
-    'layout', // Breakpoints, containers, grid (structural framework)
-    'motion', // Timing, easing (UX consistency, not visual theme)
-    'elevation', // Z-index (structural hierarchy)
-  ];
-
-  if (extensions?.category) {
-    // Exact match or starts with structural category
-    if (
-      structuralCategories.includes(extensions.category) ||
-      structuralCategories.some((cat) => extensions.category.startsWith(cat))
-    ) {
-      return true;
-    }
-  }
-
-  // Exempt alpha/transparency tokens (mathematical overlays, not brand-specific)
-  if (tokenPath.includes('.alpha.')) {
-    return true;
-  }
-
-  // Exempt high-contrast tokens (accessibility, not design theme)
-  if (tokenPath.includes('.hc.')) {
-    return true;
-  }
-
-  // RULE 4: Exempt by $type (conservative list - never themable)
-  // These types are structural by nature and don't vary by theme
-  const structuralTypes = [
-    'fontFamily', // Font stack (never themed)
-    'fontWeight', // Weight value (never themed)
-    'duration', // Timing (UX constant)
-    'cubicBezier', // Easing (UX constant)
-    'number', // Scales, ratios, z-index (structural)
-  ];
-
-  if (token.$type && structuralTypes.includes(token.$type)) {
-    return true;
-  }
-
-  // RULE 5: Exempt structural patterns by path (applies to component, core, and semantic levels)
-  // These patterns identify structural tokens regardless of their category assignment
-  // Patterns match: word.keyword, word.keyword.group, word.keyword-variant, word-keyword-variant
-  if (extensions?.level && ['component', 'core', 'semantic'].includes(extensions.level)) {
-    const structuralPatterns = [
-      // Spacing (match tokens with these keywords anywhere in their path)
-      /[.-]padding([.-]|$)/,
-      /[.-]margin([.-]|$)/,
-      /[.-]gap([.-]|$)/,
-      /[.-]spacing([.-]|$)/,
-      /[.-]offset([.-]|$)/,
-
-      // Typography structure (not color)
-      /[.-]font-size([.-]|$)/,
-      /[.-]font-weight([.-]|$)/,
-      /[.-]font-family([.-]|$)/,
-      /[.-]line-height([.-]|$)/,
-      /[.-]letter-spacing([.-]|$)/,
-
-      // Sizing (but not color-related)
-      /[.-]height([.-]|$)/,
-      /[.-]width([.-]|$)/,
-      /[.-]size([.-](?!color))/, // size but not color-related
-      /[.-]max-width([.-]|$)/,
-      /[.-]min-width([.-]|$)/,
-      /[.-]max-height([.-]|$)/,
-      /[.-]min-height([.-]|$)/,
-      /[.-]container([.-]|$)/,
-
-      // Border structure (not color) - be specific to avoid matching border colors
-      /[.-]border-radius([.-]|$)/,
-      /[.-]border-width([.-]|$)/,
-      /[.-]radius([.-]|$)/,
-      /[.-]thickness([.-]|$)/,
-      /[.-]outline-width([.-]|$)/,
-      /[.-]outline-offset([.-]|$)/,
-
-      // Layout
-      /[.-]columns([.-]|$)/,
-      /[.-]rows([.-]|$)/,
-      /[.-]grid([.-]|$)/,
-
-      // Interaction (non-visual)
-      /[.-]icon-spacing([.-]|$)/,
-      /\.disabled\.opacity$/,
-      /\.disabled\.cursor$/,
-      /[.-]cursor$/,
-
-      // Motion/animation (structural, not color)
-      /[.-]duration([.-]|$)/,
-      /[.-]delay([.-]|$)/,
-      /[.-]timing-function([.-]|$)/,
-      /[.-]transform$/,
-
-      // Effects (non-color)
-      /[.-]blur([.-]|$)/,
-
-      // Z-index/hierarchy
-      /[.-]z-index([.-]|$)/,
-    ];
-
-    for (const pattern of structuralPatterns) {
-      if (pattern.test(tokenPath)) {
-        return true;
-      }
-    }
-  }
-
-  // RULE 6: Fallback for tokens without extensions - check if they match structural patterns
-  // Some older tokens may not have $extensions.lufa, use path-based heuristics
-  if (!extensions || !extensions.level) {
-    // Check if token path starts with known token level prefixes
-    const tokenLevelPrefixes = ['primitive', 'core', 'semantic', 'component'];
-    const pathStartsWithTokenLevel = tokenLevelPrefixes.some((prefix) => tokenPath.startsWith(prefix + '.'));
-
-    if (pathStartsWithTokenLevel) {
-      // Apply same structural patterns as Rule 5
-      const structuralKeywords = [
-        /[.-]padding([.-]|$)/,
-        /[.-]margin([.-]|$)/,
-        /[.-]gap([.-]|$)/,
-        /[.-]spacing([.-]|$)/,
-        /[.-]height([.-]|$)/,
-        /[.-]width([.-]|$)/,
-        /[.-]size([.-](?!color))/,
-        /[.-]thickness([.-]|$)/,
-        /[.-]border-radius([.-]|$)/,
-        /[.-]border-width([.-]|$)/,
-        /[.-]radius([.-]|$)/,
-        /[.-]font-size([.-]|$)/,
-        /[.-]font-weight([.-]|$)/,
-        /[.-]line-height([.-]|$)/,
-        /[.-]duration([.-]|$)/,
-        /[.-]blur([.-]|$)/,
-        /[.-]columns([.-]|$)/,
-        /[.-]rows([.-]|$)/,
-        /[.-]container([.-]|$)/,
-      ];
-
-      for (const pattern of structuralKeywords) {
-        if (pattern.test(tokenPath)) {
-          return true;
-        }
-      }
-    }
-  }
-
-  return false;
-}
-
-/**
  * Validates a single token object
  * @param {object} token - Token object to validate
  * @param {string} tokenPath - Dot-notation path to token (e.g., "color.primary.500")
@@ -303,17 +134,15 @@ function validateToken(token, tokenPath, filePath) {
     }
   }
 
-  // Validate $extensions.lufa.themable exists (with exemptions for structural tokens)
-  const isStructural = isStructuralToken(tokenPath, token, token.$extensions?.lufa);
+  // Validate $extensions.lufa.themable exists (required on ALL tokens)
   const hasThemable = token.$extensions?.lufa?.themable !== undefined;
 
-  if (!isStructural && !hasThemable) {
+  if (!hasThemable) {
     errors.push({
       file: filePath,
       token: tokenPath,
       field: '$extensions.lufa.themable',
-      message:
-        'Missing $extensions.lufa.themable (should be true or false). Structural tokens (primitives, typography, spacing, layout, motion) are exempt.',
+      message: 'Missing required field: $extensions.lufa.themable (must be true or false)',
       severity: 'error',
     });
   }

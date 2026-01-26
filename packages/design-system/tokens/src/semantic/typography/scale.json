@@ -9,7 +9,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "H1 headings, page titles, hero titles"
+            "useCase": "H1 headings, page titles, hero titles",
+            "themable": false
           }
         }
       },
@@ -21,7 +22,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "H2 headings, major section titles"
+            "useCase": "H2 headings, major section titles",
+            "themable": false
           }
         }
       },
@@ -33,7 +35,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "H3 headings, subsection titles"
+            "useCase": "H3 headings, subsection titles",
+            "themable": false
           }
         }
       },
@@ -45,7 +48,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "H4 headings, card titles"
+            "useCase": "H4 headings, card titles",
+            "themable": false
           }
         }
       },
@@ -57,7 +61,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "H5 headings, list group titles"
+            "useCase": "H5 headings, list group titles",
+            "themable": false
           }
         }
       },
@@ -69,7 +74,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "H6 headings, inline section titles"
+            "useCase": "H6 headings, inline section titles",
+            "themable": false
           }
         }
       },
@@ -81,7 +87,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "Lead paragraphs, emphasized body text, introductions"
+            "useCase": "Lead paragraphs, emphasized body text, introductions",
+            "themable": false
           }
         }
       },
@@ -93,7 +100,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "Body text, paragraphs, standard content"
+            "useCase": "Body text, paragraphs, standard content",
+            "themable": false
           }
         }
       },
@@ -105,7 +113,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "Secondary text, descriptions, help text"
+            "useCase": "Secondary text, descriptions, help text",
+            "themable": false
           }
         }
       },
@@ -117,7 +126,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "Captions, footnotes, labels, timestamps, metadata"
+            "useCase": "Captions, footnotes, labels, timestamps, metadata",
+            "themable": false
           }
         }
       },
@@ -129,7 +139,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "Form labels, input labels, UI component labels"
+            "useCase": "Form labels, input labels, UI component labels",
+            "themable": false
           }
         }
       },
@@ -141,7 +152,8 @@
           "lufa": {
             "level": "semantic",
             "category": "typography",
-            "useCase": "Button text, CTA labels, action labels"
+            "useCase": "Button text, CTA labels, action labels",
+            "themable": false
           }
         }
       }

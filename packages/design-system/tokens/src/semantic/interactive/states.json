@@ -178,7 +178,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Focus ring spacing, outline-offset for focused elements"
+            "useCase": "Focus ring spacing, outline-offset for focused elements",
+            "themable": false
           }
         }
       },
@@ -191,7 +192,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "state",
-            "useCase": "Apply to buttons, inputs, and controls in disabled state"
+            "useCase": "Apply to buttons, inputs, and controls in disabled state",
+            "themable": false
           }
         }
       },
@@ -204,7 +206,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "state",
-            "useCase": "Skeleton loaders, loading placeholders"
+            "useCase": "Skeleton loaders, loading placeholders",
+            "themable": false
           }
         }
       },
@@ -217,7 +220,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "state",
-            "useCase": "Input placeholders, empty state illustrations"
+            "useCase": "Input placeholders, empty state illustrations",
+            "themable": false
           }
         }
       },

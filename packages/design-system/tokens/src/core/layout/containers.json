@@ -10,7 +10,8 @@
             "lufa": {
               "level": "core",
               "category": "layout-container",
-              "useCase": "Narrow content containers, forms, small sections"
+              "useCase": "Narrow content containers, forms, small sections",
+              "themable": false
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "level": "core",
               "category": "layout-container",
-              "useCase": "Medium content containers, article width"
+              "useCase": "Medium content containers, article width",
+              "themable": false
             }
           }
         },
@@ -34,7 +36,8 @@
             "lufa": {
               "level": "core",
               "category": "layout-container",
-              "useCase": "Standard page containers, main content areas"
+              "useCase": "Standard page containers, main content areas",
+              "themable": false
             }
           }
         },
@@ -46,7 +49,8 @@
             "lufa": {
               "level": "core",
               "category": "layout-container",
-              "useCase": "Wide page containers, dashboard layouts"
+              "useCase": "Wide page containers, dashboard layouts",
+              "themable": false
             }
           }
         },
@@ -58,7 +62,8 @@
             "lufa": {
               "level": "core",
               "category": "layout-container",
-              "useCase": "Ultra-wide containers, large screen layouts"
+              "useCase": "Ultra-wide containers, large screen layouts",
+              "themable": false
             }
           }
         }
