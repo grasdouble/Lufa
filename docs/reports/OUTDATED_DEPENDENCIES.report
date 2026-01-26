@@ -1,3 +1,48 @@
 # Outdated Dependencies Report
 
-No outdated dependency
+┌───────────────────────────────────┬─────────┬─────────┬────────────────────────────────┐
+│ Package                           │ Current │ Latest  │ Dependents                     │
+├───────────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
+│ commander                         │ 12.1.0  │ 14.0.2  │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system-cli                     │
+├───────────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
+│ prettier-plugin-packagejson       │ 2.5.22  │ 3.0.0   │ @grasdouble/lufa_config_       │
+│                                   │         │         │ prettier                       │
+├───────────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
+│ prettier-plugin-packagejson (dev) │ 2.5.22  │ 3.0.0   │ @grasdouble/cdn_autobuild-     │
+│                                   │         │         │ server, @grasdouble/lufa,      │
+│                                   │         │         │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system,                        │
+│                                   │         │         │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system-cli,                    │
+│                                   │         │         │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system-docusaurus,             │
+│                                   │         │         │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system-storybook,              │
+│                                   │         │         │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system-themes,                 │
+│                                   │         │         │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system-tokens,                 │
+│                                   │         │         │ @grasdouble/lufa_              │
+│                                   │         │         │ microfrontend_home,            │
+│                                   │         │         │ @grasdouble/lufa_              │
+│                                   │         │         │ microfrontend_main-container,  │
+│                                   │         │         │ @grasdouble/lufa_plugin_vite_  │
+│                                   │         │         │ vite-plugin-import-map-        │
+│                                   │         │         │ injector,                      │
+│                                   │         │         │ @grasdouble/lufa_plugin_vite_  │
+│                                   │         │         │ vite-plugin-react-preamble     │
+├───────────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
+│ style-dictionary (dev)            │ 4.4.0   │ 5.2.0   │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system-tokens                  │
+├───────────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
+│ lucide-react                      │ 0.469.0 │ 0.563.0 │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system,                        │
+│                                   │         │         │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system-docusaurus,             │
+│                                   │         │         │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system-storybook               │
+├───────────────────────────────────┼─────────┼─────────┼────────────────────────────────┤
+│ lucide-react (dev)                │ 0.469.0 │ 0.563.0 │ @grasdouble/lufa_design-       │
+│                                   │         │         │ system-playwright              │
+└───────────────────────────────────┴─────────┴─────────┴────────────────────────────────┘

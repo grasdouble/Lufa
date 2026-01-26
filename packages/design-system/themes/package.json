@@ -28,9 +28,9 @@
     "@grasdouble/lufa_config_prettier": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
-    "@types/node": "^25.0.9",
+    "@types/node": "^25.0.10",
     "eslint": "^9.39.2",
-    "prettier": "^3.8.0",
+    "prettier": "^3.8.1",
     "prettier-plugin-packagejson": "^2.5.22",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
