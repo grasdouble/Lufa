@@ -1080,3 +1080,310 @@ export const BestPractices: Story = {
     </StoryContainer>
   ),
 };
+
+/**
+ * ## Extended Type Scale (6xl-8xl)
+ *
+ * Extended font sizes for hero sections, marketing pages, and display text.
+ * These tokens use fluid scaling to maintain readability across all viewport sizes.
+ *
+ * ### Key Features
+ * - **6xl (40px-60px)**: Hero headlines, featured content
+ * - **7xl (48px-72px)**: Marketing hero sections, landing pages
+ * - **8xl (64px-96px)**: Display text, brand impact moments
+ *
+ * ### Technical Note
+ * 8xl has intentional behavior: fluid scaling engages at 400px+ viewport.
+ * Below 400px, it remains at 64px (min value) - designed for larger displays.
+ *
+ * ### Usage Guidelines
+ * - Use sparingly - very large text for hero/marketing sections only
+ * - Test at multiple viewport sizes (mobile, tablet, desktop)
+ * - Consider accessibility - ensure proper line-height and contrast
+ */
+export const ExtendedTypeScale: Story = {
+  render: () => {
+    const [width, setWidth] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1280);
+
+    React.useEffect(() => {
+      const handleResize = () => setWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return (
+      <StoryContainer>
+        <TypographySection title="Extended Type Scale (6xl-8xl) - ADR-010">
+          <div
+            style={{
+              padding: '16px',
+              backgroundColor: '#fff3e0',
+              borderRadius: '6px',
+              marginBottom: '32px',
+              border: '2px solid #ff9800',
+            }}
+          >
+            <div style={{ fontSize: '14px', fontWeight: 600, color: '#e65100', marginBottom: '8px' }}>
+              📏 Current viewport: {width}px
+            </div>
+            <div style={{ fontSize: '12px', color: '#bf360c' }}>
+              Resize your browser to see fluid scaling in action. Note: 8xl scales from 400px+ viewport (intentional for
+              display tier).
+            </div>
+          </div>
+
+          {/* 6xl Token */}
+          <div style={{ marginBottom: '48px' }}>
+            <TypographyToken
+              token="--lufa-primitive-typography-font-size-6xl"
+              name="6xl"
+              value="clamp(2.5rem, 2rem + 2.5vw, 3.75rem)"
+              description="Hero headlines, featured content - Scales from 40px to 60px"
+              example={
+                <div>
+                  <div
+                    style={{
+                      fontSize: 'var(--lufa-primitive-typography-font-size-6xl)',
+                      fontWeight: 700,
+                      lineHeight: 1.2,
+                      marginBottom: '16px',
+                    }}
+                  >
+                    Hero Headline
+                  </div>
+                  <div style={{ fontSize: '12px', color: '#666', fontFamily: 'monospace' }}>
+                    Mobile (320px): ~40px • Tablet (768px): ~51px • Desktop (1280px): 60px
+                  </div>
+                </div>
+              }
+            />
+          </div>
+
+          {/* 7xl Token */}
+          <div style={{ marginBottom: '48px' }}>
+            <TypographyToken
+              token="--lufa-primitive-typography-font-size-7xl"
+              name="7xl"
+              value="clamp(3rem, 2.5rem + 3vw, 4.5rem)"
+              description="Marketing hero sections, landing pages - Scales from 48px to 72px"
+              example={
+                <div>
+                  <div
+                    style={{
+                      fontSize: 'var(--lufa-primitive-typography-font-size-7xl)',
+                      fontWeight: 700,
+                      lineHeight: 1.1,
+                      marginBottom: '16px',
+                    }}
+                  >
+                    Marketing Hero
+                  </div>
+                  <div style={{ fontSize: '12px', color: '#666', fontFamily: 'monospace' }}>
+                    Mobile (320px): 48px • Tablet (768px): ~63px • Desktop (1280px): 72px
+                  </div>
+                </div>
+              }
+            />
+          </div>
+
+          {/* 8xl Token */}
+          <div style={{ marginBottom: '48px' }}>
+            <TypographyToken
+              token="--lufa-primitive-typography-font-size-8xl"
+              name="8xl"
+              value="clamp(4rem, 3rem + 4vw, 6rem)"
+              description="Display text, brand impact moments - Scales from 64px to 96px (fluid starts at 400px)"
+              example={
+                <div>
+                  <div
+                    style={{
+                      fontSize: 'var(--lufa-primitive-typography-font-size-8xl)',
+                      fontWeight: 700,
+                      lineHeight: 1.05,
+                      marginBottom: '16px',
+                    }}
+                  >
+                    Display
+                  </div>
+                  <div
+                    style={{
+                      fontSize: '12px',
+                      color: '#666',
+                      fontFamily: 'monospace',
+                      backgroundColor: '#fff3e0',
+                      padding: '8px',
+                      borderRadius: '4px',
+                      border: '1px solid #ffb74d',
+                    }}
+                  >
+                    ⚠️ Note: Fluid scaling engages at 400px+ viewport
+                    <br />
+                    Mobile (320px): 64px (static) • Tablet (768px): ~79px • Desktop (1280px): 96px
+                  </div>
+                </div>
+              }
+            />
+          </div>
+
+          {/* Visual Comparison at Current Viewport */}
+          <div
+            style={{
+              marginTop: '48px',
+              padding: '24px',
+              backgroundColor: '#f5f5f5',
+              borderRadius: '8px',
+              border: '2px solid #e0e0e0',
+            }}
+          >
+            <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: '#333' }}>
+              Visual Comparison at {width}px
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+              <div>
+                <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontFamily: 'monospace' }}>
+                  5xl (existing)
+                </div>
+                <div style={{ fontSize: 'var(--lufa-primitive-typography-font-size-5xl)', fontWeight: 700 }}>
+                  Standard Hero
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontFamily: 'monospace' }}>
+                  6xl (new)
+                </div>
+                <div style={{ fontSize: 'var(--lufa-primitive-typography-font-size-6xl)', fontWeight: 700 }}>
+                  Featured Hero
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontFamily: 'monospace' }}>
+                  7xl (new)
+                </div>
+                <div style={{ fontSize: 'var(--lufa-primitive-typography-font-size-7xl)', fontWeight: 700 }}>
+                  Marketing Hero
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontFamily: 'monospace' }}>
+                  8xl (new)
+                </div>
+                <div style={{ fontSize: 'var(--lufa-primitive-typography-font-size-8xl)', fontWeight: 700 }}>
+                  Display
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Breakpoint Testing Table */}
+          <div style={{ marginTop: '48px' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', color: '#333' }}>
+              Responsive Behavior Across Breakpoints
+            </h3>
+            <div style={{ overflowX: 'auto' }}>
+              <table
+                style={{
+                  width: '100%',
+                  borderCollapse: 'collapse',
+                  fontSize: '12px',
+                  fontFamily: 'monospace',
+                }}
+              >
+                <thead>
+                  <tr style={{ backgroundColor: '#e0e0e0' }}>
+                    <th style={{ padding: '12px', textAlign: 'left', border: '1px solid #ccc' }}>Token</th>
+                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                      Mobile
+                      <br />
+                      (320px)
+                    </th>
+                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                      Phablet
+                      <br />
+                      (400px)
+                    </th>
+                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                      Tablet
+                      <br />
+                      (768px)
+                    </th>
+                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                      Desktop
+                      <br />
+                      (1024px)
+                    </th>
+                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                      Large
+                      <br />
+                      (1280px)
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style={{ padding: '12px', border: '1px solid #ccc', fontWeight: 600 }}>6xl</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>40px</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>42px</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>51px</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>58px</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc', fontWeight: 600 }}>
+                      60px
+                    </td>
+                  </tr>
+                  <tr style={{ backgroundColor: '#f9f9f9' }}>
+                    <td style={{ padding: '12px', border: '1px solid #ccc', fontWeight: 600 }}>7xl</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>48px</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>52px</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>63px</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>71px</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc', fontWeight: 600 }}>
+                      72px
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style={{ padding: '12px', border: '1px solid #ccc', fontWeight: 600 }}>
+                      8xl
+                      <span style={{ color: '#ff9800', marginLeft: '4px' }}>⚠️</span>
+                    </td>
+                    <td
+                      style={{
+                        padding: '12px',
+                        textAlign: 'center',
+                        border: '1px solid #ccc',
+                        backgroundColor: '#fff3e0',
+                      }}
+                    >
+                      64px
+                      <br />
+                      <span style={{ fontSize: '10px', color: '#e65100' }}>(static)</span>
+                    </td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                      64px
+                      <br />
+                      <span style={{ fontSize: '10px', color: '#666' }}>(fluid starts)</span>
+                    </td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>79px</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>89px</td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc', fontWeight: 600 }}>
+                      96px
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              style={{
+                marginTop: '12px',
+                fontSize: '11px',
+                color: '#666',
+                fontStyle: 'italic',
+              }}
+            >
+              ⚠️ Note: 8xl remains at 64px (static) below 400px viewport, then scales fluidly. This is intentional for
+              display tier targeting larger screens.
+            </div>
+          </div>
+        </TypographySection>
+      </StoryContainer>
+    );
+  },
+};

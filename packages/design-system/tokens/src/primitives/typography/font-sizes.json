@@ -145,6 +145,70 @@
               }
             }
           }
+        },
+        "6xl": {
+          "$value": "clamp(2.5rem, 2rem + 2.5vw, 3.75rem)",
+          "$type": "dimension",
+          "$description": "6x extra large font size - fluid scaling for hero headlines and featured content",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Hero headlines, featured content, large page titles",
+              "fluid": true,
+              "fluidRange": {
+                "min": "40px",
+                "max": "60px",
+                "viewport": {
+                  "min": "320px",
+                  "max": "1280px"
+                }
+              }
+            }
+          }
+        },
+        "7xl": {
+          "$value": "clamp(3rem, 2.5rem + 3vw, 4.5rem)",
+          "$type": "dimension",
+          "$description": "7x extra large font size - fluid scaling for marketing hero sections",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Marketing hero sections, landing page headlines, large announcements",
+              "fluid": true,
+              "fluidRange": {
+                "min": "48px",
+                "max": "72px",
+                "viewport": {
+                  "min": "320px",
+                  "max": "1280px"
+                }
+              }
+            }
+          }
+        },
+        "8xl": {
+          "$value": "clamp(4rem, 3rem + 4vw, 6rem)",
+          "$type": "dimension",
+          "$description": "8x extra large font size - fluid scaling for display text and brand impact moments (scales from 400px+ viewport)",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "typography",
+              "useCase": "Display text, brand impact moments, decorative large text",
+              "fluid": true,
+              "fluidRange": {
+                "min": "64px",
+                "max": "96px",
+                "viewport": {
+                  "min": "320px",
+                  "max": "1280px"
+                },
+                "note": "Fluid scaling engages at 400px+ viewport. Below 400px, remains at 64px (min value). Intentional for display tier targeting larger screens."
+              }
+            }
+          }
         }
       }
     }
