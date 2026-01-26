@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import type { ThemeMode, ThemeName } from '@grasdouble/lufa_design-system';
+import type { ThemeName } from '@grasdouble/lufa_design-system';
 import { Button, Typography, useThemeMode } from '@grasdouble/lufa_design-system';
 
 import styles from './ThemeSwitcher.module.css';
@@ -48,9 +48,9 @@ export type ThemeSwitcherProps = {
  * Note: Theme variants (ocean/forest) are placeholders for Phase 6.
  */
 export function ThemeSwitcher({
-  defaultTheme = 'default',
+  defaultTheme: _defaultTheme = 'default',
   defaultMode = 'light',
-  onThemeChange,
+  onThemeChange: _onThemeChange,
   onModeChange,
   variant = 'button',
   showLabel = true,

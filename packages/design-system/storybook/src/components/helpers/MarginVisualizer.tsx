@@ -96,8 +96,8 @@ export const MarginVisualizer = ({
 
   // Extract token name from CSS variable for educational purposes
   const extractTokenName = (colorValue: string): string | null => {
-    if (colorValue && colorValue.startsWith('var(')) {
-      const match = colorValue.match(/--lufa-([a-z-]+)/);
+    if (colorValue?.startsWith('var(')) {
+      const match = /--lufa-([a-z-]+)/.exec(colorValue);
       return match ? match[1] : null;
     }
     return null;

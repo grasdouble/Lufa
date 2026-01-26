@@ -14,7 +14,7 @@ export type SystemPreference = ThemeMode | null;
 /**
  * Configuration options for useThemeMode hook
  */
-export interface UseThemeModeOptions {
+export type UseThemeModeOptions = {
   /**
    * Initial mode to use
    * @default 'light'
@@ -44,7 +44,7 @@ export interface UseThemeModeOptions {
 /**
  * Return value from useThemeMode hook
  */
-export interface UseThemeModeReturn {
+export type UseThemeModeReturn = {
   /**
    * Current active mode
    */
@@ -117,13 +117,6 @@ export function useThemeMode(options?: UseThemeModeOptions): UseThemeModeReturn 
     enableStorage = true,
   } = options ?? {};
 
-  // Initialize mode state
-  const [mode, setModeState] = useState<ThemeMode>(() => getInitialMode());
-
-  // System preference state
-  const [systemPrefersDark, setSystemPrefersDark] = useState(false);
-  const [systemPrefersContrast, setSystemPrefersContrast] = useState(false);
-
   /**
    * Determine initial mode on mount
    */
@@ -137,7 +130,7 @@ export function useThemeMode(options?: UseThemeModeOptions): UseThemeModeReturn 
     if (enableStorage) {
       const stored = localStorage.getItem(storageKey);
       if (stored && isValidMode(stored)) {
-        return stored as ThemeMode;
+        return stored;
       }
     }
 
@@ -158,6 +151,13 @@ export function useThemeMode(options?: UseThemeModeOptions): UseThemeModeReturn 
     // Fallback to default
     return defaultMode;
   }
+
+  // Initialize mode state
+  const [mode, setModeState] = useState<ThemeMode>(() => getInitialMode());
+
+  // System preference state
+  const [systemPrefersDark, setSystemPrefersDark] = useState(false);
+  const [systemPrefersContrast, setSystemPrefersContrast] = useState(false);
 
   /**
    * Listen to system preference changes
@@ -211,7 +211,7 @@ export function useThemeMode(options?: UseThemeModeOptions): UseThemeModeReturn 
    */
   const setMode = useCallback((newMode: ThemeMode) => {
     if (!isValidMode(newMode)) {
-      console.warn(`[useThemeMode] Invalid mode: ${newMode}`);
+      console.warn('[useThemeMode] Invalid mode:', newMode);
       return;
     }
     setModeState(newMode);
