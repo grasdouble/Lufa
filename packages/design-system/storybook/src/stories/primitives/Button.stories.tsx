@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from '@grasdouble/lufa_design-system';
 
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
-import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
+import { STORY_COLORS } from '../../constants/storyColors';
 
 /**
  * Button - Interactive Action Element
@@ -192,7 +192,6 @@ export const PropType: Story = {
             }}
           >
             {types.map((typeItem) => {
-
               return (
                 <PropCard
                   key={typeItem.value}
@@ -274,7 +273,6 @@ export const PropVariant: Story = {
             }}
           >
             {variants.map((variantItem) => {
-
               return (
                 <PropCard
                   key={variantItem.value}
@@ -434,7 +432,6 @@ export const PropSize: Story = {
             }}
           >
             {sizes.map((sizeItem) => {
-
               return (
                 <PropCard
                   key={sizeItem.value}
@@ -508,7 +505,6 @@ export const PropRadius: Story = {
             }}
           >
             {radiusOptions.map((radiusItem) => {
-
               return (
                 <PropCard
                   key={radiusItem.value}
@@ -599,8 +595,6 @@ export const PropIcons: Story = {
             }}
           >
             {iconExamples.map((example, index) => {
-              
-
               return (
                 <PropCard
                   key={index}

@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge } from '@grasdouble/lufa_design-system';
 
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
-import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
+import { STORY_COLORS } from '../../constants/storyColors';
 
 /**
  * Badge - Status and Label Indicator
@@ -126,7 +126,6 @@ export const PropVariant: Story = {
             }}
           >
             {variants.map((variantItem) => {
-
               return (
                 <PropCard
                   key={variantItem.value}
@@ -199,7 +198,6 @@ export const PropSize: Story = {
             }}
           >
             {sizes.map((sizeItem) => {
-
               return (
                 <PropCard
                   key={sizeItem.value}
@@ -272,7 +270,6 @@ export const PropDot: Story = {
             }}
           >
             {dotOptions.map((option) => {
-
               return (
                 <PropCard
                   key={String(option.value)}
@@ -387,7 +384,6 @@ export const PropAs: Story = {
             }}
           >
             {asOptions.map((option) => {
-
               return (
                 <PropCard
                   key={option.value}

@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Divider } from '@grasdouble/lufa_design-system';
 
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
-import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
+import { STORY_COLORS } from '../../constants/storyColors';
 
 const NEUTRAL = STORY_COLORS.neutral;
 
@@ -151,9 +151,7 @@ export const PropOrientation: Story = {
               gap: '20px',
             }}
           >
-            {orientations.map((orientationItem, index) => {
-              const colors = getColorByIndex(index);
-
+            {orientations.map((orientationItem) => {
               return (
                 <PropCard
                   key={orientationItem.value}
@@ -262,7 +260,6 @@ export const PropEmphasis: Story = {
             }}
           >
             {emphasisLevels.map((emphasisItem) => {
-
               return (
                 <PropCard
                   key={emphasisItem.value}
@@ -389,7 +386,6 @@ export const PropSpacing: Story = {
             }}
           >
             {spacings.map((spacingItem) => {
-
               return (
                 <PropCard
                   key={spacingItem.value}
@@ -481,7 +477,6 @@ export const PropLineStyle: Story = {
             }}
           >
             {lineStyles.map((lineStyleItem) => {
-
               return (
                 <PropCard
                   key={lineStyleItem.value}
@@ -622,7 +617,6 @@ export const PropAs: Story = {
             }}
           >
             {asOptions.map((option) => {
-
               return (
                 <PropCard
                   key={option.value}

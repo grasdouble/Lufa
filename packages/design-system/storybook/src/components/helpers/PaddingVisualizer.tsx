@@ -90,7 +90,7 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
   const tokenName = extractTokenName(finalColor);
 
   // Convert hex color to rgba for opacity
-  const hexToRgba = (hex: string | unknown, alpha: number): string => {
+  const hexToRgba = (hex: string, alpha: number): string => {
     // Validate that hex is a string
     if (!hex || typeof hex !== 'string') {
       console.warn('PaddingVisualizer: Invalid color provided (expected string):', hex);

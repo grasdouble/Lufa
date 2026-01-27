@@ -63,7 +63,9 @@ export function ThemeSwitcher({
 
   // Notify parent components of changes
   useEffect(() => {
-    onModeChange?.(mode);
+    if (onModeChange) {
+      onModeChange(mode as 'light' | 'dark' | 'high-contrast');
+    }
   }, [mode, onModeChange]);
 
   const handleModeChange = (newMode: 'light' | 'dark' | 'high-contrast') => {
