@@ -23,6 +23,7 @@
     "clean": "rm -rf dist",
     "test": "node __tests__/themable-validation.test.js",
     "test:themable": "node __tests__/themable-validation.test.js",
+    "test:validator": "node build/validators/token-consistency.test.js",
     "validate:tokens": "node build/validators/token-consistency.js"
   },
   "devDependencies": {
