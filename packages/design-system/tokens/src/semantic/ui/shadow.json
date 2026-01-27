@@ -11,7 +11,8 @@
             "category": "ui",
             "subcategory": "shadow",
             "useCase": "Light cards, badges, compact panels, subtle elevation",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -25,7 +26,8 @@
             "category": "ui",
             "subcategory": "shadow",
             "useCase": "Standard cards, elevated panels, default elevation",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -39,7 +41,8 @@
             "category": "ui",
             "subcategory": "shadow",
             "useCase": "Modals, drawers, large popovers, emphasized elevation",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -53,7 +56,8 @@
             "category": "ui",
             "subcategory": "shadow",
             "useCase": "Floating dialogs, important overlays, maximum elevation",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       }

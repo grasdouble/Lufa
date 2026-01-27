@@ -12,7 +12,8 @@
             "useCase": "mobile-first baseline",
             "devices": "small phones (320-639px)",
             "mediaQuery": "@media (min-width: 320px)",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -27,7 +28,8 @@
             "useCase": "small tablet, large mobile",
             "devices": "large phones (640-767px)",
             "mediaQuery": "@media (min-width: 640px)",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -42,7 +44,8 @@
             "useCase": "tablet layouts",
             "devices": "tablets portrait (768-1023px)",
             "mediaQuery": "@media (min-width: 768px)",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -57,7 +60,8 @@
             "useCase": "desktop layouts",
             "devices": "tablets landscape, small desktops (1024-1279px)",
             "mediaQuery": "@media (min-width: 1024px)",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -72,7 +76,8 @@
             "useCase": "standard desktop",
             "devices": "desktops (1280-1535px)",
             "mediaQuery": "@media (min-width: 1280px)",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -87,7 +92,8 @@
             "useCase": "large screens",
             "devices": "large desktops (1536px+)",
             "mediaQuery": "@media (min-width: 1536px)",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       }

@@ -11,7 +11,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Headings, compact interface text",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -24,7 +25,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Body text, paragraphs (optimal accessibility)",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -37,7 +39,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Long articles, documentation, comfortable reading",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

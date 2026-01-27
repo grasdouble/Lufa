@@ -10,7 +10,8 @@
             "level": "primitive",
             "category": "height",
             "useCase": "tags, badges, chips",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -23,7 +24,8 @@
             "level": "primitive",
             "category": "height",
             "useCase": "small buttons, compact inputs",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -36,7 +38,8 @@
             "level": "primitive",
             "category": "height",
             "useCase": "default buttons, standard inputs",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -49,7 +52,8 @@
             "level": "primitive",
             "category": "height",
             "useCase": "large buttons, touch-friendly inputs",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -62,7 +66,8 @@
             "level": "primitive",
             "category": "height",
             "useCase": "mobile headers, app bars",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -75,7 +80,8 @@
             "level": "primitive",
             "category": "height",
             "useCase": "desktop headers, navigation",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -88,7 +94,8 @@
             "level": "primitive",
             "category": "height",
             "useCase": "hero headers, prominent sections",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -101,7 +108,8 @@
             "level": "primitive",
             "category": "height",
             "useCase": "extra large headers, mastheads",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       }

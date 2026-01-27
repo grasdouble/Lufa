@@ -11,7 +11,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Secondary labels, notes, timestamps",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -24,7 +25,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Secondary text, short descriptions",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -37,7 +39,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Body text, standard paragraphs",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -50,7 +53,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Emphasized text, lead paragraphs",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -63,7 +67,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Subtitles, level 5-6 headings",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -85,7 +90,8 @@
                   "max": "1280px"
                 }
               },
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -107,7 +113,8 @@
                   "max": "1280px"
                 }
               },
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -129,7 +136,8 @@
                   "max": "1280px"
                 }
               },
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -151,7 +159,8 @@
                   "max": "1280px"
                 }
               },
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -173,7 +182,8 @@
                   "max": "1280px"
                 }
               },
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -195,7 +205,8 @@
                   "max": "1280px"
                 }
               },
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -218,7 +229,8 @@
                 },
                 "note": "Fluid scaling engages at 400px+ viewport. Below 400px, remains at 64px (min value). Intentional for display tier targeting larger screens."
               },
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

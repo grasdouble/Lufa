@@ -16,7 +16,8 @@
               "dark": "{primitive.color.gray.900}",
               "high-contrast": "{primitive.color.hc.white}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -35,7 +36,8 @@
               "dark": "{primitive.color.gray.800}",
               "high-contrast": "{primitive.color.gray.50}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -54,7 +56,8 @@
               "dark": "{primitive.color.gray.700}",
               "high-contrast": "{primitive.color.gray.200}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -73,7 +76,8 @@
               "dark": "{primitive.color.gray.700}",
               "high-contrast": "{primitive.color.hc.black}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -92,7 +96,8 @@
               "dark": "{primitive.color.gray.600}",
               "high-contrast": "{primitive.color.hc.black}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -111,7 +116,8 @@
               "dark": "{primitive.color.gray.50}",
               "high-contrast": "{primitive.color.hc.black}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -130,7 +136,8 @@
               "dark": "{primitive.color.gray.400}",
               "high-contrast": "{primitive.color.gray.700}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -149,7 +156,8 @@
               "dark": "{primitive.color.gray.500}",
               "high-contrast": "{primitive.color.gray.600}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -168,7 +176,8 @@
               "dark": "{primitive.color.gray.600}",
               "high-contrast": "{primitive.color.gray.500}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       }

@@ -10,7 +10,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Root background, page wrapper, main container",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -23,7 +24,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -42,7 +44,8 @@
               "dark": "{primitive.color.alpha.black.80}",
               "high-contrast": "{primitive.color.alpha.black.90}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -61,7 +64,8 @@
               "dark": "{primitive.color.alpha.white.8}",
               "high-contrast": "{primitive.color.alpha.white.16}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -80,7 +84,8 @@
               "dark": "{primitive.color.alpha.white.16}",
               "high-contrast": "{primitive.color.alpha.white.16}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -99,7 +104,8 @@
               "dark": "{primitive.color.alpha.white.16}",
               "high-contrast": "{primitive.color.alpha.white.16}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -118,7 +124,8 @@
               "dark": "{primitive.color.alpha.black.60}",
               "high-contrast": "{primitive.color.alpha.black.80}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -131,7 +138,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Success alerts, positive notifications, confirmation banners",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -146,7 +154,8 @@
             "subcategory": "contrast",
             "useCase": "Text in success alerts, success badge text, success message content",
             "pairedWith": "background-success",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -159,7 +168,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Error alerts, validation messages, destructive action confirmations",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -174,7 +184,8 @@
             "subcategory": "contrast",
             "useCase": "Text in error alerts, error badge text, error message content",
             "pairedWith": "background-error",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -187,7 +198,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Warning alerts, caution banners, pending action notices",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -202,7 +214,8 @@
             "subcategory": "contrast",
             "useCase": "Text in warning alerts, warning badge text, warning message content",
             "pairedWith": "background-warning",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -215,7 +228,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Info alerts, tips, help messages, neutral notifications",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -230,7 +244,8 @@
             "subcategory": "contrast",
             "useCase": "Text in info alerts, info badge text, info message content",
             "pairedWith": "background-info",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -243,7 +258,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Headings, body text, primary labels, main content",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -256,7 +272,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Descriptions, captions, metadata, secondary labels",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -269,7 +286,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Placeholder text, timestamps, optional information",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -282,7 +300,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Success message text, positive status indicators, confirmation text",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -295,7 +314,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Error message text, validation errors, destructive action warnings",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -308,7 +328,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Warning message text, caution labels, pending action notices",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -321,7 +342,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Info message text, help content, neutral notifications",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -334,7 +356,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Dividers, separators, card borders, section boundaries",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -347,7 +370,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Emphasized borders, section separators, strong dividers",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -360,7 +384,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Success alert borders, positive status borders",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -373,7 +398,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Error alert borders, invalid input borders, destructive action borders",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -386,7 +412,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Warning alert borders, caution element borders",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -399,7 +426,8 @@
             "level": "semantic",
             "category": "ui",
             "useCase": "Info alert borders, help element borders",
-            "themable": true
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -413,7 +441,8 @@
             "category": "ui",
             "subcategory": "typography",
             "useCase": "Caption text, small labels, tooltip text, metadata",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -439,7 +468,8 @@
               },
               "wcagLevel": "AAA"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -465,7 +495,8 @@
               },
               "wcagLevel": "AAA"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       }

@@ -11,7 +11,8 @@
               "level": "primitive",
               "category": "motion",
               "useCase": "Hover feedback, toggle switches, immediate interactions",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -24,7 +25,8 @@
               "level": "primitive",
               "category": "motion",
               "useCase": "Button clicks, dropdown open/close, tooltip appear",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -37,7 +39,8 @@
               "level": "primitive",
               "category": "motion",
               "useCase": "Modal open, panel slide, standard animations",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -50,7 +53,8 @@
               "level": "primitive",
               "category": "motion",
               "useCase": "Page transitions, complex animations, emphasized movement",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -65,7 +69,8 @@
               "level": "primitive",
               "category": "motion",
               "useCase": "Progress bars, loading indicators, mechanical movement",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -78,7 +83,8 @@
               "level": "primitive",
               "category": "motion",
               "useCase": "Elements leaving screen, fade out, collapse",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -91,7 +97,8 @@
               "level": "primitive",
               "category": "motion",
               "useCase": "Elements entering screen, fade in, expand",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -104,7 +111,8 @@
               "level": "primitive",
               "category": "motion",
               "useCase": "Modal open/close, smooth transitions, general purpose",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

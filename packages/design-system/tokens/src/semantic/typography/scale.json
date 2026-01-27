@@ -10,7 +10,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "H1 headings, page titles, hero titles",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -23,7 +24,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "H2 headings, major section titles",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -36,7 +38,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "H3 headings, subsection titles",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -49,7 +52,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "H4 headings, card titles",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -62,7 +66,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "H5 headings, list group titles",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -75,7 +80,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "H6 headings, inline section titles",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -88,7 +94,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "Lead paragraphs, emphasized body text, introductions",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -101,7 +108,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "Body text, paragraphs, standard content",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -114,7 +122,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "Secondary text, descriptions, help text",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -127,7 +136,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "Captions, footnotes, labels, timestamps, metadata",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -140,7 +150,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "Form labels, input labels, UI component labels",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -153,7 +164,8 @@
             "level": "semantic",
             "category": "typography",
             "useCase": "Button text, CTA labels, action labels",
-            "themable": false
+            "themeable": true,
+            "modeAware": false
           }
         }
       }

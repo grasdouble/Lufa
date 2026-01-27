@@ -62,7 +62,8 @@ export const cssWithMediaQueries = {
     };
 
     // Categorize tokens
-    const staticTokens = [];
+    const immutableTokens = []; // modeAware: false (primitives, layout)
+    const modeAwareTokens = []; // modeAware: true (core, semantic, component)
     const responsiveTokensByBreakpoint = {
       base: [],
       sm: [],
@@ -71,37 +72,44 @@ export const cssWithMediaQueries = {
       xl: [],
       '2xl': [],
     };
-    const tokensWithModes = [];
 
     dictionary.allTokens.forEach((token) => {
+      const modeAware = token.$extensions?.lufa?.modeAware || token.original?.$extensions?.lufa?.modeAware;
       const modes = token.$extensions?.lufa?.modes || token.original?.$extensions?.lufa?.modes;
       
-      if (modes) {
-        tokensWithModes.push({ token, modes });
+      // ADR-011: Use modeAware flag to determine token behavior
+      if (modeAware === true && modes) {
+        modeAwareTokens.push({ token, modes });
       } else if (isResponsiveToken(token)) {
         const breakpoint = getTokenBreakpoint(token);
         if (responsiveTokensByBreakpoint[breakpoint]) {
           responsiveTokensByBreakpoint[breakpoint].push(token);
         }
       } else {
-        staticTokens.push(token);
+        // Immutable tokens (primitives, layout) - no mode selectors
+        immutableTokens.push(token);
       }
     });
 
     let output = '/**\n * Do not edit directly, this file was auto-generated.\n */\n\n';
 
-    // 1. Base styles (:root and [data-mode='light'])
-    output += ":root,\n[data-mode='light'] {\n";
+    // 1. IMMUTABLE TOKENS - Always constant (no mode/theme variation)
+    output += '/* ========================================\n';
+    output += ' * IMMUTABLE TOKENS\n';
+    output += ' * These never change regardless of mode or theme\n';
+    output += ' * Layer: Primitives, Layout\n';
+    output += ' * ======================================== */\n';
+    output += ':root {\n';
 
-    // Static tokens (no responsive variants, no modes)
-    staticTokens.forEach((token) => {
+    // Immutable tokens (primitives, layout) - ONLY in :root
+    immutableTokens.forEach((token) => {
       const cssVarName = `--${prefix}-${token.path.join('-')}`;
       const value = formatValue(token, dictionary);
       const comment = token.$description ? ` /** ${token.$description} */` : '';
       output += `  ${cssVarName}: ${value};${comment}\n`;
     });
 
-    // Responsive base tokens
+    // Responsive base tokens (also immutable)
     responsiveTokensByBreakpoint.base.forEach((token) => {
       const cssVarName = getResponsiveCSSVarName(token);
       const value = formatValue(token, dictionary);
@@ -109,17 +117,29 @@ export const cssWithMediaQueries = {
       output += `  ${cssVarName}: ${value};${comment}\n`;
     });
 
-    // Tokens with modes (light mode values)
-    tokensWithModes.forEach(({ token }) => {
-      const cssVarName = `--${prefix}-${token.path.join('-')}`;
-      const value = formatValue(token, dictionary);
-      const comment = token.$description ? ` /** ${token.$description} */` : '';
-      output += `  ${cssVarName}: ${value};${comment}\n`;
-    });
-
     output += '}\n\n';
 
-    // 2. Responsive media queries
+    // 2. MODE-AWARE TOKENS - Vary by [data-mode] attribute
+    if (modeAwareTokens.length > 0) {
+      output += '/* ========================================\n';
+      output += ' * MODE-AWARE TOKENS\n';
+      output += ' * These change based on [data-mode] attribute\n';
+      output += ' * Layer: Core, Semantic, Component\n';
+      output += ' * ======================================== */\n';
+      output += ":root,\n[data-mode='light'] {\n";
+
+      // Mode-aware tokens (light mode values)
+      modeAwareTokens.forEach(({ token }) => {
+        const cssVarName = `--${prefix}-${token.path.join('-')}`;
+        const value = formatValue(token, dictionary);
+        const comment = token.$description ? ` /** ${token.$description} */` : '';
+        output += `  ${cssVarName}: ${value};${comment}\n`;
+      });
+
+      output += '}\n\n';
+    }
+
+    // 3. Responsive media queries
     const breakpointsToGenerate = ['sm', 'md', 'lg', 'xl', '2xl'];
     
     breakpointsToGenerate.forEach((breakpoint) => {
@@ -141,10 +161,10 @@ export const cssWithMediaQueries = {
       }
     });
 
-    // 3. Dark mode
-    if (tokensWithModes.length > 0) {
+    // 4. Dark mode overrides (only for mode-aware tokens)
+    if (modeAwareTokens.length > 0) {
       output += "[data-mode='dark'] {\n";
-      tokensWithModes.forEach(({ token, modes }) => {
+      modeAwareTokens.forEach(({ token, modes }) => {
         const cssVarName = `--${prefix}-${token.path.join('-')}`;
         let darkValue = modes.dark;
 
@@ -158,9 +178,9 @@ export const cssWithMediaQueries = {
       });
       output += '}\n\n';
 
-      // 4. High contrast mode
+      // 5. High contrast mode overrides (only for mode-aware tokens)
       output += "[data-mode='high-contrast'] {\n";
-      tokensWithModes.forEach(({ token, modes }) => {
+      modeAwareTokens.forEach(({ token, modes }) => {
         const cssVarName = `--${prefix}-${token.path.join('-')}`;
         const highContrastValue = modes['high-contrast'];
         output += `  ${cssVarName}: ${highContrastValue};\n`;

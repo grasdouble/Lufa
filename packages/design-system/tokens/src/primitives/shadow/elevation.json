@@ -18,7 +18,8 @@
               "category": "shadow",
               "elevation": 0,
               "useCase": "Flat elements, base surfaces",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -38,7 +39,8 @@
               "category": "shadow",
               "elevation": 1,
               "useCase": "Light cards, badges, pills",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -58,7 +60,8 @@
               "category": "shadow",
               "elevation": 2,
               "useCase": "Standard cards, panels, elevated surfaces",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -78,7 +81,8 @@
               "category": "shadow",
               "elevation": 3,
               "useCase": "Dropdowns, popovers, tooltips",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -98,7 +102,8 @@
               "category": "shadow",
               "elevation": 4,
               "useCase": "Modals, sidebars, drawers",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -118,7 +123,8 @@
               "category": "shadow",
               "elevation": 5,
               "useCase": "Floating elements, important notifications, dialogs",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
