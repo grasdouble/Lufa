@@ -48,11 +48,11 @@ const TypographyToken = ({
 }) => (
   <div style={{ marginBottom: '32px' }}>
     <div style={{ fontSize: '11px', fontFamily: 'monospace', marginBottom: '8px' }}>
-      <div style={{ fontWeight: 600, color: NEUTRAL.textDark }}>{name}</div>
-      <div style={{ color: NEUTRAL.textSlate, fontSize: '10px', marginTop: '2px' }}>{token}</div>
-      <div style={{ color: NEUTRAL.textSlate, fontSize: '10px', marginTop: '2px' }}>Value: {value}</div>
+      <div style={{ fontWeight: 600, color: 'var(--lufa-semantic-ui-text-primary)' }}>{name}</div>
+      <div style={{ color: 'var(--lufa-semantic-ui-text-secondary)', fontSize: '10px', marginTop: '2px' }}>{token}</div>
+      <div style={{ color: 'var(--lufa-semantic-ui-text-secondary)', fontSize: '10px', marginTop: '2px' }}>Value: {value}</div>
       {description && (
-        <div style={{ color: NEUTRAL.textSlate, fontSize: '10px', marginTop: '4px', fontFamily: 'sans-serif' }}>
+        <div style={{ color: 'var(--lufa-semantic-ui-text-secondary)', fontSize: '10px', marginTop: '4px', fontFamily: 'sans-serif' }}>
           {description}
         </div>
       )}
@@ -61,9 +61,9 @@ const TypographyToken = ({
       <div
         style={{
           padding: '16px',
-          backgroundColor: NEUTRAL.backgroundLight,
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
           borderRadius: '6px',
-          border: `1px solid ${NEUTRAL.borderMedium}`,
+          border: '1px solid var(--lufa-semantic-ui-border-default)',
           ...exampleStyle,
         }}
       >
@@ -81,8 +81,8 @@ const TypographySection = ({ title, children }: { title: string; children: React
         fontSize: '24px',
         fontWeight: 700,
         marginBottom: '24px',
-        color: NEUTRAL.textDark,
-        borderBottom: `2px solid ${NEUTRAL.borderMedium}`,
+        color: 'var(--lufa-semantic-ui-text-primary)',
+        borderBottom: '2px solid var(--lufa-semantic-ui-border-default)',
         paddingBottom: '12px',
       }}
     >
@@ -199,7 +199,7 @@ export const FontSizes: Story = {
     <StoryContainer>
       <TypographySection title="Font Size Scale">
         <div style={{ marginBottom: '48px' }}>
-          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: NEUTRAL.textDark }}>
+          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: 'var(--lufa-semantic-ui-text-primary)' }}>
             Static Font Sizes
           </h3>
 
@@ -260,9 +260,9 @@ export const FontSizes: Story = {
         </div>
 
         <div>
-          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: NEUTRAL.textDark }}>
+          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: 'var(--lufa-semantic-ui-text-primary)' }}>
             Fluid Font Sizes
-            <span style={{ fontSize: '12px', fontWeight: 400, color: NEUTRAL.textSlate, marginLeft: '8px' }}>
+            <span style={{ fontSize: '12px', fontWeight: 400, color: 'var(--lufa-semantic-ui-text-secondary)', marginLeft: '8px' }}>
               (Responsive with CSS clamp)
             </span>
           </h3>
@@ -365,15 +365,15 @@ export const FluidTypography: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: NEUTRAL.backgroundLight,
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
-                border: `1px solid ${NEUTRAL.borderMedium}`,
+                border: '1px solid var(--lufa-semantic-ui-border-default)',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: NEUTRAL.textSlate,
+                  color: 'var(--lufa-semantic-ui-text-secondary)',
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -393,15 +393,15 @@ export const FluidTypography: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: NEUTRAL.backgroundLight,
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
-                border: `1px solid ${NEUTRAL.borderMedium}`,
+                border: '1px solid var(--lufa-semantic-ui-border-default)',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: NEUTRAL.textSlate,
+                  color: 'var(--lufa-semantic-ui-text-secondary)',
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -421,15 +421,15 @@ export const FluidTypography: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: NEUTRAL.backgroundLight,
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
-                border: `1px solid ${NEUTRAL.borderMedium}`,
+                border: '1px solid var(--lufa-semantic-ui-border-default)',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: NEUTRAL.textSlate,
+                  color: 'var(--lufa-semantic-ui-text-secondary)',
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -449,15 +449,15 @@ export const FluidTypography: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: NEUTRAL.backgroundLight,
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
-                border: `1px solid ${NEUTRAL.borderMedium}`,
+                border: '1px solid var(--lufa-semantic-ui-border-default)',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: NEUTRAL.textSlate,
+                  color: 'var(--lufa-semantic-ui-text-secondary)',
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -491,7 +491,7 @@ export const LetterSpacingComparison: Story = {
     <StoryContainer>
       <TypographySection title="Letter Spacing Comparison">
         <div style={{ marginBottom: '24px' }}>
-          <p style={{ fontSize: '14px', color: NEUTRAL.textSlate, lineHeight: '1.6' }}>
+          <p style={{ fontSize: '14px', color: 'var(--lufa-semantic-ui-text-secondary)', lineHeight: '1.6' }}>
             All examples below use the same font size (32px) and weight. The only difference is the letter-spacing
             value. Notice how negative spacing tightens large text, while positive spacing improves legibility of
             uppercase text.
@@ -508,16 +508,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: NEUTRAL.backgroundLight,
+              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
               borderRadius: '6px',
-              border: `1px solid ${NEUTRAL.borderMedium}`,
+              border: '1px solid var(--lufa-semantic-ui-border-default)',
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: NEUTRAL.textDark,
+                color: 'var(--lufa-semantic-ui-text-primary)',
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -539,16 +539,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: NEUTRAL.backgroundLight,
+              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
               borderRadius: '6px',
-              border: `1px solid ${NEUTRAL.borderMedium}`,
+              border: '1px solid var(--lufa-semantic-ui-border-default)',
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: NEUTRAL.textDark,
+                color: 'var(--lufa-semantic-ui-text-primary)',
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -570,16 +570,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: NEUTRAL.backgroundLight,
+              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
               borderRadius: '6px',
-              border: `1px solid ${NEUTRAL.borderMedium}`,
+              border: '1px solid var(--lufa-semantic-ui-border-default)',
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: NEUTRAL.textDark,
+                color: 'var(--lufa-semantic-ui-text-primary)',
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -601,16 +601,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: NEUTRAL.backgroundLight,
+              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
               borderRadius: '6px',
-              border: `1px solid ${NEUTRAL.borderMedium}`,
+              border: '1px solid var(--lufa-semantic-ui-border-default)',
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: NEUTRAL.textDark,
+                color: 'var(--lufa-semantic-ui-text-primary)',
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -632,16 +632,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: NEUTRAL.backgroundLight,
+              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
               borderRadius: '6px',
-              border: `1px solid ${NEUTRAL.borderMedium}`,
+              border: '1px solid var(--lufa-semantic-ui-border-default)',
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: NEUTRAL.textDark,
+                color: 'var(--lufa-semantic-ui-text-primary)',
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -662,10 +662,10 @@ export const LetterSpacingComparison: Story = {
         </div>
 
         <div style={{ marginTop: '48px' }}>
-          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', color: NEUTRAL.textDark }}>
+          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', color: 'var(--lufa-semantic-ui-text-primary)' }}>
             Uppercase Comparison
           </h3>
-          <p style={{ fontSize: '14px', color: NEUTRAL.textSlate, marginBottom: '24px', lineHeight: '1.6' }}>
+          <p style={{ fontSize: '14px', color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '24px', lineHeight: '1.6' }}>
             Uppercase text benefits from wider letter-spacing. Compare how the same text looks with different spacing
             values:
           </p>
@@ -680,16 +680,16 @@ export const LetterSpacingComparison: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: NEUTRAL.backgroundLight,
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
-                border: `1px solid ${NEUTRAL.borderMedium}`,
+                border: '1px solid var(--lufa-semantic-ui-border-default)',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: NEUTRAL.textDark,
+                  color: 'var(--lufa-semantic-ui-text-primary)',
                   marginBottom: '12px',
                   textAlign: 'center',
                 }}
@@ -712,16 +712,16 @@ export const LetterSpacingComparison: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: NEUTRAL.backgroundLight,
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
-                border: `1px solid ${NEUTRAL.borderMedium}`,
+                border: '1px solid var(--lufa-semantic-ui-border-default)',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: NEUTRAL.textDark,
+                  color: 'var(--lufa-semantic-ui-text-primary)',
                   marginBottom: '12px',
                   textAlign: 'center',
                 }}
@@ -744,16 +744,16 @@ export const LetterSpacingComparison: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: NEUTRAL.backgroundLight,
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
-                border: `1px solid ${NEUTRAL.borderMedium}`,
+                border: '1px solid var(--lufa-semantic-ui-border-default)',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: NEUTRAL.textDark,
+                  color: 'var(--lufa-semantic-ui-text-primary)',
                   marginBottom: '12px',
                   textAlign: 'center',
                 }}
@@ -794,7 +794,7 @@ export const BestPractices: Story = {
             <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '16px', color: PRIMARY.green.main }}>
               ✅ DO
             </h3>
-            <ul style={{ fontSize: '14px', lineHeight: '1.8', color: NEUTRAL.textDark, paddingLeft: '24px' }}>
+            <ul style={{ fontSize: '14px', lineHeight: '1.8', color: 'var(--lufa-semantic-ui-text-primary)', paddingLeft: '24px' }}>
               <li>
                 Use{' '}
                 <code
@@ -876,7 +876,7 @@ export const BestPractices: Story = {
             <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '16px', color: PRIMARY.pink.main }}>
               ❌ DON'T
             </h3>
-            <ul style={{ fontSize: '14px', lineHeight: '1.8', color: NEUTRAL.textDark, paddingLeft: '24px' }}>
+            <ul style={{ fontSize: '14px', lineHeight: '1.8', color: 'var(--lufa-semantic-ui-text-primary)', paddingLeft: '24px' }}>
               <li>Use negative letter-spacing on small text (&lt; 16px)</li>
               <li>Use wide letter-spacing on large headings</li>
               <li>Mix static and fluid font-sizes inconsistently</li>
@@ -933,7 +933,7 @@ export const BestPractices: Story = {
             style={{
               fontSize: '14px',
               lineHeight: '1.8',
-              color: NEUTRAL.textDark,
+              color: 'var(--lufa-semantic-ui-text-primary)',
               paddingLeft: '24px',
               marginBottom: 0,
             }}
@@ -985,7 +985,7 @@ export const BestPractices: Story = {
         </div>
 
         <div style={{ marginTop: '48px' }}>
-          <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '24px', color: NEUTRAL.textDark }}>
+          <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '24px', color: 'var(--lufa-semantic-ui-text-primary)' }}>
             Common Patterns
           </h3>
 
@@ -993,12 +993,12 @@ export const BestPractices: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: NEUTRAL.backgroundLight,
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
-                border: `1px solid ${NEUTRAL.borderMedium}`,
+                border: '1px solid var(--lufa-semantic-ui-border-default)',
               }}
             >
-              <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate, marginBottom: '12px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '12px' }}>
                 Hero Heading Pattern
               </div>
               <div
@@ -1014,7 +1014,7 @@ export const BestPractices: Story = {
               <code
                 style={{
                   fontSize: '10px',
-                  color: NEUTRAL.textSlate,
+                  color: 'var(--lufa-semantic-ui-text-secondary)',
                   fontFamily: 'monospace',
                   display: 'block',
                   marginTop: '8px',
@@ -1029,12 +1029,12 @@ export const BestPractices: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: NEUTRAL.backgroundLight,
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
-                border: `1px solid ${NEUTRAL.borderMedium}`,
+                border: '1px solid var(--lufa-semantic-ui-border-default)',
               }}
             >
-              <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate, marginBottom: '12px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '12px' }}>
                 Button Text Pattern
               </div>
               <div
@@ -1055,7 +1055,7 @@ export const BestPractices: Story = {
               <code
                 style={{
                   fontSize: '10px',
-                  color: NEUTRAL.textSlate,
+                  color: 'var(--lufa-semantic-ui-text-secondary)',
                   fontFamily: 'monospace',
                   display: 'block',
                   marginTop: '8px',
@@ -1072,12 +1072,12 @@ export const BestPractices: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: NEUTRAL.backgroundLight,
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
-                border: `1px solid ${NEUTRAL.borderMedium}`,
+                border: '1px solid var(--lufa-semantic-ui-border-default)',
               }}
             >
-              <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate, marginBottom: '12px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '12px' }}>
                 Body Text Pattern
               </div>
               <div
@@ -1092,7 +1092,7 @@ export const BestPractices: Story = {
               <code
                 style={{
                   fontSize: '10px',
-                  color: NEUTRAL.textSlate,
+                  color: 'var(--lufa-semantic-ui-text-secondary)',
                   fontFamily: 'monospace',
                   display: 'block',
                   marginTop: '8px',
@@ -1109,12 +1109,12 @@ export const BestPractices: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: NEUTRAL.backgroundLight,
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
-                border: `1px solid ${NEUTRAL.borderMedium}`,
+                border: '1px solid var(--lufa-semantic-ui-border-default)',
               }}
             >
-              <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate, marginBottom: '12px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '12px' }}>
                 Label Pattern
               </div>
               <div
@@ -1123,7 +1123,7 @@ export const BestPractices: Story = {
                   fontWeight: 600,
                   letterSpacing: 'var(--lufa-primitive-typography-letter-spacing-wide)',
                   textTransform: 'uppercase',
-                  color: NEUTRAL.textSlate,
+                  color: 'var(--lufa-semantic-ui-text-secondary)',
                 }}
               >
                 Section Label
@@ -1131,7 +1131,7 @@ export const BestPractices: Story = {
               <code
                 style={{
                   fontSize: '10px',
-                  color: NEUTRAL.textSlate,
+                  color: 'var(--lufa-semantic-ui-text-secondary)',
                   fontFamily: 'monospace',
                   display: 'block',
                   marginTop: '8px',
@@ -1196,7 +1196,7 @@ export const ExtendedTypeScale: Story = {
             <div style={{ fontSize: '14px', fontWeight: 600, color: PRIMARY.orange.main, marginBottom: '8px' }}>
               📏 Current viewport: {width}px
             </div>
-            <div style={{ fontSize: '12px', color: NEUTRAL.textDark }}>
+            <div style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-primary)' }}>
               Resize your browser to see fluid scaling in action. Note: 8xl scales from 400px+ viewport (intentional for
               display tier).
             </div>
@@ -1221,7 +1221,7 @@ export const ExtendedTypeScale: Story = {
                   >
                     Hero Headline
                   </div>
-                  <div style={{ fontSize: '12px', color: NEUTRAL.textSlate, fontFamily: 'monospace' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)', fontFamily: 'monospace' }}>
                     Mobile (320px): ~40px • Tablet (768px): ~51px • Desktop (1280px): 60px
                   </div>
                 </div>
@@ -1248,7 +1248,7 @@ export const ExtendedTypeScale: Story = {
                   >
                     Marketing Hero
                   </div>
-                  <div style={{ fontSize: '12px', color: NEUTRAL.textSlate, fontFamily: 'monospace' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)', fontFamily: 'monospace' }}>
                     Mobile (320px): 48px • Tablet (768px): ~63px • Desktop (1280px): 72px
                   </div>
                 </div>
@@ -1278,7 +1278,7 @@ export const ExtendedTypeScale: Story = {
                   <div
                     style={{
                       fontSize: '12px',
-                      color: NEUTRAL.textSlate,
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
                       fontFamily: 'monospace',
                       backgroundColor: PRIMARY.orange.light,
                       padding: '8px',
@@ -1300,18 +1300,18 @@ export const ExtendedTypeScale: Story = {
             style={{
               marginTop: '48px',
               padding: '24px',
-              backgroundColor: NEUTRAL.backgroundLight,
+              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
               borderRadius: '8px',
-              border: `2px solid ${NEUTRAL.borderMedium}`,
+              border: '2px solid var(--lufa-semantic-ui-border-default)',
             }}
           >
-            <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: NEUTRAL.textDark }}>
+            <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: 'var(--lufa-semantic-ui-text-primary)' }}>
               Visual Comparison at {width}px
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
               <div>
                 <div
-                  style={{ fontSize: '12px', color: NEUTRAL.textSlate, marginBottom: '8px', fontFamily: 'monospace' }}
+                  style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '8px', fontFamily: 'monospace' }}
                 >
                   5xl (existing)
                 </div>
@@ -1321,7 +1321,7 @@ export const ExtendedTypeScale: Story = {
               </div>
               <div>
                 <div
-                  style={{ fontSize: '12px', color: NEUTRAL.textSlate, marginBottom: '8px', fontFamily: 'monospace' }}
+                  style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '8px', fontFamily: 'monospace' }}
                 >
                   6xl (new)
                 </div>
@@ -1331,7 +1331,7 @@ export const ExtendedTypeScale: Story = {
               </div>
               <div>
                 <div
-                  style={{ fontSize: '12px', color: NEUTRAL.textSlate, marginBottom: '8px', fontFamily: 'monospace' }}
+                  style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '8px', fontFamily: 'monospace' }}
                 >
                   7xl (new)
                 </div>
@@ -1341,7 +1341,7 @@ export const ExtendedTypeScale: Story = {
               </div>
               <div>
                 <div
-                  style={{ fontSize: '12px', color: NEUTRAL.textSlate, marginBottom: '8px', fontFamily: 'monospace' }}
+                  style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '8px', fontFamily: 'monospace' }}
                 >
                   8xl (new)
                 </div>
@@ -1354,7 +1354,7 @@ export const ExtendedTypeScale: Story = {
 
           {/* Breakpoint Testing Table */}
           <div style={{ marginTop: '48px' }}>
-            <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', color: NEUTRAL.textDark }}>
+            <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', color: 'var(--lufa-semantic-ui-text-primary)' }}>
               Responsive Behavior Across Breakpoints
             </h3>
             <div style={{ overflowX: 'auto' }}>
@@ -1367,31 +1367,31 @@ export const ExtendedTypeScale: Story = {
                 }}
               >
                 <thead>
-                  <tr style={{ backgroundColor: NEUTRAL.backgroundLight }}>
-                    <th style={{ padding: '12px', textAlign: 'left', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                  <tr style={{ backgroundColor: 'var(--lufa-semantic-ui-background-surface)' }}>
+                    <th style={{ padding: '12px', textAlign: 'left', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       Token
                     </th>
-                    <th style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       Mobile
                       <br />
                       (320px)
                     </th>
-                    <th style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       Phablet
                       <br />
                       (400px)
                     </th>
-                    <th style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       Tablet
                       <br />
                       (768px)
                     </th>
-                    <th style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       Desktop
                       <br />
                       (1024px)
                     </th>
-                    <th style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       Large
                       <br />
                       (1280px)
@@ -1400,53 +1400,53 @@ export const ExtendedTypeScale: Story = {
                 </thead>
                 <tbody>
                   <tr>
-                    <td style={{ padding: '12px', border: `1px solid ${NEUTRAL.borderMedium}`, fontWeight: 600 }}>
+                    <td style={{ padding: '12px', border: '1px solid var(--lufa-semantic-ui-border-default)', fontWeight: 600 }}>
                       6xl
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       40px
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       42px
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       51px
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       58px
                     </td>
                     <td
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: `1px solid ${NEUTRAL.borderMedium}`,
+                        border: '1px solid var(--lufa-semantic-ui-border-default)',
                         fontWeight: 600,
                       }}
                     >
                       60px
                     </td>
                   </tr>
-                  <tr style={{ backgroundColor: NEUTRAL.backgroundLight }}>
-                    <td style={{ padding: '12px', border: `1px solid ${NEUTRAL.borderMedium}`, fontWeight: 600 }}>
+                  <tr style={{ backgroundColor: 'var(--lufa-semantic-ui-background-surface)' }}>
+                    <td style={{ padding: '12px', border: '1px solid var(--lufa-semantic-ui-border-default)', fontWeight: 600 }}>
                       7xl
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       48px
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       52px
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       63px
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       71px
                     </td>
                     <td
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: `1px solid ${NEUTRAL.borderMedium}`,
+                        border: '1px solid var(--lufa-semantic-ui-border-default)',
                         fontWeight: 600,
                       }}
                     >
@@ -1454,7 +1454,7 @@ export const ExtendedTypeScale: Story = {
                     </td>
                   </tr>
                   <tr>
-                    <td style={{ padding: '12px', border: `1px solid ${NEUTRAL.borderMedium}`, fontWeight: 600 }}>
+                    <td style={{ padding: '12px', border: '1px solid var(--lufa-semantic-ui-border-default)', fontWeight: 600 }}>
                       8xl
                       <span style={{ color: PRIMARY.orange.main, marginLeft: '4px' }}>⚠️</span>
                     </td>
@@ -1462,7 +1462,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: `1px solid ${NEUTRAL.borderMedium}`,
+                        border: '1px solid var(--lufa-semantic-ui-border-default)',
                         backgroundColor: PRIMARY.orange.light,
                       }}
                     >
@@ -1470,22 +1470,22 @@ export const ExtendedTypeScale: Story = {
                       <br />
                       <span style={{ fontSize: '10px', color: PRIMARY.orange.main }}>(static)</span>
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       64px
                       <br />
-                      <span style={{ fontSize: '10px', color: NEUTRAL.textSlate }}>(fluid starts)</span>
+                      <span style={{ fontSize: '10px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>(fluid starts)</span>
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       79px
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid var(--lufa-semantic-ui-border-default)' }}>
                       89px
                     </td>
                     <td
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: `1px solid ${NEUTRAL.borderMedium}`,
+                        border: '1px solid var(--lufa-semantic-ui-border-default)',
                         fontWeight: 600,
                       }}
                     >
@@ -1499,7 +1499,7 @@ export const ExtendedTypeScale: Story = {
               style={{
                 marginTop: '12px',
                 fontSize: '11px',
-                color: NEUTRAL.textSlate,
+                color: 'var(--lufa-semantic-ui-text-secondary)',
                 fontStyle: 'italic',
               }}
             >
