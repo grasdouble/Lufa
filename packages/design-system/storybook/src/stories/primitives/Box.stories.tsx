@@ -390,11 +390,11 @@ export const PropPadding: Story = {
     // Note: 'none' and 'tight' both map to 4px (tight spacing)
     const paddingValues = [
       { value: 'none' as const, size: '4px', color: STORY_COLORS.neutral.borderMedium },
-      { value: 'tight' as const, size: '4px', color: STORY_COLORS.primary.cyan },
-      { value: 'compact' as const, size: '8px', color: STORY_COLORS.primary.green },
-      { value: 'default' as const, size: '16px', color: STORY_COLORS.primary.blue },
-      { value: 'comfortable' as const, size: '24px', color: STORY_COLORS.primary.violet },
-      { value: 'spacious' as const, size: '32px', color: STORY_COLORS.primary.pink },
+      { value: 'tight' as const, size: '4px', color: STORY_COLORS.primary.cyan.main },
+      { value: 'compact' as const, size: '8px', color: STORY_COLORS.primary.green.main },
+      { value: 'default' as const, size: '16px', color: STORY_COLORS.primary.blue.main },
+      { value: 'comfortable' as const, size: '24px', color: STORY_COLORS.primary.violet.main },
+      { value: 'spacious' as const, size: '32px', color: STORY_COLORS.primary.pink.main },
     ];
 
     const generateCode = (padding: string): string => {

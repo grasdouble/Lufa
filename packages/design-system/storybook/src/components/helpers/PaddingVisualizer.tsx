@@ -76,7 +76,11 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
 
   // Extract token name from CSS variable for educational purposes
   const extractTokenName = (colorValue: string): string | null => {
-    if (colorValue?.startsWith('var(')) {
+    // Ensure colorValue is a string before calling string methods
+    if (typeof colorValue !== 'string') {
+      return null;
+    }
+    if (colorValue.startsWith('var(')) {
       const match = /--lufa-([a-z-]+)/.exec(colorValue);
       return match ? match[1] : null;
     }
@@ -86,10 +90,10 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
   const tokenName = extractTokenName(finalColor);
 
   // Convert hex color to rgba for opacity
-  const hexToRgba = (hex: string, alpha: number): string => {
-    // Validate that hex is a string and starts with #
+  const hexToRgba = (hex: string | unknown, alpha: number): string => {
+    // Validate that hex is a string
     if (!hex || typeof hex !== 'string') {
-      console.warn('PaddingVisualizer: Invalid color provided:', hex);
+      console.warn('PaddingVisualizer: Invalid color provided (expected string):', hex);
       return `rgba(200, 200, 200, ${alpha})`; // Fallback to gray
     }
 

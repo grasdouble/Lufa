@@ -96,7 +96,11 @@ export const MarginVisualizer = ({
 
   // Extract token name from CSS variable for educational purposes
   const extractTokenName = (colorValue: string): string | null => {
-    if (colorValue?.startsWith('var(')) {
+    // Ensure colorValue is a string before calling string methods
+    if (typeof colorValue !== 'string') {
+      return null;
+    }
+    if (colorValue.startsWith('var(')) {
       const match = /--lufa-([a-z-]+)/.exec(colorValue);
       return match ? match[1] : null;
     }
@@ -106,15 +110,18 @@ export const MarginVisualizer = ({
   const tokenName = extractTokenName(finalColor);
 
   // For CSS variables, we can't compute hex alpha, so use rgba with opacity
-  const backgroundColor = finalColor.startsWith('var(')
-    ? `color-mix(in srgb, ${finalColor} ${opacity * 100}%, transparent)`
-    : `${finalColor}${Math.round(opacity * 255)
-        .toString(16)
-        .padStart(2, '0')}`;
+  const backgroundColor =
+    typeof finalColor === 'string' && finalColor.startsWith('var(')
+      ? `color-mix(in srgb, ${finalColor} ${opacity * 100}%, transparent)`
+      : `${finalColor}${Math.round(opacity * 255)
+          .toString(16)
+          .padStart(2, '0')}`;
 
   const computedBorderColor =
     borderColor ||
-    (finalColor.startsWith('var(') ? `color-mix(in srgb, ${finalColor} 50%, transparent)` : `${finalColor}80`);
+    (typeof finalColor === 'string' && finalColor.startsWith('var(')
+      ? `color-mix(in srgb, ${finalColor} 50%, transparent)`
+      : `${finalColor}80`);
 
   return (
     <div
