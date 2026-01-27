@@ -15,26 +15,26 @@
 export const Breakpoints = {
   /** Extra small devices - Mobile portrait (320px) */
   xsmall: {
-    width: 320,
+    width: '320px',
   },
   /** Small devices - Mobile landscape (640px) - Updated from 576px in Phase 2C Sprint 1 */
   small: {
-    width: 640,
+    width: '640px',
   },
   /** Medium devices - Tablets (768px) */
   medium: {
-    width: 768,
+    width: '768px',
   },
   /** Large devices - Desktop (1024px) */
   large: {
-    width: 1024,
+    width: '1024px',
   },
   /** Extra large devices - Large desktop (1280px) */
   xlarge: {
-    width: 1280,
+    width: '1280px',
   },
   /** Extra extra large devices - Wide desktop (1536px) */
   xxlarge: {
-    width: 1536,
+    width: '1536px',
   },
 };
