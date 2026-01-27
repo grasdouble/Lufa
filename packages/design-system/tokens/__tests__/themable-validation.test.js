@@ -12,7 +12,6 @@
  * - Durations must be themable: false
  * - Numbers must be themable: false
  */
-import assert from 'assert';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -120,7 +119,6 @@ function testColorTokensAreThemable(tokens) {
     }
   }
 
-  const passed = colorTokens.length - failures;
   results.total++;
 
   if (failures === 0) {
@@ -160,7 +158,6 @@ function testShadowTokensAreThemable(tokens) {
     }
   }
 
-  const passed = shadowTokens.length - failures;
   results.total++;
 
   if (failures === 0) {
@@ -200,7 +197,6 @@ function testDimensionTokensAreNotThemable(tokens) {
     }
   }
 
-  const passed = dimensionTokens.length - failures;
   results.total++;
 
   if (failures === 0) {
@@ -240,7 +236,6 @@ function testDurationTokensAreNotThemable(tokens) {
     }
   }
 
-  const passed = durationTokens.length - failures;
   results.total++;
 
   if (failures === 0) {
@@ -280,7 +275,6 @@ function testNumberTokensAreNotThemable(tokens) {
     }
   }
 
-  const passed = numberTokens.length - failures;
   results.total++;
 
   if (failures === 0) {
@@ -320,7 +314,6 @@ function testCubicBezierTokensAreNotThemable(tokens) {
     }
   }
 
-  const passed = cubicBezierTokens.length - failures;
   results.total++;
 
   if (failures === 0) {
