@@ -290,7 +290,7 @@ function addThemableField(token, tokenPath, themableValue) {
     const label = themableValue ? 'themable: true' : 'themable: false';
     const colorCode = themableValue ? colors.green : colors.blue;
     console.log(
-      `${colors.yellow}  • ${colors.reset}${tokenPath} ${colors.gray}(${token.$type}) → ${label} [DRY RUN]${colors.reset}`
+      `${colorCode}  • ${colors.reset}${tokenPath} ${colors.gray}(${token.$type}) → ${label} [DRY RUN]${colors.reset}`
     );
   }
 
