@@ -631,7 +631,7 @@ export const PropAs: Story = {
                   <div
                     style={{
                       padding: '8px',
-                      background: 'white',
+                      background: 'var(--lufa-semantic-ui-background-surface)',
                       borderRadius: '4px',
                       fontSize: '13px',
                       fontWeight: 600,
@@ -780,7 +780,7 @@ export const CombinedVariants: Story = {
                   padding: '10px 20px',
                   borderRadius: '6px',
                   border: `1px solid ${STORY_COLORS.primary.blue.main}`,
-                  background: 'white',
+                  background: 'var(--lufa-semantic-ui-background-surface)',
                   color: STORY_COLORS.primary.blue.main,
                   fontWeight: 600,
                   cursor: 'pointer',
@@ -793,7 +793,7 @@ export const CombinedVariants: Story = {
                   padding: '10px 20px',
                   borderRadius: '6px',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
-                  background: 'white',
+                  background: 'var(--lufa-semantic-ui-background-surface)',
                   color: NEUTRAL.textSlate,
                   fontWeight: 600,
                   cursor: 'pointer',

@@ -771,7 +771,7 @@ export const RealWorldPatterns: Story = {
               style={{
                 maxWidth: '700px',
                 padding: '32px',
-                background: 'white',
+                background: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '12px',
                 boxShadow: 'var(--lufa-semantic-ui-shadow-md)',
               }}
@@ -809,7 +809,7 @@ export const RealWorldPatterns: Story = {
                   key={plan.name}
                   style={{
                     padding: '24px',
-                    background: 'white',
+                    background: 'var(--lufa-semantic-ui-background-surface)',
                     borderRadius: '12px',
                     border: '2px solid',
                     borderColor: idx === 1 ? STORY_COLORS.primary.blue.main : NEUTRAL.borderMedium,
@@ -854,7 +854,7 @@ export const RealWorldPatterns: Story = {
                   key={metric.label}
                   style={{
                     padding: '20px',
-                    background: 'white',
+                    background: 'var(--lufa-semantic-ui-background-surface)',
                     borderRadius: '8px',
                     border: `1px solid ${NEUTRAL.borderMedium}`,
                   }}
