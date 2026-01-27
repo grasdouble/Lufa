@@ -231,7 +231,11 @@ export const Playground: Story = {
     children: '🎨 Edit the controls to see changes in real-time!',
     contentType: 'text',
   },
-  render: (args) => {
+  render: (args:any) => {
+    // Type-safe access to args properties
+    const contentType = (args as { contentType?: 'text' | 'multipleItems' }).contentType;
+    const children = (args as { children?: React.ReactNode }).children;
+
     // Determine content based on contentType control
     const itemStyle = {
       padding: '8px',
@@ -240,7 +244,7 @@ export const Playground: Story = {
     };
 
     const content =
-      args.contentType === 'multipleItems' ? (
+      contentType === 'multipleItems' ? (
         <>
           <div style={itemStyle}>Item 1</div>
           <div style={itemStyle}>Item 2</div>
@@ -248,7 +252,7 @@ export const Playground: Story = {
           <div style={itemStyle}>Item 4</div>
         </>
       ) : (
-        args.children
+        children
       );
 
     return (

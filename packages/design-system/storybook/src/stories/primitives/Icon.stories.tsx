@@ -142,7 +142,7 @@ export const Playground: Story = {
     size: 'md',
     color: 'currentColor',
   },
-  render: (args) => {
+  render: (args: any) => {
     return (
       <StoryContainer>
         <div

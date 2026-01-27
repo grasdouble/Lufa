@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Divider } from '@grasdouble/lufa_design-system';
+import { Divider, type DividerProps } from '@grasdouble/lufa_design-system';
 
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
 import { STORY_COLORS } from '../../constants/storyColors';
@@ -1025,7 +1025,7 @@ export const Playground: Story = {
     lineStyle: 'solid',
     as: 'hr',
   },
-  render: (args) => {
+  render: (args: DividerProps) => {
     return (
       <StoryContainer>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>

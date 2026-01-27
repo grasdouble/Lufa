@@ -183,7 +183,7 @@ export const PropSize: Story = {
     ] as const;
 
     const generateCode = (size: string): string => {
-      const description = sizes.find((s) => s.value === size)?.description || size;
+      const description = sizes.find((s) => s.value === size)?.description ?? size;
       return `<Badge size="${size}">${description}</Badge>`;
     };
 

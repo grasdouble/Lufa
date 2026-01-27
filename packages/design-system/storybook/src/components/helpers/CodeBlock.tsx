@@ -62,7 +62,7 @@ export const CodeBlock = ({
       }}
     >
       {/* Header */}
-      {(title || subtitle || tabs) && (
+      {(title ?? subtitle ?? tabs) && (
         <div
           style={{
             display: 'flex',
@@ -154,7 +154,7 @@ export const CodeBlock = ({
           wordBreak: 'break-word',
         }}
       >
-        {displayCode || (
+        {displayCode ?? (
           <span style={{ color: 'var(--lufa-primitive-color-alpha-white-50)', fontStyle: 'italic' }}>
             {emptyMessage}
           </span>

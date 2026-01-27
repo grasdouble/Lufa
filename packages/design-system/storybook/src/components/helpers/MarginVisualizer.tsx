@@ -92,7 +92,7 @@ export const MarginVisualizer = ({
 }: MarginVisualizerProps) => {
   // Use token-based color if no custom color provided
   const defaultColor = 'var(--lufa-semantic-ui-background-info)';
-  const finalColor = color || defaultColor;
+  const finalColor = color ?? defaultColor;
 
   // Extract token name from CSS variable for educational purposes
   const extractTokenName = (colorValue: string): string | null => {
@@ -118,7 +118,7 @@ export const MarginVisualizer = ({
           .padStart(2, '0')}`;
 
   const computedBorderColor =
-    borderColor ||
+    borderColor ??
     (typeof finalColor === 'string' && finalColor.startsWith('var(')
       ? `color-mix(in srgb, ${finalColor} 50%, transparent)`
       : `${finalColor}80`);

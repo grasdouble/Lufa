@@ -128,7 +128,7 @@ export const Playground: Story = {
     transform: 'none',
     children: 'The quick brown fox jumps over the lazy dog.',
   },
-  render: (args) => {
+  render: (args: any) => {
     return (
       <StoryContainer>
         <div
@@ -174,7 +174,7 @@ export const PropVariant: Story = {
 
     const generateCode = (variant: string): string => {
       return `<Text variant="${variant}">
-  ${variantValues.find((v) => v.value === variant)?.example || 'Text content'}
+  ${variantValues.find((v) => v.value === variant)?.example ?? 'Text content'}
 </Text>`;
     };
 
@@ -264,7 +264,7 @@ export const PropColor: Story = {
 
     const generateCode = (color: string): string => {
       return `<Text color="${color}">
-  ${colorValues.find((c) => c.value === color)?.description || 'Text content'}
+  ${colorValues.find((c) => c.value === color)?.description ?? 'Text content'}
 </Text>`;
     };
 
@@ -324,7 +324,7 @@ export const PropWeight: Story = {
 
     const generateCode = (weight: string): string => {
       return `<Text weight="${weight}">
-  ${weightValues.find((w) => w.value === weight)?.example || 'Text content'}
+  ${weightValues.find((w) => w.value === weight)?.example ?? 'Text content'}
 </Text>`;
     };
 
@@ -441,7 +441,7 @@ export const PropTransform: Story = {
 
     const generateCode = (transform: string): string => {
       return `<Text transform="${transform}">
-  ${transformValues.find((t) => t.value === transform)?.example || 'Text content'}
+  ${transformValues.find((t) => t.value === transform)?.example ?? 'Text content'}
 </Text>`;
     };
 

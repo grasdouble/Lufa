@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { useEffect } from 'react';
 import type { Decorator, Parameters, Preview } from '@storybook/react-vite';
 
@@ -63,10 +67,28 @@ const ThemeAndModeWrapper = ({ theme, mode, children }: { theme: string; mode: s
     } else {
       root.setAttribute('data-mode', mode);
     }
+
+    // Also update the docs iframe if it exists
+    const docsRoot = window.parent?.document?.documentElement;
+    if (docsRoot && docsRoot !== root) {
+      if (theme === 'default') {
+        docsRoot.removeAttribute('data-color-theme');
+      } else {
+        docsRoot.setAttribute('data-color-theme', theme);
+      }
+
+      if (mode === '' || mode == null || mode === undefined) {
+        docsRoot.setAttribute('data-mode', 'light');
+      } else {
+        docsRoot.setAttribute('data-mode', mode);
+      }
+    }
   }, [theme, mode]);
 
   return (
     <div
+      data-color-theme={theme !== 'default' ? theme : undefined}
+      data-mode={mode || 'light'}
       style={{
         backgroundColor: 'var(--lufa-semantic-ui-background-page)',
         color: 'var(--lufa-semantic-ui-text-primary)',

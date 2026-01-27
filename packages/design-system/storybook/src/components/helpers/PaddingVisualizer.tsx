@@ -72,7 +72,7 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
 }) => {
   // Use token-based color if no custom color provided
   const defaultColor = 'var(--lufa-semantic-ui-background-info)';
-  const finalColor = color || defaultColor;
+  const finalColor = color ?? defaultColor;
 
   // Extract token name from CSS variable for educational purposes
   const extractTokenName = (colorValue: string): string | null => {
