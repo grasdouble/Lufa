@@ -37,7 +37,7 @@ export function BoxRefTests() {
     ref={(node) => {
       if (node) {
         // node should be HTMLDivElement for default 'div'
-        const _test: HTMLDivElement = node as HTMLDivElement;
+        const _test: HTMLDivElement = node;
       }
     }}
     padding="default"
@@ -65,7 +65,7 @@ export function ButtonRefTests() {
     ref={(node) => {
       if (node) {
         // node should be HTMLButtonElement for default 'button'
-        const _test: HTMLButtonElement = node as HTMLButtonElement;
+        const _test: HTMLButtonElement = node;
       }
     }}
     type="solid"
@@ -91,7 +91,7 @@ export function IconRefTests() {
     name="heart"
     ref={(node) => {
       if (node) {
-        const _test: HTMLSpanElement = node as HTMLSpanElement;
+        const _test: HTMLSpanElement = node;
       }
     }}
   />;

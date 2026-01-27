@@ -276,7 +276,6 @@ For standard UI and content pages, 2xl-5xl headings are usually sufficient.
 :::warning 8xl Special Behavior
 The 8xl token (96px maximum) has intentional behavior where fluid scaling only engages at viewports 400px and above. On smaller mobile devices (320px-400px), it remains at 64px. This prevents excessive text size on small screens where display typography is less common.
 
-To see this behavior in action, check the [Extended Type Scale story in Storybook](https://storybook.lufa-ds.grasdouble.com/?path=/story/tokens-typography--extended-type-scale).
 :::
 
 ### General Typography Best Practices
