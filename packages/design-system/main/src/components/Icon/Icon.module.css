@@ -26,28 +26,28 @@
 /* ========================================== */
 
 .size-xs {
-  width: 16px;
-  height: 16px;
+  width: var(--lufa-component-shared-icon-size-xs);
+  height: var(--lufa-component-shared-icon-size-xs);
 }
 
 .size-sm {
-  width: 20px;
-  height: 20px;
+  width: var(--lufa-component-shared-icon-size-sm);
+  height: var(--lufa-component-shared-icon-size-sm);
 }
 
 .size-md {
-  width: 24px;
-  height: 24px;
+  width: var(--lufa-component-shared-icon-size-md);
+  height: var(--lufa-component-shared-icon-size-md);
 }
 
 .size-lg {
-  width: 32px;
-  height: 32px;
+  width: var(--lufa-component-shared-icon-size-lg);
+  height: var(--lufa-component-shared-icon-size-lg);
 }
 
 .size-xl {
-  width: 40px;
-  height: 40px;
+  width: var(--lufa-component-shared-icon-size-xl);
+  height: var(--lufa-component-shared-icon-size-xl);
 }
 
 /* ========================================== */

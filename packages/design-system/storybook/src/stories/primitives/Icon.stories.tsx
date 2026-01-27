@@ -7,6 +7,9 @@ import { Icon } from '@grasdouble/lufa_design-system';
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
 import { STORY_COLORS } from '../../constants/storyColors';
 
+const NEUTRAL = STORY_COLORS.neutral;
+const PRIMARY = STORY_COLORS.primary;
+
 /**
  * Icon - SVG Icon Wrapper Component
  *
@@ -209,7 +212,9 @@ export const PropName: Story = {
           {/* Icon categories */}
           {iconCategories.map(({ category, icons }) => (
             <div key={category}>
-              <h3 style={{ marginBottom: '16px', fontSize: '16px', fontWeight: 600, color: '#333' }}>{category}</h3>
+              <h3 style={{ marginBottom: '16px', fontSize: '16px', fontWeight: 600, color: NEUTRAL.textDark }}>
+                {category}
+              </h3>
               <div
                 style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '16px' }}
               >
@@ -226,7 +231,9 @@ export const PropName: Story = {
                         }}
                       >
                         <Icon name={iconName} size="lg" />
-                        <div style={{ fontSize: '11px', color: '#666', textAlign: 'center' }}>{iconName}</div>
+                        <div style={{ fontSize: '11px', color: NEUTRAL.textSlate, textAlign: 'center' }}>
+                          {iconName}
+                        </div>
                       </div>
                     </PropCard>
                   </div>
@@ -292,8 +299,8 @@ export const PropSize: Story = {
                   >
                     <Icon name="star" size={value} />
                     <div style={{ textAlign: 'center' }}>
-                      <div style={{ fontSize: '14px', fontWeight: 600, color: '#333' }}>{label}</div>
-                      <div style={{ fontSize: '12px', color: '#666' }}>{dimension}</div>
+                      <div style={{ fontSize: '14px', fontWeight: 600, color: NEUTRAL.textDark }}>{label}</div>
+                      <div style={{ fontSize: '12px', color: NEUTRAL.textSlate }}>{dimension}</div>
                     </div>
                   </div>
                 </PropCard>
@@ -356,8 +363,8 @@ export const PropColor: Story = {
                   >
                     <Icon name="heart" size="lg" color={value} />
                     <div style={{ textAlign: 'center' }}>
-                      <div style={{ fontSize: '14px', fontWeight: 600, color: '#333' }}>{label}</div>
-                      <div style={{ fontSize: '12px', color: '#666' }}>{description}</div>
+                      <div style={{ fontSize: '14px', fontWeight: 600, color: NEUTRAL.textDark }}>{label}</div>
+                      <div style={{ fontSize: '12px', color: NEUTRAL.textSlate }}>{description}</div>
                     </div>
                   </div>
                 </PropCard>
@@ -402,7 +409,7 @@ export const PropTitle: Story = {
                 borderRadius: '8px',
               }}
             >
-              <div style={{ marginBottom: '12px', fontSize: '14px', color: '#666' }}>
+              <div style={{ marginBottom: '12px', fontSize: '14px', color: NEUTRAL.textSlate }}>
                 Icon without title is decorative (aria-hidden=&quot;true&quot;)
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -428,7 +435,7 @@ export const PropTitle: Story = {
                 borderRadius: '8px',
               }}
             >
-              <div style={{ marginBottom: '12px', fontSize: '14px', color: '#666' }}>
+              <div style={{ marginBottom: '12px', fontSize: '14px', color: NEUTRAL.textSlate }}>
                 Icon with title is accessible (role=&quot;img&quot; + aria-label)
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -458,13 +465,13 @@ export const PropTitle: Story = {
                 borderRadius: '8px',
               }}
             >
-              <div style={{ marginBottom: '12px', fontSize: '14px', color: '#666' }}>
+              <div style={{ marginBottom: '12px', fontSize: '14px', color: NEUTRAL.textSlate }}>
                 Icon-only interactive elements MUST have a title
               </div>
               <button
                 style={{
                   padding: '8px',
-                  border: '1px solid #ccc',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   background: 'white',
                   cursor: 'pointer',
@@ -530,7 +537,7 @@ export const PropAs: Story = {
                   }}
                 >
                   <Icon as={element} name="star" size="lg" />
-                  <div style={{ fontSize: '12px', fontWeight: 600, color: '#666' }}>{element}</div>
+                  <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate }}>{element}</div>
                 </div>
               </PropCard>
             ))}
@@ -578,7 +585,7 @@ export const CombinedVariants: Story = {
               <button
                 style={{
                   padding: '12px 16px',
-                  border: '1px solid #ccc',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
                   background: 'white',
                   cursor: 'pointer',
@@ -593,7 +600,7 @@ export const CombinedVariants: Story = {
               <button
                 style={{
                   padding: '12px 16px',
-                  border: '1px solid #ccc',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
                   background: 'white',
                   cursor: 'pointer',
@@ -615,64 +622,66 @@ export const CombinedVariants: Story = {
               <div
                 style={{
                   padding: '16px',
-                  background: '#d1fae5',
+                  background: PRIMARY.green.light,
                   borderRadius: '8px',
-                  border: '1px solid #10b981',
+                  border: `1px solid ${PRIMARY.green.main}`,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
                 }}
               >
                 <Icon name="check-circle" size="md" color="success" />
-                <span style={{ fontSize: '16px', fontWeight: 500, color: '#065f46' }}>
+                <span style={{ fontSize: '16px', fontWeight: 500, color: PRIMARY.green.main }}>
                   Operation completed successfully!
                 </span>
               </div>
               <div
                 style={{
                   padding: '16px',
-                  background: '#fee2e2',
+                  background: PRIMARY.pink.light,
                   borderRadius: '8px',
-                  border: '1px solid #ef4444',
+                  border: `1px solid ${PRIMARY.pink.main}`,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
                 }}
               >
                 <Icon name="x-circle" size="md" color="error" />
-                <span style={{ fontSize: '16px', fontWeight: 500, color: '#991b1b' }}>
+                <span style={{ fontSize: '16px', fontWeight: 500, color: PRIMARY.pink.main }}>
                   An error occurred. Please try again.
                 </span>
               </div>
               <div
                 style={{
                   padding: '16px',
-                  background: '#fef3c7',
+                  background: PRIMARY.orange.light,
                   borderRadius: '8px',
-                  border: '1px solid #f59e0b',
+                  border: `1px solid ${PRIMARY.orange.main}`,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
                 }}
               >
                 <Icon name="alert-circle" size="md" color="warning" />
-                <span style={{ fontSize: '16px', fontWeight: 500, color: '#92400e' }}>
+                <span style={{ fontSize: '16px', fontWeight: 500, color: PRIMARY.orange.main }}>
                   This action cannot be undone.
                 </span>
               </div>
               <div
                 style={{
                   padding: '16px',
-                  background: '#dbeafe',
+                  background: PRIMARY.blue.light,
                   borderRadius: '8px',
-                  border: '1px solid #3b82f6',
+                  border: `1px solid ${PRIMARY.blue.main}`,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
                 }}
               >
                 <Icon name="info" size="md" color="info" />
-                <span style={{ fontSize: '16px', fontWeight: 500, color: '#1e40af' }}>New updates are available.</span>
+                <span style={{ fontSize: '16px', fontWeight: 500, color: PRIMARY.blue.dark }}>
+                  New updates are available.
+                </span>
               </div>
             </div>
           </section>
@@ -693,7 +702,7 @@ export const CombinedVariants: Story = {
               <button
                 style={{
                   padding: '10px 16px',
-                  border: '1px solid #ccc',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
                   background: 'white',
                   cursor: 'pointer',
@@ -708,7 +717,7 @@ export const CombinedVariants: Story = {
               <button
                 style={{
                   padding: '10px 16px',
-                  border: '1px solid #ccc',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
                   background: 'white',
                   cursor: 'pointer',
@@ -723,14 +732,14 @@ export const CombinedVariants: Story = {
               <button
                 style={{
                   padding: '10px 16px',
-                  border: '1px solid #dc2626',
+                  border: `1px solid ${PRIMARY.red.main}`,
                   borderRadius: '6px',
                   background: 'white',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  color: '#dc2626',
+                  color: PRIMARY.red.main,
                 }}
               >
                 <Icon name="trash" size="sm" color="error" />
@@ -739,7 +748,7 @@ export const CombinedVariants: Story = {
               <button
                 style={{
                   padding: '10px 16px',
-                  border: '1px solid #ccc',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
                   background: 'white',
                   cursor: 'pointer',
@@ -770,7 +779,7 @@ export const CombinedVariants: Story = {
                 title="Settings"
                 style={{
                   padding: '8px',
-                  border: '1px solid #ccc',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
                   background: 'white',
                   cursor: 'pointer',
@@ -782,7 +791,7 @@ export const CombinedVariants: Story = {
                 title="Search"
                 style={{
                   padding: '8px',
-                  border: '1px solid #ccc',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
                   background: 'white',
                   cursor: 'pointer',
@@ -794,7 +803,7 @@ export const CombinedVariants: Story = {
                 title="Menu"
                 style={{
                   padding: '8px',
-                  border: '1px solid #ccc',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
                   background: 'white',
                   cursor: 'pointer',
@@ -820,23 +829,23 @@ export const CombinedVariants: Story = {
             >
               <div style={{ textAlign: 'center' }}>
                 <Icon name="star" size="xs" color="warning" />
-                <div style={{ marginTop: '4px', fontSize: '10px', color: '#666' }}>XS</div>
+                <div style={{ marginTop: '4px', fontSize: '10px', color: NEUTRAL.textSlate }}>XS</div>
               </div>
               <div style={{ textAlign: 'center' }}>
                 <Icon name="star" size="sm" color="warning" />
-                <div style={{ marginTop: '4px', fontSize: '11px', color: '#666' }}>SM</div>
+                <div style={{ marginTop: '4px', fontSize: '11px', color: NEUTRAL.textSlate }}>SM</div>
               </div>
               <div style={{ textAlign: 'center' }}>
                 <Icon name="star" size="md" color="warning" />
-                <div style={{ marginTop: '4px', fontSize: '12px', color: '#666' }}>MD</div>
+                <div style={{ marginTop: '4px', fontSize: '12px', color: NEUTRAL.textSlate }}>MD</div>
               </div>
               <div style={{ textAlign: 'center' }}>
                 <Icon name="star" size="lg" color="warning" />
-                <div style={{ marginTop: '4px', fontSize: '13px', color: '#666' }}>LG</div>
+                <div style={{ marginTop: '4px', fontSize: '13px', color: NEUTRAL.textSlate }}>LG</div>
               </div>
               <div style={{ textAlign: 'center' }}>
                 <Icon name="star" size="xl" color="warning" />
-                <div style={{ marginTop: '4px', fontSize: '14px', color: '#666' }}>XL</div>
+                <div style={{ marginTop: '4px', fontSize: '14px', color: NEUTRAL.textSlate }}>XL</div>
               </div>
             </div>
           </section>
@@ -869,7 +878,7 @@ export const RealWorldPatterns: Story = {
                 padding: '24px',
                 background: 'white',
                 borderRadius: '12px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                boxShadow: 'var(--lufa-semantic-ui-shadow-md)',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
@@ -877,7 +886,7 @@ export const RealWorldPatterns: Story = {
                   style={{
                     width: '64px',
                     height: '64px',
-                    background: '#e5e7eb',
+                    background: NEUTRAL.backgroundMedium,
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
@@ -888,7 +897,7 @@ export const RealWorldPatterns: Story = {
                 </div>
                 <div>
                   <div style={{ fontSize: '18px', fontWeight: 600 }}>Jane Doe</div>
-                  <div style={{ fontSize: '14px', color: '#666' }}>Product Designer</div>
+                  <div style={{ fontSize: '14px', color: NEUTRAL.textSlate }}>Product Designer</div>
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '8px' }}>
@@ -896,7 +905,7 @@ export const RealWorldPatterns: Story = {
                   style={{
                     flex: 1,
                     padding: '10px',
-                    border: '1px solid #ccc',
+                    border: `1px solid ${NEUTRAL.borderMedium}`,
                     borderRadius: '6px',
                     background: 'white',
                     cursor: 'pointer',
@@ -912,7 +921,7 @@ export const RealWorldPatterns: Story = {
                 <button
                   style={{
                     padding: '10px',
-                    border: '1px solid #ccc',
+                    border: `1px solid ${NEUTRAL.borderMedium}`,
                     borderRadius: '6px',
                     background: 'white',
                     cursor: 'pointer',
@@ -932,7 +941,7 @@ export const RealWorldPatterns: Story = {
                 maxWidth: '600px',
                 background: 'white',
                 borderRadius: '12px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                boxShadow: 'var(--lufa-semantic-ui-shadow-md)',
                 overflow: 'hidden',
               }}
             >
@@ -941,7 +950,7 @@ export const RealWorldPatterns: Story = {
                   key={file}
                   style={{
                     padding: '16px 24px',
-                    borderBottom: idx < 2 ? '1px solid #e5e7eb' : 'none',
+                    borderBottom: idx < 2 ? `1px solid ${NEUTRAL.borderLight}` : 'none',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
@@ -987,7 +996,7 @@ export const RealWorldPatterns: Story = {
                 padding: '24px',
                 background: 'white',
                 borderRadius: '12px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                boxShadow: 'var(--lufa-semantic-ui-shadow-md)',
               }}
             >
               <div style={{ marginBottom: '20px' }}>
@@ -1001,7 +1010,7 @@ export const RealWorldPatterns: Story = {
                     style={{
                       width: '100%',
                       padding: '10px 40px 10px 12px',
-                      border: '1px solid #10b981',
+                      border: `1px solid ${PRIMARY.green.main}`,
                       borderRadius: '6px',
                       fontSize: '14px',
                     }}
@@ -1022,7 +1031,7 @@ export const RealWorldPatterns: Story = {
                     style={{
                       width: '100%',
                       padding: '10px 40px 10px 12px',
-                      border: '1px solid #ef4444',
+                      border: `1px solid ${PRIMARY.red.main}`,
                       borderRadius: '6px',
                       fontSize: '14px',
                     }}
@@ -1033,7 +1042,9 @@ export const RealWorldPatterns: Story = {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '6px' }}>
                   <Icon name="alert-circle" size="xs" color="error" />
-                  <span style={{ fontSize: '12px', color: '#dc2626' }}>Password must be at least 8 characters</span>
+                  <span style={{ fontSize: '12px', color: PRIMARY.red.main }}>
+                    Password must be at least 8 characters
+                  </span>
                 </div>
               </div>
             </div>

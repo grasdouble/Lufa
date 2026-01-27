@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Button, Text } from '@grasdouble/lufa_design-system';
 
 import { CodeBlock, StoryContainer } from '../../components/helpers';
+import { STORY_COLORS } from '../../constants/storyColors';
 
 /**
  * Token Usage Guide
@@ -38,6 +39,9 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+const NEUTRAL = STORY_COLORS.neutral;
+const PRIMARY = STORY_COLORS.primary;
 
 /**
  * ## Token vs Hard-Coded Comparison
@@ -152,8 +156,8 @@ color: var(--lufa-semantic-ui-text-success);`}
                 */}
                 <button
                   style={{
-                    background: '#3b82f6',
-                    color: '#ffffff',
+                    background: PRIMARY.blue.main,
+                    color: NEUTRAL.white,
                     border: 'none',
                     padding: '10px 20px',
                     borderRadius: '8px',
@@ -167,8 +171,8 @@ color: var(--lufa-semantic-ui-text-success);`}
 
                 <button
                   style={{
-                    background: '#6366f1',
-                    color: '#ffffff',
+                    background: PRIMARY.violet.main,
+                    color: NEUTRAL.white,
                     border: 'none',
                     padding: '10px 20px',
                     borderRadius: '8px',
@@ -180,8 +184,12 @@ color: var(--lufa-semantic-ui-text-success);`}
                   Hard-Coded Secondary
                 </button>
 
-                <p style={{ color: '#111827', margin: 0, fontSize: '14px' }}>Hard-coded text (breaks in dark mode)</p>
-                <p style={{ color: '#10b981', margin: 0, fontSize: '14px' }}>Hard-coded green (inconsistent shade)</p>
+                <p style={{ color: NEUTRAL.textDark, margin: 0, fontSize: '14px' }}>
+                  Hard-coded text (breaks in dark mode)
+                </p>
+                <p style={{ color: PRIMARY.green.main, margin: 0, fontSize: '14px' }}>
+                  Hard-coded green (inconsistent shade)
+                </p>
               </div>
             </Box>
 
@@ -545,7 +553,7 @@ export const WhenHardCodedIsOK: Story = {
                 </Text>
                 <CodeBlock
                   code={`{/* OK for quick prototypes */}
-<div style={{ background: '#f3f4f6' }}>
+<div style={{ background: 'var(--lufa-primitive-color-gray-100)' }}>
   Temporary demo content
 </div>`}
                   language="jsx"

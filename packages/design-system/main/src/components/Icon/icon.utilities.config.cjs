@@ -27,11 +27,11 @@ module.exports = {
     size: {
       property: ['width', 'height'],
       values: {
-        xs: '16px', // 16x16
-        sm: '20px', // 20x20
-        md: '24px', // 24x24
-        lg: '32px', // 32x32
-        xl: '40px', // 40x40
+        xs: '--lufa-component-shared-icon-size-xs', // 16px
+        sm: '--lufa-component-shared-icon-size-sm', // 20px
+        md: '--lufa-component-shared-icon-size-md', // 24px
+        lg: '--lufa-component-shared-icon-size-lg', // 32px
+        xl: '--lufa-component-shared-icon-size-xl', // 40px
       },
     },
 

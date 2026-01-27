@@ -2,6 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { StoryContainer } from '../../components/helpers';
+import { STORY_COLORS } from '../../constants/storyColors';
 
 /**
  * Colors - Design System Color Tokens
@@ -25,6 +26,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const NEUTRAL = STORY_COLORS.neutral;
+
 // Simple color swatch component
 const ColorSwatch = ({ token, name, description }: { token: string; name: string; description?: string }) => (
   <div
@@ -42,15 +45,17 @@ const ColorSwatch = ({ token, name, description }: { token: string; name: string
         height: '80px',
         backgroundColor: `var(${token})`,
         borderRadius: '6px',
-        border: '1px solid #e0e0e0',
-        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+        border: `1px solid ${NEUTRAL.borderMedium}`,
+        boxShadow: 'var(--lufa-semantic-ui-shadow-sm)',
       }}
     />
     <div style={{ fontSize: '11px', fontFamily: 'monospace' }}>
       <div style={{ fontWeight: 600, marginBottom: '2px' }}>{name}</div>
-      <div style={{ color: '#666', fontSize: '10px' }}>{token}</div>
+      <div style={{ color: NEUTRAL.textSlate, fontSize: '10px' }}>{token}</div>
       {description && (
-        <div style={{ color: '#888', fontSize: '9px', marginTop: '4px', fontFamily: 'sans-serif' }}>{description}</div>
+        <div style={{ color: NEUTRAL.textSlate, fontSize: '9px', marginTop: '4px', fontFamily: 'sans-serif' }}>
+          {description}
+        </div>
       )}
     </div>
   </div>
@@ -64,8 +69,8 @@ const ColorCategory = ({ title, children }: { title: string; children: React.Rea
         fontSize: '24px',
         fontWeight: 700,
         marginBottom: '24px',
-        color: '#111',
-        borderBottom: '2px solid #e0e0e0',
+        color: NEUTRAL.textDark,
+        borderBottom: `2px solid ${NEUTRAL.borderMedium}`,
         paddingBottom: '12px',
       }}
     >

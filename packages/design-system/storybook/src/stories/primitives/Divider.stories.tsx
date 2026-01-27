@@ -6,6 +6,8 @@ import { Divider } from '@grasdouble/lufa_design-system';
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
 import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
 
+const NEUTRAL = STORY_COLORS.neutral;
+
 /**
  * Divider - Visual Separator Component
  *
@@ -803,7 +805,7 @@ export const UseCases: Story = {
                 style={{
                   padding: '8px 16px',
                   background: 'white',
-                  border: '1px solid #ddd',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
                   fontSize: '13px',
@@ -815,7 +817,7 @@ export const UseCases: Story = {
                 style={{
                   padding: '8px 16px',
                   background: 'white',
-                  border: '1px solid #ddd',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
                   fontSize: '13px',
@@ -827,7 +829,7 @@ export const UseCases: Story = {
                 style={{
                   padding: '8px 16px',
                   background: 'white',
-                  border: '1px solid #ddd',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
                   fontSize: '13px',
@@ -840,7 +842,7 @@ export const UseCases: Story = {
                 style={{
                   padding: '8px 16px',
                   background: 'white',
-                  border: '1px solid #ddd',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
                   fontSize: '13px',
@@ -852,7 +854,7 @@ export const UseCases: Story = {
                 style={{
                   padding: '8px 16px',
                   background: 'white',
-                  border: '1px solid #ddd',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
                   fontSize: '13px',
@@ -949,7 +951,7 @@ export const UseCases: Story = {
             <div
               style={{
                 backgroundColor: 'white',
-                border: '1px solid #e0e0e0',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
                 borderRadius: '8px',
                 overflow: 'hidden',
                 maxWidth: '350px',
@@ -974,7 +976,7 @@ export const UseCases: Story = {
               <div
                 style={{
                   padding: '16px 20px',
-                  backgroundColor: '#fafafa',
+                  backgroundColor: NEUTRAL.backgroundLight,
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',

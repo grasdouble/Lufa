@@ -6,6 +6,9 @@ import { Text } from '@grasdouble/lufa_design-system';
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
 import { STORY_COLORS } from '../../constants/storyColors';
 
+const NEUTRAL = STORY_COLORS.neutral;
+const PRIMARY = STORY_COLORS.primary;
+
 /**
  * Text - Typography Primitive Component
  *
@@ -184,7 +187,7 @@ export const PropVariant: Story = {
               <div key={value} onMouseEnter={() => setHoveredVariant(value)}>
                 <PropCard label={`variant="${value}"`} highlight={hoveredVariant === value}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <div style={{ fontSize: '12px', fontWeight: 600, color: '#666' }}>{label}</div>
+                    <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate }}>{label}</div>
                     <Text variant={value}>{example}</Text>
                   </div>
                 </PropCard>
@@ -334,7 +337,7 @@ export const PropWeight: Story = {
               <div key={value} onMouseEnter={() => setHoveredWeight(value)}>
                 <PropCard label={`weight="${value}"`} highlight={hoveredWeight === value}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <div style={{ fontSize: '12px', fontWeight: 600, color: '#666' }}>{label}</div>
+                    <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate }}>{label}</div>
                     <Text variant="body" weight={value}>
                       {example}
                     </Text>
@@ -451,7 +454,7 @@ export const PropTransform: Story = {
               <div key={value} onMouseEnter={() => setHoveredTransform(value)}>
                 <PropCard label={`transform="${value}"`} highlight={hoveredTransform === value}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <div style={{ fontSize: '12px', fontWeight: 600, color: '#666' }}>{label}</div>
+                    <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate }}>{label}</div>
                     <Text variant="body" transform={value}>
                       {example}
                     </Text>
@@ -611,9 +614,9 @@ export const CombinedVariants: Story = {
               <div
                 style={{
                   padding: '16px',
-                  background: '#d1fae5',
+                  background: PRIMARY.green.light,
                   borderRadius: '8px',
-                  border: '1px solid #10b981',
+                  border: `1px solid ${PRIMARY.green.main}`,
                 }}
               >
                 <Text variant="body" color="success" weight="semibold">
@@ -623,9 +626,9 @@ export const CombinedVariants: Story = {
               <div
                 style={{
                   padding: '16px',
-                  background: '#fee2e2',
+                  background: PRIMARY.pink.light,
                   borderRadius: '8px',
-                  border: '1px solid #ef4444',
+                  border: `1px solid ${PRIMARY.pink.main}`,
                 }}
               >
                 <Text variant="body" color="error" weight="semibold">
@@ -635,9 +638,9 @@ export const CombinedVariants: Story = {
               <div
                 style={{
                   padding: '16px',
-                  background: '#fef3c7',
+                  background: PRIMARY.orange.light,
                   borderRadius: '8px',
-                  border: '1px solid #f59e0b',
+                  border: `1px solid ${PRIMARY.orange.main}`,
                 }}
               >
                 <Text variant="body" color="warning" weight="semibold">
@@ -647,9 +650,9 @@ export const CombinedVariants: Story = {
               <div
                 style={{
                   padding: '16px',
-                  background: '#dbeafe',
+                  background: PRIMARY.blue.light,
                   borderRadius: '8px',
-                  border: '1px solid #3b82f6',
+                  border: `1px solid ${PRIMARY.blue.main}`,
                 }}
               >
                 <Text variant="body" color="info" weight="semibold">
@@ -683,7 +686,7 @@ export const CombinedVariants: Story = {
                     width: '100%',
                     padding: '8px 12px',
                     borderRadius: '6px',
-                    border: '1px solid #ccc',
+                    border: `1px solid ${NEUTRAL.borderMedium}`,
                     fontSize: '14px',
                   }}
                 />
@@ -702,7 +705,7 @@ export const CombinedVariants: Story = {
                     width: '100%',
                     padding: '8px 12px',
                     borderRadius: '6px',
-                    border: '1px solid #ccc',
+                    border: `1px solid ${NEUTRAL.borderMedium}`,
                     fontSize: '14px',
                   }}
                 />
@@ -770,7 +773,7 @@ export const RealWorldPatterns: Story = {
                 padding: '32px',
                 background: 'white',
                 borderRadius: '12px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                boxShadow: 'var(--lufa-semantic-ui-shadow-md)',
               }}
             >
               <Text variant="label" transform="uppercase" color="secondary" weight="semibold">
@@ -809,7 +812,7 @@ export const RealWorldPatterns: Story = {
                     background: 'white',
                     borderRadius: '12px',
                     border: '2px solid',
-                    borderColor: idx === 1 ? STORY_COLORS.primary.blue.main : '#e5e7eb',
+                    borderColor: idx === 1 ? STORY_COLORS.primary.blue.main : NEUTRAL.borderMedium,
                   }}
                 >
                   <Text variant="label" transform="uppercase" weight="semibold" color="secondary">
@@ -853,7 +856,7 @@ export const RealWorldPatterns: Story = {
                     padding: '20px',
                     background: 'white',
                     borderRadius: '8px',
-                    border: '1px solid #e5e7eb',
+                    border: `1px solid ${NEUTRAL.borderMedium}`,
                   }}
                 >
                   <Text variant="label" color="secondary">

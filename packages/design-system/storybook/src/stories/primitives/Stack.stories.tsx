@@ -6,6 +6,8 @@ import { Stack } from '@grasdouble/lufa_design-system';
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
 import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
 
+const NEUTRAL = STORY_COLORS.neutral;
+
 /**
  * Stack - Flexible Layout Primitive for Spacing
  *
@@ -679,7 +681,7 @@ export const CombinedVariants: Story = {
                 <input
                   type="text"
                   placeholder="Enter your name"
-                  style={{ padding: '8px', borderRadius: '6px', border: '1px solid #ccc' }}
+                  style={{ padding: '8px', borderRadius: '6px', border: `1px solid ${NEUTRAL.borderMedium}` }}
                 />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
@@ -687,14 +689,19 @@ export const CombinedVariants: Story = {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  style={{ padding: '8px', borderRadius: '6px', border: '1px solid #ccc' }}
+                  style={{ padding: '8px', borderRadius: '6px', border: `1px solid ${NEUTRAL.borderMedium}` }}
                 />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 <label style={{ fontSize: '14px', fontWeight: 600 }}>Message</label>
                 <textarea
                   placeholder="Your message"
-                  style={{ padding: '8px', borderRadius: '6px', border: '1px solid #ccc', minHeight: '80px' }}
+                  style={{
+                    padding: '8px',
+                    borderRadius: '6px',
+                    border: `1px solid ${NEUTRAL.borderMedium}`,
+                    minHeight: '80px',
+                  }}
                 />
               </div>
             </Stack>
@@ -785,9 +792,9 @@ export const CombinedVariants: Story = {
                 style={{
                   padding: '10px 20px',
                   borderRadius: '6px',
-                  border: '1px solid #ccc',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
                   background: 'white',
-                  color: '#666',
+                  color: NEUTRAL.textSlate,
                   fontWeight: 600,
                   cursor: 'pointer',
                 }}

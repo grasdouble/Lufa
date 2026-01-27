@@ -2,6 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { StoryContainer } from '../../components/helpers';
+import { STORY_COLORS } from '../../constants/storyColors';
 
 /**
  * Typography - Design System Typography Tokens
@@ -26,6 +27,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const NEUTRAL = STORY_COLORS.neutral;
+const PRIMARY = STORY_COLORS.primary;
+
 // Typography token display component
 const TypographyToken = ({
   token,
@@ -44,20 +48,22 @@ const TypographyToken = ({
 }) => (
   <div style={{ marginBottom: '32px' }}>
     <div style={{ fontSize: '11px', fontFamily: 'monospace', marginBottom: '8px' }}>
-      <div style={{ fontWeight: 600, color: '#333' }}>{name}</div>
-      <div style={{ color: '#666', fontSize: '10px', marginTop: '2px' }}>{token}</div>
-      <div style={{ color: '#888', fontSize: '10px', marginTop: '2px' }}>Value: {value}</div>
+      <div style={{ fontWeight: 600, color: NEUTRAL.textDark }}>{name}</div>
+      <div style={{ color: NEUTRAL.textSlate, fontSize: '10px', marginTop: '2px' }}>{token}</div>
+      <div style={{ color: NEUTRAL.textSlate, fontSize: '10px', marginTop: '2px' }}>Value: {value}</div>
       {description && (
-        <div style={{ color: '#888', fontSize: '10px', marginTop: '4px', fontFamily: 'sans-serif' }}>{description}</div>
+        <div style={{ color: NEUTRAL.textSlate, fontSize: '10px', marginTop: '4px', fontFamily: 'sans-serif' }}>
+          {description}
+        </div>
       )}
     </div>
     {example && (
       <div
         style={{
           padding: '16px',
-          backgroundColor: '#f9f9f9',
+          backgroundColor: NEUTRAL.backgroundLight,
           borderRadius: '6px',
-          border: '1px solid #e0e0e0',
+          border: `1px solid ${NEUTRAL.borderMedium}`,
           ...exampleStyle,
         }}
       >
@@ -75,8 +81,8 @@ const TypographySection = ({ title, children }: { title: string; children: React
         fontSize: '24px',
         fontWeight: 700,
         marginBottom: '24px',
-        color: '#111',
-        borderBottom: '2px solid #e0e0e0',
+        color: NEUTRAL.textDark,
+        borderBottom: `2px solid ${NEUTRAL.borderMedium}`,
         paddingBottom: '12px',
       }}
     >
@@ -193,7 +199,9 @@ export const FontSizes: Story = {
     <StoryContainer>
       <TypographySection title="Font Size Scale">
         <div style={{ marginBottom: '48px' }}>
-          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: '#333' }}>Static Font Sizes</h3>
+          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: NEUTRAL.textDark }}>
+            Static Font Sizes
+          </h3>
 
           <TypographyToken
             token="--lufa-primitive-typography-font-size-xs"
@@ -252,9 +260,9 @@ export const FontSizes: Story = {
         </div>
 
         <div>
-          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: '#333' }}>
+          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: NEUTRAL.textDark }}>
             Fluid Font Sizes
-            <span style={{ fontSize: '12px', fontWeight: 400, color: '#666', marginLeft: '8px' }}>
+            <span style={{ fontSize: '12px', fontWeight: 400, color: NEUTRAL.textSlate, marginLeft: '8px' }}>
               (Responsive with CSS clamp)
             </span>
           </h3>
@@ -339,31 +347,33 @@ export const FluidTypography: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: '#e3f2fd',
+              backgroundColor: PRIMARY.blue.light,
               borderRadius: '6px',
               marginBottom: '32px',
-              border: '2px solid #2196f3',
+              border: `2px solid ${PRIMARY.blue.main}`,
             }}
           >
-            <div style={{ fontSize: '14px', fontWeight: 600, color: '#1976d2' }}>
+            <div style={{ fontSize: '14px', fontWeight: 600, color: PRIMARY.blue.main }}>
               📏 Current viewport width: {width}px
             </div>
-            <div style={{ fontSize: '12px', color: '#1565c0', marginTop: '4px' }}>Fluid range: 320px - 1280px</div>
+            <div style={{ fontSize: '12px', color: PRIMARY.blue.main, marginTop: '4px' }}>
+              Fluid range: 320px - 1280px
+            </div>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div
               style={{
                 padding: '24px',
-                backgroundColor: '#f9f9f9',
+                backgroundColor: NEUTRAL.backgroundLight,
                 borderRadius: '6px',
-                border: '1px solid #e0e0e0',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: '#666',
+                  color: NEUTRAL.textSlate,
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -383,15 +393,15 @@ export const FluidTypography: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: '#f9f9f9',
+                backgroundColor: NEUTRAL.backgroundLight,
                 borderRadius: '6px',
-                border: '1px solid #e0e0e0',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: '#666',
+                  color: NEUTRAL.textSlate,
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -411,15 +421,15 @@ export const FluidTypography: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: '#f9f9f9',
+                backgroundColor: NEUTRAL.backgroundLight,
                 borderRadius: '6px',
-                border: '1px solid #e0e0e0',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: '#666',
+                  color: NEUTRAL.textSlate,
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -439,15 +449,15 @@ export const FluidTypography: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: '#f9f9f9',
+                backgroundColor: NEUTRAL.backgroundLight,
                 borderRadius: '6px',
-                border: '1px solid #e0e0e0',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: '#666',
+                  color: NEUTRAL.textSlate,
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -481,7 +491,7 @@ export const LetterSpacingComparison: Story = {
     <StoryContainer>
       <TypographySection title="Letter Spacing Comparison">
         <div style={{ marginBottom: '24px' }}>
-          <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>
+          <p style={{ fontSize: '14px', color: NEUTRAL.textSlate, lineHeight: '1.6' }}>
             All examples below use the same font size (32px) and weight. The only difference is the letter-spacing
             value. Notice how negative spacing tightens large text, while positive spacing improves legibility of
             uppercase text.
@@ -498,16 +508,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: '#f9f9f9',
+              backgroundColor: NEUTRAL.backgroundLight,
               borderRadius: '6px',
-              border: '1px solid #e0e0e0',
+              border: `1px solid ${NEUTRAL.borderMedium}`,
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: '#333',
+                color: NEUTRAL.textDark,
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -529,16 +539,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: '#f9f9f9',
+              backgroundColor: NEUTRAL.backgroundLight,
               borderRadius: '6px',
-              border: '1px solid #e0e0e0',
+              border: `1px solid ${NEUTRAL.borderMedium}`,
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: '#333',
+                color: NEUTRAL.textDark,
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -560,16 +570,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: '#f9f9f9',
+              backgroundColor: NEUTRAL.backgroundLight,
               borderRadius: '6px',
-              border: '1px solid #e0e0e0',
+              border: `1px solid ${NEUTRAL.borderMedium}`,
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: '#333',
+                color: NEUTRAL.textDark,
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -591,16 +601,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: '#f9f9f9',
+              backgroundColor: NEUTRAL.backgroundLight,
               borderRadius: '6px',
-              border: '1px solid #e0e0e0',
+              border: `1px solid ${NEUTRAL.borderMedium}`,
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: '#333',
+                color: NEUTRAL.textDark,
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -622,16 +632,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: '#f9f9f9',
+              backgroundColor: NEUTRAL.backgroundLight,
               borderRadius: '6px',
-              border: '1px solid #e0e0e0',
+              border: `1px solid ${NEUTRAL.borderMedium}`,
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: '#333',
+                color: NEUTRAL.textDark,
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -652,10 +662,10 @@ export const LetterSpacingComparison: Story = {
         </div>
 
         <div style={{ marginTop: '48px' }}>
-          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', color: '#333' }}>
+          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', color: NEUTRAL.textDark }}>
             Uppercase Comparison
           </h3>
-          <p style={{ fontSize: '14px', color: '#666', marginBottom: '24px', lineHeight: '1.6' }}>
+          <p style={{ fontSize: '14px', color: NEUTRAL.textSlate, marginBottom: '24px', lineHeight: '1.6' }}>
             Uppercase text benefits from wider letter-spacing. Compare how the same text looks with different spacing
             values:
           </p>
@@ -670,16 +680,16 @@ export const LetterSpacingComparison: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: '#f9f9f9',
+                backgroundColor: NEUTRAL.backgroundLight,
                 borderRadius: '6px',
-                border: '1px solid #e0e0e0',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: '#333',
+                  color: NEUTRAL.textDark,
                   marginBottom: '12px',
                   textAlign: 'center',
                 }}
@@ -702,16 +712,16 @@ export const LetterSpacingComparison: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: '#f9f9f9',
+                backgroundColor: NEUTRAL.backgroundLight,
                 borderRadius: '6px',
-                border: '1px solid #e0e0e0',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: '#333',
+                  color: NEUTRAL.textDark,
                   marginBottom: '12px',
                   textAlign: 'center',
                 }}
@@ -734,16 +744,16 @@ export const LetterSpacingComparison: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: '#f9f9f9',
+                backgroundColor: NEUTRAL.backgroundLight,
                 borderRadius: '6px',
-                border: '1px solid #e0e0e0',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: '#333',
+                  color: NEUTRAL.textDark,
                   marginBottom: '12px',
                   textAlign: 'center',
                 }}
@@ -781,13 +791,15 @@ export const BestPractices: Story = {
       <TypographySection title="Typography Best Practices">
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
           <section>
-            <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '16px', color: '#2e7d32' }}>✅ DO</h3>
-            <ul style={{ fontSize: '14px', lineHeight: '1.8', color: '#333', paddingLeft: '24px' }}>
+            <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '16px', color: PRIMARY.green.main }}>
+              ✅ DO
+            </h3>
+            <ul style={{ fontSize: '14px', lineHeight: '1.8', color: NEUTRAL.textDark, paddingLeft: '24px' }}>
               <li>
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: '#e8f5e9',
+                    backgroundColor: PRIMARY.green.light,
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -799,7 +811,7 @@ export const BestPractices: Story = {
                 or{' '}
                 <code
                   style={{
-                    backgroundColor: '#e8f5e9',
+                    backgroundColor: PRIMARY.green.light,
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -814,7 +826,7 @@ export const BestPractices: Story = {
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: '#e8f5e9',
+                    backgroundColor: PRIMARY.green.light,
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -826,7 +838,7 @@ export const BestPractices: Story = {
                 or{' '}
                 <code
                   style={{
-                    backgroundColor: '#e8f5e9',
+                    backgroundColor: PRIMARY.green.light,
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -841,7 +853,7 @@ export const BestPractices: Story = {
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: '#e8f5e9',
+                    backgroundColor: PRIMARY.green.light,
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -861,8 +873,10 @@ export const BestPractices: Story = {
           </section>
 
           <section>
-            <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '16px', color: '#c62828' }}>❌ DON'T</h3>
-            <ul style={{ fontSize: '14px', lineHeight: '1.8', color: '#333', paddingLeft: '24px' }}>
+            <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '16px', color: PRIMARY.pink.main }}>
+              ❌ DON'T
+            </h3>
+            <ul style={{ fontSize: '14px', lineHeight: '1.8', color: NEUTRAL.textDark, paddingLeft: '24px' }}>
               <li>Use negative letter-spacing on small text (&lt; 16px)</li>
               <li>Use wide letter-spacing on large headings</li>
               <li>Mix static and fluid font-sizes inconsistently</li>
@@ -871,7 +885,7 @@ export const BestPractices: Story = {
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: '#ffebee',
+                    backgroundColor: PRIMARY.pink.light,
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -886,7 +900,7 @@ export const BestPractices: Story = {
                 Apply{' '}
                 <code
                   style={{
-                    backgroundColor: '#ffebee',
+                    backgroundColor: PRIMARY.pink.light,
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -907,13 +921,23 @@ export const BestPractices: Story = {
           style={{
             marginTop: '48px',
             padding: '24px',
-            backgroundColor: '#fff3e0',
+            backgroundColor: PRIMARY.orange.light,
             borderRadius: '6px',
-            border: '2px solid #ff9800',
+            border: `2px solid ${PRIMARY.orange.main}`,
           }}
         >
-          <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px', color: '#e65100' }}>💡 Pro Tips</h3>
-          <ul style={{ fontSize: '14px', lineHeight: '1.8', color: '#333', paddingLeft: '24px', marginBottom: 0 }}>
+          <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px', color: PRIMARY.orange.main }}>
+            💡 Pro Tips
+          </h3>
+          <ul
+            style={{
+              fontSize: '14px',
+              lineHeight: '1.8',
+              color: NEUTRAL.textDark,
+              paddingLeft: '24px',
+              marginBottom: 0,
+            }}
+          >
             <li>
               <strong>Fluid Typography:</strong> Works best for content that spans multiple screen sizes. Use fluid
               sizes (2xl-5xl) for headings and titles.
@@ -926,7 +950,7 @@ export const BestPractices: Story = {
               <strong>Uppercase Text:</strong> Always increase letter-spacing for uppercase text. Use{' '}
               <code
                 style={{
-                  backgroundColor: '#fff',
+                  backgroundColor: NEUTRAL.white,
                   padding: '2px 6px',
                   borderRadius: '3px',
                   fontFamily: 'monospace',
@@ -938,7 +962,7 @@ export const BestPractices: Story = {
               (0.05em) or{' '}
               <code
                 style={{
-                  backgroundColor: '#fff',
+                  backgroundColor: NEUTRAL.white,
                   padding: '2px 6px',
                   borderRadius: '3px',
                   fontFamily: 'monospace',
@@ -961,13 +985,20 @@ export const BestPractices: Story = {
         </div>
 
         <div style={{ marginTop: '48px' }}>
-          <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '24px', color: '#333' }}>Common Patterns</h3>
+          <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '24px', color: NEUTRAL.textDark }}>
+            Common Patterns
+          </h3>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
             <div
-              style={{ padding: '24px', backgroundColor: '#f9f9f9', borderRadius: '6px', border: '1px solid #e0e0e0' }}
+              style={{
+                padding: '24px',
+                backgroundColor: NEUTRAL.backgroundLight,
+                borderRadius: '6px',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
+              }}
             >
-              <div style={{ fontSize: '12px', fontWeight: 600, color: '#666', marginBottom: '12px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate, marginBottom: '12px' }}>
                 Hero Heading Pattern
               </div>
               <div
@@ -981,7 +1012,13 @@ export const BestPractices: Story = {
                 Welcome to Lufa
               </div>
               <code
-                style={{ fontSize: '10px', color: '#666', fontFamily: 'monospace', display: 'block', marginTop: '8px' }}
+                style={{
+                  fontSize: '10px',
+                  color: NEUTRAL.textSlate,
+                  fontFamily: 'monospace',
+                  display: 'block',
+                  marginTop: '8px',
+                }}
               >
                 font-size: 5xl (32px-48px)
                 <br />
@@ -990,9 +1027,14 @@ export const BestPractices: Story = {
             </div>
 
             <div
-              style={{ padding: '24px', backgroundColor: '#f9f9f9', borderRadius: '6px', border: '1px solid #e0e0e0' }}
+              style={{
+                padding: '24px',
+                backgroundColor: NEUTRAL.backgroundLight,
+                borderRadius: '6px',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
+              }}
             >
-              <div style={{ fontSize: '12px', fontWeight: 600, color: '#666', marginBottom: '12px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate, marginBottom: '12px' }}>
                 Button Text Pattern
               </div>
               <div
@@ -1002,8 +1044,8 @@ export const BestPractices: Story = {
                   letterSpacing: 'var(--lufa-primitive-typography-letter-spacing-wider)',
                   textTransform: 'uppercase',
                   padding: '12px 24px',
-                  backgroundColor: '#2196f3',
-                  color: '#fff',
+                  backgroundColor: PRIMARY.blue.main,
+                  color: NEUTRAL.white,
                   borderRadius: '4px',
                   display: 'inline-block',
                 }}
@@ -1011,7 +1053,13 @@ export const BestPractices: Story = {
                 Get Started
               </div>
               <code
-                style={{ fontSize: '10px', color: '#666', fontFamily: 'monospace', display: 'block', marginTop: '8px' }}
+                style={{
+                  fontSize: '10px',
+                  color: NEUTRAL.textSlate,
+                  fontFamily: 'monospace',
+                  display: 'block',
+                  marginTop: '8px',
+                }}
               >
                 font-size: sm (14px)
                 <br />
@@ -1022,9 +1070,14 @@ export const BestPractices: Story = {
             </div>
 
             <div
-              style={{ padding: '24px', backgroundColor: '#f9f9f9', borderRadius: '6px', border: '1px solid #e0e0e0' }}
+              style={{
+                padding: '24px',
+                backgroundColor: NEUTRAL.backgroundLight,
+                borderRadius: '6px',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
+              }}
             >
-              <div style={{ fontSize: '12px', fontWeight: 600, color: '#666', marginBottom: '12px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate, marginBottom: '12px' }}>
                 Body Text Pattern
               </div>
               <div
@@ -1037,7 +1090,13 @@ export const BestPractices: Story = {
                 This is standard body text with normal letter spacing. Perfect for paragraphs and general content.
               </div>
               <code
-                style={{ fontSize: '10px', color: '#666', fontFamily: 'monospace', display: 'block', marginTop: '8px' }}
+                style={{
+                  fontSize: '10px',
+                  color: NEUTRAL.textSlate,
+                  fontFamily: 'monospace',
+                  display: 'block',
+                  marginTop: '8px',
+                }}
               >
                 font-size: base (16px)
                 <br />
@@ -1048,9 +1107,14 @@ export const BestPractices: Story = {
             </div>
 
             <div
-              style={{ padding: '24px', backgroundColor: '#f9f9f9', borderRadius: '6px', border: '1px solid #e0e0e0' }}
+              style={{
+                padding: '24px',
+                backgroundColor: NEUTRAL.backgroundLight,
+                borderRadius: '6px',
+                border: `1px solid ${NEUTRAL.borderMedium}`,
+              }}
             >
-              <div style={{ fontSize: '12px', fontWeight: 600, color: '#666', marginBottom: '12px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate, marginBottom: '12px' }}>
                 Label Pattern
               </div>
               <div
@@ -1059,13 +1123,19 @@ export const BestPractices: Story = {
                   fontWeight: 600,
                   letterSpacing: 'var(--lufa-primitive-typography-letter-spacing-wide)',
                   textTransform: 'uppercase',
-                  color: '#666',
+                  color: NEUTRAL.textSlate,
                 }}
               >
                 Section Label
               </div>
               <code
-                style={{ fontSize: '10px', color: '#666', fontFamily: 'monospace', display: 'block', marginTop: '8px' }}
+                style={{
+                  fontSize: '10px',
+                  color: NEUTRAL.textSlate,
+                  fontFamily: 'monospace',
+                  display: 'block',
+                  marginTop: '8px',
+                }}
               >
                 font-size: xs (12px)
                 <br />
@@ -1117,16 +1187,16 @@ export const ExtendedTypeScale: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: '#fff3e0',
+              backgroundColor: PRIMARY.orange.light,
               borderRadius: '6px',
               marginBottom: '32px',
-              border: '2px solid #ff9800',
+              border: `2px solid ${PRIMARY.orange.main}`,
             }}
           >
-            <div style={{ fontSize: '14px', fontWeight: 600, color: '#e65100', marginBottom: '8px' }}>
+            <div style={{ fontSize: '14px', fontWeight: 600, color: PRIMARY.orange.main, marginBottom: '8px' }}>
               📏 Current viewport: {width}px
             </div>
-            <div style={{ fontSize: '12px', color: '#bf360c' }}>
+            <div style={{ fontSize: '12px', color: NEUTRAL.textDark }}>
               Resize your browser to see fluid scaling in action. Note: 8xl scales from 400px+ viewport (intentional for
               display tier).
             </div>
@@ -1151,7 +1221,7 @@ export const ExtendedTypeScale: Story = {
                   >
                     Hero Headline
                   </div>
-                  <div style={{ fontSize: '12px', color: '#666', fontFamily: 'monospace' }}>
+                  <div style={{ fontSize: '12px', color: NEUTRAL.textSlate, fontFamily: 'monospace' }}>
                     Mobile (320px): ~40px • Tablet (768px): ~51px • Desktop (1280px): 60px
                   </div>
                 </div>
@@ -1178,7 +1248,7 @@ export const ExtendedTypeScale: Story = {
                   >
                     Marketing Hero
                   </div>
-                  <div style={{ fontSize: '12px', color: '#666', fontFamily: 'monospace' }}>
+                  <div style={{ fontSize: '12px', color: NEUTRAL.textSlate, fontFamily: 'monospace' }}>
                     Mobile (320px): 48px • Tablet (768px): ~63px • Desktop (1280px): 72px
                   </div>
                 </div>
@@ -1208,12 +1278,12 @@ export const ExtendedTypeScale: Story = {
                   <div
                     style={{
                       fontSize: '12px',
-                      color: '#666',
+                      color: NEUTRAL.textSlate,
                       fontFamily: 'monospace',
-                      backgroundColor: '#fff3e0',
+                      backgroundColor: PRIMARY.orange.light,
                       padding: '8px',
                       borderRadius: '4px',
-                      border: '1px solid #ffb74d',
+                      border: `1px solid ${PRIMARY.orange.main}`,
                     }}
                   >
                     ⚠️ Note: Fluid scaling engages at 400px+ viewport
@@ -1230,17 +1300,19 @@ export const ExtendedTypeScale: Story = {
             style={{
               marginTop: '48px',
               padding: '24px',
-              backgroundColor: '#f5f5f5',
+              backgroundColor: NEUTRAL.backgroundLight,
               borderRadius: '8px',
-              border: '2px solid #e0e0e0',
+              border: `2px solid ${NEUTRAL.borderMedium}`,
             }}
           >
-            <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: '#333' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: NEUTRAL.textDark }}>
               Visual Comparison at {width}px
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
               <div>
-                <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontFamily: 'monospace' }}>
+                <div
+                  style={{ fontSize: '12px', color: NEUTRAL.textSlate, marginBottom: '8px', fontFamily: 'monospace' }}
+                >
                   5xl (existing)
                 </div>
                 <div style={{ fontSize: 'var(--lufa-primitive-typography-font-size-5xl)', fontWeight: 700 }}>
@@ -1248,7 +1320,9 @@ export const ExtendedTypeScale: Story = {
                 </div>
               </div>
               <div>
-                <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontFamily: 'monospace' }}>
+                <div
+                  style={{ fontSize: '12px', color: NEUTRAL.textSlate, marginBottom: '8px', fontFamily: 'monospace' }}
+                >
                   6xl (new)
                 </div>
                 <div style={{ fontSize: 'var(--lufa-primitive-typography-font-size-6xl)', fontWeight: 700 }}>
@@ -1256,7 +1330,9 @@ export const ExtendedTypeScale: Story = {
                 </div>
               </div>
               <div>
-                <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontFamily: 'monospace' }}>
+                <div
+                  style={{ fontSize: '12px', color: NEUTRAL.textSlate, marginBottom: '8px', fontFamily: 'monospace' }}
+                >
                   7xl (new)
                 </div>
                 <div style={{ fontSize: 'var(--lufa-primitive-typography-font-size-7xl)', fontWeight: 700 }}>
@@ -1264,7 +1340,9 @@ export const ExtendedTypeScale: Story = {
                 </div>
               </div>
               <div>
-                <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontFamily: 'monospace' }}>
+                <div
+                  style={{ fontSize: '12px', color: NEUTRAL.textSlate, marginBottom: '8px', fontFamily: 'monospace' }}
+                >
                   8xl (new)
                 </div>
                 <div style={{ fontSize: 'var(--lufa-primitive-typography-font-size-8xl)', fontWeight: 700 }}>
@@ -1276,7 +1354,7 @@ export const ExtendedTypeScale: Story = {
 
           {/* Breakpoint Testing Table */}
           <div style={{ marginTop: '48px' }}>
-            <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', color: '#333' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', color: NEUTRAL.textDark }}>
               Responsive Behavior Across Breakpoints
             </h3>
             <div style={{ overflowX: 'auto' }}>
@@ -1289,29 +1367,31 @@ export const ExtendedTypeScale: Story = {
                 }}
               >
                 <thead>
-                  <tr style={{ backgroundColor: '#e0e0e0' }}>
-                    <th style={{ padding: '12px', textAlign: 'left', border: '1px solid #ccc' }}>Token</th>
-                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                  <tr style={{ backgroundColor: NEUTRAL.backgroundLight }}>
+                    <th style={{ padding: '12px', textAlign: 'left', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                      Token
+                    </th>
+                    <th style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
                       Mobile
                       <br />
                       (320px)
                     </th>
-                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                    <th style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
                       Phablet
                       <br />
                       (400px)
                     </th>
-                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                    <th style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
                       Tablet
                       <br />
                       (768px)
                     </th>
-                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                    <th style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
                       Desktop
                       <br />
                       (1024px)
                     </th>
-                    <th style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                    <th style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
                       Large
                       <br />
                       (1280px)
@@ -1320,50 +1400,95 @@ export const ExtendedTypeScale: Story = {
                 </thead>
                 <tbody>
                   <tr>
-                    <td style={{ padding: '12px', border: '1px solid #ccc', fontWeight: 600 }}>6xl</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>40px</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>42px</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>51px</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>58px</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc', fontWeight: 600 }}>
-                      60px
+                    <td style={{ padding: '12px', border: `1px solid ${NEUTRAL.borderMedium}`, fontWeight: 600 }}>
+                      6xl
                     </td>
-                  </tr>
-                  <tr style={{ backgroundColor: '#f9f9f9' }}>
-                    <td style={{ padding: '12px', border: '1px solid #ccc', fontWeight: 600 }}>7xl</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>48px</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>52px</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>63px</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>71px</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc', fontWeight: 600 }}>
-                      72px
+                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                      40px
                     </td>
-                  </tr>
-                  <tr>
-                    <td style={{ padding: '12px', border: '1px solid #ccc', fontWeight: 600 }}>
-                      8xl
-                      <span style={{ color: '#ff9800', marginLeft: '4px' }}>⚠️</span>
+                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                      42px
+                    </td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                      51px
+                    </td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                      58px
                     </td>
                     <td
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid #ccc',
-                        backgroundColor: '#fff3e0',
+                        border: `1px solid ${NEUTRAL.borderMedium}`,
+                        fontWeight: 600,
+                      }}
+                    >
+                      60px
+                    </td>
+                  </tr>
+                  <tr style={{ backgroundColor: NEUTRAL.backgroundLight }}>
+                    <td style={{ padding: '12px', border: `1px solid ${NEUTRAL.borderMedium}`, fontWeight: 600 }}>
+                      7xl
+                    </td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                      48px
+                    </td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                      52px
+                    </td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                      63px
+                    </td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                      71px
+                    </td>
+                    <td
+                      style={{
+                        padding: '12px',
+                        textAlign: 'center',
+                        border: `1px solid ${NEUTRAL.borderMedium}`,
+                        fontWeight: 600,
+                      }}
+                    >
+                      72px
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style={{ padding: '12px', border: `1px solid ${NEUTRAL.borderMedium}`, fontWeight: 600 }}>
+                      8xl
+                      <span style={{ color: PRIMARY.orange.main, marginLeft: '4px' }}>⚠️</span>
+                    </td>
+                    <td
+                      style={{
+                        padding: '12px',
+                        textAlign: 'center',
+                        border: `1px solid ${NEUTRAL.borderMedium}`,
+                        backgroundColor: PRIMARY.orange.light,
                       }}
                     >
                       64px
                       <br />
-                      <span style={{ fontSize: '10px', color: '#e65100' }}>(static)</span>
+                      <span style={{ fontSize: '10px', color: PRIMARY.orange.main }}>(static)</span>
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
                       64px
                       <br />
-                      <span style={{ fontSize: '10px', color: '#666' }}>(fluid starts)</span>
+                      <span style={{ fontSize: '10px', color: NEUTRAL.textSlate }}>(fluid starts)</span>
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>79px</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc' }}>89px</td>
-                    <td style={{ padding: '12px', textAlign: 'center', border: '1px solid #ccc', fontWeight: 600 }}>
+                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                      79px
+                    </td>
+                    <td style={{ padding: '12px', textAlign: 'center', border: `1px solid ${NEUTRAL.borderMedium}` }}>
+                      89px
+                    </td>
+                    <td
+                      style={{
+                        padding: '12px',
+                        textAlign: 'center',
+                        border: `1px solid ${NEUTRAL.borderMedium}`,
+                        fontWeight: 600,
+                      }}
+                    >
                       96px
                     </td>
                   </tr>
@@ -1374,7 +1499,7 @@ export const ExtendedTypeScale: Story = {
               style={{
                 marginTop: '12px',
                 fontSize: '11px',
-                color: '#666',
+                color: NEUTRAL.textSlate,
                 fontStyle: 'italic',
               }}
             >
