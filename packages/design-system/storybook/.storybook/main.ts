@@ -6,7 +6,7 @@ const config: StorybookConfig = {
     backgrounds: false,
   },
   addons: [
-    '@storybook/addon-themes', // https://github.com/storybookjs/storybook/blob/5cc4825ab10ff4cd22b0d383b8245c13d9481942/code/addons/themes/README.md
+    // '@storybook/addon-themes', // Disabled - using custom theme/mode implementation
     '@storybook/addon-docs',
   ],
 
