@@ -233,13 +233,19 @@ export const Playground: Story = {
   },
   render: (args) => {
     // Determine content based on contentType control
+    const itemStyle = {
+      padding: '8px',
+      background: 'var(--lufa-semantic-interactive-background-hover)',
+      borderRadius: '4px',
+    };
+
     const content =
       args.contentType === 'multipleItems' ? (
         <>
-          <div style={{ padding: '8px', background: 'rgba(255, 255, 255, 0.2)', borderRadius: '4px' }}>Item 1</div>
-          <div style={{ padding: '8px', background: 'rgba(255, 255, 255, 0.2)', borderRadius: '4px' }}>Item 2</div>
-          <div style={{ padding: '8px', background: 'rgba(255, 255, 255, 0.2)', borderRadius: '4px' }}>Item 3</div>
-          <div style={{ padding: '8px', background: 'rgba(255, 255, 255, 0.2)', borderRadius: '4px' }}>Item 4</div>
+          <div style={itemStyle}>Item 1</div>
+          <div style={itemStyle}>Item 2</div>
+          <div style={itemStyle}>Item 3</div>
+          <div style={itemStyle}>Item 4</div>
         </>
       ) : (
         args.children
