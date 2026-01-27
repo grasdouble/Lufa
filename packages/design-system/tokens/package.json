@@ -35,7 +35,7 @@
     "eslint": "^9.39.2",
     "glob": "^13.0.0",
     "prettier": "^3.8.1",
-    "prettier-plugin-packagejson": "^2.5.22",
+    "prettier-plugin-packagejson": "^3.0.0",
     "style-dictionary": "^4.4.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
