@@ -9,7 +9,8 @@
           "lufa": {
             "level": "core",
             "category": "typography",
-            "useCase": "Headings, page titles, section titles"
+            "useCase": "Headings, page titles, section titles",
+            "themable": false
           }
         }
       },
@@ -21,7 +22,8 @@
           "lufa": {
             "level": "core",
             "category": "typography",
-            "useCase": "Body text, paragraphs, labels, UI text"
+            "useCase": "Body text, paragraphs, labels, UI text",
+            "themable": false
           }
         }
       },
@@ -33,7 +35,8 @@
           "lufa": {
             "level": "core",
             "category": "typography",
-            "useCase": "Code blocks, inline code, technical identifiers, monospace data"
+            "useCase": "Code blocks, inline code, technical identifiers, monospace data",
+            "themable": false
           }
         }
       },
@@ -45,7 +48,8 @@
           "lufa": {
             "level": "core",
             "category": "typography",
-            "useCase": "H1-H6 font weight, page titles"
+            "useCase": "H1-H6 font weight, page titles",
+            "themable": false
           }
         }
       },
@@ -57,7 +61,8 @@
           "lufa": {
             "level": "core",
             "category": "typography",
-            "useCase": "Paragraphs, body text, normal text"
+            "useCase": "Paragraphs, body text, normal text",
+            "themable": false
           }
         }
       },
@@ -69,7 +74,8 @@
           "lufa": {
             "level": "core",
             "category": "typography",
-            "useCase": "Bold text, strong emphasis, labels, navigation items"
+            "useCase": "Bold text, strong emphasis, labels, navigation items",
+            "themable": false
           }
         }
       },
@@ -81,7 +87,8 @@
           "lufa": {
             "level": "core",
             "category": "typography",
-            "useCase": "Body text, paragraphs, default UI text"
+            "useCase": "Body text, paragraphs, default UI text",
+            "themable": false
           }
         }
       },
@@ -93,7 +100,8 @@
           "lufa": {
             "level": "core",
             "category": "typography",
-            "useCase": "Body text line spacing, paragraph line height"
+            "useCase": "Body text line spacing, paragraph line height",
+            "themable": false
           }
         }
       },
@@ -105,7 +113,8 @@
           "lufa": {
             "level": "core",
             "category": "typography",
-            "useCase": "Captions, metadata, timestamps, helper text, footnotes"
+            "useCase": "Captions, metadata, timestamps, helper text, footnotes",
+            "themable": false
           }
         }
       }

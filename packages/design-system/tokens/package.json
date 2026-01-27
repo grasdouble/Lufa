@@ -19,7 +19,9 @@
   "scripts": {
     "build": "pnpm clean && style-dictionary build --config ./style-dictionary.config.js && pnpm check:size",
     "check:size": "node scripts/check-css-size.mjs",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "test": "node __tests__/themable-validation.test.js",
+    "test:themable": "node __tests__/themable-validation.test.js"
   },
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",

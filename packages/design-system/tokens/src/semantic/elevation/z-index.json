@@ -9,7 +9,8 @@
           "lufa": {
             "level": "semantic",
             "category": "elevation",
-            "useCase": "Default content, normal document flow"
+            "useCase": "Default content, normal document flow",
+            "themable": false
           }
         }
       },
@@ -21,7 +22,8 @@
           "lufa": {
             "level": "semantic",
             "category": "elevation",
-            "useCase": "Dropdown menus, select options, context menus"
+            "useCase": "Dropdown menus, select options, context menus",
+            "themable": false
           }
         }
       },
@@ -33,7 +35,8 @@
           "lufa": {
             "level": "semantic",
             "category": "elevation",
-            "useCase": "Sticky headers, sticky navigation, fixed toolbars"
+            "useCase": "Sticky headers, sticky navigation, fixed toolbars",
+            "themable": false
           }
         }
       },
@@ -45,7 +48,8 @@
           "lufa": {
             "level": "semantic",
             "category": "elevation",
-            "useCase": "Fixed navigation bars, floating action buttons"
+            "useCase": "Fixed navigation bars, floating action buttons",
+            "themable": false
           }
         }
       },
@@ -57,7 +61,8 @@
           "lufa": {
             "level": "semantic",
             "category": "elevation",
-            "useCase": "Modal overlays, dialog backdrops, drawer overlays"
+            "useCase": "Modal overlays, dialog backdrops, drawer overlays",
+            "themable": false
           }
         }
       },
@@ -69,7 +74,8 @@
           "lufa": {
             "level": "semantic",
             "category": "elevation",
-            "useCase": "Modal dialogs, drawer panels, lightboxes"
+            "useCase": "Modal dialogs, drawer panels, lightboxes",
+            "themable": false
           }
         }
       },
@@ -81,7 +87,8 @@
           "lufa": {
             "level": "semantic",
             "category": "elevation",
-            "useCase": "Popovers, tooltips, floating hints"
+            "useCase": "Popovers, tooltips, floating hints",
+            "themable": false
           }
         }
       },
@@ -93,7 +100,8 @@
           "lufa": {
             "level": "semantic",
             "category": "elevation",
-            "useCase": "Toast notifications, snackbars, system alerts"
+            "useCase": "Toast notifications, snackbars, system alerts",
+            "themable": false
           }
         }
       }

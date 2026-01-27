@@ -536,6 +536,7 @@ Add this rule to your component package's ESLint config:
 ## 📚 Additional Resources
 
 - **Main README:** [../../README.md](../../README.md)
+- **Themable Attribute Guide:** [THEMABLE_ATTRIBUTE.md](./THEMABLE_ATTRIBUTE.md)
 - **Token Architecture:** [../architecture/token-levels-overview.md](../architecture/token-levels-overview.md) (coming soon)
 - **Theming Guide:** [../../THEMING_GUIDE.md](../../THEMING_GUIDE.md) (coming soon)
 - **Component Guidelines:** `.github/instructions/lufa-design-system.instructions.md`

@@ -9,7 +9,8 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Button horizontal padding, link button padding"
+            "useCase": "Button horizontal padding, link button padding",
+            "themable": false
           }
         }
       },
@@ -21,7 +22,8 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Button vertical padding, link button padding"
+            "useCase": "Button vertical padding, link button padding",
+            "themable": false
           }
         }
       },
@@ -33,7 +35,8 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Gap between button icon and label, spacing in button groups"
+            "useCase": "Gap between button icon and label, spacing in button groups",
+            "themable": false
           }
         }
       },
@@ -45,7 +48,8 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Text input height, select height, search bar height"
+            "useCase": "Text input height, select height, search bar height",
+            "themable": false
           }
         }
       },
@@ -57,7 +61,8 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Text input horizontal padding, select padding"
+            "useCase": "Text input horizontal padding, select padding",
+            "themable": false
           }
         }
       },
@@ -69,7 +74,8 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Text input vertical padding, textarea padding"
+            "useCase": "Text input vertical padding, textarea padding",
+            "themable": false
           }
         }
       },
@@ -81,7 +87,8 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Card padding, panel padding, box padding"
+            "useCase": "Card padding, panel padding, box padding",
+            "themable": false
           }
         }
       },
@@ -93,7 +100,8 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Spacing between card header and body, card body and footer"
+            "useCase": "Spacing between card header and body, card body and footer",
+            "themable": false
           }
         }
       },
@@ -105,7 +113,8 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Modal content padding, dialog padding"
+            "useCase": "Modal content padding, dialog padding",
+            "themable": false
           }
         }
       },
@@ -117,7 +126,8 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Modal max-width, dialog max-width, popup max-width"
+            "useCase": "Modal max-width, dialog max-width, popup max-width",
+            "themable": false
           }
         }
       }

@@ -17,7 +17,8 @@
                 "Linux",
                 "iOS",
                 "Android"
-              ]
+              ],
+              "themable": false
             }
           }
         },
@@ -36,7 +37,8 @@
                 "Linux",
                 "iOS",
                 "Android"
-              ]
+              ],
+              "themable": false
             }
           }
         }

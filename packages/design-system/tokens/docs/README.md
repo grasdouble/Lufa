@@ -14,6 +14,12 @@ docs/
 
 ## 📚 Documentation by Category
 
+### Getting Started
+
+- **[USAGE_GUIDELINES.md](./USAGE_GUIDELINES.md)** - How to use design tokens in components
+- **[THEMABLE_ATTRIBUTE.md](./THEMABLE_ATTRIBUTE.md)** - Complete guide to the themable attribute
+- **[NAMING_CONVENTIONS.md](./NAMING_CONVENTIONS.md)** - Token naming standards and conventions
+
 ### Planning & Progress
 
 **Location:** `planning/`

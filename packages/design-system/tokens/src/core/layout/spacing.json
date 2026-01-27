@@ -14,7 +14,8 @@
               "responsive": {
                 "breakpoint": "base",
                 "applyAt": "all"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -30,7 +31,8 @@
               "responsive": {
                 "breakpoint": "md",
                 "applyAt": "768px"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -46,7 +48,8 @@
               "responsive": {
                 "breakpoint": "lg",
                 "applyAt": "1024px"
-              }
+              },
+              "themable": false
             }
           }
         }
@@ -64,7 +67,8 @@
               "responsive": {
                 "breakpoint": "base",
                 "applyAt": "all"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -80,7 +84,8 @@
               "responsive": {
                 "breakpoint": "md",
                 "applyAt": "768px"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -96,7 +101,8 @@
               "responsive": {
                 "breakpoint": "lg",
                 "applyAt": "1024px"
-              }
+              },
+              "themable": false
             }
           }
         }
@@ -114,7 +120,8 @@
               "responsive": {
                 "breakpoint": "base",
                 "applyAt": "all"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -130,7 +137,8 @@
               "responsive": {
                 "breakpoint": "md",
                 "applyAt": "768px"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -146,7 +154,8 @@
               "responsive": {
                 "breakpoint": "lg",
                 "applyAt": "1024px"
-              }
+              },
+              "themable": false
             }
           }
         }
@@ -164,7 +173,8 @@
               "responsive": {
                 "breakpoint": "base",
                 "applyAt": "all"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -180,7 +190,8 @@
               "responsive": {
                 "breakpoint": "md",
                 "applyAt": "768px"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -196,7 +207,8 @@
               "responsive": {
                 "breakpoint": "lg",
                 "applyAt": "1024px"
-              }
+              },
+              "themable": false
             }
           }
         }
@@ -214,7 +226,8 @@
               "responsive": {
                 "breakpoint": "base",
                 "applyAt": "all"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -230,7 +243,8 @@
               "responsive": {
                 "breakpoint": "md",
                 "applyAt": "768px"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -246,7 +260,8 @@
               "responsive": {
                 "breakpoint": "lg",
                 "applyAt": "1024px"
-              }
+              },
+              "themable": false
             }
           }
         }
@@ -264,7 +279,8 @@
               "responsive": {
                 "breakpoint": "base",
                 "applyAt": "all"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -280,7 +296,8 @@
               "responsive": {
                 "breakpoint": "md",
                 "applyAt": "768px"
-              }
+              },
+              "themable": false
             }
           }
         },
@@ -296,7 +313,8 @@
               "responsive": {
                 "breakpoint": "lg",
                 "applyAt": "1024px"
-              }
+              },
+              "themable": false
             }
           }
         }
@@ -309,7 +327,8 @@
           "lufa": {
             "level": "core",
             "category": "layout",
-            "useCase": "Side navigation width, sidebar panels"
+            "useCase": "Side navigation width, sidebar panels",
+            "themable": false
           }
         }
       },
@@ -321,7 +340,8 @@
           "lufa": {
             "level": "core",
             "category": "layout",
-            "useCase": "Article content width, form width, text-heavy content containers"
+            "useCase": "Article content width, form width, text-heavy content containers",
+            "themable": false
           }
         }
       },
@@ -334,7 +354,8 @@
             "level": "core",
             "category": "layout",
             "useCase": "Hero sections, major content blocks with smooth scaling",
-            "fluid": true
+            "fluid": true,
+            "themable": false
           }
         }
       },
@@ -347,7 +368,8 @@
             "level": "core",
             "category": "layout",
             "useCase": "Hero section internal padding, banner spacing",
-            "fluid": true
+            "fluid": true,
+            "themable": false
           }
         }
       },
@@ -360,7 +382,8 @@
             "level": "core",
             "category": "layout",
             "useCase": "Responsive container internal spacing",
-            "fluid": true
+            "fluid": true,
+            "themable": false
           }
         }
       },
@@ -373,7 +396,8 @@
             "level": "core",
             "category": "layout",
             "useCase": "Page-level horizontal margins with smooth scaling",
-            "fluid": true
+            "fluid": true,
+            "themable": false
           }
         }
       }

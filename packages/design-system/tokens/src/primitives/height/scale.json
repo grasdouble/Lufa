@@ -9,7 +9,8 @@
           "lufa": {
             "level": "primitive",
             "category": "height",
-            "useCase": "tags, badges, chips"
+            "useCase": "tags, badges, chips",
+            "themable": false
           }
         }
       },
@@ -21,7 +22,8 @@
           "lufa": {
             "level": "primitive",
             "category": "height",
-            "useCase": "small buttons, compact inputs"
+            "useCase": "small buttons, compact inputs",
+            "themable": false
           }
         }
       },
@@ -33,7 +35,8 @@
           "lufa": {
             "level": "primitive",
             "category": "height",
-            "useCase": "default buttons, standard inputs"
+            "useCase": "default buttons, standard inputs",
+            "themable": false
           }
         }
       },
@@ -45,7 +48,8 @@
           "lufa": {
             "level": "primitive",
             "category": "height",
-            "useCase": "large buttons, touch-friendly inputs"
+            "useCase": "large buttons, touch-friendly inputs",
+            "themable": false
           }
         }
       },
@@ -57,7 +61,8 @@
           "lufa": {
             "level": "primitive",
             "category": "height",
-            "useCase": "mobile headers, app bars"
+            "useCase": "mobile headers, app bars",
+            "themable": false
           }
         }
       },
@@ -69,7 +74,8 @@
           "lufa": {
             "level": "primitive",
             "category": "height",
-            "useCase": "desktop headers, navigation"
+            "useCase": "desktop headers, navigation",
+            "themable": false
           }
         }
       },
@@ -81,7 +87,8 @@
           "lufa": {
             "level": "primitive",
             "category": "height",
-            "useCase": "hero headers, prominent sections"
+            "useCase": "hero headers, prominent sections",
+            "themable": false
           }
         }
       },
@@ -93,7 +100,8 @@
           "lufa": {
             "level": "primitive",
             "category": "height",
-            "useCase": "extra large headers, mastheads"
+            "useCase": "extra large headers, mastheads",
+            "themable": false
           }
         }
       }

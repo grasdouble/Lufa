@@ -10,7 +10,8 @@
             "lufa": {
               "level": "core",
               "category": "layout-grid",
-              "useCase": "CSS Grid template columns, grid-based layouts"
+              "useCase": "CSS Grid template columns, grid-based layouts",
+              "themable": false
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "level": "core",
               "category": "layout-grid",
-              "useCase": "Dense grids, compact card layouts"
+              "useCase": "Dense grids, compact card layouts",
+              "themable": false
             }
           }
         },
@@ -34,7 +36,8 @@
             "lufa": {
               "level": "core",
               "category": "layout-grid",
-              "useCase": "Standard grid layouts, card grids"
+              "useCase": "Standard grid layouts, card grids",
+              "themable": false
             }
           }
         },
@@ -46,7 +49,8 @@
             "lufa": {
               "level": "core",
               "category": "layout-grid",
-              "useCase": "Spacious grids, feature sections"
+              "useCase": "Spacious grids, feature sections",
+              "themable": false
             }
           }
         },
@@ -58,7 +62,8 @@
             "lufa": {
               "level": "core",
               "category": "layout-grid",
-              "useCase": "Wide grids, portfolio layouts"
+              "useCase": "Wide grids, portfolio layouts",
+              "themable": false
             }
           }
         },
@@ -70,7 +75,8 @@
             "lufa": {
               "level": "core",
               "category": "layout-grid",
-              "useCase": "Responsive grid templates with auto-fit, card min-width"
+              "useCase": "Responsive grid templates with auto-fit, card min-width",
+              "themable": false
             }
           }
         }

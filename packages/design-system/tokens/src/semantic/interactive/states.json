@@ -9,7 +9,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Button backgrounds, input backgrounds, interactive card backgrounds"
+            "useCase": "Button backgrounds, input backgrounds, interactive card backgrounds",
+            "themable": true
           }
         }
       },
@@ -21,7 +22,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Hover state for buttons, inputs, cards, list items"
+            "useCase": "Hover state for buttons, inputs, cards, list items",
+            "themable": true
           }
         }
       },
@@ -33,7 +35,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Active/pressed state for buttons and clickable elements"
+            "useCase": "Active/pressed state for buttons and clickable elements",
+            "themable": true
           }
         }
       },
@@ -45,7 +48,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Disabled buttons, disabled inputs, non-interactive elements"
+            "useCase": "Disabled buttons, disabled inputs, non-interactive elements",
+            "themable": true
           }
         }
       },
@@ -57,7 +61,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Input borders, button outlines, card borders"
+            "useCase": "Input borders, button outlines, card borders",
+            "themable": true
           }
         }
       },
@@ -69,7 +74,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Hover state borders for inputs and outlined buttons"
+            "useCase": "Hover state borders for inputs and outlined buttons",
+            "themable": true
           }
         }
       },
@@ -81,7 +87,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Focus rings, focused input borders, keyboard navigation indicators"
+            "useCase": "Focus rings, focused input borders, keyboard navigation indicators",
+            "themable": true
           }
         }
       },
@@ -93,7 +100,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Disabled input borders, disabled button outlines"
+            "useCase": "Disabled input borders, disabled button outlines",
+            "themable": true
           }
         }
       },
@@ -105,7 +113,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Button labels, input text, interactive element labels"
+            "useCase": "Button labels, input text, interactive element labels",
+            "themable": true
           }
         }
       },
@@ -117,7 +126,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Hover state text for buttons and interactive elements"
+            "useCase": "Hover state text for buttons and interactive elements",
+            "themable": true
           }
         }
       },
@@ -129,7 +139,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Active/pressed state text for buttons"
+            "useCase": "Active/pressed state text for buttons",
+            "themable": true
           }
         }
       },
@@ -141,7 +152,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Disabled button text, disabled input text, non-interactive labels"
+            "useCase": "Disabled button text, disabled input text, non-interactive labels",
+            "themable": true
           }
         }
       },
@@ -153,7 +165,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Focus indicators, keyboard navigation rings, accessibility focus states"
+            "useCase": "Focus indicators, keyboard navigation rings, accessibility focus states",
+            "themable": true
           }
         }
       },
@@ -165,7 +178,8 @@
           "lufa": {
             "level": "semantic",
             "category": "interactive",
-            "useCase": "Focus ring spacing, outline-offset for focused elements"
+            "useCase": "Focus ring spacing, outline-offset for focused elements",
+            "themable": false
           }
         }
       },
@@ -178,7 +192,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "state",
-            "useCase": "Apply to buttons, inputs, and controls in disabled state"
+            "useCase": "Apply to buttons, inputs, and controls in disabled state",
+            "themable": false
           }
         }
       },
@@ -191,7 +206,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "state",
-            "useCase": "Skeleton loaders, loading placeholders"
+            "useCase": "Skeleton loaders, loading placeholders",
+            "themable": false
           }
         }
       },
@@ -204,7 +220,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "state",
-            "useCase": "Input placeholders, empty state illustrations"
+            "useCase": "Input placeholders, empty state illustrations",
+            "themable": false
           }
         }
       },
@@ -217,7 +234,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "state",
-            "useCase": "Filled focus states (not just outline)"
+            "useCase": "Filled focus states (not just outline)",
+            "themable": true
           }
         }
       },
@@ -230,7 +248,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "state",
-            "useCase": "Selected list items, active menu items, selected tabs"
+            "useCase": "Selected list items, active menu items, selected tabs",
+            "themable": true
           }
         }
       },
@@ -243,7 +262,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "state",
-            "useCase": "Text in selected list items, active navigation"
+            "useCase": "Text in selected list items, active navigation",
+            "themable": true
           }
         }
       },
@@ -257,7 +277,8 @@
             "category": "interactive",
             "subcategory": "link",
             "useCase": "Standard hyperlinks, navigation links, text links",
-            "a11y": "Maintains WCAG AA contrast in all modes"
+            "a11y": "Maintains WCAG AA contrast in all modes",
+            "themable": true
           }
         }
       },
@@ -270,22 +291,41 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "link",
-            "useCase": "Hover state for links, enhanced interactivity indication"
+            "useCase": "Hover state for links, enhanced interactivity indication",
+            "themable": true
           }
         }
       },
       "link-visited": {
         "light": {
           "$value": "{primitive.color.purple.600}",
-          "$type": "color"
+          "$type": "color",
+          "$description": "Visited link color for light mode - purple to indicate visited state",
+          "$extensions": {
+            "lufa": {
+              "themable": true
+            }
+          }
         },
         "dark": {
           "$value": "{primitive.color.purple.400}",
-          "$type": "color"
+          "$type": "color",
+          "$description": "Visited link color for dark mode - lighter purple for contrast",
+          "$extensions": {
+            "lufa": {
+              "themable": true
+            }
+          }
         },
         "high-contrast": {
           "$value": "#9900ff",
-          "$type": "color"
+          "$type": "color",
+          "$description": "Visited link color for high-contrast mode - vibrant purple for maximum visibility",
+          "$extensions": {
+            "lufa": {
+              "themable": true
+            }
+          }
         },
         "$type": "color",
         "$description": "Color for visited links - helps users track navigation history",
@@ -309,7 +349,8 @@
             "category": "interactive",
             "subcategory": "link",
             "useCase": "Keyboard navigation focus, accessibility compliance",
-            "a11y": "Ensures focus ring is visible in all modes"
+            "a11y": "Ensures focus ring is visible in all modes",
+            "themable": true
           }
         }
       },
@@ -322,7 +363,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "link",
-            "useCase": "Active click state for links, pressed state"
+            "useCase": "Active click state for links, pressed state",
+            "themable": true
           }
         }
       },
@@ -335,7 +377,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "link",
-            "useCase": "Standard link underline decoration"
+            "useCase": "Standard link underline decoration",
+            "themable": false
           }
         }
       },
@@ -348,7 +391,8 @@
             "level": "semantic",
             "category": "interactive",
             "subcategory": "link",
-            "useCase": "Hover state link decoration, can be 'none' for subtle effect"
+            "useCase": "Hover state link decoration, can be 'none' for subtle effect",
+            "themable": false
           }
         }
       }
