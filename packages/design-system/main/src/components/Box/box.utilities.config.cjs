@@ -228,12 +228,12 @@ module.exports = {
     // BORDER - Width
     // ==========================================
     borderWidth: {
-      property: 'border-width',
+      property: ['border-width', 'border-style'],
       values: {
-        none: '0',
-        thin: '1px',
-        medium: '2px',
-        thick: '4px',
+        none: ['0', 'none'],
+        thin: ['1px', 'solid'],
+        medium: ['2px', 'solid'],
+        thick: ['4px', 'solid'],
       },
     },
 
