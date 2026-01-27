@@ -219,12 +219,16 @@ export const AXIS_COLORS = {
 export const NEUTRAL_COLORS = {
   /** Light gray background - From primitives (gray-100) */
   backgroundLight: tokens.primitive.color.gray['100'], // #f3f4f6
+  /** Alias for backgroundLight (for backwards compatibility) */
+  bgGray: tokens.primitive.color.gray['100'], // #f3f4f6 (same as backgroundLight)
   /** Medium gray border - From primitives (gray-300) */
   borderMedium: tokens.primitive.color.gray['300'], // #d1d5db
   /** Slate border - Tailwind slate-200 (not in primitives yet) */
   borderSlate: '#e2e8f0',
   /** Dark gray text - From primitives (gray-800) */
   textDark: tokens.primitive.color.gray['800'], // #1f2937
+  /** Default text color - Alias for textDark */
+  text: tokens.primitive.color.gray['800'], // #1f2937 (same as textDark)
   /** Slate text - Tailwind slate-500 (not in primitives yet) */
   textSlate: '#64748b',
   /** White - Pure white */
