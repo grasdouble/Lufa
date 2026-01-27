@@ -347,7 +347,7 @@ export const FluidTypography: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: PRIMARY.blue.light,
+              backgroundColor: "var(--lufa-semantic-ui-background-info)",
               borderRadius: '6px',
               marginBottom: '32px',
               border: `2px solid ${PRIMARY.blue.main}`,
@@ -799,7 +799,7 @@ export const BestPractices: Story = {
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: PRIMARY.green.light,
+                    backgroundColor: "var(--lufa-semantic-ui-background-success)",
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -811,7 +811,7 @@ export const BestPractices: Story = {
                 or{' '}
                 <code
                   style={{
-                    backgroundColor: PRIMARY.green.light,
+                    backgroundColor: "var(--lufa-semantic-ui-background-success)",
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -826,7 +826,7 @@ export const BestPractices: Story = {
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: PRIMARY.green.light,
+                    backgroundColor: "var(--lufa-semantic-ui-background-success)",
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -838,7 +838,7 @@ export const BestPractices: Story = {
                 or{' '}
                 <code
                   style={{
-                    backgroundColor: PRIMARY.green.light,
+                    backgroundColor: "var(--lufa-semantic-ui-background-success)",
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -853,7 +853,7 @@ export const BestPractices: Story = {
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: PRIMARY.green.light,
+                    backgroundColor: "var(--lufa-semantic-ui-background-success)",
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -885,7 +885,7 @@ export const BestPractices: Story = {
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: PRIMARY.pink.light,
+                    backgroundColor: "var(--lufa-semantic-ui-background-error)",
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -900,7 +900,7 @@ export const BestPractices: Story = {
                 Apply{' '}
                 <code
                   style={{
-                    backgroundColor: PRIMARY.pink.light,
+                    backgroundColor: "var(--lufa-semantic-ui-background-error)",
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -921,7 +921,7 @@ export const BestPractices: Story = {
           style={{
             marginTop: '48px',
             padding: '24px',
-            backgroundColor: PRIMARY.orange.light,
+            backgroundColor: "var(--lufa-semantic-ui-background-warning)",
             borderRadius: '6px',
             border: `2px solid ${PRIMARY.orange.main}`,
           }}
@@ -950,7 +950,8 @@ export const BestPractices: Story = {
               <strong>Uppercase Text:</strong> Always increase letter-spacing for uppercase text. Use{' '}
               <code
                 style={{
-                  backgroundColor: NEUTRAL.white,
+                  backgroundColor: "var(--lufa-semantic-ui-background-surface)",
+                  border: "1px solid var(--lufa-semantic-ui-border-default)",
                   padding: '2px 6px',
                   borderRadius: '3px',
                   fontFamily: 'monospace',
@@ -962,7 +963,8 @@ export const BestPractices: Story = {
               (0.05em) or{' '}
               <code
                 style={{
-                  backgroundColor: NEUTRAL.white,
+                  backgroundColor: "var(--lufa-semantic-ui-background-surface)",
+                  border: "1px solid var(--lufa-semantic-ui-border-default)",
                   padding: '2px 6px',
                   borderRadius: '3px',
                   fontFamily: 'monospace',
@@ -1045,7 +1047,7 @@ export const BestPractices: Story = {
                   textTransform: 'uppercase',
                   padding: '12px 24px',
                   backgroundColor: PRIMARY.blue.main,
-                  color: NEUTRAL.white,
+                  color: "var(--lufa-semantic-ui-background-on-primary)",
                   borderRadius: '4px',
                   display: 'inline-block',
                 }}
@@ -1187,7 +1189,7 @@ export const ExtendedTypeScale: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: PRIMARY.orange.light,
+              backgroundColor: "var(--lufa-semantic-ui-background-warning)",
               borderRadius: '6px',
               marginBottom: '32px',
               border: `2px solid ${PRIMARY.orange.main}`,
@@ -1280,7 +1282,7 @@ export const ExtendedTypeScale: Story = {
                       fontSize: '12px',
                       color: 'var(--lufa-semantic-ui-text-secondary)',
                       fontFamily: 'monospace',
-                      backgroundColor: PRIMARY.orange.light,
+                      backgroundColor: "var(--lufa-semantic-ui-background-warning)",
                       padding: '8px',
                       borderRadius: '4px',
                       border: `1px solid ${PRIMARY.orange.main}`,
@@ -1463,7 +1465,7 @@ export const ExtendedTypeScale: Story = {
                         padding: '12px',
                         textAlign: 'center',
                         border: '1px solid var(--lufa-semantic-ui-border-default)',
-                        backgroundColor: PRIMARY.orange.light,
+                        backgroundColor: "var(--lufa-semantic-ui-background-warning)",
                       }}
                     >
                       64px
