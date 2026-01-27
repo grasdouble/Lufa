@@ -18,7 +18,8 @@
               "wcagAAA": [
                 "gray-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -39,7 +40,8 @@
                 "gray-900",
                 "gray-800"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -60,7 +62,8 @@
                 "gray-900",
                 "gray-800"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -79,7 +82,8 @@
               "wcagAAA": [
                 "gray-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -95,7 +99,8 @@
                 "gray-900"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -112,7 +117,8 @@
                 "gray-100"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -133,7 +139,8 @@
                 "gray-50",
                 "gray-100"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -155,7 +162,8 @@
                 "gray-100",
                 "gray-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -177,7 +185,8 @@
                 "gray-100",
                 "gray-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -201,7 +210,8 @@
                 "gray-200",
                 "gray-300"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -223,7 +233,8 @@
               "wcagAAA": [
                 "blue-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -244,7 +255,8 @@
                 "blue-900",
                 "blue-800"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -263,7 +275,8 @@
               "wcagAAA": [
                 "blue-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -279,7 +292,8 @@
                 "blue-900"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -296,7 +310,8 @@
                 "blue-100"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -313,7 +328,8 @@
                 "blue-100"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -334,7 +350,8 @@
                 "blue-50",
                 "blue-100"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -356,7 +373,8 @@
                 "blue-100",
                 "blue-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -378,7 +396,8 @@
                 "blue-100",
                 "blue-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -401,7 +420,8 @@
                 "blue-100",
                 "blue-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -423,7 +443,8 @@
               "wcagAAA": [
                 "red-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -444,7 +465,8 @@
                 "red-900",
                 "red-800"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -463,7 +485,8 @@
               "wcagAAA": [
                 "red-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -479,7 +502,8 @@
                 "red-900"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -496,7 +520,8 @@
                 "red-100"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -513,7 +538,8 @@
                 "red-100"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -534,7 +560,8 @@
                 "red-50",
                 "red-100"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -556,7 +583,8 @@
                 "red-100",
                 "red-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -578,7 +606,8 @@
                 "red-100",
                 "red-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -601,7 +630,8 @@
                 "red-100",
                 "red-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -623,7 +653,8 @@
               "wcagAAA": [
                 "green-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -644,7 +675,8 @@
                 "green-900",
                 "green-800"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -663,7 +695,8 @@
               "wcagAAA": [
                 "green-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -679,7 +712,8 @@
                 "green-900"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -695,7 +729,8 @@
                 "green-900"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -712,7 +747,8 @@
                 "green-100"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -733,7 +769,8 @@
                 "green-50",
                 "green-100"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -755,7 +792,8 @@
                 "green-100",
                 "green-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -777,7 +815,8 @@
                 "green-100",
                 "green-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -800,7 +839,8 @@
                 "green-100",
                 "green-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -822,7 +862,8 @@
               "wcagAAA": [
                 "yellow-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -843,7 +884,8 @@
                 "yellow-900",
                 "yellow-800"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -862,7 +904,8 @@
               "wcagAAA": [
                 "yellow-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -878,7 +921,8 @@
                 "yellow-900"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -894,7 +938,8 @@
                 "yellow-900"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -910,7 +955,8 @@
                 "yellow-900"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -931,7 +977,8 @@
                 "yellow-50",
                 "yellow-100"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -953,7 +1000,8 @@
                 "yellow-100",
                 "yellow-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -975,7 +1023,8 @@
                 "yellow-100",
                 "yellow-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -998,7 +1047,8 @@
                 "yellow-100",
                 "yellow-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -1020,7 +1070,8 @@
               "wcagAAA": [
                 "purple-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1041,7 +1092,8 @@
                 "purple-900",
                 "purple-800"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1060,7 +1112,8 @@
               "wcagAAA": [
                 "purple-900"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1076,7 +1129,8 @@
                 "purple-900"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1092,7 +1146,8 @@
                 "purple-900"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1109,7 +1164,8 @@
                 "purple-100"
               ],
               "wcagAAA": [],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1130,7 +1186,8 @@
                 "purple-50",
                 "purple-100"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1152,7 +1209,8 @@
                 "purple-100",
                 "purple-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1174,7 +1232,8 @@
                 "purple-100",
                 "purple-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1197,7 +1256,8 @@
                 "purple-100",
                 "purple-200"
               ],
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -1213,7 +1273,8 @@
               "category": "color",
               "palette": "high-contrast",
               "useCase": "High-contrast mode text, borders, and icons",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1227,7 +1288,8 @@
               "category": "color",
               "palette": "high-contrast",
               "useCase": "High-contrast mode backgrounds and inverse text",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1241,7 +1303,8 @@
               "category": "color",
               "palette": "high-contrast",
               "useCase": "High-contrast mode primary buttons, links, focus indicators",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1255,7 +1318,8 @@
               "category": "color",
               "palette": "high-contrast",
               "useCase": "High-contrast mode error messages, destructive buttons, validation",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1269,7 +1333,8 @@
               "category": "color",
               "palette": "high-contrast",
               "useCase": "High-contrast mode success messages, positive indicators",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1283,7 +1348,8 @@
               "category": "color",
               "palette": "high-contrast",
               "useCase": "High-contrast mode warning messages, alert banners",
-              "themable": true
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -1296,7 +1362,10 @@
             "$description": "4% opacity black - ultra-subtle overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1306,7 +1375,10 @@
             "$description": "8% opacity black - hover state overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1316,7 +1388,10 @@
             "$description": "16% opacity black - subtle overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1326,7 +1401,10 @@
             "$description": "38% opacity black - disabled state standard (Material Design)",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1336,7 +1414,10 @@
             "$description": "50% opacity black - balanced overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1346,7 +1427,10 @@
             "$description": "60% opacity black - medium overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1356,7 +1440,10 @@
             "$description": "80% opacity black - strong overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1366,7 +1453,10 @@
             "$description": "90% opacity black - very strong overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1376,7 +1466,10 @@
             "$description": "Solid black - reference value",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           }
@@ -1388,7 +1481,10 @@
             "$description": "4% opacity white - ultra-subtle overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1398,7 +1494,10 @@
             "$description": "8% opacity white - hover state overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1408,7 +1507,10 @@
             "$description": "16% opacity white - subtle overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1418,7 +1520,10 @@
             "$description": "38% opacity white - disabled state standard",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1428,7 +1533,10 @@
             "$description": "50% opacity white - balanced overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1438,7 +1546,10 @@
             "$description": "60% opacity white - medium overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1448,7 +1559,10 @@
             "$description": "80% opacity white - strong overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1458,7 +1572,10 @@
             "$description": "90% opacity white - very strong overlay",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           },
@@ -1468,7 +1585,10 @@
             "$description": "Solid white - reference value",
             "$extensions": {
               "lufa": {
-                "themable": true
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
               }
             }
           }

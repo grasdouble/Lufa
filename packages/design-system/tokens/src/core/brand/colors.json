@@ -16,7 +16,8 @@
               "dark": "{primitive.color.blue.500}",
               "high-contrast": "{primitive.color.hc.blue}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -35,7 +36,8 @@
               "dark": "{primitive.color.blue.400}",
               "high-contrast": "{primitive.color.hc.blue}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -54,7 +56,8 @@
               "dark": "{primitive.color.blue.600}",
               "high-contrast": "{primitive.color.hc.blue}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -73,7 +76,8 @@
               "dark": "{primitive.color.purple.400}",
               "high-contrast": "{primitive.color.purple.600}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -92,7 +96,8 @@
               "dark": "{primitive.color.purple.300}",
               "high-contrast": "{primitive.color.purple.700}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -111,7 +116,8 @@
               "dark": "{primitive.color.purple.500}",
               "high-contrast": "{primitive.color.purple.800}"
             },
-            "themable": true
+            "themeable": true,
+            "modeAware": true
           }
         }
       }

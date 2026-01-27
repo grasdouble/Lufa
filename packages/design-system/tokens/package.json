@@ -17,11 +17,14 @@
     "README.md"
   ],
   "scripts": {
+    "prebuild": "pnpm validate:tokens",
     "build": "pnpm clean && style-dictionary build --config ./style-dictionary.config.js && pnpm check:size",
     "check:size": "node scripts/check-css-size.mjs",
     "clean": "rm -rf dist",
     "test": "node __tests__/themable-validation.test.js",
-    "test:themable": "node __tests__/themable-validation.test.js"
+    "test:themable": "node __tests__/themable-validation.test.js",
+    "test:validator": "node build/validators/token-consistency.test.js",
+    "validate:tokens": "node build/validators/token-consistency.js"
   },
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",

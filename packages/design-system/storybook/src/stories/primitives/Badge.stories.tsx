@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge } from '@grasdouble/lufa_design-system';
 
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
-import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
+import { STORY_COLORS } from '../../constants/storyColors';
 
 /**
  * Badge - Status and Label Indicator
@@ -125,9 +125,7 @@ export const PropVariant: Story = {
               gap: '16px',
             }}
           >
-            {variants.map((variantItem, index) => {
-              const colors = getColorByIndex(index);
-
+            {variants.map((variantItem) => {
               return (
                 <PropCard
                   key={variantItem.value}
@@ -138,7 +136,6 @@ export const PropVariant: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '20px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -186,7 +183,7 @@ export const PropSize: Story = {
     ] as const;
 
     const generateCode = (size: string): string => {
-      const description = sizes.find((s) => s.value === size)?.description || size;
+      const description = sizes.find((s) => s.value === size)?.description ?? size;
       return `<Badge size="${size}">${description}</Badge>`;
     };
 
@@ -200,9 +197,7 @@ export const PropSize: Story = {
               gap: '24px',
             }}
           >
-            {sizes.map((sizeItem, index) => {
-              const colors = getColorByIndex(index);
-
+            {sizes.map((sizeItem) => {
               return (
                 <PropCard
                   key={sizeItem.value}
@@ -213,7 +208,6 @@ export const PropSize: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -275,9 +269,7 @@ export const PropDot: Story = {
               gap: '20px',
             }}
           >
-            {dotOptions.map((option, index) => {
-              const colors = getColorByIndex(index);
-
+            {dotOptions.map((option) => {
               return (
                 <PropCard
                   key={String(option.value)}
@@ -288,7 +280,6 @@ export const PropDot: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -392,9 +383,7 @@ export const PropAs: Story = {
               gap: '20px',
             }}
           >
-            {asOptions.map((option, index) => {
-              const colors = getColorByIndex(index);
-
+            {asOptions.map((option) => {
               return (
                 <PropCard
                   key={option.value}
@@ -405,7 +394,6 @@ export const PropAs: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -519,7 +507,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -551,7 +538,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.violet.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -588,7 +574,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.pink.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -627,7 +612,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.green.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -667,7 +651,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.orange.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -736,7 +719,6 @@ export const Playground: Story = {
           <PropCard label="Interactive Badge (use controls below)">
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '32px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -750,7 +732,6 @@ export const Playground: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: STORY_COLORS.neutral.bgGray,
               borderRadius: '8px',
               fontSize: '12px',
               color: STORY_COLORS.neutral.textSlate,

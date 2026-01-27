@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Divider } from '@grasdouble/lufa_design-system';
+import { Divider, type DividerProps } from '@grasdouble/lufa_design-system';
 
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
-import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
+import { STORY_COLORS } from '../../constants/storyColors';
 
 const NEUTRAL = STORY_COLORS.neutral;
 
@@ -151,9 +151,7 @@ export const PropOrientation: Story = {
               gap: '20px',
             }}
           >
-            {orientations.map((orientationItem, index) => {
-              const colors = getColorByIndex(index);
-
+            {orientations.map((orientationItem) => {
               return (
                 <PropCard
                   key={orientationItem.value}
@@ -164,7 +162,6 @@ export const PropOrientation: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -262,9 +259,7 @@ export const PropEmphasis: Story = {
               gap: '20px',
             }}
           >
-            {emphasisLevels.map((emphasisItem, index) => {
-              const colors = getColorByIndex(index);
-
+            {emphasisLevels.map((emphasisItem) => {
               return (
                 <PropCard
                   key={emphasisItem.value}
@@ -275,7 +270,6 @@ export const PropEmphasis: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -328,7 +322,6 @@ export const PropEmphasis: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -392,9 +385,7 @@ export const PropSpacing: Story = {
               gap: '20px',
             }}
           >
-            {spacings.map((spacingItem, index) => {
-              const colors = getColorByIndex(index);
-
+            {spacings.map((spacingItem) => {
               return (
                 <PropCard
                   key={spacingItem.value}
@@ -405,7 +396,6 @@ export const PropSpacing: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -486,9 +476,7 @@ export const PropLineStyle: Story = {
               gap: '20px',
             }}
           >
-            {lineStyles.map((lineStyleItem, index) => {
-              const colors = getColorByIndex(index);
-
+            {lineStyles.map((lineStyleItem) => {
               return (
                 <PropCard
                   key={lineStyleItem.value}
@@ -499,7 +487,6 @@ export const PropLineStyle: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -542,7 +529,6 @@ export const PropLineStyle: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -630,9 +616,7 @@ export const PropAs: Story = {
               gap: '20px',
             }}
           >
-            {asOptions.map((option, index) => {
-              const colors = getColorByIndex(index);
-
+            {asOptions.map((option) => {
               return (
                 <PropCard
                   key={option.value}
@@ -643,7 +627,6 @@ export const PropAs: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -673,7 +656,6 @@ export const PropAs: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: STORY_COLORS.neutral.bgGray,
               borderRadius: '8px',
               fontSize: '12px',
               color: STORY_COLORS.neutral.text,
@@ -716,7 +698,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '24px',
                 borderRadius: '8px',
               }}
@@ -754,7 +735,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.violet.light,
                 padding: '24px',
                 borderRadius: '8px',
               }}
@@ -793,7 +773,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.pink.light,
                 padding: '16px 24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -804,7 +783,7 @@ export const UseCases: Story = {
               <button
                 style={{
                   padding: '8px 16px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
@@ -816,7 +795,7 @@ export const UseCases: Story = {
               <button
                 style={{
                   padding: '8px 16px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
@@ -828,7 +807,7 @@ export const UseCases: Story = {
               <button
                 style={{
                   padding: '8px 16px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
@@ -841,7 +820,7 @@ export const UseCases: Story = {
               <button
                 style={{
                   padding: '8px 16px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
@@ -853,7 +832,7 @@ export const UseCases: Story = {
               <button
                 style={{
                   padding: '8px 16px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
@@ -881,7 +860,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.green.light,
                 padding: '24px',
                 borderRadius: '8px',
               }}
@@ -950,7 +928,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: 'white',
                 border: `1px solid ${NEUTRAL.borderMedium}`,
                 borderRadius: '8px',
                 overflow: 'hidden',
@@ -976,7 +953,6 @@ export const UseCases: Story = {
               <div
                 style={{
                   padding: '16px 20px',
-                  backgroundColor: NEUTRAL.backgroundLight,
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -986,7 +962,7 @@ export const UseCases: Story = {
                 <button
                   style={{
                     padding: '6px 12px',
-                    background: STORY_COLORS.primary.blue.base,
+                    background: STORY_COLORS.primary.blue.main,
                     color: 'white',
                     border: 'none',
                     borderRadius: '4px',
@@ -1049,14 +1025,13 @@ export const Playground: Story = {
     lineStyle: 'solid',
     as: 'hr',
   },
-  render: (args) => {
+  render: (args: DividerProps) => {
     return (
       <StoryContainer>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <PropCard label="Interactive Divider (use controls below)">
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '32px',
                 borderRadius: '8px',
               }}
@@ -1087,7 +1062,6 @@ export const Playground: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: STORY_COLORS.neutral.bgGray,
               borderRadius: '8px',
               fontSize: '12px',
               color: STORY_COLORS.neutral.textSlate,

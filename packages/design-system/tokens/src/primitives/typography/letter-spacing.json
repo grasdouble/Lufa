@@ -17,7 +17,8 @@
                 "7xl",
                 "8xl"
               ],
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -36,7 +37,8 @@
                 "4xl",
                 "5xl"
               ],
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -57,7 +59,8 @@
                 "xl",
                 "2xl"
               ],
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -76,7 +79,8 @@
                 "sm"
               ],
               "uppercaseRecommended": true,
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -97,7 +101,8 @@
                 "lg",
                 "xl"
               ],
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

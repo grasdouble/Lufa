@@ -11,7 +11,8 @@
               "level": "primitive",
               "category": "radius",
               "useCase": "Square elements, strictly geometric design",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -24,7 +25,8 @@
               "level": "primitive",
               "category": "radius",
               "useCase": "Badges, tags, small interface elements",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -37,7 +39,8 @@
               "level": "primitive",
               "category": "radius",
               "useCase": "Buttons, inputs, standard cards",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -50,7 +53,8 @@
               "level": "primitive",
               "category": "radius",
               "useCase": "Featured cards, panels",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -63,7 +67,8 @@
               "level": "primitive",
               "category": "radius",
               "useCase": "Modals, large cards, important surfaces",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -76,7 +81,8 @@
               "level": "primitive",
               "category": "radius",
               "useCase": "Large surfaces, modern design",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -89,7 +95,8 @@
               "level": "primitive",
               "category": "radius",
               "useCase": "Avatars, pill buttons, circular elements",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

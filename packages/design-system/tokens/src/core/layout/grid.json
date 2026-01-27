@@ -11,7 +11,8 @@
               "level": "core",
               "category": "layout-grid",
               "useCase": "CSS Grid template columns, grid-based layouts",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -24,7 +25,8 @@
               "level": "core",
               "category": "layout-grid",
               "useCase": "Dense grids, compact card layouts",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -37,7 +39,8 @@
               "level": "core",
               "category": "layout-grid",
               "useCase": "Standard grid layouts, card grids",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -50,7 +53,8 @@
               "level": "core",
               "category": "layout-grid",
               "useCase": "Spacious grids, feature sections",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -63,7 +67,8 @@
               "level": "core",
               "category": "layout-grid",
               "useCase": "Wide grids, portfolio layouts",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -76,7 +81,8 @@
               "level": "core",
               "category": "layout-grid",
               "useCase": "Responsive grid templates with auto-fit, card min-width",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

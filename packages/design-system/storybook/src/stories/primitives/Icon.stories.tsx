@@ -142,7 +142,7 @@ export const Playground: Story = {
     size: 'md',
     color: 'currentColor',
   },
-  render: (args) => {
+  render: (args: any) => {
     return (
       <StoryContainer>
         <div
@@ -473,7 +473,7 @@ export const PropTitle: Story = {
                   padding: '8px',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   cursor: 'pointer',
                 }}
               >
@@ -587,7 +587,7 @@ export const CombinedVariants: Story = {
                   padding: '12px 16px',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -602,7 +602,7 @@ export const CombinedVariants: Story = {
                   padding: '12px 16px',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -679,7 +679,7 @@ export const CombinedVariants: Story = {
                 }}
               >
                 <Icon name="info" size="md" color="info" />
-                <span style={{ fontSize: '16px', fontWeight: 500, color: PRIMARY.blue.dark }}>
+                <span style={{ fontSize: '16px', fontWeight: 500, color: PRIMARY.blue.main }}>
                   New updates are available.
                 </span>
               </div>
@@ -704,7 +704,7 @@ export const CombinedVariants: Story = {
                   padding: '10px 16px',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -719,7 +719,7 @@ export const CombinedVariants: Story = {
                   padding: '10px 16px',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -734,7 +734,7 @@ export const CombinedVariants: Story = {
                   padding: '10px 16px',
                   border: `1px solid ${PRIMARY.red.main}`,
                   borderRadius: '6px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -750,7 +750,7 @@ export const CombinedVariants: Story = {
                   padding: '10px 16px',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -781,7 +781,7 @@ export const CombinedVariants: Story = {
                   padding: '8px',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   cursor: 'pointer',
                 }}
               >
@@ -793,7 +793,7 @@ export const CombinedVariants: Story = {
                   padding: '8px',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   cursor: 'pointer',
                 }}
               >
@@ -805,7 +805,7 @@ export const CombinedVariants: Story = {
                   padding: '8px',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '6px',
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   cursor: 'pointer',
                 }}
               >
@@ -876,9 +876,9 @@ export const RealWorldPatterns: Story = {
               style={{
                 maxWidth: '400px',
                 padding: '24px',
-                background: 'white',
+                background: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '12px',
-                boxShadow: 'var(--lufa-semantic-ui-shadow-md)',
+                boxShadow: STORY_COLORS.themed.shadow.md,
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
@@ -907,7 +907,7 @@ export const RealWorldPatterns: Story = {
                     padding: '10px',
                     border: `1px solid ${NEUTRAL.borderMedium}`,
                     borderRadius: '6px',
-                    background: 'white',
+                    background: 'STORY_COLORS.themed.background.surface',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
@@ -923,7 +923,7 @@ export const RealWorldPatterns: Story = {
                     padding: '10px',
                     border: `1px solid ${NEUTRAL.borderMedium}`,
                     borderRadius: '6px',
-                    background: 'white',
+                    background: 'STORY_COLORS.themed.background.surface',
                     cursor: 'pointer',
                   }}
                 >
@@ -939,9 +939,9 @@ export const RealWorldPatterns: Story = {
             <div
               style={{
                 maxWidth: '600px',
-                background: 'white',
+                background: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '12px',
-                boxShadow: 'var(--lufa-semantic-ui-shadow-md)',
+                boxShadow: STORY_COLORS.themed.shadow.md,
                 overflow: 'hidden',
               }}
             >
@@ -994,9 +994,9 @@ export const RealWorldPatterns: Story = {
               style={{
                 maxWidth: '500px',
                 padding: '24px',
-                background: 'white',
+                background: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '12px',
-                boxShadow: 'var(--lufa-semantic-ui-shadow-md)',
+                boxShadow: STORY_COLORS.themed.shadow.md,
               }}
             >
               <div style={{ marginBottom: '20px' }}>

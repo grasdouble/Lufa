@@ -14,19 +14,8 @@ export default [
       },
     },
     rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
       'react/no-unescaped-entities': 'off',
-      'react/jsx-no-comment-textnodes': 'off',
-      // Storybook stories often export multiple components
-      'react-refresh/only-export-components': 'off',
-      // Storybook uses 'any' types extensively in its API
-      '@typescript-eslint/no-unsafe-assignment': 'off',
-      '@typescript-eslint/no-unsafe-member-access': 'off',
-      '@typescript-eslint/no-unsafe-call': 'off',
-      '@typescript-eslint/no-unsafe-return': 'off',
-      // Storybook helper functions and story files have looser requirements
-      '@typescript-eslint/prefer-nullish-coalescing': 'off',
-      'react-hooks/rules-of-hooks': 'off',
-      'storybook/no-redundant-story-name': 'warn',
       // Console is often used in stories for demonstration
       'no-console': 'off',
     },

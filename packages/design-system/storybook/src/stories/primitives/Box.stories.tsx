@@ -231,7 +231,11 @@ export const Playground: Story = {
     children: '🎨 Edit the controls to see changes in real-time!',
     contentType: 'text',
   },
-  render: (args) => {
+  render: (args:any) => {
+    // Type-safe access to args properties
+    const contentType = (args as { contentType?: 'text' | 'multipleItems' }).contentType;
+    const children = (args as { children?: React.ReactNode }).children;
+
     // Determine content based on contentType control
     const itemStyle = {
       padding: '8px',
@@ -240,7 +244,7 @@ export const Playground: Story = {
     };
 
     const content =
-      args.contentType === 'multipleItems' ? (
+      contentType === 'multipleItems' ? (
         <>
           <div style={itemStyle}>Item 1</div>
           <div style={itemStyle}>Item 2</div>
@@ -248,7 +252,7 @@ export const Playground: Story = {
           <div style={itemStyle}>Item 4</div>
         </>
       ) : (
-        args.children
+        children
       );
 
     return (
@@ -390,11 +394,11 @@ export const PropPadding: Story = {
     // Note: 'none' and 'tight' both map to 4px (tight spacing)
     const paddingValues = [
       { value: 'none' as const, size: '4px', color: STORY_COLORS.neutral.borderMedium },
-      { value: 'tight' as const, size: '4px', color: STORY_COLORS.primary.cyan },
-      { value: 'compact' as const, size: '8px', color: STORY_COLORS.primary.green },
-      { value: 'default' as const, size: '16px', color: STORY_COLORS.primary.blue },
-      { value: 'comfortable' as const, size: '24px', color: STORY_COLORS.primary.violet },
-      { value: 'spacious' as const, size: '32px', color: STORY_COLORS.primary.pink },
+      { value: 'tight' as const, size: '4px', color: STORY_COLORS.primary.cyan.main },
+      { value: 'compact' as const, size: '8px', color: STORY_COLORS.primary.green.main },
+      { value: 'default' as const, size: '16px', color: STORY_COLORS.primary.blue.main },
+      { value: 'comfortable' as const, size: '24px', color: STORY_COLORS.primary.violet.main },
+      { value: 'spacious' as const, size: '32px', color: STORY_COLORS.primary.pink.main },
     ];
 
     const generateCode = (padding: string): string => {
@@ -966,10 +970,10 @@ export const PropBackground: Story = {
       
       Box background uses semantic UI tokens that adapt to themes:
       
-      - background="page" → var(--lufa-semantic-ui-background-page)
+      - background="page" → STORY_COLORS.themed.background.page
         Main page background color
         
-      - background="surface" → var(--lufa-semantic-ui-background-surface)
+      - background="surface" → STORY_COLORS.themed.background.surface
         Elevated surfaces like cards and panels
         
       - background="success/error/warning/info" → Semantic state backgrounds

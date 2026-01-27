@@ -10,7 +10,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "reset margin/padding",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -23,7 +24,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "icon-text gap, tight lists",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -36,7 +38,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "button padding, inline gaps",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -49,7 +52,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "form field gaps, card padding",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -62,7 +66,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "section margins, component spacing",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -75,7 +80,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "section spacing, card gaps",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -88,7 +94,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "page sections, large card padding",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -101,7 +108,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "hero sections, large gutters",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -114,7 +122,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "page headers, major separators",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -127,7 +136,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "section separators, page breaks",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -140,7 +150,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "footer spacing, large hero margins",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -153,7 +164,8 @@
             "level": "primitive",
             "category": "spacing",
             "useCase": "page-level margins, hero sections",
-            "themable": false
+            "themeable": false,
+            "modeAware": false
           }
         }
       }

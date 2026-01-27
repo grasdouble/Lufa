@@ -11,7 +11,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Body text, paragraphs, descriptions",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -24,7 +25,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Labels, navigation, light emphasis",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -37,7 +39,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Subtitles, buttons, strong emphasis",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -50,7 +53,8 @@
               "level": "primitive",
               "category": "typography",
               "useCase": "Headings, critical interface elements",
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

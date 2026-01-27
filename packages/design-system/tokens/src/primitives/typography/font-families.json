@@ -18,7 +18,8 @@
                 "iOS",
                 "Android"
               ],
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -38,7 +39,8 @@
                 "iOS",
                 "Android"
               ],
-              "themable": false
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

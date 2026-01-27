@@ -71,12 +71,16 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
   children,
 }) => {
   // Use token-based color if no custom color provided
-  const defaultColor = 'var(--lufa-token-color-info-default)';
-  const finalColor = color || defaultColor;
+  const defaultColor = 'var(--lufa-semantic-ui-background-info)';
+  const finalColor = color ?? defaultColor;
 
   // Extract token name from CSS variable for educational purposes
   const extractTokenName = (colorValue: string): string | null => {
-    if (colorValue?.startsWith('var(')) {
+    // Ensure colorValue is a string before calling string methods
+    if (typeof colorValue !== 'string') {
+      return null;
+    }
+    if (colorValue.startsWith('var(')) {
       const match = /--lufa-([a-z-]+)/.exec(colorValue);
       return match ? match[1] : null;
     }
@@ -87,9 +91,9 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
 
   // Convert hex color to rgba for opacity
   const hexToRgba = (hex: string, alpha: number): string => {
-    // Validate that hex is a string and starts with #
+    // Validate that hex is a string
     if (!hex || typeof hex !== 'string') {
-      console.warn('PaddingVisualizer: Invalid color provided:', hex);
+      console.warn('PaddingVisualizer: Invalid color provided (expected string):', hex);
       return `rgba(200, 200, 200, ${alpha})`; // Fallback to gray
     }
 
@@ -130,7 +134,7 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
             top: '4px',
             right: '4px',
             backgroundColor: finalColor,
-            color: 'var(--lufa-token-color-text-inverse)',
+            color: 'var(--lufa-semantic-ui-background-on-primary)',
             fontSize: '10px',
             fontWeight: 600,
             padding: '2px 6px',

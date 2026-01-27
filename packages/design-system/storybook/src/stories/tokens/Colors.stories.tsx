@@ -46,7 +46,7 @@ const ColorSwatch = ({ token, name, description }: { token: string; name: string
         backgroundColor: `var(${token})`,
         borderRadius: '6px',
         border: `1px solid ${NEUTRAL.borderMedium}`,
-        boxShadow: 'var(--lufa-semantic-ui-shadow-sm)',
+        boxShadow: STORY_COLORS.themed.shadow.sm,
       }}
     />
     <div style={{ fontSize: '11px', fontFamily: 'monospace' }}>

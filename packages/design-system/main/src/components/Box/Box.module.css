@@ -515,18 +515,22 @@
 
 .borderWidth-none {
   border-width: 0;
+  border-style: none;
 }
 
 .borderWidth-thin {
   border-width: 1px;
+  border-style: solid;
 }
 
 .borderWidth-medium {
   border-width: 2px;
+  border-style: solid;
 }
 
 .borderWidth-thick {
   border-width: 4px;
+  border-style: solid;
 }
 
 /* ========================================== */
