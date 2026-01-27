@@ -91,7 +91,7 @@ export const MarginVisualizer = ({
   label,
 }: MarginVisualizerProps) => {
   // Use token-based color if no custom color provided
-  const defaultColor = 'var(--lufa-token-color-info-default)';
+  const defaultColor = 'var(--lufa-semantic-ui-background-info)';
   const finalColor = color || defaultColor;
 
   // Extract token name from CSS variable for educational purposes
@@ -137,7 +137,7 @@ export const MarginVisualizer = ({
             fontSize: '10px',
             fontWeight: 600,
             color: finalColor,
-            backgroundColor: 'var(--lufa-token-color-surface-default)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
             padding: '2px 6px',
             borderRadius: '3px',
             border: `1px solid ${finalColor}`,

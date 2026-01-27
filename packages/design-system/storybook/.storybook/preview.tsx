@@ -68,8 +68,8 @@ const ThemeAndModeWrapper = ({ theme, mode, children }: { theme: string; mode: s
   return (
     <div
       style={{
-        backgroundColor: 'var(--lufa-token-color-background-primary)',
-        color: 'var(--lufa-token-color-text-primary)',
+        backgroundColor: 'var(--lufa-semantic-ui-background-page)',
+        color: 'var(--lufa-semantic-ui-text-primary)',
         minHeight: '100vh',
         padding: '2rem',
         display: 'flex',

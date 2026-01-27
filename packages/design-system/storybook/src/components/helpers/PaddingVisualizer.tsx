@@ -71,7 +71,7 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
   children,
 }) => {
   // Use token-based color if no custom color provided
-  const defaultColor = 'var(--lufa-token-color-info-default)';
+  const defaultColor = 'var(--lufa-semantic-ui-background-info)';
   const finalColor = color || defaultColor;
 
   // Extract token name from CSS variable for educational purposes
@@ -130,7 +130,7 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
             top: '4px',
             right: '4px',
             backgroundColor: finalColor,
-            color: 'var(--lufa-token-color-text-inverse)',
+            color: 'var(--lufa-semantic-ui-background-on-primary)',
             fontSize: '10px',
             fontWeight: 600,
             padding: '2px 6px',
