@@ -35,9 +35,20 @@ Comprehensive fixes for Storybook theme switching, deprecated token migration, a
 ### STORY_COLORS API Refactoring
 
 - **New `STORY_COLORS.themed.*` API**: Added dedicated section for theme-aware colors
-  - `text.*` - Primary, secondary, tertiary text colors
+  - `text.*` - Primary, secondary, tertiary, success, inverse text colors
   - `background.*` - Page, surface, semantic (success/error/warning/info) colors
   - `border.*` - Default and subtle border colors
+  - `shadow.*` - Small and medium shadow tokens
+  - `overlay.*` - Backdrop overlay token
+  
+- **Complete Migration**: Replaced 164 direct CSS variable calls with `STORY_COLORS.themed.*` across all stories
+  - Typography: 128 replacements
+  - Icon: 18 replacements
+  - Text: 8 replacements
+  - Divider: 5 replacements
+  - Stack: 3 replacements
+  - Box: 3 replacements
+  - Colors: 1 replacement
   
 - **Documentation**: Created comprehensive migration guide (`STORY_COLORS_MIGRATION.md`)
   - When to use `themed.*` vs `primary.*`
@@ -63,10 +74,11 @@ Comprehensive fixes for Storybook theme switching, deprecated token migration, a
 ✅ Theme switching (Light/Dark/High-Contrast) now works properly across all stories
 ✅ All story content is readable and properly contrasted in all themes
 ✅ Box component borders display correctly with `borderWidth` prop
-✅ Type-safe color API with clear semantic distinction
+✅ Type-safe color API with clear semantic distinction (164 CSS variables → STORY_COLORS.themed)
+✅ Consistent API usage across entire Storybook codebase
 ✅ Zero linting errors or warnings
 
-## Files Modified (17 files)
+## Files Modified (18 files)
 
 - `.storybook/preview.tsx`
 - `src/components/helpers/*.tsx` (4 files)
