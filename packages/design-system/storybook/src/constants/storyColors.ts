@@ -240,6 +240,8 @@ export const AXIS_COLORS = {
 export const NEUTRAL_COLORS = {
   /** Light gray background - From primitives (gray-100) */
   backgroundLight: tokens.primitive.color.gray['100'], // #f3f4f6
+  /** Medium gray background - From primitives (gray-200) */
+  backgroundMedium: tokens.primitive.color.gray['200'], // #e5e7eb
   /** Alias for backgroundLight (for backwards compatibility) */
   bgGray: tokens.primitive.color.gray['100'], // #f3f4f6 (same as backgroundLight)
   /** Medium gray border - From primitives (gray-300) */
