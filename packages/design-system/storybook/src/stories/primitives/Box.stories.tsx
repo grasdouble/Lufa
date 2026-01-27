@@ -966,10 +966,10 @@ export const PropBackground: Story = {
       
       Box background uses semantic UI tokens that adapt to themes:
       
-      - background="page" → var(--lufa-semantic-ui-background-page)
+      - background="page" → STORY_COLORS.themed.background.page
         Main page background color
         
-      - background="surface" → var(--lufa-semantic-ui-background-surface)
+      - background="surface" → STORY_COLORS.themed.background.surface
         Elevated surfaces like cards and panels
         
       - background="success/error/warning/info" → Semantic state backgrounds

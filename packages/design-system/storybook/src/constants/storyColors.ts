@@ -294,6 +294,10 @@ export const THEMED_COLORS = {
     secondary: 'var(--lufa-semantic-ui-text-secondary)',
     /** Tertiary text color (low contrast) */
     tertiary: 'var(--lufa-semantic-ui-text-tertiary)',
+    /** Success text color (green) */
+    success: 'var(--lufa-semantic-ui-text-success)',
+    /** Inverse text color (for dark backgrounds) */
+    inverse: 'var(--lufa-semantic-ui-text-inverse)',
   },
   /** Background colors that adapt to theme */
   background: {
@@ -318,6 +322,18 @@ export const THEMED_COLORS = {
     default: 'var(--lufa-semantic-ui-border-default)',
     /** Subtle border color */
     subtle: 'var(--lufa-semantic-ui-border-subtle)',
+  },
+  /** Shadow tokens that adapt to theme */
+  shadow: {
+    /** Small shadow */
+    sm: 'var(--lufa-semantic-ui-shadow-sm)',
+    /** Medium shadow */
+    md: 'var(--lufa-semantic-ui-shadow-md)',
+  },
+  /** Overlay tokens that adapt to theme */
+  overlay: {
+    /** Backdrop overlay */
+    backdrop: 'var(--lufa-semantic-ui-overlay-backdrop)',
   },
 } as const;
 

@@ -783,7 +783,7 @@ export const UseCases: Story = {
               <button
                 style={{
                   padding: '8px 16px',
-                  background: 'var(--lufa-semantic-ui-background-surface)',
+                  background: 'STORY_COLORS.themed.background.surface',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
@@ -795,7 +795,7 @@ export const UseCases: Story = {
               <button
                 style={{
                   padding: '8px 16px',
-                  background: 'var(--lufa-semantic-ui-background-surface)',
+                  background: 'STORY_COLORS.themed.background.surface',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
@@ -807,7 +807,7 @@ export const UseCases: Story = {
               <button
                 style={{
                   padding: '8px 16px',
-                  background: 'var(--lufa-semantic-ui-background-surface)',
+                  background: 'STORY_COLORS.themed.background.surface',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
@@ -820,7 +820,7 @@ export const UseCases: Story = {
               <button
                 style={{
                   padding: '8px 16px',
-                  background: 'var(--lufa-semantic-ui-background-surface)',
+                  background: 'STORY_COLORS.themed.background.surface',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',
@@ -832,7 +832,7 @@ export const UseCases: Story = {
               <button
                 style={{
                   padding: '8px 16px',
-                  background: 'var(--lufa-semantic-ui-background-surface)',
+                  background: 'STORY_COLORS.themed.background.surface',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
                   borderRadius: '4px',
                   cursor: 'pointer',

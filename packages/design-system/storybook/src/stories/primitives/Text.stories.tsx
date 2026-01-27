@@ -227,13 +227,13 @@ export const PropColor: Story = {
       
       Text color uses semantic UI text tokens:
       
-      - color="primary" → var(--lufa-semantic-ui-text-primary)
+      - color="primary" → STORY_COLORS.themed.text.primary
         Default text color for headings and body text
         
-      - color="secondary" → var(--lufa-semantic-ui-text-secondary)
+      - color="secondary" → STORY_COLORS.themed.text.secondary
         Supporting text with less emphasis
         
-      - color="tertiary" → var(--lufa-semantic-ui-text-tertiary)
+      - color="tertiary" → STORY_COLORS.themed.text.tertiary
         Subtle text with least emphasis (captions, metadata)
         
       - color="success/error/warning/info" → Semantic state colors
@@ -771,9 +771,9 @@ export const RealWorldPatterns: Story = {
               style={{
                 maxWidth: '700px',
                 padding: '32px',
-                background: 'var(--lufa-semantic-ui-background-surface)',
+                background: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '12px',
-                boxShadow: 'var(--lufa-semantic-ui-shadow-md)',
+                boxShadow: 'STORY_COLORS.themed.shadow.md',
               }}
             >
               <Text variant="label" transform="uppercase" color="secondary" weight="semibold">
@@ -809,7 +809,7 @@ export const RealWorldPatterns: Story = {
                   key={plan.name}
                   style={{
                     padding: '24px',
-                    background: 'var(--lufa-semantic-ui-background-surface)',
+                    background: 'STORY_COLORS.themed.background.surface',
                     borderRadius: '12px',
                     border: '2px solid',
                     borderColor: idx === 1 ? STORY_COLORS.primary.blue.main : NEUTRAL.borderMedium,
@@ -854,7 +854,7 @@ export const RealWorldPatterns: Story = {
                   key={metric.label}
                   style={{
                     padding: '20px',
-                    background: 'var(--lufa-semantic-ui-background-surface)',
+                    background: 'STORY_COLORS.themed.background.surface',
                     borderRadius: '8px',
                     border: `1px solid ${NEUTRAL.borderMedium}`,
                   }}

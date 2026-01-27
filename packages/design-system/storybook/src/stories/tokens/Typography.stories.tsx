@@ -47,15 +47,15 @@ const TypographyToken = ({
 }) => (
   <div style={{ marginBottom: '32px' }}>
     <div style={{ fontSize: '11px', fontFamily: 'monospace', marginBottom: '8px' }}>
-      <div style={{ fontWeight: 600, color: 'var(--lufa-semantic-ui-text-primary)' }}>{name}</div>
-      <div style={{ color: 'var(--lufa-semantic-ui-text-secondary)', fontSize: '10px', marginTop: '2px' }}>{token}</div>
-      <div style={{ color: 'var(--lufa-semantic-ui-text-secondary)', fontSize: '10px', marginTop: '2px' }}>
+      <div style={{ fontWeight: 600, color: 'STORY_COLORS.themed.text.primary' }}>{name}</div>
+      <div style={{ color: 'STORY_COLORS.themed.text.secondary', fontSize: '10px', marginTop: '2px' }}>{token}</div>
+      <div style={{ color: 'STORY_COLORS.themed.text.secondary', fontSize: '10px', marginTop: '2px' }}>
         Value: {value}
       </div>
       {description && (
         <div
           style={{
-            color: 'var(--lufa-semantic-ui-text-secondary)',
+            color: 'STORY_COLORS.themed.text.secondary',
             fontSize: '10px',
             marginTop: '4px',
             fontFamily: 'sans-serif',
@@ -69,9 +69,9 @@ const TypographyToken = ({
       <div
         style={{
           padding: '16px',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'STORY_COLORS.themed.background.surface',
           borderRadius: '6px',
-          border: '1px solid var(--lufa-semantic-ui-border-default)',
+          border: '1px solid STORY_COLORS.themed.border.default',
           ...exampleStyle,
         }}
       >
@@ -89,8 +89,8 @@ const TypographySection = ({ title, children }: { title: string; children: React
         fontSize: '24px',
         fontWeight: 700,
         marginBottom: '24px',
-        color: 'var(--lufa-semantic-ui-text-primary)',
-        borderBottom: '2px solid var(--lufa-semantic-ui-border-default)',
+        color: 'STORY_COLORS.themed.text.primary',
+        borderBottom: '2px solid STORY_COLORS.themed.border.default',
         paddingBottom: '12px',
       }}
     >
@@ -212,7 +212,7 @@ export const FontSizes: Story = {
               fontSize: '18px',
               fontWeight: 600,
               marginBottom: '24px',
-              color: 'var(--lufa-semantic-ui-text-primary)',
+              color: 'STORY_COLORS.themed.text.primary',
             }}
           >
             Static Font Sizes
@@ -280,7 +280,7 @@ export const FontSizes: Story = {
               fontSize: '18px',
               fontWeight: 600,
               marginBottom: '24px',
-              color: 'var(--lufa-semantic-ui-text-primary)',
+              color: 'STORY_COLORS.themed.text.primary',
             }}
           >
             Fluid Font Sizes
@@ -288,7 +288,7 @@ export const FontSizes: Story = {
               style={{
                 fontSize: '12px',
                 fontWeight: 400,
-                color: 'var(--lufa-semantic-ui-text-secondary)',
+                color: 'STORY_COLORS.themed.text.secondary',
                 marginLeft: '8px',
               }}
             >
@@ -376,7 +376,7 @@ export const FluidTypography: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: 'var(--lufa-semantic-ui-background-info)',
+              backgroundColor: 'STORY_COLORS.themed.background.info',
               borderRadius: '6px',
               marginBottom: '32px',
               border: `2px solid ${PRIMARY.blue.main}`,
@@ -394,15 +394,15 @@ export const FluidTypography: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '6px',
-                border: '1px solid var(--lufa-semantic-ui-border-default)',
+                border: '1px solid STORY_COLORS.themed.border.default',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -422,15 +422,15 @@ export const FluidTypography: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '6px',
-                border: '1px solid var(--lufa-semantic-ui-border-default)',
+                border: '1px solid STORY_COLORS.themed.border.default',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -450,15 +450,15 @@ export const FluidTypography: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '6px',
-                border: '1px solid var(--lufa-semantic-ui-border-default)',
+                border: '1px solid STORY_COLORS.themed.border.default',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -478,15 +478,15 @@ export const FluidTypography: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '6px',
-                border: '1px solid var(--lufa-semantic-ui-border-default)',
+                border: '1px solid STORY_COLORS.themed.border.default',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   marginBottom: '8px',
                   fontFamily: 'monospace',
                 }}
@@ -520,7 +520,7 @@ export const LetterSpacingComparison: Story = {
     <StoryContainer>
       <TypographySection title="Letter Spacing Comparison">
         <div style={{ marginBottom: '24px' }}>
-          <p style={{ fontSize: '14px', color: 'var(--lufa-semantic-ui-text-secondary)', lineHeight: '1.6' }}>
+          <p style={{ fontSize: '14px', color: 'STORY_COLORS.themed.text.secondary', lineHeight: '1.6' }}>
             All examples below use the same font size (32px) and weight. The only difference is the letter-spacing
             value. Notice how negative spacing tightens large text, while positive spacing improves legibility of
             uppercase text.
@@ -537,16 +537,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+              backgroundColor: 'STORY_COLORS.themed.background.surface',
               borderRadius: '6px',
-              border: '1px solid var(--lufa-semantic-ui-border-default)',
+              border: '1px solid STORY_COLORS.themed.border.default',
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: 'var(--lufa-semantic-ui-text-primary)',
+                color: 'STORY_COLORS.themed.text.primary',
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -568,16 +568,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+              backgroundColor: 'STORY_COLORS.themed.background.surface',
               borderRadius: '6px',
-              border: '1px solid var(--lufa-semantic-ui-border-default)',
+              border: '1px solid STORY_COLORS.themed.border.default',
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: 'var(--lufa-semantic-ui-text-primary)',
+                color: 'STORY_COLORS.themed.text.primary',
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -599,16 +599,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+              backgroundColor: 'STORY_COLORS.themed.background.surface',
               borderRadius: '6px',
-              border: '1px solid var(--lufa-semantic-ui-border-default)',
+              border: '1px solid STORY_COLORS.themed.border.default',
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: 'var(--lufa-semantic-ui-text-primary)',
+                color: 'STORY_COLORS.themed.text.primary',
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -630,16 +630,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+              backgroundColor: 'STORY_COLORS.themed.background.surface',
               borderRadius: '6px',
-              border: '1px solid var(--lufa-semantic-ui-border-default)',
+              border: '1px solid STORY_COLORS.themed.border.default',
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: 'var(--lufa-semantic-ui-text-primary)',
+                color: 'STORY_COLORS.themed.text.primary',
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -661,16 +661,16 @@ export const LetterSpacingComparison: Story = {
           <div
             style={{
               padding: '24px',
-              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+              backgroundColor: 'STORY_COLORS.themed.background.surface',
               borderRadius: '6px',
-              border: '1px solid var(--lufa-semantic-ui-border-default)',
+              border: '1px solid STORY_COLORS.themed.border.default',
             }}
           >
             <div
               style={{
                 fontSize: '12px',
                 fontWeight: 600,
-                color: 'var(--lufa-semantic-ui-text-primary)',
+                color: 'STORY_COLORS.themed.text.primary',
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -696,7 +696,7 @@ export const LetterSpacingComparison: Story = {
               fontSize: '18px',
               fontWeight: 600,
               marginBottom: '16px',
-              color: 'var(--lufa-semantic-ui-text-primary)',
+              color: 'STORY_COLORS.themed.text.primary',
             }}
           >
             Uppercase Comparison
@@ -704,7 +704,7 @@ export const LetterSpacingComparison: Story = {
           <p
             style={{
               fontSize: '14px',
-              color: 'var(--lufa-semantic-ui-text-secondary)',
+              color: 'STORY_COLORS.themed.text.secondary',
               marginBottom: '24px',
               lineHeight: '1.6',
             }}
@@ -723,16 +723,16 @@ export const LetterSpacingComparison: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '6px',
-                border: '1px solid var(--lufa-semantic-ui-border-default)',
+                border: '1px solid STORY_COLORS.themed.border.default',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: 'var(--lufa-semantic-ui-text-primary)',
+                  color: 'STORY_COLORS.themed.text.primary',
                   marginBottom: '12px',
                   textAlign: 'center',
                 }}
@@ -755,16 +755,16 @@ export const LetterSpacingComparison: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '6px',
-                border: '1px solid var(--lufa-semantic-ui-border-default)',
+                border: '1px solid STORY_COLORS.themed.border.default',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: 'var(--lufa-semantic-ui-text-primary)',
+                  color: 'STORY_COLORS.themed.text.primary',
                   marginBottom: '12px',
                   textAlign: 'center',
                 }}
@@ -787,16 +787,16 @@ export const LetterSpacingComparison: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '6px',
-                border: '1px solid var(--lufa-semantic-ui-border-default)',
+                border: '1px solid STORY_COLORS.themed.border.default',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: 'var(--lufa-semantic-ui-text-primary)',
+                  color: 'STORY_COLORS.themed.text.primary',
                   marginBottom: '12px',
                   textAlign: 'center',
                 }}
@@ -841,7 +841,7 @@ export const BestPractices: Story = {
               style={{
                 fontSize: '14px',
                 lineHeight: '1.8',
-                color: 'var(--lufa-semantic-ui-text-primary)',
+                color: 'STORY_COLORS.themed.text.primary',
                 paddingLeft: '24px',
               }}
             >
@@ -849,7 +849,7 @@ export const BestPractices: Story = {
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: 'var(--lufa-semantic-ui-background-success)',
+                    backgroundColor: 'STORY_COLORS.themed.background.success',
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -861,7 +861,7 @@ export const BestPractices: Story = {
                 or{' '}
                 <code
                   style={{
-                    backgroundColor: 'var(--lufa-semantic-ui-background-success)',
+                    backgroundColor: 'STORY_COLORS.themed.background.success',
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -876,7 +876,7 @@ export const BestPractices: Story = {
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: 'var(--lufa-semantic-ui-background-success)',
+                    backgroundColor: 'STORY_COLORS.themed.background.success',
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -888,7 +888,7 @@ export const BestPractices: Story = {
                 or{' '}
                 <code
                   style={{
-                    backgroundColor: 'var(--lufa-semantic-ui-background-success)',
+                    backgroundColor: 'STORY_COLORS.themed.background.success',
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -903,7 +903,7 @@ export const BestPractices: Story = {
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: 'var(--lufa-semantic-ui-background-success)',
+                    backgroundColor: 'STORY_COLORS.themed.background.success',
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -930,7 +930,7 @@ export const BestPractices: Story = {
               style={{
                 fontSize: '14px',
                 lineHeight: '1.8',
-                color: 'var(--lufa-semantic-ui-text-primary)',
+                color: 'STORY_COLORS.themed.text.primary',
                 paddingLeft: '24px',
               }}
             >
@@ -942,7 +942,7 @@ export const BestPractices: Story = {
                 Use{' '}
                 <code
                   style={{
-                    backgroundColor: 'var(--lufa-semantic-ui-background-error)',
+                    backgroundColor: 'STORY_COLORS.themed.background.error',
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -957,7 +957,7 @@ export const BestPractices: Story = {
                 Apply{' '}
                 <code
                   style={{
-                    backgroundColor: 'var(--lufa-semantic-ui-background-error)',
+                    backgroundColor: 'STORY_COLORS.themed.background.error',
                     padding: '2px 6px',
                     borderRadius: '3px',
                     fontFamily: 'monospace',
@@ -978,7 +978,7 @@ export const BestPractices: Story = {
           style={{
             marginTop: '48px',
             padding: '24px',
-            backgroundColor: 'var(--lufa-semantic-ui-background-warning)',
+            backgroundColor: 'STORY_COLORS.themed.background.warning',
             borderRadius: '6px',
             border: `2px solid ${PRIMARY.orange.main}`,
           }}
@@ -990,7 +990,7 @@ export const BestPractices: Story = {
             style={{
               fontSize: '14px',
               lineHeight: '1.8',
-              color: 'var(--lufa-semantic-ui-text-primary)',
+              color: 'STORY_COLORS.themed.text.primary',
               paddingLeft: '24px',
               marginBottom: 0,
             }}
@@ -1007,8 +1007,8 @@ export const BestPractices: Story = {
               <strong>Uppercase Text:</strong> Always increase letter-spacing for uppercase text. Use{' '}
               <code
                 style={{
-                  backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
-                  border: '1px solid var(--lufa-semantic-ui-border-default)',
+                  backgroundColor: 'STORY_COLORS.themed.background.surface',
+                  border: '1px solid STORY_COLORS.themed.border.default',
                   padding: '2px 6px',
                   borderRadius: '3px',
                   fontFamily: 'monospace',
@@ -1020,8 +1020,8 @@ export const BestPractices: Story = {
               (0.05em) or{' '}
               <code
                 style={{
-                  backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
-                  border: '1px solid var(--lufa-semantic-ui-border-default)',
+                  backgroundColor: 'STORY_COLORS.themed.background.surface',
+                  border: '1px solid STORY_COLORS.themed.border.default',
                   padding: '2px 6px',
                   borderRadius: '3px',
                   fontFamily: 'monospace',
@@ -1049,7 +1049,7 @@ export const BestPractices: Story = {
               fontSize: '20px',
               fontWeight: 700,
               marginBottom: '24px',
-              color: 'var(--lufa-semantic-ui-text-primary)',
+              color: 'STORY_COLORS.themed.text.primary',
             }}
           >
             Common Patterns
@@ -1059,16 +1059,16 @@ export const BestPractices: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '6px',
-                border: '1px solid var(--lufa-semantic-ui-border-default)',
+                border: '1px solid STORY_COLORS.themed.border.default',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   marginBottom: '12px',
                 }}
               >
@@ -1087,7 +1087,7 @@ export const BestPractices: Story = {
               <code
                 style={{
                   fontSize: '10px',
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   fontFamily: 'monospace',
                   display: 'block',
                   marginTop: '8px',
@@ -1102,16 +1102,16 @@ export const BestPractices: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '6px',
-                border: '1px solid var(--lufa-semantic-ui-border-default)',
+                border: '1px solid STORY_COLORS.themed.border.default',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   marginBottom: '12px',
                 }}
               >
@@ -1125,7 +1125,7 @@ export const BestPractices: Story = {
                   textTransform: 'uppercase',
                   padding: '12px 24px',
                   backgroundColor: PRIMARY.blue.main,
-                  color: 'var(--lufa-semantic-ui-background-on-primary)',
+                  color: 'STORY_COLORS.themed.background.onPrimary',
                   borderRadius: '4px',
                   display: 'inline-block',
                 }}
@@ -1135,7 +1135,7 @@ export const BestPractices: Story = {
               <code
                 style={{
                   fontSize: '10px',
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   fontFamily: 'monospace',
                   display: 'block',
                   marginTop: '8px',
@@ -1152,16 +1152,16 @@ export const BestPractices: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '6px',
-                border: '1px solid var(--lufa-semantic-ui-border-default)',
+                border: '1px solid STORY_COLORS.themed.border.default',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   marginBottom: '12px',
                 }}
               >
@@ -1179,7 +1179,7 @@ export const BestPractices: Story = {
               <code
                 style={{
                   fontSize: '10px',
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   fontFamily: 'monospace',
                   display: 'block',
                   marginTop: '8px',
@@ -1196,16 +1196,16 @@ export const BestPractices: Story = {
             <div
               style={{
                 padding: '24px',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '6px',
-                border: '1px solid var(--lufa-semantic-ui-border-default)',
+                border: '1px solid STORY_COLORS.themed.border.default',
               }}
             >
               <div
                 style={{
                   fontSize: '12px',
                   fontWeight: 600,
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   marginBottom: '12px',
                 }}
               >
@@ -1217,7 +1217,7 @@ export const BestPractices: Story = {
                   fontWeight: 600,
                   letterSpacing: 'var(--lufa-primitive-typography-letter-spacing-wide)',
                   textTransform: 'uppercase',
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                 }}
               >
                 Section Label
@@ -1225,7 +1225,7 @@ export const BestPractices: Story = {
               <code
                 style={{
                   fontSize: '10px',
-                  color: 'var(--lufa-semantic-ui-text-secondary)',
+                  color: 'STORY_COLORS.themed.text.secondary',
                   fontFamily: 'monospace',
                   display: 'block',
                   marginTop: '8px',
@@ -1281,7 +1281,7 @@ export const ExtendedTypeScale: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: 'var(--lufa-semantic-ui-background-warning)',
+              backgroundColor: 'STORY_COLORS.themed.background.warning',
               borderRadius: '6px',
               marginBottom: '32px',
               border: `2px solid ${PRIMARY.orange.main}`,
@@ -1290,7 +1290,7 @@ export const ExtendedTypeScale: Story = {
             <div style={{ fontSize: '14px', fontWeight: 600, color: PRIMARY.orange.main, marginBottom: '8px' }}>
               📏 Current viewport: {width}px
             </div>
-            <div style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-primary)' }}>
+            <div style={{ fontSize: '12px', color: 'STORY_COLORS.themed.text.primary' }}>
               Resize your browser to see fluid scaling in action. Note: 8xl scales from 400px+ viewport (intentional for
               display tier).
             </div>
@@ -1318,7 +1318,7 @@ export const ExtendedTypeScale: Story = {
                   <div
                     style={{
                       fontSize: '12px',
-                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                      color: 'STORY_COLORS.themed.text.secondary',
                       fontFamily: 'monospace',
                     }}
                   >
@@ -1351,7 +1351,7 @@ export const ExtendedTypeScale: Story = {
                   <div
                     style={{
                       fontSize: '12px',
-                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                      color: 'STORY_COLORS.themed.text.secondary',
                       fontFamily: 'monospace',
                     }}
                   >
@@ -1384,9 +1384,9 @@ export const ExtendedTypeScale: Story = {
                   <div
                     style={{
                       fontSize: '12px',
-                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                      color: 'STORY_COLORS.themed.text.secondary',
                       fontFamily: 'monospace',
-                      backgroundColor: 'var(--lufa-semantic-ui-background-warning)',
+                      backgroundColor: 'STORY_COLORS.themed.background.warning',
                       padding: '8px',
                       borderRadius: '4px',
                       border: `1px solid ${PRIMARY.orange.main}`,
@@ -1406,9 +1406,9 @@ export const ExtendedTypeScale: Story = {
             style={{
               marginTop: '48px',
               padding: '24px',
-              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+              backgroundColor: 'STORY_COLORS.themed.background.surface',
               borderRadius: '8px',
-              border: '2px solid var(--lufa-semantic-ui-border-default)',
+              border: '2px solid STORY_COLORS.themed.border.default',
             }}
           >
             <h3
@@ -1416,7 +1416,7 @@ export const ExtendedTypeScale: Story = {
                 fontSize: '18px',
                 fontWeight: 600,
                 marginBottom: '24px',
-                color: 'var(--lufa-semantic-ui-text-primary)',
+                color: 'STORY_COLORS.themed.text.primary',
               }}
             >
               Visual Comparison at {width}px
@@ -1426,7 +1426,7 @@ export const ExtendedTypeScale: Story = {
                 <div
                   style={{
                     fontSize: '12px',
-                    color: 'var(--lufa-semantic-ui-text-secondary)',
+                    color: 'STORY_COLORS.themed.text.secondary',
                     marginBottom: '8px',
                     fontFamily: 'monospace',
                   }}
@@ -1441,7 +1441,7 @@ export const ExtendedTypeScale: Story = {
                 <div
                   style={{
                     fontSize: '12px',
-                    color: 'var(--lufa-semantic-ui-text-secondary)',
+                    color: 'STORY_COLORS.themed.text.secondary',
                     marginBottom: '8px',
                     fontFamily: 'monospace',
                   }}
@@ -1456,7 +1456,7 @@ export const ExtendedTypeScale: Story = {
                 <div
                   style={{
                     fontSize: '12px',
-                    color: 'var(--lufa-semantic-ui-text-secondary)',
+                    color: 'STORY_COLORS.themed.text.secondary',
                     marginBottom: '8px',
                     fontFamily: 'monospace',
                   }}
@@ -1471,7 +1471,7 @@ export const ExtendedTypeScale: Story = {
                 <div
                   style={{
                     fontSize: '12px',
-                    color: 'var(--lufa-semantic-ui-text-secondary)',
+                    color: 'STORY_COLORS.themed.text.secondary',
                     marginBottom: '8px',
                     fontFamily: 'monospace',
                   }}
@@ -1492,7 +1492,7 @@ export const ExtendedTypeScale: Story = {
                 fontSize: '18px',
                 fontWeight: 600,
                 marginBottom: '16px',
-                color: 'var(--lufa-semantic-ui-text-primary)',
+                color: 'STORY_COLORS.themed.text.primary',
               }}
             >
               Responsive Behavior Across Breakpoints
@@ -1507,12 +1507,12 @@ export const ExtendedTypeScale: Story = {
                 }}
               >
                 <thead>
-                  <tr style={{ backgroundColor: 'var(--lufa-semantic-ui-background-surface)' }}>
+                  <tr style={{ backgroundColor: 'STORY_COLORS.themed.background.surface' }}>
                     <th
                       style={{
                         padding: '12px',
                         textAlign: 'left',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       Token
@@ -1521,7 +1521,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       Mobile
@@ -1532,7 +1532,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       Phablet
@@ -1543,7 +1543,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       Tablet
@@ -1554,7 +1554,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       Desktop
@@ -1565,7 +1565,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       Large
@@ -1579,7 +1579,7 @@ export const ExtendedTypeScale: Story = {
                     <td
                       style={{
                         padding: '12px',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                         fontWeight: 600,
                       }}
                     >
@@ -1589,7 +1589,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       40px
@@ -1598,7 +1598,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       42px
@@ -1607,7 +1607,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       51px
@@ -1616,7 +1616,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       58px
@@ -1625,18 +1625,18 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                         fontWeight: 600,
                       }}
                     >
                       60px
                     </td>
                   </tr>
-                  <tr style={{ backgroundColor: 'var(--lufa-semantic-ui-background-surface)' }}>
+                  <tr style={{ backgroundColor: 'STORY_COLORS.themed.background.surface' }}>
                     <td
                       style={{
                         padding: '12px',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                         fontWeight: 600,
                       }}
                     >
@@ -1646,7 +1646,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       48px
@@ -1655,7 +1655,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       52px
@@ -1664,7 +1664,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       63px
@@ -1673,7 +1673,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       71px
@@ -1682,7 +1682,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                         fontWeight: 600,
                       }}
                     >
@@ -1693,7 +1693,7 @@ export const ExtendedTypeScale: Story = {
                     <td
                       style={{
                         padding: '12px',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                         fontWeight: 600,
                       }}
                     >
@@ -1704,8 +1704,8 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
-                        backgroundColor: 'var(--lufa-semantic-ui-background-warning)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
+                        backgroundColor: 'STORY_COLORS.themed.background.warning',
                       }}
                     >
                       64px
@@ -1716,12 +1716,12 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       64px
                       <br />
-                      <span style={{ fontSize: '10px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>
+                      <span style={{ fontSize: '10px', color: 'STORY_COLORS.themed.text.secondary' }}>
                         (fluid starts)
                       </span>
                     </td>
@@ -1729,7 +1729,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       79px
@@ -1738,7 +1738,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                       }}
                     >
                       89px
@@ -1747,7 +1747,7 @@ export const ExtendedTypeScale: Story = {
                       style={{
                         padding: '12px',
                         textAlign: 'center',
-                        border: '1px solid var(--lufa-semantic-ui-border-default)',
+                        border: '1px solid STORY_COLORS.themed.border.default',
                         fontWeight: 600,
                       }}
                     >
@@ -1761,7 +1761,7 @@ export const ExtendedTypeScale: Story = {
               style={{
                 marginTop: '12px',
                 fontSize: '11px',
-                color: 'var(--lufa-semantic-ui-text-secondary)',
+                color: 'STORY_COLORS.themed.text.secondary',
                 fontStyle: 'italic',
               }}
             >
