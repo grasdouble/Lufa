@@ -164,7 +164,6 @@ export const PropOrientation: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -262,8 +261,7 @@ export const PropEmphasis: Story = {
               gap: '20px',
             }}
           >
-            {emphasisLevels.map((emphasisItem, index) => {
-              const colors = getColorByIndex(index);
+            {emphasisLevels.map((emphasisItem) => {
 
               return (
                 <PropCard
@@ -275,7 +273,6 @@ export const PropEmphasis: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -328,7 +325,6 @@ export const PropEmphasis: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -392,8 +388,7 @@ export const PropSpacing: Story = {
               gap: '20px',
             }}
           >
-            {spacings.map((spacingItem, index) => {
-              const colors = getColorByIndex(index);
+            {spacings.map((spacingItem) => {
 
               return (
                 <PropCard
@@ -405,7 +400,6 @@ export const PropSpacing: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -486,8 +480,7 @@ export const PropLineStyle: Story = {
               gap: '20px',
             }}
           >
-            {lineStyles.map((lineStyleItem, index) => {
-              const colors = getColorByIndex(index);
+            {lineStyles.map((lineStyleItem) => {
 
               return (
                 <PropCard
@@ -499,7 +492,6 @@ export const PropLineStyle: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -542,7 +534,6 @@ export const PropLineStyle: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -630,8 +621,7 @@ export const PropAs: Story = {
               gap: '20px',
             }}
           >
-            {asOptions.map((option, index) => {
-              const colors = getColorByIndex(index);
+            {asOptions.map((option) => {
 
               return (
                 <PropCard
@@ -643,7 +633,6 @@ export const PropAs: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -673,7 +662,6 @@ export const PropAs: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: STORY_COLORS.neutral.bgGray,
               borderRadius: '8px',
               fontSize: '12px',
               color: STORY_COLORS.neutral.text,
@@ -716,7 +704,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '24px',
                 borderRadius: '8px',
               }}
@@ -754,7 +741,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.violet.light,
                 padding: '24px',
                 borderRadius: '8px',
               }}
@@ -793,7 +779,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.pink.light,
                 padding: '16px 24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -881,7 +866,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.green.light,
                 padding: '24px',
                 borderRadius: '8px',
               }}
@@ -950,7 +934,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: 'white',
                 border: `1px solid ${NEUTRAL.borderMedium}`,
                 borderRadius: '8px',
                 overflow: 'hidden',
@@ -976,7 +959,6 @@ export const UseCases: Story = {
               <div
                 style={{
                   padding: '16px 20px',
-                  backgroundColor: NEUTRAL.backgroundLight,
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -986,7 +968,7 @@ export const UseCases: Story = {
                 <button
                   style={{
                     padding: '6px 12px',
-                    background: STORY_COLORS.primary.blue.base,
+                    background: STORY_COLORS.primary.blue.main,
                     color: 'white',
                     border: 'none',
                     borderRadius: '4px',
@@ -1056,7 +1038,6 @@ export const Playground: Story = {
           <PropCard label="Interactive Divider (use controls below)">
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '32px',
                 borderRadius: '8px',
               }}
@@ -1087,7 +1068,6 @@ export const Playground: Story = {
           <div
             style={{
               padding: '16px',
-              backgroundColor: STORY_COLORS.neutral.bgGray,
               borderRadius: '8px',
               fontSize: '12px',
               color: STORY_COLORS.neutral.textSlate,

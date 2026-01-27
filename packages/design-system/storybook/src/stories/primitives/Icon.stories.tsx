@@ -679,7 +679,7 @@ export const CombinedVariants: Story = {
                 }}
               >
                 <Icon name="info" size="md" color="info" />
-                <span style={{ fontSize: '16px', fontWeight: 500, color: PRIMARY.blue.dark }}>
+                <span style={{ fontSize: '16px', fontWeight: 500, color: PRIMARY.blue.main }}>
                   New updates are available.
                 </span>
               </div>

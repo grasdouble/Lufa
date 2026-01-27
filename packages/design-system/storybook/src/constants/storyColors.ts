@@ -107,6 +107,12 @@ export const PRIMARY_COLORS = {
     light: '#cffafe',
     name: 'Cyan',
   },
+  /** Red - From design system primitives (red-600 / red-100) */
+  red: {
+    main: tokens.primitive.color.red['600'], // #dc2626
+    light: tokens.primitive.color.red['100'], // #fee2e2
+    name: 'Red',
+  },
 } as const;
 
 /**

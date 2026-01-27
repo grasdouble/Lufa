@@ -191,8 +191,7 @@ export const PropType: Story = {
               gap: '24px',
             }}
           >
-            {types.map((typeItem, index) => {
-              const colors = getColorByIndex(index);
+            {types.map((typeItem) => {
 
               return (
                 <PropCard
@@ -204,7 +203,6 @@ export const PropType: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -275,8 +273,7 @@ export const PropVariant: Story = {
               gap: '16px',
             }}
           >
-            {variants.map((variantItem, index) => {
-              const colors = getColorByIndex(index);
+            {variants.map((variantItem) => {
 
               return (
                 <PropCard
@@ -288,7 +285,6 @@ export const PropVariant: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '20px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -437,8 +433,7 @@ export const PropSize: Story = {
               gap: '24px',
             }}
           >
-            {sizes.map((sizeItem, index) => {
-              const colors = getColorByIndex(index);
+            {sizes.map((sizeItem) => {
 
               return (
                 <PropCard
@@ -450,7 +445,6 @@ export const PropSize: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -513,8 +507,7 @@ export const PropRadius: Story = {
               gap: '16px',
             }}
           >
-            {radiusOptions.map((radiusItem, index) => {
-              const colors = getColorByIndex(index);
+            {radiusOptions.map((radiusItem) => {
 
               return (
                 <PropCard
@@ -526,7 +519,6 @@ export const PropRadius: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '20px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -607,7 +599,7 @@ export const PropIcons: Story = {
             }}
           >
             {iconExamples.map((example, index) => {
-              const colors = getColorByIndex(index);
+              
 
               return (
                 <PropCard
@@ -619,7 +611,6 @@ export const PropIcons: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -730,7 +721,6 @@ export const PropFullWidth: Story = {
             <div style={{ width: '100%', maxWidth: '500px' }}>
               <div
                 style={{
-                  backgroundColor: STORY_COLORS.primary.blue.light,
                   padding: '16px',
                   borderRadius: '8px',
                 }}
@@ -744,7 +734,6 @@ export const PropFullWidth: Story = {
             <div style={{ width: '100%', maxWidth: '500px' }}>
               <div
                 style={{
-                  backgroundColor: STORY_COLORS.primary.violet.light,
                   padding: '16px',
                   borderRadius: '8px',
                 }}
@@ -806,7 +795,6 @@ export const PropAs: Story = {
             >
               <div
                 style={{
-                  backgroundColor: STORY_COLORS.primary.blue.light,
                   padding: '24px',
                   borderRadius: '8px',
                   display: 'flex',
@@ -827,7 +815,6 @@ export const PropAs: Story = {
             >
               <div
                 style={{
-                  backgroundColor: STORY_COLORS.primary.violet.light,
                   padding: '24px',
                   borderRadius: '8px',
                   display: 'flex',
@@ -873,7 +860,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -906,7 +892,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.violet.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -939,7 +924,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.pink.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -972,7 +956,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.green.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
