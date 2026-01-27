@@ -49,15 +49,15 @@ export const CodeBlock = ({
   return (
     <div
       style={{
-        background: 'var(--lufa-core-neutral-background)',
+        background: 'var(--lufa-primitive-color-gray-900)',
         borderRadius: '12px',
         padding: '20px',
         fontFamily: 'monospace',
         fontSize: '13px',
         lineHeight: '1.6',
-        color: 'var(--lufa-primitive-color-hc-white)',
+        color: 'var(--lufa-semantic-ui-background-on-primary)',
         overflow: 'auto',
-        border: '1px solid var(--lufa-semantic-ui-border-strong)',
+        border: '1px solid var(--lufa-primitive-color-alpha-white-16)',
         boxShadow: '0 4px 6px var(--lufa-semantic-ui-shadow-medium)',
       }}
     >
@@ -70,7 +70,7 @@ export const CodeBlock = ({
             alignItems: 'center',
             marginBottom: '12px',
             paddingBottom: '12px',
-            borderBottom: '1px solid var(--lufa-semantic-ui-border-strong)',
+            borderBottom: '1px solid var(--lufa-primitive-color-alpha-white-16)',
             flexWrap: 'wrap',
             gap: '12px',
           }}
@@ -79,7 +79,7 @@ export const CodeBlock = ({
             {title && (
               <span
                 style={{
-                  color: 'var(--lufa-semantic-ui-text-tertiary)',
+                  color: 'var(--lufa-primitive-color-alpha-white-60)',
                   fontSize: '11px',
                   textTransform: 'uppercase',
                   letterSpacing: '0.5px',
@@ -110,11 +110,13 @@ export const CodeBlock = ({
                   style={{
                     padding: '6px 12px',
                     background:
-                      activeTab === index ? 'var(--lufa-core-brand-primary)' : 'var(--lufa-semantic-ui-border-strong)',
+                      activeTab === index
+                        ? 'var(--lufa-core-brand-primary)'
+                        : 'var(--lufa-primitive-color-alpha-white-16)',
                     color:
                       activeTab === index
                         ? 'var(--lufa-primitive-color-hc-white)'
-                        : 'var(--lufa-semantic-ui-text-tertiary)',
+                        : 'var(--lufa-primitive-color-alpha-white-80)',
                     border: 'none',
                     borderRadius: '6px',
                     fontSize: '11px',
@@ -127,12 +129,12 @@ export const CodeBlock = ({
                   }}
                   onMouseEnter={(e) => {
                     if (activeTab !== index) {
-                      e.currentTarget.style.background = 'var(--lufa-semantic-ui-border-default)';
+                      e.currentTarget.style.background = 'var(--lufa-primitive-color-alpha-white-38)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (activeTab !== index) {
-                      e.currentTarget.style.background = 'var(--lufa-semantic-ui-border-strong)';
+                      e.currentTarget.style.background = 'var(--lufa-primitive-color-alpha-white-16)';
                     }
                   }}
                 >
@@ -153,7 +155,9 @@ export const CodeBlock = ({
         }}
       >
         {displayCode || (
-          <span style={{ color: 'var(--lufa-semantic-ui-text-tertiary)', fontStyle: 'italic' }}>{emptyMessage}</span>
+          <span style={{ color: 'var(--lufa-primitive-color-alpha-white-50)', fontStyle: 'italic' }}>
+            {emptyMessage}
+          </span>
         )}
       </pre>
     </div>
