@@ -878,7 +878,7 @@ export const RealWorldPatterns: Story = {
                 padding: '24px',
                 background: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '12px',
-                boxShadow: 'STORY_COLORS.themed.shadow.md',
+                boxShadow: STORY_COLORS.themed.shadow.md,
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
@@ -941,7 +941,7 @@ export const RealWorldPatterns: Story = {
                 maxWidth: '600px',
                 background: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '12px',
-                boxShadow: 'STORY_COLORS.themed.shadow.md',
+                boxShadow: STORY_COLORS.themed.shadow.md,
                 overflow: 'hidden',
               }}
             >
@@ -996,7 +996,7 @@ export const RealWorldPatterns: Story = {
                 padding: '24px',
                 background: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '12px',
-                boxShadow: 'STORY_COLORS.themed.shadow.md',
+                boxShadow: STORY_COLORS.themed.shadow.md,
               }}
             >
               <div style={{ marginBottom: '20px' }}>

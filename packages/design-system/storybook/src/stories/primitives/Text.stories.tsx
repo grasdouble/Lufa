@@ -773,7 +773,7 @@ export const RealWorldPatterns: Story = {
                 padding: '32px',
                 background: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '12px',
-                boxShadow: 'STORY_COLORS.themed.shadow.md',
+                boxShadow: STORY_COLORS.themed.shadow.md,
               }}
             >
               <Text variant="label" transform="uppercase" color="secondary" weight="semibold">
