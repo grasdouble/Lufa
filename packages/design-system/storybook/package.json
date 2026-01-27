@@ -24,9 +24,9 @@
     "@grasdouble/lufa_design-system": "workspace:^",
     "@grasdouble/lufa_design-system-themes": "workspace:^",
     "@grasdouble/lufa_design-system-tokens": "workspace:^",
-    "lucide-react": "^0.469.0",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "lucide-react": "^0.563.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",
@@ -36,17 +36,17 @@
     "@storybook/addon-docs": "^10.2.0",
     "@storybook/addon-themes": "^10.2.0",
     "@storybook/react-vite": "^10.2.0",
-    "@types/react": "^19.2.9",
+    "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
     "eslint": "^9.39.2",
     "eslint-plugin-storybook": "^10.2.0",
-    "globals": "^17.1.0",
+    "globals": "^17.2.0",
     "prettier": "^3.8.1",
     "prettier-plugin-packagejson": "^2.5.22",
     "storybook": "^10.2.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.53.1",
+    "typescript-eslint": "^8.54.0",
     "vite": "^7.3.1"
   },
   "publishConfig": {
