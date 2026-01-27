@@ -1,40 +1,55 @@
 /**
  * Story Colors
  *
- * Predefined color palette for Storybook stories.
- * Uses design system primitives where available, with fallbacks for additional colors.
+ * Color utilities for Storybook stories with two distinct purposes:
  *
- * **Important:** These colors are for visual demonstrations in Storybook stories ONLY.
- * For production components, always use semantic tokens from @grasdouble/lufa_design-system-tokens.
+ * ## 1. Theme-Aware Colors (`STORY_COLORS.themed`)
+ * CSS variables that automatically adapt to light/dark/high-contrast modes.
+ * **Use for:** Story UI containers, text, borders, backgrounds.
  *
- * **Design Decision:** This file intentionally contains hard-coded color values for the following reasons:
- * 1. **Consistency Across Themes:** Story examples need consistent colors regardless of active theme
- * 2. **Contrast Demonstration:** Shows difference between hard-coded vs token-based approaches
- * 3. **Extended Palette:** Provides colors not yet available in design system primitives
- * 4. **Visual Stability:** Ensures story documentation looks the same for all users
+ * ## 2. Fixed Decorative Colors (`STORY_COLORS.primary`)
+ * Hard-coded colors for visual examples that should remain consistent.
+ * **Use for:** Showing color variants, margins/padding visualization, examples.
  *
- * **Usage Guidelines:**
- * - Use these colors consistently across all stories
- * - Primary colors for main examples
- * - Extended palette for variants (when showing multiple items)
- * - Directional colors for margin/padding (top, right, bottom, left)
- * - Axis colors for X/Y properties
- * - Each color includes a matching light background for containers
+ * ---
  *
- * @example
+ * **⚠️ Migration Note:**
+ * If you used `STORY_COLORS.neutral.*` in inline styles, migrate to `STORY_COLORS.themed.*`:
+ *
  * ```tsx
- * import { STORY_COLORS, getColorByIndex } from '../../constants/storyColors';
+ * // ❌ OLD (doesn't adapt to dark mode)
+ * <div style={{ color: STORY_COLORS.neutral.textDark }}>
  *
- * // Extended palette (for multiple variants)
- * const color = getColorByIndex(idx);
- * <Box style={{ backgroundColor: color.main }}>...</Box>
+ * // ✅ NEW (adapts to all themes)
+ * <div style={{ color: STORY_COLORS.themed.text.primary }}>
+ * ```
  *
- * // Directional colors (for margin/padding sides)
- * STORY_COLORS.directional.top.main // Blue (#3b82f6)
+ * **When to use which:**
+ * - `themed.*` → Story containers, documentation text, UI chrome
+ * - `primary.*` → Example content, color demonstrations, visualization overlays
+ * - `neutral.*` → Legacy support (prefer `themed` for new code)
  *
- * // Axis colors (for X/Y props)
- * STORY_COLORS.axis.x.main // Blue (#3b82f6)
- * STORY_COLORS.axis.y.main // Orange (#f59e0b)
+ * ---
+ *
+ * @example Theme-Aware Story Container
+ * ```tsx
+ * <div style={{
+ *   color: STORY_COLORS.themed.text.primary,
+ *   backgroundColor: STORY_COLORS.themed.background.surface,
+ *   border: `1px solid ${STORY_COLORS.themed.border.default}`,
+ * }}>
+ *   Story content
+ * </div>
+ * ```
+ *
+ * @example Fixed Decorative Colors
+ * ```tsx
+ * // Show multiple Box variants with different colors
+ * {colors.map((color, idx) => (
+ *   <Box background={getColorByIndex(idx).main}>
+ *     Example {idx}
+ *   </Box>
+ * ))}
  * ```
  */
 
@@ -242,6 +257,71 @@ export const NEUTRAL_COLORS = {
 } as const;
 
 /**
+ * Themed colors for story UI elements
+ *
+ * These CSS variables automatically adapt to the active theme (light/dark/high-contrast).
+ * Use these for story containers, text, borders, and backgrounds that should match the theme.
+ *
+ * **When to use THEMED vs NEUTRAL/PRIMARY:**
+ * - Use `THEMED` when UI elements should adapt to light/dark/high-contrast modes
+ * - Use `PRIMARY` for decorative fixed colors in examples (showing color variants)
+ * - Use `NEUTRAL` only for backwards compatibility (prefer THEMED for new code)
+ *
+ * @example
+ * ```tsx
+ * // ✅ CORRECT: Story UI that adapts to theme
+ * <div style={{
+ *   color: STORY_COLORS.themed.text.primary,
+ *   backgroundColor: STORY_COLORS.themed.background.surface,
+ *   border: `1px solid ${STORY_COLORS.themed.border.default}`,
+ * }}>
+ *
+ * // ✅ CORRECT: Fixed decorative colors (examples)
+ * <Box background={STORY_COLORS.primary.blue.main}>
+ *   Example with blue background
+ * </Box>
+ *
+ * // ⚠️ AVOID: NEUTRAL colors don't adapt to theme
+ * <div style={{ color: STORY_COLORS.neutral.textDark }}>  // Always dark!
+ * ```
+ */
+export const THEMED_COLORS = {
+  /** Text colors that adapt to theme */
+  text: {
+    /** Primary text color (dark in light mode, light in dark mode) */
+    primary: 'var(--lufa-semantic-ui-text-primary)',
+    /** Secondary text color (medium contrast) */
+    secondary: 'var(--lufa-semantic-ui-text-secondary)',
+    /** Tertiary text color (low contrast) */
+    tertiary: 'var(--lufa-semantic-ui-text-tertiary)',
+  },
+  /** Background colors that adapt to theme */
+  background: {
+    /** Page background */
+    page: 'var(--lufa-semantic-ui-background-page)',
+    /** Surface background (cards, panels) */
+    surface: 'var(--lufa-semantic-ui-background-surface)',
+    /** Success background (green) */
+    success: 'var(--lufa-semantic-ui-background-success)',
+    /** Error background (red) */
+    error: 'var(--lufa-semantic-ui-background-error)',
+    /** Warning background (orange) */
+    warning: 'var(--lufa-semantic-ui-background-warning)',
+    /** Info background (blue) */
+    info: 'var(--lufa-semantic-ui-background-info)',
+    /** Text on primary color background */
+    onPrimary: 'var(--lufa-semantic-ui-background-on-primary)',
+  },
+  /** Border colors that adapt to theme */
+  border: {
+    /** Default border color */
+    default: 'var(--lufa-semantic-ui-border-default)',
+    /** Subtle border color */
+    subtle: 'var(--lufa-semantic-ui-border-subtle)',
+  },
+} as const;
+
+/**
  * All story colors (convenience export)
  *
  * Use this to access all color groups from a single import.
@@ -250,13 +330,22 @@ export const NEUTRAL_COLORS = {
  * ```tsx
  * import { STORY_COLORS } from '../../constants/storyColors';
  *
+ * // Theme-aware colors (recommended for story UI)
+ * STORY_COLORS.themed.text.primary
+ * STORY_COLORS.themed.background.surface
+ * STORY_COLORS.themed.border.default
+ *
+ * // Fixed decorative colors (for examples)
  * STORY_COLORS.primary.blue.main
  * STORY_COLORS.directional.top.main
  * STORY_COLORS.axis.x.main
+ *
+ * // Legacy (prefer themed for new code)
  * STORY_COLORS.neutral.backgroundLight
  * ```
  */
 export const STORY_COLORS = {
+  themed: THEMED_COLORS,
   primary: PRIMARY_COLORS,
   extended: EXTENDED_PALETTE,
   directional: DIRECTIONAL_COLORS,
