@@ -1,6 +1,6 @@
 # Lufa Design System - Project Overview
 
-**Generated:** 2026-01-24  
+**Generated:** 2026-01-28  
 **Version:** 0.7.0  
 **Status:** Active Development (100% Complete)  
 **Workflow:** BMM Document Project - Deep Scan  
@@ -86,6 +86,22 @@ The Design System serves three primary purposes:
 - Theme switching via token overrides
 - Consistent visual language
 - Design changes cascade automatically
+
+**Theming Support:**
+
+- **3 brand themes**: Default (Blue/Purple), Ocean (Cyan/Teal), Forest (Emerald/Green)
+- **3 accessibility modes**: Light, Dark, High-Contrast
+- **9 total configurations**: 3 themes × 3 modes
+- **Efficient cascade**: 6 core token overrides → 27+ tokens change automatically
+- **Runtime switching**: Change themes/modes via `data-color-theme` and `data-mode` attributes
+
+```html
+<!-- Select theme (brand/aesthetic) -->
+<html data-color-theme="ocean">
+  <!-- Select mode (accessibility) -->
+  <html data-mode="dark"></html>
+</html>
+```
 
 ### 2. Primitive-First Composition
 
@@ -244,10 +260,13 @@ Component Implementation: ██████████████████
 - ✅ 7 components production-ready (Badge and Divider added!)
 - ✅ 554 tests passing (Playwright CT)
 - ✅ Comprehensive documentation (60,000+ words)
+- ✅ **Immutable primitives architecture**: 535 tokens with strict architectural guarantees
+- ✅ **3 brand themes**: Default, Ocean 🌊, and Forest 🌲 themes with full accessibility support
+- ✅ **9 theme configurations**: 3 themes × 3 modes (light/dark/high-contrast)
 
 ### Architectural Decisions Made
 
-Four critical architectural decisions establish the foundation of the Design System:
+Five critical architectural decisions establish the foundation of the Design System:
 
 1. **Component API Pattern:** Individual props (not styled-system `sx`)
    - Example: `<Box padding="default" margin="compact" />`
@@ -265,6 +284,11 @@ Four critical architectural decisions establish the foundation of the Design Sys
    - 5-part test structure: Rendering, Variants, Interactions, A11y, Visual
    - Real browser testing with built-in visual regression
    - 610+ tests passing across 7 components
+
+5. **Token Architecture:** Immutable Primitives Principle
+   - Primitives strictly immutable (never change with themes/modes)
+   - Theming at semantic/component level only
+   - Four-level hierarchy: Primitives → Core → Semantic → Component
 
 ### Performance Validation (Phase 0 POC)
 
@@ -383,6 +407,15 @@ Level 1: Primitives (111) → color/palette.json, spacing/scale.json
 ```
 
 **Total:** 438 tokens
+
+**Architecture Principle:** Primitive tokens are **strictly immutable**. They serve as the "paint catalog" from which all semantic and component tokens derive their values. Mode switching and theming happen at the semantic/component layers, never at the primitive level.
+
+**Theming System:**
+
+- 3 brand themes (Default, Ocean, Forest)
+- 3 accessibility modes per theme (light, dark, high-contrast)
+- 9 total configurations available
+- Efficient cascade: Only 6 core tokens overridden per theme
 
 ---
 
