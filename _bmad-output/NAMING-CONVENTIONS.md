@@ -21,27 +21,59 @@
 
 ### 1. Architecture Decision Records (ADRs)
 
-**Format:** `ADR-{number}-{short-name}.md`
+**Format:** `ADR-{number}-{STATUS}-{short-name}.md`
 
 **Numbering:** Global sequential (not per-subject)
+
+**Status Values (UPPERCASE):**
+
+- `PROPOSED` - Under review, not yet accepted
+- `ACCEPTED` - Approved but not yet implemented
+- `IMPLEMENTED` - Fully implemented in production
+- `REJECTED` - Decision not accepted
+- `DEPRECATED` - Superseded by newer ADR
 
 **Examples:**
 
 ```
-ADR-001-modes-vs-themes-separation.md
-ADR-002-html-attributes-naming.md
-ADR-003-badge-variant-strategy.md
-ADR-004-component-composition-pattern.md
+ADR-001-IMPLEMENTED-modes-vs-themes-separation.md
+ADR-002-IMPLEMENTED-html-attributes-naming.md
+ADR-003-PROPOSED-badge-variant-strategy.md
+ADR-004-ACCEPTED-component-composition-pattern.md
+ADR-005-REJECTED-css-modules-approach.md
+ADR-006-DEPRECATED-old-token-system.md
 ```
 
-**Location:** `_bmad-output/planning-artifacts/`
+**Location:** `_bmad-output/adrs/`
 
 **Rationale:**
 
 - Industry standard (Google, AWS, etc.)
 - Chronological order of decisions
 - Unique identifiers
+- **Status visibility** - UPPERCASE status instantly distinguishes from title
 - Cross-subject references possible
+- File sorting shows status at a glance
+
+**Status Transitions:**
+
+When an ADR's status changes, **rename the file** to reflect the new status:
+
+```bash
+# PROPOSED → ACCEPTED
+mv ADR-012-PROPOSED-new-feature.md ADR-012-ACCEPTED-new-feature.md
+
+# ACCEPTED → IMPLEMENTED
+mv ADR-012-ACCEPTED-new-feature.md ADR-012-IMPLEMENTED-new-feature.md
+
+# ACCEPTED → REJECTED
+mv ADR-012-ACCEPTED-new-feature.md ADR-012-REJECTED-new-feature.md
+
+# IMPLEMENTED → DEPRECATED (rare, when superseded)
+mv ADR-003-IMPLEMENTED-old-approach.md ADR-003-DEPRECATED-old-approach.md
+```
+
+**Important:** Update all references to the ADR in documentation when renaming!
 
 ---
 
@@ -226,9 +258,12 @@ _bmad-output/
 │   ├── {subject}-analysis-{date}.md
 │   └── {subject2}-analysis-{date}.md
 │
+├── adrs/                                  # Architecture Decision Records
+│   ├── ADR-{n}-{STATUS}-{decision}.md     # Global sequential with UPPERCASE status
+│   └── ADR-{n+1}-{STATUS}-{decision}.md
+│
 ├── planning-artifacts/                    # Phase 2: Planning
 │   ├── bmm-workflow-status.yaml           # Global
-│   ├── ADR-{n}-{decision}.md              # Global sequential
 │   ├── {subject}-technical-spec.md
 │   ├── {subject}-implementation-checklist.md
 │   ├── {subject}-planning-summary.md
@@ -267,7 +302,7 @@ _bmad-output/analysis/badge-component-analysis-2026-01-27.md
 **Create:**
 
 ```
-_bmad-output/planning-artifacts/ADR-003-badge-variant-strategy.md
+_bmad-output/adrs/ADR-003-PROPOSED-badge-variant-strategy.md
 _bmad-output/planning-artifacts/badge-component-technical-spec.md
 _bmad-output/planning-artifacts/badge-component-implementation-checklist.md
 _bmad-output/planning-artifacts/badge-component-planning-summary.md
@@ -278,6 +313,8 @@ _bmad-output/planning-artifacts/badge-component-planning-summary.md
 ```
 _bmad-output/planning-artifacts/bmm-workflow-status.yaml
 ```
+
+**Note:** When ADR is accepted, rename file to include new status (e.g., `PROPOSED` → `ACCEPTED` → `IMPLEMENTED`)
 
 ---
 
@@ -311,15 +348,16 @@ _bmad-output/
 │   ├── badge-component-analysis-2026-01-27.md         # Subject 2
 │   └── performance-optimization-analysis-2026-02-01.md # Subject 3
 │
+├── adrs/
+│   ├── ADR-001-IMPLEMENTED-modes-vs-themes-separation.md  # Theme
+│   ├── ADR-002-IMPLEMENTED-html-attributes-naming.md      # Theme
+│   ├── ADR-003-PROPOSED-badge-variant-strategy.md         # Badge
+│   ├── ADR-004-ACCEPTED-lazy-loading-strategy.md          # Performance
+│   └── ADR-005-IMPLEMENTED-responsive-breakpoints.md      # Theme
+│
 ├── planning-artifacts/
-│   ├── ADR-001-modes-vs-themes-separation.md          # Theme
-│   ├── ADR-002-html-attributes-naming.md              # Theme
 │   ├── theme-integration-technical-spec.md            # Theme
-│   │
-│   ├── ADR-003-badge-variant-strategy.md              # Badge
 │   ├── badge-component-technical-spec.md              # Badge
-│   │
-│   ├── ADR-004-lazy-loading-strategy.md               # Performance
 │   └── performance-optimization-technical-spec.md     # Performance
 │
 └── implementation-artifacts/
@@ -339,10 +377,12 @@ When starting a new subject, verify:
 - [ ] Subject name uses kebab-case
 - [ ] Subject name is specific and descriptive
 - [ ] Analysis file includes date: `{subject}-analysis-{date}.md`
-- [ ] ADRs use next sequential number: `ADR-00X-{decision}.md`
+- [ ] ADRs use next sequential number: `ADR-00X-{STATUS}-{decision}.md`
+- [ ] ADR status is UPPERCASE: `PROPOSED`, `ACCEPTED`, `IMPLEMENTED`, `REJECTED`, `DEPRECATED`
 - [ ] All planning artifacts prefixed: `{subject}-{type}.md`
 - [ ] Implementation reports prefixed: `{subject}-implementation-report.md`
 - [ ] No generic names (e.g., "PLANNING-SUMMARY.md" ❌)
+- [ ] ADR files updated when status changes (rename file with new UPPERCASE status)
 
 ---
 
@@ -356,6 +396,8 @@ implementation-checklist.md                # Missing subject prefix
 REPORT.md                                  # Too generic
 spec.md                                    # Missing subject
 ADR-theme-modes.md                         # Missing sequential number
+ADR-001-theme-modes.md                     # Missing status
+ADR-001-implemented-theme-modes.md         # Status not uppercase
 analysis.md                                # Missing subject + date
 ```
 
@@ -366,7 +408,9 @@ theme-integration-planning-summary.md
 theme-integration-implementation-checklist.md
 badge-component-implementation-report.md
 storybook-migration-technical-spec.md
-ADR-005-css-in-js-decision.md
+ADR-001-IMPLEMENTED-modes-vs-themes-separation.md
+ADR-005-ACCEPTED-css-in-js-decision.md
+ADR-012-PROPOSED-component-library-refactor.md
 performance-audit-analysis-2026-02-15.md
 ```
 
@@ -400,6 +444,11 @@ performance-audit-analysis-2026-02-15.md
 
 **Version History:**
 
+- **1.1** (2026-01-28): Updated ADR naming format to include UPPERCASE status
+  - New format: `ADR-{number}-{STATUS}-{short-name}.md`
+  - Status values (UPPERCASE): `PROPOSED`, `ACCEPTED`, `IMPLEMENTED`, `REJECTED`, `DEPRECATED`
+  - ADRs moved to dedicated `adrs/` directory
+  - Improved visibility with distinct status formatting
 - **1.0** (2026-01-26): Initial conventions based on theme-integration project
   - Established subject prefixing
   - Defined ADR numbering
@@ -407,5 +456,6 @@ performance-audit-analysis-2026-02-15.md
 
 ---
 
-**Maintained by:** BMad Master Agent  
-**Last Updated:** 2026-01-26
+**Maintained by:** BMad Master Agent
+**Last Updated:** 2026-01-28
+````
