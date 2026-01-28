@@ -76,19 +76,11 @@ Complete implementation of two new brand themes (Ocean 🌊 and Forest 🌲) wit
 - Shows which components DON'T change (semantic success/error)
 
 ### Features
-- Real-time CSS variable value display
+- Real-time CSS variable value display with MutationObserver
 - Color-coded by token level (primitive/semantic/component)
 - Interactive testing with Storybook toolbar
 - Educational content with best practices
-
-### Files Added
-- `src/components/helpers/TokenCard.tsx`
-- `src/components/helpers/TokenComparison.tsx`
-- `src/components/helpers/TokenMatrix.tsx`
-- `src/components/helpers/TokenReferenceChain.tsx`
-- `src/components/helpers/index.ts`
-- `src/stories/tokens/ThemeArchitecture.stories.tsx` (1,139 lines)
-- `src/stories/tokens/ThemeComparison.stories.tsx`
+- Full ESLint compliance (0 errors, 0 warnings)
 
 ## Docusaurus (@grasdouble/lufa_design-system-docusaurus)
 
@@ -179,11 +171,16 @@ All themes tested across:
 - `src/ocean.css` (new implementation)
 - `src/forest.css` (new implementation)
 
-**Storybook Package (8 files):**
-- 4 helper components
-- 2 story files
-- 1 index file
-- 1,674 total lines added
+**Storybook Package (8 new files):**
+- `src/components/helpers/TokenCard.tsx` (260 lines)
+- `src/components/helpers/TokenComparison.tsx` (235 lines)
+- `src/components/helpers/TokenMatrix.tsx` (332 lines)
+- `src/components/helpers/TokenReferenceChain.tsx` (255 lines)
+- `src/components/helpers/index.ts` (6 lines)
+- `src/stories/tokens/ThemeArchitecture.stories.tsx` (1,139 lines)
+- `src/stories/tokens/ThemeComparison.stories.tsx` (409 lines)
+- `.storybook/ThemeAndModeWrapper.tsx` (67 lines - extracted from preview.tsx)
+- Total: 2,703 lines of new code
 
 **Docusaurus Package (3 files):**
 - `docs/getting-started/theming.md`
