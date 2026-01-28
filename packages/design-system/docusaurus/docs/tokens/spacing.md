@@ -6,17 +6,28 @@ sidebar_position: 3
 
 Spacing tokens define the spacing scale for the Lufa Design System, used for padding, margin, gaps, and layout consistency.
 
-## Spacing Scale
+## Token Layers
 
-The spacing system uses a semantic scale based on common layout needs:
+Spacing uses both **primitive** and **semantic** tokens:
 
-| Token         | CSS Variable                       | Size | Usage                             |
-| ------------- | ---------------------------------- | ---- | --------------------------------- |
-| `tight`       | `--lufa-token-spacing-tight`       | 4px  | Minimal spacing, compact layouts  |
-| `compact`     | `--lufa-token-spacing-compact`     | 8px  | Compact spacing, button padding   |
-| `default`     | `--lufa-token-spacing-default`     | 16px | Default spacing, standard padding |
-| `comfortable` | `--lufa-token-spacing-comfortable` | 24px | Comfortable spacing, card padding |
-| `spacious`    | `--lufa-token-spacing-spacious`    | 32px | Generous spacing, section gaps    |
+- **Primitive**: `--lufa-primitive-spacing-{4,8,12,16,24,32,...}` (immutable constants)
+- **Semantic**: `--lufa-semantic-ui-spacing-{tight,compact,default,comfortable,spacious}` (meaningful names)
+
+:::tip Use Semantic Tokens
+Always use **semantic spacing tokens** (e.g., `--lufa-semantic-ui-spacing-default`) instead of primitives for consistent, maintainable layouts.
+:::
+
+## Semantic Spacing Scale
+
+The semantic spacing system provides meaningful names for common layout needs:
+
+| Token         | CSS Variable                             | Value | Usage                             |
+| ------------- | ---------------------------------------- | ----- | --------------------------------- |
+| `tight`       | `--lufa-semantic-ui-spacing-tight`       | 4px   | Minimal spacing, compact layouts  |
+| `compact`     | `--lufa-semantic-ui-spacing-compact`     | 8px   | Compact spacing, button padding   |
+| `default`     | `--lufa-semantic-ui-spacing-default`     | 16px  | Default spacing, standard padding |
+| `comfortable` | `--lufa-semantic-ui-spacing-comfortable` | 24px  | Comfortable spacing, card padding |
+| `spacious`    | `--lufa-semantic-ui-spacing-spacious`    | 32px  | Generous spacing, section gaps    |
 
 ## Design Principles
 
@@ -33,14 +44,30 @@ The spacing scale follows these principles:
 
 ```css
 .card {
-  padding: var(--lufa-token-spacing-comfortable); /* 24px */
-  margin-bottom: var(--lufa-token-spacing-default); /* 16px */
-  gap: var(--lufa-token-spacing-compact); /* 8px */
+  /* ✅ Use semantic spacing tokens */
+  padding: var(--lufa-semantic-ui-spacing-comfortable); /* 24px */
+  margin-bottom: var(--lufa-semantic-ui-spacing-default); /* 16px */
+  gap: var(--lufa-semantic-ui-spacing-compact); /* 8px */
 }
 
 .button {
-  padding: var(--lufa-token-spacing-compact) var(--lufa-token-spacing-default);
+  /* Combine different spacing values */
+  padding: var(--lufa-semantic-ui-spacing-compact) var(--lufa-semantic-ui-spacing-default);
   /* 8px vertical, 16px horizontal */
+}
+```
+
+### Avoid Using Primitives Directly
+
+```css
+/* ❌ WRONG - using primitive tokens directly */
+.container {
+  padding: var(--lufa-primitive-spacing-24);
+}
+
+/* ✅ CORRECT - using semantic tokens */
+.container {
+  padding: var(--lufa-semantic-ui-spacing-comfortable);
 }
 ```
 
@@ -133,18 +160,18 @@ While spacing tokens are fixed values, you can adjust spacing based on screen si
 
 ```css
 .container {
-  padding: var(--lufa-token-spacing-default);
+  padding: var(--lufa-semantic-ui-spacing-default);
 }
 
 @media (min-width: 768px) {
   .container {
-    padding: var(--lufa-token-spacing-comfortable);
+    padding: var(--lufa-semantic-ui-spacing-comfortable);
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    padding: var(--lufa-token-spacing-spacious);
+    padding: var(--lufa-semantic-ui-spacing-spacious);
   }
 }
 ```
@@ -155,7 +182,7 @@ For overlapping layouts, use negative margins:
 
 ```css
 .overlap {
-  margin-top: calc(var(--lufa-token-spacing-default) * -1);
+  margin-top: calc(var(--lufa-semantic-ui-spacing-default) * -1);
 }
 ```
 
@@ -195,26 +222,26 @@ Proper spacing improves accessibility:
 - Create spacing inconsistencies
 - Ignore responsive spacing needs
 
-## Primitive Spacing Scale
+## Primitive Spacing Scale (Reference)
 
-For reference, the underlying primitive scale (not meant for direct use):
+For reference, the underlying primitive scale. **These are immutable constants** - use semantic tokens in your app code:
 
-| Value | Size |
-| ----- | ---- |
-| 0     | 0px  |
-| 1     | 4px  |
-| 2     | 8px  |
-| 3     | 12px |
-| 4     | 16px |
-| 5     | 20px |
-| 6     | 24px |
-| 8     | 32px |
-| 10    | 40px |
-| 12    | 48px |
-| 16    | 64px |
+| Primitive                     | Size | Layer     |
+| ----------------------------- | ---- | --------- |
+| `--lufa-primitive-spacing-0`  | 0px  | Primitive |
+| `--lufa-primitive-spacing-4`  | 4px  | Primitive |
+| `--lufa-primitive-spacing-8`  | 8px  | Primitive |
+| `--lufa-primitive-spacing-12` | 12px | Primitive |
+| `--lufa-primitive-spacing-16` | 16px | Primitive |
+| `--lufa-primitive-spacing-20` | 20px | Primitive |
+| `--lufa-primitive-spacing-24` | 24px | Primitive |
+| `--lufa-primitive-spacing-32` | 32px | Primitive |
+| `--lufa-primitive-spacing-40` | 40px | Primitive |
+| `--lufa-primitive-spacing-48` | 48px | Primitive |
+| `--lufa-primitive-spacing-64` | 64px | Primitive |
 
-:::tip Best Practice
-Always use **semantic tokens** (e.g., `spacing.default`) instead of primitive values. This ensures consistency and easier maintenance.
+:::warning Use Semantic Tokens
+Primitive tokens are **immutable constants** (like `Math.PI`). Always use **semantic tokens** (e.g., `--lufa-semantic-ui-spacing-default`) instead for consistent, maintainable spacing.
 :::
 
 ## Next Steps
