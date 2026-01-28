@@ -441,7 +441,7 @@ export const ModeAwareTokens: Story = {
       <TokenMatrix
         title="Mode-Aware Semantic Tokens"
         description="These tokens automatically adapt to the selected mode (light/dark/high-contrast)"
-        showModeInfo={true}
+        showModeInfo
         tokens={[
           {
             name: 'Page Background',
@@ -608,7 +608,7 @@ export const PrimitiveImmutability: Story = {
           modeAware={false}
           description="Primary brand blue, always constant"
           category="color"
-          showValue={true}
+          showValue
         />
 
         <TokenCard
@@ -619,7 +619,7 @@ export const PrimitiveImmutability: Story = {
           modeAware={false}
           description="Darker blue shade, immutable"
           category="color"
-          showValue={true}
+          showValue
         />
 
         <TokenCard
@@ -630,7 +630,7 @@ export const PrimitiveImmutability: Story = {
           modeAware={false}
           description="Lightest gray, never changes"
           category="color"
-          showValue={true}
+          showValue
         />
 
         <TokenCard
@@ -641,7 +641,7 @@ export const PrimitiveImmutability: Story = {
           modeAware={false}
           description="Darkest gray, constant"
           category="color"
-          showValue={true}
+          showValue
         />
 
         <TokenCard
@@ -652,7 +652,7 @@ export const PrimitiveImmutability: Story = {
           modeAware={false}
           description="Success green, immutable"
           category="color"
-          showValue={true}
+          showValue
         />
 
         <TokenCard
@@ -663,7 +663,7 @@ export const PrimitiveImmutability: Story = {
           modeAware={false}
           description="Error red, always the same"
           category="color"
-          showValue={true}
+          showValue
         />
       </div>
 

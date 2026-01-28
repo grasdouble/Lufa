@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
-export interface TokenReferenceChainProps {
+export type TokenReferenceChainProps = {
   /** Title for the chain */
   title: string;
   /** Optional description */
   description?: string;
   /** Array of tokens in the chain (from component → semantic → primitive) */
-  chain: Array<{
+  chain: {
     name: string;
     cssVariable: string;
     level: 'primitive' | 'semantic' | 'component';
     description?: string;
-  }>;
-}
+  }[];
+};
 
 /**
  * TokenReferenceChain - Visualizes token reference chains
@@ -26,12 +26,25 @@ export const TokenReferenceChain: React.FC<TokenReferenceChainProps> = ({ title,
 
   useEffect(() => {
     // Compute all token values
-    const values: Record<string, string> = {};
-    chain.forEach((token) => {
-      const value = getComputedStyle(document.documentElement).getPropertyValue(token.cssVariable);
-      values[token.cssVariable] = value.trim();
+    const updateValues = () => {
+      const values: Record<string, string> = {};
+      chain.forEach((token) => {
+        const value = getComputedStyle(document.documentElement).getPropertyValue(token.cssVariable);
+        values[token.cssVariable] = value.trim();
+      });
+      setTokenValues(values);
+    };
+
+    updateValues();
+
+    // Listen for theme/mode changes
+    const observer = new MutationObserver(updateValues);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-color-theme', 'data-mode'],
     });
-    setTokenValues(values);
+
+    return () => observer.disconnect();
   }, [chain]);
 
   // Level-specific colors

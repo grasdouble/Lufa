@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
-export interface TokenCardProps {
+export type TokenCardProps = {
   /** Token name (e.g., "primary-500") */
   tokenName: string;
   /** CSS variable (e.g., "--lufa-primitive-color-blue-500") */
@@ -19,7 +19,7 @@ export interface TokenCardProps {
   showValue?: boolean;
   /** Optional reference tokens this token points to */
   references?: string[];
-}
+};
 
 /**
  * TokenCard - Display individual token with its properties
@@ -39,16 +39,30 @@ export const TokenCard: React.FC<TokenCardProps> = ({
   references = [],
 }) => {
   const [computedValue, setComputedValue] = useState<string>('');
-  const [isColorToken, setIsColorToken] = useState(false);
+
+  // Check if it's a color token (memoized to avoid recalculation)
+  const isColorToken = useMemo(() => {
+    const colorKeywords = ['color', 'background', 'border', 'text', 'shadow'];
+    return colorKeywords.some((keyword) => cssVariable.includes(keyword));
+  }, [cssVariable]);
 
   useEffect(() => {
     // Get computed value of the CSS variable
-    const value = getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
-    setComputedValue(value.trim());
+    const updateValue = () => {
+      const value = getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
+      setComputedValue(value.trim());
+    };
 
-    // Check if it's a color token (contains 'color', 'background', 'border', 'text', etc.)
-    const colorKeywords = ['color', 'background', 'border', 'text', 'shadow'];
-    setIsColorToken(colorKeywords.some((keyword) => cssVariable.includes(keyword)));
+    updateValue();
+
+    // Listen for theme/mode changes via MutationObserver
+    const observer = new MutationObserver(updateValue);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-color-theme', 'data-mode'],
+    });
+
+    return () => observer.disconnect();
   }, [cssVariable]);
 
   // Level-specific colors

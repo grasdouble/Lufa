@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
 
-export interface TokenMatrixProps {
+export type TokenMatrixProps = {
   /** Title for the matrix */
   title: string;
   /** Optional description */
   description?: string;
   /** Array of tokens to display */
-  tokens: Array<{
+  tokens: {
     name: string;
     cssVariable: string;
     level: 'primitive' | 'semantic' | 'component';
     themeable?: boolean;
     modeAware?: boolean;
     description?: string;
-  }>;
+  }[];
   /** Show mode switching info banner */
   showModeInfo?: boolean;
   /** Show theme switching info banner */
   showThemeInfo?: boolean;
-}
+};
 
 /**
  * TokenMatrix - Grid view of multiple tokens
@@ -37,12 +37,25 @@ export const TokenMatrix: React.FC<TokenMatrixProps> = ({
 
   useEffect(() => {
     // Compute all token values
-    const values: Record<string, string> = {};
-    tokens.forEach((token) => {
-      const value = getComputedStyle(document.documentElement).getPropertyValue(token.cssVariable);
-      values[token.cssVariable] = value.trim();
+    const updateValues = () => {
+      const values: Record<string, string> = {};
+      tokens.forEach((token) => {
+        const value = getComputedStyle(document.documentElement).getPropertyValue(token.cssVariable);
+        values[token.cssVariable] = value.trim();
+      });
+      setTokenValues(values);
+    };
+
+    updateValues();
+
+    // Listen for theme/mode changes
+    const observer = new MutationObserver(updateValues);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-color-theme', 'data-mode'],
     });
-    setTokenValues(values);
+
+    return () => observer.disconnect();
   }, [tokens]);
 
   // Level-specific colors
