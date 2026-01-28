@@ -7,6 +7,7 @@ nextStepFile: './step-v-11-holistic-quality-validation.md'
 prdFile: '{prd_file_path}'
 validationReportPath: '{validation_report_path}'
 advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
+smartCriteriaFile: '../data/smart-validation-criteria.md'
 ---
 
 # Step 10: SMART Requirements Validation
@@ -63,72 +64,58 @@ Validate Functional Requirements meet SMART quality criteria (Specific, Measurab
 ### 1. Extract All Functional Requirements
 
 From the PRD's Functional Requirements section, extract:
+
 - All FRs with their FR numbers (FR-001, FR-002, etc.)
 - Count total FRs
+- Determine batch strategy based on FR count (see section 2)
 
-### 2. Attempt Sub-Process Validation
+### 2. Attempt Sub-Process Validation (Pattern 4: Parallel Batch Processing)
 
-**Try to use Task tool to spawn a subprocess:**
+**OPTIMIZATION CONTEXT:**
 
-"Perform SMART requirements validation on these Functional Requirements:
+- **Pattern**: For large PRDs (20+ FRs), split into batches and process in parallel
+- **Performance Gain**: 3-5x faster (depends on FR count and batch size)
+- **Context Savings**: Each subprocess loads only its FR batch, not full PRD
+- **Fallback**: If Task tool unavailable, use sequential processing (section 3)
+- **SMART Criteria**: Detailed scoring rubric in {smartCriteriaFile}
 
-{List all FRs}
+**Determine batch strategy:**
 
-**For each FR, score on SMART criteria (1-5 scale):**
+- If FRs ≤ 20: Use single subprocess (minimal gain from parallelization)
+- If FRs 21-50: Split into 3 batches (~7-17 FRs each)
+- If FRs 51-100: Split into 5 batches (~10-20 FRs each)
+- If FRs > 100: Split into 8 batches (~13-25 FRs each)
 
-**Specific (1-5):**
-- 5: Clear, unambiguous, well-defined
-- 3: Somewhat clear but could be more specific
-- 1: Vague, ambiguous, unclear
+**Try to use Task tool to spawn parallel subprocesses:**
 
-**Measurable (1-5):**
-- 5: Quantifiable metrics, testable
-- 3: Partially measurable
-- 1: Not measurable, subjective
+For each batch, launch subprocess:
+"Perform SMART validation on this batch of Functional Requirements: {FR-XXX through FR-YYY}
 
-**Attainable (1-5):**
-- 5: Realistic, achievable with constraints
-- 3: Probably achievable but uncertain
-- 1: Unrealistic, technically infeasible
+Score each FR on SMART criteria (1-5 scale) using rubric from {smartCriteriaFile}:
 
-**Relevant (1-5):**
-- 5: Clearly aligned with user needs and business objectives
-- 3: Somewhat relevant but connection unclear
-- 1: Not relevant, doesn't align with goals
+- Specific, Measurable, Attainable, Relevant, Traceable
 
-**Traceable (1-5):**
-- 5: Clearly traces to user journey or business objective
-- 3: Partially traceable
-- 1: Orphan requirement, no clear source
+Return: FR number, scores (S/M/A/R/T), average, flag if any <3, improvement suggestion if flagged."
 
-**For each FR with score < 3 in any category:**
-- Provide specific improvement suggestions
+**Aggregation:** Merge scoring tables, calculate overall quality metrics, compile improvement suggestions.
 
-Return scoring table with all FR scores and improvement suggestions for low-scoring FRs."
+### 3. Graceful Degradation (if Task tool unavailable)
 
-**Graceful degradation (if no Task tool):**
-- Manually score each FR on SMART criteria
-- Note FRs with low scores
-- Provide improvement suggestions
+If Task tool unavailable, perform sequential SMART scoring using criteria from {smartCriteriaFile}:
 
-### 3. Build Scoring Table
+- Score each FR on all 5 criteria (1-5)
+- Flag if any score < 3
+- Note improvement suggestions
 
-For each FR:
-- FR number
-- Specific score (1-5)
-- Measurable score (1-5)
-- Attainable score (1-5)
-- Relevant score (1-5)
-- Traceable score (1-5)
-- Average score
-- Flag if any category < 3
+### 4. Build Scoring Table
 
-**Calculate overall FR quality:**
-- Percentage of FRs with all scores ≥ 3
-- Percentage of FRs with all scores ≥ 4
-- Average score across all FRs and categories
+**Aggregate results from parallel batches or sequential analysis:**
 
-### 4. Report SMART Findings to Validation Report
+- Calculate percentage of FRs with all scores ≥ 3
+- Calculate percentage of FRs with all scores ≥ 4
+- Calculate average score across all FRs and categories
+
+### 5. Report SMART Findings to Validation Report
 
 Append to validation report:
 
@@ -145,10 +132,11 @@ Append to validation report:
 
 ### Scoring Table
 
-| FR # | Specific | Measurable | Attainable | Relevant | Traceable | Average | Flag |
-|------|----------|------------|------------|----------|-----------|--------|------|
-| FR-001 | {s1} | {m1} | {a1} | {r1} | {t1} | {avg1} | {X if any <3} |
-| FR-002 | {s2} | {m2} | {a2} | {r2} | {t2} | {avg2} | {X if any <3} |
+| FR #   | Specific | Measurable | Attainable | Relevant | Traceable | Average | Flag          |
+| ------ | -------- | ---------- | ---------- | -------- | --------- | ------- | ------------- |
+| FR-001 | {s1}     | {m1}       | {a1}       | {r1}     | {t1}      | {avg1}  | {X if any <3} |
+| FR-002 | {s2}     | {m2}       | {a2}       | {r2}     | {t2}      | {avg2}  | {X if any <3} |
+
 [Continue for all FRs]
 
 **Legend:** 1=Poor, 3=Acceptable, 5=Excellent
@@ -171,7 +159,7 @@ Append to validation report:
 [If Pass] "Functional Requirements demonstrate good SMART quality overall."
 ```
 
-### 5. Display Progress and Auto-Proceed
+### 6. Display Progress and Auto-Proceed
 
 Display: "**SMART Requirements Validation Complete**
 
@@ -195,7 +183,8 @@ Immediately load and execute {nextStepFile} (step-v-11-holistic-quality-validati
 - Overall quality assessment calculated
 - Findings reported to validation report
 - Auto-proceeds to next validation step
-- Subprocess attempted with graceful degradation
+- **Subprocess Pattern 4 (Parallel Batch):** Parallel subprocesses attempted with graceful degradation
+- **Performance:** 3-5x faster for large PRDs (parallel batch processing, context savings per batch)
 
 ### ❌ SYSTEM FAILURE:
 

@@ -32,8 +32,8 @@ This step will generate content and present choices for each decision category:
 
 ## PROTOCOL INTEGRATION:
 
-- When 'A' selected: Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml
-- When 'P' selected: Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md
+- When 'A' selected: Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml
+- When 'P' selected: Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md
 - PROTOCOLS always return to display this step's A/P/C menu after the A or P have completed
 - User accepts/rejects protocol changes before proceeding
 
@@ -123,69 +123,15 @@ Based on technical preferences, starter template choice, and project context, id
 
 ### 3. Facilitate Each Decision Category
 
-For each category, facilitate collaborative decision making:
+For each category, facilitate collaborative decision making based on user skill level:
 
-**Present the Decision:**
-Based on user skill level and project context:
+**Expert Mode:** Present concise options with tradeoffs, get quick preference  
+**Intermediate Mode:** Provide brief explanations and lean toward recommendation with rationale  
+**Beginner Mode:** Use educational context and real-world analogies to explain choices
 
-**Expert Mode:**
-"{{Decision_Category}}: {{Specific_Decision}}
+**Verify Technology Versions:** Search web for current stable/LTS versions
 
-Options: {{concise_option_list_with_tradeoffs}}
-
-What's your preference for this decision?"
-
-**Intermediate Mode:**
-"Next decision: {{Human_Friendly_Category}}
-
-We need to choose {{Specific_Decision}}.
-
-Common options:
-{{option_list_with_brief_explanations}}
-
-For your project, I'd lean toward {{recommendation}} because {{reason}}. What are your thoughts?"
-
-**Beginner Mode:**
-"Let's talk about {{Human_Friendly_Category}}.
-
-{{Educational_Context_About_Why_This_Matters}}
-
-Think of it like {{real_world_analogy}}.
-
-Your main options:
-{{friendly_options_with_pros_cons}}
-
-My suggestion: {{recommendation}}
-This is good for you because {{beginner_friendly_reason}}.
-
-What feels right to you?"
-
-**Verify Technology Versions:**
-If decision involves specific technology:
-
-```
-Search the web: "{{technology}} latest stable version"
-Search the web: "{{technology}} current LTS version"
-Search the web: "{{technology}} production readiness"
-```
-
-**Get User Input:**
-"What's your preference? (or 'explain more' for details)"
-
-**Handle User Response:**
-
-- If user wants more info: Provide deeper explanation
-- If user has preference: Discuss implications and record decision
-- If user wants alternatives: Explore other options
-
-**Record the Decision:**
-
-- Category: {{category}}
-- Decision: {{user_choice}}
-- Version: {{verified_version_if_applicable}}
-- Rationale: {{user_reasoning_or_default}}
-- Affects: {{components_or_epics}}
-- Provided by Starter: {{yes_if_from_starter}}
+**Get User Input and Record Decision:** Capture category, choice, version, rationale, affected components
 
 ### 4. Check for Cascading Implications
 
@@ -198,52 +144,27 @@ After each major decision, identify related decisions:
 
 ### 5. Generate Decisions Content
 
-After facilitating all decision categories, prepare the content to append:
+**Framework Location:**
+`data/architectural-decisions-framework.md`
 
-#### Content Structure:
+Load the complete architectural decisions framework from the data file. This framework provides:
 
-```markdown
-## Core Architectural Decisions
+- Decision priority analysis (critical, important, deferred)
+- Category-based decision structure (Data, Auth/Security, API, Frontend, Infrastructure)
+- Decision impact analysis with implementation sequence
+- Cross-component dependencies mapping
+- Technology version compatibility matrix
 
-### Decision Priority Analysis
+Using the framework structure from `data/architectural-decisions-framework.md`:
 
-**Critical Decisions (Block Implementation):**
-{{critical_decisions_made}}
+1. **Categorize all decisions by priority** (critical, important, deferred)
+2. **Document decisions in each category** with versions, rationale, and affected components
+3. **Analyze decision impact** showing implementation sequence and dependencies
+4. **Map cross-component dependencies** between related decisions
+5. **Create version compatibility matrix** for critical technologies
+6. **Summarize decision rationale** including key factors and trade-offs made
 
-**Important Decisions (Shape Architecture):**
-{{important_decisions_made}}
-
-**Deferred Decisions (Post-MVP):**
-{{decisions_deferred_with_rationale}}
-
-### Data Architecture
-
-{{data_related_decisions_with_versions_and_rationale}}
-
-### Authentication & Security
-
-{{security_related_decisions_with_versions_and_rationale}}
-
-### API & Communication Patterns
-
-{{api_related_decisions_with_versions_and_rationale}}
-
-### Frontend Architecture
-
-{{frontend_related_decisions_with_versions_and_rationale}}
-
-### Infrastructure & Deployment
-
-{{infrastructure_related_decisions_with_versions_and_rationale}}
-
-### Decision Impact Analysis
-
-**Implementation Sequence:**
-{{ordered_list_of_decisions_for_implementation}}
-
-**Cross-Component Dependencies:**
-{{how_decisions_affect_each_other}}
-```
+The framework ensures comprehensive documentation of all architectural decisions with clear rationale and implementation guidance.
 
 ### 6. Present Content and Menu
 
@@ -264,7 +185,7 @@ Show the generated decisions content and present choices:
 
 #### If 'A' (Advanced Elicitation):
 
-- Execute {project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml with specific decision categories
+- Execute {project-root}/\_bmad/core/workflows/advanced-elicitation/workflow.xml with specific decision categories
 - Process enhanced insights about particular decisions
 - Ask user: "Accept these enhancements to the architectural decisions? (y/n)"
 - If yes: Update content, then return to A/P/C menu
@@ -272,7 +193,7 @@ Show the generated decisions content and present choices:
 
 #### If 'P' (Party Mode):
 
-- Execute {project-root}/_bmad/core/workflows/party-mode/workflow.md with architectural decisions context
+- Execute {project-root}/\_bmad/core/workflows/party-mode/workflow.md with architectural decisions context
 - Process collaborative insights about decision trade-offs
 - Ask user: "Accept these changes to the architectural decisions? (y/n)"
 - If yes: Update content, then return to A/P/C menu

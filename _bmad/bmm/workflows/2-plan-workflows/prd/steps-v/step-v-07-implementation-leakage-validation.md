@@ -1,6 +1,6 @@
 ---
 name: 'step-v-07-implementation-leakage-validation'
-description: 'Implementation Leakage Check - Ensure FRs and NFRs don\'t include implementation details'
+description: 'Implementation Leakage Check - Ensure FRs and NFRs don't include implementation details'
 
 # File references (ONLY variables used in this step)
 nextStepFile: './step-v-08-domain-compliance-validation.md'
@@ -58,60 +58,47 @@ Ensure Functional Requirements and Non-Functional Requirements don't include imp
 
 **CRITICAL:** Follow this sequence exactly. Do not skip, reorder, or improvise unless user explicitly requests a change.
 
-### 1. Attempt Sub-Process Validation
+### 1. Attempt Sub-Process Validation (Pattern 1 Optimization - Grep/Regex)
 
 **Try to use Task tool to spawn a subprocess:**
 
-"Perform implementation leakage validation on this PRD:
+"Perform implementation leakage validation using grep patterns (Pattern 1 optimization):
 
-**Scan for:**
-1. Technology names (React, Vue, Angular, PostgreSQL, MongoDB, AWS, GCP, Azure, Docker, Kubernetes, etc.)
-2. Library names (Redux, axios, lodash, Express, Django, Rails, Spring, etc.)
-3. Data structures (JSON, XML, CSV) unless relevant to capability
-4. Architecture patterns (MVC, microservices, serverless) unless business requirement
-5. Protocol names (HTTP, REST, GraphQL, WebSockets) - check if capability-relevant
+**Use grep to scan for technology terms efficiently:**
 
-**For each term found:**
-- Is this capability-relevant? (e.g., 'API consumers can access...' - API is capability)
-- Or is this implementation detail? (e.g., 'React component for...' - implementation)
+Run grep commands on {prdFile} to detect implementation leakage in FRs/NFRs sections:
 
-Document violations with line numbers and explanation.
+- Frontend: `grep -n -Ei "(React|Vue|Angular|Svelte|Solid|Next\.js|Nuxt)" {prdFile}`
+- Backend: `grep -n -Ei "(Express|Django|Rails|Spring|Laravel|FastAPI|Flask|Koa)" {prdFile}`
+- Databases: `grep -n -Ei "(PostgreSQL|MySQL|MongoDB|Redis|DynamoDB|Cassandra|MariaDB)" {prdFile}`
+- Cloud: `grep -n -Ei "(AWS|GCP|Azure|Cloudflare|Vercel|Netlify|Heroku)" {prdFile}`
+- Infrastructure: `grep -n -Ei "(Docker|Kubernetes|Terraform|Ansible|Jenkins|GitLab)" {prdFile}`
+- Libraries: `grep -n -Ei "(Redux|Zustand|axios|lodash|jQuery|RxJS|MobX)" {prdFile}`
+- Data Formats: `grep -n -Ei "(JSON|XML|YAML|CSV|Protobuf)" {prdFile}` (context-dependent)
 
-Return structured findings with leakage counts and examples."
+**Return ONLY:**
+- Matches with line numbers and context
+- For each match, classify as:
+  - **Capability-relevant** (describes WHAT: "API consumers can access...")
+  - **Implementation leakage** (specifies HOW: "React component for...")
+- Count violations by category and total count
+
+**Context-Saving Benefit:** Returns only violations (~5-20 lines) vs full PRD (~180 lines). Saves ~160-175 lines parent context.
+
+Return structured findings: {category: {count, violations: [{line_num, text, verdict}]}}"
 
 ### 2. Graceful Degradation (if Task tool unavailable)
 
-If Task tool unavailable, perform analysis directly:
+If Task tool unavailable, scan {prdFile} for implementation terms in FRs/NFRs:
 
-**Implementation leakage terms to scan for:**
+- Frontend: React, Vue, Angular, Svelte, Solid, Next.js, Nuxt
+- Backend: Express, Django, Rails, Spring, Laravel, FastAPI
+- Databases: PostgreSQL, MySQL, MongoDB, Redis, DynamoDB, Cassandra
+- Cloud: AWS, GCP, Azure, Cloudflare, Vercel, Netlify
+- Infrastructure: Docker, Kubernetes, Terraform, Ansible
+- Libraries: Redux, Zustand, axios, lodash, jQuery
 
-**Frontend Frameworks:**
-React, Vue, Angular, Svelte, Solid, Next.js, Nuxt, etc.
-
-**Backend Frameworks:**
-Express, Django, Rails, Spring, Laravel, FastAPI, etc.
-
-**Databases:**
-PostgreSQL, MySQL, MongoDB, Redis, DynamoDB, Cassandra, etc.
-
-**Cloud Platforms:**
-AWS, GCP, Azure, Cloudflare, Vercel, Netlify, etc.
-
-**Infrastructure:**
-Docker, Kubernetes, Terraform, Ansible, etc.
-
-**Libraries:**
-Redux, Zustand, axios, fetch, lodash, jQuery, etc.
-
-**Data Formats:**
-JSON, XML, YAML, CSV (unless capability-relevant)
-
-**For each term found in FRs/NFRs:**
-- Determine if it's capability-relevant or implementation leakage
-- Example: "API consumers can access data via REST endpoints" - API/REST is capability
-- Example: "React components fetch data using Redux" - implementation leakage
-
-**Count violations and note line numbers**
+**For each term:** Determine if capability-relevant or implementation leakage. Count violations with line numbers.
 
 ### 3. Tally Implementation Leakage
 
@@ -193,6 +180,7 @@ Immediately load and execute {nextStepFile} (step-v-08-domain-compliance-validat
 - Findings reported to validation report
 - Auto-proceeds to next validation step
 - Subprocess attempted with graceful degradation
+- **Pattern 1 optimization**: Used grep to return only violations (~5-20 lines) instead of full PRD (~180 lines)
 
 ### ❌ SYSTEM FAILURE:
 

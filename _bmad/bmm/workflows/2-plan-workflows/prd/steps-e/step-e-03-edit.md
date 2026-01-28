@@ -6,6 +6,7 @@ description: 'Edit & Update - Apply changes to PRD following approved change pla
 nextStepFile: './step-e-04-complete.md'
 prdFile: '{prd_file_path}'
 prdPurpose: '{project-root}/src/modules/bmm/workflows/2-plan-workflows/prd/data/prd-purpose.md'
+bmadStructure: '../data/bmad-prd-structure.md'
 ---
 
 # Step E-3: Edit & Update
@@ -135,16 +136,7 @@ Changes: {brief summary}
 - Update PRD frontmatter to match BMAD format
 
 **Follow BMAD PRD structure:**
-1. Executive Summary
-2. Success Criteria
-3. Product Scope
-4. User Journeys
-5. Domain Requirements (if applicable)
-6. Innovation Analysis (if applicable)
-7. Project-Type Requirements
-8. Functional Requirements
-9. Non-Functional Requirements
-
+Load structure from {bmadStructure} for canonical section ordering.
 Display: "**PRD Restructured**
 BMAD standard structure applied.
 {Sections added/reordered}"

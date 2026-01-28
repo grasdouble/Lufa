@@ -7,6 +7,7 @@ nextStepFile: './step-v-12-completeness-validation.md'
 prdFile: '{prd_file_path}'
 validationReportPath: '{validation_report_path}'
 advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
+qualityCriteria: '../data/holistic-quality-criteria.md'
 ---
 
 # Step 11: Holistic Quality Assessment
@@ -62,6 +63,9 @@ Assess the PRD as a cohesive, compelling document - evaluating document flow, du
 
 ### 1. Attempt Sub-Process with Advanced Elicitation
 
+**Load evaluation criteria:**
+Read {qualityCriteria} for complete assessment framework.
+
 **Try to use Task tool to spawn a subprocess using Advanced Elicitation:**
 
 "Perform holistic quality assessment on this PRD using multi-perspective evaluation:
@@ -69,57 +73,21 @@ Assess the PRD as a cohesive, compelling document - evaluating document flow, du
 **Load and execute Advanced Elicitation workflow:**
 {advancedElicitationTask}
 
-**Evaluate the PRD from these perspectives:**
+**Evaluate the PRD using criteria from {qualityCriteria}:**
 
-**1. Document Flow & Coherence:**
-- Read entire PRD
-- Evaluate narrative flow - does it tell a cohesive story?
-- Check transitions between sections
-- Assess consistency - is it coherent throughout?
-- Evaluate readability - is it clear and well-organized?
-
-**2. Dual Audience Effectiveness:**
-
-**For Humans:**
-- Executive-friendly: Can executives understand vision and goals quickly?
-- Developer clarity: Do developers have clear requirements to build from?
-- Designer clarity: Do designers understand user needs and flows?
-- Stakeholder decision-making: Can stakeholders make informed decisions?
-
-**For LLMs:**
-- Machine-readable structure: Is the PRD structured for LLM consumption?
-- UX readiness: Can an LLM generate UX designs from this?
-- Architecture readiness: Can an LLM generate architecture from this?
-- Epic/Story readiness: Can an LLM break down into epics and stories?
-
-**3. BMAD PRD Principles Compliance:**
-- Information density: Every sentence carries weight?
-- Measurability: Requirements testable?
-- Traceability: Requirements trace to sources?
-- Domain awareness: Domain-specific considerations included?
-- Zero anti-patterns: No filler or wordiness?
-- Dual audience: Works for both humans and LLMs?
-- Markdown format: Proper structure and formatting?
-
-**4. Overall Quality Rating:**
-Rate the PRD on 5-point scale:
-- Excellent (5/5): Exemplary, ready for production use
-- Good (4/5): Strong with minor improvements needed
-- Adequate (3/5): Acceptable but needs refinement
-- Needs Work (2/5): Significant gaps or issues
-- Problematic (1/5): Major flaws, needs substantial revision
-
-**5. Top 3 Improvements:**
-Identify the 3 most impactful improvements to make this a great PRD
+- Document Flow & Coherence
+- Dual Audience Effectiveness (Humans and LLMs)
+- BMAD PRD Principles Compliance (7 principles)
+- Overall Quality Rating (1-5 scale)
+- Top 3 Improvements
 
 Return comprehensive assessment with all perspectives, rating, and top 3 improvements."
 
 **Graceful degradation (if no Task tool or Advanced Elicitation unavailable):**
-- Perform holistic assessment directly in current context
+
+- Perform holistic assessment directly in current context using criteria from {qualityCriteria}
 - Read complete PRD
-- Evaluate document flow, coherence, transitions
-- Assess dual audience effectiveness
-- Check BMAD principles compliance
+- Evaluate all criteria dimensions
 - Assign overall quality rating
 - Identify top 3 improvements
 
@@ -128,22 +96,26 @@ Return comprehensive assessment with all perspectives, rating, and top 3 improve
 **Compile findings from multi-perspective evaluation:**
 
 **Document Flow & Coherence:**
+
 - Overall assessment: [Excellent/Good/Adequate/Needs Work/Problematic]
 - Key strengths: [list]
 - Key weaknesses: [list]
 
 **Dual Audience Effectiveness:**
+
 - For Humans: [assessment]
 - For LLMs: [assessment]
 - Overall dual audience score: [1-5]
 
 **BMAD Principles Compliance:**
+
 - Principles met: [count]/7
 - Principles with issues: [list]
 
 **Overall Quality Rating:** [1-5 with label]
 
 **Top 3 Improvements:**
+
 1. [Improvement 1]
 2. [Improvement 2]
 3. [Improvement 3]
@@ -168,12 +140,14 @@ Append to validation report:
 ### Dual Audience Effectiveness
 
 **For Humans:**
+
 - Executive-friendly: [assessment]
 - Developer clarity: [assessment]
 - Designer clarity: [assessment]
 - Stakeholder decision-making: [assessment]
 
 **For LLMs:**
+
 - Machine-readable structure: [assessment]
 - UX readiness: [assessment]
 - Architecture readiness: [assessment]
@@ -183,15 +157,15 @@ Append to validation report:
 
 ### BMAD PRD Principles Compliance
 
-| Principle | Status | Notes |
-|-----------|--------|-------|
+| Principle           | Status                | Notes   |
+| ------------------- | --------------------- | ------- |
 | Information Density | [Met/Partial/Not Met] | {notes} |
-| Measurability | [Met/Partial/Not Met] | {notes} |
-| Traceability | [Met/Partial/Not Met] | {notes} |
-| Domain Awareness | [Met/Partial/Not Met] | {notes} |
-| Zero Anti-Patterns | [Met/Partial/Not Met] | {notes} |
-| Dual Audience | [Met/Partial/Not Met] | {notes} |
-| Markdown Format | [Met/Partial/Not Met] | {notes} |
+| Measurability       | [Met/Partial/Not Met] | {notes} |
+| Traceability        | [Met/Partial/Not Met] | {notes} |
+| Domain Awareness    | [Met/Partial/Not Met] | {notes} |
+| Zero Anti-Patterns  | [Met/Partial/Not Met] | {notes} |
+| Dual Audience       | [Met/Partial/Not Met] | {notes} |
+| Markdown Format     | [Met/Partial/Not Met] | {notes} |
 
 **Principles Met:** {count}/7
 
@@ -200,6 +174,7 @@ Append to validation report:
 **Rating:** {rating}/5 - {label}
 
 **Scale:**
+
 - 5/5 - Excellent: Exemplary, ready for production use
 - 4/5 - Good: Strong with minor improvements needed
 - 3/5 - Adequate: Acceptable but needs refinement

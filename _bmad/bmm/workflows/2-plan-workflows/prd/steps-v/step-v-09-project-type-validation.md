@@ -8,6 +8,7 @@ prdFile: '{prd_file_path}'
 prdFrontmatter: '{prd_frontmatter}'
 validationReportPath: '{validation_report_path}'
 projectTypesData: '../data/project-types.csv'
+projectTypeReqsData: '../data/project-type-requirements.md'
 ---
 
 # Step 9: Project-Type Compliance Validation
@@ -28,56 +29,45 @@ Validate project-type specific requirements are properly documented - different 
 
 ### Role Reinforcement:
 
-- ✅ You are a Validation Architect and Quality Assurance Specialist
+- ✅ You are a Validation Architect and Requirements Specialist
 - ✅ If you already have been given communication or persona patterns, continue to use those while playing this new role
 - ✅ We engage in systematic validation, not collaborative dialogue
-- ✅ You bring project type expertise and architectural knowledge
+- ✅ You bring expertise in project-type-specific requirements
 - ✅ This step runs autonomously - no user input needed
 
 ### Step-Specific Rules:
 
 - 🎯 Focus ONLY on project-type compliance
 - 🚫 FORBIDDEN to validate other aspects in this step
-- 💬 Approach: Validate required sections present, excluded sections absent
+- 💬 Approach: Map project type → required/excluded sections → validate presence/absence
 - 🚪 This is a validation sequence step - auto-proceeds when complete
 
 ## EXECUTION PROTOCOLS:
 
-- 🎯 Check classification.projectType from PRD frontmatter
-- 🎯 Validate required sections for that project type are present
-- 🎯 Validate excluded sections for that project type are absent
-- 💾 Append compliance findings to validation report
+- 🎯 Extract project type from PRD frontmatter
+- 💾 Load project-type requirements from CSV
+- 📖 Validate required sections present, excluded sections absent
+- 📖 Append findings to validation report
 - 📖 Display "Proceeding to next check..." and load next step
 - 🚫 FORBIDDEN to pause or request user input
 
 ## CONTEXT BOUNDARIES:
 
-- Available context: PRD file with frontmatter classification, validation report
+- Available context: PRD file, PRD frontmatter, validation report, project-types.csv
 - Focus: Project-type compliance only
 - Limits: Don't validate other aspects, don't pause for user input
-- Dependencies: Steps 2-8 completed - domain and requirements validation done
+- Dependencies: Steps 2-8 completed - format, coverage, domain validated
 
 ## MANDATORY SEQUENCE
 
 **CRITICAL:** Follow this sequence exactly. Do not skip, reorder, or improvise unless user explicitly requests a change.
 
-### 1. Load Project Types Data
+### 1. Extract Project Type from PRD
 
-Load and read the complete file at:
-`{projectTypesData}` (../data/project-types.csv)
+**From {prdFrontmatter}, get `projectType` field:**
 
-This CSV contains:
-- Detection signals for each project type
-- Required sections for each project type
-- Skip/excluded sections for each project type
-- Innovation signals
-
-Internalize this data - it drives what sections must be present or absent for each project type.
-
-### 2. Extract Project Type Classification
-
-From PRD frontmatter, extract:
-- `classification.projectType` - what type of project is this?
+If present: Use that value
+If missing: Assume "web_app" (most common) and note in findings
 
 **Common project types:**
 - api_backend
@@ -93,94 +83,68 @@ From PRD frontmatter, extract:
 **If no projectType classification found:**
 Assume "web_app" (most common) and note in findings
 
-### 3. Determine Required and Excluded Sections from CSV Data
+### 2. Load Project Type Requirements (Pattern 3 Optimization)
 
-**From loaded project-types.csv data, for this project type:**
+**Attempt subprocess for CSV lookup:**
 
-**Required sections:** (from required_sections column)
-These MUST be present in the PRD
+"Load project-type requirements for {projectType}:
 
-**Skip sections:** (from skip_sections column)
-These MUST NOT be present in the PRD
+1. Read {projectTypesData} CSV file
+2. Find row where project_type column matches {projectType}
+3. Extract required_sections and skip_sections columns
+4. Parse comma-separated values into lists
+5. Return ONLY:
+   - project_type: {value}
+   - required_sections: [list]
+   - skip_sections: [list]
+   - description: {project type description}
 
-**Example mappings from CSV:**
-- api_backend: Required=[endpoint_specs, auth_model, data_schemas], Skip=[ux_ui, visual_design]
-- mobile_app: Required=[platform_reqs, device_permissions, offline_mode], Skip=[desktop_features, cli_commands]
-- cli_tool: Required=[command_structure, output_formats, config_schema], Skip=[visual_design, ux_principles, touch_interactions]
-- etc.
+**Context-Saving Benefit:** Returns only matching row (~3-5 lines) instead of full CSV (~120 lines). Saves ~115 lines of parent context.
 
-### 4. Validate Against CSV-Based Requirements
+Do NOT return full CSV data - only the matching row for this project type."
 
-**Based on project type, determine:**
-
-**api_backend:**
-- Required: Endpoint Specs, Auth Model, Data Schemas, API Versioning
-- Excluded: UX/UI sections, mobile-specific sections
-
-**web_app:**
-- Required: User Journeys, UX/UI Requirements, Responsive Design
-- Excluded: None typically
-
-**mobile_app:**
-- Required: Mobile UX, Platform specifics (iOS/Android), Offline mode
-- Excluded: Desktop-specific sections
-
-**desktop_app:**
-- Required: Desktop UX, Platform specifics (Windows/Mac/Linux)
-- Excluded: Mobile-specific sections
-
-**data_pipeline:**
-- Required: Data Sources, Data Transformation, Data Sinks, Error Handling
-- Excluded: UX/UI sections
-
-**ml_system:**
-- Required: Model Requirements, Training Data, Inference Requirements, Model Performance
-- Excluded: UX/UI sections (unless ML UI)
-
-**library_sdk:**
-- Required: API Surface, Usage Examples, Integration Guide
-- Excluded: UX/UI sections, deployment sections
-
-**infrastructure:**
-- Required: Infrastructure Components, Deployment, Monitoring, Scaling
-- Excluded: Feature requirements (this is infrastructure, not product)
-
-### 4. Attempt Sub-Process Validation
-
-"Perform project-type compliance validation for {projectType}:
-
-**Check that required sections are present:**
-{List required sections for this project type}
-For each: Is it present in PRD? Is it adequately documented?
-
-**Check that excluded sections are absent:**
-{List excluded sections for this project type}
-For each: Is it absent from PRD? (Should not be present)
-
-Build compliance table showing:
-- Required sections: [Present/Missing/Incomplete]
-- Excluded sections: [Absent/Present] (Present = violation)
-
-Return compliance table with findings."
+**Reference documentation:** {projectTypeReqsData} contains detailed examples and patterns for project-type-specific requirements.
 
 **Graceful degradation (if no Task tool):**
-- Manually check PRD for required sections
-- Manually check PRD for excluded sections
-- Build compliance table
+Load {projectTypesData} directly and find matching row for {projectType}.
 
-### 5. Build Compliance Table
+### 3. Validate Required Sections Present
 
-**Required sections check:**
-- For each required section: Present / Missing / Incomplete
-- Count: Required sections present vs total required
+**For each required section:**
+- Scan {prdFile} for section heading matching the requirement
+- Assess: Present / Missing / Incomplete (present but insufficient)
+- Note line number if found
 
-**Excluded sections check:**
-- For each excluded section: Absent / Present (violation)
-- Count: Excluded sections present (violations)
+**Build required sections table:**
+| Section | Status | Line # | Notes |
+|---------|--------|--------|-------|
+| {section1} | Present / Missing / Incomplete | {line} | {assessment} |
+| ... | ... | ... | ... |
 
-**Total compliance score:**
-- Required: {present}/{total}
-- Excluded violations: {count}
+### 4. Validate Excluded Sections Absent
+
+**For each excluded section:**
+- Scan {prdFile} for section heading matching the exclusion
+- Assess: Absent (good) / Present (violation)
+- Note line number if found (violation)
+
+**Build excluded sections table:**
+| Section | Status | Line # | Notes |
+|---------|--------|--------|-------|
+| {section1} | Absent / Present | {line} | {if present, why violation} |
+| ... | ... | ... | ... |
+
+### 5. Assess Compliance Severity
+
+**Calculate:**
+- Required sections present: {count} / {total_required}
+- Required sections missing: {count}
+- Excluded sections present (violations): {count}
+
+**Determine severity:**
+- **Critical:** Missing >50% required sections OR any excluded sections present
+- **Warning:** Missing 20-50% required sections
+- **Pass:** All required sections present, no excluded sections present
 
 ### 6. Report Project-Type Compliance Findings to Validation Report
 
@@ -189,48 +153,47 @@ Append to validation report:
 ```markdown
 ## Project-Type Compliance Validation
 
-**Project Type:** {projectType}
+### Project Type
+**Detected Type:** {projectType} {if assumed, note "(assumed - not specified in frontmatter)"}
 
-### Required Sections
+### Required Sections Compliance
 
-**{Section 1}:** [Present/Missing/Incomplete]
-{If missing or incomplete: Note specific gaps}
+| Section | Status | Line # | Notes |
+|---------|--------|--------|-------|
+{table rows}
 
-**{Section 2}:** [Present/Missing/Incomplete]
-{If missing or incomplete: Note specific gaps}
+**Summary:** {count} / {total} required sections present
 
-[Continue for all required sections]
+### Excluded Sections Compliance
 
-### Excluded Sections (Should Not Be Present)
+| Section | Status | Line # | Notes |
+|---------|--------|--------|-------|
+{table rows}
 
-**{Section 1}:** [Absent/Present] ✓
-{If present: This section should not be present for {projectType}}
+**Summary:** {count} excluded sections present (violations)
 
-**{Section 2}:** [Absent/Present] ✓
-{If present: This section should not be present for {projectType}}
+### Overall Compliance
 
-[Continue for all excluded sections]
+**Status:** [Critical / Warning / Pass]
 
-### Compliance Summary
-
-**Required Sections:** {present}/{total} present
-**Excluded Sections Present:** {violations} (should be 0)
-**Compliance Score:** {percentage}%
-
-**Severity:** [Critical if required sections missing, Warning if incomplete, Pass if complete]
+**Findings:**
+- Required sections present: {count} / {total}
+- Required sections missing: {list with explanations}
+- Excluded sections present: {list with explanations why violations}
 
 **Recommendation:**
-[If Critical] "PRD is missing required sections for {projectType}. Add missing sections to properly specify this type of project."
-[If Warning] "Some required sections for {projectType} are incomplete. Strengthen documentation."
-[If Pass] "All required sections for {projectType} are present. No excluded sections found."
+[If Critical] "Project-type compliance is insufficient. Add missing required sections: {list}. Remove excluded sections: {list}."
+[If Warning] "Some required sections missing. Add: {list}."
+[If Pass] "PRD properly addresses all required sections for {projectType} and excludes inappropriate sections."
 ```
 
 ### 7. Display Progress and Auto-Proceed
 
 Display: "**Project-Type Compliance Validation Complete**
 
-Project Type: {projectType}
-Compliance: {score}%
+Type: {projectType}
+Required Sections: {present}/{total}
+Violations: {count}
 
 **Proceeding to next validation check...**"
 
@@ -250,6 +213,7 @@ Immediately load and execute {nextStepFile} (step-v-10-smart-validation.md)
 - Findings reported to validation report
 - Auto-proceeds to next validation step
 - Subprocess attempted with graceful degradation
+- **Pattern 3 optimization**: CSV lookup in subprocess returns only matching row (~3-5 lines) instead of full CSV (~120 lines)
 
 ### ❌ SYSTEM FAILURE:
 
