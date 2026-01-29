@@ -435,7 +435,7 @@ Fluid typography maintains WCAG 2.1 compliance:
 - [Typography Tokens](/docs/tokens/typography) - Full typography token reference
 - [Letter-Spacing Usage Guide](./letter-spacing-usage-guide.md) - Letter-spacing best practices
 - [Text Component](/docs/components/primitives/text) - Pre-configured typography variants
-- [ADR-008: Responsive Typography Strategy](../../adrs/ADR-008-responsive-typography-strategy.md) - Architecture decision
+- [ADR-008: Responsive Typography Strategy](../../adrs/ADR-008-IMPLEMENTED-responsive-typography-strategy.md) - Architecture decision
 
 ---
 

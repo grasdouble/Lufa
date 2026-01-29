@@ -622,10 +622,10 @@ Week 4: Beta Testing → Stable Release
 
 ### Architecture Decision Records
 
-- [ADR-001: Modes vs Themes Separation](../../../adrs/ADR-001-modes-vs-themes-separation.md)
-- [ADR-002: HTML Attribute Naming](../../../adrs/ADR-002-html-attributes-naming.md)
-- [ADR-003: High-Contrast Token Strategy](../../../adrs/ADR-003-high-contrast-token-strategy.md)
-- [ADR-004: Alpha/Opacity Token Architecture](../../../adrs/ADR-004-alpha-opacity-token-architecture.md)
+- [ADR-001: Modes vs Themes Separation](../../../adrs/ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)
+- [ADR-002: HTML Attribute Naming](../../../adrs/ADR-002-IMPLEMENTED-html-attributes-naming.md)
+- [ADR-003: High-Contrast Token Strategy](../../../adrs/ADR-003-IMPLEMENTED-high-contrast-token-strategy.md)
+- [ADR-004: Alpha/Opacity Token Architecture](../../../adrs/ADR-004-IMPLEMENTED-alpha-opacity-token-architecture.md)
 
 ### Analysis Documents
 
@@ -637,27 +637,27 @@ Week 4: Beta Testing → Stable Release
 
 ### Design Team
 
-- [ ] **Approved By:** ******\_\_\_\_******
-- [ ] **Date:** ******\_\_\_\_******
-- [ ] **Comments:** ******\_\_\_\_******
+- [ ] **Approved By:** **\*\***\_\_\_\_**\*\***
+- [ ] **Date:** **\*\***\_\_\_\_**\*\***
+- [ ] **Comments:** **\*\***\_\_\_\_**\*\***
 
 ### Engineering Team
 
-- [ ] **Approved By:** ******\_\_\_\_******
-- [ ] **Date:** ******\_\_\_\_******
-- [ ] **Comments:** ******\_\_\_\_******
+- [ ] **Approved By:** **\*\***\_\_\_\_**\*\***
+- [ ] **Date:** **\*\***\_\_\_\_**\*\***
+- [ ] **Comments:** **\*\***\_\_\_\_**\*\***
 
 ### Accessibility Team
 
-- [ ] **Approved By:** ******\_\_\_\_******
-- [ ] **Date:** ******\_\_\_\_******
-- [ ] **Comments:** ******\_\_\_\_******
+- [ ] **Approved By:** **\*\***\_\_\_\_**\*\***
+- [ ] **Date:** **\*\***\_\_\_\_**\*\***
+- [ ] **Comments:** **\*\***\_\_\_\_**\*\***
 
 ### Product Owner
 
-- [ ] **Approved By:** ******\_\_\_\_******
-- [ ] **Date:** ******\_\_\_\_******
-- [ ] **Comments:** ******\_\_\_\_******
+- [ ] **Approved By:** **\*\***\_\_\_\_**\*\***
+- [ ] **Date:** **\*\***\_\_\_\_**\*\***
+- [ ] **Comments:** **\*\***\_\_\_\_**\*\***
 
 ---
 

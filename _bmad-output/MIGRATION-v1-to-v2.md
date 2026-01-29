@@ -60,8 +60,8 @@ _bmad-output/
 │
 ├── adrs/                                         🆕 Central ADR repository
 │   ├── README.md
-│   ├── ADR-001-modes-vs-themes-separation.md
-│   └── ADR-002-html-attributes-naming.md
+│   ├── ADR-001-IMPLEMENTED-modes-vs-themes-separation.md
+│   └── ADR-002-IMPLEMENTED-html-attributes-naming.md
 │
 └── global/                                       🆕 Cross-project files
     ├── README.md
@@ -120,10 +120,10 @@ mv _bmad-output/implementation-artifacts/theme-integration-implementation-report
 **ADRs:**
 
 ```bash
-mv _bmad-output/planning-artifacts/ADR-001-modes-vs-themes-separation.md \
+mv _bmad-output/planning-artifacts/ADR-001-IMPLEMENTED-modes-vs-themes-separation.md \
    _bmad-output/adrs/
 
-mv _bmad-output/planning-artifacts/ADR-002-html-attributes-naming.md \
+mv _bmad-output/planning-artifacts/ADR-002-IMPLEMENTED-html-attributes-naming.md \
    _bmad-output/adrs/
 ```
 
@@ -265,7 +265,7 @@ subjects/badge-component/
 **ADRs:**
 
 ```
-adrs/ADR-003-badge-variant-strategy.md    # Created during badge planning
+adrs/ADR-003-PROPOSED-badge-variant-strategy.md    # Created during badge planning
 ```
 
 **No conflicts with theme-integration!** ✅

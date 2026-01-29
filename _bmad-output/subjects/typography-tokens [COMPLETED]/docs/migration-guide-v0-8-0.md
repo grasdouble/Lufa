@@ -372,8 +372,8 @@ On **mobile/tablet (320px-1280px)**: Yes, headings will be smaller (improved UX)
 - [Typography Tokens Reference](/docs/tokens/typography)
 - [Responsive Typography Guide](./responsive-typography-guide.md)
 - [Letter-Spacing Usage Guide](./letter-spacing-usage-guide.md)
-- [ADR-008: Responsive Typography Strategy](../../adrs/ADR-008-responsive-typography-strategy.md)
-- [ADR-009: Letter-Spacing Architecture](../../adrs/ADR-009-letter-spacing-token-architecture.md)
+- [ADR-008: Responsive Typography Strategy](../../adrs/ADR-008-IMPLEMENTED-responsive-typography-strategy.md)
+- [ADR-009: Letter-Spacing Architecture](../../adrs/ADR-009-IMPLEMENTED-letter-spacing-token-architecture.md)
 
 ### Need Help?
 

@@ -29,7 +29,7 @@
             "offsetY": "1px",
             "blur": "2px",
             "spread": "0px",
-            "color": "rgba(0, 0, 0, 0.05)"
+            "color": "{primitive.color.alpha.black.5}"
           },
           "$type": "shadow",
           "$description": "Small shadow - subtle elevation for cards and panels",
@@ -92,7 +92,7 @@
             "offsetY": "8px",
             "blur": "16px",
             "spread": "0px",
-            "color": "rgba(0, 0, 0, 0.12)"
+            "color": "{primitive.color.alpha.black.12}"
           },
           "$type": "shadow",
           "$description": "Large shadow - elevation for modals and sidebars",
@@ -113,7 +113,7 @@
             "offsetY": "12px",
             "blur": "24px",
             "spread": "0px",
-            "color": "rgba(0, 0, 0, 0.15)"
+            "color": "{primitive.color.alpha.black.15}"
           },
           "$type": "shadow",
           "$description": "Extra large shadow - maximum elevation for floating elements",

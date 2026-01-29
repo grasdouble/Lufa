@@ -525,8 +525,8 @@ All core tokens now reference HC primitives:
 
 ### Architecture Decisions
 
-- [ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-high-contrast-token-strategy.md)
-- [ADR-004: Alpha/Opacity Token Architecture](../../adrs/ADR-004-alpha-opacity-token-architecture.md)
+- [ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-IMPLEMENTED-high-contrast-token-strategy.md)
+- [ADR-004: Alpha/Opacity Token Architecture](../../adrs/ADR-004-IMPLEMENTED-alpha-opacity-token-architecture.md)
 
 ### Design System Docs
 

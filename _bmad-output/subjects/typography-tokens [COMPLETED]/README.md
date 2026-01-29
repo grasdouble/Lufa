@@ -135,18 +135,18 @@ Lufa Design System's typography tokens provide a solid foundation but lack moder
 
 ### Planning Phase (Phase 2) - ✅ COMPLETE
 
-- [**ADR-008: Responsive Typography Strategy**](../../adrs/ADR-008-responsive-typography-strategy.md) ✅
+- [**ADR-008: Responsive Typography Strategy**](../../adrs/ADR-008-IMPLEMENTED-responsive-typography-strategy.md) ✅
   - Decision: Conservative fluid typography using CSS clamp() for 4 heading tokens (2xl-5xl)
   - Impact: ~240 bytes CSS
   - Status: **IMPLEMENTED** (Phase 2D Sprint 1)
-- [**ADR-009: Letter-Spacing Token Architecture**](../../adrs/ADR-009-letter-spacing-token-architecture.md) ✅
+- [**ADR-009: Letter-Spacing Token Architecture**](../../adrs/ADR-009-IMPLEMENTED-letter-spacing-token-architecture.md) ✅
   - Decision: 5 letter-spacing primitive tokens (tighter, tight, normal, wide, wider)
   - Impact: ~250 bytes CSS
   - Status: **IMPLEMENTED** (Phase 2D Sprint 1)
-- [**ADR-010: Extended Type Scale Strategy**](../../adrs/ADR-010-extended-type-scale-strategy.md) ✅
-  - Decision: DEFER 6xl/7xl/8xl tokens to v0.9.0+ (no current demand)
-  - Rationale: Saves 150-420 bytes, YAGNI principle
-  - Status: **ACCEPTED** (not implemented)
+- [**ADR-010: Extended Type Scale Strategy**](../../adrs/ADR-010-IMPLEMENTED-extended-type-scale-strategy.md) ✅
+  - Decision: Extend type scale with 6xl/7xl/8xl tokens
+  - Rationale: Supports marketing/hero typography
+  - Status: **IMPLEMENTED**
 - [**Technical Specification**](./planning/technical-spec-typography.md)
   - Complete token definitions with JSON structures
   - CSS output examples, build system requirements

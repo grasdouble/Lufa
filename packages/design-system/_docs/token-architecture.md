@@ -46,7 +46,10 @@ The Lufa Design System v2.0 uses a **4-level token architecture** built with **S
 
 **Purpose**: Raw, non-semantic foundational values  
 **Package**: `packages/design-system/tokens/src/primitives/`  
-**Status**: ✅ 100% Complete
+**Status**: ✅ 100% Complete  
+**Architecture**: Strictly **immutable**
+
+> **Note:** Primitive tokens are immutable constants that never change based on theme or mode. They serve as the "paint catalog" from which all other tokens derive their values. Theming and mode switching occur at higher token levels (core, semantic, component).
 
 ### Token Breakdown
 
@@ -196,8 +199,31 @@ The Lufa Design System v2.0 uses a **4-level token architecture** built with **S
 | **Modal**   | 24      | `component/modal/tokens.json`   | Width, padding, backdrop, spacing              |
 | **Badge**   | 16      | `component/badge/tokens.json`   | Padding, radius, colors (7 variants)           |
 | **Tooltip** | 12      | `component/tooltip/tokens.json` | Padding, radius, shadow, arrow                 |
-| **Shared**  | 18      | `component/shared/tokens.json`  | Common component values (focus rings, etc.)    |
+| **Icon**    | 5       | `component/shared/tokens.json`  | Icon size tokens (xs/sm/md/lg/xl)              |
+| **Shared**  | 13      | `component/shared/tokens.json`  | Common component values (focus rings, etc.)    |
 | **TOTAL**   | **166** |                                 | Component-specific values                      |
+
+### Icon Size Tokens
+
+Updated icon size tokens aligned with Icon component implementation:
+
+| Token                           | Value | Usage                |
+| ------------------------------- | ----- | -------------------- |
+| `component.shared.icon.size-xs` | 16px  | Extra small icons    |
+| `component.shared.icon.size-sm` | 20px  | Small icons          |
+| `component.shared.icon.size-md` | 24px  | Default/medium icons |
+| `component.shared.icon.size-lg` | 32px  | Large icons          |
+| `component.shared.icon.size-xl` | 40px  | Extra large icons    |
+
+**CSS Variables:**
+
+```css
+--lufa-component-shared-icon-size-xs: 16px;
+--lufa-component-shared-icon-size-sm: 20px;
+--lufa-component-shared-icon-size-md: 24px;
+--lufa-component-shared-icon-size-lg: 32px;
+--lufa-component-shared-icon-size-xl: 40px;
+```
 
 ### Component Token Pattern
 
@@ -304,6 +330,10 @@ All tokens include `$extensions.lufa` metadata:
         "$description": "Primary brand color for main actions",
         "$extensions": {
           "lufa": {
+            "level": "core",
+            "themeable": true,
+            "modeAware": false,
+            "category": "brand",
             "figma": {
               "path": "Brand/Primary",
               "scopes": ["fill", "stroke"]
@@ -325,10 +355,88 @@ All tokens include `$extensions.lufa` metadata:
 
 ### Metadata Fields
 
+#### Required Fields
+
+- **level**: Token hierarchy level (`primitive`, `core`, `semantic`, `component`)
+- **themeable**: Boolean indicating if token can vary by theme (`true`/`false`)
+  - Primitives: **Always `false`** (immutable constants)
+  - Core/Semantic/Component: Typically `true` (context-aware)
+- **modeAware**: Boolean indicating if token varies by accessibility mode (`true`/`false`)
+  - `true`: Token has different values for light/dark/high-contrast modes
+  - `false`: Token value is constant across all modes
+- **category**: Token category (e.g., `color`, `spacing`, `typography`)
+
+#### Optional Fields
+
 - **figma**: Figma integration paths and scopes
 - **wcag**: Accessibility contrast ratios
 - **usedBy**: Components consuming this token
 - **deprecated**: Deprecation warnings (if any)
+
+### Metadata Examples
+
+**Primitive Token (Immutable):**
+
+```json
+{
+  "primitive": {
+    "color": {
+      "blue": {
+        "600": {
+          "$value": "#2563eb",
+          "$type": "color",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "themeable": false, // Primitives are immutable
+              "modeAware": false, // Primitives never vary by mode
+              "category": "color"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+**Semantic Token (Mode-Aware):**
+
+```json
+{
+  "core": {
+    "brand": {
+      "primary": {
+        "$value": "{primitive.color.blue.600}",
+        "$type": "color",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "themeable": true, // Can vary by theme
+            "modeAware": true, // Has light/dark/high-contrast variants
+            "category": "brand"
+          }
+        },
+        "modes": {
+          "light": "{primitive.color.blue.600}",
+          "dark": "{primitive.color.blue.400}",
+          "high-contrast": "{primitive.color.blue.500}"
+        }
+      }
+    }
+  }
+}
+```
+
+### Token Metadata Migration
+
+**535 tokens updated** with consistent metadata schema:
+
+- Standardized field: `themeable` (boolean)
+- Added required field: `modeAware` (boolean)
+- Enforced architectural rules:
+  - Primitives: `themeable: false`, `modeAware: false`
+  - Core/Semantic/Component: `themeable: true`, `modeAware: varies`
 
 ### Validation
 
@@ -401,42 +509,173 @@ function MyComponent() {
 **Package**: `@grasdouble/lufa_design-system-themes`  
 **Location**: `packages/design-system/themes/`
 
-Themes override semantic and component tokens while keeping primitives unchanged:
+The Lufa Design System supports **3 brand themes** with **3 accessibility modes** each, providing **9 total configurations**.
 
-```json
-{
-  "theme": {
-    "dark": {
-      "semantic": {
-        "ui": {
-          "background": {
-            "page": { "$value": "{primitive.color.gray.900}" }
-          },
-          "text": {
-            "primary": { "$value": "{primitive.color.gray.50}" }
-          }
-        }
-      }
-    }
-  }
-}
-```
+### Available Themes
+
+#### 1. Default Theme (Blue/Purple)
+
+The original Lufa brand theme with blue primary and purple secondary colors.
+
+- **Primary**: `#2563eb` (blue-600) in light mode, `#60a5fa` (blue-400) in dark mode
+- **Secondary**: `#9333ea` (purple-600) in light mode, `#c084fc` (purple-400) in dark mode
+- **Psychology**: Professional, trustworthy, innovative
+- **Use cases**: General purpose, business applications, SaaS products
+
+#### 2. Ocean Theme 🌊 (Cyan/Teal)
+
+A calm, fluid theme inspired by the ocean.
+
+- **Primary**: `#0891b2` (cyan-600) in light mode, `#22d3ee` (cyan-400) in dark mode
+- **Secondary**: `#14b8a6` (teal-500) in light mode, `#2dd4bf` (teal-400) in dark mode
+- **Psychology**: Calm, fluid, trustworthy, refreshing
+- **Use cases**: Healthcare, travel, productivity apps, wellness platforms
+
+#### 3. Forest Theme 🌲 (Emerald/Green)
+
+A growth-oriented theme inspired by nature.
+
+- **Primary**: `#059669` (emerald-600) in light mode, `#34d399` (emerald-400) in dark mode
+- **Secondary**: `#16a34a` (green-600) in light mode, `#4ade80` (green-400) in dark mode
+- **Psychology**: Growth, natural, healthy, sustainable
+- **Use cases**: Eco-brands, wellness, financial growth, sustainability apps
+
+### Accessibility Modes
+
+Each theme supports **3 accessibility modes**:
+
+1. **Light Mode** (`data-mode="light"`) - Standard light background
+2. **Dark Mode** (`data-mode="dark"`) - Reduced eye strain, low-light environments
+3. **High-Contrast Mode** (`data-mode="high-contrast"`) - Enhanced contrast for visual impairments (WCAG AAA)
+
+### Theme vs. Mode: Key Distinction
+
+**Important:** Theming and accessibility modes are **separate concerns**:
+
+| Attribute          | Purpose                   | Values                           | Example Use Case                    |
+| ------------------ | ------------------------- | -------------------------------- | ----------------------------------- |
+| `data-color-theme` | Brand/aesthetic selection | `default`, `ocean`, `forest`     | Corporate branding, user preference |
+| `data-mode`        | Accessibility adaptation  | `light`, `dark`, `high-contrast` | Visual accessibility, user needs    |
+
+**Total Configurations:** 3 themes × 3 modes = **9 configurations**
 
 ### Theme Application
 
+#### HTML Attributes
+
+```html
+<!-- Theme Selection (Brand) -->
+<html data-color-theme="default">
+  <!-- or "ocean" or "forest" -->
+
+  <!-- Mode Selection (Accessibility) -->
+  <html data-mode="light">
+    <!-- or "dark" or "high-contrast" -->
+  </html>
+</html>
+```
+
+#### Example Combinations
+
+```html
+<!-- Ocean theme with dark mode -->
+<html data-color-theme="ocean" data-mode="dark">
+  <!-- Forest theme with high-contrast mode -->
+  <html data-color-theme="forest" data-mode="high-contrast">
+    <!-- Default theme with light mode (default) -->
+    <html data-color-theme="default" data-mode="light"></html>
+  </html>
+</html>
+```
+
+### Efficient Token Cascade
+
+The theming system uses an **efficient cascade approach**:
+
+- **6 core brand tokens** overridden per theme
+- **27+ semantic/component tokens** cascade automatically
+- **Zero component changes** required for theme switching
+
+**Example Token Override (Ocean Theme):**
+
 ```css
-/* Light theme (default) */
+/* Default theme */
 :root {
-  --semantic-ui-background-page: var(--primitive-color-white);
-  --semantic-ui-text-primary: var(--primitive-color-gray-900);
+  --lufa-core-brand-primary: var(--lufa-primitive-color-blue-600);
+  --lufa-core-brand-secondary: var(--lufa-primitive-color-purple-600);
 }
 
-/* Dark theme */
-[data-mode='dark'] {
-  --semantic-ui-background-page: var(--primitive-color-gray-900);
-  --semantic-ui-text-primary: var(--primitive-color-gray-50);
+/* Ocean theme override */
+[data-color-theme='ocean'] {
+  --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-600);
+  --lufa-core-brand-secondary: var(--lufa-primitive-color-teal-500);
+}
+
+/* Forest theme override */
+[data-color-theme='forest'] {
+  --lufa-core-brand-primary: var(--lufa-primitive-color-emerald-600);
+  --lufa-core-brand-secondary: var(--lufa-primitive-color-green-600);
 }
 ```
+
+### CSS Output Structure
+
+Themes override semantic and component tokens while keeping primitives unchanged:
+
+```css
+/* IMMUTABLE PRIMITIVES - Never change */
+:root {
+  --lufa-primitive-color-blue-600: #2563eb;
+  --lufa-primitive-color-cyan-600: #0891b2;
+  --lufa-primitive-color-emerald-600: #059669;
+}
+
+/* DEFAULT THEME + LIGHT MODE */
+:root,
+[data-mode='light'] {
+  --lufa-core-brand-primary: var(--lufa-primitive-color-blue-600);
+  --lufa-semantic-ui-background-page: var(--lufa-primitive-color-white);
+}
+
+/* DEFAULT THEME + DARK MODE */
+[data-mode='dark'] {
+  --lufa-core-brand-primary: var(--lufa-primitive-color-blue-400);
+  --lufa-semantic-ui-background-page: var(--lufa-primitive-color-gray-900);
+}
+
+/* OCEAN THEME OVERRIDES (all modes) */
+[data-color-theme='ocean'] {
+  --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-600);
+}
+
+[data-color-theme='ocean'][data-mode='dark'] {
+  --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-400);
+}
+```
+
+### Runtime Theme Switching
+
+Themes can be switched at runtime via JavaScript:
+
+```typescript
+// Switch theme
+document.documentElement.setAttribute('data-color-theme', 'ocean');
+
+// Switch mode
+document.documentElement.setAttribute('data-mode', 'dark');
+
+// Combine both
+document.documentElement.setAttribute('data-color-theme', 'forest');
+document.documentElement.setAttribute('data-mode', 'high-contrast');
+```
+
+### WCAG Compliance
+
+All theme/mode combinations are **WCAG AA/AAA compliant**:
+
+- Light mode: WCAG AA (4.5:1 minimum contrast)
+- Dark mode: WCAG AA (4.5:1 minimum contrast)
+- High-contrast mode: WCAG AAA (7:1 minimum contrast)
 
 ---
 
@@ -477,5 +716,6 @@ Themes override semantic and component tokens while keeping primitives unchanged
 
 - [Roadmap & Status](./roadmap-and-status.md) - Project roadmap and current status
 - [Architecture](./architecture.md) - Full architecture and design decisions
+- [Architectural Decisions](./adrs/README.md) - Design decisions and rationale
 - [Tokens README](../packages/design-system/tokens/README.md) - Package documentation
 - [Token Contributor Guide](../docs/contributors/your-first-token.md) - Adding tokens guide

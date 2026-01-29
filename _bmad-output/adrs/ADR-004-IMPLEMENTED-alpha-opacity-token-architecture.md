@@ -1,7 +1,8 @@
 # ADR-004: Alpha/Opacity Token Architecture
 
-**Status:** Accepted  
+**Status:** Implemented  
 **Date:** 2026-01-26  
+**Implementation Date:** 2026-01-28  
 **Deciders:** Architecture Team  
 **Context:** Phase 2B - Color Token Refinement  
 **Related:** ADR-003 (High-Contrast Strategy)
@@ -104,7 +105,7 @@ Create purpose-specific alpha tokens for common use cases:
           "mode": {
             "light": "rgba(0, 0, 0, 0.04)",
             "dark": "rgba(255, 255, 255, 0.08)",
-            "high-contrast": "rgba(255, 255, 255, 0.1)"
+            "high-contrast": "rgba(255, 255, 255, 0.12)"
           }
         }
       },
@@ -142,7 +143,10 @@ Add alpha variants to primitive palette for flexibility:
           "50": { "$value": "rgba(0, 0, 0, 0.5)", "$type": "color" },
           "38": { "$value": "rgba(0, 0, 0, 0.38)", "$type": "color" },
           "16": { "$value": "rgba(0, 0, 0, 0.16)", "$type": "color" },
+          "15": { "$value": "rgba(0, 0, 0, 0.15)", "$type": "color" },
+          "12": { "$value": "rgba(0, 0, 0, 0.12)", "$type": "color" },
           "8": { "$value": "rgba(0, 0, 0, 0.08)", "$type": "color" },
+          "5": { "$value": "rgba(0, 0, 0, 0.05)", "$type": "color" },
           "4": { "$value": "rgba(0, 0, 0, 0.04)", "$type": "color" }
         },
         "white": {
@@ -153,7 +157,10 @@ Add alpha variants to primitive palette for flexibility:
           "50": { "$value": "rgba(255, 255, 255, 0.5)", "$type": "color" },
           "38": { "$value": "rgba(255, 255, 255, 0.38)", "$type": "color" },
           "16": { "$value": "rgba(255, 255, 255, 0.16)", "$type": "color" },
+          "15": { "$value": "rgba(255, 255, 255, 0.15)", "$type": "color" },
+          "12": { "$value": "rgba(255, 255, 255, 0.12)", "$type": "color" },
           "8": { "$value": "rgba(255, 255, 255, 0.08)", "$type": "color" },
+          "5": { "$value": "rgba(255, 255, 255, 0.05)", "$type": "color" },
           "4": { "$value": "rgba(255, 255, 255, 0.04)", "$type": "color" }
         }
       }
@@ -171,7 +178,10 @@ Add alpha variants to primitive palette for flexibility:
 - **50%:** Half opacity (balanced overlay)
 - **38%:** Material Design disabled standard
 - **16%:** Very subtle overlay
+- **15%:** Soft shadow layer and overlays
+- **12%:** Hover/scrim variants aligned with Material 3
 - **8%:** Hover state overlay
+- **5%:** Ultra-subtle shadow layer
 - **4%:** Ultra-subtle hover
 
 ### 3. Usage Patterns
@@ -307,14 +317,14 @@ Add alpha variants to primitive palette for flexibility:
 
 **Increased Token Count:**
 
-- +18 primitive alpha tokens (black + white × 9 opacities)
+- +24 primitive alpha tokens (black + white × 12 opacities)
 - +8 semantic alpha tokens
-- ~26 new tokens total
+- ~32 alpha tokens total when fully implemented (net new at decision time)
 
 **CSS Output Size:**
 
 - Each alpha token = ~50 bytes
-- Total: ~1.3 KB additional CSS
+- Total: ~1.6 KB additional CSS
 - Minimal but measurable
 
 **Learning Curve:**
@@ -425,7 +435,7 @@ Add alpha variants to primitive palette for flexibility:
 
 **File:** `tokens/src/primitives/color/palette.json`
 
-Add alpha scale for black and white (18 tokens):
+Add alpha scale for black and white (24 tokens):
 
 ```json
 {
@@ -433,10 +443,10 @@ Add alpha scale for black and white (18 tokens):
     "color": {
       "alpha": {
         "black": {
-          /* 9 opacity values */
+          /* 12 opacity values */
         },
         "white": {
-          /* 9 opacity values */
+          /* 12 opacity values */
         }
       }
     }
@@ -444,7 +454,7 @@ Add alpha scale for black and white (18 tokens):
 }
 ```
 
-**Effort:** 2 hours
+**Effort:** 5 hours
 
 ---
 
@@ -483,7 +493,7 @@ Add semantic alpha tokens (8 tokens):
 }
 ```
 
-**Effort:** 3 hours
+**Effort:** 4 hours
 
 ---
 
@@ -528,7 +538,7 @@ Reference semantic alpha tokens:
 }
 ```
 
-**Effort:** 2 hours
+**Effort:** 5 hours
 
 ---
 
@@ -541,7 +551,7 @@ Create documentation:
 - Examples for common patterns
 - Storybook stories showing overlays/disabled states
 
-**Effort:** 3 hours
+**Effort:** 4 hours
 
 ---
 
@@ -557,15 +567,17 @@ This decision will be validated by:
 
 ---
 
-## Success Metrics
+## Success Metrics (Decision-Time Targets)
 
-| Metric                      | Current | Target | Measurement     |
-| --------------------------- | ------- | ------ | --------------- |
-| Hard-Coded RGBA Values      | 4       | 0      | Grep count      |
-| Primitive Alpha Token Count | 0       | 18     | Token count     |
-| Semantic Alpha Token Count  | 0       | 8      | Token count     |
-| Components Using Alpha      | 5       | 12+    | Component audit |
-| Disabled State Consistency  | Mixed   | 100%   | Visual review   |
+Baseline reflects the state at the time of this ADR decision (2026-01-26). Current implementation status is tracked in the architecture review.
+
+| Metric                      | Baseline (2026-01-26) | Target | Measurement     |
+| --------------------------- | --------------------- | ------ | --------------- |
+| Hard-Coded RGBA Values      | 4                     | 0      | Grep count      |
+| Primitive Alpha Token Count | 0                     | 24     | Token count     |
+| Semantic Alpha Token Count  | 0                     | 8      | Token count     |
+| Components Using Alpha      | 5                     | 12+    | Component audit |
+| Disabled State Consistency  | Mixed                 | 100%   | Visual review   |
 
 ---
 
@@ -589,4 +601,4 @@ This decision will be validated by:
 
 **Signed off by:** Architecture Team  
 **Implementation Start:** Phase 2B Planning  
-**Review Date:** Post-Phase 2D implementation
+**Review Date:** Implementation complete (2026-01-28)

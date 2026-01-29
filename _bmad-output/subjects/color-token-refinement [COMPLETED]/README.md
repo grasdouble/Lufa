@@ -138,14 +138,14 @@ This subject focuses on refining the color token system in the Lufa Design Syste
 
 ### Architecture Decision Records
 
-📋 **[ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-high-contrast-token-strategy.md)**
+📋 **[ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-IMPLEMENTED-high-contrast-token-strategy.md)**
 
 - Decision: Hybrid approach (core overrides + semantic inheritance)
 - Creates 6 HC primitive colors + 15 semantic overrides
 - Achieves 100% HC token coverage
 - Guarantees WCAG AAA compliance
 
-📋 **[ADR-004: Alpha/Opacity Token Architecture](../../adrs/ADR-004-alpha-opacity-token-architecture.md)**
+📋 **[ADR-004: Alpha/Opacity Token Architecture](../../adrs/ADR-004-IMPLEMENTED-alpha-opacity-token-architecture.md)**
 
 - Decision: Dual approach (semantic + primitive alpha)
 - Creates 18 primitive alpha tokens + 8 semantic alpha tokens
@@ -266,10 +266,10 @@ This subject focuses on refining the color token system in the Lufa Design Syste
 
 ### Architecture Decisions
 
-- [ADR-001: Modes vs Themes Separation](../../adrs/ADR-001-modes-vs-themes-separation.md)
-- [ADR-002: HTML Attributes Naming](../../adrs/ADR-002-html-attributes-naming.md)
-- [ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-high-contrast-token-strategy.md)
-- [ADR-004: Alpha/Opacity Token Architecture](../../adrs/ADR-004-alpha-opacity-token-architecture.md)
+- [ADR-001: Modes vs Themes Separation](../../adrs/ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)
+- [ADR-002: HTML Attributes Naming](../../adrs/ADR-002-IMPLEMENTED-html-attributes-naming.md)
+- [ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-IMPLEMENTED-high-contrast-token-strategy.md)
+- [ADR-004: Alpha/Opacity Token Architecture](../../adrs/ADR-004-IMPLEMENTED-alpha-opacity-token-architecture.md)
 
 ### Design System Docs
 

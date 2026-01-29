@@ -520,8 +520,8 @@ background: var(--lufa-semantic-button-warning-background);
 - [High-Contrast Mode Guide](./high-contrast-guide.md)
 - [Testing Strategy](./testing-strategy.md)
 - [Token Architecture Docs](../../../packages/design-system/_docs/token-architecture.md)
-- [ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-high-contrast-token-strategy.md)
-- [ADR-004: Alpha/Opacity Token Architecture](../../adrs/ADR-004-alpha-opacity-token-architecture.md)
+- [ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-IMPLEMENTED-high-contrast-token-strategy.md)
+- [ADR-004: Alpha/Opacity Token Architecture](../../adrs/ADR-004-IMPLEMENTED-alpha-opacity-token-architecture.md)
 
 ---
 

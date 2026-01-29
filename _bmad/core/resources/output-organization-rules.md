@@ -82,8 +82,8 @@ _bmad-output/
 │
 ├── adrs/                               # 🎯 GLOBAL ADR REPOSITORY
 │   ├── README.md                       # ADR index with links
-│   ├── ADR-001-modes-vs-themes.md      # Sequential numbering
-│   ├── ADR-002-html-attributes.md
+│   ├── ADR-001-IMPLEMENTED-modes-vs-themes.md      # Sequential numbering
+│   ├── ADR-002-IMPLEMENTED-html-attributes.md
 │   └── ADR-003-{next-decision}.md
 │
 ├── global/                             # 🎯 CROSS-PROJECT FILES
@@ -152,9 +152,9 @@ planning-artifacts/badge-technical-spec.md
 
 ```
 ✅ CORRECT:
-adrs/ADR-001-modes-vs-themes.md
-adrs/ADR-002-html-attributes.md
-adrs/ADR-003-badge-variant-strategy.md
+adrs/ADR-001-IMPLEMENTED-modes-vs-themes.md
+adrs/ADR-002-IMPLEMENTED-html-attributes.md
+adrs/ADR-003-PROPOSED-badge-variant-strategy.md
 
 ❌ WRONG:
 subjects/theme-integration/planning/adr-modes-vs-themes.md
@@ -228,7 +228,7 @@ subjects/theme-integration/temp-notes.md
 | **Subject analysis**            | **`subjects/{name}/analysis/`**         | **✅ Yes** | `subjects/theme-integration/analysis/analysis-2026-01-26.md` |
 | **Technical spec**              | **`subjects/{name}/planning/`**         | **✅ Yes** | `subjects/badge-component/planning/technical-spec.md`        |
 | **Implementation report**       | **`subjects/{name}/implementation/`**   | **✅ Yes** | `subjects/theme-integration/implementation/report.md`        |
-| **Architecture Decision (ADR)** | **`adrs/`**                             | **✅ Yes** | `adrs/ADR-003-badge-variant-strategy.md`                     |
+| **Architecture Decision (ADR)** | **`adrs/`**                             | **✅ Yes** | `adrs/ADR-003-PROPOSED-badge-variant-strategy.md`            |
 | **BMM workflow status**         | **`global/`**                           | **✅ Yes** | `global/bmm-workflow-status.yaml`                            |
 | **Session report**              | **`tmp/session-reports/`**              | **❌ No**  | `tmp/session-reports/session-2026-01-26.md`                  |
 | **Verification report**         | **`tmp/verification-reports/`**         | **❌ No**  | `tmp/verification-reports/token-check-2026-01-26.md`         |
@@ -285,19 +285,23 @@ ADRs are **global** and **sequential**:
 2. **Create new ADR:**
 
    ```
-   adrs/ADR-003-badge-variant-strategy.md
+   adrs/ADR-003-PROPOSED-badge-variant-strategy.md
    ```
 
 3. **Update ADR index:**
+
    ```markdown
    # In adrs/README.md
 
    ## Architecture Decisions
-
-   - [ADR-001: Modes vs Themes Separation](./ADR-001-modes-vs-themes.md)
-   - [ADR-002: HTML Attributes Naming](./ADR-002-html-attributes.md)
-   - [ADR-003: Badge Variant Strategy](./ADR-003-badge-variant-strategy.md) ← Add this
    ```
+
+- [ADR-001: Modes vs Themes Separation](./ADR-001-IMPLEMENTED-modes-vs-themes.md)
+- [ADR-002: HTML Attributes Naming](./ADR-002-IMPLEMENTED-html-attributes.md)
+- [ADR-003: Badge Variant Strategy](./ADR-003-PROPOSED-badge-variant-strategy.md) ← Add this
+  ```
+
+  ```
 
 ### File Naming Within Subjects
 
@@ -360,8 +364,8 @@ function getOutputPath(
 getOutputPath('analysis', 'badge-component', 'badge-analysis-2026-01-27.md');
 // → _bmad-output/subjects/badge-component/analysis/badge-analysis-2026-01-27.md
 
-getOutputPath('adr', undefined, 'ADR-003-badge-variants.md');
-// → _bmad-output/adrs/ADR-003-badge-variants.md
+getOutputPath('adr', undefined, 'ADR-003-PROPOSED-badge-variants.md');
+// → _bmad-output/adrs/ADR-003-PROPOSED-badge-variants.md
 
 getOutputPath('temp', undefined, 'session-report-2026-01-27.md');
 // → _bmad-output/tmp/session-report-2026-01-27.md
@@ -435,8 +439,8 @@ subjects/theme-integration/
 **ADRs created (in adrs/):**
 
 ```
-adrs/ADR-001-modes-vs-themes.md
-adrs/ADR-002-html-attributes.md
+adrs/ADR-001-IMPLEMENTED-modes-vs-themes.md
+adrs/ADR-002-IMPLEMENTED-html-attributes.md
 ```
 
 ### Example 2: Badge Component (New Subject)
@@ -457,7 +461,7 @@ cp SUBJECT-TEMPLATE.md subjects/badge-component/README.md
 # Create: subjects/badge-component/planning/technical-spec.md
 
 # 5. If architecture decision needed
-# Create: adrs/ADR-003-badge-variant-strategy.md
+# Create: adrs/ADR-003-PROPOSED-badge-variant-strategy.md
 # Update: adrs/README.md
 ```
 

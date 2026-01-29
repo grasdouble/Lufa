@@ -86,7 +86,7 @@ Box component utility configuration incorrectly mapped `none` → `spacing-tight
 <Box padding="tight">Now explicitly 4px</Box>
 ```
 
-**ADR Reference:** [ADR-007: Zero-Value Token Handling](../../adrs/ADR-007-zero-value-token-handling.md)
+**ADR Reference:** [ADR-007: Zero-Value Token Handling](../../adrs/ADR-007-IMPLEMENTED-zero-value-token-handling.md)
 
 ---
 
