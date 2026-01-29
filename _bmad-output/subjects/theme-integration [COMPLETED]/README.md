@@ -80,7 +80,7 @@ subjects/theme-integration/
 
 ## Key Decisions
 
-### [ADR-001](../../adrs/ADR-001-modes-vs-themes-separation.md): Modes vs Themes Separation
+### [ADR-001](../../adrs/ADR-001-IMPLEMENTED-modes-vs-themes-separation.md): Modes vs Themes Separation
 
 **Decision:** Separate modes (accessibility) from themes (brand variants)
 
@@ -95,7 +95,7 @@ subjects/theme-integration/
 
 ---
 
-### [ADR-002](../../adrs/ADR-002-html-attributes-naming.md): HTML Attributes Naming
+### [ADR-002](../../adrs/ADR-002-IMPLEMENTED-html-attributes-naming.md): HTML Attributes Naming
 
 **Decision:** Use `data-mode` + `data-color-theme`
 
@@ -287,8 +287,8 @@ packages/design-system/themes/src/{ocean,forest}.css
 - [Analysis Report](./analysis/theme-system-analysis-2026-01-26.md)
 - [Technical Spec](./planning/technical-spec.md)
 - [Implementation Report](./implementation/implementation-report.md)
-- [ADR-001](../../adrs/ADR-001-modes-vs-themes-separation.md)
-- [ADR-002](../../adrs/ADR-002-html-attributes-naming.md)
+- [ADR-001](../../adrs/ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)
+- [ADR-002](../../adrs/ADR-002-IMPLEMENTED-html-attributes-naming.md)
 
 ### External
 

@@ -663,7 +663,7 @@ export const LetterSpacingComparison: Story = {
 - [Typography Tokens](/docs/tokens/typography) - Full typography token reference
 - [Responsive Typography Guide](./responsive-typography-guide.md) - Fluid typography with clamp()
 - [Text Component](/docs/components/primitives/text) - Pre-configured typography variants
-- [ADR-009: Letter-Spacing Token Architecture](../../adrs/ADR-009-letter-spacing-token-architecture.md) - Architecture decision
+- [ADR-009: Letter-Spacing Token Architecture](../../adrs/ADR-009-IMPLEMENTED-letter-spacing-token-architecture.md) - Architecture decision
 
 ---
 

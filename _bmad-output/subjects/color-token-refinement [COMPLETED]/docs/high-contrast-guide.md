@@ -498,7 +498,7 @@ console.log(getComputedStyle(document.documentElement).getPropertyValue('--lufa-
 - [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
 - [Windows High Contrast Mode](https://support.microsoft.com/en-us/windows/change-color-contrast-in-windows-fedc744c-90ac-69df-aed5-c8a90125e696)
 - [macOS Accessibility](https://support.apple.com/guide/mac-help/change-display-settings-for-accessibility-unac089/mac)
-- [ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-high-contrast-token-strategy.md)
+- [ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-IMPLEMENTED-high-contrast-token-strategy.md)
 
 ---
 

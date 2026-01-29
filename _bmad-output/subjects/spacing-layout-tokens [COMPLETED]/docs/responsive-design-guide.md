@@ -956,8 +956,8 @@ Mix responsive tokens (breakpoint-based) with fluid tokens (viewport-based):
 - [Token Usage Guide](./token-usage-guide.md) - Comprehensive token documentation
 - [Migration Guide](./migration-guide.md) - Upgrading to v0.8.0
 - [Technical Specification](../planning/technical-spec-spacing-layout.md) - Architecture details
-- [ADR-005: Breakpoint Token Strategy](../../adrs/ADR-005-breakpoint-token-strategy.md)
-- [ADR-006: Responsive Spacing Architecture](../../adrs/ADR-006-responsive-spacing-architecture.md)
+- [ADR-005: Breakpoint Token Strategy](../../adrs/ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)
+- [ADR-006: Responsive Spacing Architecture](../../adrs/ADR-006-IMPLEMENTED-responsive-spacing-architecture.md)
 - [MDN: Responsive Design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
 - [Web.dev: Responsive Design](https://web.dev/responsive-web-design-basics/)
 

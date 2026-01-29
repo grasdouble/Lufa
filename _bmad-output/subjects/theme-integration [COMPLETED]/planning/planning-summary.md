@@ -12,7 +12,7 @@
 
 #### 1. ADR-001: Separation of Modes and Themes
 
-**File:** `ADR-001-modes-vs-themes-separation.md`  
+**File:** `ADR-001-IMPLEMENTED-modes-vs-themes-separation.md`
 **Lines:** 367  
 **Size:** 9.6 KB
 
@@ -37,7 +37,7 @@
 
 #### 2. ADR-002: HTML Attribute Naming Convention
 
-**File:** `ADR-002-html-attributes-naming.md`  
+**File:** `ADR-002-IMPLEMENTED-html-attributes-naming.md`
 **Lines:** 597  
 **Size:** 13 KB
 
@@ -317,8 +317,8 @@ All planning artifacts are in:
 
 ```
 _bmad-output/planning-artifacts/
-├── ADR-001-modes-vs-themes-separation.md     (367 lines, 9.6 KB)
-├── ADR-002-html-attributes-naming.md         (597 lines, 13 KB)
+├── ADR-001-IMPLEMENTED-modes-vs-themes-separation.md     (367 lines, 9.6 KB)
+├── ADR-002-IMPLEMENTED-html-attributes-naming.md         (597 lines, 13 KB)
 ├── theme-integration-technical-spec.md       (1,835 lines, 46 KB)
 └── implementation-checklist.md               (1,263 lines, 30 KB)
 ```
