@@ -1,6 +1,7 @@
 ---
 "@grasdouble/lufa_design-system-tokens": minor
 "@grasdouble/lufa_design-system": minor
+"@grasdouble/lufa_design-system-storybook": minor
 ---
 
 feat(tokens): complete ADR-004 alpha opacity rollout
