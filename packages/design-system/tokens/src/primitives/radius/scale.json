@@ -10,7 +10,9 @@
             "lufa": {
               "level": "primitive",
               "category": "radius",
-              "useCase": "Square elements, strictly geometric design"
+              "useCase": "Square elements, strictly geometric design",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -22,7 +24,9 @@
             "lufa": {
               "level": "primitive",
               "category": "radius",
-              "useCase": "Badges, tags, small interface elements"
+              "useCase": "Badges, tags, small interface elements",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -34,7 +38,9 @@
             "lufa": {
               "level": "primitive",
               "category": "radius",
-              "useCase": "Buttons, inputs, standard cards"
+              "useCase": "Buttons, inputs, standard cards",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -46,7 +52,9 @@
             "lufa": {
               "level": "primitive",
               "category": "radius",
-              "useCase": "Featured cards, panels"
+              "useCase": "Featured cards, panels",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -58,7 +66,9 @@
             "lufa": {
               "level": "primitive",
               "category": "radius",
-              "useCase": "Modals, large cards, important surfaces"
+              "useCase": "Modals, large cards, important surfaces",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -70,7 +80,9 @@
             "lufa": {
               "level": "primitive",
               "category": "radius",
-              "useCase": "Large surfaces, modern design"
+              "useCase": "Large surfaces, modern design",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -82,7 +94,9 @@
             "lufa": {
               "level": "primitive",
               "category": "radius",
-              "useCase": "Avatars, pill buttons, circular elements"
+              "useCase": "Avatars, pill buttons, circular elements",
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

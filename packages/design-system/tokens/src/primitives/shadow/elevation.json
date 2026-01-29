@@ -17,7 +17,9 @@
               "level": "primitive",
               "category": "shadow",
               "elevation": 0,
-              "useCase": "Flat elements, base surfaces"
+              "useCase": "Flat elements, base surfaces",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -27,7 +29,7 @@
             "offsetY": "1px",
             "blur": "2px",
             "spread": "0px",
-            "color": "rgba(0, 0, 0, 0.05)"
+            "color": "{primitive.color.alpha.black.5}"
           },
           "$type": "shadow",
           "$description": "Small shadow - subtle elevation for cards and panels",
@@ -36,7 +38,9 @@
               "level": "primitive",
               "category": "shadow",
               "elevation": 1,
-              "useCase": "Light cards, badges, pills"
+              "useCase": "Light cards, badges, pills",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -55,7 +59,9 @@
               "level": "primitive",
               "category": "shadow",
               "elevation": 2,
-              "useCase": "Standard cards, panels, elevated surfaces"
+              "useCase": "Standard cards, panels, elevated surfaces",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -74,7 +80,9 @@
               "level": "primitive",
               "category": "shadow",
               "elevation": 3,
-              "useCase": "Dropdowns, popovers, tooltips"
+              "useCase": "Dropdowns, popovers, tooltips",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -84,7 +92,7 @@
             "offsetY": "8px",
             "blur": "16px",
             "spread": "0px",
-            "color": "rgba(0, 0, 0, 0.12)"
+            "color": "{primitive.color.alpha.black.12}"
           },
           "$type": "shadow",
           "$description": "Large shadow - elevation for modals and sidebars",
@@ -93,7 +101,9 @@
               "level": "primitive",
               "category": "shadow",
               "elevation": 4,
-              "useCase": "Modals, sidebars, drawers"
+              "useCase": "Modals, sidebars, drawers",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -103,7 +113,7 @@
             "offsetY": "12px",
             "blur": "24px",
             "spread": "0px",
-            "color": "rgba(0, 0, 0, 0.15)"
+            "color": "{primitive.color.alpha.black.15}"
           },
           "$type": "shadow",
           "$description": "Extra large shadow - maximum elevation for floating elements",
@@ -112,7 +122,9 @@
               "level": "primitive",
               "category": "shadow",
               "elevation": 5,
-              "useCase": "Floating elements, important notifications, dialogs"
+              "useCase": "Floating elements, important notifications, dialogs",
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

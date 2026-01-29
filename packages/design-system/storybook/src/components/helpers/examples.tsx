@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /**
  * 📖 EXEMPLE D'UTILISATION DES HELPERS
  *
@@ -107,60 +108,62 @@ export const ExampleSideBySide: StoryObj = {
 // EXEMPLE 4: CodeBlock avec hover interactif
 // ============================================
 
-export const ExampleCodeBlockWithHover: StoryObj = {
-  render: () => {
-    const [hoveredRadius, setHoveredRadius] = React.useState<string>('default');
+const ExampleCodeBlockWithHoverComponent = () => {
+  const [hoveredRadius, setHoveredRadius] = React.useState<string>('default');
 
-    const generateCode = (radius: string) => {
-      return `<Box
+  const generateCode = (radius: string) => {
+    return `<Box
   padding="comfortable"
   background="surface"
   borderRadius="${radius}"
 >
   Content with ${radius} border radius
 </Box>`;
-    };
+  };
 
-    return (
-      <StoryContainer>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {/* Grid d'exemples */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px' }}>
-            {(['none', 'small', 'default', 'medium', 'large'] as const).map((radius) => (
-              <div key={radius} onMouseEnter={() => setHoveredRadius(radius)}>
-                <PropCard label={`borderRadius="${radius}"`} highlight={hoveredRadius === radius}>
-                  <Box
-                    padding="comfortable"
-                    background="surface"
-                    borderWidth="medium"
-                    borderRadius={radius}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      minHeight: '100px',
-                      fontSize: '14px',
-                      fontWeight: 600,
-                    }}
-                  >
-                    {radius}
-                  </Box>
-                </PropCard>
-              </div>
-            ))}
-          </div>
-
-          {/* Code block qui se met à jour */}
-          <CodeBlock
-            code={generateCode(hoveredRadius)}
-            language="jsx"
-            title="JSX Code"
-            subtitle={`borderRadius="${hoveredRadius}"`}
-          />
+  return (
+    <StoryContainer>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        {/* Grid d'exemples */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px' }}>
+          {(['none', 'small', 'default', 'medium', 'large'] as const).map((radius) => (
+            <div key={radius} onMouseEnter={() => setHoveredRadius(radius)}>
+              <PropCard label={`borderRadius="${radius}"`} highlight={hoveredRadius === radius}>
+                <Box
+                  padding="comfortable"
+                  background="surface"
+                  borderWidth="medium"
+                  borderRadius={radius}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    minHeight: '100px',
+                    fontSize: '14px',
+                    fontWeight: 600,
+                  }}
+                >
+                  {radius}
+                </Box>
+              </PropCard>
+            </div>
+          ))}
         </div>
-      </StoryContainer>
-    );
-  },
+
+        {/* Code block qui se met à jour */}
+        <CodeBlock
+          code={generateCode(hoveredRadius)}
+          language="jsx"
+          title="JSX Code"
+          subtitle={`borderRadius="${hoveredRadius}"`}
+        />
+      </div>
+    </StoryContainer>
+  );
+};
+
+export const ExampleCodeBlockWithHover: StoryObj = {
+  render: () => <ExampleCodeBlockWithHoverComponent />,
 };
 
 // ============================================

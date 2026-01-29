@@ -10,14 +10,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "gray-900",
-                "gray-800",
-                "gray-700"
-              ],
-              "wcagAAA": [
-                "gray-900"
-              ]
+              "wcagAALarge": ["gray-900", "gray-800", "gray-700"],
+              "wcagAAA": ["gray-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -29,15 +25,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "gray-900",
-                "gray-800",
-                "gray-700"
-              ],
-              "wcagAAA": [
-                "gray-900",
-                "gray-800"
-              ]
+              "wcagAALarge": ["gray-900", "gray-800", "gray-700"],
+              "wcagAAA": ["gray-900", "gray-800"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -49,15 +40,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "gray-900",
-                "gray-800",
-                "gray-700"
-              ],
-              "wcagAAA": [
-                "gray-900",
-                "gray-800"
-              ]
+              "wcagAALarge": ["gray-900", "gray-800", "gray-700"],
+              "wcagAAA": ["gray-900", "gray-800"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -69,13 +55,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "gray-900",
-                "gray-800"
-              ],
-              "wcagAAA": [
-                "gray-900"
-              ]
+              "wcagAALarge": ["gray-900", "gray-800"],
+              "wcagAAA": ["gray-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -87,10 +70,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "gray-900"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["gray-900"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -102,11 +85,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "gray-50",
-                "gray-100"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["gray-50", "gray-100"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -118,15 +100,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "gray-50",
-                "gray-100",
-                "gray-200"
-              ],
-              "wcagAAA": [
-                "gray-50",
-                "gray-100"
-              ]
+              "wcagAALarge": ["gray-50", "gray-100", "gray-200"],
+              "wcagAAA": ["gray-50", "gray-100"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -138,16 +115,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "gray-50",
-                "gray-100",
-                "gray-200"
-              ],
-              "wcagAAA": [
-                "gray-50",
-                "gray-100",
-                "gray-200"
-              ]
+              "wcagAALarge": ["gray-50", "gray-100", "gray-200"],
+              "wcagAAA": ["gray-50", "gray-100", "gray-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -159,16 +130,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "gray-50",
-                "gray-100",
-                "gray-200"
-              ],
-              "wcagAAA": [
-                "gray-50",
-                "gray-100",
-                "gray-200"
-              ]
+              "wcagAALarge": ["gray-50", "gray-100", "gray-200"],
+              "wcagAAA": ["gray-50", "gray-100", "gray-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -180,18 +145,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "gray-50",
-                "gray-100",
-                "gray-200",
-                "gray-300"
-              ],
-              "wcagAAA": [
-                "gray-50",
-                "gray-100",
-                "gray-200",
-                "gray-300"
-              ]
+              "wcagAALarge": ["gray-50", "gray-100", "gray-200", "gray-300"],
+              "wcagAAA": ["gray-50", "gray-100", "gray-200", "gray-300"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -205,14 +162,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "blue-900",
-                "blue-800",
-                "blue-700"
-              ],
-              "wcagAAA": [
-                "blue-900"
-              ]
+              "wcagAALarge": ["blue-900", "blue-800", "blue-700"],
+              "wcagAAA": ["blue-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -224,15 +177,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "blue-900",
-                "blue-800",
-                "blue-700"
-              ],
-              "wcagAAA": [
-                "blue-900",
-                "blue-800"
-              ]
+              "wcagAALarge": ["blue-900", "blue-800", "blue-700"],
+              "wcagAAA": ["blue-900", "blue-800"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -244,13 +192,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "blue-900",
-                "blue-800"
-              ],
-              "wcagAAA": [
-                "blue-900"
-              ]
+              "wcagAALarge": ["blue-900", "blue-800"],
+              "wcagAAA": ["blue-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -262,10 +207,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "blue-900"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["blue-900"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -277,11 +222,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "blue-50",
-                "blue-100"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["blue-50", "blue-100"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -293,11 +237,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "blue-50",
-                "blue-100"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["blue-50", "blue-100"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -309,15 +252,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "blue-50",
-                "blue-100",
-                "blue-200"
-              ],
-              "wcagAAA": [
-                "blue-50",
-                "blue-100"
-              ]
+              "wcagAALarge": ["blue-50", "blue-100", "blue-200"],
+              "wcagAAA": ["blue-50", "blue-100"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -329,16 +267,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "blue-50",
-                "blue-100",
-                "blue-200"
-              ],
-              "wcagAAA": [
-                "blue-50",
-                "blue-100",
-                "blue-200"
-              ]
+              "wcagAALarge": ["blue-50", "blue-100", "blue-200"],
+              "wcagAAA": ["blue-50", "blue-100", "blue-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -350,16 +282,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "blue-50",
-                "blue-100",
-                "blue-200"
-              ],
-              "wcagAAA": [
-                "blue-50",
-                "blue-100",
-                "blue-200"
-              ]
+              "wcagAALarge": ["blue-50", "blue-100", "blue-200"],
+              "wcagAAA": ["blue-50", "blue-100", "blue-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -371,17 +297,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "blue-50",
-                "blue-100",
-                "blue-200",
-                "blue-300"
-              ],
-              "wcagAAA": [
-                "blue-50",
-                "blue-100",
-                "blue-200"
-              ]
+              "wcagAALarge": ["blue-50", "blue-100", "blue-200", "blue-300"],
+              "wcagAAA": ["blue-50", "blue-100", "blue-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -395,14 +314,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "red-900",
-                "red-800",
-                "red-700"
-              ],
-              "wcagAAA": [
-                "red-900"
-              ]
+              "wcagAALarge": ["red-900", "red-800", "red-700"],
+              "wcagAAA": ["red-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -414,15 +329,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "red-900",
-                "red-800",
-                "red-700"
-              ],
-              "wcagAAA": [
-                "red-900",
-                "red-800"
-              ]
+              "wcagAALarge": ["red-900", "red-800", "red-700"],
+              "wcagAAA": ["red-900", "red-800"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -434,13 +344,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "red-900",
-                "red-800"
-              ],
-              "wcagAAA": [
-                "red-900"
-              ]
+              "wcagAALarge": ["red-900", "red-800"],
+              "wcagAAA": ["red-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -452,10 +359,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "red-900"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["red-900"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -467,11 +374,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "red-50",
-                "red-100"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["red-50", "red-100"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -483,11 +389,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "red-50",
-                "red-100"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["red-50", "red-100"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -499,15 +404,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "red-50",
-                "red-100",
-                "red-200"
-              ],
-              "wcagAAA": [
-                "red-50",
-                "red-100"
-              ]
+              "wcagAALarge": ["red-50", "red-100", "red-200"],
+              "wcagAAA": ["red-50", "red-100"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -519,16 +419,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "red-50",
-                "red-100",
-                "red-200"
-              ],
-              "wcagAAA": [
-                "red-50",
-                "red-100",
-                "red-200"
-              ]
+              "wcagAALarge": ["red-50", "red-100", "red-200"],
+              "wcagAAA": ["red-50", "red-100", "red-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -540,16 +434,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "red-50",
-                "red-100",
-                "red-200"
-              ],
-              "wcagAAA": [
-                "red-50",
-                "red-100",
-                "red-200"
-              ]
+              "wcagAALarge": ["red-50", "red-100", "red-200"],
+              "wcagAAA": ["red-50", "red-100", "red-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -561,17 +449,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "red-50",
-                "red-100",
-                "red-200",
-                "red-300"
-              ],
-              "wcagAAA": [
-                "red-50",
-                "red-100",
-                "red-200"
-              ]
+              "wcagAALarge": ["red-50", "red-100", "red-200", "red-300"],
+              "wcagAAA": ["red-50", "red-100", "red-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -585,14 +466,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "green-900",
-                "green-800",
-                "green-700"
-              ],
-              "wcagAAA": [
-                "green-900"
-              ]
+              "wcagAALarge": ["green-900", "green-800", "green-700"],
+              "wcagAAA": ["green-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -604,15 +481,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "green-900",
-                "green-800",
-                "green-700"
-              ],
-              "wcagAAA": [
-                "green-900",
-                "green-800"
-              ]
+              "wcagAALarge": ["green-900", "green-800", "green-700"],
+              "wcagAAA": ["green-900", "green-800"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -624,13 +496,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "green-900",
-                "green-800"
-              ],
-              "wcagAAA": [
-                "green-900"
-              ]
+              "wcagAALarge": ["green-900", "green-800"],
+              "wcagAAA": ["green-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -642,10 +511,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "green-900"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["green-900"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -657,10 +526,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "green-900"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["green-900"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -672,11 +541,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "green-50",
-                "green-100"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["green-50", "green-100"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -688,15 +556,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "green-50",
-                "green-100",
-                "green-200"
-              ],
-              "wcagAAA": [
-                "green-50",
-                "green-100"
-              ]
+              "wcagAALarge": ["green-50", "green-100", "green-200"],
+              "wcagAAA": ["green-50", "green-100"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -708,16 +571,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "green-50",
-                "green-100",
-                "green-200"
-              ],
-              "wcagAAA": [
-                "green-50",
-                "green-100",
-                "green-200"
-              ]
+              "wcagAALarge": ["green-50", "green-100", "green-200"],
+              "wcagAAA": ["green-50", "green-100", "green-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -729,16 +586,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "green-50",
-                "green-100",
-                "green-200"
-              ],
-              "wcagAAA": [
-                "green-50",
-                "green-100",
-                "green-200"
-              ]
+              "wcagAALarge": ["green-50", "green-100", "green-200"],
+              "wcagAAA": ["green-50", "green-100", "green-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -750,17 +601,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "green-50",
-                "green-100",
-                "green-200",
-                "green-300"
-              ],
-              "wcagAAA": [
-                "green-50",
-                "green-100",
-                "green-200"
-              ]
+              "wcagAALarge": ["green-50", "green-100", "green-200", "green-300"],
+              "wcagAAA": ["green-50", "green-100", "green-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -774,14 +618,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "yellow-900",
-                "yellow-800",
-                "yellow-700"
-              ],
-              "wcagAAA": [
-                "yellow-900"
-              ]
+              "wcagAALarge": ["yellow-900", "yellow-800", "yellow-700"],
+              "wcagAAA": ["yellow-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -793,15 +633,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "yellow-900",
-                "yellow-800",
-                "yellow-700"
-              ],
-              "wcagAAA": [
-                "yellow-900",
-                "yellow-800"
-              ]
+              "wcagAALarge": ["yellow-900", "yellow-800", "yellow-700"],
+              "wcagAAA": ["yellow-900", "yellow-800"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -813,13 +648,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "yellow-900",
-                "yellow-800"
-              ],
-              "wcagAAA": [
-                "yellow-900"
-              ]
+              "wcagAALarge": ["yellow-900", "yellow-800"],
+              "wcagAAA": ["yellow-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -831,10 +663,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "yellow-900"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["yellow-900"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -846,10 +678,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "yellow-900"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["yellow-900"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -861,10 +693,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "yellow-900"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["yellow-900"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -876,15 +708,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "yellow-50",
-                "yellow-100",
-                "yellow-200"
-              ],
-              "wcagAAA": [
-                "yellow-50",
-                "yellow-100"
-              ]
+              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200"],
+              "wcagAAA": ["yellow-50", "yellow-100"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -896,16 +723,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "yellow-50",
-                "yellow-100",
-                "yellow-200"
-              ],
-              "wcagAAA": [
-                "yellow-50",
-                "yellow-100",
-                "yellow-200"
-              ]
+              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200"],
+              "wcagAAA": ["yellow-50", "yellow-100", "yellow-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -917,16 +738,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "yellow-50",
-                "yellow-100",
-                "yellow-200"
-              ],
-              "wcagAAA": [
-                "yellow-50",
-                "yellow-100",
-                "yellow-200"
-              ]
+              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200"],
+              "wcagAAA": ["yellow-50", "yellow-100", "yellow-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -938,17 +753,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "yellow-50",
-                "yellow-100",
-                "yellow-200",
-                "yellow-300"
-              ],
-              "wcagAAA": [
-                "yellow-50",
-                "yellow-100",
-                "yellow-200"
-              ]
+              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200", "yellow-300"],
+              "wcagAAA": ["yellow-50", "yellow-100", "yellow-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         }
@@ -962,14 +770,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "purple-900",
-                "purple-800",
-                "purple-700"
-              ],
-              "wcagAAA": [
-                "purple-900"
-              ]
+              "wcagAALarge": ["purple-900", "purple-800", "purple-700"],
+              "wcagAAA": ["purple-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -981,15 +785,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "purple-900",
-                "purple-800",
-                "purple-700"
-              ],
-              "wcagAAA": [
-                "purple-900",
-                "purple-800"
-              ]
+              "wcagAALarge": ["purple-900", "purple-800", "purple-700"],
+              "wcagAAA": ["purple-900", "purple-800"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1001,13 +800,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "purple-900",
-                "purple-800"
-              ],
-              "wcagAAA": [
-                "purple-900"
-              ]
+              "wcagAALarge": ["purple-900", "purple-800"],
+              "wcagAAA": ["purple-900"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1019,10 +815,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "purple-900"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["purple-900"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1034,10 +830,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "purple-900"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["purple-900"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1049,11 +845,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "purple-50",
-                "purple-100"
-              ],
-              "wcagAAA": []
+              "wcagAALarge": ["purple-50", "purple-100"],
+              "wcagAAA": [],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1065,15 +860,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "purple-50",
-                "purple-100",
-                "purple-200"
-              ],
-              "wcagAAA": [
-                "purple-50",
-                "purple-100"
-              ]
+              "wcagAALarge": ["purple-50", "purple-100", "purple-200"],
+              "wcagAAA": ["purple-50", "purple-100"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1085,16 +875,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "purple-50",
-                "purple-100",
-                "purple-200"
-              ],
-              "wcagAAA": [
-                "purple-50",
-                "purple-100",
-                "purple-200"
-              ]
+              "wcagAALarge": ["purple-50", "purple-100", "purple-200"],
+              "wcagAAA": ["purple-50", "purple-100", "purple-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1106,16 +890,10 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "purple-50",
-                "purple-100",
-                "purple-200"
-              ],
-              "wcagAAA": [
-                "purple-50",
-                "purple-100",
-                "purple-200"
-              ]
+              "wcagAALarge": ["purple-50", "purple-100", "purple-200"],
+              "wcagAAA": ["purple-50", "purple-100", "purple-200"],
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -1127,17 +905,420 @@
             "lufa": {
               "level": "primitive",
               "category": "color",
-              "wcagAALarge": [
-                "purple-50",
-                "purple-100",
-                "purple-200",
-                "purple-300"
-              ],
-              "wcagAAA": [
-                "purple-50",
-                "purple-100",
-                "purple-200"
-              ]
+              "wcagAALarge": ["purple-50", "purple-100", "purple-200", "purple-300"],
+              "wcagAAA": ["purple-50", "purple-100", "purple-200"],
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "hc": {
+        "black": {
+          "$value": "#000000",
+          "$type": "color",
+          "$description": "Pure black for high-contrast text and borders - WCAG AAA compliant",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "color",
+              "palette": "high-contrast",
+              "useCase": "High-contrast mode text, borders, and icons",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "white": {
+          "$value": "#ffffff",
+          "$type": "color",
+          "$description": "Pure white for high-contrast backgrounds and inverse text",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "color",
+              "palette": "high-contrast",
+              "useCase": "High-contrast mode backgrounds and inverse text",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "blue": {
+          "$value": "#0000ff",
+          "$type": "color",
+          "$description": "Pure blue for high-contrast primary actions and links",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "color",
+              "palette": "high-contrast",
+              "useCase": "High-contrast mode primary buttons, links, focus indicators",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "red": {
+          "$value": "#ff0000",
+          "$type": "color",
+          "$description": "Pure red for high-contrast error states and destructive actions",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "color",
+              "palette": "high-contrast",
+              "useCase": "High-contrast mode error messages, destructive buttons, validation",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "green": {
+          "$value": "#00ff00",
+          "$type": "color",
+          "$description": "Pure green for high-contrast success states and positive feedback",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "color",
+              "palette": "high-contrast",
+              "useCase": "High-contrast mode success messages, positive indicators",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "yellow": {
+          "$value": "#ffff00",
+          "$type": "color",
+          "$description": "Pure yellow for high-contrast warning states and alerts",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "color",
+              "palette": "high-contrast",
+              "useCase": "High-contrast mode warning messages, alert banners",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "alpha": {
+        "black": {
+          "4": {
+            "$value": "rgba(0, 0, 0, 0.04)",
+            "$type": "color",
+            "$description": "4% opacity black - ultra-subtle overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "5": {
+            "$value": "rgba(0, 0, 0, 0.05)",
+            "$type": "color",
+            "$description": "5% opacity black - ultra-subtle shadow layer",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "8": {
+            "$value": "rgba(0, 0, 0, 0.08)",
+            "$type": "color",
+            "$description": "8% opacity black - hover state overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "12": {
+            "$value": "rgba(0, 0, 0, 0.12)",
+            "$type": "color",
+            "$description": "12% opacity black - hover/scrim variant",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "15": {
+            "$value": "rgba(0, 0, 0, 0.15)",
+            "$type": "color",
+            "$description": "15% opacity black - soft shadow layer",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "16": {
+            "$value": "rgba(0, 0, 0, 0.16)",
+            "$type": "color",
+            "$description": "16% opacity black - subtle overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "38": {
+            "$value": "rgba(0, 0, 0, 0.38)",
+            "$type": "color",
+            "$description": "38% opacity black - disabled state standard (Material Design)",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "50": {
+            "$value": "rgba(0, 0, 0, 0.5)",
+            "$type": "color",
+            "$description": "50% opacity black - balanced overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "60": {
+            "$value": "rgba(0, 0, 0, 0.6)",
+            "$type": "color",
+            "$description": "60% opacity black - medium overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "80": {
+            "$value": "rgba(0, 0, 0, 0.8)",
+            "$type": "color",
+            "$description": "80% opacity black - strong overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "90": {
+            "$value": "rgba(0, 0, 0, 0.9)",
+            "$type": "color",
+            "$description": "90% opacity black - very strong overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "100": {
+            "$value": "rgba(0, 0, 0, 1.0)",
+            "$type": "color",
+            "$description": "Solid black - reference value",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          }
+        },
+        "white": {
+          "4": {
+            "$value": "rgba(255, 255, 255, 0.04)",
+            "$type": "color",
+            "$description": "4% opacity white - ultra-subtle overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "5": {
+            "$value": "rgba(255, 255, 255, 0.05)",
+            "$type": "color",
+            "$description": "5% opacity white - ultra-subtle shadow layer",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "8": {
+            "$value": "rgba(255, 255, 255, 0.08)",
+            "$type": "color",
+            "$description": "8% opacity white - hover state overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "12": {
+            "$value": "rgba(255, 255, 255, 0.12)",
+            "$type": "color",
+            "$description": "12% opacity white - hover/scrim variant",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "15": {
+            "$value": "rgba(255, 255, 255, 0.15)",
+            "$type": "color",
+            "$description": "15% opacity white - soft shadow layer",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "16": {
+            "$value": "rgba(255, 255, 255, 0.16)",
+            "$type": "color",
+            "$description": "16% opacity white - subtle overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "38": {
+            "$value": "rgba(255, 255, 255, 0.38)",
+            "$type": "color",
+            "$description": "38% opacity white - disabled state standard",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "50": {
+            "$value": "rgba(255, 255, 255, 0.5)",
+            "$type": "color",
+            "$description": "50% opacity white - balanced overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "60": {
+            "$value": "rgba(255, 255, 255, 0.6)",
+            "$type": "color",
+            "$description": "60% opacity white - medium overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "80": {
+            "$value": "rgba(255, 255, 255, 0.8)",
+            "$type": "color",
+            "$description": "80% opacity white - strong overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "90": {
+            "$value": "rgba(255, 255, 255, 0.9)",
+            "$type": "color",
+            "$description": "90% opacity white - very strong overlay",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "100": {
+            "$value": "rgba(255, 255, 255, 1.0)",
+            "$type": "color",
+            "$description": "Solid white - reference value",
+            "$extensions": {
+              "lufa": {
+                "level": "primitive",
+                "category": "color",
+                "themeable": false,
+                "modeAware": false
+              }
             }
           }
         }

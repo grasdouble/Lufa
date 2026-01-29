@@ -2,74 +2,338 @@
   "core": {
     "layout": {
       "page-padding": {
-        "$value": "{primitive.spacing.24}",
-        "$type": "dimension",
-        "$description": "Horizontal padding for page container on desktop viewports",
-        "$extensions": {
-          "lufa": {
-            "level": "core",
-            "category": "layout",
-            "useCase": "Page container padding, main content area horizontal spacing"
+        "base": {
+          "$value": "{primitive.spacing.16}",
+          "$type": "dimension",
+          "$description": "Horizontal padding for page container on mobile viewports",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Page container padding, main content area horizontal spacing",
+              "responsive": {
+                "breakpoint": "base",
+                "applyAt": "all"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
           }
-        }
-      },
-      "page-padding-mobile": {
-        "$value": "{primitive.spacing.16}",
-        "$type": "dimension",
-        "$description": "Horizontal padding for page container on mobile viewports",
-        "$extensions": {
-          "lufa": {
-            "level": "core",
-            "category": "layout",
-            "useCase": "Page container padding on mobile devices"
+        },
+        "md": {
+          "$value": "{primitive.spacing.24}",
+          "$type": "dimension",
+          "$description": "Horizontal padding for page container on tablet viewports",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Page container padding on tablets",
+              "responsive": {
+                "breakpoint": "md",
+                "applyAt": "768px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "lg": {
+          "$value": "{primitive.spacing.32}",
+          "$type": "dimension",
+          "$description": "Horizontal padding for page container on desktop viewports",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Page container padding on desktop",
+              "responsive": {
+                "breakpoint": "lg",
+                "applyAt": "1024px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
           }
         }
       },
       "section-gap": {
-        "$value": "{primitive.spacing.64}",
-        "$type": "dimension",
-        "$description": "Vertical spacing between major page sections on desktop",
-        "$extensions": {
-          "lufa": {
-            "level": "core",
-            "category": "layout",
-            "useCase": "Spacing between hero section and content, between content sections"
+        "base": {
+          "$value": "{primitive.spacing.48}",
+          "$type": "dimension",
+          "$description": "Vertical spacing between major page sections on mobile",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Section spacing between major content blocks",
+              "responsive": {
+                "breakpoint": "base",
+                "applyAt": "all"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "md": {
+          "$value": "{primitive.spacing.64}",
+          "$type": "dimension",
+          "$description": "Vertical spacing between major page sections on tablet",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Section spacing on tablets",
+              "responsive": {
+                "breakpoint": "md",
+                "applyAt": "768px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "lg": {
+          "$value": "{primitive.spacing.80}",
+          "$type": "dimension",
+          "$description": "Vertical spacing between major page sections on desktop",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Section spacing on desktop",
+              "responsive": {
+                "breakpoint": "lg",
+                "applyAt": "1024px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
           }
         }
       },
-      "section-gap-mobile": {
-        "$value": "{primitive.spacing.48}",
-        "$type": "dimension",
-        "$description": "Vertical spacing between major page sections on mobile",
-        "$extensions": {
-          "lufa": {
-            "level": "core",
-            "category": "layout",
-            "useCase": "Section spacing on mobile devices"
+      "container-gutter": {
+        "base": {
+          "$value": "{primitive.spacing.16}",
+          "$type": "dimension",
+          "$description": "Horizontal gutter between container and content on mobile",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Container internal gutters, grid gaps",
+              "responsive": {
+                "breakpoint": "base",
+                "applyAt": "all"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "md": {
+          "$value": "{primitive.spacing.24}",
+          "$type": "dimension",
+          "$description": "Horizontal gutter between container and content on tablet",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Container gutters on tablets",
+              "responsive": {
+                "breakpoint": "md",
+                "applyAt": "768px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "lg": {
+          "$value": "{primitive.spacing.32}",
+          "$type": "dimension",
+          "$description": "Horizontal gutter between container and content on desktop",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Container gutters on desktop",
+              "responsive": {
+                "breakpoint": "lg",
+                "applyAt": "1024px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
           }
         }
       },
-      "container-max-width": {
-        "$value": "1280px",
-        "$type": "dimension",
-        "$description": "Maximum width for centered content container (standard desktop)",
-        "$extensions": {
-          "lufa": {
-            "level": "core",
-            "category": "layout",
-            "useCase": "Max-width for main content wrapper, page container"
+      "grid-gap": {
+        "base": {
+          "$value": "{primitive.spacing.16}",
+          "$type": "dimension",
+          "$description": "Gap between grid items on mobile",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "CSS Grid gap, flexbox gap",
+              "responsive": {
+                "breakpoint": "base",
+                "applyAt": "all"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "md": {
+          "$value": "{primitive.spacing.24}",
+          "$type": "dimension",
+          "$description": "Gap between grid items on tablet",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Grid gaps on tablets",
+              "responsive": {
+                "breakpoint": "md",
+                "applyAt": "768px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "lg": {
+          "$value": "{primitive.spacing.32}",
+          "$type": "dimension",
+          "$description": "Gap between grid items on desktop",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Grid gaps on desktop",
+              "responsive": {
+                "breakpoint": "lg",
+                "applyAt": "1024px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
           }
         }
       },
       "header-height": {
-        "$value": "{primitive.spacing.64}",
-        "$type": "dimension",
-        "$description": "Standard height for page header/navigation bar",
-        "$extensions": {
-          "lufa": {
-            "level": "core",
-            "category": "layout",
-            "useCase": "Top navigation height, header height for fixed positioning"
+        "base": {
+          "$value": "{primitive.height.56}",
+          "$type": "dimension",
+          "$description": "Header height for mobile viewports",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Mobile navigation height",
+              "responsive": {
+                "breakpoint": "base",
+                "applyAt": "all"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "md": {
+          "$value": "{primitive.height.64}",
+          "$type": "dimension",
+          "$description": "Header height for tablet and desktop viewports",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Desktop navigation height",
+              "responsive": {
+                "breakpoint": "md",
+                "applyAt": "768px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "lg": {
+          "$value": "{primitive.height.64}",
+          "$type": "dimension",
+          "$description": "Header height for large desktop viewports",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Large desktop navigation height",
+              "responsive": {
+                "breakpoint": "lg",
+                "applyAt": "1024px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "modal-padding": {
+        "base": {
+          "$value": "{primitive.spacing.24}",
+          "$type": "dimension",
+          "$description": "Internal padding for modals on mobile",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Modal dialog internal spacing",
+              "responsive": {
+                "breakpoint": "base",
+                "applyAt": "all"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "md": {
+          "$value": "{primitive.spacing.32}",
+          "$type": "dimension",
+          "$description": "Internal padding for modals on tablet",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Modal padding on tablets",
+              "responsive": {
+                "breakpoint": "md",
+                "applyAt": "768px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "lg": {
+          "$value": "{primitive.spacing.40}",
+          "$type": "dimension",
+          "$description": "Internal padding for modals on desktop",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "layout",
+              "useCase": "Modal padding on desktop",
+              "responsive": {
+                "breakpoint": "lg",
+                "applyAt": "1024px"
+              },
+              "themeable": false,
+              "modeAware": false
+            }
           }
         }
       },
@@ -81,7 +345,9 @@
           "lufa": {
             "level": "core",
             "category": "layout",
-            "useCase": "Side navigation width, sidebar panels"
+            "useCase": "Side navigation width, sidebar panels",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -93,7 +359,69 @@
           "lufa": {
             "level": "core",
             "category": "layout",
-            "useCase": "Article content width, form width, text-heavy content containers"
+            "useCase": "Article content width, form width, text-heavy content containers",
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      },
+      "section-gap-fluid": {
+        "$value": "clamp(48px, 8vw, 96px)",
+        "$type": "dimension",
+        "$description": "Fluid vertical spacing between major sections (scales from 48px to 96px)",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Hero sections, major content blocks with smooth scaling",
+            "fluid": true,
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      },
+      "hero-padding-fluid": {
+        "$value": "clamp(32px, 6vw, 80px)",
+        "$type": "dimension",
+        "$description": "Fluid padding for hero sections (scales from 32px to 80px)",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Hero section internal padding, banner spacing",
+            "fluid": true,
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      },
+      "container-gutter-fluid": {
+        "$value": "clamp(16px, 4vw, 48px)",
+        "$type": "dimension",
+        "$description": "Fluid container gutters (scales from 16px to 48px)",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Responsive container internal spacing",
+            "fluid": true,
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      },
+      "page-margin-fluid": {
+        "$value": "clamp(16px, 3vw, 32px)",
+        "$type": "dimension",
+        "$description": "Fluid page margins (scales from 16px to 32px)",
+        "$extensions": {
+          "lufa": {
+            "level": "core",
+            "category": "layout",
+            "useCase": "Page-level horizontal margins with smooth scaling",
+            "fluid": true,
+            "themeable": false,
+            "modeAware": false
           }
         }
       }

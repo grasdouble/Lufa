@@ -265,7 +265,7 @@ type BoxComponentProps<T extends ElementType> = BoxProps<T> & Omit<ComponentProp
 const BoxImpl = <T extends ElementType = 'div'>(
   {
     as,
-    // Spacing - Padding
+    // Padding props
     padding,
     paddingX,
     paddingY,
@@ -273,7 +273,7 @@ const BoxImpl = <T extends ElementType = 'div'>(
     paddingRight,
     paddingBottom,
     paddingLeft,
-    // Spacing - Margin
+    // Margin props
     margin,
     marginX,
     marginY,
@@ -294,7 +294,7 @@ const BoxImpl = <T extends ElementType = 'div'>(
     children,
     ...htmlProps
   }: BoxComponentProps<T>,
-  ref: React.Ref<Element>
+  ref: React.ForwardedRef<Element>
 ) => {
   // Determine the element to render
   const Component = as ?? 'div';
@@ -335,7 +335,7 @@ const BoxImpl = <T extends ElementType = 'div'>(
   );
 
   return (
-    <Component ref={ref} className={boxClassName} {...htmlProps}>
+    <Component ref={ref as React.Ref<never>} className={boxClassName} {...htmlProps}>
       {children}
     </Component>
   );
@@ -344,7 +344,7 @@ const BoxImpl = <T extends ElementType = 'div'>(
 // Forward ref with generic type support and displayName
 export const Box = Object.assign(
   forwardRef(BoxImpl) as <T extends ElementType = 'div'>(
-    props: BoxComponentProps<T> & { ref?: React.Ref<Element> }
+    props: BoxComponentProps<T> & { ref?: React.Ref<React.ComponentRef<T>> }
   ) => React.ReactElement,
   { displayName: 'Box' }
 );

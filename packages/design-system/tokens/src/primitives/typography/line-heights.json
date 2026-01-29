@@ -10,7 +10,9 @@
             "lufa": {
               "level": "primitive",
               "category": "typography",
-              "useCase": "Headings, compact interface text"
+              "useCase": "Headings, compact interface text",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -22,7 +24,9 @@
             "lufa": {
               "level": "primitive",
               "category": "typography",
-              "useCase": "Body text, paragraphs (optimal accessibility)"
+              "useCase": "Body text, paragraphs (optimal accessibility)",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -34,7 +38,9 @@
             "lufa": {
               "level": "primitive",
               "category": "typography",
-              "useCase": "Long articles, documentation, comfortable reading"
+              "useCase": "Long articles, documentation, comfortable reading",
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

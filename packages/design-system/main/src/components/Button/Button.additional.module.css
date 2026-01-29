@@ -79,8 +79,8 @@
 
 /* Solid + Warning (Orange/Yellow-600) */
 .button.type-solid.variant-warning {
-  background-color: var(--lufa-core-semantic-warning-hover); /* yellow-600 (orange-ish) */
-  color: #ffffff; /* white for contrast */
+  background-color: var(--lufa-semantic-button-warning-background); /* yellow-600 (orange-ish) */
+  color: var(--lufa-semantic-button-warning-text); /* white for contrast */
 }
 
 .button.type-solid.variant-warning:hover:not(:disabled):not(.disabled-true) {
@@ -93,8 +93,8 @@
 
 /* Solid + Info (Blue-500) */
 .button.type-solid.variant-info {
-  background-color: var(--lufa-core-semantic-info); /* blue-500 */
-  color: #ffffff; /* white */
+  background-color: var(--lufa-semantic-button-info-background); /* blue-500 */
+  color: var(--lufa-semantic-button-info-text); /* white */
 }
 
 .button.type-solid.variant-info:hover:not(:disabled):not(.disabled-true) {
@@ -150,7 +150,7 @@
 
 .button.type-outline.variant-secondary:hover:not(:disabled):not(.disabled-true) {
   background-color: var(--lufa-core-brand-secondary); /* purple-500 */
-  color: #ffffff;
+  color: var(--lufa-semantic-ui-background-on-secondary);
   border-color: var(--lufa-core-brand-secondary-hover); /* purple-600 */
 }
 
@@ -168,7 +168,7 @@
 
 .button.type-outline.variant-success:hover:not(:disabled):not(.disabled-true) {
   background-color: var(--lufa-core-semantic-success); /* green-500 */
-  color: #ffffff;
+  color: var(--lufa-semantic-button-success-text);
   border-color: var(--lufa-core-semantic-success-hover); /* green-600 */
 }
 
@@ -186,7 +186,7 @@
 
 .button.type-outline.variant-danger:hover:not(:disabled):not(.disabled-true) {
   background-color: var(--lufa-core-semantic-error); /* red-600 */
-  color: #ffffff;
+  color: var(--lufa-semantic-button-destructive-text);
   border-color: var(--lufa-core-semantic-error-hover); /* red-700 */
 }
 
@@ -204,7 +204,7 @@
 
 .button.type-outline.variant-warning:hover:not(:disabled):not(.disabled-true) {
   background-color: var(--lufa-core-semantic-warning-hover); /* yellow-600 */
-  color: #ffffff;
+  color: var(--lufa-semantic-button-warning-text);
   border-color: var(--lufa-primitive-color-yellow-700); /* yellow-700 */
 }
 
@@ -222,7 +222,7 @@
 
 .button.type-outline.variant-info:hover:not(:disabled):not(.disabled-true) {
   background-color: var(--lufa-core-semantic-info); /* blue-500 */
-  color: #ffffff;
+  color: var(--lufa-semantic-button-info-text);
   border-color: var(--lufa-core-semantic-info-hover); /* blue-600 */
 }
 

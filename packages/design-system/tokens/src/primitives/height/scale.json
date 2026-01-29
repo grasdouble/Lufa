@@ -1,0 +1,118 @@
+{
+  "primitive": {
+    "height": {
+      "24": {
+        "$value": "24px",
+        "$type": "dimension",
+        "$description": "Extra small height - Compact UI elements",
+        "$extensions": {
+          "lufa": {
+            "level": "primitive",
+            "category": "height",
+            "useCase": "tags, badges, chips",
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      },
+      "32": {
+        "$value": "32px",
+        "$type": "dimension",
+        "$description": "Small height - Compact buttons, inputs",
+        "$extensions": {
+          "lufa": {
+            "level": "primitive",
+            "category": "height",
+            "useCase": "small buttons, compact inputs",
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      },
+      "40": {
+        "$value": "40px",
+        "$type": "dimension",
+        "$description": "Default height - Standard buttons, inputs",
+        "$extensions": {
+          "lufa": {
+            "level": "primitive",
+            "category": "height",
+            "useCase": "default buttons, standard inputs",
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      },
+      "48": {
+        "$value": "48px",
+        "$type": "dimension",
+        "$description": "Large height - Prominent buttons, touch-friendly",
+        "$extensions": {
+          "lufa": {
+            "level": "primitive",
+            "category": "height",
+            "useCase": "large buttons, touch-friendly inputs",
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      },
+      "56": {
+        "$value": "56px",
+        "$type": "dimension",
+        "$description": "Extra large height - Headers, app bars",
+        "$extensions": {
+          "lufa": {
+            "level": "primitive",
+            "category": "height",
+            "useCase": "mobile headers, app bars",
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      },
+      "64": {
+        "$value": "64px",
+        "$type": "dimension",
+        "$description": "2X large height - Desktop headers",
+        "$extensions": {
+          "lufa": {
+            "level": "primitive",
+            "category": "height",
+            "useCase": "desktop headers, navigation",
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      },
+      "80": {
+        "$value": "80px",
+        "$type": "dimension",
+        "$description": "3X large height - Hero elements",
+        "$extensions": {
+          "lufa": {
+            "level": "primitive",
+            "category": "height",
+            "useCase": "hero headers, prominent sections",
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      },
+      "96": {
+        "$value": "96px",
+        "$type": "dimension",
+        "$description": "Maximum height - Extra large headers",
+        "$extensions": {
+          "lufa": {
+            "level": "primitive",
+            "category": "height",
+            "useCase": "extra large headers, mastheads",
+            "themeable": false,
+            "modeAware": false
+          }
+        }
+      }
+    }
+  }
+}

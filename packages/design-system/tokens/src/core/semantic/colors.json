@@ -9,7 +9,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Success messages, confirmation icons, positive badges, completed checkmarks"
+            "role": "feedback",
+            "useCase": "Success messages, confirmation icons, positive badges, completed checkmarks",
+            "modes": {
+              "light": "{primitive.color.green.500}",
+              "dark": "{primitive.color.green.400}",
+              "high-contrast": "{primitive.color.hc.green}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -21,7 +29,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Success alert backgrounds, success banner backgrounds"
+            "role": "feedback",
+            "useCase": "Success alert backgrounds, success banner backgrounds",
+            "modes": {
+              "light": "{primitive.color.green.100}",
+              "dark": "{primitive.color.green.900}",
+              "high-contrast": "{primitive.color.green.100}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -33,7 +49,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Success alert borders, success input borders"
+            "role": "feedback",
+            "useCase": "Success alert borders, success input borders",
+            "modes": {
+              "light": "{primitive.color.green.300}",
+              "dark": "{primitive.color.green.700}",
+              "high-contrast": "{primitive.color.hc.green}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -45,7 +69,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Hover state for success buttons and links"
+            "role": "feedback",
+            "useCase": "Hover state for success buttons and links",
+            "modes": {
+              "light": "{primitive.color.green.600}",
+              "dark": "{primitive.color.green.300}",
+              "high-contrast": "{primitive.color.hc.green}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -57,7 +89,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Error messages, validation feedback, destructive action buttons, critical icons"
+            "role": "feedback",
+            "useCase": "Error messages, validation feedback, destructive action buttons, critical icons",
+            "modes": {
+              "light": "{primitive.color.red.600}",
+              "dark": "{primitive.color.red.400}",
+              "high-contrast": "{primitive.color.hc.red}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -69,7 +109,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Error alert backgrounds, error banner backgrounds"
+            "role": "feedback",
+            "useCase": "Error alert backgrounds, error banner backgrounds",
+            "modes": {
+              "light": "{primitive.color.red.100}",
+              "dark": "{primitive.color.red.900}",
+              "high-contrast": "{primitive.color.red.100}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -81,7 +129,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Error alert borders, invalid input borders"
+            "role": "feedback",
+            "useCase": "Error alert borders, invalid input borders",
+            "modes": {
+              "light": "{primitive.color.red.300}",
+              "dark": "{primitive.color.red.700}",
+              "high-contrast": "{primitive.color.hc.red}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -93,7 +149,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Hover state for destructive buttons and error links"
+            "role": "feedback",
+            "useCase": "Hover state for destructive buttons and error links",
+            "modes": {
+              "light": "{primitive.color.red.700}",
+              "dark": "{primitive.color.red.300}",
+              "high-contrast": "{primitive.color.hc.red}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -105,7 +169,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Warning messages, caution icons, pending status badges, important notices"
+            "role": "feedback",
+            "useCase": "Warning messages, caution icons, pending status badges, important notices",
+            "modes": {
+              "light": "{primitive.color.yellow.500}",
+              "dark": "{primitive.color.yellow.400}",
+              "high-contrast": "{primitive.color.hc.yellow}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -117,7 +189,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Warning alert backgrounds, warning banner backgrounds"
+            "role": "feedback",
+            "useCase": "Warning alert backgrounds, warning banner backgrounds",
+            "modes": {
+              "light": "{primitive.color.yellow.100}",
+              "dark": "{primitive.color.yellow.900}",
+              "high-contrast": "{primitive.color.yellow.100}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -129,7 +209,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Warning alert borders, caution element borders"
+            "role": "feedback",
+            "useCase": "Warning alert borders, caution element borders",
+            "modes": {
+              "light": "{primitive.color.yellow.300}",
+              "dark": "{primitive.color.yellow.700}",
+              "high-contrast": "{primitive.color.hc.yellow}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -141,7 +229,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Hover state for warning buttons and links"
+            "role": "feedback",
+            "useCase": "Hover state for warning buttons and links",
+            "modes": {
+              "light": "{primitive.color.yellow.600}",
+              "dark": "{primitive.color.yellow.300}",
+              "high-contrast": "{primitive.color.hc.yellow}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -153,7 +249,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Info messages, help icons, informational badges, neutral notifications"
+            "role": "feedback",
+            "useCase": "Info messages, help icons, informational badges, neutral notifications",
+            "modes": {
+              "light": "{primitive.color.blue.500}",
+              "dark": "{primitive.color.blue.400}",
+              "high-contrast": "{primitive.color.hc.blue}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -165,7 +269,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Info alert backgrounds, info banner backgrounds"
+            "role": "feedback",
+            "useCase": "Info alert backgrounds, info banner backgrounds",
+            "modes": {
+              "light": "{primitive.color.blue.100}",
+              "dark": "{primitive.color.blue.900}",
+              "high-contrast": "{primitive.color.blue.100}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -177,7 +289,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Info alert borders, informational element borders"
+            "role": "feedback",
+            "useCase": "Info alert borders, informational element borders",
+            "modes": {
+              "light": "{primitive.color.blue.300}",
+              "dark": "{primitive.color.blue.700}",
+              "high-contrast": "{primitive.color.hc.blue}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -189,7 +309,15 @@
           "lufa": {
             "level": "core",
             "category": "semantic",
-            "useCase": "Hover state for info buttons and links"
+            "role": "feedback",
+            "useCase": "Hover state for info buttons and links",
+            "modes": {
+              "light": "{primitive.color.blue.600}",
+              "dark": "{primitive.color.blue.300}",
+              "high-contrast": "{primitive.color.hc.blue}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       }

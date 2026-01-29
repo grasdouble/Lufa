@@ -9,7 +9,9 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Button horizontal padding, link button padding"
+            "useCase": "Button horizontal padding, link button padding",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -21,7 +23,9 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Button vertical padding, link button padding"
+            "useCase": "Button vertical padding, link button padding",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -33,7 +37,9 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Gap between button icon and label, spacing in button groups"
+            "useCase": "Gap between button icon and label, spacing in button groups",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -45,7 +51,9 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Text input height, select height, search bar height"
+            "useCase": "Text input height, select height, search bar height",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -57,7 +65,9 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Text input horizontal padding, select padding"
+            "useCase": "Text input horizontal padding, select padding",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -69,7 +79,9 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Text input vertical padding, textarea padding"
+            "useCase": "Text input vertical padding, textarea padding",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -81,7 +93,9 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Card padding, panel padding, box padding"
+            "useCase": "Card padding, panel padding, box padding",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -93,7 +107,9 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Spacing between card header and body, card body and footer"
+            "useCase": "Spacing between card header and body, card body and footer",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -105,7 +121,9 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Modal content padding, dialog padding"
+            "useCase": "Modal content padding, dialog padding",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -117,7 +135,9 @@
           "lufa": {
             "level": "core",
             "category": "component",
-            "useCase": "Modal max-width, dialog max-width, popup max-width"
+            "useCase": "Modal max-width, dialog max-width, popup max-width",
+            "themeable": true,
+            "modeAware": false
           }
         }
       }

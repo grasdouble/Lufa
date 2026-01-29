@@ -9,7 +9,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Primary action buttons, submit buttons, main CTAs"
+            "useCase": "Primary action buttons, submit buttons, main CTAs",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -21,7 +23,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Hover state for primary buttons"
+            "useCase": "Hover state for primary buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -33,19 +37,23 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Active/pressed state for primary buttons"
+            "useCase": "Active/pressed state for primary buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
       "primary-text": {
-        "$value": "#ffffff",
+        "$value": "{semantic.ui.background-on-primary}",
         "$type": "color",
         "$description": "Primary button text color - high contrast on primary background",
         "$extensions": {
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Text color for primary buttons"
+            "useCase": "Text color for primary buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -57,7 +65,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Secondary action buttons, alternative CTAs"
+            "useCase": "Secondary action buttons, alternative CTAs",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -69,7 +79,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Hover state for secondary buttons"
+            "useCase": "Hover state for secondary buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -81,19 +93,23 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Active/pressed state for secondary buttons"
+            "useCase": "Active/pressed state for secondary buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
       "secondary-text": {
-        "$value": "#ffffff",
+        "$value": "{semantic.ui.background-on-secondary}",
         "$type": "color",
         "$description": "Secondary button text color",
         "$extensions": {
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Text color for secondary buttons"
+            "useCase": "Text color for secondary buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -105,7 +121,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Ghost/tertiary buttons, subtle actions, inline actions"
+            "useCase": "Ghost/tertiary buttons, subtle actions, inline actions",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -117,7 +135,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Hover state for ghost buttons"
+            "useCase": "Hover state for ghost buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -129,7 +149,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Text color for ghost buttons"
+            "useCase": "Text color for ghost buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -141,7 +163,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Hover state text for ghost buttons"
+            "useCase": "Hover state text for ghost buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -153,7 +177,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Outline buttons, bordered actions"
+            "useCase": "Outline buttons, bordered actions",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -165,7 +191,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Hover state for outline buttons"
+            "useCase": "Hover state for outline buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -177,7 +205,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Border for outline buttons"
+            "useCase": "Border for outline buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -189,7 +219,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Hover state border for outline buttons"
+            "useCase": "Hover state border for outline buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -201,19 +233,23 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Text color for outline buttons"
+            "useCase": "Text color for outline buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
       "outline-text-hover": {
-        "$value": "#ffffff",
+        "$value": "{primitive.color.hc.white}",
         "$type": "color",
         "$description": "Outline button hover text color - switches to white on filled background",
         "$extensions": {
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Hover state text for outline buttons"
+            "useCase": "Hover state text for outline buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -225,7 +261,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Delete buttons, destructive actions, danger buttons"
+            "useCase": "Delete buttons, destructive actions, danger buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -237,19 +275,23 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Hover state for destructive buttons"
+            "useCase": "Hover state for destructive buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
       "destructive-text": {
-        "$value": "#ffffff",
+        "$value": "{primitive.color.hc.white}",
         "$type": "color",
         "$description": "Destructive button text color",
         "$extensions": {
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Text color for destructive buttons"
+            "useCase": "Text color for destructive buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -261,7 +303,9 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Success buttons, confirmation actions, positive CTAs"
+            "useCase": "Success buttons, confirmation actions, positive CTAs",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -273,19 +317,107 @@
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Hover state for success buttons"
+            "useCase": "Hover state for success buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
       "success-text": {
-        "$value": "#ffffff",
+        "$value": "{primitive.color.hc.white}",
         "$type": "color",
         "$description": "Success button text color",
         "$extensions": {
           "lufa": {
             "level": "semantic",
             "category": "button",
-            "useCase": "Text color for success buttons"
+            "useCase": "Text color for success buttons",
+            "themeable": true,
+            "modeAware": false
+          }
+        }
+      },
+      "warning-background": {
+        "$value": "{core.semantic.warning}",
+        "$type": "color",
+        "$description": "Warning button background - for caution actions",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Warning buttons, caution actions, alert CTAs",
+            "themeable": true,
+            "modeAware": false
+          }
+        }
+      },
+      "warning-background-hover": {
+        "$value": "{core.semantic.warning-hover}",
+        "$type": "color",
+        "$description": "Warning button hover state background",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Hover state for warning buttons",
+            "themeable": true,
+            "modeAware": false
+          }
+        }
+      },
+      "warning-text": {
+        "$value": "{primitive.color.hc.white}",
+        "$type": "color",
+        "$description": "Warning button text color",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Text color for warning buttons",
+            "themeable": true,
+            "modeAware": false
+          }
+        }
+      },
+      "info-background": {
+        "$value": "{core.semantic.info}",
+        "$type": "color",
+        "$description": "Info button background - for informational actions",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Info buttons, informational actions, help CTAs",
+            "themeable": true,
+            "modeAware": false
+          }
+        }
+      },
+      "info-background-hover": {
+        "$value": "{core.semantic.info-hover}",
+        "$type": "color",
+        "$description": "Info button hover state background",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Hover state for info buttons",
+            "themeable": true,
+            "modeAware": false
+          }
+        }
+      },
+      "info-text": {
+        "$value": "{primitive.color.hc.white}",
+        "$type": "color",
+        "$description": "Info button text color",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "button",
+            "useCase": "Text color for info buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       }

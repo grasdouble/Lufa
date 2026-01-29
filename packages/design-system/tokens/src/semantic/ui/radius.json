@@ -10,7 +10,9 @@
             "level": "semantic",
             "category": "ui",
             "subcategory": "radius",
-            "useCase": "Badges, tags, tooltips, compact buttons, chips"
+            "useCase": "Badges, tags, tooltips, compact buttons, chips",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -23,7 +25,9 @@
             "level": "semantic",
             "category": "ui",
             "subcategory": "radius",
-            "useCase": "Buttons, inputs, cards, modals, standard rounded corners"
+            "useCase": "Buttons, inputs, cards, modals, standard rounded corners",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -36,7 +40,9 @@
             "level": "semantic",
             "category": "ui",
             "subcategory": "radius",
-            "useCase": "Large cards, popovers, emphasized components, feature sections"
+            "useCase": "Large cards, popovers, emphasized components, feature sections",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -49,7 +55,9 @@
             "level": "semantic",
             "category": "ui",
             "subcategory": "radius",
-            "useCase": "Modal dialogs, hero cards, large panels, prominent components"
+            "useCase": "Modal dialogs, hero cards, large panels, prominent components",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -62,7 +70,9 @@
             "level": "semantic",
             "category": "ui",
             "subcategory": "radius",
-            "useCase": "Badges, pills, circular avatars, fully rounded buttons"
+            "useCase": "Badges, pills, circular avatars, fully rounded buttons",
+            "themeable": true,
+            "modeAware": false
           }
         }
       }

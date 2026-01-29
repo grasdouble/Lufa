@@ -200,7 +200,7 @@ type IconComponentProps<T extends ElementType> = IconProps<T> & Omit<ComponentPr
  */
 const IconImpl = <T extends ElementType = 'span'>(
   { as, name, size = 'md', color = 'currentColor', title, className, ...htmlProps }: IconComponentProps<T>,
-  ref: React.Ref<Element>
+  ref: React.ForwardedRef<Element>
 ) => {
   // Determine the element to render
   const Component = as ?? 'span';
@@ -238,7 +238,7 @@ const IconImpl = <T extends ElementType = 'span'>(
 
   return (
     <Component
-      ref={ref}
+      ref={ref as React.Ref<never>}
       className={iconClassName}
       aria-hidden={ariaHidden}
       aria-label={ariaLabel}
@@ -251,9 +251,13 @@ const IconImpl = <T extends ElementType = 'span'>(
   );
 };
 
-// Forward ref with generic type support and displayName
-export const Icon = forwardRef(IconImpl) as <T extends ElementType = 'span'>(
-  props: IconComponentProps<T> & { ref?: React.Ref<Element> }
+// Forward ref with generic type support
+// Note: Icon requires explicit typing due to required 'name' prop
+const IconWithRef = forwardRef<Element, IconComponentProps<'span'>>(
+  IconImpl as React.ForwardRefRenderFunction<Element, IconComponentProps<'span'>>
+) as <T extends ElementType = 'span'>(
+  props: IconComponentProps<T> & { ref?: React.Ref<React.ComponentRef<T>> }
 ) => React.ReactElement;
 
-Icon.displayName = 'Icon';
+// Export with displayName
+export const Icon = Object.assign(IconWithRef, { displayName: 'Icon' });

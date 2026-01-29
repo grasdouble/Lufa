@@ -11,7 +11,8 @@ This document provides guidelines on how to correctly use Lufa Design System tok
 3. [Best Practices](#best-practices)
 4. [Anti-Patterns](#anti-patterns)
 5. [Usage by Context](#usage-by-context)
-6. [Enforcement](#enforcement)
+6. [Opacity & Alpha Tokens](#opacity--alpha-tokens)
+7. [Enforcement](#enforcement)
 
 ---
 
@@ -64,7 +65,7 @@ React Components (Button.tsx)
 }
 
 /* Dark theme override */
-[data-theme='dark'] {
+[data-mode='dark'] {
   --lufa-core-brand-primary: #60a5fa; /* blue-400 */
 }
 
@@ -166,7 +167,28 @@ console.log(metadata.primitive.color.blue['600']);
 }
 ```
 
-### 2. Separate Concerns: Components vs Styles
+### 2. Prefer Semantic Opacity Tokens for UI States
+
+Use semantic tokens for overlays and interactive states. Use primitive alpha tokens only when you need a specific opacity value.
+
+```css
+/* ✅ PREFERRED - Semantic overlays */
+.modal-backdrop {
+  background-color: var(--lufa-semantic-ui-overlay-backdrop);
+}
+
+/* ✅ PREFERRED - Semantic interactive opacity */
+.button:disabled {
+  opacity: var(--lufa-semantic-interactive-disabled-opacity);
+}
+
+/* ✅ ACCEPTABLE - Primitive alpha for exact opacity needs */
+.elevation-soft {
+  box-shadow: 0 1px 2px var(--lufa-primitive-color-alpha-black-5);
+}
+```
+
+### 3. Separate Concerns: Components vs Styles
 
 **Component files handle logic, CSS Modules handle presentation.**
 
@@ -190,7 +212,7 @@ export const Button = ({ variant, children }) => (
 }
 ```
 
-### 3. Leverage CSS Variable Inheritance
+### 4. Leverage CSS Variable Inheritance
 
 ```css
 /* ✅ CORRECT - Override at component level */
@@ -207,7 +229,7 @@ export const Button = ({ variant, children }) => (
 }
 ```
 
-### 4. Use Meaningful Class Names
+### 5. Use Meaningful Class Names
 
 ```css
 /* ✅ CORRECT - Semantic class names */
@@ -536,6 +558,7 @@ Add this rule to your component package's ESLint config:
 ## 📚 Additional Resources
 
 - **Main README:** [../../README.md](../../README.md)
+- **Themable Attribute Guide:** [THEMABLE_ATTRIBUTE.md](./THEMABLE_ATTRIBUTE.md)
 - **Token Architecture:** [../architecture/token-levels-overview.md](../architecture/token-levels-overview.md) (coming soon)
 - **Theming Guide:** [../../THEMING_GUIDE.md](../../THEMING_GUIDE.md) (coming soon)
 - **Component Guidelines:** `.github/instructions/lufa-design-system.instructions.md`
@@ -562,3 +585,33 @@ If you're unsure whether your use case is correct:
 
 **Last Updated:** January 23, 2026  
 **Status:** Active - Enforced via ESLint
+
+## 🌫️ Opacity & Alpha Tokens
+
+### Semantic Opacity Tokens (Preferred)
+
+Use semantic opacity tokens for overlays and UI states:
+
+- `semantic.ui.overlay-backdrop`
+- `semantic.ui.overlay-hover`
+- `semantic.ui.overlay-pressed`
+- `semantic.ui.overlay-selected`
+- `semantic.ui.scrim`
+- `semantic.interactive.disabled-opacity`
+- `semantic.interactive.loading-opacity`
+- `semantic.interactive.placeholder-opacity`
+
+### Primitive Alpha Palette (Advanced)
+
+Use primitive alpha tokens only when a semantic token does not fit your use case.
+
+- **Black:** 4, 5, 8, 12, 15, 16, 38, 50, 60, 80, 90, 100
+- **White:** 4, 5, 8, 12, 15, 16, 38, 50, 60, 80, 90, 100
+
+```css
+.shadow-sm {
+  box-shadow: 0 1px 2px var(--lufa-primitive-color-alpha-black-5);
+}
+```
+
+**Rule:** If no exact alpha token exists, keep the literal value temporarily and document it for follow-up.

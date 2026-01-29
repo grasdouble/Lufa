@@ -1,7 +1,11 @@
-import { useEffect } from 'react';
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import type { Decorator, Parameters, Preview } from '@storybook/react-vite';
 
 import { Breakpoints } from './breakpoints';
+import { ThemeAndModeWrapper } from './ThemeAndModeWrapper';
 // Import design system compiled CSS (includes all component styles)
 // Import storybook-specific styles
 import '../src/style.css';
@@ -44,48 +48,8 @@ const parameters: Parameters = {
 };
 
 /**
- * Component wrapper for theme and mode handling
- */
-const ThemeAndModeWrapper = ({ theme, mode, children }: { theme: string; mode: string; children: React.ReactNode }) => {
-  useEffect(() => {
-    const root = document.documentElement;
-
-    // Apply theme attribute
-    if (theme === 'default') {
-      root.removeAttribute('data-theme');
-    } else {
-      root.setAttribute('data-theme', theme);
-    }
-
-    // Apply mode attribute
-    if (mode === 'auto' || mode === '' || mode == null || mode === undefined) {
-      root.removeAttribute('data-mode');
-    } else {
-      root.setAttribute('data-mode', mode);
-    }
-  }, [theme, mode]);
-
-  return (
-    <div
-      style={{
-        backgroundColor: 'var(--lufa-token-color-background-primary)',
-        color: 'var(--lufa-token-color-text-primary)',
-        minHeight: '100vh',
-        padding: '2rem',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'background-color 0.3s ease, color 0.3s ease',
-      }}
-    >
-      {children}
-    </div>
-  );
-};
-
-/**
- * Custom decorator to handle theme (default/ocean/forest) and mode (light/dark/auto)
- * Applies data-theme and data-mode attributes to the document root
+ * Custom decorator to handle theme (default/ocean/forest) and mode (light/dark/high-contrast)
+ * Applies data-color-theme and data-mode attributes to the document root
  */
 const withThemeAndMode: Decorator = (Story, context) => {
   const theme: string = context.globals.theme ?? 'default';
@@ -117,7 +81,7 @@ const preview: Preview = {
       },
     },
     mode: {
-      description: 'Color mode (light/dark/auto)',
+      description: 'Color mode (accessibility)',
       defaultValue: 'light',
       toolbar: {
         title: 'Mode',
@@ -125,7 +89,7 @@ const preview: Preview = {
         items: [
           { value: 'light', title: '☀️ Light', icon: 'sun' },
           { value: 'dark', title: '🌙 Dark', icon: 'moon' },
-          { value: 'auto', title: '🔄 Auto', icon: 'sync' },
+          { value: 'high-contrast', title: '◐ High Contrast', icon: 'contrast' },
         ],
         dynamicTitle: true,
       },

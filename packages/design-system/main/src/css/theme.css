@@ -27,7 +27,7 @@
   --lufa-token-color-background-secondary: oklch(98.5% 0 0);
   --lufa-token-color-background-tertiary: oklch(96.7% 0 0);
   --lufa-token-color-background-inverse: oklch(21% 0 0);
-  --lufa-token-color-background-overlay: rgba(0, 0, 0, 0.5);
+  --lufa-token-color-background-overlay: var(--lufa-primitive-color-alpha-black-50);
 
   --lufa-token-color-border-default: oklch(87.1% 0 0);
   --lufa-token-color-border-light: oklch(92% 0 0);
@@ -86,9 +86,9 @@
   --lufa-token-color-surface-overlay: oklch(96.7% 0 0);
   --lufa-token-color-surface-inverse: oklch(21% 0 0);
 
-  --lufa-token-color-shadow-small: rgba(0, 0, 0, 0.05);
+  --lufa-token-color-shadow-small: var(--lufa-primitive-color-alpha-black-5);
   --lufa-token-color-shadow-medium: rgba(0, 0, 0, 0.1);
-  --lufa-token-color-shadow-large: rgba(0, 0, 0, 0.15);
+  --lufa-token-color-shadow-large: var(--lufa-primitive-color-alpha-black-15);
   --lufa-token-color-shadow-extra-large: rgba(0, 0, 0, 0.2);
 }
 
@@ -170,8 +170,8 @@
 
   --lufa-token-color-shadow-small: rgba(0, 0, 0, 0.3);
   --lufa-token-color-shadow-medium: rgba(0, 0, 0, 0.4);
-  --lufa-token-color-shadow-large: rgba(0, 0, 0, 0.5);
-  --lufa-token-color-shadow-extra-large: rgba(0, 0, 0, 0.6);
+  --lufa-token-color-shadow-large: var(--lufa-primitive-color-alpha-black-50);
+  --lufa-token-color-shadow-extra-large: var(--lufa-primitive-color-alpha-black-60);
 }
 
 /**
@@ -254,7 +254,7 @@
 
     --lufa-token-color-shadow-small: rgba(0, 0, 0, 0.3);
     --lufa-token-color-shadow-medium: rgba(0, 0, 0, 0.4);
-    --lufa-token-color-shadow-large: rgba(0, 0, 0, 0.5);
-    --lufa-token-color-shadow-extra-large: rgba(0, 0, 0, 0.6);
+    --lufa-token-color-shadow-large: var(--lufa-primitive-color-alpha-black-50);
+    --lufa-token-color-shadow-extra-large: var(--lufa-primitive-color-alpha-black-60);
   }
 }

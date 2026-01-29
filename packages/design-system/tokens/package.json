@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/lufa_design-system-tokens",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "private": false,
   "description": "Lufa Design System - Semantic design tokens (colors, spacing, typography, etc.)",
   "license": "MIT",
@@ -17,12 +17,14 @@
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm clean && style-dictionary build --config ./style-dictionary.config.js",
-    "build:watch": "style-dictionary build --config ./style-dictionary.config.js --watch",
+    "prebuild": "pnpm validate:tokens",
+    "build": "pnpm clean && style-dictionary build --config ./style-dictionary.config.js && pnpm check:size",
+    "check:size": "node scripts/check-css-size.mjs",
     "clean": "rm -rf dist",
-    "lint": "echo 'No TypeScript files to lint in tokens package' && exit 0",
-    "prettier": "prettier --write .",
-    "validate": "node ../../../scripts/validate-token-metadata.js"
+    "test": "node __tests__/themable-validation.test.js",
+    "test:themable": "node __tests__/themable-validation.test.js",
+    "test:validator": "node build/validators/token-consistency.test.js",
+    "validate:tokens": "node build/validators/token-consistency.js"
   },
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",

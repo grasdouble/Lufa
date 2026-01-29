@@ -231,18 +231,28 @@ export const Playground: Story = {
     children: '🎨 Edit the controls to see changes in real-time!',
     contentType: 'text',
   },
-  render: (args) => {
+  render: (args:any) => {
+    // Type-safe access to args properties
+    const contentType = (args as { contentType?: 'text' | 'multipleItems' }).contentType;
+    const children = (args as { children?: React.ReactNode }).children;
+
     // Determine content based on contentType control
+    const itemStyle = {
+      padding: '8px',
+      background: 'var(--lufa-semantic-interactive-background-hover)',
+      borderRadius: '4px',
+    };
+
     const content =
-      args.contentType === 'multipleItems' ? (
+      contentType === 'multipleItems' ? (
         <>
-          <div style={{ padding: '8px', background: 'rgba(255, 255, 255, 0.2)', borderRadius: '4px' }}>Item 1</div>
-          <div style={{ padding: '8px', background: 'rgba(255, 255, 255, 0.2)', borderRadius: '4px' }}>Item 2</div>
-          <div style={{ padding: '8px', background: 'rgba(255, 255, 255, 0.2)', borderRadius: '4px' }}>Item 3</div>
-          <div style={{ padding: '8px', background: 'rgba(255, 255, 255, 0.2)', borderRadius: '4px' }}>Item 4</div>
+          <div style={itemStyle}>Item 1</div>
+          <div style={itemStyle}>Item 2</div>
+          <div style={itemStyle}>Item 3</div>
+          <div style={itemStyle}>Item 4</div>
         </>
       ) : (
-        args.children
+        children
       );
 
     return (
@@ -358,15 +368,37 @@ export const PropPadding: Story = {
   render: () => {
     const [hoveredPadding, setHoveredPadding] = React.useState<string>('default');
 
+    {
+      /* 
+      💡 TOKEN EDUCATION: Spacing System
+      
+      Box padding uses semantic spacing tokens:
+      - padding="none" → var(--lufa-semantic-spacing-none) = 0px
+      - padding="tight" → var(--lufa-semantic-spacing-tight) = 4px
+      - padding="compact" → var(--lufa-semantic-spacing-compact) = 8px
+      - padding="default" → var(--lufa-semantic-spacing-default) = 16px
+      - padding="comfortable" → var(--lufa-semantic-spacing-comfortable) = 24px
+      - padding="spacious" → var(--lufa-semantic-spacing-spacious) = 32px
+      
+      ✅ Benefits:
+      - Consistent spacing across entire application
+      - Easy to adjust globally (change token value once)
+      - Semantic naming makes intent clear
+      - Prevents arbitrary spacing values
+      
+      The blue visualization shows the padding area around content.
+    */
+    }
+
     // Mapping of padding values to pixel sizes and colors
     // Note: 'none' and 'tight' both map to 4px (tight spacing)
     const paddingValues = [
       { value: 'none' as const, size: '4px', color: STORY_COLORS.neutral.borderMedium },
-      { value: 'tight' as const, size: '4px', color: STORY_COLORS.primary.cyan },
-      { value: 'compact' as const, size: '8px', color: STORY_COLORS.primary.green },
-      { value: 'default' as const, size: '16px', color: STORY_COLORS.primary.blue },
-      { value: 'comfortable' as const, size: '24px', color: STORY_COLORS.primary.violet },
-      { value: 'spacious' as const, size: '32px', color: STORY_COLORS.primary.pink },
+      { value: 'tight' as const, size: '4px', color: STORY_COLORS.primary.cyan.main },
+      { value: 'compact' as const, size: '8px', color: STORY_COLORS.primary.green.main },
+      { value: 'default' as const, size: '16px', color: STORY_COLORS.primary.blue.main },
+      { value: 'comfortable' as const, size: '24px', color: STORY_COLORS.primary.violet.main },
+      { value: 'spacious' as const, size: '32px', color: STORY_COLORS.primary.pink.main },
     ];
 
     const generateCode = (padding: string): string => {
@@ -931,6 +963,33 @@ export const PropMarginIndividual: Story = {
 export const PropBackground: Story = {
   render: () => {
     const [hoveredBg, setHoveredBg] = React.useState<string>('surface');
+
+    {
+      /* 
+      💡 TOKEN EDUCATION: Semantic Background Colors
+      
+      Box background uses semantic UI tokens that adapt to themes:
+      
+      - background="page" → STORY_COLORS.themed.background.page
+        Main page background color
+        
+      - background="surface" → STORY_COLORS.themed.background.surface
+        Elevated surfaces like cards and panels
+        
+      - background="success/error/warning/info" → Semantic state backgrounds
+        Used for alerts, notifications, and status indicators
+        
+      - background="overlay" → var(--lufa-semantic-ui-overlay-backdrop)
+        Semi-transparent modal/dialog backdrops
+      
+      ✅ Theme Adaptation:
+      - Light mode: Light backgrounds, dark text
+      - Dark mode: Dark backgrounds, light text  
+      - High-contrast: Maximum contrast for accessibility
+      
+      Try switching themes to see automatic color adaptation!
+    */
+    }
 
     const generateCode = (bg: string): string => {
       return `<Box padding="comfortable" background="${bg}" borderRadius="default">

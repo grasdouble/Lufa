@@ -2,6 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { StoryContainer } from '../../components/helpers';
+import { STORY_COLORS } from '../../constants/storyColors';
 
 /**
  * Colors - Design System Color Tokens
@@ -25,6 +26,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const NEUTRAL = STORY_COLORS.neutral;
+
 // Simple color swatch component
 const ColorSwatch = ({ token, name, description }: { token: string; name: string; description?: string }) => (
   <div
@@ -42,15 +45,17 @@ const ColorSwatch = ({ token, name, description }: { token: string; name: string
         height: '80px',
         backgroundColor: `var(${token})`,
         borderRadius: '6px',
-        border: '1px solid #e0e0e0',
-        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+        border: `1px solid ${NEUTRAL.borderMedium}`,
+        boxShadow: STORY_COLORS.themed.shadow.sm,
       }}
     />
     <div style={{ fontSize: '11px', fontFamily: 'monospace' }}>
       <div style={{ fontWeight: 600, marginBottom: '2px' }}>{name}</div>
-      <div style={{ color: '#666', fontSize: '10px' }}>{token}</div>
+      <div style={{ color: NEUTRAL.textSlate, fontSize: '10px' }}>{token}</div>
       {description && (
-        <div style={{ color: '#888', fontSize: '9px', marginTop: '4px', fontFamily: 'sans-serif' }}>{description}</div>
+        <div style={{ color: NEUTRAL.textSlate, fontSize: '9px', marginTop: '4px', fontFamily: 'sans-serif' }}>
+          {description}
+        </div>
       )}
     </div>
   </div>
@@ -64,8 +69,8 @@ const ColorCategory = ({ title, children }: { title: string; children: React.Rea
         fontSize: '24px',
         fontWeight: 700,
         marginBottom: '24px',
-        color: '#111',
-        borderBottom: '2px solid #e0e0e0',
+        color: NEUTRAL.textDark,
+        borderBottom: `2px solid ${NEUTRAL.borderMedium}`,
         paddingBottom: '12px',
       }}
     >
@@ -105,6 +110,34 @@ const ColorScale = ({ colorName, shades }: { colorName: string; shades: number[]
  * ## Overview
  *
  * Complete color token system organized by semantic purpose.
+ *
+ * 💡 TOKEN EDUCATION: Three-Layer Token Architecture
+ *
+ * 1️⃣ **Primitive Tokens** (Base Layer)
+ *    - Raw color values: blue-500, gray-100, red-700
+ *    - Used as building blocks for semantic tokens
+ *    - Rarely used directly in components
+ *
+ * 2️⃣ **Semantic Tokens** (Meaning Layer)
+ *    - Purpose-driven: background-surface, text-primary, border-default
+ *    - Maps to primitive tokens
+ *    - Automatically adapts to light/dark/high-contrast modes
+ *    - **Use these for most UI elements**
+ *
+ * 3️⃣ **Component Tokens** (Component Layer)
+ *    - Component-specific: button-primary-background, input-border-focus
+ *    - Provides granular control for complex components
+ *    - Built on top of semantic tokens
+ *    - **Use these when available for your component**
+ *
+ * ✅ Best Practice Hierarchy:
+ *    1. Use component tokens (if available)
+ *    2. Use semantic tokens (for general UI)
+ *    3. Use primitive tokens (advanced use cases only)
+ *
+ * 🎨 Theme Support:
+ *    All tokens automatically switch values based on active theme mode.
+ *    Try switching between light/dark/high-contrast to see it in action!
  */
 export const Overview: Story = {
   render: () => (
@@ -165,7 +198,7 @@ export const Overview: Story = {
           description="Hover state for interactive surfaces"
         />
         <ColorSwatch
-          token="--lufa-semantic-ui-background-overlay"
+          token="--lufa-semantic-ui-overlay-backdrop"
           name="overlay"
           description="Modal backdrop, semi-transparent"
         />

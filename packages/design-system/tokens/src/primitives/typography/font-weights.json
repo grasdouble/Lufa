@@ -10,7 +10,9 @@
             "lufa": {
               "level": "primitive",
               "category": "typography",
-              "useCase": "Body text, paragraphs, descriptions"
+              "useCase": "Body text, paragraphs, descriptions",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -22,7 +24,9 @@
             "lufa": {
               "level": "primitive",
               "category": "typography",
-              "useCase": "Labels, navigation, light emphasis"
+              "useCase": "Labels, navigation, light emphasis",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -34,7 +38,9 @@
             "lufa": {
               "level": "primitive",
               "category": "typography",
-              "useCase": "Subtitles, buttons, strong emphasis"
+              "useCase": "Subtitles, buttons, strong emphasis",
+              "themeable": false,
+              "modeAware": false
             }
           }
         },
@@ -46,7 +52,9 @@
             "lufa": {
               "level": "primitive",
               "category": "typography",
-              "useCase": "Headings, critical interface elements"
+              "useCase": "Headings, critical interface elements",
+              "themeable": false,
+              "modeAware": false
             }
           }
         }

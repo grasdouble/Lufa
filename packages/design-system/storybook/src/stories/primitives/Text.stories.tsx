@@ -6,6 +6,9 @@ import { Text } from '@grasdouble/lufa_design-system';
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
 import { STORY_COLORS } from '../../constants/storyColors';
 
+const NEUTRAL = STORY_COLORS.neutral;
+const PRIMARY = STORY_COLORS.primary;
+
 /**
  * Text - Typography Primitive Component
  *
@@ -125,7 +128,7 @@ export const Playground: Story = {
     transform: 'none',
     children: 'The quick brown fox jumps over the lazy dog.',
   },
-  render: (args) => {
+  render: (args: any) => {
     return (
       <StoryContainer>
         <div
@@ -171,7 +174,7 @@ export const PropVariant: Story = {
 
     const generateCode = (variant: string): string => {
       return `<Text variant="${variant}">
-  ${variantValues.find((v) => v.value === variant)?.example || 'Text content'}
+  ${variantValues.find((v) => v.value === variant)?.example ?? 'Text content'}
 </Text>`;
     };
 
@@ -184,7 +187,7 @@ export const PropVariant: Story = {
               <div key={value} onMouseEnter={() => setHoveredVariant(value)}>
                 <PropCard label={`variant="${value}"`} highlight={hoveredVariant === value}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <div style={{ fontSize: '12px', fontWeight: 600, color: '#666' }}>{label}</div>
+                    <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate }}>{label}</div>
                     <Text variant={value}>{example}</Text>
                   </div>
                 </PropCard>
@@ -218,6 +221,36 @@ export const PropColor: Story = {
   render: () => {
     const [hoveredColor, setHoveredColor] = React.useState<string>('primary');
 
+    {
+      /* 
+      💡 TOKEN EDUCATION: Semantic Text Colors
+      
+      Text color uses semantic UI text tokens:
+      
+      - color="primary" → STORY_COLORS.themed.text.primary
+        Default text color for headings and body text
+        
+      - color="secondary" → STORY_COLORS.themed.text.secondary
+        Supporting text with less emphasis
+        
+      - color="tertiary" → STORY_COLORS.themed.text.tertiary
+        Subtle text with least emphasis (captions, metadata)
+        
+      - color="success/error/warning/info" → Semantic state colors
+        Used for status messages and feedback
+        
+      - color="inverse" → var(--lufa-semantic-ui-text-inverse)
+        Text on dark backgrounds (automatically switches in dark mode)
+      
+      ✅ Accessibility:
+      - All color combinations meet WCAG AA contrast ratios
+      - Automatically adjusts in light/dark/high-contrast modes
+      - Never use hard-coded text colors in production!
+      
+      Try switching themes to see automatic contrast adjustments!
+    */
+    }
+
     const colorValues = [
       { value: 'primary' as const, label: 'Primary', description: 'Default text color' },
       { value: 'secondary' as const, label: 'Secondary', description: 'Secondary text (less emphasis)' },
@@ -231,7 +264,7 @@ export const PropColor: Story = {
 
     const generateCode = (color: string): string => {
       return `<Text color="${color}">
-  ${colorValues.find((c) => c.value === color)?.description || 'Text content'}
+  ${colorValues.find((c) => c.value === color)?.description ?? 'Text content'}
 </Text>`;
     };
 
@@ -291,7 +324,7 @@ export const PropWeight: Story = {
 
     const generateCode = (weight: string): string => {
       return `<Text weight="${weight}">
-  ${weightValues.find((w) => w.value === weight)?.example || 'Text content'}
+  ${weightValues.find((w) => w.value === weight)?.example ?? 'Text content'}
 </Text>`;
     };
 
@@ -304,7 +337,7 @@ export const PropWeight: Story = {
               <div key={value} onMouseEnter={() => setHoveredWeight(value)}>
                 <PropCard label={`weight="${value}"`} highlight={hoveredWeight === value}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <div style={{ fontSize: '12px', fontWeight: 600, color: '#666' }}>{label}</div>
+                    <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate }}>{label}</div>
                     <Text variant="body" weight={value}>
                       {example}
                     </Text>
@@ -408,7 +441,7 @@ export const PropTransform: Story = {
 
     const generateCode = (transform: string): string => {
       return `<Text transform="${transform}">
-  ${transformValues.find((t) => t.value === transform)?.example || 'Text content'}
+  ${transformValues.find((t) => t.value === transform)?.example ?? 'Text content'}
 </Text>`;
     };
 
@@ -421,7 +454,7 @@ export const PropTransform: Story = {
               <div key={value} onMouseEnter={() => setHoveredTransform(value)}>
                 <PropCard label={`transform="${value}"`} highlight={hoveredTransform === value}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <div style={{ fontSize: '12px', fontWeight: 600, color: '#666' }}>{label}</div>
+                    <div style={{ fontSize: '12px', fontWeight: 600, color: NEUTRAL.textSlate }}>{label}</div>
                     <Text variant="body" transform={value}>
                       {example}
                     </Text>
@@ -581,9 +614,9 @@ export const CombinedVariants: Story = {
               <div
                 style={{
                   padding: '16px',
-                  background: '#d1fae5',
+                  background: PRIMARY.green.light,
                   borderRadius: '8px',
-                  border: '1px solid #10b981',
+                  border: `1px solid ${PRIMARY.green.main}`,
                 }}
               >
                 <Text variant="body" color="success" weight="semibold">
@@ -593,9 +626,9 @@ export const CombinedVariants: Story = {
               <div
                 style={{
                   padding: '16px',
-                  background: '#fee2e2',
+                  background: PRIMARY.pink.light,
                   borderRadius: '8px',
-                  border: '1px solid #ef4444',
+                  border: `1px solid ${PRIMARY.pink.main}`,
                 }}
               >
                 <Text variant="body" color="error" weight="semibold">
@@ -605,9 +638,9 @@ export const CombinedVariants: Story = {
               <div
                 style={{
                   padding: '16px',
-                  background: '#fef3c7',
+                  background: PRIMARY.orange.light,
                   borderRadius: '8px',
-                  border: '1px solid #f59e0b',
+                  border: `1px solid ${PRIMARY.orange.main}`,
                 }}
               >
                 <Text variant="body" color="warning" weight="semibold">
@@ -617,9 +650,9 @@ export const CombinedVariants: Story = {
               <div
                 style={{
                   padding: '16px',
-                  background: '#dbeafe',
+                  background: PRIMARY.blue.light,
                   borderRadius: '8px',
-                  border: '1px solid #3b82f6',
+                  border: `1px solid ${PRIMARY.blue.main}`,
                 }}
               >
                 <Text variant="body" color="info" weight="semibold">
@@ -653,7 +686,7 @@ export const CombinedVariants: Story = {
                     width: '100%',
                     padding: '8px 12px',
                     borderRadius: '6px',
-                    border: '1px solid #ccc',
+                    border: `1px solid ${NEUTRAL.borderMedium}`,
                     fontSize: '14px',
                   }}
                 />
@@ -672,7 +705,7 @@ export const CombinedVariants: Story = {
                     width: '100%',
                     padding: '8px 12px',
                     borderRadius: '6px',
-                    border: '1px solid #ccc',
+                    border: `1px solid ${NEUTRAL.borderMedium}`,
                     fontSize: '14px',
                   }}
                 />
@@ -738,9 +771,9 @@ export const RealWorldPatterns: Story = {
               style={{
                 maxWidth: '700px',
                 padding: '32px',
-                background: 'white',
+                background: 'STORY_COLORS.themed.background.surface',
                 borderRadius: '12px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                boxShadow: STORY_COLORS.themed.shadow.md,
               }}
             >
               <Text variant="label" transform="uppercase" color="secondary" weight="semibold">
@@ -776,10 +809,10 @@ export const RealWorldPatterns: Story = {
                   key={plan.name}
                   style={{
                     padding: '24px',
-                    background: 'white',
+                    background: 'STORY_COLORS.themed.background.surface',
                     borderRadius: '12px',
                     border: '2px solid',
-                    borderColor: idx === 1 ? STORY_COLORS.primary.blue.main : '#e5e7eb',
+                    borderColor: idx === 1 ? STORY_COLORS.primary.blue.main : NEUTRAL.borderMedium,
                   }}
                 >
                   <Text variant="label" transform="uppercase" weight="semibold" color="secondary">
@@ -821,9 +854,9 @@ export const RealWorldPatterns: Story = {
                   key={metric.label}
                   style={{
                     padding: '20px',
-                    background: 'white',
+                    background: 'STORY_COLORS.themed.background.surface',
                     borderRadius: '8px',
-                    border: '1px solid #e5e7eb',
+                    border: `1px solid ${NEUTRAL.borderMedium}`,
                   }}
                 >
                   <Text variant="label" color="secondary">

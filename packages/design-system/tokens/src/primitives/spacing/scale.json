@@ -9,7 +9,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "reset margin/padding"
+            "useCase": "reset margin/padding",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -21,7 +23,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "icon-text gap, tight lists"
+            "useCase": "icon-text gap, tight lists",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -33,7 +37,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "button padding, inline gaps"
+            "useCase": "button padding, inline gaps",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -45,7 +51,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "form field gaps, card padding"
+            "useCase": "form field gaps, card padding",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -57,7 +65,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "section margins, component spacing"
+            "useCase": "section margins, component spacing",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -69,7 +79,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "section spacing, card gaps"
+            "useCase": "section spacing, card gaps",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -81,7 +93,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "page sections, large card padding"
+            "useCase": "page sections, large card padding",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -93,7 +107,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "hero sections, large gutters"
+            "useCase": "hero sections, large gutters",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -105,7 +121,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "page headers, major separators"
+            "useCase": "page headers, major separators",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -117,7 +135,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "section separators, page breaks"
+            "useCase": "section separators, page breaks",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -129,7 +149,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "footer spacing, large hero margins"
+            "useCase": "footer spacing, large hero margins",
+            "themeable": false,
+            "modeAware": false
           }
         }
       },
@@ -141,7 +163,9 @@
           "lufa": {
             "level": "primitive",
             "category": "spacing",
-            "useCase": "page-level margins, hero sections"
+            "useCase": "page-level margins, hero sections",
+            "themeable": false,
+            "modeAware": false
           }
         }
       }

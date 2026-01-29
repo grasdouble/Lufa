@@ -46,7 +46,7 @@ export type PlaygroundContainerProps = {
    * @default false
    */
   defaultShowAdjacentElements?: boolean;
-}
+};
 
 export const PlaygroundContainer = ({
   children,
@@ -64,7 +64,7 @@ export const PlaygroundContainer = ({
         display: 'flex',
         flexDirection: 'column',
         gap: '16px',
-        background: '#fafafa',
+        background: 'var(--lufa-semantic-ui-background-surface)',
       }}
     >
       {/* Toggle Controls */}
@@ -82,7 +82,7 @@ export const PlaygroundContainer = ({
             alignItems: 'center',
             gap: '6px',
             fontSize: '14px',
-            color: '#475569',
+            color: 'var(--lufa-semantic-ui-text-secondary)',
             cursor: 'pointer',
             userSelect: 'none',
           }}
@@ -102,7 +102,7 @@ export const PlaygroundContainer = ({
             alignItems: 'center',
             gap: '6px',
             fontSize: '14px',
-            color: '#475569',
+            color: 'var(--lufa-semantic-ui-text-secondary)',
             cursor: 'pointer',
             userSelect: 'none',
           }}
@@ -122,9 +122,9 @@ export const PlaygroundContainer = ({
         style={{
           position: 'relative',
           padding: '24px',
-          border: '2px dashed #cbd5e1',
+          border: '2px dashed var(--lufa-semantic-ui-border-default)',
           borderRadius: '8px',
-          background: 'white',
+          background: 'var(--lufa-semantic-ui-background-surface)',
           minWidth: '400px',
           minHeight: '200px',
           flex: 1,
@@ -141,7 +141,7 @@ export const PlaygroundContainer = ({
                 left: '50%',
                 width: '1px',
                 height: '100%',
-                background: '#e5e7eb',
+                background: 'var(--lufa-semantic-ui-border-default)',
                 pointerEvents: 'none',
               }}
             />
@@ -153,7 +153,7 @@ export const PlaygroundContainer = ({
                 left: 0,
                 width: '100%',
                 height: '1px',
-                background: '#e5e7eb',
+                background: 'var(--lufa-semantic-ui-border-default)',
                 pointerEvents: 'none',
               }}
             />
@@ -177,7 +177,7 @@ export const PlaygroundContainer = ({
                   left: '0',
                   width: '100%',
                   height: '2px',
-                  background: '#94a3b8',
+                  background: 'var(--lufa-semantic-ui-text-tertiary)',
                   transform: 'translateY(-50%)',
                 }}
               />
@@ -189,7 +189,7 @@ export const PlaygroundContainer = ({
                   left: '50%',
                   width: '2px',
                   height: '100%',
-                  background: '#94a3b8',
+                  background: 'var(--lufa-semantic-ui-text-tertiary)',
                   transform: 'translateX(-50%)',
                 }}
               />
@@ -204,10 +204,10 @@ export const PlaygroundContainer = ({
             <div
               style={{
                 padding: '12px 16px',
-                background: '#f1f5f9',
+                background: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
                 fontSize: '14px',
-                color: '#64748b',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
                 marginBottom: '12px',
                 textAlign: 'center',
               }}
@@ -222,10 +222,10 @@ export const PlaygroundContainer = ({
               <div
                 style={{
                   padding: '12px 16px',
-                  background: '#f1f5f9',
+                  background: 'var(--lufa-semantic-ui-background-surface)',
                   borderRadius: '6px',
                   fontSize: '14px',
-                  color: '#64748b',
+                  color: 'var(--lufa-semantic-ui-text-secondary)',
                   display: 'inline-block',
                   marginRight: '12px',
                   verticalAlign: 'middle',
@@ -242,10 +242,10 @@ export const PlaygroundContainer = ({
               <div
                 style={{
                   padding: '12px 16px',
-                  background: '#f1f5f9',
+                  background: 'var(--lufa-semantic-ui-background-surface)',
                   borderRadius: '6px',
                   fontSize: '14px',
-                  color: '#64748b',
+                  color: 'var(--lufa-semantic-ui-text-secondary)',
                   display: 'inline-block',
                   marginLeft: '12px',
                   verticalAlign: 'middle',
@@ -261,10 +261,10 @@ export const PlaygroundContainer = ({
             <div
               style={{
                 padding: '12px 16px',
-                background: '#f1f5f9',
+                background: 'var(--lufa-semantic-ui-background-surface)',
                 borderRadius: '6px',
                 fontSize: '14px',
-                color: '#64748b',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
                 marginTop: '12px',
                 textAlign: 'center',
               }}

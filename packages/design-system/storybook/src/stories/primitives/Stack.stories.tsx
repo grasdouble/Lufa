@@ -6,6 +6,8 @@ import { Stack } from '@grasdouble/lufa_design-system';
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
 import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
 
+const NEUTRAL = STORY_COLORS.neutral;
+
 /**
  * Stack - Flexible Layout Primitive for Spacing
  *
@@ -629,7 +631,7 @@ export const PropAs: Story = {
                   <div
                     style={{
                       padding: '8px',
-                      background: 'white',
+                      background: 'STORY_COLORS.themed.background.surface',
                       borderRadius: '4px',
                       fontSize: '13px',
                       fontWeight: 600,
@@ -679,7 +681,7 @@ export const CombinedVariants: Story = {
                 <input
                   type="text"
                   placeholder="Enter your name"
-                  style={{ padding: '8px', borderRadius: '6px', border: '1px solid #ccc' }}
+                  style={{ padding: '8px', borderRadius: '6px', border: `1px solid ${NEUTRAL.borderMedium}` }}
                 />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
@@ -687,14 +689,19 @@ export const CombinedVariants: Story = {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  style={{ padding: '8px', borderRadius: '6px', border: '1px solid #ccc' }}
+                  style={{ padding: '8px', borderRadius: '6px', border: `1px solid ${NEUTRAL.borderMedium}` }}
                 />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 <label style={{ fontSize: '14px', fontWeight: 600 }}>Message</label>
                 <textarea
                   placeholder="Your message"
-                  style={{ padding: '8px', borderRadius: '6px', border: '1px solid #ccc', minHeight: '80px' }}
+                  style={{
+                    padding: '8px',
+                    borderRadius: '6px',
+                    border: `1px solid ${NEUTRAL.borderMedium}`,
+                    minHeight: '80px',
+                  }}
                 />
               </div>
             </Stack>
@@ -773,7 +780,7 @@ export const CombinedVariants: Story = {
                   padding: '10px 20px',
                   borderRadius: '6px',
                   border: `1px solid ${STORY_COLORS.primary.blue.main}`,
-                  background: 'white',
+                  background: 'STORY_COLORS.themed.background.surface',
                   color: STORY_COLORS.primary.blue.main,
                   fontWeight: 600,
                   cursor: 'pointer',
@@ -785,9 +792,9 @@ export const CombinedVariants: Story = {
                 style={{
                   padding: '10px 20px',
                   borderRadius: '6px',
-                  border: '1px solid #ccc',
-                  background: 'white',
-                  color: '#666',
+                  border: `1px solid ${NEUTRAL.borderMedium}`,
+                  background: 'STORY_COLORS.themed.background.surface',
+                  color: NEUTRAL.textSlate,
                   fontWeight: 600,
                   cursor: 'pointer',
                 }}

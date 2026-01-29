@@ -9,7 +9,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Root background, page wrapper, main container"
+            "useCase": "Root background, page wrapper, main container",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -21,19 +23,109 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds"
+            "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
-      "background-overlay": {
-        "$value": "rgba(0, 0, 0, 0.5)",
+      "overlay-backdrop": {
+        "$value": "{primitive.color.alpha.black.50}",
         "$type": "color",
-        "$description": "Semi-transparent backdrop for modals and overlays",
+        "$description": "Semi-transparent backdrop for modals, dialogs, and drawers",
         "$extensions": {
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Modal backdrops, drawer overlays, dialog backgrounds"
+            "subcategory": "overlay",
+            "useCase": "Modal backdrops, dialog overlays, drawer backgrounds",
+            "modes": {
+              "light": "{primitive.color.alpha.black.50}",
+              "dark": "{primitive.color.alpha.black.80}",
+              "high-contrast": "{primitive.color.alpha.black.90}"
+            },
+            "themeable": true,
+            "modeAware": true
+          }
+        }
+      },
+      "overlay-hover": {
+        "$value": "{primitive.color.alpha.black.4}",
+        "$type": "color",
+        "$description": "Subtle overlay for hover states on interactive elements",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "overlay",
+            "useCase": "Hover state backgrounds for list items, cards, table rows",
+            "modes": {
+              "light": "{primitive.color.alpha.black.4}",
+              "dark": "{primitive.color.alpha.white.8}",
+              "high-contrast": "{primitive.color.alpha.white.16}"
+            },
+            "themeable": true,
+            "modeAware": true
+          }
+        }
+      },
+      "overlay-pressed": {
+        "$value": "{primitive.color.alpha.black.8}",
+        "$type": "color",
+        "$description": "Overlay for pressed/active states",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "overlay",
+            "useCase": "Pressed/active state overlays on buttons and interactive elements",
+            "modes": {
+              "light": "{primitive.color.alpha.black.8}",
+              "dark": "{primitive.color.alpha.white.16}",
+              "high-contrast": "{primitive.color.alpha.white.16}"
+            },
+            "themeable": true,
+            "modeAware": true
+          }
+        }
+      },
+      "overlay-selected": {
+        "$value": "{primitive.color.alpha.black.16}",
+        "$type": "color",
+        "$description": "Overlay for selected states in lists and menus",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "overlay",
+            "useCase": "Selected list items, active menu items, selected tabs",
+            "modes": {
+              "light": "{primitive.color.alpha.black.16}",
+              "dark": "{primitive.color.alpha.white.16}",
+              "high-contrast": "{primitive.color.alpha.white.16}"
+            },
+            "themeable": true,
+            "modeAware": true
+          }
+        }
+      },
+      "scrim": {
+        "$value": "{primitive.color.alpha.black.38}",
+        "$type": "color",
+        "$description": "Scrim overlay for bottom sheets and temporary surfaces",
+        "$extensions": {
+          "lufa": {
+            "level": "semantic",
+            "category": "ui",
+            "subcategory": "overlay",
+            "useCase": "Bottom sheets, temporary drawers, transient overlays",
+            "modes": {
+              "light": "{primitive.color.alpha.black.38}",
+              "dark": "{primitive.color.alpha.black.60}",
+              "high-contrast": "{primitive.color.alpha.black.80}"
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
@@ -45,7 +137,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Success alerts, positive notifications, confirmation banners"
+            "useCase": "Success alerts, positive notifications, confirmation banners",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -59,7 +153,9 @@
             "category": "ui",
             "subcategory": "contrast",
             "useCase": "Text in success alerts, success badge text, success message content",
-            "pairedWith": "background-success"
+            "pairedWith": "background-success",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -71,7 +167,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Error alerts, validation messages, destructive action confirmations"
+            "useCase": "Error alerts, validation messages, destructive action confirmations",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -85,7 +183,9 @@
             "category": "ui",
             "subcategory": "contrast",
             "useCase": "Text in error alerts, error badge text, error message content",
-            "pairedWith": "background-error"
+            "pairedWith": "background-error",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -97,7 +197,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Warning alerts, caution banners, pending action notices"
+            "useCase": "Warning alerts, caution banners, pending action notices",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -111,7 +213,9 @@
             "category": "ui",
             "subcategory": "contrast",
             "useCase": "Text in warning alerts, warning badge text, warning message content",
-            "pairedWith": "background-warning"
+            "pairedWith": "background-warning",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -123,7 +227,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Info alerts, tips, help messages, neutral notifications"
+            "useCase": "Info alerts, tips, help messages, neutral notifications",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -137,7 +243,9 @@
             "category": "ui",
             "subcategory": "contrast",
             "useCase": "Text in info alerts, info badge text, info message content",
-            "pairedWith": "background-info"
+            "pairedWith": "background-info",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -149,7 +257,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Headings, body text, primary labels, main content"
+            "useCase": "Headings, body text, primary labels, main content",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -161,7 +271,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Descriptions, captions, metadata, secondary labels"
+            "useCase": "Descriptions, captions, metadata, secondary labels",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -173,7 +285,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Placeholder text, timestamps, optional information"
+            "useCase": "Placeholder text, timestamps, optional information",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -185,7 +299,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Success message text, positive status indicators, confirmation text"
+            "useCase": "Success message text, positive status indicators, confirmation text",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -197,7 +313,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Error message text, validation errors, destructive action warnings"
+            "useCase": "Error message text, validation errors, destructive action warnings",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -209,7 +327,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Warning message text, caution labels, pending action notices"
+            "useCase": "Warning message text, caution labels, pending action notices",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -221,7 +341,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Info message text, help content, neutral notifications"
+            "useCase": "Info message text, help content, neutral notifications",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -233,7 +355,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Dividers, separators, card borders, section boundaries"
+            "useCase": "Dividers, separators, card borders, section boundaries",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -245,7 +369,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Emphasized borders, section separators, strong dividers"
+            "useCase": "Emphasized borders, section separators, strong dividers",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -257,7 +383,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Success alert borders, positive status borders"
+            "useCase": "Success alert borders, positive status borders",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -269,7 +397,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Error alert borders, invalid input borders, destructive action borders"
+            "useCase": "Error alert borders, invalid input borders, destructive action borders",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -281,7 +411,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Warning alert borders, caution element borders"
+            "useCase": "Warning alert borders, caution element borders",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -293,7 +425,9 @@
           "lufa": {
             "level": "semantic",
             "category": "ui",
-            "useCase": "Info alert borders, help element borders"
+            "useCase": "Info alert borders, help element borders",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
@@ -306,12 +440,14 @@
             "level": "semantic",
             "category": "ui",
             "subcategory": "typography",
-            "useCase": "Caption text, small labels, tooltip text, metadata"
+            "useCase": "Caption text, small labels, tooltip text, metadata",
+            "themeable": true,
+            "modeAware": false
           }
         }
       },
       "background-on-primary": {
-        "$value": "#ffffff",
+        "$value": "{primitive.color.hc.white}",
         "$type": "color",
         "$description": "Text and icons on primary background - AAA contrast guaranteed with primary brand color",
         "$extensions": {
@@ -321,17 +457,24 @@
             "subcategory": "contrast",
             "useCase": "Text/icons on primary buttons, primary badges, primary interactive elements",
             "pairedWith": "core.brand.primary",
+            "modes": {
+              "light": "{primitive.color.hc.white}",
+              "dark": "{primitive.color.hc.white}",
+              "high-contrast": "{primitive.color.hc.white}"
+            },
             "a11y": {
               "contrastRatio": {
                 "onBlue600": 7.5
               },
               "wcagLevel": "AAA"
-            }
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       },
       "background-on-secondary": {
-        "$value": "#ffffff",
+        "$value": "{primitive.color.hc.white}",
         "$type": "color",
         "$description": "Text and icons on secondary background - AAA contrast guaranteed with secondary brand color",
         "$extensions": {
@@ -341,12 +484,19 @@
             "subcategory": "contrast",
             "useCase": "Text/icons on secondary buttons, secondary badges, secondary interactive elements",
             "pairedWith": "core.brand.secondary",
+            "modes": {
+              "light": "{primitive.color.hc.white}",
+              "dark": "{primitive.color.hc.white}",
+              "high-contrast": "{primitive.color.hc.white}"
+            },
             "a11y": {
               "contrastRatio": {
                 "onPurple500": 7.2
               },
               "wcagLevel": "AAA"
-            }
+            },
+            "themeable": true,
+            "modeAware": true
           }
         }
       }

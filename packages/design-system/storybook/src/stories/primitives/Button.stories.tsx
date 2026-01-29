@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from '@grasdouble/lufa_design-system';
 
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
-import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
+import { STORY_COLORS } from '../../constants/storyColors';
 
 /**
  * Button - Interactive Action Element
@@ -133,6 +133,22 @@ export const Default: Story = {
       <StoryContainer>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <PropCard label="Default Button">
+            {/* 
+              💡 TOKEN EDUCATION: This button automatically uses semantic design tokens
+              
+              Background: var(--lufa-component-button-primary-background)
+              Text: var(--lufa-component-button-primary-text)
+              Hover: var(--lufa-component-button-primary-background-hover)
+              Border: var(--lufa-component-button-primary-border)
+              
+              ✅ Benefits:
+              - Automatically adapts to light/dark/high-contrast modes
+              - Maintains WCAG AA accessibility standards
+              - Consistent with design system
+              - Easy to theme and customize
+              
+              Try switching theme modes in the toolbar to see automatic adaptation!
+            */}
             <Button>Click me</Button>
           </PropCard>
 
@@ -175,9 +191,7 @@ export const PropType: Story = {
               gap: '24px',
             }}
           >
-            {types.map((typeItem, index) => {
-              const colors = getColorByIndex(index);
-
+            {types.map((typeItem) => {
               return (
                 <PropCard
                   key={typeItem.value}
@@ -188,7 +202,6 @@ export const PropType: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -259,9 +272,7 @@ export const PropVariant: Story = {
               gap: '16px',
             }}
           >
-            {variants.map((variantItem, index) => {
-              const colors = getColorByIndex(index);
-
+            {variants.map((variantItem) => {
               return (
                 <PropCard
                   key={variantItem.value}
@@ -272,7 +283,6 @@ export const PropVariant: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '20px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -315,6 +325,34 @@ export const TypeVariantMatrix: Story = {
   render: () => {
     const types = ['solid', 'outline', 'ghost'] as const;
     const variants = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'neutral'] as const;
+
+    {
+      /* 
+      💡 TOKEN EDUCATION: 21 Button Combinations (3 types × 7 variants)
+      
+      Each combination uses component-specific tokens:
+      
+      Solid buttons:
+      - background: var(--lufa-component-button-{variant}-background)
+      - text: var(--lufa-component-button-{variant}-text)
+      - hover: var(--lufa-component-button-{variant}-background-hover)
+      
+      Outline buttons:
+      - border: var(--lufa-component-button-outline-border)
+      - text: var(--lufa-component-button-outline-text)
+      - hover-bg: var(--lufa-component-button-outline-background-hover)
+      
+      Ghost buttons:
+      - text: var(--lufa-component-button-ghost-text)
+      - hover-bg: var(--lufa-component-button-ghost-background-hover)
+      
+      ✅ All 21 combinations automatically adapt to light/dark/high-contrast themes!
+      ✅ No manual theme handling required
+      ✅ Accessible color contrast in all modes
+      
+      Try switching themes to see the magic! ✨
+    */
+    }
 
     return (
       <StoryContainer>
@@ -393,9 +431,7 @@ export const PropSize: Story = {
               gap: '24px',
             }}
           >
-            {sizes.map((sizeItem, index) => {
-              const colors = getColorByIndex(index);
-
+            {sizes.map((sizeItem) => {
               return (
                 <PropCard
                   key={sizeItem.value}
@@ -406,7 +442,6 @@ export const PropSize: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -469,9 +504,7 @@ export const PropRadius: Story = {
               gap: '16px',
             }}
           >
-            {radiusOptions.map((radiusItem, index) => {
-              const colors = getColorByIndex(index);
-
+            {radiusOptions.map((radiusItem) => {
               return (
                 <PropCard
                   key={radiusItem.value}
@@ -482,7 +515,6 @@ export const PropRadius: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '20px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -563,8 +595,6 @@ export const PropIcons: Story = {
             }}
           >
             {iconExamples.map((example, index) => {
-              const colors = getColorByIndex(index);
-
               return (
                 <PropCard
                   key={index}
@@ -575,7 +605,6 @@ export const PropIcons: Story = {
                 >
                   <div
                     style={{
-                      backgroundColor: colors.light,
                       padding: '24px',
                       borderRadius: '8px',
                       display: 'flex',
@@ -686,7 +715,6 @@ export const PropFullWidth: Story = {
             <div style={{ width: '100%', maxWidth: '500px' }}>
               <div
                 style={{
-                  backgroundColor: STORY_COLORS.primary.blue.light,
                   padding: '16px',
                   borderRadius: '8px',
                 }}
@@ -700,7 +728,6 @@ export const PropFullWidth: Story = {
             <div style={{ width: '100%', maxWidth: '500px' }}>
               <div
                 style={{
-                  backgroundColor: STORY_COLORS.primary.violet.light,
                   padding: '16px',
                   borderRadius: '8px',
                 }}
@@ -762,7 +789,6 @@ export const PropAs: Story = {
             >
               <div
                 style={{
-                  backgroundColor: STORY_COLORS.primary.blue.light,
                   padding: '24px',
                   borderRadius: '8px',
                   display: 'flex',
@@ -783,7 +809,6 @@ export const PropAs: Story = {
             >
               <div
                 style={{
-                  backgroundColor: STORY_COLORS.primary.violet.light,
                   padding: '24px',
                   borderRadius: '8px',
                   display: 'flex',
@@ -829,7 +854,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.blue.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -862,7 +886,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.violet.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -895,7 +918,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.pink.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',
@@ -928,7 +950,6 @@ export const UseCases: Story = {
             </h3>
             <div
               style={{
-                backgroundColor: STORY_COLORS.primary.green.light,
                 padding: '24px',
                 borderRadius: '8px',
                 display: 'flex',

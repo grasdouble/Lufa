@@ -32,13 +32,13 @@
 /* #storybook-root input,
 #storybook-root textarea,
 #storybook-root select {
-  color: var(--lufa-token-color-text-primary);
-  background-color: var(--lufa-token-color-surface-default);
+  color: var(--lufa-semantic-ui-text-primary);
+  background-color: var(--lufa-semantic-ui-background-surface);
 } */
 
 /* #storybook-root input::placeholder,
 #storybook-root textarea::placeholder {
-  color: var(--lufa-token-color-text-tertiary);
+  color: var(--lufa-semantic-ui-text-tertiary);
   opacity: 1;
 } */
 
