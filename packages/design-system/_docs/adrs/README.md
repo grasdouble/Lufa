@@ -1,8 +1,8 @@
 # Architecture Decision Records (ADRs)
 
-**Last Updated:** 2026-01-28  
+**Last Updated:** 2026-01-29  
 **Total ADRs:** 11  
-**Implemented:** 10 | **Accepted:** 1
+**Implemented:** 11 | **Accepted:** 0
 
 ## About This Index
 
@@ -12,7 +12,7 @@ All links in this document point to the source files using relative paths (`../.
 
 **📊 [View Detailed Status Report](./ADR-STATUS-REPORT.md)** - Implementation status, metrics, and analysis
 
-**📝 Note:** As of 2026-01-28, all ADR filenames include UPPERCASE status for easier navigation: `ADR-{number}-{STATUS}-{short-name}.md`
+**📝 Note:** As of 2026-01-29, all ADR filenames include UPPERCASE status for easier navigation: `ADR-{number}-{STATUS}-{short-name}.md`
 
 ## What are ADRs?
 
@@ -30,11 +30,11 @@ Architecture Decision Records (ADRs) document important architectural decisions 
 
 ### Token Architecture
 
-| ADR                                                                                                     | Status         | Title                            | Description                                                                                                   | Subject                                                                                               | Date       | Impact   |
-| ------------------------------------------------------------------------------------------------------- | -------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ---------- | -------- |
-| [ADR-004](../../../../_bmad-output/adrs/ADR-004-ACCEPTED-alpha-opacity-token-architecture.md)           | 👍🏻 Accepted    | Alpha/Opacity Token Architecture | Adds alpha/opacity tokens for transparent colors and overlays (tokens defined, component integration pending) | [color-token-refinement](../../../../_bmad-output/subjects/color-token-refinement%20%5BCOMPLETED%5D/) | 2026-01-26 | Medium   |
-| [ADR-007](../../../../_bmad-output/adrs/ADR-007-IMPLEMENTED-zero-value-token-handling.md)               | ✅ Implemented | Zero-Value Token Handling        | Fixes bug where `space-0` was 4px instead of 0px                                                              | [spacing-layout-tokens](../../../../_bmad-output/subjects/spacing-layout-tokens%20%5BCOMPLETED%5D/)   | 2026-01-26 | Medium   |
-| [ADR-011](../../../../_bmad-output/adrs/ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md) | ✅ Implemented | Immutable Primitives Principle   | Establishes 4-level token architecture with immutable primitives                                              | -                                                                                                     | 2026-01-27 | Critical |
+| ADR                                                                                                     | Status         | Title                            | Description                                                      | Subject                                                                                                                   | Date       | Impact   |
+| ------------------------------------------------------------------------------------------------------- | -------------- | -------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- |
+| [ADR-004](../../../../_bmad-output/adrs/ADR-004-IMPLEMENTED-alpha-opacity-token-architecture.md)        | ✅ Implemented | Alpha/Opacity Token Architecture | Adds alpha/opacity tokens for transparent colors and overlays    | [alpha-opacity-token-architecture](../../../../_bmad-output/subjects/alpha-opacity-token-architecture%20%5BCOMPLETED%5D/) | 2026-01-26 | Medium   |
+| [ADR-007](../../../../_bmad-output/adrs/ADR-007-IMPLEMENTED-zero-value-token-handling.md)               | ✅ Implemented | Zero-Value Token Handling        | Fixes bug where `space-0` was 4px instead of 0px                 | [spacing-layout-tokens](../../../../_bmad-output/subjects/spacing-layout-tokens%20%5BCOMPLETED%5D/)                       | 2026-01-26 | Medium   |
+| [ADR-011](../../../../_bmad-output/adrs/ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md) | ✅ Implemented | Immutable Primitives Principle   | Establishes 4-level token architecture with immutable primitives | -                                                                                                                         | 2026-01-27 | Critical |
 
 ### Responsive Design
 
@@ -69,7 +69,7 @@ If you're new to the design system, start with these critical ADRs:
 
 ## ADR Status Definitions
 
-- **👍🏻 Accepted** - Decision approved but not yet fully implemented (1 ADR)
+- **👍🏻 Accepted** - Decision approved but not yet fully implemented (0 ADRs)
 - **✅ Implemented** - Decision implemented and in production (10 ADRs)
 - **🚧 Proposed** - Under review
 - **❌ Rejected** - Decision rejected

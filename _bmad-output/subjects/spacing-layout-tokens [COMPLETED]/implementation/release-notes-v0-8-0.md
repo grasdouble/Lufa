@@ -343,9 +343,9 @@ max-width: var(--lufa-core-layout-container-xl);
 
 ### Architecture Decision Records
 
-- **[ADR-005: Breakpoint Token Strategy](../../adrs/ADR-005-breakpoint-token-strategy.md)** - 6-breakpoint rationale
-- **[ADR-006: Responsive Spacing Architecture](../../adrs/ADR-006-responsive-spacing-architecture.md)** - Hybrid approach
-- **[ADR-007: Zero-Value Token Handling](../../adrs/ADR-007-zero-value-token-handling.md)** - Box component fix
+- **[ADR-005: Breakpoint Token Strategy](../../adrs/ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)** - 6-breakpoint rationale
+- **[ADR-006: Responsive Spacing Architecture](../../adrs/ADR-006-IMPLEMENTED-responsive-spacing-architecture.md)** - Hybrid approach
+- **[ADR-007: Zero-Value Token Handling](../../adrs/ADR-007-IMPLEMENTED-zero-value-token-handling.md)** - Box component fix
 
 ---
 
@@ -543,9 +543,9 @@ Please create an issue with:
 - [Technical Specification](./planning/technical-spec-spacing-layout.md)
 - [Sprint 1 Report](./implementation/sprint-1-report.md)
 - [Sprint 2 Report](./implementation/sprint-2-report.md)
-- [ADR-005: Breakpoint Token Strategy](../../adrs/ADR-005-breakpoint-token-strategy.md)
-- [ADR-006: Responsive Spacing Architecture](../../adrs/ADR-006-responsive-spacing-architecture.md)
-- [ADR-007: Zero-Value Token Handling](../../adrs/ADR-007-zero-value-token-handling.md)
+- [ADR-005: Breakpoint Token Strategy](../../adrs/ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)
+- [ADR-006: Responsive Spacing Architecture](../../adrs/ADR-006-IMPLEMENTED-responsive-spacing-architecture.md)
+- [ADR-007: Zero-Value Token Handling](../../adrs/ADR-007-IMPLEMENTED-zero-value-token-handling.md)
 
 ---
 

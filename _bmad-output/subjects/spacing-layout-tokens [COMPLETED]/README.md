@@ -311,14 +311,14 @@ The current spacing system has a **solid foundation** with a 4px-based spacing s
 
 ### Planning Documents
 
-| Document                                                                                            | Date       | Status      | Summary                                                                            |
-| --------------------------------------------------------------------------------------------------- | ---------- | ----------- | ---------------------------------------------------------------------------------- |
-| [ADR-005-breakpoint-token-strategy.md](../../adrs/ADR-005-breakpoint-token-strategy.md)             | 2026-01-26 | ✅ Proposed | 6-breakpoint system (xs-2xl), Tailwind-aligned, mobile-first, pixel units          |
-| [ADR-006-responsive-spacing-architecture.md](../../adrs/ADR-006-responsive-spacing-architecture.md) | 2026-01-26 | ✅ Proposed | Hybrid 3-tier approach: manual variants + fluid tokens + static base               |
-| [ADR-007-zero-value-token-handling.md](../../adrs/ADR-007-zero-value-token-handling.md)             | 2026-01-26 | ✅ Proposed | Fix Box component padding/margin "none" bug (4px → 0px)                            |
-| [technical-spec-spacing-layout.md](./planning/technical-spec-spacing-layout.md)                     | 2026-01-26 | ✅ Complete | Complete technical specification: 47 new tokens, build system, CSS output          |
-| [implementation-checklist.md](./planning/implementation-checklist.md)                               | 2026-01-26 | ✅ Complete | 76 tasks organized by sprint, time estimates, testing requirements                 |
-| [planning-summary-spacing-layout.md](./planning/planning-summary-spacing-layout.md)                 | 2026-01-26 | ✅ Complete | Executive summary, key decisions, rollout plan, success metrics, go/no-go criteria |
+| Document                                                                                                                    | Date       | Status         | Summary                                                                            |
+| --------------------------------------------------------------------------------------------------------------------------- | ---------- | -------------- | ---------------------------------------------------------------------------------- |
+| [ADR-005-IMPLEMENTED-breakpoint-token-strategy.md](../../adrs/ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)             | 2026-01-26 | ✅ Implemented | 6-breakpoint system (xs-2xl), Tailwind-aligned, mobile-first, pixel units          |
+| [ADR-006-IMPLEMENTED-responsive-spacing-architecture.md](../../adrs/ADR-006-IMPLEMENTED-responsive-spacing-architecture.md) | 2026-01-26 | ✅ Implemented | Hybrid 3-tier approach: manual variants + fluid tokens + static base               |
+| [ADR-007-IMPLEMENTED-zero-value-token-handling.md](../../adrs/ADR-007-IMPLEMENTED-zero-value-token-handling.md)             | 2026-01-26 | ✅ Implemented | Fix Box component padding/margin "none" bug (4px → 0px)                            |
+| [technical-spec-spacing-layout.md](./planning/technical-spec-spacing-layout.md)                                             | 2026-01-26 | ✅ Complete    | Complete technical specification: 47 new tokens, build system, CSS output          |
+| [implementation-checklist.md](./planning/implementation-checklist.md)                                                       | 2026-01-26 | ✅ Complete    | 76 tasks organized by sprint, time estimates, testing requirements                 |
+| [planning-summary-spacing-layout.md](./planning/planning-summary-spacing-layout.md)                                         | 2026-01-26 | ✅ Complete    | Executive summary, key decisions, rollout plan, success metrics, go/no-go criteria |
 
 ### Implementation Documents
 

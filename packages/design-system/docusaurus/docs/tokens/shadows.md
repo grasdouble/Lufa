@@ -12,7 +12,7 @@ Lufa's shadow system uses semantic naming for different elevation levels, from s
 
 ## Shadow Scale
 
-### Small Shadow (`--lufa-token-shadow-sm`)
+### Small Shadow (`--lufa-semantic-ui-shadow-small`)
 
 Subtle shadow for slightly elevated surfaces.
 
@@ -26,23 +26,13 @@ Subtle shadow for slightly elevated surfaces.
 
 ```css
 .card {
-  box-shadow: var(--lufa-token-shadow-sm);
+  box-shadow: var(--lufa-semantic-ui-shadow-small);
 }
-```
-
-**JavaScript:**
-
-```tsx
-import tokens from '@grasdouble/lufa_design-system-tokens';
-
-const styles = {
-  boxShadow: tokens.shadow.sm,
-};
 ```
 
 ---
 
-### Base Shadow (`--lufa-token-shadow-base`)
+### Medium Shadow (`--lufa-semantic-ui-shadow-medium`)
 
 Standard shadow for most elevated components.
 
@@ -56,13 +46,13 @@ Standard shadow for most elevated components.
 
 ```css
 .dropdown {
-  box-shadow: var(--lufa-token-shadow-base);
+  box-shadow: var(--lufa-semantic-ui-shadow-medium);
 }
 ```
 
 ---
 
-### Medium Shadow (`--lufa-token-shadow-md`)
+### Large Shadow (`--lufa-semantic-ui-shadow-large`)
 
 Moderate shadow for prominently elevated surfaces.
 
@@ -76,13 +66,13 @@ Moderate shadow for prominently elevated surfaces.
 
 ```css
 .tooltip {
-  box-shadow: var(--lufa-token-shadow-md);
+  box-shadow: var(--lufa-semantic-ui-shadow-large);
 }
 ```
 
 ---
 
-### Large Shadow (`--lufa-token-shadow-lg`)
+### Extra Large Shadow (`--lufa-semantic-ui-shadow-extra-large`)
 
 Strong shadow for high elevation surfaces.
 
@@ -96,41 +86,18 @@ Strong shadow for high elevation surfaces.
 
 ```css
 .modal {
-  box-shadow: var(--lufa-token-shadow-lg);
+  box-shadow: var(--lufa-semantic-ui-shadow-extra-large);
 }
 ```
-
----
-
-### Extra Large Shadow (`--lufa-token-shadow-xl`)
-
-Maximum shadow for the highest elevation level.
-
-**Use cases:**
-
-- Critical alerts
-- Sticky headers
-- Floating notifications
-
-**CSS:**
-
-```css
-.alert-critical {
-  box-shadow: var(--lufa-token-shadow-xl);
-}
-```
-
----
 
 ## Shadow Token Reference
 
-| Token                | CSS Variable               | Light Mode Value                      | Dark Mode Value                       |
-| -------------------- | -------------------------- | ------------------------------------- | ------------------------------------- |
-| `tokens.shadow.sm`   | `--lufa-token-shadow-sm`   | `0 1px 2px 0 rgba(0, 0, 0, 0.05)`     | `0 1px 2px 0 rgba(0, 0, 0, 0.3)`      |
-| `tokens.shadow.base` | `--lufa-token-shadow-base` | `0 1px 3px 0 rgba(0, 0, 0, 0.1)`      | `0 1px 3px 0 rgba(0, 0, 0, 0.5)`      |
-| `tokens.shadow.md`   | `--lufa-token-shadow-md`   | `0 4px 6px -1px rgba(0, 0, 0, 0.1)`   | `0 4px 6px -1px rgba(0, 0, 0, 0.5)`   |
-| `tokens.shadow.lg`   | `--lufa-token-shadow-lg`   | `0 10px 15px -3px rgba(0, 0, 0, 0.1)` | `0 10px 15px -3px rgba(0, 0, 0, 0.5)` |
-| `tokens.shadow.xl`   | `--lufa-token-shadow-xl`   | `0 20px 25px -5px rgba(0, 0, 0, 0.1)` | `0 20px 25px -5px rgba(0, 0, 0, 0.5)` |
+| Token                            | CSS Variable                            | Default Value (Light Mode)                                 |
+| -------------------------------- | --------------------------------------- | ---------------------------------------------------------- |
+| `semantic.ui.shadow-small`       | `--lufa-semantic-ui-shadow-small`       | `0 1px 2px 0 var(--lufa-primitive-color-alpha-black-5)`    |
+| `semantic.ui.shadow-medium`      | `--lufa-semantic-ui-shadow-medium`      | `0 2px 4px 0 rgba(0, 0, 0, 0.1)`                           |
+| `semantic.ui.shadow-large`       | `--lufa-semantic-ui-shadow-large`       | `0 8px 16px 0 var(--lufa-primitive-color-alpha-black-12)`  |
+| `semantic.ui.shadow-extra-large` | `--lufa-semantic-ui-shadow-extra-large` | `0 12px 24px 0 var(--lufa-primitive-color-alpha-black-15)` |
 
 ## Usage Examples
 
@@ -145,10 +112,10 @@ function ElevatedCard() {
       padding="comfortable"
       background="surface"
       borderRadius="base"
-      style={{ boxShadow: 'var(--lufa-token-shadow-base)' }}
+      style={{ boxShadow: 'var(--lufa-semantic-ui-shadow-medium)' }}
     >
       <Text variant="heading-md">Elevated Card</Text>
-      <Text>This card has a base shadow for elevation.</Text>
+      <Text>This card has a medium shadow for elevation.</Text>
     </Box>
   );
 }
@@ -158,24 +125,22 @@ function ElevatedCard() {
 
 ```css title="src/components/Card.module.css"
 .card {
-  box-shadow: var(--lufa-token-shadow-sm);
+  box-shadow: var(--lufa-semantic-ui-shadow-small);
   transition: box-shadow var(--lufa-token-transition-fast);
 }
 
 .card:hover {
-  box-shadow: var(--lufa-token-shadow-md);
+  box-shadow: var(--lufa-semantic-ui-shadow-large);
 }
 
 .card:active {
-  box-shadow: var(--lufa-token-shadow-base);
+  box-shadow: var(--lufa-semantic-ui-shadow-medium);
 }
 ```
 
 ### Modal with Maximum Elevation
 
 ```tsx
-import tokens from '@grasdouble/lufa_design-system-tokens';
-
 function Modal({ children }: { children: React.ReactNode }) {
   return (
     <div
@@ -184,10 +149,10 @@ function Modal({ children }: { children: React.ReactNode }) {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        boxShadow: tokens.shadow.xl,
-        backgroundColor: tokens.color.background.surface,
-        padding: tokens.spacing.comfortable,
-        borderRadius: tokens.radius.lg,
+        boxShadow: 'var(--lufa-semantic-ui-shadow-extra-large)',
+        backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+        padding: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        borderRadius: 'var(--lufa-semantic-ui-radius-large)',
       }}
     >
       {children}
@@ -198,21 +163,15 @@ function Modal({ children }: { children: React.ReactNode }) {
 
 ## Dark Mode Considerations
 
-Shadows automatically adjust for dark mode:
-
-- **Light mode**: Softer, more subtle shadows (lower opacity)
-- **Dark mode**: Stronger, more defined shadows (higher opacity)
-
-This ensures shadows remain visible against dark backgrounds while maintaining appropriate visual hierarchy.
+Shadow tokens are static by default. If you need stronger visibility in dark mode, override the semantic shadow tokens in your theme.
 
 ```css
-/* Automatic dark mode adjustment */
-:root {
-  --lufa-token-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-}
-
+/* Optional theme override for dark mode */
 [data-theme='dark'] {
-  --lufa-token-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  --lufa-semantic-ui-shadow-small: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --lufa-semantic-ui-shadow-medium: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+  --lufa-semantic-ui-shadow-large: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+  --lufa-semantic-ui-shadow-extra-large: 0 12px 24px 0 rgba(0, 0, 0, 0.6);
 }
 ```
 
@@ -251,7 +210,7 @@ Animate shadow changes for smooth interactions:
 
 ```css
 .button {
-  box-shadow: var(--lufa-token-shadow-sm);
+  box-shadow: var(--lufa-semantic-ui-shadow-small);
   transition: box-shadow var(--lufa-token-transition-fast);
 }
 ```

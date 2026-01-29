@@ -754,7 +754,7 @@ npx chromatic --update-baselines
 - [Token Usage Guide](./token-usage-guide.md) - Comprehensive guide to new tokens
 - [Responsive Design Guide](./responsive-design-guide.md) - Mobile-first strategies
 - [Sprint 2 Implementation Report](../implementation/sprint-2-report.md) - Technical details
-- [ADR-007: Zero-Value Token Handling](../../adrs/ADR-007-zero-value-token-handling.md) - Why the Box bug was fixed
+- [ADR-007: Zero-Value Token Handling](../../adrs/ADR-007-IMPLEMENTED-zero-value-token-handling.md) - Why the Box bug was fixed
 - [Technical Specification](../planning/technical-spec-spacing-layout.md) - Full technical details
 
 ---

@@ -1009,9 +1009,9 @@ padding: var(--lufa-core-layout-section-gap-fluid);
 - [Migration Guide](./migration-guide.md) - v0.7.1 → v0.8.0 upgrade instructions
 - [Responsive Design Guide](./responsive-design-guide.md) - Mobile-first strategies
 - [Technical Specification](../planning/technical-spec-spacing-layout.md) - Token architecture details
-- [ADR-005: Breakpoint Token Strategy](../../adrs/ADR-005-breakpoint-token-strategy.md)
-- [ADR-006: Responsive Spacing Architecture](../../adrs/ADR-006-responsive-spacing-architecture.md)
-- [ADR-007: Zero-Value Token Handling](../../adrs/ADR-007-zero-value-token-handling.md)
+- [ADR-005: Breakpoint Token Strategy](../../adrs/ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)
+- [ADR-006: Responsive Spacing Architecture](../../adrs/ADR-006-IMPLEMENTED-responsive-spacing-architecture.md)
+- [ADR-007: Zero-Value Token Handling](../../adrs/ADR-007-IMPLEMENTED-zero-value-token-handling.md)
 
 ---
 

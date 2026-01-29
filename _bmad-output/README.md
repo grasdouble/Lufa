@@ -21,8 +21,8 @@ _bmad-output/
 │
 ├── adrs/                              # Architecture Decision Records
 │   ├── README.md                      # ADR index
-│   ├── ADR-001-{decision}.md          # Global sequential numbering
-│   └── ADR-002-{decision}.md
+│   ├── ADR-001-IMPLEMENTED-{decision}.md          # Global sequential numbering
+│   └── ADR-002-IMPLEMENTED-{decision}.md
 │
 ├── global/                            # Cross-project files
 │   ├── README.md
@@ -66,7 +66,7 @@ _bmad-output/
 2. **Create ADR:**
 
    ```bash
-   touch _bmad-output/adrs/ADR-{next-number}-{decision-name}.md
+   touch _bmad-output/adrs/ADR-{next-number}-PROPOSED-{decision-name}.md
    ```
 
 3. **Update index:**
@@ -123,14 +123,14 @@ Architecture Decision Records are kept **separate** from subjects because:
 
 **Location:** `_bmad-output/adrs/`
 
-**Format:** `ADR-{number}-{short-name}.md`
+**Format:** `ADR-{number}-{STATUS}-{short-name}.md`
 
 **Example:**
 
 ```
-ADR-001-modes-vs-themes-separation.md
-ADR-002-html-attributes-naming.md
-ADR-003-badge-variant-strategy.md
+ADR-001-IMPLEMENTED-modes-vs-themes-separation.md
+ADR-002-IMPLEMENTED-html-attributes-naming.md
+ADR-003-PROPOSED-badge-variant-strategy.md
 ```
 
 **See:** [adrs/README.md](./adrs/README.md) for full guidelines
@@ -355,7 +355,7 @@ EOF
 # Agent creates: subjects/badge-component/analysis/analysis-2026-01-27.md
 
 # 4. Make architecture decisions
-# Agent creates: adrs/ADR-003-badge-variant-strategy.md
+# Agent creates: adrs/ADR-003-PROPOSED-badge-variant-strategy.md
 # Updates: adrs/README.md
 
 # 5. Create planning artifacts

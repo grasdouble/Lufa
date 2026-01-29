@@ -582,8 +582,8 @@ node scripts/validate-token-metadata.js
 - **Guide d'Utilisation des Tokens :** [USAGE_GUIDELINES.md](./USAGE_GUIDELINES.md)
 - **Conventions de Nommage :** [NAMING_CONVENTIONS.md](./NAMING_CONVENTIONS.md)
 - **Documentation Principale :** [README.md](./README.md)
-- **ADR - Modes vs Themes :** [/\_bmad-output/adrs/ADR-001-modes-vs-themes-separation.md](/_bmad-output/adrs/ADR-001-modes-vs-themes-separation.md)
-- **ADR - High Contrast Strategy :** [/\_bmad-output/adrs/ADR-003-high-contrast-token-strategy.md](/_bmad-output/adrs/ADR-003-high-contrast-token-strategy.md)
+- **ADR - Modes vs Themes :** [/\_bmad-output/adrs/ADR-001-IMPLEMENTED-modes-vs-themes-separation.md](/_bmad-output/adrs/ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)
+- **ADR - High Contrast Strategy :** [/\_bmad-output/adrs/ADR-003-IMPLEMENTED-high-contrast-token-strategy.md](/_bmad-output/adrs/ADR-003-IMPLEMENTED-high-contrast-token-strategy.md)
 
 ---
 

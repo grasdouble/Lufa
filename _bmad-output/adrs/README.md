@@ -33,7 +33,7 @@ Each ADR follows this structure:
 ```markdown
 # ADR-{number}: {Title}
 
-**Status:** Accepted | Rejected | Superseded | Deprecated  
+**Status:** Proposed | Accepted | Implemented | Rejected | Superseded | Deprecated  
 **Date:** YYYY-MM-DD  
 **Context:** {Subject/Project}
 
@@ -66,19 +66,19 @@ Related docs, standards, etc.
 
 ## Index
 
-| Number                                                      | Title                                     | Subject                 | Status      | Date       |
-| ----------------------------------------------------------- | ----------------------------------------- | ----------------------- | ----------- | ---------- |
-| [001](./ADR-001-modes-vs-themes-separation.md)              | Modes vs Themes Separation                | Theme Integration       | Implemented | 2026-01-26 |
-| [002](./ADR-002-html-attributes-naming.md)                  | HTML Attributes Naming                    | Theme Integration       | Implemented | 2026-01-26 |
-| [003](./ADR-003-high-contrast-token-strategy.md)            | High-Contrast Token Strategy              | Color Token Refinement  | Implemented | 2026-01-26 |
-| [004](./ADR-004-alpha-opacity-token-architecture.md)        | Alpha/Opacity Token Architecture          | Color Token Refinement  | Implemented | 2026-01-26 |
-| [005](./ADR-005-breakpoint-token-strategy.md)               | Breakpoint Token Strategy                 | Spacing & Layout Tokens | Implemented | 2026-01-26 |
-| [006](./ADR-006-responsive-spacing-architecture.md)         | Responsive Spacing Architecture           | Spacing & Layout Tokens | Implemented | 2026-01-26 |
-| [007](./ADR-007-zero-value-token-handling.md)               | Zero-Value Token Handling                 | Spacing & Layout Tokens | Implemented | 2026-01-26 |
-| [008](./ADR-008-responsive-typography-strategy.md)          | Responsive Typography Strategy            | Typography Tokens       | Implemented | 2026-01-26 |
-| [009](./ADR-009-letter-spacing-token-architecture.md)       | Letter-Spacing Token Architecture         | Typography Tokens       | Implemented | 2026-01-26 |
-| [010](./ADR-010-extended-type-scale-strategy.md)            | Extended Type Scale Strategy              | Typography Tokens       | Implemented | 2026-01-26 |
-| [011](./ADR-011-token-architecture-primitives-immutable.md) | Token Architecture - Immutable Primitives | Token Architecture      | Implemented | 2026-01-27 |
+| Number                                                                  | Title                                     | Subject                 | Status      | Date       |
+| ----------------------------------------------------------------------- | ----------------------------------------- | ----------------------- | ----------- | ---------- |
+| [001](./ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)              | Modes vs Themes Separation                | Theme Integration       | Implemented | 2026-01-26 |
+| [002](./ADR-002-IMPLEMENTED-html-attributes-naming.md)                  | HTML Attributes Naming                    | Theme Integration       | Implemented | 2026-01-26 |
+| [003](./ADR-003-IMPLEMENTED-high-contrast-token-strategy.md)            | High-Contrast Token Strategy              | Color Token Refinement  | Implemented | 2026-01-26 |
+| [004](./ADR-004-IMPLEMENTED-alpha-opacity-token-architecture.md)        | Alpha/Opacity Token Architecture          | Color Token Refinement  | Implemented | 2026-01-26 |
+| [005](./ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)               | Breakpoint Token Strategy                 | Spacing & Layout Tokens | Implemented | 2026-01-26 |
+| [006](./ADR-006-IMPLEMENTED-responsive-spacing-architecture.md)         | Responsive Spacing Architecture           | Spacing & Layout Tokens | Implemented | 2026-01-26 |
+| [007](./ADR-007-IMPLEMENTED-zero-value-token-handling.md)               | Zero-Value Token Handling                 | Spacing & Layout Tokens | Implemented | 2026-01-26 |
+| [008](./ADR-008-IMPLEMENTED-responsive-typography-strategy.md)          | Responsive Typography Strategy            | Typography Tokens       | Implemented | 2026-01-26 |
+| [009](./ADR-009-IMPLEMENTED-letter-spacing-token-architecture.md)       | Letter-Spacing Token Architecture         | Typography Tokens       | Implemented | 2026-01-26 |
+| [010](./ADR-010-IMPLEMENTED-extended-type-scale-strategy.md)            | Extended Type Scale Strategy              | Typography Tokens       | Implemented | 2026-01-26 |
+| [011](./ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md) | Token Architecture - Immutable Primitives | Token Architecture      | Implemented | 2026-01-27 |
 
 ## Guidelines
 
@@ -124,29 +124,29 @@ ADRs are **immutable** once accepted. If a decision changes:
 
 **Theme Integration:**
 
-- [ADR-001](./ADR-001-modes-vs-themes-separation.md) - Modes vs Themes
-- [ADR-002](./ADR-002-html-attributes-naming.md) - HTML Attributes
+- [ADR-001](./ADR-001-IMPLEMENTED-modes-vs-themes-separation.md) - Modes vs Themes
+- [ADR-002](./ADR-002-IMPLEMENTED-html-attributes-naming.md) - HTML Attributes
 
 **Color Token Refinement:**
 
-- [ADR-003](./ADR-003-high-contrast-token-strategy.md) - High-Contrast Strategy
-- [ADR-004](./ADR-004-alpha-opacity-token-architecture.md) - Alpha/Opacity Architecture
+- [ADR-003](./ADR-003-IMPLEMENTED-high-contrast-token-strategy.md) - High-Contrast Strategy
+- [ADR-004](./ADR-004-IMPLEMENTED-alpha-opacity-token-architecture.md) - Alpha/Opacity Architecture
 
 **Spacing & Layout Tokens:**
 
-- [ADR-005](./ADR-005-breakpoint-token-strategy.md) - Breakpoint Token Strategy
-- [ADR-006](./ADR-006-responsive-spacing-architecture.md) - Responsive Spacing Architecture
-- [ADR-007](./ADR-007-zero-value-token-handling.md) - Zero-Value Token Handling
+- [ADR-005](./ADR-005-IMPLEMENTED-breakpoint-token-strategy.md) - Breakpoint Token Strategy
+- [ADR-006](./ADR-006-IMPLEMENTED-responsive-spacing-architecture.md) - Responsive Spacing Architecture
+- [ADR-007](./ADR-007-IMPLEMENTED-zero-value-token-handling.md) - Zero-Value Token Handling
 
 **Typography Tokens:**
 
-- [ADR-008](./ADR-008-responsive-typography-strategy.md) - Responsive Typography Strategy (Implemented)
-- [ADR-009](./ADR-009-letter-spacing-token-architecture.md) - Letter-Spacing Token Architecture (Implemented)
-- [ADR-010](./ADR-010-extended-type-scale-strategy.md) - Extended Type Scale Strategy (Implemented)
+- [ADR-008](./ADR-008-IMPLEMENTED-responsive-typography-strategy.md) - Responsive Typography Strategy (Implemented)
+- [ADR-009](./ADR-009-IMPLEMENTED-letter-spacing-token-architecture.md) - Letter-Spacing Token Architecture (Implemented)
+- [ADR-010](./ADR-010-IMPLEMENTED-extended-type-scale-strategy.md) - Extended Type Scale Strategy (Implemented)
 
 **Token Architecture:**
 
-- [ADR-011](./ADR-011-token-architecture-primitives-immutable.md) - Token Architecture Clarification - Immutable Primitives (Implemented)
+- [ADR-011](./ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md) - Token Architecture Clarification - Immutable Primitives (Implemented)
 
 ### By Topic
 
@@ -189,4 +189,4 @@ ADRs are **immutable** once accepted. If a decision changes:
 ---
 
 **Maintained by:** BMad Master Agent  
-**Last Updated:** 2026-01-27 (11 ADRs - All Implemented)
+**Last Updated:** 2026-01-29 (11 ADRs - All Implemented)

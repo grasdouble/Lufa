@@ -77,6 +77,40 @@ Mode-aware border colors:
 | Warning borders    | `--lufa-semantic-ui-border-warning` | Semantic |
 | Info borders       | `--lufa-semantic-ui-border-info`    | Semantic |
 
+## Opacity and Alpha Tokens (ADR-004)
+
+Use semantic opacity tokens for UI states, and primitive alpha tokens only when you need a specific opacity.
+
+### Semantic Overlays (Preferred)
+
+| Usage               | CSS Variable                                      | Layer    |
+| ------------------- | ------------------------------------------------- | -------- |
+| Backdrop overlay    | `--lufa-semantic-ui-overlay-backdrop`             | Semantic |
+| Hover overlay       | `--lufa-semantic-ui-overlay-hover`                | Semantic |
+| Pressed overlay     | `--lufa-semantic-ui-overlay-pressed`              | Semantic |
+| Selected overlay    | `--lufa-semantic-ui-overlay-selected`             | Semantic |
+| Scrim               | `--lufa-semantic-ui-scrim`                        | Semantic |
+| Disabled opacity    | `--lufa-semantic-interactive-disabled-opacity`    | Semantic |
+| Loading opacity     | `--lufa-semantic-interactive-loading-opacity`     | Semantic |
+| Placeholder opacity | `--lufa-semantic-interactive-placeholder-opacity` | Semantic |
+
+### Primitive Alpha Palette (Advanced)
+
+- **Black:** `--lufa-primitive-color-alpha-black-{4,5,8,12,15,16,38,50,60,80,90,100}`
+- **White:** `--lufa-primitive-color-alpha-white-{4,5,8,12,15,16,38,50,60,80,90,100}`
+
+```css
+/* ✅ Semantic overlay */
+.modal-backdrop {
+  background: var(--lufa-semantic-ui-overlay-backdrop);
+}
+
+/* ✅ Exact alpha for shadow or utility use */
+.elevation-soft {
+  box-shadow: 0 1px 2px var(--lufa-primitive-color-alpha-black-5);
+}
+```
+
 ## Usage in Components
 
 ### CSS Modules

@@ -147,8 +147,8 @@
   - `_bmad-output/subjects/color-token-refinement/implementation/implementation-report.md`
 
   ## 🔗 Related ADRs
-  - [ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-high-contrast-token-strategy.md)
-  - [ADR-004: Alpha/Opacity Token Architecture](../../adrs/ADR-004-alpha-opacity-token-architecture.md)
+  - [ADR-003: High-Contrast Token Strategy](../../adrs/ADR-003-IMPLEMENTED-high-contrast-token-strategy.md)
+  - [ADR-004: Alpha/Opacity Token Architecture](../../adrs/ADR-004-IMPLEMENTED-alpha-opacity-token-architecture.md)
 
 - 445737d: # Phase 2A: Theme System Integration
 
@@ -772,9 +772,9 @@
   ***
 
   ## 🔗 Related ADRs
-  - [ADR-005: Breakpoint Token Strategy](../../_bmad-output/adrs/ADR-005-breakpoint-token-strategy.md)
-  - [ADR-006: Responsive Spacing Architecture](../../_bmad-output/adrs/ADR-006-responsive-spacing-architecture.md)
-  - [ADR-007: Zero-Value Token Handling](../../_bmad-output/adrs/ADR-007-zero-value-token-handling.md)
+  - [ADR-005: Breakpoint Token Strategy](../../_bmad-output/adrs/ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)
+  - [ADR-006: Responsive Spacing Architecture](../../_bmad-output/adrs/ADR-006-IMPLEMENTED-responsive-spacing-architecture.md)
+  - [ADR-007: Zero-Value Token Handling](../../_bmad-output/adrs/ADR-007-IMPLEMENTED-zero-value-token-handling.md)
 
   ***
 
