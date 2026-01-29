@@ -1,5 +1,16 @@
 # @grasdouble/lufa_plugin_vscode_lufa-ds-preview
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies [3b444f4]
+- Updated dependencies [ceeaacc]
+- Updated dependencies [058d6d6]
+- Updated dependencies [e3380ec]
+- Updated dependencies [e3380ec]
+  - @grasdouble/lufa_design-system-tokens@0.6.0
+
 ## 0.4.0
 
 ### Minor Changes
