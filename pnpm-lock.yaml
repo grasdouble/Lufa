@@ -30,8 +30,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
 
   packages/apps/microfrontend/home:
     dependencies:
@@ -85,8 +85,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -158,8 +158,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -243,8 +243,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
       tsx:
         specifier: ^4.21.0
         version: 4.21.0
@@ -291,8 +291,8 @@ importers:
         specifier: ^3.7.3
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
 
   packages/config/tsconfig: {}
 
@@ -345,8 +345,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
       tsx:
         specifier: ^4.21.0
         version: 4.21.0
@@ -427,8 +427,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -488,8 +488,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
       react:
         specifier: ^19.2.4
         version: 19.2.4
@@ -621,8 +621,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
       storybook:
         specifier: ^10.2.3
         version: 10.2.3(@testing-library/dom@10.4.0)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -664,8 +664,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
       tsx:
         specifier: ^4.21.0
         version: 4.21.0
@@ -700,8 +700,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
       style-dictionary:
         specifier: ^4.4.0
         version: 4.4.0(tslib@2.8.1)
@@ -737,8 +737,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -768,8 +768,8 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-packagejson:
-        specifier: ^2.5.22
-        version: 2.5.22(prettier@3.8.1)
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@3.8.1)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -8363,10 +8363,10 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier-plugin-packagejson@2.5.22:
-    resolution: {integrity: sha512-G6WalmoUssKF8ZXkni0+n4324K+gG143KPysSQNW+FrR0XyNb3BdRxchGC/Q1FE/F702p7/6KU7r4mv0WSWbzA==}
+  prettier-plugin-packagejson@3.0.0:
+    resolution: {integrity: sha512-z8/QmPSqx/ANvvQMWJSkSq1+ihBXeuwDEYdjX3ZjRJ5Ty1k7vGbFQfhzk2eDe0rwS/TNyRjWK/qnjJEStAOtDw==}
     peerDependencies:
-      prettier: '>= 1.16.0'
+      prettier: ^3
     peerDependenciesMeta:
       prettier:
         optional: true
@@ -19652,7 +19652,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-packagejson@2.5.22(prettier@3.8.1):
+  prettier-plugin-packagejson@3.0.0(prettier@3.8.1):
     dependencies:
       sort-package-json: 3.6.0
     optionalDependencies:
