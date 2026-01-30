@@ -8,23 +8,23 @@ A modern, token-based design system built with React, TypeScript, and Style Dict
 
 ### Quick Links
 
-| Document                                                 | Purpose                           | Audience                |
-| -------------------------------------------------------- | --------------------------------- | ----------------------- |
-| **[Documentation Index](./docs/index.md)**               | Master navigation                 | Everyone                |
-| **[Overview](./docs/overview.md)**                       | Project introduction              | Everyone                |
-| **[Architecture](./docs/architecture.md)**               | System design & principles        | Architects, Developers  |
-| **[Development Guide](./docs/development-guide.md)**     | Setup, workflows, troubleshooting | Developers              |
-| **[Token Architecture](./docs/token-architecture.md)**   | 4-level token system              | Designers, Developers   |
-| **[Component Inventory](./docs/component-inventory.md)** | Available components              | Developers, Designers   |
-| **[Build Configuration](./docs/build-configuration.md)** | Build pipeline details            | DevOps, Build Engineers |
-| **[Testing Strategy](./docs/testing-strategy.md)**       | Playwright CT approach            | QA, Developers          |
-| **[Storybook Patterns](./docs/storybook-patterns.md)**   | Documentation patterns            | Docs Writers            |
+| Document                                                          | Purpose                           | Audience                |
+| ----------------------------------------------------------------- | --------------------------------- | ----------------------- |
+| **[Documentation Index](./_docs/index.md)**                       | Master navigation                 | Everyone                |
+| **[Overview](./_docs/overview.md)**                               | Project introduction              | Everyone                |
+| **[Architecture](./_docs/architecture.md)**                       | System design & principles        | Architects, Developers  |
+| **[Development Guide](./_docs/development-guide.md)**             | Setup, workflows, troubleshooting | Developers              |
+| **[Token Architecture](./tokens/_docs/token-architecture.md)**    | 4-level token system              | Designers, Developers   |
+| **[Component Inventory](./main/_docs/component-inventory.md)**    | Available components              | Developers, Designers   |
+| **[Build Configuration](./_docs/build-configuration.md)**         | Build pipeline details            | DevOps, Build Engineers |
+| **[Testing Strategy](./playwright/_docs/testing-strategy.md)**    | Playwright CT approach            | QA, Developers          |
+| **[Storybook Patterns](./storybook/_docs/storybook-patterns.md)** | Documentation patterns            | Docs Writers            |
 
 ### Learning Paths
 
-- **New Developer?** → [Overview](./_docs/overview.md) → [Development Guide](./_docs/development-guide.md) → [Component Inventory](./_docs/component-inventory.md)
-- **Designer?** → [Token Architecture](./_docs/token-architecture.md) → [Component Inventory](./_docs/component-inventory.md) → Storybook
-- **Architect?** → [Architecture](./_docs/architecture.md) → [Token Architecture](./_docs/token-architecture.md) → [Build Configuration](./_docs/build-configuration.md)
+- **New Developer?** → [Overview](./_docs/overview.md) → [Development Guide](./_docs/development-guide.md) → [Component Inventory](./main/_docs/component-inventory.md)
+- **Designer?** → [Token Architecture](./tokens/_docs/token-architecture.md) → [Component Inventory](./main/_docs/component-inventory.md) → Storybook
+- **Architect?** → [Architecture](./_docs/architecture.md) → [Token Architecture](./tokens/_docs/token-architecture.md) → [Build Configuration](./_docs/build-configuration.md)
 
 ## 🚀 Quick Start
 

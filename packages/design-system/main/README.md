@@ -101,7 +101,7 @@ Theming system is token-based and ready for theme swapping:
 
 **Theme variants** (Ocean, Forest) are available in `@grasdouble/lufa_design-system-themes`.
 
-See [Token Architecture](../_docs/token-architecture.md) for details.
+See [Token Architecture](../tokens/_docs/token-architecture.md) for details.
 
 ## Development
 

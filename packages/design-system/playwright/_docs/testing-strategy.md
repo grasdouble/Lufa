@@ -803,11 +803,9 @@ git commit -m "test: update visual regression snapshots for ComponentName"
 
 ## Related Documentation
 
-- [Design System README](../packages/design-system/README.md)
-- [Playwright CT Instructions](./.github/instructions/lufa-design-system-playwright-ct.instructions.md)
-- [Component Inventory](./component-inventory.md)
-- [Token Architecture](./token-architecture.md)
-- [Testing Guide (for contributors)](../docs/contributors/testing-guide.md)
+- [Design System README](../../README.md)
+- [Component Inventory](../../main/_docs/component-inventory.md)
+- [Token Architecture](../../tokens/_docs/token-architecture.md)
 
 ---
 

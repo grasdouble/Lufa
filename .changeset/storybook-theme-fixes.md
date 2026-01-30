@@ -50,9 +50,6 @@ Comprehensive fixes for Storybook theme switching, deprecated token migration, a
   - Box: 3 replacements
   - Colors: 1 replacement
   
-- **Documentation**: Created comprehensive migration guide (`STORY_COLORS_MIGRATION.md`)
-  - When to use `themed.*` vs `primary.*`
-  - Migration examples and checklist
 
 ### Linting & Type Fixes
 
@@ -87,4 +84,3 @@ Comprehensive fixes for Storybook theme switching, deprecated token migration, a
 - `src/constants/storyColors.ts`
 - `packages/design-system/main/src/components/Box/box.utilities.config.cjs`
 - `packages/design-system/main/src/components/Box/Box.module.css` (generated)
-- `STORY_COLORS_MIGRATION.md` (new)

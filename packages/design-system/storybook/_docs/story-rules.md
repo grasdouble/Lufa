@@ -2,7 +2,7 @@
 
 > **Règles et standards à suivre pour l'écriture des stories Storybook**
 
-[← Back to README](../README.md) | [See Templates](./STORY_TEMPLATE.md) | [Full Guide](./STORY_GUIDE.md)
+[← Back to README](../README.md) | [See Templates](./story-template.md) | [Full Guide](./story-guide.md)
 
 ---
 
@@ -497,8 +497,8 @@ export const PropDisplay: StoryObj = {
 
 **See also:**
 
-- [STORY_TEMPLATE.md](./STORY_TEMPLATE.md) - Copy-paste templates
-- [STORY_GUIDE.md](./STORY_GUIDE.md) - Complete guide with examples
+- [Story Template](./story-template.md) - Copy-paste templates
+- [Story Guide](./story-guide.md) - Complete guide with examples
 - [../src/constants/storyColors.ts](./../src/constants/storyColors.ts) - Color definitions
 - [../src/components/helpers/README.md](./../src/components/helpers/README.md) - Helper components
 

@@ -1131,11 +1131,11 @@ Tier 2: API Documentation (Docusaurus)
 └── Deployed at: http://localhost:3001
 
 Tier 3: Architecture Docs (Markdown)
-├── This file (architecture-design-system.md)
-├── Token architecture (token-architecture.md)
+├── This file (architecture.md)
+├── Token architecture (tokens/_docs/token-architecture.md)
 ├── Build configuration (build-configuration.md)
-├── Development guide (development-guide-design-system.md)
-└── Located: docs/
+├── Development guide (development-guide.md)
+└── Located: packages/design-system/
 ```
 
 ### Storybook Story Patterns

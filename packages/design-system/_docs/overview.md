@@ -310,7 +310,7 @@ For detailed status, planning, and architectural information:
 
 - **Roadmap & Status:** [`roadmap-and-status.md`](./roadmap-and-status.md) - Comprehensive roadmap, metrics, and progress (primary source of truth)
 - **Architecture:** [`architecture.md`](./architecture.md) - System architecture and design decisions
-- **Components:** [`component-inventory.md`](./component-inventory.md) - Component catalog and progress
+- **Components:** [`component-inventory.md`](../main/_docs/component-inventory.md) - Component catalog and progress
 
 > **Note:** Previous BMM analysis documents have been archived for historical reference.
 
@@ -518,27 +518,27 @@ pnpm ds:all:prettier         # Format all
 
 ### Primary Documentation
 
-| Resource               | Purpose                        | Location                                  |
-| ---------------------- | ------------------------------ | ----------------------------------------- |
-| **Storybook**          | Interactive component explorer | http://localhost:6006                     |
-| **Docusaurus**         | API documentation              | http://localhost:3001                     |
-| **Architecture Doc**   | System architecture            | `docs/architecture-design-system.md`      |
-| **Development Guide**  | Setup & workflows              | `docs/development-guide-design-system.md` |
-| **Token Architecture** | Token system details           | `docs/token-architecture.md`              |
+| Resource               | Purpose                        | Location                             |
+| ---------------------- | ------------------------------ | ------------------------------------ |
+| **Storybook**          | Interactive component explorer | http://localhost:6006                |
+| **Docusaurus**         | API documentation              | http://localhost:3001                |
+| **Architecture Doc**   | System architecture            | `_docs/architecture.md`              |
+| **Development Guide**  | Setup & workflows              | `_docs/development-guide.md`         |
+| **Token Architecture** | Token system details           | `tokens/_docs/token-architecture.md` |
 
 ### Generated Documentation
 
 This project scan generated the following documentation:
 
-1. **architecture-design-system.md** - System overview, architectural principles, design decisions (15,000+ words)
-2. **development-guide-design-system.md** - Setup, workflows, testing, git process (10,000+ words)
-3. **token-architecture.md** - 4-level token system, DTCG compliance, performance (5,000+ words)
+1. **architecture.md** - System overview, architectural principles, design decisions (15,000+ words)
+2. **development-guide.md** - Setup, workflows, testing, git process (10,000+ words)
+3. **tokens/\_docs/token-architecture.md** - 4-level token system, DTCG compliance, performance (5,000+ words)
 4. **build-configuration.md** - Vite, Style Dictionary, Storybook, Playwright configs (8,000+ words)
-5. **source-tree-analysis.md** - Annotated directory tree, entry points, dependencies (7,000+ words)
-6. **ui-component-inventory.md** - Component catalog with props (4,000+ words)
-7. **test-design-design-system.md** - Testing strategy, 5-part structure (4,000+ words)
-8. **component-documentation-patterns.md** - Storybook CSF3 patterns (10,000+ words)
-9. **project-overview.md** - This file (overview, getting started)
+5. **source-tree.md** - Annotated directory tree, entry points, dependencies (7,000+ words)
+6. **main/\_docs/component-inventory.md** - Component catalog with props (4,000+ words)
+7. **playwright/\_docs/testing-strategy.md** - Testing strategy, 5-part structure (4,000+ words)
+8. **storybook/\_docs/storybook-patterns.md** - Storybook CSF3 patterns (10,000+ words)
+9. **overview.md** - This file (overview, getting started)
 
 **Total:** 9 documents, ~60,000+ words
 
@@ -718,7 +718,7 @@ Every component follows this pattern:
 
 **Resources:**
 
-- [CONTRIBUTING.md](../../CONTRIBUTING.md) - Full contribution guide
+- [CONTRIBUTING.md](../../../CONTRIBUTING.md) - Full contribution guide
 - [Development Guide](./development-guide.md) - Detailed workflows
 - [Architecture Doc](./architecture.md) - System design
 
@@ -728,7 +728,7 @@ Every component follows this pattern:
 
 ### Getting Help
 
-- **Documentation:** [docs/](./README.md)
+- **Documentation:** [docs/](./index.md)
 - **Issues:** [GitHub Issues](https://github.com/grasdouble/Lufa/issues)
 - **Discussions:** [GitHub Discussions](https://github.com/grasdouble/Lufa/discussions)
 
@@ -750,7 +750,7 @@ Every component follows this pattern:
 
 ## License
 
-MIT License - see [LICENSE.md](../../LICENSE.md)
+MIT License - see [LICENSE.md](../../../LICENSE.md)
 
 ---
 

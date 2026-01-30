@@ -525,9 +525,9 @@ All 7 planned components are now production-ready:
 
 ## Related Documentation
 
-- [Design System README](../packages/design-system/README.md)
-- [Tokens Package](../packages/design-system/tokens/README.md)
-- [Storybook Stories](../packages/design-system/storybook/docs/STORY_GUIDE.md)
-- [Playwright Tests](../packages/design-system/playwright/README.md)
-- [Architecture & Decisions](./architecture.md)
-- [Roadmap & Status](./roadmap-and-status.md)
+- [Design System README](../../README.md)
+- [Tokens Package](../../tokens/README.md)
+- [Storybook Stories](../../storybook/docs/STORY_GUIDE.md)
+- [Playwright Tests](../../playwright/README.md)
+- [Architecture & Decisions](../../_docs/architecture.md)
+- [Roadmap & Status](../../_docs/roadmap-and-status.md)

@@ -499,10 +499,10 @@ These commits are signed by GitHub and can be verified.
 
 ## Related Documentation
 
-- [Snapshot Management System](./SNAPSHOT-MANAGEMENT-SYSTEM.md) - Complete overview
-- [Docker Linux Snapshots](./DOCKER-LINUX-SNAPSHOTS.md) - Local Docker method
+- [Snapshot Management System](./snapshot-management-system.md) - Complete overview
+- [Docker Linux Snapshots](./docker-linux-snapshots.md) - Local Docker method
 - [Scripts README](../scripts/README.md) - Compression scripts
-- [Playwright CT Instructions](../../../../.github/instructions/lufa-design-system-playwright-ct.instructions.md) - Testing guidelines
+- Playwright CT instructions are maintained internally
 
 ## FAQ
 

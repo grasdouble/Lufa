@@ -27,7 +27,7 @@ Add the `snapshot-update` label to your PR and let CI handle it:
 - ✅ Automatic compression
 - ✅ Automatic commit and push
 
-**See:** [Automated Snapshot Updates Guide](../../../../.github/workflows/README-SNAPSHOT-UPDATE.md)
+**See:** [Automated Snapshot Updates Guide](./snapshot-update.md)
 
 ### Method 2: Docker Locally (This Guide)
 

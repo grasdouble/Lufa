@@ -44,73 +44,13 @@ Visit `http://localhost:3000` to view the site.
 
 ## Writing Documentation
 
-### Creating Pages
+Use these guides when authoring documentation:
 
-Add Markdown or MDX files to `docs/`:
-
-```markdown
----
-sidebar_position: 1
-title: My Guide
-description: Learn how to use feature X
----
-
-# My Guide
-
-Welcome to this guide on...
-
-## Section 1
-
-Content here...
-```
-
-### Adding Blog Posts
-
-Create date-prefixed files in `blog/`:
-
-```markdown
----
-title: Design System v2.0 Released
-authors: [john, jane]
-tags: [release, breaking-changes]
----
-
-We're excited to announce the release of Design System v2.0!
-
-<!-- truncate -->
-
-Full post content...
-```
-
-### Using Live Components
-
-Embed interactive components in MDX:
-
-```mdx
-import { BrowserWindow } from '@site/src/components/BrowserWindow';
-
-import { Button } from '@grasdouble/lufa_design-system';
-
-# Button Documentation
-
-<BrowserWindow>
-  <Button variant="primary">Click me</Button>
-  <Button variant="secondary">Or me</Button>
-</BrowserWindow>
-```
-
-### Code Examples
-
-Use syntax highlighting with live previews:
-
-````mdx
-```tsx live
-function Example() {
-  const [count, setCount] = useState(0);
-  return <Button onClick={() => setCount(count + 1)}>Clicked {count} times</Button>;
-}
-```
-````
+- [Component Documentation Best Practices](./_docs/component-documentation-best-practices.md)
+- [Adding a New Page](./_docs/adding-a-new-page.md)
+- [Adding a Blog Post](./_docs/adding-a-blog-post.md)
+- [Using Live Components](./_docs/using-live-components.md)
+- [Writing Code Examples](./_docs/writing-code-examples.md)
 
 ## Site Structure
 
@@ -154,31 +94,6 @@ pnpm ds:documentation:build
 # Upload ./build to hosting service
 ```
 
-## Best Practices
-
-### Content Guidelines
-
-- Use clear, concise language
-- Include code examples for every feature
-- Provide both conceptual and practical content
-- Add visual examples (images, diagrams)
-- Keep pages focused on a single topic
-
-### Accessibility
-
-- Use semantic heading hierarchy
-- Provide alt text for images
-- Ensure sufficient color contrast
-- Test with screen readers
-- Include keyboard navigation docs
-
-### Maintenance
-
-- Keep docs in sync with code
-- Update examples when APIs change
-- Archive outdated content
-- Review and update quarterly
-
 ## Resources
 
 - [Docusaurus Documentation](https://docusaurus.io/docs)
@@ -186,25 +101,3 @@ pnpm ds:documentation:build
 - [Design System Components](../main/)
 - [Storybook](../storybook/)
 - [Contributing Guide](../../../CONTRIBUTING.md)
-
-```bash
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

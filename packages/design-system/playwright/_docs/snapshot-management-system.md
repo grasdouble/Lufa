@@ -137,7 +137,7 @@ bash packages/design-system/playwright/scripts/docker-update-snapshots-linux.sh
 - Docker installed and running
 - pnpm version from `.tool-versions` installed locally (for Option A)
 
-**Detailed Guide**: [DOCKER-LINUX-SNAPSHOTS.md](./DOCKER-LINUX-SNAPSHOTS.md)
+**Detailed Guide**: [docker-linux-snapshots.md](./docker-linux-snapshots.md)
 
 ---
 
@@ -195,7 +195,7 @@ git pull
 - ✅ Automatic compression included
 - ✅ PR comment with results
 
-**Detailed Guide**: [.github/workflows/README-SNAPSHOT-UPDATE.md](../../../.github/workflows/README-SNAPSHOT-UPDATE.md)
+**Detailed Guide**: [snapshot-update.md](./snapshot-update.md)
 
 ---
 
@@ -220,12 +220,12 @@ git pull
 
 ### Documentation
 
-| Document                                                                                            | Description                       |
-| --------------------------------------------------------------------------------------------------- | --------------------------------- |
-| [SNAPSHOT-MANAGEMENT-SYSTEM.md](./SNAPSHOT-MANAGEMENT-SYSTEM.md)                                    | This file - complete overview     |
-| [DOCKER-LINUX-SNAPSHOTS.md](./DOCKER-LINUX-SNAPSHOTS.md)                                            | Docker method detailed guide      |
-| [scripts/README.md](../scripts/README.md)                                                           | Compression scripts documentation |
-| [.github/workflows/README-SNAPSHOT-UPDATE.md](../../../.github/workflows/README-SNAPSHOT-UPDATE.md) | GitHub Actions label method guide |
+| Document                                                         | Description                       |
+| ---------------------------------------------------------------- | --------------------------------- |
+| [snapshot-management-system.md](./snapshot-management-system.md) | This file - complete overview     |
+| [docker-linux-snapshots.md](./docker-linux-snapshots.md)         | Docker method detailed guide      |
+| [scripts/README.md](../scripts/README.md)                        | Compression scripts documentation |
+| [snapshot-update.md](./snapshot-update.md)                       | GitHub Actions label method guide |
 
 ---
 
@@ -779,10 +779,10 @@ gh pr edit --add-label snapshot-update
 
 ### Documentation
 
-- [SNAPSHOT-MANAGEMENT-SYSTEM.md](./SNAPSHOT-MANAGEMENT-SYSTEM.md) - This file
-- [DOCKER-LINUX-SNAPSHOTS.md](./DOCKER-LINUX-SNAPSHOTS.md) - Docker details
+- [snapshot-management-system.md](./snapshot-management-system.md) - This file
+- [docker-linux-snapshots.md](./docker-linux-snapshots.md) - Docker details
 - [scripts/README.md](../scripts/README.md) - Compression scripts
-- [.github/workflows/README-SNAPSHOT-UPDATE.md](../../../.github/workflows/README-SNAPSHOT-UPDATE.md) - GitHub Actions guide
+- [snapshot-update.md](./snapshot-update.md) - GitHub Actions guide
 
 ---
 

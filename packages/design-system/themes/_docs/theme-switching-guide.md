@@ -528,9 +528,9 @@ function useAutoTheme() {
 
 ## Resources
 
-- [Token Architecture](./token-architecture.md)
-- [Architecture Updates](./brainstorming/architecture-updates-2026-01-25.md)
-- [Component Development Guide](./development-guide.md)
+- [Token Architecture](../../tokens/_docs/token-architecture.md)
+- [Architecture Updates](../../_docs/brainstorming/architecture-updates-2026-01-25.md)
+- [Component Development Guide](../../_docs/development-guide.md)
 
 ## Future Enhancements
 
