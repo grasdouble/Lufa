@@ -68,9 +68,9 @@
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_prettier": "workspace:^",
-    "@secretlint/secretlint-rule-no-dotenv": "^11.3.0",
-    "@secretlint/secretlint-rule-preset-recommend": "^11.3.0",
-    "@types/node": "^25.0.10",
+    "@secretlint/secretlint-rule-no-dotenv": "^11.3.1",
+    "@secretlint/secretlint-rule-preset-recommend": "^11.3.1",
+    "@types/node": "^25.1.0",
     "@types/vscode": "^1.108.1",
     "@vitest/coverage-v8": "^4.0.18",
     "@vscode/vsce": "^3.7.1",
