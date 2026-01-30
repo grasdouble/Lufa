@@ -1,5 +1,211 @@
 # @grasdouble/lufa_design-system
 
+## 0.9.0
+
+### Minor Changes
+
+- ceeaacc: feat(tokens): complete ADR-004 alpha opacity rollout
+  - add black/white alpha 5/12/15 tokens and migrate shadow references
+  - align theme shadow variables and button disabled opacity to semantic tokens
+  - add alpha token usage documentation and Storybook showcase
+
+### Patch Changes
+
+- e3380ec: fix(components): implement type-safe polymorphic ref forwarding
+
+  Fix TypeScript errors in 6 polymorphic components using proper type-safe patterns instead of `any`.
+
+  **Problem:**
+  - 9 TypeScript errors: `Type 'Ref<Element>' not assignable to specific element refs`
+  - Polymorphic components (Box, Button, Icon, Stack, Text, Divider) had incorrect ref typing
+  - Need proper pattern that maintains type safety and autocompletion
+
+  **Solution:**
+  Implement architect-approved pattern using `React.ComponentRef<T>`:
+  1. **Component implementation:**
+     - Use `ForwardedRef<Element>` parameter (generic Element type)
+     - Cast ref as `React.Ref<never>` when passing to dynamic component
+     - Minimal internal casting only where necessary
+  2. **Component export:**
+     - Use `React.ComponentRef<T>` to extract correct ref type for each element
+     - Type-safe public API: `ref?: React.Ref<React.ComponentRef<T>>`
+     - Maintains full IDE autocompletion and type checking
+
+  **Components Fixed:**
+  - **Box**: `HTMLDivElement` (default) | custom element via `as` prop
+  - **Button**: `HTMLButtonElement` (default) | `HTMLAnchorElement` (as="a")
+  - **Icon**: `HTMLSpanElement` (default) | custom element
+  - **Stack**: `HTMLDivElement` (default) | custom element
+  - **Text**: `HTMLParagraphElement` (default) | heading/span elements
+  - **Divider**: `HTMLHRElement` (default) | `HTMLDivElement` (as="div")
+
+  **Benefits:**
+  - ✅ Zero `any` in public API - fully type-safe
+  - ✅ `ComponentRef<T>` extracts correct ref types automatically
+  - ✅ Full IDE autocompletion preserved
+  - ✅ Compile-time validation catches type mismatches
+  - ✅ Type-safe for all component consumers
+
+  **Type Tests:**
+  - Add `__type-tests__/polymorphic-refs.test.tsx`
+  - Validates ref types for all 6 components
+  - Documents expected usage patterns
+  - Ensures type inference works correctly
+
+  **Verification:**
+  - TypeScript: 0 errors (was 9 errors) ✅
+  - Build: successful ✅
+  - Bundle: 44.42 kB (stable, no regression) ✅
+
+  **Impact:**
+  - Files changed: 7 (+241, -60 lines)
+  - No runtime changes - pure TypeScript type improvements
+  - No breaking changes for consumers
+  - Improved developer experience with better type safety
+
+  **Architect Review:** Winston (approved type-safe polymorphic pattern)
+
+- 058d6d6: # Icon Size Token Alignment & Story Token Compliance
+
+  ## Design System Tokens (@grasdouble/lufa_design-system-tokens)
+
+  **Icon Size Token Alignment**: Updated `component.shared.icon.size-*` tokens to align with Icon component implementation and added missing `xl` size.
+
+  ### What Changed
+
+  | Token                           | Previous Value | New Value   |
+  | ------------------------------- | -------------- | ----------- |
+  | `component.shared.icon.size-xs` | 12px           | 16px        |
+  | `component.shared.icon.size-sm` | 16px           | 20px        |
+  | `component.shared.icon.size-md` | 20px           | 24px        |
+  | `component.shared.icon.size-lg` | 24px           | 32px        |
+  | `component.shared.icon.size-xl` | _(none)_       | 40px ✨ NEW |
+
+  ### Impact
+
+  No breaking changes to component APIs. The Icon component was already using these values (16/20/24/32/40px), so this update aligns the tokens with actual implementation. Visual appearance remains unchanged.
+
+  ### CSS Variables Updated
+
+  ```css
+  --lufa-component-shared-icon-size-xs: 16px; /* was 12px */
+  --lufa-component-shared-icon-size-sm: 20px; /* was 16px */
+  --lufa-component-shared-icon-size-md: 24px; /* was 20px */
+  --lufa-component-shared-icon-size-lg: 32px; /* was 24px */
+  --lufa-component-shared-icon-size-xl: 40px; /* NEW */
+  ```
+
+  ## Design System Main (@grasdouble/lufa_design-system)
+
+  **Icon Component Token Integration**: Icon component now uses design token CSS variables instead of hardcoded pixel values.
+
+  ### What Changed
+  - Updated `icon.utilities.config.cjs` to reference `--lufa-component-shared-icon-size-*` tokens
+  - Regenerated `Icon.module.css` with token-based classes
+  - No visual changes - maintains existing size values (16/20/24/32/40px)
+
+  ### Benefits
+  - Icon sizes now centrally managed through design tokens
+  - Easier to maintain and scale
+  - Consistent with other component configurations
+
+  ### Affected Components
+  - Icon component configuration now uses CSS variable references
+  - Generated `Icon.module.css` uses token-based classes
+
+  ## Storybook (@grasdouble/lufa_design-system-storybook)
+
+  **Story Token Compliance**: All Storybook stories now use design tokens exclusively.
+
+  ### What Changed
+  - Replaced 130+ hardcoded color values with `STORY_COLORS` constants across all stories
+  - Updated stories: Typography, Colors, TokenUsage, Box, Text, Stack, Divider, Icon, Badge, Button
+  - All colors now properly adapt to theme changes (light/dark/high-contrast)
+
+  ### Impact
+  - Stories now demonstrate proper token usage patterns
+  - Improved theme switching experience
+  - Better consistency across documentation
+
+- 3b444f4: # Storybook Theme Adaptation & Color API Improvements
+
+  Comprehensive fixes for Storybook theme switching, deprecated token migration, and STORY_COLORS API refactoring.
+
+  ## Storybook (@grasdouble/lufa_design-system-storybook)
+
+  ### Theme Infrastructure Fixes
+  - **Deprecated Token Migration**: Replaced 50+ deprecated `--lufa-token-color-*` tokens with current semantic UI tokens across 6 files
+    - `.storybook/preview.tsx` - Theme wrapper
+    - Helper components: `PlaygroundContainer`, `PropCard`, `MarginVisualizer`, `PaddingVisualizer`
+    - `style.css` - Form overrides
+
+  ### Story Fixes
+  - **Hardcoded Colors**: Replaced 126 hardcoded color values with theme-aware CSS variables
+    - 26 `background: 'white'` instances → `var(--lufa-semantic-ui-background-surface)`
+    - 111 hardcoded colors in Typography stories
+    - 15 color references in Typography tips/code snippets
+  - **Missing STORY_COLORS Properties**: Added missing color properties referenced in stories
+    - `STORY_COLORS.neutral.text` (80+ usages)
+    - `STORY_COLORS.neutral.bgGray` (2 usages)
+    - `STORY_COLORS.primary.red` (4 usages in Icon delete button examples)
+  - **Type Safety**: Fixed PropPadding story color type error
+    - Updated to use `.main` property: `STORY_COLORS.primary.cyan.main`
+    - Added type guards in visualizer components
+
+  ### STORY_COLORS API Refactoring
+  - **New `STORY_COLORS.themed.*` API**: Added dedicated section for theme-aware colors
+    - `text.*` - Primary, secondary, tertiary, success, inverse text colors
+    - `background.*` - Page, surface, semantic (success/error/warning/info) colors
+    - `border.*` - Default and subtle border colors
+    - `shadow.*` - Small and medium shadow tokens
+    - `overlay.*` - Backdrop overlay token
+  - **Complete Migration**: Replaced 164 direct CSS variable calls with `STORY_COLORS.themed.*` across all stories
+    - Typography: 128 replacements
+    - Icon: 18 replacements
+    - Text: 8 replacements
+    - Divider: 5 replacements
+    - Stack: 3 replacements
+    - Box: 3 replacements
+    - Colors: 1 replacement
+
+  ### Linting & Type Fixes
+  - Fixed TypeScript unsafe argument type in ThemeSwitcher
+  - Removed redundant type union in PaddingVisualizer
+  - Cleaned up unused imports across 4 story files
+
+  ## Design System Main (@grasdouble/lufa_design-system)
+
+  ### Box Component Border Utility Fix
+  - **borderWidth Utility**: Fixed invisible borders by setting both `border-width` and `border-style`
+    - Previous: Only set `border-width` (borders defaulted to `none`)
+    - Now: Sets both properties together (e.g., `['1px', 'solid']`)
+    - Regenerated `Box.module.css` with 119 updated utility classes
+
+  ## Impact
+
+  ✅ Theme switching (Light/Dark/High-Contrast) now works properly across all stories
+  ✅ All story content is readable and properly contrasted in all themes
+  ✅ Box component borders display correctly with `borderWidth` prop
+  ✅ Type-safe color API with clear semantic distinction (164 CSS variables → STORY_COLORS.themed)
+  ✅ Consistent API usage across entire Storybook codebase
+  ✅ Zero linting errors or warnings
+
+  ## Files Modified (18 files)
+  - `.storybook/preview.tsx`
+  - `src/components/helpers/*.tsx` (4 files)
+  - `src/stories/primitives/*.stories.tsx` (7 files)
+  - `src/stories/tokens/Typography.stories.tsx`
+  - `src/constants/storyColors.ts`
+  - `packages/design-system/main/src/components/Box/box.utilities.config.cjs`
+  - `packages/design-system/main/src/components/Box/Box.module.css` (generated)
+
+- Updated dependencies [3b444f4]
+- Updated dependencies [ceeaacc]
+- Updated dependencies [058d6d6]
+- Updated dependencies [e3380ec]
+- Updated dependencies [e3380ec]
+  - @grasdouble/lufa_design-system-tokens@0.6.0
+
 ## 0.8.0
 
 ### Minor Changes

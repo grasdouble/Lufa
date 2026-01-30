@@ -1,5 +1,391 @@
 # @grasdouble/lufa_design-system-storybook
 
+## 0.11.0
+
+### Minor Changes
+
+- ceeaacc: feat(tokens): complete ADR-004 alpha opacity rollout
+  - add black/white alpha 5/12/15 tokens and migrate shadow references
+  - align theme shadow variables and button disabled opacity to semantic tokens
+  - add alpha token usage documentation and Storybook showcase
+
+- e3380ec: feat(tokens): implement ADR-010 extended type scale (6xl-8xl)
+
+  Add 3 new fluid typography tokens for hero sections, marketing pages, and display text.
+
+  **New Tokens:**
+  - `6xl`: 40px → 60px (fluid) - Hero headlines, featured content
+  - `7xl`: 48px → 72px (fluid) - Marketing hero sections, landing pages
+  - `8xl`: 64px → 96px (fluid) - Display text, brand impact moments
+
+  **Changes:**
+  - Added 6xl, 7xl, 8xl fluid tokens with CSS clamp() for responsive scaling
+  - Created comprehensive Storybook story (`ExtendedTypeScale`) with breakpoint analysis
+  - Updated ADR-010 status from "Deferred" to "Implemented"
+  - Updated typography documentation with extended scale usage guidelines
+  - CSS impact: +510 bytes (67.76 KB / 70 KB = 96.8%)
+
+  **Technical Notes:**
+  - All tokens use CSS clamp() for fluid responsive scaling (consistent with 2xl-5xl pattern)
+  - 8xl has intentional behavior: fluid scaling engages at 400px+ viewport (documented)
+  - No breaking changes - additive feature only
+  - Architect-validated implementation (Winston)
+
+  **References:**
+  - ADR: ADR-010
+  - Phase: Phase 2D Extended
+  - Architect Review: Approved (Option B - Fluid Responsive)
+
+### Patch Changes
+
+- 4d517dd: Fix CodeBlock component visibility in both light and dark themes
+  - Replace non-existent token names with correct design system tokens
+  - Make CodeBlock always dark (like GitHub, VS Code) for better code visibility
+  - Use alpha-white tokens for proper contrast on dark background
+  - Background now uses gray-900 (always #111827) in all themes
+  - Text uses background-on-primary (always white) for readability
+
+- 058d6d6: # Icon Size Token Alignment & Story Token Compliance
+
+  ## Design System Tokens (@grasdouble/lufa_design-system-tokens)
+
+  **Icon Size Token Alignment**: Updated `component.shared.icon.size-*` tokens to align with Icon component implementation and added missing `xl` size.
+
+  ### What Changed
+
+  | Token                           | Previous Value | New Value   |
+  | ------------------------------- | -------------- | ----------- |
+  | `component.shared.icon.size-xs` | 12px           | 16px        |
+  | `component.shared.icon.size-sm` | 16px           | 20px        |
+  | `component.shared.icon.size-md` | 20px           | 24px        |
+  | `component.shared.icon.size-lg` | 24px           | 32px        |
+  | `component.shared.icon.size-xl` | _(none)_       | 40px ✨ NEW |
+
+  ### Impact
+
+  No breaking changes to component APIs. The Icon component was already using these values (16/20/24/32/40px), so this update aligns the tokens with actual implementation. Visual appearance remains unchanged.
+
+  ### CSS Variables Updated
+
+  ```css
+  --lufa-component-shared-icon-size-xs: 16px; /* was 12px */
+  --lufa-component-shared-icon-size-sm: 20px; /* was 16px */
+  --lufa-component-shared-icon-size-md: 24px; /* was 20px */
+  --lufa-component-shared-icon-size-lg: 32px; /* was 24px */
+  --lufa-component-shared-icon-size-xl: 40px; /* NEW */
+  ```
+
+  ## Design System Main (@grasdouble/lufa_design-system)
+
+  **Icon Component Token Integration**: Icon component now uses design token CSS variables instead of hardcoded pixel values.
+
+  ### What Changed
+  - Updated `icon.utilities.config.cjs` to reference `--lufa-component-shared-icon-size-*` tokens
+  - Regenerated `Icon.module.css` with token-based classes
+  - No visual changes - maintains existing size values (16/20/24/32/40px)
+
+  ### Benefits
+  - Icon sizes now centrally managed through design tokens
+  - Easier to maintain and scale
+  - Consistent with other component configurations
+
+  ### Affected Components
+  - Icon component configuration now uses CSS variable references
+  - Generated `Icon.module.css` uses token-based classes
+
+  ## Storybook (@grasdouble/lufa_design-system-storybook)
+
+  **Story Token Compliance**: All Storybook stories now use design tokens exclusively.
+
+  ### What Changed
+  - Replaced 130+ hardcoded color values with `STORY_COLORS` constants across all stories
+  - Updated stories: Typography, Colors, TokenUsage, Box, Text, Stack, Divider, Icon, Badge, Button
+  - All colors now properly adapt to theme changes (light/dark/high-contrast)
+
+  ### Impact
+  - Stories now demonstrate proper token usage patterns
+  - Improved theme switching experience
+  - Better consistency across documentation
+
+- 2b70c8c: # Ocean & Forest Theme Implementation
+
+  Complete implementation of two new brand themes (Ocean 🌊 and Forest 🌲) with full accessibility support across light, dark, and high-contrast modes.
+
+  ## Themes Package (@grasdouble/lufa_design-system-themes)
+
+  ### New Theme Implementations
+
+  **Ocean Theme (🌊 Cyan/Teal Palette)**
+  - Light mode primary: `#0891b2` (cyan-600) - Professional, trustworthy
+  - Dark mode primary: `#22d3ee` (cyan-400) - Softer, accessible
+  - Light mode secondary: `#14b8a6` (teal-500) - Complementary depth
+  - Dark mode secondary: `#2dd4bf` (teal-400) - Harmonious pairing
+  - Psychology: Calm, fluid, trustworthy
+  - Use cases: Healthcare, travel, productivity apps
+
+  **Forest Theme (🌲 Emerald/Green Palette)**
+  - Light mode primary: `#059669` (emerald-600) - Growth-oriented, vibrant
+  - Dark mode primary: `#34d399` (emerald-400) - Softer, eye-friendly
+  - Light mode secondary: `#16a34a` (green-600) - Natural harmony
+  - Dark mode secondary: `#4ade80` (green-400) - Balanced pairing
+  - Psychology: Growth, natural, healthy
+  - Use cases: Eco-brands, wellness, financial growth
+
+  ### Token Architecture
+
+  **Efficient Cascade System:**
+  - Only 6 core brand tokens overridden per theme
+  - 27+ semantic/component tokens cascade automatically
+  - Zero component changes required for theme switching
+
+  **Attribute-Based Theming:**
+
+  ```css
+  [data-color-theme='ocean'] {
+    /* Ocean overrides */
+  }
+  [data-color-theme='forest'] {
+    /* Forest overrides */
+  }
+  ```
+
+  **Mode Support:**
+  - All themes support 3 modes: `light`, `dark`, `high-contrast`
+  - Total configurations: 3 themes × 3 modes = 9 variations
+  - WCAG AA/AAA compliant across all combinations
+
+  ### Files Modified
+  - `src/ocean.css` - Complete Ocean theme implementation
+  - `src/forest.css` - Complete Forest theme implementation
+  - Updated CSS custom properties for theme tokens
+
+  ## Storybook (@grasdouble/lufa_design-system-storybook)
+
+  ### Theme Architecture Stories
+
+  **New Educational Stories (6 total):**
+  1. **Overview** - Visual hierarchy of token architecture
+  2. **Themeable vs Non-Themeable** - Side-by-side comparison
+  3. **Mode-Aware Tokens** - Light/Dark/High-Contrast behavior
+  4. **Primitive Immutability** - Demonstration of constant values
+  5. **Token Reference Chains** - Component → Semantic → Primitive flow
+  6. **Component Examples** - Real buttons, badges, cards
+
+  **Helper Components (4 new):**
+  - `TokenCard.tsx` - Display individual token properties (260 lines)
+  - `TokenComparison.tsx` - Compare themeable vs non-themeable (235 lines)
+  - `TokenMatrix.tsx` - Grid view of multiple tokens (332 lines)
+  - `TokenReferenceChain.tsx` - Visualize reference chains (255 lines)
+
+  **Theme Comparison Story:**
+  - Single comprehensive story for theme testing
+  - Interactive toolbar for theme/mode switching
+  - Shows which components change with theme (brand colors)
+  - Shows which components DON'T change (semantic success/error)
+
+  ### Features
+  - Real-time CSS variable value display with MutationObserver
+  - Color-coded by token level (primitive/semantic/component)
+  - Interactive testing with Storybook toolbar
+  - Educational content with best practices
+  - Full ESLint compliance (0 errors, 0 warnings)
+
+  ## Docusaurus (@grasdouble/lufa_design-system-docusaurus)
+
+  ### Documentation Updates
+
+  **Updated Files (3):**
+  1. **`docs/getting-started/theming.md`**
+     - Updated architecture diagram to 3-layer system
+     - Added Ocean & Forest theme documentation
+     - Replaced ~50 old token references with ADR-011 conventions
+     - Added primitive immutability explanation (Math.PI analogy)
+     - Documented mode vs theme distinction
+     - Added comprehensive best practices
+  2. **`docs/tokens/colors.md`**
+     - Updated token architecture section
+     - Added mode-awareness documentation
+     - Replaced 54 token references
+     - Added primitive color scale warnings
+  3. **`docs/tokens/spacing.md`**
+     - Added token layer classification
+     - Updated 26 spacing examples
+     - Added semantic vs primitive best practices
+
+  **Statistics:**
+  - Old token references removed: ~100
+  - New ADR-011 token references added: 185
+  - Build status: ✅ SUCCESS (0 errors)
+
+  ## Impact
+
+  ✅ **3 Brand Themes Available** - Default (Blue/Purple), Ocean (Cyan/Teal), Forest (Emerald/Green)
+  ✅ **9 Total Configurations** - 3 themes × 3 modes (light/dark/high-contrast)
+  ✅ **Instant Theme Switching** - No component changes needed
+  ✅ **WCAG Compliant** - All modes meet AA/AAA standards
+  ✅ **Token Cascade** - 6 overrides → 27+ tokens change automatically
+  ✅ **Educational Documentation** - 7 interactive Storybook stories
+  ✅ **Updated Official Docs** - 185 token references corrected
+  ✅ **Architect Approved** - 9.8/10 quality rating
+
+  ## Usage
+
+  **HTML Attributes:**
+
+  ```html
+  <!-- Theme Selection -->
+  <html data-color-theme="ocean">
+    <!-- or "forest" or "default" -->
+    <html data-color-theme="forest">
+      <!-- Mode Selection -->
+      <html data-mode="light">
+        <!-- or "dark" or "high-contrast" -->
+        <html data-mode="dark">
+          <html data-mode="high-contrast"></html>
+        </html>
+      </html>
+    </html>
+  </html>
+  ```
+
+  **Example Combinations:**
+  - Ocean + Light mode
+  - Ocean + Dark mode
+  - Forest + High-contrast mode
+  - Default + Dark mode
+  - etc. (9 total combinations)
+
+  ## Migration Notes
+
+  **No Breaking Changes** - Fully backward compatible:
+  - Default theme behavior unchanged
+  - Existing token references work as-is
+  - Components automatically adapt to new themes
+  - CSS custom properties remain stable
+
+  **Opt-in** - Theme selection is optional:
+  - Default theme used if no `data-color-theme` attribute
+  - Themes can be switched at runtime via JavaScript
+  - No rebuild required for theme changes
+
+  ## Testing
+
+  All themes tested across:
+  - ✅ Storybook interactive stories
+  - ✅ Component library (buttons, badges, cards, links)
+  - ✅ All 3 modes (light/dark/high-contrast)
+  - ✅ WCAG contrast validation
+  - ✅ Build pipeline (tokens → themes → CSS)
+
+  ## Files Modified Summary
+
+  **Themes Package (2 files):**
+  - `src/ocean.css` (new implementation)
+  - `src/forest.css` (new implementation)
+
+  **Storybook Package (8 new files):**
+  - `src/components/helpers/TokenCard.tsx` (260 lines)
+  - `src/components/helpers/TokenComparison.tsx` (235 lines)
+  - `src/components/helpers/TokenMatrix.tsx` (332 lines)
+  - `src/components/helpers/TokenReferenceChain.tsx` (255 lines)
+  - `src/components/helpers/index.ts` (6 lines)
+  - `src/stories/tokens/ThemeArchitecture.stories.tsx` (1,139 lines)
+  - `src/stories/tokens/ThemeComparison.stories.tsx` (409 lines)
+  - `.storybook/ThemeAndModeWrapper.tsx` (67 lines - extracted from preview.tsx)
+  - Total: 2,703 lines of new code
+
+  **Docusaurus Package (3 files):**
+  - `docs/getting-started/theming.md`
+  - `docs/tokens/colors.md`
+  - `docs/tokens/spacing.md`
+  - 558 insertions, 262 deletions
+
+  **Total:** 13 files modified/added across 3 packages
+
+- 3b444f4: # Storybook Theme Adaptation & Color API Improvements
+
+  Comprehensive fixes for Storybook theme switching, deprecated token migration, and STORY_COLORS API refactoring.
+
+  ## Storybook (@grasdouble/lufa_design-system-storybook)
+
+  ### Theme Infrastructure Fixes
+  - **Deprecated Token Migration**: Replaced 50+ deprecated `--lufa-token-color-*` tokens with current semantic UI tokens across 6 files
+    - `.storybook/preview.tsx` - Theme wrapper
+    - Helper components: `PlaygroundContainer`, `PropCard`, `MarginVisualizer`, `PaddingVisualizer`
+    - `style.css` - Form overrides
+
+  ### Story Fixes
+  - **Hardcoded Colors**: Replaced 126 hardcoded color values with theme-aware CSS variables
+    - 26 `background: 'white'` instances → `var(--lufa-semantic-ui-background-surface)`
+    - 111 hardcoded colors in Typography stories
+    - 15 color references in Typography tips/code snippets
+  - **Missing STORY_COLORS Properties**: Added missing color properties referenced in stories
+    - `STORY_COLORS.neutral.text` (80+ usages)
+    - `STORY_COLORS.neutral.bgGray` (2 usages)
+    - `STORY_COLORS.primary.red` (4 usages in Icon delete button examples)
+  - **Type Safety**: Fixed PropPadding story color type error
+    - Updated to use `.main` property: `STORY_COLORS.primary.cyan.main`
+    - Added type guards in visualizer components
+
+  ### STORY_COLORS API Refactoring
+  - **New `STORY_COLORS.themed.*` API**: Added dedicated section for theme-aware colors
+    - `text.*` - Primary, secondary, tertiary, success, inverse text colors
+    - `background.*` - Page, surface, semantic (success/error/warning/info) colors
+    - `border.*` - Default and subtle border colors
+    - `shadow.*` - Small and medium shadow tokens
+    - `overlay.*` - Backdrop overlay token
+  - **Complete Migration**: Replaced 164 direct CSS variable calls with `STORY_COLORS.themed.*` across all stories
+    - Typography: 128 replacements
+    - Icon: 18 replacements
+    - Text: 8 replacements
+    - Divider: 5 replacements
+    - Stack: 3 replacements
+    - Box: 3 replacements
+    - Colors: 1 replacement
+
+  ### Linting & Type Fixes
+  - Fixed TypeScript unsafe argument type in ThemeSwitcher
+  - Removed redundant type union in PaddingVisualizer
+  - Cleaned up unused imports across 4 story files
+
+  ## Design System Main (@grasdouble/lufa_design-system)
+
+  ### Box Component Border Utility Fix
+  - **borderWidth Utility**: Fixed invisible borders by setting both `border-width` and `border-style`
+    - Previous: Only set `border-width` (borders defaulted to `none`)
+    - Now: Sets both properties together (e.g., `['1px', 'solid']`)
+    - Regenerated `Box.module.css` with 119 updated utility classes
+
+  ## Impact
+
+  ✅ Theme switching (Light/Dark/High-Contrast) now works properly across all stories
+  ✅ All story content is readable and properly contrasted in all themes
+  ✅ Box component borders display correctly with `borderWidth` prop
+  ✅ Type-safe color API with clear semantic distinction (164 CSS variables → STORY_COLORS.themed)
+  ✅ Consistent API usage across entire Storybook codebase
+  ✅ Zero linting errors or warnings
+
+  ## Files Modified (18 files)
+  - `.storybook/preview.tsx`
+  - `src/components/helpers/*.tsx` (4 files)
+  - `src/stories/primitives/*.stories.tsx` (7 files)
+  - `src/stories/tokens/Typography.stories.tsx`
+  - `src/constants/storyColors.ts`
+  - `packages/design-system/main/src/components/Box/box.utilities.config.cjs`
+  - `packages/design-system/main/src/components/Box/Box.module.css` (generated)
+
+- Updated dependencies [3b444f4]
+- Updated dependencies [ceeaacc]
+- Updated dependencies [e3380ec]
+- Updated dependencies [058d6d6]
+- Updated dependencies [2b70c8c]
+- Updated dependencies [e3380ec]
+- Updated dependencies [3b444f4]
+- Updated dependencies [e3380ec]
+  - @grasdouble/lufa_design-system-tokens@0.6.0
+  - @grasdouble/lufa_design-system@0.9.0
+  - @grasdouble/lufa_design-system-themes@0.5.0
+
 ## 0.10.0
 
 ### Minor Changes
