@@ -154,7 +154,7 @@ pnpm ds:storybook:dev  # Visit http://localhost:6006
   - Visual regression (5 browsers)
   - Snapshot management
 
-- **[Development Guide > Code Quality](./development-guide-design-system.md#code-quality)** - Linting, formatting, pre-commit hooks
+- **[Development Guide > Code Quality](./development-guide.md#code-quality)** - Linting, formatting, pre-commit hooks
 
 </details>
 
@@ -166,8 +166,8 @@ pnpm ds:storybook:dev  # Visit http://localhost:6006
 
 **Read these sections:**
 
-1. **[Development Guide > Common Workflows](./development-guide-design-system.md#common-workflows)** - Development servers
-2. **[Architecture > Extension Points > Adding New Components](./architecture-design-system.md#adding-new-components)** - Step-by-step process
+1. **[Development Guide > Common Workflows](./development-guide.md#common-workflows)** - Development servers
+2. **[Architecture > Extension Points > Adding New Components](./architecture.md#adding-new-components)** - Step-by-step process
 3. **[Documentation Patterns](./storybook-patterns.md)** - Storybook story patterns
 4. **[Testing Strategy](./testing-strategy.md)** - Test structure
 
@@ -181,7 +181,7 @@ pnpm ds:storybook:dev  # Visit http://localhost:6006
 6. Export from main index
 7. Create changeset
 
-**Example:** See **[Component Inventory > Button](./ui-component-inventory.md#button-interactive-component)** for reference implementation.
+**Example:** See **[Component Inventory > Button](./component-inventory.md#button-interactive-component)** for reference implementation.
 
 ### Use Case 2: "I need to modify token values"
 
@@ -205,7 +205,7 @@ pnpm ds:storybook:dev  # Visit http://localhost:6006
 
 **Read these sections:**
 
-1. **[Development Guide > Troubleshooting](./development-guide-design-system.md#troubleshooting)** - Common issues
+1. **[Development Guide > Troubleshooting](./development-guide.md#troubleshooting)** - Common issues
 2. **[Build Configuration > Troubleshooting](./build-configuration.md#troubleshooting)** - Build-specific issues
 
 **Most common issues:**
@@ -220,8 +220,8 @@ pnpm ds:storybook:dev  # Visit http://localhost:6006
 
 **Read these sections:**
 
-1. **[Testing Strategy > Visual Regression](./test-design-design-system.md#visual-regression-strategy)** - Snapshot management
-2. **[Development Guide > Testing > Updating Visual Snapshots](./development-guide-design-system.md#updating-visual-snapshots)** - Commands
+1. **[Testing Strategy > Visual Regression](./testing-strategy.md#visual-regression-strategy)** - Snapshot management
+2. **[Development Guide > Testing > Updating Visual Snapshots](./development-guide.md#updating-visual-snapshots)** - Commands
 
 **Commands:**
 
@@ -240,8 +240,8 @@ pnpm ds:test:compress-snapshots
 
 **Read these sections:**
 
-1. **[Development Guide > Release Process](./development-guide-design-system.md#release-process)** - Using Changesets
-2. **[Development Guide > Git Workflow](./development-guide-design-system.md#git-workflow)** - Commit conventions
+1. **[Development Guide > Release Process](./development-guide.md#release-process)** - Using Changesets
+2. **[Development Guide > Git Workflow](./development-guide.md#git-workflow)** - Commit conventions
 
 **Workflow:**
 

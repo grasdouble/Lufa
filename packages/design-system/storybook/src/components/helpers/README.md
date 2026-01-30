@@ -1,18 +1,18 @@
 # Story Helpers
 
-Composants réutilisables pour les stories Storybook du design system Lufa.
+Reusable components for Lufa Design System Storybook stories.
 
-## 📦 Composants disponibles
+## 📦 Available Components
 
 ### `StoryContainer`
 
-Wrapper pour les stories utilisant le layout `fullscreen`. Fournit un espacement approprié et une contrainte de largeur maximale pour une meilleure lisibilité.
+Wrapper for stories using `fullscreen` layout. Provides appropriate spacing and max-width constraint for better readability.
 
 **Props:**
 
-- `children: React.ReactNode` - Contenu de la story
+- `children: React.ReactNode` - Story content
 
-**Utilisation:**
+**Usage:**
 
 ```tsx
 import { StoryContainer } from '../../components/helpers';
@@ -28,32 +28,32 @@ export const MyStory: Story = {
 };
 ```
 
-**Quand l'utiliser:**
+**When to use:**
 
-- ✅ Stories avec layout `fullscreen` dans les paramètres
-- ✅ Stories utilisant des grids ou layouts horizontaux
-- ✅ Stories nécessitant une largeur maximale pour la lisibilité
+- ✅ Stories with `fullscreen` layout in parameters
+- ✅ Stories using grids or horizontal layouts
+- ✅ Stories needing max-width for readability
 
-**Style appliqué:**
+**Applied styles:**
 
-- `padding: 40px` - Espacement autour du contenu
-- `maxWidth: 1400px` - Largeur maximale pour la lisibilité
-- `margin: 0 auto` - Centrage horizontal
-- `width: 100%` - Utilise toute la largeur disponible
+- `padding: 40px` - Spacing around content
+- `maxWidth: 1400px` - Max width for readability
+- `margin: 0 auto` - Horizontal centering
+- `width: 100%` - Uses full available width
 
 ---
 
 ### `PlaygroundContainer`
 
-Container enrichi pour les stories Playground avec contexte visuel et toggles interactifs. **Nouveau !** ⭐
+Enhanced container for Playground stories with visual context and interactive toggles. **New!** ⭐
 
 **Props:**
 
-- `children: React.ReactNode` - Le composant à tester (généralement avec spread props)
-- `defaultShowGrid?: boolean` - État initial de la grille (défaut: `true`)
-- `defaultShowAdjacentElements?: boolean` - État initial des éléments adjacents (défaut: `false`)
+- `children: React.ReactNode` - Component to test (usually with spread props)
+- `defaultShowGrid?: boolean` - Initial grid state (default: `true`)
+- `defaultShowAdjacentElements?: boolean` - Initial adjacent elements state (default: `false`)
 
-**Utilisation:**
+**Usage:**
 
 ```tsx
 import { PlaygroundContainer } from '../../components/helpers';
@@ -68,49 +68,49 @@ export const Playground: Story = {
 };
 ```
 
-**Fonctionnalités:**
+**Features:**
 
-1. 🎯 **Container avec bordure pointillée** - Visualise les marges
-2. 📐 **Grille de guidage** - Lignes + croix centrale (toggleable)
-3. 📦 **Éléments adjacents 4 directions** - "Above", "Before", "After", "Below" (toggleable)
-4. 🎛️ **Toggles dans l'UI** - Checkboxes en haut (pas dans les controls)
-5. ⚡ **Pas de wrapper flex/grid** - Préserve le comportement de la prop `display`
+1. 🎯 **Container with dashed border** - Visualizes margins
+2. 📐 **Guide grid** - Lines + center cross (toggleable)
+3. 📦 **4-direction adjacent elements** - "Above", "Before", "After", "Below" (toggleable)
+4. 🎛️ **UI toggles** - Checkboxes at top (not in controls)
+5. ⚡ **No wrapper flex/grid** - Preserves `display` prop behavior
 
-**Quand l'utiliser:**
+**When to use:**
 
-- ✅ Composants de layout (Box, Stack, Flex, Grid)
-- ✅ Stories Playground où les marges/espacements doivent être visibles
-- ✅ Composants où display mode affecte le layout (`block`, `inline-block`, `inline`, `flex`, `grid`)
-- ❌ Stories de props individuelles (utiliser `StoryContainer` + `PropCard`)
+- ✅ Layout components (Box, Stack, Flex, Grid)
+- ✅ Playground stories where margins/spacing must be visible
+- ✅ Components where display mode affects layout (`block`, `inline-block`, `inline`, `flex`, `grid`)
+- ❌ Individual prop stories (use `StoryContainer` + `PropCard`)
 
-**Avantages vs ancien pattern:**
+**Advantages vs old pattern:**
 
-- ✅ Toggles dans l'UI (ne polluent pas les props du composant)
-- ✅ Code réutilisable (pas de duplication)
-- ✅ Consistance visuelle entre tous les Playgrounds
-- ✅ Facile à propager à d'autres composants
-- ✅ 4 éléments adjacents (Above/Before/After/Below) pour tester `display` correctement
+- ✅ Toggles in UI (don't pollute component props)
+- ✅ Reusable code (no duplication)
+- ✅ Visual consistency across all Playgrounds
+- ✅ Easy to propagate to other components
+- ✅ 4 adjacent elements (Above/Before/After/Below) to test `display` correctly
 
 ---
 
 ### `PropCard`
 
-Composant helper pour afficher des exemples de props individuelles avec un label. Le label est affiché EN BAS du contenu pour garantir un alignement visuel parfait, même si certains labels wrappent sur plusieurs lignes. Inclut des effets de hover pour une meilleure interactivité. Supporte les interactions au click ou au hover.
+Helper component to display individual prop examples with a label. Label is displayed BELOW content to guarantee perfect visual alignment, even if some labels wrap to multiple lines. Includes hover effects for better interactivity. Supports click or hover interactions.
 
 **Props:**
 
-- `label: string` - Texte du label affiché EN BAS du contenu
-- `children: React.ReactNode` - Composant ou éléments à afficher
-- `highlight?: boolean` - Si `true`, applique un background mis en évidence (utile pour indiquer l'élément sélectionné)
-- `onInteraction?: () => void` - Callback appelé lors de l'interaction (click ou hover)
-- `interactionType?: 'click' | 'hover'` - Type d'interaction (défaut: 'hover')
+- `label: string` - Label text displayed BELOW content
+- `children: React.ReactNode` - Component or elements to display
+- `highlight?: boolean` - If `true`, applies highlighted background (useful for indicating selected element)
+- `onInteraction?: () => void` - Callback called on interaction (click or hover)
+- `interactionType?: 'click' | 'hover'` - Interaction type (default: 'hover')
 
-**Utilisation:**
+**Usage:**
 
 ```tsx
 import { PropCard } from '../../components/helpers';
 
-// Exemple 1: Hover (par défaut)
+// Example 1: Hover (default)
 export const MyStory: Story = {
   render: () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px' }}>
@@ -125,7 +125,7 @@ export const MyStory: Story = {
   ),
 };
 
-// Exemple 2: Click interaction (pour afficher du code, etc.)
+// Example 2: Click interaction (to display code, etc.)
 export const PropAsStory: Story = {
   render: () => {
     const [selected, setSelected] = React.useState('div');
@@ -146,38 +146,38 @@ export const PropAsStory: Story = {
 };
 ```
 
-**Quand l'utiliser:**
+**When to use:**
 
-- ✅ Affichage de variantes de props d'un composant
-- ✅ Exemples individuels avec labels descriptifs
-- ✅ Grids de comparaison de props
-- ✅ Interaction au click pour sélectionner un élément (avec CodeBlock)
-- ✅ Interaction au hover pour preview rapide
+- ✅ Display component prop variants
+- ✅ Individual examples with descriptive labels
+- ✅ Prop comparison grids
+- ✅ Click interaction to select element (with CodeBlock)
+- ✅ Hover interaction for quick preview
 
-**Effets visuels:**
+**Visual effects:**
 
 - Hover: Background change + translateY(-2px)
-- Label: Uppercase, monospace, gris
+- Label: Uppercase, monospace, gray
 - Transition: 0.2s ease
-- Highlight: Background bleu léger quand `highlight={true}`
-- Cursor: Pointeur si `interactionType="click"`
+- Highlight: Light blue background when `highlight={true}`
+- Cursor: Pointer if `interactionType="click"`
 
 ---
 
 ### `PaddingVisualizer`
 
-Helper component pour visualiser le padding en fournissant un background coloré semi-transparent qui remplit l'espace de padding. **Nouveau !** ⭐
+Helper component to visualize padding by providing a semi-transparent colored background that fills the padding space. **New!** ⭐
 
 **Props:**
 
-- `children: React.ReactNode` - Le composant avec padding à visualiser
-- `color: string` - Couleur du background pour la zone de padding
-- `opacity?: number` - Opacité du background 0-1 (défaut: `0.15`)
-- `showBorder?: boolean` - Afficher une bordure autour du contenu (défaut: `false`)
-- `showLabel?: boolean` - Afficher le label de dimension (défaut: `false`)
-- `label?: string` - Texte du label (e.g., "32px", "Top: 32px")
+- `children: React.ReactNode` - Component with padding to visualize
+- `color: string` - Background color for padding zone
+- `opacity?: number` - Background opacity 0-1 (default: `0.15`)
+- `showBorder?: boolean` - Show border around content (default: `false`)
+- `showLabel?: boolean` - Show dimension label (default: `false`)
+- `label?: string` - Label text (e.g., "32px", "Top: 32px")
 
-**Utilisation:**
+**Usage:**
 
 ```tsx
 import { PaddingVisualizer } from '../../components/helpers';
@@ -216,68 +216,68 @@ export const PropPaddingIndividual: Story = {
 };
 ```
 
-**Comment ça marche:**
+**How it works:**
 
-1. 🎯 **Container avec background** - Entoure le Box avec padding
-2. 🎨 **Background coloré semi-transparent** - Remplit la zone de padding
-3. 📏 **Le padding "pousse"** - L'espace de padding est coloré, le contenu reste intact
-4. 🏷️ **Label optionnel** - Affiche la dimension du padding
+1. 🎯 **Container with background** - Wraps Box with padding
+2. 🎨 **Semi-transparent colored background** - Fills padding zone
+3. 📏 **Padding "pushes"** - Padding space is colored, content stays intact
+4. 🏷️ **Optional label** - Displays padding dimension
 
-**Quand l'utiliser:**
+**When to use:**
 
-- ✅ Stories de props `padding`, `paddingX`, `paddingY`, `paddingTop`, etc.
-- ✅ Visualiser différentes valeurs de padding (tight, compact, default, etc.)
-- ✅ Montrer comment le padding crée de l'espace à l'intérieur des éléments
-- ❌ Props autres que padding (margin, border, etc.)
+- ✅ Stories for `padding`, `paddingX`, `paddingY`, `paddingTop`, etc. props
+- ✅ Visualize different padding values (tight, compact, default, etc.)
+- ✅ Show how padding creates space inside elements
+- ❌ Props other than padding (margin, border, etc.)
 
-**Avantages:**
+**Advantages:**
 
-- ✅ Background semi-transparent rend le padding immédiatement visible
-- ✅ Configurable (couleur, opacité, bordure)
-- ✅ Label optionnel pour afficher la dimension
-- ✅ Réutilisable et consistant avec MarginVisualizer
-- ✅ Bordure optionnelle pour délimiter le contenu
+- ✅ Semi-transparent background makes padding immediately visible
+- ✅ Configurable (color, opacity, border)
+- ✅ Optional label to display dimension
+- ✅ Reusable and consistent with MarginVisualizer
+- ✅ Optional border to delimit content
 
-**Exemple visuel:**
+**Visual example:**
 
 ```
 ┌─────────────────────────────────────────┐
-│ PaddingVisualizer (bleu semi-transparent)│ ← Background coloré
+│ PaddingVisualizer (semi-transparent blue)│ ← Colored background
 │   ╔═════════════════════════════════╗   │
 │   ║  [32px label]                   ║   │
 │   ║  ┌───────────────────────────┐  ║   │
 │   ║  │                           │  ║   │
-│   ║  │  Box Content (bleu foncé) │  ║   │ ← Contenu du Box
+│   ║  │  Box Content (dark blue)  │  ║   │ ← Box content
 │   ║  │                           │  ║   │
 │   ║  └───────────────────────────┘  ║   │
 │   ╚═════════════════════════════════╝   │
-│          ↑ Padding visible              │
+│          ↑ Visible padding              │
 └─────────────────────────────────────────┘
 ```
 
-**Différence avec MarginVisualizer:**
+**Difference with MarginVisualizer:**
 
-- **MarginVisualizer** : Visualise l'espace AUTOUR du Box (externe)
-- **PaddingVisualizer** : Visualise l'espace À L'INTÉRIEUR du Box (interne)
+- **MarginVisualizer**: Visualizes space AROUND Box (external)
+- **PaddingVisualizer**: Visualizes space INSIDE Box (internal)
 
 ---
 
 ### `MarginVisualizer`
 
-Helper component pour visualiser les marges en fournissant un background coloré qui fit exactement le contenu (Box + sa marge). **Nouveau !** ⭐
+Helper component to visualize margins by providing a colored background that fits exactly the content (Box + its margin). **New!** ⭐
 
 **Props:**
 
-- `children: React.ReactNode` - Le composant avec marge à visualiser
-- `color?: string` - Couleur du background (défaut: `'#3b82f6'` bleu)
-- `opacity?: number` - Opacité du background 0-1 (défaut: `0.12`)
-- `borderColor?: string` - Couleur de la bordure (défaut: couleur avec 50% opacité)
-- `borderWidth?: number` - Largeur de la bordure en pixels (défaut: `2`)
-- `borderRadius?: number` - Rayon de bordure en pixels (défaut: `6`)
-- `showLabel?: boolean` - Afficher le label de dimension (défaut: `false`)
-- `label?: string` - Texte du label (e.g., "32px")
+- `children: React.ReactNode` - Component with margin to visualize
+- `color?: string` - Background color (default: `'#3b82f6'` blue)
+- `opacity?: number` - Background opacity 0-1 (default: `0.12`)
+- `borderColor?: string` - Border color (default: color with 50% opacity)
+- `borderWidth?: number` - Border width in pixels (default: `2`)
+- `borderRadius?: number` - Border radius in pixels (default: `6`)
+- `showLabel?: boolean` - Show dimension label (default: `false`)
+- `label?: string` - Label text (e.g., "32px")
 
-**Utilisation:**
+**Usage:**
 
 ```tsx
 import { MarginVisualizer } from '../../components/helpers';
@@ -307,38 +307,38 @@ export const PropMargin: Story = {
 };
 ```
 
-**Comment ça marche:**
+**How it works:**
 
-1. 🎯 **`display: inline-block`** - Le container fit la taille naturelle du contenu
-2. 🎨 **Background coloré** - Rend la zone de marge visible
-3. 📏 **La marge "pousse"** - L'espace de marge est visuellement distinct
-4. 🏷️ **Label optionnel** - Affiche la dimension de la marge
+1. 🎯 **`display: inline-block`** - Container fits natural content size
+2. 🎨 **Colored background** - Makes margin zone visible
+3. 📏 **Margin "pushes"** - Margin space is visually distinct
+4. 🏷️ **Optional label** - Displays margin dimension
 
-**Quand l'utiliser:**
+**When to use:**
 
-- ✅ Stories de props `margin`, `marginX`, `marginY`, `marginTop`, etc.
-- ✅ Visualiser différentes valeurs de marge (tight, compact, default, etc.)
-- ✅ Montrer comment la marge crée de l'espace autour des éléments
-- ❌ Props autres que margin (padding, border, etc.)
+- ✅ Stories for `margin`, `marginX`, `marginY`, `marginTop`, etc. props
+- ✅ Visualize different margin values (tight, compact, default, etc.)
+- ✅ Show how margin creates space around elements
+- ❌ Props other than margin (padding, border, etc.)
 
-**Avantages:**
+**Advantages:**
 
-- ✅ Fit exactement le contenu (pas de débordement sur le padding du container)
-- ✅ Background coloré rend la marge immédiatement visible
-- ✅ Configurable (couleur, opacité, bordure)
-- ✅ Label optionnel pour afficher la dimension
-- ✅ Réutilisable et consistant
+- ✅ Fits exactly the content (no overflow on container padding)
+- ✅ Colored background makes margin immediately visible
+- ✅ Configurable (color, opacity, border)
+- ✅ Optional label to display dimension
+- ✅ Reusable and consistent
 
-**Exemple visuel:**
+**Visual example:**
 
 ```
 ┌─────────────────────────────────┐
-│ Container (gris clair)          │
+│ Container (light gray)          │
 │   ┌─────────────────────────┐   │
-│   │ MarginVisualizer (bleu) │   │ ← Background coloré fit le contenu
+│   │ MarginVisualizer (blue) │   │ ← Colored background fits content
 │   │   ┌─────────────────┐   │   │
 │   │   │                 │   │   │
-│   │   │  Box (primary)  │   │   │ ← Box avec sa marge
+│   │   │  Box (primary)  │   │   │ ← Box with its margin
 │   │   │                 │   │   │
 │   │   └─────────────────┘   │   │
 │   │      [32px label]       │   │
@@ -350,28 +350,28 @@ export const PropMargin: Story = {
 
 ### `CodeBlock`
 
-Composant pour afficher du code formaté avec un header optionnel. Supporte les onglets pour switcher entre différentes vues de code (JSX, HTML, CSS, etc.).
+Component to display formatted code with optional header. Supports tabs to switch between different code views (JSX, HTML, CSS, etc.).
 
 **Props:**
 
-- `code?: string` - Contenu du code à afficher (si pas d'onglets)
-- `language?: string` - Langage de programmation pour le contexte (jsx, html, css, etc.) - défaut: 'jsx'
-- `title?: string` - Titre optionnel affiché dans le header (ex: "Code", "Example")
-- `subtitle?: string` - Sous-titre optionnel affiché dans le header (ex: `<Box as="section">`)
-- `emptyMessage?: string` - Message à afficher quand le code est vide - défaut: 'No code to display'
-- `tabs?: Array<{ label: string; content: string; language?: string }>` - Onglets pour switcher entre différentes vues
+- `code?: string` - Code content to display (if no tabs)
+- `language?: string` - Programming language for context (jsx, html, css, etc.) - default: 'jsx'
+- `title?: string` - Optional title displayed in header (ex: "Code", "Example")
+- `subtitle?: string` - Optional subtitle displayed in header (ex: `<Box as="section">`)
+- `emptyMessage?: string` - Message to display when code is empty - default: 'No code to display'
+- `tabs?: Array<{ label: string; content: string; language?: string }>` - Tabs to switch between different views
 
-**Utilisation:**
+**Usage:**
 
 ```tsx
 import { CodeBlock } from '../../components/helpers';
 
-// Exemple 1: Code simple
+// Example 1: Simple code
 export const SimpleStory: Story = {
   render: () => <CodeBlock code="<Box padding='comfortable'>Content</Box>" language="jsx" title="JSX Code" />,
 };
 
-// Exemple 2: Avec onglets JSX/HTML (recommandé!)
+// Example 2: With JSX/HTML tabs (recommended!)
 export const PropAsStory: Story = {
   render: () => {
     const [selected, setSelected] = React.useState('div');
@@ -381,9 +381,9 @@ export const PropAsStory: Story = {
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-        {/* Vos exemples ici */}
+        {/* Your examples here */}
 
-        {/* Bloc de code avec onglets */}
+        {/* Code block with tabs */}
         <CodeBlock
           tabs={[
             { label: 'JSX', content: generateJsx(selected), language: 'jsx' },
@@ -398,29 +398,29 @@ export const PropAsStory: Story = {
 };
 ```
 
-**Quand l'utiliser:**
+**When to use:**
 
-- ✅ Afficher le code source JSX d'un exemple
-- ✅ Montrer le HTML rendu d'un composant
-- ✅ Comparer JSX source et HTML rendu (avec onglets)
-- ✅ Stories interactives avec code qui change au hover/clic
-- ✅ Documentation de patterns de code
+- ✅ Display JSX source code of example
+- ✅ Show rendered HTML of component
+- ✅ Compare JSX source and rendered HTML (with tabs)
+- ✅ Interactive stories with code that changes on hover/click
+- ✅ Documentation of code patterns
 
-**Style:**
+**Styling:**
 
-- 🎨 Background sombre (#1e293b)
-- 🔤 Police monospace
-- 📏 Padding généreux (20px)
-- ✨ Border et shadow pour la profondeur
-- 📱 Overflow auto (scroll si nécessaire)
-- 🎯 Header séparé avec border-bottom
-- 🔘 Onglets interactifs (si fournis) avec hover states
+- 🎨 Dark background (#1e293b)
+- 🔤 Monospace font
+- 📏 Generous padding (20px)
+- ✨ Border and shadow for depth
+- 📱 Auto overflow (scroll if necessary)
+- 🎯 Separate header with border-bottom
+- 🔘 Interactive tabs (if provided) with hover states
 
 ---
 
-## 🎨 Pattern de Story Recommandé
+## 🎨 Recommended Story Pattern
 
-### Pour les composants avec beaucoup de props (Box, Button, etc.)
+### For components with many props (Box, Button, etc.)
 
 ```tsx
 import type { Meta, StoryObj } from '@storybook/react-vite';
@@ -433,7 +433,7 @@ const meta = {
   title: 'Components/YourComponent',
   component: YourComponent,
   parameters: {
-    layout: 'fullscreen', // Important pour StoryContainer
+    layout: 'fullscreen', // Important for StoryContainer
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof YourComponent>;
@@ -441,7 +441,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Playground interactif
+// Interactive playground
 export const Playground: Story = {
   args: {
     variant: 'primary',
@@ -449,7 +449,7 @@ export const Playground: Story = {
   },
 };
 
-// Story par propriété avec grid layout
+// Story by property with grid layout
 export const PropVariant: Story = {
   render: () => (
     <StoryContainer>
@@ -473,9 +473,9 @@ export const PropVariant: Story = {
 
 ---
 
-## 📐 Grid Layouts Recommandés
+## 📐 Recommended Grid Layouts
 
-### Pour 4-6 items par ligne (petites cartes)
+### For 4-6 items per line (small cards)
 
 ```tsx
 display: 'grid',
@@ -483,7 +483,7 @@ gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
 gap: '20px'
 ```
 
-### Pour 3-4 items par ligne (cartes moyennes)
+### For 3-4 items per line (medium cards)
 
 ```tsx
 display: 'grid',
@@ -491,7 +491,7 @@ gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
 gap: '24px'
 ```
 
-### Pour 2-3 items par ligne (grandes cartes)
+### For 2-3 items per line (large cards)
 
 ```tsx
 display: 'grid',
@@ -499,26 +499,26 @@ gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
 gap: '32px'
 ```
 
-**Note:** Utilisez `auto-fill` pour créer des colonnes même vides, `auto-fit` pour que les items existants prennent toute la largeur disponible.
+**Note:** Use `auto-fill` to create columns even when empty, `auto-fit` for existing items to take full available width.
 
 ---
 
-## 🎯 Exemples Réels
+## 🎯 Real Examples
 
-Voir les stories suivantes pour des exemples d'utilisation:
+See the following stories for usage examples:
 
-- `stories/primitives/Box.stories.tsx` - Utilisation complète de StoryContainer et PropCard
-- `stories/primitives/Text.stories.tsx` - À venir (suivra le même pattern)
-- `stories/primitives/Stack.stories.tsx` - À venir (suivra le même pattern)
+- `stories/primitives/Box.stories.tsx` - Complete usage of StoryContainer and PropCard
+- `stories/primitives/Text.stories.tsx` - Coming soon (will follow same pattern)
+- `stories/primitives/Stack.stories.tsx` - Coming soon (will follow same pattern)
 
 ---
 
-## 🚀 Avantages
+## 🚀 Advantages
 
-**Sans helpers (ancien pattern):**
+**Without helpers (old pattern):**
 
 ```tsx
-// ❌ Code dupliqué dans chaque story
+// ❌ Duplicated code in each story
 export const MyStory: Story = {
   render: () => (
     <div style={{ padding: '40px', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
@@ -533,10 +533,10 @@ export const MyStory: Story = {
 };
 ```
 
-**Avec helpers (nouveau pattern):**
+**With helpers (new pattern):**
 
 ```tsx
-// ✅ Code réutilisable, propre, maintenable
+// ✅ Reusable, clean, maintainable code
 export const MyStory: Story = {
   render: () => (
     <StoryContainer>
@@ -550,15 +550,15 @@ export const MyStory: Story = {
 
 ---
 
-## 🔄 Évolutions Futures
+## 🔄 Future Evolutions
 
-Helpers potentiels à ajouter:
+Potential helpers to add:
 
-- `TokenGrid` - Pour afficher des grids de tokens (colors, spacing, etc.)
-- `VariantComparison` - Pour comparer côte à côte plusieurs variantes
-- `ResponsiveContainer` - Pour tester les breakpoints responsive
+- `TokenGrid` - For displaying token grids (colors, spacing, etc.)
+- `VariantComparison` - For side-by-side variant comparison
+- `ResponsiveContainer` - For testing responsive breakpoints
 
 ---
 
-**Maintenu par:** Design System Team  
-**Dernière mise à jour:** 2026-01-23
+**Maintained by:** Design System Team  
+**Last updated:** 2026-01-26

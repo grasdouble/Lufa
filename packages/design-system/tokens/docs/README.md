@@ -50,10 +50,10 @@ Historical documentation from v1.x token system. See [archive/README.md](./archi
 
 | Phase       | Level      | Status      | Tokens | Description                                               |
 | ----------- | ---------- | ----------- | ------ | --------------------------------------------------------- |
-| **Phase 1** | Primitives | ✅ Complete | 103    | Raw values (colors, spacing, typography, shadows, radius) |
-| **Phase 2** | Core       | 🔜 Planned  | ~60    | Global design decisions (brand, neutral, semantic)        |
-| **Phase 3** | Semantic   | 📋 Future   | ~80    | Contextual tokens (states, feedback, layouts)             |
-| **Phase 4** | Component  | 📋 Future   | ~120   | Component-specific tokens                                 |
+| **Phase 1** | Primitives | ✅ Complete | 111    | Raw values (colors, spacing, typography, shadows, radius) |
+| **Phase 2** | Core       | ✅ Complete | 58     | Global design decisions (brand, neutral, semantic)        |
+| **Phase 3** | Semantic   | ✅ Complete | 103    | Contextual tokens (states, feedback, layouts)             |
+| **Phase 4** | Component  | ✅ Complete | 181    | Component-specific tokens                                 |
 
 ## 🔗 Quick Links
 
@@ -83,6 +83,6 @@ When completing a new phase:
 
 ---
 
-**Last Updated:** January 23, 2026  
-**Current Phase:** Phase 1 (Primitives) - Complete ✅  
-**Next Phase:** Phase 2 (Core Tokens) - Planned 🔜
+**Last Updated:** January 26, 2026  
+**Current Phase:** Phase 4 (Component Tokens) - Complete ✅  
+**Next Steps:** v2.1+ extended components
