@@ -32,7 +32,7 @@ on:
 
 ## Input Parameters
 
-This workflow has no input parameters. It reads the repository secret `PAT_DEPENDENCY_CHECK_UPDATE` and uses `.tool-versions` to set the Node.js version for pnpm.
+This workflow has no input parameters. It reads the repository secret `LUFA_CI_SECRET_READ` and uses `.tool-versions` to set the Node.js version for pnpm.
 
 ## Permissions
 
@@ -66,7 +66,7 @@ Checks out the repository to make workflow files available for subsequent steps.
 - name: Update dependencies
   uses: ./.github/actions/dependency-update
   with:
-    PAT_DEPENDENCY_CHECK_UPDATE: ${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}
+    PAT_DEPENDENCY_CHECK_UPDATE: ${{ secrets.LUFA_CI_SECRET_READ }}
     SETUP_VERSION_FILE: '.tool-versions'
 ```
 
@@ -129,7 +129,7 @@ No commit is created when `git status` is clean; the summary still includes the 
 
 ### Failure scenario
 
-Missing or insufficient `PAT_DEPENDENCY_CHECK_UPDATE` permissions cause authentication failures during checkout or dependency install (HTTP 401/403), and the job stops before committing.
+Missing or insufficient `LUFA_CI_SECRET_READ` permissions cause authentication failures during checkout or dependency install (HTTP 401/403), and the job stops before committing.
 
 ## What Happens Next
 
@@ -151,7 +151,7 @@ Missing or insufficient `PAT_DEPENDENCY_CHECK_UPDATE` permissions cause authenti
 
 **Solution**:
 
-- Ensure `secrets.PAT_DEPENDENCY_CHECK_UPDATE` is set and has `contents: write` and `packages: read` scopes.
+- Ensure `secrets.LUFA_CI_SECRET_READ` is set and has `contents: write` and `packages: read` scopes.
 - Re-run the workflow after rotating the PAT if it expired or was revoked.
 
 ### Node version lookup fails
@@ -174,7 +174,7 @@ Missing or insufficient `PAT_DEPENDENCY_CHECK_UPDATE` permissions cause authenti
 
 ## Best Practices
 
-1. **Maintain PAT scope** – Keep `PAT_DEPENDENCY_CHECK_UPDATE` limited to `contents: write` and `packages: read`; rotate it regularly.
+1. **Maintain PAT scope** – Keep `LUFA_CI_SECRET_READ` limited to `contents: write` and `packages: read`; rotate it regularly.
 2. **Review summaries** – Scan the appended outdated report after each run to plan major-version upgrades separately.
 3. **Keep version files authoritative** – Ensure `.tool-versions` reflects the intended Node version so pnpm caches remain consistent.
 4. **Monitor cron timing** – Expect runs at 00:00 UTC Monday; adjust expectations for local time zones.

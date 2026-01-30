@@ -27,5 +27,5 @@ jobs:
       - name: Update dependencies
         uses: ./.github/actions/dependency-update
         with:
-          PAT_DEPENDENCY_CHECK_UPDATE: ${{ secrets.PAT_DEPENDENCY_CHECK_UPDATE }}
+          PAT_DEPENDENCY_CHECK_UPDATE: ${{ secrets.LUFA_CI_SECRET_READ }}
           SETUP_VERSION_FILE: '.tool-versions'
