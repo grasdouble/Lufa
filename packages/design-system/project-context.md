@@ -1,10 +1,10 @@
 # Design System Project Context
 
-> **Note**: For comprehensive documentation, see [docs/index.md](./docs/index.md)
+> **Note**: For comprehensive documentation, see [\_docs/index.md](./_docs/index.md)
 
 ## Quick Reference for AI Agents
 
-This file provides essential context for AI agents working on the design system. For detailed documentation, humans should refer to the docs/ folder.
+This file provides essential context for AI agents working on the design system. For detailed documentation, humans should refer to the \_docs/ folder.
 
 ---
 
@@ -20,7 +20,7 @@ This file provides essential context for AI agents working on the design system.
 
 ### Key Policy: No Backward Compatibility Required
 
-⚠️ **CRITICAL:** See [docs/development-policies.md](./docs/development-policies.md) for full details.
+⚠️ **CRITICAL:** See [\_docs/development-policies.md](./_docs/development-policies.md) for full details.
 
 **Summary:**
 
@@ -121,7 +121,7 @@ When using BMM dev-story workflow, update these story file sections:
 - Change Log (internal dev log, NOT public changelog)
 - Status field
 
-See [docs/development-policies.md](./docs/development-policies.md#4-bmm-workflow-compliance) for details.
+See [\_docs/development-policies.md](./_docs/development-policies.md#4-bmm-workflow-compliance) for details.
 
 ---
 
@@ -150,14 +150,14 @@ pnpm all:prettier              # Format all code
 
 ### Documentation Structure
 
-| File                                                           | Purpose                         |
-| -------------------------------------------------------------- | ------------------------------- |
-| [docs/index.md](./docs/index.md)                               | Master documentation index      |
-| [docs/development-policies.md](./docs/development-policies.md) | **Policies for this phase** ⭐  |
-| [docs/development-guide.md](./docs/development-guide.md)       | Setup and workflows             |
-| [docs/architecture.md](./docs/architecture.md)                 | System architecture             |
-| [docs/token-architecture.md](./docs/token-architecture.md)     | Token system details            |
-| [docs/testing-strategy.md](./docs/testing-strategy.md)         | Testing approach                |
+| File                                                                            | Purpose                        |
+| ------------------------------------------------------------------------------- | ------------------------------ |
+| [\_docs/index.md](./_docs/index.md)                                             | Master documentation index     |
+| [\_docs/development-policies.md](./_docs/development-policies.md)               | **Policies for this phase** ⭐ |
+| [\_docs/development-guide.md](./_docs/development-guide.md)                     | Setup and workflows            |
+| [\_docs/architecture.md](./_docs/architecture.md)                               | System architecture            |
+| [tokens/\_docs/token-architecture.md](./tokens/_docs/token-architecture.md)     | Token system details           |
+| [playwright/\_docs/testing-strategy.md](./playwright/_docs/testing-strategy.md) | Testing approach               |
 
 ---
 
@@ -170,12 +170,12 @@ This `project-context.md` file should be updated when:
 3. **Architecture evolves** (e.g., new token layers)
 4. **Critical commands change** (e.g., build process updates)
 
-For detailed policy changes, update [docs/development-policies.md](./docs/development-policies.md) - this file is just a quick reference.
+For detailed policy changes, update [\_docs/development-policies.md](./_docs/development-policies.md) - this file is just a quick reference.
 
 ---
 
 ### Questions?
 
-- **Humans:** Start with [docs/index.md](./docs/index.md)
+- **Humans:** Start with [\_docs/index.md](./_docs/index.md)
 - **AI Agents:** You've got what you need above ⬆️
-- **Unclear policy?** Check [docs/development-policies.md](./docs/development-policies.md)
+- **Unclear policy?** Check [\_docs/development-policies.md](./_docs/development-policies.md)

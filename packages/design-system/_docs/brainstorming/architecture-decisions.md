@@ -167,17 +167,21 @@ packages/design-system/tokens/src/
 ### Documentation Structure
 
 ```
-packages/design-system/_docs/
-├── overview.md                     # High-level introduction
-├── architecture.md                 # System architecture
-├── ../token-architecture.md           # Token structure details
-├── architecture-decisions.md       # This file
-├── ../theme-switching-guide.md        # Theme implementation guide
-├── development-guide.md            # Component development
-├── testing-strategy.md             # Testing approach
-└── brainstorming/
-    ├── brainstorming-session-2026-01-22.md
-    └── architecture-updates-*.md   # Decision changes
+packages/design-system/
+├── _docs/
+│   ├── overview.md                     # High-level introduction
+│   ├── architecture.md                 # System architecture
+│   ├── development-guide.md            # Component development
+│   └── brainstorming/
+│       ├── brainstorming-session-2026-01-22.md
+│       └── architecture-updates-*.md   # Decision changes
+├── tokens/_docs/
+│   └── token-architecture.md           # Token structure details
+├── themes/_docs/
+│   └── theme-switching-guide.md        # Theme implementation guide
+├── playwright/_docs/
+│   └── testing-strategy.md             # Testing approach
+└── _docs/brainstorming/architecture-decisions.md       # This file
 ```
 
 ### Generated Documentation
@@ -472,8 +476,8 @@ pnpm clean
 
 - **Decision Changes:** `architecture-updates-2026-01-25.md`
 - **Brainstorming Session:** `brainstorming-session-2026-01-22.md`
-- **Theme Guide:** `../theme-switching-guide.md`
-- **Token Architecture:** `../token-architecture.md`
+- **Theme Guide:** `../../themes/_docs/theme-switching-guide.md`
+- **Token Architecture:** `../../tokens/_docs/token-architecture.md`
 - **Alignment Report:** `/_bmad-output/DESIGN-SYSTEM-ALIGNMENT-REPORT.md`
 
 ---

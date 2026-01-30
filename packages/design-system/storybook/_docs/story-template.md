@@ -2,7 +2,7 @@
 
 > **Templates prêts à copier-coller pour créer de nouvelles stories**
 
-[← Back to README](../README.md) | [See Rules](./STORY_RULES.md) | [Full Guide](./STORY_GUIDE.md)
+[← Back to README](../README.md) | [See Rules](./story-rules.md) | [Full Guide](./story-guide.md)
 
 ---
 
@@ -686,8 +686,8 @@ getColorByIndex(2); // Pink
 
 ## 📚 See Also
 
-- [STORY_RULES.md](./STORY_RULES.md) - All rules and standards
-- [STORY_GUIDE.md](./STORY_GUIDE.md) - Complete guide with explanations
+- [Story Rules](./story-rules.md) - All rules and standards
+- [Story Guide](./story-guide.md) - Complete guide with explanations
 - [../src/constants/storyColors.ts](./../src/constants/storyColors.ts) - Color definitions
 - [../src/components/helpers/README.md](./../src/components/helpers/README.md) - Helper components
 

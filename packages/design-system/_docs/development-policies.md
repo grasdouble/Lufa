@@ -129,7 +129,7 @@ Components **MUST** use design tokens for all design values. Direct use of primi
 
 **Rationale:** Token-based design ensures consistency, enables theming, and makes it easy to update design decisions globally.
 
-See [token-architecture.md](./token-architecture.md) for detailed guidance.
+See [token-architecture.md](../tokens/_docs/token-architecture.md) for detailed guidance.
 
 ---
 

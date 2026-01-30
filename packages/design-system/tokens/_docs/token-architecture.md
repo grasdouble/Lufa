@@ -714,8 +714,7 @@ All theme/mode combinations are **WCAG AA/AAA compliant**:
 
 ## Related Documentation
 
-- [Roadmap & Status](./roadmap-and-status.md) - Project roadmap and current status
-- [Architecture](./architecture.md) - Full architecture and design decisions
-- [Architectural Decisions](./adrs/README.md) - Design decisions and rationale
-- [Tokens README](../packages/design-system/tokens/README.md) - Package documentation
-- [Token Contributor Guide](../docs/contributors/your-first-token.md) - Adding tokens guide
+- [Roadmap & Status](../../_docs/roadmap-and-status.md) - Project roadmap and current status
+- [Architecture](../../_docs/architecture.md) - Full architecture and design decisions
+- [Architectural Decisions](../../_docs/adrs/README.md) - Design decisions and rationale
+- [Tokens README](../README.md) - Package documentation

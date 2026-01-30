@@ -80,7 +80,7 @@ Overall Progress:       ██████████████████�
 - **Completion Date:** January 25, 2026
 - **Status:** ✅ **ALL SUCCESS CRITERIA MET**
 
-See: [`_bmad-output/analysis/phase-5a-completion-summary.md`](../../../_bmad-output/analysis/phase-5a-completion-summary.md) for full details.
+See: Phase 5A completion summary (internal file) for full details.
 
 ### Next Phase 🎯
 
@@ -565,7 +565,7 @@ Primitive Tokens (Level 1)
 
 **Completion Date:** January 25, 2026 (3 days - ahead of schedule)
 
-**Full Details:** See [`_bmad-output/analysis/phase-5a-completion-summary.md`](../../../_bmad-output/analysis/phase-5a-completion-summary.md)
+**Full Details:** See Phase 5A completion summary (internal file)
 
 ---
 
@@ -697,7 +697,7 @@ Primitive Tokens (Level 1)
 
 All 7 components delivered with tests, documentation, and validation complete.
 
-**See:** [`_bmad-output/analysis/phase-5a-completion-summary.md`](../../../_bmad-output/analysis/phase-5a-completion-summary.md) for full details.
+**See:** Phase 5A completion summary (internal file) for full details.
 
 ---
 
@@ -1007,7 +1007,7 @@ Previous BMM analysis documents have been archived to `_bmad-output/analysis/des
 - **Phase 3:** `_bmad-output/analysis/phase-3-completion-summary.md`
 - **Phase 4:** `_bmad-output/analysis/phase-4-completion-summary.md`
 - **Phase 5 Prep:** `_bmad-output/analysis/phase-5-preparation-complete-summary.md`
-- **Phase 5A:** `_bmad-output/analysis/phase-5a-completion-summary.md`
+- **Phase 5A:** Phase 5A completion summary (internal file)
 - **Phase 7a:** See roadmap-and-status.md (this file) for full details ⭐
 
 ### Technical Documentation
@@ -1020,12 +1020,12 @@ Previous BMM analysis documents have been archived to `_bmad-output/analysis/des
 
 1. **architecture.md** - System architecture, architectural principles, design decisions (15,000+ words)
 2. **development-guide.md** - Setup, workflows, testing (10,000+ words)
-3. **token-architecture.md** - 4-level token system (5,000+ words)
+3. **tokens/\_docs/token-architecture.md** - 4-level token system (5,000+ words)
 4. **build-configuration.md** - Build configs (8,000+ words)
 5. **source-tree.md** - Directory tree analysis (7,000+ words)
-6. **component-inventory.md** - Component catalog (4,000+ words)
-7. **testing-strategy.md** - Testing strategy (4,000+ words)
-8. **storybook-patterns.md** - Storybook CSF3 patterns (10,000+ words)
+6. **main/\_docs/component-inventory.md** - Component catalog (4,000+ words)
+7. **playwright/\_docs/testing-strategy.md** - Testing strategy (4,000+ words)
+8. **storybook/\_docs/storybook-patterns.md** - Storybook CSF3 patterns (10,000+ words)
 9. **overview.md** - Project overview (updated with roadmap)
 10. **roadmap-and-status.md** - This file (comprehensive roadmap & status)
 

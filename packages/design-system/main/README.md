@@ -36,36 +36,43 @@ yarn add @grasdouble/lufa_design-system
 ## Quick Start
 
 ```tsx
-import { Button, Card } from '@grasdouble/lufa_design-system';
+import { Badge, Box, Button, Divider, Icon, Stack, Text } from '@grasdouble/lufa_design-system';
 
 function App() {
   return (
-    <Card>
-      <Card.Header>
-        <h2>Welcome to Lufa</h2>
-      </Card.Header>
-      <Card.Body>
-        <p>Build amazing applications with our design system.</p>
+    <Box padding="comfortable">
+      <Stack direction="vertical" spacing="default">
+        <Text variant="h2">Welcome to Lufa</Text>
+        <Text variant="body-md">Build amazing applications with our design system.</Text>
         <Button variant="primary" size="md">
           Get Started
         </Button>
-      </Card.Body>
-    </Card>
+      </Stack>
+    </Box>
   );
 }
 ```
 
 ## Component Categories
 
-- **Forms** - Input, Select, Checkbox, Radio, TextArea
-- **Feedback** - Alert, Toast, Progress, Skeleton
-- **Overlay** - Modal, Popover, Tooltip, Drawer
-- **Navigation** - Tabs, Breadcrumb, Pagination
-- **Display** - Card, Badge, Avatar, Tag
-- **Typography** - Heading, Text, Code
-- **Layout** - Container, Grid, Stack, Spacer
+**Layer 1: Primitives (4/4 complete ✅)**
 
-Explore all components in [Storybook](https://storybook.example.com).
+- **Box** - Layout primitive with spacing, background, borders
+- **Stack** - Layout primitive for vertical/horizontal arrangements
+- **Text** - Typography primitive with semantic variants
+- **Icon** - SVG icon wrapper with 29 icons
+
+**Layer 2: Components (3/3 complete ✅)**
+
+- **Button** - Interactive component with 7 variants × 3 types
+- **Badge** - Status indicator with 6 semantic variants
+- **Divider** - Visual separator with 5 emphasis levels
+
+**Future (v2.1+)**
+
+- Forms, Feedback, Overlay, Navigation components
+
+Explore all components in [Storybook](http://localhost:6006).
 
 ## Design System Layers
 
@@ -79,24 +86,22 @@ The design system follows a three-layer architecture:
 
 ## Theming
 
-Switch between themes or create custom ones:
+Theming system is token-based and ready for theme swapping:
 
-```tsx
-import { ThemeProvider } from '@grasdouble/lufa_design-system';
-import { oceanTheme } from '@grasdouble/lufa_design-system-themes';
+```css
+/* Import token CSS variables */
+@import '@grasdouble/lufa_design-system-tokens/tokens.css';
 
-function App() {
-  return <ThemeProvider theme={oceanTheme}>{/* Your app */}</ThemeProvider>;
+/* Components automatically use CSS custom properties */
+.my-component {
+  color: var(--lufa-semantic-ui-text-primary);
+  background: var(--lufa-semantic-ui-background-default);
 }
 ```
 
-Available themes:
+**Theme variants** (Ocean, Forest) are available in `@grasdouble/lufa_design-system-themes`.
 
-- Default (light/dark)
-- Ocean
-- Forest
-
-[View all themes →](../themes/)
+See [Token Architecture](../tokens/_docs/token-architecture.md) for details.
 
 ## Development
 

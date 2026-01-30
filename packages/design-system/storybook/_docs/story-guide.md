@@ -2,7 +2,7 @@
 
 > **Guide complet pour écrire des stories Storybook de qualité**
 
-[← Back to README](../README.md) | [See Rules](./STORY_RULES.md) | [See Templates](./STORY_TEMPLATE.md)
+[← Back to README](../README.md) | [See Rules](./story-rules.md) | [See Templates](./story-template.md)
 
 ---
 
@@ -818,9 +818,9 @@ Before submitting a story, verify:
 
 ### Next Steps
 
-1. **Pick a template** from [STORY_TEMPLATE.md](./STORY_TEMPLATE.md)
-2. **Follow the rules** in [STORY_RULES.md](./STORY_RULES.md)
-3. **Copy existing patterns** from [Box.stories.tsx](./src/stories/primitives/Box.stories.tsx)
+1. **Pick a template** from [Story Template](./story-template.md)
+2. **Follow the rules** in [Story Rules](./story-rules.md)
+3. **Copy existing patterns** from [Box.stories.tsx](../src/stories/primitives/Box.stories.tsx)
 4. **Test in Storybook** with `pnpm ds:storybook:dev`
 5. **Submit your story** 🎉
 
@@ -828,8 +828,8 @@ Before submitting a story, verify:
 
 ## Related Documentation
 
-- **[STORY_RULES.md](./STORY_RULES.md)** - All rules and standards
-- **[STORY_TEMPLATE.md](./STORY_TEMPLATE.md)** - Copy-paste templates
+- **[Story Rules](./story-rules.md)** - All rules and standards
+- **[Story Template](./story-template.md)** - Copy-paste templates
 - **[src/constants/storyColors.ts](../src/constants/storyColors.ts)** - Color definitions
 - **[src/components/helpers/README.md](../src/components/helpers/README.md)** - Helper components
 

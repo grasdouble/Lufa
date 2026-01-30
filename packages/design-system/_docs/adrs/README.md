@@ -88,6 +88,6 @@ If you're new to the design system, start with these critical ADRs:
 
 ## Related Documentation
 
-- [Token Architecture](../token-architecture.md) - Token system overview
-- [Theme Switching Guide](../theme-switching-guide.md) - How to switch themes
+- [Token Architecture](../../tokens/_docs/token-architecture.md) - Token system overview
+- [Theme Switching Guide](../../themes/_docs/theme-switching-guide.md) - How to switch themes
 - [Architecture](../architecture.md) - Overall system architecture

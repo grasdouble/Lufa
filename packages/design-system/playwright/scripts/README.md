@@ -22,7 +22,7 @@ Both compression scripts use [oxipng](https://github.com/shssoichiro/oxipng) for
 
 ### Linux Snapshot Generation
 
-**Need Linux snapshots for CI?** See [DOCKER-LINUX-SNAPSHOTS.md](../DOCKER-LINUX-SNAPSHOTS.md) for comprehensive guide.
+**Need Linux snapshots for CI?** See [Docker Linux Snapshots](../_docs/docker-linux-snapshots.md) for comprehensive guide.
 
 Quick start:
 
@@ -531,10 +531,10 @@ bash packages/design-system/playwright/scripts/validate-snapshot-system.sh
 
 **Documentation**:
 
-- ✓ SNAPSHOT-MANAGEMENT-SYSTEM.md exists
-- ✓ DOCKER-LINUX-SNAPSHOTS.md exists
+- ✓ snapshot-management-system.md exists
+- ✓ docker-linux-snapshots.md exists
 - ✓ scripts/README.md exists
-- ✓ README-SNAPSHOT-UPDATE.md exists
+- ✓ snapshot-update.md exists
 
 **Snapshot Directories**:
 
@@ -633,12 +633,12 @@ pnpm ds:test:validate-system
 
 ## Related Documentation
 
-- **[Snapshot Management System](../SNAPSHOT-MANAGEMENT-SYSTEM.md)** - Complete overview of all three methods
-- **[Docker Linux Snapshots](../DOCKER-LINUX-SNAPSHOTS.md)** - Cross-platform snapshot generation guide
-- **[GitHub Actions Snapshot Updates](../../../../.github/workflows/README-SNAPSHOT-UPDATE.md)** - PR label method guide
+- **[Snapshot Management System](../_docs/snapshot-management-system.md)** - Complete overview of all three methods
+- **[Docker Linux Snapshots](../_docs/docker-linux-snapshots.md)** - Cross-platform snapshot generation guide
+- **[GitHub Actions Snapshot Updates](../_docs/snapshot-update.md)** - PR label method guide
 - [Playwright README](../README.md) - Component testing guide
 - [Root Scripts README](../../../../scripts/README.md) - Other utility scripts
-- [AGENTS.md](../../../../AGENTS.md) - AI agent development guide
+- AI agent development guide is maintained internally
 
 ---
 

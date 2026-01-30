@@ -1258,9 +1258,9 @@ export const PropPropName: Story = {
 
 ## 🔗 Related Documentation
 
-- [UI Component Inventory](./component-inventory.md) - Component catalog
-- [Token Architecture](./token-architecture.md) - Design token system
-- [Test Design](./testing-strategy.md) - Playwright component tests
+- [UI Component Inventory](../../main/_docs/component-inventory.md) - Component catalog
+- [Token Architecture](../../tokens/_docs/token-architecture.md) - Design token system
+- [Test Design](../../playwright/_docs/testing-strategy.md) - Playwright component tests
 
 ---
 

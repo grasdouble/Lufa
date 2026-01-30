@@ -1,37 +1,37 @@
 [← Back to Design System Overview](../README.md)
 
-# Lufa Design System - Tokens v2.0
+# Lufa Design System - Tokens
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](../../LICENSE.md)
 
-> **Phase 2 Complete** - Core Tokens (Global Design Decisions)
+> **4-Level Token Architecture Complete** - 453 tokens across primitives, core, semantic, and component levels
 
 ## 📦 Overview
 
 This package contains the **design tokens** of Lufa Design System v2.0 - a 4-level token architecture built with Style Dictionary v4.4.0 and DTCG format.
 
-**Current Status:** 161 tokens across 2 levels (45% complete)
+**Current Status:** 453 tokens (100% complete)
 
 **Token Architecture:**
 
 ```
 ┌─────────────────────────────────────────────┐
-│  Level 4: Component Tokens (Phase 4)       │ ⬅️ ~120 tokens (future)
+│  Level 4: Component Tokens                 │ ⬅️ 181 tokens ✅
 ├─────────────────────────────────────────────┤
-│  Level 3: Semantic Tokens (Phase 3)        │ ⬅️ ~80 tokens (next)
+│  Level 3: Semantic Tokens                  │ ⬅️ 103 tokens ✅
 ├─────────────────────────────────────────────┤
-│  ✅ Level 2: Core Tokens (Phase 2)         │ ⬅️ 58 tokens (COMPLETE)
+│  Level 2: Core Tokens                      │ ⬅️ 58 tokens ✅
 ├─────────────────────────────────────────────┤
-│  ✅ Level 1: Primitive Tokens (Phase 1)    │ ⬅️ 103 tokens (COMPLETE)
+│  Level 1: Primitive Tokens                 │ ⬅️ 111 tokens ✅
 └─────────────────────────────────────────────┘
 ```
 
 ## 📊 Package Contents
 
-**161 tokens created** distributed across multiple levels:
+**453 tokens created** distributed across 4 levels:
 
-### Level 1: Primitive Tokens (103 tokens)
+### Level 1: Primitive Tokens (111 tokens)
 
 | Category       | Tokens  | Description                                                           |
 | -------------- | ------- | --------------------------------------------------------------------- |
@@ -40,7 +40,7 @@ This package contains the **design tokens** of Lufa Design System v2.0 - a 4-lev
 | **Typography** | 18      | Families (2), sizes (9), weights (4), line-heights (3)                |
 | **Shadows**    | 6       | Elevations from none to xl                                            |
 | **Radius**     | 7       | Rounding from none to full (circle)                                   |
-| **Subtotal**   | **103** | Raw, non-semantic foundational values                                 |
+| **Subtotal**   | **111** | Raw, non-semantic foundational values                                 |
 
 ### Level 2: Core Tokens (58 tokens)
 
@@ -54,13 +54,23 @@ This package contains the **design tokens** of Lufa Design System v2.0 - a 4-lev
 | **Typography** | 9      | Font families, weights, sizes for common use cases             |
 | **Subtotal**   | **58** | Global design decisions, alias to primitives                   |
 
+### Level 3: Semantic Tokens (103 tokens)
+
+UI-context tokens for interactive states, component variants, z-index, spacing, radius, shadow, and transitions.
+
+### Level 4: Component Tokens (181 tokens)
+
+Component-specific tokens for Button, Badge, Input, Card, Modal, Tooltip, and shared tokens.
+
 ### Total
 
-| Level          | Tokens  | Status           |
-| -------------- | ------- | ---------------- |
-| **Primitives** | 103     | ✅ Complete      |
-| **Core**       | 58      | ✅ Complete      |
-| **TOTAL**      | **161** | **45% Complete** |
+| Level          | Tokens  | Status            |
+| -------------- | ------- | ----------------- |
+| **Primitives** | 111     | ✅ Complete       |
+| **Core**       | 58      | ✅ Complete       |
+| **Semantic**   | 103     | ✅ Complete       |
+| **Component**  | 181     | ✅ Complete       |
+| **TOTAL**      | **453** | **100% Complete** |
 
 ## 🚀 Installation
 
@@ -352,37 +362,11 @@ Metadata includes:
 
 ## 🔄 Next Steps
 
-### Phase 2 - Core Tokens (Coming Soon)
+### v2.1+ - Extended Components
 
-Create **Core Tokens** that reference primitives:
+Additional component tokens for Forms, Feedback, Overlay, and Navigation components planned for v2.1+.
 
-```json
-{
-  "color": {
-    "brand": {
-      "primary": { "$value": "{primitive.color.blue.600}" }
-    }
-  }
-}
-```
-
-### Phase 3 - Semantic Tokens (Coming Soon)
-
-Contextual tokens for components:
-
-```json
-{
-  "button": {
-    "primary": {
-      "background": { "$value": "{core.color.brand.primary}" }
-    }
-  }
-}
-```
-
-### Phase 4 - Component Tokens (Coming Soon)
-
-Component-specific React tokens.
+See [Roadmap](../_docs/roadmap-and-status.md) for details.
 
 ## 📚 Complete Documentation
 
@@ -403,10 +387,10 @@ To contribute to tokens:
 
 ## 📄 License
 
-Proprietary - Lufa Design System v2.0
+MIT
 
 ---
 
-**Version**: 2.0.0-alpha.1  
+**Version**: 2.0.0  
 **Date**: January 2026  
-**Status**: ✅ Phase 1 Complete
+**Status**: ✅ 100% Complete (4 levels)
