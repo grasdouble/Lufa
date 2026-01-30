@@ -174,4 +174,6 @@ async function outputTemplate() {
   }
 }
 
-program.parse();
+const argv = process.argv.slice(2);
+const normalizedArgs = argv[0] === '--' ? argv.slice(1) : argv;
+program.parse(normalizedArgs, { from: 'user' });

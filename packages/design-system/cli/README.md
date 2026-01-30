@@ -11,6 +11,8 @@ The CLI validates themes for:
 
 ## Installation
 
+Node.js 20+ is required.
+
 ```bash
 npm install @grasdouble/lufa_design-system-cli
 # or
