@@ -22,6 +22,8 @@ jobs:
       # Checkout the code
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.LUFA_CI_SECRET_READ }}
 
       # Install pnpm
       - name: Install pnpm
