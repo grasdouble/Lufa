@@ -6,22 +6,18 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-  packages: write
-  pull-requests: write
-  issues: read
-  actions: none
-  checks: none
-  deployments: none
-  repository-projects: none
-  security-events: none
-  statuses: none
+permissions: {}
 
 jobs:
   Changesets-release:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write
+      issues: read
+      checks: read
+      statuses: read
     steps:
       # Checkout the code
       - name: Checkout repository
