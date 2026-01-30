@@ -56,7 +56,7 @@
 # Follow along while reading Development Guide
 pnpm install
 pnpm ds:all:build
-pnpm ds:storybook:dev  # Visit http://localhost:6006
+pnpm ds:storybook:dev  # Visit localhost:6006
 ```
 
 ### Onboarding as a Designer?
@@ -66,7 +66,7 @@ pnpm ds:storybook:dev  # Visit http://localhost:6006
 1. **[Project Overview](./overview.md)** - Understand the system
 2. **[Token Architecture](../tokens/_docs/token-architecture.md)** - Learn the token system
 3. **[Component Inventory](../main/_docs/component-inventory.md)** - Browse components
-4. **Interactive Storybook** - Explore components live (http://localhost:6006)
+4. **Interactive Storybook** - Explore components live (localhost:6006)
 
 **Total:** ~50 minutes
 
@@ -432,8 +432,8 @@ git commit -m "chore: add changeset"
 ### Official Links
 
 - **Repository:** [github.com/grasdouble/Lufa](https://github.com/grasdouble/Lufa)
-- **Storybook:** http://localhost:6006 (dev mode)
-- **Docusaurus:** http://localhost:3001 (dev mode)
+- **Storybook:** `localhost:6006` (dev mode)
+- **Docusaurus:** `localhost:3001` (dev mode)
 - **Package Registry:** [GitHub Packages](https://github.com/grasdouble?tab=packages&repo_name=Lufa)
 
 ### Technology Documentation
@@ -476,7 +476,7 @@ git commit -m "chore: add changeset"
 2. **Follow a learning path** based on your role (see [Learning Paths](#-learning-paths))
 3. **Bookmark key documents** for quick reference
 4. **Set up your dev environment** using [Development Guide](./development-guide.md)
-5. **Explore Storybook** at http://localhost:6006 for interactive learning
+5. **Explore Storybook** at localhost:6006 for interactive learning
 
 **Happy coding! 🚀**
 

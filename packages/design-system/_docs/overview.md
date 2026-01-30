@@ -179,7 +179,7 @@ pnpm ds:test:update-snapshots
 - Theme/mode switcher (test theming live)
 - PropCard helpers (visual prop showcase)
 
-**Access:** http://localhost:6006 (dev mode)
+**Access:** localhost:6006 (dev mode)
 
 ---
 
@@ -437,7 +437,7 @@ pnpm ds:all:build
 
 # Start Storybook
 pnpm ds:storybook:dev
-# Visit http://localhost:6006
+# Visit localhost:6006
 
 # Run tests
 pnpm ds:test
@@ -520,8 +520,8 @@ pnpm ds:all:prettier         # Format all
 
 | Resource               | Purpose                        | Location                             |
 | ---------------------- | ------------------------------ | ------------------------------------ |
-| **Storybook**          | Interactive component explorer | http://localhost:6006                |
-| **Docusaurus**         | API documentation              | http://localhost:3001                |
+| **Storybook**          | Interactive component explorer | localhost:6006                       |
+| **Docusaurus**         | API documentation              | localhost:3001                       |
 | **Architecture Doc**   | System architecture            | `_docs/architecture.md`              |
 | **Development Guide**  | Setup & workflows              | `_docs/development-guide.md`         |
 | **Token Architecture** | Token system details           | `tokens/_docs/token-architecture.md` |
@@ -735,8 +735,8 @@ Every component follows this pattern:
 ### Useful Links
 
 - **Repository:** [github.com/grasdouble/Lufa](https://github.com/grasdouble/Lufa)
-- **Storybook:** http://localhost:6006 (dev mode)
-- **Docusaurus:** http://localhost:3001 (dev mode)
+- **Storybook:** `localhost:6006` (dev mode)
+- **Docusaurus:** `localhost:3001` (dev mode)
 - **Package Registry:** GitHub Package Registry (@grasdouble scope)
 
 ### Maintainer
