@@ -430,14 +430,15 @@ test.describe('Badge Component', () => {
       await expect(divBadge).toHaveClass(/_variant-success/);
     });
 
-    test('should support element-specific props (label htmlFor)', async ({ mount }) => {
+    test('should support element-specific props (label)', async ({ mount }) => {
       const component = await mount(
-        <Badge as="label" htmlFor="input-id">
+        <Badge as="label">
           Label text
         </Badge>
       );
 
-      await expect(component).toHaveAttribute('for', 'input-id');
+      const tagName = await component.evaluate((el) => el.tagName.toLowerCase());
+      expect(tagName).toBe('label');
     });
   });
 

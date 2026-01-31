@@ -15,7 +15,8 @@
     "dev": "vite",
     "lint": "eslint ./src",
     "prettier": "prettier --write .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "@grasdouble/lufa_design-system": "workspace:^",

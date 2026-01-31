@@ -5,7 +5,7 @@ export type PortalProps = {
   /**
    * The content to render inside the portal.
    */
-  children: ReactNode;
+  children?: ReactNode;
   /**
    * The container element to render into.
    * Defauts to document.body

@@ -982,16 +982,13 @@ test.describe('Box Component', () => {
               </Box>
             </Box>
           </section>
-        </div>,
-        { animations: 'disabled' }
+        </div>
       );
 
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('box-all-variants-light.png', {
-        animations: 'disabled',
-      });
+      await expect(component).toHaveScreenshot('box-all-variants-light.png');
     });
 
     test('should match snapshot for all variants in dark mode', async ({ mount, page }) => {
@@ -1288,16 +1285,13 @@ test.describe('Box Component', () => {
               </Box>
             </Box>
           </section>
-        </div>,
-        { animations: 'disabled' }
+        </div>
       );
 
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('box-all-variants-dark.png', {
-        animations: 'disabled',
-      });
+      await expect(component).toHaveScreenshot('box-all-variants-dark.png');
 
       // Clean up: remove dark mode to avoid affecting other tests
       await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));

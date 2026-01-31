@@ -1,8 +1,8 @@
-import type { ElementType } from 'react';
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { forwardRef } from 'react';
 import { clsx } from 'clsx';
 
-import type { BoxProps } from '../Box/Box';
+import type { BoxComponentProps, BoxProps } from '../Box/Box';
 import { Box } from '../Box/Box';
 import styles from './Center.module.css';
 
@@ -12,6 +12,9 @@ export type CenterProps<T extends ElementType = 'div'> = BoxProps<T> & {
    */
   inline?: boolean;
 };
+
+type CenterComponentProps<T extends ElementType> = CenterProps<T> &
+  Omit<ComponentPropsWithoutRef<T>, keyof CenterProps<T>>;
 
 /**
  * Center Component
@@ -27,21 +30,21 @@ export type CenterProps<T extends ElementType = 'div'> = BoxProps<T> & {
  * ```
  */
 const CenterImpl = <T extends ElementType = 'div'>(
-  { inline, className, ...props }: CenterProps<T>,
+  { inline, className, ...props }: CenterComponentProps<T>,
   ref: React.ForwardedRef<Element>
 ) => {
   return (
-    <Box
-      ref={ref}
+    <Box<T>
+      ref={ref as React.Ref<never>}
       className={clsx(styles.center, inline && styles['inline-true'], className)}
-      {...(props as BoxProps<T>)}
+      {...(props as BoxComponentProps<T>)}
     />
   );
 };
 
 export const Center = Object.assign(
   forwardRef(CenterImpl) as <T extends ElementType = 'div'>(
-    props: CenterProps<T> & { ref?: React.Ref<React.ComponentRef<T>> }
+    props: CenterComponentProps<T> & { ref?: React.Ref<React.ComponentRef<T>> }
   ) => React.ReactElement,
   { displayName: 'Center' }
 );

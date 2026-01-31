@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import Heading from '@theme/Heading';
 import clsx from 'clsx';
 
 import styles from './styles.module.css';
@@ -10,10 +9,14 @@ type FeatureItem = {
   description: ReactNode;
 };
 
+import ReactSvg from '@site/static/img/undraw_docusaurus_react.svg';
+import TokensSvg from '@site/static/img/undraw_docusaurus_mountain.svg';
+import AccessibleSvg from '@site/static/img/undraw_docusaurus_tree.svg';
+
 const FeatureList: FeatureItem[] = [
   {
     title: 'Built with React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: ReactSvg,
     description: (
       <>
         Modern React components built with TypeScript, providing full type safety and excellent developer experience
@@ -23,7 +26,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Design Tokens',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: TokensSvg,
     description: (
       <>
         Semantic design tokens powered by CSS variables. Customize colors, spacing, typography, and more. Built-in light
@@ -33,7 +36,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Accessible by Default',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: AccessibleSvg,
     description: (
       <>
         WCAG 2.1 AA compliant components with keyboard navigation, screen reader support, and semantic HTML.
@@ -50,7 +53,7 @@ function Feature({ title, Svg, description }: FeatureItem) {
         <Svg className={styles.featureSvg} role="img" aria-label={`${title} illustration`} />
       </div>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
+        <h3>{title}</h3>
         <p>{description}</p>
       </div>
     </div>

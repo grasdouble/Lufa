@@ -46,3 +46,7 @@ jobs:
       # Step 6: Run lint
       - name: Run lint
         run: pnpm all:lint
+
+      # Step 7: Run type checking
+      - name: Run type checking
+        run: pnpm all:type-check

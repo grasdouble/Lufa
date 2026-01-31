@@ -13,7 +13,7 @@ export type VisuallyHiddenProps<T extends ElementType = 'span'> = {
   /**
    * The content to hide visually but keep accessible to screen readers.
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * Additional CSS classes.
    */

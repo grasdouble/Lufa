@@ -2,11 +2,11 @@ import type { ElementType } from 'react';
 import { forwardRef } from 'react';
 import { clsx } from 'clsx';
 
-import type { BoxProps } from '../Box/Box';
+import type { BoxComponentProps } from '../Box/Box';
 import { Box } from '../Box/Box';
 import styles from './Flex.module.css';
 
-export type FlexProps<T extends ElementType = 'div'> = BoxProps<T> & {
+export type FlexProps<T extends ElementType = 'div'> = BoxComponentProps<T> & {
   /**
    * Shorthand for flex-direction
    */
@@ -61,7 +61,9 @@ const FlexImpl = <T extends ElementType = 'div'>(
     className
   );
 
-  return <Box ref={ref} className={flexClassName} {...(props as BoxProps<T>)} />;
+  return (
+    <Box<T> ref={ref as React.Ref<never>} className={flexClassName} {...(props as BoxComponentProps<T>)} />
+  );
 };
 
 export const Flex = Object.assign(

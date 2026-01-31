@@ -2,11 +2,11 @@ import type { ElementType } from 'react';
 import { forwardRef } from 'react';
 import { clsx } from 'clsx';
 
-import type { BoxProps } from '../Box/Box';
+import type { BoxComponentProps } from '../Box/Box';
 import { Box } from '../Box/Box';
 import styles from './Grid.module.css';
 
-export type GridProps<T extends ElementType = 'div'> = BoxProps<T> & {
+export type GridProps<T extends ElementType = 'div'> = BoxComponentProps<T> & {
   /**
    * Number of columns
    */
@@ -66,7 +66,9 @@ const GridImpl = <T extends ElementType = 'div'>(
     className
   );
 
-  return <Box ref={ref} className={gridClassName} {...(props as BoxProps<T>)} />;
+  return (
+    <Box<T> ref={ref as React.Ref<never>} className={gridClassName} {...(props as BoxComponentProps<T>)} />
+  );
 };
 
 export const Grid = Object.assign(

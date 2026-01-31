@@ -3,7 +3,6 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import CodeBlock from '@theme/CodeBlock';
-import Heading from '@theme/Heading';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 
@@ -16,9 +15,9 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
+        <h1 className="hero__title">
           {siteConfig.title}
-        </Heading>
+        </h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/docs/intro">
@@ -43,27 +42,27 @@ function HomepageStatistics() {
       <div className="container">
         <div className={styles.statGrid}>
           <div className={styles.stat}>
-            <Heading as="h3" className={styles.statNumber}>
+            <h3 className={styles.statNumber}>
               50+
-            </Heading>
+            </h3>
             <p className={styles.statLabel}>Components</p>
           </div>
           <div className={styles.stat}>
-            <Heading as="h3" className={styles.statNumber}>
+            <h3 className={styles.statNumber}>
               WCAG AA
-            </Heading>
+            </h3>
             <p className={styles.statLabel}>Compliant</p>
           </div>
           <div className={styles.stat}>
-            <Heading as="h3" className={styles.statNumber}>
+            <h3 className={styles.statNumber}>
               TypeScript
-            </Heading>
+            </h3>
             <p className={styles.statLabel}>First</p>
           </div>
           <div className={styles.stat}>
-            <Heading as="h3" className={styles.statNumber}>
+            <h3 className={styles.statNumber}>
               Tree Shakeable
-            </Heading>
+            </h3>
             <p className={styles.statLabel}>Optimized</p>
           </div>
         </div>
@@ -76,9 +75,9 @@ function HomepageQuickStart() {
   return (
     <section className={styles.quickStart} aria-label="Quick start guide">
       <div className="container">
-        <Heading as="h2" className={styles.sectionTitle}>
+        <h2 className={styles.sectionTitle}>
           Get Started in Seconds
-        </Heading>
+        </h2>
         <p className={styles.sectionSubtitle}>
           Install the package and start building accessible interfaces immediately.
         </p>

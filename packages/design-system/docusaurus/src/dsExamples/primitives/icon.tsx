@@ -44,25 +44,26 @@ export function IconGallery() {
     'chevron-right',
     'arrow-left',
     'arrow-right',
-    'arrow-up',
-    'arrow-down',
     'search',
     'settings',
     'heart',
     'star',
-    'bell',
-    'mail',
-    'calendar',
-    'file',
-    'folder',
     'trash',
     'edit',
     'plus',
     'minus',
     'info',
     'alert-circle',
-    'alert-triangle',
-    'help-circle',
+    'check-circle',
+    'x-circle',
+    'loader',
+    'menu',
+    'save',
+    'download',
+    'upload',
+    'external-link',
+    'eye',
+    'eye-off',
   ];
 
   return (
@@ -299,7 +300,7 @@ export function TitleExamples() {
           backgroundColor: 'var(--lufa-token-color-background-base)',
         }}
       >
-        <Icon name="alert-triangle" size="md" color="warning" title="Warning: This action cannot be undone" />
+        <Icon name="alert-circle" size="md" color="warning" title="Warning: This action cannot be undone" />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span
             style={{

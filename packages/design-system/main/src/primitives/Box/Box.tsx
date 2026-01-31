@@ -253,7 +253,8 @@ export type BoxProps<T extends ElementType = 'div'> = {
 /**
  * Combined props type including element-specific props
  */
-type BoxComponentProps<T extends ElementType> = BoxProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof BoxProps<T>>;
+export type BoxComponentProps<T extends ElementType> = BoxProps<T> &
+  Omit<ComponentPropsWithoutRef<T>, keyof BoxProps<T>>;
 
 // ============================================
 // COMPONENT
