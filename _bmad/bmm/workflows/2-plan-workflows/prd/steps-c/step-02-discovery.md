@@ -10,6 +10,10 @@ outputFile: '{planning_artifacts}/prd.md'
 projectTypesCSV: '../data/project-types.csv'
 domainComplexityCSV: '../data/domain-complexity.csv'
 
+# DATA FILE REFERENCES
+# This step uses data files for comprehensive frameworks
+# See: ../data/project-discovery-sequence-framework.md for complete discovery methodology
+
 # Task References
 advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
 partyModeWorkflow: '{project-root}/_bmad/core/workflows/party-mode/workflow.md'
@@ -66,6 +70,7 @@ Discover and classify the project - understand what type of product this is, wha
 ## YOUR TASK:
 
 Discover and classify the project through natural conversation:
+
 - What type of product is this? (web app, API, mobile, etc.)
 - What domain does it operate in? (healthcare, fintech, e-commerce, etc.)
 - What's the project context? (greenfield new product vs brownfield existing system)
@@ -73,99 +78,40 @@ Discover and classify the project through natural conversation:
 
 ## DISCOVERY SEQUENCE:
 
+**See:** `../data/project-discovery-sequence-framework.md` for complete discovery methodology including:
+
+- Document state checking and announcement patterns
+- Classification data loading (project types and domain complexity)
+- Discovery conversation approaches (greenfield vs brownfield)
+- Classification signals to listen for
+- Validation and confirmation patterns
+- Frontmatter and document body updates
+
+**Quick Reference:**
+
 ### 1. Check Document State
 
-Read the frontmatter from `{outputFile}` to get document counts:
-- `briefCount` - Product briefs available
-- `researchCount` - Research documents available
-- `brainstormingCount` - Brainstorming docs available
-- `projectDocsCount` - Existing project documentation
+Read frontmatter from `{outputFile}` to get document counts (`briefCount`, `researchCount`, `brainstormingCount`, `projectDocsCount`).
 
-**Announce your understanding:**
-
-"From step 1, I have loaded:
-- Product briefs: {{briefCount}}
-- Research: {{researchCount}}
-- Brainstorming: {{brainstormingCount}}
-- Project docs: {{projectDocsCount}}
-
-{{if projectDocsCount > 0}}This is a brownfield project - I'll focus on understanding what you want to add or change.{{else}}This is a greenfield project - I'll help you define the full product vision.{{/if}}"
+Announce understanding: "From step 1, I have loaded: [counts]. {{if projectDocsCount > 0}}This is brownfield...{{else}}This is greenfield...{{/if}}"
 
 ### 2. Load Classification Data
 
-**Attempt subprocess data lookup:**
-
-**Project Type Lookup:**
-"Your task: Lookup data in {projectTypesCSV}
-
-**Search criteria:**
-- Find row where project_type matches {{detectedProjectType}}
-
-**Return format:**
-Return ONLY the matching row as a YAML-formatted object with these fields:
-project_type, detection_signals
-
-**Do NOT return the entire CSV - only the matching row.**"
-
-**Domain Complexity Lookup:**
-"Your task: Lookup data in {domainComplexityCSV}
-
-**Search criteria:**
-- Find row where domain matches {{detectedDomain}}
-
-**Return format:**
-Return ONLY the matching row as a YAML-formatted object with these fields:
-domain, complexity, typical_concerns, compliance_requirements
-
-**Do NOT return the entire CSV - only the matching row.**"
-
-**Graceful degradation (if Task tool unavailable):**
-- Load the CSV files directly
-- Find the matching rows manually
-- Extract required fields
-- Keep in memory for intelligent classification
+Attempt subprocess lookup for project type and domain complexity from CSV files. If unavailable, load CSV files directly and extract matching rows manually.
 
 ### 3. Begin Discovery Conversation
 
-**Start with what you know:**
+**Start with what you know:** Acknowledge existing documents and share understanding, or start with open-ended discovery for greenfield projects.
 
-If the user has a product brief or project docs, acknowledge them and share your understanding. Then ask clarifying questions to deepen your understanding.
-
-If this is a greenfield project with no docs, start with open-ended discovery:
-- What problem does this solve?
-- Who's it for?
-- What excites you about building this?
-
-**Listen for classification signals:**
-
-As the user describes their product, match against:
-- **Project type signals** (API, mobile, SaaS, etc.)
-- **Domain signals** (healthcare, fintech, education, etc.)
-- **Complexity indicators** (regulated industries, novel technology, etc.)
+**Listen for classification signals:** Match against project type signals, domain signals, and complexity indicators (see data file for complete lists).
 
 ### 4. Confirm Classification
 
-Once you have enough understanding, share your classification:
+Share detected classification: "I'm hearing this as: **Project Type:** {{detectedType}}, **Domain:** {{detectedDomain}}, **Complexity:** {{complexityLevel}}. Does this sound right?"
 
-"I'm hearing this as:
-- **Project Type:** {{detectedType}}
-- **Domain:** {{detectedDomain}}
-- **Complexity:** {{complexityLevel}}
+### 5. Save Classification When User Selects 'C'
 
-Does this sound right to you?"
-
-Let the user confirm or refine your classification.
-
-### 5. Save Classification to Frontmatter
-
-When user selects 'C', update frontmatter with classification:
-```yaml
-classification:
-  projectType: {{projectType}}
-  domain: {{domain}}
-  complexity: {{complexityLevel}}
-  projectContext: {{greenfield|brownfield}}
-```
+Update frontmatter with `classification:` section and append `## Project Discovery` section to document body with classification details.
 
 ### N. Present MENU OPTIONS
 
@@ -185,12 +131,14 @@ Present the project classification for review, then display menu:
 Display: "**Select:** [A] Advanced Elicitation [P] Party Mode [C] Continue to Product Vision (Step 2b of 13)"
 
 #### Menu Handling Logic:
-- IF A: Execute {advancedElicitationTask} with the current classification, process the enhanced insights that come back, ask user if they accept the improvements, if yes update classification then redisplay menu, if no keep original classification then redisplay menu
-- IF P: Execute {partyModeWorkflow} with the current classification, process the collaborative insights, ask user if they accept the changes, if yes update classification then redisplay menu, if no keep original classification then redisplay menu
-- IF C: Save classification to {outputFile} frontmatter, add this step name to the end of stepsCompleted array, then load, read entire file, then execute {nextStepFile}
-- IF Any other: help user respond, then redisplay menu
+
+- IF A: Execute {advancedElicitationTask}, and when finished redisplay the menu
+- IF P: Execute {partyModeWorkflow}, and when finished redisplay the menu
+- IF C: Save classification to {outputFile} frontmatter, append ## Project Discovery section to document body with classification details, add this step name to the end of stepsCompleted array, then load, read entire file, then execute {nextStepFile}
+- IF Any other: help user respond, then redisplay the menu
 
 #### EXECUTION RULES:
+
 - ALWAYS halt and wait for user input after presenting menu
 - ONLY proceed to next step when user selects 'C'
 - After other menu items execution, return to this menu

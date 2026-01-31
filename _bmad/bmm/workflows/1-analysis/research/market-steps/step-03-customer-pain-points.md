@@ -94,78 +94,24 @@ Search the web: "{{research_topic}} customer barriers to adoption"
 
 **WRITE IMMEDIATELY TO DOCUMENT**
 
-Prepare customer pain points analysis with web search citations:
+**Framework Location:**
+`data/customer-pain-points-analysis-framework.md`
 
-#### Content Structure:
+Load the customer pain points analysis framework from the data file. This framework provides:
 
-When saving to document, append these Level 2 and Level 3 sections:
+- Complete 7-subsection structure for pain points analysis
+- Customer challenges and frustrations templates
+- Unmet needs and adoption barriers structure
+- Service pain points and satisfaction gaps format
+- Emotional impact and prioritization templates
+- Source citation formats
 
-```markdown
-## Customer Pain Points and Needs
+Using the framework structure from `data/customer-pain-points-analysis-framework.md`:
 
-### Customer Challenges and Frustrations
-
-[Customer challenges analysis with source citations]
-_Primary Frustrations: [Major customer frustrations identified]_
-_Usage Barriers: [Barriers preventing effective usage]_
-_Service Pain Points: [Customer service and support issues]_
-_Frequency Analysis: [How often these challenges occur]_
-_Source: [URL]_
-
-### Unmet Customer Needs
-
-[Unmet needs analysis with source citations]
-_Critical Unmet Needs: [Most important unaddressed needs]_
-_Solution Gaps: [Opportunities to address unmet needs]_
-_Market Gaps: [Market opportunities from unmet needs]_
-_Priority Analysis: [Which needs are most critical]_
-_Source: [URL]_
-
-### Barriers to Adoption
-
-[Adoption barriers analysis with source citations]
-_Price Barriers: [Cost-related barriers to adoption]_
-_Technical Barriers: [Complexity or technical barriers]_
-_Trust Barriers: [Trust and credibility issues]_
-_Convenience Barriers: [Ease of use or accessibility issues]_
-_Source: [URL]_
-
-### Service and Support Pain Points
-
-[Service pain points analysis with source citations]
-_Customer Service Issues: [Common customer service problems]_
-_Support Gaps: [Areas where customer support is lacking]_
-_Communication Issues: [Communication breakdowns and frustrations]_
-_Response Time Issues: [Slow response and resolution problems]_
-_Source: [URL]_
-
-### Customer Satisfaction Gaps
-
-[Satisfaction gap analysis with source citations]
-_Expectation Gaps: [Differences between expectations and reality]_
-_Quality Gaps: [Areas where quality expectations aren't met]_
-_Value Perception Gaps: [Perceived value vs actual value]_
-_Trust and Credibility Gaps: [Trust issues affecting satisfaction]_
-_Source: [URL]_
-
-### Emotional Impact Assessment
-
-[Emotional impact analysis with source citations]
-_Frustration Levels: [Customer frustration severity assessment]_
-_Loyalty Risks: [How pain points affect customer loyalty]_
-_Reputation Impact: [Impact on brand or product reputation]_
-_Customer Retention Risks: [Risk of customer loss from pain points]_
-_Source: [URL]_
-
-### Pain Point Prioritization
-
-[Pain point prioritization with source citations]
-_High Priority Pain Points: [Most critical pain points to address]_
-_Medium Priority Pain Points: [Important but less critical pain points]_
-_Low Priority Pain Points: [Minor pain points with lower impact]_
-_Opportunity Mapping: [Pain points with highest solution opportunity]_
-_Source: [URL]_
-```
+1. **Fill all 7 subsections** with synthesized customer pain points content from web searches
+2. **Maintain source citations** throughout with verified URLs
+3. **Ensure comprehensive coverage** across all pain point aspects
+4. **Write immediately to document** as per protocols
 
 ### 5. Present Analysis and Continue Option
 

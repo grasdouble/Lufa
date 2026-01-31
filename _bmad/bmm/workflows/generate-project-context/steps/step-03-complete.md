@@ -1,5 +1,12 @@
 # Step 3: Context Completion & Finalization
 
+## DATA FILE REFERENCES:
+
+This step uses shared templates and checklists:
+
+- **../data/context-completion-template.md**: Skill-level-adapted completion messages (Expert/Intermediate/Beginner), validation checklists (content and format), final file updates, content optimization procedures
+- **../data/context-document-template.md**: Final context document structure, usage guidelines section, frontmatter structure
+
 ## MANDATORY EXECUTION RULES (READ FIRST):
 
 - 🛑 NEVER generate content without user input
@@ -30,227 +37,78 @@ Complete the project context file, optimize it for LLM efficiency, and provide g
 
 ## COMPLETION SEQUENCE:
 
+**For detailed templates and procedures, see: ../data/context-completion-template.md**
+
+**For document structure, see: ../data/context-document-template.md**
+
 ### 1. Review Complete Context File
 
-Read the entire project context file and analyze:
+Read the entire project context file and analyze content and structure.
 
-**Content Analysis:**
+See **context-completion-template.md** for optimization procedures:
 
-- Total length and readability for LLMs
-- Clarity and specificity of rules
-- Coverage of all critical areas
-- Actionability of each rule
-
-**Structure Analysis:**
-
-- Logical organization of sections
-- Consistency of formatting
-- Absence of redundant or obvious information
-- Optimization for quick scanning
+- Remove redundant rules
+- Combine related rules
+- Increase specificity
+- Ensure actionability
 
 ### 2. Optimize for LLM Context
 
-Ensure the file is lean and efficient:
+Ensure the file is lean and efficient using guidelines from the completion template:
 
-**Content Optimization:**
-
-- Remove any redundant rules or obvious information
+- Remove redundant rules or obvious information
 - Combine related rules into concise bullet points
 - Use specific, actionable language
 - Ensure each rule provides unique value
 
-**Formatting Optimization:**
-
-- Use consistent markdown formatting
-- Implement clear section hierarchy
-- Ensure scannability with strategic use of bolding
-- Maintain readability while maximizing information density
+See **context-completion-template.md** for complete optimization procedures.
 
 ### 3. Final Content Structure
 
-Ensure the final structure follows this optimized format:
+Ensure the final structure follows the optimized format from the document template.
 
-```markdown
-# Project Context for AI Agents
+See **context-document-template.md** for:
 
-_This file contains critical rules and patterns that AI agents must follow when implementing code in this project. Focus on unobvious details that agents might otherwise miss._
-
----
-
-## Technology Stack & Versions
-
-{{concise_technology_list}}
-
-## Critical Implementation Rules
-
-### Language-Specific Rules
-
-{{specific_language_rules}}
-
-### Framework-Specific Rules
-
-{{framework_patterns}}
-
-### Testing Rules
-
-{{testing_requirements}}
-
-### Code Quality & Style Rules
-
-{{style_and_quality_patterns}}
-
-### Development Workflow Rules
-
-{{workflow_patterns}}
-
-### Critical Don't-Miss Rules
-
-{{anti_patterns_and_edge_cases}}
-
----
-
-## Usage Guidelines
-
-**For AI Agents:**
-
-- Read this file before implementing any code
-- Follow ALL rules exactly as documented
-- When in doubt, prefer the more restrictive option
-- Update this file if new patterns emerge
-
-**For Humans:**
-
-- Keep this file lean and focused on agent needs
-- Update when technology stack changes
-- Review quarterly for outdated rules
-- Remove rules that become obvious over time
-
-Last Updated: {{date}}
-```
+- Complete document structure
+- Usage guidelines section
+- Frontmatter structure
+- Content formatting patterns
 
 ### 4. Present Completion Summary
 
-Based on user skill level, present the completion:
+Based on user skill level, present completion using messages from the completion template:
 
-**Expert Mode:**
-"Project context complete. Optimized for LLM consumption with {{rule_count}} critical rules across {{section_count}} sections.
+- Expert Mode: Concise completion with metrics
+- Intermediate Mode: Benefits and next steps
+- Beginner Mode: Friendly explanation with analogies
 
-File saved to: `{output_folder}/project-context.md`
-
-Ready for AI agent integration."
-
-**Intermediate Mode:**
-"Your project context is complete and optimized for AI agents!
-
-**What we created:**
-
-- {{rule_count}} critical implementation rules
-- Technology stack with exact versions
-- Framework-specific patterns and conventions
-- Testing and quality guidelines
-- Workflow and anti-pattern rules
-
-**Key benefits:**
-
-- AI agents will implement consistently with your standards
-- Reduced context switching and implementation errors
-- Clear guidance for unobvious project requirements
-
-**Next steps:**
-
-- AI agents should read this file before implementing
-- Update as your project evolves
-- Review periodically for optimization"
-
-**Beginner Mode:**
-"Excellent! Your project context guide is ready! 🎉
-
-**What this does:**
-Think of this as a 'rules of the road' guide for AI agents working on your project. It ensures they all follow the same patterns and avoid common mistakes.
-
-**What's included:**
-
-- Exact technology versions to use
-- Critical coding rules they might miss
-- Testing and quality standards
-- Workflow patterns to follow
-
-**How AI agents use it:**
-They read this file before writing any code, ensuring everything they create follows your project's standards perfectly.
-
-Your project context is saved and ready to help agents implement consistently!"
+See **context-completion-template.md** for all skill-level-adapted completion messages.
 
 ### 5. Final File Updates
 
-Update the project context file with completion information:
+Update the project context file with completion information using templates:
 
-**Frontmatter Update:**
+- Frontmatter update (status: 'complete')
+- Usage guidelines section
+- Last updated date
 
-```yaml
----
-project_name: '{{project_name}}'
-user_name: '{{user_name}}'
-date: '{{date}}'
-sections_completed:
-  ['technology_stack', 'language_rules', 'framework_rules', 'testing_rules', 'quality_rules', 'workflow_rules', 'anti_patterns']
-status: 'complete'
-rule_count: { { total_rules } }
-optimized_for_llm: true
----
-```
-
-**Add Usage Section:**
-Append the usage guidelines from step 3 to complete the document.
+See **context-document-template.md** and **context-completion-template.md** for frontmatter and usage section structures.
 
 ### 6. Completion Validation
 
-Final checks before completion:
+Final checks before completion using checklists from the completion template:
 
 **Content Validation:**
-✅ All critical technology versions documented
-✅ Language-specific rules are specific and actionable
-✅ Framework rules cover project conventions
-✅ Testing rules ensure consistency
-✅ Code quality rules maintain standards
-✅ Workflow rules prevent conflicts
-✅ Anti-pattern rules prevent common mistakes
+See **context-completion-template.md** for complete content validation checklist.
 
 **Format Validation:**
-✅ Content is lean and optimized for LLMs
-✅ Structure is logical and scannable
-✅ No redundant or obvious information
-✅ Consistent formatting throughout
+See **context-completion-template.md** for complete format validation checklist.
 
 ### 7. Completion Message
 
-Present final completion to user:
+Present final completion to user using the comprehensive message from the completion template.
 
-"✅ **Project Context Generation Complete!**
-
-Your optimized project context file is ready at:
-`{output_folder}/project-context.md`
-
-**📊 Context Summary:**
-
-- {{rule_count}} critical rules for AI agents
-- {{section_count}} comprehensive sections
-- Optimized for LLM context efficiency
-- Ready for immediate agent integration
-
-**🎯 Key Benefits:**
-
-- Consistent implementation across all AI agents
-- Reduced common mistakes and edge cases
-- Clear guidance for project-specific patterns
-- Minimal LLM context usage
-
-**📋 Next Steps:**
-
-1. AI agents will automatically read this file when implementing
-2. Update this file when your technology stack or patterns evolve
-3. Review quarterly to optimize and remove outdated rules
-
-Your project context will help ensure high-quality, consistent implementation across all development work. Great work capturing your project's critical implementation requirements!"
+See **context-completion-template.md** for the complete final completion message with context summary, key benefits, and next steps.
 
 ## SUCCESS METRICS:
 

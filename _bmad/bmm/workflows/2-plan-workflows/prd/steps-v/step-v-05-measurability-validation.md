@@ -6,6 +6,7 @@ description: 'Measurability Validation - Validate that all requirements (FRs and
 nextStepFile: './step-v-06-traceability-validation.md'
 prdFile: '{prd_file_path}'
 validationReportPath: '{validation_report_path}'
+measurabilityCriteriaFile: '../data/measurability-validation-criteria.md'
 ---
 
 # Step 5: Measurability Validation
@@ -58,74 +59,48 @@ Validate that all Functional Requirements (FRs) and Non-Functional Requirements 
 
 **CRITICAL:** Follow this sequence exactly. Do not skip, reorder, or improvise unless user explicitly requests a change.
 
-### 1. Attempt Sub-Process Validation
+### 1. Attempt Sub-Process Validation (Pattern 4: Parallel FR/NFR)
 
-**Try to use Task tool to spawn a subprocess:**
+**OPTIMIZATION CONTEXT:**
 
-"Perform measurability validation on this PRD:
+- **Pattern**: Launch 2 parallel subprocesses (FR measurability + NFR measurability)
+- **Performance Gain**: 2x faster (parallel vs sequential validation)
+- **Context Savings**: Minimal (primary gain is speed, not context)
+- **Fallback**: If Task tool unavailable, use sequential validation (section 2)
+- **Validation Criteria**: Detailed criteria in {measurabilityCriteriaFile}
 
-**Functional Requirements (FRs):**
-1. Extract all FRs from Functional Requirements section
-2. Check each FR for:
-   - '[Actor] can [capability]' format compliance
-   - No subjective adjectives (easy, fast, simple, intuitive, etc.)
-   - No vague quantifiers (multiple, several, some, many, etc.)
-   - No implementation details (technology names, library names, data structures unless capability-relevant)
-3. Document violations with line numbers
+**Try to use Task tool to spawn 2 parallel subprocesses:**
 
-**Non-Functional Requirements (NFRs):**
-1. Extract all NFRs from Non-Functional Requirements section
-2. Check each NFR for:
-   - Specific metrics with measurement methods
-   - Template compliance (criterion, metric, measurement method, context)
-   - Context included (why this matters, who it affects)
-3. Document violations with line numbers
+**Subprocess 1: FR Measurability**
+"Perform FR measurability validation on this PRD using criteria from {measurabilityCriteriaFile}:
 
-Return structured findings with violation counts and examples."
+Validate format compliance, subjective adjectives, vague quantifiers, implementation leakage.
+
+Return: Total FRs, violation counts + examples with line numbers, total FR violations."
+
+**Subprocess 2: NFR Measurability**
+"Perform NFR measurability validation on this PRD using criteria from {measurabilityCriteriaFile}:
+
+Validate specific metrics, template compliance, context inclusion.
+
+Return: Total NFRs, violation counts + examples with line numbers, total NFR violations."
+
+**Aggregation:** Aggregate violation counts and compile overall assessment.
 
 ### 2. Graceful Degradation (if Task tool unavailable)
 
-If Task tool unavailable, perform analysis directly:
+If Task tool unavailable, perform analysis directly using criteria from {measurabilityCriteriaFile}:
 
-**Functional Requirements Analysis:**
+**Functional Requirements:** Check format compliance, subjective adjectives, vague quantifiers, implementation leakage.
 
-Extract all FRs and check each for:
-
-**Format compliance:**
-- Does it follow "[Actor] can [capability]" pattern?
-- Is actor clearly defined?
-- Is capability actionable and testable?
-
-**No subjective adjectives:**
-- Scan for: easy, fast, simple, intuitive, user-friendly, responsive, quick, efficient (without metrics)
-- Note line numbers
-
-**No vague quantifiers:**
-- Scan for: multiple, several, some, many, few, various, number of
-- Note line numbers
-
-**No implementation details:**
-- Scan for: React, Vue, Angular, PostgreSQL, MongoDB, AWS, Docker, Kubernetes, Redux, etc.
-- Unless capability-relevant (e.g., "API consumers can access...")
-- Note line numbers
-
-**Non-Functional Requirements Analysis:**
-
-Extract all NFRs and check each for:
-
-**Specific metrics:**
-- Is there a measurable criterion? (e.g., "response time < 200ms", not "fast response")
-- Can this be measured or tested?
-
-**Template compliance:**
-- Criterion defined?
-- Metric specified?
-- Measurement method included?
-- Context provided?
+**Non-Functional Requirements:** Check specific metrics, template compliance, context inclusion.
 
 ### 3. Tally Violations
 
+**Aggregate results from 2 parallel subprocesses (or sequential analysis if Task tool unavailable):**
+
 **FR Violations:**
+
 - Format violations: count
 - Subjective adjectives: count
 - Vague quantifiers: count
@@ -133,6 +108,7 @@ Extract all NFRs and check each for:
 - Total FR violations: sum
 
 **NFR Violations:**
+
 - Missing metrics: count
 - Incomplete template: count
 - Missing context: count
@@ -215,7 +191,8 @@ Immediately load and execute {nextStepFile} (step-v-06-traceability-validation.m
 - Severity assessed correctly
 - Findings reported to validation report
 - Auto-proceeds to next validation step
-- Subprocess attempted with graceful degradation
+- **Subprocess Pattern 4 (Parallel FR/NFR):** 2 parallel subprocesses attempted with graceful degradation
+- **Performance:** 2x faster (parallel FR and NFR validation)
 
 ### ❌ SYSTEM FAILURE:
 

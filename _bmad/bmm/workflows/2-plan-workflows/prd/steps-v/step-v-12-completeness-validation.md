@@ -7,6 +7,7 @@ nextStepFile: './step-v-13-report-complete.md'
 prdFile: '{prd_file_path}'
 prdFrontmatter: '{prd_frontmatter}'
 validationReportPath: '{validation_report_path}'
+completenessChecklist: '../data/completeness-checklist.md'
 ---
 
 # Step 12: Completeness Validation
@@ -104,34 +105,7 @@ Return completeness matrix with status for each check."
 
 ### 2. Build Completeness Matrix
 
-**Template Completeness:**
-- Template variables found: count
-- List if any found
-
-**Content Completeness by Section:**
-- Executive Summary: Complete / Incomplete / Missing
-- Success Criteria: Complete / Incomplete / Missing
-- Product Scope: Complete / Incomplete / Missing
-- User Journeys: Complete / Incomplete / Missing
-- Functional Requirements: Complete / Incomplete / Missing
-- Non-Functional Requirements: Complete / Incomplete / Missing
-- Other sections: [List completeness]
-
-**Section-Specific Completeness:**
-- Success criteria measurable: All / Some / None
-- Journeys cover all users: Yes / Partial / No
-- FRs cover MVP scope: Yes / Partial / No
-- NFRs have specific criteria: All / Some / None
-
-**Frontmatter Completeness:**
-- stepsCompleted: Present / Missing
-- classification: Present / Missing
-- inputDocuments: Present / Missing
-- date: Present / Missing
-
-**Overall completeness:**
-- Sections complete: X/Y
-- Critical gaps: [list if any]
+Apply completeness assessment criteria from {completenessChecklist}
 
 ### 3. Report Completeness Findings to Validation Report
 

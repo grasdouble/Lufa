@@ -8,6 +8,7 @@ prdFile: '{prd_file_path}'
 validationReport: '{validation_report_path}'  # If provided
 prdPurpose: '{project-root}/src/modules/bmm/workflows/2-plan-workflows/prd/data/prd-purpose.md'
 advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
+reviewCriteria: '../data/prd-review-analysis-criteria.md'
 ---
 
 # Step E-2: Deep Review & Analysis
@@ -83,13 +84,7 @@ Thoroughly review the existing PRD, analyze validation report findings (if provi
 **IF no validation report:**
 1. Read entire PRD thoroughly
 2. Analyze against BMAD standards (from prd-purpose.md)
-3. Identify issues in:
-   - Information density (anti-patterns)
-   - Structure and flow
-   - Completeness (missing sections/content)
-   - Measurability (unmeasurable requirements)
-   - Traceability (broken chains)
-   - Implementation leakage
+3. Identify issues using criteria from {reviewCriteria}
 4. Map user's edit goals to specific sections
 
 **Output:**
@@ -110,18 +105,7 @@ Return detailed change plan with section breakdown."
 
 **Organize by PRD section:**
 
-**For each section (in order):**
-- **Current State:** Brief description of what exists
-- **Issues Identified:** [List from validation report or manual analysis]
-- **Changes Needed:** [Specific changes required]
-- **Priority:** [Critical/High/Medium/Low]
-- **User Requirements Met:** [Which user edit goals address this section]
-
-**Include:**
-- Sections to add (if missing)
-- Sections to update (if present but needs work)
-- Content to remove (if incorrect/leakage)
-- Structure changes (if reformatting needed)
+**For each section**: Apply template from {reviewCriteria}
 
 ### 3. Prepare Change Plan Summary
 

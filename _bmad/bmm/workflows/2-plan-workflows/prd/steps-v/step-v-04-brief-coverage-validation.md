@@ -66,6 +66,7 @@ Check if Product Brief was loaded in step 1's inputDocuments:
 
 **IF no Product Brief found:**
 Append to validation report:
+
 ```markdown
 ## Product Brief Coverage
 
@@ -80,14 +81,14 @@ Immediately load and execute {nextStepFile}
 
 **IF Product Brief exists:** Continue to step 2 below
 
-### 2. Attempt Sub-Process Validation
+### 2. Attempt Sub-Process Validation (Pattern 2 Optimization - Deep Analysis)
 
 **Try to use Task tool to spawn a subprocess:**
 
-"Perform Product Brief coverage validation:
+"Perform Product Brief coverage validation (Pattern 2 optimization):
 
-1. Load the Product Brief
-2. Extract key content:
+1. Load the Product Brief from {productBrief}
+2. Extract key content areas:
    - Vision statement
    - Target users/personas
    - Problem statement
@@ -95,17 +96,41 @@ Immediately load and execute {nextStepFile}
    - Goals/objectives
    - Differentiators
    - Constraints
-3. For each item, search PRD for corresponding coverage
-4. Classify coverage: Fully Covered / Partially Covered / Not Found / Intentionally Excluded
-5. Note any gaps with severity: Critical / Moderate / Informational
 
-Return structured coverage map with classifications."
+3. For each content area, search {prdFile} for corresponding coverage
+
+4. Classify coverage for each area:
+   - **Fully Covered**: Content present and complete in PRD
+   - **Partially Covered**: Content present but incomplete
+   - **Not Found**: Content missing from PRD
+   - **Intentionally Excluded**: Content explicitly out of scope
+
+5. For gaps (Partially/Not Found), assess severity:
+   - **Critical**: Core vision, primary users, main features
+   - **Moderate**: Secondary features, some goals
+   - **Informational**: Nice-to-have features, minor details
+
+**Return ONLY:**
+
+- Coverage map: {content_area: {status, prd_location, completeness}}
+- Gap list: [{content_area, severity, specific_missing_content}]
+- Overall coverage percentage
+- Recommendation based on critical gaps
+
+**Context-Saving Benefit:** Returns only coverage analysis (~30-50 lines) instead of loading full Product Brief (~80-120 lines) + full PRD (~180 lines). Saves ~150-250 lines of parent context.
+
+**DO NOT return:**
+
+- Full Product Brief content
+- Full PRD section content
+- Only return the analysis results"
 
 ### 3. Graceful Degradation (if Task tool unavailable)
 
 If Task tool unavailable, perform analysis directly:
 
 **Extract from Product Brief:**
+
 - Vision: What is this product?
 - Users: Who is it for?
 - Problem: What problem does it solve?
@@ -114,6 +139,7 @@ If Task tool unavailable, perform analysis directly:
 - Differentiators: What makes it unique?
 
 **For each item, search PRD:**
+
 - Scan Executive Summary for vision
 - Check User Journeys or user personas
 - Look for problem statement
@@ -122,6 +148,7 @@ If Task tool unavailable, perform analysis directly:
 - Search for differentiators
 
 **Classify coverage:**
+
 - **Fully Covered:** Content present and complete
 - **Partially Covered:** Content present but incomplete
 - **Not Found:** Content missing from PRD
@@ -130,6 +157,7 @@ If Task tool unavailable, perform analysis directly:
 ### 4. Assess Coverage and Severity
 
 **For each gap (Partially Covered or Not Found):**
+
 - Is this Critical? (Core vision, primary users, main features)
 - Is this Moderate? (Secondary features, some goals)
 - Is this Informational? (Nice-to-have features, minor details)
@@ -202,6 +230,7 @@ Immediately load and execute {nextStepFile} (step-v-05-measurability-validation.
 - Findings reported to validation report
 - Auto-proceeds to next validation step
 - Subprocess attempted with graceful degradation
+- **Pattern 2 optimization**: Subprocess returns only analysis results (~30-50 lines) instead of full Brief + PRD content (~260+ lines)
 
 ### ❌ SYSTEM FAILURE:
 

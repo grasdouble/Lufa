@@ -7,6 +7,7 @@ altStepFile: './step-e-01b-legacy-conversion.md'
 prdPurpose: '{project-root}/src/modules/bmm/workflows/2-plan-workflows/prd/data/prd-purpose.md'
 advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
 partyModeWorkflow: '{project-root}/_bmad/core/workflows/party-mode/workflow.md'
+formatClassification: '../data/prd-format-classification.md'
 ---
 
 # Step E-1: Discovery & Understanding
@@ -162,20 +163,7 @@ Please describe the changes you want to make. For example:
 
 Analyze the loaded PRD:
 
-**Extract all ## Level 2 headers** from PRD
-
-**Check for BMAD PRD core sections:**
-1. Executive Summary
-2. Success Criteria
-3. Product Scope
-4. User Journeys
-5. Functional Requirements
-6. Non-Functional Requirements
-
-**Classify format:**
-- **BMAD Standard:** 5-6 core sections present
-- **BMAD Variant:** 3-4 core sections present, generally follows BMAD patterns
-- **Legacy (Non-Standard):** Fewer than 3 core sections, does not follow BMAD structure
+**Detect format**: Apply classification rules from {formatClassification}
 
 ### 8. Route Based on Format and Context
 

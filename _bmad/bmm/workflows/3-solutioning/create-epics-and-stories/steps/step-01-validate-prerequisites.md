@@ -18,6 +18,10 @@ partyModeWorkflow: '{project-root}/_bmad/core/workflows/party-mode/workflow.md'
 
 # Template References
 epicsTemplate: '{workflow_path}/templates/epics-template.md'
+
+# Data References
+documentSearchPatterns: '{workflow_path}/data/prerequisite-document-search-patterns.md'
+requirementsExtractionFramework: '{workflow_path}/data/requirements-extraction-framework.md'
 ---
 
 # Step 1: Validate Prerequisites and Extract Requirements
@@ -74,102 +78,57 @@ Verify required documents exist and are complete:
 
 ### 2. Document Discovery and Validation
 
-Search for required documents using these patterns (sharded means a large document was split into multiple small files with an index.md into a folder) - if the whole document is found, use that instead of the sharded version:
+**Load Document Search Patterns:**
 
-**PRD Document Search Priority:**
+Read the prerequisite document search patterns from `{documentSearchPatterns}`. This document provides:
 
-1. `{planning_artifacts}/*prd*.md` (whole document)
-2. `{planning_artifacts}/*prd*/index.md` (sharded version)
+- **PRD Document Search:** Priority ordering (whole document → sharded)
+- **Architecture Document Search:** Priority ordering (whole document → sharded)
+- **UX Design Document Search:** Priority ordering (optional, whole → sharded)
+- **Search Implementation:** Glob patterns and reading strategies
+- **Error Handling:** What to do if documents not found
 
-**Architecture Document Search Priority:**
+**Execute Document Search:**
 
-1. `{planning_artifacts}/*architecture*.md` (whole document)
-2. `{planning_artifacts}/*architecture*/index.md` (sharded version)
+Using the patterns from `{documentSearchPatterns}`, search for:
 
-**UX Design Document Search (Optional):**
+1. **PRD Document** (REQUIRED) - Contains FRs, NFRs, product scope
+2. **Architecture Document** (REQUIRED) - Contains technical decisions, starter template
+3. **UX Design Document** (OPTIONAL) - Contains interaction patterns, accessibility requirements
 
-1. `{planning_artifacts}/*ux*.md` (whole document)
-2. `{planning_artifacts}/*ux*/index.md` (sharded version)
+Before proceeding, ask the user if there are any other documents to include for analysis, and if anything found should be excluded. Wait for user confirmation. Once confirmed, create the {outputFile} from the {epicsTemplate} and in the front matter list the files in the array of `inputDocuments: []`.
 
-Before proceeding, Ask the user if there are any other documents to include for analysis, and if anything found should be excluded. Wait for user confirmation. Once confirmed, create the {outputFile} from the {epicsTemplate} and in the front matter list the files in the array of `inputDocuments: []`.
+### 3. Extract Requirements from Documents
 
-### 3. Extract Functional Requirements (FRs)
+**Load Requirements Extraction Framework:**
 
-From the PRD document (full or sharded), read then entire document and extract ALL functional requirements:
+Read the comprehensive requirements extraction framework from `{requirementsExtractionFramework}`. This document provides:
 
-**Extraction Method:**
+- **Functional Requirements (FRs) Extraction:** What they are, how to identify, format templates, examples
+- **Non-Functional Requirements (NFRs) Extraction:** Categories, extraction methods, format templates, examples
+- **Additional Requirements from Architecture:** Starter template (CRITICAL), infrastructure, integrations, security
+- **Additional Requirements from UX:** Responsive design, accessibility, browser compatibility, interaction patterns
+- **Complete Extraction Workflow:** Step-by-step process
+- **Validation Checklist:** Before finalizing requirements
 
-- Look for numbered items like "FR1:", "Functional Requirement 1:", or similar
-- Identify requirement statements that describe what the system must DO
-- Include user actions, system behaviors, and business rules
+**Execute Requirements Extraction:**
 
-**Format the FR list as:**
+Following the framework from `{requirementsExtractionFramework}`:
 
-```
-FR1: [Clear, testable requirement description]
-FR2: [Clear, testable requirement description]
-...
-```
+1. **Extract FRs from PRD:** Read entire PRD, identify all functional requirements, format as FR1, FR2, FR3...
+2. **Extract NFRs from PRD:** Identify performance, security, usability, reliability requirements, format as NFR1, NFR2, NFR3...
+3. **Extract Additional Requirements from Architecture:**
+   - **CRITICAL:** Identify starter template specification (affects Epic 1 Story 1)
+   - Infrastructure and deployment requirements
+   - Integration requirements with external systems
+   - Security implementation requirements
+4. **Extract Additional Requirements from UX (if exists):**
+   - Responsive design requirements
+   - Accessibility requirements (WCAG level)
+   - Browser/device compatibility
+   - User interaction patterns
 
-### 4. Extract Non-Functional Requirements (NFRs)
-
-From the PRD document, extract ALL non-functional requirements:
-
-**Extraction Method:**
-
-- Look for performance, security, usability, reliability requirements
-- Identify constraints and quality attributes
-- Include technical standards and compliance requirements
-
-**Format the NFR list as:**
-
-```
-NFR1: [Performance/Security/Usability requirement]
-NFR2: [Performance/Security/Usability requirement]
-...
-```
-
-### 5. Extract Additional Requirements from Architecture
-
-Review the Architecture document for technical requirements that impact epic and story creation:
-
-**Look for:**
-
-- **Starter Template**: Does Architecture specify a starter/greenfield template? If YES, document this for Epic 1 Story 1
-- Infrastructure and deployment requirements
-- Integration requirements with external systems
-- Data migration or setup requirements
-- Monitoring and logging requirements
-- API versioning or compatibility requirements
-- Security implementation requirements
-
-**IMPORTANT**: If a starter template is mentioned in Architecture, note it prominently. This will impact Epic 1 Story 1.
-
-**Format Additional Requirements as:**
-
-```
-- [Technical requirement from Architecture that affects implementation]
-- [Infrastructure setup requirement]
-- [Integration requirement]
-...
-```
-
-### 6. Extract Additional Requirements from UX (if exists)
-
-Review the UX document for requirements that affect epic and story creation:
-
-**Look for:**
-
-- Responsive design requirements
-- Accessibility requirements
-- Browser/device compatibility
-- User interaction patterns that need implementation
-- Animation or transition requirements
-- Error handling UX requirements
-
-**Add these to Additional Requirements list.**
-
-### 7. Load and Initialize Template
+### 4. Load and Initialize Template
 
 Load {epicsTemplate} and initialize {outputFile}:
 
@@ -181,7 +140,7 @@ Load {epicsTemplate} and initialize {outputFile}:
    - {{additional_requirements}} → extracted additional requirements
 4. Leave {{requirements_coverage_map}} and {{epics_list}} as placeholders for now
 
-### 8. Present Extracted Requirements
+### 5. Present Extracted Requirements
 
 Display to user:
 
@@ -203,7 +162,7 @@ Display to user:
 - Summarize UX requirements (if applicable)
 - Verify completeness
 
-### 9. Get User Confirmation
+### 6. Get User Confirmation
 
 Ask: "Do these extracted requirements accurately represent what needs to be built? Any additions or corrections?"
 
@@ -217,7 +176,7 @@ After extraction and confirmation, update {outputFile} with:
 - Complete NFR list in {{nfr_list}} section
 - All additional requirements in {{additional_requirements}} section
 
-### 10. Present MENU OPTIONS
+### 7. Present MENU OPTIONS
 
 Display: `**Confirm the Requirements are complete and correct to [C] continue:**`
 
@@ -230,7 +189,7 @@ Display: `**Confirm the Requirements are complete and correct to [C] continue:**
 #### Menu Handling Logic:
 
 - IF C: Save all to {outputFile}, update frontmatter, only then load, read entire file, then execute {nextStepFile}
-- IF Any other comments or queries: help user respond then [Redisplay Menu Options](#10-present-menu-options)
+- IF Any other comments or queries: help user respond then [Redisplay Menu Options](#7-present-menu-options)
 
 ## CRITICAL STEP COMPLETION NOTE
 
