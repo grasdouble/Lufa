@@ -1,105 +1,113 @@
-# AI Instructions: Storybook Stories
+# AI Instructions: Storybook Stories (Strict)
+
+> **This document is strict and must match Storybook rules/templates.**
+> Source of truth: `packages/design-system/storybook/_docs/story-guide.md`,
+> `packages/design-system/storybook/_docs/story-rules.md`,
+> `packages/design-system/storybook/_docs/story-template.md`.
 
 ## Context
 
-You are creating stories to document and test UI components in Storybook. These stories must not only test the component but also provide a consistent, educational visual guide for developers.
+You are creating stories to document and test UI components in Storybook. Stories must be consistent, visual, and easy to copy. These are **not** unit tests nor full documentation.
 
 ## File Structure
 
-- **Location**: `packages/design-system/storybook/src/stories/`
-- **Naming**: `[ComponentName].stories.tsx`
+- **Location:** `packages/design-system/storybook/src/stories/`
+- **Naming:** `[ComponentName].stories.tsx`
 
-## Rules for Stories
-
-### 1. Format (CSF 3.0)
+## 1) Format (CSF 3.0)
 
 - Use **Component Story Format (CSF) 3.0** objects.
-- `meta` object must include `title`, `component`, `tags`, and `argTypes`.
-- `Story` type MUST be imported from `@storybook/react`.
+- `meta` object must include: `title`, `component`, and `argTypes`.
+- **Do NOT include** `tags: ['autodocs']` unless explicitly requested.
+- Import types from `@storybook/react`.
 
-### 2. Lufa Visual Standards (⚠️ CRITICAL)
+```ts
+import type { Meta, StoryObj } from '@storybook/react';
+```
 
-You MUST follow the specific visual style of the Lufa Design System documentation.
+## 2) Visual Standards (CRITICAL)
 
-#### A. Colors
+### A) Colors
 
-- **NEVER** hardcode hex values (e.g., `#fff`, `red`).
-- **ALWAYS** import and use `STORY_COLORS` from `../../constants/storyColors`.
-- Use `getColorByIndex(index)` for mapping over variants.
+- **NEVER** use hardcoded hex/rgb values.
+- **ALWAYS** use `STORY_COLORS` (and `getColorByIndex`) from:
 
-#### B. Helper Components
+```ts
+import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
+```
 
-Use the provided helpers to structure your stories:
+**Color decision guide:**
 
-```typescript
+- Directional props → `STORY_COLORS.directional`
+- Axis props → `STORY_COLORS.axis`
+- Multiple variants (mapping) → `getColorByIndex(index)`
+- Primary highlights → `STORY_COLORS.primary`
+- Backgrounds/borders/text → `STORY_COLORS.neutral`
+
+### B) Helper Components
+
+Use the helpers from:
+
+```ts
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
 ```
 
-- Wrap the entire render in `<StoryContainer>`.
-- Wrap individual examples in `<PropCard label="...">`.
-- Use `<CodeBlock>` to show usage examples.
+Rules:
 
-#### C. Spacing Visualization (Margin/Padding)
+- Wrap **everything** in `<StoryContainer>`
+- Wrap each example in `<PropCard label="...">`
+- Use `<CodeBlock>` to show clean usage examples
 
-When demonstrating spacing, use the "Border + Inner Content" pattern:
+### C) Spacing Visualization (Padding/Margin)
 
-- Outer Box: Light background (`STORY_COLORS.neutral.backgroundLight`) + Dashed Border.
-- Inner Content: Vibrant background (`STORY_COLORS.primary.blue.main`) + White text.
-- This ensures the spacing (gap between border and content) is clearly visible.
+Use the **Border + Inner Content** pattern (light background + dashed border + vibrant inner content). See `story-template.md` for the exact pattern.
 
-### 3. Clean Code Generation
+## 3) Story Structure (STRICT)
 
-Stories should display clean, copy-pasteable code for developers.
+Every story should follow this layout:
 
-- Create a `generateCode` helper function within the story file.
-- **STRIP** story-specific styles (like colored backgrounds or dashed borders) from the displayed code.
-- Show only the component and its relevant props.
-
-### 4. Meta Configuration
-
-```typescript
-const meta = {
-  title: 'Components/Button', // Categorized path
-  component: Button,
-  parameters: { layout: 'centered' }, // or 'padded'
-  tags: ['autodocs'],
-  argTypes: {
-    // Control definitions
-    variant: { control: 'select', options: ['primary', 'secondary'] },
-  },
-} satisfies Meta<typeof Button>;
-
-export default meta;
+```
+StoryContainer
+  └─ Grid/Flex of PropCard examples
+  └─ CodeBlock (clean code)
 ```
 
-### 5. Standard Story Structure
+### Naming Conventions
 
-```typescript
-export const Default: Story = {
-  render: (args) => (
-    <StoryContainer>
-      <div style={{ display: 'flex', gap: '20px' }}>
-        <PropCard label="Default">
-          <Button {...args} />
-        </PropCard>
-      </div>
-      {/* Show clean code without the wrapper styles */}
-      <CodeBlock code={`<Button variant="${args.variant}">Label</Button>`} />
-    </StoryContainer>
-  ),
-};
-```
+- `Prop*` for prop-focused stories
+- `Variant*` for variants
+- `Playground*` for interactive playground
+- `Example*` for usage examples
 
-## 6. Advanced Patterns (Reference)
+## 4) Code Generation (STRICT)
 
-For complex patterns (Hover interactions, Spacing Visualizers, Playgrounds), **READ AND COPY** patterns from:
-`packages/design-system/_docs/ai-instructions/templates/story-patterns.md`
+- Always create a `generateCode()` helper function.
+- **Remove all story-only styles** from the displayed code.
+- Keep code short and copy‑pasteable.
 
-## Checklist for Validation
+## 5) Hover Interactions (when multiple examples)
 
-- [ ] Uses `STORY_COLORS` (no hardcoded colors)?
-- [ ] Wrapped in `<StoryContainer>`?
-- [ ] Code examples are clean (no visual helper props/styles)?
-- [ ] Spacing stories utilize the visual border pattern?
-- [ ] Meta title follows `Category/Component`?
-- [ ] Are stories typed with `Story = StoryObj<typeof meta>`?
+- Use `useState` and `onMouseEnter` to highlight the current example.
+- Update the `<CodeBlock>` dynamically based on hover state.
+
+## 6) Accessibility
+
+- Use semantic HTML.
+- Add `aria-label` to interactive elements when needed.
+
+## Reference Templates
+
+**Use and copy from:**
+
+- `packages/design-system/storybook/_docs/story-template.md`
+- `packages/design-system/storybook/_docs/story-rules.md`
+- `packages/design-system/storybook/_docs/story-guide.md`
+
+## Quick Checklist
+
+- [ ] No hardcoded colors
+- [ ] `StoryContainer` + `PropCard` + `CodeBlock`
+- [ ] Clean `generateCode()`
+- [ ] Hover highlights + dynamic code (when multiple variants)
+- [ ] Proper naming (`Prop*`, `Variant*`, `Playground*`)
+- [ ] **No `autodocs` tags**

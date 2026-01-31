@@ -24,7 +24,7 @@ const NEUTRAL = STORY_COLORS.neutral;
  * - ✅ Token-based design (component layer tokens)
  */
 const meta = {
-  title: 'Primitives/Divider',
+  title: '4. Primitives/Divider',
   component: Divider,
   parameters: {
     layout: 'fullscreen',

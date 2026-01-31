@@ -19,7 +19,7 @@ import { STORY_COLORS } from '../../constants/storyColors';
  * - ✅ Accessible focus rings
  */
 const meta = {
-  title: 'Primitives/Input',
+  title: '5. Components/Input',
   component: Input,
   parameters: {
     layout: 'fullscreen',

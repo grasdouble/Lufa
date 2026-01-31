@@ -41,7 +41,7 @@ import { StoryContainer, TokenCard, TokenComparison, TokenMatrix, TokenReference
  * - ✅ Components automatically adapt
  */
 const meta = {
-  title: '0. Architecture/Theme Architecture',
+  title: '1. Architecture/Theme Architecture',
   parameters: {
     layout: 'fullscreen',
     docs: {

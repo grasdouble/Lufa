@@ -1,4 +1,8 @@
 ---
+id: spacing
+title: Spacing
+sidebar_label: Spacing
+description: Spacing tokens and usage guidelines.
 sidebar_position: 3
 ---
 
@@ -246,8 +250,8 @@ Primitive tokens are **immutable constants** (like `Math.PI`). Always use **sema
 
 ## Next Steps
 
-- [Box Component](/docs/components/primitives/box) - Container with spacing utilities
-- [Stack Component](/docs/components/primitives/stack) - Layout with consistent gaps
+- [Box Component](/docs/primitives/box) - Container with spacing utilities
+- [Stack Component](/docs/primitives/stack) - Layout with consistent gaps
 - [Color Tokens](/docs/tokens/colors) - Color palette system
 
 :::note Work in Progress

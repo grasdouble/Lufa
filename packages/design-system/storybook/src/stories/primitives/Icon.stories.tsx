@@ -25,7 +25,7 @@ const PRIMARY = STORY_COLORS.primary;
  * - ✅ Performance-optimized (CSS classes, not inline styles)
  */
 const meta = {
-  title: 'Primitives/Icon',
+  title: '4. Primitives/Icon',
   component: Icon,
   parameters: {
     layout: 'fullscreen',

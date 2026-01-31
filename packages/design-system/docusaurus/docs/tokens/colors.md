@@ -1,4 +1,8 @@
 ---
+id: colors
+title: Colors
+sidebar_label: Colors
+description: Color tokens and usage guidelines.
 sidebar_position: 1
 ---
 

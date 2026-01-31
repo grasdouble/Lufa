@@ -1,19 +1,27 @@
-# AI Code Patterns: Docusaurus Documentation
+# AI Code Patterns: Docusaurus Documentation (Strict)
+
+> **Strict patterns aligned with Docusaurus docs rules.**
+> Source of truth:
+> - `packages/design-system/docusaurus/_docs/component-documentation-best-practices.md`
+> - `packages/design-system/docusaurus/_docs/adding-a-new-page.md`
+> - `packages/design-system/docusaurus/_docs/writing-code-examples.md`
 
 ## Usage
 
-Copy these patterns exactly. Replace `[ComponentName]` and content accordingly.
+Copy these patterns exactly. Replace placeholders with real content.
+
+---
 
 ## PATTERN: COMPONENT_DOC_FULL
 
-Standard documentation page for a UI component.
+Standard component documentation page.
 
 ````mdx
 ---
 id: [component-kebab]
 title: [ComponentName]
 sidebar_label: [ComponentName]
-description: [Brief description of what the component does]
+description: [Brief description]
 ---
 
 import { [ComponentName] } from '@grasdouble/lufa_design-system';
@@ -21,77 +29,92 @@ import { PropsTable } from '@site/src/components/PropsTable';
 
 # [ComponentName]
 
-[One sentence summary of the component's purpose.]
+## Overview
+
+[One short paragraph describing what it is and when to use it.]
+
+## Anatomy
+
+- **Root**: [Description]
+- **[Slot]**: [Description]
 
 ## Usage
-
-Use [ComponentName] when [scenario A]. Do not use it for [scenario B].
 
 ```tsx
 import { [ComponentName] } from '@grasdouble/lufa_design-system';
 
-<[ComponentName] variant="primary">Click Me</[ComponentName]>
+export function Example() {
+  return <[ComponentName]>Content</[ComponentName]>;
+}
 ```
-````
 
-## Anatomy
-
-- **Root**: The main container.
-- **Label**: The text content.
-- **Icon** (Optional): Visual indicator.
-
-## Examples
-
-### Variants
-
-Use the `variant` prop to control visual hierarchy.
+## Variants
 
 ```tsx
 <[ComponentName] variant="primary">Primary</[ComponentName]>
 <[ComponentName] variant="secondary">Secondary</[ComponentName]>
-<[ComponentName] variant="ghost">Ghost</[ComponentName]>
 ```
 
-### Sizes
-
-Available in `sm`, `md` (default), and `lg`.
-
-```tsx
-<[ComponentName] size="sm">Small</[ComponentName]>
-<[ComponentName] size="md">Medium</[ComponentName]>
-<[ComponentName] size="lg">Large</[ComponentName]>
-```
-
-### With Icons
-
-Supports `iconLeft` and `iconRight` props using Icon names.
-
-```tsx
-<[ComponentName] iconLeft="check">Save</[ComponentName]>
-<[ComponentName] iconRight="arrow-right">Next</[ComponentName]>
-```
-
-## API
+## Props
 
 <PropsTable component={[ComponentName]} />
 
 ## Accessibility
 
-- **Keyboard**: Full support via `Tab` and `Enter`/`Space`.
-- **ARIA**: Automatically handles `aria-disabled` and `aria-busy`.
-- **Contrast**: Meets WCAG AA standards for all default variants.
+- **Keyboard**: [Describe interactions]
+- **ARIA**: [Required attributes]
 
+## Theming & Tokens
+
+- Tokens: [List token groups used]
+- Mode-aware: [Mention light/dark/high-contrast behavior]
+
+## Do / Don’t
+
+:::tip Do
+Use [ComponentName] when [...].
+:::
+
+:::warning Don’t
+Avoid [...].
+:::
+
+## Related Components
+
+- [OtherComponent](/docs/[path])
 ````
 
-## PATTERN: ADMONITION_TIPS
-Use for best practices.
+---
+
+## PATTERN: LIVE_EXAMPLE
+
+Interactive example using MDX live blocks.
+
+````mdx
+```tsx live
+function Example() {
+  const [count, setCount] = useState(0);
+  return <Button onClick={() => setCount(count + 1)}>Clicked {count}</Button>;
+}
+```
+````
+
+---
+
+## PATTERN: NEW_PAGE_MINIMAL
+
+Minimal new page (non-component guide).
 
 ```md
-:::tip Best Practice
-Always use the `ghost` variant for actions inside dense data tables to reduce visual noise.
-:::
+---
+title: My Guide
+description: Learn how to use feature X
+sidebar_position: 1
+---
 
-:::warning Accessibility
-Avoid using icon-only buttons without an `aria-label`.
-:::
-````
+# My Guide
+
+## Section 1
+
+Content here...
+```

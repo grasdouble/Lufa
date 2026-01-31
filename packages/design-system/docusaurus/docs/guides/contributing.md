@@ -1,4 +1,8 @@
 ---
+id: contributing
+title: Contributing to Lufa
+sidebar_label: Contributing
+description: How to contribute to the Lufa design system.
 sidebar_position: 1
 ---
 

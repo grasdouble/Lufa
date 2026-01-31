@@ -18,7 +18,7 @@ import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
  * - ✅ Built-in padding
  */
 const meta = {
-  title: 'Primitives/Card',
+  title: '6. Compositions/Card',
   component: Card,
   parameters: {
     layout: 'fullscreen',

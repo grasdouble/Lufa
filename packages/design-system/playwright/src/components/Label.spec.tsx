@@ -1,8 +1,17 @@
 import { expect, test } from '@playwright/experimental-ct-react';
+import AxeBuilder from '@axe-core/playwright';
 
 import { Input, Label } from '@grasdouble/lufa_design-system';
 
 test.describe('Label', () => {
+  test('should pass a11y checks', async ({ mount, page }) => {
+    await mount(<Label>Accessible Label</Label>);
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .disableRules(['page-has-heading-one', 'landmark-one-main', 'region'])
+      .analyze();
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+
   test('should render correctly', async ({ mount }) => {
     const component = await mount(<Label>Label Text</Label>);
     await expect(component).toBeVisible();

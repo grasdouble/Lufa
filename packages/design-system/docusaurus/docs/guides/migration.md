@@ -1,3 +1,10 @@
+---
+id: migration
+title: Migration Guide
+sidebar_label: Migration
+description: Guidance for migrating between design system versions.
+---
+
 # Migration Guide
 
 This guide helps you upgrade between major versions of the Lufa Design System. Each major version may include breaking changes that require updates to your code.

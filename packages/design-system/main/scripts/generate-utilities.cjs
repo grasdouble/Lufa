@@ -37,15 +37,23 @@ const path = require('path');
 // ==========================================
 
 const COMPONENTS_DIR = path.join(__dirname, '../src/components');
+const PRIMITIVES_DIR = path.join(__dirname, '../src/primitives');
 
 const COMPONENT_CONFIGS = {
-  Box: path.join(COMPONENTS_DIR, 'Box/box.utilities.config.cjs'),
-  Text: path.join(COMPONENTS_DIR, 'Text/text.utilities.config.cjs'),
-  Stack: path.join(COMPONENTS_DIR, 'Stack/stack.utilities.config.cjs'),
-  Icon: path.join(COMPONENTS_DIR, 'Icon/icon.utilities.config.cjs'),
+  // Primitives
+  Box: path.join(PRIMITIVES_DIR, 'Box/box.utilities.config.cjs'),
+  Text: path.join(PRIMITIVES_DIR, 'Text/text.utilities.config.cjs'),
+  Stack: path.join(PRIMITIVES_DIR, 'Stack/stack.utilities.config.cjs'),
+  Icon: path.join(PRIMITIVES_DIR, 'Icon/icon.utilities.config.cjs'),
+  Divider: path.join(PRIMITIVES_DIR, 'Divider/divider.utilities.config.cjs'),
+  Container: path.join(PRIMITIVES_DIR, 'Container/container.utilities.config.cjs'),
+  Flex: path.join(PRIMITIVES_DIR, 'Flex/flex.utilities.config.cjs'),
+  Grid: path.join(PRIMITIVES_DIR, 'Grid/grid.utilities.config.cjs'),
+  Center: path.join(PRIMITIVES_DIR, 'Center/center.utilities.config.cjs'),
+
+  // Components
   Button: path.join(COMPONENTS_DIR, 'Button/button.utilities.config.cjs'),
   Badge: path.join(COMPONENTS_DIR, 'Badge/badge.utilities.config.cjs'),
-  Divider: path.join(COMPONENTS_DIR, 'Divider/divider.utilities.config.cjs'),
 };
 
 // ==========================================

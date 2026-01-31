@@ -20,6 +20,7 @@
  */
 
 import { expect, test } from '@playwright/experimental-ct-react';
+import AxeBuilder from '@axe-core/playwright';
 
 import { Text } from '@grasdouble/lufa_design-system';
 
@@ -504,6 +505,14 @@ test.describe('Text Component', () => {
   // ============================================
 
   test.describe('Accessibility', () => {
+    test('should pass a11y checks', async ({ mount, page }) => {
+      await mount(<Text>Accessible text</Text>);
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .disableRules(['page-has-heading-one', 'landmark-one-main', 'region'])
+        .analyze();
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+
     test('should use semantic heading elements for better accessibility', async ({ mount }) => {
       const component = await mount(
         <div>

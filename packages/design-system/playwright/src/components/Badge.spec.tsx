@@ -21,6 +21,7 @@
  */
 
 import { expect, test } from '@playwright/experimental-ct-react';
+import AxeBuilder from '@axe-core/playwright';
 
 import { Badge } from '@grasdouble/lufa_design-system';
 
@@ -330,6 +331,14 @@ test.describe('Badge Component', () => {
   // ============================================
 
   test.describe('Accessibility', () => {
+    test('should pass a11y checks', async ({ mount, page }) => {
+      await mount(<Badge>Accessible</Badge>);
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .disableRules(['page-has-heading-one', 'landmark-one-main', 'region'])
+        .analyze();
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+
     test('should be visible to screen readers by default', async ({ mount }) => {
       const component = await mount(<Badge>Accessible</Badge>);
       await expect(component).not.toHaveAttribute('aria-hidden');

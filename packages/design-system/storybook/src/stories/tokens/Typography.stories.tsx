@@ -18,7 +18,7 @@ import { STORY_COLORS } from '../../constants/storyColors';
  * Added in Phase 2D Sprint 1-3 (Typography Tokens Foundation)
  */
 const meta = {
-  title: 'Tokens/Typography',
+  title: '3. Tokens/Typography',
   parameters: {
     layout: 'fullscreen',
   },

@@ -23,7 +23,7 @@ const NEUTRAL = STORY_COLORS.neutral;
  * - ✅ Performance-optimized (CSS classes, not inline styles)
  */
 const meta = {
-  title: 'Primitives/Stack',
+  title: '4. Primitives/Stack',
   component: Stack,
   parameters: {
     layout: 'fullscreen',

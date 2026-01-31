@@ -19,6 +19,7 @@
  */
 
 import { expect, test } from '@playwright/experimental-ct-react';
+import AxeBuilder from '@axe-core/playwright';
 
 import { Box } from '@grasdouble/lufa_design-system';
 
@@ -615,6 +616,14 @@ test.describe('Box Component', () => {
   // ============================================
 
   test.describe('Accessibility', () => {
+    test('should pass a11y checks', async ({ mount, page }) => {
+      await mount(<Box>Accessible box</Box>);
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .disableRules(['page-has-heading-one', 'landmark-one-main', 'region'])
+        .analyze();
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+
     test('should use semantic HTML for better accessibility', async ({ mount }) => {
       const component = await mount(
         <Box as="main" padding="default">

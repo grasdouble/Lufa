@@ -1,4 +1,8 @@
 ---
+id: installation
+title: Installation
+sidebar_label: Installation
+description: Install and configure the design system packages.
 sidebar_position: 1
 ---
 

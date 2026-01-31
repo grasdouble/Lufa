@@ -1,4 +1,8 @@
 ---
+id: intro
+title: Introduction
+sidebar_label: Introduction
+description: Overview of the Lufa design system.
 sidebar_position: 1
 ---
 
@@ -31,9 +35,9 @@ Learn about the core design tokens that power Lufa.
 
 Browse our collection of accessible React components.
 
-- **[Button](./components/primitives/Button)** - Primary interaction component
-- **[Badge](./components/primitives/badge)** - Status and label indicator
-- **[Box](./components/primitives/box)** - Universal layout primitive
+- **[Button](./components/Button)** - Primary interaction component
+- **[Badge](./components/badge)** - Status and label indicator
+- **[Box](./primitives/box)** - Universal layout primitive
 - [View all components →](./components/overview)
 
 ## Resources

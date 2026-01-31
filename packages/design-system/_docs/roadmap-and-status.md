@@ -506,7 +506,7 @@ Primitive Tokens (Level 1)
 - ✅ Utilities config: `badge.utilities.config.cjs`
 - ✅ Storybook: `Badge.stories.tsx` (600+ lines, comprehensive)
 - ✅ Playwright tests: `Badge.spec.tsx` (700+ lines, 45 tests passing)
-- ✅ Docusaurus docs: `badge.mdx` (800+ lines, 17 sections)
+- ✅ Docusaurus docs: `Badge.mdx` (800+ lines, 17 sections)
 - ✅ Live examples: `badge.tsx` (400+ lines, interactive components)
 
 **Props:** variant (success/error/warning/info/neutral), size (sm/md/lg), dot (boolean), as (polymorphic)

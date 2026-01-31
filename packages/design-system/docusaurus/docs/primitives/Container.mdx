@@ -1,0 +1,92 @@
+---
+id: container
+title: Container
+sidebar_label: Container
+description: A responsive layout component that constrains content width based on breakpoints.
+---
+
+# Container
+
+import { LiveDemo } from '../../src/dsExamples/primitives/container';
+
+## Overview
+
+**Container** centers content horizontally and constrains its maximum width by breakpoint. Use it to keep page content readable on large screens.
+
+Live demo:
+
+<LiveDemo />
+
+## Anatomy
+
+- **Root**: The width-constrained wrapper.
+- **Content**: Child content inside the container.
+
+## Usage
+
+```tsx
+import { Container } from '@grasdouble/lufa_design-system';
+
+export function Page() {
+  return (
+    <Container>
+      <h1>Page Title</h1>
+      <p>Content is centered and constrained.</p>
+    </Container>
+  );
+}
+```
+
+## Variants
+
+### Fluid
+
+Use `fluid` to span the full width and ignore breakpoint constraints.
+
+```tsx
+<Container fluid>
+  Full width content
+</Container>
+```
+
+### Fixed Size
+
+Use `size` to constrain the max width to a specific breakpoint.
+
+```tsx
+<Container size="md">Max width: md</Container>
+<Container size="sm">Max width: sm</Container>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `as` | `ElementType` | `'div'` | The HTML element to render. |
+| `fluid` | `boolean` | `false` | If true, takes 100% width. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | - | Max-width constraint. |
+| `children` | `ReactNode` | - | The content to render. |
+
+## Accessibility
+
+Use semantic landmarks with `as` (e.g., `main`, `section`) to improve navigation for assistive technologies.
+
+## Theming & Tokens
+
+`size` maps to breakpoint tokens. Container itself does not add color tokens; use **Box** props on children when needed.
+
+## Do / Don’t
+
+:::tip Do
+Wrap top-level page sections to keep line lengths readable.
+:::
+
+:::warning Don’t
+Avoid nesting many containers—use one primary container per page section.
+:::
+
+## Related Components
+
+- [Box](/docs/primitives/box)
+- [Grid](/docs/primitives/grid)
+- [Flex](/docs/primitives/flex)

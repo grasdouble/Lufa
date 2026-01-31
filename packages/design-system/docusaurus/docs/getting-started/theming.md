@@ -1,4 +1,8 @@
 ---
+id: theming
+title: Theming Guide
+sidebar_label: Theming
+description: Customize themes and tokens for the design system.
 sidebar_position: 3
 ---
 

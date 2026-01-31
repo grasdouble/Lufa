@@ -26,7 +26,7 @@ import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
  * - ✅ Token-based design (semantic layer tokens)
  */
 const meta = {
-  title: 'Primitives/Box',
+  title: '4. Primitives/Box',
   component: Box,
   parameters: {
     layout: 'fullscreen', // Use fullscreen for grid layouts

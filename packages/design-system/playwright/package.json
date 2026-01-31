@@ -22,6 +22,7 @@
     "**/__snapshots__/**/*.png": "bash packages/design-system/playwright/scripts/compress-snapshots-precommit.sh"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
     "@grasdouble/lufa_design-system": "workspace:^",

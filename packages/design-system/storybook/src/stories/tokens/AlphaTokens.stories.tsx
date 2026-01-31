@@ -9,7 +9,7 @@ import { StoryContainer } from '../../components/helpers';
  * Visual guide for alpha/opacity tokens defined in ADR-004.
  */
 const meta = {
-  title: 'Tokens/Alpha',
+  title: '3. Tokens/Alpha',
   parameters: {
     layout: 'fullscreen',
   },

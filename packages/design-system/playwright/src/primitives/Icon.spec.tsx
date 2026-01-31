@@ -19,6 +19,7 @@
  */
 
 import { expect, test } from '@playwright/experimental-ct-react';
+import AxeBuilder from '@axe-core/playwright';
 
 import { Icon } from '@grasdouble/lufa_design-system';
 
@@ -405,6 +406,14 @@ test.describe('Icon Component', () => {
   // ============================================
 
   test.describe('Accessibility', () => {
+    test('should pass a11y checks', async ({ mount, page }) => {
+      await mount(<Icon name="check" title="Accessible icon" />);
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .disableRules(['page-has-heading-one', 'landmark-one-main', 'region'])
+        .analyze();
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+
     test('should be decorative by default (no title)', async ({ mount }) => {
       const component = await mount(<Icon name="chevron-right" />);
       await expect(component).toHaveAttribute('aria-hidden', 'true');

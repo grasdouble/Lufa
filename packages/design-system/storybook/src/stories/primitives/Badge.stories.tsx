@@ -21,7 +21,7 @@ import { STORY_COLORS } from '../../constants/storyColors';
  * - ✅ Token-based design (component layer tokens)
  */
 const meta = {
-  title: 'Primitives/Badge',
+  title: '5. Components/Badge',
   component: Badge,
   parameters: {
     layout: 'fullscreen',

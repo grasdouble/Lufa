@@ -1,73 +1,88 @@
-# AI Instructions: Documentation (Docusaurus)
+# AI Instructions: Documentation (Strict)
+
+> **Strict alignment required** with:
+> - `packages/design-system/docusaurus/_docs/component-documentation-best-practices.md`
+> - `packages/design-system/docusaurus/_docs/adding-a-new-page.md`
+> - `packages/design-system/docusaurus/_docs/writing-code-examples.md`
 
 ## Context
 
-You are writing documentation for the Lufa Design System using Docusaurus. This documentation targets human developers and designers.
+You are writing Docusaurus documentation for the Lufa Design System. Content must be concise, consistent, and accurate.
 
 ## File Structure
 
-- **Location**: `packages/design-system/docusaurus/docs/`
-- **Format**: Markdown (`.md`) or MDX (`.mdx`).
+- **Location:** `packages/design-system/docusaurus/docs/`
+- **Format:** Markdown (`.md`) or MDX (`.mdx`)
 
-## Rules for Documentation
+## 1) Frontmatter (Required)
 
-### 1. Frontmatter
-
-Every file MUST start with valid YAML frontmatter:
+Every doc must start with YAML frontmatter:
 
 ```yaml
 ---
-id: component-name
+id: component-kebab
 title: Component Name
 sidebar_label: Component Name
 description: Brief description for SEO and previews.
 ---
 ```
 
-### 2. Content Structure
+When adding a new page, ensure `sidebars.ts` is updated if the directory is not auto-registered.
 
-Follow this standard outline for Component documentation:
+## 2) Component Documentation Structure (Strict)
 
-1.  **Introduction**: What is it? (1-2 sentences).
-2.  **Usage**: When to use it vs. when not to.
-3.  **Anatomy**: Breakdown of parts (optional).
-4.  **Examples**: Code blocks showing common patterns.
-5.  **Props API**: Generated automatically or manually documented table.
-6.  **Accessibility**: Specific a11y features or requirements.
+Use this **exact** order for component pages:
 
-### 3. Code Examples
+1. **Overview**
+2. **Anatomy**
+3. **Usage**
+4. **Variants**
+5. **Props**
+6. **Accessibility**
+7. **Theming & Tokens**
+8. **Do / Don’t**
+9. **Related Components**
 
-- Use `import` statements in examples to show where components come from.
-- Use `jsx` or `tsx` language tags for syntax highlighting.
-- Keep examples self-contained and copy-pasteable.
+## 3) Writing Style
 
-### 4. Tone and Style (Writing Guidelines)
+- Lead with user goal, not implementation.
+- Short, direct sentences.
+- Avoid marketing tone.
+- Use **bold** for UI concepts and `code` for props/values.
 
-- **Objective**: Be concise, professional, and instructional. Avoid marketing fluff.
-- **Active Voice**: "Use the button" (Good) vs "The button should be used" (Bad).
-- **Empathy**: Write for a developer who is tired and in a hurry. Get to the point fast.
-- **Formatting**:
-  - Use **bold** for UI elements or key concepts.
-  - Use `code` ticks for props, values, and filenames.
+## 4) Code Examples (Strict)
 
-### 5. Admonitions
+From `writing-code-examples.md`:
 
-Use Docusaurus admonitions for warnings or tips:
+- Use fenced blocks with a language tag (`tsx` preferred).
+- Show minimal, copy‑pasteable snippets.
+- Avoid app-specific logic or large scaffolding.
+- If using live examples, use:
 
-```md
-:::tip Best Practice
-Always provide a text label for icon-only buttons via `aria-label`.
-:::
+````mdx
+```tsx live
+function Example() {
+  const [count, setCount] = useState(0);
+  return <Button onClick={() => setCount(count + 1)}>Clicked {count}</Button>;
+}
 ```
+````
 
-## 6. Document Patterns (Reference)
+## 5) Accessibility & Theming
 
-For standard documentation structure (MDX), **READ AND COPY** patterns from:
-`packages/design-system/_docs/ai-instructions/templates/doc-patterns.md`
+- Document keyboard interaction and ARIA requirements.
+- Mention token groups and mode-aware behavior.
 
-## Checklist for Validation
+## 6) Validation Checklist
 
-- [ ] Is the frontmatter complete and correct?
-- [ ] Are code examples syntax-highlighted?
-- [ ] Is the tone consistent and professional?
-- [ ] Are accessibility implications documented?
+- [ ] Frontmatter complete
+- [ ] Structure matches the strict order
+- [ ] Examples compile and match API
+- [ ] Accessibility notes included
+- [ ] Theming & tokens documented
+
+## Reference Patterns
+
+**Copy patterns from:**
+
+- `packages/design-system/_docs/ai-instructions/templates/doc-patterns.md`

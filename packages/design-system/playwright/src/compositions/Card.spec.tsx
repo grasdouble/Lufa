@@ -1,8 +1,21 @@
 import { expect, test } from '@playwright/experimental-ct-react';
+import AxeBuilder from '@axe-core/playwright';
 
 import { Card, Text } from '@grasdouble/lufa_design-system';
 
 test.describe('Card', () => {
+  test('should pass a11y checks', async ({ mount, page }) => {
+    await mount(
+      <Card>
+        <Text>Accessible Card</Text>
+      </Card>
+    );
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .disableRules(['page-has-heading-one', 'landmark-one-main', 'region'])
+      .analyze();
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+
   test('should render correctly', async ({ mount }) => {
     const component = await mount(
       <Card>

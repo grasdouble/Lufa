@@ -21,6 +21,7 @@
  */
 
 import { expect, test } from '@playwright/experimental-ct-react';
+import AxeBuilder from '@axe-core/playwright';
 
 import { Button } from '@grasdouble/lufa_design-system';
 
@@ -373,6 +374,14 @@ test.describe('Button Component', () => {
   // ============================================
 
   test.describe('Accessibility', () => {
+    test('should pass a11y checks', async ({ mount, page }) => {
+      await mount(<Button>Accessible Button</Button>);
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .disableRules(['page-has-heading-one', 'landmark-one-main', 'region'])
+        .analyze();
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+
     test('should have button role by default', async ({ mount }) => {
       const component = await mount(<Button>Button</Button>);
       const role = await component.getAttribute('type');

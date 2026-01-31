@@ -17,7 +17,7 @@ import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
  * - ✅ Accessibility best practices (associates with input via htmlFor)
  */
 const meta = {
-  title: 'Primitives/Label',
+  title: '5. Components/Label',
   component: Label,
   parameters: {
     layout: 'fullscreen',

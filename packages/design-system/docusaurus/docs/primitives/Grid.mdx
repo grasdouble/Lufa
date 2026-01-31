@@ -1,0 +1,92 @@
+---
+id: grid
+title: Grid
+sidebar_label: Grid
+description: A layout component for creating 2D grid layouts.
+---
+
+# Grid
+
+import { LiveDemo } from '../../src/dsExamples/primitives/grid';
+
+## Overview
+
+**Grid** creates CSS Grid layouts with a simplified API for columns and gaps. Use it for two‑dimensional layout and consistent spacing.
+
+Live demo:
+
+<LiveDemo />
+
+## Anatomy
+
+- **Root**: The grid container.
+- **Items**: Direct children placed in grid cells.
+
+## Usage
+
+```tsx
+import { Grid } from '@grasdouble/lufa_design-system';
+
+<Grid columns={3} gap="default">
+  <div>Column 1</div>
+  <div>Column 2</div>
+  <div>Column 3</div>
+</Grid>
+```
+
+## Variants
+
+### Column Count
+
+```tsx
+<Grid columns={2} gap="default">
+  <div>Item</div>
+  <div>Item</div>
+</Grid>
+```
+
+### Independent Row/Column Gaps
+
+```tsx
+<Grid columns={2} gapX="spacious" gapY="tight">
+  <div>Item</div>
+  <div>Item</div>
+</Grid>
+```
+
+## Props
+
+Grid inherits all **Box** props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `columns` | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 12` | - | `grid-template-columns` shorthand. |
+| `gap` | `'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'` | - | Both row and column gap. |
+| `gapX` | `'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'` | - | Column gap. |
+| `gapY` | `'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'` | - | Row gap. |
+| `align` | `'start' \| 'end' \| 'center' \| 'stretch' \| 'baseline'` | - | `align-items`. |
+| `justify` | `'start' \| 'end' \| 'center' \| 'stretch'` | - | `justify-items`. |
+
+## Accessibility
+
+Grid affects visual layout only. Keep DOM order meaningful for screen readers and keyboard navigation.
+
+## Theming & Tokens
+
+`gap`, `gapX`, and `gapY` use spacing tokens. Colors and typography are provided by child components.
+
+## Do / Don’t
+
+:::tip Do
+Use **Grid** for card layouts, galleries, and data panels.
+:::
+
+:::warning Don’t
+Avoid using Grid to visually reorder content when the DOM order matters for accessibility.
+:::
+
+## Related Components
+
+- [Flex](/docs/primitives/flex)
+- [Stack](/docs/primitives/stack)
+- [Box](/docs/primitives/box)

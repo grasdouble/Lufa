@@ -19,6 +19,7 @@
  */
 
 import { expect, test } from '@playwright/experimental-ct-react';
+import AxeBuilder from '@axe-core/playwright';
 
 import { Stack } from '@grasdouble/lufa_design-system';
 
@@ -488,6 +489,18 @@ test.describe('Stack Component', () => {
   // ============================================
 
   test.describe('Accessibility', () => {
+    test('should pass a11y checks', async ({ mount, page }) => {
+      await mount(
+        <Stack>
+          <div>Accessible stack</div>
+        </Stack>
+      );
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .disableRules(['page-has-heading-one', 'landmark-one-main', 'region'])
+        .analyze();
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+
     test('should use semantic HTML for better accessibility', async ({ mount }) => {
       const component = await mount(
         <Stack as="main">

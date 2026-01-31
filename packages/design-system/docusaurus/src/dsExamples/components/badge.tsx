@@ -1,6 +1,6 @@
 /**
  * Live examples for Badge component documentation
- * These components are imported and rendered in badge.mdx
+ * These components are imported and rendered in Badge.mdx
  */
 
 import React from 'react';

@@ -1,0 +1,83 @@
+---
+id: center
+title: Center
+sidebar_label: Center
+description: A layout primitive that centers its content horizontally and vertically.
+---
+
+# Center
+
+import { LiveDemo } from '../../src/dsExamples/primitives/center';
+
+## Overview
+
+**Center** is a layout primitive that aligns its children both horizontally and vertically. Use it when you need a simple centering wrapper without extra flex configuration.
+
+Live demo:
+
+<LiveDemo />
+
+## Anatomy
+
+- **Root**: The flex container.
+- **Content**: The centered children.
+
+## Usage
+
+```tsx
+import { Center } from '@grasdouble/lufa_design-system';
+
+export function Example() {
+  return (
+    <Center>
+      <span>Centered content</span>
+    </Center>
+  );
+}
+```
+
+## Variants
+
+### Inline
+
+Use `inline` to render an `inline-flex` container.
+
+```tsx
+<Center inline>
+  <span>Inline centered</span>
+</Center>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `inline` | `boolean` | `false` | If true, renders as `inline-flex`. |
+| `as` | `ElementType` | `'div'` | The HTML element to render. |
+| `children` | `ReactNode` | - | The content to render. |
+
+Center also supports all **Box** props and standard HTML attributes.
+
+## Accessibility
+
+Center is non-interactive by default. Ensure any interactive content inside remains keyboard accessible and visible in focus order.
+
+## Theming & Tokens
+
+Center relies on **Box** props for spacing, color, and layout tokens. It does not introduce additional tokens of its own.
+
+## Do / Don’t
+
+:::tip Do
+Use **Center** to align icons, loaders, or empty states without extra flex boilerplate.
+:::
+
+:::warning Don’t
+Avoid using **Center** for complex layouts—use **Flex** or **Grid** for multi-axis layout control.
+:::
+
+## Related Components
+
+- [Flex](/docs/primitives/flex)
+- [Grid](/docs/primitives/grid)
+- [Box](/docs/primitives/box)

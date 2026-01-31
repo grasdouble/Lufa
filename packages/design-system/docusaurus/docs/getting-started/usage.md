@@ -1,4 +1,8 @@
 ---
+id: usage
+title: Usage Guide
+sidebar_label: Usage
+description: How to use the design system in applications.
 sidebar_position: 2
 ---
 
@@ -17,9 +21,9 @@ function App() {
   return (
     <Box padding="default" background="surface">
       <Stack direction="vertical" spacing="comfortable">
-        <Text variant="heading-lg">Welcome to Lufa</Text>
+        <Text as="h1" variant="h1">Welcome to Lufa</Text>
         <Text>Start building with our components.</Text>
-        <Button variant="primary" size="md">
+        <Button type="solid" variant="primary" size="md">
           Get Started
         </Button>
       </Stack>
@@ -39,8 +43,8 @@ function StatusCard() {
   return (
     <Box padding="comfortable" background="surface" borderRadius="base">
       <Stack direction="vertical" spacing="compact">
-        <Stack direction="horizontal" spacing="compact" alignItems="center">
-          <Text variant="heading-md">Project Status</Text>
+        <Stack direction="horizontal" spacing="compact" align="center">
+          <Text as="h2" variant="h2">Project Status</Text>
           <Badge variant="success">Active</Badge>
         </Stack>
         <Divider />
@@ -78,15 +82,15 @@ import { Box, Stack, Text } from '@grasdouble/lufa_design-system';
 
 function ResponsiveGrid() {
   return (
-    <Stack direction="horizontal" spacing="comfortable" wrap="wrap">
+    <Stack direction="horizontal" spacing="comfortable" wrap={true}>
       <Box padding="default" background="surface" style={{ flex: '1 1 300px' }}>
-        <Text variant="heading-sm">Card 1</Text>
+        <Text as="h3" variant="h3">Card 1</Text>
       </Box>
       <Box padding="default" background="surface" style={{ flex: '1 1 300px' }}>
-        <Text variant="heading-sm">Card 2</Text>
+        <Text as="h3" variant="h3">Card 2</Text>
       </Box>
       <Box padding="default" background="surface" style={{ flex: '1 1 300px' }}>
-        <Text variant="heading-sm">Card 3</Text>
+        <Text as="h3" variant="h3">Card 3</Text>
       </Box>
     </Stack>
   );
@@ -127,7 +131,7 @@ function Card({ title, children, ...boxProps }: CardProps) {
   return (
     <Box padding="comfortable" background="surface" {...boxProps}>
       <Stack direction="vertical" spacing="compact">
-        <Text variant="heading-md">{title}</Text>
+        <Text as="h3" variant="h3">{title}</Text>
         {children}
       </Stack>
     </Box>
