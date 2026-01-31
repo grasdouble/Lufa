@@ -1,0 +1,45 @@
+.input {
+  display: inline-block;
+  width: 100%;
+  padding: var(--lufa-semantic-ui-spacing-default);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--lufa-token-color-text-primary);
+  background-color: var(--lufa-token-color-background-primary);
+  border: 1px solid var(--lufa-token-color-border-default);
+  border-radius: var(--lufa-primitive-radius-scale-base);
+  transition:
+    border-color var(--lufa-semantic-ui-transition-fast),
+    box-shadow var(--lufa-semantic-ui-transition-fast);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--lufa-token-color-text-tertiary);
+}
+
+.input:focus {
+  border-color: var(--lufa-token-color-border-focus);
+  box-shadow: 0 0 0 2px var(--lufa-token-color-shadow-small); /* Or a focus ring color */
+}
+
+.input.error {
+  border-color: var(--lufa-token-color-error-default);
+}
+
+.input.error:focus {
+  box-shadow: 0 0 0 2px var(--lufa-token-color-error-light);
+}
+
+.input.disabled {
+  background-color: var(--lufa-token-color-background-secondary);
+  color: var(--lufa-token-color-text-disabled);
+  border-color: var(--lufa-token-color-border-light);
+  cursor: not-allowed;
+}
+
+.input.fullWidth {
+  width: 100%;
+  display: block;
+}

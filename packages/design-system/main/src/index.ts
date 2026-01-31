@@ -13,4 +13,9 @@ export * from './utils';
 // ============================================
 export * from './hooks';
 
+// LAYER 1 - PRIMITIVES
+export * from './primitives';
+// LAYER 2 - COMPONENTS
 export * from './components';
+// LAYER 3 - COMPOSITIONS
+export * from './compositions';

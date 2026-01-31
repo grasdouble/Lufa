@@ -1,0 +1,66 @@
+---
+sidebar_position: 9
+---
+
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
+import { Label } from '@grasdouble/lufa_design-system';
+
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+
+# Label
+
+<DarkModeCompatible />
+
+A simple text wrapper for form inputs to ensure accessibility and consistent styling.
+
+## Overview
+
+Use `Label` when you need…
+
+- To provide a text identifier for a form control (`Input`, `Select`, etc.)
+- To ensure your forms are accessible to screen readers
+- To maintain consistent typography for form field headings
+
+## Import
+
+```tsx
+import { Label } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx title="src/App.tsx"
+import { Input, Label } from '@grasdouble/lufa_design-system';
+
+function App() {
+  return (
+    <div>
+      <Label htmlFor="fullname">Full Name</Label>
+      <Input id="fullname" />
+    </div>
+  );
+}
+```
+
+## API Reference
+
+### Props
+
+| Prop        | Type          | Default     | Description                                    |
+| ----------- | ------------- | ----------- | ---------------------------------------------- |
+| `htmlFor`   | `string`      | `undefined` | The `id` of the input this label controls      |
+| `as`        | `ElementType` | `'label'`   | Polymorphic prop to render a different element |
+| `children`  | `ReactNode`   | `undefined` | The label text                                 |
+| `className` | `string`      | `undefined` | Additional CSS classes                         |
+
+## Best Practices
+
+### Do ✅
+
+- Always match the `htmlFor` prop with the `id` of the corresponding input.
+- Keep label text concise and descriptive.
+
+### Don't ❌
+
+- Don't wrap the input _inside_ the label unless necessary; keeping them as siblings offers better layout control.

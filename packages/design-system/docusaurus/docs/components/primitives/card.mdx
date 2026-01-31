@@ -1,0 +1,66 @@
+---
+sidebar_position: 10
+---
+
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
+import { Card } from '@grasdouble/lufa_design-system';
+
+import { DarkModeCompatible } from '../../../src/components/DarkModeCompatible';
+
+# Card
+
+<DarkModeCompatible />
+
+A container component to group content with a background, border, and shadow.
+
+## Overview
+
+Use `Card` when you need…
+
+- To group related information (e.g., a product item, a user profile, a settings section)
+- To create visual separation from the main page background
+- To emphasize specific content
+
+## Import
+
+```tsx
+import { Card } from '@grasdouble/lufa_design-system';
+```
+
+## Basic Usage
+
+```tsx title="src/App.tsx"
+import { Card, Text } from '@grasdouble/lufa_design-system';
+
+function App() {
+  return (
+    <Card>
+      <Text as="h2">Profile</Text>
+      <Text>User details go here.</Text>
+    </Card>
+  );
+}
+```
+
+## API Reference
+
+### Props
+
+| Prop        | Type          | Default     | Description                                                                 |
+| ----------- | ------------- | ----------- | --------------------------------------------------------------------------- |
+| `as`        | `ElementType` | `'div'`     | Polymorphic prop to render a different element (e.g., 'section', 'article') |
+| `children`  | `ReactNode`   | `undefined` | The content inside the card                                                 |
+| `className` | `string`      | `undefined` | Additional CSS classes                                                      |
+
+## Best Practices
+
+### Do ✅
+
+- Use semantic HTML with the `as` prop (e.g., `as="article"` for blog posts).
+- Use `Card` to organize complex pages into digestible sections.
+
+### Don't ❌
+
+- Don't nest cards too deeply; it can create visual clutter.
+- Don't use `Card` for everything; sometimes a simple `Box` or `div` is sufficient.

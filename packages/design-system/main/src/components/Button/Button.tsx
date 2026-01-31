@@ -2,8 +2,8 @@ import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { forwardRef } from 'react';
 import { clsx } from 'clsx';
 
-import type { IconName } from '../Icon';
-import { Icon } from '../Icon';
+import type { IconName } from '../../primitives/Icon';
+import { Icon } from '../../primitives/Icon';
 import additionalStyles from './Button.additional.module.css';
 import styles from './Button.module.css';
 
