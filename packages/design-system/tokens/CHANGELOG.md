@@ -1,5 +1,11 @@
 # @grasdouble/lufa_design-system-tokens
 
+## 0.6.1
+
+### Patch Changes
+
+- 07b892b: Add typecheck scripts and align docs/test fixtures after stricter TypeScript checks.
+
 ## 0.6.0
 
 ### Minor Changes

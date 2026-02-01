@@ -1,5 +1,11 @@
 # @grasdouble/lufa_design-system-playwright
 
+## 0.2.1
+
+### Patch Changes
+
+- 07b892b: Add typecheck scripts and align docs/test fixtures after stricter TypeScript checks.
+
 ## 0.2.0
 
 ### Minor Changes

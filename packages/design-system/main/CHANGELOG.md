@@ -1,5 +1,16 @@
 # @grasdouble/lufa_design-system
 
+## 0.10.0
+
+### Minor Changes
+
+- 07b892b: Add layout primitives (Center, Container, Flex, Grid, Portal, VisuallyHidden) and align supporting docs and tests.
+
+### Patch Changes
+
+- Updated dependencies [07b892b]
+  - @grasdouble/lufa_design-system-tokens@0.6.1
+
 ## 0.9.0
 
 ### Minor Changes

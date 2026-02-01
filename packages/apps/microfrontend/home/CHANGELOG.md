@@ -1,5 +1,13 @@
 # @grasdouble/lufa_microfrontend_home
 
+## 0.3.3
+
+### Patch Changes
+
+- 07b892b: Add typecheck scripts and align docs/test fixtures after stricter TypeScript checks.
+- Updated dependencies [07b892b]
+  - @grasdouble/lufa_design-system@0.10.0
+
 ## 0.3.2
 
 ### Patch Changes
