@@ -33,110 +33,86 @@ render(<ButtonDemo />);
 
 Create flexible layouts with the Stack component:
 
-```tsx live noInline
-const StackDemo = () => {
-  return (
-    <Stack direction="vertical" spacing="comfortable">
-      <Stack direction="horizontal" spacing="default">
-        <div
-          style={{
-            padding: '1rem',
-            background: 'var(--lufa-token-color-background-secondary)',
-            borderRadius: '8px',
-            minWidth: '100px',
-          }}
-        >
-          Box 1
-        </div>
-        <div
-          style={{
-            padding: '1rem',
-            background: 'var(--lufa-token-color-background-secondary)',
-            borderRadius: '8px',
-            minWidth: '100px',
-          }}
-        >
-          Box 2
-        </div>
-        <div
-          style={{
-            padding: '1rem',
-            background: 'var(--lufa-token-color-background-secondary)',
-            borderRadius: '8px',
-            minWidth: '100px',
-          }}
-        >
-          Box 3
-        </div>
-      </Stack>
+```tsx live
+<Stack direction="vertical" spacing="comfortable">
+  <Stack direction="horizontal" spacing="default">
+    <div
+      style={{
+        padding: '1rem',
+        background: 'var(--lufa-token-color-background-secondary)',
+        borderRadius: '8px',
+        minWidth: '100px',
+      }}
+    >
+      Box 1
+    </div>
+    <div
+      style={{
+        padding: '1rem',
+        background: 'var(--lufa-token-color-background-secondary)',
+        borderRadius: '8px',
+        minWidth: '100px',
+      }}
+    >
+      Box 2
+    </div>
+    <div
+      style={{
+        padding: '1rem',
+        background: 'var(--lufa-token-color-background-secondary)',
+        borderRadius: '8px',
+        minWidth: '100px',
+      }}
+    >
+      Box 3
+    </div>
+  </Stack>
 
-      <Text>Items arranged horizontally with default spacing</Text>
-    </Stack>
-  );
-};
-
-render(<StackDemo />);
+  <Text>Items arranged horizontally with default spacing</Text>
+</Stack>
 ```
 
 ## Text
 
 Experiment with text styles:
 
-```tsx live noInline
-const TextDemo = () => {
-  return (
-    <Stack direction="vertical" spacing="default">
-      <Text as="h1" variant="h1">
-        Heading Level 1
-      </Text>
-      <Text as="h2" variant="h2">
-        Heading Level 2
-      </Text>
-      <Text as="h3" variant="h3">
-        Heading Level 3
-      </Text>
-      <Text variant="body-large">Large body text</Text>
-      <Text>Regular body text</Text>
-      <Text variant="body-small">Small body text</Text>
-      <Text variant="caption">Caption text</Text>
-    </Stack>
-  );
-};
-
-render(<TextDemo />);
+```tsx live
+<Stack direction="vertical" spacing="default">
+  <Text as="h1" variant="h1">
+    Heading Level 1
+  </Text>
+  <Text as="h2" variant="h2">
+    Heading Level 2
+  </Text>
+  <Text as="h3" variant="h3">
+    Heading Level 3
+  </Text>
+  <Text variant="body-large">Large body text</Text>
+  <Text>Regular body text</Text>
+  <Text variant="body-small">Small body text</Text>
+  <Text variant="caption">Caption text</Text>
+</Stack>
 ```
 
 ## Interactive Card
 
 Build a complete card component:
 
-```tsx live noInline
-const CardDemo = () => {
-  const [liked, setLiked] = React.useState(false);
-
-  return (
-    <Box
-      padding="comfortable"
-      background="surface"
-      borderRadius="base"
-      style={{ boxShadow: 'var(--lufa-semantic-ui-shadow-medium)' }}
-    >
-      <Stack direction="vertical" spacing="compact">
-        <Text as="h3" variant="h3">
-          Interactive Card
-        </Text>
-        <Text>
-          This is a card component with interactive elements. Click the button below to toggle the like state.
-        </Text>
-        <Button type={liked ? 'solid' : 'outline'} variant="primary" onClick={() => setLiked(!liked)}>
-          {liked ? 'Liked' : 'Like'}
-        </Button>
-      </Stack>
-    </Box>
-  );
-};
-
-render(<CardDemo />);
+```tsx live
+<Box
+  padding="comfortable"
+  background="surface"
+  borderRadius="base"
+  style={{ boxShadow: 'var(--lufa-semantic-ui-shadow-medium)' }}
+>
+  <Stack direction="vertical" spacing="compact">
+    <Text as="h3" variant="h3">
+      Interactive Card
+    </Text>
+    <Text>This is a card component with supporting text.</Text>
+    <Button>Action</Button>
+  </Stack>
+</Box>
 ```
 
 ## Tips for Using the Playground
