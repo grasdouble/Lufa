@@ -1,3 +1,10 @@
+---
+id: changelog
+title: Changelog
+sidebar_label: Changelog
+description: Notable changes to the design system packages.
+---
+
 # Changelog
 
 This page documents all notable changes to the Lufa Design System packages.

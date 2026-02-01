@@ -23,7 +23,7 @@ import { STORY_COLORS } from '../../constants/storyColors';
  * - ✅ Token-based design (component layer tokens)
  */
 const meta = {
-  title: 'Primitives/Button',
+  title: '5. Components/Button',
   component: Button,
   parameters: {
     layout: 'fullscreen',

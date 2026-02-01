@@ -1,4 +1,8 @@
 ---
+id: testing
+title: Testing Guide
+sidebar_label: Testing
+description: Testing guidance for the design system.
 sidebar_position: 3
 ---
 

@@ -17,7 +17,7 @@ import { STORY_COLORS } from '../../constants/storyColors';
  * - **Interactive Colors** - Button and component-specific colors
  */
 const meta = {
-  title: 'Tokens/Colors',
+  title: '3. Tokens/Colors',
   parameters: {
     layout: 'fullscreen',
   },

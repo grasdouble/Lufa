@@ -32,7 +32,7 @@ import { StoryContainer } from '../../components/helpers';
  * - Maintains consistent meaning across themes
  */
 const meta = {
-  title: '0. Architecture/Theme Testing',
+  title: '1. Architecture/Theme Testing',
   parameters: {
     layout: 'fullscreen',
     docs: {

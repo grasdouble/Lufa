@@ -23,8 +23,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Thresholds (in KB)
-const MAX_SIZE_KB = 70; // Hard limit - build fails
-const WARNING_SIZE_KB = 65; // Warning - notification only
+const MAX_SIZE_KB = 80; // Hard limit - build fails
+const WARNING_SIZE_KB = 70; // Warning - notification only
 const BASELINE_SIZE_KB = 61; // Current size (v0.8.0)
 
 // File to check

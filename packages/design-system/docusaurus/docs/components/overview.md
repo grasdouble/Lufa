@@ -1,4 +1,8 @@
 ---
+id: overview
+title: Component Overview
+sidebar_label: Overview
+description: Overview of components in the design system.
 sidebar_position: 1
 ---
 
@@ -12,21 +16,21 @@ Primitive components are the foundational building blocks of the design system.
 
 ### Layout Primitives
 
-- **[Box](/docs/components/primitives/box)** - Flexible container with padding, margin, background, and border utilities
-- **[Stack](/docs/components/primitives/stack)** - Flexbox layout for vertical/horizontal stacking with consistent spacing
+- **[Box](/docs/primitives/box)** - Flexible container with padding, margin, background, and border utilities
+- **[Stack](/docs/primitives/stack)** - Flexbox layout for vertical/horizontal stacking with consistent spacing
 
 ### Content Primitives
 
-- **[Text](/docs/components/primitives/text)** - Typography component with semantic variants and accessibility features
-- **[Icon](/docs/components/primitives/icon)** - SVG icon wrapper with semantic sizing and colors (Lucide React integration)
+- **[Text](/docs/primitives/text)** - Typography component with semantic variants and accessibility features
+- **[Icon](/docs/primitives/icon)** - SVG icon wrapper with semantic sizing and colors (Lucide React integration)
 
 ### Interactive Primitives
 
 Coming soon:
 
-- **Button** - Interactive button with variants, sizes, and states
-- **Badge** - Status and labeling component
-- **Divider** - Visual separator for content sections
+- **[Button](/docs/components/button)** - Interactive button with variants, sizes, and states
+- **[Badge](/docs/components/badge)** - Status and labeling component
+- **[Divider](/docs/primitives/divider)** - Visual separator for content sections
 
 ## Component Categories
 
@@ -149,7 +153,7 @@ function UserCard({ name, email, role }) {
 
 ## Next Steps
 
-- Explore individual [component documentation](/docs/components/primitives/box)
+- Explore individual [component documentation](/docs/primitives/box)
 - Learn about [design tokens](/docs/tokens/colors)
 - Check out [Storybook](https://storybook.lufa-ds.grasdouble.com) for interactive examples
 

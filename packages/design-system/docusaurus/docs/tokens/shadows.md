@@ -1,4 +1,8 @@
 ---
+id: shadows
+title: Shadows
+sidebar_label: Shadows
+description: Shadow tokens and elevation guidance.
 sidebar_position: 4
 ---
 
@@ -167,7 +171,7 @@ Shadow tokens are static by default. If you need stronger visibility in dark mod
 
 ```css
 /* Optional theme override for dark mode */
-[data-theme='dark'] {
+[data-mode='dark'] {
   --lufa-semantic-ui-shadow-small: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --lufa-semantic-ui-shadow-medium: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   --lufa-semantic-ui-shadow-large: 0 8px 16px 0 rgba(0, 0, 0, 0.5);

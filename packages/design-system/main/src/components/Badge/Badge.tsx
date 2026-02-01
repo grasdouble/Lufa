@@ -83,7 +83,7 @@ export type BadgeProps<T extends ElementType = 'span'> = {
   /**
    * Badge content (text, number, etc.)
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
 
   /**
    * Custom CSS class

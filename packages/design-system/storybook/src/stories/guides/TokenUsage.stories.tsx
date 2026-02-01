@@ -25,7 +25,7 @@ import { STORY_COLORS } from '../../constants/storyColors';
  * 3. **Component Tokens** - Component-specific tokens (button-primary-background)
  */
 const meta = {
-  title: 'Guides/Token Usage',
+  title: '2. Guides/Token Usage',
   parameters: {
     layout: 'fullscreen',
     docs: {

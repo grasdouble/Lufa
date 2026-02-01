@@ -1,0 +1,9 @@
+.label {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem; /* Equivalent to text-sm if token unavailable, or use var(--lufa-primitive-typography-font-size-sm) */
+  font-weight: var(--lufa-primitive-typography-font-weight-medium);
+  color: var(--lufa-token-color-text-primary);
+  margin-bottom: var(--lufa-semantic-ui-spacing-compact);
+  line-height: 1.25;
+}

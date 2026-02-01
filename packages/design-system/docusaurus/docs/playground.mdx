@@ -1,6 +1,9 @@
 ---
-sidebar_position: 2
+id: playground
 title: Interactive Playground
+sidebar_label: Playground
+description: Live playground for experimenting with components.
+sidebar_position: 2
 ---
 
 # Interactive Playground
@@ -12,15 +15,18 @@ Try out Lufa Design System components right here in your browser! Edit the code 
 Click "Edit" to modify the code and see your changes instantly.
 
 ```tsx live
+import * as React from 'react';
+import { Button, Stack, Text } from '@grasdouble/lufa_design-system';
+
 function ButtonDemo() {
   const [count, setCount] = React.useState(0);
 
   return (
-    <Stack direction="vertical" gap="normal">
-      <Button variant="solid" color="primary" onClick={() => setCount(count + 1)}>
+    <Stack direction="vertical" spacing="comfortable">
+      <Button type="solid" variant="primary" onClick={() => setCount(count + 1)}>
         Clicked {count} times
       </Button>
-      <Typography variant="body">Counter: {count}</Typography>
+      <Text variant="body">Counter: {count}</Text>
     </Stack>
   );
 }
@@ -31,21 +37,15 @@ function ButtonDemo() {
 Explore different button styles:
 
 ```tsx live
+import { Button, Stack } from '@grasdouble/lufa_design-system';
+
 function ButtonVariants() {
   return (
-    <Stack direction="horizontal" gap="normal" wrap="wrap">
-      <Button variant="solid" color="primary">
-        Solid Primary
-      </Button>
-      <Button variant="outline" color="primary">
-        Outline Primary
-      </Button>
-      <Button variant="ghost" color="primary">
-        Ghost Primary
-      </Button>
-      <Button variant="solid" color="secondary">
-        Solid Secondary
-      </Button>
+    <Stack direction="horizontal" spacing="default" wrap={true}>
+      <Button type="solid" variant="primary">Primary</Button>
+      <Button type="outline" variant="primary">Outline</Button>
+      <Button type="ghost" variant="primary">Ghost</Button>
+      <Button type="solid" variant="secondary">Secondary</Button>
     </Stack>
   );
 }
@@ -56,38 +56,40 @@ function ButtonVariants() {
 Create flexible layouts with the Stack component:
 
 ```tsx live
+import { Stack, Text } from '@grasdouble/lufa_design-system';
+
 function StackDemo() {
   return (
-    <Stack direction="vertical" gap="spacious">
-      <Stack direction="horizontal" gap="normal">
+    <Stack direction="vertical" spacing="comfortable">
+      <Stack direction="horizontal" spacing="default">
         <div style={{ padding: '1rem', background: '#e0f2fe', borderRadius: '8px', minWidth: '100px' }}>Box 1</div>
         <div style={{ padding: '1rem', background: '#ddd6fe', borderRadius: '8px', minWidth: '100px' }}>Box 2</div>
         <div style={{ padding: '1rem', background: '#fce7f3', borderRadius: '8px', minWidth: '100px' }}>Box 3</div>
       </Stack>
 
-      <Divider />
-
-      <Typography variant="body">Items arranged horizontally with normal spacing</Typography>
+      <Text variant="body">Items arranged horizontally with default spacing</Text>
     </Stack>
   );
 }
 ```
 
-## Typography
+## Text
 
 Experiment with text styles:
 
 ```tsx live
-function TypographyDemo() {
+import { Stack, Text } from '@grasdouble/lufa_design-system';
+
+function TextDemo() {
   return (
-    <Stack direction="vertical" gap="normal">
-      <Typography variant="h1">Heading Level 1</Typography>
-      <Typography variant="h2">Heading Level 2</Typography>
-      <Typography variant="h3">Heading Level 3</Typography>
-      <Typography variant="bodyLarge">Large body text</Typography>
-      <Typography variant="body">Regular body text</Typography>
-      <Typography variant="bodySmall">Small body text</Typography>
-      <Typography variant="caption">Caption text</Typography>
+    <Stack direction="vertical" spacing="default">
+      <Text as="h1" variant="h1">Heading Level 1</Text>
+      <Text as="h2" variant="h2">Heading Level 2</Text>
+      <Text as="h3" variant="h3">Heading Level 3</Text>
+      <Text variant="body-large">Large body text</Text>
+      <Text variant="body">Regular body text</Text>
+      <Text variant="body-small">Small body text</Text>
+      <Text variant="caption">Caption text</Text>
     </Stack>
   );
 }
@@ -98,24 +100,33 @@ function TypographyDemo() {
 Build a complete card component:
 
 ```tsx live
+import * as React from 'react';
+import { Box, Button, Stack, Text } from '@grasdouble/lufa_design-system';
+
 function CardDemo() {
   const [liked, setLiked] = React.useState(false);
 
   return (
-    <Card
-      title="Interactive Card"
-      subtitle="A card with interactive elements"
-      variant="elevated"
-      footer={
-        <Button variant={liked ? 'solid' : 'outline'} color="primary" onClick={() => setLiked(!liked)}>
-          {liked ? '❤️ Liked' : '🤍 Like'}
-        </Button>
-      }
+    <Box
+      padding="comfortable"
+      background="surface"
+      borderRadius="base"
+      style={{ boxShadow: 'var(--lufa-semantic-ui-shadow-medium)' }}
     >
-      <Typography variant="body">
-        This is a card component with interactive elements. Click the button below to toggle the like state.
-      </Typography>
-    </Card>
+      <Stack direction="vertical" spacing="compact">
+        <Text as="h3" variant="h3">Interactive Card</Text>
+        <Text variant="body">
+          This is a card component with interactive elements. Click the button below to toggle the like state.
+        </Text>
+        <Button
+          type={liked ? 'solid' : 'outline'}
+          variant="primary"
+          onClick={() => setLiked(!liked)}
+        >
+          {liked ? 'Liked' : 'Like'}
+        </Button>
+      </Stack>
+    </Box>
   );
 }
 ```
@@ -133,7 +144,7 @@ function CardDemo() {
 The following components are available in the playground:
 
 - **Layout**: `Stack`, `Container`, `Flex`, `Grid`, `Divider`, `Center`, `Space`, `AspectRatio`, `Placeholder`, `Layout`
-- **Typography**: `Typography` (with variants: h1-h6, body, bodyLarge, bodySmall, caption, label)
+- **Text**: `Text` (with variants: h1-h6, body-large, body, body-small, caption, label)
 - **Display**: `Card`, `Avatar`, `AvatarGroup`, `Badge`
 - **Forms**: `Button`, `Input`
 - **Navigation**: `Anchor`, `Link`, `Breadcrumb`, `Tabs`, `Menu`, `Pagination`, `Steps`

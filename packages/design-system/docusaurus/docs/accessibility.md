@@ -1,4 +1,8 @@
 ---
+id: accessibility
+title: Accessibility
+sidebar_label: Accessibility
+description: Accessibility guidance for the design system.
 sidebar_position: 10
 ---
 
@@ -21,10 +25,12 @@ The design system adheres to:
 All components use proper semantic HTML elements:
 
 ```tsx
+import { Box, Stack, Text } from '@grasdouble/lufa_design-system';
+
 // ✅ Good - semantic elements
 <Box as="section">
   <Stack as="nav">
-    <Text as="h1">Page Title</Text>
+    <Text as="h1" variant="h1">Page Title</Text>
   </Stack>
 </Box>
 
@@ -71,8 +77,10 @@ Components provide clear context for screen readers:
 - Maintains accessibility when used as button/link
 
 ```tsx
+import { Box, Text } from '@grasdouble/lufa_design-system';
+
 <Box as="article" aria-labelledby="title">
-  <Text as="h2" id="title">
+  <Text as="h2" variant="h2" id="title">
     Article Title
   </Text>
 </Box>
@@ -85,6 +93,8 @@ Components provide clear context for screen readers:
 - Keyboard navigation support
 
 ```tsx
+import { Stack } from '@grasdouble/lufa_design-system';
+
 <Stack as="nav" aria-label="Main navigation">
   <a href="/home">Home</a>
   <a href="/about">About</a>
@@ -98,8 +108,10 @@ Components provide clear context for screen readers:
 - Proper reading order
 
 ```tsx
-<Text as="h1" variant="heading-4xl">Hero Title</Text>
-<Text as="h2" variant="heading-xl">Section Title</Text>
+import { Text } from '@grasdouble/lufa_design-system';
+
+<Text as="h1" variant="h1">Hero Title</Text>
+<Text as="h2" variant="h2">Section Title</Text>
 <Text as="p" variant="body">Body text</Text>
 ```
 
@@ -110,6 +122,8 @@ Components provide clear context for screen readers:
 - Accessible icons: `role="img"` + `aria-label`
 
 ```tsx
+import { Icon } from '@grasdouble/lufa_design-system';
+
 // Decorative icon (default)
 <Icon name="chevron-right" />
 
@@ -124,9 +138,16 @@ Components provide clear context for screen readers:
 The design system includes automated accessibility tests:
 
 ```tsx
+import { Button } from '@grasdouble/lufa_design-system';
+import { expect, test } from '@playwright/experimental-ct-react';
+
 // Playwright component tests include a11y checks
 test('should have accessible structure', async ({ mount }) => {
-  const component = await mount(<Button>Click me</Button>);
+  const component = await mount(
+    <Button type="solid" variant="primary">
+      Click me
+    </Button>
+  );
 
   // Check ARIA attributes
   await expect(component).toHaveAttribute('role', 'button');
@@ -155,12 +176,14 @@ When using Lufa components:
 ### Forms
 
 ```tsx
+import { Input, Stack, Text } from '@grasdouble/lufa_design-system';
+
 <Stack spacing="compact" as="form">
   <Text as="label" htmlFor="email" variant="label">
     Email Address
   </Text>
   <Input id="email" type="email" aria-describedby="email-hint" required />
-  <Text id="email-hint" variant="caption" color="muted">
+  <Text id="email-hint" variant="caption" color="secondary">
     We'll never share your email.
   </Text>
 </Stack>
@@ -169,6 +192,8 @@ When using Lufa components:
 ### Navigation
 
 ```tsx
+import { Stack } from '@grasdouble/lufa_design-system';
+
 <Stack as="nav" aria-label="Main navigation" direction="horizontal">
   <a href="/" aria-current="page">
     Home
@@ -181,28 +206,32 @@ When using Lufa components:
 ### Landmarks
 
 ```tsx
+import { Box, Text } from '@grasdouble/lufa_design-system';
+
 <Box as="header" role="banner">
-  <Text as="h1">Site Title</Text>
+  <Text as="h1" variant="h1">Site Title</Text>
 </Box>
 
 <Box as="main" role="main">
-  <Text as="h2">Page Content</Text>
+  <Text as="h2" variant="h2">Page Content</Text>
 </Box>
 
 <Box as="footer" role="contentinfo">
-  <Text>Footer content</Text>
+  <Text variant="body">Footer content</Text>
 </Box>
 ```
 
 ### Skip Links
 
 ```tsx
+import { Box } from '@grasdouble/lufa_design-system';
+
 <a href="#main-content" className="skip-link">
   Skip to main content
 </a>
 
 <Box as="main" id="main-content" tabIndex={-1}>
-  {/* Page content */}
+  Page content
 </Box>
 ```
 
@@ -221,6 +250,8 @@ When using Lufa components:
 ### Label Interactive Elements
 
 ```tsx
+import { Icon } from '@grasdouble/lufa_design-system';
+
 // ✅ Visible label
 <button>Submit Form</button>
 
@@ -265,8 +296,9 @@ All Lufa components have clear focus indicators:
 For modals and overlays:
 
 ```tsx
+import { Modal } from '@grasdouble/lufa_design-system';
+
 <Modal open={isOpen} onClose={handleClose}>
-  {/* Focus is trapped within modal */}
   <button>First focusable</button>
   <button>Last focusable</button>
 </Modal>

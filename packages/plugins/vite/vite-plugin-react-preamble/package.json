@@ -19,7 +19,8 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",

@@ -9,7 +9,7 @@ import { getImageUrl } from './getImageUrl';
 function App() {
   return (
     <div className={clsx(styles['lufa-home'])} id="lufa-home">
-      <Stack direction="vertical" gap="normal" align="center">
+      <Stack direction="vertical" spacing="default" align="center">
         <img src={getImageUrl('Lufa_Logo')} alt="Centered Logo" className={clsx(styles['centered-image'])} />
         <h1 className={clsx(styles['centered-message'])}>
           Lufa Workspace (WIP) <br /> by Sebastien LE MOUILLOUR

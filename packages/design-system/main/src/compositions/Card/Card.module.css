@@ -1,0 +1,9 @@
+.card {
+  background-color: var(--lufa-token-color-surface-default);
+  border: 1px solid var(--lufa-token-color-border-light);
+  border-radius: var(--lufa-primitive-radius-scale-base);
+  box-shadow: 0 1px 3px var(--lufa-token-color-shadow-small);
+  padding: var(--lufa-semantic-ui-spacing-comfortable);
+  color: var(--lufa-token-color-text-primary);
+  overflow: hidden; /* Ensures content respects border-radius */
+}
