@@ -28,7 +28,7 @@ Primitive components are the foundational building blocks of the design system.
 
 Coming soon:
 
-- **[Button](/docs/components/Button)** - Interactive button with variants, sizes, and states
+- **[Button](/docs/components/button)** - Interactive button with variants, sizes, and states
 - **[Badge](/docs/components/badge)** - Status and labeling component
 - **[Divider](/docs/primitives/divider)** - Visual separator for content sections
 
