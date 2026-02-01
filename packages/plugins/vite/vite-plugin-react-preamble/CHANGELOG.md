@@ -1,5 +1,11 @@
 # @grasdouble/lufa_plugin_vite_vite-plugin-react-preamble
 
+## 0.0.4
+
+### Patch Changes
+
+- 07b892b: Add typecheck scripts and align docs/test fixtures after stricter TypeScript checks.
+
 ## 0.0.3
 
 ### Patch Changes
