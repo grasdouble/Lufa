@@ -14,96 +14,104 @@ Try out Lufa Design System components right here in your browser! Edit the code 
 
 Click "Edit" to modify the code and see your changes instantly.
 
-```tsx live
-import * as React from 'react';
-import { Button, Stack, Text } from '@grasdouble/lufa_design-system';
-
-function ButtonDemo() {
+```tsx live noInline
+const ButtonDemo = () => {
   const [count, setCount] = React.useState(0);
 
   return (
     <Stack direction="vertical" spacing="comfortable">
-      <Button type="solid" variant="primary" onClick={() => setCount(count + 1)}>
-        Clicked {count} times
-      </Button>
-      <Text variant="body">Counter: {count}</Text>
+      <Button onClick={() => setCount(count + 1)}>Clicked {count} times</Button>
+      <Text>Counter: {count}</Text>
     </Stack>
   );
-}
-```
+};
 
-## Button Variants
-
-Explore different button styles:
-
-```tsx live
-import { Button, Stack } from '@grasdouble/lufa_design-system';
-
-function ButtonVariants() {
-  return (
-    <Stack direction="horizontal" spacing="default" wrap={true}>
-      <Button type="solid" variant="primary">Primary</Button>
-      <Button type="outline" variant="primary">Outline</Button>
-      <Button type="ghost" variant="primary">Ghost</Button>
-      <Button type="solid" variant="secondary">Secondary</Button>
-    </Stack>
-  );
-}
+render(<ButtonDemo />);
 ```
 
 ## Stack Layout
 
 Create flexible layouts with the Stack component:
 
-```tsx live
-import { Stack, Text } from '@grasdouble/lufa_design-system';
-
-function StackDemo() {
+```tsx live noInline
+const StackDemo = () => {
   return (
     <Stack direction="vertical" spacing="comfortable">
       <Stack direction="horizontal" spacing="default">
-        <div style={{ padding: '1rem', background: '#e0f2fe', borderRadius: '8px', minWidth: '100px' }}>Box 1</div>
-        <div style={{ padding: '1rem', background: '#ddd6fe', borderRadius: '8px', minWidth: '100px' }}>Box 2</div>
-        <div style={{ padding: '1rem', background: '#fce7f3', borderRadius: '8px', minWidth: '100px' }}>Box 3</div>
+        <div
+          style={{
+            padding: '1rem',
+            background: 'var(--lufa-token-color-background-secondary)',
+            borderRadius: '8px',
+            minWidth: '100px',
+          }}
+        >
+          Box 1
+        </div>
+        <div
+          style={{
+            padding: '1rem',
+            background: 'var(--lufa-token-color-background-secondary)',
+            borderRadius: '8px',
+            minWidth: '100px',
+          }}
+        >
+          Box 2
+        </div>
+        <div
+          style={{
+            padding: '1rem',
+            background: 'var(--lufa-token-color-background-secondary)',
+            borderRadius: '8px',
+            minWidth: '100px',
+          }}
+        >
+          Box 3
+        </div>
       </Stack>
 
-      <Text variant="body">Items arranged horizontally with default spacing</Text>
+      <Text>Items arranged horizontally with default spacing</Text>
     </Stack>
   );
-}
+};
+
+render(<StackDemo />);
 ```
 
 ## Text
 
 Experiment with text styles:
 
-```tsx live
-import { Stack, Text } from '@grasdouble/lufa_design-system';
-
-function TextDemo() {
+```tsx live noInline
+const TextDemo = () => {
   return (
     <Stack direction="vertical" spacing="default">
-      <Text as="h1" variant="h1">Heading Level 1</Text>
-      <Text as="h2" variant="h2">Heading Level 2</Text>
-      <Text as="h3" variant="h3">Heading Level 3</Text>
+      <Text as="h1" variant="h1">
+        Heading Level 1
+      </Text>
+      <Text as="h2" variant="h2">
+        Heading Level 2
+      </Text>
+      <Text as="h3" variant="h3">
+        Heading Level 3
+      </Text>
       <Text variant="body-large">Large body text</Text>
-      <Text variant="body">Regular body text</Text>
+      <Text>Regular body text</Text>
       <Text variant="body-small">Small body text</Text>
       <Text variant="caption">Caption text</Text>
     </Stack>
   );
-}
+};
+
+render(<TextDemo />);
 ```
 
 ## Interactive Card
 
 Build a complete card component:
 
-```tsx live
-import * as React from 'react';
-import { Box, Button, Stack, Text } from '@grasdouble/lufa_design-system';
-
-function CardDemo() {
+```tsx live noInline
+const CardDemo = () => {
   const [liked, setLiked] = React.useState(false);
 
   return (
@@ -114,21 +122,21 @@ function CardDemo() {
       style={{ boxShadow: 'var(--lufa-semantic-ui-shadow-medium)' }}
     >
       <Stack direction="vertical" spacing="compact">
-        <Text as="h3" variant="h3">Interactive Card</Text>
-        <Text variant="body">
+        <Text as="h3" variant="h3">
+          Interactive Card
+        </Text>
+        <Text>
           This is a card component with interactive elements. Click the button below to toggle the like state.
         </Text>
-        <Button
-          type={liked ? 'solid' : 'outline'}
-          variant="primary"
-          onClick={() => setLiked(!liked)}
-        >
+        <Button type={liked ? 'solid' : 'outline'} variant="primary" onClick={() => setLiked(!liked)}>
           {liked ? 'Liked' : 'Like'}
         </Button>
       </Stack>
     </Box>
   );
-}
+};
+
+render(<CardDemo />);
 ```
 
 ## Tips for Using the Playground

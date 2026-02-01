@@ -128,6 +128,7 @@ const config: Config = {
   ],
 
   plugins: [require.resolve('./plugins/rspack-disable-minimizers.js')],
+  clientModules: [require.resolve('./src/clientModules/colorModeSync')],
 
   themeConfig: {
     // Replace with your project's social card

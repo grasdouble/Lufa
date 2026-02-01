@@ -104,49 +104,6 @@ export function ButtonExamples() {
 }
 ```
 
-## Variants
-
-`Button` uses a two-dimensional system that separates visual emphasis (type) from semantic meaning (variant). It also supports size, radius, and state variants.
-
-```tsx
-import { Button } from '@grasdouble/lufa_design-system';
-
-export function ButtonVariantExamples() {
-  return (
-    <div style={{ display: 'grid', gap: '12px' }}>
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-        <Button type="solid" variant="primary">
-          Primary
-        </Button>
-        <Button type="outline" variant="primary">
-          Primary
-        </Button>
-        <Button type="ghost" variant="primary">
-          Primary
-        </Button>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-        <Button variant="success">Success</Button>
-        <Button variant="danger">Danger</Button>
-        <Button variant="warning">Warning</Button>
-        <Button variant="info">Info</Button>
-        <Button variant="neutral">Neutral</Button>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-        <Button size="sm">Small</Button>
-        <Button size="md">Medium</Button>
-        <Button size="lg">Large</Button>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-        <Button radius="none">None</Button>
-        <Button radius="base">Base</Button>
-        <Button radius="full">Full</Button>
-      </div>
-    </div>
-  );
-}
-```
-
 ## Props
 
 | Prop        | Type                                                                                    | Default     | Description                                          |

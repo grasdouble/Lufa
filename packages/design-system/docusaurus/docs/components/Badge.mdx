@@ -88,42 +88,6 @@ export function BadgeExamples() {
 }
 ```
 
-## Variants
-
-Badge provides five semantic variants, three sizes, and an optional dot indicator.
-
-```tsx
-import { Badge } from '@grasdouble/lufa_design-system';
-
-export function BadgeVariantExamples() {
-  return (
-    <div style={{ display: 'grid', gap: '12px' }}>
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-        <Badge variant="default">Draft</Badge>
-        <Badge variant="success">Active</Badge>
-        <Badge variant="error">Failed</Badge>
-        <Badge variant="warning">Pending</Badge>
-        <Badge variant="info">Beta</Badge>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-        <Badge size="sm">Small</Badge>
-        <Badge size="md">Medium</Badge>
-        <Badge size="lg">Large</Badge>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-        <Badge variant="error">5</Badge>
-        <Badge dot variant="error">
-          5
-        </Badge>
-        <Badge dot variant="success">
-          Online
-        </Badge>
-      </div>
-    </div>
-  );
-}
-```
-
 ## Props
 
 | Prop        | Type                                                       | Default     | Description                                               |
