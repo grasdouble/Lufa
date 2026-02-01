@@ -11,7 +11,9 @@ const config: Config = {
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: {
+      useCssCascadeLayers: false,
+    },
     experimental_faster: {
       rspackBundler: true, // Use Rspack instead of Webpack for faster builds
     },
@@ -79,7 +81,7 @@ const config: Config = {
 
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
@@ -99,7 +101,7 @@ const config: Config = {
         },
         blog: false, // Disable blog for design system docs
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: ['./src/css/custom.css'],
         },
         sitemap: {
           changefreq: 'weekly',
@@ -124,6 +126,8 @@ const config: Config = {
       },
     ],
   ],
+
+  plugins: [require.resolve('./plugins/rspack-disable-minimizers.js')],
 
   themeConfig: {
     // Replace with your project's social card

@@ -30,6 +30,22 @@ export const cssWithMediaQueries = {
     const { outputReferences } = options;
 
     // Helper: Resolve token value or reference
+    const resolveReference = (value) => {
+      if (typeof value === 'string' && value.startsWith('{')) {
+        const refPath = value.replace(/[{}]/g, '').split('.');
+        return `var(--${prefix}-${refPath.join('-')})`;
+      }
+      return value;
+    };
+
+    const formatShadowValue = (value) => {
+      const { offsetX, offsetY, blur, spread, color } = value || {};
+      const parts = [offsetX, offsetY, blur, spread, color]
+        .map(resolveReference)
+        .filter(Boolean);
+      return parts.join(' ');
+    };
+
     const formatValue = (token, dictionary) => {
       if (
         outputReferences &&
@@ -42,7 +58,11 @@ export const cssWithMediaQueries = {
         const cssVarName = `--${prefix}-${refPath.join('-')}`;
         return `var(${cssVarName})`;
       }
-      return token.value || token.original?.$value || token.$value;
+      const value = token.value || token.original?.$value || token.$value;
+      if ((token.$type || token.type) === 'shadow' && value && typeof value === 'object') {
+        return formatShadowValue(value);
+      }
+      return resolveReference(value);
     };
 
     // Helper: Get CSS variable name for responsive token

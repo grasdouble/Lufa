@@ -4,10 +4,10 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "docusaurus build",
+    "build": "pnpm clear && docusaurus build",
     "clear": "docusaurus clear",
     "deploy": "docusaurus deploy",
-    "dev": "docusaurus start",
+    "dev": "pnpm clear && docusaurus start",
     "docusaurus": "docusaurus",
     "lint": "eslint .",
     "prettier": "prettier --write .",
