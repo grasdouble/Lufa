@@ -7,15 +7,20 @@ description: A responsive layout component that constrains content width based o
 
 # Container
 
-import { LiveDemo } from '../../src/dsExamples/primitives/container';
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
+import { FluidDemo, LiveDemo, SizeDemo } from '../../src/dsExamples/primitives/container';
 
 ## Overview
 
 **Container** centers content horizontally and constrains its maximum width by breakpoint. Use it to keep page content readable on large screens.
 
-Live demo:
-
-<LiveDemo />
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: 'fluid', label: 'Fluid', content: <FluidDemo /> },
+    { id: 'sizes', label: 'Sizes', content: <SizeDemo /> },
+  ]}
+/>
 
 ## Anatomy
 
@@ -44,9 +49,7 @@ export function Page() {
 Use `fluid` to span the full width and ignore breakpoint constraints.
 
 ```tsx
-<Container fluid>
-  Full width content
-</Container>
+<Container fluid>Full width content</Container>
 ```
 
 ### Fixed Size
@@ -60,12 +63,12 @@ Use `size` to constrain the max width to a specific breakpoint.
 
 ## Props
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `as` | `ElementType` | `'div'` | The HTML element to render. |
-| `fluid` | `boolean` | `false` | If true, takes 100% width. |
-| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | - | Max-width constraint. |
-| `children` | `ReactNode` | - | The content to render. |
+| Prop       | Type                                            | Default | Description                 |
+| :--------- | :---------------------------------------------- | :------ | :-------------------------- |
+| `as`       | `ElementType`                                   | `'div'` | The HTML element to render. |
+| `fluid`    | `boolean`                                       | `false` | If true, takes 100% width.  |
+| `size`     | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | -       | Max-width constraint.       |
+| `children` | `ReactNode`                                     | -       | The content to render.      |
 
 ## Accessibility
 

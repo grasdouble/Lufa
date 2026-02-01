@@ -9,7 +9,8 @@ sidebar_position: 6
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
 import { DarkModeCompatible } from '../../src/components/DarkModeCompatible';
-import { LiveDemo } from '../../src/dsExamples/components/badge';
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
+import { AllSizes, AllVariants, LiveDemo, WithDotIndicator } from '../../src/dsExamples/components/badge';
 
 # Badge
 
@@ -21,7 +22,14 @@ A compact component for displaying status labels, notification counts, tags, and
 
 The Badge component provides a small visual indicator for statuses, counts, categories, or other metadata. It is designed to be unobtrusive and semantically meaningful through color-coded variants.
 
-<BrowserOnly>{() => <LiveDemo />}</BrowserOnly>
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <BrowserOnly>{() => <LiveDemo />}</BrowserOnly> },
+    { id: 'variants', label: 'Variants', content: <BrowserOnly>{() => <AllVariants />}</BrowserOnly> },
+    { id: 'sizes', label: 'Sizes', content: <BrowserOnly>{() => <AllSizes />}</BrowserOnly> },
+    { id: 'dot', label: 'Dot', content: <BrowserOnly>{() => <WithDotIndicator />}</BrowserOnly> },
+  ]}
+/>
 
 Use Badge when you need:
 
@@ -69,8 +77,12 @@ export function BadgeExamples() {
       <Badge size="sm">Small</Badge>
       <Badge size="md">Medium</Badge>
       <Badge size="lg">Large</Badge>
-      <Badge dot variant="error">3 notifications</Badge>
-      <Badge as="label" htmlFor="input-id">Label Badge</Badge>
+      <Badge dot variant="error">
+        3 notifications
+      </Badge>
+      <Badge as="label" htmlFor="input-id">
+        Label Badge
+      </Badge>
     </div>
   );
 }
@@ -100,8 +112,12 @@ export function BadgeVariantExamples() {
       </div>
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
         <Badge variant="error">5</Badge>
-        <Badge dot variant="error">5</Badge>
-        <Badge dot variant="success">Online</Badge>
+        <Badge dot variant="error">
+          5
+        </Badge>
+        <Badge dot variant="success">
+          Online
+        </Badge>
       </div>
     </div>
   );
@@ -110,14 +126,14 @@ export function BadgeVariantExamples() {
 
 ## Props
 
-| Prop        | Type                                                       | Default      | Description                                                |
-| ----------- | ---------------------------------------------------------- | ------------ | ---------------------------------------------------------- |
-| `variant`   | `'default' | 'success' | 'error' | 'warning' | 'info'` | `'default'`  | Semantic variant defining color scheme and meaning         |
-| `size`      | `'sm' | 'md' | 'lg'`                                     | `'md'`       | Size of the badge affecting padding and font size          |
-| `dot`       | `boolean`                                                  | `false`      | Shows notification dot indicator before content            |
-| `children`  | `React.ReactNode`                                          | required     | Content to display inside the badge (text, numbers, etc.)  |
-| `className` | `string`                                                   | `undefined`  | Additional CSS classes to apply                            |
-| `as`        | `ElementType`                                              | `'span'`     | HTML element type to render (`span`, `div`, `label`)       |
+| Prop        | Type                                                       | Default     | Description                                               |
+| ----------- | ---------------------------------------------------------- | ----------- | --------------------------------------------------------- |
+| `variant`   | `'default' \| 'success' \| 'error' \| 'warning' \| 'info'` | `'default'` | Semantic variant defining color scheme and meaning        |
+| `size`      | `'sm' \| 'md' \| 'lg'`                                     | `'md'`      | Size of the badge affecting padding and font size         |
+| `dot`       | `boolean`                                                  | `false`     | Shows notification dot indicator before content           |
+| `children`  | `React.ReactNode`                                          | required    | Content to display inside the badge (text, numbers, etc.) |
+| `className` | `string`                                                   | `undefined` | Additional CSS classes to apply                           |
+| `as`        | `ElementType`                                              | `'span'`    | HTML element type to render (`span`, `div`, `label`)      |
 
 ## Accessibility
 
@@ -132,8 +148,12 @@ export function AccessibleBadges() {
   return (
     <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
       <Badge variant="success">Active</Badge>
-      <Badge dot variant="warning">2 pending</Badge>
-      <Badge as="label" htmlFor="email" variant="info">Email Address</Badge>
+      <Badge dot variant="warning">
+        2 pending
+      </Badge>
+      <Badge as="label" htmlFor="email" variant="info">
+        Email Address
+      </Badge>
     </div>
   );
 }
@@ -143,21 +163,23 @@ export function AccessibleBadges() {
 
 `Badge` uses design-system tokens for background, text color, spacing, and typography. Variants map to semantic color tokens and sizes map to spacing and font-size tokens. Update tokens in your theme to adjust appearance consistently.
 
-## Do / Don't
+## Do / Don’t
 
-Do:
+:::tip Do
 
 - Keep badge text short and descriptive.
 - Use semantic variants consistently across the product.
 - Use `dot` to emphasize notifications or alerts.
 - Provide surrounding context when a badge appears inline.
+  :::
 
-Don't:
+:::warning Don't
 
 - Don't use badges for actions; use Button instead.
 - Don't rely only on color to convey meaning.
 - Don't use long, multi-line text inside a badge.
 - Don't overuse the dot indicator.
+  :::
 
 ## Related Components
 

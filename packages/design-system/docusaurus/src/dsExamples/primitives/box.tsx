@@ -12,20 +12,7 @@ import { Box } from '@grasdouble/lufa_design-system';
  * Demonstrates common use cases with simple variants
  */
 export function LiveDemo() {
-  return (
-    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-      <Box padding="default">Basic Box</Box>
-      <Box padding="comfortable" background="surface">
-        Surface Box
-      </Box>
-      <Box padding="default" background="surface" borderRadius="medium" borderWidth="thin" borderColor="default">
-        Card Box
-      </Box>
-      <Box padding="compact" background="info" borderRadius="default">
-        Info Box
-      </Box>
-    </div>
-  );
+  return <Box>Basic Box</Box>;
 }
 
 /**

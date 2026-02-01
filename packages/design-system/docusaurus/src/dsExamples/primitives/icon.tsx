@@ -5,7 +5,6 @@
 
 import React from 'react';
 
-import type { IconName } from '@grasdouble/lufa_design-system';
 import { Icon } from '@grasdouble/lufa_design-system';
 
 /**
@@ -13,97 +12,9 @@ import { Icon } from '@grasdouble/lufa_design-system';
  */
 export function LiveDemo() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 'var(--lufa-token-spacing-default)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
-        borderRadius: 'var(--lufa-token-radius-base)',
-      }}
-    >
-      <Icon name="user" size="md" color="primary" title="User profile" />
-      <span style={{ color: 'var(--lufa-token-color-text-primary)' }}>Default Icon with title</span>
-    </div>
-  );
-}
-
-/**
- * Gallery showing all available icon names
- */
-export function IconGallery() {
-  const icons: IconName[] = [
-    'user',
-    'home',
-    'check',
-    'x',
-    'chevron-down',
-    'chevron-up',
-    'chevron-left',
-    'chevron-right',
-    'arrow-left',
-    'arrow-right',
-    'search',
-    'settings',
-    'heart',
-    'star',
-    'trash',
-    'edit',
-    'plus',
-    'minus',
-    'info',
-    'alert-circle',
-    'check-circle',
-    'x-circle',
-    'loader',
-    'menu',
-    'save',
-    'download',
-    'upload',
-    'external-link',
-    'eye',
-    'eye-off',
-  ];
-
-  return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
-        gap: 'var(--lufa-token-spacing-default)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
-        borderRadius: 'var(--lufa-token-radius-base)',
-      }}
-    >
-      {icons.map((iconName) => (
-        <div
-          key={iconName}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 'var(--lufa-token-spacing-compact)',
-            padding: 'var(--lufa-token-spacing-compact)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
-            borderRadius: 'var(--lufa-token-radius-sm)',
-            backgroundColor: 'var(--lufa-token-color-background-base)',
-          }}
-        >
-          <Icon name={iconName} size="lg" color="primary" aria-hidden="true" />
-          <span
-            style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
-              textAlign: 'center',
-              wordBreak: 'break-word',
-            }}
-          >
-            {iconName}
-          </span>
-        </div>
-      ))}
+    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <Icon name="user" />
+      <span>Default icon</span>
     </div>
   );
 }

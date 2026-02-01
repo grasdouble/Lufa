@@ -7,15 +7,22 @@ description: A layout component for creating 2D grid layouts.
 
 # Grid
 
-import { LiveDemo } from '../../src/dsExamples/primitives/grid';
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
+import { AlignDemo, ColumnsDemo, GapDemo, JustifyDemo, LiveDemo } from '../../src/dsExamples/primitives/grid';
 
 ## Overview
 
 **Grid** creates CSS Grid layouts with a simplified API for columns and gaps. Use it for two‑dimensional layout and consistent spacing.
 
-Live demo:
-
-<LiveDemo />
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: 'columns', label: 'Columns', content: <ColumnsDemo /> },
+    { id: 'gaps', label: 'Gaps', content: <GapDemo /> },
+    { id: 'align', label: 'Align', content: <AlignDemo /> },
+    { id: 'justify', label: 'Justify', content: <JustifyDemo /> },
+  ]}
+/>
 
 ## Anatomy
 
@@ -31,7 +38,7 @@ import { Grid } from '@grasdouble/lufa_design-system';
   <div>Column 1</div>
   <div>Column 2</div>
   <div>Column 3</div>
-</Grid>
+</Grid>;
 ```
 
 ## Variants
@@ -58,14 +65,14 @@ import { Grid } from '@grasdouble/lufa_design-system';
 
 Grid inherits all **Box** props.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `columns` | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 12` | - | `grid-template-columns` shorthand. |
-| `gap` | `'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'` | - | Both row and column gap. |
-| `gapX` | `'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'` | - | Column gap. |
-| `gapY` | `'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'` | - | Row gap. |
-| `align` | `'start' \| 'end' \| 'center' \| 'stretch' \| 'baseline'` | - | `align-items`. |
-| `justify` | `'start' \| 'end' \| 'center' \| 'stretch'` | - | `justify-items`. |
+| Prop      | Type                                                               | Default | Description                        |
+| :-------- | :----------------------------------------------------------------- | :------ | :--------------------------------- |
+| `columns` | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 12`                                 | -       | `grid-template-columns` shorthand. |
+| `gap`     | `'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'` | -       | Both row and column gap.           |
+| `gapX`    | `'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'` | -       | Column gap.                        |
+| `gapY`    | `'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'` | -       | Row gap.                           |
+| `align`   | `'start' \| 'end' \| 'center' \| 'stretch' \| 'baseline'`          | -       | `align-items`.                     |
+| `justify` | `'start' \| 'end' \| 'center' \| 'stretch'`                        | -       | `justify-items`.                   |
 
 ## Accessibility
 

@@ -7,15 +7,19 @@ description: A layout primitive that centers its content horizontally and vertic
 
 # Center
 
-import { LiveDemo } from '../../src/dsExamples/primitives/center';
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
+import { InlineCenter, LiveDemo } from '../../src/dsExamples/primitives/center';
 
 ## Overview
 
 **Center** is a layout primitive that aligns its children both horizontally and vertically. Use it when you need a simple centering wrapper without extra flex configuration.
 
-Live demo:
-
-<LiveDemo />
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: 'inline', label: 'Inline', content: <InlineCenter /> },
+  ]}
+/>
 
 ## Anatomy
 
@@ -50,11 +54,11 @@ Use `inline` to render an `inline-flex` container.
 
 ## Props
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `inline` | `boolean` | `false` | If true, renders as `inline-flex`. |
-| `as` | `ElementType` | `'div'` | The HTML element to render. |
-| `children` | `ReactNode` | - | The content to render. |
+| Prop       | Type          | Default | Description                        |
+| :--------- | :------------ | :------ | :--------------------------------- |
+| `inline`   | `boolean`     | `false` | If true, renders as `inline-flex`. |
+| `as`       | `ElementType` | `'div'` | The HTML element to render.        |
+| `children` | `ReactNode`   | -       | The content to render.             |
 
 Center also supports all **Box** props and standard HTML attributes.
 

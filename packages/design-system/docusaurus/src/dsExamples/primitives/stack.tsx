@@ -13,18 +13,11 @@ import { Stack } from '@grasdouble/lufa_design-system';
  */
 export function LiveDemo() {
   return (
-    <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-      <Stack spacing="default" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Item 1</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Item 2</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Item 3</div>
-      </Stack>
-      <Stack direction="horizontal" spacing="default" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>A</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>B</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>C</div>
-      </Stack>
-    </div>
+    <Stack>
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </Stack>
   );
 }
 

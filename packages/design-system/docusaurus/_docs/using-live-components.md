@@ -33,6 +33,22 @@ If a component is not available in MDX, add it to the MDX scope configuration fo
 - Avoid heavy logic or async behavior in MDX.
 - Use real component props (no pseudo-API).
 - Prefer two or three clear examples over many variations.
+- Default live demos should show the component with default props only.
+- When using `LiveDemoSection`, include a Default tab first and then one tab per primary prop.
+
+## LiveDemoSection with Tabs
+
+```mdx
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
+import { LiveDemo, SizeDemo } from '../../src/dsExamples/components/button';
+
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: 'size', label: 'Size', content: <SizeDemo /> },
+  ]}
+/>
+```
 
 ## Common Checks
 

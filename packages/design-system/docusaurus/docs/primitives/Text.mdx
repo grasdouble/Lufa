@@ -9,6 +9,7 @@ sidebar_position: 3
 import { Text } from '@grasdouble/lufa_design-system';
 
 import { DarkModeCompatible } from '../../src/components/DarkModeCompatible';
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
 import {
   AlignVariants,
   ColorVariants,
@@ -37,9 +38,17 @@ Use `Text` when you need…
 - Semantic HTML elements via the polymorphic `as` prop
 - Token-based design values that automatically adapt to themes
 
-Live demo:
-
-<LiveDemo />
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: 'variant', label: 'Variant', content: <VariantExamples /> },
+    { id: 'color', label: 'Color', content: <ColorVariants /> },
+    { id: 'weight', label: 'Weight', content: <WeightVariants /> },
+    { id: 'align', label: 'Align', content: <AlignVariants /> },
+    { id: 'transform', label: 'Transform', content: <TransformVariants /> },
+    { id: 'as', label: 'As', content: <PolymorphicVariant /> },
+  ]}
+/>
 
 ## Anatomy
 
@@ -156,9 +165,15 @@ import { Text } from '@grasdouble/lufa_design-system';
 export function HeadingBlock() {
   return (
     <>
-      <Text as="h1" variant="h1">Main Title</Text>
-      <Text as="h2" variant="h2">Section Title</Text>
-      <Text as="h3" variant="h3">Subsection Title</Text>
+      <Text as="h1" variant="h1">
+        Main Title
+      </Text>
+      <Text as="h2" variant="h2">
+        Section Title
+      </Text>
+      <Text as="h3" variant="h3">
+        Subsection Title
+      </Text>
     </>
   );
 }
@@ -170,7 +185,9 @@ import { Text } from '@grasdouble/lufa_design-system';
 export function LabeledField() {
   return (
     <>
-      <Text as="label" variant="label" htmlFor="email">Email Address</Text>
+      <Text as="label" variant="label" htmlFor="email">
+        Email Address
+      </Text>
       <input type="email" id="email" />
     </>
   );
@@ -196,29 +213,29 @@ Semantic colors adapt across themes: `primary`, `secondary`, `tertiary`, `succes
 import { Text } from '@grasdouble/lufa_design-system';
 
 export function TokenColorExample() {
-  return (
-    <Text color="secondary">Token-based color adapts to theme</Text>
-  );
+  return <Text color="secondary">Token-based color adapts to theme</Text>;
 }
 ```
 
-## Do / Don't
+## Do / Don’t
 
-### Do
+:::tip Do
 
 - Use semantic HTML via the `as` prop for headings, labels, and captions
 - Use semantic colors for status and emphasis
 - Use weight and variant together to communicate hierarchy
 - Use transform sparingly for labels and metadata
 - Combine Text with layout components for spacing
+  :::
 
-### Don't
+:::warning Don't
 
 - Use heading variants without matching heading elements
 - Skip heading levels in a content hierarchy
 - Hard-code colors in `style` when tokens suffice
 - Use uppercase for long passages of text
 - Mix too many weights in tight groups
+  :::
 
 ## Related Components
 

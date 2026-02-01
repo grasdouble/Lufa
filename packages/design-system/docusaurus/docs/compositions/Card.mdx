@@ -9,6 +9,8 @@ sidebar_position: 10
 import { Card } from '@grasdouble/lufa_design-system';
 
 import { DarkModeCompatible } from '../../src/components/DarkModeCompatible';
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
+import { AsDemo, LiveDemo } from '../../src/dsExamples/compositions/card';
 
 # Card
 
@@ -17,6 +19,13 @@ import { DarkModeCompatible } from '../../src/components/DarkModeCompatible';
 ## Overview
 
 **Card** groups related content with a background, border, and optional shadow. Use it to create visual separation for sections and items.
+
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: 'as', label: 'As', content: <AsDemo /> },
+  ]}
+/>
 
 ## Anatomy
 
@@ -50,11 +59,11 @@ Use `as` to render semantic containers.
 
 ## Props
 
-| Prop        | Type          | Default     | Description                                                                 |
-| ----------- | ------------- | ----------- | --------------------------------------------------------------------------- |
+| Prop        | Type          | Default     | Description                                                                  |
+| ----------- | ------------- | ----------- | ---------------------------------------------------------------------------- |
 | `as`        | `ElementType` | `'div'`     | Polymorphic prop to render a different element (e.g., `section`, `article`). |
-| `children`  | `ReactNode`   | `undefined` | The content inside the card.                                                |
-| `className` | `string`      | `undefined` | Additional CSS classes.                                                     |
+| `children`  | `ReactNode`   | `undefined` | The content inside the card.                                                 |
+| `className` | `string`      | `undefined` | Additional CSS classes.                                                      |
 
 ## Accessibility
 

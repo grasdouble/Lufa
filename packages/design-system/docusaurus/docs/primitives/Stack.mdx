@@ -9,6 +9,7 @@ sidebar_position: 2
 import { Stack } from '@grasdouble/lufa_design-system';
 
 import { DarkModeCompatible } from '../../src/components/DarkModeCompatible';
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
 import {
   AlignVariants,
   DirectionVariants,
@@ -37,9 +38,17 @@ Use `Stack` when you need…
 - Performance-optimized layouts (uses CSS `gap` instead of margins)
 - A foundation component for navigation bars, toolbars, lists, and form groups
 
-Live demo:
-
-<LiveDemo />
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: 'direction', label: 'Direction', content: <DirectionVariants /> },
+    { id: 'spacing', label: 'Spacing', content: <SpacingVariants /> },
+    { id: 'align', label: 'Align', content: <AlignVariants /> },
+    { id: 'justify', label: 'Justify', content: <JustifyVariants /> },
+    { id: 'wrap', label: 'Wrap', content: <WrapVariant /> },
+    { id: 'as', label: 'As', content: <PolymorphicVariant /> },
+  ]}
+/>
 
 ## Anatomy
 
@@ -296,23 +305,25 @@ export function TokenSpacingExample() {
 }
 ```
 
-## Do / Don't
+## Do / Don’t
 
-### Do
+:::tip Do
 
 - Use semantic HTML via the `as` prop for landmarks and lists
 - Use `spacing` tokens for consistent rhythm across layouts
 - Combine `align` and `justify` for precise positioning
 - Use `wrap={true}` for responsive horizontal layouts
 - Prefer Stack over ad-hoc flex divs for consistency
+  :::
 
-### Don't
+:::warning Don't
 
 - Use Stack for a single child when Box is enough
 - Add margins to Stack children instead of using `spacing`
 - Nest Stacks unnecessarily when a single Stack can work
 - Forget `aria-label` for navigation stacks
 - Mix `spacing` with child margins in the same layout
+  :::
 
 ## Related Components
 

@@ -12,22 +12,7 @@ import { Text } from '@grasdouble/lufa_design-system';
  * Demonstrates common use cases with simple variants
  */
 export function LiveDemo() {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <Text variant="h2" weight="bold">
-        Sample Heading
-      </Text>
-      <Text variant="body">
-        This is a paragraph of body text demonstrating the Text component with default styling.
-      </Text>
-      <Text variant="body" color="secondary">
-        Secondary text with reduced emphasis for supporting content.
-      </Text>
-      <Text variant="caption" color="tertiary" align="center">
-        Caption text centered for image descriptions
-      </Text>
-    </div>
-  );
+  return <Text>Default text</Text>;
 }
 
 /**
