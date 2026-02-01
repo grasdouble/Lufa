@@ -38,7 +38,7 @@ export function SizeVariants() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -50,7 +50,7 @@ export function SizeVariants() {
             alignItems: 'center',
             gap: 'var(--lufa-token-spacing-default)',
             padding: 'var(--lufa-token-spacing-compact)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
           }}
@@ -106,7 +106,7 @@ export function ColorVariants() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -118,7 +118,7 @@ export function ColorVariants() {
             alignItems: 'center',
             gap: 'var(--lufa-token-spacing-default)',
             padding: 'var(--lufa-token-spacing-compact)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
             color: value === 'currentColor' ? 'var(--lufa-token-color-text-accent)' : undefined,
@@ -161,7 +161,7 @@ export function TitleExamples() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -172,7 +172,7 @@ export function TitleExamples() {
           alignItems: 'center',
           gap: 'var(--lufa-token-spacing-default)',
           padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
+          border: '1px solid var(--lufa-token-color-border-light)',
           borderRadius: 'var(--lufa-token-radius-sm)',
           backgroundColor: 'var(--lufa-token-color-background-base)',
         }}
@@ -206,7 +206,7 @@ export function TitleExamples() {
           alignItems: 'center',
           gap: 'var(--lufa-token-spacing-default)',
           padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
+          border: '1px solid var(--lufa-token-color-border-light)',
           borderRadius: 'var(--lufa-token-radius-sm)',
           backgroundColor: 'var(--lufa-token-color-background-base)',
         }}
@@ -240,7 +240,7 @@ export function TitleExamples() {
           alignItems: 'center',
           gap: 'var(--lufa-token-spacing-default)',
           padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
+          border: '1px solid var(--lufa-token-color-border-light)',
           borderRadius: 'var(--lufa-token-radius-sm)',
           backgroundColor: 'var(--lufa-token-color-background-base)',
         }}
@@ -252,7 +252,7 @@ export function TitleExamples() {
             alignItems: 'center',
             justifyContent: 'center',
             padding: 'var(--lufa-token-spacing-compact)',
-            border: '1px solid var(--lufa-token-color-border-base)',
+            border: '1px solid var(--lufa-token-color-border-default)',
             borderRadius: 'var(--lufa-token-radius-base)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
             cursor: 'pointer',
@@ -296,7 +296,7 @@ export function PolymorphicVariant() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -307,7 +307,7 @@ export function PolymorphicVariant() {
           alignItems: 'center',
           gap: 'var(--lufa-token-spacing-default)',
           padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
+          border: '1px solid var(--lufa-token-color-border-light)',
           borderRadius: 'var(--lufa-token-radius-sm)',
           backgroundColor: 'var(--lufa-token-color-background-base)',
         }}
@@ -341,7 +341,7 @@ export function PolymorphicVariant() {
           alignItems: 'center',
           gap: 'var(--lufa-token-spacing-default)',
           padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
+          border: '1px solid var(--lufa-token-color-border-light)',
           borderRadius: 'var(--lufa-token-radius-sm)',
           backgroundColor: 'var(--lufa-token-color-background-base)',
         }}
@@ -375,7 +375,7 @@ export function PolymorphicVariant() {
           alignItems: 'center',
           gap: 'var(--lufa-token-spacing-default)',
           padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
+          border: '1px solid var(--lufa-token-color-border-light)',
           borderRadius: 'var(--lufa-token-radius-sm)',
           backgroundColor: 'var(--lufa-token-color-background-base)',
         }}

@@ -37,7 +37,7 @@ export function AllOrientations() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -49,7 +49,7 @@ export function AllOrientations() {
             flexDirection: 'column',
             gap: 'var(--lufa-token-spacing-compact)',
             padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
           }}
@@ -118,7 +118,7 @@ export function AllEmphasisLevels() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -130,7 +130,7 @@ export function AllEmphasisLevels() {
             flexDirection: 'column',
             gap: 'var(--lufa-token-spacing-compact)',
             padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
           }}
@@ -178,7 +178,7 @@ export function AllSpacing() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -187,7 +187,7 @@ export function AllSpacing() {
           key={value}
           style={{
             padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
           }}
@@ -215,7 +215,7 @@ export function AllSpacing() {
           <div
             style={{
               padding: '8px',
-              backgroundColor: 'var(--lufa-token-color-background-subtle)',
+              backgroundColor: 'var(--lufa-token-color-background-secondary)',
               borderRadius: 'var(--lufa-token-radius-sm)',
             }}
           >
@@ -245,7 +245,7 @@ export function LineStyles() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -257,7 +257,7 @@ export function LineStyles() {
             flexDirection: 'column',
             gap: 'var(--lufa-token-spacing-compact)',
             padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
           }}
@@ -289,9 +289,9 @@ export function LineStyles() {
       <div
         style={{
           padding: 'var(--lufa-token-spacing-default)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
+          border: '1px solid var(--lufa-token-color-border-light)',
           borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-subtle)',
+          backgroundColor: 'var(--lufa-token-color-background-secondary)',
         }}
       >
         <div

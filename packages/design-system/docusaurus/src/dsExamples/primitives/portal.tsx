@@ -22,7 +22,7 @@ export function PortalWithContainer() {
       style={{
         position: 'relative',
         minHeight: '120px',
-        border: '1px dashed var(--lufa-token-color-border-base)',
+        border: '1px dashed var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
         padding: '12px',
       }}
@@ -46,7 +46,7 @@ export function PortalWithContainer() {
               backgroundColor: 'var(--lufa-token-color-background-secondary)',
               color: 'var(--lufa-token-color-text-primary)',
               borderRadius: 'var(--lufa-token-radius-base)',
-              border: '1px solid var(--lufa-token-color-border-base)',
+              border: '1px solid var(--lufa-token-color-border-default)',
             }}
           >
             Scoped portal

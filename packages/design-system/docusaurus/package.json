@@ -35,6 +35,7 @@
     "@docusaurus/faster": "3.9.2",
     "@docusaurus/preset-classic": "3.9.2",
     "@docusaurus/theme-live-codeblock": "^3.9.2",
+    "@docusaurus/theme-common": "^3.9.2",
     "@easyops-cn/docusaurus-search-local": "^0.52.3",
     "@grasdouble/lufa_design-system": "workspace:^",
     "@grasdouble/lufa_design-system-tokens": "workspace:^",

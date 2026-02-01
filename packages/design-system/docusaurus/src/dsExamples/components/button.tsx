@@ -22,7 +22,7 @@ export function SizeVariantsDemo() {
         alignItems: 'center',
         gap: 'var(--lufa-token-spacing-default)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
         flexWrap: 'wrap',
       }}
@@ -48,7 +48,7 @@ export function LoadingStatesDemo() {
         alignItems: 'center',
         gap: 'var(--lufa-token-spacing-default)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
         flexWrap: 'wrap',
       }}
@@ -74,7 +74,7 @@ export function TypeVariantsDemo() {
         alignItems: 'center',
         gap: 'var(--lufa-token-spacing-default)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
         flexWrap: 'wrap',
       }}
@@ -100,7 +100,7 @@ export function VariantDemo() {
         alignItems: 'center',
         gap: 'var(--lufa-token-spacing-default)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
         flexWrap: 'wrap',
       }}
@@ -123,7 +123,7 @@ export function RadiusDemo() {
         alignItems: 'center',
         gap: 'var(--lufa-token-spacing-default)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
         flexWrap: 'wrap',
       }}
@@ -145,7 +145,7 @@ export function IconDemo() {
         alignItems: 'center',
         gap: 'var(--lufa-token-spacing-default)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
         flexWrap: 'wrap',
       }}

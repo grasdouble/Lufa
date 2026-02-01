@@ -34,7 +34,7 @@ export function AllVariants() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -46,7 +46,7 @@ export function AllVariants() {
             alignItems: 'center',
             gap: 'var(--lufa-token-spacing-default)',
             padding: 'var(--lufa-token-spacing-compact)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
           }}
@@ -94,7 +94,7 @@ export function AllSizes() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -106,7 +106,7 @@ export function AllSizes() {
             alignItems: 'center',
             gap: 'var(--lufa-token-spacing-default)',
             padding: 'var(--lufa-token-spacing-compact)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
           }}
@@ -150,7 +150,7 @@ export function WithDotIndicator() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -161,7 +161,7 @@ export function WithDotIndicator() {
           alignItems: 'center',
           gap: 'var(--lufa-token-spacing-default)',
           padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
+          border: '1px solid var(--lufa-token-color-border-light)',
           borderRadius: 'var(--lufa-token-radius-sm)',
           backgroundColor: 'var(--lufa-token-color-background-base)',
         }}
@@ -195,7 +195,7 @@ export function WithDotIndicator() {
           alignItems: 'center',
           gap: 'var(--lufa-token-spacing-default)',
           padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
+          border: '1px solid var(--lufa-token-color-border-light)',
           borderRadius: 'var(--lufa-token-radius-sm)',
           backgroundColor: 'var(--lufa-token-color-background-base)',
         }}
@@ -231,7 +231,7 @@ export function WithDotIndicator() {
           alignItems: 'center',
           gap: 'var(--lufa-token-spacing-default)',
           padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
+          border: '1px solid var(--lufa-token-color-border-light)',
           borderRadius: 'var(--lufa-token-radius-sm)',
           backgroundColor: 'var(--lufa-token-color-background-base)',
         }}

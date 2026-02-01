@@ -1,4 +1,5 @@
 import React from 'react';
+import { useColorMode } from '@docusaurus/theme-common';
 
 import styles from './LiveDemoSection.module.css';
 
@@ -16,6 +17,7 @@ type LiveDemoSectionProps = {
 };
 
 export function LiveDemoSection({ title = 'Live demo', children, tabs, defaultTabId }: LiveDemoSectionProps) {
+  const { colorMode } = useColorMode();
   const sectionId = React.useId();
   const resolvedTabs = tabs?.filter((tab) => tab && tab.content != null) ?? [];
   const hasTabs = resolvedTabs.length > 0;
@@ -26,6 +28,14 @@ export function LiveDemoSection({ title = 'Live demo', children, tabs, defaultTa
       )
     : 0;
   const [activeIndex, setActiveIndex] = React.useState(initialIndex);
+
+  React.useEffect(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    document.documentElement.dataset.mode = colorMode;
+  }, [colorMode]);
 
   return (
     <section className={styles.section}>
