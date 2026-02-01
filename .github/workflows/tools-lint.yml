@@ -49,4 +49,4 @@ jobs:
 
       # Step 7: Run type checking
       - name: Run type checking
-        run: pnpm all:type-check
+        run: pnpm all:typecheck
