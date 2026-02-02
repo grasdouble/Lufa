@@ -4,87 +4,11 @@
 
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](../../LICENSE.md)
 
-> **⚠️ Phase 6 Implementation - Coming Soon**
-
-Theme variants for the Lufa Design System v2. Will provide Token Architecture v2 based themes.
-
-**Part of the [Lufa Design System](../README.md)** - Pre-built Theme Variants
+Pre-built theme variants for the Lufa Design System. This package provides specialized color palettes and immersive environments based on the **Token Architecture v2**.
 
 ---
 
-## 🚧 Current Status
-
-**Phase:** Phase 6 (not yet started)  
-**Available Themes:** Default only (in tokens package)  
-**Legacy Themes:** Archived in `packages/design-system/themes-legacy/`
-
----
-
-## 🎯 Theme Architecture v2
-
-Themes in v2 will be generated from **token overrides** using Style Dictionary:
-
-```
-Token JSON → Style Dictionary → Theme CSS
-```
-
-**Benefits over legacy themes:**
-
-- ✅ Single source of truth (JSON token definitions)
-- ✅ Automatic consistency (derived tokens update)
-- ✅ Type-safe (TypeScript types generated)
-- ✅ Light/dark mode automatic
-- ✅ WCAG AAA contrast (pattern "on-X")
-
----
-
-## 📋 Planned Themes
-
-### Default Theme
-
-**Status:** ✅ Available in Token Architecture v2
-
-**Location:** `@grasdouble/lufa_design-system-tokens`
-
-```tsx
-import '@grasdouble/lufa_design-system/style.css';
-
-// Default theme included automatically
-```
-
----
-
-### Ocean Theme
-
-**Status:** ⏳ Phase 6
-
-**Color palette (from legacy):**
-
-- Primary: `#0077be` (ocean blue)
-- Secondary: `#00a8cc` (light cyan)
-
-**Personality:** Smooth, flowing, modern
-
-**Reference:** `packages/design-system/themes-legacy/src/ocean.css`
-
----
-
-### Forest Theme
-
-**Status:** ⏳ Phase 6
-
-**Color palette (from legacy):**
-
-- Primary: `#2d5016` (forest green)
-- Secondary: `#6a994e` (light green)
-
-**Personality:** Organic, grounded, natural
-
-**Reference:** `packages/design-system/themes-legacy/src/forest.css`
-
----
-
-## 🚀 Future Usage (Phase 6)
+## 🚀 Usage
 
 ### Installation
 
@@ -94,86 +18,92 @@ pnpm add @grasdouble/lufa_design-system-themes
 
 ### CSS Import
 
+Import your desired theme in your main entry file or global CSS:
+
 ```css
-/* Import a theme (Phase 6) */
+/* Core system styles are required first */
+@import '@grasdouble/lufa_design-system/style.css';
+
+/* Then import individual theme variants */
+@import '@grasdouble/lufa_design-system-themes/matrix.css';
+@import '@grasdouble/lufa_design-system-themes/cyberpunk.css';
 @import '@grasdouble/lufa_design-system-themes/ocean.css';
-/* or */
-@import '@grasdouble/lufa_design-system-themes/forest.css';
 ```
 
-### Apply Theme
+### Applying a Theme
+
+Themes are applied using the `data-color-theme` attribute on any parent element (usually `<html>` or `<body>`).
 
 ```html
-<!-- Ocean theme -->
-<html data-theme="ocean" data-mode="dark">
-  <!-- Your app -->
+<!-- Matrix theme in dark mode -->
+<html data-color-theme="matrix" data-mode="dark">
+  <body>...</body>
 </html>
-```
 
-### React/TypeScript
-
-```tsx
-import '@grasdouble/lufa_design-system-themes/ocean.css';
-
-function App() {
-  return <div data-theme="ocean">{/* Your app */}</div>;
-}
+<!-- Sunset theme in light mode -->
+<div data-color-theme="sunset" data-mode="light">
+  <section>Immersive sunset area</section>
+</div>
 ```
 
 ---
 
-## 🏗️ How to Create Themes (Phase 6)
+## 🎨 Available Themes
 
-### Step 1: Define Token Overrides
+Every theme includes a full set of **31 adaptive tokens** (Neutral, Brand, Semantic) for Light, Dark, and High Contrast modes.
 
-Create `packages/design-system/tokens/src/themes/ocean.json`:
+| Theme | Personality | Key Colors |
+| :--- | :--- | :--- |
+| **Default** | Balanced & professional | Blue 600, Gray 50-900 |
+| **Ocean** 🌊 | Smooth, flowing, marine | Cyan 600, Teal 500, Deep Deep Blue |
+| **Forest** 🌲 | Organic, grounded, natural | Emerald 600, Green 600, Dark Forest |
+| **Matrix** 💾 | Digital, cyber, cinematic | Neon Green, Mid-tone Green, Deep Black |
+| **Cyberpunk** 🎆 | Futuristic, neon, night-city | Fuchsia, Electric Cyan, Purple |
+| **Sunset** 🌅 | Warm, elegant, calm | Orange 600, Rose 500, Amber |
+| **Nordic** ❄️ | Minimalist, arctic, clean | Sky 500, Slate Blue, Ice White |
+| **Volcano** 🌋 | Powerful, intense, high-heat | Red 600, Orange 600, Charcoal |
+| **Coffee** ☕ | Retro, vintage, nostalgic | Amber 900, Yellow 800, Parchment |
+| **Volt** ⚡ | Industrial, high-visibility | Lime 400, Pure Black, Steel Gray |
 
-```json
-{
-  "theme": {
-    "ocean": {
-      "color": {
-        "brand": {
-          "primary": { "$value": "#0077be" }
-        }
-      }
-    }
-  }
-}
-```
+---
 
-### Step 2: Build Tokens
+## 🎯 Architecture
 
-```bash
-cd packages/design-system/tokens
-pnpm build
-# Generates dist/themes/ocean.css
-```
+Themes in v2 are designed to be fully immersive. Unlike traditional themes that only change primary colors, Lufa themes override:
 
-### Step 3: Copy to Themes Package
+- **Core Brand Tokens**: Primary and Secondary colors.
+- **Neutral Tokens**: Backgrounds, surfaces, borders, and text colors.
+- **Semantic Tokens**: Success, Error, Warning, and Info states.
+
+This ensures that the entire UI—from alert boxes to page backgrounds—morphs to match the theme's aesthetic.
+
+---
+
+## 🏗️ Development
+
+### Building Themes
+
+To compile the themes from `src/` to `dist/`:
 
 ```bash
 cd packages/design-system/themes
 pnpm build
-# Copies generated CSS to dist/
 ```
 
----
+### Adding a New Theme
 
-## 📚 Documentation
-
-**Token Architecture v2:** `packages/design-system/tokens/README.md`  
-**Legacy Themes (reference):** `packages/design-system/themes-legacy/`
-
----
-
-## 🔜 Timeline
-
-- **Phase 5A (current):** Default theme only
-- **Phase 6:** Ocean + Forest themes recreation
-- **Phase 7+:** Additional custom themes
+1. Create a new CSS file in `src/theme-name.css`.
+2. Define the tokens for `:root`, `[data-mode='dark']`, and `[data-mode='high-contrast']`.
+3. Add the theme to the `themes` array in `scripts/copy-themes.ts`.
+4. Export the file in `package.json`.
 
 ---
 
-**Status:** 🚧 Placeholder for Phase 6  
-**Current:** Use default theme from tokens package
+## 📚 Resources
+
+- **[Theme Switching Guide](./_docs/theme-switching-guide.md)**: Deep dive into implementation.
+- **[Token Architecture](../../tokens/_docs/token-architecture.md)**: Understanding how tokens work.
+
+---
+
+**Status:** ✅ Production Ready (v2)

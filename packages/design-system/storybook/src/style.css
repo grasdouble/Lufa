@@ -7,6 +7,13 @@
 @import '@grasdouble/lufa_design-system/style.css';
 @import '@grasdouble/lufa_design-system-themes/ocean.css';
 @import '@grasdouble/lufa_design-system-themes/forest.css';
+@import '@grasdouble/lufa_design-system-themes/matrix.css';
+@import '@grasdouble/lufa_design-system-themes/cyberpunk.css';
+@import '@grasdouble/lufa_design-system-themes/sunset.css';
+@import '@grasdouble/lufa_design-system-themes/nordic.css';
+@import '@grasdouble/lufa_design-system-themes/volcano.css';
+@import '@grasdouble/lufa_design-system-themes/coffee.css';
+@import '@grasdouble/lufa_design-system-themes/volt.css';
 
 /* Storybook-specific styles */
 #storybook-root {
