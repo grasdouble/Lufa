@@ -1,4 +1,4 @@
-name: Validate Design Tokens
+name: Tools:DS:Tokens:Validate Design Tokens
 
 on:
   pull_request:
