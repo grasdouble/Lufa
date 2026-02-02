@@ -1,0 +1,112 @@
+/**
+ * Lufa Design System - Coffee Theme
+ *
+ * Organic color palette with cream, coffee, and brown tones.
+ * Evokes nostalgia, vintage, and warm aesthetics.
+ *
+ * Usage: <html data-color-theme="coffee" data-mode="light|dark|high-contrast">
+ */
+
+/* ==================== LIGHT MODE (Default) ==================== */
+
+[data-color-theme='coffee'],
+[data-color-theme='coffee'][data-mode='light'] {
+  /* Core Brand Tokens */
+  --lufa-core-brand-primary: #78350f; /* Amber 900 */
+  --lufa-core-brand-primary-hover: #451a03;
+  --lufa-core-brand-primary-active: #2d1610;
+  --lufa-core-brand-secondary: #a16207; /* Yellow 800 */
+  --lufa-core-brand-secondary-hover: #854d0e;
+  --lufa-core-brand-secondary-active: #713f12;
+
+  /* Neutral Tokens - Coffee Light (Parchment) */
+  --lufa-core-neutral-background: #faf7f2;
+  --lufa-core-neutral-surface: #f3ece3;
+  --lufa-core-neutral-surface-hover: #eadecf;
+  --lufa-core-neutral-border: #d6c6b4;
+  --lufa-core-neutral-border-strong: #78350f;
+  --lufa-core-neutral-text-primary: #2d1610;
+  --lufa-core-neutral-text-secondary: #451a03;
+  --lufa-core-neutral-text-tertiary: #713f12;
+  --lufa-core-neutral-text-disabled: #eadecf;
+
+  /* Semantic Tokens - Toned down success/error */
+  --lufa-core-semantic-success: #15803d;
+  --lufa-core-semantic-success-subtle: #f0fdf4;
+  --lufa-core-semantic-success-border: #bbf7d0;
+  --lufa-core-semantic-success-hover: #166534;
+  --lufa-core-semantic-error: #991b1b;
+  --lufa-core-semantic-error-subtle: #fef2f2;
+  --lufa-core-semantic-error-border: #fecaca;
+  --lufa-core-semantic-error-hover: #7f1d1d;
+  --lufa-core-semantic-warning: #b45309;
+  --lufa-core-semantic-warning-subtle: #fffbeb;
+  --lufa-core-semantic-warning-border: #fde68a;
+  --lufa-core-semantic-warning-hover: #92400e;
+  --lufa-core-semantic-info: #1d4ed8;
+  --lufa-core-semantic-info-subtle: #eff6ff;
+  --lufa-core-semantic-info-border: #bfdbfe;
+  --lufa-core-semantic-info-hover: #1e40af;
+}
+
+/* ==================== DARK MODE ==================== */
+
+[data-color-theme='coffee'][data-mode='dark'] {
+  /* Core Brand Tokens */
+  --lufa-core-brand-primary: #d97706;
+  --lufa-core-brand-primary-hover: #fbbf24;
+  --lufa-core-brand-primary-active: #b45309;
+  --lufa-core-brand-secondary: #ca8a04;
+  --lufa-core-brand-secondary-hover: #eab308;
+  --lufa-core-brand-secondary-active: #a16207;
+
+  /* Neutral Tokens - Coffee Dark (Roasted) */
+  --lufa-core-neutral-background: #1a120b;
+  --lufa-core-neutral-surface: #2d2015;
+  --lufa-core-neutral-surface-hover: #3d2c1e;
+  --lufa-core-neutral-border: #4d3a2a;
+  --lufa-core-neutral-border-strong: #d97706;
+  --lufa-core-neutral-text-primary: #faf7f2;
+  --lufa-core-neutral-text-secondary: #eadecf;
+  --lufa-core-neutral-text-tertiary: #d6c6b4;
+  --lufa-core-neutral-text-disabled: #2d2015;
+
+  /* Semantic Tokens */
+  --lufa-core-semantic-success: #4ade80;
+  --lufa-core-semantic-success-subtle: #052e16;
+  --lufa-core-semantic-success-border: #14532d;
+  --lufa-core-semantic-success-hover: #86efac;
+  --lufa-core-semantic-error: #f87171;
+  --lufa-core-semantic-error-subtle: #450a0a;
+  --lufa-core-semantic-error-border: #7f1d1d;
+  --lufa-core-semantic-error-hover: #fca5a5;
+  --lufa-core-semantic-warning: #fbbf24;
+  --lufa-core-semantic-warning-subtle: #451a03;
+  --lufa-core-semantic-warning-border: #78350f;
+  --lufa-core-semantic-warning-hover: #fcd34d;
+  --lufa-core-semantic-info: #60a5fa;
+  --lufa-core-semantic-info-subtle: #172554;
+  --lufa-core-semantic-info-border: #1e3a8a;
+  --lufa-core-semantic-info-hover: #93c5fd;
+}
+
+/* ==================== HIGH CONTRAST MODE ==================== */
+
+[data-color-theme='coffee'][data-mode='high-contrast'] {
+  --lufa-core-brand-primary: #a16207;
+  --lufa-core-brand-primary-hover: #ca8a04;
+  --lufa-core-brand-primary-active: #854d0e;
+  --lufa-core-brand-secondary: #854d0e;
+  --lufa-core-brand-secondary-hover: #a16207;
+  --lufa-core-brand-secondary-active: #713f12;
+
+  --lufa-core-neutral-background: #000000;
+  --lufa-core-neutral-surface: #000000;
+  --lufa-core-neutral-surface-hover: #221100;
+  --lufa-core-neutral-border: #ca8a04;
+  --lufa-core-neutral-border-strong: #ca8a04;
+  --lufa-core-neutral-text-primary: #ffffff;
+  --lufa-core-neutral-text-secondary: #ffffff;
+  --lufa-core-neutral-text-tertiary: #ca8a04;
+  --lufa-core-neutral-text-disabled: #331100;
+}

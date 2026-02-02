@@ -28,7 +28,8 @@
 
 /* ==================== LIGHT MODE (Default) ==================== */
 
-[data-color-theme='ocean'] {
+[data-color-theme='ocean'],
+[data-color-theme='ocean'][data-mode='light'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #0891b2;
   --lufa-core-brand-primary-hover: #0e7490;
@@ -36,6 +37,35 @@
   --lufa-core-brand-secondary: #14b8a6;
   --lufa-core-brand-secondary-hover: #0d9488;
   --lufa-core-brand-secondary-active: #0f766e;
+
+  /* Neutral Tokens - Ocean Light */
+  --lufa-core-neutral-background: #f0f9ff;
+  --lufa-core-neutral-surface: #e0f2fe;
+  --lufa-core-neutral-surface-hover: #bae6fd;
+  --lufa-core-neutral-border: #7dd3fc;
+  --lufa-core-neutral-border-strong: #0891b2;
+  --lufa-core-neutral-text-primary: #0c4a6e;
+  --lufa-core-neutral-text-secondary: #0369a1;
+  --lufa-core-neutral-text-tertiary: #075985;
+  --lufa-core-neutral-text-disabled: #93c5fd;
+
+  /* Semantic Tokens - Ocean Light (Themed towards blues/teals) */
+  --lufa-core-semantic-success: #059669;
+  --lufa-core-semantic-success-subtle: #d1fae5;
+  --lufa-core-semantic-success-border: #6ee7b7;
+  --lufa-core-semantic-success-hover: #047857;
+  --lufa-core-semantic-error: #e11d48;
+  --lufa-core-semantic-error-subtle: #fff1f2;
+  --lufa-core-semantic-error-border: #fda4af;
+  --lufa-core-semantic-error-hover: #be123c;
+  --lufa-core-semantic-warning: #d97706;
+  --lufa-core-semantic-warning-subtle: #fef3c7;
+  --lufa-core-semantic-warning-border: #fcd34d;
+  --lufa-core-semantic-warning-hover: #b45309;
+  --lufa-core-semantic-info: #0284c7;
+  --lufa-core-semantic-info-subtle: #e0f2fe;
+  --lufa-core-semantic-info-border: #7dd3fc;
+  --lufa-core-semantic-info-hover: #0369a1;
 }
 
 /* ==================== DARK MODE ==================== */
@@ -48,16 +78,56 @@
   --lufa-core-brand-secondary: #2dd4bf;
   --lufa-core-brand-secondary-hover: #5eead4;
   --lufa-core-brand-secondary-active: #14b8a6;
+
+  /* Neutral Tokens - Ocean Dark (Deep Sea) */
+  --lufa-core-neutral-background: #082f49;
+  --lufa-core-neutral-surface: #0c4a6e;
+  --lufa-core-neutral-surface-hover: #075985;
+  --lufa-core-neutral-border: #0369a1;
+  --lufa-core-neutral-border-strong: #0ea5e9;
+  --lufa-core-neutral-text-primary: #f0f9ff;
+  --lufa-core-neutral-text-secondary: #bae6fd;
+  --lufa-core-neutral-text-tertiary: #7dd3fc;
+  --lufa-core-neutral-text-disabled: #0c4a6e;
+
+  /* Semantic Tokens - Ocean Dark */
+  --lufa-core-semantic-success: #34d399;
+  --lufa-core-semantic-success-subtle: #064e3b;
+  --lufa-core-semantic-success-border: #065f46;
+  --lufa-core-semantic-success-hover: #6ee7b7;
+  --lufa-core-semantic-error: #fb7185;
+  --lufa-core-semantic-error-subtle: #4c0519;
+  --lufa-core-semantic-error-border: #881337;
+  --lufa-core-semantic-error-hover: #fda4af;
+  --lufa-core-semantic-warning: #fbbf24;
+  --lufa-core-semantic-warning-subtle: #451a03;
+  --lufa-core-semantic-warning-border: #78350f;
+  --lufa-core-semantic-warning-hover: #fcd34d;
+  --lufa-core-semantic-info: #38bdf8;
+  --lufa-core-semantic-info-subtle: #082f49;
+  --lufa-core-semantic-info-border: #0c4a6e;
+  --lufa-core-semantic-info-hover: #7dd3fc;
 }
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
 [data-color-theme='ocean'][data-mode='high-contrast'] {
   /* Use system blue for maximum contrast in high-contrast mode */
-  --lufa-core-brand-primary: #0000ff;
-  --lufa-core-brand-primary-hover: #0000cc;
-  --lufa-core-brand-primary-active: #000099;
-  --lufa-core-brand-secondary: #0066cc;
-  --lufa-core-brand-secondary-hover: #0055aa;
-  --lufa-core-brand-secondary-active: #004488;
+  --lufa-core-brand-primary: #00ffff;
+  --lufa-core-brand-primary-hover: #33ffff;
+  --lufa-core-brand-primary-active: #00cccc;
+  --lufa-core-brand-secondary: #00ffcc;
+  --lufa-core-brand-secondary-hover: #33ffd6;
+  --lufa-core-brand-secondary-active: #00ccaa;
+
+  /* Neutral Tokens - High Contrast Blue */
+  --lufa-core-neutral-background: #000000;
+  --lufa-core-neutral-surface: #000000;
+  --lufa-core-neutral-surface-hover: #001122;
+  --lufa-core-neutral-border: #00ffff;
+  --lufa-core-neutral-border-strong: #00ffff;
+  --lufa-core-neutral-text-primary: #ffffff;
+  --lufa-core-neutral-text-secondary: #ffffff;
+  --lufa-core-neutral-text-tertiary: #00ffff;
+  --lufa-core-neutral-text-disabled: #004488;
 }

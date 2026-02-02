@@ -6,9 +6,15 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    "./default.css": "./dist/default.css",
     "./ocean.css": "./dist/ocean.css",
-    "./forest.css": "./dist/forest.css"
+    "./forest.css": "./dist/forest.css",
+    "./matrix.css": "./dist/matrix.css",
+    "./cyberpunk.css": "./dist/cyberpunk.css",
+    "./sunset.css": "./dist/sunset.css",
+    "./nordic.css": "./dist/nordic.css",
+    "./volcano.css": "./dist/volcano.css",
+    "./coffee.css": "./dist/coffee.css",
+    "./volt.css": "./dist/volt.css"
   },
   "files": [
     "dist",
