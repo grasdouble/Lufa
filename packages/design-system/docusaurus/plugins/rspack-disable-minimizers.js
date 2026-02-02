@@ -1,3 +1,4 @@
+/* global module */
 module.exports = function rspackDisableMinimizers() {
   return {
     name: 'rspack-disable-minimizers',

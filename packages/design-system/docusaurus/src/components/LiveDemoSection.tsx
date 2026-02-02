@@ -17,7 +17,7 @@ type LiveDemoSectionProps = {
 
 export function LiveDemoSection({ title = 'Live demo', children, tabs, defaultTabId }: LiveDemoSectionProps) {
   const sectionId = React.useId();
-  const resolvedTabs = tabs?.filter((tab) => tab && tab.content != null) ?? [];
+  const resolvedTabs = tabs?.filter((tab) => tab?.content != null) ?? [];
   const hasTabs = resolvedTabs.length > 0;
   const initialIndex = hasTabs
     ? Math.max(
@@ -40,7 +40,7 @@ export function LiveDemoSection({ title = 'Live demo', children, tabs, defaultTa
               const tabId = tab.id ?? `tab-${index}`;
               const buttonId = `${sectionId}-${tabId}`;
               const panelId = `${sectionId}-${tabId}-panel`;
-              const isActive = index == activeIndex;
+              const isActive = index === activeIndex;
 
               return (
                 <button

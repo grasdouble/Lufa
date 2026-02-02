@@ -1,8 +1,12 @@
+import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+const configDir = resolve(fileURLToPath(import.meta.url), '..');
 
 const config: Config = {
   title: 'Lufa Design System',
@@ -127,8 +131,8 @@ const config: Config = {
     ],
   ],
 
-  plugins: [require.resolve('./plugins/rspack-disable-minimizers.js')],
-  clientModules: [require.resolve('./src/clientModules/colorModeSync')],
+  plugins: [resolve(configDir, './plugins/rspack-disable-minimizers.js')],
+  clientModules: [resolve(configDir, './src/clientModules/colorModeSync')],
 
   themeConfig: {
     // Replace with your project's social card
