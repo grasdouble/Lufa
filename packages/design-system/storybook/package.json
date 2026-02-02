@@ -42,7 +42,7 @@
     "@vitejs/plugin-react": "^5.1.2",
     "eslint": "^9.39.2",
     "eslint-plugin-storybook": "^10.2.3",
-    "globals": "^17.2.0",
+    "globals": "^17.3.0",
     "prettier": "^3.8.1",
     "prettier-plugin-packagejson": "^3.0.0",
     "storybook": "^10.2.3",
