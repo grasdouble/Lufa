@@ -1,4 +1,4 @@
-name: Tools:Storybook-On-PR-Publish
+name: Tools:DS:Storybook:On-PR-Publish
 description: |
   This workflow publishes the Storybook to GitHub Pages for pull requests that are labeled with 'publish-storybook'.
   It is triggered when a pull request is opened, synchronized, reopened, or labeled.

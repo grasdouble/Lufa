@@ -1,0 +1,36 @@
+name: Tools:Dependabot:add-changeset
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  add-changeset:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: pnpm/action-setup@v4
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Create/Update changeset for dependency updates
+        uses: the-guild-org/changesets-dependencies-action@v1.2.2
+
+
+      - name: Commit changeset (if any)
+        run: |
+          if git status --porcelain | grep -q ".changeset/"; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add .changeset
+            git commit -m "chore: add changeset for dependabot update"
+            git push
+          fi
