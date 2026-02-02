@@ -1,5 +1,13 @@
 # @grasdouble/lufa_design-system
 
+## 0.10.1
+
+### Patch Changes
+
+- c13bb5e: Improve quality
+- Updated dependencies [c13bb5e]
+  - @grasdouble/lufa_design-system-tokens@0.6.2
+
 ## 0.10.0
 
 ### Minor Changes

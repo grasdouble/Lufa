@@ -1,5 +1,14 @@
 # @grasdouble/lufa_design-system-docusaurus
 
+## 0.7.3
+
+### Patch Changes
+
+- c13bb5e: Update Docusaurus docs with tabbed live demos, consistent Do/Don’t formatting, and playground fixes.
+- Updated dependencies [c13bb5e]
+  - @grasdouble/lufa_design-system-tokens@0.6.2
+  - @grasdouble/lufa_design-system@0.10.1
+
 ## 0.7.2
 
 ### Patch Changes

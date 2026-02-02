@@ -1,5 +1,11 @@
 # @grasdouble/lufa_design-system-tokens
 
+## 0.6.2
+
+### Patch Changes
+
+- c13bb5e: Improve quality
+
 ## 0.6.1
 
 ### Patch Changes
