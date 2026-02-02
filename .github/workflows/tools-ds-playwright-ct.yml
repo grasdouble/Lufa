@@ -1,4 +1,4 @@
-name: Tools:Test:Playwright-CT
+name: Tools:DS:Playwright:Component-Tests
 
 on:
   pull_request:
