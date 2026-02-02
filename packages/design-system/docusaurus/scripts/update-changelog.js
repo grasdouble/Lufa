@@ -24,7 +24,9 @@ const DOCUSAURUS_CONFIG_PATH = join(__dirname, '../docusaurus.config.ts');
  */
 function parseChangelog(content) {
   const lines = content.split('\n');
+  /** @type {Array<{version: string, changes: string[], changeType?: string}>} */
   const releases = [];
+  /** @type {{version: string, changes: string[], changeType?: string} | null} */
   let currentRelease = null;
   let inChanges = false;
 
@@ -48,13 +50,16 @@ function parseChangelog(content) {
     // Detect change type headers
     if (line.match(/^### (Major Changes|Minor Changes|Patch Changes)/)) {
       inChanges = true;
-      currentRelease.changeType = line.replace('### ', '').trim();
+      if (currentRelease) {
+        currentRelease.changeType = line.replace('### ', '').trim();
+      }
       continue;
     }
 
     // Collect changes
     if (inChanges && currentRelease && line.startsWith('- ')) {
-      currentRelease.changes.push(line.replace(/^- /, '').trim());
+      const changeText = String(line.replace(/^- /, '')).trim();
+      currentRelease.changes.push(changeText);
     }
   }
 

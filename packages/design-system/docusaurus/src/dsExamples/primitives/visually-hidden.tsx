@@ -8,23 +8,27 @@ import { VisuallyHidden } from '@grasdouble/lufa_design-system';
 
 export function LiveDemo() {
   return (
-    <button
-      type="button"
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '8px',
-        padding: '8px 12px',
-        backgroundColor: 'var(--lufa-token-color-background-secondary)',
-        border: '1px solid var(--lufa-token-color-border-base)',
-        borderRadius: 'var(--lufa-token-radius-base)',
-        color: 'var(--lufa-token-color-text-primary)',
-        cursor: 'pointer',
-      }}
-    >
+    <button type="button">
       <span aria-hidden="true">🔍</span>
       <VisuallyHidden>Search</VisuallyHidden>
       <span>Search</span>
     </button>
+  );
+}
+
+export function AsElementDemo() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <div>
+        <span aria-hidden="true">🔔</span>
+        <VisuallyHidden as="span">Notifications</VisuallyHidden>
+        <span style={{ marginLeft: '8px' }}>As span</span>
+      </div>
+      <div>
+        <span aria-hidden="true">📌</span>
+        <VisuallyHidden as="div">Pinned</VisuallyHidden>
+        <span style={{ marginLeft: '8px' }}>As div</span>
+      </div>
+    </div>
   );
 }

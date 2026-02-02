@@ -13,18 +13,11 @@ import { Stack } from '@grasdouble/lufa_design-system';
  */
 export function LiveDemo() {
   return (
-    <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-      <Stack spacing="default" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Item 1</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Item 2</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Item 3</div>
-      </Stack>
-      <Stack direction="horizontal" spacing="default" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>A</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>B</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>C</div>
-      </Stack>
-    </div>
+    <Stack>
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </Stack>
   );
 }
 
@@ -40,20 +33,52 @@ export function DirectionVariants() {
         <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', fontWeight: 600 }}>
           direction=&quot;vertical&quot; (default)
         </h4>
-        <Stack direction="vertical" spacing="default" style={{ border: '1px solid #ccc', padding: '16px' }}>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>First item</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Second item</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Third item</div>
+        <Stack
+          direction="vertical"
+          spacing="default"
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}
+        >
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            First item
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Second item
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Third item
+          </div>
         </Stack>
       </section>
 
       {/* Horizontal Stack */}
       <section>
         <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', fontWeight: 600 }}>direction=&quot;horizontal&quot;</h4>
-        <Stack direction="horizontal" spacing="default" style={{ border: '1px solid #ccc', padding: '16px' }}>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>First item</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Second item</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Third item</div>
+        <Stack
+          direction="horizontal"
+          spacing="default"
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}
+        >
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            First item
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Second item
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Third item
+          </div>
         </Stack>
       </section>
     </div>
@@ -67,34 +92,48 @@ export function DirectionVariants() {
 export function SpacingVariants() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      <Stack spacing="none" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>spacing=&quot;none&quot; (0px)</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>No gap between items</div>
+      <Stack spacing="none" style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          spacing=&quot;none&quot; (0px)
+        </div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          No gap between items
+        </div>
       </Stack>
 
-      <Stack spacing="tight" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>spacing=&quot;tight&quot; (4px)</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Minimal spacing</div>
+      <Stack spacing="tight" style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          spacing=&quot;tight&quot; (4px)
+        </div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Minimal spacing</div>
       </Stack>
 
-      <Stack spacing="compact" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>spacing=&quot;compact&quot; (8px)</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Small spacing</div>
+      <Stack spacing="compact" style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          spacing=&quot;compact&quot; (8px)
+        </div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Small spacing</div>
       </Stack>
 
-      <Stack spacing="default" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>spacing=&quot;default&quot; (16px)</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Standard spacing</div>
+      <Stack spacing="default" style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          spacing=&quot;default&quot; (16px)
+        </div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Standard spacing</div>
       </Stack>
 
-      <Stack spacing="comfortable" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>spacing=&quot;comfortable&quot; (24px)</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Generous spacing</div>
+      <Stack spacing="comfortable" style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          spacing=&quot;comfortable&quot; (24px)
+        </div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Generous spacing</div>
       </Stack>
 
-      <Stack spacing="spacious" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>spacing=&quot;spacious&quot; (32px)</div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Large spacing</div>
+      <Stack spacing="spacious" style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          spacing=&quot;spacious&quot; (32px)
+        </div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Large spacing</div>
       </Stack>
     </div>
   );
@@ -113,11 +152,27 @@ export function AlignVariants() {
           direction="horizontal"
           spacing="default"
           align="start"
-          style={{ border: '1px solid #ccc', padding: '16px', minHeight: '120px' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', minHeight: '120px' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Short</div>
-          <div style={{ padding: '12px 12px 40px', background: '#e0e0e0', borderRadius: '4px' }}>Taller item</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Short</div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Short
+          </div>
+          <div
+            style={{
+              padding: '12px 12px 40px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+            }}
+          >
+            Taller item
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Short
+          </div>
         </Stack>
       </section>
 
@@ -127,11 +182,27 @@ export function AlignVariants() {
           direction="horizontal"
           spacing="default"
           align="center"
-          style={{ border: '1px solid #ccc', padding: '16px', minHeight: '120px' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', minHeight: '120px' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Short</div>
-          <div style={{ padding: '12px 12px 40px', background: '#e0e0e0', borderRadius: '4px' }}>Taller item</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Short</div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Short
+          </div>
+          <div
+            style={{
+              padding: '12px 12px 40px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+            }}
+          >
+            Taller item
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Short
+          </div>
         </Stack>
       </section>
 
@@ -141,11 +212,27 @@ export function AlignVariants() {
           direction="horizontal"
           spacing="default"
           align="end"
-          style={{ border: '1px solid #ccc', padding: '16px', minHeight: '120px' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', minHeight: '120px' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Short</div>
-          <div style={{ padding: '12px 12px 40px', background: '#e0e0e0', borderRadius: '4px' }}>Taller item</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Short</div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Short
+          </div>
+          <div
+            style={{
+              padding: '12px 12px 40px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+            }}
+          >
+            Taller item
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Short
+          </div>
         </Stack>
       </section>
 
@@ -155,11 +242,27 @@ export function AlignVariants() {
           direction="horizontal"
           spacing="default"
           align="stretch"
-          style={{ border: '1px solid #ccc', padding: '16px', minHeight: '120px' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', minHeight: '120px' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Stretches</div>
-          <div style={{ padding: '12px 12px 40px', background: '#e0e0e0', borderRadius: '4px' }}>Taller item</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Stretches</div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Stretches
+          </div>
+          <div
+            style={{
+              padding: '12px 12px 40px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+            }}
+          >
+            Taller item
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Stretches
+          </div>
         </Stack>
       </section>
 
@@ -169,13 +272,38 @@ export function AlignVariants() {
           direction="horizontal"
           spacing="default"
           align="baseline"
-          style={{ border: '1px solid #ccc', padding: '16px', minHeight: '120px' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', minHeight: '120px' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', fontSize: '14px' }}>Text A</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', fontSize: '20px' }}>
+          <div
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+              fontSize: '14px',
+            }}
+          >
+            Text A
+          </div>
+          <div
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+              fontSize: '20px',
+            }}
+          >
             Text B (larger)
           </div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', fontSize: '14px' }}>Text C</div>
+          <div
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+              fontSize: '14px',
+            }}
+          >
+            Text C
+          </div>
         </Stack>
       </section>
     </div>
@@ -195,11 +323,23 @@ export function JustifyVariants() {
           direction="horizontal"
           spacing="default"
           justify="start"
-          style={{ border: '1px solid #ccc', padding: '16px', width: '100%' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', width: '100%' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 1</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 2</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 3</div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 1
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 2
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 3
+          </div>
         </Stack>
       </section>
 
@@ -209,11 +349,23 @@ export function JustifyVariants() {
           direction="horizontal"
           spacing="default"
           justify="center"
-          style={{ border: '1px solid #ccc', padding: '16px', width: '100%' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', width: '100%' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 1</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 2</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 3</div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 1
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 2
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 3
+          </div>
         </Stack>
       </section>
 
@@ -223,11 +375,23 @@ export function JustifyVariants() {
           direction="horizontal"
           spacing="default"
           justify="end"
-          style={{ border: '1px solid #ccc', padding: '16px', width: '100%' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', width: '100%' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 1</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 2</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 3</div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 1
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 2
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 3
+          </div>
         </Stack>
       </section>
 
@@ -237,11 +401,23 @@ export function JustifyVariants() {
           direction="horizontal"
           spacing="default"
           justify="space-between"
-          style={{ border: '1px solid #ccc', padding: '16px', width: '100%' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', width: '100%' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 1</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 2</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 3</div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 1
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 2
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 3
+          </div>
         </Stack>
       </section>
 
@@ -251,11 +427,23 @@ export function JustifyVariants() {
           direction="horizontal"
           spacing="default"
           justify="space-around"
-          style={{ border: '1px solid #ccc', padding: '16px', width: '100%' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', width: '100%' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 1</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 2</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 3</div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 1
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 2
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 3
+          </div>
         </Stack>
       </section>
 
@@ -265,11 +453,23 @@ export function JustifyVariants() {
           direction="horizontal"
           spacing="default"
           justify="space-evenly"
-          style={{ border: '1px solid #ccc', padding: '16px', width: '100%' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', width: '100%' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 1</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 2</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px' }}>Item 3</div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 1
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 2
+          </div>
+          <div
+            style={{ padding: '12px', background: 'var(--lufa-token-color-background-secondary)', borderRadius: '4px' }}
+          >
+            Item 3
+          </div>
         </Stack>
       </section>
     </div>
@@ -289,12 +489,48 @@ export function WrapVariant() {
           direction="horizontal"
           spacing="default"
           wrap={false}
-          style={{ border: '1px solid #ccc', padding: '16px', maxWidth: '400px' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', maxWidth: '400px' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', minWidth: '100px' }}>Item 1</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', minWidth: '100px' }}>Item 2</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', minWidth: '100px' }}>Item 3</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', minWidth: '100px' }}>Item 4</div>
+          <div
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+              minWidth: '100px',
+            }}
+          >
+            Item 1
+          </div>
+          <div
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+              minWidth: '100px',
+            }}
+          >
+            Item 2
+          </div>
+          <div
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+              minWidth: '100px',
+            }}
+          >
+            Item 3
+          </div>
+          <div
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+              minWidth: '100px',
+            }}
+          >
+            Item 4
+          </div>
         </Stack>
       </section>
 
@@ -304,12 +540,48 @@ export function WrapVariant() {
           direction="horizontal"
           spacing="default"
           wrap
-          style={{ border: '1px solid #ccc', padding: '16px', maxWidth: '400px' }}
+          style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px', maxWidth: '400px' }}
         >
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', minWidth: '100px' }}>Item 1</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', minWidth: '100px' }}>Item 2</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', minWidth: '100px' }}>Item 3</div>
-          <div style={{ padding: '12px', background: '#e0e0e0', borderRadius: '4px', minWidth: '100px' }}>Item 4</div>
+          <div
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+              minWidth: '100px',
+            }}
+          >
+            Item 1
+          </div>
+          <div
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+              minWidth: '100px',
+            }}
+          >
+            Item 2
+          </div>
+          <div
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+              minWidth: '100px',
+            }}
+          >
+            Item 3
+          </div>
+          <div
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-token-color-background-secondary)',
+              borderRadius: '4px',
+              minWidth: '100px',
+            }}
+          >
+            Item 4
+          </div>
         </Stack>
       </section>
     </div>
@@ -323,37 +595,58 @@ export function WrapVariant() {
 export function PolymorphicVariant() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <Stack as="section" spacing="default" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>
+      <Stack
+        as="section"
+        spacing="default"
+        style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}
+      >
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
           <strong>as=&quot;section&quot;</strong> - Thematic content section
         </div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Contains related content</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          Contains related content
+        </div>
       </Stack>
 
-      <Stack as="nav" spacing="default" style={{ border: '1px solid #ccc', padding: '16px' }} aria-label="Example">
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>
+      <Stack
+        as="nav"
+        spacing="default"
+        style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}
+        aria-label="Example"
+      >
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
           <strong>as=&quot;nav&quot;</strong> - Navigation links
         </div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Navigation items</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Navigation items</div>
       </Stack>
 
       <Stack
         as="ul"
         spacing="default"
-        style={{ border: '1px solid #ccc', padding: '16px', listStyle: 'none', margin: 0 }}
+        style={{
+          border: '1px solid var(--lufa-token-color-border-default)',
+          padding: '16px',
+          listStyle: 'none',
+          margin: 0,
+        }}
       >
-        <li style={{ padding: '8px', background: '#e0e0e0' }}>
+        <li style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
           <strong>as=&quot;ul&quot;</strong> - Unordered list
         </li>
-        <li style={{ padding: '8px', background: '#e0e0e0' }}>List item 2</li>
-        <li style={{ padding: '8px', background: '#e0e0e0' }}>List item 3</li>
+        <li style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>List item 2</li>
+        <li style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>List item 3</li>
       </Stack>
 
-      <Stack as="div" direction="horizontal" spacing="default" style={{ border: '1px solid #ccc', padding: '16px' }}>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>
+      <Stack
+        as="div"
+        direction="horizontal"
+        spacing="default"
+        style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}
+      >
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
           <strong>as=&quot;div&quot;</strong> (default)
         </div>
-        <div style={{ padding: '8px', background: '#e0e0e0' }}>Generic container</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Generic container</div>
       </Stack>
     </div>
   );

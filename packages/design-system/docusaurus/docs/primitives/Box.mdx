@@ -6,6 +6,7 @@ description: A flexible, polymorphic container component for layout and spacing.
 ---
 
 import { DarkModeCompatible } from '../../src/components/DarkModeCompatible';
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
 import {
   BackgroundVariants,
   BorderVariants,
@@ -32,9 +33,17 @@ Use `Box` when you need…
 - A performance-optimized container (uses CSS classes, not inline styles)
 - Token-based design values that automatically adapt to light and dark themes
 
-Live demo:
-
-<LiveDemo />
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: 'padding', label: 'Padding', content: <PaddingVariants /> },
+    { id: 'margin', label: 'Margin', content: <MarginVariants /> },
+    { id: 'background', label: 'Background', content: <BackgroundVariants /> },
+    { id: 'border', label: 'Border', content: <BorderVariants /> },
+    { id: 'display', label: 'Display', content: <DisplayVariants /> },
+    { id: 'as', label: 'As', content: <PolymorphicVariant /> },
+  ]}
+/>
 
 ## Anatomy
 
@@ -56,13 +65,7 @@ export function BasicBox() {
   return (
     <>
       <Box padding="default">Content</Box>
-      <Box
-        padding="comfortable"
-        background="surface"
-        borderRadius="medium"
-        borderWidth="thin"
-        borderColor="default"
-      >
+      <Box padding="comfortable" background="surface" borderRadius="medium" borderWidth="thin" borderColor="default">
         Card content
       </Box>
     </>
@@ -85,32 +88,6 @@ export function SemanticSection() {
   );
 }
 ```
-
-## Variants
-
-### Padding
-
-<PaddingVariants />
-
-### Margin
-
-<MarginVariants />
-
-### Background
-
-<BackgroundVariants />
-
-### Border
-
-<BorderVariants />
-
-### Display
-
-<DisplayVariants />
-
-### Polymorphic (`as` prop)
-
-<PolymorphicVariant />
 
 ## Props
 
@@ -182,21 +159,23 @@ export function LandmarkExample() {
 
 All semantic background tokens are tested in light and dark themes to meet WCAG 2.1 AA contrast requirements for text.
 
-## Do / Don't
+## Do / Don’t
 
-### Do
+:::tip Do
 
 - Use semantic HTML via the `as` prop for landmarks and sections
 - Pair `borderWidth` with `borderColor` when you want a visible border
 - Use spacing tokens consistently to keep visual rhythm
 - Prefer `Box` over custom divs for consistent token usage
+  :::
 
-### Don't
+:::warning Don't
 
 - Use `Box` for everything when plain semantic HTML is enough
 - Set `borderWidth` without `borderColor`
 - Hardcode spacing values in `style` when tokens are available
 - Make non-interactive Boxes focusable without a reason
+  :::
 
 ## Related Components
 

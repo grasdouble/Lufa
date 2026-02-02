@@ -7,15 +7,19 @@ description: A component that hides content visually but leaves it available to 
 
 # VisuallyHidden
 
-import { LiveDemo } from '../../src/dsExamples/primitives/visually-hidden';
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
+import { AsElementDemo, LiveDemo } from '../../src/dsExamples/primitives/visually-hidden';
 
 ## Overview
 
 **VisuallyHidden** hides content visually while keeping it in the accessibility tree. Use it to provide screen reader context for icon-only controls or decorative UI.
 
-Live demo:
-
-<LiveDemo />
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: 'as', label: 'As', content: <AsElementDemo /> },
+  ]}
+/>
 
 ## Anatomy
 
@@ -25,30 +29,20 @@ Live demo:
 ## Usage
 
 ```tsx
-import { VisuallyHidden, Icon } from '@grasdouble/lufa_design-system';
+import { Icon, VisuallyHidden } from '@grasdouble/lufa_design-system';
 
 <button>
   <Icon name="search" />
   <VisuallyHidden>Search</VisuallyHidden>
-</button>
-```
-
-## Variants
-
-### Semantic Element
-
-Use `as` to render the hidden content as a different HTML element.
-
-```tsx
-<VisuallyHidden as="span">Hidden label</VisuallyHidden>
+</button>;
 ```
 
 ## Props
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `as` | `ElementType` | `'span'` | The HTML element to render. |
-| `children` | `ReactNode` | - | The content to hide. |
+| Prop       | Type          | Default  | Description                 |
+| :--------- | :------------ | :------- | :-------------------------- |
+| `as`       | `ElementType` | `'span'` | The HTML element to render. |
+| `children` | `ReactNode`   | -        | The content to hide.        |
 
 ## Accessibility
 

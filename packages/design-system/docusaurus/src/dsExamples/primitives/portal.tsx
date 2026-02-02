@@ -9,20 +9,51 @@ import { Portal } from '@grasdouble/lufa_design-system';
 export function LiveDemo() {
   return (
     <Portal>
-      <div
-        style={{
-          position: 'fixed',
-          bottom: 16,
-          right: 16,
-          padding: '12px 16px',
-          backgroundColor: 'var(--lufa-token-color-background-primary)',
-          color: 'var(--lufa-token-color-text-inverse)',
-          borderRadius: 'var(--lufa-token-radius-base)',
-          border: '1px solid var(--lufa-token-color-border-base)',
-        }}
-      >
-        Portal content
-      </div>
+      <div>Portal content</div>
     </Portal>
+  );
+}
+
+export function PortalWithContainer() {
+  const [container, setContainer] = React.useState<HTMLDivElement | null>(null);
+
+  return (
+    <div
+      style={{
+        position: 'relative',
+        minHeight: '120px',
+        border: '1px dashed var(--lufa-token-color-border-default)',
+        borderRadius: 'var(--lufa-token-radius-base)',
+        padding: '12px',
+      }}
+    >
+      <div
+        ref={(node) => {
+          if (node && container !== node) {
+            setContainer(node);
+          }
+        }}
+        style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}
+      />
+      {container ? (
+        <Portal container={container}>
+          <div
+            style={{
+              position: 'absolute',
+              top: 12,
+              right: 12,
+              padding: '8px 12px',
+              backgroundColor: 'var(--lufa-token-color-background-secondary)',
+              color: 'var(--lufa-token-color-text-primary)',
+              borderRadius: 'var(--lufa-token-radius-base)',
+              border: '1px solid var(--lufa-token-color-border-default)',
+            }}
+          >
+            Scoped portal
+          </div>
+        </Portal>
+      ) : null}
+      <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>Container host</div>
+    </div>
   );
 }

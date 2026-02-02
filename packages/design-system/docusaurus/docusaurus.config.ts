@@ -1,8 +1,12 @@
+import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+const configDir = resolve(fileURLToPath(import.meta.url), '..');
 
 const config: Config = {
   title: 'Lufa Design System',
@@ -11,7 +15,9 @@ const config: Config = {
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: {
+      useCssCascadeLayers: false,
+    },
     experimental_faster: {
       rspackBundler: true, // Use Rspack instead of Webpack for faster builds
     },
@@ -79,7 +85,7 @@ const config: Config = {
 
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
@@ -99,7 +105,7 @@ const config: Config = {
         },
         blog: false, // Disable blog for design system docs
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: ['./src/css/custom.css'],
         },
         sitemap: {
           changefreq: 'weekly',
@@ -124,6 +130,9 @@ const config: Config = {
       },
     ],
   ],
+
+  plugins: [resolve(configDir, './plugins/rspack-disable-minimizers.js')],
+  clientModules: [resolve(configDir, './src/clientModules/colorModeSync')],
 
   themeConfig: {
     // Replace with your project's social card

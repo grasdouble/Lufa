@@ -42,6 +42,22 @@ If `useState` or components are not in scope, import them in the MDX file or add
 - Show realistic props and default usage.
 - Prefer one good example over many variations.
 
+## Live Demo Tabs
+
+When using `LiveDemoSection` in docs, group examples by tabs:
+
+- Always include a **Default** tab first.
+- Then add one tab per primary prop.
+
+```mdx
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: 'size', label: 'Size', content: <SizeDemo /> },
+  ]}
+/>
+```
+
 ## Common Checks
 
 - Examples compile without warnings.

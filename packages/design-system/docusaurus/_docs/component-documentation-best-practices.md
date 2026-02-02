@@ -16,6 +16,7 @@ This guide defines how to write clear, consistent component documentation for th
    - Short list of the main parts (slot names or sub-elements).
 3. **Usage**
    - Minimal example that demonstrates the default case.
+   - Avoid non-default props in the default example.
 4. **Variants**
    - Show all supported variants with a short explanation.
 5. **Props**
@@ -25,6 +26,7 @@ This guide defines how to write clear, consistent component documentation for th
 7. **Theming & Tokens**
    - Which tokens affect visuals and which are theme-aware.
 8. **Do / Don’t**
+   - Use Docusaurus admonitions: `:::tip Do` and `:::warning Don’t`.
    - Two or three concrete examples.
 9. **Related Components**
    - Links to similar or complementary components.
@@ -59,6 +61,7 @@ This guide defines how to write clear, consistent component documentation for th
 - Use short, direct sentences.
 - Prefer concrete examples over abstract descriptions.
 - Keep headings consistent across components.
+- Keep Do/Don’t formatting consistent with the admonition pattern.
 
 ## Content Checklist
 
@@ -76,6 +79,13 @@ This guide defines how to write clear, consistent component documentation for th
 - Prefer a single focused example over a long, exhaustive one.
 - Avoid app-specific context or business logic.
 - If a prop has tricky behavior, show it explicitly.
+- For default examples, use the component with no extra props whenever possible.
+
+## Live Demo Tabs
+
+- Use `LiveDemoSection` with `tabs` to separate examples.
+- Always include a **Default** tab first.
+- Then add one tab per primary prop (the props highlighted in Variants/Usage).
 
 ## Accessibility Notes
 

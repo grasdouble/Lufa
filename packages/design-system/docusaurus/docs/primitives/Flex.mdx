@@ -7,15 +7,30 @@ description: A layout component for creating flexible box layouts.
 
 # Flex
 
-import { LiveDemo } from '../../src/dsExamples/primitives/flex';
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
+import {
+  AlignDemo,
+  DirectionDemo,
+  GapDemo,
+  JustifyDemo,
+  LiveDemo,
+  WrapDemo,
+} from '../../src/dsExamples/primitives/flex';
 
 ## Overview
 
 **Flex** is a Box with `display: flex` and shorthand props for common flexbox controls. Use it for one‑dimensional layout (row or column).
 
-Live demo:
-
-<LiveDemo />
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: 'direction', label: 'Direction', content: <DirectionDemo /> },
+    { id: 'align', label: 'Align', content: <AlignDemo /> },
+    { id: 'justify', label: 'Justify', content: <JustifyDemo /> },
+    { id: 'gap', label: 'Gap', content: <GapDemo /> },
+    { id: 'wrap', label: 'Wrap', content: <WrapDemo /> },
+  ]}
+/>
 
 ## Anatomy
 
@@ -30,41 +45,21 @@ import { Flex } from '@grasdouble/lufa_design-system';
 <Flex justify="between" align="center">
   <div>Left</div>
   <div>Right</div>
-</Flex>
-```
-
-## Variants
-
-### Direction and Gap
-
-```tsx
-<Flex direction="column" gap="default">
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-</Flex>
-```
-
-### Alignment and Justification
-
-```tsx
-<Flex justify="center" align="center">
-  Centered content
-</Flex>
+</Flex>;
 ```
 
 ## Props
 
 Flex inherits all **Box** props.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `direction` | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'` | `'row'` | `flex-direction`. |
-| `wrap` | `'nowrap' \| 'wrap' \| 'wrap-reverse'` | `'nowrap'` | `flex-wrap`. |
-| `justify` | `'start' \| 'end' \| 'center' \| 'between' \| 'around' \| 'evenly'` | `'start'` | `justify-content`. |
-| `align` | `'start' \| 'end' \| 'center' \| 'baseline' \| 'stretch'` | `'stretch'` | `align-items`. |
-| `gap` | `'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'` | - | Tokenized gap. |
-| `inline` | `boolean` | `false` | Sets `display: inline-flex`. |
+| Prop        | Type                                                                | Default     | Description                  |
+| :---------- | :------------------------------------------------------------------ | :---------- | :--------------------------- |
+| `direction` | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'`            | `'row'`     | `flex-direction`.            |
+| `wrap`      | `'nowrap' \| 'wrap' \| 'wrap-reverse'`                              | `'nowrap'`  | `flex-wrap`.                 |
+| `justify`   | `'start' \| 'end' \| 'center' \| 'between' \| 'around' \| 'evenly'` | `'start'`   | `justify-content`.           |
+| `align`     | `'start' \| 'end' \| 'center' \| 'baseline' \| 'stretch'`           | `'stretch'` | `align-items`.               |
+| `gap`       | `'tight' \| 'compact' \| 'default' \| 'comfortable' \| 'spacious'`  | -           | Tokenized gap.               |
+| `inline`    | `boolean`                                                           | `false`     | Sets `display: inline-flex`. |
 
 ## Accessibility
 

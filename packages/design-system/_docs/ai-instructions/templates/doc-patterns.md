@@ -2,6 +2,7 @@
 
 > **Strict patterns aligned with Docusaurus docs rules.**
 > Source of truth:
+>
 > - `packages/design-system/docusaurus/_docs/component-documentation-best-practices.md`
 > - `packages/design-system/docusaurus/_docs/adding-a-new-page.md`
 > - `packages/design-system/docusaurus/_docs/writing-code-examples.md`
@@ -33,6 +34,13 @@ import { PropsTable } from '@site/src/components/PropsTable';
 
 [One short paragraph describing what it is and when to use it.]
 
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <LiveDemo /> },
+    { id: '[prop]', label: '[Prop]', content: <[PropDemo] /> },
+  ]}
+/>
+
 ## Anatomy
 
 - **Root**: [Description]
@@ -47,6 +55,8 @@ export function Example() {
   return <[ComponentName]>Content</[ComponentName]>;
 }
 ```
+
+Default usage examples must avoid non-default props.
 
 ## Variants
 

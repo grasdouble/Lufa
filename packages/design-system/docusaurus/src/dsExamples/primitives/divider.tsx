@@ -13,30 +13,10 @@ import { Divider } from '@grasdouble/lufa_design-system';
  */
 export function LiveDemo() {
   return (
-    <div
-      style={{
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
-        borderRadius: 'var(--lufa-token-radius-base)',
-      }}
-    >
-      <div
-        style={{
-          fontSize: 'var(--lufa-token-font-size-body)',
-          color: 'var(--lufa-token-color-text-primary)',
-        }}
-      >
-        Section Above
-      </div>
+    <div>
+      <div>Section Above</div>
       <Divider />
-      <div
-        style={{
-          fontSize: 'var(--lufa-token-font-size-body)',
-          color: 'var(--lufa-token-color-text-primary)',
-        }}
-      >
-        Section Below
-      </div>
+      <div>Section Below</div>
     </div>
   );
 }
@@ -57,7 +37,7 @@ export function AllOrientations() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -69,7 +49,7 @@ export function AllOrientations() {
             flexDirection: 'column',
             gap: 'var(--lufa-token-spacing-compact)',
             padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
           }}
@@ -138,7 +118,7 @@ export function AllEmphasisLevels() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -150,7 +130,7 @@ export function AllEmphasisLevels() {
             flexDirection: 'column',
             gap: 'var(--lufa-token-spacing-compact)',
             padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
           }}
@@ -198,7 +178,7 @@ export function AllSpacing() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -207,7 +187,7 @@ export function AllSpacing() {
           key={value}
           style={{
             padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
           }}
@@ -235,7 +215,7 @@ export function AllSpacing() {
           <div
             style={{
               padding: '8px',
-              backgroundColor: 'var(--lufa-token-color-background-subtle)',
+              backgroundColor: 'var(--lufa-token-color-background-secondary)',
               borderRadius: 'var(--lufa-token-radius-sm)',
             }}
           >
@@ -265,7 +245,7 @@ export function LineStyles() {
         flexDirection: 'column',
         gap: 'var(--lufa-token-spacing-comfortable)',
         padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
+        border: '1px solid var(--lufa-token-color-border-default)',
         borderRadius: 'var(--lufa-token-radius-base)',
       }}
     >
@@ -277,7 +257,7 @@ export function LineStyles() {
             flexDirection: 'column',
             gap: 'var(--lufa-token-spacing-compact)',
             padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-subtle)',
+            border: '1px solid var(--lufa-token-color-border-light)',
             borderRadius: 'var(--lufa-token-radius-sm)',
             backgroundColor: 'var(--lufa-token-color-background-base)',
           }}
@@ -309,9 +289,9 @@ export function LineStyles() {
       <div
         style={{
           padding: 'var(--lufa-token-spacing-default)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
+          border: '1px solid var(--lufa-token-color-border-light)',
           borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-subtle)',
+          backgroundColor: 'var(--lufa-token-color-background-secondary)',
         }}
       >
         <div
@@ -357,244 +337,6 @@ export function LineStyles() {
           <Divider lineStyle="dashed" emphasis="moderate" />
           <Divider lineStyle="dashed" emphasis="strong" />
           <Divider lineStyle="dashed" emphasis="bold" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/**
- * Real-world usage examples
- */
-export function RealWorldExamples() {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-base)',
-        borderRadius: 'var(--lufa-token-radius-base)',
-      }}
-    >
-      {/* Section breaks example */}
-      <div
-        style={{
-          padding: 'var(--lufa-token-spacing-default)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
-        }}
-      >
-        <div
-          style={{
-            fontSize: 'var(--lufa-token-font-size-sm)',
-            fontWeight: 'var(--lufa-token-font-weight-semibold)',
-            color: 'var(--lufa-token-color-text-primary)',
-            marginBottom: '12px',
-          }}
-        >
-          Section Breaks in Content
-        </div>
-        <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--lufa-token-color-text-primary)' }}>
-          Introduction
-        </div>
-        <div style={{ fontSize: '13px', color: 'var(--lufa-token-color-text-secondary)' }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </div>
-        <Divider spacing="comfortable" />
-        <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--lufa-token-color-text-primary)' }}>
-          Main Content
-        </div>
-        <div style={{ fontSize: '13px', color: 'var(--lufa-token-color-text-secondary)' }}>
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </div>
-      </div>
-
-      {/* List separation example */}
-      <div
-        style={{
-          padding: 'var(--lufa-token-spacing-default)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
-        }}
-      >
-        <div
-          style={{
-            fontSize: 'var(--lufa-token-font-size-sm)',
-            fontWeight: 'var(--lufa-token-font-weight-semibold)',
-            color: 'var(--lufa-token-color-text-primary)',
-            marginBottom: '12px',
-          }}
-        >
-          List Item Separation
-        </div>
-        <div style={{ fontSize: '13px', color: 'var(--lufa-token-color-text-primary)', padding: '8px 0' }}>
-          Item 1 - First entry
-        </div>
-        <Divider emphasis="subtle" spacing="compact" />
-        <div style={{ fontSize: '13px', color: 'var(--lufa-token-color-text-primary)', padding: '8px 0' }}>
-          Item 2 - Second entry
-        </div>
-        <Divider emphasis="subtle" spacing="compact" />
-        <div style={{ fontSize: '13px', color: 'var(--lufa-token-color-text-primary)', padding: '8px 0' }}>
-          Item 3 - Third entry
-        </div>
-      </div>
-
-      {/* Toolbar example */}
-      <div
-        style={{
-          padding: 'var(--lufa-token-spacing-default)',
-          border: '1px solid var(--lufa-token-color-border-subtle)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
-        }}
-      >
-        <div
-          style={{
-            fontSize: 'var(--lufa-token-font-size-sm)',
-            fontWeight: 'var(--lufa-token-font-weight-semibold)',
-            color: 'var(--lufa-token-color-text-primary)',
-            marginBottom: '12px',
-          }}
-        >
-          Toolbar with Vertical Dividers
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            padding: '8px',
-            backgroundColor: 'var(--lufa-token-color-background-subtle)',
-            borderRadius: 'var(--lufa-token-radius-sm)',
-          }}
-        >
-          <button
-            style={{
-              padding: '6px 12px',
-              background: 'white',
-              border: '1px solid var(--lufa-token-color-border-base)',
-              borderRadius: 'var(--lufa-token-radius-sm)',
-              cursor: 'pointer',
-              fontSize: '12px',
-            }}
-          >
-            Cut
-          </button>
-          <button
-            style={{
-              padding: '6px 12px',
-              background: 'white',
-              border: '1px solid var(--lufa-token-color-border-base)',
-              borderRadius: 'var(--lufa-token-radius-sm)',
-              cursor: 'pointer',
-              fontSize: '12px',
-            }}
-          >
-            Copy
-          </button>
-          <Divider orientation="vertical" spacing="compact" />
-          <button
-            style={{
-              padding: '6px 12px',
-              background: 'white',
-              border: '1px solid var(--lufa-token-color-border-base)',
-              borderRadius: 'var(--lufa-token-radius-sm)',
-              cursor: 'pointer',
-              fontSize: '12px',
-            }}
-          >
-            Undo
-          </button>
-          <button
-            style={{
-              padding: '6px 12px',
-              background: 'white',
-              border: '1px solid var(--lufa-token-color-border-base)',
-              borderRadius: 'var(--lufa-token-radius-sm)',
-              cursor: 'pointer',
-              fontSize: '12px',
-            }}
-          >
-            Redo
-          </button>
-        </div>
-      </div>
-
-      {/* Card footer example */}
-      <div
-        style={{
-          border: '1px solid var(--lufa-token-color-border-subtle)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          overflow: 'hidden',
-          backgroundColor: 'white',
-        }}
-      >
-        <div
-          style={{
-            fontSize: 'var(--lufa-token-font-size-sm)',
-            fontWeight: 'var(--lufa-token-font-weight-semibold)',
-            color: 'var(--lufa-token-color-text-primary)',
-            padding: 'var(--lufa-token-spacing-default)',
-            backgroundColor: 'var(--lufa-token-color-background-subtle)',
-          }}
-        >
-          Card with Footer Divider
-        </div>
-        <div style={{ padding: 'var(--lufa-token-spacing-default)' }}>
-          <div
-            style={{
-              fontSize: '16px',
-              fontWeight: 600,
-              color: 'var(--lufa-token-color-text-primary)',
-              marginBottom: '8px',
-            }}
-          >
-            Card Title
-          </div>
-          <div style={{ fontSize: '13px', color: 'var(--lufa-token-color-text-secondary)' }}>
-            This is the main content of the card. It contains important information.
-          </div>
-        </div>
-        <Divider spacing="compact" />
-        <div
-          style={{
-            padding: '12px var(--lufa-token-spacing-default)',
-            backgroundColor: 'var(--lufa-token-color-background-subtle)',
-            display: 'flex',
-            justifyContent: 'flex-end',
-            gap: '8px',
-          }}
-        >
-          <button
-            style={{
-              padding: '6px 16px',
-              background: 'white',
-              border: '1px solid var(--lufa-token-color-border-base)',
-              borderRadius: 'var(--lufa-token-radius-sm)',
-              cursor: 'pointer',
-              fontSize: '12px',
-            }}
-          >
-            Cancel
-          </button>
-          <button
-            style={{
-              padding: '6px 16px',
-              background: 'var(--lufa-token-color-background-primary)',
-              color: 'white',
-              border: 'none',
-              borderRadius: 'var(--lufa-token-radius-sm)',
-              cursor: 'pointer',
-              fontSize: '12px',
-            }}
-          >
-            Submit
-          </button>
         </div>
       </div>
     </div>

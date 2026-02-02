@@ -1,6 +1,7 @@
 # AI Instructions: Documentation (Strict)
 
 > **Strict alignment required** with:
+>
 > - `packages/design-system/docusaurus/_docs/component-documentation-best-practices.md`
 > - `packages/design-system/docusaurus/_docs/adding-a-new-page.md`
 > - `packages/design-system/docusaurus/_docs/writing-code-examples.md`
@@ -43,6 +44,22 @@ Use this **exact** order for component pages:
 8. **Do / Don’t**
 9. **Related Components**
 
+### Do / Don’t Formatting (Strict)
+
+Use Docusaurus admonitions for this section:
+
+```mdx
+:::tip Do
+
+- ...
+  :::
+
+:::warning Don’t
+
+- ...
+  :::
+```
+
 ## 3) Writing Style
 
 - Lead with user goal, not implementation.
@@ -57,6 +74,13 @@ From `writing-code-examples.md`:
 - Use fenced blocks with a language tag (`tsx` preferred).
 - Show minimal, copy‑pasteable snippets.
 - Avoid app-specific logic or large scaffolding.
+- Default examples must use default props only.
+
+## Live Demo Tabs (Strict)
+
+- Use `LiveDemoSection` with `tabs` for live demos.
+- Always include **Default** first.
+- Then add one tab per primary prop.
 - If using live examples, use:
 
 ````mdx

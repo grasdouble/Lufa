@@ -11,7 +11,14 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import { Divider } from '@grasdouble/lufa_design-system';
 
 import { DarkModeCompatible } from '../../src/components/DarkModeCompatible';
-import { LiveDemo } from '../../src/dsExamples/primitives/divider';
+import { LiveDemoSection } from '../../src/components/LiveDemoSection';
+import {
+  AllEmphasisLevels,
+  AllOrientations,
+  AllSpacing,
+  LineStyles,
+  LiveDemo,
+} from '../../src/dsExamples/primitives/divider';
 
 # Divider
 
@@ -27,9 +34,15 @@ The Divider component provides a flexible way to visually separate content secti
 - Avoid using dividers when whitespace alone provides sufficient separation.
 - Avoid placing a divider between every list item in dense layouts.
 
-Live demo:
-
-<BrowserOnly>{() => <LiveDemo />}</BrowserOnly>
+<LiveDemoSection
+  tabs={[
+    { id: 'default', label: 'Default', content: <BrowserOnly>{() => <LiveDemo />}</BrowserOnly> },
+    { id: 'orientation', label: 'Orientation', content: <BrowserOnly>{() => <AllOrientations />}</BrowserOnly> },
+    { id: 'emphasis', label: 'Emphasis', content: <BrowserOnly>{() => <AllEmphasisLevels />}</BrowserOnly> },
+    { id: 'spacing', label: 'Spacing', content: <BrowserOnly>{() => <AllSpacing />}</BrowserOnly> },
+    { id: 'lines', label: 'Line styles', content: <BrowserOnly>{() => <LineStyles />}</BrowserOnly> },
+  ]}
+/>
 
 ## Anatomy
 
@@ -83,40 +96,17 @@ export function Example() {
 }
 ```
 
-## Variants
-
-### Orientation
-
-- `horizontal` (default) uses `<hr>` for semantic separation.
-- `vertical` uses `<div>` and is best inside flex or grid containers.
-
-### Variant
-
-- `subtle`, `default`, `strong` control visual weight via tokens.
-
-### Thickness
-
-- `thin` (1px), `medium` (2px), `thick` (4px).
-
-### Spacing
-
-- `compact` (8px), `default` (16px), `comfortable` (24px).
-
-### Line style
-
-- `solid` (default) and `dashed`.
-
 ## Props
 
-| Prop          | Type                                      | Default          | Description                                          |
-| ------------- | ----------------------------------------- | ---------------- | ---------------------------------------------------- |
-| `orientation` | `'horizontal' \| 'vertical'`              | `'horizontal'`   | Direction of the divider line                        |
-| `variant`     | `'default' \| 'subtle' \| 'strong'`       | `'default'`      | Color variant defining visual weight                 |
-| `thickness`   | `'thin' \| 'medium' \| 'thick'`           | `'thin'`         | Thickness of the divider line (1px, 2px, 4px)        |
-| `spacing`     | `'compact' \| 'default' \| 'comfortable'` | `'default'`      | Margin around the divider (8px, 16px, 24px)          |
-| `lineStyle`   | `'solid' \| 'dashed'`                     | `'solid'`        | Visual style of the line                             |
-| `className`   | `string`                                  | `undefined`      | Additional CSS classes to apply                      |
-| `as`          | `ElementType`                             | `'hr'` / `'div'` | HTML element type to render                          |
+| Prop          | Type                                      | Default          | Description                                   |
+| ------------- | ----------------------------------------- | ---------------- | --------------------------------------------- |
+| `orientation` | `'horizontal' \| 'vertical'`              | `'horizontal'`   | Direction of the divider line                 |
+| `variant`     | `'default' \| 'subtle' \| 'strong'`       | `'default'`      | Color variant defining visual weight          |
+| `thickness`   | `'thin' \| 'medium' \| 'thick'`           | `'thin'`         | Thickness of the divider line (1px, 2px, 4px) |
+| `spacing`     | `'compact' \| 'default' \| 'comfortable'` | `'default'`      | Margin around the divider (8px, 16px, 24px)   |
+| `lineStyle`   | `'solid' \| 'dashed'`                     | `'solid'`        | Visual style of the line                      |
+| `className`   | `string`                                  | `undefined`      | Additional CSS classes to apply               |
+| `as`          | `ElementType`                             | `'hr'` / `'div'` | HTML element type to render                   |
 
 Also supports all standard HTML attributes for the underlying element (for example `id`, `role`, `aria-*`, `data-*`, `style`, and event handlers).
 
@@ -156,23 +146,25 @@ Divider styling maps to design tokens:
 
 Tokens adapt automatically to light and dark themes.
 
-## Do / Don't
+## Do / Don’t
 
-### Do
+:::tip Do
 
 - Prefer the default `<hr>` for horizontal separators
 - Use `subtle` for frequent dividers and `strong` for major breaks
 - Match spacing to the density of the layout
 - Use vertical dividers in toolbars or button groups
 - Keep divider usage consistent within a section
+  :::
 
-### Don't
+:::warning Don't
 
 - Overuse dividers when whitespace is sufficient
 - Use thick or strong variants for minor separations
 - Place vertical dividers without a defined parent height
 - Mix line styles in the same layout without intent
 - Use dividers as decorative accents without context
+  :::
 
 ## Related Components
 

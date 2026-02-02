@@ -14,3 +14,12 @@ export function LiveDemo() {
     </div>
   );
 }
+
+export function InlineLabelDemo() {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <Label as="span">Email</Label>
+      <Input id="demo-inline" placeholder="Enter email" />
+    </div>
+  );
+}
