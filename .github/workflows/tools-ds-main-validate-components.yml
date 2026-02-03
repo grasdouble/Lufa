@@ -1,0 +1,230 @@
+name: Tools:DS:Main:Validate Components
+
+on:
+  pull_request:
+    paths:
+      - 'packages/design-system/main/src/**/*.tsx'
+      - 'packages/design-system/main/src/**/*.ts'
+      - '.github/workflows/tools-ds-main-validate-components.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/design-system/main/src/**/*.tsx'
+      - 'packages/design-system/main/src/**/*.ts'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate-components:
+    name: Validate Components
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v6
+
+      - name: 📦 Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .tool-versions
+          cache: 'pnpm'
+
+      - name: 📥 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🏗️ Build design system packages
+        run: |
+          pnpm ds:tokens:build
+          pnpm ds:themes:build
+          pnpm ds:main:build
+
+      - name: 🔍 Validate component code quality
+        id: validate_code
+        run: |
+          echo "::group::Component Code Validation"
+          pnpm validate:components
+          echo "::endgroup::"
+        continue-on-error: true
+
+      - name: ✅ Run tests
+        id: test
+        run: |
+          echo "::group::Component Tests"
+          pnpm ds:test
+          echo "::endgroup::"
+        continue-on-error: true
+
+      - name: 🔍 Run linter
+        id: lint
+        run: |
+          echo "::group::ESLint"
+          pnpm ds:main:lint
+          echo "::endgroup::"
+        continue-on-error: true
+
+      - name: 🔍 Run type checking
+        id: typecheck
+        run: |
+          echo "::group::TypeScript Type Checking"
+          pnpm ds:main:typecheck
+          echo "::endgroup::"
+        continue-on-error: true
+
+      - name: 🎨 Check formatting
+        id: prettier
+        run: |
+          echo "::group::Prettier Format Check"
+          cd packages/design-system/main
+          npx prettier --check ./src
+          echo "::endgroup::"
+        continue-on-error: true
+
+      - name: 📊 Analyze validation results
+        id: analyze
+        run: |
+          VALIDATE_CODE_STATUS="${{ steps.validate_code.outcome }}"
+          TEST_STATUS="${{ steps.test.outcome }}"
+          LINT_STATUS="${{ steps.lint.outcome }}"
+          TYPECHECK_STATUS="${{ steps.typecheck.outcome }}"
+          PRETTIER_STATUS="${{ steps.prettier.outcome }}"
+
+          echo "validate_code_status=$VALIDATE_CODE_STATUS" >> $GITHUB_OUTPUT
+          echo "test_status=$TEST_STATUS" >> $GITHUB_OUTPUT
+          echo "lint_status=$LINT_STATUS" >> $GITHUB_OUTPUT
+          echo "typecheck_status=$TYPECHECK_STATUS" >> $GITHUB_OUTPUT
+          echo "prettier_status=$PRETTIER_STATUS" >> $GITHUB_OUTPUT
+
+          # Determine overall status
+          if [[ "$VALIDATE_CODE_STATUS" == "success" && "$TEST_STATUS" == "success" && "$LINT_STATUS" == "success" && "$TYPECHECK_STATUS" == "success" && "$PRETTIER_STATUS" == "success" ]]; then
+            echo "overall_status=success" >> $GITHUB_OUTPUT
+          else
+            echo "overall_status=failure" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 💬 Comment on PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const validateCodeStatus = '${{ steps.analyze.outputs.validate_code_status }}';
+            const testStatus = '${{ steps.analyze.outputs.test_status }}';
+            const lintStatus = '${{ steps.analyze.outputs.lint_status }}';
+            const typecheckStatus = '${{ steps.analyze.outputs.typecheck_status }}';
+            const prettierStatus = '${{ steps.analyze.outputs.prettier_status }}';
+            const overallStatus = '${{ steps.analyze.outputs.overall_status }}';
+
+            const statusEmoji = (status) => status === 'success' ? '✅' : '❌';
+
+            let commentBody = `## 🔍 Component Validation Report\n\n`;
+
+            if (overallStatus === 'success') {
+              commentBody += `### ✅ All Checks Passed!\n\n`;
+              commentBody += `All component validation checks completed successfully. Great work! 🎉\n\n`;
+            } else {
+              commentBody += `### ⚠️ Some Checks Failed\n\n`;
+              commentBody += `Please review and fix the issues below:\n\n`;
+            }
+
+            commentBody += `| Check | Status |\n`;
+            commentBody += `|-------|--------|\n`;
+            commentBody += `| Code Quality | ${statusEmoji(validateCodeStatus)} ${validateCodeStatus === 'success' ? 'Passed' : 'Failed'} |\n`;
+            commentBody += `| Tests (657 tests) | ${statusEmoji(testStatus)} ${testStatus === 'success' ? 'Passed' : 'Failed'} |\n`;
+            commentBody += `| ESLint | ${statusEmoji(lintStatus)} ${lintStatus === 'success' ? 'Passed' : 'Failed'} |\n`;
+            commentBody += `| TypeScript | ${statusEmoji(typecheckStatus)} ${typecheckStatus === 'success' ? 'Passed' : 'Failed'} |\n`;
+            commentBody += `| Prettier | ${statusEmoji(prettierStatus)} ${prettierStatus === 'success' ? 'Passed' : 'Failed'} |\n\n`;
+
+            if (overallStatus !== 'success') {
+              commentBody += `### 💡 How to Fix\n\n`;
+
+              if (validateCodeStatus !== 'success') {
+                commentBody += `**Code Quality Failed:**\n`;
+                commentBody += `- Run locally: \`pnpm validate:components\`\n`;
+                commentBody += `- Fix hard-coded values (use design tokens)\n`;
+                commentBody += `- Add missing prop descriptions\n`;
+                commentBody += `- Export TypeScript types\n\n`;
+              }
+
+              if (testStatus !== 'success') {
+                commentBody += `**Tests Failed:**\n`;
+                commentBody += `- Run locally: \`pnpm ds:test\`\n`;
+                commentBody += `- Fix failing test cases\n`;
+                commentBody += `- Ensure all 657 tests pass\n\n`;
+              }
+
+              if (lintStatus !== 'success') {
+                commentBody += `**ESLint Failed:**\n`;
+                commentBody += `- Run locally: \`pnpm ds:main:lint\`\n`;
+                commentBody += `- Fix linting errors\n`;
+                commentBody += `- Follow ESLint rules\n\n`;
+              }
+
+              if (typecheckStatus !== 'success') {
+                commentBody += `**TypeScript Failed:**\n`;
+                commentBody += `- Run locally: \`pnpm ds:main:typecheck\`\n`;
+                commentBody += `- Fix type errors\n`;
+                commentBody += `- Ensure all types are correct\n\n`;
+              }
+
+              if (prettierStatus !== 'success') {
+                commentBody += `**Prettier Failed:**\n`;
+                commentBody += `- Run locally: \`pnpm ds:main:prettier\`\n`;
+                commentBody += `- Auto-fix formatting\n\n`;
+              }
+
+              commentBody += `### 📚 Resources\n\n`;
+              commentBody += `- 📖 [Design System Documentation](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/packages/design-system/README.md)\n`;
+              commentBody += `- 🧪 Run all checks: \`pnpm validate:components && pnpm ds:main:lint && pnpm ds:main:typecheck && pnpm ds:test\`\n\n`;
+            }
+
+            commentBody += `---\n\n`;
+            commentBody += `*Part of Lufa Design System v2.0 - Automated component validation (Phase 7c)*`;
+
+            // Find existing comment
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const botComment = comments.data.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('Component Validation Report')
+            );
+
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: commentBody
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: commentBody
+              });
+            }
+
+      - name: ❌ Fail if validation errors
+        if: steps.analyze.outputs.overall_status == 'failure'
+        run: |
+          echo "::error::Component validation failed. See validation report above."
+          exit 1
+
+      - name: ✅ Validation successful
+        if: steps.analyze.outputs.overall_status == 'success'
+        run: |
+          echo "::notice::All component validation checks passed! 🎉"

@@ -60,10 +60,6 @@ jobs:
       - name: Install Playwright browsers
         run: pnpm --filter @grasdouble/lufa_design-system-playwright exec playwright install --with-deps chromium
 
-      # Step 6: Build design system (required for component tests)
-      - name: Build design system primitives
-        run: pnpm ds:primitives:build
-
       - name: Build design system tokens
         run: pnpm ds:tokens:build
 
@@ -73,13 +69,13 @@ jobs:
       - name: Build design system main
         run: pnpm ds:main:build
 
-      # Step 7: Run Playwright component tests (Chromium only for CI speed)
+      # Step 6: Run Playwright component tests (Chromium only for CI speed)
       - name: Run Playwright component tests
         run: pnpm --filter @grasdouble/lufa_design-system-playwright test-ct --project=chromium
         env:
           CI: true
 
-      # Step 8: Upload test results on failure
+      # Step 7: Upload test results on failure
       - name: Upload test results
         if: failure()
         uses: actions/upload-artifact@v6
@@ -88,7 +84,7 @@ jobs:
           path: packages/design-system/playwright/test-results/
           retention-days: 7
 
-      # Step 9: Upload Playwright trace on failure
+      # Step 8: Upload Playwright trace on failure
       - name: Upload Playwright trace
         if: failure()
         uses: actions/upload-artifact@v6
@@ -97,7 +93,7 @@ jobs:
           path: packages/design-system/playwright/test-results/**/*.zip
           retention-days: 7
 
-      # Step 10: Upload HTML report on failure
+      # Step 9: Upload HTML report on failure
       - name: Upload HTML report
         if: failure()
         uses: actions/upload-artifact@v6
@@ -150,7 +146,6 @@ jobs:
       # Step 7: Build design system (required for component tests)
       - name: Build design system packages
         run: |
-          pnpm ds:primitives:build
           pnpm ds:tokens:build
           pnpm ds:themes:build
           pnpm ds:main:build
