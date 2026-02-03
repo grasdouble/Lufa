@@ -38,7 +38,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Types
-interface TokenMetadata {
+type TokenMetadata = {
   name: string;
   cssVar: string;
   value: string;
@@ -54,10 +54,18 @@ interface TokenMetadata {
   modeAware?: boolean;
   mediaQuery?: string;
   devices?: string;
-}
+};
+
+type ShadowValue = {
+  offsetX: string;
+  offsetY: string;
+  blur?: string;
+  spread?: string;
+  color?: string;
+};
 
 // Helper to convert value to string
-function valueToString(value: any): string {
+function valueToString(value: unknown): string {
   if (typeof value === 'string') {
     return value;
   }
@@ -67,7 +75,8 @@ function valueToString(value: any): string {
   if (typeof value === 'object' && value !== null) {
     // Handle shadow objects
     if ('offsetX' in value && 'offsetY' in value) {
-      return `${value.offsetX} ${value.offsetY} ${value.blur || '0'} ${value.spread || '0'} ${value.color || 'rgba(0,0,0,0.1)'}`;
+      const shadow = value as ShadowValue;
+      return `${shadow.offsetX} ${shadow.offsetY} ${shadow.blur ?? '0'} ${shadow.spread ?? '0'} ${shadow.color ?? 'rgba(0,0,0,0.1)'}`;
     }
     // Handle other objects
     return JSON.stringify(value);
@@ -76,38 +85,52 @@ function valueToString(value: any): string {
 }
 
 // Flatten tokens metadata into array
-function flattenTokens(metadata: any): TokenMetadata[] {
+function flattenTokens(metadata: Record<string, unknown>): TokenMetadata[] {
   const tokens: TokenMetadata[] = [];
 
-  function traverse(obj: any, path: string[] = [], level: string = '') {
-    if (obj.value !== undefined && obj.type !== undefined) {
+  function traverse(obj: Record<string, unknown>, path: string[] = [], level = '') {
+    if ('value' in obj && obj.value !== undefined && 'type' in obj && obj.type !== undefined) {
       // This is a token
       const name = path.join('.');
       const cssVar = `--lufa-${path.join('-')}`;
-      const extensions = obj.extensions?.lufa || {};
+      const extensions =
+        obj.extensions &&
+        typeof obj.extensions === 'object' &&
+        obj.extensions !== null &&
+        'lufa' in obj.extensions &&
+        typeof obj.extensions.lufa === 'object' &&
+        obj.extensions.lufa !== null
+          ? (obj.extensions.lufa as Record<string, unknown>)
+          : {};
 
       tokens.push({
         name,
         cssVar,
         value: valueToString(obj.value),
-        type: obj.type,
-        level: (level || extensions.level) as any,
-        category: extensions.category || path[path.length - 2] || 'other',
-        description: obj.description,
-        useCase: extensions.useCase,
-        themeable: extensions.themeable,
-        modeAware: extensions.modeAware,
-        wcagAALarge: extensions.wcagAALarge,
-        wcagAAA: extensions.wcagAAA,
-        mediaQuery: extensions.mediaQuery,
-        devices: extensions.devices,
+        type: typeof obj.type === 'string' ? obj.type : JSON.stringify(obj.type),
+        level: (level || extensions.level) as TokenMetadata['level'],
+        category:
+          typeof extensions.category === 'string'
+            ? extensions.category
+            : typeof path[path.length - 2] === 'string'
+              ? path[path.length - 2]
+              : 'other',
+        description: typeof obj.description === 'string' ? obj.description : undefined,
+        useCase: typeof extensions.useCase === 'string' ? extensions.useCase : undefined,
+        themeable: extensions.themeable ? Boolean(extensions.themeable) : undefined,
+        modeAware: extensions.modeAware ? Boolean(extensions.modeAware) : undefined,
+        wcagAALarge: extensions.wcagAALarge as string[] | undefined,
+        wcagAAA: extensions.wcagAAA as string[] | undefined,
+        mediaQuery: typeof extensions.mediaQuery === 'string' ? extensions.mediaQuery : undefined,
+        devices: typeof extensions.devices === 'string' ? extensions.devices : undefined,
       });
     } else {
       // Traverse deeper
       const currentLevel = ['primitive', 'core', 'semantic', 'component'].includes(path[0]) ? path[0] : level;
       Object.keys(obj).forEach((key) => {
-        if (typeof obj[key] === 'object' && obj[key] !== null) {
-          traverse(obj[key], [...path, key], currentLevel);
+        const value = obj[key];
+        if (typeof value === 'object' && value !== null) {
+          traverse(value as Record<string, unknown>, [...path, key], currentLevel);
         }
       });
     }
@@ -118,7 +141,7 @@ function flattenTokens(metadata: any): TokenMetadata[] {
 }
 
 // Get all tokens
-const allTokens = flattenTokens(tokensMetadata);
+const allTokens = flattenTokens(tokensMetadata as Record<string, unknown>);
 
 // Color swatch preview
 const ColorPreview = ({ value }: { value: string }) => (
@@ -242,7 +265,7 @@ const useCopyToClipboard = () => {
   const [copied, setCopied] = useState<string | null>(null);
 
   const copy = (text: string) => {
-    navigator.clipboard.writeText(text).then(() => {
+    void navigator.clipboard.writeText(text).then(() => {
       setCopied(text);
       setTimeout(() => setCopied(null), 2000);
     });
@@ -375,7 +398,7 @@ const TokenCard = ({ token, onCopy }: { token: TokenMetadata; onCopy: (text: str
       )}
 
       {/* WCAG Info */}
-      {(token.wcagAALarge || token.wcagAAA) && (
+      {(token.wcagAALarge ?? token.wcagAAA) && (
         <div style={{ fontSize: '10px', color: '#059669', fontWeight: 600 }}>
           ✓ WCAG {token.wcagAAA ? 'AAA' : 'AA Large'}
         </div>
