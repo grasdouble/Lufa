@@ -448,7 +448,7 @@
   - **ADR-009:** Letter-Spacing Token Architecture (5 primitive tokens)
   - **ADR-010:** Extended Type Scale Strategy (defer 6xl-8xl to v0.9.0+)
 
-  See: `_bmad-output/adrs/ADR-008`, `ADR-009`, `ADR-010`
+  See: [ADR-008](../_docs/adrs/ADR-008-IMPLEMENTED-responsive-typography-strategy.md), [ADR-009](../_docs/adrs/ADR-009-IMPLEMENTED-letter-spacing-token-architecture.md), [ADR-010](../_docs/adrs/ADR-010-IMPLEMENTED-extended-type-scale-strategy.md)
 
   ## 🔗 Related Changes
 

@@ -554,7 +554,7 @@ module.exports = {
     "ds:tokens:build": "pnpm --filter @grasdouble/lufa_design-system-tokens build",
 
     "ds:all:dev": "concurrently 'pnpm ds:tokens:dev' 'pnpm ds:main:dev' 'pnpm ds:storybook:dev'",
-    "ds:all:build": "pnpm ds:tokens:build && pnpm ds:primitives:build && pnpm ds:main:build && pnpm ds:storybook:build"
+    "ds:all:build": "pnpm ds:tokens:build && pnpm ds:main:build && pnpm ds:storybook:build"
   }
 }
 ```

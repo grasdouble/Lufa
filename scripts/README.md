@@ -162,7 +162,6 @@ bash scripts/validate-ai-docs.sh
 3. **Build commands consistency**
    - Validates that build order commands are present in all files:
      - `pnpm ds:tokens:build`
-     - `pnpm ds:primitives:build`
      - `pnpm ds:main:build`
      - `pnpm ds:all:build`
 

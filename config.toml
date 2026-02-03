@@ -46,9 +46,8 @@ RULES:
 build_order = """
 Build order matters! Always build in this sequence:
 1. pnpm ds:tokens:build       # First - generates types
-2. pnpm ds:primitives:build   # Then primitives
-3. pnpm ds:main:build         # Then components
-4. pnpm ds:storybook:build    # Finally Storybook
+2. pnpm ds:main:build         # Then components
+3. pnpm ds:storybook:build    # Finally Storybook
 
 Or use convenience script: pnpm ds:all:build
 """

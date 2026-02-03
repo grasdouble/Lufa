@@ -96,7 +96,6 @@ docker run --rm \
     echo ""
     echo "🏗️  Building design system packages..."
     pnpm ds:tokens:build
-    pnpm ds:primitives:build
     pnpm ds:main:build
     
     echo ""

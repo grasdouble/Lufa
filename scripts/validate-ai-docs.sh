@@ -84,7 +84,7 @@ echo ""
 echo -e "${BLUE}Checking build commands consistency...${NC}"
 
 # Check for build order commands
-BUILD_COMMANDS=("pnpm ds:tokens:build" "pnpm ds:primitives:build" "pnpm ds:main:build" "pnpm ds:all:build")
+BUILD_COMMANDS=("pnpm ds:tokens:build" "pnpm ds:main:build" "pnpm ds:all:build")
 BUILD_CONSISTENT=true
 
 for cmd in "${BUILD_COMMANDS[@]}"; do

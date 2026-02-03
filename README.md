@@ -178,9 +178,19 @@ Lufa includes comprehensive AI assistance with GitHub Copilot:
 
 - **[Storybook](packages/design-system/storybook/)** - Interactive component explorer
 - **[Documentation Site](packages/design-system/docusaurus/)** - Comprehensive guides
+- **[Architecture](packages/design-system/_docs/ARCHITECTURE.md)** - Complete architecture documentation (v0.11.0)
+- **[ADRs](packages/design-system/_docs/adrs/)** - Architecture Decision Records (11 ADRs)
 - **[Primitives](packages/design-system/primitives/)** - Non-semantic foundation values
 - **[Tokens](packages/design-system/tokens/)** - Semantic design decisions
 - **[Themes](packages/design-system/themes/)** - Alternative color schemes
+
+#### Critical Architecture Documents
+
+Must-read for contributors:
+
+- [ADR-011: Immutable Primitives](packages/design-system/_docs/adrs/ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md) - Foundation principle
+- [ADR-001: Modes vs Themes](packages/design-system/_docs/adrs/ADR-001-IMPLEMENTED-modes-vs-themes-separation.md) - Theming system
+- [ADR-002: HTML Attributes](packages/design-system/_docs/adrs/ADR-002-IMPLEMENTED-html-attributes-naming.md) - Attribute naming
 
 ### Microfrontends
 

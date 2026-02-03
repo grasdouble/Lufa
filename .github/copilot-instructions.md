@@ -105,9 +105,8 @@ GitHub Copilot automatically applies these instructions based on file paths:
 3. **Build Order Matters**
    ```bash
    pnpm ds:tokens:build       # 1. First!
-   pnpm ds:primitives:build   # 2. Then primitives
-   pnpm ds:main:build         # 3. Then components
-   pnpm ds:storybook:build    # 4. Finally Storybook
+   pnpm ds:main:build         # 2. Then components
+   pnpm ds:storybook:build    # 3. Finally Storybook
    ```
 
 ### Monorepo Conventions

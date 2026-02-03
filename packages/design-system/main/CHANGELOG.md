@@ -851,9 +851,9 @@
   ***
 
   ## 🔗 Related ADRs
-  - [ADR-005: Breakpoint Token Strategy](../../_bmad-output/adrs/ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)
-  - [ADR-006: Responsive Spacing Architecture](../../_bmad-output/adrs/ADR-006-IMPLEMENTED-responsive-spacing-architecture.md)
-  - [ADR-007: Zero-Value Token Handling](../../_bmad-output/adrs/ADR-007-IMPLEMENTED-zero-value-token-handling.md)
+  - [ADR-005: Breakpoint Token Strategy](../_docs/adrs/ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)
+  - [ADR-006: Responsive Spacing Architecture](../_docs/adrs/ADR-006-IMPLEMENTED-responsive-spacing-architecture.md)
+  - [ADR-007: Zero-Value Token Handling](../_docs/adrs/ADR-007-IMPLEMENTED-zero-value-token-handling.md)
 
   ***
 

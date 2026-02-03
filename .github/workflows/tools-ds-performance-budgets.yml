@@ -1,0 +1,382 @@
+name: Tools:DS:Performance-Budgets
+
+on:
+  pull_request:
+    paths:
+      - 'packages/design-system/main/src/**/*.tsx'
+      - 'packages/design-system/main/src/**/*.ts'
+      - 'packages/design-system/main/src/**/*.css'
+      - 'packages/design-system/tokens/**/*.json'
+      - 'packages/design-system/main/vite.config.ts'
+      - 'packages/design-system/main/package.json'
+      - '.github/workflows/tools-ds-performance-budgets.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  performance-budgets:
+    name: Performance Budgets
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v6
+
+      - name: 📦 Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .tool-versions
+          cache: 'pnpm'
+
+      - name: 📥 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 📊 Run performance checks
+        id: perf
+        run: |
+          echo "::group::Performance Checks"
+
+          # Create results directory
+          mkdir -p performance-results
+
+          # 1. Build Time Measurement
+          echo "📦 Measuring build time..."
+          BUILD_START=$(date +%s%3N)
+          pnpm ds:tokens:build
+          pnpm ds:themes:build
+          pnpm ds:main:build
+          BUILD_END=$(date +%s%3N)
+          BUILD_TIME=$((BUILD_END - BUILD_START))
+          BUILD_TIME_SEC=$(echo "scale=2; $BUILD_TIME / 1000" | bc)
+          echo "build_time=${BUILD_TIME_SEC}" >> $GITHUB_OUTPUT
+          echo "✅ Build time: ${BUILD_TIME_SEC}s"
+
+          # 2. Bundle Size Check
+          echo ""
+          echo "📦 Measuring bundle size..."
+          cd packages/design-system/main
+
+          # Get file sizes
+          if [ -f "dist/lufa-ui.mjs" ]; then
+            BUNDLE_SIZE=$(stat -c%s "dist/lufa-ui.mjs" 2>/dev/null || stat -f%z "dist/lufa-ui.mjs")
+            BUNDLE_SIZE_KB=$(echo "scale=2; $BUNDLE_SIZE / 1024" | bc)
+            echo "bundle_size_kb=${BUNDLE_SIZE_KB}" >> $GITHUB_OUTPUT
+            echo "✅ Bundle size: ${BUNDLE_SIZE_KB} KB"
+          else
+            echo "bundle_size_kb=0" >> $GITHUB_OUTPUT
+            echo "⚠️ Bundle file not found"
+          fi
+
+          if [ -f "dist/style.css" ]; then
+            CSS_SIZE=$(stat -c%s "dist/style.css" 2>/dev/null || stat -f%z "dist/style.css")
+            CSS_SIZE_KB=$(echo "scale=2; $CSS_SIZE / 1024" | bc)
+            echo "css_size_kb=${CSS_SIZE_KB}" >> $GITHUB_OUTPUT
+            echo "✅ CSS size: ${CSS_SIZE_KB} KB"
+          else
+            echo "css_size_kb=0" >> $GITHUB_OUTPUT
+            echo "⚠️ CSS file not found"
+          fi
+
+          # Calculate total size
+          TOTAL_SIZE=$(echo "$BUNDLE_SIZE_KB + $CSS_SIZE_KB" | bc)
+          echo "total_size_kb=${TOTAL_SIZE}" >> $GITHUB_OUTPUT
+          echo "✅ Total size: ${TOTAL_SIZE} KB"
+
+          # Check if gzip exists
+          if command -v gzip &> /dev/null; then
+            # Gzipped size
+            GZIP_SIZE=$(gzip -c "dist/lufa-ui.mjs" | wc -c)
+            GZIP_SIZE_KB=$(echo "scale=2; $GZIP_SIZE / 1024" | bc)
+            echo "gzip_size_kb=${GZIP_SIZE_KB}" >> $GITHUB_OUTPUT
+            echo "✅ Gzipped JS size: ${GZIP_SIZE_KB} KB"
+          else
+            echo "gzip_size_kb=N/A" >> $GITHUB_OUTPUT
+          fi
+
+          cd ../../..
+
+          # 3. Test Execution Time
+          echo ""
+          echo "🧪 Measuring test execution time..."
+          TEST_START=$(date +%s%3N)
+          pnpm --filter @grasdouble/lufa_design-system-playwright test-ct --project=chromium --reporter=list > /tmp/test-output.txt 2>&1 || true
+          TEST_END=$(date +%s%3N)
+          TEST_TIME=$((TEST_END - TEST_START))
+          TEST_TIME_SEC=$(echo "scale=2; $TEST_TIME / 1000" | bc)
+          echo "test_time=${TEST_TIME_SEC}" >> $GITHUB_OUTPUT
+          echo "✅ Test execution time: ${TEST_TIME_SEC}s"
+
+          # 4. CSS Cascade Performance (CLI validation from Phase 7a)
+          echo ""
+          echo "🎨 Measuring CSS cascade performance..."
+          cd packages/design-system/cli
+
+          # Create test theme for validation
+          cat > /tmp/test-theme.css << 'EOF'
+          [data-mode="light"] {
+            --lufa-semantic-ui-text-primary: var(--lufa-core-neutral-text-primary);
+            --lufa-semantic-ui-bg-primary: var(--lufa-core-neutral-bg-primary);
+            --lufa-core-neutral-text-primary: var(--lufa-primitive-color-gray-900);
+            --lufa-core-neutral-bg-primary: var(--lufa-primitive-color-white);
+            --lufa-primitive-color-gray-900: #111827;
+            --lufa-primitive-color-white: #ffffff;
+          }
+          EOF
+
+          # Run cascade validation
+          CASCADE_START=$(date +%s%3N)
+          pnpm exec tsx src/index.ts validate --theme /tmp/test-theme.css --all > /tmp/cascade-output.txt 2>&1 || true
+          CASCADE_END=$(date +%s%3N)
+          CASCADE_TIME=$((CASCADE_END - CASCADE_START))
+          CASCADE_TIME_MS=$((CASCADE_TIME))
+          echo "cascade_time_ms=${CASCADE_TIME_MS}" >> $GITHUB_OUTPUT
+          echo "✅ CSS cascade validation time: ${CASCADE_TIME_MS}ms"
+
+          cd ../../..
+
+          # 5. Check budgets and determine pass/fail
+          echo ""
+          echo "📊 Checking performance budgets..."
+
+          BUDGET_FAILURES=0
+
+          # Bundle size budget: <200KB uncompressed
+          BUNDLE_BUDGET=200
+          if (( $(echo "$TOTAL_SIZE > $BUNDLE_BUDGET" | bc -l) )); then
+            echo "❌ Bundle size budget exceeded: ${TOTAL_SIZE} KB > ${BUNDLE_BUDGET} KB"
+            BUDGET_FAILURES=$((BUDGET_FAILURES + 1))
+            echo "bundle_pass=false" >> $GITHUB_OUTPUT
+          else
+            echo "✅ Bundle size within budget: ${TOTAL_SIZE} KB <= ${BUNDLE_BUDGET} KB"
+            echo "bundle_pass=true" >> $GITHUB_OUTPUT
+          fi
+
+          # Gzipped size budget: <50KB
+          if [ "${GZIP_SIZE_KB}" != "N/A" ]; then
+            GZIP_BUDGET=50
+            if (( $(echo "$GZIP_SIZE_KB > $GZIP_BUDGET" | bc -l) )); then
+              echo "❌ Gzipped size budget exceeded: ${GZIP_SIZE_KB} KB > ${GZIP_BUDGET} KB"
+              BUDGET_FAILURES=$((BUDGET_FAILURES + 1))
+              echo "gzip_pass=false" >> $GITHUB_OUTPUT
+            else
+              echo "✅ Gzipped size within budget: ${GZIP_SIZE_KB} KB <= ${GZIP_BUDGET} KB"
+              echo "gzip_pass=true" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "gzip_pass=N/A" >> $GITHUB_OUTPUT
+          fi
+
+          # Build time budget: <30s
+          BUILD_BUDGET=30
+          if (( $(echo "$BUILD_TIME_SEC > $BUILD_BUDGET" | bc -l) )); then
+            echo "❌ Build time budget exceeded: ${BUILD_TIME_SEC}s > ${BUILD_BUDGET}s"
+            BUDGET_FAILURES=$((BUDGET_FAILURES + 1))
+            echo "build_pass=false" >> $GITHUB_OUTPUT
+          else
+            echo "✅ Build time within budget: ${BUILD_TIME_SEC}s <= ${BUILD_BUDGET}s"
+            echo "build_pass=true" >> $GITHUB_OUTPUT
+          fi
+
+          # Test time budget: <120s (657 tests)
+          TEST_BUDGET=120
+          if (( $(echo "$TEST_TIME_SEC > $TEST_BUDGET" | bc -l) )); then
+            echo "⚠️  Test time budget exceeded: ${TEST_TIME_SEC}s > ${TEST_BUDGET}s"
+            # Warning only, don't fail
+            echo "test_pass=warning" >> $GITHUB_OUTPUT
+          else
+            echo "✅ Test time within budget: ${TEST_TIME_SEC}s <= ${TEST_BUDGET}s"
+            echo "test_pass=true" >> $GITHUB_OUTPUT
+          fi
+
+          # CSS cascade budget: <20ms
+          CASCADE_BUDGET=20
+          if (( CASCADE_TIME_MS > CASCADE_BUDGET )); then
+            echo "⚠️  CSS cascade time budget exceeded: ${CASCADE_TIME_MS}ms > ${CASCADE_BUDGET}ms"
+            # Warning only, don't fail
+            echo "cascade_pass=warning" >> $GITHUB_OUTPUT
+          else
+            echo "✅ CSS cascade time within budget: ${CASCADE_TIME_MS}ms <= ${CASCADE_BUDGET}ms"
+            echo "cascade_pass=true" >> $GITHUB_OUTPUT
+          fi
+
+          # Overall status
+          if [ $BUDGET_FAILURES -eq 0 ]; then
+            echo "status=success" >> $GITHUB_OUTPUT
+            echo ""
+            echo "✅ All performance budgets passed!"
+          else
+            echo "status=failure" >> $GITHUB_OUTPUT
+            echo ""
+            echo "❌ ${BUDGET_FAILURES} performance budget(s) exceeded"
+          fi
+
+          echo "budget_failures=${BUDGET_FAILURES}" >> $GITHUB_OUTPUT
+
+          echo "::endgroup::"
+
+      - name: 📦 Install Playwright browsers (for tests)
+        if: always()
+        run: pnpm --filter @grasdouble/lufa_design-system-playwright exec playwright install --with-deps chromium
+
+      - name: 💬 Comment on PR
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const status = '${{ steps.perf.outputs.status }}';
+            const buildTime = '${{ steps.perf.outputs.build_time }}';
+            const bundleSize = '${{ steps.perf.outputs.bundle_size_kb }}';
+            const cssSize = '${{ steps.perf.outputs.css_size_kb }}';
+            const totalSize = '${{ steps.perf.outputs.total_size_kb }}';
+            const gzipSize = '${{ steps.perf.outputs.gzip_size_kb }}';
+            const testTime = '${{ steps.perf.outputs.test_time }}';
+            const cascadeTime = '${{ steps.perf.outputs.cascade_time_ms }}';
+            const budgetFailures = '${{ steps.perf.outputs.budget_failures }}';
+
+            const bundlePass = '${{ steps.perf.outputs.bundle_pass }}';
+            const gzipPass = '${{ steps.perf.outputs.gzip_pass }}';
+            const buildPass = '${{ steps.perf.outputs.build_pass }}';
+            const testPass = '${{ steps.perf.outputs.test_pass }}';
+            const cascadePass = '${{ steps.perf.outputs.cascade_pass }}';
+
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+
+            let commentBody = `## ⚡ Performance Budget Report\n\n`;
+
+            if (status === 'success') {
+              commentBody += `### ✅ All Performance Budgets Passed!\n\n`;
+              commentBody += `Your changes meet all performance requirements. Great work! 🎉\n\n`;
+            } else {
+              commentBody += `### ⚠️ Performance Budget Exceeded\n\n`;
+              commentBody += `${budgetFailures} performance budget(s) exceeded. Please review the metrics below.\n\n`;
+            }
+
+            // Performance metrics table
+            commentBody += `### 📊 Performance Metrics\n\n`;
+            commentBody += `| Metric | Current | Budget | Status |\n`;
+            commentBody += `|--------|---------|--------|--------|\n`;
+            commentBody += `| **Bundle Size** | ${totalSize} KB | 200 KB | ${bundlePass === 'true' ? '✅ Pass' : '❌ Fail'} |\n`;
+            commentBody += `| **JS Size** | ${bundleSize} KB | - | ℹ️ Info |\n`;
+            commentBody += `| **CSS Size** | ${cssSize} KB | - | ℹ️ Info |\n`;
+
+            if (gzipSize !== 'N/A') {
+              commentBody += `| **Gzipped Size** | ${gzipSize} KB | 50 KB | ${gzipPass === 'true' ? '✅ Pass' : '❌ Fail'} |\n`;
+            }
+
+            commentBody += `| **Build Time** | ${buildTime}s | 30s | ${buildPass === 'true' ? '✅ Pass' : '❌ Fail'} |\n`;
+            commentBody += `| **Test Time** | ${testTime}s | 120s | ${testPass === 'true' ? '✅ Pass' : testPass === 'warning' ? '⚠️ Warning' : '❌ Fail'} |\n`;
+            commentBody += `| **CSS Cascade** | ${cascadeTime}ms | 20ms | ${cascadePass === 'true' ? '✅ Pass' : cascadePass === 'warning' ? '⚠️ Warning' : '❌ Fail'} |\n\n`;
+
+            // Performance breakdown
+            commentBody += `### 📦 Size Breakdown\n\n`;
+            commentBody += `\`\`\`\n`;
+            commentBody += `JavaScript: ${bundleSize} KB\n`;
+            commentBody += `CSS:        ${cssSize} KB\n`;
+            commentBody += `────────────────────\n`;
+            commentBody += `Total:      ${totalSize} KB\n`;
+            if (gzipSize !== 'N/A') {
+              commentBody += `Gzipped:    ${gzipSize} KB (${Math.round((gzipSize / totalSize) * 100)}% compression)\n`;
+            }
+            commentBody += `\`\`\`\n\n`;
+
+            // Timing breakdown
+            commentBody += `### ⏱️ Timing Breakdown\n\n`;
+            commentBody += `\`\`\`\n`;
+            commentBody += `Build:         ${buildTime}s\n`;
+            commentBody += `Tests (657):   ${testTime}s\n`;
+            commentBody += `CSS Cascade:   ${cascadeTime}ms\n`;
+            commentBody += `\`\`\`\n\n`;
+
+            if (status !== 'success') {
+              commentBody += `### 💡 How to Fix\n\n`;
+              
+              if (bundlePass !== 'true') {
+                commentBody += `**Bundle Size Exceeded:**\n`;
+                commentBody += `- Review component complexity and remove unused code\n`;
+                commentBody += `- Check for duplicate dependencies or heavy libraries\n`;
+                commentBody += `- Consider code splitting or lazy loading\n`;
+                commentBody += `- Run \`pnpm ds:main:build\` locally to analyze bundle\n\n`;
+              }
+              
+              if (gzipPass === 'false') {
+                commentBody += `**Gzipped Size Exceeded:**\n`;
+                commentBody += `- Ensure code minification is working correctly\n`;
+                commentBody += `- Remove comments and debug code\n`;
+                commentBody += `- Check for repetitive code patterns\n\n`;
+              }
+              
+              if (buildPass !== 'true') {
+                commentBody += `**Build Time Exceeded:**\n`;
+                commentBody += `- Check for expensive build-time operations\n`;
+                commentBody += `- Review Vite configuration for optimization opportunities\n`;
+                commentBody += `- Consider incremental builds\n\n`;
+              }
+            }
+
+            commentBody += `### 📈 Performance History\n\n`;
+            commentBody += `Track performance trends over time by comparing metrics across PRs.\n\n`;
+
+            commentBody += `### 🔧 Run Locally\n\n`;
+            commentBody += `\`\`\`bash\n`;
+            commentBody += `# Build and check bundle size\n`;
+            commentBody += `pnpm ds:main:build\n`;
+            commentBody += `ls -lh packages/design-system/main/dist/\n\n`;
+            commentBody += `# Run performance tests\n`;
+            commentBody += `pnpm ds:test\n\n`;
+            commentBody += `# Run CLI validation\n`;
+            commentBody += `cd packages/design-system/cli\n`;
+            commentBody += `pnpm exec tsx src/index.ts validate --theme <theme.css> --all\n`;
+            commentBody += `\`\`\`\n\n`;
+
+            commentBody += `---\n\n`;
+            commentBody += `*Part of Lufa Design System v2.0 - Automated performance monitoring (Phase 7c)*\n`;
+            commentBody += `*📊 [View detailed report](${runUrl})*`;
+
+            // Find existing comment
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const botComment = comments.data.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('Performance Budget Report')
+            );
+
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: commentBody
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: commentBody
+              });
+            }
+
+      - name: ❌ Fail if budgets exceeded
+        if: steps.perf.outputs.status == 'failure'
+        run: |
+          echo "::error::Performance budgets exceeded. Review the metrics and optimize your changes."
+          exit 1
+
+      - name: ✅ Budgets passed
+        if: steps.perf.outputs.status == 'success'
+        run: |
+          echo "::notice::All performance budgets passed! 🎉"

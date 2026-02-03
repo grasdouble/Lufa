@@ -473,8 +473,7 @@ Ocean 🌊 and Forest 🌲 theme variants are planned for a future release (Phas
 - [Typography Tokens](/docs/tokens/typography) - Font and text styling
 - [Spacing Tokens](/docs/tokens/spacing) - Layout and spacing system
 - [Component Customization](/docs/components/overview) - Component-specific styling
-- [ADR-011: Token Architecture](https://github.com/grasdouble/Lufa/tree/main/_bmad-output/adrs) - Deep dive into token architecture
 
 :::tip Need Help?
-Join our community on [GitHub Discussions](https://github.com/grasdouble/Lufa/discussions) for theming questions and examples. For questions about the token architecture (primitives vs semantics), see [ADR-011](https://github.com/grasdouble/Lufa/tree/main/_bmad-output/adrs/ADR-011-README.md).
+Join our community on [GitHub Discussions](https://github.com/grasdouble/Lufa/discussions) for theming questions and examples.
 :::
