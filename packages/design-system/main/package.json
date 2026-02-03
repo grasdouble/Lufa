@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/lufa_design-system",
-  "version": "0.10.1",
+  "version": "1.0.0",
   "private": false,
   "license": "MIT",
   "type": "module",

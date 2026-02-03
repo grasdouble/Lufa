@@ -1,5 +1,12 @@
 # @grasdouble/lufa_microfrontend_main-container
 
+## 0.6.12
+
+### Patch Changes
+
+- Updated dependencies [728be92]
+  - @grasdouble/lufa_design-system@1.0.0
+
 ## 0.6.11
 
 ### Patch Changes
