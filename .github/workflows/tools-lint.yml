@@ -20,23 +20,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v6
 
-      # Step 2: Install pnpm
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
 
-      # Step 3: Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: .tool-versions
-          cache: 'pnpm'
-
-      # Step 4: Install dependencies
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
 
       # Step 5: Build packages (needed for type checking)

@@ -14,19 +14,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: .tool-versions
+      - name: 📦 Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Derive workspace package globs from pnpm-workspace.yaml
         id: workspace-globs
@@ -212,117 +210,99 @@ jobs:
 
       - name: Comment when no packages modified
         if: steps.changed-files.outputs.any_changed == 'false' || steps.detect-packages.outputs.count == 0
-        uses: actions/github-script@v8
+        uses: ./.github/actions/pr-comment
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const COMMENT_MARKER = '<!-- changeset-validation-comment -->';
+          comment-marker: '<!-- changeset-validation-comment -->'
+          comment-body: |
+            <!-- changeset-validation-comment -->
+            ## ✅ No Changeset Needed
 
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
+            No packages were modified in this PR. No changeset is required.
 
-            const existingComment = comments.find(comment => 
-              comment.user.type === 'Bot' && 
-              comment.body.includes(COMMENT_MARKER)
-            );
-
-            const body = COMMENT_MARKER + '\n' +
-              `## ✅ No Changeset Needed\n\n` +
-              `No packages were modified in this PR. No changeset is required.`;
-
-            if (existingComment) {
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: existingComment.id,
-                body: body
-              });
-            } else {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: body
-              });
-            }
-
-      - name: Manage PR comments
+      - name: Build changeset validation comment
         if: steps.detect-packages.outputs.count > 0
-        uses: actions/github-script@v8
+        id: build-comment
+        run: |
+          missing_count=${{ steps.check-changesets.outputs.missing_count }}
+          missing_packages='${{ steps.check-changesets.outputs.missing_packages }}'
+          modified_packages='${{ steps.detect-packages.outputs.packages }}'
+
+          if [ "$missing_count" -gt 0 ]; then
+            # Build missing packages list
+            missing_list=$(echo "$missing_packages" | jq -r '.[]' | sed 's/^/- `/' | sed 's/$/`/')
+            
+            # Build all packages list with status
+            all_packages_list=$(echo "$modified_packages" | jq -r --argjson missing "$missing_packages" '.[] | 
+              if IN($missing[]) then "- ❌ `\(.)`" else "- ✅ `\(.)`" end')
+            
+            cat << 'EOF' > comment.txt
+          <!-- changeset-validation-comment -->
+          ## ⚠️ Changeset Validation Failed
+
+          The following packages have been modified but are **not included in any changeset**:
+
+          EOF
+            echo "$missing_list" >> comment.txt
+            cat << 'EOF' >> comment.txt
+
+          ### What you need to do:
+
+          1. Run `pnpm changeset` to create a new changeset
+          2. Select the modified packages that need version bumps
+          3. Choose the appropriate version bump (major, minor, or patch)
+          4. Write a clear description of the changes
+          5. Commit the generated changeset file
+
+          ### All modified packages:
+
+          EOF
+            echo "$all_packages_list" >> comment.txt
+            cat << 'EOF' >> comment.txt
+
+          ### Why is this important?
+
+          Changesets ensure that:
+          - All package changes are properly versioned
+          - Changelogs are automatically generated
+          - Dependent packages are updated correctly
+          - Release notes are comprehensive
+
+          ### Need help?
+
+          - [Changesets documentation](https://github.com/changesets/changesets)
+          EOF
+          else
+            # Build packages list with checkmarks
+            packages_list=$(echo "$modified_packages" | jq -r '.[]' | sed 's/^/- ✅ `/' | sed 's/$/`/')
+            
+            cat << 'EOF' > comment.txt
+          <!-- changeset-validation-comment -->
+          ## ✅ Changeset Validation Passed
+
+          All modified packages are included in changesets. Great job!
+
+          ### Modified packages:
+
+          EOF
+            echo "$packages_list" >> comment.txt
+            echo "" >> comment.txt
+          fi
+
+          # Set output using multiline syntax
+          {
+            echo "body<<COMMENT_EOF"
+            cat comment.txt
+            echo "COMMENT_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Post changeset validation comment
+        if: steps.detect-packages.outputs.count > 0
+        uses: ./.github/actions/pr-comment
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const missingCount = parseInt('${{ steps.check-changesets.outputs.missing_count }}');
-            const missingPackages = ${{ steps.check-changesets.outputs.missing_packages }};
-            const modifiedPackages = ${{ steps.detect-packages.outputs.packages }};
-
-            const COMMENT_MARKER = '<!-- changeset-validation-comment -->';
-
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-
-            const existingComment = comments.find(comment => 
-              comment.user.type === 'Bot' && 
-              comment.body.includes(COMMENT_MARKER)
-            );
-
-            let body = COMMENT_MARKER + '\n';
-
-            if (missingCount > 0) {
-              const missingList = missingPackages.map(pkg => `- \`${pkg}\``).join('\n');
-              const allPackagesList = modifiedPackages.map(pkg => {
-                const hasMissing = missingPackages.includes(pkg);
-                return `- ${hasMissing ? '❌' : '✅'} \`${pkg}\``;
-              }).join('\n');
-              
-              body += `## ⚠️ Changeset Validation Failed\n\n`;
-              body += `The following packages have been modified but are **not included in any changeset**:\n\n`;
-              body += `${missingList}\n\n`;
-              body += `### What you need to do:\n\n`;
-              body += `1. Run \`pnpm changeset\` to create a new changeset\n`;
-              body += `2. Select the modified packages that need version bumps\n`;
-              body += `3. Choose the appropriate version bump (major, minor, or patch)\n`;
-              body += `4. Write a clear description of the changes\n`;
-              body += `5. Commit the generated changeset file\n\n`;
-              body += `### All modified packages:\n\n`;
-              body += `${allPackagesList}\n\n`;
-              body += `### Why is this important?\n\n`;
-              body += `Changesets ensure that:\n`;
-              body += `- All package changes are properly versioned\n`;
-              body += `- Changelogs are automatically generated\n`;
-              body += `- Dependent packages are updated correctly\n`;
-              body += `- Release notes are comprehensive\n\n`;
-              body += `### Need help?\n\n`;
-              body += `- [Changesets documentation](https://github.com/changesets/changesets)`;
-            } else {
-              const packagesList = modifiedPackages.map(pkg => `- ✅ \`${pkg}\``).join('\n');
-              body += `## ✅ Changeset Validation Passed\n\n`;
-              body += `All modified packages are included in changesets. Great job!\n\n`;
-              body += `### Modified packages:\n\n`;
-              body += `${packagesList}\n\n`;
-            }
-
-            if (existingComment) {
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: existingComment.id,
-                body: body
-              });
-            } else {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: body
-              });
-            }
+          comment-marker: '<!-- changeset-validation-comment -->'
+          comment-body: ${{ steps.build-comment.outputs.body }}
 
       - name: Fail if changesets are missing
         if: steps.check-changesets.outputs.missing_count > 0

@@ -1,0 +1,59 @@
+name: Release:Lufa:Prod-Publish
+description: |
+  This workflow publishes Lufa artifacts (Storybook or Documentation) to production via FTP.
+  It is manually triggered with a choice of target.
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Target to publish'
+        required: true
+        type: choice
+        options:
+          - storybook
+          - documentation
+
+permissions:
+  contents: read
+  deployments: write
+  actions: none
+  checks: none
+  issues: none
+  packages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
+jobs:
+  deploy:
+    name: Deploy to production
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.target == 'storybook' && 'lufa-storybook' || 'lufa-documentation' }}
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v6
+
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
+
+      - name: 📦 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🏗️ Build design system
+        uses: ./.github/actions/build-design-system
+        with:
+          build-storybook: ${{ inputs.target == 'storybook' && 'true' || 'false' }}
+          build-docusaurus: ${{ inputs.target == 'documentation' && 'true' || 'false' }}
+
+      - name: 📂 Deploy to FTP
+        uses: ./.github/actions/ftp-deploy
+        with:
+          server: ${{ secrets.STORYBOOK_FTP_URL }}
+          port: ${{ secrets.STORYBOOK_FTP_PORT }}
+          protocol: ${{ secrets.STORYBOOK_FTP_PROTOCOL }}
+          username: ${{ secrets.STORYBOOK_FTP_LOGIN }}
+          password: ${{ secrets.STORYBOOK_FTP_PWD }}
+          local-dir: ${{ inputs.target == 'storybook' && './packages/design-system/storybook/storybook-static/' || './packages/design-system/docusaurus/build/' }}

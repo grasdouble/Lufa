@@ -37,37 +37,24 @@ jobs:
         github.event.label.name == 'snapshot-update')
 
     steps:
-      # Step 1: Checkout the repository
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v6
 
-      # Step 2: Install pnpm
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
 
-      # Step 3: Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: .tool-versions
-          cache: 'pnpm'
-
-      # Step 4: Install dependencies
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: 🏗️ Build design system
+        uses: ./.github/actions/build-design-system
+        with:
+          build-storybook: 'false'
+          build-docusaurus: 'false'
 
       # Step 5: Install Playwright browsers
       - name: Install Playwright browsers
-        run: pnpm --filter @grasdouble/lufa_design-system-playwright exec playwright install --with-deps chromium
-
-      - name: Build design system tokens
-        run: pnpm ds:tokens:build
-
-      - name: Build design system themes
-        run: pnpm ds:themes:build
-
-      - name: Build design system main
-        run: pnpm ds:main:build
+        uses: ./.github/actions/install-playwright
 
       # Step 6: Run Playwright component tests (Chromium only for CI speed)
       - name: Run Playwright component tests
@@ -110,57 +97,45 @@ jobs:
     if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'snapshot-update')
 
     steps:
-      # Step 1: Checkout the PR branch with full history
-      - name: Checkout PR branch
+      - name: 📥 Checkout repository
         uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0 # Full history to allow push
+          fetch-depth: 0
 
-      # Step 2: Configure Git
-      - name: Configure Git
+      - name: 🔧 Configure Git
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-      # Step 3: Install pnpm
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
 
-      # Step 4: Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: .tool-versions
-          cache: 'pnpm'
-
-      # Step 5: Install dependencies
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Step 6: Install Playwright browsers
+      - name: 🏗️ Build design system
+        uses: ./.github/actions/build-design-system
+        with:
+          build-storybook: 'false'
+          build-docusaurus: 'false'
+
+      # Step 4: Install Playwright browsers
       - name: Install Playwright browsers
-        run: pnpm --filter @grasdouble/lufa_design-system-playwright exec playwright install --with-deps chromium
+        uses: ./.github/actions/install-playwright
 
-      # Step 7: Build design system (required for component tests)
-      - name: Build design system packages
-        run: |
-          pnpm ds:tokens:build
-          pnpm ds:themes:build
-          pnpm ds:main:build
-
-      # Step 8: Update Linux snapshots
+      # Step 6: Update Linux snapshots
       - name: Update Linux snapshots
         run: pnpm --filter @grasdouble/lufa_design-system-playwright test-ct --update-snapshots --project=chromium
         env:
           CI: true
 
-      # Step 9: Setup Rust toolchain
+      # Step 7: Setup Rust toolchain
       - name: Setup Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
-      # Step 10: Cache cargo dependencies
+      # Step 8: Cache cargo dependencies
       - name: Cache cargo
         uses: actions/cache@v5
         with:
@@ -173,7 +148,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-oxipng-
 
-      # Step 11: Install oxipng
+      # Step 9: Install oxipng
       - name: Install oxipng
         run: |
           # Check if oxipng is already cached
@@ -187,7 +162,7 @@ jobs:
           # Verify installation
           oxipng --version
 
-      # Step 12: Compress snapshots (level 6 for CI artifacts)
+      # Step 10: Compress snapshots (level 6 for CI artifacts)
       - name: Compress snapshots
         run: pnpm ds:test:compress-snapshots
         # Note: We compress manually with level 6 (maximum) before committing.
@@ -196,7 +171,7 @@ jobs:
         # maximum compression (~10% better than level 3) while the hook still
         # validates that compression is working correctly.
 
-      # Step 13: Commit and push updated snapshots
+      # Step 11: Commit and push updated snapshots
       - name: Commit and push snapshots
         id: commit
         run: |
@@ -214,7 +189,7 @@ jobs:
             echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
           fi
 
-      # Step 14: Trigger test workflow on the new commit
+      # Step 12: Trigger test workflow on the new commit
       - name: Trigger tests on updated snapshots
         if: steps.commit.outputs.updated == 'true'
         uses: actions/github-script@v8
@@ -229,7 +204,7 @@ jobs:
               await github.rest.actions.createWorkflowDispatch({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                workflow_id: 'tools-test-playwright-ct.yml',
+                workflow_id: 'tools-ds-playwright-ct.yml',
                 ref: '${{ github.event.pull_request.head.ref }}',
                 inputs: {
                   pr_number: String(context.issue.number)
@@ -244,41 +219,42 @@ jobs:
       # Step 15: Comment on PR - Success
       - name: Comment on PR - Success
         if: steps.commit.outputs.updated == 'true'
-        uses: actions/github-script@v8
+        uses: ./.github/actions/pr-comment
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '✅ Linux snapshots have been updated and compressed!\n\n' +
-                    '**Changes:**\n' +
-                    '- Updated Linux snapshots in `packages/design-system/playwright/__snapshots__/`\n' +
-                    '- Compressed snapshots using oxipng (level 6)\n' +
-                    '- Committed with message: "test: update Linux snapshots (automated)"\n' +
-                    '- New commit SHA: `' + '${{ steps.commit.outputs.sha }}' + '`\n\n' +
-                    '**Next steps:**\n' +
-                    '1. ✅ Workflow has been triggered to run tests on updated snapshots\n' +
-                    '2. Pull the latest changes: `git pull`\n' +
-                    '3. Review the snapshot changes in the "Files changed" tab\n' +
-                    '4. Merge when tests pass\n\n' +
-                    '_The `snapshot-update` label has been automatically removed._'
-            })
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-marker: '<!-- playwright-ct-results -->'
+          comment-body: |
+            <!-- playwright-ct-results -->
+            ✅ Linux snapshots have been updated and compressed!
+
+            **Changes:**
+            - Updated Linux snapshots in `packages/design-system/playwright/__snapshots__/`
+            - Compressed snapshots using oxipng (level 6)
+            - Committed with message: "test: update Linux snapshots (automated)"
+            - New commit SHA: `${{ steps.commit.outputs.sha }}`
+
+            **Next steps:**
+            1. ✅ Workflow has been triggered to run tests on updated snapshots
+            2. Pull the latest changes: `git pull`
+            3. Review the snapshot changes in the "Files changed" tab
+            4. Merge when tests pass
+
+            _The `snapshot-update` label has been automatically removed._
 
       # Step 16: Comment on PR - No changes
       - name: Comment on PR - No changes
         if: steps.commit.outputs.updated == 'false'
-        uses: actions/github-script@v8
+        uses: ./.github/actions/pr-comment
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'ℹ️ No snapshot changes detected.\n\n' +
-                    'The existing Linux snapshots are already up to date.\n\n' +
-                    '_The `snapshot-update` label has been automatically removed._'
-            })
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-marker: '<!-- playwright-ct-results -->'
+          comment-body: |
+            <!-- playwright-ct-results -->
+            ℹ️ No snapshot changes detected.
+
+            The existing Linux snapshots are already up to date.
+
+            _The `snapshot-update` label has been automatically removed._
 
       # Step 17: Remove snapshot-update label
       - name: Remove snapshot-update label

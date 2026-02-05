@@ -25,26 +25,20 @@ jobs:
       - name: 📥 Checkout repository
         uses: actions/checkout@v6
 
-      - name: 📦 Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
 
-      - name: 🔧 Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: .tool-versions
-          cache: 'pnpm'
-
-      - name: 📥 Install dependencies
+      - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: 🎭 Install Playwright browsers
-        run: pnpm --filter @grasdouble/lufa_design-system-playwright exec playwright install --with-deps chromium
-
       - name: 🏗️ Build design system
-        run: |
-          pnpm ds:tokens:build
-          pnpm ds:themes:build
-          pnpm ds:main:build
+        uses: ./.github/actions/build-design-system
+        with:
+          build-storybook: 'false'
+          build-docusaurus: 'false'
+
+      - name: 🎭 Install Playwright browsers
+        uses: ./.github/actions/install-playwright
 
       - name: 🧪 Run visual regression tests
         id: test
@@ -107,123 +101,136 @@ jobs:
           path: packages/design-system/playwright/__snapshots__/**/*.png
           retention-days: 7
 
+      - name: 📝 Build PR comment body
+        if: github.event_name == 'pull_request' && always()
+        id: comment
+        env:
+          STATUS: ${{ steps.report.outputs.status }}
+          TOTAL_TESTS: ${{ steps.report.outputs.total_tests }}
+          PASSED_TESTS: ${{ steps.report.outputs.passed_tests }}
+          FAILED_TESTS: ${{ steps.report.outputs.failed_tests }}
+          VISUAL_DIFFS: ${{ steps.report.outputs.visual_diffs }}
+          RUN_ID: ${{ github.run_id }}
+          REPO_OWNER: ${{ github.repository_owner }}
+          REPO_NAME: ${{ github.event.repository.name }}
+        run: |
+          ARTIFACT_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/actions/runs/${RUN_ID}"
+
+          cat << 'EOF' > comment.md
+          <!-- visual-regression-results -->
+          ## 🎨 Visual Regression Test Results
+
+          EOF
+
+          if [ "$STATUS" = "success" ]; then
+            cat << 'EOF' >> comment.md
+          ### ✅ All Visual Tests Passed!
+
+          No visual regressions detected. All components render as expected! 🎉
+
+          EOF
+          else
+            cat << 'EOF' >> comment.md
+          ### ⚠️ Visual Differences Detected
+
+          Some components have visual changes. Please review the differences below.
+
+          EOF
+          fi
+
+          cat << EOF >> comment.md
+          | Metric | Count |
+          |--------|-------|
+          | Total Tests | ${TOTAL_TESTS} |
+          | Passed | ${PASSED_TESTS} $([ "$STATUS" = "success" ] && echo "✅" || echo "") |
+          | Failed | ${FAILED_TESTS} $([ "$STATUS" != "success" ] && echo "❌" || echo "") |
+          | Visual Diffs | ${VISUAL_DIFFS} $([ "$VISUAL_DIFFS" != "0" ] && echo "🔍" || echo "") |
+
+          EOF
+
+          if [ "$VISUAL_DIFFS" != "0" ]; then
+            cat << EOF >> comment.md
+          ### 📸 Visual Differences
+
+          ${VISUAL_DIFFS} component(s) have visual differences from the baseline snapshots.
+
+          **Review Artifacts:**
+          - [📦 Visual Diffs](${ARTIFACT_URL}#artifacts) - Download diff images
+          - [📊 Test Report](${ARTIFACT_URL}#artifacts) - Full Playwright HTML report
+          - [🖼️ Baseline Snapshots](${ARTIFACT_URL}#artifacts) - Current baseline images
+
+          ### 💡 How to Review
+
+          1. Download the \`visual-diffs\` artifact from the [Actions run](${ARTIFACT_URL})
+          2. Review each diff image (red = removed, green = added)
+          3. If changes are intentional:
+             - Add label \`snapshot-update\` to this PR
+             - Automated workflow will update baselines
+          4. If changes are unintentional:
+             - Fix the component code
+             - Push changes to re-run tests
+
+          EOF
+          fi
+
+          cat << 'EOF' >> comment.md
+          ### 📋 Components Tested
+
+          All design system components were tested in:
+          - ☀️ Light mode
+          - 🌙 Dark mode
+          - 💻 Desktop viewport (1280x720)
+
+          **Tested Components:**
+          - Box, Stack, Text, Icon
+          - Button, Badge, Divider
+          - Center, Container, Flex, Grid
+          - Portal, VisuallyHidden, Label
+          - Input, Card (compositions)
+
+          EOF
+
+          if [ "$STATUS" != "success" ]; then
+            cat << EOF >> comment.md
+          ### 🔧 Troubleshooting
+
+          **Common causes of visual differences:**
+          1. **Token changes** - Updated design tokens affect component styling
+          2. **CSS changes** - Modified component styles or utility classes
+          3. **Font changes** - Font family or weight modifications
+          4. **Layout changes** - Padding, margin, or sizing adjustments
+          5. **Browser updates** - Rendering engine differences
+
+          **Run tests locally:**
+          \`\`\`bash
+          # Run visual tests
+          pnpm ds:test
+
+          # Update snapshots if changes are intentional
+          pnpm ds:test:update-snapshots
+          \`\`\`
+
+          EOF
+          fi
+
+          cat << EOF >> comment.md
+          ---
+
+          *Part of Lufa Design System v2.0 - Automated visual regression testing (Phase 7c)*
+          *📊 [View full test report](${ARTIFACT_URL})*
+          EOF
+
+          echo "body<<EOFMARKER" >> $GITHUB_OUTPUT
+          cat comment.md >> $GITHUB_OUTPUT
+          echo "EOFMARKER" >> $GITHUB_OUTPUT
+
       - name: 💬 Comment on PR
         if: github.event_name == 'pull_request' && always()
-        uses: actions/github-script@v8
+        uses: ./.github/actions/pr-comment
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const status = '${{ steps.report.outputs.status }}';
-            const totalTests = '${{ steps.report.outputs.total_tests }}';
-            const passedTests = '${{ steps.report.outputs.passed_tests }}';
-            const failedTests = '${{ steps.report.outputs.failed_tests }}';
-            const visualDiffs = '${{ steps.report.outputs.visual_diffs }}';
-
-            const runId = context.runId;
-            const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${runId}`;
-
-            let commentBody = `## 🎨 Visual Regression Test Results\n\n`;
-
-            if (status === 'success') {
-              commentBody += `### ✅ All Visual Tests Passed!\n\n`;
-              commentBody += `No visual regressions detected. All components render as expected! 🎉\n\n`;
-            } else {
-              commentBody += `### ⚠️ Visual Differences Detected\n\n`;
-              commentBody += `Some components have visual changes. Please review the differences below.\n\n`;
-            }
-
-            // Test summary table
-            commentBody += `| Metric | Count |\n`;
-            commentBody += `|--------|-------|\n`;
-            commentBody += `| Total Tests | ${totalTests} |\n`;
-            commentBody += `| Passed | ${passedTests} ${status === 'success' ? '✅' : ''} |\n`;
-            commentBody += `| Failed | ${failedTests} ${status !== 'success' ? '❌' : ''} |\n`;
-            commentBody += `| Visual Diffs | ${visualDiffs} ${visualDiffs !== '0' ? '🔍' : ''} |\n\n`;
-
-            if (visualDiffs !== '0') {
-              commentBody += `### 📸 Visual Differences\n\n`;
-              commentBody += `${visualDiffs} component(s) have visual differences from the baseline snapshots.\n\n`;
-              commentBody += `**Review Artifacts:**\n`;
-              commentBody += `- [📦 Visual Diffs](${artifactUrl}#artifacts) - Download diff images\n`;
-              commentBody += `- [📊 Test Report](${artifactUrl}#artifacts) - Full Playwright HTML report\n`;
-              commentBody += `- [🖼️ Baseline Snapshots](${artifactUrl}#artifacts) - Current baseline images\n\n`;
-              
-              commentBody += `### 💡 How to Review\n\n`;
-              commentBody += `1. Download the \`visual-diffs\` artifact from the [Actions run](${artifactUrl})\n`;
-              commentBody += `2. Review each diff image (red = removed, green = added)\n`;
-              commentBody += `3. If changes are intentional:\n`;
-              commentBody += `   - Add label \`snapshot-update\` to this PR\n`;
-              commentBody += `   - Automated workflow will update baselines\n`;
-              commentBody += `4. If changes are unintentional:\n`;
-              commentBody += `   - Fix the component code\n`;
-              commentBody += `   - Push changes to re-run tests\n\n`;
-            }
-
-            // Components tested
-            commentBody += `### 📋 Components Tested\n\n`;
-            commentBody += `All design system components were tested in:\n`;
-            commentBody += `- ☀️ Light mode\n`;
-            commentBody += `- 🌙 Dark mode\n`;
-            commentBody += `- 💻 Desktop viewport (1280x720)\n\n`;
-
-            commentBody += `**Tested Components:**\n`;
-            commentBody += `- Box, Stack, Text, Icon\n`;
-            commentBody += `- Button, Badge, Divider\n`;
-            commentBody += `- Center, Container, Flex, Grid\n`;
-            commentBody += `- Portal, VisuallyHidden, Label\n`;
-            commentBody += `- Input, Card (compositions)\n\n`;
-
-            if (status !== 'success') {
-              commentBody += `### 🔧 Troubleshooting\n\n`;
-              commentBody += `**Common causes of visual differences:**\n`;
-              commentBody += `1. **Token changes** - Updated design tokens affect component styling\n`;
-              commentBody += `2. **CSS changes** - Modified component styles or utility classes\n`;
-              commentBody += `3. **Font changes** - Font family or weight modifications\n`;
-              commentBody += `4. **Layout changes** - Padding, margin, or sizing adjustments\n`;
-              commentBody += `5. **Browser updates** - Rendering engine differences\n\n`;
-
-              commentBody += `**Run tests locally:**\n`;
-              commentBody += `\`\`\`bash\n`;
-              commentBody += `# Run visual tests\n`;
-              commentBody += `pnpm ds:test\n\n`;
-              commentBody += `# Update snapshots if changes are intentional\n`;
-              commentBody += `pnpm ds:test:update-snapshots\n`;
-              commentBody += `\`\`\`\n\n`;
-            }
-
-            commentBody += `---\n\n`;
-            commentBody += `*Part of Lufa Design System v2.0 - Automated visual regression testing (Phase 7c)*\n`;
-            commentBody += `*📊 [View full test report](${artifactUrl})*`;
-
-            // Find existing comment
-            const comments = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-
-            const botComment = comments.data.find(comment => 
-              comment.user.type === 'Bot' && 
-              comment.body.includes('Visual Regression Test Results')
-            );
-
-            if (botComment) {
-              // Update existing comment
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: botComment.id,
-                body: commentBody
-              });
-            } else {
-              // Create new comment
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: commentBody
-              });
-            }
+          comment-marker: '<!-- visual-regression-results -->'
+          comment-body: ${{ steps.comment.outputs.body }}
 
       - name: ❌ Fail if visual differences detected
         if: steps.report.outputs.status == 'failure'

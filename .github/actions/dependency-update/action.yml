@@ -2,20 +2,14 @@ name: Dependency:Update
 description: Update dependencies to their latest minor and patch versions and update an outdated dependencies report.
 
 inputs:
-  {
-    PAT_DEPENDENCY_CHECK_UPDATE:
-      {
-        description: 'Personal Access Token with permissions to read and write packages.',
-        required: true,
-        default: '',
-      },
-    SETUP_VERSION_FILE:
-      {
-        description: 'File version to use during setup (package.json, .nvmrc, .node-version, .tool-versions).',
-        required: false,
-        default: '',
-      },
-  }
+  PAT_DEPENDENCY_CHECK_UPDATE:
+    description: 'Personal Access Token with permissions to read and write packages.'
+    required: true
+    default: ''
+  SETUP_VERSION_FILE:
+    description: 'File version to use during setup (package.json, .nvmrc, .node-version, .tool-versions).'
+    required: false
+    default: ''
 
 outputs: {}
 
@@ -23,7 +17,7 @@ runs:
   using: 'composite'
   steps:
     - name: Checkout repository
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         token: ${{ inputs.PAT_DEPENDENCY_CHECK_UPDATE }}
 
@@ -63,7 +57,7 @@ runs:
         fi
 
     - name: Commit and push updates
-      if: env.changes == 'true'
+      if: ${{ env.changes == 'true' }}
       shell: bash
       run: |
         git config --global user.name 'github-actions[bot]'
@@ -71,8 +65,6 @@ runs:
         git add .
         git commit -m 'chore: update dependencies'
         git push
-      env:
-        changes: ${{ env.changes }}
 
     - name: Generate summary
       shell: bash
