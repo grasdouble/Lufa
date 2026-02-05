@@ -39,8 +39,6 @@ const path = require('path');
 const FOUNDATION_DIR = path.join(__dirname, '../src/foundation');
 const CONTENT_DIR = path.join(__dirname, '../src/content');
 const INTERACTION_DIR = path.join(__dirname, '../src/interaction');
-const COMPOSITION_DIR = path.join(__dirname, '../src/composition');
-const UTILITY_DIR = path.join(__dirname, '../src/utility');
 
 const COMPONENT_CONFIGS = {
   // Foundation components
