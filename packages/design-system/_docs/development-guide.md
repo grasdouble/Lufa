@@ -401,7 +401,7 @@ pnpm ds:test:validate-system
 **Test Structure (5-part pattern):**
 
 ```typescript
-// src/components/primitives/NewComponent.spec.tsx
+// src/foundation/NewComponent.spec.tsx
 import { test, expect } from '@playwright/experimental-ct-react';
 import { NewComponent } from '@grasdouble/lufa_design-system';
 

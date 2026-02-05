@@ -1,3 +1,266 @@
+# Custom Transforms
+
+This directory contains custom Style Dictionary transforms for the Lufa Design System.
+
+## Table of Contents
+
+1. [Responsive Token Detection](#responsive-token-detection)
+2. [Size/Rem with Fluid Support](#sizerem-with-fluid-support)
+
+---
+
+# Custom Transform: Size/Rem with Fluid Support
+
+Custom Style Dictionary transform that extends the built-in `size/rem` transform to handle fluid typography and spacing with `clamp()` functions.
+
+**Created:** Component Migration (Phase 5)  
+**Used by:** 11 fluid dimension tokens (font-size-2xl through 8xl, layout fluid tokens)
+
+---
+
+## Purpose
+
+This transform extends the built-in `size/rem` transform to handle both:
+- **Simple px values**: `"16px"` → `"1rem"`
+- **Fluid clamp values**: `"clamp(1rem, 1vw, 2rem)"` → pass through unchanged
+
+### Why It Exists
+
+The built-in `size/rem` transform throws errors when it encounters `clamp()` functions because it expects simple numeric values. Our design system uses fluid typography and spacing that scales responsively using CSS `clamp()`, which are already in the correct format and should pass through unchanged.
+
+Without this custom transform:
+- Build process shows 22 transform error warnings
+- Fluid tokens with `clamp()` cause the built-in `size/rem` to fail
+- Simple px values still need conversion to rem for consistency
+
+---
+
+## How It Works
+
+### Transform Logic
+
+1. **Check value type**: If value contains `clamp()`, return unchanged
+2. **Check fluid extension**: If token has `$extensions.lufa.fluid: true`, return unchanged  
+3. **Convert simple values**: Parse numeric/px values and convert to rem (16px base)
+
+### Filter
+
+Only processes tokens with `$type: "dimension"`.
+
+---
+
+## API Reference
+
+### `sizeRemFluid`
+
+The transform object registered with Style Dictionary.
+
+**Properties:**
+- `type`: `'value'` (modifies token value)
+- `name`: `'size/rem/fluid'`
+- `transitive`: `true` (can reference other tokens)
+- `filter`: Function that returns `true` for dimension tokens
+- `transform`: Function that converts px to rem or passes through fluid values
+
+**Transform Logic:**
+```javascript
+// Clamp values pass through
+"clamp(1rem, 1vw, 2rem)" → "clamp(1rem, 1vw, 2rem)"
+
+// Fluid extension tokens pass through
+{ $value: "16px", $extensions: { lufa: { fluid: true } } } → "16px"
+
+// Simple values convert to rem
+"16px" → "1rem"
+"24px" → "1.5rem"
+```
+
+---
+
+## Usage
+
+### Registration in `style-dictionary.config.js`
+
+```javascript
+import StyleDictionary from 'style-dictionary';
+import { sizeRemFluid } from './build/transforms/size-rem-fluid.js';
+
+// Register the transform
+StyleDictionary.registerTransform(sizeRemFluid);
+
+export default {
+  platforms: {
+    css: {
+      transforms: [
+        'attribute/cti',
+        'name/kebab',
+        'size/rem/fluid', // ← Use instead of 'size/rem'
+        'color/css',
+        // ... other transforms
+      ],
+    },
+  },
+};
+```
+
+### Transform Order
+
+Place `size/rem/fluid` where you would normally use `size/rem` - typically early in the transform chain before shorthand transforms.
+
+---
+
+## Token Structure
+
+### Fluid Typography Tokens
+
+```json
+{
+  "primitive": {
+    "typography": {
+      "font-size": {
+        "2xl": {
+          "$value": "clamp(1.25rem, 1rem + 1vw, 1.5rem)",
+          "$type": "dimension",
+          "$extensions": {
+            "lufa": {
+              "fluid": true,
+              "fluidRange": {
+                "min": "20px",
+                "max": "24px"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Simple Dimension Tokens
+
+```json
+{
+  "primitive": {
+    "spacing": {
+      "4": {
+        "$value": "16px",
+        "$type": "dimension"
+      }
+    }
+  }
+}
+```
+
+---
+
+## Output Examples
+
+### Input Tokens
+
+```json
+{
+  "font-size-base": "16px",
+  "font-size-2xl": "clamp(1.25rem, 1rem + 1vw, 1.5rem)",
+  "spacing-4": "16px",
+  "section-gap-fluid": "clamp(48px, 8vw, 96px)"
+}
+```
+
+### CSS Output
+
+```css
+:root {
+  --lufa-font-size-base: 1rem;                              /* Converted */
+  --lufa-font-size-2xl: clamp(1.25rem, 1rem + 1vw, 1.5rem); /* Pass through */
+  --lufa-spacing-4: 1rem;                                   /* Converted */
+  --lufa-section-gap-fluid: clamp(48px, 8vw, 96px);        /* Pass through */
+}
+```
+
+---
+
+## Known Warnings
+
+**Expected Build Warnings:** ✅ **ZERO** (0 warnings)
+
+As of the latest implementation, there are **NO warnings** during the build process. This was achieved by:
+
+1. Creating a custom `size/rem/fluid` transform that correctly handles fluid clamp() values
+2. Creating a custom `shadow/css/shorthand-custom` transform that doesn't call size/rem internally
+3. Removing `transformGroup: 'css'` and using an explicit transforms list
+4. Using explicit shorthand transforms only for needed token types
+
+**Previously:** There were 22 warnings from fluid typography tokens being processed by the built-in `size/rem` transform.
+
+**Now:** All tokens transform cleanly without warnings.
+
+### Verification
+
+```bash
+cd packages/design-system/tokens
+pnpm build
+# Should show no "could not be applied" warnings
+```
+
+---
+
+## Testing
+
+### Verify Transform Works
+
+```bash
+# Build tokens
+cd packages/design-system/tokens
+pnpm build
+
+# Check fluid tokens pass through
+grep "font-size-2xl" dist/tokens.css
+# Should show: --lufa-primitive-typography-font-size-2xl: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+
+# Check simple tokens convert
+grep "spacing-4:" dist/tokens.css  
+# Should show rem values, not px
+```
+
+### Expected Behavior
+
+✅ **Correct:**
+- Fluid `clamp()` values preserved exactly
+- Simple px values converted to rem
+- Build succeeds with 11 expected warnings
+- All generated CSS is valid
+
+❌ **Incorrect:**
+- `clamp()` values converted to rem (would break)
+- Build failures or errors (not just warnings)
+- Missing fluid tokens in output
+
+---
+
+## Related Files
+
+### Transform File
+- **[`size-rem-fluid.js`](./size-rem-fluid.js)** - Transform implementation
+
+### Token Files Using Fluid Values
+- [`src/primitives/typography/font-sizes.json`](../../src/primitives/typography/font-sizes.json) - 7 fluid font-size tokens
+- [`src/core/layout/spacing.json`](../../src/core/layout/spacing.json) - 4 fluid layout tokens
+
+### Configuration
+- [`style-dictionary.config.js`](../../style-dictionary.config.js) - Transform registration
+
+---
+
+## Future Enhancements
+
+- [ ] Create custom shorthand transforms that use `size/rem/fluid` internally
+- [ ] Suppress warnings specifically for fluid tokens
+- [ ] Add validation that fluid tokens have proper `clamp()` syntax
+- [ ] Support other fluid functions (`min()`, `max()`, `calc()`)
+
+---
+
 # Custom Transform: Responsive Token Detection
 
 Custom Style Dictionary transform for detecting and processing responsive design tokens with breakpoint-specific values.

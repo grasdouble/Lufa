@@ -103,7 +103,7 @@ Every component **MUST** have comprehensive Playwright component tests before be
 - ✅ Edge cases and error states
 - ✅ Visual regression snapshots
 
-**Test location:** Co-located with component source or in `packages/design-system/playwright/src/components/`
+**Test location:** Co-located with component source or in `packages/design-system/playwright/src/{foundation,content,interaction,composition,utility}/`
 
 **Rationale:** Since we're iterating freely without backward compatibility, comprehensive tests are our safety net to ensure refactoring doesn't break functionality.
 

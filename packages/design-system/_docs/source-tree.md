@@ -287,7 +287,7 @@ storybook/
 │   └── breakpoints.ts                → Custom viewport breakpoints
 ├── 📁 src/                           [SOURCE] Stories and helpers
 │   ├── 📁 stories/                   [STORIES] Component stories
-│   │   ├── 📁 primitives/            → Box, Stack, Text, Icon stories
+│   │   ├── 📁 foundation/            → Box, Stack, Flex, Grid, Container, Center stories
 │   │   │   ├── Box.stories.tsx       → 9 stories (Playground, Padding, Margin, etc.)
 │   │   │   ├── Stack.stories.tsx     → 8 stories (Playground, Direction, Spacing, etc.)
 │   │   │   ├── Text.stories.tsx      → 10 stories (Playground, Size, Weight, etc.)
@@ -424,7 +424,7 @@ docusaurus/
 **Interactive Examples:**
 
 ```mdx
-<!-- docs/components/primitives/box.mdx -->
+<!-- docs/foundation/box.mdx -->
 
 import BoxExample from '@site/src/dsExamples/primitives/BoxExample';
 
@@ -551,7 +551,7 @@ projects: [
 **Critical Files:**
 
 - **`playwright-ct.config.ts`** - Test configuration (timeout, browsers, ports)
-- **`src/components/primitives/*.spec.tsx`** - Component test suites
+- **`src/foundation/*.spec.tsx`** - Component test suites
 - **`scripts/docker-update-snapshots-linux.sh`** - CI snapshot consistency
 
 ---
@@ -603,7 +603,7 @@ primitives/
 | **tokens**     | `src/primitives/color/palette.json`      | Blue/Red/Green/Yellow scales             |
 | **main**       | `src/index.ts`                           | Box, Stack, Text, Icon, Button, useTheme |
 | **storybook**  | `src/stories/primitives/Box.stories.tsx` | 9 Box stories                            |
-| **playwright** | `src/components/primitives/Box.spec.tsx` | 50+ Box tests                            |
+| **playwright** | `src/foundation/Box.spec.tsx` | 50+ Box tests                            |
 
 ---
 
@@ -638,7 +638,7 @@ packages/design-system/main/scripts/generate-utilities.cjs
 packages/design-system/storybook/src/stories/**/*.stories.tsx
   → import { Box } from '@grasdouble/lufa_design-system'
 
-packages/design-system/playwright/src/components/**/*.spec.tsx
+packages/design-system/playwright/src/**/*.spec.tsx
   → import { Button } from '@grasdouble/lufa_design-system'
 ```
 
@@ -647,10 +647,10 @@ packages/design-system/playwright/src/components/**/*.spec.tsx
 **Component Development:**
 
 ```
-1. packages/design-system/main/src/components/Button/Button.tsx       [EDIT]
+1. packages/design-system/main/src/interaction/Button/Button.tsx       [EDIT]
 2. packages/design-system/storybook/src/stories/Button.stories.tsx    [UPDATE]
-3. packages/design-system/playwright/src/components/Button.spec.tsx   [TEST]
-4. packages/design-system/docusaurus/docs/components/primitives/button.mdx [DOCUMENT]
+3. packages/design-system/playwright/src/Button.spec.tsx   [TEST]
+4. packages/design-system/docusaurus/docs/foundation/button.mdx [DOCUMENT]
 ```
 
 **Token Changes:**
@@ -658,7 +658,7 @@ packages/design-system/playwright/src/components/**/*.spec.tsx
 ```
 1. packages/design-system/tokens/src/component/button/tokens.json     [EDIT]
 2. Run: pnpm ds:tokens:build                                          [BUILD]
-3. packages/design-system/main/src/components/Button/Button.module.css [UPDATE]
+3. packages/design-system/main/src/interaction/Button/Button.module.css [UPDATE]
 4. Run: pnpm ds:main:build                                            [BUILD]
 ```
 
@@ -799,7 +799,7 @@ All packages use shared configs:
 **Testing:**
 
 1. `playwright/playwright-ct.config.ts` - Test config
-2. `playwright/src/components/primitives/Button.spec.tsx` - Most complex test suite
+2. `playwright/src/foundation/Button.spec.tsx` - Most complex test suite
 
 ### Navigation Tips
 

@@ -9,14 +9,14 @@
 
 ## Executive Summary
 
-The Lufa Design System is a **token-based React component library** implementing a **4-level semantic token architecture** (453 tokens) with comprehensive WCAG 2.1 AA compliance, runtime theme switching, and 9 complete themes. The system follows strict architectural principles documented in 11 Architecture Decision Records (ADRs), with the foundational principle being **Immutable Primitives** - where Level 1 tokens are constants that never change with themes or modes.
+The Lufa Design System is a **token-based React component library** implementing a **4-level semantic token architecture** (453 tokens) with comprehensive WCAG 2.1 AA compliance, runtime theme switching, and 9 complete themes. The system follows strict architectural principles documented in 11 Architecture Decision Records (ADRs), with the foundational principle being **Immutable Foundations** - where Level 1 tokens are constants that never change with themes or modes.
 
 ### Key Metrics
 
 | Metric               | Value             | Status      |
 | -------------------- | ----------------- | ----------- |
 | **Design Tokens**    | 453 (4 levels)    | ✅ Complete |
-| **React Components** | 7                 | ✅ Complete |
+| **React Interactions** | 7                 | ✅ Complete |
 | **Themes**           | 9 (light + dark)  | ✅ Complete |
 | **Test Coverage**    | 599 tests (99.8%) | ✅ Complete |
 | **Accessibility**    | 100/100 (WCAG AA) | ✅ Complete |
@@ -31,7 +31,7 @@ The Lufa Design System is a **token-based React component library** implementing
 1. [Foundational Principles](#1-foundational-principles)
 2. [Token Architecture](#2-token-architecture)
 3. [Theming System](#3-theming-system)
-4. [Component Architecture](#4-component-architecture)
+4. [Interaction Architecture](#4-component-architecture)
 5. [Architecture Decision Records (ADRs)](#5-architecture-decision-records-adrs)
 6. [Build System](#6-build-system)
 7. [Testing Strategy](#7-testing-strategy)
@@ -45,30 +45,30 @@ The Lufa Design System is a **token-based React component library** implementing
 
 These 5 principles are **mandatory** for all design system work. Violations should be flagged in code review.
 
-### 1.1 Immutable Primitives Principle ⭐ CRITICAL
+### 1.1 Immutable Foundations Principle ⭐ CRITICAL
 
-> **[ADR-011](./adrs/ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md)**: Token Architecture - Primitives as Immutable Constants
+> **[ADR-011](./adrs/ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md)**: Token Architecture - Foundations as Immutable Constants
 
-**Principle:** Primitive tokens (Level 1) are **immutable constants** that never change with themes or modes. All theming and mode switching happens at semantic and component token levels.
+**Principle:** Foundation tokens (Level 1) are **immutable constants** that never change with themes or modes. All theming and mode switching happens at semantic and component token levels.
 
 **Rationale:**
 
-- **Semantic Clarity:** Primitives = "paint catalog" (all available colors), Semantic = "paint choices" (which colors to use where)
+- **Semantic Clarity:** Foundations = "paint catalog" (all available colors), Semantic = "paint choices" (which colors to use where)
 - **Predictable Behavior:** `primitive.color.blue.600` always = `#2563eb`, regardless of theme or mode
 - **Flexible Theming:** Themes override semantic tokens, not primitives. Multiple themes can reference same primitives differently.
 
 **Rules:**
 
-- ❌ Primitives MUST NOT have `modes` metadata
-- ❌ Primitives MUST NOT have `themeable: true` flag
-- ❌ Primitives MUST NOT reference other primitives (only raw values)
-- ✅ Primitives use raw values only: `#3b82f6`, `16px`, `600`, etc.
-- ✅ Components MUST NEVER reference primitive tokens directly
+- ❌ Foundations MUST NOT have `modes` metadata
+- ❌ Foundations MUST NOT have `themeable: true` flag
+- ❌ Foundations MUST NOT reference other primitives (only raw values)
+- ✅ Foundations use raw values only: `#3b82f6`, `16px`, `600`, etc.
+- ✅ Interactions MUST NEVER reference primitive tokens directly
 
 **Example:**
 
 ```json
-// ❌ WRONG - Primitive with modes
+// ❌ WRONG - Foundation with modes
 {
   "primitive": {
     "color": {
@@ -137,7 +137,7 @@ These 5 principles are **mandatory** for all design system work. Violations shou
 ```html
 <!-- Separate attributes for separate concerns -->
 <html data-mode="dark" data-color-theme="ocean">
-  <!-- Components render with dark mode + ocean theme -->
+  <!-- Interactions render with dark mode + ocean theme -->
 </html>
 ```
 
@@ -164,7 +164,7 @@ These 5 principles are **mandatory** for all design system work. Violations shou
 
 ### 1.3 Token-First Design
 
-**Principle:** Components MUST NEVER use hard-coded design values. All styling references semantic or component tokens.
+**Principle:** Interactions MUST NEVER use hard-coded design values. All styling references semantic or component tokens.
 
 **Rules:**
 
@@ -204,7 +204,7 @@ const Button = () => (
 **Rules:**
 
 - ✅ Reuse existing primitives (Box, Stack, Text, Icon)
-- ✅ Components expose composition-friendly props
+- ✅ Interactions expose composition-friendly props
 - ❌ Avoid deep component hierarchies
 - ❌ Avoid component inheritance/extension patterns
 
@@ -237,7 +237,7 @@ function Button({ variant, icon, children, ...props }) {
 
 ### 1.5 Accessibility by Default
 
-**Principle:** Components ship with WCAG 2.1 AA compliance out-of-the-box.
+**Principle:** Interactions ship with WCAG 2.1 AA compliance out-of-the-box.
 
 **Requirements:**
 
@@ -265,18 +265,18 @@ function Button({ variant, icon, children, ...props }) {
 
 ### 2.1 Four-Level Token Hierarchy
 
-**[ADR-011](./adrs/ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md)**: Token Architecture - Primitives as Immutable Constants
+**[ADR-011](./adrs/ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md)**: Token Architecture - Foundations as Immutable Constants
 
 The token system implements a **strict 4-level hierarchy**:
 
 ```
-Level 4: Component Tokens (181 tokens)
+Level 4: Interaction Tokens (181 tokens)
    ↓ References via {semantic.*}
 Level 3: Semantic Tokens (103 tokens)
    ↓ References via {core.*}
 Level 2: Core Tokens (58 tokens)
    ↓ References via {primitive.*}
-Level 1: Primitive Tokens (111 tokens)
+Level 1: Foundation Tokens (111 tokens)
    = Raw values (16px, #3B82F6, etc.)
 ```
 
@@ -285,12 +285,12 @@ Level 1: Primitive Tokens (111 tokens)
 **Rules:**
 
 - Each level can ONLY reference tokens from the level below
-- Components can ONLY use Level 3 (Semantic) or Level 4 (Component) tokens
+- Interactions can ONLY use Level 3 (Semantic) or Level 4 (Interaction) tokens
 - No cross-level jumping (e.g., semantic → primitive directly)
 
 ---
 
-### 2.2 Level 1: Primitive Tokens (111 tokens)
+### 2.2 Level 1: Foundation Tokens (111 tokens)
 
 **Purpose:** Immutable constants representing raw design values.
 
@@ -356,7 +356,7 @@ Level 1: Primitive Tokens (111 tokens)
 | **Neutral Colors**    | 9      | Backgrounds, surfaces, borders, text |
 | **Semantic Colors**   | 16     | Success, error, warning, info        |
 | **Layout Spacing**    | 8      | Page padding, section gaps           |
-| **Component Spacing** | 10     | Button, input, card spacing          |
+| **Interaction Spacing** | 10     | Button, input, card spacing          |
 | **Typography**        | 9      | Font families, weights, sizes        |
 
 **Multi-Mode Support:**
@@ -407,7 +407,7 @@ Level 1: Primitive Tokens (111 tokens)
 | ---------------------- | ------ | ------------------------------------ |
 | **Interactive States** | 14     | Default, hover, active, focus        |
 | **UI Context Colors**  | 21     | Backgrounds, text, borders           |
-| **Component Variants** | 24     | Button variants (primary, secondary) |
+| **Interaction Variants** | 24     | Button variants (primary, secondary) |
 | **Typography Scale**   | 12     | Heading styles (h1-h6), body         |
 | **Z-Index Scale**      | 8      | Layering system                      |
 | **UI Spacing**         | 5      | Tight, compact, default, spacious    |
@@ -437,19 +437,19 @@ Level 1: Primitive Tokens (111 tokens)
 
 ---
 
-### 2.5 Level 4: Component Tokens (181 tokens)
+### 2.5 Level 4: Interaction Tokens (181 tokens)
 
-**Purpose:** Component-specific token overrides.
+**Purpose:** Interaction-specific token overrides.
 
 **Characteristics:**
 
 - ✅ References semantic tokens via `{semantic.*}`
-- ✅ Component-scoped (`component.button.*`)
+- ✅ Interaction-scoped (`component.button.*`)
 - ✅ Activated only when component needs customization
 
-**Components:**
+**Interactions:**
 
-| Component   | Tokens | Purpose                       |
+| Interaction   | Tokens | Purpose                       |
 | ----------- | ------ | ----------------------------- |
 | **Shared**  | 12     | Cross-component (focus rings) |
 | **Button**  | 29     | Button spacing, colors        |
@@ -491,7 +491,7 @@ Level 1: Primitive Tokens (111 tokens)
 **Examples:**
 
 ```css
-/* Level 1: Primitives */
+/* Level 1: Foundations */
 --lufa-primitive-color-blue-600: #2563eb;
 --lufa-primitive-spacing-4: 16px;
 
@@ -501,7 +501,7 @@ Level 1: Primitive Tokens (111 tokens)
 /* Level 3: Semantic */
 --lufa-semantic-ui-action-primary: var(--lufa-core-brand-primary);
 
-/* Level 4: Component */
+/* Level 4: Interaction */
 --lufa-component-button-background-primary: var(--lufa-semantic-ui-action-primary);
 ```
 
@@ -701,21 +701,21 @@ Level 1: Primitive Tokens (111 tokens)
 
 ---
 
-## 4. Component Architecture
+## 4. Interaction Architecture
 
-### 4.1 Seven Production Components
+### 4.1 Seven Production Interactions
 
 **Status:** 7/7 complete (100%)
 
-| Component   | Layer     | Description                         | Tests |
+| Interaction   | Layer     | Description                         | Tests |
 | ----------- | --------- | ----------------------------------- | ----- |
-| **Box**     | Primitive | Layout foundation (119 utilities)   | 120+  |
-| **Stack**   | Primitive | Flexbox layouts (22 utilities)      | 86+   |
-| **Text**    | Primitive | Typography (31 utilities)           | 107+  |
-| **Icon**    | Primitive | SVG icons (30+ icons, 13 utilities) | 106+  |
-| **Button**  | Component | Interactive button (21 utilities)   | 61+   |
-| **Badge**   | Component | Status indicator (8 utilities)      | 45+   |
-| **Divider** | Primitive | Visual separator (12 utilities)     | 50+   |
+| **Box**     | Foundation | Layout foundation (119 utilities)   | 120+  |
+| **Stack**   | Foundation | Flexbox layouts (22 utilities)      | 86+   |
+| **Text**    | Foundation | Typography (31 utilities)           | 107+  |
+| **Icon**    | Foundation | SVG icons (30+ icons, 13 utilities) | 106+  |
+| **Button**  | Interaction | Interactive button (21 utilities)   | 61+   |
+| **Badge**   | Interaction | Status indicator (8 utilities)      | 45+   |
+| **Divider** | Foundation | Visual separator (12 utilities)     | 50+   |
 
 **Total:** 599 Playwright tests (99.8% pass rate)
 
@@ -723,7 +723,7 @@ Level 1: Primitive Tokens (111 tokens)
 
 ### 4.2 Design Patterns
 
-#### 4.2.1 Polymorphic Components
+#### 4.2.1 Polymorphic Interactions
 
 **Pattern:** All components accept an `as` prop to render as different HTML elements.
 
@@ -781,7 +781,7 @@ module.exports = {
 
 ---
 
-#### 4.2.3 Component API Pattern
+#### 4.2.3 Interaction API Pattern
 
 **Decision:** Individual props (not styled-system `sx`)
 
@@ -817,11 +817,11 @@ module.exports = {
 | ADR-008 | Responsive Typography Strategy            | Implemented | High        |
 | ADR-009 | Letter-Spacing Token Architecture         | Implemented | Low         |
 | ADR-010 | Extended Type Scale Strategy              | Implemented | Medium      |
-| ADR-011 | Token Architecture - Immutable Primitives | Implemented | ⭐ Critical |
+| ADR-011 | Token Architecture - Immutable Foundations | Implemented | ⭐ Critical |
 
 **Critical ADRs** (must read for all developers):
 
-- **[ADR-011](./adrs/ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md)**: Immutable Primitives - Foundation of token architecture
+- **[ADR-011](./adrs/ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md)**: Immutable Foundations - Foundation of token architecture
 - **[ADR-001](./adrs/ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)**: Modes vs Themes - How theming works
 - **[ADR-002](./adrs/ADR-002-IMPLEMENTED-html-attributes-naming.md)**: HTML Attributes - `data-mode` vs `data-color-theme`
 
@@ -887,14 +887,14 @@ module.exports = {
 
 ---
 
-#### ADR-011: Immutable Primitives
+#### ADR-011: Immutable Foundations
 
-**Decision:** Primitives (Level 1) are immutable constants, never change with themes/modes
+**Decision:** Foundations (Level 1) are immutable constants, never change with themes/modes
 
 **Rules:**
 
-- ❌ Primitives MUST NOT have `modes` metadata
-- ❌ Components MUST NOT reference primitives directly
+- ❌ Foundations MUST NOT have `modes` metadata
+- ❌ Interactions MUST NOT reference primitives directly
 - ✅ All theming happens at semantic/component levels
 
 **Why:**
@@ -916,7 +916,7 @@ Step 1: Tokens (Style Dictionary)
 ├── Output: CSS vars, JSON metadata
 └── Time:   ~2s
 
-Step 2: Components (Vite Library Mode)
+Step 2: Interactions (Vite Library Mode)
 ├── Input:  TSX components
 ├── Output: ESM bundle, .d.ts types
 └── Time:   ~15s
@@ -982,7 +982,7 @@ pnpm ds:storybook:build    # 4. Then Storybook
 Every component follows this pattern:
 
 ```typescript
-test.describe('ComponentName', () => {
+test.describe('InteractionName', () => {
   // 1. Basic Rendering (~10% of tests)
   test('renders with default props', async ({ mount }) => { ... });
 
@@ -1008,7 +1008,7 @@ test.describe('ComponentName', () => {
 
 ### 7.2 Test Coverage
 
-| Component | Tests   | Pass Rate |
+| Interaction | Tests   | Pass Rate |
 | --------- | ------- | --------- |
 | Box       | 120+    | 100%      |
 | Stack     | 86+     | 100%      |
@@ -1019,7 +1019,7 @@ test.describe('ComponentName', () => {
 | Divider   | 50+     | 100%      |
 | **Total** | **599** | **99.8%** |
 
-**Technology:** Playwright Component Testing 1.57.0
+**Technology:** Playwright Interaction Testing 1.57.0
 
 - Real browser rendering (Chromium, Firefox, WebKit)
 - Visual regression built-in
@@ -1143,7 +1143,7 @@ test.describe('ComponentName', () => {
 **Build Times:**
 
 - Tokens: ~2s
-- Components: ~15s
+- Interactions: ~15s
 - Storybook: ~30s (optional)
 - Tests: ~95s
 
@@ -1183,7 +1183,7 @@ lufa-validate-theme my-theme.css --verbose
 
 ### 10.2 CI/CD Quality Gates (3 Workflows)
 
-**1. Component Validation (3-5 min)**
+**1. Interaction Validation (3-5 min)**
 
 - Quality gates (no hard-coded values, props documented)
 - 599 tests (99.8% pass rate)
@@ -1217,30 +1217,30 @@ lufa-validate-theme my-theme.css --verbose
 
 ## 11. Extension Points
 
-### 11.1 Adding New Components
+### 11.1 Adding New Interactions
 
 **Required Files:**
 
-1. `ComponentName.tsx` - Component implementation
-2. `ComponentName.module.css` - Styles
+1. `InteractionName.tsx` - Interaction implementation
+2. `InteractionName.module.css` - Styles
 3. `componentName.utilities.config.cjs` - Utility config
-4. `ComponentName.stories.tsx` - Storybook stories
-5. `ComponentName.spec.tsx` - Playwright tests
+4. `InteractionName.stories.tsx` - Storybook stories
+5. `InteractionName.spec.tsx` - Playwright tests
 
 **Process:**
 
 ```bash
 # 1. Create files
-mkdir packages/design-system/main/src/components/NewComponent
+mkdir packages/design-system/main/src/components/NewInteraction
 
 # 2. Generate utilities
-pnpm --filter @grasdouble/lufa_design-system generate:utilities NewComponent
+pnpm --filter @grasdouble/lufa_design-system generate:utilities NewInteraction
 
 # 3. Build
 pnpm ds:main:build
 
 # 4. Test
-pnpm ds:test -- NewComponent.spec.tsx
+pnpm ds:test -- NewInteraction.spec.tsx
 
 # 5. Create changeset
 pnpm changeset
@@ -1333,7 +1333,7 @@ pnpm ds:storybook:dev
 
 **Key Concepts:**
 
-- **Immutable Primitives** (ADR-011) - Level 1 tokens never change
+- **Immutable Foundations** (ADR-011) - Level 1 tokens never change
 - **Modes vs Themes** (ADR-001) - `data-mode` vs `data-color-theme`
 - **Token-First Design** - No hard-coded values
 - **Pattern "on-X"** (ADR-003) - WCAG AAA contrast pairs
@@ -1344,7 +1344,7 @@ pnpm ds:storybook:dev
 
 ### 13.1 Architecture Principles (Mandatory)
 
-1. ⭐ **Immutable Primitives** - Level 1 tokens are constants
+1. ⭐ **Immutable Foundations** - Level 1 tokens are constants
 2. ⭐ **Separation of Modes and Themes** - `data-mode` ≠ `data-color-theme`
 3. **Token-First Design** - No hard-coded values
 4. **Composition Over Inheritance** - Build with primitives
@@ -1352,7 +1352,7 @@ pnpm ds:storybook:dev
 
 ### 13.2 Critical ADRs (Must Read)
 
-- **ADR-011**: Immutable Primitives
+- **ADR-011**: Immutable Foundations
 - **ADR-001**: Modes vs Themes Separation
 - **ADR-002**: HTML Attributes Naming
 - **ADR-003**: High-Contrast Token Strategy

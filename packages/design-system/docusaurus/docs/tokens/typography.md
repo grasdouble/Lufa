@@ -304,7 +304,7 @@ The 8xl token (96px maximum) has intentional behavior where fluid scaling only e
 
 ## Next Steps
 
-- [Text Component](/docs/primitives/text) - Typography component with variants
+- [Text Component](/docs/content/text) - Typography component with variants
 - [Color Tokens](/docs/tokens/colors) - Color palette and usage
 - [Spacing Tokens](/docs/tokens/spacing) - Layout spacing system
 

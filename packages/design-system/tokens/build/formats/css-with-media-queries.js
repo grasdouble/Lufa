@@ -58,7 +58,9 @@ export const cssWithMediaQueries = {
         const cssVarName = `--${prefix}-${refPath.join('-')}`;
         return `var(${cssVarName})`;
       }
-      const value = token.value || token.original?.$value || token.$value;
+      // Use transformed value (token.$value or token.value), not original
+      const value = token.$value || token.value || token.original?.$value;
+      
       if ((token.$type || token.type) === 'shadow' && value && typeof value === 'object') {
         return formatShadowValue(value);
       }

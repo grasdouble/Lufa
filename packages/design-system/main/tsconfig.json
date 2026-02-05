@@ -1,6 +1,17 @@
 {
   "extends": "@grasdouble/lufa_config_tsconfig/react-library.json",
   "include": ["src/**/*"],
-  "compilerOptions": {},
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@foundation/*": ["foundation/*"],
+      "@content/*": ["content/*"],
+      "@interaction/*": ["interaction/*"],
+      "@composition/*": ["composition/*"],
+      "@utility/*": ["utility/*"],
+      "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"]
+    }
+  },
   "exclude": ["dist", "build", "node_modules", "scripts"]
 }

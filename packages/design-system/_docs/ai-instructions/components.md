@@ -13,12 +13,19 @@ You are creating or modifying React components for the Lufa Design System. These
 
 ## File Structure
 
-Each component resides in its own directory:
-`packages/design-system/main/src/components/[ComponentName]/`
+Each component resides in its own directory based on its category:
+
+- **Foundation components**: `packages/design-system/main/src/foundation/[ComponentName]/`
+- **Content components**: `packages/design-system/main/src/content/[ComponentName]/`
+- **Interaction components**: `packages/design-system/main/src/interaction/[ComponentName]/`
+- **Composition components**: `packages/design-system/main/src/composition/[ComponentName]/`
+- **Utility components**: `packages/design-system/main/src/utility/[ComponentName]/`
+
+Within each component directory:
 
 - `[ComponentName].tsx`: Main component logic.
 - `[ComponentName].module.css`: Core structural styles.
-- `[ComponentName].additional.module.css`: Variant/State styles.
+- `[ComponentName].additional.module.css`: Variant/State styles (if needed).
 - `index.ts`: Public export.
 
 ## Coding Standards
