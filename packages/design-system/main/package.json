@@ -31,6 +31,15 @@
     "test-ct": "playwright test -c playwright-ct.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,html}": [
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "@grasdouble/lufa_design-system-tokens": "workspace:^",
     "@headlessui/react": "^2.2.9",

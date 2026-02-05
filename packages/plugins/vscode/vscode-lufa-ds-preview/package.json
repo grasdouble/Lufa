@@ -61,6 +61,15 @@
   "activationEvents": [
     "onStartupFinished"
   ],
+  "lint-staged": {
+    "*.{js,ts,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "@grasdouble/lufa_design-system-tokens": "workspace:^",
     "culori": "^4.0.2"

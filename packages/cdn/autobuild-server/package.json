@@ -25,6 +25,15 @@
     "preview": "dotenvx run --env-file=.env.production --env-file=.env -- node dist/index.cjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
+  "lint-staged": {
+    "*.{js,ts,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.52.0",
     "cors": "^2.8.6",

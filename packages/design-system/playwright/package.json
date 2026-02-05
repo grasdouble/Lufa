@@ -16,11 +16,18 @@
     "test-ct": "playwright test -c playwright-ct.config.ts",
     "test-ct:ui": "playwright test -c playwright-ct.config.ts --ui",
     "test-ct:update-snapshots": "playwright test -c playwright-ct.config.ts --update-snapshots",
-    "validate-system": "bash scripts/validate-snapshot-system.sh",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "validate-system": "bash scripts/validate-snapshot-system.sh"
   },
   "lint-staged": {
-    "**/__snapshots__/**/*.png": "bash packages/design-system/playwright/scripts/compress-snapshots-precommit.sh"
+    "**/__snapshots__/**/*.png": "bash packages/design-system/playwright/scripts/compress-snapshots-precommit.sh",
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",

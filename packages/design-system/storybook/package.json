@@ -16,6 +16,15 @@
     "prettier": "prettier --write .",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,html}": [
+      "prettier --write"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"

@@ -18,6 +18,14 @@
     "README.md",
     "CHANGELOG.md"
   ],
+  "lint-staged": {
+    "*.{js,mjs}": [
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "prettier-plugin-packagejson": "^3.0.0"
