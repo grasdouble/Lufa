@@ -4,21 +4,22 @@
 # Override agent name
 agent:
   metadata:
-    name: ''
+    name: ""
 
 # Replace entire persona (not merged)
 persona:
-  role: ''
-  identity: ''
-  communication_style: ''
+  role: ""
+  identity: ""
+  communication_style: ""
   principles: []
 
 # Add custom critical actions (appended after standard config loading)
 critical_actions: []
 
 # Add persistent memories for the agent
-memories:
-  - 'CRITICAL: ALL documents, files, and written outputs MUST be in English (document_output_language from config.yaml). Communication with user stays in Français, but ALL generated files (.md, .yaml, .json, etc.) MUST be in English.'
+memories: 
+  - "CRITICAL: ALL documents, files, and written outputs MUST be in English (document_output_language from config.yaml). Communication with user stays in Français, but ALL generated files (.md, .yaml, .json, etc.) MUST be in English."
+
 # Example:
 # memories:
 #   - "User prefers detailed technical explanations"
