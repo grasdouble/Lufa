@@ -15,9 +15,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title">
-          {siteConfig.title}
-        </h1>
+        <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/docs/intro">
@@ -42,27 +40,19 @@ function HomepageStatistics() {
       <div className="container">
         <div className={styles.statGrid}>
           <div className={styles.stat}>
-            <h3 className={styles.statNumber}>
-              50+
-            </h3>
+            <h3 className={styles.statNumber}>50+</h3>
             <p className={styles.statLabel}>Components</p>
           </div>
           <div className={styles.stat}>
-            <h3 className={styles.statNumber}>
-              WCAG AA
-            </h3>
+            <h3 className={styles.statNumber}>WCAG AA</h3>
             <p className={styles.statLabel}>Compliant</p>
           </div>
           <div className={styles.stat}>
-            <h3 className={styles.statNumber}>
-              TypeScript
-            </h3>
+            <h3 className={styles.statNumber}>TypeScript</h3>
             <p className={styles.statLabel}>First</p>
           </div>
           <div className={styles.stat}>
-            <h3 className={styles.statNumber}>
-              Tree Shakeable
-            </h3>
+            <h3 className={styles.statNumber}>Tree Shakeable</h3>
             <p className={styles.statLabel}>Optimized</p>
           </div>
         </div>
@@ -75,9 +65,7 @@ function HomepageQuickStart() {
   return (
     <section className={styles.quickStart} aria-label="Quick start guide">
       <div className="container">
-        <h2 className={styles.sectionTitle}>
-          Get Started in Seconds
-        </h2>
+        <h2 className={styles.sectionTitle}>Get Started in Seconds</h2>
         <p className={styles.sectionSubtitle}>
           Install the package and start building accessible interfaces immediately.
         </p>

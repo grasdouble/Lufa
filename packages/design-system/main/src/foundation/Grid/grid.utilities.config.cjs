@@ -75,6 +75,6 @@ module.exports = {
       values: {
         true: 'inline-grid',
       },
-    }
+    },
   },
 };

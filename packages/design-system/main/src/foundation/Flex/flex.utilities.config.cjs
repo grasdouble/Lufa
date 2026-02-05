@@ -64,6 +64,6 @@ module.exports = {
       values: {
         true: 'inline-flex',
       },
-    }
+    },
   },
 };

@@ -1,4 +1,7 @@
 import type { ReactNode } from 'react';
+import TokensSvg from '@site/static/img/undraw_docusaurus_mountain.svg';
+import ReactSvg from '@site/static/img/undraw_docusaurus_react.svg';
+import AccessibleSvg from '@site/static/img/undraw_docusaurus_tree.svg';
 import clsx from 'clsx';
 
 import styles from './styles.module.css';
@@ -8,10 +11,6 @@ type FeatureItem = {
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: ReactNode;
 };
-
-import ReactSvg from '@site/static/img/undraw_docusaurus_react.svg';
-import TokensSvg from '@site/static/img/undraw_docusaurus_mountain.svg';
-import AccessibleSvg from '@site/static/img/undraw_docusaurus_tree.svg';
 
 const FeatureList: FeatureItem[] = [
   {

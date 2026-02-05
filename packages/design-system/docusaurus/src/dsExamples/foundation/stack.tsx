@@ -105,7 +105,9 @@ export function SpacingVariants() {
         <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
           spacing=&quot;tight&quot; (4px)
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Minimal spacing</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          Minimal spacing
+        </div>
       </Stack>
 
       <Stack spacing="compact" style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}>
@@ -119,14 +121,21 @@ export function SpacingVariants() {
         <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
           spacing=&quot;default&quot; (16px)
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Standard spacing</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          Standard spacing
+        </div>
       </Stack>
 
-      <Stack spacing="comfortable" style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}>
+      <Stack
+        spacing="comfortable"
+        style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}
+      >
         <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
           spacing=&quot;comfortable&quot; (24px)
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Generous spacing</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          Generous spacing
+        </div>
       </Stack>
 
       <Stack spacing="spacious" style={{ border: '1px solid var(--lufa-token-color-border-default)', padding: '16px' }}>
@@ -617,7 +626,9 @@ export function PolymorphicVariant() {
         <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
           <strong>as=&quot;nav&quot;</strong> - Navigation links
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Navigation items</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          Navigation items
+        </div>
       </Stack>
 
       <Stack
@@ -646,7 +657,9 @@ export function PolymorphicVariant() {
         <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
           <strong>as=&quot;div&quot;</strong> (default)
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>Generic container</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-token-color-background-secondary)' }}>
+          Generic container
+        </div>
       </Stack>
     </div>
   );
