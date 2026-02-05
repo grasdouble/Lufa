@@ -25,7 +25,7 @@ const PRIMARY = STORY_COLORS.primary;
  * - ✅ Performance-optimized (CSS classes, not inline styles)
  */
 const meta = {
-  title: '4. Primitives/Text',
+  title: '5. Content/Text',
   component: Text,
   parameters: {
     layout: 'fullscreen',
