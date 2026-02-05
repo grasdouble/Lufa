@@ -2,9 +2,17 @@ import StyleDictionary from 'style-dictionary';
 
 import { cssWithMediaQueries } from './build/formats/css-with-media-queries.js';
 import { responsiveTransform } from './build/transforms/responsive.js';
+import { shadowCssShorthandCustom } from './build/transforms/shadow-css-shorthand-custom.js';
+import { sizeRemFluid } from './build/transforms/size-rem-fluid.js';
 
 // Register custom transform for responsive tokens
 StyleDictionary.registerTransform(responsiveTransform);
+
+// Register custom transform for size/rem that handles fluid clamp values
+StyleDictionary.registerTransform(sizeRemFluid);
+
+// Register custom shadow shorthand transform (replaces built-in to avoid size/rem warnings)
+StyleDictionary.registerTransform(shadowCssShorthandCustom);
 
 // Register custom format for CSS with media queries
 StyleDictionary.registerFormat(cssWithMediaQueries);
@@ -33,7 +41,7 @@ StyleDictionary.registerFormat({
       const lastKey = path[path.length - 1];
 
       current[lastKey] = {
-        value: token.value || token.$value, // ✅ Fallback to $value if value is undefined
+        value: token.$value || token.value || token.original?.$value, // Prioritize transformed value
         type: token.$type || token.type,
         ...(token.$description && { description: token.$description }),
         ...(token.$extensions && { extensions: token.$extensions }),
@@ -154,25 +162,32 @@ export default {
   ],
   platforms: {
     css: {
-      transformGroup: 'css',
+      // No transformGroup - use explicit transforms list to avoid built-in size/rem
       prefix: 'lufa', // CSS variables: --lufa-primitive-color-blue-600
       buildPath: 'dist/',
       transforms: [
+        // 1. ATTRIBUTE TRANSFORMS (add metadata)
         'attribute/cti',
+        'attribute/responsive', // Custom: responsive breakpoint metadata
+
+        // 2. NAME TRANSFORMS
         'name/kebab',
+
+        // 3. VALUE TRANSFORMS
         'time/seconds',
         'html/icon',
-        'size/rem',
+        'size/rem/fluid', // Custom: handles both px and fluid clamp()
         'color/css',
         'asset/url',
         'fontFamily/css',
         'cubicBezier/css',
-        'strokeStyle/css/shorthand',
-        'border/css/shorthand',
-        'typography/css/shorthand',
-        'transition/css/shorthand',
-        'shadow/css/shorthand',
-        'attribute/responsive', // Custom transform for responsive tokens
+
+        // 4. SHORTHAND TRANSFORMS (composite types)
+        'strokeStyle/css/shorthand', // For SVG strokes (future-proof)
+        'border/css/shorthand', // For border tokens (future-proof)
+        'typography/css/shorthand', // For typography tokens (future-proof)
+        'transition/css/shorthand', // For transition tokens (future-proof)
+        'shadow/css/shorthand-custom', // Custom: shadow without size/rem warnings
       ],
       files: [
         {
@@ -186,8 +201,14 @@ export default {
       ],
     },
     json: {
-      transformGroup: 'js',
       buildPath: 'dist/',
+      transforms: [
+        'attribute/cti',
+        'name/kebab',
+        'time/seconds',
+        'size/rem/fluid', // Custom transform that handles both simple px and fluid clamp()
+        'color/hex',
+      ],
       files: [
         {
           destination: 'tokens-values.json',

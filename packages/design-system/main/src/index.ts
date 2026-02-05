@@ -13,9 +13,21 @@ export * from './utils';
 // ============================================
 export * from './hooks';
 
-// LAYER 1 - PRIMITIVES
-export * from './primitives';
-// LAYER 2 - COMPONENTS
-export * from './components';
-// LAYER 3 - COMPOSITIONS
-export * from './compositions';
+// ============================================
+// COMPONENTS - Organized by Role
+// ============================================
+
+// Foundation - Building blocks for layout and structure
+export * from './foundation';
+
+// Content - Display content, text, icons, badges, visual elements
+export * from './content';
+
+// Interaction - Interactive elements like buttons, inputs, forms
+export * from './interaction';
+
+// Composition - Complex patterns that combine multiple components
+export * from './composition';
+
+// Utility - Technical helpers and accessibility utilities
+export * from './utility';

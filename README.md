@@ -67,12 +67,13 @@ packages/
 │   ├── main-container/     # Root orchestrator
 │   └── home/               # Home page microfrontend
 ├── design-system/          # Component library
-│   ├── main/               # React components
-│   ├── primitives/         # Foundation values
-│   ├── tokens/             # Semantic design tokens
+│   ├── main/               # React components (16 components)
+│   ├── tokens/             # Semantic design tokens (453 tokens, 4 levels)
 │   ├── themes/             # Theme variants
 │   ├── storybook/          # Component explorer
-│   └── docusaurus/         # Docusaurus docs
+│   ├── docusaurus/         # Documentation site
+│   ├── playwright/         # Component tests (599 tests)
+│   └── cli/                # CLI tools
 ├── cdn/                    # CDN infrastructure
 │   └── autobuild-server/   # Dynamic asset builder
 ├── plugins/vite/           # Custom Vite plugins
@@ -180,7 +181,7 @@ Lufa includes comprehensive AI assistance with GitHub Copilot:
 - **[Documentation Site](packages/design-system/docusaurus/)** - Comprehensive guides
 - **[Architecture](packages/design-system/_docs/ARCHITECTURE.md)** - Complete architecture documentation (v0.11.0)
 - **[ADRs](packages/design-system/_docs/adrs/)** - Architecture Decision Records (11 ADRs)
-- **[Primitives](packages/design-system/primitives/)** - Non-semantic foundation values
+- **[Tokens](packages/design-system/tokens/)** - 4-level semantic token system (453 tokens)
 - **[Tokens](packages/design-system/tokens/)** - Semantic design decisions
 - **[Themes](packages/design-system/themes/)** - Alternative color schemes
 

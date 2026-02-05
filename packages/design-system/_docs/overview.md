@@ -26,7 +26,7 @@
 
 ## What is Lufa Design System?
 
-Lufa Design System is a **token-based React component library** that provides a unified, accessible, and maintainable UI foundation for the Lufa microfrontend ecosystem. It implements a **three-layer component architecture** (primitives → components → compositions) built on a **four-level semantic token system** (438 tokens).
+Lufa Design System is a **token-based React component library** that provides a unified, accessible, and maintainable UI foundation for the Lufa microfrontend ecosystem. It implements a **role-based component architecture** (foundation → content → interaction → composition → utility) built on a **four-level semantic token system** (438 tokens).
 
 ### Purpose
 
@@ -382,15 +382,15 @@ main (Vite Library)
 ### Three-Layer Component Hierarchy
 
 ```
-Layer 3: Compositions (Future)
+Layer 3: Composition (Future)
 ├── Card
 ├── Modal
 └── Form
 
-Layer 2: Components
+Layer 2: Interaction
 └── Button ✅
 
-Layer 1: Primitives
+Layer 1: Foundation
 ├── Box ✅
 ├── Stack ✅
 ├── Text ✅

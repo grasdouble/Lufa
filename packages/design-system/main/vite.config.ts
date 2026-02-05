@@ -16,9 +16,23 @@ export default defineConfig(({ command, mode, isPreview }) => {
 
   const defaultPlugin = [reactPlugin()];
 
+  // Path aliases for the new component organization structure
+  const aliasConfig = {
+    '@foundation': resolve(__dirname, './src/foundation'),
+    '@content': resolve(__dirname, './src/content'),
+    '@interaction': resolve(__dirname, './src/interaction'),
+    '@composition': resolve(__dirname, './src/composition'),
+    '@utility': resolve(__dirname, './src/utility'),
+    '@hooks': resolve(__dirname, './src/hooks'),
+    '@utils': resolve(__dirname, './src/utils'),
+  };
+
   const getServeConfig = () => {
     return {
       // dev specific config
+      resolve: {
+        alias: aliasConfig,
+      },
       plugins: [...defaultPlugin],
       define: {
         ...defaultDefine,
@@ -29,6 +43,9 @@ export default defineConfig(({ command, mode, isPreview }) => {
   const getPreviewConfig = () => {
     return {
       // preview specific config
+      resolve: {
+        alias: aliasConfig,
+      },
       plugins: [...defaultPlugin],
       define: {
         ...defaultDefine,
@@ -39,6 +56,9 @@ export default defineConfig(({ command, mode, isPreview }) => {
   const getBuildConfig = () => {
     return {
       // build specific config
+      resolve: {
+        alias: aliasConfig,
+      },
       plugins: [
         ...defaultPlugin,
         dts({

@@ -161,7 +161,7 @@ rollupOptions: {
 2. Generates `.module.css` files with utility classes
 3. Maps semantic token names to CSS custom properties
 
-**Example Config:** `src/components/Box/box.utilities.config.cjs`
+**Example Config:** `src/foundation/Box/box.utilities.config.cjs`
 
 ```javascript
 module.exports = {
@@ -499,7 +499,7 @@ pnpm build  # → storybook-static/ (static HTML site)
 }
 ```
 
-**Test Discovery:** Scans `src/components/**/*.spec.tsx`
+**Test Discovery:** Scans `src/{foundation,content,interaction,composition,utility}/**/*.spec.tsx`
 
 #### Browser Projects
 
@@ -971,7 +971,7 @@ import '@grasdouble/lufa_design-system-tokens/tokens.css';
 **Solution:** Add export to main package index:
 
 ```typescript
-export { Button } from './components/Button/Button';
+export { Button } from './interaction/Button/Button';
 ```
 
 ---

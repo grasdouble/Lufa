@@ -250,8 +250,8 @@ Primitive tokens are **immutable constants** (like `Math.PI`). Always use **sema
 
 ## Next Steps
 
-- [Box Component](/docs/primitives/box) - Container with spacing utilities
-- [Stack Component](/docs/primitives/stack) - Layout with consistent gaps
+- [Box Component](/docs/foundation/box) - Container with spacing utilities
+- [Stack Component](/docs/foundation/stack) - Layout with consistent gaps
 - [Color Tokens](/docs/tokens/colors) - Color palette system
 
 :::note Work in Progress

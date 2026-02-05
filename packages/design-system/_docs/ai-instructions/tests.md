@@ -6,7 +6,7 @@ You are writing automated tests for the Lufa Design System components. We use Pl
 
 ## File Structure
 
-- **Location**: `packages/design-system/playwright/src/components/[ComponentName]/`
+- **Location**: `packages/design-system/playwright/src/{foundation,content,interaction,composition,utility}/[ComponentName]/`
 - **Naming**: `[ComponentName].spec.tsx`
 
 ## Rules for Testing

@@ -44,33 +44,56 @@ See **[Development Guide](./_docs/development-guide.md)** for detailed instructi
 
 ## 📦 Packages
 
-| Package        | Description                                          | Status                       |
-| -------------- | ---------------------------------------------------- | ---------------------------- |
-| **tokens**     | Design tokens (453 tokens, 4 levels, DTCG-compliant) | ✅ Complete                  |
-| **primitives** | Foundation primitives (spacing, colors, timing)      | ✅ Complete                  |
-| **main**       | React components library                             | ✅ Complete (7/7 components) |
-| **themes**     | Theme configurations                                 | ✅ Complete                  |
-| **storybook**  | Interactive component documentation                  | ✅ Complete                  |
-| **docusaurus** | API documentation site                               | ✅ Complete                  |
-| **playwright** | Component testing suite (500+ tests)                 | ✅ Complete                  |
+| Package        | Description                                          | Status                         |
+| -------------- | ---------------------------------------------------- | ------------------------------ |
+| **tokens**     | Design tokens (453 tokens, 4 levels, DTCG-compliant) | ✅ Complete                    |
+| **main**       | React components library                             | ✅ Complete (16/16 components) |
+| **themes**     | Theme configurations                                 | ✅ Complete                    |
+| **storybook**  | Interactive component documentation                  | ✅ Complete                    |
+| **docusaurus** | API documentation site                               | ✅ Complete                    |
+| **playwright** | Component testing suite (599 tests)                  | ✅ Complete                    |
+| **cli**        | CLI tools and utilities                              | ✅ Complete                    |
 
 ## 🧪 Development Status
 
 **Version**: 0.7.0
 
-**Components Progress**: 100% (7/7 complete ✅)
+**Components Progress**: 16/16 (100% complete ✅)
 
-- ✅ **Box** - Layout primitive
-- ✅ **Stack** - Layout primitive (vertical/horizontal)
-- ✅ **Text** - Typography primitive
-- ✅ **Icon** - SVG icon wrapper
-- ✅ **Button** - Interactive component
-- ✅ **Badge** - Status indicator
-- ✅ **Divider** - Visual separator
+**Foundation (Layout & Structure)**
+
+- ✅ **Box** - Layout foundation with polymorphic rendering
+- ✅ **Stack** - Vertical/horizontal spacing
+- ✅ **Flex** - Flexbox layouts
+- ✅ **Grid** - Grid layouts
+- ✅ **Container** - Content width constraints
+- ✅ **Center** - Centering utility
+
+**Content (Display Elements)**
+
+- ✅ **Text** - Typography component
+- ✅ **Icon** - Lucide icon wrapper
+- ✅ **Badge** - Status indicators
+- ✅ **Divider** - Visual separators
+
+**Interaction (Interactive Elements)**
+
+- ✅ **Button** - Primary interactive element
+- ✅ **Input** - Form input fields
+- ✅ **Label** - Form labels
+
+**Composition (Complex Patterns)**
+
+- ✅ **Card** - Composite card pattern
+
+**Utility (Technical Helpers)**
+
+- ✅ **Portal** - React portal wrapper
+- ✅ **VisuallyHidden** - Accessibility helper
 
 **Token System**: 100% (453 tokens across 4 levels)
 
-**Testing**: 657 test cases (Playwright CT, 100% pass rate)
+**Testing**: 599 test cases (Playwright CT, 100% pass rate)
 
 ## 🎯 Key Features
 
@@ -79,7 +102,7 @@ See **[Development Guide](./_docs/development-guide.md)** for detailed instructi
 - **Accessible** - WCAG 2.1 AA compliant
 - **Polymorphic Components** - Flexible `as` prop for all primitives
 - **Performance Optimized** - 8ms CSS cascade (< 16ms target)
-- **Well Tested** - 657 Playwright component tests (100% pass rate)
+- **Well Tested** - 599 Playwright component tests (100% pass rate)
 
 ## 📖 Documentation Stats
 

@@ -8,68 +8,50 @@ sidebar_position: 1
 
 # Component Overview
 
-The Lufa Design System provides a comprehensive set of React components built with accessibility and customization in mind.
-
-## Primitive Components
-
-Primitive components are the foundational building blocks of the design system.
-
-### Layout Primitives
-
-- **[Box](/docs/primitives/box)** - Flexible container with padding, margin, background, and border utilities
-- **[Stack](/docs/primitives/stack)** - Flexbox layout for vertical/horizontal stacking with consistent spacing
-
-### Content Primitives
-
-- **[Text](/docs/primitives/text)** - Typography component with semantic variants and accessibility features
-- **[Icon](/docs/primitives/icon)** - SVG icon wrapper with semantic sizing and colors (Lucide React integration)
-
-### Interactive Primitives
-
-Coming soon:
-
-- **[Button](/docs/components/button)** - Interactive button with variants, sizes, and states
-- **[Badge](/docs/components/badge)** - Status and labeling component
-- **[Divider](/docs/primitives/divider)** - Visual separator for content sections
+The Lufa Design System provides a comprehensive set of React components built with accessibility and customization in mind. Components are organized by their role and purpose for better discoverability.
 
 ## Component Categories
 
-### Layout Components
+### Foundation
 
-Components for structuring page layouts and organizing content.
+Layout and structure components that form the building blocks of your UI.
 
-- Box
-- Stack
-- Grid (planned)
-- Container (planned)
+- **[Box](/docs/foundation/box)** - Flexible container with padding, margin, background, and border utilities
+- **[Stack](/docs/foundation/stack)** - Flexbox layout for vertical/horizontal stacking with consistent spacing
+- **[Flex](/docs/foundation/flex)** - Advanced flexbox layout primitive
+- **[Grid](/docs/foundation/grid)** - Two-dimensional grid layout primitive
+- **[Container](/docs/foundation/container)** - Max-width centered container for responsive layouts
+- **[Center](/docs/foundation/center)** - Centers content horizontally and vertically
 
-### Content Components
+### Content
 
-Components for displaying text and media content.
+Display components for text, icons, badges, and visual elements.
 
-- Text
-- Icon
-- Heading (uses Text)
-- Image (planned)
+- **[Text](/docs/content/text)** - Typography component with semantic variants and accessibility features
+- **[Icon](/docs/content/icon)** - SVG icon wrapper with semantic sizing and colors (Lucide React integration)
+- **[Badge](/docs/content/badge)** - Status and labeling component
+- **[Divider](/docs/content/divider)** - Visual separator for content sections
 
-### Form Components
+### Interaction
 
-Interactive form elements (planned).
+Interactive elements like buttons, inputs, and form controls.
 
-- Button
-- Input
-- Checkbox
-- Radio
-- Select
+- **[Button](/docs/interaction/button)** - Interactive button with variants, sizes, and states
+- **[Input](/docs/interaction/input)** - Text input field with design system styling
+- **[Label](/docs/interaction/label)** - Text label for form controls and UI elements
 
-### Feedback Components
+### Composition
 
-Components for displaying feedback and status (planned).
+Complex patterns that combine multiple components.
 
-- Badge
-- Alert
-- Toast
-- Loading
+- **[Card](/docs/composition/card)** - Composed container for grouped content and actions
+
+### Utility
+
+Technical helpers and accessibility utilities.
+
+- **[Portal](/docs/utility/portal)** - Renders children into a portal outside of the DOM hierarchy
+- **[VisuallyHidden](/docs/utility/visually-hidden)** - Hides content visually but leaves it available to screen readers
 
 ## Design Principles
 
@@ -141,19 +123,28 @@ function UserCard({ name, email, role }) {
 
 ## Component Status
 
-| Component | Status     | Tests | Docs | Storybook |
-| --------- | ---------- | ----- | ---- | --------- |
-| Box       | ✅ Stable  | 120   | ✅   | ✅        |
-| Stack     | ✅ Stable  | 86    | ✅   | ✅        |
-| Text      | ✅ Stable  | 107   | ✅   | ✅        |
-| Icon      | ✅ Stable  | 106   | ✅   | ✅        |
-| Button    | 🚧 Planned | -     | -    | -         |
-| Badge     | 🚧 Planned | -     | -    | -         |
-| Divider   | 🚧 Planned | -     | -    | -         |
+| Component      | Status    | Category    | Tests | Docs | Storybook |
+| -------------- | --------- | ----------- | ----- | ---- | --------- |
+| Box            | ✅ Stable | Foundation  | 120   | ✅   | ✅        |
+| Stack          | ✅ Stable | Foundation  | 86    | ✅   | ✅        |
+| Flex           | ✅ Stable | Foundation  | 42    | ✅   | ✅        |
+| Grid           | ✅ Stable | Foundation  | 38    | ✅   | ✅        |
+| Container      | ✅ Stable | Foundation  | 28    | ✅   | ✅        |
+| Center         | ✅ Stable | Foundation  | 14    | ✅   | ✅        |
+| Text           | ✅ Stable | Content     | 107   | ✅   | ✅        |
+| Icon           | ✅ Stable | Content     | 106   | ✅   | ✅        |
+| Badge          | ✅ Stable | Content     | 88    | ✅   | ✅        |
+| Divider        | ✅ Stable | Content     | 74    | ✅   | ✅        |
+| Button         | ✅ Stable | Interaction | 94    | ✅   | ✅        |
+| Input          | ✅ Stable | Interaction | 12    | ✅   | ✅        |
+| Label          | ✅ Stable | Interaction | 8     | ✅   | ✅        |
+| Card           | ✅ Stable | Composition | 16    | ✅   | ✅        |
+| Portal         | ✅ Stable | Utility     | 4     | ✅   | ✅        |
+| VisuallyHidden | ✅ Stable | Utility     | 4     | ✅   | ✅        |
 
 ## Next Steps
 
-- Explore individual [component documentation](/docs/primitives/box)
+- Explore individual component documentation in the sidebar
 - Learn about [design tokens](/docs/tokens/colors)
 - Check out [Storybook](https://storybook.lufa-ds.grasdouble.com) for interactive examples
 

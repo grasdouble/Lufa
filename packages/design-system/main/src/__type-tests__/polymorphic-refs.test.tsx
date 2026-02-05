@@ -9,12 +9,12 @@
 
 import { useRef } from 'react';
 
-import { Box } from '../primitives/Box/Box';
-import { Button } from '../components/Button/Button';
-import { Divider } from '../primitives/Divider/Divider';
-import { Icon } from '../primitives/Icon/Icon';
-import { Stack } from '../primitives/Stack/Stack';
-import { Text } from '../primitives/Text/Text';
+import { Divider } from '../content/Divider/Divider';
+import { Icon } from '../content/Icon/Icon';
+import { Text } from '../content/Text/Text';
+import { Box } from '../foundation/Box/Box';
+import { Stack } from '../foundation/Stack/Stack';
+import { Button } from '../interaction/Button/Button';
 
 /**
  * Test: Box component with different `as` props
