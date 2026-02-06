@@ -56,10 +56,10 @@ module.exports = {
     weight: {
       property: 'font-weight',
       values: {
-        normal: '400',
-        medium: '500',
-        semibold: '600',
-        bold: '700',
+        normal: '--lufa-primitive-typography-font-weight-normal',
+        medium: '--lufa-primitive-typography-font-weight-medium',
+        semibold: '--lufa-primitive-typography-font-weight-semibold',
+        bold: '--lufa-primitive-typography-font-weight-bold',
       },
     },
 

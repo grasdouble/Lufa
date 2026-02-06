@@ -18,8 +18,8 @@
  * @see .github/instructions/lufa-design-system-playwright-ct.instructions.md
  */
 
-import { expect, test } from '@playwright/experimental-ct-react';
 import AxeBuilder from '@axe-core/playwright';
+import { expect, test } from '@playwright/experimental-ct-react';
 
 import { Box } from '@grasdouble/lufa_design-system';
 
@@ -698,7 +698,7 @@ test.describe('Box Component', () => {
   // ============================================
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants in light mode', async ({ mount }) => {
+    test('should match snapshot for all variants', async ({ mount }) => {
       const paddingValues = ['none', 'tight', 'compact', 'default', 'comfortable', 'spacious'] as const;
       const marginValues = ['none', 'tight', 'compact', 'default', 'comfortable', 'spacious'] as const;
       const backgroundValues = [
@@ -721,7 +721,7 @@ test.describe('Box Component', () => {
         <div
           style={{
             padding: '32px',
-            background: '#ffffff',
+            background: 'var(--lufa-semantic-ui-background-page)',
             width: '900px',
           }}
         >
@@ -730,7 +730,7 @@ test.describe('Box Component', () => {
               marginBottom: '24px',
               fontSize: '28px',
               fontWeight: 'bold',
-              color: '#333',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             Box Component - All Variants
@@ -743,7 +743,7 @@ test.describe('Box Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Padding Values
@@ -770,7 +770,7 @@ test.describe('Box Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Margin Values
@@ -780,7 +780,7 @@ test.describe('Box Component', () => {
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
                 gap: '8px',
-                backgroundColor: '#f0f0f0',
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 padding: '8px',
               }}
             >
@@ -806,7 +806,7 @@ test.describe('Box Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Background Colors
@@ -833,7 +833,7 @@ test.describe('Box Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Border Radius
@@ -867,7 +867,7 @@ test.describe('Box Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Border Width
@@ -894,7 +894,7 @@ test.describe('Box Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Border Color
@@ -921,303 +921,7 @@ test.describe('Box Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
-              }}
-            >
-              Display Values
-            </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {displayValues.map((value) => (
-                <div key={value}>
-                  <div style={{ marginBottom: '4px', fontSize: '14px', fontWeight: '600', color: '#666' }}>
-                    {value}:
-                  </div>
-                  <Box display={value} background="surface" padding="compact" borderWidth="thin" borderColor="default">
-                    <Box padding="compact" background="info">
-                      Child 1
-                    </Box>
-                    <Box padding="compact" background="warning">
-                      Child 2
-                    </Box>
-                  </Box>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 8: Card Composition Example */}
-          <section>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: '#555',
-              }}
-            >
-              Composition Example (Card)
-            </h2>
-            <Box
-              padding="comfortable"
-              background="surface"
-              borderRadius="medium"
-              borderWidth="thin"
-              borderColor="default"
-            >
-              <Box as="header" marginBottom="default">
-                <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '600' }}>Card Title</h3>
-              </Box>
-              <Box marginBottom="default">
-                <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.5' }}>
-                  Card content with comfortable padding and medium border radius.
-                </p>
-              </Box>
-              <Box as="footer" display="flex">
-                <Box padding="compact" background="on-primary" borderRadius="small">
-                  Action 1
-                </Box>
-                <Box padding="compact" background="on-secondary" borderRadius="small" marginLeft="compact">
-                  Action 2
-                </Box>
-              </Box>
-            </Box>
-          </section>
-        </div>
-      );
-
-      // Wait for rendering to stabilize
-      await component.page().waitForTimeout(100);
-
-      await expect(component).toHaveScreenshot('box-all-variants-light.png');
-    });
-
-    test('should match snapshot for all variants in dark mode', async ({ mount, page }) => {
-      // Set dark mode on document root BEFORE mounting
-      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
-
-      const paddingValues = ['none', 'tight', 'compact', 'default', 'comfortable', 'spacious'] as const;
-      const marginValues = ['none', 'tight', 'compact', 'default', 'comfortable', 'spacious'] as const;
-      const backgroundValues = [
-        'page',
-        'surface',
-        'success',
-        'error',
-        'warning',
-        'info',
-        'overlay',
-        'on-primary',
-        'on-secondary',
-      ] as const;
-      const borderRadiusValues = ['none', 'small', 'default', 'medium', 'large', 'full'] as const;
-      const borderWidthValues = ['none', 'thin', 'medium', 'thick'] as const;
-      const borderColorValues = ['default', 'strong', 'success', 'error', 'warning', 'info'] as const;
-      const displayValues = ['block', 'inline-block', 'flex', 'inline-flex', 'grid'] as const;
-
-      const component = await mount(
-        <div
-          style={{
-            padding: '32px',
-            width: '900px',
-            background: 'var(--lufa-token-color-background-page)',
-          }}
-        >
-          <h1
-            style={{
-              marginBottom: '24px',
-              fontSize: '28px',
-              fontWeight: 'bold',
-              color: 'var(--lufa-token-color-text-primary)',
-            }}
-          >
-            Box Component - All Variants (Dark Mode)
-          </h1>
-
-          {/* Section 1: Padding Values */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Padding Values
-            </h2>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '16px',
-              }}
-            >
-              {paddingValues.map((value) => (
-                <Box key={value} padding={value} background="surface" borderWidth="thin" borderColor="default">
-                  {value}
-                </Box>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 2: Margin Values */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Margin Values
-            </h2>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '8px',
-                backgroundColor: 'var(--lufa-semantic-ui-overlay-backdrop)',
-                padding: '8px',
-              }}
-            >
-              {marginValues.map((value) => (
-                <Box
-                  key={value}
-                  margin={value}
-                  padding="default"
-                  background="surface"
-                  borderWidth="thin"
-                  borderColor="default"
-                >
-                  {value}
-                </Box>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 3: Background Colors */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Background Colors
-            </h2>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '16px',
-              }}
-            >
-              {backgroundValues.map((value) => (
-                <Box key={value} background={value} padding="default" borderWidth="thin" borderColor="default">
-                  {value}
-                </Box>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 4: Border Radius */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Border Radius
-            </h2>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '16px',
-              }}
-            >
-              {borderRadiusValues.map((value) => (
-                <Box
-                  key={value}
-                  borderRadius={value}
-                  padding="default"
-                  background="surface"
-                  borderWidth="thin"
-                  borderColor="default"
-                >
-                  {value}
-                </Box>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 5: Border Width */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Border Width
-            </h2>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '16px',
-              }}
-            >
-              {borderWidthValues.map((value) => (
-                <Box key={value} borderWidth={value} borderColor="default" padding="default" background="surface">
-                  {value}
-                </Box>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 6: Border Color */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Border Color
-            </h2>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '16px',
-              }}
-            >
-              {borderColorValues.map((value) => (
-                <Box key={value} borderColor={value} borderWidth="medium" padding="default" background="surface">
-                  {value}
-                </Box>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 7: Display Values */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Display Values
@@ -1230,7 +934,7 @@ test.describe('Box Component', () => {
                       marginBottom: '4px',
                       fontSize: '14px',
                       fontWeight: '600',
-                      color: 'var(--lufa-token-color-text-tertiary)',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
                     }}
                   >
                     {value}:
@@ -1255,7 +959,7 @@ test.describe('Box Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Composition Example (Card)
@@ -1291,10 +995,7 @@ test.describe('Box Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('box-all-variants-dark.png');
-
-      // Clean up: remove dark mode to avoid affecting other tests
-      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
+      await expect(component).toHaveScreenshot('box-all-variants.png');
     });
   });
 });

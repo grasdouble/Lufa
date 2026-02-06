@@ -57,12 +57,13 @@ export const Default: Story = {
       <StoryContainer>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <PropCard label="Default Input">
-            {/* 
+            {/*
               💡 TOKEN EDUCATION:
-              Background: var(--lufa-token-color-background-primary)
-              Text: var(--lufa-token-color-text-primary)
-              Border: var(--lufa-token-color-border-default)
-              Focus Border: var(--lufa-token-color-border-focus)
+              Background: var(--lufa-component-input-background-default)
+              Text: var(--lufa-component-input-text-default)
+              Border: var(--lufa-component-input-border-default)
+              Focus Border: var(--lufa-component-input-border-focus)
+              Border Radius: var(--lufa-component-input-border-radius)
             */}
             <Input placeholder="Type something..." />
           </PropCard>
@@ -146,7 +147,14 @@ export const FullWidth: Story = {
       <StoryContainer>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <PropCard label="fullWidth={true}">
-            <div style={{ width: '100%', maxWidth: '500px', border: '1px dashed #ccc', padding: '10px' }}>
+            <div
+              style={{
+                width: '100%',
+                maxWidth: '500px',
+                border: `1px dashed ${STORY_COLORS.neutral.borderMedium}`,
+                padding: '10px',
+              }}
+            >
               <Input fullWidth placeholder="I fill the container" />
             </div>
           </PropCard>

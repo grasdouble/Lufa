@@ -32,10 +32,10 @@ export function AllVariants() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
       }}
     >
       {variants.map(({ value, label, description }) => (
@@ -44,28 +44,28 @@ export function AllVariants() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 'var(--lufa-token-spacing-default)',
-            padding: 'var(--lufa-token-spacing-compact)',
-            border: '1px solid var(--lufa-token-color-border-light)',
-            borderRadius: 'var(--lufa-token-radius-sm)',
-            backgroundColor: 'var(--lufa-token-color-background-base)',
+            gap: 'var(--lufa-semantic-ui-spacing-default)',
+            padding: 'var(--lufa-semantic-ui-spacing-compact)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
+            borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
           }}
         >
           <Badge variant={value}>{label}</Badge>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-sm)',
-                fontWeight: 'var(--lufa-token-font-weight-semibold)',
-                color: 'var(--lufa-token-color-text-primary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+                fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+                color: 'var(--lufa-semantic-ui-text-primary)',
               }}
             >
               variant="{value}"
             </span>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-xs)',
-                color: 'var(--lufa-token-color-text-secondary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               {description}
@@ -92,10 +92,10 @@ export function AllSizes() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
       }}
     >
       {sizes.map(({ value, label, fontSize }) => (
@@ -104,11 +104,11 @@ export function AllSizes() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 'var(--lufa-token-spacing-default)',
-            padding: 'var(--lufa-token-spacing-compact)',
-            border: '1px solid var(--lufa-token-color-border-light)',
-            borderRadius: 'var(--lufa-token-radius-sm)',
-            backgroundColor: 'var(--lufa-token-color-background-base)',
+            gap: 'var(--lufa-semantic-ui-spacing-default)',
+            padding: 'var(--lufa-semantic-ui-spacing-compact)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
+            borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
           }}
         >
           <Badge size={value} variant="success">
@@ -117,17 +117,17 @@ export function AllSizes() {
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-sm)',
-                fontWeight: 'var(--lufa-token-font-weight-semibold)',
-                color: 'var(--lufa-token-color-text-primary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+                fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+                color: 'var(--lufa-semantic-ui-text-primary)',
               }}
             >
               size="{value}"
             </span>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-xs)',
-                color: 'var(--lufa-token-color-text-secondary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Font size: {fontSize}
@@ -148,10 +148,10 @@ export function WithDotIndicator() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
       }}
     >
       {/* Without dot */}
@@ -159,28 +159,28 @@ export function WithDotIndicator() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 'var(--lufa-token-spacing-default)',
-          padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-light)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
+          gap: 'var(--lufa-semantic-ui-spacing-default)',
+          padding: 'var(--lufa-semantic-ui-spacing-compact)',
+          border: '1px solid var(--lufa-semantic-ui-border-default)',
+          borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
         }}
       >
         <Badge variant="error">5 alerts</Badge>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-sm)',
-              fontWeight: 'var(--lufa-token-font-weight-semibold)',
-              color: 'var(--lufa-token-color-text-primary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+              fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             Without dot
           </span>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             Standard badge without indicator
@@ -193,11 +193,11 @@ export function WithDotIndicator() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 'var(--lufa-token-spacing-default)',
-          padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-light)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
+          gap: 'var(--lufa-semantic-ui-spacing-default)',
+          padding: 'var(--lufa-semantic-ui-spacing-compact)',
+          border: '1px solid var(--lufa-semantic-ui-border-default)',
+          borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
         }}
       >
         <Badge dot variant="error">
@@ -206,17 +206,17 @@ export function WithDotIndicator() {
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-sm)',
-              fontWeight: 'var(--lufa-token-font-weight-semibold)',
-              color: 'var(--lufa-token-color-text-primary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+              fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             With dot
           </span>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             Draws attention with 6px dot indicator
@@ -229,14 +229,14 @@ export function WithDotIndicator() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 'var(--lufa-token-spacing-default)',
-          padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-light)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
+          gap: 'var(--lufa-semantic-ui-spacing-default)',
+          padding: 'var(--lufa-semantic-ui-spacing-compact)',
+          border: '1px solid var(--lufa-semantic-ui-border-default)',
+          borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
         }}
       >
-        <div style={{ display: 'flex', gap: 'var(--lufa-token-spacing-compact)', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 'var(--lufa-semantic-ui-spacing-compact)', flexWrap: 'wrap' }}>
           <Badge dot variant="success">
             Online
           </Badge>
@@ -253,17 +253,17 @@ export function WithDotIndicator() {
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-sm)',
-              fontWeight: 'var(--lufa-token-font-weight-semibold)',
-              color: 'var(--lufa-token-color-text-primary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+              fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             Multiple variants with dot
           </span>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             Dot indicator works with all variants

@@ -12,40 +12,40 @@ Typography tokens define the font system for the Lufa Design System, including f
 
 ## Font Families
 
-| Token  | CSS Variable                    | Value                |
-| ------ | ------------------------------- | -------------------- |
-| `sans` | `--lufa-token-font-family-sans` | System font stack    |
-| `mono` | `--lufa-token-font-family-mono` | Monospace font stack |
+| Token  | CSS Variable                                   | Value                |
+| ------ | ---------------------------------------------- | -------------------- |
+| `sans` | `--lufa-primitive-typography-font-family-sans` | System font stack    |
+| `mono` | `--lufa-primitive-typography-font-family-mono` | Monospace font stack |
 
 ### System Font Stack
 
 The design system uses native system fonts for optimal performance and familiarity:
 
 ```css
---lufa-token-font-family-sans:
+--lufa-primitive-typography-font-family-sans:
   -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
---lufa-token-font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+--lufa-primitive-typography-font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
 ```
 
 ## Font Sizes
 
 Semantic font size tokens based on usage:
 
-| Token  | CSS Variable                  | Size (Desktop) | Fluid Range | Usage                         |
-| ------ | ----------------------------- | -------------- | ----------- | ----------------------------- |
-| `xs`   | `--lufa-token-font-size-xs`   | 12px           | Static      | Captions, labels              |
-| `sm`   | `--lufa-token-font-size-sm`   | 14px           | Static      | Small body text               |
-| `base` | `--lufa-token-font-size-body` | 16px           | Static      | Default body text             |
-| `lg`   | `--lufa-token-font-size-lg`   | 18px           | Static      | Large body text               |
-| `xl`   | `--lufa-token-font-size-xl`   | 20px           | Static      | Small headings                |
-| `2xl`  | `--lufa-token-font-size-2xl`  | 24px           | 20px → 24px | Medium headings               |
-| `3xl`  | `--lufa-token-font-size-3xl`  | 30px           | 24px → 30px | Large headings                |
-| `4xl`  | `--lufa-token-font-size-4xl`  | 36px           | 28px → 36px | XL headings                   |
-| `5xl`  | `--lufa-token-font-size-5xl`  | 48px           | 32px → 48px | Hero headings                 |
-| `6xl`  | `--lufa-token-font-size-6xl`  | 60px           | 40px → 60px | Hero headlines, featured      |
-| `7xl`  | `--lufa-token-font-size-7xl`  | 72px           | 48px → 72px | Marketing hero, landing       |
-| `8xl`  | `--lufa-token-font-size-8xl`  | 96px           | 64px → 96px | Display text, brand impact ⚠️ |
+| Token  | CSS Variable                                 | Size (Desktop) | Fluid Range | Usage                         |
+| ------ | -------------------------------------------- | -------------- | ----------- | ----------------------------- |
+| `xs`   | `--lufa-primitive-typography-font-size-xs`   | 12px           | Static      | Captions, labels              |
+| `sm`   | `--lufa-primitive-typography-font-size-sm`   | 14px           | Static      | Small body text               |
+| `base` | `--lufa-primitive-typography-font-size-body` | 16px           | Static      | Default body text             |
+| `lg`   | `--lufa-primitive-typography-font-size-lg`   | 18px           | Static      | Large body text               |
+| `xl`   | `--lufa-primitive-typography-font-size-xl`   | 20px           | Static      | Small headings                |
+| `2xl`  | `--lufa-primitive-typography-font-size-2xl`  | 24px           | 20px → 24px | Medium headings               |
+| `3xl`  | `--lufa-primitive-typography-font-size-3xl`  | 30px           | 24px → 30px | Large headings                |
+| `4xl`  | `--lufa-primitive-typography-font-size-4xl`  | 36px           | 28px → 36px | XL headings                   |
+| `5xl`  | `--lufa-primitive-typography-font-size-5xl`  | 48px           | 32px → 48px | Hero headings                 |
+| `6xl`  | `--lufa-primitive-typography-font-size-6xl`  | 60px           | 40px → 60px | Hero headlines, featured      |
+| `7xl`  | `--lufa-primitive-typography-font-size-7xl`  | 72px           | 48px → 72px | Marketing hero, landing       |
+| `8xl`  | `--lufa-primitive-typography-font-size-8xl`  | 96px           | 64px → 96px | Display text, brand impact ⚠️ |
 
 :::info Fluid Typography
 Heading sizes (2xl-8xl) use CSS `clamp()` for responsive scaling between mobile and desktop viewports. Body text sizes (xs-xl) remain static for optimal readability.
@@ -57,47 +57,47 @@ Heading sizes (2xl-8xl) use CSS `clamp()` for responsive scaling between mobile 
 
 Semantic font weight tokens:
 
-| Token      | CSS Variable                        | Value | Usage            |
-| ---------- | ----------------------------------- | ----- | ---------------- |
-| `regular`  | `--lufa-token-font-weight-regular`  | 400   | Body text        |
-| `medium`   | `--lufa-token-font-weight-medium`   | 500   | Emphasized text  |
-| `semibold` | `--lufa-token-font-weight-semibold` | 600   | Headings, labels |
-| `bold`     | `--lufa-token-font-weight-bold`     | 700   | Strong emphasis  |
+| Token      | CSS Variable                                       | Value | Usage            |
+| ---------- | -------------------------------------------------- | ----- | ---------------- |
+| `regular`  | `--lufa-primitive-typography-font-weight-regular`  | 400   | Body text        |
+| `medium`   | `--lufa-primitive-typography-font-weight-medium`   | 500   | Emphasized text  |
+| `semibold` | `--lufa-primitive-typography-font-weight-semibold` | 600   | Headings, labels |
+| `bold`     | `--lufa-primitive-typography-font-weight-bold`     | 700   | Strong emphasis  |
 
 ## Line Heights
 
 Line height tokens for different text contexts:
 
-| Token     | CSS Variable                       | Value | Usage             |
-| --------- | ---------------------------------- | ----- | ----------------- |
-| `tight`   | `--lufa-token-line-height-tight`   | 1.25  | Headings          |
-| `base`    | `--lufa-token-line-height-base`    | 1.5   | Body text         |
-| `relaxed` | `--lufa-token-line-height-relaxed` | 1.75  | Long-form content |
+| Token     | CSS Variable                                      | Value | Usage             |
+| --------- | ------------------------------------------------- | ----- | ----------------- |
+| `tight`   | `--lufa-primitive-typography-line-height-tight`   | 1.25  | Headings          |
+| `base`    | `--lufa-primitive-typography-line-height-base`    | 1.5   | Body text         |
+| `relaxed` | `--lufa-primitive-typography-line-height-relaxed` | 1.75  | Long-form content |
 
 ## Letter Spacing
 
 Letter-spacing tokens for fine-tuning typography:
 
-| Token     | CSS Variable                          | Value   | Usage                              |
-| --------- | ------------------------------------- | ------- | ---------------------------------- |
-| `tighter` | `--lufa-token-letter-spacing-tighter` | -0.04em | Display text, extra large headings |
-| `tight`   | `--lufa-token-letter-spacing-tight`   | -0.02em | Large headings (H1-H3)             |
-| `normal`  | `--lufa-token-letter-spacing-normal`  | 0       | Body text (default)                |
-| `wide`    | `--lufa-token-letter-spacing-wide`    | 0.05em  | Small text, uppercase labels       |
-| `wider`   | `--lufa-token-letter-spacing-wider`   | 0.1em   | All-caps headings, button text     |
+| Token     | CSS Variable                                         | Value   | Usage                              |
+| --------- | ---------------------------------------------------- | ------- | ---------------------------------- |
+| `tighter` | `--lufa-primitive-typography-letter-spacing-tighter` | -0.04em | Display text, extra large headings |
+| `tight`   | `--lufa-primitive-typography-letter-spacing-tight`   | -0.02em | Large headings (H1-H3)             |
+| `normal`  | `--lufa-primitive-typography-letter-spacing-normal`  | 0       | Body text (default)                |
+| `wide`    | `--lufa-primitive-typography-letter-spacing-wide`    | 0.05em  | Small text, uppercase labels       |
+| `wider`   | `--lufa-primitive-typography-letter-spacing-wider`   | 0.1em   | All-caps headings, button text     |
 
 :::tip Usage
 Letter-spacing is **not automatically applied** by components. Use it explicitly via CSS when needed:
 
 ```css
 .hero-title {
-  font-size: var(--lufa-token-font-size-5xl);
-  letter-spacing: var(--lufa-token-letter-spacing-tight);
+  font-size: var(--lufa-primitive-typography-font-size-5xl);
+  letter-spacing: var(--lufa-primitive-typography-letter-spacing-tight);
 }
 
 .uppercase-label {
-  font-size: var(--lufa-token-font-size-sm);
-  letter-spacing: var(--lufa-token-letter-spacing-wide);
+  font-size: var(--lufa-primitive-typography-font-size-sm);
+  letter-spacing: var(--lufa-primitive-typography-letter-spacing-wide);
   text-transform: uppercase;
 }
 ```
@@ -110,17 +110,17 @@ Letter-spacing is **not automatically applied** by components. Use it explicitly
 
 ```css
 .heading {
-  font-family: var(--lufa-token-font-family-sans);
-  font-size: var(--lufa-token-font-size-2xl);
-  font-weight: var(--lufa-token-font-weight-semibold);
-  line-height: var(--lufa-token-line-height-tight);
+  font-family: var(--lufa-primitive-typography-font-family-sans);
+  font-size: var(--lufa-primitive-typography-font-size-2xl);
+  font-weight: var(--lufa-primitive-typography-font-weight-semibold);
+  line-height: var(--lufa-primitive-typography-line-height-tight);
 }
 
 .body {
-  font-family: var(--lufa-token-font-family-sans);
-  font-size: var(--lufa-token-font-size-body);
-  font-weight: var(--lufa-token-font-weight-regular);
-  line-height: var(--lufa-token-line-height-base);
+  font-family: var(--lufa-primitive-typography-font-family-sans);
+  font-size: var(--lufa-primitive-typography-font-size-body);
+  font-weight: var(--lufa-primitive-typography-font-weight-regular);
+  line-height: var(--lufa-primitive-typography-line-height-base);
 }
 ```
 
@@ -181,28 +181,28 @@ Typography tokens adapt automatically across screen sizes using CSS `clamp()` fo
 /* Heading tokens scale fluidly (2xl-8xl) */
 .hero-heading {
   /* Automatically scales from 32px (mobile) to 48px (desktop) */
-  font-size: var(--lufa-token-font-size-5xl);
+  font-size: var(--lufa-primitive-typography-font-size-5xl);
 }
 
 .marketing-hero {
   /* Automatically scales from 48px (mobile) to 72px (desktop) */
-  font-size: var(--lufa-token-font-size-7xl);
+  font-size: var(--lufa-primitive-typography-font-size-7xl);
 }
 
 .display-title {
   /* Automatically scales from 64px (mobile) to 96px (desktop) */
   /* Note: Fluid scaling engages at 400px+ viewport */
-  font-size: var(--lufa-token-font-size-8xl);
+  font-size: var(--lufa-primitive-typography-font-size-8xl);
 }
 
 .section-heading {
   /* Automatically scales from 24px (mobile) to 30px (desktop) */
-  font-size: var(--lufa-token-font-size-3xl);
+  font-size: var(--lufa-primitive-typography-font-size-3xl);
 }
 
 /* Body text remains static for readability */
 .body-text {
-  font-size: var(--lufa-token-font-size-body); /* Always 16px */
+  font-size: var(--lufa-primitive-typography-font-size-body); /* Always 16px */
 }
 ```
 
@@ -211,13 +211,13 @@ The design system uses CSS `clamp()` for headings (2xl-8xl):
 
 ```css
 /* Example: 5xl token */
---lufa-token-font-size-5xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+--lufa-primitive-typography-font-size-5xl: clamp(2rem, 1.5rem + 2vw, 3rem);
 /*                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 /*                           min    preferred     max
 /*                           32px   viewport-based 48px
 
 /* Example: 8xl token (largest display size) */
---lufa-token-font-size-8xl: clamp(4rem, 3rem + 4vw, 6rem);
+--lufa-primitive-typography-font-size-8xl: clamp(4rem, 3rem + 4vw, 6rem);
 /*                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 /*                           min    preferred     max
 /*                           64px   viewport-based 96px
@@ -238,8 +238,8 @@ The extended scale tokens are designed for specific use cases:
 
 ```css
 .hero-headline {
-  font-size: var(--lufa-token-font-size-6xl);
-  letter-spacing: var(--lufa-token-letter-spacing-tight);
+  font-size: var(--lufa-primitive-typography-font-size-6xl);
+  letter-spacing: var(--lufa-primitive-typography-letter-spacing-tight);
 }
 ```
 
@@ -247,9 +247,9 @@ The extended scale tokens are designed for specific use cases:
 
 ```css
 .marketing-hero {
-  font-size: var(--lufa-token-font-size-7xl);
-  letter-spacing: var(--lufa-token-letter-spacing-tighter);
-  line-height: var(--lufa-token-line-height-tight);
+  font-size: var(--lufa-primitive-typography-font-size-7xl);
+  letter-spacing: var(--lufa-primitive-typography-letter-spacing-tighter);
+  line-height: var(--lufa-primitive-typography-line-height-tight);
 }
 ```
 
@@ -257,8 +257,8 @@ The extended scale tokens are designed for specific use cases:
 
 ```css
 .display-title {
-  font-size: var(--lufa-token-font-size-8xl);
-  letter-spacing: var(--lufa-token-letter-spacing-tighter);
+  font-size: var(--lufa-primitive-typography-font-size-8xl);
+  letter-spacing: var(--lufa-primitive-typography-letter-spacing-tighter);
   line-height: 1.1;
 }
 

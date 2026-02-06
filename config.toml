@@ -24,15 +24,16 @@ context_files = [
 [custom_instructions]
 # Three-Layer Design System Architecture (CRITICAL)
 architecture_rules = """
-CRITICAL: Lufa uses a strict three-layer design system architecture with vanilla CSS:
-- Layer 1: Primitives (@grasdouble/lufa_design-system-primitives) - Raw values (--lufa-primitive-*)
-- Layer 2: Tokens (@grasdouble/lufa_design-system-tokens) - Semantic values (--lufa-token-*)
-- Layer 3: Components (@grasdouble/lufa_design-system) - React components with CSS Modules
+CRITICAL: Lufa uses a four-layer design system architecture with vanilla CSS:
+- Layer 1: Primitives - Raw values (--lufa-primitive-*)
+- Layer 2: Core - Themeable values (--lufa-core-*)
+- Layer 3: Semantic - Contextual values (--lufa-semantic-*)
+- Layer 4: Component - Component-specific values (--lufa-component-*)
 
 STYLING APPROACH:
 - Vanilla CSS with CSS Modules (NOT Tailwind CSS)
-- Use CSS custom properties: var(--lufa-token-color-text-primary)
-- Components use tokens via CSS variables, never primitives directly
+- Use CSS custom properties: var(--lufa-semantic-ui-text-primary), var(--lufa-component-button-*)
+- Components use semantic/component tokens via CSS variables, never primitives directly
 
 RULES:
 1. Components MUST import from @grasdouble/lufa_design-system-tokens ONLY
@@ -60,7 +61,7 @@ When creating design system components:
 3. Set displayName on component
 4. Use ComponentPropsWithoutRef<'element'> for HTML props
 5. Style with CSS Modules using token-based CSS custom properties
-6. NEVER hard-code values - use var(--lufa-token-*) in CSS
+6. NEVER hard-code values - use var(--lufa-semantic-*) or var(--lufa-component-*) in CSS
 7. Ensure WCAG 2.1 AA accessibility (ARIA, keyboard, focus)
 8. Create Playwright component test
 9. Export from packages/design-system/main/src/index.ts
@@ -68,8 +69,8 @@ When creating design system components:
 
 CSS Example:
   .button {
-    padding: var(--lufa-token-spacing-base);
-    color: var(--lufa-token-color-text-primary);
+    padding: var(--lufa-semantic-ui-spacing-default);
+    color: var(--lufa-semantic-ui-text-primary);
     /* NOT: padding: 16px; color: #000; */
   }
 """

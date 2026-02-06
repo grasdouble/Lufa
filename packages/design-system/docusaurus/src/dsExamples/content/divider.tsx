@@ -35,10 +35,10 @@ export function AllOrientations() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
       }}
     >
       {orientations.map(({ value, description }) => (
@@ -47,27 +47,27 @@ export function AllOrientations() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: 'var(--lufa-token-spacing-compact)',
-            padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-light)',
-            borderRadius: 'var(--lufa-token-radius-sm)',
-            backgroundColor: 'var(--lufa-token-color-background-base)',
+            gap: 'var(--lufa-semantic-ui-spacing-compact)',
+            padding: 'var(--lufa-semantic-ui-spacing-default)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
+            borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-sm)',
-                fontWeight: 'var(--lufa-token-font-weight-semibold)',
-                color: 'var(--lufa-token-color-text-primary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+                fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+                color: 'var(--lufa-semantic-ui-text-primary)',
               }}
             >
               orientation="{value}"
             </span>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-xs)',
-                color: 'var(--lufa-token-color-text-secondary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               {description}
@@ -76,15 +76,15 @@ export function AllOrientations() {
 
           {value === 'horizontal' ? (
             <div>
-              <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>Content Above</div>
+              <div style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>Content Above</div>
               <Divider orientation="horizontal" />
-              <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>Content Below</div>
+              <div style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>Content Below</div>
             </div>
           ) : (
             <div style={{ display: 'flex', alignItems: 'center', height: '60px', justifyContent: 'center' }}>
-              <span style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>Left</span>
+              <span style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>Left</span>
               <Divider orientation="vertical" />
-              <span style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>Right</span>
+              <span style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>Right</span>
             </div>
           )}
         </div>
@@ -116,10 +116,10 @@ export function AllEmphasisLevels() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
       }}
     >
       {emphasisLevels.map(({ value, color, thickness, description }) => (
@@ -128,27 +128,27 @@ export function AllEmphasisLevels() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: 'var(--lufa-token-spacing-compact)',
-            padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-light)',
-            borderRadius: 'var(--lufa-token-radius-sm)',
-            backgroundColor: 'var(--lufa-token-color-background-base)',
+            gap: 'var(--lufa-semantic-ui-spacing-compact)',
+            padding: 'var(--lufa-semantic-ui-spacing-default)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
+            borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-sm)',
-                fontWeight: 'var(--lufa-token-font-weight-semibold)',
-                color: 'var(--lufa-token-color-text-primary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+                fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+                color: 'var(--lufa-semantic-ui-text-primary)',
               }}
             >
               emphasis="{value}"
             </span>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-xs)',
-                color: 'var(--lufa-token-color-text-secondary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               {thickness} • {color} • {description}
@@ -176,27 +176,27 @@ export function AllSpacing() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
       }}
     >
       {spacings.map(({ value, margin, description }) => (
         <div
           key={value}
           style={{
-            padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-light)',
-            borderRadius: 'var(--lufa-token-radius-sm)',
-            backgroundColor: 'var(--lufa-token-color-background-base)',
+            padding: 'var(--lufa-semantic-ui-spacing-default)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
+            borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
           }}
         >
           <div
             style={{
-              fontSize: 'var(--lufa-token-font-size-sm)',
-              fontWeight: 'var(--lufa-token-font-weight-semibold)',
-              color: 'var(--lufa-token-color-text-primary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+              fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+              color: 'var(--lufa-semantic-ui-text-primary)',
               marginBottom: '8px',
             }}
           >
@@ -204,8 +204,8 @@ export function AllSpacing() {
           </div>
           <div
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
               marginBottom: '8px',
             }}
           >
@@ -215,13 +215,13 @@ export function AllSpacing() {
           <div
             style={{
               padding: '8px',
-              backgroundColor: 'var(--lufa-token-color-background-secondary)',
-              borderRadius: 'var(--lufa-token-radius-sm)',
+              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+              borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
             }}
           >
-            <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>Content Above</div>
+            <div style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>Content Above</div>
             <Divider spacing={value} />
-            <div style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>Content Below</div>
+            <div style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>Content Below</div>
           </div>
         </div>
       ))}
@@ -243,10 +243,10 @@ export function LineStyles() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
       }}
     >
       {lineStyles.map(({ value, description }) => (
@@ -255,27 +255,27 @@ export function LineStyles() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: 'var(--lufa-token-spacing-compact)',
-            padding: 'var(--lufa-token-spacing-default)',
-            border: '1px solid var(--lufa-token-color-border-light)',
-            borderRadius: 'var(--lufa-token-radius-sm)',
-            backgroundColor: 'var(--lufa-token-color-background-base)',
+            gap: 'var(--lufa-semantic-ui-spacing-compact)',
+            padding: 'var(--lufa-semantic-ui-spacing-default)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
+            borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-sm)',
-                fontWeight: 'var(--lufa-token-font-weight-semibold)',
-                color: 'var(--lufa-token-color-text-primary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+                fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+                color: 'var(--lufa-semantic-ui-text-primary)',
               }}
             >
               lineStyle="{value}"
             </span>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-xs)',
-                color: 'var(--lufa-token-color-text-secondary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               {description}
@@ -288,17 +288,17 @@ export function LineStyles() {
       {/* Show line styles with different emphasis levels */}
       <div
         style={{
-          padding: 'var(--lufa-token-spacing-default)',
-          border: '1px solid var(--lufa-token-color-border-light)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-secondary)',
+          padding: 'var(--lufa-semantic-ui-spacing-default)',
+          border: '1px solid var(--lufa-semantic-ui-border-default)',
+          borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
         }}
       >
         <div
           style={{
-            fontSize: 'var(--lufa-token-font-size-sm)',
-            fontWeight: 'var(--lufa-token-font-weight-semibold)',
-            color: 'var(--lufa-token-color-text-primary)',
+            fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+            fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+            color: 'var(--lufa-semantic-ui-text-primary)',
             marginBottom: '12px',
           }}
         >
@@ -308,8 +308,8 @@ export function LineStyles() {
         <div style={{ marginBottom: '16px' }}>
           <div
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
               marginBottom: '8px',
             }}
           >
@@ -325,8 +325,8 @@ export function LineStyles() {
         <div>
           <div
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
               marginBottom: '8px',
             }}
           >

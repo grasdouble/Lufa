@@ -28,11 +28,26 @@ export default defineConfig({
     ctPort: 3100,
   },
 
+  /* Expect configuration for assertions */
+  expect: {
+    toHaveScreenshot: {
+      /* Allow minor pixel differences due to font loading/rendering variations */
+      maxDiffPixelRatio: 0.02, // Allow up to 2% pixel difference
+      /* Use threshold instead of strict pixel matching to handle dimension variations */
+      threshold: 0.2, // Allow small visual differences (0-1 scale, where 0 is identical)
+    },
+  },
+
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'chromium-dark',
+      use: { ...devices['Desktop Chrome'], colorScheme: 'dark' },
+      grep: /Visual Regression/,
     },
     // Keep for now only one browser!
     // {

@@ -20,7 +20,7 @@
     "validate-system": "bash scripts/validate-snapshot-system.sh"
   },
   "lint-staged": {
-    "**/__snapshots__/**/*.png": "bash packages/design-system/playwright/scripts/compress-snapshots-precommit.sh",
+    "**/__snapshots__/**/*.png": "bash scripts/compress-snapshots-precommit.sh",
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
       "eslint --fix",
       "prettier --write"

@@ -16,3 +16,6 @@ build
 
 # Generated files
 *.d.ts
+
+#storybook
+storybook-static

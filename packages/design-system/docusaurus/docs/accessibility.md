@@ -287,7 +287,7 @@ All Lufa components have clear focus indicators:
 
 ```css
 .button:focus-visible {
-  outline: 2px solid var(--lufa-token-color-border-focus);
+  outline: 2px solid var(--lufa-component-shared-focus-outline-color);
   outline-offset: 2px;
 }
 ```

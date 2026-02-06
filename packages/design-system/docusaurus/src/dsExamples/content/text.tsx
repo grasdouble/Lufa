@@ -39,14 +39,14 @@ export function VariantExamples() {
       {variants.map(({ value, label, example }) => (
         <div
           key={value}
-          style={{ padding: '16px', border: '1px solid var(--lufa-token-color-border-light)', borderRadius: '8px' }}
+          style={{ padding: '16px', border: '1px solid var(--lufa-semantic-ui-border-default)', borderRadius: '8px' }}
         >
           <div
             style={{
               marginBottom: '8px',
               fontSize: '12px',
               fontWeight: 600,
-              color: 'var(--lufa-token-color-text-secondary)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             variant="{value}" - {label}
@@ -81,7 +81,7 @@ export function ColorVariants() {
           key={value}
           style={{
             padding: '16px',
-            border: '1px solid var(--lufa-token-color-border-light)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: '8px',
           }}
         >
@@ -116,7 +116,7 @@ export function WeightVariants() {
           key={value}
           style={{
             padding: '16px',
-            border: '1px solid var(--lufa-token-color-border-light)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: '8px',
           }}
         >
@@ -125,7 +125,7 @@ export function WeightVariants() {
               marginBottom: '8px',
               fontSize: '12px',
               fontWeight: 600,
-              color: 'var(--lufa-token-color-text-secondary)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             weight="{value}" - {label}
@@ -155,7 +155,7 @@ export function AlignVariants() {
               marginBottom: '8px',
               fontSize: '12px',
               fontWeight: 600,
-              color: 'var(--lufa-token-color-text-secondary)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             align="{value}"
@@ -163,7 +163,7 @@ export function AlignVariants() {
           <div
             style={{
               padding: '16px',
-              border: '2px dashed var(--lufa-token-color-border-light)',
+              border: '2px dashed var(--lufa-semantic-ui-border-default)',
               borderRadius: '8px',
             }}
           >
@@ -197,7 +197,7 @@ export function TransformVariants() {
           key={value}
           style={{
             padding: '16px',
-            border: '1px solid var(--lufa-token-color-border-light)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: '8px',
           }}
         >
@@ -206,7 +206,7 @@ export function TransformVariants() {
               marginBottom: '8px',
               fontSize: '12px',
               fontWeight: 600,
-              color: 'var(--lufa-token-color-text-secondary)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             transform="{value}" - {label}
@@ -243,9 +243,9 @@ export function PolymorphicVariant() {
           key={value}
           style={{
             padding: '16px',
-            border: '1px solid var(--lufa-token-color-border-light)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: '8px',
-            background: 'var(--lufa-token-color-background-secondary)',
+            background: 'var(--lufa-semantic-ui-background-surface)',
           }}
         >
           <Text as={value} variant="body" weight="semibold" style={{ marginBottom: '4px', display: 'block' }}>

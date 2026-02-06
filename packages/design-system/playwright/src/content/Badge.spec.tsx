@@ -20,8 +20,8 @@
  * @see .github/instructions/lufa-design-system-playwright-ct.instructions.md
  */
 
-import { expect, test } from '@playwright/experimental-ct-react';
 import AxeBuilder from '@axe-core/playwright';
+import { expect, test } from '@playwright/experimental-ct-react';
 
 import { Badge } from '@grasdouble/lufa_design-system';
 
@@ -431,11 +431,7 @@ test.describe('Badge Component', () => {
     });
 
     test('should support element-specific props (label)', async ({ mount }) => {
-      const component = await mount(
-        <Badge as="label">
-          Label text
-        </Badge>
-      );
+      const component = await mount(<Badge as="label">Label text</Badge>);
 
       const tagName = await component.evaluate((el) => el.tagName.toLowerCase());
       expect(tagName).toBe('label');
@@ -447,123 +443,178 @@ test.describe('Badge Component', () => {
   // ============================================
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot - all variants', async ({ mount }) => {
+    test('should match snapshot for all variants', async ({ mount }) => {
+      const variants = ['default', 'success', 'error', 'warning', 'info'] as const;
+      const sizes = ['sm', 'md', 'lg'] as const;
+
       const component = await mount(
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', padding: '20px' }}>
-          <Badge variant="default">Default</Badge>
-          <Badge variant="success">Success</Badge>
-          <Badge variant="error">Error</Badge>
-          <Badge variant="warning">Warning</Badge>
-          <Badge variant="info">Info</Badge>
+        <div
+          style={{
+            padding: '32px',
+            background: 'var(--lufa-semantic-ui-background-page)',
+            width: '900px',
+          }}
+        >
+          <h1
+            style={{
+              marginBottom: '24px',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-semantic-ui-text-primary)',
+            }}
+          >
+            Badge Component - All Variants
+          </h1>
+
+          {/* Section 1: Variants */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
+              }}
+            >
+              Variants
+            </h2>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              {variants.map((variant) => (
+                <Badge key={variant} variant={variant}>
+                  {variant}
+                </Badge>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 2: Sizes */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
+              }}
+            >
+              Sizes
+            </h2>
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              {sizes.map((size) => (
+                <Badge key={size} size={size}>
+                  {size}
+                </Badge>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 3: With Dot Indicator */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
+              }}
+            >
+              With Dot Indicator
+            </h2>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              {variants.map((variant) => (
+                <Badge key={variant} dot variant={variant}>
+                  {variant}
+                </Badge>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 4: Numeric Badges */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
+              }}
+            >
+              Numeric Badges
+            </h2>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <Badge variant="error">1</Badge>
+              <Badge variant="error">9</Badge>
+              <Badge variant="error">99</Badge>
+              <Badge variant="error">999</Badge>
+            </div>
+          </section>
+
+          {/* Section 5: Size x Variant Combinations */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
+              }}
+            >
+              Size × Variant Combinations
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {sizes.map((size) => (
+                <div key={size} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                  <div style={{ width: '60px', fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>
+                    {size}:
+                  </div>
+                  {variants.map((variant) => (
+                    <Badge key={variant} variant={variant} size={size}>
+                      {variant}
+                    </Badge>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 6: Real World Examples */}
+          <section>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
+              }}
+            >
+              Real World Examples
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ color: 'var(--lufa-semantic-ui-text-primary)' }}>Status:</span>
+                <Badge variant="success">Active</Badge>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ color: 'var(--lufa-semantic-ui-text-primary)' }}>Notifications</span>
+                <Badge variant="error" dot>
+                  3
+                </Badge>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ color: 'var(--lufa-semantic-ui-text-primary)' }}>Version:</span>
+                <Badge variant="info" size="sm">
+                  Beta
+                </Badge>
+              </div>
+            </div>
+          </section>
         </div>
       );
 
-      await expect(component).toHaveScreenshot('badge-variants.png');
-    });
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
 
-    test('should match snapshot - all sizes', async ({ mount }) => {
-      const component = await mount(
-        <div style={{ display: 'flex', gap: '8px', alignItems: 'center', padding: '20px' }}>
-          <Badge size="sm">Small</Badge>
-          <Badge size="md">Medium</Badge>
-          <Badge size="lg">Large</Badge>
-        </div>
-      );
-
-      await expect(component).toHaveScreenshot('badge-sizes.png');
-    });
-
-    test('should match snapshot - with dot indicator', async ({ mount }) => {
-      const component = await mount(
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', padding: '20px' }}>
-          <Badge dot variant="default">
-            Default
-          </Badge>
-          <Badge dot variant="success">
-            Success
-          </Badge>
-          <Badge dot variant="error">
-            3
-          </Badge>
-          <Badge dot variant="warning">
-            Warning
-          </Badge>
-          <Badge dot variant="info">
-            Info
-          </Badge>
-        </div>
-      );
-
-      await expect(component).toHaveScreenshot('badge-with-dot.png');
-    });
-
-    test('should match snapshot - numeric badges', async ({ mount }) => {
-      const component = await mount(
-        <div style={{ display: 'flex', gap: '8px', padding: '20px' }}>
-          <Badge variant="error">1</Badge>
-          <Badge variant="error">9</Badge>
-          <Badge variant="error">99</Badge>
-          <Badge variant="error">999</Badge>
-        </div>
-      );
-
-      await expect(component).toHaveScreenshot('badge-numbers.png');
-    });
-
-    test('should match snapshot - size and variant combinations', async ({ mount }) => {
-      const component = await mount(
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', padding: '20px' }}>
-          <div style={{ display: 'flex', gap: '8px' }}>
-            <Badge variant="success" size="sm">
-              Small
-            </Badge>
-            <Badge variant="success" size="md">
-              Medium
-            </Badge>
-            <Badge variant="success" size="lg">
-              Large
-            </Badge>
-          </div>
-          <div style={{ display: 'flex', gap: '8px' }}>
-            <Badge variant="error" size="sm" dot>
-              Small
-            </Badge>
-            <Badge variant="error" size="md" dot>
-              Medium
-            </Badge>
-            <Badge variant="error" size="lg" dot>
-              Large
-            </Badge>
-          </div>
-        </div>
-      );
-
-      await expect(component).toHaveScreenshot('badge-size-variant-combinations.png');
-    });
-
-    test('should match snapshot - real world usage', async ({ mount }) => {
-      const component = await mount(
-        <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span>Status:</span>
-            <Badge variant="success">Active</Badge>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span>Notifications</span>
-            <Badge variant="error" dot>
-              3
-            </Badge>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span>Version:</span>
-            <Badge variant="info" size="sm">
-              Beta
-            </Badge>
-          </div>
-        </div>
-      );
-
-      await expect(component).toHaveScreenshot('badge-real-world.png');
+      await expect(component).toHaveScreenshot('badge-all-variants.png');
     });
   });
 });

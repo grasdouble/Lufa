@@ -1,14 +1,14 @@
 .input {
   display: inline-block;
   width: 100%;
-  padding: var(--lufa-semantic-ui-spacing-default);
+  padding: var(--lufa-component-input-padding-md);
   font-family: inherit;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--lufa-token-color-text-primary);
-  background-color: var(--lufa-token-color-background-primary);
-  border: 1px solid var(--lufa-token-color-border-default);
-  border-radius: var(--lufa-primitive-radius-scale-base);
+  font-size: var(--lufa-component-input-font-size-md);
+  line-height: var(--lufa-primitive-typography-line-height-normal);
+  color: var(--lufa-component-input-text-default);
+  background-color: var(--lufa-component-input-background-default);
+  border: 1px solid var(--lufa-component-input-border-default);
+  border-radius: var(--lufa-component-input-border-radius);
   transition:
     border-color var(--lufa-semantic-ui-transition-fast),
     box-shadow var(--lufa-semantic-ui-transition-fast);
@@ -16,26 +16,26 @@
 }
 
 .input::placeholder {
-  color: var(--lufa-token-color-text-tertiary);
+  color: var(--lufa-component-input-text-placeholder);
 }
 
 .input:focus {
-  border-color: var(--lufa-token-color-border-focus);
-  box-shadow: 0 0 0 2px var(--lufa-token-color-shadow-small); /* Or a focus ring color */
+  border-color: var(--lufa-component-input-border-focus);
+  box-shadow: 0 0 0 2px var(--lufa-component-shared-focus-outline-color);
 }
 
 .input.error {
-  border-color: var(--lufa-token-color-error-default);
+  border-color: var(--lufa-component-input-border-error);
 }
 
 .input.error:focus {
-  box-shadow: 0 0 0 2px var(--lufa-token-color-error-light);
+  box-shadow: 0 0 0 2px var(--lufa-core-semantic-error-subtle);
 }
 
 .input.disabled {
-  background-color: var(--lufa-token-color-background-secondary);
-  color: var(--lufa-token-color-text-disabled);
-  border-color: var(--lufa-token-color-border-light);
+  background-color: var(--lufa-component-input-background-disabled);
+  color: var(--lufa-component-input-text-disabled);
+  border-color: var(--lufa-component-input-border-disabled);
   cursor: not-allowed;
 }
 

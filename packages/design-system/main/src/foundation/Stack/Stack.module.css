@@ -35,7 +35,7 @@
 /* ========================================== */
 
 .spacing-none {
-  gap: var(--lufa-semantic-ui-spacing-tight);
+  gap: 0;
 }
 
 .spacing-tight {

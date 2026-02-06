@@ -18,8 +18,8 @@
  * @see .github/instructions/lufa-design-system-playwright-ct.instructions.md
  */
 
-import { expect, test } from '@playwright/experimental-ct-react';
 import AxeBuilder from '@axe-core/playwright';
+import { expect, test } from '@playwright/experimental-ct-react';
 
 import { Stack } from '@grasdouble/lufa_design-system';
 
@@ -581,7 +581,7 @@ test.describe('Stack Component', () => {
   // ============================================
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants in light mode', async ({ mount }) => {
+    test('should match snapshot for all variants', async ({ mount }) => {
       const directionValues = ['vertical', 'horizontal'] as const;
       const spacingValues = ['none', 'tight', 'compact', 'default', 'comfortable', 'spacious'] as const;
       const alignValues = ['start', 'center', 'end', 'stretch', 'baseline'] as const;
@@ -591,7 +591,7 @@ test.describe('Stack Component', () => {
         <div
           style={{
             padding: '32px',
-            background: '#ffffff',
+            background: 'var(--lufa-semantic-ui-background-page)',
             width: '900px',
           }}
         >
@@ -600,7 +600,7 @@ test.describe('Stack Component', () => {
               marginBottom: '24px',
               fontSize: '28px',
               fontWeight: 'bold',
-              color: '#333',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             Stack Component - All Variants
@@ -613,7 +613,7 @@ test.describe('Stack Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Direction Values
@@ -621,7 +621,14 @@ test.describe('Stack Component', () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {directionValues.map((value) => (
                 <div key={value}>
-                  <div style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     direction=&quot;{value}&quot;
                   </div>
                   <Stack direction={value} spacing="default">
@@ -654,7 +661,7 @@ test.describe('Stack Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Spacing Values
@@ -668,7 +675,14 @@ test.describe('Stack Component', () => {
             >
               {spacingValues.map((value) => (
                 <div key={value}>
-                  <div style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     spacing=&quot;{value}&quot;
                   </div>
                   <Stack spacing={value}>
@@ -700,7 +714,7 @@ test.describe('Stack Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Align Values (horizontal direction)
@@ -708,10 +722,23 @@ test.describe('Stack Component', () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {alignValues.map((value) => (
                 <div key={value}>
-                  <div style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     align=&quot;{value}&quot;
                   </div>
-                  <div style={{ border: '2px dashed #ccc', padding: '8px', borderRadius: '4px' }}>
+                  <div
+                    style={{
+                      border: '2px dashed var(--lufa-core-neutral-border)',
+                      padding: '8px',
+                      borderRadius: '4px',
+                    }}
+                  >
                     <Stack direction="horizontal" align={value} spacing="default">
                       <div
                         style={{
@@ -766,7 +793,7 @@ test.describe('Stack Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Justify Values (horizontal direction)
@@ -774,10 +801,23 @@ test.describe('Stack Component', () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {justifyValues.map((value) => (
                 <div key={value}>
-                  <div style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     justify=&quot;{value}&quot;
                   </div>
-                  <div style={{ border: '2px dashed #ccc', padding: '8px', borderRadius: '4px' }}>
+                  <div
+                    style={{
+                      border: '2px dashed var(--lufa-core-neutral-border)',
+                      padding: '8px',
+                      borderRadius: '4px',
+                    }}
+                  >
                     <Stack
                       direction="horizontal"
                       justify={value}
@@ -811,17 +851,31 @@ test.describe('Stack Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Wrap Example
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
-                <div style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#666' }}>
+                <div
+                  style={{
+                    marginBottom: '8px',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    color: 'var(--lufa-semantic-ui-text-secondary)',
+                  }}
+                >
                   wrap={'{false}'} (default)
                 </div>
-                <div style={{ border: '2px dashed #ccc', padding: '8px', borderRadius: '4px', width: '100%' }}>
+                <div
+                  style={{
+                    border: '2px dashed var(--lufa-core-neutral-border)',
+                    padding: '8px',
+                    borderRadius: '4px',
+                    width: '100%',
+                  }}
+                >
                   <Stack direction="horizontal" wrap={false} spacing="default">
                     {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                       <div
@@ -842,10 +896,24 @@ test.describe('Stack Component', () => {
                 </div>
               </div>
               <div>
-                <div style={{ marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#666' }}>
+                <div
+                  style={{
+                    marginBottom: '8px',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    color: 'var(--lufa-semantic-ui-text-secondary)',
+                  }}
+                >
                   wrap={'{true}'}
                 </div>
-                <div style={{ border: '2px dashed #ccc', padding: '8px', borderRadius: '4px', width: '100%' }}>
+                <div
+                  style={{
+                    border: '2px dashed var(--lufa-core-neutral-border)',
+                    padding: '8px',
+                    borderRadius: '4px',
+                    width: '100%',
+                  }}
+                >
                   <Stack direction="horizontal" wrap spacing="default">
                     {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                       <div
@@ -875,7 +943,7 @@ test.describe('Stack Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Composition Example (Form Layout)
@@ -886,9 +954,9 @@ test.describe('Stack Component', () => {
                 <div
                   style={{
                     padding: '8px',
-                    border: '1px solid #ccc',
+                    border: '1px solid var(--lufa-core-neutral-border)',
                     borderRadius: '6px',
-                    background: '#f9fafb',
+                    background: 'var(--lufa-semantic-ui-background-surface)',
                   }}
                 >
                   Input field
@@ -899,9 +967,9 @@ test.describe('Stack Component', () => {
                 <div
                   style={{
                     padding: '8px',
-                    border: '1px solid #ccc',
+                    border: '1px solid var(--lufa-core-neutral-border)',
                     borderRadius: '6px',
-                    background: '#f9fafb',
+                    background: 'var(--lufa-semantic-ui-background-surface)',
                   }}
                 >
                   Input field
@@ -911,7 +979,7 @@ test.describe('Stack Component', () => {
                 <div
                   style={{
                     padding: '8px 16px',
-                    border: '1px solid #ccc',
+                    border: '1px solid var(--lufa-core-neutral-border)',
                     borderRadius: '6px',
                     background: 'white',
                     fontWeight: '600',
@@ -939,278 +1007,7 @@ test.describe('Stack Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('stack-all-variants-light.png');
-    });
-
-    test('should match snapshot for all variants in dark mode', async ({ mount, page }) => {
-      // Set dark mode on document root BEFORE mounting
-      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
-
-      const directionValues = ['vertical', 'horizontal'] as const;
-      const spacingValues = ['none', 'tight', 'compact', 'default', 'comfortable', 'spacious'] as const;
-      const alignValues = ['start', 'center', 'end', 'stretch', 'baseline'] as const;
-
-      const component = await mount(
-        <div
-          style={{
-            padding: '32px',
-            width: '900px',
-            background: 'var(--lufa-token-color-background-page)',
-          }}
-        >
-          <h1
-            style={{
-              marginBottom: '24px',
-              fontSize: '28px',
-              fontWeight: 'bold',
-              color: 'var(--lufa-token-color-text-primary)',
-            }}
-          >
-            Stack Component - All Variants (Dark Mode)
-          </h1>
-
-          {/* Section 1: Direction Values */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Direction Values
-            </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              {directionValues.map((value) => (
-                <div key={value}>
-                  <div
-                    style={{
-                      marginBottom: '8px',
-                      fontSize: '14px',
-                      fontWeight: '600',
-                      color: 'var(--lufa-token-color-text-tertiary)',
-                    }}
-                  >
-                    direction=&quot;{value}&quot;
-                  </div>
-                  <Stack direction={value} spacing="default">
-                    {[1, 2, 3].map((i) => (
-                      <div
-                        key={i}
-                        style={{
-                          padding: '12px',
-                          background: '#6366f1',
-                          color: 'white',
-                          borderRadius: '6px',
-                          fontWeight: '600',
-                          minWidth: '80px',
-                          textAlign: 'center',
-                        }}
-                      >
-                        Item {i}
-                      </div>
-                    ))}
-                  </Stack>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 2: Spacing Values */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Spacing Values
-            </h2>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '24px',
-              }}
-            >
-              {spacingValues.map((value) => (
-                <div key={value}>
-                  <div
-                    style={{
-                      marginBottom: '8px',
-                      fontSize: '14px',
-                      fontWeight: '600',
-                      color: 'var(--lufa-token-color-text-tertiary)',
-                    }}
-                  >
-                    spacing=&quot;{value}&quot;
-                  </div>
-                  <Stack spacing={value}>
-                    {[1, 2, 3].map((i) => (
-                      <div
-                        key={i}
-                        style={{
-                          padding: '8px',
-                          background: '#8b5cf6',
-                          color: 'white',
-                          borderRadius: '4px',
-                          textAlign: 'center',
-                          fontSize: '13px',
-                        }}
-                      >
-                        {i}
-                      </div>
-                    ))}
-                  </Stack>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 3: Align Values */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Align Values (horizontal direction)
-            </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {alignValues.map((value) => (
-                <div key={value}>
-                  <div
-                    style={{
-                      marginBottom: '8px',
-                      fontSize: '14px',
-                      fontWeight: '600',
-                      color: 'var(--lufa-token-color-text-tertiary)',
-                    }}
-                  >
-                    align=&quot;{value}&quot;
-                  </div>
-                  <div
-                    style={{
-                      border: '2px dashed var(--lufa-token-color-border-default)',
-                      padding: '8px',
-                      borderRadius: '4px',
-                    }}
-                  >
-                    <Stack direction="horizontal" align={value} spacing="default">
-                      <div
-                        style={{
-                          padding: '12px',
-                          background: '#ec4899',
-                          color: 'white',
-                          borderRadius: '6px',
-                          height: '40px',
-                          display: 'flex',
-                          alignItems: 'center',
-                        }}
-                      >
-                        40px
-                      </div>
-                      <div
-                        style={{
-                          padding: '12px',
-                          background: '#f97316',
-                          color: 'white',
-                          borderRadius: '6px',
-                          height: '60px',
-                          display: 'flex',
-                          alignItems: 'center',
-                        }}
-                      >
-                        60px
-                      </div>
-                      <div
-                        style={{
-                          padding: '12px',
-                          background: '#eab308',
-                          color: 'white',
-                          borderRadius: '6px',
-                          height: '50px',
-                          display: 'flex',
-                          alignItems: 'center',
-                        }}
-                      >
-                        50px
-                      </div>
-                    </Stack>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Composition Example */}
-          <section>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Composition Example (Form Layout)
-            </h2>
-            <Stack spacing="comfortable">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                <label style={{ fontSize: '14px', fontWeight: '600' }}>Name</label>
-                <div
-                  style={{
-                    padding: '8px',
-                    border: '1px solid var(--lufa-token-color-border-default)',
-                    borderRadius: '6px',
-                    background: 'var(--lufa-token-color-background-surface)',
-                  }}
-                >
-                  Input field
-                </div>
-              </div>
-              <Stack direction="horizontal" spacing="compact" justify="end">
-                <div
-                  style={{
-                    padding: '8px 16px',
-                    border: '1px solid var(--lufa-token-color-border-default)',
-                    borderRadius: '6px',
-                    background: 'var(--lufa-token-color-background-surface)',
-                    fontWeight: '600',
-                  }}
-                >
-                  Cancel
-                </div>
-                <div
-                  style={{
-                    padding: '8px 16px',
-                    borderRadius: '6px',
-                    background: '#6366f1',
-                    color: 'white',
-                    fontWeight: '600',
-                  }}
-                >
-                  Submit
-                </div>
-              </Stack>
-            </Stack>
-          </section>
-        </div>
-      );
-
-      // Wait for rendering to stabilize
-      await component.page().waitForTimeout(100);
-
-      await expect(component).toHaveScreenshot('stack-all-variants-dark.png');
-
-      // Clean up: remove dark mode to avoid affecting other tests
-      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
+      await expect(component).toHaveScreenshot('stack-all-variants.png');
     });
   });
 });

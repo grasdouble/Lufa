@@ -6,10 +6,10 @@ This extension shows color decorators for Lufa tokens in TypeScript and CSS file
 
 - **Packaged maps**: The extension bundles map JSON files from `@grasdouble/lufa_design-system-primitives` and `@grasdouble/lufa_design-system-tokens`
 - **Separate data sources**: Primitive and token maps from their respective design-system packages
-- **CSS support**: Shows colors for `--lufa-token-color-*` and `--lufa-primitive-color-*` variables (both in `var()` usage and declarations)
+- **CSS support**: Shows colors for `--lufa-*-color-*` variables (both in `var()` usage and declarations)
 - **TypeScript support**: Shows colors for `tokens.color.*` and `primitives.color.*` references
-- **Token value hovers**: Shows values for `--lufa-token-*`, `--lufa-primitive-*`, `tokens.*`, and `primitives.*` references
-- **Autocomplete details**: Shows token values (plus color swatches for `--lufa-token-color-*` and `--lufa-primitive-color-*`) in the suggestion list for `--lufa-token-*`, `--lufa-primitive-*`, `tokens.*`, and `primitives.*`
+- **Token value hovers**: Shows values for `--lufa-primitive-*`, `--lufa-core-*`, `--lufa-semantic-*`, `--lufa-component-*`, `tokens.*`, and `primitives.*` references
+- **Autocomplete details**: Shows token values (plus color swatches for color tokens) in the suggestion list for `--lufa-*`, `tokens.*`, and `primitives.*`
 - **Literal OKLCH preview**: Shows color decorators for raw `oklch(...)` values in CSS/SCSS/PostCSS
 - **Custom maps**: Optionally use custom maps from your workspace
 - **Auto-reload**: Automatically detects and reloads when custom maps change
@@ -21,7 +21,7 @@ This extension shows color decorators for Lufa tokens in TypeScript and CSS file
 1. Open this folder in VSCode
 2. Press `F5` to launch an Extension Development Host
 3. Open a file that uses Lufa color tokens:
-   - CSS: `var(--lufa-token-color-text-primary)` or `--lufa-token-color-background-primary: oklch(...)`
+   - CSS: `var(--lufa-core-color-brand-500)` or `--lufa-primitive-color-neutral-neutral-900: oklch(...)`
    - TypeScript: `primitives.color.chromatic.red[500]` or `primitives.color.neutral.neutral[900]`
 4. See colored squares next to your tokens! 🎨
 
@@ -113,7 +113,7 @@ Then check the "Lufa DS Preview" output channel: View → Output → Select "Luf
 2. It uses regex patterns to find Lufa color tokens in your code
 3. For each token, it looks up the OKLCH color value in the map
 4. It converts OKLCH to RGB and displays a color decorator in the editor
-5. It registers a `HoverProvider` to show values for `--lufa-token-*`, `--lufa-primitive-*`, `tokens.*`, and `primitives.*` references
+5. It registers a `HoverProvider` to show values for `--lufa-*`, `tokens.*`, and `primitives.*` references
 
 ## Supported Token Formats
 
@@ -121,11 +121,11 @@ Then check the "Lufa DS Preview" output channel: View → Output → Select "Luf
 
 ```css
 /* Variable usage */
-color: var(--lufa-token-color-text-primary);
-background: var(--lufa-token-color-success-light, #fallback);
+color: var(--lufa-core-color-brand-500);
+background: var(--lufa-semantic-ui-background-primary, #fallback);
 
 /* Variable declarations */
---lufa-token-color-text-primary: oklch(90% 0.05 200);
+--lufa-core-color-brand-500: oklch(90% 0.05 200);
 --lufa-primitive-color-neutral-neutral-900: oklch(20% 0.1 180 / 0.5);
 
 /* Literal OKLCH values */
@@ -145,8 +145,8 @@ const color3 = primitives.color.chromatic.blue[100];
 
 ```css
 /* CSS variables */
-padding: var(--lufa-token-spacing-base);
-border-radius: var(--lufa-token-radius-md);
+padding: var(--lufa-semantic-ui-spacing-default);
+border-radius: var(--lufa-primitive-radius-scale-md);
 ```
 
 ```typescript

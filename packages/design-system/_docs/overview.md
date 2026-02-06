@@ -77,8 +77,8 @@ The Design System serves three primary purposes:
 </Button>
 
 // Internally:
-// padding: var(--lufa-token-spacing-default)  ← Token
-// color: var(--lufa-token-color-text-inverse)  ← Token
+// padding: var(--lufa-semantic-ui-spacing-default)  ← Token
+// color: var(--lufa-semantic-ui-text-inverse)  ← Token
 ```
 
 **Benefits:**

@@ -618,8 +618,8 @@ test('should match snapshot for all variants in dark mode', async ({ mount, page
   await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
   const component = await mount(
-    <div style={{ padding: '32px', width: '900px', background: 'var(--lufa-token-color-background-page)' }}>
-      <h1 style={{ color: 'var(--lufa-token-color-text-primary)' }}>
+    <div style={{ padding: '32px', width: '900px', background: 'var(--lufa-semantic-ui-background-page)' }}>
+      <h1 style={{ color: 'var(--lufa-semantic-ui-text-primary)' }}>
         Component - All Variants (Dark Mode)
       </h1>
       {/* Component variants here */}

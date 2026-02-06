@@ -47,11 +47,12 @@ export const Default: Story = {
       <StoryContainer>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <PropCard label="Default Label">
-            {/* 
+            {/*
               💡 TOKEN EDUCATION:
-              Text Color: var(--lufa-token-color-text-primary)
+              Text Color: var(--lufa-component-input-label-color)
+              Font Size: var(--lufa-component-input-label-font-size)
               Font Weight: var(--lufa-primitive-typography-font-weight-medium)
-              Spacing: var(--lufa-semantic-ui-spacing-compact)
+              Spacing: var(--lufa-component-input-label-spacing)
             */}
             <div style={{ width: '300px' }}>
               <Label htmlFor="demo-input">Email Address</Label>

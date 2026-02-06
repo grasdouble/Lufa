@@ -36,10 +36,10 @@ export function SizeVariants() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
       }}
     >
       {sizes.map(({ value, label, pixels }) => (
@@ -48,28 +48,28 @@ export function SizeVariants() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 'var(--lufa-token-spacing-default)',
-            padding: 'var(--lufa-token-spacing-compact)',
-            border: '1px solid var(--lufa-token-color-border-light)',
-            borderRadius: 'var(--lufa-token-radius-sm)',
-            backgroundColor: 'var(--lufa-token-color-background-base)',
+            gap: 'var(--lufa-semantic-ui-spacing-default)',
+            padding: 'var(--lufa-semantic-ui-spacing-compact)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
+            borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
           }}
         >
           <Icon name="star" size={value} color="primary" aria-hidden="true" />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-sm)',
-                fontWeight: 'var(--lufa-token-font-weight-semibold)',
-                color: 'var(--lufa-token-color-text-primary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+                fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+                color: 'var(--lufa-semantic-ui-text-primary)',
               }}
             >
               {label}
             </span>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-xs)',
-                color: 'var(--lufa-token-color-text-secondary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               size="{value}" ({pixels})
@@ -104,10 +104,10 @@ export function ColorVariants() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
       }}
     >
       {colors.map(({ value, label }) => (
@@ -116,29 +116,29 @@ export function ColorVariants() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 'var(--lufa-token-spacing-default)',
-            padding: 'var(--lufa-token-spacing-compact)',
-            border: '1px solid var(--lufa-token-color-border-light)',
-            borderRadius: 'var(--lufa-token-radius-sm)',
-            backgroundColor: 'var(--lufa-token-color-background-base)',
-            color: value === 'currentColor' ? 'var(--lufa-token-color-text-accent)' : undefined,
+            gap: 'var(--lufa-semantic-ui-spacing-default)',
+            padding: 'var(--lufa-semantic-ui-spacing-compact)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
+            borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            color: value === 'currentColor' ? 'var(--lufa-core-brand-primary)' : undefined,
           }}
         >
           <Icon name="heart" size="lg" color={value} aria-hidden="true" />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-sm)',
-                fontWeight: 'var(--lufa-token-font-weight-semibold)',
-                color: 'var(--lufa-token-color-text-primary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+                fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+                color: 'var(--lufa-semantic-ui-text-primary)',
               }}
             >
               {label}
             </span>
             <span
               style={{
-                fontSize: 'var(--lufa-token-font-size-xs)',
-                color: 'var(--lufa-token-color-text-secondary)',
+                fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               color="{value}"
@@ -159,10 +159,10 @@ export function TitleExamples() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
       }}
     >
       {/* Decorative icon (no title) */}
@@ -170,28 +170,28 @@ export function TitleExamples() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 'var(--lufa-token-spacing-default)',
-          padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-light)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
+          gap: 'var(--lufa-semantic-ui-spacing-default)',
+          padding: 'var(--lufa-semantic-ui-spacing-compact)',
+          border: '1px solid var(--lufa-semantic-ui-border-default)',
+          borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
         }}
       >
         <Icon name="check" size="md" color="success" />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-sm)',
-              fontWeight: 'var(--lufa-token-font-weight-semibold)',
-              color: 'var(--lufa-token-color-text-primary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+              fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             Decorative Icon
           </span>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             No title prop - aria-hidden="true" applied automatically
@@ -204,28 +204,28 @@ export function TitleExamples() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 'var(--lufa-token-spacing-default)',
-          padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-light)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
+          gap: 'var(--lufa-semantic-ui-spacing-default)',
+          padding: 'var(--lufa-semantic-ui-spacing-compact)',
+          border: '1px solid var(--lufa-semantic-ui-border-default)',
+          borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
         }}
       >
         <Icon name="alert-circle" size="md" color="warning" title="Warning: This action cannot be undone" />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-sm)',
-              fontWeight: 'var(--lufa-token-font-weight-semibold)',
-              color: 'var(--lufa-token-color-text-primary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+              fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             Accessible Icon
           </span>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             With title - role="img" and aria-label applied automatically
@@ -238,11 +238,11 @@ export function TitleExamples() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 'var(--lufa-token-spacing-default)',
-          padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-light)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
+          gap: 'var(--lufa-semantic-ui-spacing-default)',
+          padding: 'var(--lufa-semantic-ui-spacing-compact)',
+          border: '1px solid var(--lufa-semantic-ui-border-default)',
+          borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
         }}
       >
         <button
@@ -251,10 +251,10 @@ export function TitleExamples() {
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: 'var(--lufa-token-spacing-compact)',
-            border: '1px solid var(--lufa-token-color-border-default)',
-            borderRadius: 'var(--lufa-token-radius-base)',
-            backgroundColor: 'var(--lufa-token-color-background-base)',
+            padding: 'var(--lufa-semantic-ui-spacing-compact)',
+            border: '1px solid var(--lufa-semantic-ui-border-default)',
+            borderRadius: 'var(--lufa-primitive-radius-scale-base)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
             cursor: 'pointer',
           }}
           aria-label="Delete item"
@@ -264,17 +264,17 @@ export function TitleExamples() {
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-sm)',
-              fontWeight: 'var(--lufa-token-font-weight-semibold)',
-              color: 'var(--lufa-token-color-text-primary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+              fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             Icon-Only Button
           </span>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             Button has aria-label, Icon has title for tooltip
@@ -294,10 +294,10 @@ export function PolymorphicVariant() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'var(--lufa-token-spacing-comfortable)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-comfortable)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
       }}
     >
       {/* Default (span) */}
@@ -305,28 +305,28 @@ export function PolymorphicVariant() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 'var(--lufa-token-spacing-default)',
-          padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-light)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
+          gap: 'var(--lufa-semantic-ui-spacing-default)',
+          padding: 'var(--lufa-semantic-ui-spacing-compact)',
+          border: '1px solid var(--lufa-semantic-ui-border-default)',
+          borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
         }}
       >
         <Icon name="user" size="md" color="primary" aria-hidden="true" />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-sm)',
-              fontWeight: 'var(--lufa-token-font-weight-semibold)',
-              color: 'var(--lufa-token-color-text-primary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+              fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             Default (span)
           </span>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             &lt;Icon name="user" /&gt; - renders as &lt;span&gt;
@@ -339,28 +339,28 @@ export function PolymorphicVariant() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 'var(--lufa-token-spacing-default)',
-          padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-light)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
+          gap: 'var(--lufa-semantic-ui-spacing-default)',
+          padding: 'var(--lufa-semantic-ui-spacing-compact)',
+          border: '1px solid var(--lufa-semantic-ui-border-default)',
+          borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
         }}
       >
         <Icon name="home" size="md" color="primary" as="div" aria-hidden="true" />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-sm)',
-              fontWeight: 'var(--lufa-token-font-weight-semibold)',
-              color: 'var(--lufa-token-color-text-primary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+              fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             As div
           </span>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             &lt;Icon name="home" as="div" /&gt; - renders as &lt;div&gt;
@@ -373,28 +373,28 @@ export function PolymorphicVariant() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 'var(--lufa-token-spacing-default)',
-          padding: 'var(--lufa-token-spacing-compact)',
-          border: '1px solid var(--lufa-token-color-border-light)',
-          borderRadius: 'var(--lufa-token-radius-sm)',
-          backgroundColor: 'var(--lufa-token-color-background-base)',
+          gap: 'var(--lufa-semantic-ui-spacing-default)',
+          padding: 'var(--lufa-semantic-ui-spacing-compact)',
+          border: '1px solid var(--lufa-semantic-ui-border-default)',
+          borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
         }}
       >
         <Icon name="star" size="md" color="primary" as="i" aria-hidden="true" />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-sm)',
-              fontWeight: 'var(--lufa-token-font-weight-semibold)',
-              color: 'var(--lufa-token-color-text-primary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-sm)',
+              fontWeight: 'var(--lufa-primitive-typography-font-weight-semibold)',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             As i (semantic)
           </span>
           <span
             style={{
-              fontSize: 'var(--lufa-token-font-size-xs)',
-              color: 'var(--lufa-token-color-text-secondary)',
+              fontSize: 'var(--lufa-primitive-typography-font-size-xs)',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
             }}
           >
             &lt;Icon name="star" as="i" /&gt; - renders as &lt;i&gt;

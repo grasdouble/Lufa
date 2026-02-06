@@ -1,5 +1,5 @@
-import { expect, test } from '@playwright/experimental-ct-react';
 import AxeBuilder from '@axe-core/playwright';
+import { expect, test } from '@playwright/experimental-ct-react';
 
 import { Flex } from '@grasdouble/lufa_design-system';
 
@@ -36,14 +36,82 @@ test.describe('Flex', () => {
       .analyze();
     expect(accessibilityScanResults.violations).toEqual([]);
   });
+});
 
-  test('visual regression - gap', async ({ mount }) => {
+test.describe('Visual Regression', () => {
+  test('should match snapshot for all variants', async ({ mount }) => {
+    const directions = ['row', 'column', 'row-reverse', 'column-reverse'] as const;
+    const gaps = ['none', 'xs', 'sm', 'default', 'md', 'lg', 'xl'] as const;
+
     const component = await mount(
-      <Flex gap="default" style={{ border: '1px solid black' }}>
-        <div style={{ background: 'red', width: 20, height: 20 }} />
-        <div style={{ background: 'blue', width: 20, height: 20 }} />
-      </Flex>
+      <div style={{ padding: '32px', backgroundColor: 'var(--lufa-semantic-ui-background-page)', width: '800px' }}>
+        <h1
+          style={{
+            marginBottom: '24px',
+            fontSize: '28px',
+            fontWeight: 'bold',
+            color: 'var(--lufa-semantic-ui-text-primary)',
+          }}
+        >
+          Flex Component - All Variants
+        </h1>
+
+        {/* Section 1: Directions */}
+        <section style={{ marginBottom: '40px' }}>
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
+            }}
+          >
+            Directions
+          </h2>
+          {directions.map((direction) => (
+            <div key={direction} style={{ marginBottom: '16px' }}>
+              <p style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '8px' }}>
+                direction=&quot;{direction}&quot;
+              </p>
+              <Flex
+                direction={direction}
+                style={{ border: '1px solid var(--lufa-core-neutral-border)', padding: '8px' }}
+              >
+                <div style={{ background: 'red', width: 40, height: 40 }}>1</div>
+                <div style={{ background: 'blue', width: 40, height: 40 }}>2</div>
+                <div style={{ background: 'green', width: 40, height: 40 }}>3</div>
+              </Flex>
+            </div>
+          ))}
+        </section>
+
+        {/* Section 2: Gap Values */}
+        <section>
+          <h2
+            style={{
+              marginBottom: '16px',
+              fontSize: '20px',
+              fontWeight: '600',
+              color: 'var(--lufa-semantic-ui-text-secondary)',
+            }}
+          >
+            Gap Values
+          </h2>
+          {gaps.map((gap) => (
+            <div key={gap} style={{ marginBottom: '16px' }}>
+              <p style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '8px' }}>
+                gap=&quot;{gap}&quot;
+              </p>
+              <Flex gap={gap} style={{ border: '1px solid var(--lufa-core-neutral-border)', padding: '8px' }}>
+                <div style={{ background: 'red', width: 30, height: 30 }} />
+                <div style={{ background: 'blue', width: 30, height: 30 }} />
+                <div style={{ background: 'green', width: 30, height: 30 }} />
+              </Flex>
+            </div>
+          ))}
+        </section>
+      </div>
     );
-    await expect(component).toHaveScreenshot();
+    await expect(component).toHaveScreenshot('flex-all-variants.png');
   });
 });
