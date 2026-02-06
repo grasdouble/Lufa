@@ -55,10 +55,11 @@ while IFS= read -r file; do
     
     # Compress with oxipng
     # -o 6: Maximum compression (slower but best results for manual compression)
+    # -o 3: Moderate compression (faster but still effective)
     # --strip safe: Remove safe-to-remove metadata (keeps pHYs, sRGB, etc.)
     # --quiet: Suppress output
     # Using --preserve to maintain file attributes
-    oxipng -o 6 --strip safe --quiet --preserve "$file" 2>/dev/null || {
+    oxipng -o 3 --strip safe --quiet --preserve "$file" 2>/dev/null || {
       echo "⚠️  Warning: Failed to compress $file, continuing..."
       continue
     }

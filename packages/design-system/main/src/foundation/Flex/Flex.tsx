@@ -26,7 +26,7 @@ export type FlexProps<T extends ElementType = 'div'> = BoxComponentProps<T> & {
   /**
    * Shorthand for gap (using semantic spacing tokens)
    */
-  gap?: 'tight' | 'compact' | 'default' | 'comfortable' | 'spacious';
+  gap?: 'none' | 'tight' | 'compact' | 'default' | 'comfortable' | 'spacious';
   /**
    * If true, sets display to inline-flex
    */

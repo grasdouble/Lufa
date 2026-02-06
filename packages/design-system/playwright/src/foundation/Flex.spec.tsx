@@ -41,7 +41,7 @@ test.describe('Flex', () => {
 test.describe('Visual Regression', () => {
   test('should match snapshot for all variants', async ({ mount }) => {
     const directions = ['row', 'column', 'row-reverse', 'column-reverse'] as const;
-    const gaps = ['none', 'xs', 'sm', 'default', 'md', 'lg', 'xl'] as const;
+    const gaps = ['none', 'tight', 'compact', 'default', 'comfortable', 'spacious'] as const;
 
     const component = await mount(
       <div style={{ padding: '32px', backgroundColor: 'var(--lufa-semantic-ui-background-page)', width: '800px' }}>

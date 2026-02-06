@@ -14,15 +14,15 @@ export type GridProps<T extends ElementType = 'div'> = BoxComponentProps<T> & {
   /**
    * Gap between items (shorthand for row-gap and column-gap)
    */
-  gap?: 'tight' | 'compact' | 'default' | 'comfortable' | 'spacious';
+  gap?: 'none' | 'tight' | 'compact' | 'default' | 'comfortable' | 'spacious';
   /**
    * Column gap
    */
-  gapX?: 'tight' | 'compact' | 'default' | 'comfortable' | 'spacious';
+  gapX?: 'none' | 'tight' | 'compact' | 'default' | 'comfortable' | 'spacious';
   /**
    * Row gap
    */
-  gapY?: 'tight' | 'compact' | 'default' | 'comfortable' | 'spacious';
+  gapY?: 'none' | 'tight' | 'compact' | 'default' | 'comfortable' | 'spacious';
   /**
    * Align items (align-items)
    */

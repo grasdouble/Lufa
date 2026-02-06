@@ -54,6 +54,10 @@
 /* GAP */
 /* ========================================== */
 
+.gap-none {
+  gap: 0;
+}
+
 .gap-tight {
   gap: var(--lufa-semantic-ui-spacing-tight);
 }
@@ -78,6 +82,10 @@
 /* GAPX */
 /* ========================================== */
 
+.gapX-none {
+  column-gap: 0;
+}
+
 .gapX-tight {
   column-gap: var(--lufa-semantic-ui-spacing-tight);
 }
@@ -101,6 +109,10 @@
 /* ========================================== */
 /* GAPY */
 /* ========================================== */
+
+.gapY-none {
+  row-gap: 0;
+}
 
 .gapY-tight {
   row-gap: var(--lufa-semantic-ui-spacing-tight);
