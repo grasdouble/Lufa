@@ -50,11 +50,12 @@ const COMPONENT_CONFIGS = {
   Container: path.join(FOUNDATION_DIR, 'Container/container.utilities.config.cjs'),
   Center: path.join(FOUNDATION_DIR, 'Center/center.utilities.config.cjs'),
 
+  Divider: path.join(FOUNDATION_DIR, 'Divider/divider.utilities.config.cjs'),
+
   // Content components
   Text: path.join(CONTENT_DIR, 'Text/text.utilities.config.cjs'),
   Icon: path.join(CONTENT_DIR, 'Icon/icon.utilities.config.cjs'),
   Badge: path.join(CONTENT_DIR, 'Badge/badge.utilities.config.cjs'),
-  Divider: path.join(CONTENT_DIR, 'Divider/divider.utilities.config.cjs'),
 
   // Interaction components
   Button: path.join(INTERACTION_DIR, 'Button/button.utilities.config.cjs'),

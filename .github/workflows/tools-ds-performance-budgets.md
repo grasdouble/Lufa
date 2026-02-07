@@ -53,7 +53,7 @@ This GitHub Actions workflow automatically monitors design system performance me
 - Uses Phase 7a CLI validation tool
 - Measures: `primitive → core → semantic → component` resolution
 
-**Budget:** **<20ms** (warning only)
+**Budget:** **<1000ms** (warning only)
 
 **Why it matters:** Fast CSS cascade ensures minimal runtime performance impact from design tokens.
 
@@ -146,7 +146,7 @@ paths:
 
 ### CSS Cascade Budget
 
-**Target:** <20ms (warning only, doesn't fail build)
+**Target:** <1000ms (warning only, doesn't fail build)
 
 **What's measured:**
 
@@ -157,9 +157,9 @@ paths:
 
 **Why this budget?**
 
-- 20ms is imperceptible to users
-- Validates that token architecture doesn't cause runtime performance issues
-- Warning-only because CLI validation time varies
+- 1000ms accounts for CLI startup overhead (tsx cold start)
+- Validates that token architecture doesn't cause excessive validation time
+- Warning-only because CLI validation time varies with CI environment
 
 ---
 
@@ -185,7 +185,7 @@ Your changes meet all performance requirements. Great work! 🎉
 | **CSS Size**     | 20.14 KB  | -      | ℹ️ Info |
 | **Gzipped Size** | 42.67 KB  | 50 KB  | ✅ Pass |
 | **Build Time**   | 18.45s    | 30s    | ✅ Pass |
-| **CSS Cascade**  | 12ms      | 20ms   | ✅ Pass |
+| **CSS Cascade**  | 12ms      | 1000ms | ✅ Pass |
 
 ### 📦 Size Breakdown
 ```
@@ -229,7 +229,7 @@ CSS Cascade: 12ms
 | **CSS Size**     | 30.26 KB  | -      | ℹ️ Info |
 | **Gzipped Size** | 58.34 KB  | 50 KB  | ❌ Fail |
 | **Build Time**   | 25.12s    | 30s    | ✅ Pass |
-| **CSS Cascade**  | 15ms      | 20ms   | ✅ Pass |
+| **CSS Cascade**  | 15ms      | 1000ms | ✅ Pass |
 
 ### 📦 Size Breakdown
 ```
@@ -517,7 +517,7 @@ Budgets are managed in a single source of truth: `.github/config/performance-bud
 Bundle Size: 250 KB  (uncompressed, total)
 Gzipped Size: 50 KB   (compressed)
 Build Time: 30 sec  (all packages)
-CSS Cascade: 20 ms   (warning only, CLI validation)
+CSS Cascade: 1000 ms  (warning only, CLI validation)
 ```
 
 > **Note:** Test execution time is monitored separately by the `tools-ds-playwright-ct.yml` workflow. Its budget (120s, warning only) is also defined in `performance-budgets.json`.

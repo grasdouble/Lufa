@@ -36,8 +36,8 @@ The Lufa Design System v2.0 contains **16 production-ready React components** bu
 
 All 16 components are now production-ready:
 
-- ✅ **Foundation**: Box, Stack, Flex, Grid, Container, Center
-- ✅ **Content**: Text, Icon, Badge, Divider
+- ✅ **Foundation**: Box, Stack, Flex, Grid, Container, Center, Divider
+- ✅ **Content**: Text, Icon, Badge
 - ✅ **Interaction**: Button, Input, Label
 - ✅ **Composition**: Card
 - ✅ **Utility**: Portal, VisuallyHidden
@@ -110,7 +110,49 @@ All 16 components are now production-ready:
 
 ---
 
-### 3. Text - Typography Primitive
+### 3. Divider - Visual Separator Component
+
+**File**: `Divider/Divider.tsx`  
+**Type**: Foundation component (spatial separation)  
+**Purpose**: Visual separator for defining spatial boundaries and content hierarchy
+
+**Features**:
+
+- ✅ Orientation (horizontal, vertical)
+- ✅ Thickness variants
+- ✅ Semantic color variants
+- ✅ Token-based styling
+- ✅ Accessible (proper ARIA attributes)
+- ✅ Comprehensive testing (329 lines of tests)
+
+**Props**:
+
+- **Orientation**: `orientation` (horizontal, vertical)
+- **Thickness**: `thickness` (thin, medium, thick)
+- **Color**: `color` (semantic colors)
+
+**Example Usage**:
+
+```tsx
+<Divider orientation="horizontal" thickness="medium" />
+
+<Stack direction="horizontal">
+  <div>Content 1</div>
+  <Divider orientation="vertical" />
+  <div>Content 2</div>
+</Stack>
+```
+
+**Composition Pattern**:
+
+```tsx
+// Divider uses Box only (simplest composition)
+<Box as="hr" className="divider divider-{orientation} divider-{thickness}" aria-orientation={orientation} />
+```
+
+---
+
+### 4. Text - Typography Primitive
 
 **File**: `Text/Text.tsx` (227 lines)  
 **Type**: Typography primitive (polymorphic)  
@@ -148,7 +190,7 @@ All 16 components are now production-ready:
 
 ---
 
-### 4. Icon - Icon Display Component
+### 5. Icon - Icon Display Component
 
 **File**: `Icon/Icon.tsx` (estimated 150-250 lines)  
 **Type**: Display component  
@@ -169,7 +211,7 @@ All 16 components are now production-ready:
 
 ---
 
-### 5. Button - Interactive Action Element
+### 6. Button - Interactive Action Element
 
 **File**: `Button/Button.tsx` (275 lines)  
 **Type**: Interactive component (polymorphic)  
@@ -224,7 +266,7 @@ All 16 components are now production-ready:
 
 ---
 
-### 6. Badge - Status Indicator Component
+### 7. Badge - Status Indicator Component
 
 **File**: `Badge/Badge.tsx`  
 **Type**: Display component (status indicators)  
@@ -270,50 +312,6 @@ All 16 components are now production-ready:
   <Text size="sm">{children}</Text>
 </Box>
 ```
-
----
-
-### 7. Divider - Visual Separator Component
-
-**File**: `Divider/Divider.tsx`  
-**Type**: Layout component (visual separation)  
-**Purpose**: Visual separator for content sections
-
-**Features**:
-
-- ✅ Orientation (horizontal, vertical)
-- ✅ Thickness variants
-- ✅ Semantic color variants
-- ✅ Token-based styling
-- ✅ Accessible (proper ARIA attributes)
-- ✅ Comprehensive testing (329 lines of tests)
-
-**Props**:
-
-- **Orientation**: `orientation` (horizontal, vertical)
-- **Thickness**: `thickness` (thin, medium, thick)
-- **Color**: `color` (semantic colors)
-
-**Example Usage**:
-
-```tsx
-<Divider orientation="horizontal" thickness="medium" />
-
-<Stack direction="horizontal">
-  <div>Content 1</div>
-  <Divider orientation="vertical" />
-  <div>Content 2</div>
-</Stack>
-```
-
-**Composition Pattern**:
-
-```tsx
-// Divider uses Box only (simplest composition)
-<Box as="hr" className="divider divider-{orientation} divider-{thickness}" aria-orientation={orientation} />
-```
-
----
 
 ## Component Organization
 
@@ -505,8 +503,8 @@ Each component is documented in:
 
 All 16 components are now production-ready across 5 categories:
 
-- ✅ **Foundation**: Box, Stack, Flex, Grid, Container, Center
-- ✅ **Content**: Text, Icon, Badge, Divider
+- ✅ **Foundation**: Box, Stack, Flex, Grid, Container, Center, Divider
+- ✅ **Content**: Text, Icon, Badge
 - ✅ **Interaction**: Button, Input, Label
 - ✅ **Composition**: Card
 - ✅ **Utility**: Portal, VisuallyHidden

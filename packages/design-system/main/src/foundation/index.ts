@@ -16,3 +16,7 @@ export type { ContainerProps } from './Container';
 
 export { Center } from './Center';
 export type { CenterProps } from './Center';
+
+// Spatial Separation
+export { Divider } from './Divider';
+export type { DividerProps, PolymorphicDividerProps } from './Divider';

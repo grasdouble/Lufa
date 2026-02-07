@@ -62,6 +62,8 @@ See **[Development Guide](./_docs/development-guide.md)** for detailed instructi
 
 **Foundation (Layout & Structure)**
 
+**Layout Containers:**
+
 - ✅ **Box** - Layout foundation with polymorphic rendering
 - ✅ **Stack** - Vertical/horizontal spacing
 - ✅ **Flex** - Flexbox layouts
@@ -69,12 +71,15 @@ See **[Development Guide](./_docs/development-guide.md)** for detailed instructi
 - ✅ **Container** - Content width constraints
 - ✅ **Center** - Centering utility
 
+**Spatial Separation:**
+
+- ✅ **Divider** - Visual separators for spatial boundaries
+
 **Content (Display Elements)**
 
 - ✅ **Text** - Typography component
 - ✅ **Icon** - Lucide icon wrapper
 - ✅ **Badge** - Status indicators
-- ✅ **Divider** - Visual separators
 
 **Interaction (Interactive Elements)**
 
