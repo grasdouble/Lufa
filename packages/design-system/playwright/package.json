@@ -15,7 +15,7 @@
     "test": "playwright test -c playwright-ct.config.ts",
     "test-ct": "playwright test -c playwright-ct.config.ts",
     "test-ct:ui": "playwright test -c playwright-ct.config.ts --ui",
-    "test-ct:update-snapshots": "playwright test -c playwright-ct.config.ts --update-snapshots",
+    "test-ct:update-snapshots": "playwright test -c playwright-ct.config.ts --update-snapshots=all && pnpm run compress-snapshots",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "validate-system": "bash scripts/validate-snapshot-system.sh"
   },

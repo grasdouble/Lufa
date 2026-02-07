@@ -1,5 +1,6 @@
 .input {
   display: inline-block;
+  box-sizing: border-box;
   width: 100%;
   padding: var(--lufa-component-input-padding-md);
   font-family: inherit;

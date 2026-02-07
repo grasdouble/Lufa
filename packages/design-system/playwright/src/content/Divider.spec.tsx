@@ -320,13 +320,13 @@ test.describe('Divider Component', () => {
                 color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
-              Vertical Dividers - Emphasis Levels
+              Vertical Dividers - Emphasis Levels sdsdsdsdds
             </h2>
-            <div style={{ display: 'flex', gap: '24px', height: '120px', alignItems: 'center' }}>
+            <div style={{ display: 'flex', gap: '24px', height: '120px', alignItems: 'stretch' }}>
               {emphasisLevels.map((emphasis) => (
                 <div key={emphasis} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                  <Divider orientation="vertical" emphasis={emphasis} />
                   <div style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>{emphasis}</div>
+                  <Divider orientation="vertical" emphasis={emphasis} />
                 </div>
               ))}
             </div>
