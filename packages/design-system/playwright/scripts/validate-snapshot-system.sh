@@ -259,7 +259,7 @@ section "Checking Package Scripts"
 ROOT_PACKAGE_JSON="$ROOT_DIR/package.json"
 if [[ -f "$ROOT_PACKAGE_JSON" ]]; then
     EXPECTED_SCRIPTS=(
-        "ds:test"
+        "ds:test:ci"
         "ds:test:ui"
         "ds:test:update-snapshots"
         "ds:test:compress-snapshots"
@@ -295,7 +295,7 @@ if [[ $FAILED -eq 0 ]]; then
     echo -e "${GREEN}✓ All critical checks passed!${NC}"
     echo ""
     echo -e "${BLUE}Next steps:${NC}"
-    echo "  1. Run tests: pnpm ds:test"
+    echo "  1. Run tests: pnpm ds:test:ci"
     echo "  2. Update snapshots: pnpm ds:test:update-snapshots"
     echo "  3. For Linux snapshots: pnpm ds:test:docker:update-snapshots-linux"
     echo "  4. Or use GitHub Actions: gh pr edit --add-label snapshot-update"

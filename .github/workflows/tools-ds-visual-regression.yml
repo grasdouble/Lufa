@@ -204,7 +204,7 @@ jobs:
           **Run tests locally:**
           \`\`\`bash
           # Run visual tests
-          pnpm ds:test
+          pnpm ds:test:ci
 
           # Update snapshots if changes are intentional
           pnpm ds:test:update-snapshots

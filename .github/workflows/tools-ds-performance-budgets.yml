@@ -452,7 +452,7 @@ jobs:
           ls -lh packages/design-system/main/dist/
 
           # Run performance tests
-          pnpm ds:test
+          pnpm ds:test:ci
 
           # Run CLI validation
           cd packages/design-system/cli

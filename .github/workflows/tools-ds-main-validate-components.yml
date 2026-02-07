@@ -55,7 +55,7 @@ jobs:
         id: test
         run: |
           echo "::group::Component Tests"
-          pnpm ds:test
+          pnpm ds:test:ci
           echo "::endgroup::"
         continue-on-error: true
 
@@ -180,7 +180,7 @@ jobs:
             if [ "$TEST_STATUS" != "success" ]; then
               cat << 'EOF' >> comment.md
           **Tests Failed:**
-          - Run locally: `pnpm ds:test`
+          - Run locally: `pnpm ds:test:ci`
           - Fix failing test cases
           - Ensure all 657 tests pass
 
@@ -220,7 +220,7 @@ jobs:
           ### 📚 Resources
 
           - 📖 [Design System Documentation](https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/main/packages/design-system/README.md)
-          - 🧪 Run all checks: \`pnpm validate:components && pnpm ds:main:lint && pnpm ds:main:typecheck && pnpm ds:test\`
+          - 🧪 Run all checks: \`pnpm validate:components && pnpm ds:main:lint && pnpm ds:main:typecheck && pnpm ds:test:ci\`
 
           EOF
           fi
