@@ -56,20 +56,32 @@ jobs:
         run: |
           cd packages/design-system/playwright
 
-          # Count test results
-          TOTAL_TESTS=$(find test-results -name "*.xml" 2>/dev/null | wc -l || echo "0")
-          PASSED_TESTS=$(grep -r "status=\"passed\"" test-results 2>/dev/null | wc -l || echo "0")
-          FAILED_TESTS=$(grep -r "status=\"failed\"" test-results 2>/dev/null | wc -l || echo "0")
+          # Parse JSON results if available
+          if [ -f "test-results/results.json" ]; then
+            TOTAL_TESTS=$(jq '[.suites[].specs[]] | length' test-results/results.json)
+            PASSED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "passed" or .tests[].results[].status == "expected")] | length' test-results/results.json)
+            FAILED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "failed" or .tests[].results[].status == "timedOut")] | length' test-results/results.json)
+          elif [ -f "test-results/junit.xml" ]; then
+            # Fallback to JUnit XML parsing
+            TOTAL_TESTS=$(grep -c "<testcase" test-results/junit.xml || echo "0")
+            PASSED_TESTS=$(grep -c "<testcase" test-results/junit.xml | grep -v "<failure" || echo "0")
+            FAILED_TESTS=$(grep -c "<failure" test-results/junit.xml || echo "0")
+          else
+            # Last resort: count test result directories
+            TOTAL_TESTS=$(find test-results -type d -name "*chromium*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
+            PASSED_TESTS=$(find test-results -type d -name "*chromium*" ! -name "*retry*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
+            FAILED_TESTS=$(find test-results -type d -name "*retry*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
+          fi
 
           # Count visual diffs
-          VISUAL_DIFFS=$(find test-results -name "*-diff.png" 2>/dev/null | wc -l || echo "0")
+          VISUAL_DIFFS=$(find test-results -name "*-diff.png" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
 
           echo "total_tests=$TOTAL_TESTS" >> $GITHUB_OUTPUT
           echo "passed_tests=$PASSED_TESTS" >> $GITHUB_OUTPUT
           echo "failed_tests=$FAILED_TESTS" >> $GITHUB_OUTPUT
           echo "visual_diffs=$VISUAL_DIFFS" >> $GITHUB_OUTPUT
 
-          if [ "$FAILED_TESTS" -eq "0" ]; then
+          if [ "$FAILED_TESTS" -eq "0" ] && [ "$TOTAL_TESTS" -gt "0" ]; then
             echo "status=success" >> $GITHUB_OUTPUT
           else
             echo "status=failure" >> $GITHUB_OUTPUT
@@ -242,3 +254,146 @@ jobs:
         if: steps.report.outputs.status == 'success'
         run: |
           echo "::notice::All visual regression tests passed! 🎉"
+
+  update-snapshots:
+    name: Update Snapshots
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'snapshot-update')
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: 🔧 Configure Git
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
+
+      - name: 📦 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🏗️ Build design system
+        uses: ./.github/actions/build-design-system
+        with:
+          build-storybook: 'false'
+          build-docusaurus: 'false'
+
+      - name: 🎭 Install Playwright browsers
+        uses: ./.github/actions/install-playwright
+
+      - name: 🔄 Update snapshots
+        run: pnpm --filter @grasdouble/lufa_design-system-playwright test-ct --update-snapshots
+        env:
+          CI: true
+
+      - name: 🛠️ Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: 💾 Cache cargo
+        uses: actions/cache@v5
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+          key: ${{ runner.os }}-cargo-oxipng-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-oxipng-
+
+      - name: 📦 Install oxipng
+        run: |
+          if ! command -v oxipng &> /dev/null; then
+            echo "Installing oxipng via cargo..."
+            cargo install oxipng
+          else
+            echo "oxipng already cached"
+          fi
+          oxipng --version
+
+      - name: 🗜️ Compress snapshots
+        run: pnpm ds:test:compress-snapshots
+
+      - name: 💾 Commit and push snapshots
+        id: commit
+        run: |
+          git add packages/design-system/playwright/__snapshots__/
+
+          if git diff --staged --quiet; then
+            echo "No snapshot changes detected"
+            echo "updated=false" >> $GITHUB_OUTPUT
+          else
+            git commit -m "test: update visual regression snapshots (automated)"
+            git push
+            echo "updated=true" >> $GITHUB_OUTPUT
+            echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 🔄 Trigger tests on updated snapshots
+        if: steps.commit.outputs.updated == 'true'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            await new Promise(resolve => setTimeout(resolve, 5000));
+            try {
+              await github.rest.actions.createWorkflowDispatch({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: 'tools-ds-visual-regression.yml',
+                ref: '${{ github.event.pull_request.head.ref }}'
+              });
+            } catch (error) {
+              console.error('Failed to trigger workflow:', error.message);
+            }
+
+      - name: 💬 Comment on PR - Success
+        if: steps.commit.outputs.updated == 'true'
+        uses: ./.github/actions/pr-comment
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-marker: '<!-- visual-regression-snapshot-update -->'
+          comment-body: |
+            <!-- visual-regression-snapshot-update -->
+            ✅ **Visual regression snapshots updated!**
+
+            - Updated and compressed snapshots
+            - Commit SHA: `${{ steps.commit.outputs.sha }}`
+            - Tests triggered automatically
+
+            **Next:** Pull latest changes and review in "Files changed"
+
+      - name: 💬 Comment on PR - No changes
+        if: steps.commit.outputs.updated == 'false'
+        uses: ./.github/actions/pr-comment
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-marker: '<!-- visual-regression-snapshot-update -->'
+          comment-body: |
+            <!-- visual-regression-snapshot-update -->
+            ℹ️ **No snapshot changes needed**
+
+            Existing snapshots are already up to date.
+
+      - name: 🏷️ Remove snapshot-update label
+        if: always()
+        uses: actions/github-script@v8
+        with:
+          script: |
+            try {
+              await github.rest.issues.removeLabel({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: 'snapshot-update'
+              })
+            } catch (error) {
+              console.log('Could not remove label:', error.message)
+            }

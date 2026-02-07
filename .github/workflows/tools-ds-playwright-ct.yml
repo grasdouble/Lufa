@@ -58,13 +58,50 @@ jobs:
 
       # Step 6: Run Playwright component tests (Chromium only for CI speed)
       - name: Run Playwright component tests
+        id: test
         run: pnpm --filter @grasdouble/lufa_design-system-playwright test-ct
+        continue-on-error: true
         env:
           CI: true
 
+      # Step 6b: Generate test metrics
+      - name: Generate test metrics
+        if: always()
+        id: metrics
+        run: |
+          cd packages/design-system/playwright
+
+          # Parse JSON results if available
+          if [ -f "test-results/results.json" ]; then
+            TOTAL_TESTS=$(jq '[.suites[].specs[]] | length' test-results/results.json)
+            PASSED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "passed" or .tests[].results[].status == "expected")] | length' test-results/results.json)
+            FAILED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "failed" or .tests[].results[].status == "timedOut")] | length' test-results/results.json)
+          elif [ -f "test-results/junit.xml" ]; then
+            TOTAL_TESTS=$(grep -c "<testcase" test-results/junit.xml || echo "0")
+            PASSED_TESTS=$(grep -c "<testcase" test-results/junit.xml | grep -v "<failure" || echo "0")
+            FAILED_TESTS=$(grep -c "<failure" test-results/junit.xml || echo "0")
+          else
+            TOTAL_TESTS=$(find test-results -type d -name "*chromium*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
+            PASSED_TESTS=$(find test-results -type d -name "*chromium*" ! -name "*retry*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
+            FAILED_TESTS=$(find test-results -type d -name "*retry*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
+          fi
+
+          VISUAL_DIFFS=$(find test-results -name "*-diff.png" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
+
+          echo "total_tests=$TOTAL_TESTS" >> $GITHUB_OUTPUT
+          echo "passed_tests=$PASSED_TESTS" >> $GITHUB_OUTPUT
+          echo "failed_tests=$FAILED_TESTS" >> $GITHUB_OUTPUT
+          echo "visual_diffs=$VISUAL_DIFFS" >> $GITHUB_OUTPUT
+
+          if [ "$FAILED_TESTS" -eq "0" ] && [ "$TOTAL_TESTS" -gt "0" ]; then
+            echo "status=success" >> $GITHUB_OUTPUT
+          else
+            echo "status=failure" >> $GITHUB_OUTPUT
+          fi
+
       # Step 7: Upload test results on failure
       - name: Upload test results
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@v6
         with:
           name: playwright-test-results
@@ -82,12 +119,63 @@ jobs:
 
       # Step 9: Upload HTML report on failure
       - name: Upload HTML report
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@v6
         with:
           name: playwright-html-report
           path: packages/design-system/playwright/playwright-report/
           retention-days: 7
+
+      # Step 10: Upload visual diffs
+      - name: Upload visual diffs
+        if: steps.metrics.outputs.visual_diffs != '0'
+        uses: actions/upload-artifact@v6
+        with:
+          name: visual-diffs
+          path: packages/design-system/playwright/test-results/**/*-diff.png
+          retention-days: 14
+
+      # Step 11: Comment on PR with test results
+      - name: Comment on PR with test results
+        if: github.event_name == 'pull_request' && always() && !contains(github.event.pull_request.labels.*.name, 'snapshot-update')
+        uses: ./.github/actions/pr-comment
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-marker: '<!-- playwright-ct-results -->'
+          comment-body: |
+            <!-- playwright-ct-results -->
+            ## 🎭 Playwright Component Test Results
+
+            ${{ steps.metrics.outputs.status == 'success' && '### ✅ All Tests Passed!
+
+            All component tests passed successfully! 🎉' || '### ⚠️ Test Failures Detected
+
+            Some tests failed. Please review the details below.' }}
+
+            | Metric | Count |
+            |--------|-------|
+            | Total Tests | ${{ steps.metrics.outputs.total_tests }} |
+            | Passed | ${{ steps.metrics.outputs.passed_tests }} ${{ steps.metrics.outputs.status == 'success' && '✅' || '' }} |
+            | Failed | ${{ steps.metrics.outputs.failed_tests }} ${{ steps.metrics.outputs.status != 'success' && '❌' || '' }} |
+            | Visual Diffs | ${{ steps.metrics.outputs.visual_diffs }} ${{ steps.metrics.outputs.visual_diffs != '0' && '🔍' || '' }} |
+
+            ${{ steps.metrics.outputs.visual_diffs != '0' && format('### 📸 Visual Differences
+
+            {0} component(s) have visual differences. [Download artifacts](https://github.com/{1}/{2}/actions/runs/{3})
+
+            **To update snapshots:**
+            1. Add label `snapshot-update` to this PR
+            2. Automated workflow will update baselines', steps.metrics.outputs.visual_diffs, github.repository_owner, github.event.repository.name, github.run_id) || '' }}
+
+            ---
+            *Component testing with Playwright CT*
+
+      # Step 12: Fail if tests failed
+      - name: Fail if tests failed
+        if: steps.metrics.outputs.status == 'failure'
+        run: |
+          echo "::error::Tests failed. Review artifacts and logs."
+          exit 1
 
   update-linux-snapshots:
     name: Update Linux Snapshots
