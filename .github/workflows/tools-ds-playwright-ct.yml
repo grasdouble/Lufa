@@ -71,23 +71,46 @@ jobs:
         run: |
           cd packages/design-system/playwright
 
+          echo "::group::Debug - Listing files"
+          echo "Current directory: $(pwd)"
+          echo "Files in test-results:"
+          ls -la test-results/ || echo "test-results directory not found"
+          if [ -f "test-results/results.json" ]; then
+            echo "results.json exists, first 50 lines:"
+            head -50 test-results/results.json
+          fi
+          if [ -f "test-results/junit.xml" ]; then
+            echo "junit.xml exists, first 20 lines:"
+            head -20 test-results/junit.xml
+          fi
+          echo "::endgroup::"
+
           # Parse JSON results if available
           if [ -f "test-results/results.json" ]; then
+            echo "::group::Parsing JSON results"
             TOTAL_TESTS=$(jq '[.suites[].specs[]] | length' test-results/results.json 2>/dev/null || echo "0")
             PASSED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "passed" or .tests[].results[].status == "expected")] | length' test-results/results.json 2>/dev/null || echo "0")
             FAILED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "failed" or .tests[].results[].status == "timedOut")] | length' test-results/results.json 2>/dev/null || echo "0")
+            echo "JSON parsing: total=$TOTAL_TESTS, passed=$PASSED_TESTS, failed=$FAILED_TESTS"
+            echo "::endgroup::"
           elif [ -f "test-results/junit.xml" ]; then
+            echo "::group::Parsing JUnit XML"
             # Count total test cases
             TOTAL_TESTS=$(grep -c "<testcase" test-results/junit.xml 2>/dev/null || echo "0")
             # Count failures
             FAILED_TESTS=$(grep -c "<failure" test-results/junit.xml 2>/dev/null || echo "0")
             # Calculate passed tests (total - failed)
             PASSED_TESTS=$((TOTAL_TESTS - FAILED_TESTS))
+            echo "JUnit parsing: total=$TOTAL_TESTS, passed=$PASSED_TESTS, failed=$FAILED_TESTS"
+            echo "::endgroup::"
           else
+            echo "::group::Fallback: counting directories"
             # Fallback: count test result directories
             TOTAL_TESTS=$(find test-results -type d -name "*chromium*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
             PASSED_TESTS=$(find test-results -type d -name "*chromium*" ! -name "*retry*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
             FAILED_TESTS=$(find test-results -type d -name "*retry*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
+            echo "Directory counting: total=$TOTAL_TESTS, passed=$PASSED_TESTS, failed=$FAILED_TESTS"
+            echo "::endgroup::"
           fi
 
           VISUAL_DIFFS=$(find test-results -name "*-diff.png" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
@@ -102,6 +125,8 @@ jobs:
           else
             echo "status=failure" >> $GITHUB_OUTPUT
           fi
+
+          echo "::notice::Metrics - Total: $TOTAL_TESTS, Passed: $PASSED_TESTS, Failed: $FAILED_TESTS, Diffs: $VISUAL_DIFFS"
 
       # Step 7: Upload test results on failure
       - name: Upload test results
@@ -139,46 +164,156 @@ jobs:
           path: packages/design-system/playwright/test-results/**/*-diff.png
           retention-days: 14
 
-      # Step 11: Comment on PR with test results
-      - name: Comment on PR with test results
+      # Step 10b: Upload baseline snapshots
+      - name: Upload baseline snapshots
+        if: steps.metrics.outputs.visual_diffs != '0'
+        uses: actions/upload-artifact@v6
+        with:
+          name: baseline-snapshots
+          path: packages/design-system/playwright/__snapshots__/**/*.png
+          retention-days: 7
+
+      # Step 11: Build detailed PR comment
+      - name: Build PR comment
+        if: github.event_name == 'pull_request' && always() && !contains(github.event.pull_request.labels.*.name, 'snapshot-update')
+        id: comment
+        env:
+          STATUS: ${{ steps.metrics.outputs.status }}
+          TOTAL_TESTS: ${{ steps.metrics.outputs.total_tests }}
+          PASSED_TESTS: ${{ steps.metrics.outputs.passed_tests }}
+          FAILED_TESTS: ${{ steps.metrics.outputs.failed_tests }}
+          VISUAL_DIFFS: ${{ steps.metrics.outputs.visual_diffs }}
+          RUN_ID: ${{ github.run_id }}
+          REPO_OWNER: ${{ github.repository_owner }}
+          REPO_NAME: ${{ github.event.repository.name }}
+        run: |
+          ARTIFACT_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/actions/runs/${RUN_ID}"
+
+          cat << 'EOF' > comment.md
+          <!-- playwright-ct-results -->
+          ## 🎭 Playwright Component Test Results
+
+          EOF
+
+          if [ "$STATUS" = "success" ]; then
+            cat << 'EOF' >> comment.md
+          ### ✅ All Tests Passed!
+
+          No visual regressions detected. All components render as expected! 🎉
+
+          EOF
+          else
+            cat << 'EOF' >> comment.md
+          ### ⚠️ Test Failures Detected
+
+          Some tests failed or visual differences were detected. Please review below.
+
+          EOF
+          fi
+
+          cat << EOF >> comment.md
+          | Metric | Count |
+          |--------|-------|
+          | Total Tests | ${TOTAL_TESTS} |
+          | Passed | ${PASSED_TESTS} $([ "$STATUS" = "success" ] && echo "✅" || echo "") |
+          | Failed | ${FAILED_TESTS} $([ "$STATUS" != "success" ] && echo "❌" || echo "") |
+          | Visual Diffs | ${VISUAL_DIFFS} $([ "$VISUAL_DIFFS" != "0" ] && echo "🔍" || echo "") |
+
+          EOF
+
+          if [ "$VISUAL_DIFFS" != "0" ]; then
+            cat << EOF >> comment.md
+          ### 📸 Visual Differences
+
+          ${VISUAL_DIFFS} component(s) have visual differences from the baseline snapshots.
+
+          **Review Artifacts:**
+          - [📦 Visual Diffs](${ARTIFACT_URL}#artifacts) - Download diff images
+          - [📊 Test Report](${ARTIFACT_URL}#artifacts) - Full Playwright HTML report
+          - [🖼️ Baseline Snapshots](${ARTIFACT_URL}#artifacts) - Current baseline images
+
+          ### 💡 How to Review
+
+          1. Download the \`visual-diffs\` artifact from the [Actions run](${ARTIFACT_URL})
+          2. Review each diff image (red = removed, green = added)
+          3. If changes are intentional:
+             - Add label \`snapshot-update\` to this PR
+             - Automated workflow will update baselines
+          4. If changes are unintentional:
+             - Fix the component code
+             - Push changes to re-run tests
+
+          EOF
+          fi
+
+          cat << 'EOF' >> comment.md
+          ### 📋 Components Tested
+
+          All design system components were tested in:
+          - ☀️ Light mode
+          - 🌙 Dark mode
+          - 💻 Desktop viewport (1280x720)
+
+          **Tested Components:**
+          - Box, Stack, Text, Icon
+          - Button, Badge, Divider
+          - Center, Container, Flex, Grid
+          - Portal, VisuallyHidden, Label
+          - Input, Card (compositions)
+
+          EOF
+
+          if [ "$STATUS" != "success" ] || [ "$VISUAL_DIFFS" != "0" ]; then
+            cat << EOF >> comment.md
+          ### 🔧 Troubleshooting
+
+          **Common causes of test failures or visual differences:**
+          1. **Token changes** - Updated design tokens affect component styling
+          2. **CSS changes** - Modified component styles or utility classes
+          3. **Font changes** - Font family or weight modifications
+          4. **Layout changes** - Padding, margin, or sizing adjustments
+          5. **Browser updates** - Rendering engine differences
+
+          **Run tests locally:**
+          \`\`\`bash
+          # Run component tests
+          pnpm ds:test:ci
+
+          # Update snapshots if changes are intentional
+          pnpm ds:test:update-snapshots
+
+          # Run tests in UI mode for debugging
+          pnpm ds:test:ui
+          \`\`\`
+
+          EOF
+          fi
+
+          cat << EOF >> comment.md
+          ---
+
+          *Part of Lufa Design System v2.0 - Automated component testing (Phase 7c)*
+          *📊 [View full test report](${ARTIFACT_URL})*
+          EOF
+
+          echo "body<<EOFMARKER" >> $GITHUB_OUTPUT
+          cat comment.md >> $GITHUB_OUTPUT
+          echo "EOFMARKER" >> $GITHUB_OUTPUT
+
+      # Step 12: Comment on PR
+      - name: Comment on PR
         if: github.event_name == 'pull_request' && always() && !contains(github.event.pull_request.labels.*.name, 'snapshot-update')
         uses: ./.github/actions/pr-comment
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           comment-marker: '<!-- playwright-ct-results -->'
-          comment-body: |
-            <!-- playwright-ct-results -->
-            ## 🎭 Playwright Component Test Results
+          comment-body: ${{ steps.comment.outputs.body }}
 
-            ${{ steps.metrics.outputs.status == 'success' && '### ✅ All Tests Passed!
-
-            All component tests passed successfully! 🎉' || '### ⚠️ Test Failures Detected
-
-            Some tests failed. Please review the details below.' }}
-
-            | Metric | Count |
-            |--------|-------|
-            | Total Tests | ${{ steps.metrics.outputs.total_tests }} |
-            | Passed | ${{ steps.metrics.outputs.passed_tests }} ${{ steps.metrics.outputs.status == 'success' && '✅' || '' }} |
-            | Failed | ${{ steps.metrics.outputs.failed_tests }} ${{ steps.metrics.outputs.status != 'success' && '❌' || '' }} |
-            | Visual Diffs | ${{ steps.metrics.outputs.visual_diffs }} ${{ steps.metrics.outputs.visual_diffs != '0' && '🔍' || '' }} |
-
-            ${{ steps.metrics.outputs.visual_diffs != '0' && format('### 📸 Visual Differences
-
-            {0} component(s) have visual differences. [Download artifacts](https://github.com/{1}/{2}/actions/runs/{3})
-
-            **To update snapshots:**
-            1. Add label `snapshot-update` to this PR
-            2. Automated workflow will update baselines', steps.metrics.outputs.visual_diffs, github.repository_owner, github.event.repository.name, github.run_id) || '' }}
-
-            ---
-            *Component testing with Playwright CT*
-
-      # Step 12: Fail if tests failed
+      # Step 13: Fail if tests failed
       - name: Fail if tests failed
         if: steps.metrics.outputs.status == 'failure'
         run: |
-          echo "::error::Tests failed. Review artifacts and logs."
+          echo "::error::Component tests failed. Review artifacts and logs for details."
           exit 1
 
   update-linux-snapshots:
