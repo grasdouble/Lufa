@@ -14,7 +14,8 @@
     "build:watch": "vite build -w",
     "dev": "vite",
     "lint": "eslint ./src",
-    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "preview": "vite preview",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

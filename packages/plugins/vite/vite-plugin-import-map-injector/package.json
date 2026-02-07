@@ -19,7 +19,8 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "lint-staged": {

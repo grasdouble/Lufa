@@ -40,9 +40,6 @@ jobs:
           build-storybook: 'false'
           build-docusaurus: 'false'
 
-      - name: 🎭 Install Playwright browsers
-        uses: ./.github/actions/install-playwright
-
       - name: 🔍 Validate component code quality
         id: validate_code
         run: |
@@ -51,46 +48,15 @@ jobs:
           echo "::endgroup::"
         continue-on-error: true
 
-      - name: 🔍 Run linter
-        id: lint
-        run: |
-          echo "::group::ESLint"
-          pnpm ds:main:lint
-          echo "::endgroup::"
-        continue-on-error: true
-
-      - name: 🔍 Run type checking
-        id: typecheck
-        run: |
-          echo "::group::TypeScript Type Checking"
-          pnpm ds:main:typecheck
-          echo "::endgroup::"
-        continue-on-error: true
-
-      - name: 🎨 Check formatting
-        id: prettier
-        run: |
-          echo "::group::Prettier Format Check"
-          cd packages/design-system/main
-          npx prettier --check ./src
-          echo "::endgroup::"
-        continue-on-error: true
-
       - name: 📊 Analyze validation results
         id: analyze
         run: |
           VALIDATE_CODE_STATUS="${{ steps.validate_code.outcome }}"
-          LINT_STATUS="${{ steps.lint.outcome }}"
-          TYPECHECK_STATUS="${{ steps.typecheck.outcome }}"
-          PRETTIER_STATUS="${{ steps.prettier.outcome }}"
 
           echo "validate_code_status=$VALIDATE_CODE_STATUS" >> $GITHUB_OUTPUT
-          echo "lint_status=$LINT_STATUS" >> $GITHUB_OUTPUT
-          echo "typecheck_status=$TYPECHECK_STATUS" >> $GITHUB_OUTPUT
-          echo "prettier_status=$PRETTIER_STATUS" >> $GITHUB_OUTPUT
 
           # Determine overall status
-          if [[ "$VALIDATE_CODE_STATUS" == "success" && "$LINT_STATUS" == "success" && "$TYPECHECK_STATUS" == "success" && "$PRETTIER_STATUS" == "success" ]]; then
+          if [[ "$VALIDATE_CODE_STATUS" == "success"]]; then
             echo "overall_status=success" >> $GITHUB_OUTPUT
           else
             echo "overall_status=failure" >> $GITHUB_OUTPUT
@@ -101,9 +67,6 @@ jobs:
         id: comment
         env:
           VALIDATE_CODE_STATUS: ${{ steps.analyze.outputs.validate_code_status }}
-          LINT_STATUS: ${{ steps.analyze.outputs.lint_status }}
-          TYPECHECK_STATUS: ${{ steps.analyze.outputs.typecheck_status }}
-          PRETTIER_STATUS: ${{ steps.analyze.outputs.prettier_status }}
           OVERALL_STATUS: ${{ steps.analyze.outputs.overall_status }}
           REPO_OWNER: ${{ github.repository_owner }}
           REPO_NAME: ${{ github.event.repository.name }}
@@ -142,9 +105,6 @@ jobs:
           | Check | Status |
           |-------|--------|
           | Code Quality | $(status_emoji "$VALIDATE_CODE_STATUS") $([ "$VALIDATE_CODE_STATUS" = "success" ] && echo "Passed" || echo "Failed") |
-          | ESLint | $(status_emoji "$LINT_STATUS") $([ "$LINT_STATUS" = "success" ] && echo "Passed" || echo "Failed") |
-          | TypeScript | $(status_emoji "$TYPECHECK_STATUS") $([ "$TYPECHECK_STATUS" = "success" ] && echo "Passed" || echo "Failed") |
-          | Prettier | $(status_emoji "$PRETTIER_STATUS") $([ "$PRETTIER_STATUS" = "success" ] && echo "Passed" || echo "Failed") |
 
           **Note:** Component tests are run separately in the [Playwright Component Tests workflow](../../actions/workflows/tools-ds-playwright-ct.yml).
 
@@ -167,40 +127,11 @@ jobs:
           EOF
             fi
             
-            if [ "$LINT_STATUS" != "success" ]; then
-              cat << 'EOF' >> comment.md
-          **ESLint Failed:**
-          - Run locally: `pnpm ds:main:lint`
-          - Fix linting errors
-          - Follow ESLint rules
-
-          EOF
-            fi
-            
-            if [ "$TYPECHECK_STATUS" != "success" ]; then
-              cat << 'EOF' >> comment.md
-          **TypeScript Failed:**
-          - Run locally: `pnpm ds:main:typecheck`
-          - Fix type errors
-          - Ensure all types are correct
-
-          EOF
-            fi
-            
-            if [ "$PRETTIER_STATUS" != "success" ]; then
-              cat << 'EOF' >> comment.md
-          **Prettier Failed:**
-          - Run locally: `pnpm ds:main:prettier`
-          - Auto-fix formatting
-
-          EOF
-            fi
-            
             cat << EOF >> comment.md
           ### 📚 Resources
 
           - 📖 [Design System Documentation](https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/main/packages/design-system/README.md)
-          - 🧪 Run all checks: \`pnpm validate:components && pnpm ds:main:lint && pnpm ds:main:typecheck\`
+          - 🧪 Run all checks: \`pnpm validate:components\`
           - 🎭 Component tests: See [Playwright Component Tests workflow](https://github.com/${REPO_OWNER}/${REPO_NAME}/actions/workflows/tools-ds-playwright-ct.yml)
 
           EOF

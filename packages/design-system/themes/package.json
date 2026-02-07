@@ -24,7 +24,8 @@
     "build": "pnpm clean && tsx scripts/copy-themes.ts",
     "clean": "rm -rf dist",
     "lint": "eslint scripts --ext .ts",
-    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "lint-staged": {

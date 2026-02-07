@@ -26,7 +26,8 @@
     "dev": "vite build --watch",
     "generate:utilities": "node scripts/generate-utilities.cjs",
     "lint": "eslint .",
-    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "preview": "vite preview",
     "test-ct": "playwright test -c playwright-ct.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"

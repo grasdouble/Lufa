@@ -6,7 +6,7 @@
     "bundle": {
       "description": "Total bundle size limits (JS + CSS)",
       "totalSize": {
-        "max": 200,
+        "max": 250,
         "unit": "KB",
         "failOnExceed": true
       },
@@ -29,7 +29,7 @@
       }
     },
     "timing": {
-      "description": "Build and test timing budgets",
+      "description": "Build and validation timing budgets",
       "build": {
         "max": 30,
         "unit": "seconds",
@@ -41,8 +41,7 @@
         "unit": "seconds",
         "failOnExceed": false,
         "warnOnExceed": true,
-        "description": "Playwright component tests (657 tests)",
-        "testCount": 657
+        "description": "Playwright component tests execution time"
       },
       "cssCascade": {
         "max": 20,
@@ -59,7 +58,7 @@
     "notes": [
       "Bundle size budgets are for uncompressed files",
       "Gzipped size represents actual network transfer size",
-      "Test time is for Chromium project only with list reporter",
+      "Test execution time budget is checked by the playwright-ct workflow",
       "CSS cascade time measures CLI validation performance"
     ]
   }

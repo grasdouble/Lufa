@@ -59,7 +59,15 @@ jobs:
       # Step 6: Run Playwright component tests (Chromium only for CI speed)
       - name: 🧪 Run Playwright component tests
         id: test
-        run: pnpm --filter @grasdouble/lufa_design-system-playwright test-ct
+        run: |
+          TEST_START=$(date +%s%3N)
+          pnpm --filter @grasdouble/lufa_design-system-playwright test-ct
+          TEST_EXIT=$?
+          TEST_END=$(date +%s%3N)
+          TEST_TIME=$((TEST_END - TEST_START))
+          TEST_TIME_SEC=$(echo "scale=2; $TEST_TIME / 1000" | bc)
+          echo "test_time_sec=${TEST_TIME_SEC}" >> $GITHUB_OUTPUT
+          exit $TEST_EXIT
         continue-on-error: true
         env:
           CI: true
@@ -131,7 +139,33 @@ jobs:
             echo "status=success" >> $GITHUB_OUTPUT
           fi
 
-          echo "::notice::Metrics - Total: $TOTAL_TESTS, Passed: $PASSED_TESTS, Failed: $FAILED_TESTS, Diffs: $VISUAL_DIFFS"
+          # Forward test timing from the test step
+          TEST_TIME_SEC="${{ steps.test.outputs.test_time_sec }}"
+          echo "test_time_sec=${TEST_TIME_SEC:-N/A}" >> $GITHUB_OUTPUT
+
+          # Check test time budget from config
+          CONFIG_FILE="${GITHUB_WORKSPACE}/.github/config/performance-budgets.json"
+          if [ -f "$CONFIG_FILE" ] && [ "${TEST_TIME_SEC}" != "" ] && [ "${TEST_TIME_SEC}" != "N/A" ]; then
+            TEST_BUDGET=$(jq -r '.budgets.timing.tests.max' "$CONFIG_FILE" 2>/dev/null || echo "")
+            if [ -n "$TEST_BUDGET" ] && [ "$TEST_BUDGET" != "null" ]; then
+              echo "test_budget=${TEST_BUDGET}" >> $GITHUB_OUTPUT
+              if (( $(echo "${TEST_TIME_SEC} > ${TEST_BUDGET}" | bc -l) )); then
+                echo "⚠️  Test time budget exceeded: ${TEST_TIME_SEC}s > ${TEST_BUDGET}s"
+                echo "test_time_pass=warning" >> $GITHUB_OUTPUT
+              else
+                echo "✅ Test time within budget: ${TEST_TIME_SEC}s <= ${TEST_BUDGET}s"
+                echo "test_time_pass=true" >> $GITHUB_OUTPUT
+              fi
+            else
+              echo "test_budget=" >> $GITHUB_OUTPUT
+              echo "test_time_pass=N/A" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "test_budget=" >> $GITHUB_OUTPUT
+            echo "test_time_pass=N/A" >> $GITHUB_OUTPUT
+          fi
+
+          echo "::notice::Metrics - Total: $TOTAL_TESTS, Passed: $PASSED_TESTS, Failed: $FAILED_TESTS, Diffs: $VISUAL_DIFFS, Time: ${TEST_TIME_SEC:-N/A}s"
 
       # Step 7: Upload test results on failure
       - name: 📦 Upload test results
@@ -179,7 +213,7 @@ jobs:
           retention-days: 7
 
       # Step 11: Build detailed PR comment
-      - name: Build PR comment
+      - name: 📝 Build PR comment
         if: github.event_name == 'pull_request' && always() && !contains(github.event.pull_request.labels.*.name, 'snapshot-update')
         id: comment
         env:
@@ -188,6 +222,9 @@ jobs:
           PASSED_TESTS: ${{ steps.metrics.outputs.passed_tests }}
           FAILED_TESTS: ${{ steps.metrics.outputs.failed_tests }}
           VISUAL_DIFFS: ${{ steps.metrics.outputs.visual_diffs }}
+          TEST_TIME_SEC: ${{ steps.metrics.outputs.test_time_sec }}
+          TEST_BUDGET: ${{ steps.metrics.outputs.test_budget }}
+          TEST_TIME_PASS: ${{ steps.metrics.outputs.test_time_pass }}
           RUN_ID: ${{ github.run_id }}
           REPO_OWNER: ${{ github.repository_owner }}
           REPO_NAME: ${{ github.event.repository.name }}
@@ -223,8 +260,27 @@ jobs:
           | Passed | ${PASSED_TESTS} $([ "$STATUS" = "success" ] && echo "✅" || echo "") |
           | Failed | ${FAILED_TESTS} $([ "$STATUS" != "success" ] && echo "❌" || echo "") |
           | Visual Diffs | ${VISUAL_DIFFS} $([ "$VISUAL_DIFFS" != "0" ] && echo "🔍" || echo "") |
-
           EOF
+
+          # Add execution time row with budget info if available
+          if [ -n "$TEST_BUDGET" ]; then
+            if [ "$TEST_TIME_PASS" = "true" ]; then
+              TIME_STATUS="✅"
+            elif [ "$TEST_TIME_PASS" = "warning" ]; then
+              TIME_STATUS="⚠️"
+            else
+              TIME_STATUS=""
+            fi
+            cat << EOF >> comment.md
+          | Execution Time | ${TEST_TIME_SEC}s / ${TEST_BUDGET}s ${TIME_STATUS} |
+          EOF
+          else
+            cat << EOF >> comment.md
+          | Execution Time | ${TEST_TIME_SEC}s |
+          EOF
+          fi
+
+          echo "" >> comment.md
 
           if [ "$VISUAL_DIFFS" != "0" ]; then
             cat << EOF >> comment.md
@@ -297,7 +353,6 @@ jobs:
           cat << EOF >> comment.md
           ---
 
-          *Part of Lufa Design System v2.0 - Automated component testing (Phase 7c)*
           *📊 [View full test report](${ARTIFACT_URL})*
           EOF
 
@@ -306,7 +361,7 @@ jobs:
           echo "EOFMARKER" >> $GITHUB_OUTPUT
 
       # Step 12: Comment on PR
-      - name: Comment on PR
+      - name: 💬 Comment on PR
         if: github.event_name == 'pull_request' && always() && !contains(github.event.pull_request.labels.*.name, 'snapshot-update')
         uses: ./.github/actions/pr-comment
         with:
@@ -315,11 +370,17 @@ jobs:
           comment-body: ${{ steps.comment.outputs.body }}
 
       # Step 13: Fail if tests failed
-      - name: Fail if tests failed
+      - name: ❌ Fail if tests failed
         if: steps.metrics.outputs.status == 'failure' || steps.test.outcome == 'failure'
         run: |
           echo "::error::Component tests failed. Review artifacts and logs for details."
           exit 1
+
+      # Step 14: Success message if all tests passed
+      - name: ✅ Tests passed
+        if: steps.metrics.outputs.status == 'success' && steps.test.outcome == 'success'
+        run: |
+          echo "::notice::All visual regression tests passed! 🎉"
 
   update-linux-snapshots:
     name: Update Linux Snapshots

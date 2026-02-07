@@ -47,15 +47,17 @@ jobs:
           mkdir -p performance-results
 
           # 1. Build Time Measurement
+          # Rebuild from scratch to get a real measurement
           echo "📦 Measuring build time..."
           BUILD_START=$(date +%s%3N)
-          # Build is already done via reusable workflow and cached
-          # Just restore from cache to measure cache performance
+          pnpm --filter @grasdouble/lufa_design-system-tokens build > /dev/null 2>&1 || true
+          pnpm --filter @grasdouble/lufa_design-system-themes build > /dev/null 2>&1 || true
+          pnpm --filter @grasdouble/lufa_design-system build > /dev/null 2>&1 || true
           BUILD_END=$(date +%s%3N)
           BUILD_TIME=$((BUILD_END - BUILD_START))
           BUILD_TIME_SEC=$(echo "scale=2; $BUILD_TIME / 1000" | bc)
           echo "build_time=${BUILD_TIME_SEC}" >> $GITHUB_OUTPUT
-          echo "✅ Build time (from cache): ${BUILD_TIME_SEC}s"
+          echo "✅ Build time: ${BUILD_TIME_SEC}s"
 
           # 2. Bundle Size Check
           echo ""
@@ -69,6 +71,7 @@ jobs:
             echo "bundle_size_kb=${BUNDLE_SIZE_KB}" >> $GITHUB_OUTPUT
             echo "✅ Bundle size: ${BUNDLE_SIZE_KB} KB"
           else
+            BUNDLE_SIZE_KB=0
             echo "bundle_size_kb=0" >> $GITHUB_OUTPUT
             echo "⚠️ Bundle file not found"
           fi
@@ -79,46 +82,42 @@ jobs:
             echo "css_size_kb=${CSS_SIZE_KB}" >> $GITHUB_OUTPUT
             echo "✅ CSS size: ${CSS_SIZE_KB} KB"
           else
+            CSS_SIZE_KB=0
             echo "css_size_kb=0" >> $GITHUB_OUTPUT
             echo "⚠️ CSS file not found"
           fi
 
           # Calculate total size
-          TOTAL_SIZE=$(echo "$BUNDLE_SIZE_KB + $CSS_SIZE_KB" | bc)
+          TOTAL_SIZE=$(echo "${BUNDLE_SIZE_KB:-0} + ${CSS_SIZE_KB:-0}" | bc)
           echo "total_size_kb=${TOTAL_SIZE}" >> $GITHUB_OUTPUT
           echo "✅ Total size: ${TOTAL_SIZE} KB"
 
           # Check if gzip exists
-          if command -v gzip &> /dev/null; then
-            # Gzipped size
-            GZIP_SIZE=$(gzip -c "dist/lufa-ui.mjs" | wc -c)
-            GZIP_SIZE_KB=$(echo "scale=2; $GZIP_SIZE / 1024" | bc)
+          GZIP_SIZE_KB="N/A"
+          if command -v gzip &> /dev/null && [ -f "dist/lufa-ui.mjs" ]; then
+            # Gzipped size (JS + CSS combined)
+            GZIP_JS=$(gzip -c "dist/lufa-ui.mjs" | wc -c)
+            GZIP_CSS=0
+            if [ -f "dist/style.css" ]; then
+              GZIP_CSS=$(gzip -c "dist/style.css" | wc -c)
+            fi
+            GZIP_TOTAL=$((GZIP_JS + GZIP_CSS))
+            GZIP_SIZE_KB=$(echo "scale=2; $GZIP_TOTAL / 1024" | bc)
             echo "gzip_size_kb=${GZIP_SIZE_KB}" >> $GITHUB_OUTPUT
-            echo "✅ Gzipped JS size: ${GZIP_SIZE_KB} KB"
+            echo "✅ Gzipped total size: ${GZIP_SIZE_KB} KB"
           else
             echo "gzip_size_kb=N/A" >> $GITHUB_OUTPUT
           fi
 
           cd ../../..
 
-          # 3. Test Execution Time
-          echo ""
-          echo "🧪 Measuring test execution time..."
-          TEST_START=$(date +%s%3N)
-          pnpm --filter @grasdouble/lufa_design-system-playwright test-ct --reporter=list > /tmp/test-output.txt 2>&1 || true
-          TEST_END=$(date +%s%3N)
-          TEST_TIME=$((TEST_END - TEST_START))
-          TEST_TIME_SEC=$(echo "scale=2; $TEST_TIME / 1000" | bc)
-          echo "test_time=${TEST_TIME_SEC}" >> $GITHUB_OUTPUT
-          echo "✅ Test execution time: ${TEST_TIME_SEC}s"
-
-          # 4. CSS Cascade Performance (CLI validation from Phase 7a)
+          # 3. CSS Cascade Performance (CLI validation from Phase 7a)
           echo ""
           echo "🎨 Measuring CSS cascade performance..."
           cd packages/design-system/cli
 
           # Create test theme for validation
-          cat > /tmp/test-theme.css << 'EOF'
+          cat > /tmp/test-theme.css << 'THEMEEOF'
           [data-mode="light"] {
             --lufa-semantic-ui-text-primary: var(--lufa-core-neutral-text-primary);
             --lufa-semantic-ui-bg-primary: var(--lufa-core-neutral-bg-primary);
@@ -127,20 +126,20 @@ jobs:
             --lufa-primitive-color-gray-900: #111827;
             --lufa-primitive-color-white: #ffffff;
           }
-          EOF
+          THEMEEOF
 
           # Run cascade validation
           CASCADE_START=$(date +%s%3N)
           pnpm exec tsx src/index.ts validate --theme /tmp/test-theme.css --all > /tmp/cascade-output.txt 2>&1 || true
           CASCADE_END=$(date +%s%3N)
           CASCADE_TIME=$((CASCADE_END - CASCADE_START))
-          CASCADE_TIME_MS=$((CASCADE_TIME))
+          CASCADE_TIME_MS="${CASCADE_TIME:-0}"
           echo "cascade_time_ms=${CASCADE_TIME_MS}" >> $GITHUB_OUTPUT
           echo "✅ CSS cascade validation time: ${CASCADE_TIME_MS}ms"
 
           cd ../../..
 
-          # 5. Load performance budgets from config
+          # 4. Load performance budgets from config
           echo ""
           echo "📊 Loading performance budgets from config..."
 
@@ -154,14 +153,12 @@ jobs:
           BUNDLE_BUDGET=$(jq -r '.budgets.bundle.totalSize.max' "$CONFIG_FILE")
           GZIP_BUDGET=$(jq -r '.budgets.bundle.gzipped.max' "$CONFIG_FILE")
           BUILD_BUDGET=$(jq -r '.budgets.timing.build.max' "$CONFIG_FILE")
-          TEST_BUDGET=$(jq -r '.budgets.timing.tests.max' "$CONFIG_FILE")
           CASCADE_BUDGET=$(jq -r '.budgets.timing.cssCascade.max' "$CONFIG_FILE")
 
           echo "✅ Loaded budgets:"
           echo "   - Bundle: ${BUNDLE_BUDGET} KB"
           echo "   - Gzipped: ${GZIP_BUDGET} KB"
           echo "   - Build: ${BUILD_BUDGET}s"
-          echo "   - Tests: ${TEST_BUDGET}s"
           echo "   - CSS Cascade: ${CASCADE_BUDGET}ms"
 
           echo ""
@@ -207,19 +204,9 @@ jobs:
             echo "build_pass=true" >> $GITHUB_OUTPUT
           fi
 
-          # Test time budget (657 tests)
-          # TEST_BUDGET loaded from config
-          if (( $(echo "$TEST_TIME_SEC > $TEST_BUDGET" | bc -l) )); then
-            echo "⚠️  Test time budget exceeded: ${TEST_TIME_SEC}s > ${TEST_BUDGET}s"
-            # Warning only, don't fail
-            echo "test_pass=warning" >> $GITHUB_OUTPUT
-          else
-            echo "✅ Test time within budget: ${TEST_TIME_SEC}s <= ${TEST_BUDGET}s"
-            echo "test_pass=true" >> $GITHUB_OUTPUT
-          fi
-
           # CSS cascade budget
           # CASCADE_BUDGET loaded from config
+          CASCADE_TIME_MS="${CASCADE_TIME_MS:-0}"
           if (( CASCADE_TIME_MS > CASCADE_BUDGET )); then
             echo "⚠️  CSS cascade time budget exceeded: ${CASCADE_TIME_MS}ms > ${CASCADE_BUDGET}ms"
             # Warning only, don't fail
@@ -244,10 +231,6 @@ jobs:
 
           echo "::endgroup::"
 
-      - name: Install Playwright browsers
-        if: always()
-        uses: ./.github/actions/install-playwright
-
       - name: 📝 Build comment body
         id: build-comment
         if: github.event_name == 'pull_request' && always()
@@ -259,14 +242,12 @@ jobs:
           CSS_SIZE="${{ steps.perf.outputs.css_size_kb }}"
           TOTAL_SIZE="${{ steps.perf.outputs.total_size_kb }}"
           GZIP_SIZE="${{ steps.perf.outputs.gzip_size_kb }}"
-          TEST_TIME="${{ steps.perf.outputs.test_time }}"
           CASCADE_TIME="${{ steps.perf.outputs.cascade_time_ms }}"
           BUDGET_FAILURES="${{ steps.perf.outputs.budget_failures }}"
 
           BUNDLE_PASS="${{ steps.perf.outputs.bundle_pass }}"
           GZIP_PASS="${{ steps.perf.outputs.gzip_pass }}"
           BUILD_PASS="${{ steps.perf.outputs.build_pass }}"
-          TEST_PASS="${{ steps.perf.outputs.test_pass }}"
           CASCADE_PASS="${{ steps.perf.outputs.cascade_pass }}"
 
           RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
@@ -276,7 +257,6 @@ jobs:
           BUNDLE_BUDGET=$(jq -r '.budgets.bundle.totalSize.max' "$CONFIG_FILE")
           GZIP_BUDGET=$(jq -r '.budgets.bundle.gzipped.max' "$CONFIG_FILE")
           BUILD_BUDGET=$(jq -r '.budgets.timing.build.max' "$CONFIG_FILE")
-          TEST_BUDGET=$(jq -r '.budgets.timing.tests.max' "$CONFIG_FILE")
           CASCADE_BUDGET=$(jq -r '.budgets.timing.cssCascade.max' "$CONFIG_FILE")
 
           # Determine status indicators
@@ -300,14 +280,6 @@ jobs:
             BUILD_STATUS="❌ Fail"
           fi
 
-          if [ "$TEST_PASS" = "true" ]; then
-            TEST_STATUS="✅ Pass"
-          elif [ "$TEST_PASS" = "warning" ]; then
-            TEST_STATUS="⚠️ Warning"
-          else
-            TEST_STATUS="❌ Fail"
-          fi
-
           if [ "$CASCADE_PASS" = "true" ]; then
             CASCADE_STATUS="✅ Pass"
           elif [ "$CASCADE_PASS" = "warning" ]; then
@@ -317,8 +289,10 @@ jobs:
           fi
 
           # Calculate gzip compression ratio
-          if [ "$GZIP_SIZE" != "N/A" ]; then
-            GZIP_RATIO=$(echo "scale=0; ($GZIP_SIZE / $TOTAL_SIZE) * 100" | bc)
+          if [ "$GZIP_SIZE" != "N/A" ] && [ "$TOTAL_SIZE" != "0" ]; then
+            GZIP_RATIO=$(echo "scale=0; (${GZIP_SIZE} * 100) / ${TOTAL_SIZE}" | bc)
+          else
+            GZIP_RATIO="N/A"
           fi
 
           # Build the comment body
@@ -366,7 +340,6 @@ jobs:
           # Continue table
           cat >> /tmp/comment.md << EOF
           | **Build Time** | ${BUILD_TIME}s | ${BUILD_BUDGET}s | ${BUILD_STATUS} |
-          | **Test Time** | ${TEST_TIME}s | ${TEST_BUDGET}s | ${TEST_STATUS} |
           | **CSS Cascade** | ${CASCADE_TIME}ms | ${CASCADE_BUDGET}ms | ${CASCADE_STATUS} |
 
           ### 📦 Size Breakdown
@@ -393,7 +366,6 @@ jobs:
 
           \`\`\`
           Build:         ${BUILD_TIME}s
-          Tests (657):   ${TEST_TIME}s
           CSS Cascade:   ${CASCADE_TIME}ms
           \`\`\`
 
@@ -461,7 +433,6 @@ jobs:
 
           ---
 
-          *Part of Lufa Design System v2.0 - Automated performance monitoring (Phase 7c)*
           *📊 [View detailed report](${RUN_URL})*
           EOF
 
