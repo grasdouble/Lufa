@@ -41,12 +41,18 @@ export type GridProps<T extends ElementType = 'div'> = BoxComponentProps<T> & {
  * Grid Component
  *
  * A layout primitive for CSS Grid layouts.
+ * Inherits all Box props including responsive visibility controls.
  *
  * @example
  * ```tsx
  * <Grid columns={2} gap="default">
  *   <div>Column 1</div>
  *   <div>Column 2</div>
+ * </Grid>
+ *
+ * // Responsive visibility
+ * <Grid hide={{ base: false, md: true }} columns={3}>
+ *   <MobileGridItem />
  * </Grid>
  * ```
  */

@@ -6,3 +6,4 @@
  */
 
 export * from './accessibility';
+export * from './responsive-visibility';

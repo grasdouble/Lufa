@@ -2,6 +2,8 @@ import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { forwardRef } from 'react';
 import { clsx } from 'clsx';
 
+import type { ResponsiveVisibilityProps } from '../../utils/responsive-visibility';
+import { getResponsiveVisibilityClasses } from '../../utils/responsive-visibility';
 import styles from './Container.module.css';
 
 // Breakpoint keys matching the tokens
@@ -31,7 +33,8 @@ export type ContainerProps<T extends ElementType = 'div'> = {
    * Additional CSS classes.
    */
   className?: string;
-} & Omit<ComponentPropsWithoutRef<T>, 'as' | 'fluid' | 'size' | 'className'>;
+} & ResponsiveVisibilityProps &
+  Omit<ComponentPropsWithoutRef<T>, 'as' | 'fluid' | 'size' | 'className'>;
 
 /**
  * Container Component
@@ -49,19 +52,48 @@ export type ContainerProps<T extends ElementType = 'div'> = {
  *
  * // Constrained container
  * <Container size="md">Narrow content</Container>
+ *
+ * // Responsive visibility
+ * <Container hideFrom="xl" size="lg">
+ *   Narrow container for smaller screens
+ * </Container>
  * ```
  */
 export const Container = forwardRef(
   <T extends ElementType = 'div'>(
-    { as, fluid = false, size, children, className, ...props }: ContainerProps<T>,
+    {
+      as,
+      fluid = false,
+      size,
+      // Responsive visibility props
+      show, hide, hideFrom, showFrom,
+      // Standard props
+      children,
+      className,
+      ...props
+    }: ContainerProps<T>,
     ref: React.ForwardedRef<Element>
   ) => {
     const Component = as ?? 'div';
 
+    // Get responsive visibility classes
+    const visibilityClasses = getResponsiveVisibilityClasses({
+      show,
+      hide,
+      hideFrom,
+      showFrom,
+    });
+
     return (
       <Component
         ref={ref as React.Ref<never>}
-        className={clsx(styles.container, fluid && styles['fluid-true'], size && styles[`size-${size}`], className)}
+        className={clsx(
+          styles.container,
+          fluid && styles['fluid-true'],
+          size && styles[`size-${size}`],
+          ...visibilityClasses,
+          className
+        )}
         {...props}
       >
         {children}

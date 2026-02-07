@@ -5,6 +5,9 @@ export type { BoxProps } from './Box';
 export { Stack } from './Stack';
 export type { StackProps } from './Stack';
 
+export { Cluster } from './Cluster';
+export type { ClusterProps } from './Cluster';
+
 export { Flex } from './Flex';
 export type { FlexProps } from './Flex';
 
@@ -17,6 +20,12 @@ export type { ContainerProps } from './Container';
 export { Center } from './Center';
 export type { CenterProps } from './Center';
 
+export { Bleed } from './Bleed';
+export type { BleedProps } from './Bleed';
+
 // Spatial Separation
 export { Divider } from './Divider';
 export type { DividerProps, PolymorphicDividerProps } from './Divider';
+
+export { AspectRatio } from './AspectRatio';
+export type { AspectRatioProps, AspectRatioComponentProps } from './AspectRatio';
