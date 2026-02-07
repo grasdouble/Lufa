@@ -3,6 +3,9 @@
 '@grasdouble/lufa_design-system-tokens': patch  
 '@grasdouble/lufa_design-system-storybook': patch
 '@grasdouble/lufa_design-system-playwright': patch
+'@grasdouble/lufa_design-system-cli': patch
+'@grasdouble/lufa_design-system-docusaurus': patch
+'@grasdouble/lufa_plugin_vscode_lufa-ds-preview': patch
 ---
 
 fix(design-system): token usage corrections and component enhancements

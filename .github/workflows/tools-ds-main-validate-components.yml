@@ -56,7 +56,7 @@ jobs:
           echo "validate_code_status=$VALIDATE_CODE_STATUS" >> $GITHUB_OUTPUT
 
           # Determine overall status
-          if [[ "$VALIDATE_CODE_STATUS" == "success"]]; then
+          if [[ "$VALIDATE_CODE_STATUS" == "success" ]]; then
             echo "overall_status=success" >> $GITHUB_OUTPUT
           else
             echo "overall_status=failure" >> $GITHUB_OUTPUT

@@ -55,7 +55,7 @@ This workflow has no input parameters. It reads the repository secret `LUFA_CI_S
 
 ```yaml
 - name: Checkout repository
-  uses: actions/checkout@v5
+  uses: actions/checkout@v6
 ```
 
 Checks out the repository to make workflow files available for subsequent steps.
@@ -183,7 +183,7 @@ Missing or insufficient `LUFA_CI_SECRET_READ` permissions cause authentication f
 ## Maintenance
 
 - **Dependencies**:
-  - `actions/checkout@v5` – Repository checkout
+  - `actions/checkout@v6` – Repository checkout
   - `pnpm/action-setup@v4` – pnpm installation
   - `actions/setup-node@v6` – Node.js setup with pnpm cache
   - `.github/actions/dependency-update` – Composite action encapsulating pnpm update and reporting

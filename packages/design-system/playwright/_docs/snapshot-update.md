@@ -99,13 +99,13 @@ gh pr edit --add-label snapshot-update
 gh run watch
 
 # List recent runs
-gh run list --workflow="Tools:Test:Playwright-CT"
+gh run list --workflow="Tools:DS:Playwright:Component-Tests"
 ```
 
 **Via GitHub UI:**
 
 1. Go to the "Actions" tab
-2. Find the "Tools:Test:Playwright-CT" workflow
+2. Find the "Tools:DS:Playwright:Component-Tests" workflow
 3. Look for runs with your PR number
 
 ### Step 4: Review Results
@@ -257,7 +257,7 @@ gh label create snapshot-update \
   --color "0E8A16"
 
 # Enable workflow if disabled
-gh workflow enable "Tools:Test:Playwright-CT"
+gh workflow enable "Tools:DS:Playwright:Component-Tests"
 ```
 
 ### Issue: Tests Don't Run After Snapshot Commit
@@ -269,7 +269,7 @@ gh workflow enable "Tools:Test:Playwright-CT"
 **Check Logs**:
 
 ```bash
-gh run list --workflow="Tools:Test:Playwright-CT" --limit 5
+gh run list --workflow="Tools:DS:Playwright:Component-Tests" --limit 5
 gh run view <run-id> --log
 ```
 
@@ -277,7 +277,7 @@ gh run view <run-id> --log
 
 ```bash
 # Trigger tests manually
-gh workflow run "Tools:Test:Playwright-CT" --ref <your-branch>
+gh workflow run "Tools:DS:Playwright:Component-Tests" --ref <your-branch>
 ```
 
 ### Issue: Permission Denied on Push
@@ -350,7 +350,7 @@ gh pr edit --remove-label snapshot-update
 Trigger the workflow manually without a label:
 
 ```bash
-gh workflow run "Tools:Test:Playwright-CT" \
+gh workflow run "Tools:DS:Playwright:Component-Tests" \
   --ref your-branch \
   --field pr_number=123
 ```
