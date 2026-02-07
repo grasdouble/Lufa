@@ -66,7 +66,7 @@ test.describe('Visual Regression', () => {
               </p>
               <Grid
                 columns={cols}
-                gap="sm"
+                gap="tight"
                 style={{ border: '1px solid var(--lufa-core-neutral-border)', padding: '8px' }}
               >
                 {Array.from({ length: cols * 2 }).map((_, i) => (
