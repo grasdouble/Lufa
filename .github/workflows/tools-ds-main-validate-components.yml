@@ -51,14 +51,6 @@ jobs:
           echo "::endgroup::"
         continue-on-error: true
 
-      - name: ✅ Run tests
-        id: test
-        run: |
-          echo "::group::Component Tests"
-          pnpm ds:test:ci
-          echo "::endgroup::"
-        continue-on-error: true
-
       - name: 🔍 Run linter
         id: lint
         run: |
@@ -88,19 +80,17 @@ jobs:
         id: analyze
         run: |
           VALIDATE_CODE_STATUS="${{ steps.validate_code.outcome }}"
-          TEST_STATUS="${{ steps.test.outcome }}"
           LINT_STATUS="${{ steps.lint.outcome }}"
           TYPECHECK_STATUS="${{ steps.typecheck.outcome }}"
           PRETTIER_STATUS="${{ steps.prettier.outcome }}"
 
           echo "validate_code_status=$VALIDATE_CODE_STATUS" >> $GITHUB_OUTPUT
-          echo "test_status=$TEST_STATUS" >> $GITHUB_OUTPUT
           echo "lint_status=$LINT_STATUS" >> $GITHUB_OUTPUT
           echo "typecheck_status=$TYPECHECK_STATUS" >> $GITHUB_OUTPUT
           echo "prettier_status=$PRETTIER_STATUS" >> $GITHUB_OUTPUT
 
           # Determine overall status
-          if [[ "$VALIDATE_CODE_STATUS" == "success" && "$TEST_STATUS" == "success" && "$LINT_STATUS" == "success" && "$TYPECHECK_STATUS" == "success" && "$PRETTIER_STATUS" == "success" ]]; then
+          if [[ "$VALIDATE_CODE_STATUS" == "success" && "$LINT_STATUS" == "success" && "$TYPECHECK_STATUS" == "success" && "$PRETTIER_STATUS" == "success" ]]; then
             echo "overall_status=success" >> $GITHUB_OUTPUT
           else
             echo "overall_status=failure" >> $GITHUB_OUTPUT
@@ -111,7 +101,6 @@ jobs:
         id: comment
         env:
           VALIDATE_CODE_STATUS: ${{ steps.analyze.outputs.validate_code_status }}
-          TEST_STATUS: ${{ steps.analyze.outputs.test_status }}
           LINT_STATUS: ${{ steps.analyze.outputs.lint_status }}
           TYPECHECK_STATUS: ${{ steps.analyze.outputs.typecheck_status }}
           PRETTIER_STATUS: ${{ steps.analyze.outputs.prettier_status }}
@@ -153,10 +142,11 @@ jobs:
           | Check | Status |
           |-------|--------|
           | Code Quality | $(status_emoji "$VALIDATE_CODE_STATUS") $([ "$VALIDATE_CODE_STATUS" = "success" ] && echo "Passed" || echo "Failed") |
-          | Tests (657 tests) | $(status_emoji "$TEST_STATUS") $([ "$TEST_STATUS" = "success" ] && echo "Passed" || echo "Failed") |
           | ESLint | $(status_emoji "$LINT_STATUS") $([ "$LINT_STATUS" = "success" ] && echo "Passed" || echo "Failed") |
           | TypeScript | $(status_emoji "$TYPECHECK_STATUS") $([ "$TYPECHECK_STATUS" = "success" ] && echo "Passed" || echo "Failed") |
           | Prettier | $(status_emoji "$PRETTIER_STATUS") $([ "$PRETTIER_STATUS" = "success" ] && echo "Passed" || echo "Failed") |
+
+          **Note:** Component tests are run separately in the [Playwright Component Tests workflow](../../actions/workflows/tools-ds-playwright-ct.yml).
 
           EOF
 
@@ -173,16 +163,6 @@ jobs:
           - Fix hard-coded values (use design tokens)
           - Add missing prop descriptions
           - Export TypeScript types
-
-          EOF
-            fi
-            
-            if [ "$TEST_STATUS" != "success" ]; then
-              cat << 'EOF' >> comment.md
-          **Tests Failed:**
-          - Run locally: `pnpm ds:test:ci`
-          - Fix failing test cases
-          - Ensure all 657 tests pass
 
           EOF
             fi
@@ -220,7 +200,8 @@ jobs:
           ### 📚 Resources
 
           - 📖 [Design System Documentation](https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/main/packages/design-system/README.md)
-          - 🧪 Run all checks: \`pnpm validate:components && pnpm ds:main:lint && pnpm ds:main:typecheck && pnpm ds:test:ci\`
+          - 🧪 Run all checks: \`pnpm validate:components && pnpm ds:main:lint && pnpm ds:main:typecheck\`
+          - 🎭 Component tests: See [Playwright Component Tests workflow](https://github.com/${REPO_OWNER}/${REPO_NAME}/actions/workflows/tools-ds-playwright-ct.yml)
 
           EOF
           fi
@@ -228,7 +209,6 @@ jobs:
           cat << 'EOF' >> comment.md
           ---
 
-          *Part of Lufa Design System v2.0 - Automated component validation (Phase 7c)*
           EOF
 
           echo "body<<EOFMARKER" >> $GITHUB_OUTPUT

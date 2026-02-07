@@ -73,14 +73,18 @@ jobs:
 
           # Parse JSON results if available
           if [ -f "test-results/results.json" ]; then
-            TOTAL_TESTS=$(jq '[.suites[].specs[]] | length' test-results/results.json)
-            PASSED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "passed" or .tests[].results[].status == "expected")] | length' test-results/results.json)
-            FAILED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "failed" or .tests[].results[].status == "timedOut")] | length' test-results/results.json)
+            TOTAL_TESTS=$(jq '[.suites[].specs[]] | length' test-results/results.json 2>/dev/null || echo "0")
+            PASSED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "passed" or .tests[].results[].status == "expected")] | length' test-results/results.json 2>/dev/null || echo "0")
+            FAILED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "failed" or .tests[].results[].status == "timedOut")] | length' test-results/results.json 2>/dev/null || echo "0")
           elif [ -f "test-results/junit.xml" ]; then
-            TOTAL_TESTS=$(grep -c "<testcase" test-results/junit.xml || echo "0")
-            PASSED_TESTS=$(grep -c "<testcase" test-results/junit.xml | grep -v "<failure" || echo "0")
-            FAILED_TESTS=$(grep -c "<failure" test-results/junit.xml || echo "0")
+            # Count total test cases
+            TOTAL_TESTS=$(grep -c "<testcase" test-results/junit.xml 2>/dev/null || echo "0")
+            # Count failures
+            FAILED_TESTS=$(grep -c "<failure" test-results/junit.xml 2>/dev/null || echo "0")
+            # Calculate passed tests (total - failed)
+            PASSED_TESTS=$((TOTAL_TESTS - FAILED_TESTS))
           else
+            # Fallback: count test result directories
             TOTAL_TESTS=$(find test-results -type d -name "*chromium*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
             PASSED_TESTS=$(find test-results -type d -name "*chromium*" ! -name "*retry*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
             FAILED_TESTS=$(find test-results -type d -name "*retry*" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
