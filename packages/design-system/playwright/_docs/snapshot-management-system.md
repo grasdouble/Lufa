@@ -211,12 +211,12 @@ git pull
 
 ### Configuration Files
 
-| File                                             | Purpose                              |
-| ------------------------------------------------ | ------------------------------------ |
-| `package.json` (this dir)                        | lint-staged config, npm scripts      |
-| `.husky/pre-commit` (root)                       | Pre-commit hook runner               |
-| `.github/workflows/tools-test-playwright-ct.yml` | CI workflow with snapshot update job |
-| `.tool-versions` (root)                          | Node.js and pnpm versions            |
+| File                                           | Purpose                              |
+| ---------------------------------------------- | ------------------------------------ |
+| `package.json` (this dir)                      | lint-staged config, npm scripts      |
+| `.husky/pre-commit` (root)                     | Pre-commit hook runner               |
+| `.github/workflows/tools-ds-playwright-ct.yml` | CI workflow with snapshot update job |
+| `.tool-versions` (root)                        | Node.js and pnpm versions            |
 
 ### Documentation
 
@@ -427,13 +427,13 @@ grep "/workspace/node_modules" packages/design-system/playwright/scripts/docker-
 gh label list | grep snapshot-update
 
 # Verify label name matches workflow exactly
-grep "contains.*snapshot-update" .github/workflows/tools-test-playwright-ct.yml
+grep "contains.*snapshot-update" .github/workflows/tools-ds-playwright-ct.yml
 
 # Verify workflow is enabled
 gh workflow list
 
 # Manually trigger workflow (if needed)
-gh workflow run "Tools:Test:Playwright-CT"
+gh workflow run "Tools:DS:Playwright:Component-Tests"
 ```
 
 ---
@@ -456,7 +456,7 @@ gh workflow run "Tools:Test:Playwright-CT"
 
 ```bash
 # View workflow run logs
-gh run list --workflow="Tools:Test:Playwright-CT"
+gh run list --workflow="Tools:DS:Playwright:Component-Tests"
 gh run view <run-id>
 
 # Look for "Remove snapshot-update label" step

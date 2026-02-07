@@ -25,11 +25,21 @@
     "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly --outDir dist",
     "dev": "vite build --watch",
     "generate:utilities": "node scripts/generate-utilities.cjs",
-    "lint": "eslint ./src",
-    "prettier": "prettier --write .",
+    "lint": "eslint .",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "preview": "vite preview",
     "test-ct": "playwright test -c playwright-ct.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,html}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@grasdouble/lufa_design-system-tokens": "workspace:^",

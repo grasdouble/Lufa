@@ -11,6 +11,14 @@
     "README.md",
     "CHANGELOG.md"
   ],
+  "lint-staged": {
+    "*.{js,mjs}": [
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "@eslint/js": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",

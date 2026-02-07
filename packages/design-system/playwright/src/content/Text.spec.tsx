@@ -19,8 +19,8 @@
  * @see .github/instructions/lufa-design-system-playwright-ct.instructions.md
  */
 
-import { expect, test } from '@playwright/experimental-ct-react';
 import AxeBuilder from '@axe-core/playwright';
+import { expect, test } from '@playwright/experimental-ct-react';
 
 import { Text } from '@grasdouble/lufa_design-system';
 
@@ -580,7 +580,7 @@ test.describe('Text Component', () => {
   // ============================================
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants in light mode', async ({ mount }) => {
+    test('should match snapshot for all variants', async ({ mount }) => {
       const variantValues = [
         'h1',
         'h2',
@@ -612,7 +612,7 @@ test.describe('Text Component', () => {
         <div
           style={{
             padding: '32px',
-            background: '#ffffff',
+            background: 'var(--lufa-semantic-ui-background-page)',
             width: '900px',
           }}
         >
@@ -621,7 +621,7 @@ test.describe('Text Component', () => {
               marginBottom: '24px',
               fontSize: '28px',
               fontWeight: 'bold',
-              color: '#333',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             Text Component - All Variants
@@ -634,7 +634,7 @@ test.describe('Text Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Variant Values
@@ -642,7 +642,14 @@ test.describe('Text Component', () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {variantValues.map((value) => (
                 <div key={value}>
-                  <div style={{ marginBottom: '8px', fontSize: '12px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     variant=&quot;{value}&quot;
                   </div>
                   <Text variant={value}>The quick brown fox jumps over the lazy dog.</Text>
@@ -658,7 +665,7 @@ test.describe('Text Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Color Values
@@ -672,7 +679,14 @@ test.describe('Text Component', () => {
             >
               {colorValues.map((value) => (
                 <div key={value}>
-                  <div style={{ marginBottom: '8px', fontSize: '12px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     color=&quot;{value}&quot;
                   </div>
                   <Text variant="body" color={value}>
@@ -690,7 +704,7 @@ test.describe('Text Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Weight Values
@@ -698,7 +712,14 @@ test.describe('Text Component', () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {weightValues.map((value) => (
                 <div key={value}>
-                  <div style={{ marginBottom: '8px', fontSize: '12px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     weight=&quot;{value}&quot;
                   </div>
                   <Text variant="body" weight={value}>
@@ -716,7 +737,7 @@ test.describe('Text Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Align Values
@@ -724,10 +745,23 @@ test.describe('Text Component', () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {alignValues.map((value) => (
                 <div key={value}>
-                  <div style={{ marginBottom: '8px', fontSize: '12px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     align=&quot;{value}&quot;
                   </div>
-                  <div style={{ border: '2px dashed #ccc', padding: '8px', borderRadius: '4px' }}>
+                  <div
+                    style={{
+                      border: '2px dashed var(--lufa-core-neutral-border)',
+                      padding: '8px',
+                      borderRadius: '4px',
+                    }}
+                  >
                     <Text variant="body" align={value}>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
                       labore et dolore magna aliqua.
@@ -745,7 +779,7 @@ test.describe('Text Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Transform Values
@@ -753,7 +787,14 @@ test.describe('Text Component', () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {transformValues.map((value) => (
                 <div key={value}>
-                  <div style={{ marginBottom: '8px', fontSize: '12px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     transform=&quot;{value}&quot;
                   </div>
                   <Text variant="body" transform={value}>
@@ -771,7 +812,7 @@ test.describe('Text Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Combined Example (Article Layout)
@@ -779,9 +820,9 @@ test.describe('Text Component', () => {
             <div
               style={{
                 padding: '24px',
-                border: '1px solid #e5e7eb',
+                border: '1px solid var(--lufa-core-neutral-border)',
                 borderRadius: '8px',
-                background: '#f9fafb',
+                background: 'var(--lufa-semantic-ui-background-surface)',
               }}
             >
               <Text variant="label" color="secondary" weight="semibold" transform="uppercase">
@@ -811,170 +852,7 @@ test.describe('Text Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('text-all-variants-light.png');
-    });
-
-    test('should match snapshot for all variants in dark mode', async ({ mount, page }) => {
-      // Set dark mode on document root BEFORE mounting
-      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
-
-      const variantValues = [
-        'h1',
-        'h2',
-        'h3',
-        'h4',
-        'h5',
-        'h6',
-        'body-large',
-        'body',
-        'body-small',
-        'caption',
-        'label',
-      ] as const;
-      const colorValues = [
-        'primary',
-        'secondary',
-        'tertiary',
-        'success',
-        'error',
-        'warning',
-        'info',
-        'inverse',
-      ] as const;
-
-      const component = await mount(
-        <div
-          style={{
-            padding: '32px',
-            width: '900px',
-            background: 'var(--lufa-token-color-background-page)',
-          }}
-        >
-          <h1
-            style={{
-              marginBottom: '24px',
-              fontSize: '28px',
-              fontWeight: 'bold',
-              color: 'var(--lufa-token-color-text-primary)',
-            }}
-          >
-            Text Component - All Variants (Dark Mode)
-          </h1>
-
-          {/* Section 1: Variant Values */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Variant Values
-            </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {variantValues.map((value) => (
-                <div key={value}>
-                  <div
-                    style={{
-                      marginBottom: '8px',
-                      fontSize: '12px',
-                      fontWeight: '600',
-                      color: 'var(--lufa-token-color-text-tertiary)',
-                    }}
-                  >
-                    variant=&quot;{value}&quot;
-                  </div>
-                  <Text variant={value}>The quick brown fox jumps over the lazy dog.</Text>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 2: Color Values */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Color Values
-            </h2>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '16px',
-              }}
-            >
-              {colorValues.map((value) => (
-                <div key={value}>
-                  <div
-                    style={{
-                      marginBottom: '8px',
-                      fontSize: '12px',
-                      fontWeight: '600',
-                      color: 'var(--lufa-token-color-text-tertiary)',
-                    }}
-                  >
-                    color=&quot;{value}&quot;
-                  </div>
-                  <Text variant="body" color={value}>
-                    Sample text in {value} color
-                  </Text>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 3: Combined Example */}
-          <section>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Combined Example (Article Layout)
-            </h2>
-            <div
-              style={{
-                padding: '24px',
-                border: '1px solid var(--lufa-token-color-border-default)',
-                borderRadius: '8px',
-                background: 'var(--lufa-token-color-background-surface)',
-              }}
-            >
-              <Text variant="label" color="secondary" weight="semibold" transform="uppercase">
-                Technology
-              </Text>
-              <Text variant="h2" weight="bold" style={{ marginTop: '8px' }}>
-                Building Design Systems
-              </Text>
-              <Text variant="body" color="secondary" style={{ marginTop: '8px' }}>
-                By Jane Doe • 5 min read • Jan 24, 2026
-              </Text>
-              <Text variant="body-large" style={{ marginTop: '16px' }}>
-                Design systems have become essential for maintaining consistency across large-scale applications.
-              </Text>
-            </div>
-          </section>
-        </div>
-      );
-
-      // Wait for rendering to stabilize
-      await component.page().waitForTimeout(100);
-
-      await expect(component).toHaveScreenshot('text-all-variants-dark.png');
-
-      // Clean up: remove dark mode to avoid affecting other tests
-      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
+      await expect(component).toHaveScreenshot('text-all-variants.png');
     });
   });
 });

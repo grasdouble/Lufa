@@ -39,7 +39,7 @@ export type UseThemeModeOptions = {
    * @default true
    */
   enableStorage?: boolean;
-}
+};
 
 /**
  * Return value from useThemeMode hook
@@ -74,7 +74,7 @@ export type UseThemeModeReturn = {
    * Priority: high-contrast > dark > light
    */
   systemPreference: SystemPreference;
-}
+};
 
 /**
  * Type guard for ThemeMode

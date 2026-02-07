@@ -22,7 +22,7 @@ export function InlineCenter() {
       >
         Inline
       </Center>
-      <span style={{ fontSize: '12px', color: 'var(--lufa-token-color-text-secondary)' }}>inline</span>
+      <span style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>inline</span>
     </div>
   );
 }

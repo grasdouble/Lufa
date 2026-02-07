@@ -35,8 +35,8 @@ module.exports = {
     spacing: {
       property: 'gap',
       values: {
-        none: '--lufa-semantic-ui-spacing-tight', // 4px
-        tight: '--lufa-semantic-ui-spacing-tight',
+        none: '0',
+        tight: '--lufa-semantic-ui-spacing-tight', // 4px
         compact: '--lufa-semantic-ui-spacing-compact', // 8px
         default: '--lufa-semantic-ui-spacing-default', // 16px
         comfortable: '--lufa-semantic-ui-spacing-comfortable', // 24px

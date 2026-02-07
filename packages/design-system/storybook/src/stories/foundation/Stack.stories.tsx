@@ -270,11 +270,11 @@ export const PropSpacing: Story = {
 
     const spacingValues = [
       { value: 'none' as const, size: '4px', color: STORY_COLORS.neutral.borderMedium },
-      { value: 'tight' as const, size: '4px', color: STORY_COLORS.primary.cyan },
-      { value: 'compact' as const, size: '8px', color: STORY_COLORS.primary.green },
-      { value: 'default' as const, size: '16px', color: STORY_COLORS.primary.blue },
-      { value: 'comfortable' as const, size: '24px', color: STORY_COLORS.primary.violet },
-      { value: 'spacious' as const, size: '32px', color: STORY_COLORS.primary.pink },
+      { value: 'tight' as const, size: '4px', color: STORY_COLORS.primary.cyan.main },
+      { value: 'compact' as const, size: '8px', color: STORY_COLORS.primary.green.main },
+      { value: 'default' as const, size: '16px', color: STORY_COLORS.primary.blue.main },
+      { value: 'comfortable' as const, size: '24px', color: STORY_COLORS.primary.violet.main },
+      { value: 'spacious' as const, size: '32px', color: STORY_COLORS.primary.pink.main },
     ];
 
     const generateCode = (spacing: string): string => {
@@ -631,7 +631,7 @@ export const PropAs: Story = {
                   <div
                     style={{
                       padding: '8px',
-                      background: 'STORY_COLORS.themed.background.surface',
+                      background: STORY_COLORS.themed.background.surface,
                       borderRadius: '4px',
                       fontSize: '13px',
                       fontWeight: 600,
@@ -780,7 +780,7 @@ export const CombinedVariants: Story = {
                   padding: '10px 20px',
                   borderRadius: '6px',
                   border: `1px solid ${STORY_COLORS.primary.blue.main}`,
-                  background: 'STORY_COLORS.themed.background.surface',
+                  background: STORY_COLORS.themed.background.surface,
                   color: STORY_COLORS.primary.blue.main,
                   fontWeight: 600,
                   cursor: 'pointer',
@@ -793,7 +793,7 @@ export const CombinedVariants: Story = {
                   padding: '10px 20px',
                   borderRadius: '6px',
                   border: `1px solid ${NEUTRAL.borderMedium}`,
-                  background: 'STORY_COLORS.themed.background.surface',
+                  background: STORY_COLORS.themed.background.surface,
                   color: NEUTRAL.textSlate,
                   fontWeight: 600,
                   cursor: 'pointer',

@@ -118,7 +118,7 @@ Components **MUST** use design tokens for all design values. Direct use of primi
 **Required:**
 
 - ✅ Import tokens from `@grasdouble/lufa_design-system-tokens`
-- ✅ Use CSS custom properties in `.module.css` files (`var(--lufa-token-*)`)
+- ✅ Use CSS custom properties in `.module.css` files (`var(--lufa-semantic-*)` or `var(--lufa-component-*)`)
 - ✅ Use TypeScript tokens in Storybook/inline styles (`tokens.color.text.primary`)
 
 **Forbidden:**

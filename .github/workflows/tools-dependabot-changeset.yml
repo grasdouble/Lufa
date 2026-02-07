@@ -13,17 +13,19 @@ jobs:
     if: github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
 
-      - uses: pnpm/action-setup@v4
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
 
-      - run: pnpm install --frozen-lockfile
+      - name: 📦 Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Create/Update changeset for dependency updates
         uses: the-guild-org/changesets-dependencies-action@v1.2.2
-
 
       - name: Commit changeset (if any)
         run: |

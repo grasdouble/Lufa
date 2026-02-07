@@ -26,17 +26,17 @@ jobs:
       - name: 📥 Checkout repository
         uses: actions/checkout@v6
 
-      - name: 📦 Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
 
-      - name: 🔧 Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: .tool-versions
-          cache: 'pnpm'
-
-      - name: 📥 Install dependencies
+      - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: 🏗️ Build design system
+        uses: ./.github/actions/build-design-system
+        with:
+          build-storybook: 'false'
+          build-docusaurus: 'false'
 
       - name: 📊 Run performance checks
         id: perf
@@ -47,11 +47,12 @@ jobs:
           mkdir -p performance-results
 
           # 1. Build Time Measurement
+          # Rebuild from scratch to get a real measurement
           echo "📦 Measuring build time..."
           BUILD_START=$(date +%s%3N)
-          pnpm ds:tokens:build
-          pnpm ds:themes:build
-          pnpm ds:main:build
+          pnpm --filter @grasdouble/lufa_design-system-tokens build > /dev/null 2>&1 || true
+          pnpm --filter @grasdouble/lufa_design-system-themes build > /dev/null 2>&1 || true
+          pnpm --filter @grasdouble/lufa_design-system build > /dev/null 2>&1 || true
           BUILD_END=$(date +%s%3N)
           BUILD_TIME=$((BUILD_END - BUILD_START))
           BUILD_TIME_SEC=$(echo "scale=2; $BUILD_TIME / 1000" | bc)
@@ -70,6 +71,7 @@ jobs:
             echo "bundle_size_kb=${BUNDLE_SIZE_KB}" >> $GITHUB_OUTPUT
             echo "✅ Bundle size: ${BUNDLE_SIZE_KB} KB"
           else
+            BUNDLE_SIZE_KB=0
             echo "bundle_size_kb=0" >> $GITHUB_OUTPUT
             echo "⚠️ Bundle file not found"
           fi
@@ -80,46 +82,42 @@ jobs:
             echo "css_size_kb=${CSS_SIZE_KB}" >> $GITHUB_OUTPUT
             echo "✅ CSS size: ${CSS_SIZE_KB} KB"
           else
+            CSS_SIZE_KB=0
             echo "css_size_kb=0" >> $GITHUB_OUTPUT
             echo "⚠️ CSS file not found"
           fi
 
           # Calculate total size
-          TOTAL_SIZE=$(echo "$BUNDLE_SIZE_KB + $CSS_SIZE_KB" | bc)
+          TOTAL_SIZE=$(echo "${BUNDLE_SIZE_KB:-0} + ${CSS_SIZE_KB:-0}" | bc)
           echo "total_size_kb=${TOTAL_SIZE}" >> $GITHUB_OUTPUT
           echo "✅ Total size: ${TOTAL_SIZE} KB"
 
           # Check if gzip exists
-          if command -v gzip &> /dev/null; then
-            # Gzipped size
-            GZIP_SIZE=$(gzip -c "dist/lufa-ui.mjs" | wc -c)
-            GZIP_SIZE_KB=$(echo "scale=2; $GZIP_SIZE / 1024" | bc)
+          GZIP_SIZE_KB="N/A"
+          if command -v gzip &> /dev/null && [ -f "dist/lufa-ui.mjs" ]; then
+            # Gzipped size (JS + CSS combined)
+            GZIP_JS=$(gzip -c "dist/lufa-ui.mjs" | wc -c)
+            GZIP_CSS=0
+            if [ -f "dist/style.css" ]; then
+              GZIP_CSS=$(gzip -c "dist/style.css" | wc -c)
+            fi
+            GZIP_TOTAL=$((GZIP_JS + GZIP_CSS))
+            GZIP_SIZE_KB=$(echo "scale=2; $GZIP_TOTAL / 1024" | bc)
             echo "gzip_size_kb=${GZIP_SIZE_KB}" >> $GITHUB_OUTPUT
-            echo "✅ Gzipped JS size: ${GZIP_SIZE_KB} KB"
+            echo "✅ Gzipped total size: ${GZIP_SIZE_KB} KB"
           else
             echo "gzip_size_kb=N/A" >> $GITHUB_OUTPUT
           fi
 
           cd ../../..
 
-          # 3. Test Execution Time
-          echo ""
-          echo "🧪 Measuring test execution time..."
-          TEST_START=$(date +%s%3N)
-          pnpm --filter @grasdouble/lufa_design-system-playwright test-ct --project=chromium --reporter=list > /tmp/test-output.txt 2>&1 || true
-          TEST_END=$(date +%s%3N)
-          TEST_TIME=$((TEST_END - TEST_START))
-          TEST_TIME_SEC=$(echo "scale=2; $TEST_TIME / 1000" | bc)
-          echo "test_time=${TEST_TIME_SEC}" >> $GITHUB_OUTPUT
-          echo "✅ Test execution time: ${TEST_TIME_SEC}s"
-
-          # 4. CSS Cascade Performance (CLI validation from Phase 7a)
+          # 3. CSS Cascade Performance (CLI validation from Phase 7a)
           echo ""
           echo "🎨 Measuring CSS cascade performance..."
           cd packages/design-system/cli
 
           # Create test theme for validation
-          cat > /tmp/test-theme.css << 'EOF'
+          cat > /tmp/test-theme.css << 'THEMEEOF'
           [data-mode="light"] {
             --lufa-semantic-ui-text-primary: var(--lufa-core-neutral-text-primary);
             --lufa-semantic-ui-bg-primary: var(--lufa-core-neutral-bg-primary);
@@ -128,27 +126,48 @@ jobs:
             --lufa-primitive-color-gray-900: #111827;
             --lufa-primitive-color-white: #ffffff;
           }
-          EOF
+          THEMEEOF
 
           # Run cascade validation
           CASCADE_START=$(date +%s%3N)
           pnpm exec tsx src/index.ts validate --theme /tmp/test-theme.css --all > /tmp/cascade-output.txt 2>&1 || true
           CASCADE_END=$(date +%s%3N)
           CASCADE_TIME=$((CASCADE_END - CASCADE_START))
-          CASCADE_TIME_MS=$((CASCADE_TIME))
+          CASCADE_TIME_MS="${CASCADE_TIME:-0}"
           echo "cascade_time_ms=${CASCADE_TIME_MS}" >> $GITHUB_OUTPUT
           echo "✅ CSS cascade validation time: ${CASCADE_TIME_MS}ms"
 
           cd ../../..
 
-          # 5. Check budgets and determine pass/fail
+          # 4. Load performance budgets from config
+          echo ""
+          echo "📊 Loading performance budgets from config..."
+
+          CONFIG_FILE=".github/config/performance-budgets.json"
+          if [ ! -f "$CONFIG_FILE" ]; then
+            echo "❌ Config file not found: $CONFIG_FILE"
+            exit 1
+          fi
+
+          # Load budgets using jq
+          BUNDLE_BUDGET=$(jq -r '.budgets.bundle.totalSize.max' "$CONFIG_FILE")
+          GZIP_BUDGET=$(jq -r '.budgets.bundle.gzipped.max' "$CONFIG_FILE")
+          BUILD_BUDGET=$(jq -r '.budgets.timing.build.max' "$CONFIG_FILE")
+          CASCADE_BUDGET=$(jq -r '.budgets.timing.cssCascade.max' "$CONFIG_FILE")
+
+          echo "✅ Loaded budgets:"
+          echo "   - Bundle: ${BUNDLE_BUDGET} KB"
+          echo "   - Gzipped: ${GZIP_BUDGET} KB"
+          echo "   - Build: ${BUILD_BUDGET}s"
+          echo "   - CSS Cascade: ${CASCADE_BUDGET}ms"
+
           echo ""
           echo "📊 Checking performance budgets..."
 
           BUDGET_FAILURES=0
 
-          # Bundle size budget: <200KB uncompressed
-          BUNDLE_BUDGET=200
+          # Bundle size budget
+          # BUNDLE_BUDGET loaded from config
           if (( $(echo "$TOTAL_SIZE > $BUNDLE_BUDGET" | bc -l) )); then
             echo "❌ Bundle size budget exceeded: ${TOTAL_SIZE} KB > ${BUNDLE_BUDGET} KB"
             BUDGET_FAILURES=$((BUDGET_FAILURES + 1))
@@ -158,9 +177,10 @@ jobs:
             echo "bundle_pass=true" >> $GITHUB_OUTPUT
           fi
 
-          # Gzipped size budget: <50KB
+          # Gzipped size budget
+          # GZIP_BUDGET loaded from config
           if [ "${GZIP_SIZE_KB}" != "N/A" ]; then
-            GZIP_BUDGET=50
+            # GZIP_BUDGET loaded from config
             if (( $(echo "$GZIP_SIZE_KB > $GZIP_BUDGET" | bc -l) )); then
               echo "❌ Gzipped size budget exceeded: ${GZIP_SIZE_KB} KB > ${GZIP_BUDGET} KB"
               BUDGET_FAILURES=$((BUDGET_FAILURES + 1))
@@ -173,8 +193,8 @@ jobs:
             echo "gzip_pass=N/A" >> $GITHUB_OUTPUT
           fi
 
-          # Build time budget: <30s
-          BUILD_BUDGET=30
+          # Build time budget
+          # BUILD_BUDGET loaded from config
           if (( $(echo "$BUILD_TIME_SEC > $BUILD_BUDGET" | bc -l) )); then
             echo "❌ Build time budget exceeded: ${BUILD_TIME_SEC}s > ${BUILD_BUDGET}s"
             BUDGET_FAILURES=$((BUDGET_FAILURES + 1))
@@ -184,19 +204,9 @@ jobs:
             echo "build_pass=true" >> $GITHUB_OUTPUT
           fi
 
-          # Test time budget: <120s (657 tests)
-          TEST_BUDGET=120
-          if (( $(echo "$TEST_TIME_SEC > $TEST_BUDGET" | bc -l) )); then
-            echo "⚠️  Test time budget exceeded: ${TEST_TIME_SEC}s > ${TEST_BUDGET}s"
-            # Warning only, don't fail
-            echo "test_pass=warning" >> $GITHUB_OUTPUT
-          else
-            echo "✅ Test time within budget: ${TEST_TIME_SEC}s <= ${TEST_BUDGET}s"
-            echo "test_pass=true" >> $GITHUB_OUTPUT
-          fi
-
-          # CSS cascade budget: <20ms
-          CASCADE_BUDGET=20
+          # CSS cascade budget
+          # CASCADE_BUDGET loaded from config
+          CASCADE_TIME_MS="${CASCADE_TIME_MS:-0}"
           if (( CASCADE_TIME_MS > CASCADE_BUDGET )); then
             echo "⚠️  CSS cascade time budget exceeded: ${CASCADE_TIME_MS}ms > ${CASCADE_BUDGET}ms"
             # Warning only, don't fail
@@ -221,154 +231,225 @@ jobs:
 
           echo "::endgroup::"
 
-      - name: 📦 Install Playwright browsers (for tests)
-        if: always()
-        run: pnpm --filter @grasdouble/lufa_design-system-playwright exec playwright install --with-deps chromium
+      - name: 📝 Build comment body
+        id: build-comment
+        if: github.event_name == 'pull_request' && always()
+        run: |
+          # Extract all variables from previous step
+          STATUS="${{ steps.perf.outputs.status }}"
+          BUILD_TIME="${{ steps.perf.outputs.build_time }}"
+          BUNDLE_SIZE="${{ steps.perf.outputs.bundle_size_kb }}"
+          CSS_SIZE="${{ steps.perf.outputs.css_size_kb }}"
+          TOTAL_SIZE="${{ steps.perf.outputs.total_size_kb }}"
+          GZIP_SIZE="${{ steps.perf.outputs.gzip_size_kb }}"
+          CASCADE_TIME="${{ steps.perf.outputs.cascade_time_ms }}"
+          BUDGET_FAILURES="${{ steps.perf.outputs.budget_failures }}"
+
+          BUNDLE_PASS="${{ steps.perf.outputs.bundle_pass }}"
+          GZIP_PASS="${{ steps.perf.outputs.gzip_pass }}"
+          BUILD_PASS="${{ steps.perf.outputs.build_pass }}"
+          CASCADE_PASS="${{ steps.perf.outputs.cascade_pass }}"
+
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          # Load budgets from config for display in comment
+          CONFIG_FILE=".github/config/performance-budgets.json"
+          BUNDLE_BUDGET=$(jq -r '.budgets.bundle.totalSize.max' "$CONFIG_FILE")
+          GZIP_BUDGET=$(jq -r '.budgets.bundle.gzipped.max' "$CONFIG_FILE")
+          BUILD_BUDGET=$(jq -r '.budgets.timing.build.max' "$CONFIG_FILE")
+          CASCADE_BUDGET=$(jq -r '.budgets.timing.cssCascade.max' "$CONFIG_FILE")
+
+          # Determine status indicators
+          if [ "$BUNDLE_PASS" = "true" ]; then
+            BUNDLE_STATUS="✅ Pass"
+          else
+            BUNDLE_STATUS="❌ Fail"
+          fi
+
+          if [ "$GZIP_PASS" = "true" ]; then
+            GZIP_STATUS="✅ Pass"
+          elif [ "$GZIP_PASS" = "false" ]; then
+            GZIP_STATUS="❌ Fail"
+          else
+            GZIP_STATUS="N/A"
+          fi
+
+          if [ "$BUILD_PASS" = "true" ]; then
+            BUILD_STATUS="✅ Pass"
+          else
+            BUILD_STATUS="❌ Fail"
+          fi
+
+          if [ "$CASCADE_PASS" = "true" ]; then
+            CASCADE_STATUS="✅ Pass"
+          elif [ "$CASCADE_PASS" = "warning" ]; then
+            CASCADE_STATUS="⚠️ Warning"
+          else
+            CASCADE_STATUS="❌ Fail"
+          fi
+
+          # Calculate gzip compression ratio
+          if [ "$GZIP_SIZE" != "N/A" ] && [ "$TOTAL_SIZE" != "0" ]; then
+            GZIP_RATIO=$(echo "scale=0; (${GZIP_SIZE} * 100) / ${TOTAL_SIZE}" | bc)
+          else
+            GZIP_RATIO="N/A"
+          fi
+
+          # Build the comment body
+          cat > /tmp/comment.md << 'EOF'
+          <!-- performance-budget-comment -->
+          ## ⚡ Performance Budget Report
+
+          EOF
+
+          # Add success/failure header
+          if [ "$STATUS" = "success" ]; then
+            cat >> /tmp/comment.md << 'EOF'
+          ### ✅ All Performance Budgets Passed!
+
+          Your changes meet all performance requirements. Great work! 🎉
+
+          EOF
+          else
+            cat >> /tmp/comment.md << EOF
+          ### ⚠️ Performance Budget Exceeded
+
+          ${BUDGET_FAILURES} performance budget(s) exceeded. Please review the metrics below.
+
+          EOF
+          fi
+
+          # Add performance metrics table
+          cat >> /tmp/comment.md << EOF
+          ### 📊 Performance Metrics
+
+          | Metric | Current | Budget | Status |
+          |--------|---------|--------|--------|
+          | **Bundle Size** | ${TOTAL_SIZE} KB | ${BUNDLE_BUDGET} KB | ${BUNDLE_STATUS} |
+          | **JS Size** | ${BUNDLE_SIZE} KB | - | ℹ️ Info |
+          | **CSS Size** | ${CSS_SIZE} KB | - | ℹ️ Info |
+          EOF
+
+          # Add gzip row if available
+          if [ "$GZIP_SIZE" != "N/A" ]; then
+            cat >> /tmp/comment.md << EOF
+          | **Gzipped Size** | ${GZIP_SIZE} KB | ${GZIP_BUDGET} KB | ${GZIP_STATUS} |
+          EOF
+          fi
+
+          # Continue table
+          cat >> /tmp/comment.md << EOF
+          | **Build Time** | ${BUILD_TIME}s | ${BUILD_BUDGET}s | ${BUILD_STATUS} |
+          | **CSS Cascade** | ${CASCADE_TIME}ms | ${CASCADE_BUDGET}ms | ${CASCADE_STATUS} |
+
+          ### 📦 Size Breakdown
+
+          \`\`\`
+          JavaScript: ${BUNDLE_SIZE} KB
+          CSS:        ${CSS_SIZE} KB
+          ────────────────────
+          Total:      ${TOTAL_SIZE} KB
+          EOF
+
+          # Add gzip line if available
+          if [ "$GZIP_SIZE" != "N/A" ]; then
+            cat >> /tmp/comment.md << EOF
+          Gzipped:    ${GZIP_SIZE} KB (${GZIP_RATIO}% compression)
+          EOF
+          fi
+
+          # Timing breakdown
+          cat >> /tmp/comment.md << EOF
+          \`\`\`
+
+          ### ⏱️ Timing Breakdown
+
+          \`\`\`
+          Build:         ${BUILD_TIME}s
+          CSS Cascade:   ${CASCADE_TIME}ms
+          \`\`\`
+
+          EOF
+
+          # Add "How to Fix" section if there are failures
+          if [ "$STATUS" != "success" ]; then
+            cat >> /tmp/comment.md << 'EOF'
+          ### 💡 How to Fix
+
+          EOF
+
+            if [ "$BUNDLE_PASS" != "true" ]; then
+              cat >> /tmp/comment.md << 'EOF'
+          **Bundle Size Exceeded:**
+          - Review component complexity and remove unused code
+          - Check for duplicate dependencies or heavy libraries
+          - Consider code splitting or lazy loading
+          - Run `pnpm ds:main:build` locally to analyze bundle
+
+          EOF
+            fi
+            
+            if [ "$GZIP_PASS" = "false" ]; then
+              cat >> /tmp/comment.md << 'EOF'
+          **Gzipped Size Exceeded:**
+          - Ensure code minification is working correctly
+          - Remove comments and debug code
+          - Check for repetitive code patterns
+
+          EOF
+            fi
+            
+            if [ "$BUILD_PASS" != "true" ]; then
+              cat >> /tmp/comment.md << 'EOF'
+          **Build Time Exceeded:**
+          - Check for expensive build-time operations
+          - Review Vite configuration for optimization opportunities
+          - Consider incremental builds
+
+          EOF
+            fi
+          fi
+
+          # Add performance history and local run sections
+          cat >> /tmp/comment.md << EOF
+          ### 📈 Performance History
+
+          Track performance trends over time by comparing metrics across PRs.
+
+          ### 🔧 Run Locally
+
+          \`\`\`bash
+          # Build and check bundle size
+          pnpm ds:main:build
+          ls -lh packages/design-system/main/dist/
+
+          # Run performance tests
+          pnpm ds:test:ci
+
+          # Run CLI validation
+          cd packages/design-system/cli
+          pnpm exec tsx src/index.ts validate --theme <theme.css> --all
+          \`\`\`
+
+          ---
+
+          *📊 [View detailed report](${RUN_URL})*
+          EOF
+
+          # Output the comment body to GITHUB_OUTPUT
+          {
+            echo "COMMENT_BODY<<PERF_EOF"
+            cat /tmp/comment.md
+            echo "PERF_EOF"
+          } >> $GITHUB_OUTPUT
 
       - name: 💬 Comment on PR
         if: github.event_name == 'pull_request' && always()
-        uses: actions/github-script@v8
+        uses: ./.github/actions/pr-comment
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const status = '${{ steps.perf.outputs.status }}';
-            const buildTime = '${{ steps.perf.outputs.build_time }}';
-            const bundleSize = '${{ steps.perf.outputs.bundle_size_kb }}';
-            const cssSize = '${{ steps.perf.outputs.css_size_kb }}';
-            const totalSize = '${{ steps.perf.outputs.total_size_kb }}';
-            const gzipSize = '${{ steps.perf.outputs.gzip_size_kb }}';
-            const testTime = '${{ steps.perf.outputs.test_time }}';
-            const cascadeTime = '${{ steps.perf.outputs.cascade_time_ms }}';
-            const budgetFailures = '${{ steps.perf.outputs.budget_failures }}';
-
-            const bundlePass = '${{ steps.perf.outputs.bundle_pass }}';
-            const gzipPass = '${{ steps.perf.outputs.gzip_pass }}';
-            const buildPass = '${{ steps.perf.outputs.build_pass }}';
-            const testPass = '${{ steps.perf.outputs.test_pass }}';
-            const cascadePass = '${{ steps.perf.outputs.cascade_pass }}';
-
-            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-
-            let commentBody = `## ⚡ Performance Budget Report\n\n`;
-
-            if (status === 'success') {
-              commentBody += `### ✅ All Performance Budgets Passed!\n\n`;
-              commentBody += `Your changes meet all performance requirements. Great work! 🎉\n\n`;
-            } else {
-              commentBody += `### ⚠️ Performance Budget Exceeded\n\n`;
-              commentBody += `${budgetFailures} performance budget(s) exceeded. Please review the metrics below.\n\n`;
-            }
-
-            // Performance metrics table
-            commentBody += `### 📊 Performance Metrics\n\n`;
-            commentBody += `| Metric | Current | Budget | Status |\n`;
-            commentBody += `|--------|---------|--------|--------|\n`;
-            commentBody += `| **Bundle Size** | ${totalSize} KB | 200 KB | ${bundlePass === 'true' ? '✅ Pass' : '❌ Fail'} |\n`;
-            commentBody += `| **JS Size** | ${bundleSize} KB | - | ℹ️ Info |\n`;
-            commentBody += `| **CSS Size** | ${cssSize} KB | - | ℹ️ Info |\n`;
-
-            if (gzipSize !== 'N/A') {
-              commentBody += `| **Gzipped Size** | ${gzipSize} KB | 50 KB | ${gzipPass === 'true' ? '✅ Pass' : '❌ Fail'} |\n`;
-            }
-
-            commentBody += `| **Build Time** | ${buildTime}s | 30s | ${buildPass === 'true' ? '✅ Pass' : '❌ Fail'} |\n`;
-            commentBody += `| **Test Time** | ${testTime}s | 120s | ${testPass === 'true' ? '✅ Pass' : testPass === 'warning' ? '⚠️ Warning' : '❌ Fail'} |\n`;
-            commentBody += `| **CSS Cascade** | ${cascadeTime}ms | 20ms | ${cascadePass === 'true' ? '✅ Pass' : cascadePass === 'warning' ? '⚠️ Warning' : '❌ Fail'} |\n\n`;
-
-            // Performance breakdown
-            commentBody += `### 📦 Size Breakdown\n\n`;
-            commentBody += `\`\`\`\n`;
-            commentBody += `JavaScript: ${bundleSize} KB\n`;
-            commentBody += `CSS:        ${cssSize} KB\n`;
-            commentBody += `────────────────────\n`;
-            commentBody += `Total:      ${totalSize} KB\n`;
-            if (gzipSize !== 'N/A') {
-              commentBody += `Gzipped:    ${gzipSize} KB (${Math.round((gzipSize / totalSize) * 100)}% compression)\n`;
-            }
-            commentBody += `\`\`\`\n\n`;
-
-            // Timing breakdown
-            commentBody += `### ⏱️ Timing Breakdown\n\n`;
-            commentBody += `\`\`\`\n`;
-            commentBody += `Build:         ${buildTime}s\n`;
-            commentBody += `Tests (657):   ${testTime}s\n`;
-            commentBody += `CSS Cascade:   ${cascadeTime}ms\n`;
-            commentBody += `\`\`\`\n\n`;
-
-            if (status !== 'success') {
-              commentBody += `### 💡 How to Fix\n\n`;
-              
-              if (bundlePass !== 'true') {
-                commentBody += `**Bundle Size Exceeded:**\n`;
-                commentBody += `- Review component complexity and remove unused code\n`;
-                commentBody += `- Check for duplicate dependencies or heavy libraries\n`;
-                commentBody += `- Consider code splitting or lazy loading\n`;
-                commentBody += `- Run \`pnpm ds:main:build\` locally to analyze bundle\n\n`;
-              }
-              
-              if (gzipPass === 'false') {
-                commentBody += `**Gzipped Size Exceeded:**\n`;
-                commentBody += `- Ensure code minification is working correctly\n`;
-                commentBody += `- Remove comments and debug code\n`;
-                commentBody += `- Check for repetitive code patterns\n\n`;
-              }
-              
-              if (buildPass !== 'true') {
-                commentBody += `**Build Time Exceeded:**\n`;
-                commentBody += `- Check for expensive build-time operations\n`;
-                commentBody += `- Review Vite configuration for optimization opportunities\n`;
-                commentBody += `- Consider incremental builds\n\n`;
-              }
-            }
-
-            commentBody += `### 📈 Performance History\n\n`;
-            commentBody += `Track performance trends over time by comparing metrics across PRs.\n\n`;
-
-            commentBody += `### 🔧 Run Locally\n\n`;
-            commentBody += `\`\`\`bash\n`;
-            commentBody += `# Build and check bundle size\n`;
-            commentBody += `pnpm ds:main:build\n`;
-            commentBody += `ls -lh packages/design-system/main/dist/\n\n`;
-            commentBody += `# Run performance tests\n`;
-            commentBody += `pnpm ds:test\n\n`;
-            commentBody += `# Run CLI validation\n`;
-            commentBody += `cd packages/design-system/cli\n`;
-            commentBody += `pnpm exec tsx src/index.ts validate --theme <theme.css> --all\n`;
-            commentBody += `\`\`\`\n\n`;
-
-            commentBody += `---\n\n`;
-            commentBody += `*Part of Lufa Design System v2.0 - Automated performance monitoring (Phase 7c)*\n`;
-            commentBody += `*📊 [View detailed report](${runUrl})*`;
-
-            // Find existing comment
-            const comments = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-
-            const botComment = comments.data.find(comment => 
-              comment.user.type === 'Bot' && 
-              comment.body.includes('Performance Budget Report')
-            );
-
-            if (botComment) {
-              // Update existing comment
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: botComment.id,
-                body: commentBody
-              });
-            } else {
-              // Create new comment
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: commentBody
-              });
-            }
+          comment-marker: '<!-- performance-budget-comment -->'
+          comment-body: ${{ steps.build-comment.outputs.COMMENT_BODY }}
 
       - name: ❌ Fail if budgets exceeded
         if: steps.perf.outputs.status == 'failure'

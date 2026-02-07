@@ -83,7 +83,7 @@ import { Box, Text } from '@grasdouble/lufa_design-system';
   <Text as="h2" variant="h2" id="title">
     Article Title
   </Text>
-</Box>
+</Box>;
 ```
 
 ### Stack Component
@@ -98,7 +98,7 @@ import { Stack } from '@grasdouble/lufa_design-system';
 <Stack as="nav" aria-label="Main navigation">
   <a href="/home">Home</a>
   <a href="/about">About</a>
-</Stack>
+</Stack>;
 ```
 
 ### Text Component
@@ -138,8 +138,9 @@ import { Icon } from '@grasdouble/lufa_design-system';
 The design system includes automated accessibility tests:
 
 ```tsx
-import { Button } from '@grasdouble/lufa_design-system';
 import { expect, test } from '@playwright/experimental-ct-react';
+
+import { Button } from '@grasdouble/lufa_design-system';
 
 // Playwright component tests include a11y checks
 test('should have accessible structure', async ({ mount }) => {
@@ -186,7 +187,7 @@ import { Input, Stack, Text } from '@grasdouble/lufa_design-system';
   <Text id="email-hint" variant="caption" color="secondary">
     We'll never share your email.
   </Text>
-</Stack>
+</Stack>;
 ```
 
 ### Navigation
@@ -200,7 +201,7 @@ import { Stack } from '@grasdouble/lufa_design-system';
   </a>
   <a href="/about">About</a>
   <a href="/contact">Contact</a>
-</Stack>
+</Stack>;
 ```
 
 ### Landmarks
@@ -286,7 +287,7 @@ All Lufa components have clear focus indicators:
 
 ```css
 .button:focus-visible {
-  outline: 2px solid var(--lufa-token-color-border-focus);
+  outline: 2px solid var(--lufa-component-shared-focus-outline-color);
   outline-offset: 2px;
 }
 ```
@@ -301,7 +302,7 @@ import { Modal } from '@grasdouble/lufa_design-system';
 <Modal open={isOpen} onClose={handleClose}>
   <button>First focusable</button>
   <button>Last focusable</button>
-</Modal>
+</Modal>;
 ```
 
 ## Reduced Motion

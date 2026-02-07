@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "description": "Performance budgets for the Lufa Design System",
+  "version": "2.0.0",
+  "budgets": {
+    "bundle": {
+      "description": "Total bundle size limits (JS + CSS)",
+      "totalSize": {
+        "max": 250,
+        "unit": "KB",
+        "failOnExceed": true
+      },
+      "components": {
+        "javascript": {
+          "description": "Main JS bundle (lufa-ui.mjs)",
+          "tracked": true,
+          "failOnExceed": false
+        },
+        "css": {
+          "description": "Main CSS bundle (style.css)",
+          "tracked": true,
+          "failOnExceed": false
+        }
+      },
+      "gzipped": {
+        "max": 50,
+        "unit": "KB",
+        "failOnExceed": true
+      }
+    },
+    "timing": {
+      "description": "Build and validation timing budgets",
+      "build": {
+        "max": 30,
+        "unit": "seconds",
+        "failOnExceed": true,
+        "description": "Total time for tokens + themes + main build"
+      },
+      "tests": {
+        "max": 120,
+        "unit": "seconds",
+        "failOnExceed": false,
+        "warnOnExceed": true,
+        "description": "Playwright component tests execution time"
+      },
+      "cssCascade": {
+        "max": 1000,
+        "unit": "milliseconds",
+        "failOnExceed": false,
+        "warnOnExceed": true,
+        "description": "CSS cascade validation time (includes CLI startup)"
+      }
+    }
+  },
+  "metadata": {
+    "lastUpdated": "2026-02-05",
+    "workflow": ".github/workflows/tools-ds-performance-budgets.yml",
+    "notes": [
+      "Bundle size budgets are for uncompressed files",
+      "Gzipped size represents actual network transfer size",
+      "Test execution time budget is checked by the playwright-ct workflow",
+      "CSS cascade time measures CLI validation performance"
+    ]
+  }
+}

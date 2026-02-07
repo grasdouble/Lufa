@@ -1,9 +1,9 @@
 .card {
-  background-color: var(--lufa-token-color-surface-default);
-  border: 1px solid var(--lufa-token-color-border-light);
-  border-radius: var(--lufa-primitive-radius-scale-base);
-  box-shadow: 0 1px 3px var(--lufa-token-color-shadow-small);
-  padding: var(--lufa-semantic-ui-spacing-comfortable);
-  color: var(--lufa-token-color-text-primary);
+  background-color: var(--lufa-component-card-background);
+  border: 1px solid var(--lufa-component-card-border);
+  border-radius: var(--lufa-component-card-border-radius-sm);
+  box-shadow: var(--lufa-component-card-shadow-sm);
+  padding: var(--lufa-component-card-padding-md);
+  color: var(--lufa-semantic-ui-text-primary);
   overflow: hidden; /* Ensures content respects border-radius */
 }

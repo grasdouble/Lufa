@@ -44,17 +44,19 @@ export const Default: Story = {
       <StoryContainer>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <PropCard label="Default Card">
-            {/* 
+            {/*
               💡 TOKEN EDUCATION:
-              Background: var(--lufa-token-color-surface-default)
-              Border: var(--lufa-token-color-border-light)
-              Shadow: var(--lufa-token-color-shadow-small)
+              Background: var(--lufa-component-card-background)
+              Border: var(--lufa-component-card-border)
+              Shadow: var(--lufa-component-card-shadow-sm)
+              Padding: var(--lufa-component-card-padding-md)
+              Border Radius: var(--lufa-component-card-border-radius-sm)
             */}
             <Card style={{ maxWidth: '400px' }}>
               <Text as="h3" style={{ fontWeight: 'bold', marginBottom: '8px' }}>
                 Card Title
               </Text>
-              <Text style={{ marginBottom: '16px', color: 'var(--lufa-token-color-text-secondary)' }}>
+              <Text style={{ marginBottom: '16px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>
                 This is a simple card component used to group related content together.
               </Text>
               <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

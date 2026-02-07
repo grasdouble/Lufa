@@ -1,7 +1,8 @@
 import { existsSync, readFileSync, statSync } from 'node:fs';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { createValuesMapStore } from '../values-map-store';
 import type { WorkspaceFolder } from 'vscode';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { createValuesMapStore } from '../values-map-store';
 
 const vscodeMocks = vi.hoisted(() => {
   const state = {
@@ -59,7 +60,7 @@ const primitivesMap = {
 const tokensMap = {
   version: 3,
   css: {
-    '--lufa-token-color-secondary': 'rgb(0 255 0)',
+    '--lufa-core-color-accent-500': 'rgb(0 255 0)',
   },
   paths: {
     'tokens.color.text.primary': 'rgb(0 0 255)',
@@ -89,9 +90,12 @@ describe('createValuesMapStore', () => {
     };
 
     vi.mocked(existsSync).mockReturnValue(false);
-    vi.mocked(statSync).mockImplementation((path) => ({
-      mtimeMs: String(path).includes('primitives') ? 1 : 2,
-    }) as ReturnType<typeof statSync>);
+    vi.mocked(statSync).mockImplementation(
+      (path) =>
+        ({
+          mtimeMs: String(path).includes('primitives') ? 1 : 2,
+        }) as ReturnType<typeof statSync>
+    );
     vi.mocked(readFileSync).mockImplementation((path) => {
       if (String(path).includes('primitives')) {
         return JSON.stringify(primitivesMap);
@@ -107,7 +111,7 @@ describe('createValuesMapStore', () => {
     expect(map?.generatedAt).toBe('2026-01-04');
     expect(map?.css).toEqual({
       '--lufa-primitive-color-primary': 'rgb(255 0 0)',
-      '--lufa-token-color-secondary': 'rgb(0 255 0)',
+      '--lufa-core-color-accent-500': 'rgb(0 255 0)',
     });
     expect(map?.paths).toEqual({
       'primitives.color.chromatic.red[500]': 'rgb(255 0 0)',

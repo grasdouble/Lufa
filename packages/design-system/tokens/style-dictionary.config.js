@@ -65,18 +65,19 @@ StyleDictionary.registerFormat({
     const prefix = options.prefix || 'lufa';
     const { outputReferences } = options;
 
-    // Helper: Resolve token value or reference
+    // Helper: Resolve token value or reference (handles multiple {ref} in one value)
     const formatValue = (token, dictionary) => {
       if (
         outputReferences &&
         token.original.$value &&
         typeof token.original.$value === 'string' &&
-        token.original.$value.startsWith('{')
+        token.original.$value.includes('{')
       ) {
-        // Extract reference path
-        const refPath = token.original.$value.replace(/[{}]/g, '').split('.');
-        const cssVarName = `--${prefix}-${refPath.join('-')}`;
-        return `var(${cssVarName})`;
+        // Handle single or multiple {ref} in one value
+        return token.original.$value.replace(/\{([^}]+)\}/g, (_, refContent) => {
+          const refPath = refContent.split('.');
+          return `var(--${prefix}-${refPath.join('-')})`;
+        });
       }
       // Return the transformed value, or fallback to original $value
       return token.value || token.original?.$value || token.$value;
@@ -125,10 +126,12 @@ StyleDictionary.registerFormat({
         const cssVarName = `--${prefix}-${token.path.join('-')}`;
         let darkValue = modes.dark;
 
-        // Resolve reference if needed
-        if (typeof darkValue === 'string' && darkValue.startsWith('{')) {
-          const refPath = darkValue.replace(/[{}]/g, '').split('.');
-          darkValue = `var(--${prefix}-${refPath.join('-')})`;
+        // Resolve reference if needed (handles multiple {ref} in one value)
+        if (typeof darkValue === 'string' && darkValue.includes('{')) {
+          darkValue = darkValue.replace(/\{([^}]+)\}/g, (_, refContent) => {
+            const refPath = refContent.split('.');
+            return `var(--${prefix}-${refPath.join('-')})`;
+          });
         }
 
         output += `  ${cssVarName}: ${darkValue};\n`;

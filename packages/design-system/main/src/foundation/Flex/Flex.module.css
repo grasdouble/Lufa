@@ -110,6 +110,10 @@
 /* GAP */
 /* ========================================== */
 
+.gap-none {
+  gap: 0;
+}
+
 .gap-tight {
   gap: var(--lufa-semantic-ui-spacing-tight);
 }

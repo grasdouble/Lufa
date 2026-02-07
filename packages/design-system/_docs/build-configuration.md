@@ -171,9 +171,9 @@ module.exports = {
     padding: {
       property: 'padding',
       values: {
-        sm: '--lufa-token-spacing-compact', // → var(--lufa-token-spacing-compact)
-        md: '--lufa-token-spacing-default',
-        lg: '--lufa-token-spacing-comfortable',
+        sm: '--lufa-semantic-ui-spacing-compact', // → var(--lufa-semantic-ui-spacing-compact)
+        md: '--lufa-semantic-ui-spacing-default',
+        lg: '--lufa-semantic-ui-spacing-comfortable',
       },
     },
   },

@@ -52,7 +52,7 @@ const lookupValue = (map: Record<string, string> | undefined, keys: string[]): s
 const resolveTokenValueFromMap = (tokenText: string, valuesMap: TokenMap | null): string | null => {
   if (!valuesMap) return null;
 
-  if (tokenText.startsWith('--lufa-token-') || tokenText.startsWith('--lufa-primitive-')) {
+  if (tokenText.startsWith('--lufa-')) {
     return lookupValue(valuesMap.css, [tokenText]) ?? null;
   }
 

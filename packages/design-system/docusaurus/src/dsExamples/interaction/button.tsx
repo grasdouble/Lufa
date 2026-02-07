@@ -20,10 +20,10 @@ export function SizeVariantsDemo() {
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: 'var(--lufa-token-spacing-default)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-default)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
         flexWrap: 'wrap',
       }}
     >
@@ -46,10 +46,10 @@ export function LoadingStatesDemo() {
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: 'var(--lufa-token-spacing-default)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-default)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
         flexWrap: 'wrap',
       }}
     >
@@ -72,10 +72,10 @@ export function TypeVariantsDemo() {
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: 'var(--lufa-token-spacing-default)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-default)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
         flexWrap: 'wrap',
       }}
     >
@@ -98,10 +98,10 @@ export function VariantDemo() {
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: 'var(--lufa-token-spacing-default)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-default)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
         flexWrap: 'wrap',
       }}
     >
@@ -121,10 +121,10 @@ export function RadiusDemo() {
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: 'var(--lufa-token-spacing-default)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-default)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
         flexWrap: 'wrap',
       }}
     >
@@ -143,10 +143,10 @@ export function IconDemo() {
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: 'var(--lufa-token-spacing-default)',
-        padding: 'var(--lufa-token-spacing-default)',
-        border: '1px solid var(--lufa-token-color-border-default)',
-        borderRadius: 'var(--lufa-token-radius-base)',
+        gap: 'var(--lufa-semantic-ui-spacing-default)',
+        padding: 'var(--lufa-semantic-ui-spacing-default)',
+        border: '1px solid var(--lufa-semantic-ui-border-default)',
+        borderRadius: 'var(--lufa-primitive-radius-scale-base)',
         flexWrap: 'wrap',
       }}
     >

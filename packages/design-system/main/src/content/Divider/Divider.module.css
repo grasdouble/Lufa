@@ -108,9 +108,21 @@
 /* ========================================== */
 
 .orientation-horizontal.line-style-dashed {
-  background-image: repeating-linear-gradient(to right, var(--divider-color) 0, var(--divider-color) 8px, transparent 8px, transparent 12px);
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--divider-color) 0,
+    var(--divider-color) 8px,
+    transparent 8px,
+    transparent 12px
+  );
 }
 
 .orientation-vertical.line-style-dashed {
-  background-image: repeating-linear-gradient(to bottom, var(--divider-color) 0, var(--divider-color) 8px, transparent 8px, transparent 12px);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--divider-color) 0,
+    var(--divider-color) 8px,
+    transparent 8px,
+    transparent 12px
+  );
 }

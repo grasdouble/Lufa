@@ -13,8 +13,18 @@
     "build": "storybook build",
     "dev": "storybook dev -p 6006 --no-open",
     "lint": "eslint .",
-    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,html}": [
+      "prettier --write"
+    ]
   },
   "eslintConfig": {
     "extends": [

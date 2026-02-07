@@ -20,8 +20,8 @@
  * @see .github/instructions/lufa-design-system-playwright-ct.instructions.md
  */
 
-import { expect, test } from '@playwright/experimental-ct-react';
 import AxeBuilder from '@axe-core/playwright';
+import { expect, test } from '@playwright/experimental-ct-react';
 
 import { Button } from '@grasdouble/lufa_design-system';
 
@@ -495,7 +495,7 @@ test.describe('Button Component', () => {
   // ============================================
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants in light mode', async ({ mount }) => {
+    test('should match snapshot for all variants', async ({ mount }) => {
       const types = ['solid', 'outline', 'ghost'] as const;
       const variants = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'neutral'] as const;
       const sizes = ['sm', 'md', 'lg'] as const;
@@ -505,7 +505,7 @@ test.describe('Button Component', () => {
         <div
           style={{
             padding: '32px',
-            background: '#ffffff',
+            background: 'var(--lufa-semantic-ui-background-page)',
             width: '1200px',
           }}
         >
@@ -514,7 +514,7 @@ test.describe('Button Component', () => {
               marginBottom: '24px',
               fontSize: '28px',
               fontWeight: 'bold',
-              color: '#333',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             Button Component - All Variants
@@ -527,14 +527,21 @@ test.describe('Button Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Type + Variant Matrix
             </h2>
             {types.map((type) => (
               <div key={type} style={{ marginBottom: '20px' }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#666', marginBottom: '12px' }}>
+                <h3
+                  style={{
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    color: 'var(--lufa-semantic-ui-text-secondary)',
+                    marginBottom: '12px',
+                  }}
+                >
                   Type: {type}
                 </h3>
                 <div
@@ -561,7 +568,7 @@ test.describe('Button Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Sizes
@@ -582,7 +589,7 @@ test.describe('Button Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Border Radius
@@ -603,7 +610,7 @@ test.describe('Button Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               With Icons
@@ -625,7 +632,7 @@ test.describe('Button Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               States
@@ -644,7 +651,7 @@ test.describe('Button Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Full Width
@@ -659,7 +666,7 @@ test.describe('Button Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Polymorphic (as anchor)
@@ -679,120 +686,7 @@ test.describe('Button Component', () => {
       // Wait for rendering to stabilize
       await component.page().waitForTimeout(100);
 
-      await expect(component).toHaveScreenshot('button-all-variants-light.png');
-    });
-
-    test('should match snapshot for all variants in dark mode', async ({ mount, page }) => {
-      // Set dark mode BEFORE mounting
-      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
-
-      const types = ['solid', 'outline', 'ghost'] as const;
-      const variants = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'neutral'] as const;
-      const sizes = ['sm', 'md', 'lg'] as const;
-
-      const component = await mount(
-        <div
-          style={{
-            padding: '32px',
-            width: '1200px',
-            background: 'var(--lufa-token-color-background-page)',
-          }}
-        >
-          <h1
-            style={{
-              marginBottom: '24px',
-              fontSize: '28px',
-              fontWeight: 'bold',
-              color: 'var(--lufa-token-color-text-primary)',
-            }}
-          >
-            Button Component - All Variants (Dark Mode)
-          </h1>
-
-          {/* Type + Variant Matrix */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Type + Variant Matrix
-            </h2>
-            {types.map((type) => (
-              <div key={type} style={{ marginBottom: '20px' }}>
-                <h3
-                  style={{
-                    fontSize: '16px',
-                    fontWeight: '600',
-                    color: 'var(--lufa-token-color-text-tertiary)',
-                    marginBottom: '12px',
-                  }}
-                >
-                  Type: {type}
-                </h3>
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  {variants.map((variant) => (
-                    <Button key={variant} type={type} variant={variant}>
-                      {variant}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </section>
-
-          {/* Sizes */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Sizes
-            </h2>
-            <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-              {sizes.map((size) => (
-                <Button key={size} size={size}>
-                  Size {size}
-                </Button>
-              ))}
-            </div>
-          </section>
-
-          {/* States */}
-          <section>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              States
-            </h2>
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <Button>Normal</Button>
-              <Button disabled>Disabled</Button>
-              <Button loading>Loading</Button>
-            </div>
-          </section>
-        </div>
-      );
-
-      // Wait for rendering to stabilize
-      await component.page().waitForTimeout(100);
-
-      await expect(component).toHaveScreenshot('button-all-variants-dark.png');
-
-      // Clean up: remove dark mode
-      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
+      await expect(component).toHaveScreenshot('button-all-variants.png');
     });
   });
 });

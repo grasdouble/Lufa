@@ -8,7 +8,7 @@
 
 ## Overview
 
-The Lufa Design System v2.0 uses **Playwright Component Testing** for comprehensive behavioral testing of all React components. The test suite covers 5 production-ready components with 100% coverage across functionality, variants, accessibility, and visual regression.
+The Lufa Design System v2.0 uses **Playwright Component Testing** for comprehensive behavioral testing of all React components. The test suite covers 7 production-ready components with 100% coverage across functionality, variants, accessibility, and visual regression.
 
 **Status**: ✅ 7/7 components fully tested (100% complete)
 
@@ -43,18 +43,20 @@ The Lufa Design System v2.0 uses **Playwright Component Testing** for comprehens
 
 **Config File**: `packages/design-system/playwright/playwright-ct.config.ts`
 
-**Browser Matrix**: 5 browsers for comprehensive cross-browser testing
+**Browser Matrix**: 5 browsers configured for comprehensive cross-browser testing
 
-- ✅ Chromium (Desktop)
+- ✅ Chromium (Desktop) — **used in CI**
 - ✅ Firefox (Desktop)
 - ✅ WebKit (Safari Desktop)
 - ✅ Mobile Chrome (Android)
 - ✅ Mobile Safari (iOS)
 
+> **Note:** CI runs Chromium only for speed. All 5 browsers can be tested locally.
+
 **Test Output Directories**:
 
-- Screenshots: `packages/design-system/playwright/playwright/.screenshots/`
-- Traces: `packages/design-system/playwright/playwright/.traces/`
+- Snapshots: `packages/design-system/playwright/__snapshots__/`
+- Test results: `packages/design-system/playwright/test-results/`
 - Reports: `packages/design-system/playwright/playwright-report/`
 
 **Key Configuration Options**:
@@ -618,8 +620,8 @@ test('should match snapshot for all variants in dark mode', async ({ mount, page
   await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
 
   const component = await mount(
-    <div style={{ padding: '32px', width: '900px', background: 'var(--lufa-token-color-background-page)' }}>
-      <h1 style={{ color: 'var(--lufa-token-color-text-primary)' }}>
+    <div style={{ padding: '32px', width: '900px', background: 'var(--lufa-semantic-ui-background-page)' }}>
+      <h1 style={{ color: 'var(--lufa-semantic-ui-text-primary)' }}>
         Component - All Variants (Dark Mode)
       </h1>
       {/* Component variants here */}
@@ -671,31 +673,33 @@ pnpm test-ct:debug        # Debug mode with Playwright Inspector
 
 ### CI/CD Integration
 
-**GitHub Actions Workflow**: `.github/workflows/test.yml`
+**GitHub Actions Workflow**: `.github/workflows/tools-ds-playwright-ct.yml`
 
 **CI Strategy**:
 
 - ✅ Run on every PR and push to main
-- ✅ Test against all 5 browsers
+- ✅ Test against Chromium (for CI speed)
 - ✅ Retry failed tests 2 times
 - ✅ Generate HTML report on failure
-- ✅ Upload screenshots/traces as artifacts
+- ✅ Upload test results and traces as artifacts
+- ✅ Measure test execution time and compare against budget
+- ✅ Post detailed PR comment with metrics
 
 **Example CI configuration**:
 
 ```yaml
 - name: Install Playwright Browsers
-  run: pnpm --filter @grasdouble/lufa_design-system-playwright exec playwright install --with-deps
+  uses: ./.github/actions/install-playwright
 
 - name: Run Playwright Component Tests
-  run: pnpm ds:test
+  run: pnpm --filter @grasdouble/lufa_design-system-playwright test-ct
 
 - name: Upload Test Results
-  if: failure()
-  uses: actions/upload-artifact@v4
+  if: always()
+  uses: actions/upload-artifact@v6
   with:
-    name: playwright-report
-    path: packages/design-system/playwright/playwright-report/
+    name: playwright-test-results
+    path: packages/design-system/playwright/test-results/
 ```
 
 ---
@@ -704,21 +708,21 @@ pnpm test-ct:debug        # Debug mode with Playwright Inspector
 
 ### Coverage Statistics
 
-| Metric                  | Value      | Notes                                           |
-| ----------------------- | ---------- | ----------------------------------------------- |
-| **Components Tested**   | 5/5 (100%) | Box, Button, Text, Icon, Stack                  |
-| **Test Files**          | 5          | One per component                               |
-| **Total Test Cases**    | ~500+      | Across all components                           |
-| **Lines of Test Code**  | ~4,200     | Comprehensive coverage                          |
-| **Browsers Tested**     | 5          | Chromium, Firefox, WebKit, Mobile Chrome/Safari |
-| **Visual Snapshots**    | 10         | 2 per component (light + dark)                  |
-| **Test Execution Time** | ~2-3 min   | Parallel execution on 4 workers                 |
+| Metric                  | Value      | Notes                                          |
+| ----------------------- | ---------- | ---------------------------------------------- |
+| **Components Tested**   | 7/7 (100%) | Box, Button, Text, Icon, Stack, Badge, Divider |
+| **Test Files**          | 7          | One per component                              |
+| **Total Test Cases**    | ~650+      | Across all components                          |
+| **Lines of Test Code**  | ~5,060     | Comprehensive coverage                         |
+| **Browsers in CI**      | 1          | Chromium (all 5 available locally)             |
+| **Visual Snapshots**    | 14         | 2 per component (light + dark)                 |
+| **Test Execution Time** | ~2-3 min   | Parallel execution on 4 workers                |
 
 ### Test Quality Indicators
 
-- ✅ **100% Component Coverage** - All 5 production components have tests
+- ✅ **100% Component Coverage** - All 7 production components have tests
 - ✅ **100% Variant Coverage** - All prop combinations tested exhaustively
-- ✅ **100% Browser Coverage** - Tests run on all target browsers
+- ✅ **100% Browser Coverage** - Tests run on all target browsers (Chromium in CI, all 5 locally)
 - ✅ **100% Accessibility Coverage** - All components include ARIA/keyboard tests
 - ✅ **100% Visual Regression Coverage** - All components have light + dark snapshots
 
@@ -763,7 +767,7 @@ pnpm ds:test:ui  # Interactive UI to review changes
 pnpm ds:test:update-snapshots
 
 # 5. Commit updated snapshots
-git add packages/design-system/playwright/playwright/.screenshots/
+git add packages/design-system/playwright/__snapshots__/
 git commit -m "test: update visual regression snapshots for ComponentName"
 ```
 

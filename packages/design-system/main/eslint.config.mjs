@@ -3,7 +3,7 @@ import lufaReactConfig from '@grasdouble/lufa_config_eslint/react.mjs';
 export default [
   ...lufaReactConfig,
   {
-    ignores: ['**/*.config.cjs'],
+    ignores: ['**/*.config.cjs', 'scripts/**/*.cjs', 'vite.config.ts', '*.config.ts'],
   },
   {
     languageOptions: {

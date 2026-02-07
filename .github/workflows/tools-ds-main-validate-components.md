@@ -4,43 +4,20 @@
 
 This GitHub Actions workflow automatically validates design system components on every pull request to ensure code quality, type safety, and adherence to design system standards.
 
-**Workflow File:** `.github/workflows/tools-ds-main-validate-components.yml`  
-**Validation Script:** `scripts/validate-components.js`
+**Workflow File:** `.github/workflows/tools-ds-main-validate-components.yml`
 
 ---
 
 ## What Gets Validated
 
-### 1. **Code Quality** (`validate:components`)
+### **Code Quality** (`validate:components`)
 
 - ✅ No hard-coded color values (must use design tokens)
 - ✅ No hard-coded dimension values (should use design tokens)
 - ✅ All component props have TypeScript descriptions
 - ✅ All TypeScript types are exported properly
 
-### 2. **Tests** (`ds:test`)
-
-- ✅ All 657 component tests pass
-- ✅ Playwright component testing
-- ✅ 100% pass rate
-
-### 3. **Linting** (`ds:main:lint`)
-
-- ✅ ESLint rules compliance
-- ✅ Code style consistency
-- ✅ No linting errors
-
-### 4. **Type Checking** (`ds:main:typecheck`)
-
-- ✅ TypeScript compilation success
-- ✅ No type errors
-- ✅ Strict type checking
-
-### 5. **Formatting** (`prettier`)
-
-- ✅ Code formatted with Prettier
-- ✅ Consistent code style
-- ✅ No formatting issues
+> **Note:** Component tests are run separately in the [Playwright Component Tests workflow](../../actions/workflows/tools-ds-playwright-ct.yml).
 
 ---
 
@@ -52,13 +29,21 @@ The workflow triggers on:
 - **Push to main** - When changes are merged
 - **Manual Trigger** - Via GitHub Actions UI (`workflow_dispatch`)
 
-**Watched Paths:**
+**Watched Paths (Pull Requests):**
 
 ```yaml
 paths:
   - 'packages/design-system/main/src/**/*.tsx'
   - 'packages/design-system/main/src/**/*.ts'
   - '.github/workflows/tools-ds-main-validate-components.yml'
+```
+
+**Watched Paths (Push to main):**
+
+```yaml
+paths:
+  - 'packages/design-system/main/src/**/*.tsx'
+  - 'packages/design-system/main/src/**/*.ts'
 ```
 
 ---
@@ -68,16 +53,13 @@ paths:
 ### Step-by-Step Process
 
 1. **Checkout Code** - Gets the latest code from the repository
-2. **Setup Environment** - Installs pnpm, Node.js, and dependencies
-3. **Build Packages** - Builds tokens, themes, and main packages
-4. **Validate Code Quality** - Runs custom component validation script
-5. **Run Tests** - Executes all 657 component tests
-6. **Lint Code** - Checks ESLint rules
-7. **Type Check** - Validates TypeScript types
-8. **Format Check** - Verifies Prettier formatting
-9. **Analyze Results** - Aggregates all check results
-10. **Comment on PR** - Posts validation report to PR
-11. **Fail or Pass** - Exits with success/failure code
+2. **Setup Environment** - Installs pnpm and Node.js
+3. **Install Dependencies** - Installs all packages
+4. **Build Design System** - Builds tokens, themes, and components
+5. **Validate Code Quality** - Runs `pnpm validate:components`
+6. **Analyze Results** - Determines overall pass/fail status
+7. **Comment on PR** - Posts validation report (PR only)
+8. **Pass or Fail** - Exits based on validation result
 
 ---
 
@@ -185,26 +167,18 @@ export const Button = (props: ButtonProps) => { ... };
 
 ## Running Locally
 
-### Run All Checks
+### Run Code Quality Validation
 
 ```bash
 # From repository root
-pnpm validate:components  # Code quality
-pnpm ds:test              # Component tests
-pnpm ds:main:lint         # ESLint
-pnpm ds:main:typecheck    # TypeScript
-pnpm ds:main:prettier     # Format code
+pnpm validate:components
 ```
 
-### Run Complete Validation Suite
-
-```bash
-# All checks in sequence
-pnpm validate:components && \
-pnpm ds:main:lint && \
-pnpm ds:main:typecheck && \
-pnpm ds:test
-```
+> **Note:** Component tests, linting, type checking, and formatting are handled by other workflows or can be run separately:
+>
+> - Tests: `pnpm ds:test` (see `tools-ds-playwright-ct.yml`)
+> - Linting: `pnpm ds:main:lint`
+> - Type checking: `pnpm ds:main:typecheck`
 
 ### Auto-Fix Issues
 
@@ -232,13 +206,11 @@ The workflow automatically posts a comment to your PR with validation results:
 
 All component validation checks completed successfully. Great work! 🎉
 
-| Check             | Status    |
-| ----------------- | --------- |
-| Code Quality      | ✅ Passed |
-| Tests (657 tests) | ✅ Passed |
-| ESLint            | ✅ Passed |
-| TypeScript        | ✅ Passed |
-| Prettier          | ✅ Passed |
+| Check        | Status    |
+| ------------ | --------- |
+| Code Quality | ✅ Passed |
+
+**Note:** Component tests are run separately in the Playwright Component Tests workflow.
 ```
 
 ### ❌ Failure Example
@@ -250,13 +222,9 @@ All component validation checks completed successfully. Great work! 🎉
 
 Please review and fix the issues below:
 
-| Check             | Status    |
-| ----------------- | --------- |
-| Code Quality      | ❌ Failed |
-| Tests (657 tests) | ✅ Passed |
-| ESLint            | ✅ Passed |
-| TypeScript        | ❌ Failed |
-| Prettier          | ✅ Passed |
+| Check        | Status    |
+| ------------ | --------- |
+| Code Quality | ❌ Failed |
 
 ### 💡 How to Fix
 
@@ -267,11 +235,11 @@ Please review and fix the issues below:
 - Add missing prop descriptions
 - Export TypeScript types
 
-**TypeScript Failed:**
+### 📚 Resources
 
-- Run locally: `pnpm ds:main:typecheck`
-- Fix type errors
-- Ensure all types are correct
+- 📖 Design System Documentation
+- 🧪 Run all checks: `pnpm validate:components`
+- 🎭 Component tests: See Playwright Component Tests workflow
 ```
 
 ---
@@ -356,13 +324,13 @@ permissions:
 
 ## Performance
 
-**Average Runtime:** ~3-5 minutes
+**Average Runtime:** ~2-3 minutes
 
 **Breakdown:**
 
 - Setup (checkout, install deps): ~1 minute
 - Build packages: ~1 minute
-- Validation + Tests + Lint: ~2 minutes
+- Code quality validation: ~30 seconds
 - PR comment: ~5 seconds
 
 ---
@@ -373,7 +341,8 @@ This workflow integrates with:
 
 - **`tools-lint.yml`** - Project-wide linting
 - **`tools-ds-tokens-validate-tokens.yml`** - Token validation
-- **`tools-ds-playwright-ct.yml`** - Visual regression testing
+- **`tools-ds-playwright-ct.yml`** - Component testing + visual regression
+- **`tools-ds-performance-budgets.yml`** - Bundle size and build time budgets
 
 Together, these workflows ensure complete CI/CD coverage for the design system.
 
@@ -381,8 +350,8 @@ Together, these workflows ensure complete CI/CD coverage for the design system.
 
 ## Related Documentation
 
-- **Sprint Plan:** `_bmad-output/sprints/phase-7c-sprint-plan.md`
-- **Validation Script:** `scripts/validate-components.js`
+- **Performance Budgets:** `.github/workflows/tools-ds-performance-budgets.md`
+- **Playwright Tests:** `.github/workflows/tools-ds-playwright-ct.yml`
 - **Design System Docs:** `packages/design-system/_docs/`
 - **Token Catalog:** [Storybook > Tokens > Tokens Catalog](http://localhost:6006)
 
@@ -393,8 +362,8 @@ Together, these workflows ensure complete CI/CD coverage for the design system.
 ✅ **Active** - Story 10.1 Complete (Phase 7c)
 
 **Created:** January 26, 2026  
-**Last Updated:** January 26, 2026  
-**Maintained By:** BMAD System (Lufa Design System Team)
+**Last Updated:** February 7, 2026  
+**Maintained By:** Lufa Design System Team
 
 ---
 

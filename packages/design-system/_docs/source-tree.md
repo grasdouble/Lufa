@@ -603,7 +603,7 @@ primitives/
 | **tokens**     | `src/primitives/color/palette.json`      | Blue/Red/Green/Yellow scales             |
 | **main**       | `src/index.ts`                           | Box, Stack, Text, Icon, Button, useTheme |
 | **storybook**  | `src/stories/primitives/Box.stories.tsx` | 9 Box stories                            |
-| **playwright** | `src/foundation/Box.spec.tsx` | 50+ Box tests                            |
+| **playwright** | `src/foundation/Box.spec.tsx`            | 50+ Box tests                            |
 
 ---
 
@@ -626,7 +626,7 @@ packages/design-system/main/src/style.css
   → @import '@grasdouble/lufa_design-system-tokens/tokens.css'
 
 packages/design-system/main/src/components/**/*.module.css
-  → var(--lufa-token-*)
+  → var(--lufa-semantic-* or --lufa-component-*)
 
 packages/design-system/main/scripts/generate-utilities.cjs
   → Reads token names from *.utilities.config.cjs

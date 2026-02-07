@@ -22,6 +22,7 @@ module.exports = {
     gap: {
       property: 'gap',
       values: {
+        none: '0',
         tight: 'var(--lufa-semantic-ui-spacing-tight)',
         compact: 'var(--lufa-semantic-ui-spacing-compact)',
         default: 'var(--lufa-semantic-ui-spacing-default)',
@@ -32,6 +33,7 @@ module.exports = {
     gapX: {
       property: 'column-gap',
       values: {
+        none: '0',
         tight: 'var(--lufa-semantic-ui-spacing-tight)',
         compact: 'var(--lufa-semantic-ui-spacing-compact)',
         default: 'var(--lufa-semantic-ui-spacing-default)',
@@ -42,6 +44,7 @@ module.exports = {
     gapY: {
       property: 'row-gap',
       values: {
+        none: '0',
         tight: 'var(--lufa-semantic-ui-spacing-tight)',
         compact: 'var(--lufa-semantic-ui-spacing-compact)',
         default: 'var(--lufa-semantic-ui-spacing-default)',
@@ -75,6 +78,6 @@ module.exports = {
       values: {
         true: 'inline-grid',
       },
-    }
+    },
   },
 };

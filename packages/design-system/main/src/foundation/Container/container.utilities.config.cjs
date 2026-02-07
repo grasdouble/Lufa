@@ -2,7 +2,7 @@ module.exports = {
   component: 'Container',
   outputFile: 'Container.module.css',
   base: {
-    'width': '100%',
+    width: '100%',
     'margin-left': 'auto',
     'margin-right': 'auto',
     'padding-left': 'var(--lufa-component-container-padding-default)',
@@ -26,6 +26,6 @@ module.exports = {
         xl: 'var(--lufa-component-container-max-width-xl)',
         '2xl': 'var(--lufa-component-container-max-width-2xl)',
       },
-    }
+    },
   },
 };

@@ -21,44 +21,25 @@ on:
 
 jobs:
   publish-storybook-to-pr:
+    name: Publish Storybook to PR
     if: contains(github.event.pull_request.labels.*.name, 'publish-storybook')
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v6
 
-      # Step 2: Install pnpm
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
 
-      # Step 3: Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: .tool-versions
-          cache: 'pnpm'
-
-      # Step 4: Install dependencies
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Step 5: Build Lufa Design System Tokens
-      - name: Build Lufa Design System Tokens
-        run: pnpm ds:tokens:build
-
-      # Step 6: Build Lufa Design System Themes
-      - name: Build Lufa Design System Themes
-        run: pnpm ds:themes:build
-
-      # Step 7: Build Lufa Design System
-      - name: Build Lufa Design System
-        run: pnpm ds:main:build
-
-      # Step 8: Build Storybook
-      - name: Build Storybook
-        run: pnpm ds:storybook:build
+      - name: 🏗️ Build design system
+        uses: ./.github/actions/build-design-system
+        with:
+          build-storybook: 'true'
+          build-docusaurus: 'false'
 
       # Step 9: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages

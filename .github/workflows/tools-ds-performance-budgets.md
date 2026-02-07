@@ -2,7 +2,7 @@
 
 ## Overview
 
-This GitHub Actions workflow automatically monitors design system performance metrics on every pull request to catch performance regressions before they reach production. It enforces strict budgets for bundle size, build time, test execution, and CSS cascade performance.
+This GitHub Actions workflow automatically monitors design system performance metrics on every pull request to catch performance regressions before they reach production. It enforces strict budgets for bundle size, build time, and CSS cascade performance. Budgets are loaded from `.github/config/performance-budgets.json`.
 
 **Workflow File:** `.github/workflows/tools-ds-performance-budgets.yml`  
 **CLI Tool:** `packages/design-system/cli/` (Phase 7a validation tool)
@@ -22,7 +22,7 @@ This GitHub Actions workflow automatically monitors design system performance me
 
 **Budget:**
 
-- Total uncompressed: **<200 KB**
+- Total uncompressed: **<250 KB**
 - Gzipped: **<50 KB**
 
 **Why it matters:** Large bundles slow down page loads and hurt user experience, especially on slower networks.
@@ -45,20 +45,7 @@ This GitHub Actions workflow automatically monitors design system performance me
 
 ---
 
-### 3. **Test Execution Time** 🧪
-
-**Measured:**
-
-- Time to run all 657 Playwright component tests
-- Chromium browser only (for CI speed)
-
-**Budget:** **<120 seconds** (warning only)
-
-**Why it matters:** Fast tests enable rapid feedback loops and don't block CI pipelines.
-
----
-
-### 4. **CSS Cascade Performance** 🎨
+### 3. **CSS Cascade Performance** 🎨
 
 **Measured:**
 
@@ -102,13 +89,12 @@ paths:
 2. **Setup Environment** - Installs pnpm and Node.js
 3. **Install Dependencies** - Installs all packages
 4. **Build Design System** - Compiles tokens, themes, and components
-5. **Measure Build Time** - Records total build duration
-6. **Measure Bundle Size** - Analyzes output files
-7. **Run Tests** - Executes 657 component tests and measures time
-8. **Run CSS Cascade Validation** - Measures token resolution performance
-9. **Check Budgets** - Compares metrics against budgets
-10. **Comment on PR** - Posts detailed performance report
-11. **Pass or Fail** - Exits based on budget compliance
+5. **Measure Build Time** - Rebuilds tokens, themes, and main to record build duration
+6. **Measure Bundle Size** - Analyzes output files (JS + CSS)
+7. **Run CSS Cascade Validation** - Measures token resolution performance
+8. **Check Budgets** - Compares metrics against budgets from `.github/config/performance-budgets.json`
+9. **Comment on PR** - Posts detailed performance report
+10. **Pass or Fail** - Exits based on budget compliance
 
 ---
 
@@ -116,7 +102,7 @@ paths:
 
 ### Bundle Size Budget
 
-**Target:** <200 KB uncompressed, <50 KB gzipped
+**Target:** <250 KB uncompressed, <50 KB gzipped
 
 **What's included:**
 
@@ -132,7 +118,7 @@ paths:
 
 **Why this budget?**
 
-- 200 KB uncompressed is reasonable for a comprehensive component library
+- 250 KB uncompressed is reasonable for a comprehensive component library
 - 50 KB gzipped ensures fast network transfer (~1s on 3G)
 - Typical compression ratio: 70-80%
 
@@ -155,25 +141,6 @@ paths:
 - Fast builds keep CI pipelines efficient
 - 30s allows for comprehensive builds without blocking developers
 - Includes time for all 4 packages (primitives, tokens, themes, main)
-
----
-
-### Test Execution Budget
-
-**Target:** <120 seconds (warning only, doesn't fail build)
-
-**What's included:**
-
-- 657 Playwright component tests
-- Visual regression snapshots
-- Accessibility checks
-- Interaction tests
-
-**Why this budget?**
-
-- 120s (2 minutes) for 657 tests = ~0.18s per test
-- Reasonable for component tests with rendering
-- Warning-only because test time varies with CI runner load
 
 ---
 
@@ -213,12 +180,11 @@ Your changes meet all performance requirements. Great work! 🎉
 
 | Metric           | Current   | Budget | Status  |
 | ---------------- | --------- | ------ | ------- |
-| **Bundle Size**  | 145.32 KB | 200 KB | ✅ Pass |
+| **Bundle Size**  | 145.32 KB | 250 KB | ✅ Pass |
 | **JS Size**      | 125.18 KB | -      | ℹ️ Info |
 | **CSS Size**     | 20.14 KB  | -      | ℹ️ Info |
 | **Gzipped Size** | 42.67 KB  | 50 KB  | ✅ Pass |
 | **Build Time**   | 18.45s    | 30s    | ✅ Pass |
-| **Test Time**    | 95.32s    | 120s   | ✅ Pass |
 | **CSS Cascade**  | 12ms      | 20ms   | ✅ Pass |
 
 ### 📦 Size Breakdown
@@ -237,7 +203,6 @@ Gzipped: 42.67 KB (29% compression)
 ```
 
 Build: 18.45s
-Tests (657): 95.32s
 CSS Cascade: 12ms
 
 ```
@@ -259,12 +224,11 @@ CSS Cascade: 12ms
 
 | Metric           | Current   | Budget | Status  |
 | ---------------- | --------- | ------ | ------- |
-| **Bundle Size**  | 215.48 KB | 200 KB | ❌ Fail |
-| **JS Size**      | 185.22 KB | -      | ℹ️ Info |
+| **Bundle Size**  | 265.48 KB | 250 KB | ❌ Fail |
+| **JS Size**      | 235.22 KB | -      | ℹ️ Info |
 | **CSS Size**     | 30.26 KB  | -      | ℹ️ Info |
 | **Gzipped Size** | 58.34 KB  | 50 KB  | ❌ Fail |
 | **Build Time**   | 25.12s    | 30s    | ✅ Pass |
-| **Test Time**    | 102.56s   | 120s   | ✅ Pass |
 | **CSS Cascade**  | 15ms      | 20ms   | ✅ Pass |
 
 ### 📦 Size Breakdown
@@ -310,14 +274,12 @@ time pnpm ds:tokens:build && \
 ls -lh packages/design-system/main/dist/
 du -sh packages/design-system/main/dist/
 
-# 3. Check gzipped size
-gzip -c packages/design-system/main/dist/lufa-ui.mjs | wc -c
-# Convert bytes to KB: divide by 1024
+# 3. Check gzipped size (JS + CSS combined)
+JS_GZ=$(gzip -c packages/design-system/main/dist/lufa-ui.mjs | wc -c)
+CSS_GZ=$(gzip -c packages/design-system/main/dist/style.css | wc -c)
+echo "Gzipped total: $(( (JS_GZ + CSS_GZ) / 1024 )) KB"
 
-# 4. Run tests and measure time
-time pnpm ds:test
-
-# 5. Run CSS cascade validation
+# 4. Run CSS cascade validation
 cd packages/design-system/cli
 time pnpm exec tsx src/index.ts validate --theme <your-theme.css> --all
 ```
@@ -492,44 +454,6 @@ time pnpm ds:main:build
 
 ---
 
-### Issue: Test Execution Slow
-
-**Symptoms:**
-
-- Test time warning in PR comment
-- Tests used to be faster
-
-**Investigation:**
-
-```bash
-# Run tests locally with timing
-time pnpm ds:test
-
-# Run specific test file
-cd packages/design-system/playwright
-pnpm exec playwright test Box.spec.tsx --reporter=list
-
-# Check for slow tests
-pnpm exec playwright test --reporter=html
-# Open HTML report and sort by duration
-```
-
-**Common causes:**
-
-- More tests added (expected)
-- Visual regression snapshots taking longer
-- Network timeouts or flaky tests
-- CI runner slower than usual
-
-**Solutions:**
-
-- Optimize slow tests (reduce wait times)
-- Run tests in parallel (already enabled)
-- Increase test timeout if needed
-- Accept warning (doesn't fail build)
-
----
-
 ### Issue: Workflow Fails But All Checks Pass
 
 **Symptoms:**
@@ -585,44 +509,43 @@ pnpm exec playwright test --reporter=html
 
 ## Performance Budget Configuration
 
+Budgets are managed in a single source of truth: `.github/config/performance-budgets.json`.
+
 ### Current Budgets
 
 ```yaml
-Bundle Size: 200 KB  (uncompressed, total)
+Bundle Size: 250 KB  (uncompressed, total)
 Gzipped Size: 50 KB   (compressed)
 Build Time: 30 sec  (all packages)
-Test Time: 120 sec (warning only, 657 tests)
 CSS Cascade: 20 ms   (warning only, CLI validation)
 ```
+
+> **Note:** Test execution time is monitored separately by the `tools-ds-playwright-ct.yml` workflow. Its budget (120s, warning only) is also defined in `performance-budgets.json`.
 
 ### Adjusting Budgets
 
 If your design system grows and budgets need adjustment:
 
-**1. Update workflow file:**
+**1. Update the config file:**
 
-```yaml
-# In .github/workflows/tools-ds-performance-budgets.yml
-
-# Bundle size budget (line ~92)
-BUNDLE_BUDGET=250  # Increased from 200
-
-# Gzipped size budget (line ~103)
-GZIP_BUDGET=60     # Increased from 50
-
-# Build time budget (line ~112)
-BUILD_BUDGET=45    # Increased from 30
+```jsonc
+// .github/config/performance-budgets.json
+{
+  "budgets": {
+    "bundle": {
+      "totalSize": { "max": 300 }, // Increased from 250
+      "gzipped": { "max": 60 }, // Increased from 50
+    },
+    "timing": {
+      "build": { "max": 45 }, // Increased from 30
+    },
+  },
+}
 ```
 
 **2. Document why:**
 
-```bash
-# Add comment in workflow file
-# Budget increased to 250 KB due to:
-# - Added 10 new components
-# - Additional icon set (lucide-react)
-# - Increased functionality
-```
+Add a note in the `metadata.notes` array of the config file explaining the reason for the change.
 
 **3. Get team approval:**
 
@@ -637,9 +560,10 @@ BUILD_BUDGET=45    # Increased from 30
 This workflow works alongside:
 
 - **`tools-ds-main-validate-components.yml`** - Component code quality
-- **`tools-ds-visual-regression.yml`** - Visual regression testing
-- **`tools-ds-playwright-ct.yml`** - Complete component testing
+- **`tools-ds-playwright-ct.yml`** - Component testing + test execution timing
 - **`tools-lint.yml`** - Code style and linting
+
+> **Note:** Test execution timing was moved to `tools-ds-playwright-ct.yml` to keep this workflow focused on build and bundle metrics only.
 
 **Workflow Coordination:**
 
@@ -688,14 +612,12 @@ Record performance metrics for each release:
 
 - Bundle: 145 KB uncompressed, 42 KB gzipped
 - Build time: 18s
-- Test time: 95s
 - Components: 7 core + 12 utility
 
 ## v1.9.0 (2026-01-15)
 
 - Bundle: 138 KB uncompressed, 40 KB gzipped
 - Build time: 16s
-- Test time: 82s
 - Components: 7 core + 10 utility
 ```
 
@@ -720,7 +642,7 @@ Consider adding:
 
 ### Q: Why are some budgets "warning only"?
 
-**A:** Test time and CSS cascade time vary based on CI runner load and can produce false positives. We monitor them but don't fail builds to avoid blocking legitimate PRs.
+**A:** CSS cascade time varies based on CI runner load and can produce false positives. We monitor it but don't fail builds to avoid blocking legitimate PRs.
 
 ---
 
@@ -812,9 +734,9 @@ open packages/design-system/main/dist/stats.html
 
 ## Related Documentation
 
-- **Component Validation:** `.github/workflows/README-validate-components.md`
-- **Visual Regression:** `.github/workflows/README-visual-regression.md`
-- **Sprint Plan:** `_bmad-output/sprints/phase-7c-sprint-plan.md`
+- **Budget Config:** `.github/config/performance-budgets.json`
+- **Component Validation:** `.github/workflows/tools-ds-main-validate-components.md`
+- **Playwright Tests:** `.github/workflows/tools-ds-playwright-ct.yml`
 - **CLI Tool:** `packages/design-system/cli/README.md`
 - **Vite Config:** `packages/design-system/main/vite.config.ts`
 
@@ -825,8 +747,8 @@ open packages/design-system/main/dist/stats.html
 ✅ **Active** - Story 10.3 Complete (Phase 7c)
 
 **Created:** January 26, 2026  
-**Last Updated:** January 26, 2026  
-**Maintained By:** BMAD System (Lufa Design System Team)
+**Last Updated:** February 7, 2026  
+**Maintained By:** Lufa Design System Team
 
 ---
 

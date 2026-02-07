@@ -21,9 +21,19 @@
     "build:cjs": "esbuild src/index.ts --bundle --outfile=dist/index.cjs --platform=node --external:esbuild",
     "dev": "dotenvx run --env-file=.env.development --env-file=.env -- nodemon --exec tsx src/index.ts",
     "lint": "eslint",
-    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "preview": "dotenvx run --env-file=.env.production --env-file=.env -- node dist/index.cjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.52.0",

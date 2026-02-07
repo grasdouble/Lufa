@@ -31,6 +31,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 // ==========================================
 // Configuration
@@ -218,13 +219,21 @@ function generateCSSFile(config) {
 // ==========================================
 
 /**
- * Write CSS file to disk
+ * Write CSS file to disk and format with prettier
  * @param {string} outputPath - Output file path
  * @param {string} content - CSS content
  */
 function writeCSSFile(outputPath, content) {
   fs.writeFileSync(outputPath, content, 'utf-8');
   console.log(`✅ Generated: ${path.relative(process.cwd(), outputPath)}`);
+
+  // Format with prettier
+  try {
+    execSync(`npx prettier --write "${outputPath}"`, { stdio: 'ignore' });
+    console.log(`   ✨ Formatted with prettier`);
+  } catch (error) {
+    console.warn(`   ⚠️  Could not format with prettier: ${error.message}`);
+  }
 }
 
 /**

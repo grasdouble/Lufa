@@ -98,19 +98,19 @@
 /* ========================================== */
 
 .weight-normal {
-  font-weight: 400;
+  font-weight: var(--lufa-primitive-typography-font-weight-normal);
 }
 
 .weight-medium {
-  font-weight: 500;
+  font-weight: var(--lufa-primitive-typography-font-weight-medium);
 }
 
 .weight-semibold {
-  font-weight: 600;
+  font-weight: var(--lufa-primitive-typography-font-weight-semibold);
 }
 
 .weight-bold {
-  font-weight: 700;
+  font-weight: var(--lufa-primitive-typography-font-weight-bold);
 }
 
 /* ========================================== */

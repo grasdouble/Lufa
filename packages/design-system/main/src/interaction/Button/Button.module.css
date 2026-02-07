@@ -53,31 +53,31 @@
 /* ========================================== */
 
 .variant-primary {
-  content: "";
+  content: '';
 }
 
 .variant-secondary {
-  content: "";
+  content: '';
 }
 
 .variant-success {
-  content: "";
+  content: '';
 }
 
 .variant-danger {
-  content: "";
+  content: '';
 }
 
 .variant-warning {
-  content: "";
+  content: '';
 }
 
 .variant-info {
-  content: "";
+  content: '';
 }
 
 .variant-neutral {
-  content: "";
+  content: '';
 }
 
 /* ========================================== */
@@ -114,19 +114,19 @@
 }
 
 .radius-sm {
-  border-radius: var(--lufa-primitive-radius-scale-sm);
+  border-radius: var(--lufa-semantic-ui-radius-small);
 }
 
 .radius-base {
-  border-radius: var(--lufa-component-button-border-radius);
+  border-radius: var(--lufa-semantic-ui-radius-default);
 }
 
 .radius-md {
-  border-radius: var(--lufa-primitive-radius-scale-xl);
+  border-radius: var(--lufa-semantic-ui-radius-medium);
 }
 
 .radius-full {
-  border-radius: var(--lufa-primitive-radius-scale-full);
+  border-radius: var(--lufa-semantic-ui-radius-full);
 }
 
 /* ========================================== */

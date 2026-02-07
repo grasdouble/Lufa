@@ -130,7 +130,7 @@ function ElevatedCard() {
 ```css title="src/components/Card.module.css"
 .card {
   box-shadow: var(--lufa-semantic-ui-shadow-small);
-  transition: box-shadow var(--lufa-token-transition-fast);
+  transition: box-shadow var(--lufa-semantic-ui-transition-fast);
 }
 
 .card:hover {
@@ -215,7 +215,7 @@ Animate shadow changes for smooth interactions:
 ```css
 .button {
   box-shadow: var(--lufa-semantic-ui-shadow-small);
-  transition: box-shadow var(--lufa-token-transition-fast);
+  transition: box-shadow var(--lufa-semantic-ui-transition-fast);
 }
 ```
 

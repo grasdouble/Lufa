@@ -19,7 +19,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Configuration
-const COMPONENTS_DIR = path.join(__dirname, '../packages/design-system/main/src/components');
+const COMPONENTS_DIR = path.join(__dirname, '../packages/design-system/main/src');
 const ALLOWED_HARDCODED_VALUES = [
   // Layout values that don't need tokens
   'flex',
@@ -96,6 +96,12 @@ function checkForHardCodedValues(line, filePath, lineNumber) {
 
   // Skip lines with token imports
   if (line.includes('tokens.') || line.includes("from '@grasdouble/lufa_design-system-tokens'")) {
+    return;
+  }
+
+  // Skip JSDoc comments and regular comments
+  const trimmedLine = line.trim();
+  if (trimmedLine.startsWith('*') || trimmedLine.startsWith('//') || trimmedLine.startsWith('/**')) {
     return;
   }
 

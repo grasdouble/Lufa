@@ -21,6 +21,9 @@ on:
       - 'scripts/validate-ai-docs.sh'
   workflow_dispatch: # Allow manual triggering
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     name: Validate Documentation Consistency

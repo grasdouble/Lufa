@@ -28,12 +28,22 @@
     "copy:templates": "mkdir -p dist/templates && cp src/templates/*.css dist/templates/",
     "dev": "tsx src/cli.ts",
     "lint": "eslint .",
-    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
     "test:run": "vitest run",
     "test:ui": "vitest --ui",
     "typecheck": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@grasdouble/lufa_design-system-tokens": "workspace:^",

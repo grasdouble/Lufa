@@ -21,7 +21,9 @@ function App() {
   return (
     <Box padding="default" background="surface">
       <Stack direction="vertical" spacing="comfortable">
-        <Text as="h1" variant="h1">Welcome to Lufa</Text>
+        <Text as="h1" variant="h1">
+          Welcome to Lufa
+        </Text>
         <Text>Start building with our components.</Text>
         <Button type="solid" variant="primary" size="md">
           Get Started
@@ -44,7 +46,9 @@ function StatusCard() {
     <Box padding="comfortable" background="surface" borderRadius="base">
       <Stack direction="vertical" spacing="compact">
         <Stack direction="horizontal" spacing="compact" align="center">
-          <Text as="h2" variant="h2">Project Status</Text>
+          <Text as="h2" variant="h2">
+            Project Status
+          </Text>
           <Badge variant="success">Active</Badge>
         </Stack>
         <Divider />
@@ -84,13 +88,19 @@ function ResponsiveGrid() {
   return (
     <Stack direction="horizontal" spacing="comfortable" wrap={true}>
       <Box padding="default" background="surface" style={{ flex: '1 1 300px' }}>
-        <Text as="h3" variant="h3">Card 1</Text>
+        <Text as="h3" variant="h3">
+          Card 1
+        </Text>
       </Box>
       <Box padding="default" background="surface" style={{ flex: '1 1 300px' }}>
-        <Text as="h3" variant="h3">Card 2</Text>
+        <Text as="h3" variant="h3">
+          Card 2
+        </Text>
       </Box>
       <Box padding="default" background="surface" style={{ flex: '1 1 300px' }}>
-        <Text as="h3" variant="h3">Card 3</Text>
+        <Text as="h3" variant="h3">
+          Card 3
+        </Text>
       </Box>
     </Stack>
   );
@@ -131,7 +141,9 @@ function Card({ title, children, ...boxProps }: CardProps) {
   return (
     <Box padding="comfortable" background="surface" {...boxProps}>
       <Stack direction="vertical" spacing="compact">
-        <Text as="h3" variant="h3">{title}</Text>
+        <Text as="h3" variant="h3">
+          {title}
+        </Text>
         {children}
       </Stack>
     </Box>

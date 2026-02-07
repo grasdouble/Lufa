@@ -26,10 +26,11 @@ jobs:
       - name: 📥 Checkout repository
         uses: actions/checkout@v6
 
-      - name: 🔧 Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: '24.9.0'
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
+
+      - name: 📦 Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: 🔍 Run token validation
         id: validate
@@ -39,81 +40,69 @@ jobs:
           echo "::endgroup::"
         continue-on-error: true
 
+      - name: 💬 Build validation comment
+        if: github.event_name == 'pull_request' && steps.validate.outcome == 'failure'
+        id: build-comment
+        run: |
+          # Re-run validation to capture output
+          VALIDATION_OUTPUT=$(node scripts/validate-token-metadata.js 2>&1 || true)
+
+          # Parse validation errors
+          ERROR_COUNT=$(echo "$VALIDATION_OUTPUT" | grep -oP '✗ Tokens with Errors: \K\d+' || echo "0")
+          WARNING_COUNT=$(echo "$VALIDATION_OUTPUT" | grep -oP '⚠ Warnings: \K\d+' || echo "0")
+
+          # Build comment body with heredoc
+          {
+            echo 'comment-body<<EOF_COMMENT'
+            cat << EOF
+          <!-- token-validation-comment -->
+          ## 🔍 Design Token Validation
+
+          ### ❌ Validation Failed
+
+          **Errors:** ${ERROR_COUNT} | **Warnings:** ${WARNING_COUNT}
+
+          <details>
+          <summary>📋 Validation Report</summary>
+
+          \`\`\`
+          ${VALIDATION_OUTPUT}
+          \`\`\`
+
+          </details>
+
+          ### 💡 How to Fix
+
+          All tokens must include:
+
+          1. **\`\$description\`** - Meaningful description (min 10 chars)
+             - ✅ Good: "Primary brand color used for buttons, links, and key actions"
+             - ❌ Bad: "Primary color"
+
+          2. **\`\$type\`** - Valid DTCG type (color, dimension, fontFamily, etc.)
+
+          3. **\`\$extensions.lufa.themable\`** - Set to \`true\` or \`false\`
+
+          ### 📚 Resources
+
+          - 📖 [Your First Token Guide](https://github.com/${{ github.repository }}/blob/main/docs/contributors/your-first-token.md)
+          - ✂️ Use VSCode snippets: \`.vscode/lufa-tokens.code-snippets\`
+          - 🧪 Run locally: \`pnpm validate:tokens\`
+
+          ---
+
+          *Part of Lufa Design System v2.0 - Automated token validation*
+          EOF
+            echo 'EOF_COMMENT'
+          } >> $GITHUB_OUTPUT
+
       - name: 💬 Comment on PR with results
         if: github.event_name == 'pull_request' && steps.validate.outcome == 'failure'
-        uses: actions/github-script@v8
+        uses: ./.github/actions/pr-comment
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const fs = require('fs');
-            const { execSync } = require('child_process');
-
-            // Re-run validation to capture output
-            let output;
-            try {
-              output = execSync('node scripts/validate-token-metadata.js', { encoding: 'utf-8' });
-            } catch (error) {
-              output = error.stdout || error.message;
-            }
-
-            // Parse validation errors
-            const hasErrors = output.includes('━━━ ERRORS');
-            const errorCount = (output.match(/✗ Tokens with Errors: (\d+)/)?.[1]) || '0';
-            const warningCount = (output.match(/⚠ Warnings: (\d+)/)?.[1]) || '0';
-
-            let commentBody = `## 🔍 Design Token Validation\n\n`;
-
-            if (hasErrors) {
-              commentBody += `### ❌ Validation Failed\n\n`;
-              commentBody += `**Errors:** ${errorCount} | **Warnings:** ${warningCount}\n\n`;
-              commentBody += `<details>\n<summary>📋 Validation Report</summary>\n\n\`\`\`\n${output}\n\`\`\`\n\n</details>\n\n`;
-              commentBody += `### 💡 How to Fix\n\n`;
-              commentBody += `All tokens must include:\n\n`;
-              commentBody += `1. **\`$description\`** - Meaningful description (min 10 chars)\n`;
-              commentBody += `   - ✅ Good: "Primary brand color used for buttons, links, and key actions"\n`;
-              commentBody += `   - ❌ Bad: "Primary color"\n\n`;
-              commentBody += `2. **\`$type\`** - Valid DTCG type (color, dimension, fontFamily, etc.)\n\n`;
-              commentBody += `3. **\`$extensions.lufa.themable\`** - Set to \`true\` or \`false\`\n\n`;
-              commentBody += `### 📚 Resources\n\n`;
-              commentBody += `- 📖 [Your First Token Guide](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/docs/contributors/your-first-token.md)\n`;
-              commentBody += `- ✂️ Use VSCode snippets: \`.vscode/lufa-tokens.code-snippets\`\n`;
-              commentBody += `- 🧪 Run locally: \`pnpm validate:tokens\`\n\n`;
-              commentBody += `---\n\n`;
-              commentBody += `*Part of Lufa Design System v2.0 - Automated token validation*`;
-            } else {
-              commentBody += `### ✅ All Tokens Valid!\n\n`;
-              commentBody += `All design tokens have proper metadata. Great work! 🎉`;
-            }
-
-            // Find existing comment
-            const comments = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-
-            const botComment = comments.data.find(comment => 
-              comment.user.type === 'Bot' && 
-              comment.body.includes('Design Token Validation')
-            );
-
-            if (botComment) {
-              // Update existing comment
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: botComment.id,
-                body: commentBody
-              });
-            } else {
-              // Create new comment
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: commentBody
-              });
-            }
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-marker: '<!-- token-validation-comment -->'
+          comment-body: ${{ steps.build-comment.outputs.comment-body }}
 
       - name: ❌ Fail if validation errors
         if: steps.validate.outcome == 'failure'

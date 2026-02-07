@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { CompletionItemKind } from 'vscode';
+
 import { createCompletionProvider, createDocumentColorProvider, createHoverProvider } from '../preview-providers';
 
 vi.mock('vscode', () => {
@@ -75,7 +76,7 @@ vi.mock('vscode', () => {
 const createMap = () => ({
   version: 1,
   css: {
-    '--lufa-token-color-text-primary': 'rgb(255 0 0)',
+    '--lufa-core-color-brand-500': 'rgb(255 0 0)',
   },
   paths: {
     'primitives.color.chromatic.red[500]': 'rgb(0 255 0)',
@@ -96,7 +97,7 @@ describe('createDocumentColorProvider', () => {
       fileName: 'styles.css',
       languageId: 'css',
       getText: () =>
-        'color: var(--lufa-token-color-text-primary); background: tokens.color.text.primary; border: primitives.color.chromatic.red[500]; box-shadow: 0 0 0 2px oklch(70% 0.1 200 / 0.5);',
+        'color: var(--lufa-core-color-brand-500); background: tokens.color.text.primary; border: primitives.color.chromatic.red[500]; box-shadow: 0 0 0 2px oklch(70% 0.1 200 / 0.5);',
       positionAt: (offset: number) => ({ line: 0, character: offset }),
     };
 
@@ -130,7 +131,7 @@ describe('createCompletionProvider', () => {
       loadValuesMap: () => createMap(),
     });
 
-    const text = 'color: var(--lufa-token-color-t';
+    const text = 'color: var(--lufa-core-color-brand-';
     const document = {
       getText: () => text,
       offsetAt: (pos: { character: number }) => pos.character,
@@ -141,7 +142,7 @@ describe('createCompletionProvider', () => {
 
     const match = (
       items as { label: string; detail?: string; kind?: number; documentation?: { value: string } }[]
-    ).find((item) => item.label === '--lufa-token-color-text-primary');
+    ).find((item) => item.label === '--lufa-core-color-brand-500');
 
     expect(match?.kind).toBe(CompletionItemKind.Color);
     expect(match?.documentation?.value).toContain('background:');

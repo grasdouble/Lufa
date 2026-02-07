@@ -12,8 +12,8 @@
  * - Visual regression
  */
 
-import { expect, test } from '@playwright/experimental-ct-react';
 import AxeBuilder from '@axe-core/playwright';
+import { expect, test } from '@playwright/experimental-ct-react';
 
 import { Divider } from '@grasdouble/lufa_design-system';
 
@@ -264,75 +264,139 @@ test.describe('Divider Component', () => {
   // ==========================================
 
   test.describe('Visual Regression', () => {
-    test('all emphasis levels visual snapshot', async ({ mount }) => {
+    test('should match snapshot for all variants', async ({ mount }) => {
+      const emphasisLevels = ['subtle', 'default', 'moderate', 'strong', 'bold'] as const;
+      const spacingValues = ['compact', 'default', 'comfortable'] as const;
+      const lineStyles = ['solid', 'dashed'] as const;
+
       const component = await mount(
-        <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
-          <div>
-            <h3>Horizontal Dividers - Emphasis Levels</h3>
-            <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px' }}>Subtle (gray.300, 1px)</p>
-            <Divider emphasis="subtle" />
-            <p style={{ fontSize: '12px', color: '#666', margin: '16px 0 8px' }}>Default (gray.300, 1px)</p>
-            <Divider emphasis="default" />
-            <p style={{ fontSize: '12px', color: '#666', margin: '16px 0 8px' }}>Moderate (gray.300, 2px)</p>
-            <Divider emphasis="moderate" />
-            <p style={{ fontSize: '12px', color: '#666', margin: '16px 0 8px' }}>Strong (gray.400, 2px)</p>
-            <Divider emphasis="strong" />
-            <p style={{ fontSize: '12px', color: '#666', margin: '16px 0 8px' }}>Bold (gray.400, 4px)</p>
-            <Divider emphasis="bold" />
-          </div>
-          <div style={{ display: 'flex', gap: '32px', height: '200px' }}>
-            <div>
-              <h3>Vertical Dividers</h3>
+        <div
+          style={{
+            padding: '32px',
+            background: 'var(--lufa-semantic-ui-background-page)',
+            width: '900px',
+          }}
+        >
+          <h1
+            style={{
+              marginBottom: '24px',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: 'var(--lufa-semantic-ui-text-primary)',
+            }}
+          >
+            Divider Component - All Variants
+          </h1>
+
+          {/* Section 1: Horizontal Emphasis Levels */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
+              }}
+            >
+              Horizontal Dividers - Emphasis Levels
+            </h2>
+            {emphasisLevels.map((emphasis) => (
+              <div key={emphasis} style={{ marginBottom: '16px' }}>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '8px' }}>
+                  emphasis=&quot;{emphasis}&quot;
+                </p>
+                <Divider emphasis={emphasis} />
+              </div>
+            ))}
+          </section>
+
+          {/* Section 2: Vertical Dividers */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
+              }}
+            >
+              Vertical Dividers - Emphasis Levels sdsdsdsdds
+            </h2>
+            <div style={{ display: 'flex', gap: '24px', height: '120px', alignItems: 'stretch' }}>
+              {emphasisLevels.map((emphasis) => (
+                <div key={emphasis} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>{emphasis}</div>
+                  <Divider orientation="vertical" emphasis={emphasis} />
+                </div>
+              ))}
             </div>
-            <Divider orientation="vertical" emphasis="subtle" />
-            <div>Subtle</div>
-            <Divider orientation="vertical" emphasis="default" />
-            <div>Default</div>
-            <Divider orientation="vertical" emphasis="moderate" />
-            <div>Moderate</div>
-            <Divider orientation="vertical" emphasis="strong" />
-            <div>Strong</div>
-            <Divider orientation="vertical" emphasis="bold" />
-            <div>Bold</div>
-          </div>
+          </section>
+
+          {/* Section 3: Line Styles */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
+              }}
+            >
+              Line Styles
+            </h2>
+            {lineStyles.map((lineStyle) => (
+              <div key={lineStyle} style={{ marginBottom: '16px' }}>
+                <p style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '8px' }}>
+                  lineStyle=&quot;{lineStyle}&quot;
+                </p>
+                <Divider lineStyle={lineStyle} emphasis="strong" />
+              </div>
+            ))}
+          </section>
+
+          {/* Section 4: Spacing Variants */}
+          <section>
+            <h2
+              style={{
+                marginBottom: '16px',
+                fontSize: '20px',
+                fontWeight: '600',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
+              }}
+            >
+              Spacing Variants
+            </h2>
+            {spacingValues.map((spacing) => (
+              <div key={spacing} style={{ marginBottom: '24px' }}>
+                <div
+                  style={{
+                    backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                    padding: '8px',
+                    color: 'var(--lufa-semantic-ui-text-primary)',
+                  }}
+                >
+                  spacing=&quot;{spacing}&quot; (above)
+                </div>
+                <Divider spacing={spacing} emphasis="strong" />
+                <div
+                  style={{
+                    backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                    padding: '8px',
+                    color: 'var(--lufa-semantic-ui-text-primary)',
+                  }}
+                >
+                  spacing=&quot;{spacing}&quot; (below)
+                </div>
+              </div>
+            ))}
+          </section>
         </div>
       );
-      await expect(component).toHaveScreenshot('divider-emphasis-levels.png');
-    });
 
-    test('line styles visual snapshot', async ({ mount }) => {
-      const component = await mount(
-        <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          <div>
-            <p>Solid - Strong Emphasis</p>
-            <Divider lineStyle="solid" emphasis="strong" />
-          </div>
-          <div>
-            <p>Dashed - Strong Emphasis</p>
-            <Divider lineStyle="dashed" emphasis="strong" />
-          </div>
-        </div>
-      );
-      await expect(component).toHaveScreenshot('divider-line-styles.png');
-    });
+      // Wait for rendering to stabilize
+      await component.page().waitForTimeout(100);
 
-    test('spacing variants visual snapshot', async ({ mount }) => {
-      const component = await mount(
-        <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', backgroundColor: '#f5f5f5' }}>
-          <div style={{ backgroundColor: '#fff', padding: '8px' }}>Compact Spacing (8px)</div>
-          <Divider spacing="compact" emphasis="strong" />
-          <div style={{ backgroundColor: '#fff', padding: '8px' }}>Content</div>
-
-          <div style={{ backgroundColor: '#fff', padding: '8px', marginTop: '24px' }}>Default Spacing (16px)</div>
-          <Divider spacing="default" emphasis="strong" />
-          <div style={{ backgroundColor: '#fff', padding: '8px' }}>Content</div>
-
-          <div style={{ backgroundColor: '#fff', padding: '8px', marginTop: '24px' }}>Comfortable Spacing (24px)</div>
-          <Divider spacing="comfortable" emphasis="strong" />
-          <div style={{ backgroundColor: '#fff', padding: '8px' }}>Content</div>
-        </div>
-      );
-      await expect(component).toHaveScreenshot('divider-spacing.png');
+      await expect(component).toHaveScreenshot('divider-all-variants.png');
     });
   });
 });

@@ -18,8 +18,8 @@
  * @see .github/instructions/lufa-design-system-playwright-ct.instructions.md
  */
 
-import { expect, test } from '@playwright/experimental-ct-react';
 import AxeBuilder from '@axe-core/playwright';
+import { expect, test } from '@playwright/experimental-ct-react';
 
 import { Icon } from '@grasdouble/lufa_design-system';
 
@@ -490,7 +490,7 @@ test.describe('Icon Component', () => {
   // ============================================
 
   test.describe('Visual Regression', () => {
-    test('should match snapshot for all variants in light mode', async ({ mount }) => {
+    test('should match snapshot for all variants', async ({ mount }) => {
       const sizeValues = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
       const colorValues = [
         'currentColor',
@@ -508,7 +508,7 @@ test.describe('Icon Component', () => {
         <div
           style={{
             padding: '32px',
-            background: '#ffffff',
+            background: 'var(--lufa-semantic-ui-background-page)',
             width: '800px',
           }}
         >
@@ -517,7 +517,7 @@ test.describe('Icon Component', () => {
               marginBottom: '24px',
               fontSize: '28px',
               fontWeight: 'bold',
-              color: '#333',
+              color: 'var(--lufa-semantic-ui-text-primary)',
             }}
           >
             Icon Component - All Variants
@@ -530,7 +530,7 @@ test.describe('Icon Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Size Values
@@ -538,7 +538,14 @@ test.describe('Icon Component', () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
               {sizeValues.map((value) => (
                 <div key={value} style={{ textAlign: 'center' }}>
-                  <div style={{ marginBottom: '8px', fontSize: '12px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     size=&quot;{value}&quot;
                   </div>
                   <Icon name="star" size={value} />
@@ -554,7 +561,7 @@ test.describe('Icon Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Color Values
@@ -568,7 +575,14 @@ test.describe('Icon Component', () => {
             >
               {colorValues.map((value) => (
                 <div key={value} style={{ textAlign: 'center' }}>
-                  <div style={{ marginBottom: '8px', fontSize: '12px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     color=&quot;{value}&quot;
                   </div>
                   <Icon name="heart" size="lg" color={value} />
@@ -584,7 +598,7 @@ test.describe('Icon Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Icon Samples
@@ -592,7 +606,14 @@ test.describe('Icon Component', () => {
             <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
               {iconSamples.map((iconName) => (
                 <div key={iconName} style={{ textAlign: 'center' }}>
-                  <div style={{ marginBottom: '8px', fontSize: '12px', fontWeight: '600', color: '#666' }}>
+                  <div
+                    style={{
+                      marginBottom: '8px',
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'var(--lufa-semantic-ui-text-secondary)',
+                    }}
+                  >
                     {iconName}
                   </div>
                   <Icon name={iconName} size="lg" />
@@ -608,7 +629,7 @@ test.describe('Icon Component', () => {
                 marginBottom: '16px',
                 fontSize: '20px',
                 fontWeight: '600',
-                color: '#555',
+                color: 'var(--lufa-semantic-ui-text-secondary)',
               }}
             >
               Real-World Usage
@@ -681,146 +702,11 @@ test.describe('Icon Component', () => {
         </div>
       );
 
-      // Wait for rendering to stabilize
-      await component.page().waitForTimeout(100);
+      // Wait for fonts to load and rendering to stabilize
+      await component.page().evaluate(() => document.fonts.ready);
+      await component.page().waitForTimeout(500);
 
-      await expect(component).toHaveScreenshot('icon-all-variants-light.png');
-    });
-
-    test('should match snapshot for all variants in dark mode', async ({ mount, page }) => {
-      // Set dark mode on document root BEFORE mounting
-      await page.evaluate(() => document.documentElement.setAttribute('data-mode', 'dark'));
-
-      const sizeValues = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
-      const colorValues = ['currentColor', 'primary', 'secondary', 'success', 'error', 'warning', 'info'] as const;
-
-      const component = await mount(
-        <div
-          style={{
-            padding: '32px',
-            width: '800px',
-            background: 'var(--lufa-token-color-background-page)',
-          }}
-        >
-          <h1
-            style={{
-              marginBottom: '24px',
-              fontSize: '28px',
-              fontWeight: 'bold',
-              color: 'var(--lufa-token-color-text-primary)',
-            }}
-          >
-            Icon Component - All Variants (Dark Mode)
-          </h1>
-
-          {/* Section 1: Size Values */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Size Values
-            </h2>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-              {sizeValues.map((value) => (
-                <div key={value} style={{ textAlign: 'center' }}>
-                  <div
-                    style={{
-                      marginBottom: '8px',
-                      fontSize: '12px',
-                      fontWeight: '600',
-                      color: 'var(--lufa-token-color-text-tertiary)',
-                    }}
-                  >
-                    size=&quot;{value}&quot;
-                  </div>
-                  <Icon name="star" size={value} />
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 2: Color Values */}
-          <section style={{ marginBottom: '40px' }}>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Color Values
-            </h2>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr)',
-                gap: '16px',
-              }}
-            >
-              {colorValues.map((value) => (
-                <div key={value} style={{ textAlign: 'center' }}>
-                  <div
-                    style={{
-                      marginBottom: '8px',
-                      fontSize: '12px',
-                      fontWeight: '600',
-                      color: 'var(--lufa-token-color-text-tertiary)',
-                    }}
-                  >
-                    color=&quot;{value}&quot;
-                  </div>
-                  <Icon name="heart" size="lg" color={value} />
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Section 3: Real-World Usage */}
-          <section>
-            <h2
-              style={{
-                marginBottom: '16px',
-                fontSize: '20px',
-                fontWeight: '600',
-                color: 'var(--lufa-token-color-text-secondary)',
-              }}
-            >
-              Real-World Usage
-            </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {/* Status message */}
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '12px 16px',
-                  background: 'var(--lufa-token-color-background-success)',
-                  border: '1px solid var(--lufa-token-color-border-success)',
-                  borderRadius: '6px',
-                }}
-              >
-                <Icon name="check-circle" size="md" color="success" />
-                <span style={{ color: 'var(--lufa-token-color-text-success)' }}>Success message</span>
-              </div>
-            </div>
-          </section>
-        </div>
-      );
-
-      // Wait for rendering to stabilize
-      await component.page().waitForTimeout(100);
-
-      await expect(component).toHaveScreenshot('icon-all-variants-dark.png');
-
-      // Clean up: remove dark mode to avoid affecting other tests
-      await page.evaluate(() => document.documentElement.removeAttribute('data-mode'));
+      await expect(component).toHaveScreenshot('icon-all-variants.png');
     });
   });
 });

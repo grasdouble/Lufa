@@ -37,7 +37,9 @@ Themes are applied using the `data-color-theme` attribute on any parent element 
 ```html
 <!-- Matrix theme in dark mode -->
 <html data-color-theme="matrix" data-mode="dark">
-  <body>...</body>
+  <body>
+    ...
+  </body>
 </html>
 
 <!-- Sunset theme in light mode -->
@@ -52,18 +54,18 @@ Themes are applied using the `data-color-theme` attribute on any parent element 
 
 Every theme includes a full set of **31 adaptive tokens** (Neutral, Brand, Semantic) for Light, Dark, and High Contrast modes.
 
-| Theme | Personality | Key Colors |
-| :--- | :--- | :--- |
-| **Default** | Balanced & professional | Blue 600, Gray 50-900 |
-| **Ocean** 🌊 | Smooth, flowing, marine | Cyan 600, Teal 500, Deep Deep Blue |
-| **Forest** 🌲 | Organic, grounded, natural | Emerald 600, Green 600, Dark Forest |
-| **Matrix** 💾 | Digital, cyber, cinematic | Neon Green, Mid-tone Green, Deep Black |
-| **Cyberpunk** 🎆 | Futuristic, neon, night-city | Fuchsia, Electric Cyan, Purple |
-| **Sunset** 🌅 | Warm, elegant, calm | Orange 600, Rose 500, Amber |
-| **Nordic** ❄️ | Minimalist, arctic, clean | Sky 500, Slate Blue, Ice White |
-| **Volcano** 🌋 | Powerful, intense, high-heat | Red 600, Orange 600, Charcoal |
-| **Coffee** ☕ | Retro, vintage, nostalgic | Amber 900, Yellow 800, Parchment |
-| **Volt** ⚡ | Industrial, high-visibility | Lime 400, Pure Black, Steel Gray |
+| Theme            | Personality                  | Key Colors                             |
+| :--------------- | :--------------------------- | :------------------------------------- |
+| **Default**      | Balanced & professional      | Blue 600, Gray 50-900                  |
+| **Ocean** 🌊     | Smooth, flowing, marine      | Cyan 600, Teal 500, Deep Deep Blue     |
+| **Forest** 🌲    | Organic, grounded, natural   | Emerald 600, Green 600, Dark Forest    |
+| **Matrix** 💾    | Digital, cyber, cinematic    | Neon Green, Mid-tone Green, Deep Black |
+| **Cyberpunk** 🎆 | Futuristic, neon, night-city | Fuchsia, Electric Cyan, Purple         |
+| **Sunset** 🌅    | Warm, elegant, calm          | Orange 600, Rose 500, Amber            |
+| **Nordic** ❄️    | Minimalist, arctic, clean    | Sky 500, Slate Blue, Ice White         |
+| **Volcano** 🌋   | Powerful, intense, high-heat | Red 600, Orange 600, Charcoal          |
+| **Coffee** ☕    | Retro, vintage, nostalgic    | Amber 900, Yellow 800, Parchment       |
+| **Volt** ⚡      | Industrial, high-visibility  | Lime 400, Pure Black, Steel Gray       |
 
 ---
 
