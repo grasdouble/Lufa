@@ -53,11 +53,11 @@ jobs:
           build-docusaurus: 'false'
 
       # Step 5: Install Playwright browsers
-      - name: Install Playwright browsers
+      - name: 🎭 Install Playwright browsers
         uses: ./.github/actions/install-playwright
 
       # Step 6: Run Playwright component tests (Chromium only for CI speed)
-      - name: Run Playwright component tests
+      - name: 🧪 Run Playwright component tests
         id: test
         run: pnpm --filter @grasdouble/lufa_design-system-playwright test-ct
         continue-on-error: true
@@ -65,7 +65,7 @@ jobs:
           CI: true
 
       # Step 6b: Generate test metrics
-      - name: Generate test metrics
+      - name: 📊 Generate test metrics
         if: always()
         id: metrics
         run: |
@@ -88,9 +88,10 @@ jobs:
           # Parse JSON results if available
           if [ -f "test-results/results.json" ]; then
             echo "::group::Parsing JSON results"
-            TOTAL_TESTS=$(jq '[.suites[].specs[]] | length' test-results/results.json 2>/dev/null || echo "0")
-            PASSED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "passed" or .tests[].results[].status == "expected")] | length' test-results/results.json 2>/dev/null || echo "0")
-            FAILED_TESTS=$(jq '[.suites[].specs[] | select(.tests[].results[].status == "failed" or .tests[].results[].status == "timedOut")] | length' test-results/results.json 2>/dev/null || echo "0")
+            # Playwright JSON report uses nested suites, so we need recursive descent to find all specs
+            TOTAL_TESTS=$(jq '[.. | .specs? // empty | .[]] | length' test-results/results.json 2>/dev/null || echo "0")
+            PASSED_TESTS=$(jq '[.. | .specs? // empty | .[] | select(.ok == true)] | length' test-results/results.json 2>/dev/null || echo "0")
+            FAILED_TESTS=$(jq '[.. | .specs? // empty | .[] | select(.ok == false)] | length' test-results/results.json 2>/dev/null || echo "0")
             echo "JSON parsing: total=$TOTAL_TESTS, passed=$PASSED_TESTS, failed=$FAILED_TESTS"
             echo "::endgroup::"
           elif [ -f "test-results/junit.xml" ]; then
@@ -120,16 +121,20 @@ jobs:
           echo "failed_tests=$FAILED_TESTS" >> $GITHUB_OUTPUT
           echo "visual_diffs=$VISUAL_DIFFS" >> $GITHUB_OUTPUT
 
-          if [ "$FAILED_TESTS" -eq "0" ] && [ "$TOTAL_TESTS" -gt "0" ]; then
+          # Determine status: use test step outcome as primary signal, metrics as secondary
+          TEST_OUTCOME="${{ steps.test.outcome }}"
+          if [ "$TEST_OUTCOME" = "success" ] && [ "$FAILED_TESTS" -eq "0" ]; then
             echo "status=success" >> $GITHUB_OUTPUT
-          else
+          elif [ "$FAILED_TESTS" -gt "0" ] || [ "$TEST_OUTCOME" = "failure" ]; then
             echo "status=failure" >> $GITHUB_OUTPUT
+          else
+            echo "status=success" >> $GITHUB_OUTPUT
           fi
 
           echo "::notice::Metrics - Total: $TOTAL_TESTS, Passed: $PASSED_TESTS, Failed: $FAILED_TESTS, Diffs: $VISUAL_DIFFS"
 
       # Step 7: Upload test results on failure
-      - name: Upload test results
+      - name: 📦 Upload test results
         if: always()
         uses: actions/upload-artifact@v6
         with:
@@ -138,7 +143,7 @@ jobs:
           retention-days: 7
 
       # Step 8: Upload Playwright trace on failure
-      - name: Upload Playwright trace
+      - name: 📦 Upload Playwright trace
         if: failure()
         uses: actions/upload-artifact@v6
         with:
@@ -147,7 +152,7 @@ jobs:
           retention-days: 7
 
       # Step 9: Upload HTML report on failure
-      - name: Upload HTML report
+      - name: 📦 Upload HTML report
         if: always()
         uses: actions/upload-artifact@v6
         with:
@@ -156,7 +161,7 @@ jobs:
           retention-days: 7
 
       # Step 10: Upload visual diffs
-      - name: Upload visual diffs
+      - name: 📦 Upload visual diffs
         if: steps.metrics.outputs.visual_diffs != '0'
         uses: actions/upload-artifact@v6
         with:
@@ -165,7 +170,7 @@ jobs:
           retention-days: 14
 
       # Step 10b: Upload baseline snapshots
-      - name: Upload baseline snapshots
+      - name: 📦 Upload baseline snapshots
         if: steps.metrics.outputs.visual_diffs != '0'
         uses: actions/upload-artifact@v6
         with:
@@ -311,7 +316,7 @@ jobs:
 
       # Step 13: Fail if tests failed
       - name: Fail if tests failed
-        if: steps.metrics.outputs.status == 'failure'
+        if: steps.metrics.outputs.status == 'failure' || steps.test.outcome == 'failure'
         run: |
           echo "::error::Component tests failed. Review artifacts and logs for details."
           exit 1
