@@ -105,7 +105,7 @@ jobs:
           echo ""
           echo "🧪 Measuring test execution time..."
           TEST_START=$(date +%s%3N)
-          pnpm --filter @grasdouble/lufa_design-system-playwright test-ct --project=chromium --reporter=list > /tmp/test-output.txt 2>&1 || true
+          pnpm --filter @grasdouble/lufa_design-system-playwright test-ct --reporter=list > /tmp/test-output.txt 2>&1 || true
           TEST_END=$(date +%s%3N)
           TEST_TIME=$((TEST_END - TEST_START))
           TEST_TIME_SEC=$(echo "scale=2; $TEST_TIME / 1000" | bc)

@@ -58,7 +58,7 @@ jobs:
 
       # Step 6: Run Playwright component tests (Chromium only for CI speed)
       - name: Run Playwright component tests
-        run: pnpm --filter @grasdouble/lufa_design-system-playwright test-ct --project=chromium
+        run: pnpm --filter @grasdouble/lufa_design-system-playwright test-ct
         env:
           CI: true
 

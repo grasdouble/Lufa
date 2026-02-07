@@ -44,7 +44,7 @@ jobs:
         id: test
         run: |
           echo "::group::Visual Regression Tests"
-          pnpm --filter @grasdouble/lufa_design-system-playwright test-ct --project=chromium
+          pnpm --filter @grasdouble/lufa_design-system-playwright test-ct
           echo "::endgroup::"
         continue-on-error: true
         env:
