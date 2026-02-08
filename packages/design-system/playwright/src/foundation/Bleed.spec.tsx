@@ -303,9 +303,9 @@ test.describe('Bleed Component', () => {
 
   test.describe('Visual Regression', () => {
     test('should match snapshot for all variants', async ({ mount }) => {
-      const inlineValues: Array<SpacingValue | 'full'> = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 'full'];
+      const inlineValues: (SpacingValue | 'full')[] = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 'full'];
       const blockValues: SpacingValue[] = [0, 4, 8, 12, 16, 24, 32];
-      const commonInlineValues: Array<SpacingValue | 'full'> = [8, 16, 24, 32, 'full'];
+      const commonInlineValues: (SpacingValue | 'full')[] = [8, 16, 24, 32, 'full'];
 
       const component = await mount(
         <div
@@ -344,6 +344,7 @@ test.describe('Bleed Component', () => {
                 backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                 padding: '24px',
                 border: '2px dashed var(--lufa-semantic-ui-border-default)',
+                overflow: 'hidden',
               }}
             >
               <p style={{ marginBottom: '16px', fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)' }}>
@@ -468,7 +469,7 @@ test.describe('Bleed Component', () => {
             >
               Combined Inline + Block Variants
             </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '48px 24px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '48px 24px' }}>
               {commonInlineValues.map((inlineVal) =>
                 [8, 16, 24].map((blockVal) => {
                   // Create descriptive label
@@ -494,7 +495,7 @@ test.describe('Bleed Component', () => {
                       style={{
                         backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
                         border: '1px solid var(--lufa-semantic-ui-border-default)',
-                        overflow: 'visible',
+                        overflow: 'hidden',
                       }}
                     >
                       <div

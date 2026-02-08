@@ -22,6 +22,10 @@ Layout and structure components that form the building blocks of your UI.
 - **[Grid](/docs/foundation/grid)** - Two-dimensional grid layout primitive
 - **[Container](/docs/foundation/container)** - Max-width centered container for responsive layouts
 - **[Center](/docs/foundation/center)** - Centers content horizontally and vertically
+- **[Divider](/docs/foundation/divider)** - Visual separator for content sections
+- **[AspectRatio](/docs/foundation/aspect-ratio)** - Maintains consistent aspect ratios for media and containers
+- **[Cluster](/docs/foundation/cluster)** - Wrapping layout for collections with intelligent spacing
+- **[Bleed](/docs/foundation/bleed)** - Breaks out of container constraints for full-width content
 
 ### Content
 
@@ -30,7 +34,6 @@ Display components for text, icons, badges, and visual elements.
 - **[Text](/docs/content/text)** - Typography component with semantic variants and accessibility features
 - **[Icon](/docs/content/icon)** - SVG icon wrapper with semantic sizing and colors (Lucide React integration)
 - **[Badge](/docs/content/badge)** - Status and labeling component
-- **[Divider](/docs/content/divider)** - Visual separator for content sections
 
 ### Interaction
 
@@ -131,10 +134,13 @@ function UserCard({ name, email, role }) {
 | Grid           | ✅ Stable | Foundation  | 38    | ✅   | ✅        |
 | Container      | ✅ Stable | Foundation  | 28    | ✅   | ✅        |
 | Center         | ✅ Stable | Foundation  | 14    | ✅   | ✅        |
+| Divider        | ✅ Stable | Foundation  | 74    | ✅   | ✅        |
+| AspectRatio    | ✅ Stable | Foundation  | 28    | ✅   | ✅        |
+| Cluster        | ✅ Stable | Foundation  | 67    | ✅   | ✅        |
+| Bleed          | ✅ Stable | Foundation  | 23    | ✅   | ✅        |
 | Text           | ✅ Stable | Content     | 107   | ✅   | ✅        |
 | Icon           | ✅ Stable | Content     | 106   | ✅   | ✅        |
 | Badge          | ✅ Stable | Content     | 88    | ✅   | ✅        |
-| Divider        | ✅ Stable | Content     | 74    | ✅   | ✅        |
 | Button         | ✅ Stable | Interaction | 94    | ✅   | ✅        |
 | Input          | ✅ Stable | Interaction | 12    | ✅   | ✅        |
 | Label          | ✅ Stable | Interaction | 8     | ✅   | ✅        |
