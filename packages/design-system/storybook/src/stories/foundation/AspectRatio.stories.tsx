@@ -118,7 +118,7 @@ export const PropRatio: Story = {
     ];
 
     const generateCode = (ratio: number): string => {
-      const ratioLabel = ratios.find((r) => r.value === ratio)?.label || ratio.toFixed(4);
+      const ratioLabel = ratios.find((r) => r.value === ratio)?.label ?? ratio.toFixed(4);
       return `<AspectRatio ratio={${ratio === 1 ? '1' : ratio.toFixed(4)}}>
   <img src="image.jpg" alt="${ratioLabel} image" />
 </AspectRatio>`;
@@ -714,7 +714,7 @@ export const Playground: Story = {
                   }}
                 >
                   <div>Ratio: {args.ratio?.toFixed(4)}</div>
-                  <div style={{ fontSize: '12px', opacity: 0.9 }}>Element: &lt;{args.as || 'div'}&gt;</div>
+                  <div style={{ fontSize: '12px', opacity: 0.9 }}>Element: &lt;{args.as ?? 'div'}&gt;</div>
                 </div>
               </AspectRatio>
             </div>

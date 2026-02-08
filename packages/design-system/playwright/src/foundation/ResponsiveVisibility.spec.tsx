@@ -22,7 +22,7 @@ test.describe('Responsive Visibility Pattern', () => {
 
   test.describe('hideFrom prop', () => {
     test('hideFrom="md" hides element on medium screens and up', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box hideFrom="md" data-testid="test-box">
           Hidden from md and up
         </Box>
@@ -44,7 +44,7 @@ test.describe('Responsive Visibility Pattern', () => {
     });
 
     test('hideFrom="lg" hides element on large screens and up', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box hideFrom="lg" data-testid="test-box">
           Hidden from lg and up
         </Box>
@@ -66,7 +66,7 @@ test.describe('Responsive Visibility Pattern', () => {
     });
 
     test('hideFrom="sm" hides element on small screens and up', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box hideFrom="sm" data-testid="test-box">
           Hidden from sm and up
         </Box>
@@ -90,7 +90,7 @@ test.describe('Responsive Visibility Pattern', () => {
 
   test.describe('showFrom prop', () => {
     test('showFrom="md" shows element only on medium screens and up', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box showFrom="md" data-testid="test-box">
           Visible from md and up
         </Box>
@@ -112,7 +112,7 @@ test.describe('Responsive Visibility Pattern', () => {
     });
 
     test('showFrom="lg" shows element only on large screens and up', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box showFrom="lg" data-testid="test-box">
           Visible from lg and up
         </Box>
@@ -140,8 +140,8 @@ test.describe('Responsive Visibility Pattern', () => {
 
   test.describe('show and hide boolean props', () => {
     test('hide={true} hides element', async ({ mount, page }) => {
-      const component = await mount(
-        <Box hide={true} data-testid="test-box">
+      await mount(
+        <Box hide data-testid="test-box">
           Always hidden
         </Box>
       );
@@ -157,7 +157,7 @@ test.describe('Responsive Visibility Pattern', () => {
     });
 
     test('show={false} hides element', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box show={false} data-testid="test-box">
           Always hidden
         </Box>
@@ -174,8 +174,8 @@ test.describe('Responsive Visibility Pattern', () => {
     });
 
     test('show={true} shows element', async ({ mount, page }) => {
-      const component = await mount(
-        <Box show={true} data-testid="test-box">
+      await mount(
+        <Box show data-testid="test-box">
           Always visible
         </Box>
       );
@@ -197,7 +197,7 @@ test.describe('Responsive Visibility Pattern', () => {
 
   test.describe('responsive object syntax', () => {
     test('show={{ base: true, md: false }} - visible on mobile, hidden on desktop', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box show={{ base: true, md: false }} data-testid="test-box">
           Mobile only
         </Box>
@@ -219,7 +219,7 @@ test.describe('Responsive Visibility Pattern', () => {
     });
 
     test('show={{ base: false, md: true }} - hidden on mobile, visible on desktop', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box show={{ base: false, md: true }} data-testid="test-box">
           Desktop only
         </Box>
@@ -241,7 +241,7 @@ test.describe('Responsive Visibility Pattern', () => {
     });
 
     test('hide={{ base: false, md: true }} - visible on mobile, hidden on desktop', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box hide={{ base: false, md: true }} data-testid="test-box">
           Mobile only (hide syntax)
         </Box>
@@ -259,7 +259,7 @@ test.describe('Responsive Visibility Pattern', () => {
     });
 
     test('show={{ base: true, md: false, lg: true }} - complex responsive pattern', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box show={{ base: true, md: false, lg: true }} data-testid="test-box">
           Complex visibility
         </Box>
@@ -287,7 +287,7 @@ test.describe('Responsive Visibility Pattern', () => {
 
   test.describe('viewport resize behavior', () => {
     test('element visibility updates smoothly when viewport is resized', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box hideFrom="md" data-testid="test-box">
           Responsive content
         </Box>
@@ -344,7 +344,7 @@ test.describe('Responsive Visibility Pattern', () => {
 
     test('hide={true} applies lufa-hide class', async ({ mount }) => {
       const component = await mount(
-        <Box hide={true} data-testid="test-box">
+        <Box hide data-testid="test-box">
           Content
         </Box>
       );
@@ -359,7 +359,7 @@ test.describe('Responsive Visibility Pattern', () => {
 
   test.describe('integration with other Box props', () => {
     test('responsive visibility works with padding props', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box hideFrom="md" padding="default" data-testid="test-box">
           Padded content
         </Box>
@@ -378,7 +378,7 @@ test.describe('Responsive Visibility Pattern', () => {
     });
 
     test('responsive visibility works with background props', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box showFrom="md" background="surface" data-testid="test-box">
           Styled content
         </Box>
@@ -399,7 +399,7 @@ test.describe('Responsive Visibility Pattern', () => {
     });
 
     test('responsive visibility works with custom className', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <Box hideFrom="md" className="custom-class" data-testid="test-box">
           Custom styled content
         </Box>
@@ -427,7 +427,7 @@ test.describe('Responsive Visibility Pattern', () => {
 
   test.describe('real-world use cases', () => {
     test('responsive navigation pattern', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <div>
           {/* Desktop navigation */}
           <Box showFrom="md" data-testid="desktop-nav">
@@ -456,7 +456,7 @@ test.describe('Responsive Visibility Pattern', () => {
     });
 
     test('progressive enhancement pattern', async ({ mount, page }) => {
-      const component = await mount(
+      await mount(
         <div>
           <Box data-testid="base-feature">Base Feature</Box>
           <Box showFrom="md" data-testid="enhanced-feature">

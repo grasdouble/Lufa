@@ -93,7 +93,7 @@ test.describe('AspectRatio Component', () => {
 
   test.describe('Custom Ratio Values', () => {
     test('renders custom ratio with inline style', async ({ mount, page }) => {
-      const component = await mount(<AspectRatio ratio={2.5} data-testid="aspect-ratio" />);
+      await mount(<AspectRatio ratio={2.5} data-testid="aspect-ratio" />);
       const element = page.getByTestId('aspect-ratio');
 
       // Custom ratios should have inline style with CSS variable
@@ -103,7 +103,7 @@ test.describe('AspectRatio Component', () => {
 
     test('custom ratio calculates correct padding', async ({ mount, page }) => {
       // For ratio 2.5 (5:2), padding should be (1/2.5) * 100 = 40%
-      const component = await mount(<AspectRatio ratio={2.5} data-testid="aspect-ratio" />);
+      await mount(<AspectRatio ratio={2.5} data-testid="aspect-ratio" />);
       const element = page.getByTestId('aspect-ratio');
 
       const style = await element.getAttribute('style');

@@ -77,8 +77,9 @@ export type BleedProps<T extends ElementType = 'div'> = {
    * Horizontal bleed (inline axis)
    * - Numeric values use negative margins with spacing tokens
    * - "full" uses 100vw technique to bleed to viewport edges
+   * @default undefined
    */
-  inline: InlineValue;
+  inline?: InlineValue;
 
   /**
    * Vertical bleed (block axis)

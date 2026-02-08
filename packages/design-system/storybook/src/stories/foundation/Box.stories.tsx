@@ -1489,9 +1489,7 @@ export const ResponsiveVisibility: Story = {
                   }}
                 >
                   📱 Mobile/Small only
-                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>
-                    Visible: &lt; 768px
-                  </div>
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: &lt; 768px</div>
                 </Box>
               </PropCard>
 
@@ -1509,9 +1507,7 @@ export const ResponsiveVisibility: Story = {
                   }}
                 >
                   📱📟 Mobile/Tablet only
-                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>
-                    Visible: &lt; 1024px
-                  </div>
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: &lt; 1024px</div>
                 </Box>
               </PropCard>
 
@@ -1529,9 +1525,7 @@ export const ResponsiveVisibility: Story = {
                   }}
                 >
                   📱 Tiny screens only
-                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>
-                    Visible: &lt; 640px
-                  </div>
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: &lt; 640px</div>
                 </Box>
               </PropCard>
             </div>
@@ -1573,9 +1567,7 @@ export const ResponsiveVisibility: Story = {
                   }}
                 >
                   💻 Tablet+ only
-                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>
-                    Visible: ≥ 768px
-                  </div>
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: ≥ 768px</div>
                 </Box>
               </PropCard>
 
@@ -1593,9 +1585,7 @@ export const ResponsiveVisibility: Story = {
                   }}
                 >
                   💻 Desktop+ only
-                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>
-                    Visible: ≥ 1024px
-                  </div>
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: ≥ 1024px</div>
                 </Box>
               </PropCard>
 
@@ -1613,9 +1603,7 @@ export const ResponsiveVisibility: Story = {
                   }}
                 >
                   🖥️ Large desktop+ only
-                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>
-                    Visible: ≥ 1280px
-                  </div>
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: ≥ 1280px</div>
                 </Box>
               </PropCard>
             </div>
@@ -1649,7 +1637,7 @@ export const ResponsiveVisibility: Story = {
                   padding="comfortable"
                   borderRadius="default"
                   style={{
-                    backgroundColor: STORY_COLORS.neutral.backgroundDark,
+                    backgroundColor: STORY_COLORS.neutral.backgroundDark as string,
                     color: 'white',
                     textAlign: 'center',
                     fontWeight: 600,
@@ -1667,7 +1655,7 @@ export const ResponsiveVisibility: Story = {
                   padding="comfortable"
                   borderRadius="default"
                   style={{
-                    backgroundColor: STORY_COLORS.neutral.backgroundDark,
+                    backgroundColor: STORY_COLORS.neutral.backgroundDark as string,
                     color: 'white',
                     display: 'flex',
                     gap: '24px',
@@ -1726,9 +1714,7 @@ export const ResponsiveVisibility: Story = {
                   }}
                 >
                   📱 Show on mobile
-                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>
-                    (hide on tablet+)
-                  </div>
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>(hide on tablet+)</div>
                 </Box>
               </PropCard>
 
@@ -1746,9 +1732,7 @@ export const ResponsiveVisibility: Story = {
                   }}
                 >
                   💻 Show on tablet+
-                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>
-                    (hide on mobile)
-                  </div>
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>(hide on mobile)</div>
                 </Box>
               </PropCard>
 
@@ -1766,9 +1750,7 @@ export const ResponsiveVisibility: Story = {
                   }}
                 >
                   📱💻 Mobile + Desktop
-                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>
-                    (hide on tablet)
-                  </div>
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>(hide on tablet)</div>
                 </Box>
               </PropCard>
             </div>
@@ -1797,22 +1779,29 @@ export const ResponsiveVisibility: Story = {
           </div>
 
           {/* Breakpoint reference */}
-          <Box
-            padding="comfortable"
-            background="surface"
-            borderWidth="thin"
-            borderRadius="default"
-          >
+          <Box padding="comfortable" background="surface" borderWidth="thin" borderRadius="default">
             <h4 style={{ marginTop: 0, marginBottom: '12px', fontSize: '16px', fontWeight: 600 }}>
               📐 Breakpoint Reference
             </h4>
             <div style={{ fontSize: '14px', lineHeight: '1.8' }}>
-              <div><strong>xs</strong>: 320px (mobile portrait)</div>
-              <div><strong>sm</strong>: 640px (mobile landscape)</div>
-              <div><strong>md</strong>: 768px (tablet portrait)</div>
-              <div><strong>lg</strong>: 1024px (tablet landscape / desktop)</div>
-              <div><strong>xl</strong>: 1280px (desktop)</div>
-              <div><strong>2xl</strong>: 1536px (large desktop)</div>
+              <div>
+                <strong>xs</strong>: 320px (mobile portrait)
+              </div>
+              <div>
+                <strong>sm</strong>: 640px (mobile landscape)
+              </div>
+              <div>
+                <strong>md</strong>: 768px (tablet portrait)
+              </div>
+              <div>
+                <strong>lg</strong>: 1024px (tablet landscape / desktop)
+              </div>
+              <div>
+                <strong>xl</strong>: 1280px (desktop)
+              </div>
+              <div>
+                <strong>2xl</strong>: 1536px (large desktop)
+              </div>
             </div>
           </Box>
         </div>

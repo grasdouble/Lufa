@@ -59,7 +59,7 @@ export type ResponsiveValue<T> =
 /**
  * Props for responsive visibility control
  */
-export interface ResponsiveVisibilityProps {
+export type ResponsiveVisibilityProps = {
   /**
    * Control element visibility at different breakpoints
    *
@@ -109,7 +109,7 @@ export interface ResponsiveVisibilityProps {
    * ```
    */
   showFrom?: Breakpoint;
-}
+};
 
 /**
  * Check if a responsive value is a simple value or responsive object

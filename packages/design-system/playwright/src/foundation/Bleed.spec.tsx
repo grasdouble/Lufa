@@ -78,7 +78,7 @@ test.describe('Bleed Component', () => {
     });
 
     test('supports multiple inline numeric values', async ({ mount }) => {
-      const values = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96];
+      const values: SpacingValue[] = [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96];
 
       const component = await mount(
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -113,7 +113,7 @@ test.describe('Bleed Component', () => {
     });
 
     test('supports multiple block numeric values', async ({ mount }) => {
-      const values = [0, 4, 8, 12, 16, 24, 32];
+      const values: SpacingValue[] = [0, 4, 8, 12, 16, 24, 32];
 
       const component = await mount(
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -539,7 +539,7 @@ test.describe('Bleed Component', () => {
                         >
                           Content above
                         </div>
-                        <Bleed inline={inlineVal} block={blockVal}>
+                        <Bleed inline={inlineVal} block={blockVal as SpacingValue}>
                           <div
                             style={{
                               backgroundColor: 'var(--lufa-semantic-ui-background-info)',

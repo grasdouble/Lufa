@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react';
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
@@ -94,7 +95,7 @@ export const Playground: Story = {
     block: undefined,
     children: 'Bleeding content',
   },
-  render: (args) => (
+  render: (args: ComponentProps<typeof Bleed>) => (
     <StoryContainer>
       <Container
         size="md"
@@ -104,7 +105,9 @@ export const Playground: Story = {
           border: `2px dashed ${STORY_COLORS.primary.blue.main}`,
         }}
       >
-        <div style={{ marginBottom: '16px', color: NEUTRAL.textSecondary }}>Container boundary (constrained)</div>
+        <div style={{ marginBottom: '16px', color: NEUTRAL.textSecondary as string }}>
+          Container boundary (constrained)
+        </div>
         <Bleed {...args}>
           <div
             style={{
@@ -148,8 +151,8 @@ export const PropInline: Story = {
                       border: '1px dashed #ccc',
                     }}
                   >
-                    <p style={{ fontSize: '12px', marginBottom: '8px', color: NEUTRAL.textSecondary }}>
-                      inline={value}
+                    <p style={{ fontSize: '12px', marginBottom: '8px', color: NEUTRAL.textSecondary as string }}>
+                      inline={String(value)}
                     </p>
                     <Bleed inline={value}>
                       <div
@@ -180,7 +183,9 @@ export const PropInline: Story = {
                   border: '1px dashed #ccc',
                 }}
               >
-                <p style={{ fontSize: '12px', marginBottom: '8px', color: NEUTRAL.textSecondary }}>inline="full"</p>
+                <p style={{ fontSize: '12px', marginBottom: '8px', color: NEUTRAL.textSecondary as string }}>
+                  inline="full"
+                </p>
                 <Bleed inline="full">
                   <div
                     style={{
@@ -386,7 +391,7 @@ export const UseCaseMarketing: Story = {
               {/* Hero Section */}
               <div style={{ padding: '32px', backgroundColor: 'white' }}>
                 <h1 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '16px' }}>Product Title</h1>
-                <p style={{ fontSize: '18px', color: NEUTRAL.textSecondary }}>
+                <p style={{ fontSize: '18px', color: NEUTRAL.textSecondary as string }}>
                   Transform your workflow with our amazing product
                 </p>
               </div>
