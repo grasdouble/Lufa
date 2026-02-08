@@ -1,13 +1,15 @@
 ---
-name: 'step-08-complete'
+name: 'step-07-complete'
 description: 'Finalize, offer to run validation'
 
 buildTrackingFile: '{bmb_creations_output_folder}/modules/module-build-{module_code}.md'
 targetLocation: '{build_tracking_targetLocation}'
+moduleHelpGenerateWorkflow: '../module-help-generate.md'
 validationWorkflow: '../steps-v/step-01-validate.md'
+moduleHelpCsvFile: '{build_tracking_targetLocation}/module-help.csv'
 ---
 
-# Step 8: Complete
+# Step 7: Complete
 
 ## STEP GOAL:
 
@@ -30,7 +32,36 @@ Finalize the module build, update tracking, and offer to run validation.
 
 ## MANDATORY SEQUENCE
 
-### 1. Final Build Summary
+### 1. Generate module-help.csv
+
+"**🎯 Generating module-help.csv...**"
+
+Load and execute the module-help-generate workflow:
+
+```
+{moduleHelpGenerateWorkflow}
+```
+
+**Set these variables before loading:**
+
+- `modulePath: {targetLocation}`
+- `moduleYamlFile: {targetLocation}/module.yaml`
+- `moduleHelpCsvFile: {targetLocation}/module-help.csv`
+- `workflowsDir: {targetLocation}/workflows`
+- `agentsDir: {targetLocation}/agents`
+
+**What this does:**
+
+- Scans all workflows in `{workflowsDir}/`
+- Scans all agents in `{agentsDir}/`
+- Generates `{moduleHelpCsvFile}` with proper structure:
+  - `anytime` entries at top (no sequence)
+  - Phased entries below (phase-1, phase-2, etc.)
+  - Agent-only entries have empty `workflow-file`
+
+**Wait for workflow completion** before proceeding.
+
+### 2. Final Build Summary
 
 "**🎉 Module structure build complete!**"
 
@@ -40,26 +71,36 @@ Finalize the module build, update tracking, and offer to run validation.
 
 **What was created:**
 
-| Component | Count | Location |
-|-----------|-------|----------|
-| Agent specs | {count} | agents/ |
-| Workflow specs | {count} | workflows/ |
-| Configuration | 1 | module.yaml |
-| Documentation | 2 | README.md, TODO.md |
-| Installer | {yes/no} | _module-installer/ |
+| Component      | Count   | Location           |
+| -------------- | ------- | ------------------ |
+| Agent specs    | {count} | agents/            |
+| Workflow specs | {count} | workflows/         |
+| Configuration  | 1       | module.yaml        |
+| Help Registry  | 1       | module-help.csv    |
+| Documentation  | 2       | README.md, TODO.md |
 
-### 2. Update Build Tracking
+### 3. Update Build Tracking
 
 Update `{buildTrackingFile}`:
+
 ```yaml
 ---
-moduleCode: {module_code}
-moduleName: {name}
-moduleType: {type}
-targetLocation: {location}
-stepsCompleted: ['step-01-load-brief', 'step-02-structure', 'step-03-config', 'step-04-installer', 'step-05-agents', 'step-06-workflows', 'step-07-docs', 'step-08-complete']
-created: {created_date}
-completed: {date}
+moduleCode: { module_code }
+moduleName: { name }
+moduleType: { type }
+targetLocation: { location }
+stepsCompleted:
+  [
+    'step-01-load-brief',
+    'step-02-structure',
+    'step-03-config',
+    'step-04-agents',
+    'step-05-workflows',
+    'step-06-docs',
+    'step-07-complete',
+  ]
+created: { created_date }
+completed: { date }
 status: COMPLETE
 ---
 ```
@@ -79,6 +120,7 @@ status: COMPLETE
 "**Would you like to run validation on the module structure?**"
 
 Validation checks:
+
 - File structure compliance
 - module.yaml correctness
 - Spec completeness
@@ -107,6 +149,7 @@ Validation checks:
 "**Status:** Ready for agent and workflow implementation"
 
 "**The journey from idea to installable module continues:**
+
 - Agent specs → create-agent workflow
 - Workflow specs → create-workflow workflow
 - Full module → `bmad install`
@@ -117,6 +160,7 @@ Validation checks:
 
 ## Success Metrics
 
+✅ module-help.csv generated at module root
 ✅ Build tracking marked COMPLETE
 ✅ Summary presented to user
 ✅ Next steps clearly explained

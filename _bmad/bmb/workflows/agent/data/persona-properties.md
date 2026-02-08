@@ -1,29 +1,29 @@
 # Persona Properties
 
-The four-field persona system for agent personality.
+Four-field system for agent personality definition.
 
 ---
 
-## Four-Field System
+## Field Overview
 
-Each field serves a DISTINCT purpose when the compiled agent LLM reads them:
+| Field                 | Purpose          | Content                         |
+| --------------------- | ---------------- | ------------------------------- |
+| `role`                | WHAT agent does  | Capabilities, skills, expertise |
+| `identity`            | WHO agent is     | Background, experience, context |
+| `communication_style` | HOW agent talks  | Verbal patterns, tone, voice    |
+| `principles`          | GUIDES decisions | Beliefs, operating philosophy   |
 
-| Field | Purpose | What LLM Interprets |
-|-------|---------|---------------------|
-| `role` | WHAT the agent does | Capabilities, skills, expertise |
-| `identity` | WHO the agent is | Background, experience, context |
-| `communication_style` | HOW the agent talks | Verbal patterns, tone, voice |
-| `principles` | WHAT GUIDES decisions | Beliefs, operating philosophy |
-
-**Critical:** Keep fields SEPARATE. Do not blur purposes.
+**Rule:** Keep fields SEPARATE. Do not blur purposes.
 
 ---
 
 ## role
 
-**Purpose:** What the agent does - knowledge, skills, capabilities.
+**Purpose:** What the agent does - knowledge, skills, capabilities
 
 **Format:** 1-2 lines, professional title or capability description
+
+**MUST NOT:** Background, experience, speech patterns, beliefs
 
 ```yaml
 # ✅ CORRECT
@@ -47,9 +47,11 @@ role: |
 
 ## identity
 
-**Purpose:** Who the agent is - background, experience, context, flair and personality.
+**Purpose:** Who the agent is - background, experience, context, personality
 
 **Format:** 2-5 lines establishing credibility
+
+**MUST NOT:** Capabilities, speech patterns, beliefs
 
 ```yaml
 # ✅ CORRECT
@@ -71,9 +73,11 @@ identity: |
 
 ## communication_style
 
-**Purpose:** HOW the agent talks - verbal patterns, word choice, mannerisms.
+**Purpose:** HOW the agent talks - verbal patterns, word choice, mannerisms
 
 **Format:** 1-2 sentences MAX describing speech patterns only
+
+**MUST NOT:** Capabilities, background, beliefs, behavioral words
 
 ```yaml
 # ✅ CORRECT
@@ -100,15 +104,19 @@ communication_style: |
   Analyzes data while speaking...  # "analyzes" = role
 ```
 
-**Purity Test:** Reading aloud, it should sound like describing someone's VOICE, not what they do or who they are.
+**Purity Test:** Reading aloud, should describe VOICE only.
+
+**Forbidden words:** ensures, makes sure, always, never, experienced, expert who, senior, seasoned, believes in, focused on, committed to, who does X, that does Y
 
 ---
 
 ## principles
 
-**Purpose:** What guides decisions - beliefs, operating philosophy, behavioral guidelines.
+**Purpose:** What guides decisions - beliefs, operating philosophy, behavioral guidelines
 
 **Format:** 3-8 bullet points or short statements
+
+**MUST NOT:** Capabilities, background, speech patterns
 
 ```yaml
 # ✅ CORRECT
@@ -132,41 +140,23 @@ principles:
 
 ---
 
-## Field Separation Checklist
+## Field Separation Matrix
 
-Use this to verify purity - each field should ONLY contain its designated content:
-
-| Field | MUST NOT Contain |
-|-------|------------------|
-| `role` | Background, experience, speech patterns, beliefs |
-| `identity` | Capabilities, speech patterns, beliefs |
+| Field                 | MUST NOT Contain                                    |
+| --------------------- | --------------------------------------------------- |
+| `role`                | Background, experience, speech patterns, beliefs    |
+| `identity`            | Capabilities, speech patterns, beliefs              |
 | `communication_style` | Capabilities, background, beliefs, behavioral words |
-| `principles` | Capabilities, background, speech patterns |
-
-**Forbidden words in `communication_style`:**
-- "ensures", "makes sure", "always", "never"
-- "experienced", "expert who", "senior", "seasoned"
-- "believes in", "focused on", "committed to"
-- "who does X", "that does Y"
+| `principles`          | Capabilities, background, speech patterns           |
 
 ---
 
-## Reading Aloud Test
+## Common Anti-Patterns
 
-For `communication_style`, read it aloud and ask:
-
-- Does this describe someone's VOICE? ✅
-- Does this describe what they DO? ❌ (belongs in role)
-- Does this describe who they ARE? ❌ (belongs in identity)
-- Does this describe what they BELIEVE? ❌ (belongs in principles)
-
----
-
-## Common Issues
-
-### Issue: Communication Style Soup
+### Communication Style Soup
 
 **Wrong:** Everything mixed into communication_style
+
 ```yaml
 communication_style: |
   Experienced senior consultant who ensures stakeholders are heard,
@@ -175,6 +165,7 @@ communication_style: |
 ```
 
 **Fix:** Separate into proper fields
+
 ```yaml
 role: |
   Business analyst specializing in data analysis and stakeholder alignment.
@@ -190,9 +181,10 @@ principles:
   - Collaborative approaches yield better outcomes
 ```
 
-### Issue: Role Contains Everything
+### Role as Catch-All
 
-**Wrong:** Role as a catch-all
+**Wrong:** Role contains everything
+
 ```yaml
 role: |
   I am an experienced analyst who speaks like a data scientist,
@@ -201,6 +193,7 @@ role: |
 ```
 
 **Fix:** Distribute to proper fields
+
 ```yaml
 role: |
   Data analyst specializing in business intelligence and insights.
@@ -216,15 +209,17 @@ principles:
   - Clarity over complexity
 ```
 
-### Issue: Identity Missing
+### Missing Identity
 
-**Wrong:** No identity field
+**Wrong:** No identity field, background stuffed in role
+
 ```yaml
 role: |
   Senior analyst with 8+ years of experience...
 ```
 
 **Fix:** Move background to identity
+
 ```yaml
 role: |
   Strategic Business Analyst + Requirements Expert.
