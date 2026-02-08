@@ -9,7 +9,7 @@ describe('Token Map Validation', () => {
       version: 1,
       generatedAt: '2026-01-04',
       css: { '--lufa-core-color-brand-500': 'oklch(50% 0.1 200)' },
-      paths: { 'primitives.color.chromatic.blue[500]': 'oklch(60% 0.15 250)' },
+      paths: { 'primitive.color.blue.500': 'oklch(60% 0.15 250)' },
     };
 
     expect(isValidMap(validMap)).toBe(true);
@@ -62,7 +62,7 @@ describe('Token Map Validation', () => {
 
 describe('Packaged Map Paths', () => {
   it('should return null when extension root is missing', () => {
-    const path = getEmbeddedMapPath(null, 'primitives.map.json', () => true);
+    const path = getEmbeddedMapPath(null, 'tokens.map.json', () => true);
     expect(path).toBeNull();
   });
 

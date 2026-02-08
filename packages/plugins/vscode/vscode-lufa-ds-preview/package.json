@@ -37,10 +37,6 @@
           "type": "object",
           "description": "Configuration for Lufa DS Preview.",
           "properties": {
-            "primitivesMapPath": {
-              "type": "string",
-              "description": "Optional: Path to the primitives map JSON (relative to workspace root or absolute). If not set, the packaged primitives map is used."
-            },
             "tokensMapPath": {
               "type": "string",
               "description": "Optional: Path to the tokens map JSON (relative to workspace root or absolute). If not set, the packaged tokens map is used."
@@ -90,7 +86,7 @@
     "vitest": "^4.0.18"
   },
   "engines": {
-    "vscode": "^1.90.0"
+    "vscode": "^1.108.0"
   },
   "publishConfig": {
     "access": "public",

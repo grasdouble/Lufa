@@ -46,23 +46,15 @@ vi.mock('node:fs', () => ({
   statSync: vi.fn(),
 }));
 
-const primitivesMap = {
-  version: 1,
+const tokensMap = {
+  version: 3,
   generatedAt: '2026-01-04',
   css: {
     '--lufa-primitive-color-primary': 'rgb(255 0 0)',
-  },
-  paths: {
-    'primitives.color.chromatic.red[500]': 'rgb(255 0 0)',
-  },
-};
-
-const tokensMap = {
-  version: 3,
-  css: {
     '--lufa-core-color-accent-500': 'rgb(0 255 0)',
   },
   paths: {
+    'primitive.color.red.500': 'rgb(255 0 0)',
     'tokens.color.text.primary': 'rgb(0 0 255)',
   },
 };
@@ -79,27 +71,23 @@ describe('createValuesMapStore', () => {
     vscodeMocks.state.configState.flatConfig = {};
   });
 
-  it('should merge configured primitives and tokens maps', () => {
+  it('should load unified tokens map', () => {
     const logOnce = vi.fn();
     const store = createValuesMapStore(logOnce);
 
     vscodeMocks.state.workspaceFolders.push({ uri: { fsPath: '/repo' } } as WorkspaceFolder);
     vscodeMocks.state.configState.flatConfig = {
-      primitivesMapPath: 'primitives.json',
       tokensMapPath: 'tokens.json',
     };
 
     vi.mocked(existsSync).mockReturnValue(false);
     vi.mocked(statSync).mockImplementation(
-      (path) =>
+      () =>
         ({
-          mtimeMs: String(path).includes('primitives') ? 1 : 2,
+          mtimeMs: 1,
         }) as ReturnType<typeof statSync>
     );
-    vi.mocked(readFileSync).mockImplementation((path) => {
-      if (String(path).includes('primitives')) {
-        return JSON.stringify(primitivesMap);
-      }
+    vi.mocked(readFileSync).mockImplementation(() => {
       return JSON.stringify(tokensMap);
     });
 
@@ -114,7 +102,7 @@ describe('createValuesMapStore', () => {
       '--lufa-core-color-accent-500': 'rgb(0 255 0)',
     });
     expect(map?.paths).toEqual({
-      'primitives.color.chromatic.red[500]': 'rgb(255 0 0)',
+      'primitive.color.red.500': 'rgb(255 0 0)',
       'tokens.color.text.primary': 'rgb(0 0 255)',
     });
   });

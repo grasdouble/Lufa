@@ -1,7 +1,7 @@
-import esbuild from 'esbuild';
 import { copyFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import esbuild from 'esbuild';
 
 const production = process.argv.includes('--production');
 const watch = process.argv.includes('--watch');
@@ -30,32 +30,10 @@ const copyMaps = () => {
   const mapsDir = resolve(packageRoot, 'dist', 'maps');
   const maps = [
     {
-      label: 'primitives',
-      file: 'primitives.map.json',
-      sources: [
-        resolve(
-          packageRoot,
-          'node_modules',
-          '@grasdouble',
-          'lufa_design-system-primitives',
-          'dist',
-          'primitives.map.json'
-        ),
-        resolve(packageRoot, '..', '..', '..', 'design-system', 'primitives', 'dist', 'primitives.map.json'),
-      ],
-    },
-    {
       label: 'tokens',
       file: 'tokens.map.json',
       sources: [
-        resolve(
-          packageRoot,
-          'node_modules',
-          '@grasdouble',
-          'lufa_design-system-tokens',
-          'dist',
-          'tokens.map.json'
-        ),
+        resolve(packageRoot, 'node_modules', '@grasdouble', 'lufa_design-system-tokens', 'dist', 'tokens.map.json'),
         resolve(packageRoot, '..', '..', '..', 'design-system', 'tokens', 'dist', 'tokens.map.json'),
       ],
     },

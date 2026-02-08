@@ -18,6 +18,39 @@ StyleDictionary.registerTransform(shadowCssShorthandCustom);
 StyleDictionary.registerFormat(cssWithMediaQueries);
 
 /**
+ * Custom format: VSCode extension map format
+ * Generates tokens.map.json for the Lufa DS Preview VS Code extension
+ * Format: { version, generatedAt, css: { varName: value }, paths: { tokenPath: value } }
+ */
+StyleDictionary.registerFormat({
+  name: 'json/vscode-map',
+  format: ({ dictionary }) => {
+    const css = {};
+    const paths = {};
+
+    // Process all tokens
+    dictionary.allTokens.forEach((token) => {
+      // Add to paths map (e.g., "primitive.color.blue[500]": "oklch(60% 0.15 250)")
+      const pathKey = token.path.join('.');
+      paths[pathKey] = token.value || token.$value;
+
+      // Add to css map (e.g., "--lufa-primitive-color-blue-500": "oklch(60% 0.15 250)")
+      const cssVarName = `--lufa-${token.path.join('-')}`;
+      css[cssVarName] = token.value || token.$value;
+    });
+
+    const output = {
+      version: 1,
+      generatedAt: new Date().toISOString(),
+      css,
+      paths,
+    };
+
+    return JSON.stringify(output, null, 2);
+  },
+});
+
+/**
  * Custom format: JSON with full metadata (for documentation)
  * Preserves value, $type, $description, and $extensions in nested structure
  */
@@ -220,6 +253,10 @@ export default {
         {
           destination: 'tokens-metadata.json',
           format: 'json/nested-with-metadata',
+        },
+        {
+          destination: 'tokens.map.json',
+          format: 'json/vscode-map',
         },
       ],
     },
