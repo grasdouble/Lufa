@@ -38,13 +38,17 @@ const sidebars: SidebarsConfig = {
             'foundation/flex',
             'foundation/grid',
             'foundation/stack',
+            'foundation/divider',
+            'foundation/aspect-ratio',
+            'foundation/cluster',
+            'foundation/bleed',
           ],
         },
         {
           type: 'category',
           label: 'Content',
           collapsed: false,
-          items: ['content/badge', 'content/divider', 'content/icon', 'content/text'],
+          items: ['content/badge', 'content/icon', 'content/text'],
         },
         {
           type: 'category',

@@ -2,6 +2,8 @@ import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { forwardRef } from 'react';
 import { clsx } from 'clsx';
 
+import type { ResponsiveVisibilityProps } from '../../utils/responsive-visibility';
+import { getResponsiveVisibilityClasses } from '../../utils/responsive-visibility';
 import styles from './Box.module.css';
 
 /**
@@ -15,6 +17,7 @@ import styles from './Box.module.css';
  * - Polymorphic `as` prop for semantic HTML elements
  * - Performance-optimized (CSS classes, not inline styles)
  * - Token-based design (semantic layer tokens)
+ * - Responsive visibility control (show/hide props)
  *
  * @example
  * ```tsx
@@ -37,6 +40,11 @@ import styles from './Box.module.css';
  *   borderColor="default"
  * >
  *   Card content
+ * </Box>
+ *
+ * // Responsive visibility
+ * <Box hideFrom="md">
+ *   Mobile/tablet only content
  * </Box>
  * ```
  */
@@ -248,7 +256,7 @@ export type BoxProps<T extends ElementType = 'div'> = {
    * Children elements
    */
   children?: React.ReactNode;
-};
+} & ResponsiveVisibilityProps;
 
 /**
  * Combined props type including element-specific props
@@ -290,6 +298,11 @@ const BoxImpl = <T extends ElementType = 'div'>(
     borderColor,
     // Display
     display,
+    // Responsive visibility props
+    show,
+    hide,
+    hideFrom,
+    showFrom,
     // Standard HTML props
     className,
     children,
@@ -299,6 +312,14 @@ const BoxImpl = <T extends ElementType = 'div'>(
 ) => {
   // Determine the element to render
   const Component = as ?? 'div';
+
+  // Get responsive visibility classes
+  const visibilityClasses = getResponsiveVisibilityClasses({
+    show,
+    hide,
+    hideFrom,
+    showFrom,
+  });
 
   // Build className from utility props
   const boxClassName = clsx(
@@ -330,6 +351,9 @@ const BoxImpl = <T extends ElementType = 'div'>(
 
     // Display utilities
     display && styles[`display-${display}`],
+
+    // Responsive visibility utilities
+    ...visibilityClasses,
 
     // Custom className
     className

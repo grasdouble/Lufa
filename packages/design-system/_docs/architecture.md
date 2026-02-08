@@ -13,16 +13,16 @@ The Lufa Design System is a **token-based React component library** implementing
 
 ### Key Metrics
 
-| Metric               | Value             | Status      |
-| -------------------- | ----------------- | ----------- |
-| **Design Tokens**    | 453 (4 levels)    | ✅ Complete |
+| Metric                 | Value             | Status      |
+| ---------------------- | ----------------- | ----------- |
+| **Design Tokens**      | 453 (4 levels)    | ✅ Complete |
 | **React Interactions** | 7                 | ✅ Complete |
-| **Themes**           | 9 (light + dark)  | ✅ Complete |
-| **Test Coverage**    | 599 tests (99.8%) | ✅ Complete |
-| **Accessibility**    | 100/100 (WCAG AA) | ✅ Complete |
-| **Performance**      | 8ms CSS cascade   | ✅ < 16ms   |
-| **Bundle Size**      | 43KB (gzipped)    | ✅ < 50KB   |
-| **ADRs Implemented** | 11/11             | ✅ Complete |
+| **Themes**             | 9 (light + dark)  | ✅ Complete |
+| **Test Coverage**      | 599 tests (99.8%) | ✅ Complete |
+| **Accessibility**      | 100/100 (WCAG AA) | ✅ Complete |
+| **Performance**        | 8ms CSS cascade   | ✅ < 16ms   |
+| **Bundle Size**        | 43KB (gzipped)    | ✅ < 50KB   |
+| **ADRs Implemented**   | 11/11             | ✅ Complete |
 
 ---
 
@@ -350,14 +350,14 @@ Level 1: Foundation Tokens (111 tokens)
 
 **Categories:**
 
-| Category              | Tokens | Description                          |
-| --------------------- | ------ | ------------------------------------ |
-| **Brand Colors**      | 6      | Primary, secondary + hover/active    |
-| **Neutral Colors**    | 9      | Backgrounds, surfaces, borders, text |
-| **Semantic Colors**   | 16     | Success, error, warning, info        |
-| **Layout Spacing**    | 8      | Page padding, section gaps           |
+| Category                | Tokens | Description                          |
+| ----------------------- | ------ | ------------------------------------ |
+| **Brand Colors**        | 6      | Primary, secondary + hover/active    |
+| **Neutral Colors**      | 9      | Backgrounds, surfaces, borders, text |
+| **Semantic Colors**     | 16     | Success, error, warning, info        |
+| **Layout Spacing**      | 8      | Page padding, section gaps           |
 | **Interaction Spacing** | 10     | Button, input, card spacing          |
-| **Typography**        | 9      | Font families, weights, sizes        |
+| **Typography**          | 9      | Font families, weights, sizes        |
 
 **Multi-Mode Support:**
 
@@ -403,14 +403,14 @@ Level 1: Foundation Tokens (111 tokens)
 
 **Categories:**
 
-| Category               | Tokens | Description                          |
-| ---------------------- | ------ | ------------------------------------ |
-| **Interactive States** | 14     | Default, hover, active, focus        |
-| **UI Context Colors**  | 21     | Backgrounds, text, borders           |
+| Category                 | Tokens | Description                          |
+| ------------------------ | ------ | ------------------------------------ |
+| **Interactive States**   | 14     | Default, hover, active, focus        |
+| **UI Context Colors**    | 21     | Backgrounds, text, borders           |
 | **Interaction Variants** | 24     | Button variants (primary, secondary) |
-| **Typography Scale**   | 12     | Heading styles (h1-h6), body         |
-| **Z-Index Scale**      | 8      | Layering system                      |
-| **UI Spacing**         | 5      | Tight, compact, default, spacious    |
+| **Typography Scale**     | 12     | Heading styles (h1-h6), body         |
+| **Z-Index Scale**        | 8      | Layering system                      |
+| **UI Spacing**           | 5      | Tight, compact, default, spacious    |
 
 **Example:**
 
@@ -449,7 +449,7 @@ Level 1: Foundation Tokens (111 tokens)
 
 **Interactions:**
 
-| Interaction   | Tokens | Purpose                       |
+| Interaction | Tokens | Purpose                       |
 | ----------- | ------ | ----------------------------- |
 | **Shared**  | 12     | Cross-component (focus rings) |
 | **Button**  | 29     | Button spacing, colors        |
@@ -707,23 +707,155 @@ Level 1: Foundation Tokens (111 tokens)
 
 **Status:** 7/7 complete (100%)
 
-| Interaction   | Layer     | Description                         | Tests |
-| ----------- | --------- | ----------------------------------- | ----- |
-| **Box**     | Foundation | Layout foundation (119 utilities)   | 120+  |
-| **Stack**   | Foundation | Flexbox layouts (22 utilities)      | 86+   |
-| **Text**    | Foundation | Typography (31 utilities)           | 107+  |
-| **Icon**    | Foundation | SVG icons (30+ icons, 13 utilities) | 106+  |
+| Interaction | Layer       | Description                         | Tests |
+| ----------- | ----------- | ----------------------------------- | ----- |
+| **Box**     | Foundation  | Layout foundation (119 utilities)   | 120+  |
+| **Stack**   | Foundation  | Flexbox layouts (22 utilities)      | 86+   |
+| **Text**    | Foundation  | Typography (31 utilities)           | 107+  |
+| **Icon**    | Foundation  | SVG icons (30+ icons, 13 utilities) | 106+  |
 | **Button**  | Interaction | Interactive button (21 utilities)   | 61+   |
 | **Badge**   | Interaction | Status indicator (8 utilities)      | 45+   |
-| **Divider** | Foundation | Visual separator (12 utilities)     | 50+   |
+| **Divider** | Foundation  | Visual separator (12 utilities)     | 50+   |
 
 **Total:** 599 Playwright tests (99.8% pass rate)
 
 ---
 
-### 4.2 Design Patterns
+### 4.2 Component Categorization Criteria
 
-#### 4.2.1 Polymorphic Interactions
+**Purpose:** Clear guidelines for categorizing components into Foundation, Content, Interaction, Composition, or Utility layers.
+
+#### 4.2.1 Foundation Layer
+
+**Criteria:**
+
+- **Primary Role:** Layout primitives and spatial organization
+- **Purpose:** Structure the page, define boundaries, control spacing
+- **Characteristics:**
+  - Minimal semantic meaning beyond structure
+  - Focus on positioning, dimensions, and spatial relationships
+  - Can be composed to build more complex layouts
+  - Typically polymorphic (flexible `as` prop)
+
+**Components:**
+
+- **Layout Containers:** Box, Stack, Flex, Grid, Container, Center
+- **Spatial Separation:** Divider (visual boundaries without semantic content)
+
+**Key Distinction:** Divider belongs here because it's a **spatial primitive**, not content. It defines boundaries and hierarchy through visual separation, similar to how Box defines boundaries through spacing and borders.
+
+---
+
+#### 4.2.2 Content Layer
+
+**Criteria:**
+
+- **Primary Role:** Display semantic content and information
+- **Purpose:** Present text, icons, images, and status information
+- **Characteristics:**
+  - Carries semantic meaning
+  - Presents information to users
+  - Minimal interactivity (read-only)
+  - Focused on appearance and presentation
+
+**Components:**
+
+- **Typography:** Text (semantic text presentation)
+- **Visual Elements:** Icon (symbolic representation)
+- **Status Indicators:** Badge (status/state information)
+
+**Key Distinction:** These components present information with inherent semantic meaning (text content, status, symbols).
+
+---
+
+#### 4.2.3 Interaction Layer
+
+**Criteria:**
+
+- **Primary Role:** User interaction and input
+- **Purpose:** Enable user actions and form inputs
+- **Characteristics:**
+  - Interactive states (hover, active, focus, disabled)
+  - Event handlers (onClick, onChange, onSubmit)
+  - Keyboard navigation support
+  - Form integration capabilities
+
+**Components:**
+
+- **Actions:** Button (primary interactive element)
+- **Form Controls:** Input (text input), Label (form labels)
+
+---
+
+#### 4.2.4 Composition Layer
+
+**Criteria:**
+
+- **Primary Role:** Pre-built patterns combining multiple primitives
+- **Purpose:** Common UI patterns with cohesive design
+- **Characteristics:**
+  - Composed of Foundation + Content + Interaction components
+  - Enforces consistent patterns
+  - Reduces boilerplate for common use cases
+  - Exposes high-level props that control internal composition
+
+**Components:**
+
+- **Patterns:** Card (composite card pattern)
+
+---
+
+#### 4.2.5 Utility Layer
+
+**Criteria:**
+
+- **Primary Role:** Technical helpers and accessibility utilities
+- **Purpose:** Solve technical challenges without visual representation
+- **Characteristics:**
+  - No visual appearance (or hidden)
+  - Solve architectural/accessibility problems
+  - Technical rather than design-focused
+  - May not render visible DOM elements
+
+**Components:**
+
+- **Technical Helpers:** Portal (React portal wrapper)
+- **Accessibility:** VisuallyHidden (screen reader only content)
+
+---
+
+#### 4.2.6 Decision Framework: Divider as Foundation
+
+**Question:** Why is Divider in Foundation, not Content?
+
+**Analysis:**
+
+| Criterion               | Foundation (Divider) | Content (Text/Icon/Badge) |
+| ----------------------- | -------------------- | ------------------------- |
+| **Semantic Meaning**    | None (visual only)   | High (information)        |
+| **Primary Purpose**     | Spatial separation   | Information display       |
+| **Role in Layout**      | Structural boundary  | Content element           |
+| **Standalone Value**    | Low (needs context)  | High (standalone info)    |
+| **Composition Pattern** | Layout primitive     | Display component         |
+
+**Decision:** Divider is a **spatial separation primitive** that defines boundaries and hierarchy through visual means, similar to how spacing and borders work in Box. It has no semantic content of its own - it merely separates other content.
+
+**Comparison:**
+
+- **Divider** → Like `margin` or `border` - structural, defines space
+- **Badge** → Like `<span>` with text - semantic, conveys status information
+- **Text** → Like `<p>` - semantic, presents content
+
+**Real-World Analogy:**
+
+- **Divider** = Wall or fence (defines space, no inherent meaning)
+- **Badge** = Sign or label (conveys specific information)
+
+---
+
+### 4.3 Design Patterns
+
+#### 4.3.1 Polymorphic Interactions
 
 **Pattern:** All components accept an `as` prop to render as different HTML elements.
 
@@ -741,7 +873,7 @@ Level 1: Foundation Tokens (111 tokens)
 
 ---
 
-#### 4.2.2 CSS Utilities System (Auto-Generated)
+#### 4.3.2 CSS Utilities System (Auto-Generated)
 
 **Pattern:** Generate CSS utility classes at build time from config files.
 
@@ -781,7 +913,7 @@ module.exports = {
 
 ---
 
-#### 4.2.3 Interaction API Pattern
+#### 4.3.3 Interaction API Pattern
 
 **Decision:** Individual props (not styled-system `sx`)
 
@@ -805,18 +937,18 @@ module.exports = {
 
 ### 5.1 ADR Summary (11 total - All Implemented ✅)
 
-| ADR     | Title                                     | Status      | Impact      |
-| ------- | ----------------------------------------- | ----------- | ----------- |
-| ADR-001 | Modes vs Themes Separation                | Implemented | ⭐ Critical |
-| ADR-002 | HTML Attributes Naming                    | Implemented | ⭐ Critical |
-| ADR-003 | High-Contrast Token Strategy              | Implemented | High        |
-| ADR-004 | Alpha/Opacity Token Architecture          | Implemented | Medium      |
-| ADR-005 | Breakpoint Token Strategy                 | Implemented | Medium      |
-| ADR-006 | Responsive Spacing Architecture           | Implemented | High        |
-| ADR-007 | Zero-Value Token Handling                 | Implemented | Low         |
-| ADR-008 | Responsive Typography Strategy            | Implemented | High        |
-| ADR-009 | Letter-Spacing Token Architecture         | Implemented | Low         |
-| ADR-010 | Extended Type Scale Strategy              | Implemented | Medium      |
+| ADR     | Title                                      | Status      | Impact      |
+| ------- | ------------------------------------------ | ----------- | ----------- |
+| ADR-001 | Modes vs Themes Separation                 | Implemented | ⭐ Critical |
+| ADR-002 | HTML Attributes Naming                     | Implemented | ⭐ Critical |
+| ADR-003 | High-Contrast Token Strategy               | Implemented | High        |
+| ADR-004 | Alpha/Opacity Token Architecture           | Implemented | Medium      |
+| ADR-005 | Breakpoint Token Strategy                  | Implemented | Medium      |
+| ADR-006 | Responsive Spacing Architecture            | Implemented | High        |
+| ADR-007 | Zero-Value Token Handling                  | Implemented | Low         |
+| ADR-008 | Responsive Typography Strategy             | Implemented | High        |
+| ADR-009 | Letter-Spacing Token Architecture          | Implemented | Low         |
+| ADR-010 | Extended Type Scale Strategy               | Implemented | Medium      |
 | ADR-011 | Token Architecture - Immutable Foundations | Implemented | ⭐ Critical |
 
 **Critical ADRs** (must read for all developers):
@@ -1009,15 +1141,15 @@ test.describe('InteractionName', () => {
 ### 7.2 Test Coverage
 
 | Interaction | Tests   | Pass Rate |
-| --------- | ------- | --------- |
-| Box       | 120+    | 100%      |
-| Stack     | 86+     | 100%      |
-| Text      | 107+    | 100%      |
-| Icon      | 106+    | 100%      |
-| Button    | 61+     | 100%      |
-| Badge     | 45+     | 100%      |
-| Divider   | 50+     | 100%      |
-| **Total** | **599** | **99.8%** |
+| ----------- | ------- | --------- |
+| Box         | 120+    | 100%      |
+| Stack       | 86+     | 100%      |
+| Text        | 107+    | 100%      |
+| Icon        | 106+    | 100%      |
+| Button      | 61+     | 100%      |
+| Badge       | 45+     | 100%      |
+| Divider     | 50+     | 100%      |
+| **Total**   | **599** | **99.8%** |
 
 **Technology:** Playwright Interaction Testing 1.57.0
 

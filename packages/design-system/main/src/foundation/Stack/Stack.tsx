@@ -2,6 +2,8 @@ import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { forwardRef } from 'react';
 import { clsx } from 'clsx';
 
+import type { ResponsiveVisibilityProps } from '../../utils/responsive-visibility';
+import { getResponsiveVisibilityClasses } from '../../utils/responsive-visibility';
 import styles from './Stack.module.css';
 
 /**
@@ -16,6 +18,7 @@ import styles from './Stack.module.css';
  * - Gap-based spacing (using semantic tokens)
  * - Flexbox alignment (align-items and justify-content)
  * - Flex wrap support for responsive layouts
+ * - Responsive visibility control (show/hide props)
  * - Polymorphic `as` prop for semantic HTML elements
  * - Performance-optimized (CSS classes, not inline styles)
  *
@@ -43,6 +46,11 @@ import styles from './Stack.module.css';
  *   justify="space-between"
  * >
  *   {items.map(item => <Card key={item.id} {...item} />)}
+ * </Stack>
+ *
+ * // Responsive visibility
+ * <Stack hideFrom="md" spacing="default">
+ *   <MobileNav />
  * </Stack>
  * ```
  */
@@ -127,7 +135,7 @@ export type StackProps<T extends ElementType = 'div'> = {
    * Children elements
    */
   children?: React.ReactNode;
-};
+} & ResponsiveVisibilityProps;
 
 /**
  * Combined props type including element-specific props
@@ -150,6 +158,12 @@ const StackImpl = <T extends ElementType = 'div'>(
     align = 'stretch',
     justify = 'start',
     wrap = false,
+    // Responsive visibility props
+    show,
+    hide,
+    hideFrom,
+    showFrom,
+    // Standard HTML props
     className,
     children,
     ...htmlProps
@@ -158,6 +172,14 @@ const StackImpl = <T extends ElementType = 'div'>(
 ) => {
   // Determine the element to render
   const Component = as ?? 'div';
+
+  // Get responsive visibility classes
+  const visibilityClasses = getResponsiveVisibilityClasses({
+    show,
+    hide,
+    hideFrom,
+    showFrom,
+  });
 
   // Build className from utility props
   const stackClassName = clsx(
@@ -179,6 +201,9 @@ const StackImpl = <T extends ElementType = 'div'>(
     // Wrap utilities
     wrap && styles[`wrap-wrap`],
     !wrap && styles[`wrap-nowrap`],
+
+    // Responsive visibility utilities
+    ...visibilityClasses,
 
     // Custom className
     className

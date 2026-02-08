@@ -1427,3 +1427,385 @@ export const PropDisplay: Story = {
     );
   },
 };
+
+// ============================================
+// RESPONSIVE VISIBILITY
+// ============================================
+
+/**
+ * ## Responsive Visibility
+ *
+ * Control element visibility at different viewport breakpoints using `show`, `hide`, `hideFrom`, and `showFrom` props.
+ *
+ * **How to test:**
+ * - Resize your browser window or use DevTools responsive mode
+ * - Or use the viewport controls in Storybook toolbar
+ * - Watch boxes appear/disappear at different breakpoints
+ *
+ * **Breakpoints:**
+ * - xs: 320px (mobile portrait)
+ * - sm: 640px (mobile landscape)
+ * - md: 768px (tablet portrait)
+ * - lg: 1024px (tablet landscape / desktop)
+ * - xl: 1280px (desktop)
+ * - 2xl: 1536px (large desktop)
+ */
+export const ResponsiveVisibility: Story = {
+  render: () => {
+    return (
+      <StoryContainer>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
+          {/* Instruction banner */}
+          <Box
+            padding="comfortable"
+            background="info"
+            borderRadius="default"
+            style={{
+              textAlign: 'center',
+              fontSize: '14px',
+              fontWeight: 500,
+            }}
+          >
+            📐 <strong>Resize your browser window</strong> or use DevTools responsive mode to see boxes appear/disappear
+          </Box>
+
+          {/* Example 1: hideFrom prop */}
+          <div>
+            <h3 style={{ marginTop: 0, marginBottom: '16px', fontSize: '18px', fontWeight: 600 }}>
+              1. hideFrom prop - Hide from breakpoint and up
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
+              <PropCard label='hideFrom="md" - Hidden from tablet+'>
+                <Box
+                  hideFrom="md"
+                  padding="comfortable"
+                  borderRadius="default"
+                  style={{
+                    backgroundColor: STORY_COLORS.primary.green.main,
+                    color: 'white',
+                    textAlign: 'center',
+                    fontWeight: 600,
+                    fontSize: '14px',
+                  }}
+                >
+                  📱 Mobile/Small only
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: &lt; 768px</div>
+                </Box>
+              </PropCard>
+
+              <PropCard label='hideFrom="lg" - Hidden from desktop+'>
+                <Box
+                  hideFrom="lg"
+                  padding="comfortable"
+                  borderRadius="default"
+                  style={{
+                    backgroundColor: STORY_COLORS.primary.blue.main,
+                    color: 'white',
+                    textAlign: 'center',
+                    fontWeight: 600,
+                    fontSize: '14px',
+                  }}
+                >
+                  📱📟 Mobile/Tablet only
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: &lt; 1024px</div>
+                </Box>
+              </PropCard>
+
+              <PropCard label='hideFrom="sm" - Hidden from mobile landscape+'>
+                <Box
+                  hideFrom="sm"
+                  padding="comfortable"
+                  borderRadius="default"
+                  style={{
+                    backgroundColor: STORY_COLORS.primary.orange.main,
+                    color: 'white',
+                    textAlign: 'center',
+                    fontWeight: 600,
+                    fontSize: '14px',
+                  }}
+                >
+                  📱 Tiny screens only
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: &lt; 640px</div>
+                </Box>
+              </PropCard>
+            </div>
+
+            {/* Code example */}
+            <div style={{ marginTop: '16px' }}>
+              <CodeBlock
+                code={`// Hidden from md (768px) and up
+<Box hideFrom="md">Mobile/Small only</Box>
+
+// Hidden from lg (1024px) and up
+<Box hideFrom="lg">Mobile/Tablet only</Box>
+
+// Hidden from sm (640px) and up
+<Box hideFrom="sm">Tiny screens only</Box>`}
+                language="tsx"
+                title="hideFrom examples"
+              />
+            </div>
+          </div>
+
+          {/* Example 2: showFrom prop */}
+          <div>
+            <h3 style={{ marginTop: 0, marginBottom: '16px', fontSize: '18px', fontWeight: 600 }}>
+              2. showFrom prop - Show from breakpoint and up
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
+              <PropCard label='showFrom="md" - Visible from tablet+'>
+                <Box
+                  showFrom="md"
+                  padding="comfortable"
+                  borderRadius="default"
+                  style={{
+                    backgroundColor: STORY_COLORS.primary.violet.main,
+                    color: 'white',
+                    textAlign: 'center',
+                    fontWeight: 600,
+                    fontSize: '14px',
+                  }}
+                >
+                  💻 Tablet+ only
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: ≥ 768px</div>
+                </Box>
+              </PropCard>
+
+              <PropCard label='showFrom="lg" - Visible from desktop+'>
+                <Box
+                  showFrom="lg"
+                  padding="comfortable"
+                  borderRadius="default"
+                  style={{
+                    backgroundColor: STORY_COLORS.primary.pink.main,
+                    color: 'white',
+                    textAlign: 'center',
+                    fontWeight: 600,
+                    fontSize: '14px',
+                  }}
+                >
+                  💻 Desktop+ only
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: ≥ 1024px</div>
+                </Box>
+              </PropCard>
+
+              <PropCard label='showFrom="xl" - Visible from large desktop+'>
+                <Box
+                  showFrom="xl"
+                  padding="comfortable"
+                  borderRadius="default"
+                  style={{
+                    backgroundColor: STORY_COLORS.primary.cyan.main,
+                    color: 'white',
+                    textAlign: 'center',
+                    fontWeight: 600,
+                    fontSize: '14px',
+                  }}
+                >
+                  🖥️ Large desktop+ only
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>Visible: ≥ 1280px</div>
+                </Box>
+              </PropCard>
+            </div>
+
+            {/* Code example */}
+            <div style={{ marginTop: '16px' }}>
+              <CodeBlock
+                code={`// Visible from md (768px) and up
+<Box showFrom="md">Tablet+ only</Box>
+
+// Visible from lg (1024px) and up
+<Box showFrom="lg">Desktop+ only</Box>
+
+// Visible from xl (1280px) and up
+<Box showFrom="xl">Large desktop+ only</Box>`}
+                language="tsx"
+                title="showFrom examples"
+              />
+            </div>
+          </div>
+
+          {/* Example 3: Responsive navigation pattern */}
+          <div>
+            <h3 style={{ marginTop: 0, marginBottom: '16px', fontSize: '18px', fontWeight: 600 }}>
+              3. Real-world: Responsive Navigation
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <PropCard label="Mobile menu button (hidden on desktop)">
+                <Box
+                  hideFrom="md"
+                  padding="comfortable"
+                  borderRadius="default"
+                  style={{
+                    backgroundColor: STORY_COLORS.neutral.backgroundDark as string,
+                    color: 'white',
+                    textAlign: 'center',
+                    fontWeight: 600,
+                    fontSize: '16px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  ☰ Mobile Menu
+                </Box>
+              </PropCard>
+
+              <PropCard label="Desktop navigation (hidden on mobile)">
+                <Box
+                  showFrom="md"
+                  padding="comfortable"
+                  borderRadius="default"
+                  style={{
+                    backgroundColor: STORY_COLORS.neutral.backgroundDark as string,
+                    color: 'white',
+                    display: 'flex',
+                    gap: '24px',
+                    justifyContent: 'center',
+                    fontWeight: 600,
+                  }}
+                >
+                  <span>Home</span>
+                  <span>About</span>
+                  <span>Products</span>
+                  <span>Contact</span>
+                </Box>
+              </PropCard>
+            </div>
+
+            {/* Code example */}
+            <div style={{ marginTop: '16px' }}>
+              <CodeBlock
+                code={`// Mobile menu button (hidden on desktop)
+<Box hideFrom="md">
+  <Button>☰ Menu</Button>
+</Box>
+
+// Desktop navigation (hidden on mobile)
+<Box showFrom="md">
+  <nav>
+    <Link>Home</Link>
+    <Link>About</Link>
+    <Link>Products</Link>
+    <Link>Contact</Link>
+  </nav>
+</Box>`}
+                language="tsx"
+                title="Responsive navigation pattern"
+              />
+            </div>
+          </div>
+
+          {/* Example 4: Responsive object syntax */}
+          <div>
+            <h3 style={{ marginTop: 0, marginBottom: '16px', fontSize: '18px', fontWeight: 600 }}>
+              4. Advanced: Responsive Object Syntax
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
+              <PropCard label="show={{ base: true, md: false }}">
+                <Box
+                  show={{ base: true, md: false }}
+                  padding="comfortable"
+                  borderRadius="default"
+                  style={{
+                    backgroundColor: STORY_COLORS.primary.green.main,
+                    color: 'white',
+                    textAlign: 'center',
+                    fontWeight: 600,
+                    fontSize: '14px',
+                  }}
+                >
+                  📱 Show on mobile
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>(hide on tablet+)</div>
+                </Box>
+              </PropCard>
+
+              <PropCard label="show={{ base: false, md: true }}">
+                <Box
+                  show={{ base: false, md: true }}
+                  padding="comfortable"
+                  borderRadius="default"
+                  style={{
+                    backgroundColor: STORY_COLORS.primary.violet.main,
+                    color: 'white',
+                    textAlign: 'center',
+                    fontWeight: 600,
+                    fontSize: '14px',
+                  }}
+                >
+                  💻 Show on tablet+
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>(hide on mobile)</div>
+                </Box>
+              </PropCard>
+
+              <PropCard label="show={{ base: true, md: false, lg: true }}">
+                <Box
+                  show={{ base: true, md: false, lg: true }}
+                  padding="comfortable"
+                  borderRadius="default"
+                  style={{
+                    backgroundColor: STORY_COLORS.primary.pink.main,
+                    color: 'white',
+                    textAlign: 'center',
+                    fontWeight: 600,
+                    fontSize: '14px',
+                  }}
+                >
+                  📱💻 Mobile + Desktop
+                  <div style={{ fontSize: '12px', marginTop: '8px', opacity: 0.9 }}>(hide on tablet)</div>
+                </Box>
+              </PropCard>
+            </div>
+
+            {/* Code example */}
+            <div style={{ marginTop: '16px' }}>
+              <CodeBlock
+                code={`// Visible on mobile, hidden on tablet+
+<Box show={{ base: true, md: false }}>
+  Mobile only
+</Box>
+
+// Hidden on mobile, visible on tablet+
+<Box show={{ base: false, md: true }}>
+  Tablet+ only
+</Box>
+
+// Visible on mobile and desktop, hidden on tablet
+<Box show={{ base: true, md: false, lg: true }}>
+  Mobile + Desktop (skip tablet)
+</Box>`}
+                language="tsx"
+                title="Responsive object syntax"
+              />
+            </div>
+          </div>
+
+          {/* Breakpoint reference */}
+          <Box padding="comfortable" background="surface" borderWidth="thin" borderRadius="default">
+            <h4 style={{ marginTop: 0, marginBottom: '12px', fontSize: '16px', fontWeight: 600 }}>
+              📐 Breakpoint Reference
+            </h4>
+            <div style={{ fontSize: '14px', lineHeight: '1.8' }}>
+              <div>
+                <strong>xs</strong>: 320px (mobile portrait)
+              </div>
+              <div>
+                <strong>sm</strong>: 640px (mobile landscape)
+              </div>
+              <div>
+                <strong>md</strong>: 768px (tablet portrait)
+              </div>
+              <div>
+                <strong>lg</strong>: 1024px (tablet landscape / desktop)
+              </div>
+              <div>
+                <strong>xl</strong>: 1280px (desktop)
+              </div>
+              <div>
+                <strong>2xl</strong>: 1536px (large desktop)
+              </div>
+            </div>
+          </Box>
+        </div>
+      </StoryContainer>
+    );
+  },
+};

@@ -9,10 +9,10 @@
 
 import { useRef } from 'react';
 
-import { Divider } from '../content/Divider/Divider';
 import { Icon } from '../content/Icon/Icon';
 import { Text } from '../content/Text/Text';
 import { Box } from '../foundation/Box/Box';
+import { Divider } from '../foundation/Divider/Divider';
 import { Stack } from '../foundation/Stack/Stack';
 import { Button } from '../interaction/Button/Button';
 

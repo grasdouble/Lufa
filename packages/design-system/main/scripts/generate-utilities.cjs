@@ -45,16 +45,20 @@ const COMPONENT_CONFIGS = {
   // Foundation components
   Box: path.join(FOUNDATION_DIR, 'Box/box.utilities.config.cjs'),
   Stack: path.join(FOUNDATION_DIR, 'Stack/stack.utilities.config.cjs'),
+  Cluster: path.join(FOUNDATION_DIR, 'Cluster/cluster.utilities.config.cjs'),
   Flex: path.join(FOUNDATION_DIR, 'Flex/flex.utilities.config.cjs'),
   Grid: path.join(FOUNDATION_DIR, 'Grid/grid.utilities.config.cjs'),
   Container: path.join(FOUNDATION_DIR, 'Container/container.utilities.config.cjs'),
   Center: path.join(FOUNDATION_DIR, 'Center/center.utilities.config.cjs'),
+  Bleed: path.join(FOUNDATION_DIR, 'Bleed/bleed.utilities.config.cjs'),
+
+  Divider: path.join(FOUNDATION_DIR, 'Divider/divider.utilities.config.cjs'),
+  AspectRatio: path.join(FOUNDATION_DIR, 'AspectRatio/aspect-ratio.utilities.config.cjs'),
 
   // Content components
   Text: path.join(CONTENT_DIR, 'Text/text.utilities.config.cjs'),
   Icon: path.join(CONTENT_DIR, 'Icon/icon.utilities.config.cjs'),
   Badge: path.join(CONTENT_DIR, 'Badge/badge.utilities.config.cjs'),
-  Divider: path.join(CONTENT_DIR, 'Divider/divider.utilities.config.cjs'),
 
   // Interaction components
   Button: path.join(INTERACTION_DIR, 'Button/button.utilities.config.cjs'),

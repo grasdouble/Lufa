@@ -21,11 +21,17 @@ type CenterComponentProps<T extends ElementType> = CenterProps<T> &
  *
  * A layout primitive that centers its content horizontally and vertically.
  * It is a shorthand for <Flex align="center" justify="center">.
+ * Inherits all Box props including responsive visibility controls.
  *
  * @example
  * ```tsx
  * <Center>
  *   <Icon name="check" />
+ * </Center>
+ *
+ * // Responsive visibility
+ * <Center hide={{ base: true, sm: false }}>
+ *   <DesktopCenteredContent />
  * </Center>
  * ```
  */

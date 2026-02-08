@@ -37,12 +37,18 @@ export type FlexProps<T extends ElementType = 'div'> = BoxComponentProps<T> & {
  * Flex Component
  *
  * A layout primitive that extends Box with Flexbox properties.
+ * Inherits all Box props including responsive visibility controls.
  *
  * @example
  * ```tsx
  * <Flex justify="between" align="center">
  *   <div>Left</div>
  *   <div>Right</div>
+ * </Flex>
+ *
+ * // Responsive visibility
+ * <Flex showFrom="lg" justify="end">
+ *   <DesktopToolbar />
  * </Flex>
  * ```
  */
