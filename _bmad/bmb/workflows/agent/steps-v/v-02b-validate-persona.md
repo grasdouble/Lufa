@@ -80,7 +80,7 @@ Perform these checks systematically - validate EVERY rule specified in personaPr
    - [ ] Principles are consistent with role
    - [ ] 3-7 principles recommended (not overwhelming)
    - [ ] Each principle is clear and specific
-   - [ ] First principle activates expert knowledge domain
+   - [ ] First principle activates domain knowledge
 
 6. **Consistency Checks**
    - [ ] Role, identity, communication_style, principles all align
@@ -98,20 +98,21 @@ Append to `{validationReport}`:
 **Status:** {✅ PASS / ⚠️ WARNING / ❌ FAIL}
 
 **Checks:**
+
 - [ ] role: specific, not generic
 - [ ] identity: defines who agent is
 - [ ] communication_style: speech patterns only
-- [ ] principles: first principle activates expert knowledge
+- [ ] principles: first principle activates domain knowledge
 
 **Detailed Findings:**
 
-*PASSING:*
+_PASSING:_
 {List of passing checks}
 
-*WARNINGS:*
+_WARNINGS:_
 {List of non-blocking issues}
 
-*FAILURES:*
+_FAILURES:_
 {List of blocking issues that must be fixed}
 ```
 

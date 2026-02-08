@@ -1,146 +1,106 @@
-# Agent Creation Brainstorming Context
-## Session Focus
+# Agent Brainstorming Context
 
-You're brainstorming the **essence** of a BMAD agent - the living personality AND the utility it provides. Think character creation meets problem-solving: WHO are they, and WHAT do they DO?
+## Mission
 
-**Your mission**: Discover an agent so vivid and so useful that users seek them out by name.
+Create an agent so vivid and useful that users seek them out by name.
 
-## The Four Discovery Pillars
+## Four Pillars
 
-### 1. WHO ARE THEY? (Identity)
+### 1. Identity (WHO)
 
-- **Name** - Does it roll off the tongue? Would users remember it?
-- **Background** - What shaped their expertise? Why do they care?
-- **Personality** - What makes their eyes light up? What frustrates them?
-- **Signature** - Catchphrase? Verbal tic? Recognizable trait?
+- **Name** - Memorable, rolls off tongue
+- **Background** - What shaped their expertise
+- **Personality** - What lights them up, what frustrates
+- **Signature** - Catchphrase, verbal tic, recognizable trait
 
-### 2. HOW DO THEY COMMUNICATE? (Voice)
+### 2. Voice (HOW)
 
-**13 Style Categories:**
+| Category      | Examples                                                      |
+| ------------- | ------------------------------------------------------------- |
+| Adventurous   | Pulp heroes, noir, pirates, dungeon masters                   |
+| Analytical    | Data scientists, forensic investigators, systems thinkers     |
+| Creative      | Mad scientists, artist visionaries, jazz improvisers          |
+| Devoted       | Guardians, loyal champions, fierce protectors                 |
+| Dramatic      | Shakespearean actors, opera singers, theater directors        |
+| Educational   | Patient teachers, Socratic guides, coaches                    |
+| Entertaining  | Game show hosts, comedians, improv performers                 |
+| Inspirational | Life coaches, mountain guides, Olympic trainers               |
+| Mystical      | Zen masters, oracles, cryptic sages                           |
+| Professional  | Executive consultants, formal butlers                         |
+| Quirky        | Cooking metaphors, nature documentaries, conspiracy vibes     |
+| Retro         | 80s action heroes, 1950s announcers, disco groovers           |
+| Warm          | Southern hospitality, nurturing grandmothers, camp counselors |
 
-- **Adventurous** - Pulp heroes, noir detectives, pirates, dungeon masters
-- **Analytical** - Data scientists, forensic investigators, systems thinkers
-- **Creative** - Mad scientists, artist visionaries, jazz improvisers
-- **Devoted** - Overprotective guardians, loyal champions, fierce protectors
-- **Dramatic** - Shakespearean actors, opera singers, theater directors
-- **Educational** - Patient teachers, Socratic guides, sports coaches
-- **Entertaining** - Game show hosts, comedians, improv performers
-- **Inspirational** - Life coaches, mountain guides, Olympic trainers
-- **Mystical** - Zen masters, oracles, cryptic sages
-- **Professional** - Executive consultants, direct advisors, formal butlers
-- **Quirky** - Cooking metaphors, nature documentaries, conspiracy vibes
-- **Retro** - 80s action heroes, 1950s announcers, disco groovers
-- **Warm** - Southern hospitality, nurturing grandmothers, camp counselors
+**Voice Test**: How would they say "Let's tackle this challenge"?
 
-**Voice Test**: Imagine them saying "Let's tackle this challenge." How would THEY phrase it?
+### 3. Purpose (WHAT)
 
-### 3. WHAT DO THEY DO? (Purpose & Functions)
-
-**The Core Problem**
+**Core Questions**
 
 - What pain point do they eliminate?
-- What task transforms from grueling to effortless?
-- What impossible becomes inevitable with them?
+- What transforms from grueling to effortless?
+- What's their ONE killer feature?
 
-**The Killer Feature**
-Every legendary agent has ONE thing they're known for. What's theirs?
-
-**The Command Menu**
-User types `*` and sees their options. Brainstorm 3-10 actions:
+**Command Brainstorm** (3-10 actions)
 
 - What makes users sigh with relief?
-- What capabilities complement each other?
 - What's the "I didn't know I needed this" command?
 
-**Function Categories to Consider:**
+**Function Types**
 
-- **Creation** - Generate, write, produce, build
-- **Analysis** - Research, evaluate, diagnose, insights
-- **Review** - Validate, check, quality assurance, critique
-- **Orchestration** - Coordinate workflows, manage processes
-- **Query** - Find, search, retrieve, discover
-- **Transform** - Convert, refactor, optimize, clean
+- Creation (generate, write, build)
+- Analysis (research, evaluate, diagnose)
+- Review (validate, check, critique)
+- Orchestration (coordinate workflows)
+- Query (find, search, discover)
+- Transform (convert, refactor, optimize)
 
-### 4. WHAT TYPE? (Architecture)
+### 4. Architecture (TYPE)
 
-**Simple Agent** - The Specialist
+**Single Agent Type** with `hasSidecar` boolean:
 
-> "I do ONE thing extraordinarily well."
+| Has Sidecar | Description                                                                                     |
+| ----------- | ----------------------------------------------------------------------------------------------- |
+| `false`     | Self-contained specialist, lightning fast, pure utility with personality                        |
+| `true`      | Deep domain knowledge, personal memory, specialized expertise, can coordinate with other agents |
 
-- Self-contained, lightning fast, pure utility with personality
+## Prompts
 
-**Expert Agent** - The Domain Master
-
-> "I live in this world. I remember everything."
-
-- Deep domain knowledge, personal memory, specialized expertise
-
-**Module Agent** - The Team Player
-
-> "What I produce is useful for other workflows, and also I rely on my teammate agents. I coordinate the mission."
-
-- One persona in a team of agents fitting the theme of the module, so there does not need to be one massive generic do it all agent.
-
-## Creative Prompts
-
-**Identity Sparks**
+**Identity**
 
 1. How do they introduce themselves?
 2. How do they celebrate user success?
 3. What do they say when things get tough?
 
-**Purpose Probes**
+**Purpose**
 
-1. What 3 user problems do they obliterate?
-2. What workflow would users dread WITHOUT this agent?
-3. What's the first command users would try?
-4. What's the command they'd use daily?
-5. What's the "hidden gem" command they'd discover later?
+1. What 3 problems do they obliterate?
+2. What workflow would users dread WITHOUT them?
+3. First command users try? Daily command? Hidden gem?
 
-**Personality Dimensions**
+**Dimensions**
 
 - Analytical ← → Creative
 - Formal ← → Casual
 - Mentor ← → Peer ← → Assistant
 - Reserved ← → Expressive
 
-## Example Agent Sparks
+## Example Sparks
 
-**Sentinel** (Devoted Guardian)
+| Agent        | Voice                                        | Purpose                  | Commands                                      |
+| ------------ | -------------------------------------------- | ------------------------ | --------------------------------------------- |
+| **Sentinel** | "Your success is my sacred duty."            | Protective oversight     | `*audit`, `*validate`, `*secure`, `*watch`    |
+| **Sparks**   | "What if we tried it COMPLETELY backwards?!" | Unconventional solutions | `*flip`, `*remix`, `*wildcard`, `*chaos`      |
+| **Haven**    | "Come, let's work through this together."    | Patient guidance         | `*reflect`, `*pace`, `*celebrate`, `*restore` |
 
-- Voice: "Your success is my sacred duty."
-- Does: Protective oversight, catches issues before they catch you
-- Commands: `*audit`, `*validate`, `*secure`, `*watch`
+## Success Checklist
 
-**Sparks** (Quirky Genius)
+- [ ] Voice clear - exactly how they'd phrase anything
+- [ ] Purpose sharp - crystal clear problems solved
+- [ ] Functions defined - 5-10 concrete capabilities
+- [ ] Energy distinct - palpable and memorable
+- [ ] Utility obvious - can't wait to use them
 
-- Voice: "What if we tried it COMPLETELY backwards?!"
-- Does: Unconventional solutions, pattern breaking
-- Commands: `*flip`, `*remix`, `*wildcard`, `*chaos`
-
-**Haven** (Warm Sage)
-
-- Voice: "Come, let's work through this together."
-- Does: Patient guidance, sustainable progress
-- Commands: `*reflect`, `*pace`, `*celebrate`, `*restore`
-
-## Brainstorming Success Checklist
-
-You've found your agent when:
-
-- [ ] **Voice is clear** - You know exactly how they'd phrase anything
-- [ ] **Purpose is sharp** - Crystal clear what problems they solve
-- [ ] **Functions are defined** - 5-10 concrete capabilities identified
-- [ ] **Energy is distinct** - Their presence is palpable and memorable
-- [ ] **Utility is obvious** - You can't wait to actually use them
-
-## The Golden Rule
+## Golden Rule
 
 **Dream big on personality. Get concrete on functions.**
-
-Your brainstorming should produce:
-
-- A name that sticks
-- A voice that echoes
-- A purpose that burns
-- A function list that solves real problems

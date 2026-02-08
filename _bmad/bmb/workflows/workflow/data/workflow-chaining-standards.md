@@ -1,9 +1,5 @@
 # Workflow Chaining Standards
 
-**Purpose:** How workflows connect in sequences within modules, passing outputs as inputs to next workflows.
-
----
-
 ## Module Workflow Pipeline
 
 **Example:** BMM Module - Idea to Implementation
@@ -15,24 +11,25 @@ brainstorming → research → brief → PRD → UX → architecture → epics �
 ```
 
 Each workflow:
+
 1. Checks for required inputs from prior workflows
 2. Validates inputs are complete
 3. Produces output for next workflow
 4. Recommends next workflow in sequence
 
----
-
 ## Input/Output Contract
 
-### Output Contract (What Each Workflow Produces)
+### Output Contract
 
 **Every workflow should:**
+
 1. Create output document with predictable filename
 2. Include `workflowType` in frontmatter for identification
 3. Mark `stepsCompleted: [all steps]` when complete
 4. Store in known location (`{module_output_folder}`)
 
 **Example frontmatter:**
+
 ```yaml
 ---
 workflowType: 'prd'
@@ -44,15 +41,14 @@ previousWorkflow: 'create-brief'
 ---
 ```
 
-### Input Contract (What Each Workflow Consumes)
+### Input Contract
 
 **Every workflow should:**
+
 1. Define required inputs in Step 1
 2. Search in `{module_output_folder}` for prior outputs
 3. Validate inputs are complete
 4. Allow user to select from discovered documents
-
----
 
 ## Step 1: Input Discovery Pattern
 
@@ -60,9 +56,11 @@ previousWorkflow: 'create-brief'
 ## 1. Discover Required Inputs
 
 ### Required Inputs:
+
 - {module_output_folder}/prd-{project_name}.md
 
 ### Search:
+
 1. Look for prd-{project_name}.md in {module_output_folder}
 2. If found → validate completeness
 3. If missing or incomplete → error with guidance
@@ -71,8 +69,6 @@ previousWorkflow: 'create-brief'
 Expected location: {module_output_folder}/prd-{project_name}.md
 To fix: Run the PRD workflow first, or provide the path to your PRD."
 ```
-
----
 
 ## Final Step: Next Workflow Recommendation
 
@@ -85,18 +81,18 @@ Based on your completed [workflow], recommended next workflows:
 2. **[alternative-workflow]** - [when to use this instead]
 
 Would you like to:
+
 - Run [next-workflow-name] now?
 - Run a different workflow?
 - Exit for now?
 ```
 
 **Update output frontmatter:**
+
 ```yaml
 nextWorkflow: 'create-ux'
 nextWorkflowRecommended: true
 ```
-
----
 
 ## Cross-Workflow Status Tracking
 
@@ -121,15 +117,12 @@ outputs:
 ```
 
 **Workflow checks this file to:**
+
 - Validate sequence (don't run UX before PRD)
 - Find output locations
 - Track overall progress
 
----
-
 ## Branching Workflows
-
-**Some workflows have multiple valid next steps:**
 
 ```markdown
 ## Next Steps
@@ -137,21 +130,22 @@ outputs:
 Based on your project type:
 
 **For software projects:**
+
 - create-architecture - Technical architecture
 - create-epics - Break down into epics
 
 **For data projects:**
+
 - data-modeling - Database schema design
 - etl-pipeline - Data pipeline design
 
 Which workflow would you like to run next?
 ```
 
----
-
 ## Required vs Optional Sequences
 
 ### Required Sequence
+
 **PRD must come before Architecture:**
 
 ```yaml
@@ -167,6 +161,7 @@ ELSE:
 ```
 
 ### Optional Sequence
+
 **UX research helps Architecture but isn't required:**
 
 ```yaml
@@ -180,27 +175,18 @@ ELSE:
   → "No UX research found. Continuing without it."
 ```
 
----
-
 ## Filename Conventions for Chaining
 
 **Standard pattern:** `{workflow-name}-{project-name}.md`
 
-| Workflow | Output Filename Pattern |
-|----------| ---------------------- |
+| Workflow      | Output Filename Pattern           |
+| ------------- | --------------------------------- |
 | brainstorming | `brainstorming-{project_name}.md` |
-| brief | `brief-{project_name}.md` |
-| PRD | `prd-{project_name}.md` |
-| UX | `ux-design-{project_name}.md` |
-| architecture | `architecture-{project_name}.md` |
-| epics | `epics-{project_name}.md` |
-
-**Predictable filenames enable:**
-- Automatic discovery
-- Clear dependencies
-- Easy validation
-
----
+| brief         | `brief-{project_name}.md`         |
+| PRD           | `prd-{project_name}.md`           |
+| UX            | `ux-design-{project_name}.md`     |
+| architecture  | `architecture-{project_name}.md`  |
+| epics         | `epics-{project_name}.md`         |
 
 ## Module-Level Workflow Registry
 
@@ -234,16 +220,7 @@ workflows:
 ---
 ```
 
-**Workflows read this to:**
-- Know what outputs exist
-- Know valid next steps
-- Know output filenames
-
----
-
 ## Cross-Module Dependencies
-
-**Workflows can depend on outputs from other modules:**
 
 ```yaml
 # In BMGD narrative workflow
@@ -256,16 +233,3 @@ workflows:
 ### From BMGD:
 - {bmgd_output_folder}/gdd-{project_name}.md (Game Design Document)
 ```
-
----
-
-## Validation Checklist
-
-For workflow chaining:
-- [ ] Output filename follows convention
-- [ ] Frontmatter includes `workflowType`
-- [ ] `stepsCompleted` marked complete when done
-- [ ] Required inputs clearly defined
-- [ ] Input validation with helpful errors
-- [ ] Next workflow recommendations in final step
-- [ ] Module registry (if using sequence tracking)

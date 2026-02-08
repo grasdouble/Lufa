@@ -1,22 +1,18 @@
 # Output Format Standards
 
-**Purpose:** How workflows produce documents and handle step output.
-
----
-
 ## Golden Rule
 
 **Every step MUST output to a document BEFORE loading the next step.**
 
 Two patterns:
+
 1. **Direct-to-Final:** Steps append to final document
 2. **Plan-then-Build:** Steps append to plan → build step consumes plan
-
----
 
 ## Menu C Option Sequence
 
 When user selects **C (Continue)**:
+
 1. **Append/Write** to document (plan or final)
 2. **Update frontmatter** (append this step to `stepsCompleted`)
 3. **THEN** load next step
@@ -25,13 +21,9 @@ When user selects **C (Continue)**:
 - IF C: Save content to {outputFile}, update frontmatter, then load, read entire file, then execute {nextStepFile}
 ```
 
----
-
 ## Output Patterns
 
 ### Pattern 1: Plan-then-Build
-
-**Use when:** Design/plan before building/creating
 
 ```
 Step 1 (init)     → Creates plan.md from template
@@ -42,6 +34,7 @@ Step 5 (build)    → READS plan.md, CREATES final artifacts
 ```
 
 **Plan frontmatter:**
+
 ```yaml
 workflowName: [name]
 creationDate: [date]
@@ -49,11 +42,7 @@ stepsCompleted: ['step-01-init', 'step-02-gather']
 status: PLANNING_COMPLETE
 ```
 
-**Example:** Workflow creation - steps append to plan, build step generates files
-
 ### Pattern 2: Direct-to-Final
-
-**Use when:** Each step contributes to final deliverable
 
 ```
 Step 1 (init)     → Creates final-doc.md from minimal template
@@ -63,17 +52,12 @@ Step 4 (section)  → Appends Section 3
 Step 5 (polish)   → Optimizes entire document
 ```
 
-**Example:** Meal prep nutrition plan - each step adds a section
-
----
-
 ## Four Template Types
 
 ### 1. Free-Form (RECOMMENDED)
 
-**Characteristics:** Minimal template, progressive append, final polish
+- Minimal template, progressive append, final polish
 
-**Template:**
 ```yaml
 ---
 stepsCompleted: []
@@ -81,55 +65,44 @@ lastStep: ''
 date: ''
 user_name: ''
 ---
-
 # {{document_title}}
 
 [Content appended progressively by workflow steps]
 ```
 
-**Use when:** Most workflows - flexible, collaborative
-
 ### 2. Structured
 
-**Characteristics:** Single template with placeholders, clear sections
+- Single template with placeholders, clear sections
 
-**Template:**
 ```markdown
 # {{title}}
 
 ## {{section_1}}
+
 [Content to be filled]
 
 ## {{section_2}}
+
 [Content to be filled]
 ```
 
-**Use when:** Reports, proposals, documentation
-
 ### 3. Semi-Structured
 
-**Characteristics:** Core required sections + optional additions
-
-**Use when:** Forms, checklists, meeting minutes
+- Core required sections + optional additions
 
 ### 4. Strict
 
-**Characteristics:** Multiple templates, exact field definitions
-
-**Use when:** Rarely - compliance, legal, regulated
-
----
+- Multiple templates, exact field definitions
+- Use for: compliance, legal, regulated
 
 ## Template Syntax
 
 ```markdown
-{{variable}}    # Handlebars style (preferred)
-[variable]      # Bracket style (also supported)
+{{variable}} # Handlebars style (preferred)
+[variable] # Bracket style (also supported)
 ```
 
-**Keep templates lean** - structure only, not content.
-
----
+Keep templates lean - structure only, not content.
 
 ## Step-to-Output Mapping
 
@@ -146,19 +119,16 @@ Step 6: Polish (optimizes entire doc)
 
 **Critical:** Use ## Level 2 headers for main sections - allows document splitting if needed.
 
----
-
 ## Final Polish Step
 
 For free-form workflows, include a polish step that:
+
 1. Loads entire document
 2. Reviews for flow and coherence
 3. Reduces duplication
 4. Ensures proper ## Level 2 headers
 5. Improves transitions
 6. Keeps general order but optimizes readability
-
----
 
 ## Output File Patterns
 
@@ -172,17 +142,3 @@ outputFile: '{output_folder}/document-{project_name}-{timestamp}.md'
 # User-specific
 outputFile: '{output_folder}/document-{user_name}-{project_name}.md'
 ```
-
----
-
-## Validation Checklist
-
-For workflow output design:
-- [ ] Output format type selected
-- [ ] Template created if needed
-- [ ] Steps ordered to match document structure
-- [ ] Each step outputs to document (except init/final)
-- [ ] Level 2 headers for main sections
-- [ ] Final polish step for free-form workflows
-- [ ] Frontmatter tracking for continuable workflows
-- [ ] Templates use consistent placeholder syntax

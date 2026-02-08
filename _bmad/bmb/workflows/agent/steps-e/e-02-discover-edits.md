@@ -2,7 +2,7 @@
 name: 'e-02-discover-edits'
 description: 'Discover what user wants to change about the agent'
 
-nextStepFile: './e-04-type-metadata.md'
+nextStepFile: './e-04-sidecar-metadata.md'
 editPlan: '{bmb_creations_output_folder}/edit-plan-{agent-name}.md'
 
 advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitation/workflow.xml'
@@ -74,8 +74,8 @@ I can help you modify:
 **[P]ersona** - Role, identity, communication style, principles
 **[C]ommands** - Add, remove, or modify commands and menu structure
 **[M]etadata** - Name, description, version, tags, category
+**[S]idecar** - Add or remove memory (convert hasSidecar: true/false)
 **[A]ctions** - Critical actions and activation behaviors
-**[T]ype** - Convert between Simple/Expert/Module types
 **[O]ther** - Configuration, capabilities, system context
 
 Which areas would you like to edit? (You can select multiple)"
@@ -85,32 +85,37 @@ Which areas would you like to edit? (You can select multiple)"
 **For each selected category, ask targeted questions:**
 
 #### If Persona selected:
+
 - "What aspect of the persona needs change?"
 - "Should the role be more specific or expanded?"
 - "Is the communication style hitting the right tone?"
 - "Do the principles need refinement?"
 
 #### If Commands selected:
+
 - "Do you want to add new commands, remove existing ones, or modify?"
 - "Are current command names and descriptions clear?"
 - "Should command steps be adjusted?"
 - "Is the menu structure working well?"
 
 #### If Metadata selected:
+
 - "What metadata fields need updating?"
 - "Is the description accurate and compelling?"
 - "Should version be bumped?"
 - "Are tags still relevant?"
 
 #### If Actions selected:
+
 - "What critical actions need modification?"
 - "Should new activation behaviors be added?"
 - "Are current actions executing as expected?"
 
-#### If Type conversion selected:
-- "What type are you converting from/to?"
-- "What's driving this conversion?"
-- "Are you aware of the implications (e.g., Expert needs sidecar)?"
+#### If Sidecar selected:
+
+- "Do you want to add memory (hasSidecar: true) or remove it (hasSidecar: false)?"
+- "What should the agent remember across sessions?"
+- "Are you aware of the implications?"
 
 ### 4. Document Edits to Plan
 
@@ -120,25 +125,32 @@ Which areas would you like to edit? (You can select multiple)"
 ## Edits Planned
 
 ### Persona Edits
+
 - [ ] {edit description}
 - [ ] {edit description}
 
 ### Command Edits
+
 - [ ] {edit description}
 - [ ] {edit description}
 
 ### Metadata Edits
+
 - [ ] {edit description}
 - [ ] {edit description}
 
 ### Critical Action Edits
+
 - [ ] {edit description}
 - [ ] {edit description}
 
-### Type Conversion
-- [ ] {from: X, to: Y, rationale: ...}
+### Sidecar Conversion
+
+- [ ] {from: hasSidecar: false, to: hasSidecar: true, rationale: ...}
+- [ ] {from: hasSidecar: true, to: hasSidecar: false, rationale: ...}
 
 ### Other Edits
+
 - [ ] {edit description}
 ```
 

@@ -1,14 +1,14 @@
 ---
-name: 'step-06-workflows'
+name: 'step-05-workflows'
 description: 'Create workflow placeholder/spec files'
 
-nextStepFile: './step-07-docs.md'
+nextStepFile: './step-06-docs.md'
 workflowSpecTemplate: '../../templates/workflow-spec-template.md'
 buildTrackingFile: '{bmad_creations_output_folder}/modules/module-build-{module_code}.md'
 targetLocation: '{build_tracking_targetLocation}'
 ---
 
-# Step 6: Workflow Specs
+# Step 5: Workflow Specs
 
 ## STEP GOAL:
 
@@ -37,11 +37,13 @@ Create workflow placeholder/spec files based on the brief.
 ### 1. Get Workflow List from Brief
 
 Extract from the brief:
+
 - Core workflows
 - Feature workflows
 - Utility workflows
 
 For each workflow:
+
 - Name
 - Purpose/goal
 - Primary agent
@@ -54,7 +56,8 @@ Load `{workflowSpecTemplate}` and create:
 `{targetLocation}/workflows/{workflow_name}/{workflow_name}.spec.md`
 
 With content:
-```markdown
+
+````markdown
 # Workflow Specification: {workflow_name}
 
 **Module:** {module_code}
@@ -79,12 +82,13 @@ With content:
 
 ```yaml
 ---
-name: {workflow_name}
-description: {workflow_description}
+name: { workflow_name }
+description: { workflow_description }
 web_bundle: true
 installed_path: '{project-root}/_bmad/{module_code}/workflows/{workflow_folder_name}'
 ---
 ```
+````
 
 ### Mode
 
@@ -96,7 +100,8 @@ installed_path: '{project-root}/_bmad/{module_code}/workflows/{workflow_folder_n
 ## Planned Steps
 
 | Step | Name | Goal |
-|------|------|------|
+| ---- | ---- | ---- |
+
 {workflow_steps_table}
 
 ---
@@ -145,6 +150,7 @@ installed_path: '{project-root}/_bmad/{module_code}/workflows/{workflow_folder_n
 ---
 
 _Spec created on {date} via BMAD Module workflow_
+
 ```
 
 ### 3. Create All Workflow Specs
@@ -154,7 +160,7 @@ Iterate through each workflow from the brief and create their spec file.
 ### 4. Update Build Tracking
 
 Update `{buildTrackingFile}`:
-- Add 'step-06-workflows' to stepsCompleted
+- Add 'step-05-workflows' to stepsCompleted
 - List all workflow specs created
 
 ### 5. Report Success
@@ -181,3 +187,4 @@ Update `{buildTrackingFile}`:
 ✅ Each spec has goal, steps, inputs/outputs
 ✅ Agent associations documented
 ✅ Build tracking updated
+```
