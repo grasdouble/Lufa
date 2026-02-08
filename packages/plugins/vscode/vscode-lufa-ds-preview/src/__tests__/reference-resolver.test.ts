@@ -9,7 +9,7 @@ const createMap = () => ({
   },
   paths: {
     'tokens.color["primary"]': 'oklch(60% 0.12 210)',
-    'primitives.color.chromatic.blue[500]': 'oklch(62% 0.14 250)',
+    'primitive.color.blue.500': 'oklch(62% 0.14 250)',
   },
 });
 

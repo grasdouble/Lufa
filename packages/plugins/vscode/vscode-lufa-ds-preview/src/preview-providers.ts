@@ -223,7 +223,7 @@ const getCompletionMatch = (document: vscode.TextDocument, position: vscode.Posi
   const offset = document.offsetAt(position);
   const scanText = text.slice(Math.max(0, offset - 200), offset);
 
-  const cssMatch = /--lufa-(?:token|primitive)-[a-zA-Z0-9-]*$/.exec(scanText);
+  const cssMatch = /--lufa-(?:primitive|core|semantic|component|tokens)-[a-zA-Z0-9-]*$/.exec(scanText);
   if (cssMatch) {
     const start = offset - cssMatch[0].length;
     return {
@@ -233,7 +233,7 @@ const getCompletionMatch = (document: vscode.TextDocument, position: vscode.Posi
     };
   }
 
-  const pathMatch = /\b(?:tokens|primitives)\.[A-Za-z0-9_$.[\]'"]*$/.exec(scanText);
+  const pathMatch = /\b(?:tokens|primitive|core|semantic|component)\.[A-Za-z0-9_$.[\]'"]*$/.exec(scanText);
   if (pathMatch) {
     const start = offset - pathMatch[0].length;
     return {
@@ -306,10 +306,7 @@ const toCssColor = (value: string): string | null => {
 
   const toChannel = (channel: number): number => Math.round(channel * 255);
   const alpha = rgb.alpha ?? 1;
-  const alphaText = Math.min(1, Math.max(0, alpha))
-    .toFixed(3)
-    .replace(/0+$/, '')
-    .replace(/\.$/, '');
+  const alphaText = Math.min(1, Math.max(0, alpha)).toFixed(3).replace(/0+$/, '').replace(/\.$/, '');
 
   const r = toChannel(rgb.r);
   const g = toChannel(rgb.g);
@@ -357,7 +354,11 @@ const buildCssCompletionItems = (valuesMap: TokenMap, match: CompletionMatch): v
 const buildPathCompletionItems = (valuesMap: TokenMap, match: CompletionMatch): vscode.CompletionItem[] => {
   const items: vscode.CompletionItem[] = [];
   const quotePreference = getQuotePreference(match.prefix);
-  const namespace = match.prefix.startsWith('tokens.') ? 'tokens.' : 'primitives.';
+
+  // Determine namespace from prefix (tokens, primitive, core, semantic, component)
+  const namespaceMatch = /^(tokens|primitive|core|semantic|component)\./.exec(match.prefix);
+  const namespace = namespaceMatch ? namespaceMatch[1] + '.' : '';
+
   const entries = Object.entries(valuesMap.paths);
 
   for (const [name, value] of entries) {

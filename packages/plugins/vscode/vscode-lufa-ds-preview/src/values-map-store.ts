@@ -1,13 +1,14 @@
 /**
- * Cache and watcher management for primitives/tokens maps and config resolution.
+ * Cache and watcher management for tokens maps and config resolution.
  */
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { isAbsolute, join } from 'node:path';
 import * as vscode from 'vscode';
-import { mergePreviewConfig, parseFlatConfig, parseObjectConfig } from './preview-config';
-import { getEmbeddedMapPath, isValidMap } from './values-map';
+
 import type { LufaPreviewConfig } from './preview-config';
 import type { TokenMap } from './values-map';
+import { mergePreviewConfig, parseFlatConfig, parseObjectConfig } from './preview-config';
+import { getEmbeddedMapPath, isValidMap } from './values-map';
 
 type ValuesMapStore = {
   loadValuesMap: () => TokenMap | null;
@@ -30,9 +31,7 @@ type MapCacheState = {
  */
 const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
   let cachedValuesMap: TokenMap | null = null;
-  const primitivesCache: MapCacheState = { path: null, mtime: 0 };
   const tokensCache: MapCacheState = { path: null, mtime: 0 };
-  let primitivesWatcher: vscode.FileSystemWatcher | null = null;
   let tokensWatcher: vscode.FileSystemWatcher | null = null;
   let extensionRootPath: string | null = null;
 
@@ -103,26 +102,10 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
   };
 
   /**
-   * Resolve the embedded primitives map path from the extension bundle.
-   */
-  const getPackagedPrimitivesMapPath = (): string | null => {
-    return getEmbeddedMapPath(extensionRootPath, 'primitives.map.json', existsSync);
-  };
-
-  /**
    * Resolve the embedded tokens map path from the extension bundle.
    */
   const getPackagedTokensMapPath = (): string | null => {
     return getEmbeddedMapPath(extensionRootPath, 'tokens.map.json', existsSync);
-  };
-
-  /**
-   * Resolve the active primitives map path using config and packaged fallbacks.
-   */
-  const getPrimitivesMapPath = (): string | null => {
-    const configured = getLufaPreviewConfig().primitivesMapPath;
-    const resolved = configured ? resolveConfiguredPath(configured, 'primitives map') : null;
-    return resolved ?? getPackagedPrimitivesMapPath();
   };
 
   /**
@@ -135,7 +118,7 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
   };
 
   type MapLoadOptions = {
-    label: 'primitives' | 'tokens';
+    label: 'tokens';
     mapPath: string | null;
     cache: MapCacheState;
     notFoundHint: string;
@@ -187,44 +170,24 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
     }
   };
 
-  const primitivesNotFoundHint =
-    'Build @grasdouble/lufa_design-system-primitives or set lufaDsPreview.primitivesMapPath.';
   const tokensNotFoundHint = 'Build @grasdouble/lufa_design-system-tokens or set lufaDsPreview.tokensMapPath.';
 
   /**
-   * Load and merge primitives/tokens maps into a single values map.
+   * Load the tokens map.
    */
   const loadValuesMap = (): TokenMap | null => {
     const config = getLufaPreviewConfig();
-    const configuredPrimitivesPath = config.primitivesMapPath
-      ? resolveConfiguredPath(config.primitivesMapPath, 'primitives map')
+    const configuredTokensPath = config.tokensMapPath
+      ? resolveConfiguredPath(config.tokensMapPath, 'tokens map')
       : null;
-    const configuredTokensPath = config.tokensMapPath ? resolveConfiguredPath(config.tokensMapPath, 'tokens map') : null;
-    const packagedPrimitivesPath = getPackagedPrimitivesMapPath();
     const packagedTokensPath = getPackagedTokensMapPath();
 
-    let primitivesMap = loadMap({
-      label: 'primitives',
-      mapPath: configuredPrimitivesPath ?? packagedPrimitivesPath,
-      cache: primitivesCache,
-      notFoundHint: primitivesNotFoundHint,
-    });
     let tokensMap = loadMap({
       label: 'tokens',
       mapPath: configuredTokensPath ?? packagedTokensPath,
       cache: tokensCache,
       notFoundHint: tokensNotFoundHint,
     });
-
-    if (!primitivesMap && configuredPrimitivesPath && packagedPrimitivesPath) {
-      logOnce(`lufa: Falling back to packaged primitives map at ${packagedPrimitivesPath}.`);
-      primitivesMap = loadMap({
-        label: 'primitives',
-        mapPath: packagedPrimitivesPath,
-        cache: primitivesCache,
-        notFoundHint: primitivesNotFoundHint,
-      });
-    }
 
     if (!tokensMap && configuredTokensPath && packagedTokensPath) {
       logOnce(`lufa: Falling back to packaged tokens map at ${packagedTokensPath}.`);
@@ -236,24 +199,17 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
       });
     }
 
-    if (!primitivesMap || !tokensMap) {
-      logOnce('lufa: Failed to load primitives or tokens map');
+    if (!tokensMap) {
+      logOnce('lufa: Failed to load tokens map');
       return null;
     }
 
-    const mergedMap: TokenMap = {
-      version: Math.max(primitivesMap.version, tokensMap.version),
-      generatedAt: tokensMap.generatedAt ?? primitivesMap.generatedAt,
-      css: { ...primitivesMap.css, ...tokensMap.css },
-      paths: { ...primitivesMap.paths, ...tokensMap.paths },
-    };
-
-    cachedValuesMap = mergedMap;
-    if (!config.primitivesMapPath && !config.tokensMapPath) {
-      logOnce('lufa: Using packaged maps from the extension bundle');
+    cachedValuesMap = tokensMap;
+    if (!config.tokensMapPath) {
+      logOnce('lufa: Using packaged tokens map from the extension bundle');
     }
 
-    return mergedMap;
+    return tokensMap;
   };
 
   /**
@@ -261,7 +217,6 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
    */
   const resetAllCache = (): void => {
     cachedValuesMap = null;
-    resetMapCache(primitivesCache);
     resetMapCache(tokensCache);
   };
 
@@ -269,23 +224,20 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
    * Dispose file watchers for map changes.
    */
   const disposeWatchers = (): void => {
-    primitivesWatcher?.dispose();
-    primitivesWatcher = null;
     tokensWatcher?.dispose();
     tokensWatcher = null;
   };
 
   /**
-   * Create file watchers for primitives and tokens maps.
+   * Create file watchers for tokens maps.
    */
   const setupMapWatchers = (context: vscode.ExtensionContext): void => {
-    const primitivesMapPath = getPrimitivesMapPath();
     const tokensMapPath = getTokensMapPath();
 
     disposeWatchers();
 
     const setupMapWatcher = (
-      label: 'primitives' | 'tokens',
+      label: 'tokens',
       mapPath: string | null,
       cache: MapCacheState,
       setWatcher: (watcher: vscode.FileSystemWatcher | null) => void
@@ -318,9 +270,6 @@ const createValuesMapStore = (logOnce: LogOnce): ValuesMapStore => {
       }
     };
 
-    setupMapWatcher('primitives', primitivesMapPath, primitivesCache, (watcher) => {
-      primitivesWatcher = watcher;
-    });
     setupMapWatcher('tokens', tokensMapPath, tokensCache, (watcher) => {
       tokensWatcher = watcher;
     });

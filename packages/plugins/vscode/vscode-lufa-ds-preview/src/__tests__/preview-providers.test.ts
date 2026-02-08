@@ -79,7 +79,7 @@ const createMap = () => ({
     '--lufa-core-color-brand-500': 'rgb(255 0 0)',
   },
   paths: {
-    'primitives.color.chromatic.red[500]': 'rgb(0 255 0)',
+    'primitive.color.red.500': 'rgb(0 255 0)',
     'tokens.color.text.primary': 'rgb(0 0 255)',
     'tokens.spacing["sm-md"]': '0.5rem',
   },
@@ -97,7 +97,7 @@ describe('createDocumentColorProvider', () => {
       fileName: 'styles.css',
       languageId: 'css',
       getText: () =>
-        'color: var(--lufa-core-color-brand-500); background: tokens.color.text.primary; border: primitives.color.chromatic.red[500]; box-shadow: 0 0 0 2px oklch(70% 0.1 200 / 0.5);',
+        'color: var(--lufa-core-color-brand-500); background: tokens.color.text.primary; border: primitive.color.red.500; box-shadow: 0 0 0 2px oklch(70% 0.1 200 / 0.5);',
       positionAt: (offset: number) => ({ line: 0, character: offset }),
     };
 

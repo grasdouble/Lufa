@@ -1,59 +1,51 @@
 import { describe, expect, it } from 'vitest';
+
 import { createColorPathRe } from '../token-path-patterns';
 
 describe('TS patterns', () => {
-  it('should match primitives.color paths', () => {
+  it('should match primitive.color paths', () => {
     const colorPathRe = createColorPathRe();
-    const text = 'const color = primitives.color.chromatic.red[500];';
+    const text = 'const color = primitive.color.red.500;';
     const matches = [...text.matchAll(colorPathRe)];
 
     expect(matches).toHaveLength(1);
-    expect(matches[0][0]).toBe('primitives.color.chromatic.red[500]');
+    expect(matches[0][0]).toBe('primitive.color.red.500');
   });
 
-  it('should match neutral primitives.color paths', () => {
+  it('should match primitive.color.gray paths', () => {
     const colorPathRe = createColorPathRe();
-    const text = 'const gray = primitives.color.neutral.neutral[900];';
+    const text = 'const gray = primitive.color.gray.900;';
     const matches = [...text.matchAll(colorPathRe)];
 
     expect(matches).toHaveLength(1);
-    expect(matches[0][0]).toBe('primitives.color.neutral.neutral[900]');
+    expect(matches[0][0]).toBe('primitive.color.gray.900');
   });
 
-  it('should match neutral primitives.color black/white paths', () => {
+  it('should not match partial primitive.color expressions', () => {
     const colorPathRe = createColorPathRe();
-    const text = 'const black = primitives.color.neutral.black;';
-    const matches = [...text.matchAll(colorPathRe)];
-
-    expect(matches).toHaveLength(1);
-    expect(matches[0][0]).toBe('primitives.color.neutral.black');
-  });
-
-  it('should not match partial primitives.color expressions', () => {
-    const colorPathRe = createColorPathRe();
-    const text = 'myprimitives.color.chromatic.red[500]'; // No word boundary
+    const text = 'myprimitive.color.red.500'; // No word boundary
     const matches = [...text.matchAll(colorPathRe)];
 
     expect(matches).toHaveLength(0);
   });
 
-  it('should match multiple primitives.color paths in one line', () => {
+  it('should match multiple primitive.color paths in one line', () => {
     const colorPathRe = createColorPathRe();
-    const text = 'colors: [primitives.color.chromatic.blue[400], primitives.color.neutral.gray[700]]';
+    const text = 'colors: [primitive.color.blue.400, primitive.color.gray.700]';
     const matches = [...text.matchAll(colorPathRe)];
 
     expect(matches).toHaveLength(2);
-    expect(matches[0][0]).toBe('primitives.color.chromatic.blue[400]');
-    expect(matches[1][0]).toBe('primitives.color.neutral.gray[700]');
+    expect(matches[0][0]).toBe('primitive.color.blue.400');
+    expect(matches[1][0]).toBe('primitive.color.gray.700');
   });
 
-  it('should match bracketed primitives.color paths', () => {
+  it('should match bracketed primitive.color paths', () => {
     const colorPathRe = createColorPathRe();
-    const text = 'const color = primitives.color.neutral["blue-gray"][500];';
+    const text = 'const color = primitive.color["blue-gray"].500;';
     const matches = [...text.matchAll(colorPathRe)];
 
     expect(matches).toHaveLength(1);
-    expect(matches[0][0]).toBe('primitives.color.neutral["blue-gray"][500]');
+    expect(matches[0][0]).toBe('primitive.color["blue-gray"].500');
   });
 
   it('should match tokens.color paths', () => {
