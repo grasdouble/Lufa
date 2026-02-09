@@ -1,0 +1,162 @@
+/**
+ * Lufa Design System - Matrix Theme
+ * Docusaurus-Specific Customizations
+ *
+ * Cyber-inspired design with digital rain and terminal aesthetics.
+ *
+ * Features:
+ * - Monospace typography with terminal feel
+ * - Neon green glow effects
+ * - Digital rain animations
+ * - Hacker/terminal interface style
+ */
+
+/* ==================== TYPOGRAPHY - Terminal Font ==================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Roboto+Mono:wght@400;700&display=swap');
+
+[data-color-theme='matrix'] {
+  --ifm-font-family-base: 'Roboto Mono', 'Courier New', monospace;
+  --ifm-heading-font-family: 'Share Tech Mono', monospace;
+  --ifm-font-family-monospace: 'Roboto Mono', monospace;
+
+  & .main-wrapper {
+    border-top: 2px solid var(--lufa-core-brand-primary);
+    box-shadow: 0 2px 20px rgba(0, 255, 65, 0.2);
+  }
+
+  & .navbar {
+    background: var(--lufa-core-neutral-surface);
+    border-bottom: 1px solid var(--lufa-core-brand-primary);
+    box-shadow: 0 2px 10px rgba(0, 255, 65, 0.15);
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  & .navbar__brand::before {
+    content: '> ';
+    color: var(--lufa-core-brand-primary);
+  }
+
+  & .navbar__link:hover {
+    background: rgba(0, 255, 65, 0.1);
+    color: var(--lufa-core-brand-primary);
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
+  }
+
+  & h1,
+  & h2,
+  & h3 {
+    color: var(--lufa-core-brand-primary);
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  & h1 {
+    border-bottom: 2px solid var(--lufa-core-brand-primary);
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+
+    &::before {
+      content: '$ ';
+    }
+  }
+
+  & h2::before {
+    content: '>> ';
+    color: var(--lufa-core-brand-primary);
+  }
+
+  & pre {
+    border: 1px solid var(--lufa-core-brand-primary);
+    border-radius: 4px;
+    box-shadow:
+      0 0 20px rgba(0, 255, 65, 0.2),
+      inset 0 0 20px rgba(0, 255, 65, 0.05);
+    background: var(--lufa-core-neutral-surface);
+
+    &::before {
+      content: '[TERMINAL]';
+      display: block;
+      color: var(--lufa-core-brand-primary);
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.7;
+    }
+  }
+
+  & code {
+    background: rgba(0, 255, 65, 0.1);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    font-family: 'Roboto Mono', monospace;
+    text-shadow: 0 0 2px rgba(0, 255, 65, 0.3);
+  }
+
+  & .button,
+  & button {
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 1px solid var(--lufa-core-brand-primary);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+      text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+      transform: translateY(-2px);
+    }
+  }
+
+  & a {
+    color: var(--lufa-core-brand-primary);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+
+    &:hover {
+      text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+      text-decoration-style: solid;
+    }
+  }
+
+  & ::-webkit-scrollbar-thumb {
+    background: var(--lufa-core-brand-primary);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+  }
+
+  & hr {
+    border: none;
+    height: 1px;
+    background: var(--lufa-core-brand-primary);
+    box-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+    margin: 2rem 0;
+
+    &::after {
+      content: '< DATA STREAM >';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--lufa-core-neutral-background);
+      padding: 0 1rem;
+      color: var(--lufa-core-brand-primary);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+    }
+  }
+}
+
+/* ==================== GLOBAL - Digital Background ==================== */
+
+body[data-color-theme='matrix'] {
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* ==================== DARK MODE - Neon Enhancement ==================== */
+
+[data-color-theme='matrix'][data-mode='dark'] {
+  text-shadow: 0 0 2px rgba(0, 255, 65, 0.1);
+
+  & h1,
+  & h2 {
+    text-shadow: 0 0 15px rgba(0, 255, 65, 0.7);
+  }
+}
