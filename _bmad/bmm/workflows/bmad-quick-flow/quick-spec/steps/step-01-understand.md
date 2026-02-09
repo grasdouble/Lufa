@@ -2,10 +2,9 @@
 name: 'step-01-understand'
 description: 'Analyze the requirement delta between current state and what user wants to build'
 
-workflow_path: '{project-root}/_bmad/bmm/workflows/bmad-quick-flow/quick-spec'
 nextStepFile: './step-02-investigate.md'
 skipToStepFile: './step-03-generate.md'
-templateFile: '{workflow_path}/tech-spec-template.md'
+templateFile: '../tech-spec-template.md'
 wipFile: '{implementation_artifacts}/tech-spec-wip.md'
 ---
 
@@ -100,6 +99,7 @@ d) **Build mental model:**
 a) **Now ask clarifying questions - but make them INFORMED by what you found:**
 
 Instead of generic questions like "What's the scope?", ask specific ones like:
+
 - "`AuthService` handles validation in the controller — should the new field follow that pattern or move it to a dedicated validator?"
 - "`NavigationSidebar` component uses local state for the 'collapsed' toggle — should we stick with that or move it to the global store?"
 - "The epics doc mentions X - is this related?"

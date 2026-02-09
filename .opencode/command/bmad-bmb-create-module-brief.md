@@ -1,7 +1,16 @@
 ---
-name: 'create-module-brief'
 description: 'Create product brief for BMAD module development'
-disable-model-invocation: true
 ---
 
-IT IS CRITICAL THAT YOU FOLLOW THIS COMMAND: LOAD the FULL @{project-root}/_bmad/bmb/workflows/module/workflow-create-module-brief.md, READ its entire contents and follow its directions exactly!
+Execute the BMAD 'create-module-brief' workflow.
+
+CRITICAL: You must load and follow the workflow definition exactly.
+
+WORKFLOW INSTRUCTIONS:
+
+1. LOAD the workflow file from {project-root}/\_bmad/bmb/workflows/module/workflow-create-module-brief.md
+2. READ its entire contents
+3. FOLLOW every step precisely as specified
+4. DO NOT skip or modify any steps
+
+WORKFLOW FILE: {project-root}/\_bmad/bmb/workflows/module/workflow-create-module-brief.md

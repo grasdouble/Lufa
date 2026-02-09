@@ -14,14 +14,14 @@
 
 ## Standard Variables
 
-| Variable                     | Example                              |
-| ---------------------------- | ------------------------------------ |
-| `{project-root}`             | `/Users/user/dev/BMAD-METHOD`        |
-| `{project_name}`             | `my-project`                         |
-| `{output_folder}`            | `/Users/user/dev/BMAD-METHOD/output` |
-| `{user_name}`                | `Brian`                              |
-| `{communication_language}`   | `english`                            |
-| `{document_output_language}` | `english`                            |
+| Variable                     | Example                                                                 |
+| ---------------------------- | ----------------------------------------------------------------------- |
+| `{project-root}`             | `/Users/user/dev/BMAD-METHOD` <!-- validate-file-refs:ignore -->        |
+| `{project_name}`             | `my-project`                                                            |
+| `{output_folder}`            | `/Users/user/dev/BMAD-METHOD/output` <!-- validate-file-refs:ignore --> |
+| `{user_name}`                | `Brian`                                                                 |
+| `{communication_language}`   | `english`                                                               |
+| `{document_output_language}` | `english`                                                               |
 
 ---
 
@@ -112,13 +112,13 @@ nextStepFile: './step-02-foo.md'
 
 ## ❌ FORBIDDEN Patterns
 
-| Pattern                               | Why                      |
-| ------------------------------------- | ------------------------ |
-| `workflow_path: '{project-root}/...'` | Use relative paths       |
-| `thisStepFile: './step-XX.md'`        | Remove unless referenced |
-| `workflowFile: './workflow.md'`       | Remove unless referenced |
-| `{workflow_path}/templates/...`       | Use `../template.md`     |
-| `{workflow_path}/data/...`            | Use `./data/file.md`     |
+| Pattern                               | Why                                                         |
+| ------------------------------------- | ----------------------------------------------------------- |
+| `workflow_path: '{project-root}/...'` | Use relative paths                                          |
+| `thisStepFile: './step-XX.md'`        | Remove unless referenced <!-- validate-file-refs:ignore --> |
+| `workflowFile: './workflow.md'`       | Remove unless referenced <!-- validate-file-refs:ignore --> |
+| `{workflow_path}/templates/...`       | Use `../template.md`                                        |
+| `{workflow_path}/data/...`            | Use `./data/file.md`                                        |
 
 ---
 
