@@ -1,7 +1,6 @@
 # Understanding Agent Types
 
 > **LLM Instructions:** Load example files when helping users:
->
 > - Without sidecar: `{workflow_path}/data/reference/without-sidecar/commit-poet.agent.yaml`
 > - With sidecar: `{workflow_path}/data/reference/with-sidecar/journal-keeper/`
 
@@ -34,12 +33,12 @@ agent-name.agent.yaml
 └── menu (triggers → #prompt-id or inline)
 ```
 
-| When to Use                    | Examples             |
-| ------------------------------ | -------------------- |
-| Single-purpose utility         | Commit Poet          |
-| Each session independent       | Snarky Weather Bot   |
-| All knowledge fits in YAML     | Pun-making Barista   |
-| Menu handlers 1-2 lines        | Motivational Gym Bro |
+| When to Use | Examples |
+|-------------|----------|
+| Single-purpose utility | Commit Poet |
+| Each session independent | Snarky Weather Bot |
+| All knowledge fits in YAML | Pun-making Barista |
+| Menu handlers 1-2 lines | Motivational Gym Bro |
 | Persona-driven (fun/character) | Sassy Fortune Teller |
 
 **Optional critical_actions:** Allowed for activation behaviors (quotes, data fetches). Must NOT reference sidecar files.
@@ -60,44 +59,42 @@ agent-name.agent.yaml
     └── knowledge/            # Domain reference
 ```
 
-| When to Use                         | Examples                |
-| ----------------------------------- | ----------------------- |
-| Remember across sessions            | Journal companion       |
-| User preferences/settings           | Novel writing buddy     |
-| Personal knowledge base             | Job augmentation agent  |
-| Learning/evolving over time         | Therapy/health tracking |
-| Domain-specific + restricted access | Fitness coach with PRs  |
-| Complex multi-step workflows        | Language tutor          |
+| When to Use | Examples |
+|-------------|----------|
+| Remember across sessions | Journal companion |
+| User preferences/settings | Novel writing buddy |
+| Personal knowledge base | Job augmentation agent |
+| Learning/evolving over time | Therapy/health tracking |
+| Domain-specific + restricted access | Fitness coach with PRs |
+| Complex multi-step workflows | Language tutor |
 
 **Required critical_actions:**
-
 ```yaml
 critical_actions:
-  - 'Load COMPLETE file {project-root}/_bmad/_memory/{sidecar-folder}/memories.md'
-  - 'Load COMPLETE file {project-root}/_bmad/_memory/{sidecar-folder}/instructions.md'
-  - 'ONLY read/write files in {project-root}/_bmad/_memory/{sidecar-folder}/'
+  - "Load COMPLETE file {project-root}/_bmad/_memory/{sidecar-folder}/memories.md"
+  - "Load COMPLETE file {project-root}/_bmad/_memory/{sidecar-folder}/instructions.md"
+  - "ONLY read/write files in {project-root}/_bmad/_memory/{sidecar-folder}/"
 ```
 
 ---
 
 ## Comparison
 
-| Aspect            | Without Sidecar | With Sidecar            |
-| ----------------- | --------------- | ----------------------- |
-| Structure         | Single YAML     | YAML + sidecar/         |
-| Persistent memory | No              | Yes                     |
-| critical_actions  | Optional        | MANDATORY               |
-| Workflows         | Inline prompts  | Sidecar files           |
-| File access       | Project/output  | Restricted to sidecar   |
-| Session state     | Stateless       | Remembers               |
-| Best for          | Focused skills  | Long-term relationships |
+| Aspect | Without Sidecar | With Sidecar |
+|--------|----------------|--------------|
+| Structure | Single YAML | YAML + sidecar/ |
+| Persistent memory | No | Yes |
+| critical_actions | Optional | MANDATORY |
+| Workflows | Inline prompts | Sidecar files |
+| File access | Project/output | Restricted to sidecar |
+| Session state | Stateless | Remembers |
+| Best for | Focused skills | Long-term relationships |
 
 ---
 
 ## Selection Checklist
 
 **Without sidecar:**
-
 - [ ] One clear purpose, related skills
 - [ ] No cross-session memory needed
 - [ ] Fits in ~250 lines
@@ -105,7 +102,6 @@ critical_actions:
 - [ ] Persona-driven value
 
 **With sidecar:**
-
 - [ ] Memory across sessions
 - [ ] Personal knowledge base
 - [ ] Domain-specific expertise
@@ -114,7 +110,6 @@ critical_actions:
 - [ ] Complex workflows
 
 **Escalate to Module Builder if:**
-
 - [ ] Multiple distinct personas needed
 - [ ] Many specialized workflows
 - [ ] Multiple users with mixed data scope

@@ -47,14 +47,12 @@ Assemble the agent plan content into a complete agent YAML file. The build appro
 # EXECUTION PROTOCOLS
 
 ## Phase 1: Load Architecture and Templates
-
 1. Read `agentTemplate` - defines YAML structure for agents
 2. Read `agentArch` - architecture requirements for agents
 3. Read `agentCompilation` - assembly rules for YAML generation
 4. Read `criticalActions` - validation requirements for critical_actions
 
 ## Phase 2: Load Agent Plan
-
 1. Read `agentPlan` containing all collected content from Steps 2-5
 2. Verify plan contains:
    - hasSidecar decision (true/false)
@@ -80,7 +78,6 @@ hasSidecar: true
 ```
 
 **Inform user of build approach:**
-
 ```
 "Building: Agent {WITH|WITHOUT} sidecar
 hasSidecar: {true/false}
@@ -92,7 +89,6 @@ Output: {output path description}"
 ### For Agents WITHOUT Sidecar (hasSidecar: false)
 
 **Structure:**
-
 ```yaml
 name: '{agent-name}'
 description: '{short-description}'
@@ -108,8 +104,8 @@ system-context: |
   {expanded context from plan}
 
 capabilities:
-  - { capability from plan }
-  - { capability from plan }
+  - {capability from plan}
+  - {capability from plan}
   # ... all capabilities
 
 commands:
@@ -117,14 +113,14 @@ commands:
     description: '{what command does}'
     trigger: '{menu trigger}'
     steps:
-      - { step 1 }
-      - { step 2 }
+      - {step 1}
+      - {step 2}
     # ... all commands from plan
 
 configuration:
-  temperature: { temperature }
-  max-tokens: { max-tokens }
-  response-format: { format }
+  temperature: {temperature}
+  max-tokens: {max-tokens}
+  response-format: {format}
   # ... other configuration from plan
 
 metadata:
@@ -137,7 +133,6 @@ metadata:
 ### For Agents WITH Sidecar (hasSidecar: true)
 
 **Structure:**
-
 ```yaml
 name: '{agent-name}'
 description: '{short-description}'
@@ -153,8 +148,8 @@ system-context: |
   {expanded context from plan}
 
 capabilities:
-  - { capability from plan }
-  - { capability from plan }
+  - {capability from plan}
+  - {capability from plan}
   # ... all capabilities
 
 critical-actions:
@@ -175,14 +170,14 @@ commands:
     description: '{what command does}'
     trigger: '{menu trigger}'
     steps:
-      - { step 1 }
-      - { step 2 }
+      - {step 1}
+      - {step 2}
     # ... all commands from plan
 
 configuration:
-  temperature: { temperature }
-  max-tokens: { max-tokens }
-  response-format: { format }
+  temperature: {temperature}
+  max-tokens: {max-tokens}
+  response-format: {format}
   # ... other configuration from plan
 
 metadata:
@@ -200,13 +195,11 @@ metadata:
 Skip this phase if hasSidecar: false
 
 1. **Create Sidecar Directory**:
-
    ```bash
    mkdir -p {sidecarOutput}
    ```
 
 2. **Create Starter Files** (if specified in critical_actions):
-
    ```bash
    touch {sidecarOutput}/memories.md
    touch {sidecarOutput}/instructions.md
@@ -214,24 +207,20 @@ Skip this phase if hasSidecar: false
    ```
 
 3. **Add README to Sidecar**:
-
    ```markdown
    # {sidecar-folder} Sidecar
 
    This folder stores persistent memory for the **{agent-name}** agent.
 
    ## Purpose
-
    {purpose from critical_actions}
 
    ## Files
-
    - memories.md: User profile, session history, patterns
    - instructions.md: Protocols, boundaries, startup behavior
    - {additional files}
 
    ## Runtime Access
-
    After BMAD installation, this folder will be accessible at:
    `{project-root}/_bmad/_memory/{sidecar-folder}/{filename}.md`
    ```
@@ -239,13 +228,11 @@ Skip this phase if hasSidecar: false
 ### Phase 6: Write Agent YAML
 
 **If hasSidecar: false:**
-
 1. Write YAML to `{agentYamlOutputNoSidecar}`
 2. Confirm write success
 3. Display file location to user
 
 **If hasSidecar: true:**
-
 1. Create directory: `mkdir -p {agentBuildOutput}`
 2. Write YAML to `{agentYamlOutput}`
 3. Confirm write success
@@ -274,7 +261,6 @@ Display: "**Select an Option:** [A] Advanced Elicitation [P] Party Mode [C] Cont
 # CONTEXT BOUNDARIES
 
 **INCLUDE:**
-
 - Template structure exactly as provided
 - All agent metadata from agentPlan
 - Persona, commands, and rules from plan
@@ -282,7 +268,6 @@ Display: "**Select an Option:** [A] Advanced Elicitation [P] Party Mode [C] Cont
 - Sidecar structure if hasSidecar: true
 
 **EXCLUDE:**
-
 - Any content not in agentPlan
 - Sidecar references if hasSidecar: false
 - Template placeholders (replace with actual content)
@@ -295,7 +280,6 @@ Display: "**Select an Option:** [A] Advanced Elicitation [P] Party Mode [C] Cont
 ONLY WHEN [C continue option] is selected and [complete YAML generated and written to output], will you then load and read fully `{nextStepFile}` to execute and celebrate completion.
 
 **This step produces:**
-
 - **If hasSidecar: false**: Single agent YAML file
 - **If hasSidecar: true**: Agent YAML file + sidecar folder structure
 
@@ -306,7 +290,6 @@ Both must exist (if applicable) before proceeding to validation.
 # SUCCESS METRICS
 
 ✅ **SUCCESS looks like:**
-
 - Agent YAML file exists at specified output path
 - YAML is syntactically valid and well-formed
 - All template fields populated with plan content
@@ -315,7 +298,6 @@ Both must exist (if applicable) before proceeding to validation.
 - User has selected continue to proceed
 
 ❌ **FAILURE looks like:**
-
 - Template or architecture files not found
 - Agent plan missing required sections
 - YAML syntax errors in output
@@ -328,7 +310,6 @@ Both must exist (if applicable) before proceeding to validation.
 # TRANSITION CRITERIA
 
 **Ready for Step 8 when:**
-
 - Agent YAML successfully created (with or without sidecar as specified)
 - User selects continue
 - All build artifacts confirmed written

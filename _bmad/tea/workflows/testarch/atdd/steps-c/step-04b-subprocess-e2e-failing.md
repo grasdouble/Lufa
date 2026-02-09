@@ -96,7 +96,7 @@ For each user journey, create test file in `tests/e2e/[feature].spec.ts`:
 **Test Structure (ATDD - Red Phase):**
 
 ```typescript
-import { expect, test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 test.describe('[Story Name] E2E User Journey (ATDD)', () => {
   test.skip('[P0] should complete user registration successfully', async ({ page }) => {

@@ -64,7 +64,6 @@ Apply all planned edits to the agent YAML file. The edit approach (with or witho
 ### 1. Load Reference Documents
 
 Read all files before editing:
-
 - `{agentTemplate}` - YAML structure reference
 - `{agentArch}` - Agent architecture (with/without sidecar)
 - `{agentValidation}` - Validation checklist
@@ -82,7 +81,6 @@ Check the `hasSidecar` value from editPlan to determine edit approach.
 ### 3. Create Backup
 
 ALWAYS backup before editing:
-
 ```bash
 cp {agentFile} {agentBackup}
 ```
@@ -96,7 +94,6 @@ For each planned edit:
 **Sidecar Conversion:**
 
 **false → true (Adding sidecar):**
-
 - Set `hasSidecar: true`
 - Add `metadata.sidecar-folder` if not present
 - Add `critical_actions` section with sidecar file references
@@ -105,7 +102,6 @@ For each planned edit:
 - Update all references to use `{project-root}/_bmad/_memory/{sidecar-folder}/` format
 
 **true → false (Removing sidecar):**
-
 - Set `hasSidecar: false`
 - Remove `metadata.sidecar-folder` and `metadata.sidecar-path`
 - If critical_actions contains only sidecar references, remove the section
@@ -114,24 +110,20 @@ For each planned edit:
 - Optionally archive sidecar folder
 
 **Metadata Edits:**
-
 - Apply each field change from metadataEdits
 - Validate format conventions
 
 **Persona Edits:**
-
 - Replace persona section with new four-field persona
 - Validate field purity (role ≠ identity ≠ communication_style)
 - For hasSidecar: true, ensure communication_style includes memory reference patterns
 
 **Command Edits:**
-
 - Additions: append to commands array
 - Modifications: update specific commands
 - Removals: remove from commands array
 
 **Critical Actions Edits (hasSidecar: true only):**
-
 - Additions: append to critical_actions array
 - Modifications: update specific actions
 - Removals: remove from array
@@ -140,11 +132,9 @@ For each planned edit:
 ### 5. Validate After Each Edit
 
 **For both types:**
-
 - Confirm YAML syntax is valid after each modification
 
 **For hasSidecar: true:**
-
 - Validate sidecar path format
 - Ensure all critical_actions reference correct paths
 - Confirm sidecar folder structure exists
@@ -155,10 +145,10 @@ Append to `{editPlan}`:
 
 ```yaml
 editsApplied:
-  - { edit-description }
-  - { edit-description }
-backup: { agentBackup }
-timestamp: { YYYY-MM-DD HH:MM }
+  - {edit-description}
+  - {edit-description}
+backup: {agentBackup}
+timestamp: {YYYY-MM-DD HH:MM}
 ```
 
 ### 7. Present MENU OPTIONS

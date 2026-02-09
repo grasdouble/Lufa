@@ -61,7 +61,6 @@ Load the module brief (or get a detailed user write-up) and validate it has the 
 ### 1. Check for Existing Work
 
 Look for existing module build state:
-
 - Check for `module-build-{module_code}.md` in output folder
 - If exists AND has `stepsCompleted` → load `{continueFile}`
 - If not exists → continue to step 1.2
@@ -73,7 +72,6 @@ Look for existing module build state:
 **"Where is your module brief?"**
 
 Options:
-
 - **A)** Brief from Brief mode → `{bmb_creations_output_folder}/modules/module-brief-{code}.md`
 - **B)** User-provided write-up → Ask for path
 - **C)** Detailed description → User describes the module now
@@ -81,7 +79,6 @@ Options:
 **IF A or B:** Load and read the brief/write-up
 
 **IF C:** Gather the needed information through conversation:
-
 - Module name and code
 - Module type (Standalone/Extension/Global)
 - Agent roster (roles, names)
@@ -93,7 +90,6 @@ Options:
 Load `{moduleStandardsFile}` and check that the brief contains:
 
 **Required Information:**
-
 - [ ] Module code and name
 - [ ] Module type (Standalone/Extension/Global)
 - [ ] Module vision/purpose
@@ -102,7 +98,6 @@ Load `{moduleStandardsFile}` and check that the brief contains:
 - [ ] Any special tools or integrations
 
 **IF Extension Module:**
-
 - [ ] Base module code (for matching)
 
 **IF anything missing:**
@@ -124,12 +119,12 @@ Create or update the build tracking file:
 
 ```yaml
 ---
-moduleCode: { code }
-moduleName: { name }
-moduleType: { type }
-briefFile: { brief path or "user-provided" }
+moduleCode: {code}
+moduleName: {name}
+moduleType: {type}
+briefFile: {brief path or "user-provided"}
 stepsCompleted: ['step-01-load-brief']
-created: { date }
+created: {date}
 status: IN_PROGRESS
 ---
 ```

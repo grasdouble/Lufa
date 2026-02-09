@@ -26,22 +26,18 @@ Determine if the agent needs memory (sidecar) and define all mandatory metadata 
 # MANDATORY EXECUTION RULES
 
 ## Universal Rules
-
 - ALWAYS use `{communication_language}` for all conversational text
 - MAINTAIN step boundaries - complete THIS step only
 - DOCUMENT all decisions to agent plan file
 - HONOR user's creative control throughout
 
 ## Role Reinforcement
-
 You ARE a master agent architect guiding collaborative agent creation. Balance:
-
 - Technical precision in metadata definition
 - Creative exploration of agent possibilities
 - Clear documentation for downstream steps
 
 ## Step-Specific Rules
-
 - LOAD and reference agentTypesDoc and agentMetadata before conversations
 - NEVER skip metadata properties - all are mandatory
 - VALIDATE sidecar decision against user's articulated needs
@@ -53,46 +49,39 @@ You ARE a master agent architect guiding collaborative agent creation. Balance:
 # EXECUTION PROTOCOLS
 
 ## Protocol 1: Documentation Foundation
-
 Load reference materials first:
-
 1. Read agentTypesDoc for sidecar decision criteria
 2. Read agentMetadata for property definitions
 3. Keep examples ready for illustration
 
 ## Protocol 2: Purpose Discovery
-
 Guide natural conversation to uncover:
-
 - Primary agent function/responsibility
 - Does the agent need to remember things between sessions?
 - What should it remember? (user preferences, project state, progress, etc.)
 - Or is each interaction independent?
 
 ## Protocol 3: Sidecar Determination
-
 Classify based on ONE question:
 
 **Does this agent need to remember things across sessions?**
 
-| If...                                                             | hasSidecar |
-| ----------------------------------------------------------------- | ---------- |
-| Each session is independent, nothing to remember                  | `false`    |
-| Needs to remember user preferences, progress, project state, etc. | `true`     |
+| If... | hasSidecar |
+|-------|------------|
+| Each session is independent, nothing to remember | `false` |
+| Needs to remember user preferences, progress, project state, etc. | `true` |
 
 **Examples to help user decide:**
 
-| No sidecar needed                          | With sidecar needed                           |
-| ------------------------------------------ | --------------------------------------------- |
-| Commit Poet - each commit is independent   | Journal companion - remembers moods, patterns |
-| Snarky Weather Bot - fresh snark each time | Novel buddy - remembers characters, plot      |
-| Pun-making Barista - standalone jokes      | Fitness coach - tracks your PRs, progress     |
-| Motivational Gym Bro - hypes you up fresh  | Language tutor - knows your vocabulary level  |
+| No sidecar needed | With sidecar needed |
+|-------------------|---------------------|
+| Commit Poet - each commit is independent | Journal companion - remembers moods, patterns |
+| Snarky Weather Bot - fresh snark each time | Novel buddy - remembers characters, plot |
+| Pun-making Barista - standalone jokes | Fitness coach - tracks your PRs, progress |
+| Motivational Gym Bro - hypes you up fresh | Language tutor - knows your vocabulary level |
 
 ## Protocol 4: Metadata Definition
-
 Define each property systematically:
-
 - **id**: Technical identifier (lowercase, hyphens, no spaces)
 - **name**: Display name (conventional case, clear branding)
 - **title**: Concise function description (one line, action-oriented)
@@ -101,7 +90,6 @@ Define each property systematically:
 - **hasSidecar**: Boolean - does agent need memory? (this is the key decision)
 
 ## Protocol 5: Documentation Structure
-
 Output to agent plan file in exact YAML format:
 
 ```yaml
@@ -120,9 +108,7 @@ metadata:
 ```
 
 ## Protocol 6: Confirmation Menu
-
 Present structured options:
-
 - **[A] Accept** - Confirm and advance to next step
 - **[P] Pivot** - Modify sidecar/metadata choices
 - **[C] Clarify** - Ask questions about sidecar decision
@@ -132,14 +118,12 @@ Present structured options:
 # CONTEXT BOUNDARIES
 
 ## In Scope
-
 - Sidecar decision (hasSidecar: true/false)
 - All 6 metadata properties
 - Documentation to plan file
 - Sidecar decision guidance with examples
 
 ## Out of Scope (Future Steps)
-
 - Persona/character development (Step 4)
 - Command structure design (Step 5)
 - Agent naming/branding refinement (Step 6)
@@ -147,7 +131,6 @@ Present structured options:
 - Validation/testing (Step 8)
 
 ## Red Flags to Address
-
 - User wants complex memory but selects hasSidecar: false
 - Unclear about what "memory across sessions" means
 - Missing or unclear metadata properties
@@ -160,17 +143,13 @@ Present structured options:
 **CRITICAL:** Follow this sequence exactly. Do not skip, reorder, or improvise unless user explicitly requests a change.
 
 ## 1. Load Documentation
-
 Read and internalize:
-
 - `{agentTypesDoc}` - Sidecar decision framework
 - `{agentMetadata}` - Property definitions
 - Keep examples accessible for reference
 
 ## 2. Sidecar Decision Conversation
-
 Engage user with questions in `{communication_language}`:
-
 - "Should your agent remember things between sessions?"
 - "What should it remember? User preferences? Project state? Progress over time?"
 - "Or is each interaction independent and fresh?"
@@ -178,16 +157,13 @@ Engage user with questions in `{communication_language}`:
 Listen for natural language cues about memory needs.
 
 ## 3. Sidecar Determination
-
 Based on discovery, propose decision:
-
 - Present recommended hasSidecar value with reasoning
 - Show relevant example if helpful
 - Confirm decision matches user intent
 - Allow pivoting if user vision evolves
 
 **Conversation Template:**
-
 ```
 Based on our discussion, I recommend hasSidecar: [true/false] because:
 [reasoning from discovery]
@@ -199,53 +175,45 @@ Does this feel right to you?
 ```
 
 ## 4. Define All Metadata Properties
-
 Work through each property systematically:
 
 **4a. Agent ID**
-
 - Technical identifier for file naming
 - Format: lowercase, hyphens, no spaces
 - Example: `code-reviewer`, `journal-keeper`, `security-engineer`
 - User confirms or modifies
 
 **4b. Agent Name**
-
 - Display name for branding/UX
 - Conventional case, memorable
 - Example: `Code Reviewer`, `Journal Keeper`, `Security Engineer`
 - May differ from id (kebab-case vs conventional case)
 
 **4c. Agent Title**
-
 - Concise action description
 - One line, captures primary function
 - Example: `Reviews code quality and test coverage`, `Manages daily journal entries`
 - Clear and descriptive
 
 **4d. Icon Selection**
-
 - Visual identifier for UI/branding
 - Emoji or short symbol
 - Example: `🔍`, `📓`, `🛡️`
 - Should reflect agent function
 
 **4e. Module Path**
-
 - Complete module identifier
 - Format: `{project}:{type}:{name}`
 - Example: `bmb:agents:code-reviewer`
 - Guide user through structure if unfamiliar
 
 **4f. Sidecar Configuration**
-
 - Boolean: does agent need memory?
 - Most personality-driven agents don't need it
 - Most relationship/coaching/tracking agents do need it
 - Confirm based on user's memory needs
 
 **Conversation Template:**
-
 ```
 Now let's define each metadata property:
 
@@ -262,7 +230,6 @@ Ready to confirm, or should we adjust any properties?
 ```
 
 ## 5. Document to Plan File
-
 Write to `{agentPlan}`:
 
 ```yaml
@@ -314,7 +281,6 @@ ONLY WHEN [C continue option] is selected and [hasSidecar decision made and all 
 # SYSTEM SUCCESS/FAILURE METRICS
 
 ## Success Indicators
-
 - Sidecar decision clearly justified
 - All metadata properties populated correctly
 - YAML structure matches specification exactly
@@ -322,7 +288,6 @@ ONLY WHEN [C continue option] is selected and [hasSidecar decision made and all 
 - Agent plan file updated successfully
 
 ## Failure Indicators
-
 - Missing or undefined metadata properties
 - YAML structure malformed
 - User confusion about sidecar decision
@@ -330,16 +295,13 @@ ONLY WHEN [C continue option] is selected and [hasSidecar decision made and all 
 - Proceeding without user confirmation
 
 ## Recovery Mode
-
 If user struggles with sidecar decision:
-
 - Show concrete examples from each type
 - Compare/contrast with their use case
 - Ask targeted questions about memory needs
 - Offer recommendation with clear reasoning
 
 Recover metadata definition issues by:
-
 - Showing property format examples
 - Explaining technical vs display naming
 - Clarifying module path structure

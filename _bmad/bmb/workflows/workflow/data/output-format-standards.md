@@ -5,14 +5,12 @@
 **Every step MUST output to a document BEFORE loading the next step.**
 
 Two patterns:
-
 1. **Direct-to-Final:** Steps append to final document
 2. **Plan-then-Build:** Steps append to plan → build step consumes plan
 
 ## Menu C Option Sequence
 
 When user selects **C (Continue)**:
-
 1. **Append/Write** to document (plan or final)
 2. **Update frontmatter** (append this step to `stepsCompleted`)
 3. **THEN** load next step
@@ -34,7 +32,6 @@ Step 5 (build)    → READS plan.md, CREATES final artifacts
 ```
 
 **Plan frontmatter:**
-
 ```yaml
 workflowName: [name]
 creationDate: [date]
@@ -55,7 +52,6 @@ Step 5 (polish)   → Optimizes entire document
 ## Four Template Types
 
 ### 1. Free-Form (RECOMMENDED)
-
 - Minimal template, progressive append, final polish
 
 ```yaml
@@ -65,41 +61,37 @@ lastStep: ''
 date: ''
 user_name: ''
 ---
+
 # {{document_title}}
 
 [Content appended progressively by workflow steps]
 ```
 
 ### 2. Structured
-
 - Single template with placeholders, clear sections
 
 ```markdown
 # {{title}}
 
 ## {{section_1}}
-
 [Content to be filled]
 
 ## {{section_2}}
-
 [Content to be filled]
 ```
 
 ### 3. Semi-Structured
-
 - Core required sections + optional additions
 
 ### 4. Strict
-
 - Multiple templates, exact field definitions
 - Use for: compliance, legal, regulated
 
 ## Template Syntax
 
 ```markdown
-{{variable}} # Handlebars style (preferred)
-[variable] # Bracket style (also supported)
+{{variable}}    # Handlebars style (preferred)
+[variable]      # Bracket style (also supported)
 ```
 
 Keep templates lean - structure only, not content.
@@ -122,7 +114,6 @@ Step 6: Polish (optimizes entire doc)
 ## Final Polish Step
 
 For free-form workflows, include a polish step that:
-
 1. Loads entire document
 2. Reviews for flow and coherence
 3. Reduces duplication

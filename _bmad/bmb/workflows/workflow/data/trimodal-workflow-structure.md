@@ -5,7 +5,6 @@
 **For complex critical workflows: Implement tri-modal structure (create/validate/edit) with cross-mode integration.**
 
 **Cross-mode integration patterns:**
-
 - Create → Validation (handoff after build)
 - Edit → Validation (verify changes)
 - Edit → Create/conversion (for non-compliant input)
@@ -34,35 +33,29 @@ workflow-name/
 ## Mode Responsibilities
 
 ### Create Mode (steps-c/)
-
 - **Primary:** Build new entities from scratch
 - **Secondary:** Convert non-compliant input via step-00-conversion
 
 **Key patterns:**
-
 - step-00-conversion: Loads non-compliant input, extracts essence, creates plan with `conversionFrom` metadata
 - Final step routes to validation (optional but recommended)
 - Confirmation step checks `conversionFrom` to verify coverage vs new workflow
 
 ### Edit Mode (steps-e/)
-
 - **Primary:** Modify existing compliant entities
 - **Secondary:** Detect non-compliance and route to conversion
 
 **Key patterns:**
-
 - step-01-assess: Checks compliance first
 - Non-compliant → Offer route to step-00-conversion (not step-01-discovery)
 - Post-edit → Offer validation (reuse validation workflow)
 - During edits → Check standards, offer to fix non-compliance
 
 ### Validate Mode (steps-v/)
-
 - **Primary:** Standalone validation against standards
 - **Secondary:** Generates actionable reports
 
 **Key patterns:**
-
 - Runs standalone (invoked via -v flag or direct call)
 - Auto-proceeds through all checks
 - Generates report with issue severity
@@ -103,7 +96,6 @@ Prompt for path → load steps-e/step-01-assess.md
 ## Cross-Mode Integration Points
 
 ### 1. Edit → Create (Non-Compliant Detection)
-
 ```yaml
 Check workflow compliance:
   - Compliant → Continue to edit steps
@@ -112,7 +104,6 @@ Check workflow compliance:
 ```
 
 ### 2. Create/Edit → Validation
-
 ```yaml
 # In create final step or edit post-edit step
 Offer: "Run validation?"
@@ -122,7 +113,6 @@ Offer: "Run validation?"
 ```
 
 ### 3. Validation → Edit
-
 ```yaml
 # User can invoke edit mode with report as input
 "Fix issues found?"
@@ -130,29 +120,26 @@ Offer: "Run validation?"
 ```
 
 ### 4. Conversion Coverage Tracking
-
 ```yaml
 # In create step-10-confirmation
 Check workflowPlan metadata:
   - IF conversionFrom exists:
-      - Load original workflow
-      - Compare each step/instruction
-      - Report coverage percentage
+    - Load original workflow
+    - Compare each step/instruction
+    - Report coverage percentage
   - ELSE (new workflow):
-      - Validate all plan requirements implemented
+    - Validate all plan requirements implemented
 ```
 
 ## When to Use Tri-Modal
 
 **Use Tri-Modal for:**
-
 - Complex workflows requiring quality assurance
 - Workflows that will be maintained over time
 - Workflows where non-compliant input may be offered
 - Critical workflows where standards compliance matters
 
 **Use Create-Only for:**
-
 - Simple one-off workflows
 - Experimental workflows
 - Workflows unlikely to need editing or validation
@@ -166,10 +153,12 @@ Never inline file paths. Always use frontmatter variables:
 # Create mode step calling validation
 validationWorkflow: '../steps-v/step-01-validate.md'
 ---
+
 # Edit mode step routing to conversion
 conversionStep: '../steps-c/step-00-conversion.md'
 ---
+
 # Create conversion step receiving from edit
-sourceWorkflowPath: '{targetWorkflowPath}' # Passed from edit
+sourceWorkflowPath: '{targetWorkflowPath}'  # Passed from edit
 ---
 ```

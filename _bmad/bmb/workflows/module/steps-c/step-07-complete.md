@@ -37,13 +37,11 @@ Finalize the module build, update tracking, and offer to run validation.
 "**🎯 Generating module-help.csv...**"
 
 Load and execute the module-help-generate workflow:
-
 ```
 {moduleHelpGenerateWorkflow}
 ```
 
 **Set these variables before loading:**
-
 - `modulePath: {targetLocation}`
 - `moduleYamlFile: {targetLocation}/module.yaml`
 - `moduleHelpCsvFile: {targetLocation}/module-help.csv`
@@ -51,7 +49,6 @@ Load and execute the module-help-generate workflow:
 - `agentsDir: {targetLocation}/agents`
 
 **What this does:**
-
 - Scans all workflows in `{workflowsDir}/`
 - Scans all agents in `{agentsDir}/`
 - Generates `{moduleHelpCsvFile}` with proper structure:
@@ -71,36 +68,26 @@ Load and execute the module-help-generate workflow:
 
 **What was created:**
 
-| Component      | Count   | Location           |
-| -------------- | ------- | ------------------ |
-| Agent specs    | {count} | agents/            |
-| Workflow specs | {count} | workflows/         |
-| Configuration  | 1       | module.yaml        |
-| Help Registry  | 1       | module-help.csv    |
-| Documentation  | 2       | README.md, TODO.md |
+| Component | Count | Location |
+|-----------|-------|----------|
+| Agent specs | {count} | agents/ |
+| Workflow specs | {count} | workflows/ |
+| Configuration | 1 | module.yaml |
+| Help Registry | 1 | module-help.csv |
+| Documentation | 2 | README.md, TODO.md |
 
 ### 3. Update Build Tracking
 
 Update `{buildTrackingFile}`:
-
 ```yaml
 ---
-moduleCode: { module_code }
-moduleName: { name }
-moduleType: { type }
-targetLocation: { location }
-stepsCompleted:
-  [
-    'step-01-load-brief',
-    'step-02-structure',
-    'step-03-config',
-    'step-04-agents',
-    'step-05-workflows',
-    'step-06-docs',
-    'step-07-complete',
-  ]
-created: { created_date }
-completed: { date }
+moduleCode: {module_code}
+moduleName: {name}
+moduleType: {type}
+targetLocation: {location}
+stepsCompleted: ['step-01-load-brief', 'step-02-structure', 'step-03-config', 'step-04-agents', 'step-05-workflows', 'step-06-docs', 'step-07-complete']
+created: {created_date}
+completed: {date}
 status: COMPLETE
 ---
 ```
@@ -120,7 +107,6 @@ status: COMPLETE
 "**Would you like to run validation on the module structure?**"
 
 Validation checks:
-
 - File structure compliance
 - module.yaml correctness
 - Spec completeness
@@ -149,7 +135,6 @@ Validation checks:
 "**Status:** Ready for agent and workflow implementation"
 
 "**The journey from idea to installable module continues:**
-
 - Agent specs → create-agent workflow
 - Workflow specs → create-workflow workflow
 - Full module → `bmad install`

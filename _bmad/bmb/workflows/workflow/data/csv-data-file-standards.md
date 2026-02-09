@@ -3,7 +3,6 @@
 ## When to Use CSV
 
 Use for:
-
 - Domain-specific data not in training data
 - Too large for prompt context
 - Structured lookup/reference needs
@@ -19,7 +18,6 @@ category,name,pattern,description
 ```
 
 **Rules:**
-
 - Header row required, descriptive column names
 - Consistent data types per column
 - UTF-8 encoding
@@ -28,7 +26,6 @@ category,name,pattern,description
 ## Common Use Cases
 
 ### Method Registry
-
 ```csv
 category,name,pattern
 collaboration,Think Aloud,user speaks thoughts → facilitator captures
@@ -36,14 +33,12 @@ advanced,Six Thinking Hats,view problem from 6 perspectives
 ```
 
 ### Knowledge Base Index
-
 ```csv
 keywords,document_path,section
 "nutrition,macros",data/nutrition-reference.md,## Daily Targets
 ```
 
 ### Configuration Lookup
-
 ```csv
 scenario,required_steps,output_sections
 "2D Platformer",step-01,step-03,step-07,movement,physics,collision

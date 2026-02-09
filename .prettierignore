@@ -17,5 +17,9 @@ build
 # Generated files
 *.d.ts
 
+#BNAD
+_bmad
+_bmad-output
+
 #storybook
 storybook-static
