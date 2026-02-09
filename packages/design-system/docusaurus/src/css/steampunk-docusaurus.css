@@ -1,0 +1,357 @@
+/**
+ * Lufa Design System - Steampunk Theme
+ * Docusaurus-Specific Customizations
+ *
+ * This file adds steampunk decorative elements, typography, and
+ * Docusaurus-specific overrides to complement the base theme.
+ *
+ * Features:
+ * - Victorian-era typography with Google Fonts
+ * - Brass/copper decorative borders and shadows
+ * - Gear and mechanical element styling
+ * - Enhanced navbar and sidebar aesthetics
+ * - Blueprint-inspired code blocks
+ */
+
+/* ==================== TYPOGRAPHY - Victorian Fonts ==================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Special+Elite&display=swap');
+
+:root {
+  /* Typography overrides */
+  --ifm-font-family-base: 'Crimson Text', Georgia, serif;
+  --ifm-heading-font-family: 'Cinzel', 'Times New Roman', serif;
+  --ifm-font-family-monospace: 'Special Elite', 'Courier New', monospace;
+
+  /* Steampunk-specific spacing */
+  --steampunk-gear-size: 24px;
+  --steampunk-border-width: 2px;
+  --steampunk-shadow-color: rgba(139, 69, 19, 0.3);
+}
+
+[data-color-theme='steampunk'] {
+  & .main-wrapper {
+    border-top: var(--steampunk-border-width) solid var(--lufa-core-brand-primary);
+    box-shadow:
+      0 2px 8px var(--steampunk-shadow-color),
+      inset 0 1px 0 rgba(205, 133, 63, 0.2);
+  }
+
+  & .navbar {
+    border-bottom: 3px double var(--lufa-core-brand-primary);
+    box-shadow:
+      0 4px 12px var(--steampunk-shadow-color),
+      0 1px 0 rgba(205, 133, 63, 0.4);
+    background: linear-gradient(
+      to bottom,
+      var(--lufa-core-neutral-surface) 0%,
+      var(--lufa-core-neutral-background) 100%
+    );
+  }
+
+  & .navbar__brand {
+    font-family: var(--ifm-heading-font-family);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 2px var(--steampunk-shadow-color);
+  }
+
+  & .navbar__link {
+    font-family: var(--ifm-heading-font-family);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--lufa-core-brand-primary);
+      text-shadow: 0 0 8px rgba(184, 115, 51, 0.5);
+    }
+
+    &--active {
+      background: linear-gradient(135deg, var(--lufa-core-brand-primary) 0%, var(--lufa-core-brand-primary-hover) 100%);
+      border: 1px solid var(--lufa-core-brand-primary-active);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 2px 4px var(--steampunk-shadow-color);
+      border-radius: 4px;
+      color: var(--lufa-core-neutral-background);
+    }
+  }
+
+  & .theme-doc-sidebar-container {
+    border-right: var(--steampunk-border-width) solid var(--lufa-core-neutral-border);
+    background: linear-gradient(
+      to right,
+      var(--lufa-core-neutral-surface) 0%,
+      var(--lufa-core-neutral-background) 100%
+    );
+  }
+
+  & .menu__link {
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-left-color: var(--lufa-core-brand-primary);
+      background: linear-gradient(to right, rgba(184, 115, 51, 0.1) 0%, transparent 100%);
+    }
+
+    &--active {
+      background: linear-gradient(135deg, var(--lufa-core-brand-primary) 0%, var(--lufa-core-brand-primary-hover) 100%);
+      border: 1px solid var(--lufa-core-brand-primary-active);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 2px 4px var(--steampunk-shadow-color);
+      border-radius: 4px;
+      color: var(--lufa-core-neutral-background);
+    }
+  }
+
+  & .menu__list-item-collapsible:hover {
+    background: rgba(184, 115, 51, 0.05);
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4 {
+    font-family: var(--ifm-heading-font-family);
+    letter-spacing: 0.02em;
+    color: var(--lufa-core-brand-primary-active);
+    position: relative;
+  }
+
+  & h1 {
+    border-bottom: 3px double var(--lufa-core-brand-primary);
+    padding-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px var(--steampunk-shadow-color);
+  }
+
+  & h2 {
+    border-bottom: 2px solid var(--lufa-core-neutral-border);
+    padding-bottom: 0.3rem;
+
+    &::before {
+      content: '⚙';
+      margin-right: 0.5rem;
+      color: var(--lufa-core-brand-primary);
+      font-size: 0.9em;
+    }
+  }
+
+  & pre,
+  & code {
+    font-family: var(--ifm-font-family-monospace);
+    border: 1px solid var(--lufa-core-neutral-border);
+  }
+
+  & pre {
+    border: var(--steampunk-border-width) solid var(--lufa-core-brand-primary);
+    box-shadow:
+      inset 0 0 20px rgba(139, 69, 19, 0.1),
+      0 4px 8px var(--steampunk-shadow-color);
+    background: linear-gradient(135deg, var(--lufa-core-neutral-surface) 0%, var(--lufa-core-neutral-background) 100%);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(184, 115, 51, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184, 115, 51, 0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+
+  & code {
+    background: rgba(184, 115, 51, 0.1);
+    border-radius: 3px;
+    padding: 0.1em 0.3em;
+  }
+
+  & .admonition {
+    border-left-width: 4px;
+    box-shadow:
+      2px 2px 8px var(--steampunk-shadow-color),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  & .admonition-heading {
+    font-family: var(--ifm-heading-font-family);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  & .admonition-icon svg {
+    filter: drop-shadow(1px 1px 2px var(--steampunk-shadow-color));
+  }
+
+  & .button,
+  & button {
+    font-family: var(--ifm-heading-font-family);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: var(--steampunk-border-width) solid var(--lufa-core-brand-primary);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 3px 6px var(--steampunk-shadow-color);
+    background: linear-gradient(
+      to bottom,
+      var(--lufa-core-brand-primary) 0%,
+      var(--lufa-core-brand-primary-hover) 100%
+    );
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 5px 12px var(--steampunk-shadow-color);
+    }
+
+    &:active {
+      transform: translateY(1px);
+      box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.2),
+        0 1px 2px var(--steampunk-shadow-color);
+    }
+  }
+
+  & table {
+    border: var(--steampunk-border-width) solid var(--lufa-core-neutral-border);
+    box-shadow: 0 2px 8px var(--steampunk-shadow-color);
+  }
+
+  & thead {
+    background: linear-gradient(
+      to bottom,
+      var(--lufa-core-brand-primary) 0%,
+      var(--lufa-core-brand-primary-hover) 100%
+    );
+    color: var(--lufa-core-neutral-background);
+    font-family: var(--ifm-heading-font-family);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  & tbody tr {
+    &:nth-child(odd) {
+      background: rgba(184, 115, 51, 0.05);
+    }
+
+    &:hover {
+      background: rgba(184, 115, 51, 0.1);
+    }
+  }
+
+  & .footer {
+    border-top: 3px double var(--lufa-core-brand-primary);
+    background: linear-gradient(to top, var(--lufa-core-neutral-surface) 0%, var(--lufa-core-neutral-background) 100%);
+    box-shadow: 0 -4px 12px var(--steampunk-shadow-color);
+  }
+
+  & ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  & ::-webkit-scrollbar-track {
+    background: var(--lufa-core-neutral-surface);
+    border: 1px solid var(--lufa-core-neutral-border);
+  }
+
+  & ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      var(--lufa-core-brand-primary) 0%,
+      var(--lufa-core-brand-primary-hover) 100%
+    );
+    border: 1px solid var(--lufa-core-brand-primary-active);
+    border-radius: 6px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+    &:hover {
+      background: linear-gradient(
+        to bottom,
+        var(--lufa-core-brand-primary-hover) 0%,
+        var(--lufa-core-brand-primary-active) 100%
+      );
+    }
+  }
+
+  & hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent 0%, var(--lufa-core-brand-primary) 50%, transparent 100%);
+    position: relative;
+    margin: 2rem 0;
+
+    &::after {
+      content: '⚙';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--lufa-core-neutral-background);
+      padding: 0 0.5rem;
+      color: var(--lufa-core-brand-primary);
+      font-size: 1.2rem;
+    }
+  }
+}
+
+/* ==================== GLOBAL DECORATIVE ELEMENTS ==================== */
+
+body[data-color-theme='steampunk'] {
+  position: relative;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(184, 115, 51, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(46, 139, 87, 0.03) 0%, transparent 50%);
+}
+
+/* ==================== DARK MODE ADJUSTMENTS ==================== */
+
+[data-color-theme='steampunk'][data-mode='dark'] {
+  & .navbar,
+  & .footer {
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(205, 133, 63, 0.1);
+  }
+
+  & h1 {
+    text-shadow:
+      2px 2px 4px rgba(0, 0, 0, 0.5),
+      0 0 10px rgba(205, 133, 63, 0.3);
+  }
+
+  & pre {
+    box-shadow:
+      inset 0 0 30px rgba(0, 0, 0, 0.3),
+      0 4px 12px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(205, 133, 63, 0.2);
+  }
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+
+@media (max-width: 996px) {
+  [data-color-theme='steampunk'] {
+    & .navbar__brand {
+      font-size: 1.1rem;
+    }
+
+    & h1 {
+      font-size: 1.8rem;
+    }
+  }
+}

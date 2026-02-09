@@ -1,0 +1,61 @@
+/**
+ * Lufa Design System - Nordic Theme
+ * Docusaurus-Specific Customizations
+ *
+ * Minimalist arctic design with clean lines and icy aesthetics.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+[data-color-theme='nordic'] {
+  --ifm-font-family-base: 'Inter', -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Inter', -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', monospace;
+
+  & .navbar {
+    background: var(--lufa-core-neutral-surface);
+    border-bottom: 1px solid var(--lufa-core-neutral-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  & h1,
+  & h2,
+  & h3 {
+    color: var(--lufa-core-brand-primary);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  & h1 {
+    border-bottom: 2px solid var(--lufa-core-brand-primary);
+  }
+
+  & h2::before {
+    content: '❄️';
+    margin-right: 0.5rem;
+    opacity: 0.6;
+  }
+
+  & pre {
+    border: 1px solid var(--lufa-core-neutral-border);
+    border-radius: 6px;
+    background: var(--lufa-core-neutral-surface);
+  }
+
+  & .button,
+  & button {
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  & hr::after {
+    content: '❄';
+    font-size: 1.5rem;
+    background: var(--lufa-core-neutral-background);
+    padding: 0 1rem;
+  }
+}
+
+body[data-color-theme='nordic'] {
+  background: var(--lufa-core-neutral-background);
+}

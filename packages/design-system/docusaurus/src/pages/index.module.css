@@ -3,16 +3,35 @@
  * and scoped locally.
  */
 
+/* Import theme-specific landing page styles */
+@import '../css/landing-themes.css';
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, var(--lufa-core-neutral-background) 0%, var(--lufa-core-neutral-surface) 100%);
+  border-bottom: 3px solid var(--lufa-core-brand-primary);
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--lufa-core-neutral-background) 0%, var(--lufa-core-neutral-surface) 100%);
+    border-bottom: 3px solid var(--lufa-core-brand-primary);
+  }
+
+  /* Override Docusaurus default hero text colors */
+  .heroBanner :global(.hero__title) {
+    color: var(--lufa-core-brand-primary) !important;
+  }
+
+  .heroBanner :global(.hero__subtitle) {
+    color: var(--lufa-core-neutral-text-secondary) !important;
   }
 }
 
@@ -27,7 +46,8 @@
 /* Statistics Section */
 .statistics {
   padding: 4rem 0;
-  background-color: var(--ifm-background-surface-color);
+  background: linear-gradient(to bottom, var(--lufa-core-neutral-surface) 0%, var(--lufa-core-neutral-background) 100%);
+  border-top: 1px solid var(--lufa-core-neutral-border);
 }
 
 .statGrid {
@@ -39,36 +59,47 @@
 
 .stat {
   padding: 1.5rem;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .statNumber {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--ifm-color-primary);
+  color: var(--lufa-core-brand-primary);
+  transition: color 0.3s ease;
 }
 
 .statLabel {
   font-size: 1rem;
-  color: var(--ifm-color-emphasis-700);
+  color: var(--lufa-core-neutral-text-secondary);
   margin: 0;
 }
 
 /* Quick Start Section */
 .quickStart {
   padding: 4rem 0;
+  background: var(--lufa-core-neutral-background);
 }
 
 .sectionTitle {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: var(--lufa-core-brand-primary);
 }
 
 .sectionSubtitle {
   text-align: center;
   font-size: 1.1rem;
-  color: var(--ifm-color-emphasis-700);
+  color: var(--lufa-core-neutral-text-secondary);
   margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
@@ -89,14 +120,15 @@
   max-width: 700px;
   margin: 2rem auto 0;
   padding: 1rem 1.5rem;
-  background-color: var(--ifm-color-primary-lightest);
+  background: var(--lufa-core-semantic-info-subtle);
   border-radius: 8px;
-  border-left: 4px solid var(--ifm-color-primary);
+  border-left: 4px solid var(--lufa-core-brand-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .quickStartTip p {
   margin: 0;
-  color: var(--ifm-color-emphasis-900);
+  color: var(--lufa-core-neutral-text-primary);
 }
 
 @media screen and (max-width: 768px) {

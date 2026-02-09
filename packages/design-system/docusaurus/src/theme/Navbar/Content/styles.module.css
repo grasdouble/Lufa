@@ -1,0 +1,11 @@
+.themeSwitcherWrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+@media (max-width: 996px) {
+  .themeSwitcherWrapper {
+    margin-left: 0.5rem;
+  }
+}

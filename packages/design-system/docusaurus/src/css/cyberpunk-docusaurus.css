@@ -1,0 +1,216 @@
+/**
+ * Lufa Design System - Cyberpunk Theme
+ * Docusaurus-Specific Customizations
+ *
+ * Futuristic neon design with synthwave and night-city aesthetics.
+ *
+ * Features:
+ * - Neon glow effects (fuchsia/cyan)
+ * - Synthwave gradients
+ * - Futuristic typography
+ * - Night-city atmosphere
+ */
+
+/* ==================== TYPOGRAPHY - Futuristic ==================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+[data-color-theme='cyberpunk'] {
+  --ifm-font-family-base: 'Exo 2', -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Orbitron', sans-serif;
+  --ifm-font-family-monospace: 'IBM Plex Mono', monospace;
+
+  & .main-wrapper {
+    border-top: 3px solid var(--lufa-core-brand-primary);
+    box-shadow:
+      0 0 20px rgba(255, 0, 255, 0.3),
+      0 0 40px rgba(0, 255, 255, 0.2);
+  }
+
+  & .navbar {
+    background: linear-gradient(
+      90deg,
+      var(--lufa-core-neutral-surface) 0%,
+      var(--lufa-core-neutral-background) 50%,
+      var(--lufa-core-neutral-surface) 100%
+    );
+    border-bottom: 2px solid var(--lufa-core-brand-primary);
+    box-shadow:
+      0 4px 20px rgba(255, 0, 255, 0.3),
+      0 0 40px rgba(0, 255, 255, 0.2);
+  }
+
+  & .navbar__brand {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow:
+      0 0 10px rgba(255, 0, 255, 0.7),
+      0 0 20px rgba(0, 255, 255, 0.5);
+  }
+
+  & .navbar__link:hover {
+    color: var(--lufa-core-brand-primary);
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+    transform: translateY(-2px);
+  }
+
+  & .navbar__link--active {
+    background: linear-gradient(135deg, var(--lufa-core-brand-primary) 0%, var(--lufa-core-brand-secondary) 100%);
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+  }
+
+  & h1,
+  & h2,
+  & h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, var(--lufa-core-brand-primary) 0%, var(--lufa-core-brand-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  & h1 {
+    border-bottom: 3px solid var(--lufa-core-brand-primary);
+    text-shadow:
+      0 0 20px rgba(255, 0, 255, 0.6),
+      0 0 40px rgba(0, 255, 255, 0.4);
+    filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.5));
+  }
+
+  & h2 {
+    &::before {
+      content: '◢';
+      margin-right: 0.5rem;
+      color: var(--lufa-core-brand-secondary);
+    }
+
+    &::after {
+      content: '◣';
+      margin-left: 0.5rem;
+      color: var(--lufa-core-brand-primary);
+    }
+  }
+
+  & pre {
+    border: 2px solid var(--lufa-core-brand-primary);
+    border-radius: 8px;
+    box-shadow:
+      0 0 20px rgba(255, 0, 255, 0.3),
+      0 0 40px rgba(0, 255, 255, 0.2),
+      inset 0 0 20px rgba(255, 0, 255, 0.05);
+    background: var(--lufa-core-neutral-surface);
+  }
+
+  & code {
+    background: rgba(255, 0, 255, 0.1);
+    border: 1px solid rgba(255, 0, 255, 0.3);
+    box-shadow: 0 0 5px rgba(255, 0, 255, 0.2);
+  }
+
+  & .button,
+  & button {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 2px solid var(--lufa-core-brand-primary);
+    background: linear-gradient(135deg, rgba(255, 0, 255, 0.2) 0%, rgba(0, 255, 255, 0.2) 100%);
+    box-shadow:
+      0 0 15px rgba(255, 0, 255, 0.4),
+      inset 0 0 10px rgba(255, 0, 255, 0.1);
+
+    &:hover {
+      box-shadow:
+        0 0 30px rgba(255, 0, 255, 0.7),
+        0 0 50px rgba(0, 255, 255, 0.5),
+        inset 0 0 20px rgba(255, 0, 255, 0.2);
+      transform: translateY(-3px) scale(1.05);
+      text-shadow: 0 0 10px white;
+    }
+  }
+
+  & table {
+    border: 2px solid var(--lufa-core-brand-primary);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+  }
+
+  & thead {
+    background: linear-gradient(90deg, var(--lufa-core-brand-primary) 0%, var(--lufa-core-brand-secondary) 100%);
+    color: white;
+    text-shadow: 0 0 10px white;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+  }
+
+  & ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--lufa-core-brand-primary) 0%, var(--lufa-core-brand-secondary) 100%);
+    box-shadow:
+      0 0 10px rgba(255, 0, 255, 0.5),
+      inset 0 0 5px rgba(255, 255, 255, 0.2);
+  }
+
+  & a {
+    color: var(--lufa-core-brand-primary);
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
+
+    &:hover {
+      text-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+      color: var(--lufa-core-brand-secondary);
+    }
+  }
+
+  & hr {
+    border: none;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--lufa-core-brand-primary) 30%,
+      var(--lufa-core-brand-secondary) 70%,
+      transparent 100%
+    );
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    margin: 2rem 0;
+
+    &::after {
+      content: '◆';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--lufa-core-neutral-background);
+      padding: 0 1rem;
+      color: var(--lufa-core-brand-primary);
+      font-size: 1.5rem;
+      text-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+    }
+  }
+}
+
+/* ==================== GLOBAL - Neon City ==================== */
+
+body[data-color-theme='cyberpunk'] {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 0, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
+}
+
+/* ==================== DARK MODE - Full Neon ==================== */
+
+[data-color-theme='cyberpunk'][data-mode='dark'] {
+  & body {
+    text-shadow: 0 0 2px rgba(255, 0, 255, 0.1);
+  }
+
+  & h1,
+  & h2 {
+    filter: drop-shadow(0 0 20px rgba(255, 0, 255, 0.8));
+  }
+}

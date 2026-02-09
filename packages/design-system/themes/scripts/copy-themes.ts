@@ -11,14 +11,15 @@ const distDir = resolve(currentDir, '../dist');
 mkdirSync(distDir, { recursive: true });
 
 const themes = [
-  'ocean.css',
+  'coffee.css',
+  'cyberpunk.css',
   'forest.css',
   'matrix.css',
-  'cyberpunk.css',
-  'sunset.css',
   'nordic.css',
+  'ocean.css',
+  'sunset.css',
+  'steampunk.css',
   'volcano.css',
-  'coffee.css',
   'volt.css',
 ] as const;
 
