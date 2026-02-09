@@ -14,14 +14,14 @@
 
 ## Standard Variables
 
-| Variable                     | Example                                                                 |
-| ---------------------------- | ----------------------------------------------------------------------- |
-| `{project-root}`             | `/Users/user/dev/BMAD-METHOD` <!-- validate-file-refs:ignore -->        |
-| `{project_name}`             | `my-project`                                                            |
-| `{output_folder}`            | `/Users/user/dev/BMAD-METHOD/output` <!-- validate-file-refs:ignore --> |
-| `{user_name}`                | `Brian`                                                                 |
-| `{communication_language}`   | `english`                                                               |
-| `{document_output_language}` | `english`                                                               |
+| Variable | Example |
+|----------|---------|
+| `{project-root}` | `/Users/user/dev/BMAD-METHOD` <!-- validate-file-refs:ignore --> |
+| `{project_name}` | `my-project` |
+| `{output_folder}` | `/Users/user/dev/BMAD-METHOD/output` <!-- validate-file-refs:ignore --> |
+| `{user_name}` | `Brian` |
+| `{communication_language}` | `english` |
+| `{document_output_language}` | `english` |
 
 ---
 
@@ -30,7 +30,6 @@
 Workflows in a MODULE can access additional variables from its `module.yaml`.
 
 **Example:**
-
 ```yaml
 bmb_creations_output_folder: '{project-root}/_bmad/bmb-creations'
 ```
@@ -42,7 +41,6 @@ bmb_creations_output_folder: '{project-root}/_bmad/bmb-creations'
 ## Frontmatter Structure
 
 ### Required Fields
-
 ```yaml
 ---
 name: 'step-[N]-[name]'
@@ -51,7 +49,6 @@ description: '[what this step does]'
 ```
 
 ### File References - ONLY variables used in this step
-
 ```yaml
 ---
 # Step to step (SAME folder) - use ./filename.md
@@ -78,17 +75,15 @@ advancedElicitationTask: '{project-root}/_bmad/core/workflows/advanced-elicitati
 **Detection Rule:** For EVERY variable in frontmatter, search the step body for `{variableName}`. If not found, it's a violation.
 
 ### ❌ VIOLATION
-
 ```yaml
 ---
 outputFile: '{output_folder}/output.md'
-thisStepFile: './step-01-init.md' # ❌ NEVER USED
-workflowFile: './workflow.md' # ❌ NEVER USED
+thisStepFile: './step-01-init.md'      # ❌ NEVER USED
+workflowFile: './workflow.md'           # ❌ NEVER USED
 ---
 ```
 
 ### ✅ CORRECT
-
 ```yaml
 ---
 outputFile: '{output_folder}/output.md'
@@ -100,25 +95,25 @@ nextStepFile: './step-02-foo.md'
 
 ## Path Rules
 
-| Type                       | Format                  | Example                                   |
-| -------------------------- | ----------------------- | ----------------------------------------- |
-| Step to Step (same folder) | `./filename.md`         | `./step-02-vision.md`                     |
-| Step to Template (parent)  | `../filename.md`        | `../template.md`                          |
-| Step to Subfolder          | `./subfolder/file.md`   | `./data/config.csv`                       |
-| External References        | `{project-root}/...`    | `{project-root}/_bmad/core/workflows/...` |
-| Output Files               | `{folder_variable}/...` | `{planning_artifacts}/output.md`          |
+| Type | Format | Example |
+|------|--------|---------|
+| Step to Step (same folder) | `./filename.md` | `./step-02-vision.md` |
+| Step to Template (parent) | `../filename.md` | `../template.md` |
+| Step to Subfolder | `./subfolder/file.md` | `./data/config.csv` |
+| External References | `{project-root}/...` | `{project-root}/_bmad/core/workflows/...` |
+| Output Files | `{folder_variable}/...` | `{planning_artifacts}/output.md` |
 
 ---
 
 ## ❌ FORBIDDEN Patterns
 
-| Pattern                               | Why                                                         |
-| ------------------------------------- | ----------------------------------------------------------- |
-| `workflow_path: '{project-root}/...'` | Use relative paths                                          |
-| `thisStepFile: './step-XX.md'`        | Remove unless referenced <!-- validate-file-refs:ignore --> |
-| `workflowFile: './workflow.md'`       | Remove unless referenced <!-- validate-file-refs:ignore --> |
-| `{workflow_path}/templates/...`       | Use `../template.md`                                        |
-| `{workflow_path}/data/...`            | Use `./data/file.md`                                        |
+| Pattern | Why |
+|---------|-----|
+| `workflow_path: '{project-root}/...'` | Use relative paths |
+| `thisStepFile: './step-XX.md'` | Remove unless referenced <!-- validate-file-refs:ignore --> |
+| `workflowFile: './workflow.md'` | Remove unless referenced <!-- validate-file-refs:ignore --> |
+| `{workflow_path}/templates/...` | Use `../template.md` |
+| `{workflow_path}/data/...` | Use `./data/file.md` |
 
 ---
 
@@ -126,13 +121,13 @@ nextStepFile: './step-02-foo.md'
 
 Use `snake_case` with descriptive prefixes:
 
-| Suffix       | Usage               | Example                      |
-| ------------ | ------------------- | ---------------------------- |
-| `*_File`     | File references     | `outputFile`, `nextStepFile` |
-| `*_Task`     | Task references     | `advancedElicitationTask`    |
-| `*_Workflow` | Workflow references | `partyModeWorkflow`          |
-| `*_Template` | Templates           | `productBriefTemplate`       |
-| `*_Data`     | Data files          | `dietaryData`                |
+| Suffix | Usage | Example |
+|--------|-------|---------|
+| `*_File` | File references | `outputFile`, `nextStepFile` |
+| `*_Task` | Task references | `advancedElicitationTask` |
+| `*_Workflow` | Workflow references | `partyModeWorkflow` |
+| `*_Template` | Templates | `productBriefTemplate` |
+| `*_Data` | Data files | `dietaryData` |
 
 ---
 
@@ -141,7 +136,6 @@ Use `snake_case` with descriptive prefixes:
 Steps can define NEW variables for future steps.
 
 **Step 01 defines:**
-
 ```yaml
 ---
 targetWorkflowPath: '{bmb_creations_output_folder}/workflows/{workflow_name}'
@@ -149,7 +143,6 @@ targetWorkflowPath: '{bmb_creations_output_folder}/workflows/{workflow_name}'
 ```
 
 **Step 02 uses:**
-
 ```yaml
 ---
 targetWorkflowPath: '{bmb_creations_output_folder}/workflows/{workflow_name}'

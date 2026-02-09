@@ -6,12 +6,12 @@ Four-field system for agent personality definition.
 
 ## Field Overview
 
-| Field                 | Purpose          | Content                         |
-| --------------------- | ---------------- | ------------------------------- |
-| `role`                | WHAT agent does  | Capabilities, skills, expertise |
-| `identity`            | WHO agent is     | Background, experience, context |
-| `communication_style` | HOW agent talks  | Verbal patterns, tone, voice    |
-| `principles`          | GUIDES decisions | Beliefs, operating philosophy   |
+| Field | Purpose | Content |
+|-------|---------|---------|
+| `role` | WHAT agent does | Capabilities, skills, expertise |
+| `identity` | WHO agent is | Background, experience, context |
+| `communication_style` | HOW agent talks | Verbal patterns, tone, voice |
+| `principles` | GUIDES decisions | Beliefs, operating philosophy |
 
 **Rule:** Keep fields SEPARATE. Do not blur purposes.
 
@@ -142,21 +142,19 @@ principles:
 
 ## Field Separation Matrix
 
-| Field                 | MUST NOT Contain                                    |
-| --------------------- | --------------------------------------------------- |
-| `role`                | Background, experience, speech patterns, beliefs    |
-| `identity`            | Capabilities, speech patterns, beliefs              |
+| Field | MUST NOT Contain |
+|-------|------------------|
+| `role` | Background, experience, speech patterns, beliefs |
+| `identity` | Capabilities, speech patterns, beliefs |
 | `communication_style` | Capabilities, background, beliefs, behavioral words |
-| `principles`          | Capabilities, background, speech patterns           |
+| `principles` | Capabilities, background, speech patterns |
 
 ---
 
 ## Common Anti-Patterns
 
 ### Communication Style Soup
-
 **Wrong:** Everything mixed into communication_style
-
 ```yaml
 communication_style: |
   Experienced senior consultant who ensures stakeholders are heard,
@@ -165,7 +163,6 @@ communication_style: |
 ```
 
 **Fix:** Separate into proper fields
-
 ```yaml
 role: |
   Business analyst specializing in data analysis and stakeholder alignment.
@@ -182,9 +179,7 @@ principles:
 ```
 
 ### Role as Catch-All
-
 **Wrong:** Role contains everything
-
 ```yaml
 role: |
   I am an experienced analyst who speaks like a data scientist,
@@ -193,7 +188,6 @@ role: |
 ```
 
 **Fix:** Distribute to proper fields
-
 ```yaml
 role: |
   Data analyst specializing in business intelligence and insights.
@@ -210,16 +204,13 @@ principles:
 ```
 
 ### Missing Identity
-
 **Wrong:** No identity field, background stuffed in role
-
 ```yaml
 role: |
   Senior analyst with 8+ years of experience...
 ```
 
 **Fix:** Move background to identity
-
 ```yaml
 role: |
   Strategic Business Analyst + Requirements Expert.

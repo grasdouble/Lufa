@@ -26,14 +26,12 @@ workflow-folder/
 **CRITICAL:** workflow.md MUST be lean — entry point only.
 
 **❌ PROHIBITED:**
-
 - Listing all steps (defeats progressive disclosure)
 - Detailed step descriptions (steps are self-documenting)
 - Validation checklists (belong in steps-v/)
 - Implementation details (belong in step files)
 
 **✅ REQUIRED:**
-
 - Frontmatter: name, description, web_bundle
 - Goal: What the workflow accomplishes
 - Role: Who the AI embodies
@@ -48,33 +46,27 @@ workflow-folder/
 ## Core Principles
 
 ### 1. Micro-File Design
-
 - Each step: ~80-200 lines, focused
 - One concept per step
 - Self-contained instructions
 
 ### 2. Just-In-Time Loading
-
 - Only current step in memory
 - Never load future steps until 'C' selected
 - Progressive disclosure = LLM focus
 
 ### 3. Sequential Enforcement
-
 - Steps execute in order
 - No skipping, no optimization
 - Each step completes before next loads
 
 ### 4. State Tracking
-
 For continuable workflows:
-
 ```yaml
 stepsCompleted: ['step-01-init', 'step-02-gather', 'step-03-design']
 lastStep: 'step-03-design'
 lastContinued: '2025-01-02'
 ```
-
 Each step appends its name to `stepsCompleted` before loading next.
 
 ---
@@ -82,13 +74,11 @@ Each step appends its name to `stepsCompleted` before loading next.
 ## Execution Flow
 
 **Fresh Start:**
-
 ```
 workflow.md → step-01-init.md → step-02-[name].md → ... → step-N-final.md
 ```
 
 **Continuation:**
-
 ```
 workflow.md → step-01-init.md (detects existing) → step-01b-continue.md → [next step]
 ```
@@ -98,7 +88,6 @@ workflow.md → step-01-init.md (detects existing) → step-01b-continue.md → 
 ## Frontmatter Variables
 
 ### Standard
-
 ```yaml
 workflow_path: '{project-root}/_bmad/[module]/workflows/[name]'
 thisStepFile: './step-[N]-[name].md'
@@ -107,13 +96,11 @@ outputFile: '{output_folder}/[output].md'
 ```
 
 ### Module-Specific
-
 ```yaml
 bmb_creations_output_folder: '{project-root}/_bmad/bmb-creations'
 ```
 
 ### Rules
-
 - ONLY variables used in step body go in frontmatter
 - All file references use `{variable}` format
 - Paths within workflow folder are relative
@@ -128,14 +115,12 @@ bmb_creations_output_folder: '{project-root}/_bmad/bmb-creations'
 Display: "**Select:** [A] [action] [P] [action] [C] Continue"
 
 #### Menu Handling Logic:
-
 - IF A: Execute {task}, then redisplay menu
 - IF P: Execute {task}, then redisplay menu
 - IF C: Save to {outputFile}, update frontmatter, then load {nextStepFile}
 - IF Any other: help user, then redisplay menu
 
 #### EXECUTION RULES:
-
 - ALWAYS halt and wait for user input
 - ONLY proceed to next step when user selects 'C'
 ```

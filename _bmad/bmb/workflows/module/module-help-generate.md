@@ -43,35 +43,33 @@ agentsDir: '{module_path}/agents'
 module,phase,name,code,sequence,workflow-file,command,required,agent,options,description,output-location,outputs,
 ```
 
-| Column            | Purpose                                 | Rules                                  |
-| ----------------- | --------------------------------------- | -------------------------------------- |
-| `module`          | Module code from `module.yaml`          | Required                               |
-| `phase`           | `anytime` or `phase-1`, `phase-2`, etc. | Phases start at -1                     |
-| `name`            | Display name of the feature             | User-facing                            |
-| `code`            | Short code for commands                 | Unique within module                   |
-| `sequence`        | Order within phase                      | EMPTY for anytime, number for phases   |
-| `workflow-file`   | Path to workflow.md                     | EMPTY for agent-only                   |
-| `command`         | Internal command name                   | Format: `{module_code}_{feature_code}` |
-| `required`        | Whether required                        | Usually `false`                        |
-| `agent`           | Associated agent name                   | From agent YAML metadata               |
-| `options`         | Mode or action type                     | e.g., "Create Mode", "Chat Mode"       |
-| `description`     | User-facing description                 | Explain what and when to use           |
-| `output-location` | Where output goes                       | Folder name or EMPTY                   |
-| `outputs`         | What is produced                        | Output type or EMPTY                   |
+| Column | Purpose | Rules |
+|--------|---------|-------|
+| `module` | Module code from `module.yaml` | Required |
+| `phase` | `anytime` or `phase-1`, `phase-2`, etc. | Phases start at -1 |
+| `name` | Display name of the feature | User-facing |
+| `code` | Short code for commands | Unique within module |
+| `sequence` | Order within phase | EMPTY for anytime, number for phases |
+| `workflow-file` | Path to workflow.md | EMPTY for agent-only |
+| `command` | Internal command name | Format: `{module_code}_{feature_code}` |
+| `required` | Whether required | Usually `false` |
+| `agent` | Associated agent name | From agent YAML metadata |
+| `options` | Mode or action type | e.g., "Create Mode", "Chat Mode" |
+| `description` | User-facing description | Explain what and when to use |
+| `output-location` | Where output goes | Folder name or EMPTY |
+| `outputs` | What is produced | Output type or EMPTY |
 
 ---
 
 ## PHASE AND SEQUENCING RULES
 
 ### 1. anytime
-
 - Use for: standalone features, agent menu triggers, unrelated utilities
 - Place at TOP of file
 - `sequence` column MUST BE EMPTY
 - User chooses what to run - no order
 
 ### 2. Phases (phase-1, phase-2, phase-3...)
-
 - Use for: sequential workflows, guided processes
 - Place BELOW anytime entries
 - Phases ALWAYS start at `-1` (not 0 or 1)
@@ -81,7 +79,6 @@ module,phase,name,code,sequence,workflow-file,command,required,agent,options,des
 ### 3. Module Integration Patterns
 
 **Full module with phases:**
-
 ```
 anytime entries (sequence empty)
 phase-1 entries (sequence 10, 20, 30...)
@@ -89,14 +86,12 @@ phase-2 entries (sequence 10, 20, 30...)
 ```
 
 **Add-on to existing module:**
-
 ```
 May only have phase-3 entries that integrate into another module's workflow
 Sequence numbers fit logically before/after existing items
 ```
 
 **Standalone/Unitary collections:**
-
 ```
 All entries are anytime
 No sequence numbers
@@ -104,7 +99,6 @@ User picks one as needed
 ```
 
 **Agent-only features:**
-
 ```
 Empty workflow-file column
 Agent handles everything via its menu
@@ -117,20 +111,17 @@ Agent handles everything via its menu
 ### Step 1: Identify Target Module
 
 Ask user:
-
 1. What is the path to the module?
 2. Or should we scan for modules in the workspace?
 
 ### Step 2: Read Module Configuration
 
 Load and read:
-
 ```
 {moduleYamlFile}
 ```
 
 Extract:
-
 - `code` - Module identifier
 - `type` - Module type (module, unitary, etc.)
 - `name` - Module display name
@@ -138,32 +129,27 @@ Extract:
 ### Step 3: Check for Existing module-help.csv
 
 Check if exists:
-
 ```
 {moduleHelpCsvFile}
 ```
 
 **If exists:**
-
 - Read entire file
 - Parse all existing entries
 - Ask user: Update existing, validate, or regenerate?
 
 **If not exists:**
-
 - Note: Will create new file
 - Proceed to discovery
 
 ### Step 4: Discover All Workflows
 
 Scan the workflows directory:
-
 ```
 {workflowsDir}
 ```
 
 For each workflow found:
-
 - Read the `workflow.md` file
 - Extract: name, description, goal, role
 - Note the relative path for CSV entry
@@ -171,13 +157,11 @@ For each workflow found:
 ### Step 5: Discover All Agents
 
 Scan the agents directory:
-
 ```
 {agentsDir}
 ```
 
 For each agent found:
-
 - Read the `.agent.yaml` file
 - Extract: metadata (name, title), persona, menu triggers
 - Identify agent-only triggers (no workflow route)
@@ -188,13 +172,11 @@ For each agent found:
 Analyze the module and decide:
 
 **Question for each workflow:**
-
 - Is this part of a sequential journey? → Use phases
 - Is this standalone/optional? → Use anytime
 - Can user do this anytime? → Use anytime
 
 **For agent menu items:**
-
 - Does it route to a workflow? → Map to that workflow or anytime
 - Is it an inline action? → anytime, no workflow file
 
@@ -203,25 +185,21 @@ Analyze the module and decide:
 Build the CSV following structure:
 
 **Header:**
-
 ```
 module,phase,name,code,sequence,workflow-file,command,required,agent,options,description,output-location,outputs,
 ```
 
 **Entry Rules:**
-
 1. ALL `anytime` entries FIRST - `sequence` EMPTY
 2. THEN phased entries - `phase-1`, `phase-2`, etc.
 3. Within phases, `sequence` orders execution (10, 20, 30...)
 4. Agent-only actions: empty `workflow-file`, specify `agent`
 
 **Code Format:**
-
 - Command: `{module_code}_{feature_name}`
 - Keep codes short but memorable (2-3 letters usually)
 
 **Description Guidance:**
-
 - Explain WHAT the feature does
 - Include WHEN to use it (especially for phased items)
 - For add-on modules: "Best used after X but before Y"
@@ -229,7 +207,6 @@ module,phase,name,code,sequence,workflow-file,command,required,agent,options,des
 ### Step 8: Present to User
 
 Before writing:
-
 1. Show the CSV content in a readable table format
 2. Explain phasing decisions
 3. Highlight any agent-only entries
@@ -238,7 +215,6 @@ Before writing:
 ### Step 9: Write File
 
 On confirmation:
-
 ```
 Write to: {moduleHelpCsvFile}
 ```
@@ -248,7 +224,6 @@ Write to: {moduleHelpCsvFile}
 ## EXAMPLE OUTPUT STRUCTURE
 
 ### Full Module with Phases (like mwm):
-
 ```csv
 module,phase,name,code,sequence,workflow-file,command,required,agent,options,description,output-location,outputs,
 mwm,anytime,Chat with Wellness,CWC,,"mwm_chat",false,wellness-companion,Chat Mode,"Have a supportive conversation anytime",,,
@@ -258,7 +233,6 @@ mwm,phase-2,Wellness Journal,WJ,20,_bmad/mwm/workflows/wellness-journal/workflow
 ```
 
 ### Unitary/Standalone Module (like bmad-custom):
-
 ```csv
 module,phase,name,code,sequence,workflow-file,command,required,agent,options,description,output-location,outputs,
 bmad-custom,anytime,Quiz Master,QM,,"bmad_quiz",false,,Trivia,"Interactive trivia quiz with gameshow atmosphere",bmad_output,"results",

@@ -52,23 +52,19 @@ Read `{agentValidation}`, `{criticalActions}`, `{validationReport}`, and `{agent
 Perform these checks systematically - validate EVERY rule specified in agentValidation.md:
 
 #### A. Sidecar Folder Validation
-
 - [ ] Sidecar folder exists at specified path
 - [ ] Sidecar folder is accessible and readable
 - [ ] Sidecar folder path in metadata matches actual location
 - [ ] Folder naming follows convention: `{agent-name}-sidecar`
 
 #### B. Sidecar File Inventory
-
 - [ ] List all files in sidecar folder
 - [ ] Verify expected files are present (memories.md, instructions.md recommended)
 - [ ] Check for unexpected files
 - [ ] Validate file names follow conventions
 
 #### C. Path Reference Validation
-
 For each sidecar path reference in agent YAML:
-
 - [ ] Extract path from YAML reference
 - [ ] Verify path format is correct: `{project-root}/_bmad/_memory/{sidecar-folder}/...`
 - [ ] `{project-root}` is literal
@@ -76,7 +72,6 @@ For each sidecar path reference in agent YAML:
 - [ ] Validate no broken path references
 
 #### D. Critical Actions Validation (MANDATORY for hasSidecar: true)
-
 - [ ] critical_actions section exists in agent YAML
 - [ ] Contains at minimum 3 actions
 - [ ] Loads sidecar memories: `{project-root}/_bmad/_memory/{sidecar-folder}/memories.md`
@@ -86,14 +81,12 @@ For each sidecar path reference in agent YAML:
 - [ ] No compiler-injected steps
 
 #### E. Sidecar Structure Completeness
-
 - [ ] All referenced sidecar files present
 - [ ] No orphaned references (files referenced but not present)
 - [ ] No unreferenced files (files present but not referenced)
 - [ ] File structure matches agent requirements
 
 **IF hasSidecar = false:**
-
 - [ ] Mark sidecar validation as N/A
 - [ ] Confirm no sidecar-folder path in metadata
 - [ ] Confirm no sidecar references in critical_actions (if present)
@@ -111,7 +104,6 @@ Append to `{validationReport}`:
 **hasSidecar:** {true|false}
 
 **Checks:**
-
 - [ ] metadata.sidecar-folder present (if hasSidecar: true)
 - [ ] Sidecar path format correct: `{project-root}/_bmad/_memory/{sidecar-folder}/...`
 - [ ] Sidecar files exist at specified path (if hasSidecar: true)
@@ -120,16 +112,16 @@ Append to `{validationReport}`:
 
 **Detailed Findings:**
 
-_PASSING (for agents WITH sidecar):_
+*PASSING (for agents WITH sidecar):*
 {List of passing checks}
 
-_WARNINGS:_
+*WARNINGS:*
 {List of non-blocking issues}
 
-_FAILURES:_
+*FAILURES:*
 {List of blocking issues that must be fixed}
 
-_N/A (for agents WITHOUT sidecar):_
+*N/A (for agents WITHOUT sidecar):*
 N/A - Agent has hasSidecar: false, no sidecar required
 ```
 

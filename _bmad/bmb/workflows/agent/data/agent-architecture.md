@@ -4,10 +4,10 @@ Single Agent type with `hasSidecar` boolean. `critical_actions` decoupled from s
 
 ## Decision Matrix: hasSidecar
 
-| hasSidecar | Structure                     | Use When                                                   |
-| ---------- | ----------------------------- | ---------------------------------------------------------- |
-| `false`    | Single YAML file (~250 lines) | Stateless, single-purpose, personality-driven              |
-| `true`     | YAML + sidecar folder         | Persistent memory, long-term tracking, relationship-driven |
+| hasSidecar | Structure | Use When |
+|------------|-----------|----------|
+| `false` | Single YAML file (~250 lines) | Stateless, single-purpose, personality-driven |
+| `true` | YAML + sidecar folder | Persistent memory, long-term tracking, relationship-driven |
 
 ---
 
@@ -49,13 +49,13 @@ agent:
 
 ## Metadata Fields
 
-| Field    | Format                          | Example                                   |
-| -------- | ------------------------------- | ----------------------------------------- |
-| `id`     | `_bmad/agents/{name}/{name}.md` | `_bmad/agents/commit-poet/commit-poet.md` |
-| `name`   | Persona name                    | `Inkwell Von Comitizen`                   |
-| `title`  | Role                            | `Commit Message Artisan`                  |
-| `icon`   | Single emoji                    | `📜`                                      |
-| `module` | `stand-alone` or module code    | `bmm`, `cis`, `bmgd`                      |
+| Field | Format | Example |
+|-------|--------|---------|
+| `id` | `_bmad/agents/{name}/{name}.md` | `_bmad/agents/commit-poet/commit-poet.md` |
+| `name` | Persona name | `Inkwell Von Comitizen` |
+| `title` | Role | `Commit Message Artisan` |
+| `icon` | Single emoji | `📜` |
+| `module` | `stand-alone` or module code | `bmm`, `cis`, `bmgd` |
 
 ---
 
@@ -64,7 +64,6 @@ agent:
 **Structure:** `{agent-name}.agent.yaml` only
 
 **Use cases:**
-
 - Single-purpose utility with helpful persona
 - Each session is independent
 - All logic fits in ~250 lines
@@ -73,7 +72,6 @@ agent:
 **Examples:** Commit Poet, Snarky Weather Bot, Pun Barista, Gym Bro
 
 **Constraints:**
-
 - Under ~250 lines
 - No sidecar path references in `critical_actions`
 
@@ -82,7 +80,6 @@ agent:
 ## hasSidecar: true
 
 **Structure:**
-
 ```
 {agent-name}/
 ├── {agent-name}.agent.yaml
@@ -94,7 +91,6 @@ agent:
 ```
 
 **Use cases:**
-
 - Must remember things across sessions
 - User preferences, settings, progress tracking
 - Personal knowledge base that grows
@@ -108,14 +104,13 @@ agent:
 **Installation path:** `{project-root}/_bmad/_memory/{sidecar-folder}/`
 
 **ALL references MUST use:**
-
 ```yaml
 {project-root}/_bmad/_memory/{sidecar-folder}/{file}
 ```
 
-| Component          | Value                                               |
-| ------------------ | --------------------------------------------------- |
-| `{project-root}`   | Literal - keep as-is                                |
+| Component | Value |
+|-----------|-------|
+| `{project-root}` | Literal - keep as-is |
 | `{sidecar-folder}` | Actual folder name (e.g., `journal-keeper-sidecar`) |
 
 ```yaml
@@ -143,10 +138,10 @@ critical_actions:
 
 ## Menu Actions
 
-| Type               | Format                 | Example                        |
-| ------------------ | ---------------------- | ------------------------------ |
-| Prompt reference   | `action: "#prompt-id"` | `action: "#write-commit"`      |
-| Inline instruction | `action: "text"`       | `action: "Update memories.md"` |
+| Type | Format | Example |
+|------|--------|---------|
+| Prompt reference | `action: "#prompt-id"` | `action: "#write-commit"` |
+| Inline instruction | `action: "text"` | `action: "Update memories.md"` |
 
 **Trigger format:** `XX or fuzzy match on command`
 **Description format:** `[XX] Description`
@@ -156,12 +151,12 @@ critical_actions:
 ```yaml
 menu:
   - trigger: WC or fuzzy match on write
-    action: '#write-commit'
-    description: '[WC] Write commit message'
+    action: "#write-commit"
+    description: "[WC] Write commit message"
 
   - trigger: SM or fuzzy match on save
-    action: 'Update {project-root}/_bmad/_memory/{sidecar-folder}/memories.md'
-    description: '[SM] Save session'
+    action: "Update {project-root}/_bmad/_memory/{sidecar-folder}/memories.md"
+    description: "[SM] Save session"
 ```
 
 ---
@@ -180,7 +175,6 @@ prompts:
 ```
 
 **Best practices:**
-
 - Use semantic XML tags
 - Keep focused, single purpose
 - Number steps in multi-step processes
@@ -192,15 +186,14 @@ prompts:
 First-person voice only:
 
 ```yaml
-role: 'I am a Commit Message Artisan...'
-identity: 'I understand commit messages are documentation...'
-communication_style: 'Poetic drama with flair...'
+role: "I am a Commit Message Artisan..."
+identity: "I understand commit messages are documentation..."
+communication_style: "Poetic drama with flair..."
 principles:
-  - 'Every commit tells a story - capture the why'
+  - "Every commit tells a story - capture the why"
 ```
 
 **For sidecar agents** - include memory reference patterns:
-
 ```yaml
 communication_style: |
   I reference past naturally: "Last time you mentioned..." or "I've noticed patterns..."
@@ -227,7 +220,6 @@ communication_style: |
 ## Validation Checklist
 
 ### Both Types
-
 - [ ] Valid YAML syntax
 - [ ] Metadata: id, name, title, icon, module
 - [ ] Persona: role, identity, communication_style, principles
@@ -238,12 +230,10 @@ communication_style: |
 - [ ] File named `{agent-name}.agent.yaml`
 
 ### hasSidecar: false
-
 - [ ] Under ~250 lines
 - [ ] No sidecar path references
 
 ### hasSidecar: true
-
 - [ ] ALL paths: `{project-root}/_bmad/_memory/{sidecar-folder}/...`
 - [ ] `{project-root}` is literal
 - [ ] Sidecar folder exists with required files
@@ -262,7 +252,7 @@ communication_style: |
 
 ## Reference Examples
 
-| Type            | Path                                                    |
-| --------------- | ------------------------------------------------------- |
+| Type | Path |
+|------|------|
 | without sidecar | `data/reference/without-sidecar/commit-poet.agent.yaml` |
-| with sidecar    | `data/reference/with-sidecar/journal-keeper/`           |
+| with sidecar | `data/reference/with-sidecar/journal-keeper/` |
