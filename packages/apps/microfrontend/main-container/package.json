@@ -40,7 +40,7 @@
     "@grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector": "workspace:^",
     "@grasdouble/lufa_plugin_vite_vite-plugin-react-preamble": "workspace:^",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
-    "@types/react": "^19.2.10",
+    "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.2",
     "eslint-plugin-react": "^7.37.5",
