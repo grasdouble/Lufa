@@ -42,14 +42,14 @@
     "express": "^5.2.1",
     "express-rate-limit": "^8.2.1",
     "fs-extra": "^11.3.3",
-    "pacote": "^21.1.0",
+    "pacote": "^21.2.0",
     "sanitize-filename": "^1.6.3"
   },
   "devDependencies": {
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_prettier": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
-    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@types/cors": "^2.8.19",
     "@types/escape-html": "^1.0.4",
     "@types/express": "^5.0.6",
