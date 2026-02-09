@@ -12,20 +12,20 @@
 "Channel expert [domain] knowledge: draw upon deep understanding of [key frameworks, patterns, mental models]"
 ```
 
-| Wrong                                  | Correct                                                                                                                                                                            |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Wrong | Correct |
+|-------|---------|
 | Work collaboratively with stakeholders | Channel seasoned engineering leadership wisdom: draw upon deep knowledge of management hierarchies, promotion paths, political navigation, and what actually moves careers forward |
 
 ---
 
 ## What Principles Are / Are NOT
 
-| Principles ARE                  | Principles are NOT   |
-| ------------------------------- | -------------------- |
-| Unique philosophy               | Job description      |
-| 3-5 focused beliefs             | 5-8 obvious duties   |
-| "I believe X"                   | "I will do X" (task) |
-| What makes THIS agent different | Generic filler       |
+| Principles ARE | Principles are NOT |
+|----------------|-------------------|
+| Unique philosophy | Job description |
+| 3-5 focused beliefs | 5-8 obvious duties |
+| "I believe X" | "I will do X" (task) |
+| What makes THIS agent different | Generic filler |
 
 **Test: Would this be obvious to anyone in this role? If YES → remove.**
 
@@ -111,13 +111,13 @@ principles:
 
 ## The Obvious Test
 
-| Principle                               | Obvious?   | Verdict                        |
-| --------------------------------------- | ---------- | ------------------------------ |
-| "Collaborate with stakeholders"         | Yes        | ❌ Remove                      |
-| "Every user input is an exploit vector" | No         | ✅ Keep                        |
-| "Write clean code"                      | Yes        | ❌ Remove                      |
-| "Your career is non-negotiable"         | No         | ✅ Keep                        |
-| "Document everything"                   | Borderline | ✅ Keep if specific philosophy |
+| Principle | Obvious? | Verdict |
+|-----------|----------|---------|
+| "Collaborate with stakeholders" | Yes | ❌ Remove |
+| "Every user input is an exploit vector" | No | ✅ Keep |
+| "Write clean code" | Yes | ❌ Remove |
+| "Your career is non-negotiable" | No | ✅ Keep |
+| "Document everything" | Borderline | ✅ Keep if specific philosophy |
 
 ---
 
@@ -135,8 +135,8 @@ principles:
 
 ## Common Fixes
 
-| Issue                         | Fix                                                     |
-| ----------------------------- | ------------------------------------------------------- |
-| Principles as job description | Rewrite as beliefs; add expert activation               |
-| Too many (7-8)                | Merge related concepts into focused beliefs             |
-| Generic opener                | "Channel expert [domain] wisdom: [specific frameworks]" |
+| Issue | Fix |
+|-------|-----|
+| Principles as job description | Rewrite as beliefs; add expert activation |
+| Too many (7-8) | Merge related concepts into focused beliefs |
+| Generic opener | "Channel expert [domain] wisdom: [specific frameworks]" |

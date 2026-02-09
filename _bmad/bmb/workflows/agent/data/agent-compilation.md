@@ -44,32 +44,32 @@ agent:
 
 ## What Compiler Adds (DO NOT WRITE)
 
-| Component                                | Source                       |
-| ---------------------------------------- | ---------------------------- |
-| Frontmatter (`---name/description---`)   | Auto-generated               |
-| XML activation block with numbered steps | Auto-generated               |
-| critical_actions → activation steps      | Injected as steps 4, 5, 6... |
-| Menu handlers (workflow/exec/action)     | Auto-detected                |
-| Rules section                            | Auto-generated               |
-| MH, CH, PM, DA menu items                | Always injected              |
+| Component | Source |
+|-----------|--------|
+| Frontmatter (`---name/description---`) | Auto-generated |
+| XML activation block with numbered steps | Auto-generated |
+| critical_actions → activation steps | Injected as steps 4, 5, 6... |
+| Menu handlers (workflow/exec/action) | Auto-detected |
+| Rules section | Auto-generated |
+| MH, CH, PM, DA menu items | Always injected |
 
 ### Auto-Injected Menu Items (NEVER add)
 
-| Code | Trigger                             | Description                        |
-| ---- | ----------------------------------- | ---------------------------------- |
-| MH   | menu or help                        | Redisplay Menu Help                |
-| CH   | chat                                | Chat with the Agent about anything |
-| PM   | party-mode                          | Start Party Mode                   |
-| DA   | exit, leave, goodbye, dismiss agent | Dismiss Agent                      |
+| Code | Trigger | Description |
+|------|---------|-------------|
+| MH | menu or help | Redisplay Menu Help |
+| CH | chat | Chat with the Agent about anything |
+| PM | party-mode | Start Party Mode |
+| DA | exit, leave, goodbye, dismiss agent | Dismiss Agent |
 
 ---
 
 ## Compiled Output Structure
 
-````markdown
+```markdown
 ---
-name: 'architect'
-description: 'Architect'
+name: "architect"
+description: "Architect"
 ---
 
 You must fully embody this agent's persona...
@@ -123,7 +123,6 @@ You must fully embody this agent's persona...
 </menu>
 </agent>
 ```
-````
 
 ---
 
@@ -132,27 +131,22 @@ You must fully embody this agent's persona...
 Your `critical_actions` become numbered activation steps.
 
 ### With sidecar (hasSidecar: true):
-
 ```yaml
 critical_actions:
-  - 'Load COMPLETE file {project-root}/_bmad/_memory/journal-sidecar/memories.md'
-  - 'Load COMPLETE file {project-root}/_bmad/_memory/journal-sidecar/instructions.md'
-  - 'ONLY read/write files in {project-root}/_bmad/_memory/journal-sidecar/'
+  - "Load COMPLETE file {project-root}/_bmad/_memory/journal-sidecar/memories.md"
+  - "Load COMPLETE file {project-root}/_bmad/_memory/journal-sidecar/instructions.md"
+  - "ONLY read/write files in {project-root}/_bmad/_memory/journal-sidecar/"
 ```
-
 → Injected as steps 4, 5, 6
 
 ### Without sidecar (hasSidecar: false):
-
 ```yaml
 critical_actions:
-  - 'Give user an inspirational quote before showing menu'
+  - "Give user an inspirational quote before showing menu"
 ```
-
 → Injected as step 4
 
 ### No critical_actions:
-
 Activation jumps directly from step 3 to "ALWAYS communicate in {communication_language}"
 
 ---
@@ -160,7 +154,6 @@ Activation jumps directly from step 3 to "ALWAYS communicate in {communication_l
 ## DO NOT / DO Checklist
 
 **DO NOT:**
-
 - [ ] Add frontmatter
 - [ ] Create activation/XML blocks
 - [ ] Add MH/CH/PM/DA menu items
@@ -169,7 +162,6 @@ Activation jumps directly from step 3 to "ALWAYS communicate in {communication_l
 - [ ] Duplicate auto-injected content
 
 **DO:**
-
 - [ ] Define metadata (id, name, title, icon, module)
 - [ ] Define persona (role, identity, communication_style, principles)
 - [ ] Define critical_actions (if activation behavior needed)
@@ -182,12 +174,12 @@ Activation jumps directly from step 3 to "ALWAYS communicate in {communication_l
 
 ## Division of Responsibilities
 
-| Aspect           | YOU (YAML)         | COMPILER               |
-| ---------------- | ------------------ | ---------------------- |
-| Agent identity   | metadata + persona | Wrapped in XML         |
-| Activation steps | critical_actions   | Inserted as steps 4+   |
-| Prompts          | prompts with IDs   | Referenced by actions  |
-| Menu items       | Custom only        | + MH, CH, PM, DA       |
-| Activation block | —                  | Full XML with handlers |
-| Rules            | —                  | Standardized section   |
-| Frontmatter      | —                  | name/description       |
+| Aspect | YOU (YAML) | COMPILER |
+|--------|------------|----------|
+| Agent identity | metadata + persona | Wrapped in XML |
+| Activation steps | critical_actions | Inserted as steps 4+ |
+| Prompts | prompts with IDs | Referenced by actions |
+| Menu items | Custom only | + MH, CH, PM, DA |
+| Activation block | — | Full XML with handlers |
+| Rules | — | Standardized section |
+| Frontmatter | — | name/description |

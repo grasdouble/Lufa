@@ -1,45 +1,45 @@
 installation:
-  version: 6.0.0-Beta.7
-  installDate: 2026-02-04T14:09:43.802Z
-  lastUpdated: 2026-02-08T20:19:34.006Z
+  version: 6.0.0-Beta.8
+  installDate: 2026-02-09T11:44:40.746Z
+  lastUpdated: 2026-02-09T11:44:40.746Z
 modules:
   - name: core
-    version: 6.0.0-Beta.7
-    installDate: 2026-02-04T14:09:42.912Z
-    lastUpdated: 2026-02-08T20:19:33.099Z
+    version: 6.0.0-Beta.8
+    installDate: 2026-02-09T11:44:39.834Z
+    lastUpdated: 2026-02-09T11:44:39.834Z
     source: built-in
     npmPackage: null
     repoUrl: null
   - name: bmm
-    version: 6.0.0-Beta.7
-    installDate: 2026-02-04T14:09:20.021Z
-    lastUpdated: 2026-02-08T20:19:33.099Z
+    version: 6.0.0-Beta.8
+    installDate: 2026-02-09T11:44:36.719Z
+    lastUpdated: 2026-02-09T11:44:39.834Z
     source: built-in
     npmPackage: null
     repoUrl: null
   - name: bmb
-    version: 0.1.5
-    installDate: 2026-02-04T14:09:37.406Z
-    lastUpdated: 2026-02-08T20:19:33.392Z
+    version: 0.1.6
+    installDate: 2026-02-09T11:44:37.881Z
+    lastUpdated: 2026-02-09T11:44:40.129Z
     source: external
     npmPackage: bmad-builder
     repoUrl: https://github.com/bmad-code-org/bmad-builder
   - name: cis
-    version: 0.1.4
-    installDate: 2026-02-04T14:09:41.751Z
-    lastUpdated: 2026-02-08T20:19:33.692Z
+    version: 0.1.6
+    installDate: 2026-02-09T11:44:38.813Z
+    lastUpdated: 2026-02-09T11:44:40.449Z
     source: external
     npmPackage: bmad-creative-intelligence-suite
     repoUrl: https://github.com/bmad-code-org/bmad-module-creative-intelligence-suite
   - name: tea
     version: 1.0.0
-    installDate: 2026-02-04T14:09:42.877Z
-    lastUpdated: 2026-02-08T20:19:34.006Z
+    installDate: 2026-02-09T11:44:39.805Z
+    lastUpdated: 2026-02-09T11:44:40.745Z
     source: external
     npmPackage: bmad-method-test-architecture-enterprise
     repoUrl: https://github.com/bmad-code-org/bmad-method-test-architecture-enterprise
 ides:
-  - codex
+  - claude-code
   - github-copilot
   - opencode
-  - claude-code
+  - codex

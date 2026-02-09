@@ -7,7 +7,6 @@
 ## What is a BMAD Module?
 
 A **BMAD module** is a self-contained package of functionality that extends the BMAD framework. Modules provide:
-
 - **Agents** — AI personas with specialized expertise and menu-driven commands
 - **Workflows** — Structured processes for accomplishing complex tasks
 - **Configuration** — module.yaml for user customization
@@ -21,7 +20,6 @@ A **BMAD module** is a self-contained package of functionality that extends the 
 A new, independent module focused on a specific domain.
 
 **Characteristics:**
-
 - Own module code (e.g., `healthcare-ai`, `legal-assist`)
 - Independent of other modules
 - Can be installed alongside any other modules
@@ -38,7 +36,6 @@ A new, independent module focused on a specific domain.
 Extends an existing BMAD module with additional functionality.
 
 **Characteristics:**
-
 - Builds upon an existing module's agents and workflows
 - May add new agents or workflows that complement the base module
 - Shares configuration context with the extended module
@@ -70,16 +67,15 @@ The **folder name** is unique (e.g., `bmm-security`) but the `code:` matches the
 
 #### File Merge Rules
 
-| File Type       | Same Name                                 | Different Name               |
-| --------------- | ----------------------------------------- | ---------------------------- |
-| Agent file      | **OVERRIDE** — replaces the base agent    | **ADD** — new agent added    |
+| File Type | Same Name | Different Name |
+|-----------|-----------|----------------|
+| Agent file | **OVERRIDE** — replaces the base agent | **ADD** — new agent added |
 | Workflow folder | **OVERRIDE** — replaces the base workflow | **ADD** — new workflow added |
-| Other files     | **OVERRIDE** — replaces base file         | **ADD** — new file added     |
+| Other files | **OVERRIDE** — replaces base file | **ADD** — new file added |
 
 #### Examples
 
 **Override scenario:**
-
 ```
 Base module (BMM):
 ├── agents/
@@ -95,7 +91,6 @@ Result after installation:
 ```
 
 **Add scenario:**
-
 ```
 Base module (BMM):
 ├── agents/
@@ -114,7 +109,6 @@ Result after installation:
 ```
 
 **Mixed scenario:**
-
 ```
 Extension contains both overrides and new files — applies rules per file
 ```
@@ -126,7 +120,6 @@ Extension contains both overrides and new files — applies rules per file
 Affects the entire BMAD framework and all modules.
 
 **Characteristics:**
-
 - Core functionality that impacts all modules
 - Often provides foundational services or utilities
 - Installed at the framework level
@@ -161,10 +154,10 @@ Affects the entire BMAD framework and all modules.
 Every module MUST have a `module.yaml` file with at minimum:
 
 ```yaml
-code: { module-code }
-name: 'Module Display Name'
-header: 'Brief module description'
-subheader: 'Additional context'
+code: {module-code}
+name: "Module Display Name"
+header: "Brief module description"
+subheader: "Additional context"
 default_selected: false
 ```
 
@@ -175,7 +168,6 @@ See: `module-yaml-conventions.md` for full specification.
 ### README.md (REQUIRED)
 
 Every module MUST have a README.md with:
-
 - Module name and purpose
 - Installation instructions
 - Components section (agents, workflows)
@@ -192,7 +184,6 @@ Every module MUST have a README.md with:
 ### Agents
 
 Agents are AI personas with:
-
 - Metadata (id, name, title, icon, module)
 - Persona (role, identity, communication_style, principles)
 - Menu (trigger → workflow/exec mappings)
@@ -204,7 +195,6 @@ See: `agent-architecture.md` for design guidance.
 ### Workflows
 
 Workflows are structured processes with:
-
 - workflow.md (entry point)
 - steps/ folder with step files
 - data/ folder with shared reference
@@ -255,7 +245,6 @@ START: Creating a module
 ## Module Dependencies
 
 Modules can depend on:
-
 - **Core BMAD** — Always available
 - **Other modules** — Specify in module.yaml as `dependencies:`
 - **External tools** — Document in README
@@ -264,11 +253,11 @@ Modules can depend on:
 
 ## Quick Reference
 
-| Question                    | Answer                                              |
-| --------------------------- | --------------------------------------------------- |
-| What's a module?            | Self-contained package of agents, workflows, config |
-| What are the types?         | Standalone, Extension, Global                       |
-| What's required?            | module.yaml, README.md                              |
-| Where do modules live?      | `src/modules/{code}/`                               |
-| How do agents work?         | Menu triggers → workflow/exec                       |
-| How does installation work? | module.yaml prompts                                 |
+| Question | Answer |
+|----------|--------|
+| What's a module? | Self-contained package of agents, workflows, config |
+| What are the types? | Standalone, Extension, Global |
+| What's required? | module.yaml, README.md |
+| Where do modules live? | `src/modules/{code}/` |
+| How do agents work? | Menu triggers → workflow/exec |
+| How does installation work? | module.yaml prompts |

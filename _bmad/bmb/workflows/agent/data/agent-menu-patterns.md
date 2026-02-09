@@ -6,15 +6,15 @@
 - trigger: XX or fuzzy match on command-name
   [handler]: [value]
   description: '[XX] Display text'
-  data: [optional] # Pass file to workflow
+  data: [optional]   # Pass file to workflow
 ```
 
-| Field         | Required | Validation                                  |
-| ------------- | -------- | ------------------------------------------- |
-| `trigger`     | Yes      | Format: `XX or fuzzy match on command-name` |
-| `description` | Yes      | Must start with `[XX]` code                 |
-| handler       | Yes      | `action` (Agent) or `exec` (Module)         |
-| `data`        | No       | File path for workflow input                |
+| Field | Required | Validation |
+|-------|----------|------------|
+| `trigger` | Yes | Format: `XX or fuzzy match on command-name` |
+| `description` | Yes | Must start with `[XX]` code |
+| handler | Yes | `action` (Agent) or `exec` (Module) |
+| `data` | No | File path for workflow input |
 
 **Reserved codes (DO NOT USE):** MH, CH, PM, DA (auto-injected)
 
@@ -22,10 +22,10 @@
 
 ## Handlers
 
-| Handler  | Use Case                        | Syntax                                            |
-| -------- | ------------------------------- | ------------------------------------------------- |
+| Handler | Use Case | Syntax |
+|---------|----------|--------|
 | `action` | Agent self-contained operations | `action: '#prompt-id'` or `action: 'inline text'` |
-| `exec`   | Module external workflows       | `exec: '{project-root}/path/to/workflow.md'`      |
+| `exec` | Module external workflows | `exec: '{project-root}/path/to/workflow.md'` |
 
 ```yaml
 # Action - reference prompt
@@ -87,12 +87,12 @@ menu:
 
 ## Path Variables
 
-| Variable                   | Expands To               |
-| -------------------------- | ------------------------ |
-| `{project-root}`           | Project root directory   |
-| `{output_folder}`          | Document output location |
-| `{user_name}`              | User's name from config  |
-| `{communication_language}` | Language preference      |
+| Variable | Expands To |
+|----------|------------|
+| `{project-root}` | Project root directory |
+| `{output_folder}` | Document output location |
+| `{user_name}` | User's name from config |
+| `{communication_language}` | Language preference |
 
 ```yaml
 # ✅ CORRECT
@@ -106,14 +106,13 @@ exec: '../../../core/workflows/brainstorming/workflow.md'
 
 ## Agent Types
 
-| Type   | hasSidecar | Additional Fields                     |
-| ------ | ---------- | ------------------------------------- |
-| Simple | false      | `prompts`, `menu`                     |
-| Expert | true       | `prompts`, `menu`, `critical_actions` |
-| Module | true       | `menu` only (external workflows)      |
+| Type | hasSidecar | Additional Fields |
+|------|------------|-------------------|
+| Simple | false | `prompts`, `menu` |
+| Expert | true | `prompts`, `menu`, `critical_actions` |
+| Module | true | `menu` only (external workflows) |
 
 **Expert Agent sidecar path pattern:**
-
 ```yaml
 critical_actions:
   - 'Load COMPLETE file {project-root}/_bmad/_memory/{sidecar-folder}/memories.md'

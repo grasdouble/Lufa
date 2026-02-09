@@ -100,7 +100,6 @@ Append to `{validationReport}`:
 **hasSidecar:** {true|false}
 
 **Checks:**
-
 - [ ] Triggers follow `XX or fuzzy match on command` format
 - [ ] Descriptions start with `[XX]` code
 - [ ] No reserved codes (MH, CH, PM, DA)
@@ -109,13 +108,13 @@ Append to `{validationReport}`:
 
 **Detailed Findings:**
 
-_PASSING:_
+*PASSING:*
 {List of passing checks}
 
-_WARNINGS:_
+*WARNINGS:*
 {List of non-blocking issues}
 
-_FAILURES:_
+*FAILURES:*
 {List of blocking issues that must be fixed}
 ```
 

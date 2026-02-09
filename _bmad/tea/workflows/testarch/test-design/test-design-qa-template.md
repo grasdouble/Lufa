@@ -72,9 +72,9 @@
 **Example factory pattern:**
 
 ```typescript
-import { faker } from '@faker-js/faker';
-import { expect } from '@playwright/test';
 import { test } from '@seontechnologies/playwright-utils/api-request/fixtures';
+import { expect } from '@playwright/test';
+import { faker } from '@faker-js/faker';
 
 test('example test @p0', async ({ apiRequest }) => {
   const testData = {
@@ -318,8 +318,8 @@ test('example test @p0', async ({ apiRequest }) => {
 **Playwright Tags for Selective Execution:**
 
 ```typescript
-import { expect } from '@playwright/test';
 import { test } from '@seontechnologies/playwright-utils/api-request/fixtures';
+import { expect } from '@playwright/test';
 
 // P0 critical test
 test('@P0 @API @Security unauthenticated request returns 401', async ({ apiRequest }) => {

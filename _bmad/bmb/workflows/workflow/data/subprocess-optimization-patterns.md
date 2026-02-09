@@ -19,10 +19,8 @@
 **Context savings:** Massive (1000:1 ratio)
 
 **Template:**
-
 ```markdown
 Launch a subprocess that:
-
 1. Runs grep/regex across all target files
 2. Extracts only matching lines or failures
 3. Returns structured findings to parent
@@ -32,12 +30,8 @@ Launch a subprocess that:
 **Bad:** "For EACH file, load the file and search for pattern"
 
 **Example return:**
-
 ```json
-{
-  "violations": [{ "file": "step-02.md", "line": 45, "match": "..." }],
-  "summary": { "total_files_checked": 10, "violations_found": 3 }
-}
+{"violations": [{"file": "step-02.md", "line": 45, "match": "..."}], "summary": {"total_files_checked": 10, "violations_found": 3}}
 ```
 
 ---
@@ -48,10 +42,8 @@ Launch a subprocess that:
 **Context savings:** High (10:1 ratio)
 
 **Template:**
-
 ```markdown
 DO NOT BE LAZY - For EACH file, launch a subprocess that:
-
 1. Loads that file
 2. Reads and analyzes content deeply
 3. Returns structured analysis findings to parent
@@ -70,10 +62,8 @@ DO NOT BE LAZY - For EACH file, launch a subprocess that:
 **Context savings:** Massive (100:1 ratio)
 
 **Template:**
-
 ```markdown
 Launch a subprocess that:
-
 1. Loads the data file (reference docs, CSV, knowledge base)
 2. Performs lookup, matching, or summarization
 3. Returns ONLY relevant rows or key findings to parent
@@ -92,10 +82,8 @@ Launch a subprocess that:
 **Performance gain:** Reduced total execution time
 
 **Template:**
-
 ```markdown
 Launch subprocesses in parallel that:
-
 1. Each handles one independent operation
 2. All run simultaneously
 3. Parent aggregates results when complete
@@ -108,16 +96,13 @@ Launch subprocesses in parallel that:
 ## Graceful Fallback Pattern (CRITICAL)
 
 **Universal Rule:**
-
 ```markdown
 - ⚙️ If any instruction references a subprocess, subagent, or tool you do not have access to, you MUST still achieve the outcome in your main context thread
 ```
 
 **Implementation:**
-
 ```markdown
 ### Step-Specific Rules:
-
 - 🎯 Use subprocess optimization when available - [pattern description]
 - 💬 If subprocess unavailable, perform operations in main thread
 ```
@@ -139,37 +124,32 @@ Launch subprocesses in parallel that:
 
 ## When to Use Each Pattern
 
-| Pattern                       | Use When                              | Context Savings  |
-| ----------------------------- | ------------------------------------- | ---------------- |
-| Pattern 1: Grep/regex         | Finding patterns across many files    | Massive (1000:1) |
-| Pattern 2: Per-file analysis  | Understanding prose, logic, quality   | High (10:1)      |
-| Pattern 3: Data operations    | Reference data, matching, summarizing | Massive (100:1)  |
-| Pattern 4: Parallel execution | Independent operations                | Performance gain |
+| Pattern | Use When | Context Savings |
+| -------- | -------- | --------------- |
+| Pattern 1: Grep/regex | Finding patterns across many files | Massive (1000:1) |
+| Pattern 2: Per-file analysis | Understanding prose, logic, quality | High (10:1) |
+| Pattern 3: Data operations | Reference data, matching, summarizing | Massive (100:1) |
+| Pattern 4: Parallel execution | Independent operations | Performance gain |
 
 ---
 
 ## Step File Integration
 
 ### Universal Rule (all steps)
-
 ```markdown
 ### Universal Rules:
-
 - ⚙️ TOOL/SUBPROCESS FALLBACK: If any instruction references a subprocess, subagent, or tool you do not have access to, you MUST still achieve the outcome in your main context thread
 ```
 
 ### Step-Specific Rules
-
 ```markdown
 ### Step-Specific Rules:
-
 - 🎯 [which pattern applies]
 - 💬 Subprocess must either update report OR return findings to parent
 - 🚫 DO NOT BE LAZY - [specific guidance for Pattern 2]
 ```
 
 ### Command Directives
-
 - Pattern 1: "Launch subprocess that runs [command] across all files, returns [results]"
 - Pattern 2: "DO NOT BE LAZY - For EACH file, launch subprocess that [analyzes], returns [findings]"
 - Pattern 3: "Launch subprocess that loads [data file], performs [operation], returns [results]"
@@ -190,13 +170,13 @@ Launch subprocesses in parallel that:
 
 ## Anti-Patterns to Avoid
 
-| ❌ Anti-Pattern                               | ✅ Correct Approach                                |
-| --------------------------------------------- | -------------------------------------------------- |
-| "For EACH file, load the file, analyze it"    | "Launch subprocess per file that returns analysis" |
-| "Subprocess loads file and returns content"   | "Subprocess returns structured findings only"      |
-| "Use subprocess to [operation]" (no fallback) | Include fallback rule for non-subprocess LLMs      |
-| "Launch subprocess per file to grep"          | Use Pattern 1 (single subprocess for grep)         |
-| "Launch subprocess to analyze files"          | Specify what subprocess returns                    |
+| ❌ Anti-Pattern | ✅ Correct Approach |
+| --------------- | ------------------- |
+| "For EACH file, load the file, analyze it" | "Launch subprocess per file that returns analysis" |
+| "Subprocess loads file and returns content" | "Subprocess returns structured findings only" |
+| "Use subprocess to [operation]" (no fallback) | Include fallback rule for non-subprocess LLMs |
+| "Launch subprocess per file to grep" | Use Pattern 1 (single subprocess for grep) |
+| "Launch subprocess to analyze files" | Specify what subprocess returns |
 
 ---
 
