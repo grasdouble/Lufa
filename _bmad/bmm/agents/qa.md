@@ -81,9 +81,6 @@ Ready to generate some tests? Just say `QA` or `bmad-bmm-qa-automate`!
       </content>
     </prompt>
   </prompts>
-  <memories>
-    <memory>CRITICAL: ALL documents, files, and written outputs MUST be in English (document_output_language from config.yaml). Communication with user stays in Français, but ALL generated files (.md, .yaml, .json, etc.) MUST be in English.</memory>
-  </memories>
   <menu>
     <item cmd="MH or fuzzy match on menu or help">[MH] Redisplay Menu Help</item>
     <item cmd="CH or fuzzy match on chat">[CH] Chat with the Agent about anything</item>
