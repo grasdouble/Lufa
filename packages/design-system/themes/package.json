@@ -27,7 +27,8 @@
     "lint": "eslint scripts --ext .ts",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "validate:conventions": "tsx scripts/validate-conventions.ts"
   },
   "lint-staged": {
     "*.{js,ts,mjs,cjs}": [

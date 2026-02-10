@@ -1,0 +1,82 @@
+# generated: 2026-02-10
+# project: Lufa
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-02-10
+project: Lufa
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # Epic 1: Infrastructure & Tokens Foundation
+  etr-epic-001: in-progress
+  etr-001-define-token-conventions: done
+  etr-002-create-token-templates: ready-for-dev
+  etr-003-pilot-steampunk-add-base-tokens: ready-for-dev
+  etr-004-pilot-steampunk-refactor-docusaurus: ready-for-dev
+  etr-005-create-validation-script: ready-for-dev
+  etr-epic-001-retrospective: optional
+
+  # Epic 2: Priority Themes (P0-P1) Refactoring
+  etr-epic-002: backlog
+  etr-006-ocean-add-base-tokens: ready-for-dev
+  etr-007-ocean-refactor-docusaurus: ready-for-dev
+  etr-008-cyberpunk-add-base-tokens: ready-for-dev
+  etr-009-cyberpunk-refactor-docusaurus: ready-for-dev
+  etr-010-epic2-visual-regression-testing: ready-for-dev
+  etr-epic-002-retrospective: optional
+
+  # Epic 3: Secondary Themes (P2) Refactoring
+  etr-epic-003: backlog
+  etr-011-matrix-full-refactoring: ready-for-dev
+  etr-012-volt-full-refactoring: ready-for-dev
+  etr-013-forest-full-refactoring: ready-for-dev
+  etr-epic-003-retrospective: optional
+
+  # Epic 4: Remaining Themes (P3) Refactoring
+  etr-epic-004: backlog
+  etr-014-coffee-full-refactoring: ready-for-dev
+  etr-015-volcano-theme-refactoring: ready-for-dev
+  etr-016-nordic-theme-refactoring: ready-for-dev
+  etr-017-sunset-theme-refactoring: ready-for-dev
+  etr-epic-004-retrospective: optional
+
+  # Epic 5: Landing Page & Final Polish
+  etr-epic-005: backlog
+  etr-018-landing-themes-refactoring: ready-for-dev
+  etr-019-comprehensive-cross-theme-testing: ready-for-dev
+  etr-020-documentation-updates: ready-for-dev
+  etr-021-final-validation-cleanup: ready-for-dev
+  etr-epic-005-retrospective: optional
