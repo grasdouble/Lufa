@@ -56,6 +56,53 @@
   --lufa-core-semantic-info-subtle: #f0f2f4; /* Pale steam */
   --lufa-core-semantic-info-border: #b8c2cc; /* Light steam */
   --lufa-core-semantic-info-hover: #5a6a77; /* Dark steam */
+
+  /* ==================== NEW TOKENS (ETR-003) ==================== */
+
+  /* RGB Variables (for alpha token calculations) */
+  --lufa-primary-rgb: 184, 115, 51; /* Brass #B87333 */
+  --lufa-secondary-rgb: 46, 139, 87; /* Patina #2E8B57 */
+
+  /* Alpha Tokens - Primary (Brass) */
+  --lufa-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
+  --lufa-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
+  --lufa-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
+  --lufa-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
+  --lufa-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
+  --lufa-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
+  --lufa-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
+  --lufa-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
+  --lufa-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
+
+  /* Alpha Tokens - Secondary (Patina) */
+  --lufa-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
+  --lufa-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
+  --lufa-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
+  --lufa-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
+  --lufa-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
+  --lufa-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
+  --lufa-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
+  --lufa-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
+  --lufa-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
+
+  /* Shadow Tokens - Brass/Brown Shadow */
+  --lufa-shadow-color: rgba(139, 69, 19, 0.3); /* Saddle brown with transparency */
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+
+  /* Overlay Tokens */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.05);
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.1);
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.3);
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.3);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.5);
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.7);
 }
 
 /* ==================== DARK MODE - Industrial Night ==================== */
@@ -100,6 +147,53 @@
   --lufa-core-semantic-info-subtle: #0f1215; /* Dark steam bg */
   --lufa-core-semantic-info-border: #2c3539; /* Steam border */
   --lufa-core-semantic-info-hover: #a8bfcc; /* Bright steam */
+
+  /* ==================== NEW TOKENS (ETR-003) ==================== */
+
+  /* RGB Variables (for alpha token calculations) */
+  --lufa-primary-rgb: 205, 133, 63; /* Brighter Brass #CD853F */
+  --lufa-secondary-rgb: 60, 179, 113; /* Bright Patina #3CB371 */
+
+  /* Alpha Tokens - Primary (Brass - dark mode uses brighter brass) */
+  --lufa-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
+  --lufa-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
+  --lufa-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
+  --lufa-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
+  --lufa-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
+  --lufa-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
+  --lufa-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
+  --lufa-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
+  --lufa-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
+
+  /* Alpha Tokens - Secondary (Patina) */
+  --lufa-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
+  --lufa-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
+  --lufa-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
+  --lufa-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
+  --lufa-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
+  --lufa-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
+  --lufa-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
+  --lufa-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
+  --lufa-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
+
+  /* Shadow Tokens - Stronger shadows for dark mode */
+  --lufa-shadow-color: rgba(0, 0, 0, 0.5); /* Stronger shadow for depth in dark mode */
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+
+  /* Overlay Tokens */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.05);
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.1);
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.3);
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.3);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.7); /* Stronger backdrop for dark mode */
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.9);
 }
 
 /* ==================== HIGH CONTRAST MODE - Schematic Blueprint ==================== */
@@ -144,4 +238,51 @@
   --lufa-core-semantic-info-subtle: #000000; /* Black bg */
   --lufa-core-semantic-info-border: #87ceeb; /* Matching border */
   --lufa-core-semantic-info-hover: #b0e0e6; /* Powder blue */
+
+  /* ==================== NEW TOKENS (ETR-003) ==================== */
+
+  /* RGB Variables (for alpha token calculations) */
+  --lufa-primary-rgb: 255, 179, 71; /* Bright Brass #FFB347 */
+  --lufa-secondary-rgb: 0, 250, 154; /* Bright Patina #00FA9A */
+
+  /* Alpha Tokens - Primary (Bright Brass) */
+  --lufa-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
+  --lufa-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
+  --lufa-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
+  --lufa-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
+  --lufa-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
+  --lufa-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
+  --lufa-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
+  --lufa-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
+  --lufa-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
+
+  /* Alpha Tokens - Secondary (Bright Patina) */
+  --lufa-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
+  --lufa-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
+  --lufa-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
+  --lufa-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
+  --lufa-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
+  --lufa-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
+  --lufa-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
+  --lufa-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
+  --lufa-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
+
+  /* Shadow Tokens - Maximum visibility for high contrast */
+  --lufa-shadow-color: rgba(0, 0, 0, 0.8); /* Strong shadow for maximum contrast */
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+
+  /* Overlay Tokens */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.05);
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.1);
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.3);
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.3);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.9); /* Maximum backdrop for high contrast */
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.95);
 }
