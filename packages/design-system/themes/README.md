@@ -109,17 +109,63 @@ This script performs **33+ automated checks** including:
 - ✅ Code examples and usage guidelines present
 - ✅ Required documentation sections exist
 
+### Validating Token Templates
+
+To validate that the token template file is complete and ready for use:
+
+```bash
+cd packages/design-system/themes
+pnpm validate:template
+```
+
+This script performs **12+ automated checks** on `src/_token-template.css` including:
+
+- ✅ Alpha tokens with all 9 opacity levels (3, 5, 8, 10, 15, 20, 30, 40, 50)
+- ✅ Shadow tokens with all 5 sizes (xs, sm, md, lg, xl)
+- ✅ Overlay tokens with light/dark variants
+- ✅ RGB placeholders and variable documentation
+- ✅ Usage instructions and implementation checklist
+- ✅ Support for all 3 modes (light, dark, high-contrast)
+
 ### Adding a New Theme
 
-1. Create a new CSS file in `src/theme-name.css`.
-2. Define the tokens for `:root`, `[data-mode='dark']`, and `[data-mode='high-contrast']`.
-3. Add the theme to the `themes` array in `scripts/copy-themes.ts`.
-4. Export the file in `package.json`.
+1. **Reference the token template**: Use `src/_token-template.css` as your starting point
+   - **Important**: The template shows correct CSS structure with tokens inside selectors
+   - **Do NOT copy tokens outside of CSS selectors** - they must be inside `[data-color-theme='your-theme']`
+2. Create a new CSS file in `src/theme-name.css`
+3. Follow the template structure to define:
+   - RGB variable tokens using `--lufa-{color}-rgb` pattern (e.g., `--lufa-primary-rgb`)
+   - Alpha tokens using the RGB variables (all 9 opacity levels for all 6 colors)
+   - Shadow tokens with mode-aware colors (different values per mode)
+   - Overlay tokens with mode-adjusted opacity (values change per mode)
+4. Define tokens for all 3 modes: light, dark, and high-contrast
+   - Each mode needs its own `[data-color-theme='your-theme'][data-mode='mode']` block
+   - Shadow colors and overlay opacity should be adjusted per mode
+5. Add the theme to the `themes` array in `scripts/copy-themes.ts`
+6. Export the file in `package.json`
+7. Run `pnpm build` to compile the theme
+8. Run `pnpm validate:template` to ensure template compliance
+
+**Pro Tip**: The token template (`src/_token-template.css`) includes:
+
+- ✅ Correct CSS selector structure (copy the selectors!)
+- ✅ Complete 54 alpha tokens (6 colors × 9 levels each)
+- ✅ Mode-aware shadow and overlay examples
+- ✅ Comprehensive documentation and usage examples
+- ✅ File structure guide showing how to organize your theme file
+
+**Common Pitfalls to Avoid**:
+
+- ❌ Don't use `--lufa-rgb-primary` pattern → ✅ Use `--lufa-primary-rgb` instead
+- ❌ Don't put tokens outside CSS selectors → ✅ Always wrap in `[data-color-theme]` blocks
+- ❌ Don't use only 3 opacity levels for semantic colors → ✅ Use all 9 levels for consistency
+- ❌ Don't copy same overlay values for all modes → ✅ Adjust opacity per mode for accessibility
 
 ---
 
 ## 📚 Resources
 
+- **[Token Template](./src/_token-template.css)**: 📝 **Copy-paste template for creating theme tokens** (NEW!)
 - **[Token Naming Conventions](./TOKENS_CONVENTIONS.md)**: 📘 **Official naming standards for alpha, shadow, and overlay tokens**
 - **[Theme Switching Guide](./_docs/theme-switching-guide.md)**: Deep dive into implementation
 - **[Token Architecture](../../tokens/_docs/token-architecture.md)**: Understanding how tokens work

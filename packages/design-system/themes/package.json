@@ -28,7 +28,8 @@
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "validate:conventions": "tsx scripts/validate-conventions.ts"
+    "validate:conventions": "tsx scripts/validate-conventions.ts",
+    "validate:template": "tsx scripts/validate-template.ts"
   },
   "lint-staged": {
     "*.{js,ts,mjs,cjs}": [
