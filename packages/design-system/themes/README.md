@@ -92,6 +92,23 @@ cd packages/design-system/themes
 pnpm build
 ```
 
+### Validating Token Conventions
+
+To validate that the token naming conventions documentation is complete and correct:
+
+```bash
+cd packages/design-system/themes
+pnpm validate:conventions
+```
+
+This script performs **33+ automated checks** including:
+
+- ✅ All alpha opacity levels documented (3, 5, 8, 10, 15, 20, 30, 40, 50)
+- ✅ All shadow sizes defined (xs, sm, md, lg, xl)
+- ✅ Overlay tokens with all intensity variants
+- ✅ Code examples and usage guidelines present
+- ✅ Required documentation sections exist
+
 ### Adding a New Theme
 
 1. Create a new CSS file in `src/theme-name.css`.
@@ -103,8 +120,24 @@ pnpm build
 
 ## 📚 Resources
 
-- **[Theme Switching Guide](./_docs/theme-switching-guide.md)**: Deep dive into implementation.
-- **[Token Architecture](../../tokens/_docs/token-architecture.md)**: Understanding how tokens work.
+- **[Token Naming Conventions](./TOKENS_CONVENTIONS.md)**: 📘 **Official naming standards for alpha, shadow, and overlay tokens**
+- **[Theme Switching Guide](./_docs/theme-switching-guide.md)**: Deep dive into implementation
+- **[Token Architecture](../../tokens/_docs/token-architecture.md)**: Understanding how tokens work
+
+### Quick Token Reference
+
+```css
+/* Alpha Tokens - Standardized transparency */
+--lufa-alpha-{color}-{opacity}  /* opacity: 3, 5, 8, 10, 15, 20, 30, 40, 50 */
+
+/* Shadow Tokens - Standardized elevation */
+--lufa-shadow-{size}  /* size: xs, sm, md, lg, xl */
+
+/* Overlay Tokens - Standardized layering */
+--lufa-overlay-{tone}-{intensity}  /* tone: light, dark | intensity: subtle, default, strong */
+```
+
+For complete documentation, usage guidelines, and examples, see **[TOKENS_CONVENTIONS.md](./TOKENS_CONVENTIONS.md)**.
 
 ---
 
