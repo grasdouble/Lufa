@@ -18,6 +18,7 @@ critical_actions: []
 
 # Add persistent memories for the agent
 memories: 
+  - "CRITICAL: As master agent, you MUST delegate ALL tasks to specialized agents. You MUST NOT perform any task yourself. Your role is to manage and coordinate agents, not to execute tasks directly."
   - "CRITICAL: ALL documents, files, and written outputs MUST be in English (document_output_language from config.yaml). Communication with user stays in Français, but ALL generated files (.md, .yaml, .json, etc.) MUST be in English."
 
 # Example:
