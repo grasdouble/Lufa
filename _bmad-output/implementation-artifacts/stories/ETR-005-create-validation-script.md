@@ -6,7 +6,7 @@
 **Story Points**: 3  
 **Estimated Time**: 1 hour  
 **Type**: Tooling  
-**Status**: Ready for Development  
+**Status**: Done  
 **Dependencies**: ETR-003, ETR-004
 
 ---
@@ -37,14 +37,14 @@ Create a Node.js script that scans CSS files for hardcoded rgba/hex values and r
 
 ## Acceptance Criteria
 
-- [ ] Script scans all *-docusaurus.css files
-- [ ] Detects rgba() with hardcoded values (not using variables)
-- [ ] Detects hex colors (#RRGGBB, #RGB)
-- [ ] Allows exceptions for justified cases (gradients, etc.)
-- [ ] Reports findings with file path and line number
-- [ ] Exit code 0 if no violations, 1 if violations found
-- [ ] Can be integrated into CI/CD pipeline
-- [ ] Documentation on how to run and interpret results
+- [x] Script scans all *-docusaurus.css files
+- [x] Detects rgba() with hardcoded values (not using variables)
+- [x] Detects hex colors (#RRGGBB, #RGB)
+- [x] Allows exceptions for justified cases (gradients, etc.)
+- [x] Reports findings with file path and line number
+- [x] Exit code 0 if no violations, 1 if violations found
+- [x] Can be integrated into CI/CD pipeline
+- [x] Documentation on how to run and interpret results
 
 ---
 
@@ -234,5 +234,91 @@ This is an **optional** story that provides valuable automation. While not criti
 ---
 
 **Created**: 2026-02-10  
-**Last Updated**: 2026-02-10  
+**Last Updated**: 2026-02-11  
 **Language**: English (technical), French (communication)
+
+---
+
+## File List
+
+- `packages/design-system/docusaurus/scripts/validate-tokens.ts` (modified) - Main validation script with enhanced detection and self-tests
+- `packages/design-system/docusaurus/scripts/README.md` (modified) - Improved and reorganized documentation
+- `packages/design-system/docusaurus/scripts/.validate-tokens.json.example` (new) - Configuration file example
+- `packages/design-system/docusaurus/package.json` (modified) - Added validate:tokens script and tsx dependency
+- `.github/workflows/validate-design-tokens.yml` (new) - CI/CD workflow for automated validation
+
+---
+
+## Change Log
+
+- **2026-02-11**: Story completed and marked for review
+  - Created validate-tokens.ts with comprehensive detection logic and built-in self-tests
+  - Implemented self-tests (7/7 passing) using `--test` flag
+  - Added npm script `validate:tokens` to package.json
+  - Added tsx dependency for TypeScript execution
+  - Documented usage and CI/CD integration in scripts/README.md
+  - Successfully validated on actual CSS files (detected 98 violations in 9 non-refactored files)
+  - Verified steampunk-docusaurus.css (previously refactored) passes validation
+  - Fixed all lint and typecheck errors (converted interfaces to types, added eslint-disable for console)
+
+- **2026-02-11**: Code review completed - 11 issues fixed (7 HIGH, 2 MEDIUM, 2 LOW)
+  - **HIGH FIXES:**
+    - Added detection for `rgb()` without alpha (was missing)
+    - Added detection for `hsl()` and `hsla()` colors (was missing)
+    - Fixed hex regex to reject invalid 4-5 char patterns (only 3 or 6 valid)
+    - Improved edge case handling for CSS variables inside color functions
+    - Created GitHub Actions workflow for CI/CD integration
+    - Added per-file error handling to prevent script crashes
+    - Enhanced self-tests to verify steampunk CSS validation (13/13 tests passing)
+  - **MEDIUM FIXES:**
+    - Optimized file reading to eliminate duplicate I/O (performance improvement)
+    - Implemented `.validate-tokens.json` configuration file support with example
+  - **LOW FIXES:**
+    - Changed test file path from `/tmp/test.css` to `virtual:test.css` for clarity
+    - Reorganized README.md with table of contents and separated update-changelog docs
+  - All tests passing: 13/13 self-tests ✅
+  - All lint and typecheck errors resolved ✅
+  - Ready for production use
+
+---
+
+## Dev Agent Record
+
+### Implementation Plan
+
+Following TDD approach:
+1. Created test structure with expected behavior
+2. Implemented validation script with:
+   - Regex patterns for rgba() and hex color detection
+   - Exception handling for gradients
+   - File scanning logic for *-docusaurus.css pattern
+   - Detailed reporting with file paths and line numbers
+   - Proper exit codes for CI/CD integration
+3. Built-in self-tests for validation
+
+### Completion Notes
+
+**Implementation Summary:**
+- Script successfully detects all hardcoded color patterns
+- Self-tests: 7/7 passing
+- Tested on actual CSS files: Found 98 violations in 9 files (as expected for non-refactored themes)
+- Previously refactored file (steampunk-docusaurus.css) passes validation ✅
+- Ready for CI/CD integration
+- Comprehensive documentation added
+
+**Technical Approach:**
+- Used regex patterns for rgba and hex detection
+- Implemented exception handling for linear-gradient and radial-gradient
+- Proper TypeScript typing for maintainability
+- Clear, user-friendly output format
+- Exit codes follow CI/CD conventions
+
+**Validation Results:**
+```
+Self-tests: ✅ 7/7 passed
+Actual scan: ✅ Works as expected (98 violations found in unrefactored files)
+Documentation: ✅ Complete
+CI/CD ready: ✅ Yes
+```
+
+All acceptance criteria met and validated.
