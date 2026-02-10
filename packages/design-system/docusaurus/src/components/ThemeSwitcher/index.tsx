@@ -45,9 +45,9 @@ const COLOR_MODES: { mode: ColorMode; label: string; icon: string }[] = [
 ];
 
 function getInitialTheme(): ThemeName {
-  if (typeof window === 'undefined') return 'steampunk';
+  if (typeof window === 'undefined') return 'default';
   const saved = localStorage.getItem('lufa-theme') as ThemeName;
-  return saved && THEMES.find((t) => t.name === saved) ? saved : 'steampunk';
+  return saved && THEMES.find((t) => t.name === saved) ? saved : 'default';
 }
 
 function getInitialColorMode(): ColorMode {
