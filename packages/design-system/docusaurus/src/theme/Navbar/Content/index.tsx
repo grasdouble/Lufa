@@ -4,7 +4,7 @@ import NavbarContent from '@theme-original/Navbar/Content';
 
 import styles from './styles.module.css';
 
-export default function NavbarContentWrapper(props: React.ComponentProps<typeof NavbarContent>): JSX.Element {
+export default function NavbarContentWrapper(props: React.ComponentProps<typeof NavbarContent>): React.JSX.Element {
   return (
     <>
       <NavbarContent {...props} />

@@ -56,7 +56,7 @@ function getInitialColorMode(): ColorMode {
   return saved && ['light', 'dark', 'high-contrast'].includes(saved) ? saved : 'light';
 }
 
-export default function ThemeSwitcher(): JSX.Element {
+export default function ThemeSwitcher(): React.JSX.Element {
   const [currentTheme, setCurrentTheme] = useState<ThemeName>(getInitialTheme);
   const [currentMode, setCurrentMode] = useState<ColorMode>(getInitialColorMode);
   const [isOpen, setIsOpen] = useState(false);

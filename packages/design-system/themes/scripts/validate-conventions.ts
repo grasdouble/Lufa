@@ -12,11 +12,6 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-type ValidationResult = {
-  passed: boolean;
-  message: string;
-};
-
 class ConventionsValidator {
   private content: string;
   private errors: string[] = [];
