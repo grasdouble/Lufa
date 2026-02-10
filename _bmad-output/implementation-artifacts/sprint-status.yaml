@@ -44,7 +44,7 @@ development_status:
   etr-epic-001: in-progress
   etr-001-define-token-conventions: done
   etr-002-create-token-templates: done
-  etr-003-pilot-steampunk-add-base-tokens: ready-for-dev
+  etr-003-pilot-steampunk-add-base-tokens: done
   etr-004-pilot-steampunk-refactor-docusaurus: ready-for-dev
   etr-005-create-validation-script: ready-for-dev
   etr-epic-001-retrospective: optional
