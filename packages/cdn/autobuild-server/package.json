@@ -31,6 +31,9 @@
       "eslint --fix",
       "prettier --write"
     ],
+    "*.{ts}": [
+      "bash -c 'pnpm typecheck'"
+    ],
     "*.{json,md}": [
       "prettier --write"
     ]
