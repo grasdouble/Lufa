@@ -96,7 +96,7 @@
   --lufa-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
 
   /* Shadow Tokens - Soft cyan glow for oceanic effect */
-  --lufa-shadow-color: rgba(8, 145, 178, 0.25); /* Cyan tint for ocean theme */
+  --lufa-shadow-color: rgba(var(--lufa-primary-rgb), 0.25); /* Cyan tint for ocean theme */
   --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
   --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
   --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
