@@ -22,7 +22,7 @@
 
   & .main-wrapper {
     border-top: 3px solid var(--lufa-core-brand-primary);
-    box-shadow: 0 2px 12px var(--lufa-alpha-primary-15);
+    box-shadow: var(--lufa-shadow-md);
     position: relative;
 
     &::before {
@@ -45,7 +45,7 @@
   & .navbar {
     background: linear-gradient(180deg, var(--lufa-core-neutral-surface) 0%, var(--lufa-core-neutral-background) 100%);
     border-bottom: 2px solid var(--lufa-core-brand-primary);
-    box-shadow: 0 4px 16px var(--lufa-alpha-primary-20);
+    box-shadow: var(--lufa-shadow-lg);
   }
 
   & .navbar__brand {
@@ -68,7 +68,7 @@
     &--active {
       background: var(--lufa-core-brand-primary);
       color: white;
-      box-shadow: 0 4px 12px var(--lufa-alpha-primary-30);
+      box-shadow: var(--lufa-shadow-md);
     }
   }
 
@@ -137,7 +137,7 @@
     border: 1px solid var(--lufa-core-brand-primary);
     border-radius: 8px;
     box-shadow:
-      0 4px 16px var(--lufa-alpha-primary-15),
+      var(--lufa-shadow-lg),
       inset 0 1px 0 var(--lufa-overlay-light-subtle);
     background: var(--lufa-core-neutral-surface);
 
@@ -165,7 +165,7 @@
   & .admonition {
     border-left-width: 4px;
     border-radius: 8px;
-    box-shadow: 0 2px 12px var(--lufa-alpha-primary-10);
+    box-shadow: var(--lufa-shadow-md);
   }
 
   & .admonition-heading {
@@ -203,7 +203,7 @@
 
     &:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px var(--lufa-alpha-primary-30);
+      box-shadow: var(--lufa-shadow-xl);
     }
 
     &:active {
@@ -215,7 +215,7 @@
     border: 1px solid var(--lufa-core-neutral-border);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 12px var(--lufa-alpha-primary-10);
+    box-shadow: var(--lufa-shadow-md);
   }
 
   & thead {
@@ -242,7 +242,7 @@
       var(--lufa-core-neutral-background) 0%,
       var(--lufa-core-neutral-surface) 100%
     );
-    box-shadow: 0 -4px 16px var(--lufa-alpha-primary-15);
+    box-shadow: var(--lufa-shadow-lg);
     color: var(--lufa-core-neutral-text-primary);
   }
 
@@ -353,7 +353,7 @@ body[data-color-theme='ocean'] {
   & .navbar,
   & .footer {
     box-shadow:
-      0 4px 16px var(--lufa-overlay-backdrop),
+      var(--lufa-overlay-backdrop),
       0 0 20px var(--lufa-alpha-primary-10);
   }
 
