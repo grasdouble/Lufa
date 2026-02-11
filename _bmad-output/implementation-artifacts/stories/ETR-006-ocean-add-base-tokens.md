@@ -6,13 +6,14 @@
 **Story Points**: 5  
 **Estimated Time**: 1 hour  
 **Type**: Development  
-**Status**: Review  
+**Status**: Done  
 **Dependencies**: ETR-003
 
 ---
 
 ## Tasks/Subtasks
 
+### Initial Implementation
 - [x] Load steampunk.css as reference pattern
 - [x] Read existing ocean.css file
 - [x] Extract RGB values for cyan/teal colors
@@ -37,6 +38,14 @@
 - [x] Validate token conventions
 - [x] Validate template structure
 - [x] Verify dist/ocean.css generated correctly
+
+### Code Review Fixes (AI-Review)
+- [x] [AI-Review][HIGH] Fix hardcoded RGB values in light mode shadow-color (use variables)
+- [x] [AI-Review][HIGH] Update File List to include ocean-docusaurus.css changes
+- [x] [AI-Review][HIGH] Correct token count documentation (105 tokens, not 99)
+- [x] [AI-Review][MEDIUM] Add detailed validation process documentation
+- [x] [AI-Review][MEDIUM] Document ocean-docusaurus.css refactoring details
+- [x] [AI-Review][LOW] Clarify dist verification process in tasks
 
 ---
 
@@ -68,25 +77,41 @@ Following the proven Steampunk pattern (ETR-003), this implementation adds alpha
 
 ### Completion Notes
 ✅ **Implementation Complete**: Ocean theme now has complete token set following Steampunk pattern
-- Added 99 new tokens total (33 per mode × 3 modes)
+- Added 105 new tokens total (35 per mode × 3 modes)
+  - Per mode breakdown: 2 RGB variables + 18 alpha + 6 shadow + 9 overlay = 35 tokens
 - Alpha tokens: 9 primary + 9 secondary = 18 per mode
 - Shadow tokens: 6 per mode (including shadow-color variable)
 - Overlay tokens: 9 per mode
+- RGB variables: 2 per mode (primary-rgb, secondary-rgb)
 - All tokens use RGB variable pattern for consistency
 - Shadow colors themed appropriately: cyan-tinted (light), strong black (dark/high-contrast)
 - Build validation successful
 - Convention validation successful (35/35 checks)
 - Template validation successful (26/26 checks)
 
+### Code Review Fixes (2026-02-11)
+🔧 **Post-Implementation Improvements**:
+- Fixed hardcoded RGB values in shadow-color tokens (light mode) - now uses RGB variables
+- Updated token count accuracy: 105 tokens (previously documented as 99)
+- Added missing file documentation for ocean-docusaurus.css changes
+- Clarified validation process in testing checklist
+
 ---
 
 ## File List
 
 **Modified Files:**
-- `packages/design-system/themes/src/ocean.css` - Added alpha, shadow, overlay tokens for all 3 modes
+- `packages/design-system/themes/src/ocean.css` - Added alpha, shadow, overlay tokens for all 3 modes (105 tokens total)
+- `packages/design-system/docusaurus/src/css/ocean-docusaurus.css` - Replaced 15 hardcoded rgba() values with design tokens, fixed text contrast issues for footer and hero subtitle
 
 **Generated Files:**
 - `packages/design-system/themes/dist/ocean.css` - Built output with new tokens
+
+**Files Changed Summary** (from Git commit 2bf34e68):
+- ocean.css: +141 lines (token additions)
+- ocean-docusaurus.css: 81 lines modified (token replacements + contrast fixes)
+- sprint-status.yaml: 4 lines modified (status update)
+- ETR-006-ocean-add-base-tokens.md: 125 lines modified (documentation)
 
 ---
 
@@ -97,8 +122,16 @@ Following the proven Steampunk pattern (ETR-003), this implementation adds alpha
   - Added shadow tokens with cyan-tinted shadows for oceanic effect
   - Added overlay tokens for wave-like effects
   - Implemented across all 3 modes (light, dark, high-contrast)
+  - Total: 105 tokens (35 per mode × 3 modes)
+  - Refactored ocean-docusaurus.css to use new tokens
+  - Replaced 15 hardcoded rgba() color values with design tokens
+  - Fixed text contrast issues in footer and hero sections
   - Validated with build, convention, and template checks
   - All acceptance criteria satisfied
+- **2026-02-11 (Code Review)**: Applied post-implementation fixes
+  - Fixed hardcoded shadow-color RGB values to use variables
+  - Updated documentation accuracy (token count: 105 not 99)
+  - Added comprehensive file change documentation
 
 ---
 
@@ -136,7 +169,12 @@ Add alpha, shadow, and overlay tokens to ocean.css for cyan/teal colors across a
 - [x] Tokens defined for dark mode
 - [x] Tokens defined for high-contrast mode
 - [x] Shadow color reflects ocean theme (soft cyan)
-- [x] File builds successfully
+- [x] Files build successfully (ocean.css + ocean-docusaurus.css)
+
+**Additional Scope** (implemented during development):
+- [x] Refactored ocean-docusaurus.css to use new tokens (15 replacements)
+- [x] Fixed text contrast issues for WCAG AA compliance
+- [x] Validated token usage consistency across both files
 
 ---
 
@@ -188,6 +226,32 @@ Add alpha, shadow, and overlay tokens to ocean.css for cyan/teal colors across a
 
 **Note**: Repeat similar token definitions for `[data-mode='dark']` and `[data-mode='high-contrast']` modes.
 
+### ocean-docusaurus.css Refactoring
+
+**Purpose**: Replace hardcoded rgba() values with design tokens for maintainability and consistency.
+
+**Changes Applied** (15 replacements total):
+1. Navbar shadow: `rgba(8, 145, 178, 0.20)` → `var(--lufa-alpha-primary-20)`
+2. Main wrapper shadow: `rgba(8, 145, 178, 0.15)` → `var(--lufa-alpha-primary-15)`
+3. Navbar link hover: hardcoded rgba → `var(--lufa-alpha-primary-10)`
+4. Button hover shadow: hardcoded rgba → `var(--lufa-alpha-primary-30)`
+5. Pre code block shadow: hardcoded rgba → `var(--lufa-alpha-primary-15)`
+6. Inline code background: hardcoded rgba → `var(--lufa-alpha-primary-10)`
+7. Table shadows: hardcoded rgba → `var(--lufa-alpha-primary-10)`
+8. Sidebar menu hover: hardcoded rgba → `var(--lufa-alpha-primary-8)`
+9. Menu active background: hardcoded rgba → `var(--lufa-alpha-primary-15)`
+10. Footer shadow: hardcoded rgba → `var(--lufa-alpha-primary-15)`
+11. Code block glow effect: hardcoded rgba → `var(--lufa-alpha-primary-5)`
+12. Overlay effects: hardcoded rgba → `var(--lufa-overlay-light-subtle)`, `var(--lufa-overlay-light-strong)`
+13. Table row hover: hardcoded rgba → `var(--lufa-alpha-primary-3)`, `var(--lufa-alpha-primary-8)`
+14. Footer text colors: Added explicit `var(--lufa-core-neutral-text-primary)` for contrast compliance
+15. Hero subtitle: Added explicit color for light/dark mode visibility
+
+**Contrast Fixes**:
+- Footer text now uses semantic color tokens for WCAG AA compliance
+- Hero subtitle visibility improved in both light and dark modes
+- Link text shadow uses alpha tokens for consistent glow effect
+
 ---
 
 ## Files to Modify
@@ -235,17 +299,46 @@ cd packages/design-system/themes && pnpm build
 - [x] Shadow color has appropriate cyan tint
 - [x] All 3 modes have complete token sets
 
+### Validation Process (Detailed)
+**Token Convention Validation:**
+- Verified 35 checks passed (naming conventions, opacity levels, token structure)
+- Confirmed RGB variable pattern used consistently
+- Validated shadow token progression (xs → xl)
+- Verified overlay token naming matches Steampunk pattern
+
+**Template Structure Validation:**
+- Verified 26/26 template checks passed
+- Confirmed proper CSS selector structure for all 3 modes
+- Validated comment markers (ETR-006) present in all modes
+- Checked indentation and formatting consistency
+
+**Build Verification:**
+- Compiled ocean.css successfully without warnings
+- Generated dist/ocean.css with all 105 tokens
+- Verified CSS syntax validity with PostCSS
+- Tested ocean-docusaurus.css token references resolve correctly
+
+**Visual Verification:**
+- Confirmed light mode shadow has visible cyan tint
+- Validated dark mode shadows provide adequate depth
+- Tested high-contrast mode for maximum visibility
+- Verified alpha tokens produce expected transparency levels
+
 ---
 
 ## Estimated Token Count
 
-Approximately **60 tokens** (20 per mode × 3 modes):
-- 9 alpha-primary tokens × 3 modes = 27
-- 5 alpha-secondary tokens × 3 modes = 15
-- 6 shadow tokens × 3 modes = 18
-- 4 overlay tokens × 3 modes = 12
+**Actual Token Count: 105 tokens** (35 per mode × 3 modes)
 
-**Total**: ~72 tokens
+Per mode breakdown:
+- 2 RGB variables (--lufa-primary-rgb, --lufa-secondary-rgb)
+- 9 alpha-primary tokens (opacity levels: 3, 5, 8, 10, 15, 20, 30, 40, 50)
+- 9 alpha-secondary tokens (opacity levels: 3, 5, 8, 10, 15, 20, 30, 40, 50)
+- 6 shadow tokens (shadow-color + xs, sm, md, lg, xl)
+- 9 overlay tokens (light-subtle, light, light-strong, dark-subtle, dark, dark-strong, backdrop-light, backdrop, backdrop-strong)
+
+**Total per mode**: 35 tokens  
+**Total across 3 modes**: 105 tokens
 
 ---
 
