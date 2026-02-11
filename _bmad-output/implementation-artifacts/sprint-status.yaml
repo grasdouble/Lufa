@@ -52,7 +52,7 @@ development_status:
   # Epic 2: Priority Themes (P0-P1) Refactoring
   etr-epic-002: in-progress
   etr-006-ocean-add-base-tokens: done
-  etr-007-ocean-refactor-docusaurus: ready-for-dev
+  etr-007-ocean-refactor-docusaurus: review
   etr-008-cyberpunk-add-base-tokens: ready-for-dev
   etr-009-cyberpunk-refactor-docusaurus: ready-for-dev
   etr-010-epic2-visual-regression-testing: ready-for-dev
