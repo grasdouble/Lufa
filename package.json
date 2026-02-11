@@ -89,6 +89,9 @@
       "eslint --fix",
       "prettier --write"
     ],
+    "*.{ts,tsx}": [
+      "bash -c 'pnpm all:typecheck'"
+    ],
     "*.{json,md,yml,yaml,css,html}": [
       "prettier --write"
     ]
