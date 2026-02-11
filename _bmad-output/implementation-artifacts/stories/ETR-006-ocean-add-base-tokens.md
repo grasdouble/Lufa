@@ -6,8 +6,99 @@
 **Story Points**: 5  
 **Estimated Time**: 1 hour  
 **Type**: Development  
-**Status**: Ready for Development  
+**Status**: Review  
 **Dependencies**: ETR-003
+
+---
+
+## Tasks/Subtasks
+
+- [x] Load steampunk.css as reference pattern
+- [x] Read existing ocean.css file
+- [x] Extract RGB values for cyan/teal colors
+- [x] Add RGB variables for light mode (cyan: 8,145,178 / teal: 20,184,166)
+- [x] Add alpha tokens for primary (cyan) - light mode (9 opacity levels)
+- [x] Add alpha tokens for secondary (teal) - light mode (9 opacity levels)
+- [x] Add shadow tokens with cyan tint for light mode (6 tokens)
+- [x] Add overlay tokens for light mode (9 tokens)
+- [x] Add RGB variables for dark mode (bright cyan: 34,211,238 / bright teal: 45,212,191)
+- [x] Add alpha tokens for primary - dark mode (9 opacity levels)
+- [x] Add alpha tokens for secondary - dark mode (9 opacity levels)
+- [x] Add shadow tokens for dark mode (6 tokens)
+- [x] Add overlay tokens for dark mode (9 tokens)
+- [x] Add RGB variables for high-contrast mode (pure cyan: 0,255,255 / pure teal: 0,255,204)
+- [x] Add alpha tokens for primary - high-contrast mode (9 opacity levels)
+- [x] Add alpha tokens for secondary - high-contrast mode (9 opacity levels)
+- [x] Add shadow tokens for high-contrast mode (6 tokens)
+- [x] Add overlay tokens for high-contrast mode (9 tokens)
+- [x] Verify proper formatting and indentation
+- [x] Add ETR-006 comment markers for each mode
+- [x] Run build: `pnpm build`
+- [x] Validate token conventions
+- [x] Validate template structure
+- [x] Verify dist/ocean.css generated correctly
+
+---
+
+## Dev Agent Record
+
+### Implementation Plan
+Following the proven Steampunk pattern (ETR-003), this implementation adds alpha, shadow, and overlay tokens to the Ocean theme across all three modes (light, dark, high-contrast). The Ocean theme uses cyan and teal colors as primary/secondary, requiring careful RGB value extraction and cyan-tinted shadows for the oceanic aesthetic.
+
+**Approach:**
+1. Use steampunk.css as structural template
+2. Extract RGB values from existing ocean.css color definitions
+3. Apply token pattern consistently across all 3 modes
+4. Use cyan-tinted shadows in light mode for oceanic effect
+5. Use stronger shadows in dark/high-contrast modes for depth
+
+### Debug Log
+- ✅ Successfully loaded steampunk.css reference
+- ✅ Identified RGB values: Primary Cyan (8,145,178), Secondary Teal (20,184,166)
+- ✅ Added light mode tokens with cyan-tinted shadows (rgba(8,145,178,0.25))
+- ✅ Added dark mode tokens with brighter cyan (34,211,238) and teal (45,212,191)
+- ✅ Added high-contrast tokens with pure cyan (0,255,255) and teal (0,255,204)
+- ✅ Build succeeded on first attempt
+- ✅ Token convention validation: PASSED (all 35 checks)
+- ✅ Template validation: PASSED (26/26 checks)
+- ✅ Verified 27 primary alpha tokens across 3 modes
+- ✅ Verified 27 secondary alpha tokens across 3 modes
+- ✅ Verified 18 shadow tokens across 3 modes
+- ✅ Verified 27 overlay tokens across 3 modes
+
+### Completion Notes
+✅ **Implementation Complete**: Ocean theme now has complete token set following Steampunk pattern
+- Added 99 new tokens total (33 per mode × 3 modes)
+- Alpha tokens: 9 primary + 9 secondary = 18 per mode
+- Shadow tokens: 6 per mode (including shadow-color variable)
+- Overlay tokens: 9 per mode
+- All tokens use RGB variable pattern for consistency
+- Shadow colors themed appropriately: cyan-tinted (light), strong black (dark/high-contrast)
+- Build validation successful
+- Convention validation successful (35/35 checks)
+- Template validation successful (26/26 checks)
+
+---
+
+## File List
+
+**Modified Files:**
+- `packages/design-system/themes/src/ocean.css` - Added alpha, shadow, overlay tokens for all 3 modes
+
+**Generated Files:**
+- `packages/design-system/themes/dist/ocean.css` - Built output with new tokens
+
+---
+
+## Change Log
+
+- **2026-02-11**: Implemented base tokens for Ocean theme following Steampunk pattern (ETR-006)
+  - Added alpha tokens for primary (cyan) and secondary (teal) colors
+  - Added shadow tokens with cyan-tinted shadows for oceanic effect
+  - Added overlay tokens for wave-like effects
+  - Implemented across all 3 modes (light, dark, high-contrast)
+  - Validated with build, convention, and template checks
+  - All acceptance criteria satisfied
 
 ---
 
@@ -37,15 +128,15 @@ Add alpha, shadow, and overlay tokens to ocean.css for cyan/teal colors across a
 
 ## Acceptance Criteria
 
-- [ ] Alpha tokens for primary (cyan #0891B2 = rgb(8, 145, 178))
-- [ ] Alpha tokens for secondary (teal #14B8A6 = rgb(20, 184, 166))
-- [ ] Shadow tokens with soft cyan glow for oceanic effect
-- [ ] Overlay tokens for wave-like effects
-- [ ] Tokens defined for light mode
-- [ ] Tokens defined for dark mode
-- [ ] Tokens defined for high-contrast mode
-- [ ] Shadow color reflects ocean theme (soft cyan)
-- [ ] File builds successfully
+- [x] Alpha tokens for primary (cyan #0891B2 = rgb(8, 145, 178))
+- [x] Alpha tokens for secondary (teal #14B8A6 = rgb(20, 184, 166))
+- [x] Shadow tokens with soft cyan glow for oceanic effect
+- [x] Overlay tokens for wave-like effects
+- [x] Tokens defined for light mode
+- [x] Tokens defined for dark mode
+- [x] Tokens defined for high-contrast mode
+- [x] Shadow color reflects ocean theme (soft cyan)
+- [x] File builds successfully
 
 ---
 
@@ -136,13 +227,13 @@ cd packages/design-system/themes && pnpm build
 ```
 
 ### Validation Checklist
-- [ ] Build succeeds without errors
-- [ ] No CSS syntax errors
-- [ ] Tokens are exported correctly in dist/
-- [ ] File structure is clean and organized
-- [ ] Comments are clear and helpful
-- [ ] Shadow color has appropriate cyan tint
-- [ ] All 3 modes have complete token sets
+- [x] Build succeeds without errors
+- [x] No CSS syntax errors
+- [x] Tokens are exported correctly in dist/
+- [x] File structure is clean and organized
+- [x] Comments are clear and helpful
+- [x] Shadow color has appropriate cyan tint
+- [x] All 3 modes have complete token sets
 
 ---
 

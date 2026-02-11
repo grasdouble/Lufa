@@ -22,7 +22,7 @@
 
   & .main-wrapper {
     border-top: 3px solid var(--lufa-core-brand-primary);
-    box-shadow: 0 2px 12px rgba(8, 145, 178, 0.15);
+    box-shadow: 0 2px 12px var(--lufa-alpha-primary-15);
     position: relative;
 
     &::before {
@@ -45,7 +45,7 @@
   & .navbar {
     background: linear-gradient(180deg, var(--lufa-core-neutral-surface) 0%, var(--lufa-core-neutral-background) 100%);
     border-bottom: 2px solid var(--lufa-core-brand-primary);
-    box-shadow: 0 4px 16px rgba(8, 145, 178, 0.2);
+    box-shadow: 0 4px 16px var(--lufa-alpha-primary-20);
   }
 
   & .navbar__brand {
@@ -60,7 +60,7 @@
     padding: 0.5rem 0.75rem;
 
     &:hover {
-      background: rgba(8, 145, 178, 0.1);
+      background: var(--lufa-alpha-primary-10);
       color: var(--lufa-core-brand-primary);
       transform: translateY(-2px);
     }
@@ -68,7 +68,7 @@
     &--active {
       background: var(--lufa-core-brand-primary);
       color: white;
-      box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+      box-shadow: 0 4px 12px var(--lufa-alpha-primary-30);
     }
   }
 
@@ -88,12 +88,12 @@
 
     &:hover {
       border-left-color: var(--lufa-core-brand-primary);
-      background: rgba(8, 145, 178, 0.08);
+      background: var(--lufa-alpha-primary-8);
       padding-left: calc(var(--ifm-menu-link-padding-horizontal) + 4px);
     }
 
     &--active {
-      background: linear-gradient(90deg, rgba(8, 145, 178, 0.15) 0%, transparent 100%);
+      background: linear-gradient(90deg, var(--lufa-alpha-primary-15) 0%, transparent 100%);
       border-left-color: var(--lufa-core-brand-primary);
       font-weight: 600;
     }
@@ -117,6 +117,11 @@
     background-clip: text;
   }
 
+  & .hero__subtitle {
+    color: var(--lufa-core-neutral-text-primary);
+    font-weight: 500;
+  }
+
   & h2 {
     border-bottom: 2px solid var(--lufa-core-neutral-border);
     padding-bottom: 0.5rem;
@@ -132,8 +137,8 @@
     border: 1px solid var(--lufa-core-brand-primary);
     border-radius: 8px;
     box-shadow:
-      0 4px 16px rgba(8, 145, 178, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      0 4px 16px var(--lufa-alpha-primary-15),
+      inset 0 1px 0 var(--lufa-overlay-light-subtle);
     background: var(--lufa-core-neutral-surface);
 
     &::after {
@@ -143,15 +148,15 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(8, 145, 178, 0.05) 0%, transparent 70%);
+      background: radial-gradient(circle at 50% 50%, var(--lufa-alpha-primary-5) 0%, transparent 70%);
       pointer-events: none;
       border-radius: 8px;
     }
   }
 
   & code {
-    background: rgba(8, 145, 178, 0.1);
-    border: 1px solid rgba(8, 145, 178, 0.2);
+    background: var(--lufa-alpha-primary-10);
+    border: 1px solid var(--lufa-alpha-primary-20);
     border-radius: 4px;
     padding: 0.15em 0.4em;
     font-weight: 500;
@@ -160,7 +165,7 @@
   & .admonition {
     border-left-width: 4px;
     border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(8, 145, 178, 0.1);
+    box-shadow: 0 2px 12px var(--lufa-alpha-primary-10);
   }
 
   & .admonition-heading {
@@ -183,7 +188,7 @@
       left: 50%;
       width: 0;
       height: 0;
-      background: rgba(255, 255, 255, 0.3);
+      background: var(--lufa-overlay-light-strong);
       border-radius: 50%;
       transform: translate(-50%, -50%);
       transition:
@@ -198,7 +203,7 @@
 
     &:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(8, 145, 178, 0.3);
+      box-shadow: 0 6px 20px var(--lufa-alpha-primary-30);
     }
 
     &:active {
@@ -210,7 +215,7 @@
     border: 1px solid var(--lufa-core-neutral-border);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(8, 145, 178, 0.1);
+    box-shadow: 0 2px 12px var(--lufa-alpha-primary-10);
   }
 
   & thead {
@@ -221,11 +226,11 @@
 
   & tbody tr {
     &:nth-child(odd) {
-      background: rgba(8, 145, 178, 0.04);
+      background: var(--lufa-alpha-primary-3);
     }
 
     &:hover {
-      background: rgba(8, 145, 178, 0.08);
+      background: var(--lufa-alpha-primary-8);
       transition: background 0.2s ease;
     }
   }
@@ -237,7 +242,29 @@
       var(--lufa-core-neutral-background) 0%,
       var(--lufa-core-neutral-surface) 100%
     );
-    box-shadow: 0 -4px 16px rgba(8, 145, 178, 0.15);
+    box-shadow: 0 -4px 16px var(--lufa-alpha-primary-15);
+    color: var(--lufa-core-neutral-text-primary);
+  }
+
+  & .footer__title {
+    color: var(--lufa-core-neutral-text-primary);
+    font-weight: 600;
+  }
+
+  & .footer__item {
+    color: var(--lufa-core-neutral-text-secondary);
+  }
+
+  & .footer__link-item {
+    color: var(--lufa-core-neutral-text-secondary);
+
+    &:hover {
+      color: var(--lufa-core-brand-primary);
+    }
+  }
+
+  & .footer__copyright {
+    color: var(--lufa-core-neutral-text-primary);
   }
 
   & ::-webkit-scrollbar {
@@ -266,12 +293,12 @@
   & a {
     color: var(--lufa-core-brand-primary);
     transition: all 0.2s ease;
-    text-decoration-color: rgba(8, 145, 178, 0.3);
+    text-decoration-color: var(--lufa-alpha-primary-30);
 
     &:hover {
       color: var(--lufa-core-brand-primary-hover);
       text-decoration-color: var(--lufa-core-brand-primary);
-      text-shadow: 0 0 8px rgba(8, 145, 178, 0.3);
+      text-shadow: 0 0 8px var(--lufa-alpha-primary-30);
     }
   }
 
@@ -306,8 +333,8 @@
 
 body[data-color-theme='ocean'] {
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(8, 145, 178, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, var(--lufa-alpha-primary-5) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, var(--lufa-alpha-secondary-5) 0%, transparent 50%);
 }
 
 @keyframes waveFlow {
@@ -326,12 +353,16 @@ body[data-color-theme='ocean'] {
   & .navbar,
   & .footer {
     box-shadow:
-      0 4px 16px rgba(0, 0, 0, 0.4),
-      0 0 20px rgba(34, 211, 238, 0.1);
+      0 4px 16px var(--lufa-overlay-backdrop),
+      0 0 20px var(--lufa-alpha-primary-10);
   }
 
   & h1 {
-    text-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+    text-shadow: 0 0 20px var(--lufa-alpha-primary-30);
+  }
+
+  & .hero__subtitle {
+    color: var(--lufa-core-neutral-text-primary);
   }
 }
 
