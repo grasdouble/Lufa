@@ -41,6 +41,7 @@ class TemplateValidator {
     this.validateAlphaTokens();
     this.validateShadowTokens();
     this.validateOverlayTokens();
+    this.validateGlowTokens();
     this.validateRGBPlaceholders();
     this.validateDocumentation();
     this.validateModeSupport();
@@ -285,6 +286,170 @@ class TemplateValidator {
       this.results.push({
         passed: true,
         message: '✅ Overlay tokens complete (light and dark variants)',
+      });
+    }
+  }
+
+  /**
+   * AC7: Glow token template created (optional - for cyber/neon themes)
+   */
+  private validateGlowTokens(): void {
+    const section = 'GLOW TOKENS TEMPLATE';
+
+    // Check if section exists
+    if (!this.templateContent.includes(section)) {
+      this.results.push({
+        passed: false,
+        message: 'Glow tokens section missing',
+        details: `Template must include "${section}" section (marked as OPTIONAL)`,
+      });
+      return;
+    }
+
+    // Verify section is marked as optional
+    if (!this.templateContent.includes('OPTIONAL - Cyber/Neon Themes Only')) {
+      this.results.push({
+        passed: false,
+        message: 'Glow tokens not marked as optional',
+        details: 'Glow section should be clearly marked as OPTIONAL',
+      });
+    } else {
+      this.results.push({
+        passed: true,
+        message: '✅ Glow tokens correctly marked as OPTIONAL',
+      });
+    }
+
+    // Check glow color variables
+    const glowColorVars = ['--lufa-glow-color:', '--lufa-glow-color-secondary:'];
+    const missingColorVars = glowColorVars.filter((token) => !this.templateContent.includes(token));
+
+    if (missingColorVars.length > 0) {
+      this.results.push({
+        passed: false,
+        message: 'Glow color variables incomplete',
+        details: `Missing: ${missingColorVars.join(', ')}`,
+      });
+    } else {
+      this.results.push({
+        passed: true,
+        message: '✅ Glow color variables defined',
+      });
+    }
+
+    // Check box glow tokens (4 intensity levels)
+    const boxGlowIntensities = ['subtle', '', 'strong', 'intense'];
+    const missingBoxGlows: string[] = [];
+
+    boxGlowIntensities.forEach((intensity) => {
+      const tokenName = intensity ? `--lufa-glow-box-${intensity}:` : '--lufa-glow-box:';
+      if (!this.templateContent.includes(tokenName)) {
+        missingBoxGlows.push(tokenName);
+      }
+    });
+
+    if (missingBoxGlows.length > 0) {
+      this.results.push({
+        passed: false,
+        message: 'Box glow tokens incomplete',
+        details: `Missing: ${missingBoxGlows.join(', ')}`,
+      });
+    } else {
+      this.results.push({
+        passed: true,
+        message: '✅ Box glow tokens complete (4 intensity levels)',
+      });
+    }
+
+    // Check text glow tokens (4 intensity levels)
+    const textGlowIntensities = ['subtle', '', 'strong', 'intense'];
+    const missingTextGlows: string[] = [];
+
+    textGlowIntensities.forEach((intensity) => {
+      const tokenName = intensity ? `--lufa-glow-text-${intensity}:` : '--lufa-glow-text:';
+      if (!this.templateContent.includes(tokenName)) {
+        missingTextGlows.push(tokenName);
+      }
+    });
+
+    if (missingTextGlows.length > 0) {
+      this.results.push({
+        passed: false,
+        message: 'Text glow tokens incomplete',
+        details: `Missing: ${missingTextGlows.join(', ')}`,
+      });
+    } else {
+      this.results.push({
+        passed: true,
+        message: '✅ Text glow tokens complete (4 intensity levels)',
+      });
+    }
+
+    // Check inset glow tokens (3 intensity levels)
+    const insetGlowIntensities = ['subtle', '', 'strong'];
+    const missingInsetGlows: string[] = [];
+
+    insetGlowIntensities.forEach((intensity) => {
+      const tokenName = intensity ? `--lufa-glow-inset-${intensity}:` : '--lufa-glow-inset:';
+      if (!this.templateContent.includes(tokenName)) {
+        missingInsetGlows.push(tokenName);
+      }
+    });
+
+    if (missingInsetGlows.length > 0) {
+      this.results.push({
+        passed: false,
+        message: 'Inset glow tokens incomplete',
+        details: `Missing: ${missingInsetGlows.join(', ')}`,
+      });
+    } else {
+      this.results.push({
+        passed: true,
+        message: '✅ Inset glow tokens complete (3 intensity levels)',
+      });
+    }
+
+    // Check for real-world examples (Cyberpunk and Matrix)
+    const hasExamples = this.templateContent.includes('cyberpunk') && this.templateContent.includes('matrix');
+
+    if (!hasExamples) {
+      this.results.push({
+        passed: false,
+        message: 'Glow token examples missing',
+        details: 'Template should include Cyberpunk and Matrix examples',
+      });
+    } else {
+      this.results.push({
+        passed: true,
+        message: '✅ Glow token examples provided (Cyberpunk & Matrix)',
+      });
+    }
+
+    // Check for WHEN TO USE guidance
+    if (!this.templateContent.includes('WHEN TO USE') || !this.templateContent.includes('DECISION GUIDE')) {
+      this.results.push({
+        passed: false,
+        message: 'Glow usage guidance missing',
+        details: 'Template should include WHEN TO USE and DECISION GUIDE sections',
+      });
+    } else {
+      this.results.push({
+        passed: true,
+        message: '✅ Glow usage guidance included',
+      });
+    }
+
+    // Check for combining glows with shadows documentation
+    if (!this.templateContent.includes('COMBINING GLOWS WITH SHADOWS')) {
+      this.results.push({
+        passed: false,
+        message: 'Glow+Shadow combination guide missing',
+        details: 'Template should explain how to combine glows with shadows',
+      });
+    } else {
+      this.results.push({
+        passed: true,
+        message: '✅ Glow+Shadow combination guide included',
       });
     }
   }

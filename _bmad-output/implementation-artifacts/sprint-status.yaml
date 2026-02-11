@@ -47,7 +47,7 @@ development_status:
   etr-003-pilot-steampunk-add-base-tokens: done
   etr-004-pilot-steampunk-refactor-docusaurus: done
   etr-005-create-validation-script: done
-  etr-epic-001-retrospective: optional
+  etr-epic-001-retrospective: done
 
   # Epic 2: Priority Themes (P0-P1) Refactoring
   etr-epic-002: backlog

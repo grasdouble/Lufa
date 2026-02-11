@@ -13,6 +13,7 @@ This document defines the standardized naming patterns for design tokens used ac
 - **Alpha tokens**: Transparency and semi-transparent effects
 - **Shadow tokens**: Elevation and visual depth
 - **Overlay tokens**: Layering and backdrop effects
+- **Glow tokens**: Luminescence and neon effects (optional)
 
 ---
 
@@ -321,7 +322,303 @@ Overlay tokens provide standardized semi-transparent layers for creating backdro
 
 ---
 
-## 4. Implementation Guidelines
+## 4. Glow Token Convention
+
+### Pattern
+
+```
+--lufa-glow-{type}-{intensity}
+--lufa-glow-color
+--lufa-glow-color-secondary
+```
+
+### Purpose
+
+Glow tokens provide standardized luminescence effects for themes requiring neon, cyber, or other glowing aesthetics. Unlike shadows which create depth perception through darkness, glows create luminescence through colored light emission.
+
+**IMPORTANT**: Glow tokens are **OPTIONAL** and should only be used in themes that specifically require luminescent effects (e.g., Cyberpunk, Matrix, neon-style themes). Traditional themes (e.g., Steampunk, Forest, Ocean) do not need glow tokens.
+
+### Components
+
+- **`{type}`**: The glow application type (e.g., `box`, `text`, `inset`)
+- **`{intensity}`**: The glow strength level (e.g., `subtle`, default, `strong`, `intense`)
+
+### When to Use Glow Tokens
+
+Ask yourself: **"Does my theme need luminescence effects?"**
+
+✅ **USE glow tokens when:**
+
+- Theme has neon/cyber aesthetic (Cyberpunk, Matrix)
+- UI elements should appear to emit light
+- Multiple colored glow layers are needed
+- Theme requires futuristic/digital atmosphere
+
+❌ **SKIP glow tokens when:**
+
+- Theme uses natural/traditional aesthetics
+- Only depth/elevation is needed (use shadow tokens instead)
+- Theme doesn't feature glowing elements
+
+### Glow vs Shadow: Key Differences
+
+| Aspect            | Shadow Tokens                       | Glow Tokens                                    |
+| ----------------- | ----------------------------------- | ---------------------------------------------- |
+| **Purpose**       | Create depth and elevation          | Create luminescence and light emission         |
+| **Visual Effect** | Dark overlay below elements         | Colored light emanating from elements          |
+| **Color**         | Usually black/gray with opacity     | Theme-specific colors (magenta, cyan, green)   |
+| **Direction**     | Offset below element (y-axis)       | Radiates equally in all directions (no offset) |
+| **Usage**         | Universal - all themes need shadows | Optional - only cyber/neon themes              |
+| **Example**       | `0 4px 8px rgba(0,0,0,0.1)`         | `0 0 20px rgba(255,0,255,0.3)`                 |
+
+### Standardized Glow Types
+
+#### Box Glow Tokens
+
+For borders, cards, containers, interactive elements:
+
+```css
+--lufa-glow-box-subtle: 0 0 10px var(--lufa-glow-color), 0 0 20px var(--lufa-glow-color-secondary);
+--lufa-glow-box: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+--lufa-glow-box-strong: 0 0 30px var(--lufa-glow-color), 0 0 50px var(--lufa-glow-color-secondary);
+--lufa-glow-box-intense: 0 0 40px var(--lufa-glow-color), 0 0 60px var(--lufa-glow-color-secondary);
+```
+
+#### Text Glow Tokens
+
+For headings, links, special text elements:
+
+```css
+--lufa-glow-text-subtle: 0 0 5px var(--lufa-glow-color);
+--lufa-glow-text: 0 0 10px var(--lufa-glow-color);
+--lufa-glow-text-strong: 0 0 15px var(--lufa-glow-color), 0 0 25px var(--lufa-glow-color-secondary);
+--lufa-glow-text-intense: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+```
+
+#### Inset Glow Tokens
+
+For inner glows on containers and panels:
+
+```css
+--lufa-glow-inset-subtle: inset 0 0 10px var(--lufa-glow-color);
+--lufa-glow-inset: inset 0 0 20px var(--lufa-glow-color);
+--lufa-glow-inset-strong: inset 0 0 30px var(--lufa-glow-color);
+```
+
+### Glow Color Variables
+
+Glow tokens reference theme-specific color variables that define the luminescence colors:
+
+```css
+/* Primary glow color - main luminescence */
+--lufa-glow-color: rgba(255, 0, 255, 0.3);
+
+/* Secondary glow color - accent luminescence for dual-layer effects */
+--lufa-glow-color-secondary: rgba(0, 255, 255, 0.2);
+```
+
+**Rationale for Dual Colors**: Many cyber/neon aesthetics use complementary glow colors for visual depth. For example:
+
+- **Cyberpunk**: Magenta (primary) + Cyan (secondary) for classic neon city aesthetic
+- **Matrix**: Neon green (primary) + Darker green (secondary) for digital cascade effect
+- **Single-color themes**: Can use same color for both variables with different opacities
+
+### Intensity Level Guide
+
+| Intensity               | Blur Radius | When to Use                            | Example Use Cases                                          |
+| ----------------------- | ----------- | -------------------------------------- | ---------------------------------------------------------- |
+| **subtle**              | 5-20px      | Minimal glow, hint of luminescence     | Disabled states, subtle hover effects, background elements |
+| **default** (no suffix) | 10-40px     | Standard glow for UI elements          | Cards, buttons, borders, navigation items                  |
+| **strong**              | 15-50px     | Prominent glow for emphasis            | Active states, focus rings, important elements             |
+| **intense**             | 20-60px     | Maximum luminescence for hero elements | Headers, hero sections, CTAs, special features             |
+
+### RGB Variable Prerequisite
+
+⚠️ **Important**: Glow color tokens should be defined as `rgba()` values with opacity to allow fine-tuning of luminescence intensity:
+
+```css
+/* Define glow colors with RGB + alpha for intensity control */
+--lufa-glow-color: rgba(255, 0, 255, 0.3); /* 30% magenta */
+--lufa-glow-color-secondary: rgba(0, 255, 255, 0.2); /* 20% cyan */
+```
+
+**Note**: Unlike alpha tokens which reference RGB variables, glow colors are typically defined directly as `rgba()` values since they represent light emission rather than transparency layers.
+
+### Examples
+
+#### Cyberpunk Theme Implementation
+
+```css
+[data-color-theme='cyberpunk'] {
+  /* Glow color variables - magenta + cyan neon */
+  --lufa-glow-color: rgba(255, 0, 255, 0.3); /* Magenta primary */
+  --lufa-glow-color-secondary: rgba(0, 255, 255, 0.2); /* Cyan accent */
+
+  /* Box glows for cards and containers */
+  --lufa-glow-box-subtle: 0 0 10px var(--lufa-glow-color), 0 0 20px var(--lufa-glow-color-secondary);
+  --lufa-glow-box: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-strong: 0 0 30px var(--lufa-glow-color), 0 0 50px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-intense: 0 0 40px var(--lufa-glow-color), 0 0 60px var(--lufa-glow-color-secondary);
+
+  /* Text glows for headings and links */
+  --lufa-glow-text-subtle: 0 0 5px var(--lufa-glow-color);
+  --lufa-glow-text: 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-text-strong: 0 0 15px var(--lufa-glow-color), 0 0 25px var(--lufa-glow-color-secondary);
+  --lufa-glow-text-intense: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+
+  /* Inset glows for containers */
+  --lufa-glow-inset-subtle: inset 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-inset: inset 0 0 20px var(--lufa-glow-color);
+  --lufa-glow-inset-strong: inset 0 0 30px var(--lufa-glow-color);
+}
+```
+
+#### Matrix Theme Implementation
+
+```css
+[data-color-theme='matrix'] {
+  /* Glow color variables - neon green monochrome */
+  --lufa-glow-color: rgba(0, 255, 65, 0.4); /* Bright neon green */
+  --lufa-glow-color-secondary: rgba(0, 255, 65, 0.2); /* Same green, lower opacity */
+
+  /* Box glows - single color with intensity variation */
+  --lufa-glow-box-subtle: 0 0 10px var(--lufa-glow-color), 0 0 20px var(--lufa-glow-color-secondary);
+  --lufa-glow-box: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-strong: 0 0 30px var(--lufa-glow-color), 0 0 50px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-intense: 0 0 40px var(--lufa-glow-color), 0 0 60px var(--lufa-glow-color-secondary);
+
+  /* Text glows - minimal for readability */
+  --lufa-glow-text-subtle: 0 0 5px var(--lufa-glow-color);
+  --lufa-glow-text: 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-text-strong: 0 0 15px var(--lufa-glow-color), 0 0 25px var(--lufa-glow-color-secondary);
+  --lufa-glow-text-intense: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+
+  /* Inset glows */
+  --lufa-glow-inset-subtle: inset 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-inset: inset 0 0 20px var(--lufa-glow-color);
+  --lufa-glow-inset-strong: inset 0 0 30px var(--lufa-glow-color);
+}
+```
+
+### Usage Guidelines
+
+1. **Only use in appropriate themes** - Glow tokens are OPTIONAL, not required
+2. **Define glow colors first** - Always set `--lufa-glow-color` and `--lufa-glow-color-secondary` before using glow tokens
+3. **Use dual-layer for depth** - Most glows use two layers (primary + secondary) for visual richness
+4. **Consider performance** - Blur effects can be expensive; use sparingly on many elements
+5. **Mode-aware adjustments** - Glow intensity may need adjustment in light vs dark modes
+6. **Accessibility** - Ensure glowing text remains readable; avoid excessive blur on text
+7. **Combine with shadows** - Glows can coexist with shadow tokens for depth + luminescence
+
+### Common Use Cases
+
+```css
+/* Glowing button with neon effect */
+.button-primary {
+  box-shadow: var(--lufa-glow-box);
+  border: 1px solid var(--lufa-glow-color);
+}
+
+.button-primary:hover {
+  box-shadow: var(--lufa-glow-box-strong);
+}
+
+/* Glowing heading text */
+.hero-title {
+  text-shadow: var(--lufa-glow-text-strong);
+  color: #fff;
+}
+
+/* Card with inset glow */
+.cyber-card {
+  box-shadow: var(--lufa-glow-inset-subtle), var(--lufa-glow-box-subtle);
+  /* Combines inner and outer glow */
+}
+
+/* Navigation link with glow on active */
+.nav-link[aria-current='page'] {
+  text-shadow: var(--lufa-glow-text);
+  border-bottom: 2px solid var(--lufa-glow-color);
+}
+
+/* Focus state with intense glow */
+.input:focus {
+  box-shadow: var(--lufa-glow-box-intense);
+  border-color: var(--lufa-glow-color);
+}
+```
+
+### Combining Glows with Shadows
+
+For themes like Cyberpunk that need BOTH depth and luminescence:
+
+```css
+.elevated-glowing-card {
+  /* Shadow for depth + elevation */
+  box-shadow:
+    var(--lufa-shadow-md),
+    /* Depth: 0 4px 8px rgba(0,0,0,0.1) */ var(--lufa-glow-box); /* Glow: 0 0 20px magenta + cyan */
+}
+```
+
+**Rationale**: Shadows create 3D depth perception (element floating above surface), while glows create luminescence (element emitting light). Combining both produces realistic neon objects in physical space.
+
+### Backward Compatibility
+
+Glow tokens are completely opt-in and do not affect existing themes:
+
+- ✅ **Non-glow themes work unchanged** - They simply don't define glow tokens
+- ✅ **Component code remains clean** - Only cyber/neon components reference glow tokens
+- ✅ **No breaking changes** - Glow tokens are additive to the token system
+- ✅ **Graceful degradation** - If glow tokens are undefined, CSS ignores them
+
+### Decision Guide: Shadow vs Glow vs Both
+
+```
+Need depth/elevation?
+├─ YES + natural theme → Use shadow tokens only
+│
+├─ YES + cyber theme → Use shadow + glow tokens together
+│
+└─ NO + cyber theme → Use glow tokens only
+
+Is element emitting light?
+├─ YES + needs elevation → Use shadow + glow together
+│
+├─ YES + flat element → Use glow tokens only
+│
+└─ NO → Use shadow tokens only (or neither)
+```
+
+### Mode-Aware Glow Adjustments
+
+Glow intensity may need adjustment based on color mode:
+
+```css
+/* Light mode - reduce glow intensity for visibility */
+[data-color-theme='cyberpunk'][data-mode='light'] {
+  --lufa-glow-color: rgba(255, 0, 255, 0.2); /* Reduced from 0.3 */
+  --lufa-glow-color-secondary: rgba(0, 255, 255, 0.15); /* Reduced from 0.2 */
+}
+
+/* Dark mode - full glow intensity */
+[data-color-theme='cyberpunk'][data-mode='dark'] {
+  --lufa-glow-color: rgba(255, 0, 255, 0.4); /* Increased from 0.3 */
+  --lufa-glow-color-secondary: rgba(0, 255, 255, 0.3); /* Increased from 0.2 */
+}
+
+/* High contrast - minimal glow for accessibility */
+[data-color-theme='cyberpunk'][data-mode='high-contrast'] {
+  --lufa-glow-color: rgba(255, 0, 255, 0.5); /* Strong but focused */
+  --lufa-glow-color-secondary: rgba(0, 255, 255, 0.4); /* Clear secondary */
+}
+```
+
+**Rationale**: Glows may be too subtle in light mode or overwhelming in dark mode. Mode-aware adjustments ensure optimal visibility and aesthetic balance across all viewing conditions.
+
+---
+
+## 5. Implementation Guidelines
 
 ### Token Structure in Theme Files
 
@@ -346,6 +643,13 @@ All themes should define these token categories in their base CSS files:
 --lufa-overlay-dark: rgba(0, 0, 0, 0.1);
 --lufa-overlay-backdrop: rgba(0, 0, 0, 0.5);
 /* ... all overlay variants ... */
+
+/* 4. Glow Tokens (OPTIONAL - only for cyber/neon themes) */
+--lufa-glow-color: rgba(255, 0, 255, 0.3);
+--lufa-glow-color-secondary: rgba(0, 255, 255, 0.2);
+--lufa-glow-box: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+--lufa-glow-text: 0 0 10px var(--lufa-glow-color);
+/* ... all glow variants ... */
 ```
 
 ### Theme-Specific Considerations
@@ -417,7 +721,7 @@ Cyberpunk enhances shadows with additional neon glow layers:
 
 ---
 
-## 5. Migration from Hardcoded Values
+## 6. Migration from Hardcoded Values
 
 ### Before (Hardcoded)
 
@@ -432,6 +736,12 @@ Cyberpunk enhances shadows with additional neon glow layers:
 
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.neon-card {
+  box-shadow:
+    0 0 20px rgba(255, 0, 255, 0.3),
+    0 0 40px rgba(0, 255, 255, 0.2);
 }
 ```
 
@@ -449,6 +759,10 @@ Cyberpunk enhances shadows with additional neon glow layers:
 .modal-backdrop {
   background-color: var(--lufa-overlay-backdrop);
 }
+
+.neon-card {
+  box-shadow: var(--lufa-glow-box);
+}
 ```
 
 ### Benefits
@@ -461,7 +775,7 @@ Cyberpunk enhances shadows with additional neon glow layers:
 
 ---
 
-## 6. Validation and Testing
+## 7. Validation and Testing
 
 ### Checklist for New Themes
 
@@ -472,6 +786,8 @@ When creating or refactoring a theme, ensure:
 - [ ] Shadow color is mode-aware (different values for light/dark/high-contrast)
 - [ ] Overlay tokens are defined (light, dark, backdrop variants)
 - [ ] RGB color values are available for alpha token calculations
+- [ ] Glow tokens are defined IF theme requires luminescence effects (optional)
+- [ ] Glow color variables set IF using glow tokens
 - [ ] All tokens follow naming conventions exactly
 - [ ] Tokens work correctly in all 3 modes (light, dark, high-contrast)
 
@@ -485,7 +801,7 @@ When creating or refactoring a theme, ensure:
 
 ---
 
-## 7. Reference Examples
+## 8. Reference Examples
 
 ### Complete Alpha Token Set
 
@@ -528,9 +844,34 @@ When creating or refactoring a theme, ensure:
 --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.7);
 ```
 
+### Complete Glow Token Set (Optional - Cyber/Neon Themes Only)
+
+```css
+/* Glow color variables */
+--lufa-glow-color: rgba(255, 0, 255, 0.3);
+--lufa-glow-color-secondary: rgba(0, 255, 255, 0.2);
+
+/* Box glows */
+--lufa-glow-box-subtle: 0 0 10px var(--lufa-glow-color), 0 0 20px var(--lufa-glow-color-secondary);
+--lufa-glow-box: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+--lufa-glow-box-strong: 0 0 30px var(--lufa-glow-color), 0 0 50px var(--lufa-glow-color-secondary);
+--lufa-glow-box-intense: 0 0 40px var(--lufa-glow-color), 0 0 60px var(--lufa-glow-color-secondary);
+
+/* Text glows */
+--lufa-glow-text-subtle: 0 0 5px var(--lufa-glow-color);
+--lufa-glow-text: 0 0 10px var(--lufa-glow-color);
+--lufa-glow-text-strong: 0 0 15px var(--lufa-glow-color), 0 0 25px var(--lufa-glow-color-secondary);
+--lufa-glow-text-intense: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+
+/* Inset glows */
+--lufa-glow-inset-subtle: inset 0 0 10px var(--lufa-glow-color);
+--lufa-glow-inset: inset 0 0 20px var(--lufa-glow-color);
+--lufa-glow-inset-strong: inset 0 0 30px var(--lufa-glow-color);
+```
+
 ---
 
-## 8. Next Steps
+## 9. Next Steps
 
 After establishing these conventions:
 
