@@ -437,18 +437,13 @@
 
   ```html
   <!-- Theme Selection -->
-  <html data-theme="ocean">
-    <!-- or "forest" or "default" -->
-    <html data-theme="forest">
-      <!-- Mode Selection -->
-      <html data-mode="light">
-        <!-- or "dark" or "high-contrast" -->
-        <html data-mode="dark">
-          <html data-mode="high-contrast"></html>
-        </html>
-      </html>
-    </html>
-  </html>
+  <html data-theme="ocean"></html>
+  <html data-theme="forest"></html>
+  <html data-theme="..."></html>
+  <!-- Mode Selection -->
+  <html data-mode="light"></html>
+  <html data-mode="dark"></html>
+  <html data-mode="high-contrast"></html>
   ```
 
   **Example Combinations:**
