@@ -10,13 +10,13 @@
  * - Backgrounds: Parchment (#F5E6D3), Aged Paper (#E8D5C4), Dark Bronze (#2C1810)
  * - Accents: Steam Gray (#708090), Gunmetal (#2C3539), Rust (#B7410E)
  *
- * Usage: <html data-color-theme="steampunk" data-mode="light|dark|high-contrast">
+ * Usage: <html data-theme="steampunk" data-mode="light|dark|high-contrast">
  */
 
 /* ==================== LIGHT MODE (Default) - Victorian Daylight ==================== */
 
-[data-color-theme='steampunk'],
-[data-color-theme='steampunk'][data-mode='light'] {
+[data-theme='steampunk'],
+[data-theme='steampunk'][data-mode='light'] {
   /* Core Brand Tokens - Polished Brass */
   --lufa-core-brand-primary: #b87333; /* Copper/Brass */
   --lufa-core-brand-primary-hover: #a0632b; /* Darker brass */
@@ -107,7 +107,7 @@
 
 /* ==================== DARK MODE - Industrial Night ==================== */
 
-[data-color-theme='steampunk'][data-mode='dark'] {
+[data-theme='steampunk'][data-mode='dark'] {
   /* Core Brand Tokens - Glowing Furnace */
   --lufa-core-brand-primary: #cd853f; /* Bright brass (lit by furnace) */
   --lufa-core-brand-primary-hover: #deb887; /* Glowing brass */
@@ -198,7 +198,7 @@
 
 /* ==================== HIGH CONTRAST MODE - Schematic Blueprint ==================== */
 
-[data-color-theme='steampunk'][data-mode='high-contrast'] {
+[data-theme='steampunk'][data-mode='high-contrast'] {
   /* Core Brand Tokens - High Contrast Brass */
   --lufa-core-brand-primary: #ffb347; /* Bright brass */
   --lufa-core-brand-primary-hover: #ffd700; /* Gold highlight */

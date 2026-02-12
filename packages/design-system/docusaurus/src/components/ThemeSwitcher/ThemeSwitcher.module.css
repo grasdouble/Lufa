@@ -197,51 +197,51 @@
 }
 
 /* Steampunk Theme Enhancements */
-[data-color-theme='steampunk'] .trigger {
+[data-theme='steampunk'] .trigger {
   border-width: 2px;
   box-shadow:
     0 2px 4px rgba(139, 69, 19, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-[data-color-theme='steampunk'] .trigger:hover {
+[data-theme='steampunk'] .trigger:hover {
   box-shadow:
     0 4px 8px rgba(139, 69, 19, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-[data-color-theme='steampunk'] .dropdown {
+[data-theme='steampunk'] .dropdown {
   border-width: 3px;
   box-shadow:
     0 8px 24px rgba(139, 69, 19, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-[data-color-theme='steampunk'] .sectionTitle::before {
+[data-theme='steampunk'] .sectionTitle::before {
   content: '⚙ ';
   opacity: 0.7;
 }
 
-[data-color-theme='steampunk'] .themeOption,
-[data-color-theme='steampunk'] .modeButton {
+[data-theme='steampunk'] .themeOption,
+[data-theme='steampunk'] .modeButton {
   border-width: 2px;
 }
 
-[data-color-theme='steampunk'] .themeOption:hover,
-[data-color-theme='steampunk'] .modeButton:hover {
+[data-theme='steampunk'] .themeOption:hover,
+[data-theme='steampunk'] .modeButton:hover {
   box-shadow:
     0 4px 8px rgba(139, 69, 19, 0.2),
     0 0 12px rgba(184, 115, 51, 0.3);
 }
 
-[data-color-theme='steampunk'] .themeOption.active {
+[data-theme='steampunk'] .themeOption.active {
   background: linear-gradient(135deg, var(--lufa-core-brand-primary) 0%, var(--lufa-core-brand-primary-hover) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     0 4px 12px rgba(139, 69, 19, 0.4);
 }
 
-[data-color-theme='steampunk'] .modeButton.active {
+[data-theme='steampunk'] .modeButton.active {
   background: linear-gradient(135deg, var(--lufa-core-brand-secondary) 0%, var(--lufa-core-brand-secondary-hover) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.2),

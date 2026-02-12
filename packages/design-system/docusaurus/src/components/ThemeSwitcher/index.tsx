@@ -64,9 +64,9 @@ export default function ThemeSwitcher(): React.JSX.Element {
   const applyTheme = (theme: ThemeName) => {
     // Special handling for default theme - remove the attribute
     if (theme === 'default') {
-      document.documentElement.removeAttribute('data-color-theme');
+      document.documentElement.removeAttribute('data-theme');
     } else {
-      document.documentElement.setAttribute('data-color-theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
     }
     localStorage.setItem('lufa-theme', theme);
   };
@@ -74,13 +74,6 @@ export default function ThemeSwitcher(): React.JSX.Element {
   const applyColorMode = (mode: ColorMode) => {
     document.documentElement.setAttribute('data-mode', mode);
     localStorage.setItem('lufa-color-mode', mode);
-
-    // Sync with Docusaurus theme
-    if (mode === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
   };
 
   // Apply theme and color mode to DOM on mount (values come from lazy initializers, stable at mount)

@@ -14,7 +14,7 @@
  * 4. Place tokens inside appropriate CSS selectors for your theme
  *
  * IMPORTANT: All tokens MUST be placed inside valid CSS selectors:
- * - Use [data-color-theme='your-theme'] for theme-specific tokens
+ * - Use [data-theme='your-theme'] for theme-specific tokens
  * - Use [data-mode='light'], [data-mode='dark'], [data-mode='high-contrast'] for mode-specific tokens
  * - Combine both for mode-aware theme tokens
  *
@@ -40,7 +40,7 @@
    
    Then define these RGB variable tokens:
    
-   [data-color-theme='your-theme'] {
+   [data-theme='your-theme'] {
      --lufa-primary-rgb: 184, 115, 51;
      --lufa-secondary-rgb: 46, 139, 87;
      --lufa-success-rgb: 46, 139, 87;
@@ -74,7 +74,7 @@
    ============================================================================= */
 
 /* --- Alpha Tokens - Primary Color (9 levels) --- */
-[data-color-theme='your-theme'] {
+[data-theme='your-theme'] {
   --lufa-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03); /* Ultra-subtle hint */
   --lufa-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05); /* Subtle background */
   --lufa-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08); /* Hover state */
@@ -174,7 +174,7 @@
    ============================================================================= */
 
 /* Light Mode Example: Dark shadow with medium opacity */
-[data-color-theme='your-theme'][data-mode='light'] {
+[data-theme='your-theme'][data-mode='light'] {
   --lufa-shadow-color: rgba(0, 0, 0, 0.1); /* Adjust opacity for your theme */
 
   /* Shadow Size Tokens (standardized - copy as-is) */
@@ -186,7 +186,7 @@
 }
 
 /* Dark Mode Example: Stronger shadow for depth */
-[data-color-theme='your-theme'][data-mode='dark'] {
+[data-theme='your-theme'][data-mode='dark'] {
   --lufa-shadow-color: rgba(0, 0, 0, 0.5); /* Darker shadows work better in dark mode */
 
   /* Shadow Size Tokens (standardized - copy as-is) */
@@ -198,7 +198,7 @@
 }
 
 /* High-Contrast Example: Strong shadow for maximum separation */
-[data-color-theme='your-theme'][data-mode='high-contrast'] {
+[data-theme='your-theme'][data-mode='high-contrast'] {
   --lufa-shadow-color: rgba(0, 0, 0, 0.8); /* High contrast for accessibility */
 
   /* Shadow Size Tokens (standardized - copy as-is) */
@@ -243,7 +243,7 @@
    ============================================================================= */
 
 /* Light Mode Overlays */
-[data-color-theme='your-theme'][data-mode='light'] {
+[data-theme='your-theme'][data-mode='light'] {
   /* Light overlays - for brightening on dark surfaces */
   --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05); /* 5% white */
   --lufa-overlay-light: rgba(255, 255, 255, 0.1); /* 10% white */
@@ -261,7 +261,7 @@
 }
 
 /* Dark Mode Overlays - May need different opacity for visibility */
-[data-color-theme='your-theme'][data-mode='dark'] {
+[data-theme='your-theme'][data-mode='dark'] {
   /* Light overlays - for brightening on dark surfaces */
   --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
   --lufa-overlay-light: rgba(255, 255, 255, 0.1);
@@ -279,7 +279,7 @@
 }
 
 /* High-Contrast Mode Overlays - Maximum visibility */
-[data-color-theme='your-theme'][data-mode='high-contrast'] {
+[data-theme='your-theme'][data-mode='high-contrast'] {
   /* Light overlays */
   --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.1);
   --lufa-overlay-light: rgba(255, 255, 255, 0.2);
@@ -333,7 +333,7 @@
    ============================================================================= */
 
 /* --- Glow Color Variables (Theme-Specific) --- */
-[data-color-theme='your-theme'] {
+[data-theme='your-theme'] {
   /* Primary glow color - main luminescence */
   --lufa-glow-color: rgba(255, 0, 255, 0.3); /* Example: Magenta at 30% opacity */
 
@@ -349,7 +349,7 @@
 }
 
 /* --- Box Glow Tokens (4 intensity levels) --- */
-[data-color-theme='your-theme'] {
+[data-theme='your-theme'] {
   /* Subtle: Minimal glow for hints and background elements */
   --lufa-glow-box-subtle: 0 0 10px var(--lufa-glow-color), 0 0 20px var(--lufa-glow-color-secondary);
 
@@ -370,7 +370,7 @@
 }
 
 /* --- Text Glow Tokens (4 intensity levels) --- */
-[data-color-theme='your-theme'] {
+[data-theme='your-theme'] {
   /* Subtle: Minimal text glow */
   --lufa-glow-text-subtle: 0 0 5px var(--lufa-glow-color);
 
@@ -391,7 +391,7 @@
 }
 
 /* --- Inset Glow Tokens (3 intensity levels) --- */
-[data-color-theme='your-theme'] {
+[data-theme='your-theme'] {
   /* Subtle: Minimal inner glow */
   --lufa-glow-inset-subtle: inset 0 0 10px var(--lufa-glow-color);
 
@@ -410,19 +410,19 @@
 /* --- Mode-Aware Glow Adjustments (Optional) --- */
 /* Glow intensity may need adjustment based on color mode for optimal visibility */
 
-[data-color-theme='your-theme'][data-mode='light'] {
+[data-theme='your-theme'][data-mode='light'] {
   /* Light mode: Reduce glow intensity for visibility on light backgrounds */
   --lufa-glow-color: rgba(255, 0, 255, 0.2); /* Reduced opacity */
   --lufa-glow-color-secondary: rgba(0, 255, 255, 0.15); /* Reduced opacity */
 }
 
-[data-color-theme='your-theme'][data-mode='dark'] {
+[data-theme='your-theme'][data-mode='dark'] {
   /* Dark mode: Full or increased glow intensity */
   --lufa-glow-color: rgba(255, 0, 255, 0.4); /* Increased opacity */
   --lufa-glow-color-secondary: rgba(0, 255, 255, 0.3); /* Increased opacity */
 }
 
-[data-color-theme='your-theme'][data-mode='high-contrast'] {
+[data-theme='your-theme'][data-mode='high-contrast'] {
   /* High contrast: Strong, focused glow for maximum visibility */
   --lufa-glow-color: rgba(255, 0, 255, 0.5); /* High opacity */
   --lufa-glow-color-secondary: rgba(0, 255, 255, 0.4); /* High opacity */
@@ -437,7 +437,7 @@
    ============================================================================= */
 
 /* --- Example 1: Cyberpunk Theme (Dual-Color Neon) --- */
-[data-color-theme='cyberpunk'][data-mode='dark'] {
+[data-theme='cyberpunk'][data-mode='dark'] {
   /* Magenta + Cyan complementary neon colors */
   --lufa-glow-color: rgba(255, 0, 255, 0.3);
   --lufa-glow-color-secondary: rgba(0, 255, 255, 0.2);
@@ -461,7 +461,7 @@
 }
 
 /* --- Example 2: Matrix Theme (Monochrome Green Glow) --- */
-[data-color-theme='matrix'][data-mode='dark'] {
+[data-theme='matrix'][data-mode='dark'] {
   /* Neon green - same color, different intensity */
   --lufa-glow-color: rgba(0, 255, 65, 0.4); /* Bright neon green */
   --lufa-glow-color-secondary: rgba(0, 255, 65, 0.2); /* Same green, lower opacity */
@@ -514,7 +514,7 @@
    When using this template for a new theme, ensure you:
    
    [ ] Define RGB variable tokens using --lufa-{color}-rgb pattern (NOT --lufa-rgb-{color})
-   [ ] Place all tokens inside valid CSS selectors [data-color-theme='your-theme']
+   [ ] Place all tokens inside valid CSS selectors [data-theme='your-theme']
    [ ] Copy ALL 9 opacity levels for EACH color (primary, secondary, success, error, warning, info)
    [ ] Define mode-aware shadow color for light, dark, and high-contrast modes
    [ ] Copy shadow size tokens matching TOKENS_CONVENTIONS.md spec (xl = 0 12px 24px)
@@ -575,7 +575,7 @@
    ============================================================================= */
 
 /* Step 1: Define RGB variables from hex colors */
-[data-color-theme='steampunk'][data-mode='light'] {
+[data-theme='steampunk'][data-mode='light'] {
   /* Extract RGB from hex colors first */
   /* Primary: #B87333 (Brass) = rgb(184, 115, 51) */
   --lufa-primary-rgb: 184, 115, 51;
@@ -637,7 +637,7 @@
 }
 
 /* Dark mode for steampunk theme (repeat structure with mode-adjusted values) */
-[data-color-theme='steampunk'][data-mode='dark'] {
+[data-theme='steampunk'][data-mode='dark'] {
   /* RGB variables stay the same */
   --lufa-primary-rgb: 184, 115, 51;
   --lufa-secondary-rgb: 46, 139, 87;
@@ -661,7 +661,7 @@
 }
 
 /* High-contrast mode for steampunk theme */
-[data-color-theme='steampunk'][data-mode='high-contrast'] {
+[data-theme='steampunk'][data-mode='high-contrast'] {
   /* Same pattern as dark mode but with accessibility-optimized values */
   --lufa-shadow-color: rgba(0, 0, 0, 0.8);
   --lufa-overlay-backdrop: rgba(0, 0, 0, 0.8);
@@ -674,7 +674,7 @@
    
    When creating a new theme file (e.g., mytheme.css):
    
-   1. Start with [data-color-theme='mytheme'] selector
+   1. Start with [data-theme='mytheme'] selector
    2. Define RGB variables first
    3. Define alpha tokens referencing RGB variables
    4. Add mode-specific blocks for light/dark/high-contrast
@@ -684,16 +684,16 @@
    Example file structure:
    
    mytheme.css:
-   ├── [data-color-theme='mytheme']           ← Base theme tokens
+   ├── [data-theme='mytheme']           ← Base theme tokens
    │   ├── RGB variables
    │   └── Alpha tokens (all 54 tokens)
-   ├── [data-color-theme='mytheme'][data-mode='light']
+   ├── [data-theme='mytheme'][data-mode='light']
    │   ├── Shadow color + sizes
    │   └── Overlay tokens
-   ├── [data-color-theme='mytheme'][data-mode='dark']
+   ├── [data-theme='mytheme'][data-mode='dark']
    │   ├── Shadow color + sizes
    │   └── Overlay tokens
-   └── [data-color-theme='mytheme'][data-mode='high-contrast']
+   └── [data-theme='mytheme'][data-mode='high-contrast']
        ├── Shadow color + sizes
        └── Overlay tokens
    

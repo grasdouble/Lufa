@@ -132,14 +132,13 @@ const config: Config = {
   ],
 
   plugins: [resolve(configDir, './plugins/rspack-disable-minimizers.js')],
-  clientModules: [resolve(configDir, './src/clientModules/colorModeSync')],
 
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       defaultMode: 'light',
-      disableSwitch: true,
+      disableSwitch: false,
       respectPrefersColorScheme: false,
     },
     navbar: {

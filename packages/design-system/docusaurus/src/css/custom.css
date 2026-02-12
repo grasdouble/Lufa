@@ -18,7 +18,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-mode='dark'] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -29,6 +29,30 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* High contrast mode support */
+[data-mode='high-contrast'] {
+  --ifm-color-primary: #0066cc;
+  --ifm-color-primary-dark: #0052a3;
+  --ifm-color-primary-darker: #004080;
+  --ifm-color-primary-darkest: #003366;
+  --ifm-color-primary-light: #3385d6;
+  --ifm-color-primary-lighter: #6699e6;
+  --ifm-color-primary-lightest: #99bbf0;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.5);
+}
+
+/* ==================== GLOBAL BACKGROUND MANAGEMENT ==================== */
+
+/* Ensure html element fills viewport and can have background */
+html {
+  min-height: 100vh;
+}
+
+/* Ensure body is transparent to show html background */
+body {
+  background: transparent;
+}
+
 @import '@grasdouble/lufa_design-system/style.css';
 
 /* ==================== THEME IMPORTS ==================== */
@@ -36,40 +60,30 @@
 
 /* Ocean Theme - Marine-inspired with aqua/teal tones */
 @import '@grasdouble/lufa_design-system-themes/ocean.css';
-@import './ocean-docusaurus.css';
 
 /* Forest Theme - Organic nature with green tones */
 @import '@grasdouble/lufa_design-system-themes/forest.css';
-@import './forest-docusaurus.css';
 
 /* Matrix Theme - Digital cyber with neon green */
 @import '@grasdouble/lufa_design-system-themes/matrix.css';
-@import './matrix-docusaurus.css';
 
 /* Cyberpunk Theme - Futuristic neon with fuchsia/cyan */
 @import '@grasdouble/lufa_design-system-themes/cyberpunk.css';
-@import './cyberpunk-docusaurus.css';
 
 /* Sunset Theme - Warm elegant with orange/rose */
 @import '@grasdouble/lufa_design-system-themes/sunset.css';
-@import './sunset-docusaurus.css';
 
 /* Nordic Theme - Minimalist arctic with sky blue */
 @import '@grasdouble/lufa_design-system-themes/nordic.css';
-@import './nordic-docusaurus.css';
 
 /* Volcano Theme - Powerful intense with red/orange */
 @import '@grasdouble/lufa_design-system-themes/volcano.css';
-@import './volcano-docusaurus.css';
 
 /* Coffee Theme - Retro vintage with amber/brown */
 @import '@grasdouble/lufa_design-system-themes/coffee.css';
-@import './coffee-docusaurus.css';
 
 /* Volt Theme - Industrial high-visibility with lime */
 @import '@grasdouble/lufa_design-system-themes/volt.css';
-@import './volt-docusaurus.css';
 
 /* Steampunk Theme - Neo Victorian Industrial with brass/copper */
 @import '@grasdouble/lufa_design-system-themes/steampunk.css';
-@import './steampunk-docusaurus.css';

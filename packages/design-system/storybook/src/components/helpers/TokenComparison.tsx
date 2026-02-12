@@ -186,7 +186,7 @@ export const TokenComparison: React.FC<TokenComparisonProps> = ({
     const observer = new MutationObserver(updateValues);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-color-theme', 'data-mode'],
+      attributeFilter: ['data-theme', 'data-mode'],
     });
 
     return () => observer.disconnect();

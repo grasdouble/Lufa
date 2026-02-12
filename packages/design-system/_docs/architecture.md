@@ -121,10 +121,10 @@ These 5 principles are **mandatory** for all design system work. Violations shou
 
 **Definitions:**
 
-| Concept    | Purpose        | Values                               | Applied via        | Package        |
-| ---------- | -------------- | ------------------------------------ | ------------------ | -------------- |
-| **Modes**  | Accessibility  | `light` \| `dark` \| `high-contrast` | `data-mode`        | `@lufa/tokens` |
-| **Themes** | Brand variants | `default` \| `ocean` \| `forest` ... | `data-color-theme` | `@lufa/themes` |
+| Concept    | Purpose        | Values                               | Applied via  | Package        |
+| ---------- | -------------- | ------------------------------------ | ------------ | -------------- |
+| **Modes**  | Accessibility  | `light` \| `dark` \| `high-contrast` | `data-mode`  | `@lufa/tokens` |
+| **Themes** | Brand variants | `default` \| `ocean` \| `forest` ... | `data-theme` | `@lufa/themes` |
 
 **Orthogonal Relationship:**
 
@@ -136,7 +136,7 @@ These 5 principles are **mandatory** for all design system work. Violations shou
 
 ```html
 <!-- Separate attributes for separate concerns -->
-<html data-mode="dark" data-color-theme="ocean">
+<html data-mode="dark" data-theme="ocean">
   <!-- Interactions render with dark mode + ocean theme -->
 </html>
 ```
@@ -148,7 +148,7 @@ These 5 principles are **mandatory** for all design system work. Violations shou
 }
 
 /* Theme switching (themes package) */
-[data-color-theme='ocean'] {
+[data-theme='ocean'] {
   --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-600);
 }
 ```
@@ -536,7 +536,7 @@ Level 1: Foundation Tokens (111 tokens)
         │                                   │ • coffee
         │                                   │ • volt
         │                                   │
-        │                                   │ Applied: data-color-theme
+        │                                   │ Applied: data-theme
         │                                   │ Package: @lufa/themes
         └───────────────────────────────────┴─────────────────
 ```
@@ -609,7 +609,7 @@ Level 1: Foundation Tokens (111 tokens)
 
 ```css
 /* themes/ocean.css */
-[data-color-theme='ocean'] {
+[data-theme='ocean'] {
   /* Override only brand tokens */
   --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-600);
   --lufa-core-brand-primary-hover: var(--lufa-primitive-color-cyan-700);
@@ -639,14 +639,14 @@ Level 1: Foundation Tokens (111 tokens)
 
 ```html
 <!-- Light mode + Ocean theme -->
-<html data-mode="light" data-color-theme="ocean">
+<html data-mode="light" data-theme="ocean">
   <body>
     ...
   </body>
 </html>
 
 <!-- Dark mode + Forest theme -->
-<html data-mode="dark" data-color-theme="forest">
+<html data-mode="dark" data-theme="forest">
   <body>
     ...
   </body>
@@ -670,7 +670,7 @@ Level 1: Foundation Tokens (111 tokens)
 2. **Customize Tokens:**
 
    ```css
-   [data-color-theme='my-brand'] {
+   [data-theme='my-brand'] {
      --lufa-core-brand-primary: #ff6b6b;
      --lufa-core-brand-primary-hover: #ff5252;
      /* ...customize tokens */
@@ -955,7 +955,7 @@ module.exports = {
 
 - **[ADR-011](./adrs/ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md)**: Immutable Foundations - Foundation of token architecture
 - **[ADR-001](./adrs/ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)**: Modes vs Themes - How theming works
-- **[ADR-002](./adrs/ADR-002-IMPLEMENTED-html-attributes-naming.md)**: HTML Attributes - `data-mode` vs `data-color-theme`
+- **[ADR-002](./adrs/ADR-002-IMPLEMENTED-html-attributes-naming.md)**: HTML Attributes - `data-mode` vs `data-theme`
 
 **Full ADR Documentation:** [./adrs/](./adrs/) - All 11 ADRs with complete details
 
@@ -965,7 +965,7 @@ module.exports = {
 
 #### ADR-001: Modes vs Themes Separation
 
-**Decision:** Separate `data-mode` (accessibility) from `data-color-theme` (branding)
+**Decision:** Separate `data-mode` (accessibility) from `data-theme` (branding)
 
 **Why:**
 
@@ -977,14 +977,14 @@ module.exports = {
 **Implementation:**
 
 ```html
-<html data-mode="dark" data-color-theme="ocean"></html>
+<html data-mode="dark" data-theme="ocean"></html>
 ```
 
 ---
 
 #### ADR-002: HTML Attributes Naming
 
-**Decision:** Use `data-mode` and `data-color-theme` (not `data-theme` for both)
+**Decision:** Use `data-mode` and `data-theme` (not `data-theme` for both)
 
 **Why:**
 
@@ -1466,7 +1466,7 @@ pnpm ds:storybook:dev
 **Key Concepts:**
 
 - **Immutable Foundations** (ADR-011) - Level 1 tokens never change
-- **Modes vs Themes** (ADR-001) - `data-mode` vs `data-color-theme`
+- **Modes vs Themes** (ADR-001) - `data-mode` vs `data-theme`
 - **Token-First Design** - No hard-coded values
 - **Pattern "on-X"** (ADR-003) - WCAG AAA contrast pairs
 
@@ -1477,7 +1477,7 @@ pnpm ds:storybook:dev
 ### 13.1 Architecture Principles (Mandatory)
 
 1. ⭐ **Immutable Foundations** - Level 1 tokens are constants
-2. ⭐ **Separation of Modes and Themes** - `data-mode` ≠ `data-color-theme`
+2. ⭐ **Separation of Modes and Themes** - `data-mode` ≠ `data-theme`
 3. **Token-First Design** - No hard-coded values
 4. **Composition Over Inheritance** - Build with primitives
 5. **Accessibility by Default** - WCAG 2.1 AA compliance

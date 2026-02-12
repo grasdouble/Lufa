@@ -449,7 +449,7 @@ Glow tokens reference theme-specific color variables that define the luminescenc
 #### Cyberpunk Theme Implementation
 
 ```css
-[data-color-theme='cyberpunk'] {
+[data-theme='cyberpunk'] {
   /* Glow color variables - magenta + cyan neon */
   --lufa-glow-color: rgba(255, 0, 255, 0.3); /* Magenta primary */
   --lufa-glow-color-secondary: rgba(0, 255, 255, 0.2); /* Cyan accent */
@@ -476,7 +476,7 @@ Glow tokens reference theme-specific color variables that define the luminescenc
 #### Matrix Theme Implementation
 
 ```css
-[data-color-theme='matrix'] {
+[data-theme='matrix'] {
   /* Glow color variables - neon green monochrome */
   --lufa-glow-color: rgba(0, 255, 65, 0.4); /* Bright neon green */
   --lufa-glow-color-secondary: rgba(0, 255, 65, 0.2); /* Same green, lower opacity */
@@ -596,19 +596,19 @@ Glow intensity may need adjustment based on color mode:
 
 ```css
 /* Light mode - reduce glow intensity for visibility */
-[data-color-theme='cyberpunk'][data-mode='light'] {
+[data-theme='cyberpunk'][data-mode='light'] {
   --lufa-glow-color: rgba(255, 0, 255, 0.2); /* Reduced from 0.3 */
   --lufa-glow-color-secondary: rgba(0, 255, 255, 0.15); /* Reduced from 0.2 */
 }
 
 /* Dark mode - full glow intensity */
-[data-color-theme='cyberpunk'][data-mode='dark'] {
+[data-theme='cyberpunk'][data-mode='dark'] {
   --lufa-glow-color: rgba(255, 0, 255, 0.4); /* Increased from 0.3 */
   --lufa-glow-color-secondary: rgba(0, 255, 255, 0.3); /* Increased from 0.2 */
 }
 
 /* High contrast - minimal glow for accessibility */
-[data-color-theme='cyberpunk'][data-mode='high-contrast'] {
+[data-theme='cyberpunk'][data-mode='high-contrast'] {
   --lufa-glow-color: rgba(255, 0, 255, 0.5); /* Strong but focused */
   --lufa-glow-color-secondary: rgba(0, 255, 255, 0.4); /* Clear secondary */
 }
@@ -662,7 +662,7 @@ Matrix uses neon green glow effects instead of traditional shadows:
 
 ```css
 /* Matrix theme overrides (in matrix theme CSS file) */
-[data-color-theme='matrix'] {
+[data-theme='matrix'] {
   --lufa-shadow-color: rgba(0, 255, 65, 0.2); /* Neon green glow */
 }
 
@@ -681,7 +681,7 @@ Cyberpunk enhances shadows with additional neon glow layers:
 
 ```css
 /* Cyberpunk theme overrides (in cyberpunk theme CSS file) */
-[data-color-theme='cyberpunk'] {
+[data-theme='cyberpunk'] {
   /* Standard shadow with added glow effect */
   --lufa-shadow-md: 0 4px 12px var(--lufa-shadow-color), 0 0 8px var(--lufa-shadow-color);
   --lufa-shadow-lg: 0 8px 20px var(--lufa-shadow-color), 0 0 16px var(--lufa-shadow-color);

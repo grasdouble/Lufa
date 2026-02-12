@@ -14,7 +14,7 @@ Lufa Design System supports three theme modes:
 
 Theme switching is CSS-based using the `data-mode` attribute on any parent element. No JavaScript is required for themes to work, but JavaScript enables dynamic switching.
 
-**Note:** Use `data-mode` for accessibility modes (light, dark, high-contrast) and `data-color-theme` for brand color themes (ocean, forest, etc.). This guide covers accessibility modes.
+**Note:** Use `data-mode` for accessibility modes (light, dark, high-contrast) and `data-theme` for brand color themes (ocean, forest, etc.). This guide covers accessibility modes.
 
 ## Quick Start
 

@@ -861,7 +861,7 @@ Un seul nom de token → Valeur change selon [data-mode]
 ├─ light (default)
 ├─ dark
 ├─ high-contrast
-└─ custom themes (extensible avec data-color-theme)
+└─ custom themes (extensible avec data-theme)
 ```
 
 **Mécanisme:**

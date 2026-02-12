@@ -4,13 +4,13 @@
  * Organic color palette with cream, coffee, and brown tones.
  * Evokes nostalgia, vintage, and warm aesthetics.
  *
- * Usage: <html data-color-theme="coffee" data-mode="light|dark|high-contrast">
+ * Usage: <html data-theme="coffee" data-mode="light|dark|high-contrast">
  */
 
 /* ==================== LIGHT MODE (Default) ==================== */
 
-[data-color-theme='coffee'],
-[data-color-theme='coffee'][data-mode='light'] {
+[data-theme='coffee'],
+[data-theme='coffee'][data-mode='light'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #78350f; /* Amber 900 */
   --lufa-core-brand-primary-hover: #451a03;
@@ -51,7 +51,7 @@
 
 /* ==================== DARK MODE ==================== */
 
-[data-color-theme='coffee'][data-mode='dark'] {
+[data-theme='coffee'][data-mode='dark'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #d97706;
   --lufa-core-brand-primary-hover: #fbbf24;
@@ -92,7 +92,7 @@
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
-[data-color-theme='coffee'][data-mode='high-contrast'] {
+[data-theme='coffee'][data-mode='high-contrast'] {
   --lufa-core-brand-primary: #a16207;
   --lufa-core-brand-primary-hover: #ca8a04;
   --lufa-core-brand-primary-active: #854d0e;
