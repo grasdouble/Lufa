@@ -1084,7 +1084,7 @@ If critical issues arise, we can rollback in phases:
   - This ADR clarifies _how_ modes are implemented (at semantic layer)
 
 - **ADR-002:** HTML Attributes Naming
-  - Defines `[data-mode]` and `[data-color-theme]` attributes
+  - Defines `[data-mode]` and `[data-theme]` attributes
   - This ADR defines which tokens respond to these attributes
 
 - **ADR-003:** High-Contrast Token Strategy

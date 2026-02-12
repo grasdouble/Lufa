@@ -54,14 +54,14 @@ class TemplateValidator {
    */
   private validateCSSStructure(): void {
     // Check that tokens are inside CSS selectors (not at root level)
-    const selectorPattern = /\[data-color-theme=['"][\w-]+['"]\]/g;
+    const selectorPattern = /\[data-theme=['"][\w-]+['"]\]/g;
     const selectors = this.templateContent.match(selectorPattern);
 
     if (!selectors || selectors.length < 3) {
       this.results.push({
         passed: false,
         message: 'CSS structure validation failed',
-        details: `Expected multiple [data-color-theme] selectors with tokens inside, found ${selectors?.length ?? 0}`,
+        details: `Expected multiple [data-theme] selectors with tokens inside, found ${selectors?.length ?? 0}`,
       });
     } else {
       this.results.push({
@@ -544,7 +544,7 @@ class TemplateValidator {
     }
 
     // Check for usage examples
-    const examplePattern = /\[data-color-theme=/g;
+    const examplePattern = /\[data-theme=/g;
     const examples = this.templateContent.match(examplePattern);
     if (!examples || examples.length < 3) {
       this.results.push({

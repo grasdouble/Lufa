@@ -4,13 +4,13 @@
  * Neon-inspired color palette with fuchsia, cyan, and purple tones.
  * Evokes futuristic, night-city, high-tech aesthetics.
  *
- * Usage: <html data-color-theme="cyberpunk" data-mode="light|dark|high-contrast">
+ * Usage: <html data-theme="cyberpunk" data-mode="light|dark|high-contrast">
  */
 
 /* ==================== LIGHT MODE (Default) ==================== */
 
-[data-color-theme='cyberpunk'],
-[data-color-theme='cyberpunk'][data-mode='light'] {
+[data-theme='cyberpunk'],
+[data-theme='cyberpunk'][data-mode='light'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #ff00ff;
   --lufa-core-brand-primary-hover: #d900d9;
@@ -51,7 +51,7 @@
 
 /* ==================== DARK MODE ==================== */
 
-[data-color-theme='cyberpunk'][data-mode='dark'] {
+[data-theme='cyberpunk'][data-mode='dark'] {
   /* Core Brand Tokens - Neon Glow */
   --lufa-core-brand-primary: #ff00ff;
   --lufa-core-brand-primary-hover: #ff33ff;
@@ -92,7 +92,7 @@
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
-[data-color-theme='cyberpunk'][data-mode='high-contrast'] {
+[data-theme='cyberpunk'][data-mode='high-contrast'] {
   --lufa-core-brand-primary: #ff00ff;
   --lufa-core-brand-primary-hover: #ff66ff;
   --lufa-core-brand-primary-active: #cc00cc;

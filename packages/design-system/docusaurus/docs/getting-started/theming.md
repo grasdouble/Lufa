@@ -455,7 +455,7 @@ You wouldn't try to change `Math.PI`, and you shouldn't change primitive tokens.
 
 **Future (Phase 6):**
 
-- **Themes** (`data-color-theme`) - Ocean, Forest, Custom (for brand variants)
+- **Themes** (`data-theme`) - Ocean, Forest, Custom (for brand variants)
 
 Modes and themes will be orthogonal - you'll be able to combine any mode with any theme:
 

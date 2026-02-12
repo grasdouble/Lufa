@@ -4,13 +4,13 @@
  * Warm color palette with orange, coral, and purple tones.
  * Evokes elegance, calm, and evening aesthetics.
  *
- * Usage: <html data-color-theme="sunset" data-mode="light|dark|high-contrast">
+ * Usage: <html data-theme="sunset" data-mode="light|dark|high-contrast">
  */
 
 /* ==================== LIGHT MODE (Default) ==================== */
 
-[data-color-theme='sunset'],
-[data-color-theme='sunset'][data-mode='light'] {
+[data-theme='sunset'],
+[data-theme='sunset'][data-mode='light'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #f97316; /* Orange 600 */
   --lufa-core-brand-primary-hover: #ea580c;
@@ -51,7 +51,7 @@
 
 /* ==================== DARK MODE ==================== */
 
-[data-color-theme='sunset'][data-mode='dark'] {
+[data-theme='sunset'][data-mode='dark'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #fb923c;
   --lufa-core-brand-primary-hover: #fdba74;
@@ -92,7 +92,7 @@
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
-[data-color-theme='sunset'][data-mode='high-contrast'] {
+[data-theme='sunset'][data-mode='high-contrast'] {
   --lufa-core-brand-primary: #ff8000;
   --lufa-core-brand-primary-hover: #ffa040;
   --lufa-core-brand-primary-active: #cc6600;

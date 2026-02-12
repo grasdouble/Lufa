@@ -32,18 +32,18 @@ Import your desired theme in your main entry file or global CSS:
 
 ### Applying a Theme
 
-Themes are applied using the `data-color-theme` attribute on any parent element (usually `<html>` or `<body>`).
+Themes are applied using the `data-theme` attribute on any parent element (usually `<html>` or `<body>`).
 
 ```html
 <!-- Matrix theme in dark mode -->
-<html data-color-theme="matrix" data-mode="dark">
+<html data-theme="matrix" data-mode="dark">
   <body>
     ...
   </body>
 </html>
 
 <!-- Sunset theme in light mode -->
-<div data-color-theme="sunset" data-mode="light">
+<div data-theme="sunset" data-mode="light">
   <section>Immersive sunset area</section>
 </div>
 ```
@@ -131,7 +131,7 @@ This script performs **12+ automated checks** on `src/_token-template.css` inclu
 
 1. **Reference the token template**: Use `src/_token-template.css` as your starting point
    - **Important**: The template shows correct CSS structure with tokens inside selectors
-   - **Do NOT copy tokens outside of CSS selectors** - they must be inside `[data-color-theme='your-theme']`
+   - **Do NOT copy tokens outside of CSS selectors** - they must be inside `[data-theme='your-theme']`
 2. Create a new CSS file in `src/theme-name.css`
 3. Follow the template structure to define:
    - RGB variable tokens using `--lufa-{color}-rgb` pattern (e.g., `--lufa-primary-rgb`)
@@ -139,7 +139,7 @@ This script performs **12+ automated checks** on `src/_token-template.css` inclu
    - Shadow tokens with mode-aware colors (different values per mode)
    - Overlay tokens with mode-adjusted opacity (values change per mode)
 4. Define tokens for all 3 modes: light, dark, and high-contrast
-   - Each mode needs its own `[data-color-theme='your-theme'][data-mode='mode']` block
+   - Each mode needs its own `[data-theme='your-theme'][data-mode='mode']` block
    - Shadow colors and overlay opacity should be adjusted per mode
 5. Add the theme to the `themes` array in `scripts/copy-themes.ts`
 6. Export the file in `package.json`
@@ -157,7 +157,7 @@ This script performs **12+ automated checks** on `src/_token-template.css` inclu
 **Common Pitfalls to Avoid**:
 
 - ❌ Don't use `--lufa-rgb-primary` pattern → ✅ Use `--lufa-primary-rgb` instead
-- ❌ Don't put tokens outside CSS selectors → ✅ Always wrap in `[data-color-theme]` blocks
+- ❌ Don't put tokens outside CSS selectors → ✅ Always wrap in `[data-theme]` blocks
 - ❌ Don't use only 3 opacity levels for semantic colors → ✅ Use all 9 levels for consistency
 - ❌ Don't copy same overlay values for all modes → ✅ Adjust opacity per mode for accessibility
 
@@ -251,7 +251,7 @@ const b = parseInt('b2', 16); // 178
 Add RGB variables to **each mode block** in your theme file:
 
 ```css
-[data-color-theme='your-theme'][data-mode='light'] {
+[data-theme='your-theme'][data-mode='light'] {
   /* RGB Variables (6 colors) */
   --lufa-primary-rgb: 8, 145, 178; /* Extracted from primary color */
   --lufa-secondary-rgb: 245, 158, 11; /* Extracted from secondary color */
@@ -269,7 +269,7 @@ Add RGB variables to **each mode block** in your theme file:
 Copy all 54 alpha tokens from `_token-template.css` (6 colors × 9 opacity levels):
 
 ```css
-[data-color-theme='your-theme'][data-mode='light'] {
+[data-theme='your-theme'][data-mode='light'] {
   /* RGB Variables (already added above) */
 
   /* Alpha Tokens - Primary (9 levels) */
@@ -294,7 +294,7 @@ Copy all 54 alpha tokens from `_token-template.css` (6 colors × 9 opacity level
 Copy shadow tokens from template and customize `--lufa-shadow-color` for your theme:
 
 ```css
-[data-color-theme='your-theme'][data-mode='light'] {
+[data-theme='your-theme'][data-mode='light'] {
   /* Shadow Tokens (5 sizes) */
   --lufa-shadow-color: rgba(0, 0, 0, 0.15); /* Customize for theme */
   --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
@@ -316,7 +316,7 @@ Copy shadow tokens from template and customize `--lufa-shadow-color` for your th
 Copy overlay tokens from template (mode-aware, adjust opacity per mode):
 
 ```css
-[data-color-theme='your-theme'][data-mode='light'] {
+[data-theme='your-theme'][data-mode='light'] {
   /* Overlay Tokens - Light variants */
   --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
   --lufa-overlay-light: rgba(255, 255, 255, 0.1);
@@ -343,7 +343,7 @@ Copy overlay tokens from template (mode-aware, adjust opacity per mode):
 **DO NOT add glows to:** Ocean, Forest, Sunset, Nordic, Steampunk
 
 ```css
-[data-color-theme='cyberpunk'][data-mode='dark'] {
+[data-theme='cyberpunk'][data-mode='dark'] {
   /* Glow Color Variables */
   --lufa-glow-color: rgba(236, 72, 153, 0.6); /* Primary glow (pink) */
   --lufa-glow-color-secondary: rgba(34, 211, 238, 0.5); /* Secondary glow (cyan) */
@@ -371,9 +371,9 @@ Copy overlay tokens from template (mode-aware, adjust opacity per mode):
 
 Repeat steps 1.3-1.7 for:
 
-1. **Light mode:** `[data-color-theme='your-theme'][data-mode='light']`
-2. **Dark mode:** `[data-color-theme='your-theme'][data-mode='dark']`
-3. **High-contrast mode:** `[data-color-theme='your-theme'][data-mode='high-contrast']`
+1. **Light mode:** `[data-theme='your-theme'][data-mode='light']`
+2. **Dark mode:** `[data-theme='your-theme'][data-mode='dark']`
+3. **High-contrast mode:** `[data-theme='your-theme'][data-mode='high-contrast']`
 
 #### 1.9 Build & Verify
 
@@ -721,7 +721,7 @@ Based on Epic 1 retrospective findings, avoid these mistakes:
 ```css
 --lufa-primary-rgb: 8, 145, 178; /* Outside selector */
 
-[data-color-theme='ocean'] {
+[data-theme='ocean'] {
   /* tokens here */
 }
 ```
@@ -729,7 +729,7 @@ Based on Epic 1 retrospective findings, avoid these mistakes:
 **Correct:**
 
 ```css
-[data-color-theme='ocean'][data-mode='light'] {
+[data-theme='ocean'][data-mode='light'] {
   --lufa-primary-rgb: 8, 145, 178; /* Inside selector */
 }
 ```

@@ -4,13 +4,13 @@
  * Intense color palette with red, orange, and charcoal tones.
  * Evokes power, energy, and high-heat aesthetics.
  *
- * Usage: <html data-color-theme="volcano" data-mode="light|dark|high-contrast">
+ * Usage: <html data-theme="volcano" data-mode="light|dark|high-contrast">
  */
 
 /* ==================== LIGHT MODE (Default) ==================== */
 
-[data-color-theme='volcano'],
-[data-color-theme='volcano'][data-mode='light'] {
+[data-theme='volcano'],
+[data-theme='volcano'][data-mode='light'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #dc2626; /* Red 600 */
   --lufa-core-brand-primary-hover: #b91c1c;
@@ -51,7 +51,7 @@
 
 /* ==================== DARK MODE ==================== */
 
-[data-color-theme='volcano'][data-mode='dark'] {
+[data-theme='volcano'][data-mode='dark'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #f87171;
   --lufa-core-brand-primary-hover: #fca5a5;
@@ -92,7 +92,7 @@
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
-[data-color-theme='volcano'][data-mode='high-contrast'] {
+[data-theme='volcano'][data-mode='high-contrast'] {
   --lufa-core-brand-primary: #ff3300;
   --lufa-core-brand-primary-hover: #ff6633;
   --lufa-core-brand-primary-active: #cc2200;

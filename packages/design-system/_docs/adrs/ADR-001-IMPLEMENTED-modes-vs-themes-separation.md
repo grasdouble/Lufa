@@ -143,7 +143,7 @@ const { theme, setTheme } = useTheme();
 **Two HTML Attributes:**
 
 ```html
-<html data-mode="dark" data-color-theme="ocean"></html>
+<html data-mode="dark" data-theme="ocean"></html>
 ```
 
 - Each attribute has clear, single purpose
@@ -167,12 +167,12 @@ const { theme, setTheme } = useTheme();
 }
 
 /* Themes override brand tokens (Phase 6) */
-[data-color-theme='ocean'] {
+[data-theme='ocean'] {
   --lufa-core-brand-primary: #0ea5e9; /* Ocean blue */
 }
 
 /* Both can apply - theme overrides win */
-[data-color-theme='ocean'][data-mode='dark'] {
+[data-theme='ocean'][data-mode='dark'] {
   --lufa-core-brand-primary: #38bdf8; /* Lighter ocean blue for dark */
 }
 ```
@@ -281,7 +281,7 @@ packages/design-system/
 │   │   ├── ocean.css   # Phase 6: Ocean brand tokens
 │   │   └── forest.css  # Phase 6: Forest brand tokens
 │   └── dist/
-│       └── themes.css  # [data-color-theme] selectors
+│       └── themes.css  # [data-theme] selectors
 │
 └── main/            # Hooks provided here
     └── src/hooks/

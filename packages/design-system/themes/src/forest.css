@@ -4,7 +4,7 @@
  * Nature-inspired color palette with emerald and green tones.
  * Evokes growth, earth, and natural environments.
  *
- * Usage: <html data-color-theme="forest" data-mode="light|dark|high-contrast">
+ * Usage: <html data-theme="forest" data-mode="light|dark|high-contrast">
  *
  * Color Palette:
  * Light Mode:
@@ -28,8 +28,8 @@
 
 /* ==================== LIGHT MODE (Default) ==================== */
 
-[data-color-theme='forest'],
-[data-color-theme='forest'][data-mode='light'] {
+[data-theme='forest'],
+[data-theme='forest'][data-mode='light'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #059669;
   --lufa-core-brand-primary-hover: #047857;
@@ -70,7 +70,7 @@
 
 /* ==================== DARK MODE ==================== */
 
-[data-color-theme='forest'][data-mode='dark'] {
+[data-theme='forest'][data-mode='dark'] {
   /* Core Brand Tokens - Brighter for dark backgrounds */
   --lufa-core-brand-primary: #34d399;
   --lufa-core-brand-primary-hover: #6ee7b7;
@@ -111,7 +111,7 @@
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
-[data-color-theme='forest'][data-mode='high-contrast'] {
+[data-theme='forest'][data-mode='high-contrast'] {
   /* Use system green for maximum contrast in high-contrast mode */
   --lufa-core-brand-primary: #00ff00;
   --lufa-core-brand-primary-hover: #33ff33;

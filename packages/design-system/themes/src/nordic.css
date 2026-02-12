@@ -4,13 +4,13 @@
  * Clean, minimalist color palette with ice blue, white, and navy tones.
  * Evokes calm, professional, and arctic aesthetics.
  *
- * Usage: <html data-color-theme="nordic" data-mode="light|dark|high-contrast">
+ * Usage: <html data-theme="nordic" data-mode="light|dark|high-contrast">
  */
 
 /* ==================== LIGHT MODE (Default) ==================== */
 
-[data-color-theme='nordic'],
-[data-color-theme='nordic'][data-mode='light'] {
+[data-theme='nordic'],
+[data-theme='nordic'][data-mode='light'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #0ea5e9; /* Sky 500 */
   --lufa-core-brand-primary-hover: #0284c7;
@@ -51,7 +51,7 @@
 
 /* ==================== DARK MODE ==================== */
 
-[data-color-theme='nordic'][data-mode='dark'] {
+[data-theme='nordic'][data-mode='dark'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #38bdf8;
   --lufa-core-brand-primary-hover: #7dd3fc;
@@ -92,7 +92,7 @@
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
-[data-color-theme='nordic'][data-mode='high-contrast'] {
+[data-theme='nordic'][data-mode='high-contrast'] {
   --lufa-core-brand-primary: #00ccff;
   --lufa-core-brand-primary-hover: #33ddff;
   --lufa-core-brand-primary-active: #0099cc;

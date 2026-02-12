@@ -4,13 +4,13 @@
  * Industrial color palette with volt yellow, black, and steel tones.
  * Evokes energy, construction, and high-visibility aesthetics.
  *
- * Usage: <html data-color-theme="volt" data-mode="light|dark|high-contrast">
+ * Usage: <html data-theme="volt" data-mode="light|dark|high-contrast">
  */
 
 /* ==================== LIGHT MODE (Default) ==================== */
 
-[data-color-theme='volt'],
-[data-color-theme='volt'][data-mode='light'] {
+[data-theme='volt'],
+[data-theme='volt'][data-mode='light'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #a3e635; /* Lime 400 */
   --lufa-core-brand-primary-hover: #bef264;
@@ -51,7 +51,7 @@
 
 /* ==================== DARK MODE ==================== */
 
-[data-color-theme='volt'][data-mode='dark'] {
+[data-theme='volt'][data-mode='dark'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #a3e635;
   --lufa-core-brand-primary-hover: #bef264;
@@ -92,7 +92,7 @@
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
-[data-color-theme='volt'][data-mode='high-contrast'] {
+[data-theme='volt'][data-mode='high-contrast'] {
   --lufa-core-brand-primary: #a3e635;
   --lufa-core-brand-primary-hover: #bef264;
   --lufa-core-brand-primary-active: #84cc16;

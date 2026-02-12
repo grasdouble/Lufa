@@ -4,7 +4,7 @@
  * Cyber-inspired color palette with matrix green and neon tones.
  * Evokes the digital world, terminal interfaces, and cinematic matrix aesthetics.
  *
- * Usage: <html data-color-theme="matrix" data-mode="light|dark|high-contrast">
+ * Usage: <html data-theme="matrix" data-mode="light|dark|high-contrast">
  *
  * Color Palette:
  * Light Mode:
@@ -28,8 +28,8 @@
 
 /* ==================== LIGHT MODE (Default) ==================== */
 
-[data-color-theme='matrix'],
-[data-color-theme='matrix'][data-mode='light'] {
+[data-theme='matrix'],
+[data-theme='matrix'][data-mode='light'] {
   /* Core Brand Tokens */
   --lufa-core-brand-primary: #008f11;
   --lufa-core-brand-primary-hover: #006400;
@@ -70,7 +70,7 @@
 
 /* ==================== DARK MODE ==================== */
 
-[data-color-theme='matrix'][data-mode='dark'] {
+[data-theme='matrix'][data-mode='dark'] {
   /* Core Brand Tokens - Brighter for dark backgrounds */
   --lufa-core-brand-primary: #00ff41;
   --lufa-core-brand-primary-hover: #39ff14;
@@ -111,7 +111,7 @@
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
-[data-color-theme='matrix'][data-mode='high-contrast'] {
+[data-theme='matrix'][data-mode='high-contrast'] {
   /* Use matrix neon green for maximum contrast */
   --lufa-core-brand-primary: #00ff41;
   --lufa-core-brand-primary-hover: #39ff14;

@@ -445,10 +445,10 @@
   **Attribute-Based Theming:**
 
   ```css
-  [data-color-theme='ocean'] {
+  [data-theme='ocean'] {
     /* Ocean overrides */
   }
-  [data-color-theme='forest'] {
+  [data-theme='forest'] {
     /* Forest overrides */
   }
   ```
@@ -538,9 +538,9 @@
 
   ```html
   <!-- Theme Selection -->
-  <html data-color-theme="ocean">
+  <html data-theme="ocean">
     <!-- or "forest" or "default" -->
-    <html data-color-theme="forest">
+    <html data-theme="forest">
       <!-- Mode Selection -->
       <html data-mode="light">
         <!-- or "dark" or "high-contrast" -->
@@ -568,7 +568,7 @@
   - CSS custom properties remain stable
 
   **Opt-in** - Theme selection is optional:
-  - Default theme used if no `data-color-theme` attribute
+  - Default theme used if no `data-theme` attribute
   - Themes can be switched at runtime via JavaScript
   - No rebuild required for theme changes
 
@@ -791,10 +791,10 @@
   **Before:**
 
   ```css
-  [data-theme='dark'] {
+  [data-mode='dark'] {
     /* dark mode styles */
   }
-  [data-theme='high-contrast'] {
+  [data-mode='high-contrast'] {
     /* high-contrast styles */
   }
   ```
@@ -847,12 +847,12 @@
 
   ### @grasdouble/lufa_design-system-themes
   - Added Phase 6 placeholders for ocean/forest themes
-  - Documented `data-color-theme` attribute usage
+  - Documented `data-theme` attribute usage
   - Prepared architecture for brand theme variants
 
   ## Architecture Decisions
   - **ADR-001:** Modes vs Themes Separation - Separate accessibility from branding
-  - **ADR-002:** HTML Attributes Naming - Use `data-mode` + `data-color-theme`
+  - **ADR-002:** HTML Attributes Naming - Use `data-mode` + `data-theme`
 
   ## Documentation
 
@@ -892,7 +892,7 @@
 
   ```css
   /* Before */
-  [data-theme='dark'] {
+  [data-mode='dark'] {
     /* ... */
   }
 

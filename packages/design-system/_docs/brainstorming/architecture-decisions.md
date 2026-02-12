@@ -291,7 +291,7 @@ pnpm clean
 - Generates `[data-mode]` selectors for accessibility modes
 - Resolves primitive references
 
-**Note:** Use `data-mode` for accessibility modes (light/dark/high-contrast) and `data-color-theme` for brand color themes.
+**Note:** Use `data-mode` for accessibility modes (light/dark/high-contrast) and `data-theme` for brand color themes.
 
 ---
 

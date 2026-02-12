@@ -15,9 +15,9 @@ export const ThemeAndModeWrapper: React.FC<ThemeAndModeWrapperProps> = ({ theme,
 
     // Apply theme attribute (Phase 6 - currently placeholder)
     if (theme === 'default') {
-      root.removeAttribute('data-color-theme');
+      root.removeAttribute('data-theme');
     } else {
-      root.setAttribute('data-color-theme', theme);
+      root.setAttribute('data-theme', theme);
     }
 
     // Apply mode attribute (Phase 2A - active)
@@ -31,9 +31,9 @@ export const ThemeAndModeWrapper: React.FC<ThemeAndModeWrapperProps> = ({ theme,
     const docsRoot = window.parent?.document?.documentElement;
     if (docsRoot && docsRoot !== root) {
       if (theme === 'default') {
-        docsRoot.removeAttribute('data-color-theme');
+        docsRoot.removeAttribute('data-theme');
       } else {
-        docsRoot.setAttribute('data-color-theme', theme);
+        docsRoot.setAttribute('data-theme', theme);
       }
 
       if (mode === '' || mode == null || mode === undefined) {
@@ -46,7 +46,7 @@ export const ThemeAndModeWrapper: React.FC<ThemeAndModeWrapperProps> = ({ theme,
 
   return (
     <div
-      data-color-theme={theme !== 'default' ? theme : undefined}
+      data-theme={theme !== 'default' ? theme : undefined}
       data-mode={mode || 'light'}
       style={{
         backgroundColor: 'var(--lufa-semantic-ui-background-page)',

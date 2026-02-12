@@ -70,7 +70,7 @@ The theme is already configured in `custom.css`:
 Add the theme attribute to your HTML element:
 
 ```html
-<html data-color-theme="steampunk" data-mode="light"></html>
+<html data-theme="steampunk" data-mode="light"></html>
 ```
 
 Or use the theme switcher in your Docusaurus site.
@@ -97,7 +97,7 @@ export default {
 Then add to your site's JavaScript:
 
 ```javascript
-document.documentElement.setAttribute('data-color-theme', 'steampunk');
+document.documentElement.setAttribute('data-theme', 'steampunk');
 ```
 
 #### Option B: Custom theme switcher component
@@ -105,7 +105,7 @@ document.documentElement.setAttribute('data-color-theme', 'steampunk');
 ```tsx
 const ThemeSwitcher = () => {
   const setTheme = (theme: string) => {
-    document.documentElement.setAttribute('data-color-theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
   };
 
   return (
@@ -140,7 +140,7 @@ document.documentElement.setAttribute('data-mode', 'high-contrast');
 Override specific tokens in your custom CSS:
 
 ```css
-[data-color-theme='steampunk'][data-mode='light'] {
+[data-theme='steampunk'][data-mode='light'] {
   /* Make brass more golden */
   --lufa-core-brand-primary: #daa520;
 
@@ -154,7 +154,7 @@ Override specific tokens in your custom CSS:
 Add more steampunk elements:
 
 ```css
-[data-color-theme='steampunk'] .custom-element {
+[data-theme='steampunk'] .custom-element {
   border: 2px solid var(--lufa-core-brand-primary);
   box-shadow:
     0 4px 8px rgba(139, 69, 19, 0.3),

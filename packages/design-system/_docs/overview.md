@@ -93,11 +93,11 @@ The Design System serves three primary purposes:
 - **3 accessibility modes**: Light, Dark, High-Contrast
 - **9 total configurations**: 3 themes × 3 modes
 - **Efficient cascade**: 6 core token overrides → 27+ tokens change automatically
-- **Runtime switching**: Change themes/modes via `data-color-theme` and `data-mode` attributes
+- **Runtime switching**: Change themes/modes via `data-theme` and `data-mode` attributes
 
 ```html
 <!-- Select theme (brand/aesthetic) -->
-<html data-color-theme="ocean">
+<html data-theme="ocean">
   <!-- Select mode (accessibility) -->
   <html data-mode="dark"></html>
 </html>

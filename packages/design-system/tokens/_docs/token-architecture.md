@@ -552,10 +552,10 @@ Each theme supports **3 accessibility modes**:
 
 **Important:** Theming and accessibility modes are **separate concerns**:
 
-| Attribute          | Purpose                   | Values                           | Example Use Case                    |
-| ------------------ | ------------------------- | -------------------------------- | ----------------------------------- |
-| `data-color-theme` | Brand/aesthetic selection | `default`, `ocean`, `forest`     | Corporate branding, user preference |
-| `data-mode`        | Accessibility adaptation  | `light`, `dark`, `high-contrast` | Visual accessibility, user needs    |
+| Attribute    | Purpose                   | Values                           | Example Use Case                    |
+| ------------ | ------------------------- | -------------------------------- | ----------------------------------- |
+| `data-theme` | Brand/aesthetic selection | `default`, `ocean`, `forest`     | Corporate branding, user preference |
+| `data-mode`  | Accessibility adaptation  | `light`, `dark`, `high-contrast` | Visual accessibility, user needs    |
 
 **Total Configurations:** 3 themes × 3 modes = **9 configurations**
 
@@ -565,7 +565,7 @@ Each theme supports **3 accessibility modes**:
 
 ```html
 <!-- Theme Selection (Brand) -->
-<html data-color-theme="default">
+<html data-theme="default">
   <!-- or "ocean" or "forest" -->
 
   <!-- Mode Selection (Accessibility) -->
@@ -579,13 +579,11 @@ Each theme supports **3 accessibility modes**:
 
 ```html
 <!-- Ocean theme with dark mode -->
-<html data-color-theme="ocean" data-mode="dark">
-  <!-- Forest theme with high-contrast mode -->
-  <html data-color-theme="forest" data-mode="high-contrast">
-    <!-- Default theme with light mode (default) -->
-    <html data-color-theme="default" data-mode="light"></html>
-  </html>
-</html>
+<html data-theme="ocean" data-mode="dark"></html>
+<!-- Forest theme with high-contrast mode -->
+<html data-theme="forest" data-mode="high-contrast"></html>
+<!-- Default theme with light mode (default) -->
+<html data-theme="default" data-mode="light"></html>
 ```
 
 ### Efficient Token Cascade
@@ -606,13 +604,13 @@ The theming system uses an **efficient cascade approach**:
 }
 
 /* Ocean theme override */
-[data-color-theme='ocean'] {
+[data-theme='ocean'] {
   --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-600);
   --lufa-core-brand-secondary: var(--lufa-primitive-color-teal-500);
 }
 
 /* Forest theme override */
-[data-color-theme='forest'] {
+[data-theme='forest'] {
   --lufa-core-brand-primary: var(--lufa-primitive-color-emerald-600);
   --lufa-core-brand-secondary: var(--lufa-primitive-color-green-600);
 }
@@ -644,11 +642,11 @@ Themes override semantic and component tokens while keeping primitives unchanged
 }
 
 /* OCEAN THEME OVERRIDES (all modes) */
-[data-color-theme='ocean'] {
+[data-theme='ocean'] {
   --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-600);
 }
 
-[data-color-theme='ocean'][data-mode='dark'] {
+[data-theme='ocean'][data-mode='dark'] {
   --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-400);
 }
 ```
@@ -659,13 +657,13 @@ Themes can be switched at runtime via JavaScript:
 
 ```typescript
 // Switch theme
-document.documentElement.setAttribute('data-color-theme', 'ocean');
+document.documentElement.setAttribute('data-theme', 'ocean');
 
 // Switch mode
 document.documentElement.setAttribute('data-mode', 'dark');
 
 // Combine both
-document.documentElement.setAttribute('data-color-theme', 'forest');
+document.documentElement.setAttribute('data-theme', 'forest');
 document.documentElement.setAttribute('data-mode', 'high-contrast');
 ```
 
