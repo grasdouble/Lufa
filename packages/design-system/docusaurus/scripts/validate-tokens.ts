@@ -41,16 +41,16 @@ const DEFAULT_CONFIG: Config = {
 type UserConfig = Partial<Config>;
 
 /**
- * Load configuration from .validate-tokens.json if it exists
+ * Load configuration from validate-tokens.json if it exists
  */
 function loadConfig(): Config {
-  const configPath = join(__dirname, '..', '.validate-tokens.json');
+  const configPath = join(__dirname, 'validate-tokens.json');
 
   if (existsSync(configPath)) {
     try {
       const content = readFileSync(configPath, 'utf-8');
       const userConfig = JSON.parse(content) as UserConfig;
-      console.log('📝 Loaded config from .validate-tokens.json\n');
+      console.log('📝 Loaded config from validate-tokens.json\n');
 
       return {
         ...DEFAULT_CONFIG,
@@ -61,7 +61,7 @@ function loadConfig(): Config {
           : DEFAULT_CONFIG.scanDirectory,
       };
     } catch (_error) {
-      console.warn('⚠️  Warning: Could not parse .validate-tokens.json, using defaults\n');
+      console.warn('⚠️  Warning: Could not parse validate-tokens.json, using defaults\n');
       return DEFAULT_CONFIG;
     }
   }
