@@ -159,5 +159,5 @@ function Card({ title, children, ...boxProps }: CardProps) {
 - [Test Your Code](/docs/guides/testing) - Ensure accessibility and quality
 
 :::tip Interactive Examples
-Try components in the [Playground](/docs/playground) with live code editing!
+Try components in the [Interactive Playground](/playground) and see them adapt to different theme modes!
 :::

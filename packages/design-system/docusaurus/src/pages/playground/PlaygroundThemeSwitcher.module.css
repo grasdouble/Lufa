@@ -51,7 +51,7 @@
 .dropdown {
   position: absolute;
   top: calc(100% + 0.5rem);
-  right: 0;
+  left: 0;
   min-width: 320px;
   background: var(--lufa-core-neutral-background);
   border: 2px solid var(--lufa-core-neutral-border);

@@ -1,6 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import React, { useEffect, useState } from 'react';
 
-import styles from './ThemeSwitcher.module.css';
+import styles from './PlaygroundThemeSwitcher.module.css';
 
 type ThemeName =
   | 'default'
@@ -44,39 +49,41 @@ const COLOR_MODES: { mode: ColorMode; label: string; icon: string }[] = [
   { mode: 'high-contrast', label: 'High Contrast', icon: '🔲' },
 ];
 
-function getInitialTheme(): ThemeName {
-  if (typeof window === 'undefined') return 'default';
-  const saved = localStorage.getItem('lufa-theme') as ThemeName;
-  return saved && THEMES.find((t) => t.name === saved) ? saved : 'default';
-}
+type PlaygroundThemeSwitcherProps = {
+  /**
+   * Ref to the playground container element where theme will be applied
+   */
+  containerRef: React.RefObject<HTMLDivElement>;
+};
 
-function getInitialColorMode(): ColorMode {
-  if (typeof window === 'undefined') return 'light';
-  const saved = localStorage.getItem('lufa-color-mode') as ColorMode;
-  return saved && ['light', 'dark', 'high-contrast'].includes(saved) ? saved : 'light';
-}
-
-export default function ThemeSwitcher(): React.JSX.Element {
-  const [currentTheme, setCurrentTheme] = useState<ThemeName>(getInitialTheme);
-  const [currentMode, setCurrentMode] = useState<ColorMode>(getInitialColorMode);
+/**
+ * Isolated ThemeSwitcher for the playground
+ * Applies themes only to the playground container, not to Docusaurus
+ */
+export default function PlaygroundThemeSwitcher({ containerRef }: PlaygroundThemeSwitcherProps): React.JSX.Element {
+  const [currentTheme, setCurrentTheme] = useState<ThemeName>('default');
+  const [currentMode, setCurrentMode] = useState<ColorMode>('light');
   const [isOpen, setIsOpen] = useState(false);
 
   const applyTheme = (theme: ThemeName) => {
-    // Special handling for default theme - remove the attribute
-    if (theme === 'default') {
-      document.documentElement.removeAttribute('data-theme');
+    if (!containerRef.current) return;
+
+    // For default theme or undefined: set data-theme attribute without value
+    // For other themes: set data-theme="themeName"
+    // Both cases match [data-theme] selector for CSS cascade
+    if (theme === 'default' || !theme) {
+      containerRef.current.setAttribute('data-theme', '');
     } else {
-      document.documentElement.setAttribute('data-theme', theme);
+      containerRef.current.setAttribute('data-theme', theme);
     }
-    localStorage.setItem('lufa-theme', theme);
   };
 
   const applyColorMode = (mode: ColorMode) => {
-    document.documentElement.setAttribute('data-mode', mode);
-    localStorage.setItem('lufa-color-mode', mode);
+    if (!containerRef.current) return;
+    containerRef.current.setAttribute('data-mode', mode);
   };
 
-  // Apply theme and color mode to DOM on mount (values come from lazy initializers, stable at mount)
+  // Apply initial theme and mode
   useEffect(() => {
     applyTheme(currentTheme);
     applyColorMode(currentMode);
@@ -101,8 +108,8 @@ export default function ThemeSwitcher(): React.JSX.Element {
       <button
         className={styles.trigger}
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Switch theme"
-        title="Switch theme"
+        aria-label="Switch playground theme"
+        title="Switch playground theme"
       >
         <span className={styles.icon}>{currentThemeData.icon}</span>
         <span className={styles.label}>{currentThemeData.label}</span>

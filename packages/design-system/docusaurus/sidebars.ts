@@ -15,7 +15,11 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   docs: [
     'intro',
-    'playground',
+    {
+      type: 'link',
+      label: '🎨 Interactive Playground',
+      href: '/playground',
+    },
     {
       type: 'category',
       label: 'Guides',

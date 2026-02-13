@@ -41,49 +41,17 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.5);
 }
 
-/* ==================== GLOBAL BACKGROUND MANAGEMENT ==================== */
-
-/* Ensure html element fills viewport and can have background */
-html {
-  min-height: 100vh;
-}
-
-/* Ensure body is transparent to show html background */
-body {
-  background: transparent;
-}
-
+/* Import Lufa Design System base styles */
 @import '@grasdouble/lufa_design-system/style.css';
 
-/* ==================== THEME IMPORTS ==================== */
-/* Import all Lufa Design System themes and their Docusaurus customizations */
-
-/* Ocean Theme - Marine-inspired with aqua/teal tones */
+/* Import Lufa Design System theme variants */
 @import '@grasdouble/lufa_design-system-themes/ocean.css';
-
-/* Forest Theme - Organic nature with green tones */
 @import '@grasdouble/lufa_design-system-themes/forest.css';
-
-/* Matrix Theme - Digital cyber with neon green */
 @import '@grasdouble/lufa_design-system-themes/matrix.css';
-
-/* Cyberpunk Theme - Futuristic neon with fuchsia/cyan */
 @import '@grasdouble/lufa_design-system-themes/cyberpunk.css';
-
-/* Sunset Theme - Warm elegant with orange/rose */
 @import '@grasdouble/lufa_design-system-themes/sunset.css';
-
-/* Nordic Theme - Minimalist arctic with sky blue */
 @import '@grasdouble/lufa_design-system-themes/nordic.css';
-
-/* Volcano Theme - Powerful intense with red/orange */
 @import '@grasdouble/lufa_design-system-themes/volcano.css';
-
-/* Coffee Theme - Retro vintage with amber/brown */
 @import '@grasdouble/lufa_design-system-themes/coffee.css';
-
-/* Volt Theme - Industrial high-visibility with lime */
 @import '@grasdouble/lufa_design-system-themes/volt.css';
-
-/* Steampunk Theme - Neo Victorian Industrial with brass/copper */
 @import '@grasdouble/lufa_design-system-themes/steampunk.css';
