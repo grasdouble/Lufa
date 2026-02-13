@@ -1,0 +1,152 @@
+.playgroundWrapper {
+  padding: 2rem 0;
+  min-height: 100vh;
+  background: var(--lufa-core-neutral-background);
+  color: var(--lufa-core-neutral-text-primary);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.header {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--lufa-core-neutral-text-primary);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+  background: var(--lufa-core-neutral-surface);
+  border: 1px solid var(--lufa-core-neutral-border);
+  border-radius: var(--lufa-semantic-ui-border-radius-base);
+  box-shadow: var(--lufa-semantic-ui-shadow-small);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.showcase {
+  padding: 2rem 0;
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+.section:not(:last-child) {
+  border-bottom: 1px solid var(--lufa-core-neutral-border);
+}
+
+.sectionTitle {
+  margin-bottom: 1.5rem !important;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--lufa-core-neutral-border);
+  color: var(--lufa-core-neutral-text-primary);
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .playgroundWrapper {
+    padding: 1rem 0;
+  }
+
+  .header {
+    padding: 1rem 0;
+  }
+
+  .controls {
+    padding: 1rem;
+  }
+
+  .section {
+    padding: 1.5rem 0;
+  }
+}
+
+/* ========================================
+ * DEMO SITE STYLES
+ * ======================================== */
+
+.demoSite {
+  /* Demo site has no padding as sections handle their own spacing */
+}
+
+.demoSite .header {
+  padding: 1.5rem 0;
+  background: var(--lufa-core-neutral-surface);
+  border-bottom: 1px solid var(--lufa-core-neutral-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.hero {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.heroSubtitle {
+  max-width: 600px;
+}
+
+.features {
+  padding: 5rem 0;
+}
+
+.pricing {
+  padding: 5rem 0;
+  background: var(--lufa-core-neutral-surface);
+  transition: background-color 0.2s ease;
+}
+
+.newsletter {
+  padding: 5rem 0;
+}
+
+.footer {
+  padding: 3rem 0;
+  background: var(--lufa-core-neutral-surface);
+  border-top: 1px solid var(--lufa-core-neutral-border);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .features,
+  .pricing,
+  .newsletter {
+    padding: 3rem 0;
+  }
+
+  .footer {
+    padding: 2rem 0;
+  }
+
+  .demoSite .header {
+    padding: 1rem 0;
+  }
+}
+
+/* ========================================
+ * VIEW TOGGLE STYLES
+ * ======================================== */
+
+.viewToggle {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--lufa-core-neutral-surface);
+  border-radius: var(--lufa-semantic-ui-border-radius-base);
+  border: 1px solid var(--lufa-core-neutral-border);
+}

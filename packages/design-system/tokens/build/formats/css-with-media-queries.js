@@ -4,17 +4,17 @@ import { getMediaQuery, getTokenBreakpoint, isResponsiveToken } from '../transfo
  * Custom Format: CSS with Media Queries for Responsive Tokens
  *
  * Generates CSS with:
- * 1. Base styles in :root (including responsive base values)
+ * 1. Base styles in [data-theme] (including responsive base values)
  * 2. Media query overrides for responsive variants
  * 3. [data-mode] selectors for theme modes
  *
  * Example output:
- * :root {
+ * [data-theme] {
  *   --lufa-core-layout-page-padding: 16px;
  * }
  *
  * @media (min-width: 768px) {
- *   :root {
+ *   [data-theme] {
  *     --lufa-core-layout-page-padding: 24px;
  *   }
  * }
@@ -121,7 +121,7 @@ export const cssWithMediaQueries = {
     output += ' * These never change regardless of mode or theme\n';
     output += ' * Layer: Primitives, Layout\n';
     output += ' * ======================================== */\n';
-    output += ':root {\n';
+    output += '[data-theme] {\n';
 
     // Immutable tokens (primitives, layout) - ONLY in :root
     immutableTokens.forEach((token) => {
@@ -145,10 +145,12 @@ export const cssWithMediaQueries = {
     if (modeAwareTokens.length > 0) {
       output += '/* ========================================\n';
       output += ' * MODE-AWARE TOKENS\n';
-      output += ' * These change based on [data-mode] attribute\n';
+      output += ' * These change based on [data-mode] and [data-theme] attributes\n';
       output += ' * Layer: Core, Semantic, Component\n';
+      output += ' * [data-theme] selector ensures proper CSS variable inheritance\n';
+      output += ' * when themes override core tokens. data-theme attribute is always present.\n';
       output += ' * ======================================== */\n';
-      output += ":root,\n[data-mode='light'] {\n";
+      output += "[data-theme],\n[data-mode='light'] {\n";
 
       // Mode-aware tokens (light mode values)
       modeAwareTokens.forEach(({ token }) => {
@@ -169,7 +171,7 @@ export const cssWithMediaQueries = {
       if (tokens.length > 0) {
         const mediaQuery = getMediaQuery(breakpoint);
         output += `@media ${mediaQuery} {\n`;
-        output += '  :root {\n';
+        output += '  [data-theme] {\n';
 
         tokens.forEach((token) => {
           const cssVarName = getResponsiveCSSVarName(token);
