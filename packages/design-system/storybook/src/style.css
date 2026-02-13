@@ -14,6 +14,7 @@
 @import '@grasdouble/lufa_design-system-themes/volcano.css';
 @import '@grasdouble/lufa_design-system-themes/coffee.css';
 @import '@grasdouble/lufa_design-system-themes/volt.css';
+@import '@grasdouble/lufa_design-system-themes/steampunk.css';
 
 /* Storybook-specific styles */
 #storybook-root {

@@ -83,6 +83,7 @@ const preview: Preview = {
           { value: 'volcano', title: 'Volcano 🌋', icon: 'circle' },
           { value: 'coffee', title: 'Coffee ☕', icon: 'circle' },
           { value: 'volt', title: 'Volt ⚡', icon: 'circle' },
+          { value: 'steampunk', title: 'Steampunk ⚙️', icon: 'circle' },
         ],
         dynamicTitle: true,
       },
