@@ -1,0 +1,146 @@
+{
+  "semantic": {
+    "effect": {
+      "glow": {
+        "box": {
+          "none": {
+            "$value": "none",
+            "$type": "shadow",
+            "$description": "No box glow effect (default for most components)",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "effect",
+                "useCase": "Components without glow effects, light themes",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "primary": {
+            "default": {
+              "$value": "none",
+              "$type": "shadow",
+              "$description": "Primary box glow effect for interactive elements (cards, buttons) - themeable",
+              "$extensions": {
+                "lufa": {
+                  "level": "semantic",
+                  "category": "effect",
+                  "useCase": "Cards, buttons in dark mode or themed experiences",
+                  "themeable": true,
+                  "modeAware": false
+                }
+              }
+            },
+            "hover": {
+              "$value": "none",
+              "$type": "shadow",
+              "$description": "Enhanced primary box glow on hover - themeable",
+              "$extensions": {
+                "lufa": {
+                  "level": "semantic",
+                  "category": "effect",
+                  "useCase": "Hover state for cards and buttons",
+                  "themeable": true,
+                  "modeAware": false
+                }
+              }
+            }
+          },
+          "focus": {
+            "$value": "0 0 0 3px rgba(59, 130, 246, 0.25)",
+            "$type": "shadow",
+            "$description": "Focus ring glow for accessibility - themeable (default: blue-500 with 25% opacity)",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "effect",
+                "useCase": "Focus states for interactive elements like cards",
+                "themeable": true,
+                "modeAware": false,
+                "note": "Default fallback for accessibility. Themes can override with brand colors."
+              }
+            }
+          }
+        },
+        "text": {
+          "none": {
+            "$value": "none",
+            "$type": "shadow",
+            "$description": "No text glow effect (default)",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "effect",
+                "useCase": "Default text rendering",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "primary": {
+            "default": {
+              "$value": "none",
+              "$type": "shadow",
+              "$description": "Primary text glow for neon/cyberpunk effects - themeable",
+              "$extensions": {
+                "lufa": {
+                  "level": "semantic",
+                  "category": "effect",
+                  "useCase": "Text glow effects in themed buttons",
+                  "themeable": true,
+                  "modeAware": false
+                }
+              }
+            },
+            "hover": {
+              "$value": "none",
+              "$type": "shadow",
+              "$description": "Enhanced text glow on hover - themeable",
+              "$extensions": {
+                "lufa": {
+                  "level": "semantic",
+                  "category": "effect",
+                  "useCase": "Hover state for text with glow effects",
+                  "themeable": true,
+                  "modeAware": false
+                }
+              }
+            }
+          }
+        },
+        "border": {
+          "none": {
+            "$value": "none",
+            "$type": "shadow",
+            "$description": "No border glow effect (default)",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "effect",
+                "useCase": "Default border rendering",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "focus": {
+            "$value": "0 0 0 2px rgba(59, 130, 246, 0.2)",
+            "$type": "shadow",
+            "$description": "Border glow for focused inputs - themeable (default: blue-500 with 20% opacity)",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "effect",
+                "useCase": "Focus state for input fields",
+                "themeable": true,
+                "modeAware": false,
+                "note": "Default fallback for accessibility. Themes can override with brand colors."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,429 +1,445 @@
 {
   "semantic": {
     "interactive": {
-      "background-default": {
-        "$value": "{core.neutral.surface}",
-        "$type": "color",
-        "$description": "Default background for interactive elements like buttons and inputs in their resting state",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Button backgrounds, input backgrounds, interactive card backgrounds",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "background-hover": {
-        "$value": "{core.neutral.surface-hover}",
-        "$type": "color",
-        "$description": "Background color when hovering over interactive elements - provides visual feedback",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Hover state for buttons, inputs, cards, list items",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "background-active": {
-        "$value": "{core.brand.primary-active}",
-        "$type": "color",
-        "$description": "Background color when pressing/clicking interactive elements - provides immediate feedback",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Active/pressed state for buttons and clickable elements",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "background-disabled": {
-        "$value": "{core.neutral.surface}",
-        "$type": "color",
-        "$description": "Background color for disabled interactive elements - indicates non-interactive state",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Disabled buttons, disabled inputs, non-interactive elements",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "border-default": {
-        "$value": "{core.neutral.border}",
-        "$type": "color",
-        "$description": "Default border color for interactive elements in resting state",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Input borders, button outlines, card borders",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "border-hover": {
-        "$value": "{core.neutral.border-strong}",
-        "$type": "color",
-        "$description": "Border color when hovering over interactive elements - stronger emphasis",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Hover state borders for inputs and outlined buttons",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "border-focus": {
-        "$value": "{core.brand.primary}",
-        "$type": "color",
-        "$description": "Border color for focused interactive elements - indicates keyboard focus and accessibility",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Focus rings, focused input borders, keyboard navigation indicators",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "border-disabled": {
-        "$value": "{core.neutral.border}",
-        "$type": "color",
-        "$description": "Border color for disabled interactive elements - subtle indication of disabled state",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Disabled input borders, disabled button outlines",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "text-default": {
-        "$value": "{core.neutral.text-primary}",
-        "$type": "color",
-        "$description": "Default text color for interactive elements in resting state",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Button labels, input text, interactive element labels",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "text-hover": {
-        "$value": "{core.neutral.text-primary}",
-        "$type": "color",
-        "$description": "Text color when hovering over interactive elements - maintains readability",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Hover state text for buttons and interactive elements",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "text-active": {
-        "$value": "{core.neutral.text-primary}",
-        "$type": "color",
-        "$description": "Text color when pressing/clicking interactive elements",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Active/pressed state text for buttons",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "text-disabled": {
-        "$value": "{core.neutral.text-disabled}",
-        "$type": "color",
-        "$description": "Text color for disabled interactive elements - low contrast indicates non-interactive",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Disabled button text, disabled input text, non-interactive labels",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "focus-ring": {
-        "$value": "{core.brand.primary}",
-        "$type": "color",
-        "$description": "Color for focus rings around interactive elements - ensures accessibility compliance",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Focus indicators, keyboard navigation rings, accessibility focus states",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "focus-ring-offset": {
-        "$value": "2px",
-        "$type": "dimension",
-        "$description": "Offset distance for focus rings from element edge - improves visibility",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "useCase": "Focus ring spacing, outline-offset for focused elements",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "disabled-opacity": {
-        "$value": "0.38",
-        "$type": "number",
-        "$description": "Opacity value for disabled interactive elements (Material Design standard)",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "state",
-            "useCase": "Apply to buttons, inputs, and controls in disabled state",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "loading-opacity": {
-        "$value": "0.6",
-        "$type": "number",
-        "$description": "Opacity value for loading states and skeleton loaders",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "state",
-            "useCase": "Skeleton loaders, loading placeholders",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "placeholder-opacity": {
-        "$value": "0.5",
-        "$type": "number",
-        "$description": "Opacity value for placeholder text and empty states",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "state",
-            "useCase": "Input placeholders, empty state illustrations",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "focus-background": {
-        "$value": "{core.brand.primary}",
-        "$type": "color",
-        "$description": "Background color for focused interactive elements (rare use case)",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "state",
-            "useCase": "Filled focus states (not just outline)",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "selected-background": {
-        "$value": "{semantic.ui.overlay-selected}",
-        "$type": "color",
-        "$description": "Background color for selected items in lists and menus",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "state",
-            "useCase": "Selected list items, active menu items, selected tabs",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "selected-text": {
-        "$value": "{core.brand.primary}",
-        "$type": "color",
-        "$description": "Text color for selected items",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "state",
-            "useCase": "Text in selected list items, active navigation",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "link-default": {
-        "$value": "{core.brand.primary}",
-        "$type": "color",
-        "$description": "Default link color for all link states in resting state",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "link",
-            "useCase": "Standard hyperlinks, navigation links, text links",
-            "a11y": "Maintains WCAG AA contrast in all modes",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "link-hover": {
-        "$value": "{core.brand.primary-hover}",
-        "$type": "color",
-        "$description": "Link color when hovering - provides visual feedback",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "link",
-            "useCase": "Hover state for links, enhanced interactivity indication",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "link-visited": {
-        "light": {
-          "$value": "{primitive.color.purple.600}",
+      "background": {
+        "default": {
+          "$value": "{core.neutral.surface}",
           "$type": "color",
-          "$description": "Visited link color for light mode - purple to indicate visited state",
+          "$description": "Default background for interactive elements like buttons and inputs in their resting state",
           "$extensions": {
             "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Button backgrounds, input backgrounds, interactive card backgrounds",
               "themeable": true,
               "modeAware": false
             }
           }
         },
-        "dark": {
-          "$value": "{primitive.color.purple.400}",
+        "hover": {
+          "$value": "{core.neutral.surface-hover}",
           "$type": "color",
-          "$description": "Visited link color for dark mode - lighter purple for contrast",
+          "$description": "Background color when hovering over interactive elements - provides visual feedback",
           "$extensions": {
             "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Hover state for buttons, inputs, cards, list items",
               "themeable": true,
               "modeAware": false
             }
           }
         },
-        "high-contrast": {
-          "$value": "#9900ff",
+        "active": {
+          "$value": "{core.brand.primary-active}",
           "$type": "color",
-          "$description": "Visited link color for high-contrast mode - vibrant purple for maximum visibility",
+          "$description": "Background color when pressing/clicking interactive elements - provides immediate feedback",
           "$extensions": {
             "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Active/pressed state for buttons and clickable elements",
               "themeable": true,
               "modeAware": false
             }
           }
         },
-        "$type": "color",
-        "$description": "Color for visited links - helps users track navigation history",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "link",
-            "useCase": "Previously visited hyperlinks, navigation history",
-            "a11y": "Distinct from default link color for clarity",
-            "themeable": true,
-            "modeAware": false
+        "disabled": {
+          "$value": "{core.neutral.surface}",
+          "$type": "color",
+          "$description": "Background color for disabled interactive elements - indicates non-interactive state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Disabled buttons, disabled inputs, non-interactive elements",
+              "themeable": true,
+              "modeAware": false
+            }
           }
         }
       },
-      "link-focus": {
-        "$value": "{core.brand.primary}",
-        "$type": "color",
-        "$description": "Link color when focused via keyboard - accessibility focus state",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "link",
-            "useCase": "Keyboard navigation focus, accessibility compliance",
-            "a11y": "Ensures focus ring is visible in all modes",
-            "themeable": true,
-            "modeAware": false
+      "border": {
+        "default": {
+          "$value": "{core.neutral.border}",
+          "$type": "color",
+          "$description": "Default border color for interactive elements in resting state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Input borders, button outlines, card borders",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "hover": {
+          "$value": "{core.neutral.border-strong}",
+          "$type": "color",
+          "$description": "Border color when hovering over interactive elements - stronger emphasis",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Hover state borders for inputs and outlined buttons",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "focus": {
+          "$value": "{core.brand.primary}",
+          "$type": "color",
+          "$description": "Border color for focused interactive elements - indicates keyboard focus and accessibility",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Focus rings, focused input borders, keyboard navigation indicators",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "disabled": {
+          "$value": "{core.neutral.border}",
+          "$type": "color",
+          "$description": "Border color for disabled interactive elements - subtle indication of disabled state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Disabled input borders, disabled button outlines",
+              "themeable": true,
+              "modeAware": false
+            }
           }
         }
       },
-      "link-active": {
-        "$value": "{core.brand.primary-active}",
-        "$type": "color",
-        "$description": "Link color when being clicked/activated",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "link",
-            "useCase": "Active click state for links, pressed state",
-            "themeable": true,
-            "modeAware": false
+      "text": {
+        "default": {
+          "$value": "{core.neutral.text-primary}",
+          "$type": "color",
+          "$description": "Default text color for interactive elements in resting state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Button labels, input text, interactive element labels",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "hover": {
+          "$value": "{core.neutral.text-primary}",
+          "$type": "color",
+          "$description": "Text color when hovering over interactive elements - maintains readability",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Hover state text for buttons and interactive elements",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "active": {
+          "$value": "{core.neutral.text-primary}",
+          "$type": "color",
+          "$description": "Text color when pressing/clicking interactive elements",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Active/pressed state text for buttons",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "disabled": {
+          "$value": "{core.neutral.text-disabled}",
+          "$type": "color",
+          "$description": "Text color for disabled interactive elements - low contrast indicates non-interactive",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Disabled button text, disabled input text, non-interactive labels",
+              "themeable": true,
+              "modeAware": false
+            }
           }
         }
       },
-      "link-underline-default": {
-        "$value": "underline",
-        "$type": "string",
-        "$description": "Default text decoration for links",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "link",
-            "useCase": "Standard link underline decoration",
-            "themeable": true,
-            "modeAware": false
+      "focus": {
+        "ring": {
+          "$value": "{core.brand.primary}",
+          "$type": "color",
+          "$description": "Color for focus rings around interactive elements - ensures accessibility compliance",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Focus indicators, keyboard navigation rings, accessibility focus states",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "ring-offset": {
+          "$value": "2px",
+          "$type": "dimension",
+          "$description": "Offset distance for focus rings from element edge - improves visibility",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Focus ring spacing, outline-offset for focused elements",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "background": {
+          "$value": "{core.brand.primary}",
+          "$type": "color",
+          "$description": "Background color for focused interactive elements (rare use case)",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "state",
+              "useCase": "Filled focus states (not just outline)",
+              "themeable": true,
+              "modeAware": false
+            }
           }
         }
       },
-      "link-underline-hover": {
-        "$value": "underline",
-        "$type": "string",
-        "$description": "Text decoration for links on hover",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "interactive",
-            "subcategory": "link",
-            "useCase": "Hover state link decoration, can be 'none' for subtle effect",
-            "themeable": true,
-            "modeAware": false
+      "opacity": {
+        "disabled": {
+          "$value": "0.38",
+          "$type": "number",
+          "$description": "Opacity value for disabled interactive elements (Material Design standard)",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "state",
+              "useCase": "Apply to buttons, inputs, and controls in disabled state",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "loading": {
+          "$value": "0.6",
+          "$type": "number",
+          "$description": "Opacity value for loading states and skeleton loaders",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "state",
+              "useCase": "Skeleton loaders, loading placeholders",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "placeholder": {
+          "$value": "0.5",
+          "$type": "number",
+          "$description": "Opacity value for placeholder text and empty states",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "state",
+              "useCase": "Input placeholders, empty state illustrations",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "selected": {
+        "background": {
+          "$value": "{semantic.ui.overlay.selected}",
+          "$type": "color",
+          "$description": "Background color for selected items in lists and menus",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "state",
+              "useCase": "Selected list items, active menu items, selected tabs",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "text": {
+          "$value": "{core.brand.primary}",
+          "$type": "color",
+          "$description": "Text color for selected items",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "state",
+              "useCase": "Text in selected list items, active navigation",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "link": {
+        "default": {
+          "$value": "{core.brand.primary}",
+          "$type": "color",
+          "$description": "Default link color for all link states in resting state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Standard hyperlinks, navigation links, text links",
+              "a11y": "Maintains WCAG AA contrast in all modes",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "hover": {
+          "$value": "{core.brand.primary-hover}",
+          "$type": "color",
+          "$description": "Link color when hovering - provides visual feedback",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Hover state for links, enhanced interactivity indication",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "visited": {
+          "light": {
+            "$value": "{primitive.color.purple.600}",
+            "$type": "color",
+            "$description": "Visited link color for light mode - purple to indicate visited state",
+            "$extensions": {
+              "lufa": {
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "dark": {
+            "$value": "{primitive.color.purple.400}",
+            "$type": "color",
+            "$description": "Visited link color for dark mode - lighter purple for contrast",
+            "$extensions": {
+              "lufa": {
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "high-contrast": {
+            "$value": "#9900ff",
+            "$type": "color",
+            "$description": "Visited link color for high-contrast mode - vibrant purple for maximum visibility",
+            "$extensions": {
+              "lufa": {
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "$type": "color",
+          "$description": "Color for visited links - helps users track navigation history",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Previously visited hyperlinks, navigation history",
+              "a11y": "Distinct from default link color for clarity",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "focus": {
+          "$value": "{core.brand.primary}",
+          "$type": "color",
+          "$description": "Link color when focused via keyboard - accessibility focus state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Keyboard navigation focus, accessibility compliance",
+              "a11y": "Ensures focus ring is visible in all modes",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "active": {
+          "$value": "{core.brand.primary-active}",
+          "$type": "color",
+          "$description": "Link color when being clicked/activated",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Active click state for links, pressed state",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "underline": {
+          "default": {
+            "$value": "underline",
+            "$type": "string",
+            "$description": "Default text decoration for links",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "interactive",
+                "subcategory": "link",
+                "useCase": "Standard link underline decoration",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "hover": {
+            "$value": "underline",
+            "$type": "string",
+            "$description": "Text decoration for links on hover",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "interactive",
+                "subcategory": "link",
+                "useCase": "Hover state link decoration, can be 'none' for subtle effect",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
           }
         }
       }

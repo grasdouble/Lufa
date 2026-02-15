@@ -1,19 +1,22 @@
 /**
  * Token Consistency Validator
- * 
+ *
  * Enforces architectural rules for token metadata:
  * - Primitives must be immutable (themeable: false, modeAware: false)
  * - Only modeAware tokens can have modes object
  * - Layout tokens must be structural constants
  * - Tokens with modes must have all three: light, dark, high-contrast
- * 
+ * - Tokens cannot be both fluid AND responsive (mutually exclusive)
+ *
  * @see ADR-011: Token Architecture - Primitives as Immutable Constants
+ * @see ADR-006: Responsive Spacing Architecture
+ * @see ADR-008: Responsive Typography Strategy
+ * @see docs/FLUID_VS_RESPONSIVE.md
  */
 
-import { readFileSync, readdirSync, statSync } from 'fs';
-import { join, extname } from 'path';
+import { readdirSync, readFileSync, statSync } from 'fs';
+import { dirname, extname, join } from 'path';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -100,7 +103,7 @@ function validateToken(token, path, file) {
     return;
   }
 
-  const { level, themeable, modeAware, modes, themes } = extensions;
+  const { level, themeable, modeAware, modes, themes, fluid, responsive } = extensions;
   const tokenPath = path.join('.');
 
   // Rule 1: Primitives cannot be themeable or mode-aware
@@ -185,6 +188,17 @@ function validateToken(token, path, file) {
   if ('themable' in extensions) {
     throw new ValidationError(
       `Token "${tokenPath}" uses deprecated "themable" (typo). Use "themeable" instead.`,
+      tokenPath,
+      file
+    );
+  }
+
+  // Rule 7: Tokens cannot be both fluid AND responsive (mutually exclusive)
+  // @see ADR-006 (Responsive Spacing) and ADR-008 (Fluid Typography)
+  // @see docs/FLUID_VS_RESPONSIVE.md for explanation
+  if (fluid === true && responsive !== undefined) {
+    throw new ValidationError(
+      `Token "${tokenPath}" cannot be both fluid (CSS clamp) AND responsive (media queries). These approaches are mutually exclusive. Use fluid for typography scaling, responsive for layout spacing. See docs/FLUID_VS_RESPONSIVE.md`,
       tokenPath,
       file
     );

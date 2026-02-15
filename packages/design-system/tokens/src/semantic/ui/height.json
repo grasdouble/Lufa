@@ -1,0 +1,50 @@
+{
+  "semantic": {
+    "ui": {
+      "height": {
+        "sm": {
+          "$value": "{primitive.height.32}",
+          "$type": "dimension",
+          "$description": "Small UI component height - compact buttons, inputs",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Small buttons, compact form controls, dense UI",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "md": {
+          "$value": "{primitive.height.40}",
+          "$type": "dimension",
+          "$description": "Medium UI component height - default buttons, inputs",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Default buttons, standard form controls",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "lg": {
+          "$value": "{primitive.height.48}",
+          "$type": "dimension",
+          "$description": "Large UI component height - prominent buttons, touch-friendly",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Large buttons, touch-friendly controls, prominent UI",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}
