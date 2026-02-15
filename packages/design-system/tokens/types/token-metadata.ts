@@ -51,6 +51,39 @@ export interface TokenThemes {
 }
 
 /**
+ * Fluid range configuration for tokens using CSS clamp()
+ *
+ * @see ADR-008: Responsive Typography Strategy
+ * @see docs/FLUID_VS_RESPONSIVE.md for complete guide
+ */
+export interface FluidRange {
+  /** Minimum value (e.g., "32px") */
+  min: string;
+  /** Maximum value (e.g., "48px") */
+  max: string;
+  /** Viewport range for scaling */
+  viewport: {
+    /** Minimum viewport width (e.g., "320px") */
+    min: string;
+    /** Maximum viewport width (e.g., "1280px") */
+    max: string;
+  };
+}
+
+/**
+ * Responsive configuration for tokens using media queries
+ *
+ * @see ADR-006: Responsive Spacing Architecture
+ * @see docs/FLUID_VS_RESPONSIVE.md for complete guide
+ */
+export interface ResponsiveConfig {
+  /** Breakpoint name (base, sm, md, lg, xl, 2xl) */
+  breakpoint: string;
+  /** Viewport width where this variant applies (e.g., "768px" or "all" for base) */
+  applyAt: string;
+}
+
+/**
  * Lufa-specific token metadata extensions
  */
 export interface LufaExtensions {
@@ -100,6 +133,118 @@ export interface LufaExtensions {
    * Only valid if `themeable: true`
    */
   themes?: TokenThemes;
+
+  /**
+   * Does this token use CSS clamp() for continuous viewport scaling?
+   *
+   * **Fluid tokens scale continuously across ALL viewport sizes using CSS clamp().**
+   *
+   * - `true`: Token uses CSS clamp() (e.g., `clamp(2rem, 1.5rem + 2vw, 3rem)`)
+   * - `false` or undefined: Token uses fixed values
+   *
+   * **When to use:**
+   * - ✅ Typography tokens (headings 2xl and above)
+   * - ✅ Large-scale spacing that should scale smoothly
+   * - ❌ Layout spacing (use `responsive` instead)
+   * - ❌ Body text (use fixed values)
+   *
+   * **Mutually exclusive with `responsive`** - A token cannot be both fluid and responsive.
+   *
+   * **Examples:**
+   * - Fluid H1: `clamp(2rem, 1.5rem + 2vw, 3rem)` → 32px to 48px smoothly
+   * - Fixed body: `16px` → Same at all viewport sizes
+   *
+   * **Performance:**
+   * - File size impact: ~80 bytes per token (minimal)
+   * - Runtime: Single CSS calculation, no media queries
+   * - Browser support: 96.1% (Chrome 79+, Firefox 75+, Safari 13.1+)
+   *
+   * @default false
+   * @see ADR-008: Responsive Typography Strategy
+   * @see docs/FLUID_VS_RESPONSIVE.md for complete guide
+   * @see fluidRange for scaling configuration
+   */
+  fluid?: boolean;
+
+  /**
+   * Fluid scaling range configuration (only valid if `fluid: true`)
+   *
+   * Documents the min/max values and viewport range for CSS clamp() tokens.
+   *
+   * **Example:**
+   * ```json
+   * {
+   *   "fluid": true,
+   *   "fluidRange": {
+   *     "min": "32px",
+   *     "max": "48px",
+   *     "viewport": { "min": "320px", "max": "1280px" }
+   *   }
+   * }
+   * ```
+   *
+   * **Generates CSS:**
+   * ```css
+   * clamp(2rem, 1.5rem + 2vw, 3rem)
+   * ```
+   *
+   * @see fluid
+   * @see docs/FLUID_VS_RESPONSIVE.md
+   */
+  fluidRange?: FluidRange;
+
+  /**
+   * Does this token change at specific breakpoints using media queries?
+   *
+   * **Responsive tokens have discrete values at specific viewport breakpoints.**
+   *
+   * - Defined: Token has variants for different breakpoints (e.g., base, md, lg)
+   * - Undefined: Token uses the same value at all viewport sizes
+   *
+   * **When to use:**
+   * - ✅ Layout spacing (page-padding, section-gap, container-gutter)
+   * - ✅ Structural tokens that define page layout
+   * - ✅ Tokens needing precise control at specific breakpoints
+   * - ❌ Typography (use `fluid` instead for better performance)
+   * - ❌ Component spacing (typically fixed)
+   *
+   * **Mutually exclusive with `fluid`** - A token cannot be both fluid and responsive.
+   *
+   * **Examples:**
+   * - Responsive page-padding:
+   *   - `base`: 16px (mobile, all viewports)
+   *   - `md`: 24px (tablet, 768px+)
+   *   - `lg`: 32px (desktop, 1024px+)
+   * - Fixed button padding: 12px 16px (same at all sizes)
+   *
+   * **Implementation:**
+   * Responsive tokens are implemented as separate token variants with suffixes:
+   * - `page-padding.base` → 16px
+   * - `page-padding.md` → 24px (applies at 768px+)
+   * - `page-padding.lg` → 32px (applies at 1024px+)
+   *
+   * **CSS Output:**
+   * ```css
+   * --token-base: 16px;
+   *
+   * @media (min-width: 768px) {
+   *   --token-md: 24px;
+   * }
+   *
+   * @media (min-width: 1024px) {
+   *   --token-lg: 32px;
+   * }
+   * ```
+   *
+   * **Performance:**
+   * - File size impact: ~150 bytes per token set (3 variants)
+   * - Runtime: Native media query handling (highly optimized)
+   * - Browser support: 99.9% (universal)
+   *
+   * @see ADR-006: Responsive Spacing Architecture
+   * @see docs/FLUID_VS_RESPONSIVE.md for complete guide
+   */
+  responsive?: ResponsiveConfig;
 
   /**
    * Additional notes or documentation
@@ -169,7 +314,8 @@ export type ValidationRule =
   | 'themes-require-themeable'
   | 'layout-structural'
   | 'modes-complete'
-  | 'no-typo-themable';
+  | 'no-typo-themable'
+  | 'fluid-responsive-exclusive';
 
 /**
  * Type guard: Check if object is a DesignToken
@@ -204,4 +350,41 @@ export function isThemeableToken(token: DesignToken): boolean {
  */
 export function isLayoutToken(token: DesignToken): boolean {
   return token.$extensions?.lufa?.level === 'layout';
+}
+
+/**
+ * Type guard: Check if token is fluid (uses CSS clamp)
+ *
+ * @see ADR-008: Responsive Typography Strategy
+ * @see docs/FLUID_VS_RESPONSIVE.md
+ */
+export function isFluidToken(token: DesignToken): boolean {
+  return token.$extensions?.lufa?.fluid === true;
+}
+
+/**
+ * Type guard: Check if token is responsive (uses media queries)
+ *
+ * @see ADR-006: Responsive Spacing Architecture
+ * @see docs/FLUID_VS_RESPONSIVE.md
+ */
+export function isResponsiveToken(token: DesignToken): boolean {
+  return token.$extensions?.lufa?.responsive !== undefined;
+}
+
+/**
+ * Validation: Check if token violates fluid-responsive exclusivity
+ *
+ * Tokens cannot be both fluid AND responsive - they are mutually exclusive.
+ *
+ * @returns true if token is valid (not both fluid and responsive)
+ * @see docs/FLUID_VS_RESPONSIVE.md for explanation
+ */
+export function validateFluidResponsiveExclusivity(token: DesignToken): boolean {
+  const isFluid = isFluidToken(token);
+  const isResponsive = isResponsiveToken(token);
+
+  // Valid: token is neither, or only one of them
+  // Invalid: token is BOTH fluid and responsive
+  return !(isFluid && isResponsive);
 }

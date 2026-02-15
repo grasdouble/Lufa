@@ -3,7 +3,7 @@
     "container": {
       "max-width": {
         "xs": {
-          "$value": "{primitive.breakpoint.xs}",
+          "$value": "{semantic.layout.breakpoint.xs}",
           "$type": "dimension",
           "$description": "Max-width for extra small screens",
           "$extensions": {
@@ -15,7 +15,7 @@
           }
         },
         "sm": {
-          "$value": "{primitive.breakpoint.sm}",
+          "$value": "{semantic.layout.breakpoint.sm}",
           "$type": "dimension",
           "$description": "Max-width for small screens",
           "$extensions": {
@@ -27,7 +27,7 @@
           }
         },
         "md": {
-          "$value": "{primitive.breakpoint.md}",
+          "$value": "{semantic.layout.breakpoint.md}",
           "$type": "dimension",
           "$description": "Max-width for medium screens",
           "$extensions": {
@@ -39,7 +39,7 @@
           }
         },
         "lg": {
-          "$value": "{primitive.breakpoint.lg}",
+          "$value": "{semantic.layout.breakpoint.lg}",
           "$type": "dimension",
           "$description": "Max-width for large screens",
           "$extensions": {
@@ -51,7 +51,7 @@
           }
         },
         "xl": {
-          "$value": "{primitive.breakpoint.xl}",
+          "$value": "{semantic.layout.breakpoint.xl}",
           "$type": "dimension",
           "$description": "Max-width for extra large screens",
           "$extensions": {
@@ -63,7 +63,7 @@
           }
         },
         "2xl": {
-          "$value": "{primitive.breakpoint.2xl}",
+          "$value": "{semantic.layout.breakpoint.2xl}",
           "$type": "dimension",
           "$description": "Max-width for 2x extra large screens",
           "$extensions": {
@@ -77,7 +77,7 @@
       },
       "padding": {
         "default": {
-          "$value": "{semantic.ui.spacing-default}",
+          "$value": "{semantic.ui.spacing.default}",
           "$type": "dimension",
           "$description": "Default horizontal padding for container",
           "$extensions": {
