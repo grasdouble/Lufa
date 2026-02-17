@@ -124,6 +124,29 @@
             }
           }
         }
+      },
+      "accent": {
+        "visited": {
+          "$value": "{primitive.color.purple.600}",
+          "$type": "color",
+          "$description": "Visited link color - purple to indicate previously visited links",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "brand",
+              "role": "visited-link",
+              "useCase": "Previously visited hyperlinks, navigation history tracking",
+              "a11y": "Maintains WCAG AA contrast for visited links in all modes",
+              "modes": {
+                "light": "{primitive.color.purple.600}",
+                "dark": "{primitive.color.purple.400}",
+                "high-contrast": "#9900ff"
+              },
+              "themeable": true,
+              "modeAware": true
+            }
+          }
+        }
       }
     }
   }

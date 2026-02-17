@@ -48,7 +48,7 @@
           }
         },
         "large": {
-          "$value": "16px",
+          "$value": "{primitive.radius.scale.2xl}",
           "$type": "dimension",
           "$description": "Large border radius for prominent rounding (16px)",
           "$extensions": {

@@ -86,6 +86,20 @@
             }
           }
         },
+        "2xl": {
+          "$value": "16px",
+          "$type": "dimension",
+          "$description": "2X Extra large radius - highly pronounced rounding",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "radius",
+              "useCase": "Modal dialogs, hero cards, large panels, prominent components",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
         "full": {
           "$value": "9999px",
           "$type": "dimension",

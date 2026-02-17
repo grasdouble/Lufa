@@ -1,0 +1,50 @@
+{
+  "primitive": {
+    "border-width": {
+      "scale": {
+        "thin": {
+          "$value": "1px",
+          "$type": "dimension",
+          "$description": "Thin border width - subtle borders",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "border-width",
+              "useCase": "Default borders, dividers, card outlines, subtle separators",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "base": {
+          "$value": "2px",
+          "$type": "dimension",
+          "$description": "Base border width - emphasized borders",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "border-width",
+              "useCase": "Focus indicators, selected states, thick dividers, emphasized borders",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "thick": {
+          "$value": "4px",
+          "$type": "dimension",
+          "$description": "Thick border width - very strong emphasis",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "border-width",
+              "useCase": "Strong focus indicators, decorative borders, high emphasis dividers",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

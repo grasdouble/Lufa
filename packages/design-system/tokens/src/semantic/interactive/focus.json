@@ -17,7 +17,7 @@
           }
         },
         "ring.offset": {
-          "$value": "2px",
+          "$value": "{primitive.border-width.scale.base}",
           "$type": "dimension",
           "$description": "Offset distance for focus rings from element edge - improves visibility (standard UX constant)",
           "$extensions": {

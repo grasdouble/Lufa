@@ -3,7 +3,7 @@
     "ui": {
       "border-width": {
         "thin": {
-          "$value": "1px",
+          "$value": "{primitive.border-width.scale.thin}",
           "$type": "dimension",
           "$description": "Thin border width for subtle borders (1px)",
           "$extensions": {
@@ -17,7 +17,7 @@
           }
         },
         "medium": {
-          "$value": "2px",
+          "$value": "{primitive.border-width.scale.base}",
           "$type": "dimension",
           "$description": "Medium border width for emphasized borders (2px)",
           "$extensions": {
@@ -31,7 +31,7 @@
           }
         },
         "thick": {
-          "$value": "4px",
+          "$value": "{primitive.border-width.scale.thick}",
           "$type": "dimension",
           "$description": "Thick border width for very strong emphasis (4px)",
           "$extensions": {

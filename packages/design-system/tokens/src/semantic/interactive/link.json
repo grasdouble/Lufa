@@ -34,39 +34,7 @@
           }
         },
         "visited": {
-          "light": {
-            "$value": "{primitive.color.purple.600}",
-            "$type": "color",
-            "$description": "Visited link color for light mode - purple to indicate visited state",
-            "$extensions": {
-              "lufa": {
-                "themeable": true,
-                "modeAware": false
-              }
-            }
-          },
-          "dark": {
-            "$value": "{primitive.color.purple.400}",
-            "$type": "color",
-            "$description": "Visited link color for dark mode - lighter purple for contrast",
-            "$extensions": {
-              "lufa": {
-                "themeable": true,
-                "modeAware": false
-              }
-            }
-          },
-          "high-contrast": {
-            "$value": "#9900ff",
-            "$type": "color",
-            "$description": "Visited link color for high-contrast mode - vibrant purple for maximum visibility",
-            "$extensions": {
-              "lufa": {
-                "themeable": true,
-                "modeAware": false
-              }
-            }
-          },
+          "$value": "{core.brand.accent.visited}",
           "$type": "color",
           "$description": "Color for visited links - helps users track navigation history",
           "$extensions": {
@@ -77,7 +45,7 @@
               "useCase": "Previously visited hyperlinks, navigation history",
               "a11y": "Distinct from default link color for clarity",
               "themeable": true,
-              "modeAware": false
+              "modeAware": true
             }
           }
         },

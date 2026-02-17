@@ -1,0 +1,50 @@
+{
+  "primitive": {
+    "opacity": {
+      "scale": {
+        "disabled": {
+          "$value": "0.38",
+          "$type": "number",
+          "$description": "Opacity for disabled states (Material Design standard - 38%)",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "opacity",
+              "useCase": "Disabled buttons, inputs, and controls",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "placeholder": {
+          "$value": "0.5",
+          "$type": "number",
+          "$description": "Opacity for placeholder elements (50%)",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "opacity",
+              "useCase": "Input placeholders, empty state illustrations",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "loading": {
+          "$value": "0.6",
+          "$type": "number",
+          "$description": "Opacity for loading states (60%)",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "opacity",
+              "useCase": "Skeleton loaders, loading placeholders",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}
