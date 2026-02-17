@@ -19,7 +19,7 @@
                   "high-contrast": "1.02"
                 },
                 "modeAware": true,
-                "themeable": true
+                "themeable": false
               }
             }
           }
@@ -41,7 +41,7 @@
                   "high-contrast": "0"
                 },
                 "modeAware": true,
-                "themeable": true
+                "themeable": false
               }
             }
           }

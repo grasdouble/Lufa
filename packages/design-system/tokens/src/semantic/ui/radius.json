@@ -12,7 +12,7 @@
               "category": "ui",
               "subcategory": "radius",
               "useCase": "Badges, tags, tooltips, compact buttons, chips",
-              "themeable": true,
+              "themeable": false,
               "modeAware": false
             }
           }
@@ -27,7 +27,7 @@
               "category": "ui",
               "subcategory": "radius",
               "useCase": "Buttons, inputs, cards, modals, standard rounded corners",
-              "themeable": true,
+              "themeable": false,
               "modeAware": false
             }
           }
@@ -42,7 +42,7 @@
               "category": "ui",
               "subcategory": "radius",
               "useCase": "Large cards, popovers, emphasized components, feature sections",
-              "themeable": true,
+              "themeable": false,
               "modeAware": false
             }
           }
@@ -57,7 +57,7 @@
               "category": "ui",
               "subcategory": "radius",
               "useCase": "Modal dialogs, hero cards, large panels, prominent components",
-              "themeable": true,
+              "themeable": false,
               "modeAware": false
             }
           }
@@ -72,7 +72,7 @@
               "category": "ui",
               "subcategory": "radius",
               "useCase": "Badges, pills, circular avatars, fully rounded buttons",
-              "themeable": true,
+              "themeable": false,
               "modeAware": false
             }
           }

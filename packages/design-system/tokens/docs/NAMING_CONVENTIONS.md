@@ -1,6 +1,6 @@
 # Design Tokens - Naming Conventions
 
-This document defines the naming conventions for Lufa Design System tokens, including guidelines for the `themable` attribute.
+This document defines the naming conventions for Lufa Design System tokens, including guidelines for the `themeable` attribute.
 
 ---
 
@@ -9,7 +9,7 @@ This document defines the naming conventions for Lufa Design System tokens, incl
 1. [General Principles](#general-principles)
 2. [Token Naming Structure](#token-naming-structure)
 3. [Naming by Token Level](#naming-by-token-level)
-4. [Themable Naming Conventions](#themable-naming-conventions)
+4. [Themeable Naming Conventions](#themeable-naming-conventions)
 5. [Examples](#examples)
 6. [Validation](#validation)
 
@@ -115,7 +115,7 @@ All tokens generate CSS variables following this pattern:
           "$value": "#2563eb",
           "$extensions": {
             "lufa": {
-              "themable": true, // Colors are always themable
+              "themeable": true, // Colors are always themeable
               "category": "primitive"
             }
           }
@@ -128,7 +128,7 @@ All tokens generate CSS variables following this pattern:
         "$value": "16px",
         "$extensions": {
           "lufa": {
-            "themable": false, // Dimensions are never themable
+            "themeable": false, // Dimensions are never themeable
             "category": "primitive"
           }
         }
@@ -162,7 +162,7 @@ All tokens generate CSS variables following this pattern:
         "$value": "{primitive.color.blue.600}",
         "$extensions": {
           "lufa": {
-            "themable": true, // Inherits from referenced token
+            "themeable": true, // Inherits from referenced token
             "category": "core"
           }
         }
@@ -174,7 +174,7 @@ All tokens generate CSS variables following this pattern:
         "$value": "{primitive.color.neutral.700}",
         "$extensions": {
           "lufa": {
-            "themable": true,
+            "themeable": true,
             "category": "core"
           }
         }
@@ -223,7 +223,7 @@ All tokens generate CSS variables following this pattern:
           "$value": "0.8",
           "$extensions": {
             "lufa": {
-              "themable": false, // Numeric values are not themable
+              "themeable": false, // Numeric values are not themeable
               "category": "semantic"
             }
           }
@@ -258,11 +258,11 @@ All tokens generate CSS variables following this pattern:
           "default": {
             "$type": "color",
             "$value": "{core.brand.primary}",
-            "$extensions": {
-              "lufa": {
-                "themable": true,
-                "category": "component"
-              }
+          "$extensions": {
+            "lufa": {
+              "themeable": true,
+              "category": "semantic",
+              "subcategory": "feedback"
             }
           },
           "hover": {
@@ -270,7 +270,7 @@ All tokens generate CSS variables following this pattern:
             "$value": "{core.brand.primary-dark}",
             "$extensions": {
               "lufa": {
-                "themable": true,
+                "themeable": true,
                 "category": "component"
               }
             }
@@ -281,7 +281,7 @@ All tokens generate CSS variables following this pattern:
           "$value": "{primitive.spacing.16}",
           "$extensions": {
             "lufa": {
-              "themable": false, // Dimensions remain constant
+              "themeable": false, // Dimensions remain constant
               "category": "component"
             }
           }
@@ -302,11 +302,11 @@ All tokens generate CSS variables following this pattern:
 
 ---
 
-## 🎨 Themable Naming Conventions
+## 🎨 Themeable Naming Conventions
 
 ### Rule 1: Color Tokens
 
-All color tokens **must** include `themable: true` regardless of their level.
+All color tokens **must** include `themeable: true` regardless of their level.
 
 **Naming Pattern:**
 
@@ -324,10 +324,10 @@ All color tokens **must** include `themable: true` regardless of their level.
           "$value": "{primitive.color.green.50}",
           "$extensions": {
             "lufa": {
-              "themable": true,
-              "category": "semantic",
-              "subcategory": "feedback"
+              "themeable": true,
+              "category": "semantic"
             }
+          }
           },
           "$description": "Success feedback background color"
         }
@@ -343,7 +343,7 @@ All color tokens **must** include `themable: true` regardless of their level.
 
 ### Rule 2: Shadow Tokens
 
-Shadow tokens **must** include `themable: true`.
+Shadow tokens **must** include `themeable: true`.
 
 **Naming Pattern:**
 
@@ -360,7 +360,7 @@ Shadow tokens **must** include `themable: true`.
           "$value": "{primitive.shadow.elevation.md}",
           "$extensions": {
             "lufa": {
-              "themable": true,
+              "themeable": true,
               "category": "semantic"
             }
           },
@@ -378,7 +378,7 @@ Shadow tokens **must** include `themable: true`.
 
 ### Rule 3: Dimension Tokens
 
-Dimension tokens **must** include `themable: false`.
+Dimension tokens **must** include `themeable: false`.
 
 **Naming Pattern:**
 
@@ -396,7 +396,7 @@ Dimension tokens **must** include `themable: false`.
           "$value": "{primitive.height.64}",
           "$extensions": {
             "lufa": {
-              "themable": false,
+              "themeable": false,
               "category": "semantic"
             }
           },
@@ -431,22 +431,22 @@ When naming state variants, follow this order:
           "default": {
             "$type": "color",
             "$value": "{core.brand.primary}",
-            "$extensions": { "lufa": { "themable": true } }
+            "$extensions": { "lufa": { "themeable": true } }
           },
           "hover": {
             "$type": "color",
             "$value": "{core.brand.primary-dark}",
-            "$extensions": { "lufa": { "themable": true } }
+            "$extensions": { "lufa": { "themeable": true } }
           },
           "active": {
             "$type": "color",
             "$value": "{core.brand.primary-darker}",
-            "$extensions": { "lufa": { "themable": true } }
+            "$extensions": { "lufa": { "themeable": true } }
           },
           "disabled": {
             "$type": "color",
             "$value": "{core.neutral.300}",
-            "$extensions": { "lufa": { "themable": true } }
+            "$extensions": { "lufa": { "themeable": true } }
           }
         }
       }
@@ -475,7 +475,7 @@ When naming state variants, follow this order:
             "$description": "Primary button background color (default state)",
             "$extensions": {
               "lufa": {
-                "themable": true,
+                "themeable": true,
                 "category": "component",
                 "subcategory": "button"
               }
@@ -487,7 +487,7 @@ When naming state variants, follow this order:
             "$description": "Primary button background color (hover state)",
             "$extensions": {
               "lufa": {
-                "themable": true,
+                "themeable": true,
                 "category": "component",
                 "subcategory": "button"
               }
@@ -498,11 +498,11 @@ When naming state variants, follow this order:
           "$type": "color",
           "$value": "{core.text.inverse}",
           "$description": "Primary button text color",
-          "$extensions": {
-            "lufa": {
-              "themable": true,
-              "category": "component",
-              "subcategory": "button"
+            "$extensions": {
+              "lufa": {
+                "themeable": true,
+                "category": "component"
+              }
             }
           }
         },
@@ -513,7 +513,7 @@ When naming state variants, follow this order:
             "$description": "Primary button horizontal padding",
             "$extensions": {
               "lufa": {
-                "themable": false,
+                "themeable": false,
                 "category": "component",
                 "subcategory": "button"
               }
@@ -525,7 +525,7 @@ When naming state variants, follow this order:
             "$description": "Primary button vertical padding",
             "$extensions": {
               "lufa": {
-                "themable": false,
+                "themeable": false,
                 "category": "component",
                 "subcategory": "button"
               }
@@ -551,7 +551,7 @@ When naming state variants, follow this order:
             "$description": "Primary button shadow (default state)",
             "$extensions": {
               "lufa": {
-                "themable": true,
+                "themeable": true,
                 "category": "component",
                 "subcategory": "button"
               }
@@ -563,7 +563,7 @@ When naming state variants, follow this order:
             "$description": "Primary button shadow (hover state)",
             "$extensions": {
               "lufa": {
-                "themable": true,
+                "themeable": true,
                 "category": "component",
                 "subcategory": "button"
               }
@@ -617,8 +617,8 @@ When adding new tokens, verify:
 - [ ] Token name follows level-appropriate pattern
 - [ ] Token has `$description` field (min 10 chars)
 - [ ] Token has `$type` field (valid DTCG type)
-- [ ] Token has `$extensions.lufa.themable` field
-- [ ] `themable` value matches token type rules:
+- [ ] Token has `$extensions.lufa.themeable` field
+- [ ] `themeable` value matches token type rules:
   - `color` → `true`
   - `shadow` → `true`
   - `dimension` → `false`

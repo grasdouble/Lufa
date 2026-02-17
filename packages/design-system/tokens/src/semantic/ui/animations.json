@@ -4,7 +4,7 @@
       "animation": {
         "pulse": {
           "duration": {
-            "$value": "2s",
+            "$value": "{primitive.motion.duration.slower}",
             "$type": "duration",
             "$description": "Duration for pulse animation (breathing, pulsing effects)",
             "$extensions": {
@@ -13,7 +13,7 @@
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Loading indicators, attention-grabbing elements, breathing effects",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
@@ -28,7 +28,7 @@
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Smooth pulsing effects",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
@@ -36,7 +36,7 @@
         },
         "shimmer": {
           "duration": {
-            "$value": "2s",
+            "$value": "{primitive.motion.duration.slower}",
             "$type": "duration",
             "$description": "Duration for shimmer animation (loading skeleton, shine effects)",
             "$extensions": {
@@ -45,7 +45,7 @@
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Skeleton loaders, loading states, shimmer effects",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
@@ -60,7 +60,7 @@
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Continuous shimmer movement",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
@@ -77,7 +77,7 @@
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Panel slides, drawer animations, modal entrances",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
@@ -92,7 +92,7 @@
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Smooth entrance animations",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }

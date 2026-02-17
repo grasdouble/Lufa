@@ -11,7 +11,7 @@
               "level": "semantic",
               "category": "ui-border",
               "useCase": "Default borders, dividers, card outlines, subtle separators",
-              "themeable": true,
+              "themeable": false,
               "modeAware": false
             }
           }
@@ -25,7 +25,7 @@
               "level": "semantic",
               "category": "ui-border",
               "useCase": "Focus indicators, selected states, thick dividers, emphasized borders",
-              "themeable": true,
+              "themeable": false,
               "modeAware": false
             }
           }
@@ -39,7 +39,7 @@
               "level": "semantic",
               "category": "ui-border",
               "useCase": "Strong focus indicators, decorative borders, high emphasis dividers",
-              "themeable": true,
+              "themeable": false,
               "modeAware": false
             }
           }

@@ -18,7 +18,7 @@
                 "high-contrast": "blur(2px)"
               },
               "modeAware": true,
-              "themeable": true
+              "themeable": false
             }
           }
         },
@@ -38,7 +38,7 @@
                 "high-contrast": "0.5"
               },
               "modeAware": true,
-              "themeable": true
+              "themeable": false
             }
           }
         }

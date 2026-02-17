@@ -34,7 +34,7 @@
       "icon": {
         "size": {
           "xs": {
-            "$value": "16px",
+            "$value": "{primitive.icon-size.scale.xs}",
             "$type": "dimension",
             "$description": "Extra small icon size for compact UI",
             "$extensions": {
@@ -42,13 +42,13 @@
                 "level": "component",
                 "category": "shared",
                 "useCase": "Badges, small buttons, compact indicators",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
           },
           "sm": {
-            "$value": "20px",
+            "$value": "{primitive.icon-size.scale.sm}",
             "$type": "dimension",
             "$description": "Small icon size for standard UI",
             "$extensions": {
@@ -56,13 +56,13 @@
                 "level": "component",
                 "category": "shared",
                 "useCase": "Button icons, input icons, default icon size",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
           },
           "md": {
-            "$value": "24px",
+            "$value": "{primitive.icon-size.scale.md}",
             "$type": "dimension",
             "$description": "Medium icon size for emphasized UI",
             "$extensions": {
@@ -70,13 +70,13 @@
                 "level": "component",
                 "category": "shared",
                 "useCase": "Large buttons, card icons, section headers",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
           },
           "lg": {
-            "$value": "32px",
+            "$value": "{primitive.icon-size.scale.lg}",
             "$type": "dimension",
             "$description": "Large icon size for prominent UI",
             "$extensions": {
@@ -84,13 +84,13 @@
                 "level": "component",
                 "category": "shared",
                 "useCase": "Modal headers, feature cards, hero sections",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
           },
           "xl": {
-            "$value": "40px",
+            "$value": "{primitive.icon-size.scale.xl}",
             "$type": "dimension",
             "$description": "Extra large icon size for hero UI",
             "$extensions": {
@@ -98,7 +98,7 @@
                 "level": "component",
                 "category": "shared",
                 "useCase": "Hero sections, landing pages, large feature displays",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
@@ -131,7 +131,7 @@
                 "category": "shared",
                 "useCase": "All interactive elements focus indicator",
                 "a11y": "Required for WCAG 2.1 AA keyboard navigation",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
@@ -145,7 +145,7 @@
                 "level": "component",
                 "category": "shared",
                 "useCase": "Focus ring spacing from element",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
@@ -159,7 +159,7 @@
                 "level": "component",
                 "category": "shared",
                 "useCase": "All interactive elements focus ring",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
@@ -177,7 +177,7 @@
                 "level": "component",
                 "category": "shared",
                 "useCase": "Hover states, color changes",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }
@@ -191,7 +191,7 @@
                 "level": "component",
                 "category": "shared",
                 "useCase": "Button clicks, input focus, tooltips",
-                "themeable": true,
+                "themeable": false,
                 "modeAware": false
               }
             }

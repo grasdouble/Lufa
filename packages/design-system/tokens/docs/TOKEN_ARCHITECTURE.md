@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document explains the three-tier token architecture in the Lufa Design System and how to properly use each level.
+This document explains the four-tier token architecture in the Lufa Design System and how to properly use each level.
 
 ---
 
@@ -10,14 +10,20 @@ This document explains the three-tier token architecture in the Lufa Design Syst
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                     THEME TOKENS                         │
-│  Theme-specific values (colors, glow effects, etc.)     │
+│                   COMPONENT TOKENS                       │
+│  Component-specific tokens (button, card, input, etc.)  │
 │              ↓ references ↓                              │
 └─────────────────────────────────────────────────────────┘
                         ↓
 ┌─────────────────────────────────────────────────────────┐
 │                   SEMANTIC TOKENS                        │
 │  Context-specific tokens (ui, interactive, typography)  │
+│              ↓ references ↓                              │
+└─────────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────────┐
+│                     CORE TOKENS                          │
+│  Global design decisions (brand, text, neutral colors)  │
 │              ↓ references ↓                              │
 └─────────────────────────────────────────────────────────┘
                         ↓
@@ -91,20 +97,67 @@ This document explains the three-tier token architecture in the Lufa Design Syst
 
 ---
 
-## 2. Semantic Tokens
+## 2. Core Tokens
+
+**Location:** `packages/design-system/tokens/src/core/`
+
+**Characteristics:**
+
+- ✅ **Global design decisions** - Brand colors, base typography
+- ✅ **References primitives** - Uses `{primitive.*}` references
+- ✅ **Themeable** - `themeable: true` (can vary by theme)
+- ✅ **Not mode-aware** - Same value across light/dark modes
+
+**Examples:**
+
+```json
+{
+  "core": {
+    "brand": {
+      "primary": {
+        "$value": "{primitive.color.blue.600}",
+        "$type": "color",
+        "$description": "Primary brand color"
+      }
+    },
+    "text": {
+      "body": {
+        "$value": "{primitive.color.neutral.700}",
+        "$type": "color",
+        "$description": "Body text color"
+      }
+    }
+  }
+}
+```
+
+**Use Cases:**
+
+- Brand colors (primary, secondary, accent)
+- Base text colors (body, heading, muted)
+- Neutral palette (white, black, grays)
+
+**When to Add Core Tokens:**
+
+- When defining **global brand decisions** that apply across the entire design system
+- When creating **base colors** that semantic tokens will reference
+
+---
+
+## 3. Semantic Tokens
 
 **Location:** `packages/design-system/tokens/src/semantic/`
 
 **Characteristics:**
 
 - ✅ **Context-specific** - Named by purpose, not by value
-- ✅ **References primitives** - Uses `{primitive.*}` references
-- ✅ **Themeable** - `themeable: true` (themes can override)
+- ✅ **References core or primitives** - Uses `{core.*}` or `{primitive.*}` references
+- ✅ **Themeable** - `themeable: true` for colors/shadows, `false` for dimensions/numbers
 - ⚠️ **Sometimes mode-aware** - Can vary by mode when needed
 
 **Categories:**
 
-### 2.1 UI Tokens (`semantic/ui/`)
+### 3.1 UI Tokens (`semantic/ui/`)
 
 General UI patterns applicable across components
 
@@ -135,7 +188,7 @@ General UI patterns applicable across components
 - Spacing (compact, comfortable, spacious)
 - Border radius (small, medium, large)
 
-### 2.2 Interactive Tokens (`semantic/interactive/`)
+### 3.2 Interactive Tokens (`semantic/interactive/`)
 
 Interactive element behaviors
 
@@ -180,7 +233,7 @@ Interactive element behaviors
 - Opacity states (disabled, loading, inactive)
 - Focus indicators
 
-### 2.3 Typography Tokens (`semantic/typography/`)
+### 3.3 Typography Tokens (`semantic/typography/`)
 
 Text hierarchy and semantics
 
@@ -205,7 +258,7 @@ Text hierarchy and semantics
 
 ---
 
-## 3. Component Tokens
+## 4. Component Tokens
 
 **Location:** `packages/design-system/tokens/src/component/`
 
@@ -244,88 +297,7 @@ Text hierarchy and semantics
 
 ---
 
-## 4. Theme Tokens
-
-**Location:** `packages/design-system/themes/src/*.css`
-
-**Characteristics:**
-
-- ✅ **Theme-specific** - Define visual identity of a theme
-- ✅ **Mode-aware** - Different values for light/dark/high-contrast
-- ✅ **Can reference semantic tokens** - For non-theme-specific values
-- ✅ **Can use literal values** - For theme-specific colors/effects
-
-**What Belongs in Theme Files:**
-
-### ✅ KEEP - Theme-Specific Tokens
-
-1. **Core Brand Colors**
-
-   ```css
-   --lufa-core-brand-primary: #22d3ee; /* Cyan for ocean theme */
-   --lufa-core-brand-secondary: #3b82f6; /* Blue for ocean theme */
-   ```
-
-2. **Glow Effects with Theme Colors**
-
-   ```css
-   /* Dark mode - uses theme-specific colors */
-   --lufa-effect-glow: 0 0 8px rgba(34, 211, 238, 0.4);
-   --lufa-effect-glow-hover: 0 0 12px rgba(34, 211, 238, 0.6);
-   ```
-
-3. **Theme-Specific Timing Functions**
-
-   ```css
-   /* Steampunk uses Victorian industrial easing */
-   --lufa-transition-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-   ```
-
-4. **Mode-Specific Opacity Overrides**
-
-   ```css
-   /* Light mode */
-   --lufa-effect-opacity-inactive: 0.5;
-
-   /* Dark mode */
-   --lufa-effect-opacity-inactive: 0.4;
-   ```
-
-### ❌ REMOVE - Should Use Semantic Tokens
-
-1. **Transition Durations** ⛔
-
-   ```css
-   /* WRONG - duplicates primitive tokens */
-   --lufa-transition-duration-fast: 150ms;
-   --lufa-transition-duration-normal: 300ms;
-
-   /* These should be removed entirely - components use semantic tokens directly */
-   ```
-
-2. **Generic Transform Values** ⛔
-
-   ```css
-   /* WRONG - use semantic tokens instead */
-   --lufa-effect-backdrop-blur: blur(8px);
-
-   /* RIGHT - reference semantic token */
-   --lufa-effect-backdrop-blur: var(--lufa-semantic-ui-backdrop-blur-dark);
-   ```
-
-3. **Standard Shadows** ⛔
-
-   ```css
-   /* WRONG - duplicates semantic shadows */
-   --lufa-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-   /* RIGHT - use semantic shadows */
-   box-shadow: var(--lufa-semantic-ui-shadow-small);
-   ```
-
----
-
-## 5. Decision Tree: Where to Add a New Token?
+## 6. ETR-003 Clarification
 
 ```
 START: I need to define a new token
@@ -336,9 +308,9 @@ Q1: Does the value NEVER change across themes?
     │
     └─ NO → Continue to Q2
 
-Q2: Is this value specific to ONE theme's visual identity?
-    ├─ YES → Add to THEME FILE
-    │         Examples: brand colors, theme-specific glow effects
+Q2: Is this a global design decision (brand color, base text)?
+    ├─ YES → Add to CORE TOKENS
+    │         Examples: brand primary color, body text color
     │
     └─ NO → Continue to Q3
 
@@ -512,12 +484,12 @@ Q4: Is this a general UI pattern used across multiple components?
 
 ## 9. Summary Table
 
-| Token Type    | Location                 | Themeable | Mode-Aware   | References            | Examples                                   |
-| ------------- | ------------------------ | --------- | ------------ | --------------------- | ------------------------------------------ |
-| **Primitive** | `tokens/src/primitives/` | ❌ No     | ❌ No        | Nothing               | `gray-500`, `spacing-16`, `duration-fast`  |
-| **Semantic**  | `tokens/src/semantic/`   | ✅ Yes    | ⚠️ Sometimes | Primitives            | `transition-fast`, `transform.scale.hover` |
-| **Component** | `tokens/src/component/`  | ✅ Yes    | ❌ No        | Semantics             | `button-padding-md`, `card-radius`         |
-| **Theme**     | `themes/src/*.css`       | N/A       | ✅ Yes       | Semantics or literals | `core-brand-primary`, `effect-glow`        |
+| Token Type    | Location                 | Themeable | Mode-Aware   | References         | Examples                                   |
+| ------------- | ------------------------ | --------- | ------------ | ------------------ | ------------------------------------------ |
+| **Primitive** | `tokens/src/primitives/` | ❌ No     | ❌ No        | Nothing            | `gray-500`, `spacing-16`, `duration-fast`  |
+| **Core**      | `tokens/src/core/`       | ✅ Yes    | ❌ No        | Primitives         | `brand-primary`, `text-body`               |
+| **Semantic**  | `tokens/src/semantic/`   | Mixed     | ⚠️ Sometimes | Core or Primitives | `transition-fast`, `transform.scale.hover` |
+| **Component** | `tokens/src/component/`  | Mixed     | ❌ No        | Semantics          | `button-padding-md`, `card-radius`         |
 
 ---
 
@@ -526,11 +498,14 @@ Q4: Is this a general UI pattern used across multiple components?
 **Q: When should I add a new primitive token?**  
 A: Only when defining a **universal foundation value** that will NEVER change across themes (e.g., new color in palette, new spacing scale value).
 
-**Q: Can themes override semantic tokens?**  
-A: Yes! Semantic tokens are `themeable: true`, so themes can override them. But themes should prefer **referencing** semantic tokens rather than **redefining** them.
+**Q: When should I add a new core token?**  
+A: When defining **global brand decisions** or **base colors** that apply across the entire design system and may vary by theme.
+
+**Q: Can themes override core and semantic tokens?**  
+A: Yes! Core and semantic tokens with `themeable: true` can be overridden by themes to customize the design system for different visual identities.
 
 **Q: What if my component needs a theme-specific color with transparency?**  
-A: Use `rgba()` inline with the theme's brand color, don't create fake primitive alpha tokens:
+A: Use `rgba()` inline with the core brand color, don't create fake primitive alpha tokens:
 
 ```css
 /* ✅ RIGHT */
@@ -541,19 +516,20 @@ background: rgba(var(--lufa-core-brand-primary-rgb), 0.1);
 ```
 
 **Q: Should transition durations be in theme files?**  
-A: **No!** They're already defined as primitives and semantics. Themes should not redefine them. Components use semantic tokens directly.
+A: **No!** They're already defined as primitives and semantics. Components use semantic tokens directly.
 
-**Q: What about custom timing functions per theme?**  
-A: If a theme needs a **unique** timing function (like steampunk's "Victorian industrial" easing), it can define `--lufa-transition-timing` with a custom cubic-bezier. But standard easings (ease, ease-in-out) should reference primitives.
+**Q: What is the difference between core and semantic tokens?**  
+A: Core tokens represent **global design decisions** (brand colors, base typography), while semantic tokens represent **contextual use cases** (UI patterns, interactive behaviors) that may reference core or primitive tokens.
 
 ---
 
 ## Last Updated
 
-- **Date:** 2026-02-14
-- **By:** Token Architecture Cleanup (ETR-003 Audit)
+- **Date:** 2026-02-17
+- **By:** Token Architecture Review - 4-Layer System Documentation
 - **Changes:**
-  - Added new semantic tokens (transforms, backdrop, animations)
-  - Updated primitive timings (300ms/500ms instead of 250ms/400ms)
-  - Removed duplicate tokens from all theme files
-  - Clarified ETR-003 scope (black/white alpha only)
+  - Updated documentation to reflect 4-layer architecture (Primitive → Core → Semantic → Component)
+  - Removed Theme Tokens section (themes override core/semantic tokens, not a separate layer)
+  - Added Core tokens layer explanation
+  - Updated decision tree and summary table
+  - Clarified when to use each layer

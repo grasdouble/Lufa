@@ -57,6 +57,20 @@
               "modeAware": false
             }
           }
+        },
+        "slower": {
+          "$value": "2s",
+          "$type": "duration",
+          "$description": "Very slow duration for continuous animations (2s)",
+          "$extensions": {
+            "lufa": {
+              "level": "primitive",
+              "category": "motion",
+              "useCase": "Pulse animations, breathing effects, shimmer loading states",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
         }
       },
       "easing": {
