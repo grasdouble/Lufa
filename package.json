@@ -78,6 +78,7 @@
     "tools:---------------------------------------------": "",
     "tools:bmad:status": "pnpm dlx bmad-method status",
     "tools:bmad:update": "pnpm dlx bmad-method install",
+    "tools:bmad:viewer": "pnpm dlx bmad-viewer",
     "tools:generate-outdated-report": "node .github/actions/dependency-update/generateOutdatedReport.js",
     "validate:------------------------------------------": "",
     "validate:components": "node scripts/validate-components.js",
