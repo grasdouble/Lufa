@@ -30,13 +30,13 @@
     ]
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.11.0",
+    "@axe-core/playwright": "^4.11.1",
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
     "@grasdouble/lufa_design-system": "workspace:^",
-    "@playwright/experimental-ct-react": "^1.58.1",
-    "@types/node": "^25.1.0",
-    "@types/react": "^19.2.10",
+    "@playwright/experimental-ct-react": "^1.58.2",
+    "@types/node": "^25.2.3",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.2",
     "lucide-react": "^0.563.0",
