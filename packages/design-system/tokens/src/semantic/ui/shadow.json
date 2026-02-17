@@ -47,7 +47,7 @@
             }
           }
         },
-        "extra-large": {
+        "extra.large": {
           "$value": "{primitive.shadow.elevation.xl}",
           "$type": "shadow",
           "$description": "Extra large shadow for maximum elevation (floating elements)",

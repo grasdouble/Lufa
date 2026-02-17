@@ -1,0 +1,217 @@
+{
+  "component": {
+    "shared": {
+      "divider": {
+        "thickness": {
+          "$value": "{semantic.ui.border-width.thin}",
+          "$type": "dimension",
+          "$description": "Standard divider/separator thickness",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "shared",
+              "useCase": "Divider component, horizontal rules, separators",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "color": {
+          "$value": "{semantic.ui.border.default}",
+          "$type": "color",
+          "$description": "Divider color using semantic border",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "shared",
+              "useCase": "Divider component color",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "icon": {
+        "size": {
+          "xs": {
+            "$value": "16px",
+            "$type": "dimension",
+            "$description": "Extra small icon size for compact UI",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "shared",
+                "useCase": "Badges, small buttons, compact indicators",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "sm": {
+            "$value": "20px",
+            "$type": "dimension",
+            "$description": "Small icon size for standard UI",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "shared",
+                "useCase": "Button icons, input icons, default icon size",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "md": {
+            "$value": "24px",
+            "$type": "dimension",
+            "$description": "Medium icon size for emphasized UI",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "shared",
+                "useCase": "Large buttons, card icons, section headers",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "lg": {
+            "$value": "32px",
+            "$type": "dimension",
+            "$description": "Large icon size for prominent UI",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "shared",
+                "useCase": "Modal headers, feature cards, hero sections",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "xl": {
+            "$value": "40px",
+            "$type": "dimension",
+            "$description": "Extra large icon size for hero UI",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "shared",
+                "useCase": "Hero sections, landing pages, large feature displays",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          }
+        },
+        "spacing": {
+          "$value": "{semantic.ui.spacing.tight}",
+          "$type": "dimension",
+          "$description": "Spacing between icon and adjacent text",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "shared",
+              "useCase": "Button icon-text gap, input icon spacing",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "focus": {
+        "outline": {
+          "width": {
+            "$value": "{semantic.ui.border-width.medium}",
+            "$type": "dimension",
+            "$description": "Focus outline width for keyboard navigation",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "shared",
+                "useCase": "All interactive elements focus indicator",
+                "a11y": "Required for WCAG 2.1 AA keyboard navigation",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "offset": {
+            "$value": "{semantic.ui.border-width.medium}",
+            "$type": "dimension",
+            "$description": "Focus outline offset from element edge",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "shared",
+                "useCase": "Focus ring spacing from element",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "color": {
+            "$value": "{semantic.interactive.focus.ring}",
+            "$type": "color",
+            "$description": "Focus outline color",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "shared",
+                "useCase": "All interactive elements focus ring",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          }
+        }
+      },
+      "transition": {
+        "duration": {
+          "fast": {
+            "$value": "150ms",
+            "$type": "duration",
+            "$description": "Fast transition for subtle interactions",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "shared",
+                "useCase": "Hover states, color changes",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "normal": {
+            "$value": "250ms",
+            "$type": "duration",
+            "$description": "Normal transition for standard interactions",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "shared",
+                "useCase": "Button clicks, input focus, tooltips",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          }
+        },
+        "timing-function": {
+          "$value": "ease-in-out",
+          "$type": "cubicBezier",
+          "$description": "Standard easing function for smooth transitions",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "shared",
+              "useCase": "All component transitions",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

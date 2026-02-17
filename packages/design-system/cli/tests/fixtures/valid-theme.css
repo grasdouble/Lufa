@@ -179,7 +179,6 @@
      ======================================================================== */
 
   /* --- Core: Layout Dimensions --- */
-  --lufa-core-component-modal-max-width: 600px;
   --lufa-core-layout-container-max-width: 1280px;
   --lufa-core-layout-sidebar-width: 280px;
   --lufa-core-layout-content-max-width: 720px;
@@ -191,17 +190,6 @@
   --lufa-core-brand-secondary: var(--lufa-primitive-color-purple-500);
   --lufa-core-brand-secondary-hover: var(--lufa-primitive-color-purple-600);
   --lufa-core-brand-secondary-active: var(--lufa-primitive-color-purple-700);
-
-  /* --- Core: Component Spacing --- */
-  --lufa-core-component-button-padding-x: var(--lufa-primitive-spacing-16);
-  --lufa-core-component-button-padding-y: var(--lufa-primitive-spacing-8);
-  --lufa-core-component-button-gap: var(--lufa-primitive-spacing-8);
-  --lufa-core-component-input-height: var(--lufa-primitive-spacing-40);
-  --lufa-core-component-input-padding-x: var(--lufa-primitive-spacing-12);
-  --lufa-core-component-input-padding-y: var(--lufa-primitive-spacing-8);
-  --lufa-core-component-card-padding: var(--lufa-primitive-spacing-24);
-  --lufa-core-component-card-gap: var(--lufa-primitive-spacing-16);
-  --lufa-core-component-modal-padding: var(--lufa-primitive-spacing-32);
 
   /* --- Core: Layout Spacing --- */
   --lufa-core-layout-page-padding: var(--lufa-primitive-spacing-24);

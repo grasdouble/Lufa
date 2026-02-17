@@ -1,0 +1,38 @@
+{
+  "semantic": {
+    "interactive": {
+      "selected": {
+        "background": {
+          "$value": "{semantic.ui.overlay.selected}",
+          "$type": "color",
+          "$description": "Background color for selected items in lists and menus",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "state",
+              "useCase": "Selected list items, active menu items, selected tabs",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "text": {
+          "$value": "{core.brand.primary.default}",
+          "$type": "color",
+          "$description": "Text color for selected items",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "state",
+              "useCase": "Text in selected list items, active navigation",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

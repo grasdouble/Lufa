@@ -1,0 +1,22 @@
+{
+  "core": {
+    "typography": {
+      "caption": {
+        "font-size": {
+          "$value": "{primitive.typography.font-size.xs}",
+          "$type": "dimension",
+          "$description": "Font size for captions and metadata",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "typography",
+              "useCase": "Captions, metadata, timestamps, helper text",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

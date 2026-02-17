@@ -40,7 +40,8 @@ export function parseCSSContent(content: string): CSSCustomProperty[] {
 
   let match;
   while ((match = customPropRegex.exec(cleanContent)) !== null) {
-    const [name, value] = match;
+    const name = match[1];
+    const value = match[2];
 
     // Find the line number by counting newlines before this match
     const textBefore = cleanContent.substring(0, match.index);

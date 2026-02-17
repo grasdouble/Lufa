@@ -1,0 +1,118 @@
+{
+  "semantic": {
+    "interactive": {
+      "link": {
+        "default": {
+          "$value": "{core.brand.primary.default}",
+          "$type": "color",
+          "$description": "Default link color for all link states in resting state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Standard hyperlinks, navigation links, text links",
+              "a11y": "Maintains WCAG AA contrast in all modes",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "hover": {
+          "$value": "{core.brand.primary.hover}",
+          "$type": "color",
+          "$description": "Link color when hovering - provides visual feedback",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Hover state for links, enhanced interactivity indication",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "visited": {
+          "light": {
+            "$value": "{primitive.color.purple.600}",
+            "$type": "color",
+            "$description": "Visited link color for light mode - purple to indicate visited state",
+            "$extensions": {
+              "lufa": {
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "dark": {
+            "$value": "{primitive.color.purple.400}",
+            "$type": "color",
+            "$description": "Visited link color for dark mode - lighter purple for contrast",
+            "$extensions": {
+              "lufa": {
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "high-contrast": {
+            "$value": "#9900ff",
+            "$type": "color",
+            "$description": "Visited link color for high-contrast mode - vibrant purple for maximum visibility",
+            "$extensions": {
+              "lufa": {
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "$type": "color",
+          "$description": "Color for visited links - helps users track navigation history",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Previously visited hyperlinks, navigation history",
+              "a11y": "Distinct from default link color for clarity",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "focus": {
+          "$value": "{core.brand.primary.default}",
+          "$type": "color",
+          "$description": "Link color when focused via keyboard - accessibility focus state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Keyboard navigation focus, accessibility compliance",
+              "a11y": "Ensures focus ring is visible in all modes",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "active": {
+          "$value": "{core.brand.primary.active}",
+          "$type": "color",
+          "$description": "Link color when being clicked/activated",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Active click state for links, pressed state",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "semantic": {
+    "ui": {
+      "border-width": {
+        "thin": {
+          "$value": "1px",
+          "$type": "dimension",
+          "$description": "Thin border width for subtle borders (1px)",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui-border",
+              "useCase": "Default borders, dividers, card outlines, subtle separators",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "medium": {
+          "$value": "2px",
+          "$type": "dimension",
+          "$description": "Medium border width for emphasized borders (2px)",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui-border",
+              "useCase": "Focus indicators, selected states, thick dividers, emphasized borders",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "thick": {
+          "$value": "4px",
+          "$type": "dimension",
+          "$description": "Thick border width for very strong emphasis (4px)",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui-border",
+              "useCase": "Strong focus indicators, decorative borders, high emphasis dividers",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

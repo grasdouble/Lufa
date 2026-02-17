@@ -1,0 +1,40 @@
+{
+  "semantic": {
+    "interactive": {
+      "underline": {
+        "default": {
+          "$value": "underline",
+          "$type": "string",
+          "$description": "Default text decoration for links",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Standard link underline decoration",
+              "cssProperty": "text-decoration",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "hover": {
+          "$value": "underline",
+          "$type": "string",
+          "$description": "Text decoration for links on hover",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "link",
+              "useCase": "Hover state link decoration, can be 'none' for subtle effect",
+              "cssProperty": "text-decoration",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

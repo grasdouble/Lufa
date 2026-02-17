@@ -1,0 +1,64 @@
+{
+  "semantic": {
+    "interactive": {
+      "text": {
+        "default": {
+          "$value": "{core.neutral.text.primary}",
+          "$type": "color",
+          "$description": "Default text color for interactive elements in resting state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Button labels, input text, interactive element labels",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "hover": {
+          "$value": "{core.neutral.text.primary}",
+          "$type": "color",
+          "$description": "Text color when hovering over interactive elements - maintains readability",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Hover state text for buttons and interactive elements",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "active": {
+          "$value": "{core.neutral.text.primary}",
+          "$type": "color",
+          "$description": "Text color when pressing/clicking interactive elements",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Active/pressed state text for buttons",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "disabled": {
+          "$value": "{core.neutral.text.disabled}",
+          "$type": "color",
+          "$description": "Text color for disabled interactive elements - low contrast indicates non-interactive",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Disabled button text, disabled input text, non-interactive labels",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

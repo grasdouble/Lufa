@@ -1,0 +1,50 @@
+{
+  "semantic": {
+    "typography": {
+      "body": {
+        "large": {
+          "$value": "{core.typography.body.font-size.large}",
+          "$type": "dimension",
+          "$description": "Large body text size - for emphasized paragraphs and lead text",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "typography",
+              "useCase": "Lead paragraphs, emphasized body text, introductions",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "default": {
+          "$value": "{core.typography.body.font-size.default}",
+          "$type": "dimension",
+          "$description": "Default body text size - standard for all paragraphs and content",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "typography",
+              "useCase": "Body text, paragraphs, standard content",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "small": {
+          "$value": "{core.typography.body.font-size.small}",
+          "$type": "dimension",
+          "$description": "Small body text size - for secondary content and descriptions",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "typography",
+              "useCase": "Secondary text, descriptions, help text",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

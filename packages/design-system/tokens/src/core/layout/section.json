@@ -1,0 +1,79 @@
+{
+  "core": {
+    "layout": {
+      "section": {
+        "gap": {
+          "base": {
+            "$value": "{primitive.spacing.48}",
+            "$type": "dimension",
+            "$description": "Vertical spacing between major page sections on mobile",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "layout",
+                "useCase": "Section spacing between major content blocks",
+                "responsive": {
+                  "breakpoint": "base",
+                  "applyAt": "all"
+                },
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "md": {
+            "$value": "{primitive.spacing.64}",
+            "$type": "dimension",
+            "$description": "Vertical spacing between major page sections on tablet",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "layout",
+                "useCase": "Section spacing on tablets",
+                "responsive": {
+                  "breakpoint": "md",
+                  "applyAt": "768px"
+                },
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "lg": {
+            "$value": "{primitive.spacing.80}",
+            "$type": "dimension",
+            "$description": "Vertical spacing between major page sections on desktop",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "layout",
+                "useCase": "Section spacing on desktop",
+                "responsive": {
+                  "breakpoint": "lg",
+                  "applyAt": "1024px"
+                },
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "fluid": {
+            "$value": "clamp(48px, 8vw, 96px)",
+            "$type": "dimension",
+            "$description": "Fluid vertical spacing between major sections (scales from 48px to 96px)",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "layout",
+                "useCase": "Hero sections, major content blocks with smooth scaling",
+                "fluid": true,
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

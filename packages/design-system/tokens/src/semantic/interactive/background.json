@@ -1,0 +1,64 @@
+{
+  "semantic": {
+    "interactive": {
+      "background": {
+        "default": {
+          "$value": "{core.neutral.surface.default}",
+          "$type": "color",
+          "$description": "Default background for interactive elements like buttons and inputs in their resting state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Button backgrounds, input backgrounds, interactive card backgrounds",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "hover": {
+          "$value": "{core.neutral.surface.hover}",
+          "$type": "color",
+          "$description": "Background color when hovering over interactive elements - provides visual feedback",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Hover state for buttons, inputs, cards, list items",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "active": {
+          "$value": "{core.brand.primary.active}",
+          "$type": "color",
+          "$description": "Background color when pressing/clicking interactive elements - provides immediate feedback",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Active/pressed state for buttons and clickable elements",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "disabled": {
+          "$value": "{core.neutral.surface.default}",
+          "$type": "color",
+          "$description": "Background color for disabled interactive elements - indicates non-interactive state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Disabled buttons, disabled inputs, non-interactive elements",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

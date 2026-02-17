@@ -4,7 +4,7 @@
       "primary": {
         "background": {
           "default": {
-            "$value": "{core.brand.primary}",
+            "$value": "{core.brand.primary.default}",
             "$type": "color",
             "$description": "Primary button background - main call-to-action (default state)",
             "$extensions": {
@@ -18,7 +18,7 @@
             }
           },
           "hover": {
-            "$value": "{core.brand.primary-hover}",
+            "$value": "{core.brand.primary.hover}",
             "$type": "color",
             "$description": "Primary button background (hover state)",
             "$extensions": {
@@ -32,7 +32,7 @@
             }
           },
           "active": {
-            "$value": "{core.brand.primary-active}",
+            "$value": "{core.brand.primary.active}",
             "$type": "color",
             "$description": "Primary button background (active/pressed state)",
             "$extensions": {
@@ -64,7 +64,7 @@
       "secondary": {
         "background": {
           "default": {
-            "$value": "{core.brand.secondary}",
+            "$value": "{core.brand.secondary.default}",
             "$type": "color",
             "$description": "Secondary button background - alternative actions (default state)",
             "$extensions": {
@@ -78,7 +78,7 @@
             }
           },
           "hover": {
-            "$value": "{core.brand.secondary-hover}",
+            "$value": "{core.brand.secondary.hover}",
             "$type": "color",
             "$description": "Secondary button background (hover state)",
             "$extensions": {
@@ -92,7 +92,7 @@
             }
           },
           "active": {
-            "$value": "{core.brand.secondary-active}",
+            "$value": "{core.brand.secondary.active}",
             "$type": "color",
             "$description": "Secondary button background (active/pressed state)",
             "$extensions": {
@@ -138,7 +138,7 @@
             }
           },
           "hover": {
-            "$value": "{core.neutral.surface-hover}",
+            "$value": "{core.neutral.surface.hover}",
             "$type": "color",
             "$description": "Ghost button background (hover state) - subtle fill",
             "$extensions": {
@@ -154,7 +154,7 @@
         },
         "text": {
           "default": {
-            "$value": "{core.brand.primary}",
+            "$value": "{core.brand.primary.default}",
             "$type": "color",
             "$description": "Ghost button text color - uses brand color for visibility (default state)",
             "$extensions": {
@@ -168,7 +168,7 @@
             }
           },
           "hover": {
-            "$value": "{core.brand.primary-hover}",
+            "$value": "{core.brand.primary.hover}",
             "$type": "color",
             "$description": "Ghost button text color (hover state)",
             "$extensions": {
@@ -200,7 +200,7 @@
             }
           },
           "hover": {
-            "$value": "{core.brand.primary}",
+            "$value": "{core.brand.primary.default}",
             "$type": "color",
             "$description": "Outline button background (hover state) - fills with brand color",
             "$extensions": {
@@ -216,7 +216,7 @@
         },
         "border": {
           "default": {
-            "$value": "{core.brand.primary}",
+            "$value": "{core.brand.primary.default}",
             "$type": "color",
             "$description": "Outline button border color (default state)",
             "$extensions": {
@@ -230,7 +230,7 @@
             }
           },
           "hover": {
-            "$value": "{core.brand.primary-hover}",
+            "$value": "{core.brand.primary.hover}",
             "$type": "color",
             "$description": "Outline button border color (hover state)",
             "$extensions": {
@@ -246,7 +246,7 @@
         },
         "text": {
           "default": {
-            "$value": "{core.brand.primary}",
+            "$value": "{core.brand.primary.default}",
             "$type": "color",
             "$description": "Outline button text color (default state)",
             "$extensions": {
@@ -278,7 +278,7 @@
       "destructive": {
         "background": {
           "default": {
-            "$value": "{core.semantic.error}",
+            "$value": "{core.semantic.error.default}",
             "$type": "color",
             "$description": "Destructive button background - for delete and dangerous actions (default state)",
             "$extensions": {
@@ -292,7 +292,7 @@
             }
           },
           "hover": {
-            "$value": "{core.semantic.error-hover}",
+            "$value": "{core.semantic.error.hover}",
             "$type": "color",
             "$description": "Destructive button background (hover state)",
             "$extensions": {
@@ -324,7 +324,7 @@
       "success": {
         "background": {
           "default": {
-            "$value": "{core.semantic.success}",
+            "$value": "{core.semantic.success.default}",
             "$type": "color",
             "$description": "Success button background - for positive confirmations (default state)",
             "$extensions": {
@@ -338,7 +338,7 @@
             }
           },
           "hover": {
-            "$value": "{core.semantic.success-hover}",
+            "$value": "{core.semantic.success.hover}",
             "$type": "color",
             "$description": "Success button background (hover state)",
             "$extensions": {
@@ -370,7 +370,7 @@
       "warning": {
         "background": {
           "default": {
-            "$value": "{core.semantic.warning}",
+            "$value": "{core.semantic.warning.default}",
             "$type": "color",
             "$description": "Warning button background - for caution actions (default state)",
             "$extensions": {
@@ -384,7 +384,7 @@
             }
           },
           "hover": {
-            "$value": "{core.semantic.warning-hover}",
+            "$value": "{core.semantic.warning.hover}",
             "$type": "color",
             "$description": "Warning button background (hover state)",
             "$extensions": {
@@ -416,7 +416,7 @@
       "info": {
         "background": {
           "default": {
-            "$value": "{core.semantic.info}",
+            "$value": "{core.semantic.info.default}",
             "$type": "color",
             "$description": "Info button background - for informational actions (default state)",
             "$extensions": {
@@ -430,7 +430,7 @@
             }
           },
           "hover": {
-            "$value": "{core.semantic.info-hover}",
+            "$value": "{core.semantic.info.hover}",
             "$type": "color",
             "$description": "Info button background (hover state)",
             "$extensions": {
