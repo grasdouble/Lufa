@@ -1,4 +1,5 @@
 ---
+name: 'rework-workflow'
 description: 'Rework a Workflow to a V6 Compliant Version'
 ---
 

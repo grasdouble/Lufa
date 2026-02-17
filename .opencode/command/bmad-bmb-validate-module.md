@@ -1,4 +1,5 @@
 ---
+name: 'validate-module'
 description: 'Run compliance check on BMAD modules against best practices'
 ---
 

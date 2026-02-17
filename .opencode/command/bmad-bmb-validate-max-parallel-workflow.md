@@ -1,4 +1,5 @@
 ---
+name: 'validate-max-parallel-workflow'
 description: 'Run validation checks in MAX-PARALLEL mode against a workflow requires a tool that supports Parallel Sub-Processes'
 ---
 

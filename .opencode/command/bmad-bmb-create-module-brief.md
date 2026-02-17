@@ -1,4 +1,5 @@
 ---
+name: 'create-module-brief'
 description: 'Create product brief for BMAD module development'
 ---
 

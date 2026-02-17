@@ -1,4 +1,5 @@
 ---
+name: 'brainstorming'
 description: 'Facilitate interactive brainstorming sessions using diverse creative techniques and ideation methods'
 ---
 

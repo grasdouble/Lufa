@@ -1,4 +1,5 @@
 ---
+name: 'create-ux-design'
 description: 'Work with a peer UX Design expert to plan your applications UX patterns, look and feel.'
 ---
 

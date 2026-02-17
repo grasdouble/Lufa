@@ -1,4 +1,5 @@
 ---
+name: 'edit-prd'
 description: 'Edit and improve an existing PRD - enhance clarity, completeness, and quality'
 ---
 

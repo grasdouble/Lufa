@@ -1,4 +1,5 @@
 ---
+name: 'edit-agent'
 description: 'Edit existing BMAD agents while maintaining compliance'
 ---
 

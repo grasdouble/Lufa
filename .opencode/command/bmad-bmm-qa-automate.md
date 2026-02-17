@@ -1,4 +1,5 @@
 ---
+name: 'qa-automate'
 description: 'Generate tests quickly for existing features using standard test patterns'
 ---
 

@@ -1,4 +1,5 @@
 ---
+name: 'create-workflow'
 description: 'Create a new BMAD workflow with proper structure and best practices'
 ---
 

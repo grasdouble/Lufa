@@ -1,4 +1,5 @@
 ---
+name: 'edit-module'
 description: 'Edit existing BMAD modules while maintaining coherence'
 ---
 

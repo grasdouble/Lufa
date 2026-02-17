@@ -1,5 +1,5 @@
 ---
-mode: primary
+name: 'tea'
 description: 'tea agent'
 ---
 

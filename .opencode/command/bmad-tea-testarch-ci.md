@@ -1,4 +1,5 @@
 ---
+name: 'testarch-ci'
 description: 'Scaffold CI/CD quality pipeline with test execution, burn-in loops, and artifact collection'
 ---
 

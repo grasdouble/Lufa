@@ -1,4 +1,5 @@
 ---
+name: 'create-agent'
 description: 'Create a new BMAD agent with best practices and compliance'
 ---
 

@@ -1,4 +1,5 @@
 ---
+name: 'teach-me-testing'
 description: 'Multi-session learning companion that teaches testing progressively through 7 structured sessions with state persistence'
 ---
 

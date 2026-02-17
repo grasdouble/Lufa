@@ -1,4 +1,5 @@
 ---
+name: 'editorial-review-structure'
 description: 'Structural editor that proposes cuts, reorganization, and simplification while preserving comprehension'
 ---
 
