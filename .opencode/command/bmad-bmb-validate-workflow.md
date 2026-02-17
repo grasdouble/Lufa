@@ -1,4 +1,5 @@
 ---
+name: 'validate-workflow'
 description: 'Run validation check on BMAD workflows against best practices'
 ---
 

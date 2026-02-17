@@ -1,4 +1,5 @@
 ---
+name: 'testarch-atdd'
 description: 'Generate failing acceptance tests before implementation using TDD red-green-refactor cycle'
 ---
 

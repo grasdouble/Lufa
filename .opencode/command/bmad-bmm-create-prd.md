@@ -1,4 +1,5 @@
 ---
+name: 'create-prd'
 description: 'Create a comprehensive PRD (Product Requirements Document) through structured workflow facilitation'
 ---
 

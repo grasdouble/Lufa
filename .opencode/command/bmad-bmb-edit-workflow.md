@@ -1,4 +1,5 @@
 ---
+name: 'edit-workflow'
 description: 'Edit existing BMAD workflows while maintaining integrity'
 ---
 

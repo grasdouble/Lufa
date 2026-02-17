@@ -1,4 +1,5 @@
 ---
+name: 'index-docs'
 description: 'Generates or updates an index.md of all documents in the specified directory'
 ---
 

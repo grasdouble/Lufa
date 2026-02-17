@@ -1,4 +1,5 @@
 ---
+name: 'sprint-status'
 description: 'Summarize sprint-status.yaml, surface risks, and route to the right implementation workflow.'
 ---
 
