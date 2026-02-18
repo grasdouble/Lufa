@@ -104,12 +104,12 @@ module.exports = {
     // Override for horizontal + dashed combination (uses --divider-color CSS variable)
     'orientation-horizontal.line-style-dashed': {
       'background-image':
-        'repeating-linear-gradient(to right, var(--divider-color) 0, var(--divider-color) 8px, transparent 8px, transparent 12px)',
+        'repeating-linear-gradient(to right, var(--divider-color) 0, var(--divider-color) var(--lufa-component-divider-dash-size), transparent var(--lufa-component-divider-dash-size), transparent var(--lufa-component-divider-dash-gap))',
     },
     // Override for vertical + dashed combination (uses --divider-color CSS variable)
     'orientation-vertical.line-style-dashed': {
       'background-image':
-        'repeating-linear-gradient(to bottom, var(--divider-color) 0, var(--divider-color) 8px, transparent 8px, transparent 12px)',
+        'repeating-linear-gradient(to bottom, var(--divider-color) 0, var(--divider-color) var(--lufa-component-divider-dash-size), transparent var(--lufa-component-divider-dash-size), transparent var(--lufa-component-divider-dash-gap))',
     },
   },
 };

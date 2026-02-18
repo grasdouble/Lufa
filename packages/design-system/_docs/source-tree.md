@@ -84,32 +84,37 @@ tokens/
 ├── 📄 tsconfig.json                  [CONFIG] TypeScript config
 ├── 📁 src/                           [SOURCE] Token definitions (DTCG format)
 │   ├── 📁 primitives/                [LEVEL 1] Raw values (111 tokens)
-│   │   ├── color/palette.json        → Blue/Red/Green/Yellow scales
-│   │   ├── spacing/scale.json        → 0px, 4px, 8px, 16px, 24px, 32px, 40px, 48px, 64px, 80px
-│   │   ├── typography/               → Font families, sizes, weights, line-heights
-│   │   ├── radius/scale.json         → Border radius values
-│   │   ├── shadow/elevation.json     → Box shadow definitions
-│   │   └── motion/timing.json        → Animation durations
+│   │   ├── color.json                → Blue/Red/Green/Yellow scales
+│   │   ├── spacing.json              → 0px, 4px, 8px, 16px, 24px, 32px, 40px, 48px, 64px, 80px
+│   │   ├── typography-*.json         → Font families, sizes, weights, line-heights
+│   │   ├── radius.json               → Border radius values
+│   │   ├── shadow.json               → Box shadow definitions
+│   │   ├── motion.json               → Animation durations
+│   │   ├── border-width.json         → Border width tokens
+│   │   ├── breakpoint.json           → Responsive breakpoints
+│   │   ├── height.json               → Height scale tokens
+│   │   ├── icon-size.json            → Icon size scale
+│   │   └── opacity.json              → Opacity scale
 │   ├── 📁 core/                      [LEVEL 2] Core semantic mappings (58 tokens)
-│   │   ├── brand/colors.json         → Primary/secondary brand colors
-│   │   ├── neutral/colors.json       → Gray scale mappings
-│   │   ├── semantic/colors.json      → Success/warning/error/info
+│   │   ├── color/colors-brand.json    → Primary/secondary brand colors
+│   │   ├── color/colors-neutral.json  → Gray scale mappings
+│   │   ├── color/colors-semantic.json → Success/warning/error/info
 │   │   ├── layout/spacing.json       → Layout spacing semantics
 │   │   ├── component/spacing.json    → Component spacing presets
 │   │   └── typography/aliases.json   → Font aliases (body, heading, code)
 │   ├── 📁 semantic/                  [LEVEL 3] UI-level semantics (103 tokens)
 │   │   └── ui/spacing.json           → Compact, default, comfortable, spacious
 │   └── 📁 component/                 [LEVEL 4] Component-specific tokens (166 tokens)
-│       ├── button/tokens.json        → Button-specific colors, spacing
-│       ├── input/tokens.json         → Input field tokens
-│       ├── card/tokens.json          → Card component tokens
-│       ├── modal/tokens.json         → Modal/dialog tokens
-│       ├── badge/tokens.json         → Badge component tokens
-│       ├── tooltip/tokens.json       → Tooltip styling
-│       ├── shared/tokens.json        → Shared component tokens
-│       └── index.json                → Component token index
+│       ├── button.json               → Button-specific colors, spacing
+│       ├── input.json                → Input field tokens
+│       ├── card.json                 → Card component tokens
+│       ├── modal.json                → Modal/dialog tokens
+│       ├── badge.json                → Badge component tokens
+│       ├── tooltip.json              → Tooltip styling
+│       ├── shared.json               → Shared component tokens
+│       └── container.json            → Container tokens
 ├── 📁 dist/                          [OUTPUT] Generated files (built)
-│   ├── 🎨 tokens.css                 → 438 CSS custom properties (--lufa-*)
+│   ├── 🎨 tokens.css                 → 621 CSS custom properties (--lufa-*)
 │   ├── 📄 tokens-values.json         → Resolved token values (TypeScript import)
 │   └── 📄 tokens-metadata.json       → Full metadata (types, descriptions, extensions)
 └── 📁 scripts/                       [SCRIPTS] Validation and utilities
@@ -118,8 +123,8 @@ tokens/
 
 **Critical Files:**
 
-- **`src/primitives/color/palette.json`** - Color foundation
-- **`src/component/button/tokens.json`** - Most complex component tokens
+- **`src/primitives/color.json`** - Color foundation
+- **`src/component/button.json`** - Most complex component tokens
 - **`style-dictionary.config.js`** - Custom `json/nested-with-metadata` format
 
 **Output Consumers:**
@@ -600,7 +605,7 @@ primitives/
 
 | Package        | Source Entry                             | Exports                                  |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| **tokens**     | `src/primitives/color/palette.json`      | Blue/Red/Green/Yellow scales             |
+| **tokens**     | `src/primitives/color.json`              | Blue/Red/Green/Yellow scales             |
 | **main**       | `src/index.ts`                           | Box, Stack, Text, Icon, Button, useTheme |
 | **storybook**  | `src/stories/primitives/Box.stories.tsx` | 9 Box stories                            |
 | **playwright** | `src/foundation/Box.spec.tsx`            | 50+ Box tests                            |
@@ -656,7 +661,7 @@ packages/design-system/playwright/src/**/*.spec.tsx
 **Token Changes:**
 
 ```
-1. packages/design-system/tokens/src/component/button/tokens.json     [EDIT]
+1. packages/design-system/tokens/src/component/button.json            [EDIT]
 2. Run: pnpm ds:tokens:build                                          [BUILD]
 3. packages/design-system/main/src/interaction/Button/Button.module.css [UPDATE]
 4. Run: pnpm ds:main:build                                            [BUILD]
@@ -814,7 +819,7 @@ All packages use shared configs:
 
 **Modifying Tokens:**
 
-1. Edit `tokens/src/component/button/tokens.json` (or appropriate level)
+1. Edit `tokens/src/component/button.json` (or appropriate level)
 2. Run `pnpm ds:tokens:build`
 3. Update components in `main/` that use those tokens
 4. Run `pnpm ds:main:build`

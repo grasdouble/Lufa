@@ -231,9 +231,9 @@ module.exports = {
       property: ['border-width', 'border-style'],
       values: {
         none: ['0', 'none'],
-        thin: ['1px', 'solid'],
-        medium: ['2px', 'solid'],
-        thick: ['4px', 'solid'],
+        thin: ['var(--lufa-semantic-ui-border-width-thin)', 'solid'],
+        medium: ['var(--lufa-semantic-ui-border-width-medium)', 'solid'],
+        thick: ['var(--lufa-semantic-ui-border-width-thick)', 'solid'],
       },
     },
 

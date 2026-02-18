@@ -697,7 +697,7 @@ pnpm test-ct:ui  # Interactive test runner
 **Performance:**
 
 - Token resolution: **8ms CSS cascade** (< 16ms target ✅)
-- Build time: **~2 seconds** for 438 tokens
+- Build time: **~2 seconds** for 621 tokens
 
 ### 2. Main Package
 

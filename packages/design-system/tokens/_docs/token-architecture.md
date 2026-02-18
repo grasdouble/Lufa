@@ -10,7 +10,7 @@
 
 The Lufa Design System v2.0 uses a **4-level token architecture** built with **Style Dictionary 4.4.0** and conforming to **DTCG (Design Tokens Community Group) format 100%**.
 
-**Current Status**: **438 tokens created (100% complete)**
+**Current Status**: **621 tokens created (100% complete)**
 
 **Performance**: 8ms CSS cascade << 16ms (60fps threshold) - **Validated in production**
 
@@ -38,7 +38,7 @@ The Lufa Design System v2.0 uses a **4-level token architecture** built with **S
 └─────────────────────────────────────────────┘
 ```
 
-**Total**: 438 tokens across 4 levels
+**Total**: 621 tokens across 4 levels
 
 ---
 
@@ -53,15 +53,15 @@ The Lufa Design System v2.0 uses a **4-level token architecture** built with **S
 
 ### Token Breakdown
 
-| Category       | Count   | File                               | Description                                                     |
-| -------------- | ------- | ---------------------------------- | --------------------------------------------------------------- |
-| **Colors**     | 60      | `primitives/color/palette.json`    | 6 palettes × 10 shades (gray, blue, red, green, yellow, purple) |
-| **Spacing**    | 12      | `primitives/spacing/scale.json`    | Scale from 0px to 96px (4px base)                               |
-| **Typography** | 18      | `primitives/typography/*.json`     | Families (2), sizes (9), weights (4), line-heights (3)          |
-| **Shadows**    | 6       | `primitives/shadow/elevation.json` | Elevations from none to xl                                      |
-| **Radius**     | 7       | `primitives/radius/scale.json`     | Rounding from none to full (circle)                             |
-| **Motion**     | 8       | `primitives/motion/*.json`         | Timing (4), easing (4)                                          |
-| **TOTAL**      | **111** |                                    | Foundational values                                             |
+| Category       | Count   | File                           | Description                                                     |
+| -------------- | ------- | ------------------------------ | --------------------------------------------------------------- |
+| **Colors**     | 60      | `primitives/color.json`        | 6 palettes × 10 shades (gray, blue, red, green, yellow, purple) |
+| **Spacing**    | 12      | `primitives/spacing.json`      | Scale from 0px to 96px (4px base)                               |
+| **Typography** | 18      | `primitives/typography-*.json` | Families (2), sizes (9), weights (4), line-heights (3)          |
+| **Shadows**    | 6       | `primitives/shadow.json`       | Elevations from none to xl                                      |
+| **Radius**     | 7       | `primitives/radius.json`       | Rounding from none to full (circle)                             |
+| **Motion**     | 8       | `primitives/motion.json`       | Timing (4), easing (4)                                          |
+| **TOTAL**      | **111** |                                | Foundational values                                             |
 
 ### Naming Convention
 
@@ -99,15 +99,15 @@ The Lufa Design System v2.0 uses a **4-level token architecture** built with **S
 
 ### Token Breakdown
 
-| Category            | Count  | File                           | Description                                  |
-| ------------------- | ------ | ------------------------------ | -------------------------------------------- |
-| **Brand Colors**    | 6      | `core/brand/colors.json`       | Primary, secondary with hover/active states  |
-| **Neutral Colors**  | 9      | `core/neutral/colors.json`     | Backgrounds, surfaces, borders, text         |
-| **Semantic Colors** | 16     | `core/semantic/colors.json`    | Success, error, warning, info + variants     |
-| **Layout Spacing**  | 8      | `core/layout/spacing.json`     | Page padding, section gaps, container widths |
-| **Component Space** | 10     | `core/component/spacing.json`  | Button, input, card, modal spacing           |
-| **Typography**      | 9      | `core/typography/aliases.json` | Font families, weights, sizes                |
-| **TOTAL**           | **58** |                                | Global decisions                             |
+| Category            | Count  | File                              | Description                                  |
+| ------------------- | ------ | --------------------------------- | -------------------------------------------- |
+| **Brand Colors**    | 6      | `core/color/colors-brand.json`    | Primary, secondary with hover/active states  |
+| **Neutral Colors**  | 9      | `core/color/colors-neutral.json`  | Backgrounds, surfaces, borders, text         |
+| **Semantic Colors** | 16     | `core/color/colors-semantic.json` | Success, error, warning, info + variants     |
+| **Layout Spacing**  | 8      | `core/layout/spacing.json`        | Page padding, section gaps, container widths |
+| **Component Space** | 10     | `core/component/spacing.json`     | Button, input, card, modal spacing           |
+| **Typography**      | 9      | `core/typography/aliases.json`    | Font families, weights, sizes                |
+| **TOTAL**           | **58** |                                   | Global decisions                             |
 
 ### Aliasing Syntax
 
@@ -191,17 +191,17 @@ The Lufa Design System v2.0 uses a **4-level token architecture** built with **S
 
 ### Token Breakdown
 
-| Component   | Count   | File                            | Description                                    |
-| ----------- | ------- | ------------------------------- | ---------------------------------------------- |
-| **Button**  | 42      | `component/button/tokens.json`  | 3 types × 7 variants × 3 sizes (padding, font) |
-| **Card**    | 18      | `component/card/tokens.json`    | Padding, radius, shadow, border                |
-| **Input**   | 36      | `component/input/tokens.json`   | Height, padding, border, states                |
-| **Modal**   | 24      | `component/modal/tokens.json`   | Width, padding, backdrop, spacing              |
-| **Badge**   | 16      | `component/badge/tokens.json`   | Padding, radius, colors (7 variants)           |
-| **Tooltip** | 12      | `component/tooltip/tokens.json` | Padding, radius, shadow, arrow                 |
-| **Icon**    | 5       | `component/shared/tokens.json`  | Icon size tokens (xs/sm/md/lg/xl)              |
-| **Shared**  | 13      | `component/shared/tokens.json`  | Common component values (focus rings, etc.)    |
-| **TOTAL**   | **166** |                                 | Component-specific values                      |
+| Component   | Count   | File                     | Description                                    |
+| ----------- | ------- | ------------------------ | ---------------------------------------------- |
+| **Button**  | 42      | `component/button.json`  | 3 types × 7 variants × 3 sizes (padding, font) |
+| **Card**    | 18      | `component/card.json`    | Padding, radius, shadow, border                |
+| **Input**   | 36      | `component/input.json`   | Height, padding, border, states                |
+| **Modal**   | 24      | `component/modal.json`   | Width, padding, backdrop, spacing              |
+| **Badge**   | 16      | `component/badge.json`   | Padding, radius, colors (7 variants)           |
+| **Tooltip** | 12      | `component/tooltip.json` | Padding, radius, shadow, arrow                 |
+| **Icon**    | 5       | `component/shared.json`  | Icon size tokens (xs/sm/md/lg/xl)              |
+| **Shared**  | 13      | `component/shared.json`  | Common component values (focus rings, etc.)    |
+| **TOTAL**   | **166** |                          | Component-specific values                      |
 
 ### Icon Size Tokens
 

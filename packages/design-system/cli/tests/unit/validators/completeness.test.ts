@@ -15,7 +15,7 @@ describe('Completeness Validator', () => {
     expect(result).toHaveProperty('totalDefined');
     expect(result).toHaveProperty('missingTokens');
     expect(result).toHaveProperty('extraTokens');
-    expect(result.totalRequired).toBe(609);
+    expect(result.totalRequired).toBe(624);
   });
 
   it('detects missing tokens', async () => {
@@ -35,8 +35,8 @@ describe('Completeness Validator', () => {
 
     const result = await validateCompleteness(properties);
     expect(result.totalDefined).toBe(0);
-    expect(result.totalRequired).toBe(609);
-    expect(result.missingTokens).toHaveLength(609);
+    expect(result.totalRequired).toBe(624);
+    expect(result.missingTokens).toHaveLength(624);
   });
 
   it('identifies specific missing tokens', async () => {
@@ -78,7 +78,7 @@ describe('Completeness Validator', () => {
 
     const result = await validateCompleteness(properties);
     // Custom tokens are in totalDefined but won't match required tokens
-    expect(result.missingTokens).toHaveLength(609); // All required tokens still missing
+    expect(result.missingTokens).toHaveLength(624); // All required tokens still missing
   });
 
   it('validates token name format', async () => {
@@ -87,7 +87,7 @@ describe('Completeness Validator', () => {
 
     const result = await validateCompleteness(properties);
     expect(result.totalDefined).toBe(0);
-    expect(result.totalRequired).toBe(609);
+    expect(result.totalRequired).toBe(624);
     expect(result.valid).toBe(false); // No tokens provided, so invalid
   });
 });

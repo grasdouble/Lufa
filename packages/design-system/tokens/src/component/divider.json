@@ -166,6 +166,34 @@
             }
           }
         }
+      },
+      "dash-size": {
+        "$value": "{primitive.spacing.8}",
+        "$type": "dimension",
+        "$description": "Length of each dash segment in a dashed divider",
+        "$extensions": {
+          "lufa": {
+            "level": "component",
+            "category": "divider",
+            "useCase": "Dashed horizontal and vertical dividers",
+            "themeable": true,
+            "modeAware": false
+          }
+        }
+      },
+      "dash-gap": {
+        "$value": "{primitive.spacing.12}",
+        "$type": "dimension",
+        "$description": "Total step between dash starts (dash + gap) in a dashed divider",
+        "$extensions": {
+          "lufa": {
+            "level": "component",
+            "category": "divider",
+            "useCase": "Dashed horizontal and vertical dividers",
+            "themeable": true,
+            "modeAware": false
+          }
+        }
       }
     }
   }

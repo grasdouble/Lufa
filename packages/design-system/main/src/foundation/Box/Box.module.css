@@ -519,17 +519,17 @@
 }
 
 .borderWidth-thin {
-  border-width: 1px;
+  border-width: var(--lufa-semantic-ui-border-width-thin);
   border-style: solid;
 }
 
 .borderWidth-medium {
-  border-width: 2px;
+  border-width: var(--lufa-semantic-ui-border-width-medium);
   border-style: solid;
 }
 
 .borderWidth-thick {
-  border-width: 4px;
+  border-width: var(--lufa-semantic-ui-border-width-thick);
   border-style: solid;
 }
 

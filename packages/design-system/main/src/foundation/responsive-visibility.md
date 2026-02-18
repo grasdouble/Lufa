@@ -34,7 +34,7 @@ Lufa uses a mobile-first breakpoint system based on token definitions:
 | `xl`       | 1280px | 1280px-1535px | Desktop                          |
 | `2xl`      | 1536px | 1536px+       | Large desktop, ultra-wide        |
 
-**Token Reference**: `tokens/src/primitives/breakpoint/scale.json`
+**Token Reference**: `tokens/src/primitives/breakpoint.json`
 
 ---
 
