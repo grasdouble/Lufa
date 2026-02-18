@@ -169,12 +169,115 @@ function generateCustomClasses(customConfig) {
 }
 
 /**
+ * Generate CSS blocks for compound selectors (multi-class combinations with optional pseudo-states)
+ *
+ * Config format:
+ * compounds: [
+ *   {
+ *     selector: '.button.type-solid.variant-primary',
+ *     comment: 'Solid + Primary (Blue)',          // optional
+ *     properties: { 'background-color': 'var(--token)', color: 'white' },
+ *     states: {                                   // optional
+ *       ':hover:not(:disabled)': { 'background-color': 'var(--token-hover)' },
+ *     }
+ *   }
+ * ]
+ *
+ * @param {Array} compounds - Array of compound selector configs
+ * @returns {string[]} Array of CSS block strings
+ */
+function generateCompounds(compounds) {
+  if (!compounds || compounds.length === 0) return [];
+
+  const blocks = [];
+  for (const { selector, comment, properties, states } of compounds) {
+    if (comment) blocks.push(`/* ${comment} */`);
+
+    const props = Object.entries(properties)
+      .map(([prop, val]) => `  ${prop}: ${val};`)
+      .join('\n');
+    blocks.push(`${selector} {\n${props}\n}`);
+
+    if (states) {
+      for (const [stateSuffix, stateProps] of Object.entries(states)) {
+        const statePropsStr = Object.entries(stateProps)
+          .map(([prop, val]) => `  ${prop}: ${val};`)
+          .join('\n');
+        blocks.push(`${selector}${stateSuffix} {\n${statePropsStr}\n}`);
+      }
+    }
+  }
+  return blocks;
+}
+
+/**
+ * Generate CSS blocks for standalone selectors (e.g. :focus-visible, complex child selectors)
+ *
+ * Config format:
+ * selectors: [
+ *   {
+ *     selector: '.button:focus-visible',
+ *     properties: { outline: '...', 'outline-offset': '...' }
+ *   }
+ * ]
+ *
+ * @param {Array} selectors - Array of selector configs
+ * @returns {string[]} Array of CSS block strings
+ */
+function generateSelectors(selectors) {
+  if (!selectors || selectors.length === 0) return [];
+
+  return selectors.map(({ selector, comment, properties }) => {
+    const lines = [];
+    if (comment) lines.push(`/* ${comment} */`);
+    const props = Object.entries(properties)
+      .map(([prop, val]) => `  ${prop}: ${val};`)
+      .join('\n');
+    lines.push(`${selector} {\n${props}\n}`);
+    return lines.join('\n');
+  });
+}
+
+/**
+ * Generate @keyframes blocks
+ *
+ * Config format:
+ * keyframes: [
+ *   {
+ *     name: 'spin',
+ *     steps: {
+ *       from: { transform: 'rotate(0deg)' },
+ *       to:   { transform: 'rotate(360deg)' },
+ *     }
+ *   }
+ * ]
+ *
+ * @param {Array} keyframes - Array of keyframe configs
+ * @returns {string[]} Array of @keyframes block strings
+ */
+function generateKeyframes(keyframes) {
+  if (!keyframes || keyframes.length === 0) return [];
+
+  return keyframes.map(({ name, steps }) => {
+    const stepsStr = Object.entries(steps)
+      .map(([step, props]) => {
+        const propsStr = Object.entries(props)
+          .map(([prop, val]) => `    ${prop}: ${val};`)
+          .join('\n');
+        return `  ${step} {\n${propsStr}\n  }`;
+      })
+      .join('\n');
+    return `@keyframes ${name} {\n${stepsStr}\n}`;
+  });
+}
+
+/**
  * Generate complete CSS file for a component
  * @param {object} config - Component configuration
  * @returns {string} Complete CSS file content
  */
 function generateCSSFile(config) {
-  const { component, utilities, base, custom } = config;
+  const { component, utilities, base, custom, compounds, selectors, keyframes } = config;
 
   // Header
   const header = `/**
@@ -213,6 +316,27 @@ function generateCSSFile(config) {
     const customClasses = generateCustomClasses(custom);
     const section = `/* ========================================== */\n/* CUSTOM CLASSES */\n/* ========================================== */\n\n`;
     allSections.push(section + customClasses.join('\n\n'));
+  }
+
+  // Generate compound selector blocks (type+variant combinations with states)
+  if (compounds && compounds.length > 0) {
+    const compoundBlocks = generateCompounds(compounds);
+    const section = `/* ========================================== */\n/* COMPOUND SELECTORS (type + variant combinations) */\n/* ========================================== */\n\n`;
+    allSections.push(section + compoundBlocks.join('\n\n'));
+  }
+
+  // Generate standalone selector blocks (focus, animations, etc.)
+  if (selectors && selectors.length > 0) {
+    const selectorBlocks = generateSelectors(selectors);
+    const section = `/* ========================================== */\n/* STANDALONE SELECTORS */\n/* ========================================== */\n\n`;
+    allSections.push(section + selectorBlocks.join('\n\n'));
+  }
+
+  // Generate @keyframes
+  if (keyframes && keyframes.length > 0) {
+    const keyframeBlocks = generateKeyframes(keyframes);
+    const section = `/* ========================================== */\n/* KEYFRAMES */\n/* ========================================== */\n\n`;
+    allSections.push(section + keyframeBlocks.join('\n\n'));
   }
 
   return header + allSections.join('\n\n') + '\n';

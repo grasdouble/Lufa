@@ -522,7 +522,7 @@ test.describe('Cluster Component', () => {
                   </div>
                   <div
                     style={{
-                      border: '2px dashed var(--lufa-core-neutral-border)',
+                      border: '2px dashed var(--lufa-core-neutral-border-default)',
                       padding: '8px',
                       borderRadius: '4px',
                     }}
@@ -578,7 +578,7 @@ test.describe('Cluster Component', () => {
                   </div>
                   <div
                     style={{
-                      border: '2px dashed var(--lufa-core-neutral-border)',
+                      border: '2px dashed var(--lufa-core-neutral-border-default)',
                       padding: '8px',
                       borderRadius: '4px',
                     }}
@@ -657,7 +657,7 @@ test.describe('Cluster Component', () => {
                   </div>
                   <div
                     style={{
-                      border: '2px dashed var(--lufa-core-neutral-border)',
+                      border: '2px dashed var(--lufa-core-neutral-border-default)',
                       padding: '8px',
                       borderRadius: '4px',
                     }}

@@ -297,14 +297,14 @@
 
   /* --- Semantic: Interactive Elements --- */
   --lufa-semantic-interactive-focus-ring-offset: 2px;
-  --lufa-semantic-interactive-background-default: var(--lufa-core-neutral-surface);
+  --lufa-semantic-interactive-background-default: var(--lufa-core-neutral-surface-default);
   --lufa-semantic-interactive-background-hover: var(--lufa-core-neutral-surface-hover);
   --lufa-semantic-interactive-background-active: var(--lufa-core-brand-primary-active);
-  --lufa-semantic-interactive-background-disabled: var(--lufa-core-neutral-surface);
-  --lufa-semantic-interactive-border-default: var(--lufa-core-neutral-border);
+  --lufa-semantic-interactive-background-disabled: var(--lufa-core-neutral-surface-default);
+  --lufa-semantic-interactive-border-default: var(--lufa-core-neutral-border-default);
   --lufa-semantic-interactive-border-hover: var(--lufa-core-neutral-border-strong);
   --lufa-semantic-interactive-border-focus: var(--lufa-core-brand-primary);
-  --lufa-semantic-interactive-border-disabled: var(--lufa-core-neutral-border);
+  --lufa-semantic-interactive-border-disabled: var(--lufa-core-neutral-border-default);
   --lufa-semantic-interactive-text-default: var(--lufa-core-neutral-text-primary);
   --lufa-semantic-interactive-text-hover: var(--lufa-core-neutral-text-primary);
   --lufa-semantic-interactive-text-active: var(--lufa-core-neutral-text-primary);
@@ -316,7 +316,7 @@
   --lufa-semantic-ui-background-on-primary: #ffffff;
   --lufa-semantic-ui-background-on-secondary: #ffffff;
   --lufa-semantic-ui-background-page: var(--lufa-core-neutral-background);
-  --lufa-semantic-ui-background-surface: var(--lufa-core-neutral-surface);
+  --lufa-semantic-ui-background-surface: var(--lufa-core-neutral-surface-default);
   --lufa-semantic-ui-background-success: var(--lufa-core-semantic-success-subtle);
   --lufa-semantic-ui-background-on-success: var(--lufa-core-semantic-success);
   --lufa-semantic-ui-background-error: var(--lufa-core-semantic-error-subtle);
@@ -336,7 +336,7 @@
   --lufa-semantic-ui-text-info: var(--lufa-core-semantic-info);
 
   /* --- Semantic: UI Borders --- */
-  --lufa-semantic-ui-border-default: var(--lufa-core-neutral-border);
+  --lufa-semantic-ui-border-default: var(--lufa-core-neutral-border-default);
   --lufa-semantic-ui-border-strong: var(--lufa-core-neutral-border-strong);
   --lufa-semantic-ui-border-success: var(--lufa-core-semantic-success-border);
   --lufa-semantic-ui-border-error: var(--lufa-core-semantic-error-border);

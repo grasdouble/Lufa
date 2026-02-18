@@ -11,8 +11,8 @@
   border: var(--lufa-component-input-border-width) solid var(--lufa-component-input-border-default);
   border-radius: var(--lufa-component-input-border-radius);
   transition:
-    border-color var(--lufa-semantic-ui-transition-fast),
-    box-shadow var(--lufa-semantic-ui-transition-fast);
+    border-color var(--lufa-semantic-ui-transition-duration-fast),
+    box-shadow var(--lufa-semantic-ui-transition-duration-fast);
   outline: none;
 }
 

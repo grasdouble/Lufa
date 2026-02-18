@@ -34,7 +34,6 @@ import {
   XCircle,
 } from 'lucide-react';
 
-import additionalStyles from './Icon.additional.module.css';
 import styles from './Icon.module.css';
 
 /**
@@ -246,7 +245,7 @@ const IconImpl = <T extends ElementType = 'span'>(
       {...htmlProps}
     >
       <LucideIcon strokeWidth={2} aria-hidden="true" />
-      {title && <span className={additionalStyles['visually-hidden']}>{title}</span>}
+      {title && <span className={styles['visually-hidden']}>{title}</span>}
     </Component>
   );
 };

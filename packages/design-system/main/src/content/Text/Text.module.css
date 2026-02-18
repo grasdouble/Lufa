@@ -14,27 +14,27 @@
 /* ========================================== */
 
 .variant-h1 {
-  font-size: var(--lufa-semantic-typography-heading-1);
+  font-size: var(--lufa-semantic-typography-heading-h1);
 }
 
 .variant-h2 {
-  font-size: var(--lufa-semantic-typography-heading-2);
+  font-size: var(--lufa-semantic-typography-heading-h2);
 }
 
 .variant-h3 {
-  font-size: var(--lufa-semantic-typography-heading-3);
+  font-size: var(--lufa-semantic-typography-heading-h3);
 }
 
 .variant-h4 {
-  font-size: var(--lufa-semantic-typography-heading-4);
+  font-size: var(--lufa-semantic-typography-heading-h4);
 }
 
 .variant-h5 {
-  font-size: var(--lufa-semantic-typography-heading-5);
+  font-size: var(--lufa-semantic-typography-heading-h5);
 }
 
 .variant-h6 {
-  font-size: var(--lufa-semantic-typography-heading-6);
+  font-size: var(--lufa-semantic-typography-heading-h6);
 }
 
 .variant-body-large {
@@ -42,7 +42,7 @@
 }
 
 .variant-body {
-  font-size: var(--lufa-semantic-typography-body);
+  font-size: var(--lufa-semantic-typography-body-default);
 }
 
 .variant-body-small {

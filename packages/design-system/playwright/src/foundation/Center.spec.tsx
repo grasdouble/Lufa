@@ -61,7 +61,9 @@ test.describe('Center', () => {
             >
               Default (flex)
             </h2>
-            <Center style={{ width: '300px', height: '100px', border: '1px solid var(--lufa-core-neutral-border)' }}>
+            <Center
+              style={{ width: '300px', height: '100px', border: '1px solid var(--lufa-core-neutral-border-default)' }}
+            >
               <div style={{ backgroundColor: '#aaaaff', padding: '8px' }}>Centered Item</div>
             </Center>
           </section>
@@ -78,9 +80,9 @@ test.describe('Center', () => {
             >
               Inline (inline-flex)
             </h2>
-            <div style={{ border: '1px solid var(--lufa-core-neutral-border)', padding: '8px' }}>
+            <div style={{ border: '1px solid var(--lufa-core-neutral-border-default)', padding: '8px' }}>
               Text before{' '}
-              <Center inline style={{ border: '1px dashed var(--lufa-core-neutral-border)', padding: '8px' }}>
+              <Center inline style={{ border: '1px dashed var(--lufa-core-neutral-border-default)', padding: '8px' }}>
                 <div style={{ backgroundColor: '#aaffaa', padding: '4px' }}>Inline Center</div>
               </Center>{' '}
               text after
@@ -88,7 +90,7 @@ test.describe('Center', () => {
           </section>
         </div>
       );
-      await component.page().waitForTimeout(100);
+      await component.page().waitForLoadState('networkidle');
       await expect(component).toHaveScreenshot('center-all-variants.png');
     });
   });

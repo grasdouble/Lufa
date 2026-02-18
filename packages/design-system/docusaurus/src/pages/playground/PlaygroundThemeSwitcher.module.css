@@ -8,8 +8,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: var(--lufa-core-neutral-surface);
-  border: 1px solid var(--lufa-core-neutral-border);
+  background: var(--lufa-core-neutral-surface-default);
+  border: 1px solid var(--lufa-core-neutral-border-default);
   border-radius: 6px;
   color: var(--lufa-core-neutral-text-primary);
   cursor: pointer;
@@ -54,7 +54,7 @@
   left: 0;
   min-width: 320px;
   background: var(--lufa-core-neutral-background);
-  border: 2px solid var(--lufa-core-neutral-border);
+  border: 2px solid var(--lufa-core-neutral-border-default);
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   padding: 1rem;
@@ -103,8 +103,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem;
-  background: var(--lufa-core-neutral-surface);
-  border: 2px solid var(--lufa-core-neutral-border);
+  background: var(--lufa-core-neutral-surface-default);
+  border: 2px solid var(--lufa-core-neutral-border-default);
   border-radius: 6px;
   color: var(--lufa-core-neutral-text-primary);
   cursor: pointer;
@@ -152,8 +152,8 @@
   align-items: center;
   gap: 0.25rem;
   padding: 0.75rem 0.5rem;
-  background: var(--lufa-core-neutral-surface);
-  border: 2px solid var(--lufa-core-neutral-border);
+  background: var(--lufa-core-neutral-surface-default);
+  border: 2px solid var(--lufa-core-neutral-border-default);
   border-radius: 6px;
   color: var(--lufa-core-neutral-text-primary);
   cursor: pointer;
@@ -192,7 +192,7 @@
 /* Divider */
 .divider {
   height: 2px;
-  background: linear-gradient(to right, transparent 0%, var(--lufa-core-neutral-border) 50%, transparent 100%);
+  background: linear-gradient(to right, transparent 0%, var(--lufa-core-neutral-border-default) 50%, transparent 100%);
   margin: 1rem 0;
 }
 

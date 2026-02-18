@@ -90,14 +90,14 @@ Playground
 }
 .pricing {
   padding: 5rem 0;
-  background: var(--lufa-core-neutral-surface);
+  background: var(--lufa-core-neutral-surface-default);
 }
 .newsletter {
   padding: 5rem 0;
 }
 .footer {
   padding: 3rem 0;
-  background: var(--lufa-core-neutral-surface);
+  background: var(--lufa-core-neutral-surface-default);
 }
 ```
 

@@ -757,7 +757,7 @@ test.describe('Text Component', () => {
                   </div>
                   <div
                     style={{
-                      border: '2px dashed var(--lufa-core-neutral-border)',
+                      border: '2px dashed var(--lufa-core-neutral-border-default)',
                       padding: '8px',
                       borderRadius: '4px',
                     }}
@@ -820,7 +820,7 @@ test.describe('Text Component', () => {
             <div
               style={{
                 padding: '24px',
-                border: '1px solid var(--lufa-core-neutral-border)',
+                border: '1px solid var(--lufa-core-neutral-border-default)',
                 borderRadius: '8px',
                 background: 'var(--lufa-semantic-ui-background-surface)',
               }}
