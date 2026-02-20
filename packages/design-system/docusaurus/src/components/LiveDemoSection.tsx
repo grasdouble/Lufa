@@ -1,4 +1,5 @@
 import React from 'react';
+import { useColorMode } from '@docusaurus/theme-common';
 
 import styles from './LiveDemoSection.module.css';
 
@@ -17,6 +18,8 @@ type LiveDemoSectionProps = {
 
 export function LiveDemoSection({ title = 'Live demo', children, tabs, defaultTabId }: LiveDemoSectionProps) {
   const sectionId = React.useId();
+  const { colorMode } = useColorMode();
+  const dataMode = colorMode === 'dark' ? 'dark' : 'light';
   const resolvedTabs = tabs?.filter((tab) => tab?.content != null) ?? [];
   const hasTabs = resolvedTabs.length > 0;
   const initialIndex = hasTabs
@@ -63,12 +66,16 @@ export function LiveDemoSection({ title = 'Live demo', children, tabs, defaultTa
             role="tabpanel"
             id={`${sectionId}-${resolvedTabs[activeIndex]?.id ?? `tab-${activeIndex}`}-panel`}
             aria-labelledby={`${sectionId}-${resolvedTabs[activeIndex]?.id ?? `tab-${activeIndex}`}`}
+            data-theme=""
+            data-mode={dataMode}
           >
             {resolvedTabs[activeIndex]?.content}
           </div>
         </div>
       ) : (
-        <div className={styles.body}>{children}</div>
+        <div className={styles.body} data-theme="" data-mode={dataMode}>
+          {children}
+        </div>
       )}
     </section>
   );
