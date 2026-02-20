@@ -103,10 +103,10 @@ module.exports = {
       property: 'border-radius',
       values: {
         none: '0px', // Sharp corners
-        sm: 'var(--lufa-semantic-ui-radius-small)', // 2px - subtle rounding
-        base: 'var(--lufa-semantic-ui-radius-default)', // 8px - default (same as base)
-        md: 'var(--lufa-semantic-ui-radius-medium)', // 12px - emphasized rounding
-        full: 'var(--lufa-semantic-ui-radius-full)', // 9999px - pill shape
+        sm: 'var(--lufa-semantic-ui-border-radius-small)', // 2px - subtle rounding
+        base: 'var(--lufa-semantic-ui-border-radius-default)', // 8px - default (same as base)
+        md: 'var(--lufa-semantic-ui-border-radius-medium)', // 12px - emphasized rounding
+        full: 'var(--lufa-semantic-ui-border-radius-full)', // 9999px - pill shape
       },
     },
 

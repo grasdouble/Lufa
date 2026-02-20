@@ -121,7 +121,7 @@ export function ColorVariants() {
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
             backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
-            color: value === 'currentColor' ? 'var(--lufa-core-brand-primary)' : undefined,
+            color: value === 'currentColor' ? 'var(--lufa-core-brand-primary-default)' : undefined,
           }}
         >
           <Icon name="heart" size="lg" color={value} aria-hidden="true" />

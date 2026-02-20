@@ -23,7 +23,7 @@ describe('CSS patterns', () => {
 
   it('should not match non-color CSS vars with color regex', () => {
     const cssVarInVarRe = createCssColorVarInVarRe();
-    const text = 'border-radius: var(--lufa-semantic-ui-radius-sm);';
+    const text = 'border-radius: var(--lufa-semantic-ui-border-radius-sm);';
     const matches = [...text.matchAll(cssVarInVarRe)];
 
     expect(matches).toHaveLength(0);

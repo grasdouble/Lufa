@@ -47,7 +47,7 @@
       },
       "border-radius": {
         "sm": {
-          "$value": "{semantic.ui.radius.small}",
+          "$value": "{semantic.ui.border-radius.small}",
           "$type": "dimension",
           "$description": "Small border radius for subtle rounding",
           "$extensions": {
@@ -61,7 +61,7 @@
           }
         },
         "md": {
-          "$value": "{semantic.ui.radius.medium}",
+          "$value": "{semantic.ui.border-radius.medium}",
           "$type": "dimension",
           "$description": "Medium border radius (default)",
           "$extensions": {
@@ -75,7 +75,7 @@
           }
         },
         "lg": {
-          "$value": "{semantic.ui.radius.large}",
+          "$value": "{semantic.ui.border-radius.large}",
           "$type": "dimension",
           "$description": "Large border radius for prominent rounding",
           "$extensions": {

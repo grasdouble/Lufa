@@ -3,6 +3,9 @@ import lufaReactConfig from '@grasdouble/lufa_config_eslint/react.mjs';
 export default [
   ...lufaReactConfig,
   {
+    ignores: ['scripts/**/*.js'],
+  },
+  {
     languageOptions: {
       parserOptions: {
         project: './tsconfig.json',
@@ -34,30 +37,6 @@ export default [
       '@typescript-eslint/no-unnecessary-type-assertion': 'off',
       'react/no-unescaped-entities': 'off',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
-    },
-  },
-  {
-    files: ['scripts/**/*.js'],
-    languageOptions: {
-      globals: {
-        __dirname: 'readonly',
-        console: 'readonly',
-        process: 'readonly',
-        require: 'readonly',
-      },
-      parserOptions: {
-        ecmaVersion: 2022,
-        sourceType: 'commonjs',
-      },
-    },
-    rules: {
-      '@typescript-eslint/no-require-imports': 'off',
-      '@typescript-eslint/no-unsafe-assignment': 'off',
-      '@typescript-eslint/no-unsafe-call': 'off',
-      '@typescript-eslint/no-unsafe-member-access': 'off',
-      '@typescript-eslint/prefer-nullish-coalescing': 'off',
-      '@typescript-eslint/prefer-for-of': 'off',
-      'no-undef': 'off',
     },
   },
   {

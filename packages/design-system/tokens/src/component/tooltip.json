@@ -44,7 +44,7 @@
         }
       },
       "border-radius": {
-        "$value": "{semantic.ui.radius.small}",
+        "$value": "{semantic.ui.border-radius.small}",
         "$type": "dimension",
         "$description": "Tooltip border radius",
         "$extensions": {
@@ -260,7 +260,7 @@
         }
       },
       "border-radius": {
-        "$value": "{semantic.ui.radius.medium}",
+        "$value": "{semantic.ui.border-radius.medium}",
         "$type": "dimension",
         "$description": "Popover border radius",
         "$extensions": {

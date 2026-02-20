@@ -134,7 +134,7 @@
         }
       },
       "border-radius": {
-        "$value": "{semantic.ui.radius.default}",
+        "$value": "{semantic.ui.border-radius.default}",
         "$type": "dimension",
         "$description": "Button border radius for rounded corners",
         "$extensions": {

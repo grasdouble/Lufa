@@ -48,7 +48,7 @@ export const ThemeAndModeWrapper: React.FC<ThemeAndModeWrapperProps> = ({ theme,
 
   return (
     <div
-      data-theme={theme !== 'default' ? theme : undefined}
+      data-theme={theme !== 'default' ? theme : ''}
       data-mode={mode || 'light'}
       style={{
         backgroundColor: 'var(--lufa-semantic-ui-background-page)',

@@ -119,7 +119,7 @@
           }
         },
         "border-radius": {
-          "$value": "{semantic.ui.radius.large}",
+          "$value": "{semantic.ui.border-radius.large}",
           "$type": "dimension",
           "$description": "Modal content border radius",
           "$extensions": {

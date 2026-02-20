@@ -490,23 +490,23 @@
 }
 
 .borderRadius-small {
-  border-radius: var(--lufa-semantic-ui-radius-small);
+  border-radius: var(--lufa-semantic-ui-border-radius-small);
 }
 
 .borderRadius-default {
-  border-radius: var(--lufa-semantic-ui-radius-default);
+  border-radius: var(--lufa-semantic-ui-border-radius-default);
 }
 
 .borderRadius-medium {
-  border-radius: var(--lufa-semantic-ui-radius-medium);
+  border-radius: var(--lufa-semantic-ui-border-radius-medium);
 }
 
 .borderRadius-large {
-  border-radius: var(--lufa-semantic-ui-radius-large);
+  border-radius: var(--lufa-semantic-ui-border-radius-large);
 }
 
 .borderRadius-full {
-  border-radius: var(--lufa-semantic-ui-radius-full);
+  border-radius: var(--lufa-semantic-ui-border-radius-full);
 }
 
 /* ========================================== */

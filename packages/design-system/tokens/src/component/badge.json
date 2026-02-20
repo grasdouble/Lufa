@@ -91,7 +91,7 @@
         }
       },
       "border-radius": {
-        "$value": "{semantic.ui.radius.full}",
+        "$value": "{semantic.ui.border-radius.full}",
         "$type": "dimension",
         "$description": "Badge border radius (pill shape)",
         "$extensions": {

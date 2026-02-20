@@ -20,7 +20,7 @@
   padding: 1.5rem;
   background: var(--lufa-core-neutral-surface-default);
   border: 1px solid var(--lufa-core-neutral-border-default);
-  border-radius: var(--lufa-semantic-ui-border-radius-base);
+  border-radius: var(--lufa-semantic-ui-border-radius-default);
   box-shadow: var(--lufa-semantic-ui-shadow-small);
   transition:
     background-color 0.2s ease,
@@ -147,6 +147,6 @@
   gap: 0.5rem;
   padding: 0.5rem;
   background: var(--lufa-core-neutral-surface-default);
-  border-radius: var(--lufa-semantic-ui-border-radius-base);
+  border-radius: var(--lufa-semantic-ui-border-radius-default);
   border: 1px solid var(--lufa-core-neutral-border-default);
 }

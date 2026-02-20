@@ -50,7 +50,7 @@ START: What are you styling?
 │  ├─ Component-specific?
 │  │  └─ Use: component.[name].border-radius
 │  ├─ Semantic UI?
-│  │  └─ Use: semantic.ui.radius.[small|default|medium|large]
+│  │  └─ Use: semantic.ui.border-radius.[small|default|medium|large]
 │  └─ Specific value?
 │     └─ Use: primitive.radius.scale.[value]
 │
@@ -224,11 +224,11 @@ START: What are you styling?
 --lufa-primitive-radius-scale-full  /* 9999px (circle) */
 
 /* Semantic */
---lufa-semantic-ui-radius-small   /* 2px */
---lufa-semantic-ui-radius-default /* 4px */
---lufa-semantic-ui-radius-medium  /* 6px */
---lufa-semantic-ui-radius-large   /* 8px */
---lufa-semantic-ui-radius-full    /* 9999px */
+--lufa-semantic-ui-border-radius-small   /* 2px */
+--lufa-semantic-ui-border-radius-default /* 4px */
+--lufa-semantic-ui-border-radius-medium  /* 6px */
+--lufa-semantic-ui-border-radius-large   /* 8px */
+--lufa-semantic-ui-border-radius-full    /* 9999px */
 ```
 
 ---
@@ -297,7 +297,7 @@ START: What are you styling?
 .card {
   background: var(--lufa-semantic-ui-background-default);
   border: 1px solid var(--lufa-semantic-ui-border-default);
-  border-radius: var(--lufa-semantic-ui-radius-default);
+  border-radius: var(--lufa-semantic-ui-border-radius-default);
   padding: var(--lufa-primitive-spacing-16);
   box-shadow: var(--lufa-primitive-shadow-elevation-sm);
 }
@@ -317,7 +317,7 @@ START: What are you styling?
   font-size: var(--lufa-semantic-typography-body-default);
   padding: var(--lufa-primitive-spacing-12) var(--lufa-primitive-spacing-16);
   border: 1px solid var(--lufa-semantic-ui-border-default);
-  border-radius: var(--lufa-semantic-ui-radius-small);
+  border-radius: var(--lufa-semantic-ui-border-radius-small);
   background: var(--lufa-semantic-ui-background-default);
 }
 
@@ -589,7 +589,7 @@ Need viewport adaptation?
   font-size: var(--lufa-semantic-typography-body-default);
   padding: var(--lufa-primitive-spacing-12) var(--lufa-primitive-spacing-16);
   border: 1px solid var(--lufa-semantic-ui-border-default);
-  border-radius: var(--lufa-semantic-ui-radius-small);
+  border-radius: var(--lufa-semantic-ui-border-radius-small);
 }
 
 .form-help {
@@ -782,7 +782,7 @@ const defaultSpacing = tokens.primitive.spacing['16'];
 | **Font Size**   | `primitive.typography.font-size.[size]`     | `semantic.typography.[heading\|body].*` | `component.[name].font-size.[size]`  |
 | **Font Weight** | `primitive.typography.font-weight.[weight]` | -                                       | -                                    |
 | **Line Height** | `primitive.typography.line-height.[value]`  | -                                       | -                                    |
-| **Radius**      | `primitive.radius.scale.[value]`            | `semantic.ui.radius.[size]`             | `component.[name].border-radius`     |
+| **Radius**      | `primitive.radius.scale.[value]`            | `semantic.ui.border-radius.[size]`      | `component.[name].border-radius`     |
 | **Shadow**      | `primitive.shadow.elevation.[level]`        | `semantic.elevation.[level]`            | `component.[name].shadow`            |
 
 ---

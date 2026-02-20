@@ -1,7 +1,7 @@
 {
   "semantic": {
     "ui": {
-      "radius": {
+      "border-radius": {
         "small": {
           "$value": "{primitive.radius.scale.base}",
           "$type": "dimension",

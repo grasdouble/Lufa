@@ -16,6 +16,9 @@
     "swizzle": "docusaurus swizzle",
     "typecheck": "tsc",
     "update-changelog": "node scripts/update-changelog.js",
+    "validate:token-usage": "node scripts/validate-token-usage.js",
+    "validate:token-usage:unused": "node scripts/validate-token-usage.js --unused",
+    "validate:token-usage:verbose": "node scripts/validate-token-usage.js --verbose",
     "write-heading-ids": "docusaurus write-heading-ids",
     "write-translations": "docusaurus write-translations"
   },

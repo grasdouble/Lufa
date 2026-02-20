@@ -115,19 +115,19 @@
 }
 
 .radius-sm {
-  border-radius: var(--lufa-semantic-ui-radius-small);
+  border-radius: var(--lufa-semantic-ui-border-radius-small);
 }
 
 .radius-base {
-  border-radius: var(--lufa-semantic-ui-radius-default);
+  border-radius: var(--lufa-semantic-ui-border-radius-default);
 }
 
 .radius-md {
-  border-radius: var(--lufa-semantic-ui-radius-medium);
+  border-radius: var(--lufa-semantic-ui-border-radius-medium);
 }
 
 .radius-full {
-  border-radius: var(--lufa-semantic-ui-radius-full);
+  border-radius: var(--lufa-semantic-ui-border-radius-full);
 }
 
 /* ========================================== */

@@ -282,7 +282,7 @@ Text hierarchy and semantics
         }
       },
       "border-radius": {
-        "$value": "{semantic.ui.radius-default}",
+        "$value": "{semantic.ui.border-radius-default}",
         "$type": "dimension"
       }
     }

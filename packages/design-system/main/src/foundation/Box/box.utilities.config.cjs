@@ -216,11 +216,11 @@ module.exports = {
       property: 'border-radius',
       values: {
         none: '0',
-        small: '--lufa-semantic-ui-radius-small',
-        default: '--lufa-semantic-ui-radius-default',
-        medium: '--lufa-semantic-ui-radius-medium',
-        large: '--lufa-semantic-ui-radius-large',
-        full: '--lufa-semantic-ui-radius-full',
+        small: '--lufa-semantic-ui-border-radius-small',
+        default: '--lufa-semantic-ui-border-radius-default',
+        medium: '--lufa-semantic-ui-border-radius-medium',
+        large: '--lufa-semantic-ui-border-radius-large',
+        full: '--lufa-semantic-ui-border-radius-full',
       },
     },
 
