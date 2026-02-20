@@ -8,14 +8,16 @@ import clsx from 'clsx';
 
 import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
+import styles from './index.module.css';
+
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', 'heroBanner')}>
+    <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className="buttons">
+        <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/docs/intro">
             Get Started
           </Link>
@@ -34,24 +36,24 @@ function HomepageHeader() {
 
 function HomepageStatistics() {
   return (
-    <section className="statistics" aria-label="Design system statistics">
+    <section className={styles.statistics} aria-label="Design system statistics">
       <div className="container">
-        <div className="statGrid">
-          <div className="stat">
-            <h3 className="statNumber">50+</h3>
-            <p className="statLabel">Components</p>
+        <div className={styles.statGrid}>
+          <div className={styles.stat}>
+            <h3 className={styles.statNumber}>50+</h3>
+            <p className={styles.statLabel}>Components</p>
           </div>
-          <div className="stat">
-            <h3 className="statNumber">WCAG AA</h3>
-            <p className="statLabel">Compliant</p>
+          <div className={styles.stat}>
+            <h3 className={styles.statNumber}>WCAG AA</h3>
+            <p className={styles.statLabel}>Compliant</p>
           </div>
-          <div className="stat">
-            <h3 className="statNumber">TypeScript</h3>
-            <p className="statLabel">First</p>
+          <div className={styles.stat}>
+            <h3 className={styles.statNumber}>TypeScript</h3>
+            <p className={styles.statLabel}>First</p>
           </div>
-          <div className="stat">
-            <h3 className="statNumber">Tree Shakeable</h3>
-            <p className="statLabel">Optimized</p>
+          <div className={styles.stat}>
+            <h3 className={styles.statNumber}>Tree Shakeable</h3>
+            <p className={styles.statLabel}>Optimized</p>
           </div>
         </div>
       </div>
@@ -61,11 +63,13 @@ function HomepageStatistics() {
 
 function HomepageQuickStart() {
   return (
-    <section className="quickStart" aria-label="Quick start guide">
+    <section className={styles.quickStart} aria-label="Quick start guide">
       <div className="container">
-        <h2 className="sectionTitle">Get Started in Seconds</h2>
-        <p className="sectionSubtitle">Install the package and start building accessible interfaces immediately.</p>
-        <div className="codeBlockWrapper">
+        <h2 className={styles.sectionTitle}>Get Started in Seconds</h2>
+        <p className={styles.sectionSubtitle}>
+          Install the package and start building accessible interfaces immediately.
+        </p>
+        <div className={styles.codeBlockWrapper}>
           <CodeBlock language="bash" title="Install via pnpm">
             pnpm add @grasdouble/lufa_design-system
           </CodeBlock>
@@ -77,7 +81,7 @@ function App() {
 }`}
           </CodeBlock>
         </div>
-        <div className="quickStartTip">
+        <div className={styles.quickStartTip}>
           <p>
             💡 <strong>Tip:</strong> Try switching to dark mode using the toggle in the navbar to see all components
             adapt automatically!
