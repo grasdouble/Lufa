@@ -1,4 +1,4 @@
-name: Tools:DS:Performance-Budgets
+name: DS:Tools:Performance-Budgets
 
 on:
   pull_request:

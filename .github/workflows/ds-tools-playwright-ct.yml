@@ -1,4 +1,4 @@
-name: Tools:DS:Playwright:Component-Tests
+name: DS:Tools:Playwright:Component-Tests
 
 on:
   pull_request:

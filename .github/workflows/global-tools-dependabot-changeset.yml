@@ -1,4 +1,4 @@
-name: Tools:Dependabot:add-changeset
+name: Global:Tools:Dependabot:add-changeset
 
 on:
   pull_request:

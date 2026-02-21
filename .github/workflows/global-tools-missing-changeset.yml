@@ -1,4 +1,4 @@
-name: Tools:Missing-Changeset
+name: Global:Tools:Missing-Changeset
 
 on:
   pull_request:

@@ -1,4 +1,4 @@
-name: Tools:DS:Docusaurus:Update Changelog Documentation
+name: DS:Tools:Docusaurus:Update Changelog Documentation
 
 # Automatically updates docs/changelog.md from package CHANGELOG files
 # Documentation: packages/design-system/docusaurus/scripts/README.md

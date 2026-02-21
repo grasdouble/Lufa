@@ -1,4 +1,4 @@
-name: Release:Lufa:Prod-Publish
+name: DS:Release:Lufa:Prod-Publish
 description: |
   This workflow publishes Lufa artifacts (Storybook or Documentation) to production via FTP.
   It is manually triggered with a choice of target.
