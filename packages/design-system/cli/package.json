@@ -1,6 +1,6 @@
 {
   "name": "@grasdouble/lufa_design-system-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Lufa Design System - CLI tools for theme validation",
   "license": "MIT",

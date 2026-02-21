@@ -1,5 +1,11 @@
 # @grasdouble/cdn_autobuild-server
 
+## 0.3.4
+
+### Patch Changes
+
+- 03e75af: Fix tokens and their usage
+
 ## 0.3.3
 
 ### Patch Changes
