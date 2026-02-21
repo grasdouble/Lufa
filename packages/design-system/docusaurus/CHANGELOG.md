@@ -344,10 +344,10 @@
   **Attribute-Based Theming:**
 
   ```css
-  [data-color-theme='ocean'] {
+  [data-theme='ocean'] {
     /* Ocean overrides */
   }
-  [data-color-theme='forest'] {
+  [data-theme='forest'] {
     /* Forest overrides */
   }
   ```
@@ -437,18 +437,13 @@
 
   ```html
   <!-- Theme Selection -->
-  <html data-color-theme="ocean">
-    <!-- or "forest" or "default" -->
-    <html data-color-theme="forest">
-      <!-- Mode Selection -->
-      <html data-mode="light">
-        <!-- or "dark" or "high-contrast" -->
-        <html data-mode="dark">
-          <html data-mode="high-contrast"></html>
-        </html>
-      </html>
-    </html>
-  </html>
+  <html data-theme="ocean"></html>
+  <html data-theme="forest"></html>
+  <html data-theme="..."></html>
+  <!-- Mode Selection -->
+  <html data-mode="light"></html>
+  <html data-mode="dark"></html>
+  <html data-mode="high-contrast"></html>
   ```
 
   **Example Combinations:**
@@ -467,7 +462,7 @@
   - CSS custom properties remain stable
 
   **Opt-in** - Theme selection is optional:
-  - Default theme used if no `data-color-theme` attribute
+  - Default theme used if no `data-theme` attribute
   - Themes can be switched at runtime via JavaScript
   - No rebuild required for theme changes
 

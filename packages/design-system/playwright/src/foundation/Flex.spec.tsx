@@ -75,7 +75,7 @@ test.describe('Visual Regression', () => {
               </p>
               <Flex
                 direction={direction}
-                style={{ border: '1px solid var(--lufa-core-neutral-border)', padding: '8px' }}
+                style={{ border: '1px solid var(--lufa-core-neutral-border-default)', padding: '8px' }}
               >
                 <div style={{ background: 'red', width: 40, height: 40 }}>1</div>
                 <div style={{ background: 'blue', width: 40, height: 40 }}>2</div>
@@ -102,7 +102,7 @@ test.describe('Visual Regression', () => {
               <p style={{ fontSize: '12px', color: 'var(--lufa-semantic-ui-text-secondary)', marginBottom: '8px' }}>
                 gap=&quot;{gap}&quot;
               </p>
-              <Flex gap={gap} style={{ border: '1px solid var(--lufa-core-neutral-border)', padding: '8px' }}>
+              <Flex gap={gap} style={{ border: '1px solid var(--lufa-core-neutral-border-default)', padding: '8px' }}>
                 <div style={{ background: 'red', width: 30, height: 30 }} />
                 <div style={{ background: 'blue', width: 30, height: 30 }} />
                 <div style={{ background: 'green', width: 30, height: 30 }} />

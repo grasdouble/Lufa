@@ -1,502 +1,514 @@
 {
   "semantic": {
     "ui": {
-      "background-page": {
-        "$value": "{core.neutral.background}",
-        "$type": "color",
-        "$description": "Main page background - base canvas for entire application",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Root background, page wrapper, main container",
-            "themeable": true,
-            "modeAware": false
+      "background": {
+        "page": {
+          "$value": "{core.neutral.background}",
+          "$type": "color",
+          "$description": "Main page background - base canvas for entire application",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Root background, page wrapper, main container",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "surface": {
+          "$value": "{core.neutral.surface.default}",
+          "$type": "color",
+          "$description": "Surface background for cards, panels, and elevated content",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "success": {
+          "$value": "{core.semantic.success.subtle}",
+          "$type": "color",
+          "$description": "Background for success messages and positive feedback",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Success alerts, positive notifications, confirmation banners",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "error": {
+          "$value": "{core.semantic.error.subtle}",
+          "$type": "color",
+          "$description": "Background for error messages and validation failures",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Error alerts, validation messages, destructive action confirmations",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "warning": {
+          "$value": "{core.semantic.warning.subtle}",
+          "$type": "color",
+          "$description": "Background for warning messages and caution notices",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Warning alerts, caution banners, pending action notices",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "info": {
+          "$value": "{core.semantic.info.subtle}",
+          "$type": "color",
+          "$description": "Background for informational messages and neutral notifications",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Info alerts, tips, help messages, neutral notifications",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "on": {
+          "success": {
+            "$value": "{core.semantic.success.default}",
+            "$type": "color",
+            "$description": "Text and icons on success background - for use with background-success (subtle background)",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "ui",
+                "subcategory": "contrast",
+                "useCase": "Text in success alerts, success badge text, success message content",
+                "pairedWith": "background-success",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "error": {
+            "$value": "{core.semantic.error.default}",
+            "$type": "color",
+            "$description": "Text and icons on error background - for use with background-error (subtle background)",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "ui",
+                "subcategory": "contrast",
+                "useCase": "Text in error alerts, error badge text, error message content",
+                "pairedWith": "background-error",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "warning": {
+            "$value": "{core.semantic.warning.default}",
+            "$type": "color",
+            "$description": "Text and icons on warning background - for use with background-warning (subtle background)",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "ui",
+                "subcategory": "contrast",
+                "useCase": "Text in warning alerts, warning badge text, warning message content",
+                "pairedWith": "background-warning",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "info": {
+            "$value": "{core.semantic.info.default}",
+            "$type": "color",
+            "$description": "Text and icons on info background - for use with background-info (subtle background)",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "ui",
+                "subcategory": "contrast",
+                "useCase": "Text in info alerts, info badge text, info message content",
+                "pairedWith": "background-info",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "primary": {
+            "$value": "{primitive.color.hc.white}",
+            "$type": "color",
+            "$description": "Text and icons on primary background - AAA contrast guaranteed with primary brand color",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "ui",
+                "subcategory": "contrast",
+                "useCase": "Text/icons on primary buttons, primary badges, primary interactive elements",
+                "pairedWith": "core.brand.primary",
+                "modes": {
+                  "light": "{primitive.color.hc.white}",
+                  "dark": "{primitive.color.hc.white}",
+                  "high-contrast": "{primitive.color.hc.white}"
+                },
+                "a11y": {
+                  "contrastRatio": {
+                    "onBlue600": 7.5
+                  },
+                  "wcagLevel": "AAA"
+                },
+                "themeable": true,
+                "modeAware": true
+              }
+            }
+          },
+          "secondary": {
+            "$value": "{primitive.color.hc.white}",
+            "$type": "color",
+            "$description": "Text and icons on secondary background - AAA contrast guaranteed with secondary brand color",
+            "$extensions": {
+              "lufa": {
+                "level": "semantic",
+                "category": "ui",
+                "subcategory": "contrast",
+                "useCase": "Text/icons on secondary buttons, secondary badges, secondary interactive elements",
+                "pairedWith": "core.brand.secondary",
+                "modes": {
+                  "light": "{primitive.color.hc.white}",
+                  "dark": "{primitive.color.hc.white}",
+                  "high-contrast": "{primitive.color.hc.white}"
+                },
+                "a11y": {
+                  "contrastRatio": {
+                    "onPurple500": 7.2
+                  },
+                  "wcagLevel": "AAA"
+                },
+                "themeable": true,
+                "modeAware": true
+              }
+            }
           }
         }
       },
-      "background-surface": {
-        "$value": "{core.neutral.surface}",
-        "$type": "color",
-        "$description": "Surface background for cards, panels, and elevated content",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "overlay-backdrop": {
-        "$value": "{primitive.color.alpha.black.50}",
-        "$type": "color",
-        "$description": "Semi-transparent backdrop for modals, dialogs, and drawers",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "overlay",
-            "useCase": "Modal backdrops, dialog overlays, drawer backgrounds",
-            "modes": {
-              "light": "{primitive.color.alpha.black.50}",
-              "dark": "{primitive.color.alpha.black.80}",
-              "high-contrast": "{primitive.color.alpha.black.90}"
-            },
-            "themeable": true,
-            "modeAware": true
-          }
-        }
-      },
-      "overlay-hover": {
-        "$value": "{primitive.color.alpha.black.4}",
-        "$type": "color",
-        "$description": "Subtle overlay for hover states on interactive elements",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "overlay",
-            "useCase": "Hover state backgrounds for list items, cards, table rows",
-            "modes": {
-              "light": "{primitive.color.alpha.black.4}",
-              "dark": "{primitive.color.alpha.white.8}",
-              "high-contrast": "{primitive.color.alpha.white.16}"
-            },
-            "themeable": true,
-            "modeAware": true
-          }
-        }
-      },
-      "overlay-pressed": {
-        "$value": "{primitive.color.alpha.black.8}",
-        "$type": "color",
-        "$description": "Overlay for pressed/active states",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "overlay",
-            "useCase": "Pressed/active state overlays on buttons and interactive elements",
-            "modes": {
-              "light": "{primitive.color.alpha.black.8}",
-              "dark": "{primitive.color.alpha.white.16}",
-              "high-contrast": "{primitive.color.alpha.white.16}"
-            },
-            "themeable": true,
-            "modeAware": true
-          }
-        }
-      },
-      "overlay-selected": {
-        "$value": "{primitive.color.alpha.black.16}",
-        "$type": "color",
-        "$description": "Overlay for selected states in lists and menus",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "overlay",
-            "useCase": "Selected list items, active menu items, selected tabs",
-            "modes": {
-              "light": "{primitive.color.alpha.black.16}",
-              "dark": "{primitive.color.alpha.white.16}",
-              "high-contrast": "{primitive.color.alpha.white.16}"
-            },
-            "themeable": true,
-            "modeAware": true
-          }
-        }
-      },
-      "scrim": {
-        "$value": "{primitive.color.alpha.black.38}",
-        "$type": "color",
-        "$description": "Scrim overlay for bottom sheets and temporary surfaces",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "overlay",
-            "useCase": "Bottom sheets, temporary drawers, transient overlays",
-            "modes": {
-              "light": "{primitive.color.alpha.black.38}",
-              "dark": "{primitive.color.alpha.black.60}",
-              "high-contrast": "{primitive.color.alpha.black.80}"
-            },
-            "themeable": true,
-            "modeAware": true
-          }
-        }
-      },
-      "background-success": {
-        "$value": "{core.semantic.success-subtle}",
-        "$type": "color",
-        "$description": "Background for success messages and positive feedback",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Success alerts, positive notifications, confirmation banners",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "background-on-success": {
-        "$value": "{core.semantic.success}",
-        "$type": "color",
-        "$description": "Text and icons on success background - for use with background-success (subtle background)",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "contrast",
-            "useCase": "Text in success alerts, success badge text, success message content",
-            "pairedWith": "background-success",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "background-error": {
-        "$value": "{core.semantic.error-subtle}",
-        "$type": "color",
-        "$description": "Background for error messages and validation failures",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Error alerts, validation messages, destructive action confirmations",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "background-on-error": {
-        "$value": "{core.semantic.error}",
-        "$type": "color",
-        "$description": "Text and icons on error background - for use with background-error (subtle background)",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "contrast",
-            "useCase": "Text in error alerts, error badge text, error message content",
-            "pairedWith": "background-error",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "background-warning": {
-        "$value": "{core.semantic.warning-subtle}",
-        "$type": "color",
-        "$description": "Background for warning messages and caution notices",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Warning alerts, caution banners, pending action notices",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "background-on-warning": {
-        "$value": "{core.semantic.warning}",
-        "$type": "color",
-        "$description": "Text and icons on warning background - for use with background-warning (subtle background)",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "contrast",
-            "useCase": "Text in warning alerts, warning badge text, warning message content",
-            "pairedWith": "background-warning",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "background-info": {
-        "$value": "{core.semantic.info-subtle}",
-        "$type": "color",
-        "$description": "Background for informational messages and neutral notifications",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Info alerts, tips, help messages, neutral notifications",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "background-on-info": {
-        "$value": "{core.semantic.info}",
-        "$type": "color",
-        "$description": "Text and icons on info background - for use with background-info (subtle background)",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "contrast",
-            "useCase": "Text in info alerts, info badge text, info message content",
-            "pairedWith": "background-info",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "text-primary": {
-        "$value": "{core.neutral.text-primary}",
-        "$type": "color",
-        "$description": "Primary text color for headings and body content",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Headings, body text, primary labels, main content",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "text-secondary": {
-        "$value": "{core.neutral.text-secondary}",
-        "$type": "color",
-        "$description": "Secondary text color for supporting content",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Descriptions, captions, metadata, secondary labels",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "text-tertiary": {
-        "$value": "{core.neutral.text-tertiary}",
-        "$type": "color",
-        "$description": "Tertiary text color for subtle content",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Placeholder text, timestamps, optional information",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "text-success": {
-        "$value": "{core.semantic.success}",
-        "$type": "color",
-        "$description": "Text color for success messages and positive feedback",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Success message text, positive status indicators, confirmation text",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "text-error": {
-        "$value": "{core.semantic.error}",
-        "$type": "color",
-        "$description": "Text color for error messages and validation failures",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Error message text, validation errors, destructive action warnings",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "text-warning": {
-        "$value": "{core.semantic.warning}",
-        "$type": "color",
-        "$description": "Text color for warning messages and caution notices",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Warning message text, caution labels, pending action notices",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "text-info": {
-        "$value": "{core.semantic.info}",
-        "$type": "color",
-        "$description": "Text color for informational messages",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Info message text, help content, neutral notifications",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "border-default": {
-        "$value": "{core.neutral.border}",
-        "$type": "color",
-        "$description": "Default border color for dividers and element boundaries",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Dividers, separators, card borders, section boundaries",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "border-strong": {
-        "$value": "{core.neutral.border-strong}",
-        "$type": "color",
-        "$description": "Stronger border for emphasis and visual hierarchy",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Emphasized borders, section separators, strong dividers",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "border-success": {
-        "$value": "{core.semantic.success-border}",
-        "$type": "color",
-        "$description": "Border color for success contexts",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Success alert borders, positive status borders",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "border-error": {
-        "$value": "{core.semantic.error-border}",
-        "$type": "color",
-        "$description": "Border color for error contexts",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Error alert borders, invalid input borders, destructive action borders",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "border-warning": {
-        "$value": "{core.semantic.warning-border}",
-        "$type": "color",
-        "$description": "Border color for warning contexts",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Warning alert borders, caution element borders",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "border-info": {
-        "$value": "{core.semantic.info-border}",
-        "$type": "color",
-        "$description": "Border color for informational contexts",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "useCase": "Info alert borders, help element borders",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "typography-caption": {
-        "$value": "{semantic.typography.caption}",
-        "$type": "dimension",
-        "$description": "Caption text size alias for UI components",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "typography",
-            "useCase": "Caption text, small labels, tooltip text, metadata",
-            "themeable": true,
-            "modeAware": false
-          }
-        }
-      },
-      "background-on-primary": {
-        "$value": "{primitive.color.hc.white}",
-        "$type": "color",
-        "$description": "Text and icons on primary background - AAA contrast guaranteed with primary brand color",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "contrast",
-            "useCase": "Text/icons on primary buttons, primary badges, primary interactive elements",
-            "pairedWith": "core.brand.primary",
-            "modes": {
-              "light": "{primitive.color.hc.white}",
-              "dark": "{primitive.color.hc.white}",
-              "high-contrast": "{primitive.color.hc.white}"
-            },
-            "a11y": {
-              "contrastRatio": {
-                "onBlue600": 7.5
+      "overlay": {
+        "backdrop": {
+          "$value": "{primitive.color.alpha.black.50}",
+          "$type": "color",
+          "$description": "Semi-transparent backdrop for modals, dialogs, and drawers",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "subcategory": "overlay",
+              "useCase": "Modal backdrops, dialog overlays, drawer backgrounds",
+              "modes": {
+                "light": "{primitive.color.alpha.black.50}",
+                "dark": "{primitive.color.alpha.black.80}",
+                "high-contrast": "{primitive.color.alpha.black.90}"
               },
-              "wcagLevel": "AAA"
-            },
-            "themeable": true,
-            "modeAware": true
+              "themeable": true,
+              "modeAware": true
+            }
+          }
+        },
+        "hover": {
+          "$value": "{primitive.color.alpha.black.4}",
+          "$type": "color",
+          "$description": "Subtle overlay for hover states on interactive elements",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "subcategory": "overlay",
+              "useCase": "Hover state backgrounds for list items, cards, table rows",
+              "modes": {
+                "light": "{primitive.color.alpha.black.4}",
+                "dark": "{primitive.color.alpha.white.8}",
+                "high-contrast": "{primitive.color.alpha.white.16}"
+              },
+              "themeable": true,
+              "modeAware": true
+            }
+          }
+        },
+        "pressed": {
+          "$value": "{primitive.color.alpha.black.8}",
+          "$type": "color",
+          "$description": "Overlay for pressed/active states",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "subcategory": "overlay",
+              "useCase": "Pressed/active state overlays on buttons and interactive elements",
+              "modes": {
+                "light": "{primitive.color.alpha.black.8}",
+                "dark": "{primitive.color.alpha.white.16}",
+                "high-contrast": "{primitive.color.alpha.white.16}"
+              },
+              "themeable": true,
+              "modeAware": true
+            }
+          }
+        },
+        "selected": {
+          "$value": "{primitive.color.alpha.black.16}",
+          "$type": "color",
+          "$description": "Overlay for selected states in lists and menus",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "subcategory": "overlay",
+              "useCase": "Selected list items, active menu items, selected tabs",
+              "modes": {
+                "light": "{primitive.color.alpha.black.16}",
+                "dark": "{primitive.color.alpha.white.16}",
+                "high-contrast": "{primitive.color.alpha.white.16}"
+              },
+              "themeable": true,
+              "modeAware": true
+            }
+          }
+        },
+        "scrim": {
+          "$value": "{primitive.color.alpha.black.38}",
+          "$type": "color",
+          "$description": "Scrim overlay for bottom sheets and temporary surfaces",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "subcategory": "overlay",
+              "useCase": "Bottom sheets, temporary drawers, transient overlays",
+              "modes": {
+                "light": "{primitive.color.alpha.black.38}",
+                "dark": "{primitive.color.alpha.black.60}",
+                "high-contrast": "{primitive.color.alpha.black.80}"
+              },
+              "themeable": true,
+              "modeAware": true
+            }
           }
         }
       },
-      "background-on-secondary": {
-        "$value": "{primitive.color.hc.white}",
-        "$type": "color",
-        "$description": "Text and icons on secondary background - AAA contrast guaranteed with secondary brand color",
-        "$extensions": {
-          "lufa": {
-            "level": "semantic",
-            "category": "ui",
-            "subcategory": "contrast",
-            "useCase": "Text/icons on secondary buttons, secondary badges, secondary interactive elements",
-            "pairedWith": "core.brand.secondary",
-            "modes": {
-              "light": "{primitive.color.hc.white}",
-              "dark": "{primitive.color.hc.white}",
-              "high-contrast": "{primitive.color.hc.white}"
-            },
-            "a11y": {
-              "contrastRatio": {
-                "onPurple500": 7.2
-              },
-              "wcagLevel": "AAA"
-            },
-            "themeable": true,
-            "modeAware": true
+      "text": {
+        "primary": {
+          "$value": "{core.neutral.text.primary}",
+          "$type": "color",
+          "$description": "Primary text color for headings and body content",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Headings, body text, primary labels, main content",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "secondary": {
+          "$value": "{core.neutral.text.secondary}",
+          "$type": "color",
+          "$description": "Secondary text color for supporting content",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Descriptions, captions, metadata, secondary labels",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "tertiary": {
+          "$value": "{core.neutral.text.tertiary}",
+          "$type": "color",
+          "$description": "Tertiary text color for subtle content",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Placeholder text, timestamps, optional information",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "success": {
+          "$value": "{core.semantic.success.default}",
+          "$type": "color",
+          "$description": "Text color for success messages and positive feedback",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Success message text, positive status indicators, confirmation text",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "error": {
+          "$value": "{core.semantic.error.default}",
+          "$type": "color",
+          "$description": "Text color for error messages and validation failures",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Error message text, validation errors, destructive action warnings",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "warning": {
+          "$value": "{core.semantic.warning.default}",
+          "$type": "color",
+          "$description": "Text color for warning messages and caution notices",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Warning message text, caution labels, pending action notices",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "info": {
+          "$value": "{core.semantic.info.default}",
+          "$type": "color",
+          "$description": "Text color for informational messages",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Info message text, help content, neutral notifications",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "border": {
+        "default": {
+          "$value": "{core.neutral.border.default}",
+          "$type": "color",
+          "$description": "Default border color for dividers and element boundaries",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Dividers, separators, card borders, section boundaries",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "strong": {
+          "$value": "{core.neutral.border.strong}",
+          "$type": "color",
+          "$description": "Stronger border for emphasis and visual hierarchy",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Emphasized borders, section separators, strong dividers",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "success": {
+          "$value": "{core.semantic.success.border}",
+          "$type": "color",
+          "$description": "Border color for success contexts",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Success alert borders, positive status borders",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "error": {
+          "$value": "{core.semantic.error.border}",
+          "$type": "color",
+          "$description": "Border color for error contexts",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Error alert borders, invalid input borders, destructive action borders",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "warning": {
+          "$value": "{core.semantic.warning.border}",
+          "$type": "color",
+          "$description": "Border color for warning contexts",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Warning alert borders, caution element borders",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "info": {
+          "$value": "{core.semantic.info.border}",
+          "$type": "color",
+          "$description": "Border color for informational contexts",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "useCase": "Info alert borders, help element borders",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "typography": {
+        "caption": {
+          "$value": "{semantic.typography.caption}",
+          "$type": "dimension",
+          "$description": "Caption text size alias for UI components",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "subcategory": "typography",
+              "useCase": "Caption text, small labels, tooltip text, metadata",
+              "themeable": true,
+              "modeAware": false
+            }
           }
         }
       }

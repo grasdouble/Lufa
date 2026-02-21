@@ -5,14 +5,14 @@
   padding: var(--lufa-component-input-padding-md);
   font-family: inherit;
   font-size: var(--lufa-component-input-font-size-md);
-  line-height: var(--lufa-primitive-typography-line-height-normal);
+  line-height: var(--lufa-core-typography-body-line-height);
   color: var(--lufa-component-input-text-default);
   background-color: var(--lufa-component-input-background-default);
-  border: 1px solid var(--lufa-component-input-border-default);
+  border: var(--lufa-component-input-border-width) solid var(--lufa-component-input-border-default);
   border-radius: var(--lufa-component-input-border-radius);
   transition:
-    border-color var(--lufa-semantic-ui-transition-fast),
-    box-shadow var(--lufa-semantic-ui-transition-fast);
+    border-color var(--lufa-semantic-ui-transition-duration-fast),
+    box-shadow var(--lufa-semantic-ui-transition-duration-fast);
   outline: none;
 }
 
@@ -22,7 +22,7 @@
 
 .input:focus {
   border-color: var(--lufa-component-input-border-focus);
-  box-shadow: 0 0 0 2px var(--lufa-component-shared-focus-outline-color);
+  box-shadow: 0 0 0 var(--lufa-component-shared-focus-outline-width) var(--lufa-component-shared-focus-outline-color);
 }
 
 .input.error {
@@ -30,7 +30,7 @@
 }
 
 .input.error:focus {
-  box-shadow: 0 0 0 2px var(--lufa-core-semantic-error-subtle);
+  box-shadow: 0 0 0 var(--lufa-component-shared-focus-outline-width) var(--lufa-semantic-ui-background-error);
 }
 
 .input.disabled {

@@ -8,11 +8,11 @@
 - **User**: Noofreuuuh
 - **Communication Language**: Français
 - **Document Output Language**: English
-- **User Skill Level**: intermediate
+- **User Skill Level**: expert
 - **Output Folder**: {project-root}/\_bmad-output
 - **Planning Artifacts**: {project-root}/\_bmad-output/planning-artifacts
 - **Implementation Artifacts**: {project-root}/\_bmad-output/implementation-artifacts
-- **Project Knowledge**: {project-root}/\_docs
+- **Project Knowledge**: {project-root}/\_bmad-docs
 
 ## BMAD Runtime Structure
 

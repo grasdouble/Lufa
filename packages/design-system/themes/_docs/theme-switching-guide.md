@@ -14,7 +14,7 @@ Lufa Design System supports three theme modes:
 
 Theme switching is CSS-based using the `data-mode` attribute on any parent element. No JavaScript is required for themes to work, but JavaScript enables dynamic switching.
 
-**Note:** Use `data-mode` for accessibility modes (light, dark, high-contrast) and `data-color-theme` for brand color themes (ocean, forest, etc.). This guide covers accessibility modes.
+**Note:** Use `data-mode` for accessibility modes (light, dark, high-contrast) and `data-theme` for brand color themes (ocean, forest, etc.). This guide covers accessibility modes.
 
 ## Quick Start
 
@@ -49,8 +49,8 @@ Theme switching is CSS-based using the `data-mode` attribute on any parent eleme
 
 ```css
 .card {
-  background-color: var(--lufa-core-neutral-surface);
-  border: 1px solid var(--lufa-core-neutral-border);
+  background-color: var(--lufa-core-neutral-surface-default);
+  border: 1px solid var(--lufa-core-neutral-border-default);
   color: var(--lufa-core-neutral-text-primary);
   padding: var(--lufa-core-spacing-4);
   border-radius: var(--lufa-core-radius-md);
@@ -398,7 +398,7 @@ const StyledCard = styled.div`
 
 ```tsx
 const StyledCard = styled.div`
-  background: var(--lufa-core-neutral-surface);
+  background: var(--lufa-core-neutral-surface-default);
 `;
 ```
 

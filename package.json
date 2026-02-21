@@ -34,6 +34,9 @@
     "ds:docusaurus:prettier:check": "pnpm --filter @grasdouble/lufa_design-system-docusaurus run prettier:check",
     "ds:docusaurus:prettier:write": "pnpm --filter @grasdouble/lufa_design-system-docusaurus run prettier:write",
     "ds:docusaurus:typecheck": "pnpm --filter @grasdouble/lufa_design-system-docusaurus run typecheck",
+    "ds:docusaurus:validate:token-usage": "pnpm --filter @grasdouble/lufa_design-system-docusaurus run validate:token-usage",
+    "ds:docusaurus:validate:token-usage:unused": "pnpm --filter @grasdouble/lufa_design-system-docusaurus run validate:token-usage:unused",
+    "ds:docusaurus:validate:token-usage:verbose": "pnpm --filter @grasdouble/lufa_design-system-docusaurus run validate:token-usage:verbose",
     "ds:main:-------------------------------------------": "",
     "ds:main:build": "pnpm --filter @grasdouble/lufa_design-system run build",
     "ds:main:dev": "pnpm --filter @grasdouble/lufa_design-system run build -w",
@@ -41,6 +44,9 @@
     "ds:main:prettier:check": "pnpm --filter @grasdouble/lufa_design-system run prettier:check",
     "ds:main:prettier:write": "pnpm --filter @grasdouble/lufa_design-system run prettier:write",
     "ds:main:typecheck": "pnpm --filter @grasdouble/lufa_design-system run typecheck",
+    "ds:main:validate:token-usage": "pnpm --filter @grasdouble/lufa_design-system run validate:token-usage",
+    "ds:main:validate:token-usage:unused": "pnpm --filter @grasdouble/lufa_design-system run validate:token-usage:unused",
+    "ds:main:validate:token-usage:verbose": "pnpm --filter @grasdouble/lufa_design-system run validate:token-usage:verbose",
     "ds:storybook:--------------------------------------": "",
     "ds:storybook:build": "pnpm --filter @grasdouble/lufa_design-system-storybook run build",
     "ds:storybook:dev": "pnpm --filter @grasdouble/lufa_design-system-storybook run dev",
@@ -69,6 +75,7 @@
     "ds:tokens:prettier:check": "pnpm --filter @grasdouble/lufa_design-system-tokens run prettier:check",
     "ds:tokens:prettier:write": "pnpm --filter @grasdouble/lufa_design-system-tokens run prettier:write",
     "ds:tokens:typecheck": "pnpm --filter @grasdouble/lufa_design-system-tokens run typecheck",
+    "ds:tokens:validate:tokens": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:tokens",
     "lint-staged": "lint-staged",
     "plugin:vite:---------------------------------------": "",
     "plugin:vite:lint": "pnpm --filter @grasdouble/lufa_plugin_vite_* run lint",
@@ -78,16 +85,19 @@
     "tools:---------------------------------------------": "",
     "tools:bmad:status": "pnpm dlx bmad-method status",
     "tools:bmad:update": "pnpm dlx bmad-method install",
+    "tools:bmad:viewer": "pnpm dlx bmad-viewer",
     "tools:generate-outdated-report": "node .github/actions/dependency-update/generateOutdatedReport.js",
     "validate:------------------------------------------": "",
     "validate:components": "node scripts/validate-components.js",
-    "validate:docs": "bash scripts/validate-ai-docs.sh",
-    "validate:tokens": "node scripts/validate-token-metadata.js"
+    "validate:docs": "bash scripts/validate-ai-docs.sh"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
       "eslint --fix",
       "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "bash -c 'pnpm all:typecheck'"
     ],
     "*.{json,md,yml,yaml,css,html}": [
       "prettier --write"

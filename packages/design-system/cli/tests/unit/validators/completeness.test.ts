@@ -15,7 +15,7 @@ describe('Completeness Validator', () => {
     expect(result).toHaveProperty('totalDefined');
     expect(result).toHaveProperty('missingTokens');
     expect(result).toHaveProperty('extraTokens');
-    expect(result.totalRequired).toBe(453);
+    expect(result.totalRequired).toBe(624);
   });
 
   it('detects missing tokens', async () => {
@@ -35,8 +35,8 @@ describe('Completeness Validator', () => {
 
     const result = await validateCompleteness(properties);
     expect(result.totalDefined).toBe(0);
-    expect(result.totalRequired).toBe(453);
-    expect(result.missingTokens).toHaveLength(453);
+    expect(result.totalRequired).toBe(624);
+    expect(result.missingTokens).toHaveLength(624);
   });
 
   it('identifies specific missing tokens', async () => {
@@ -50,8 +50,8 @@ describe('Completeness Validator', () => {
   it('handles duplicate tokens (counts only once)', async () => {
     const properties: CSSCustomProperty[] = [];
 
-    // Add all 453 unique tokens
-    for (let i = 0; i < 453; i++) {
+    // Add all 609 unique tokens
+    for (let i = 0; i < 609; i++) {
       properties.push({
         name: `--lufa-test-token-${i}`,
         value: 'test',
@@ -63,11 +63,11 @@ describe('Completeness Validator', () => {
     properties.push({
       name: '--lufa-test-token-0',
       value: 'duplicate',
-      line: 454,
+      line: 609,
     });
 
     const result = await validateCompleteness(properties);
-    expect(result.totalDefined).toBe(454); // All properties counted
+    expect(result.totalDefined).toBe(610); // All properties counted (609 unique + 1 duplicate)
   });
 
   it('ignores non-lufa tokens', async () => {
@@ -78,7 +78,7 @@ describe('Completeness Validator', () => {
 
     const result = await validateCompleteness(properties);
     // Custom tokens are in totalDefined but won't match required tokens
-    expect(result.missingTokens).toHaveLength(453); // All required tokens still missing
+    expect(result.missingTokens).toHaveLength(624); // All required tokens still missing
   });
 
   it('validates token name format', async () => {
@@ -87,7 +87,7 @@ describe('Completeness Validator', () => {
 
     const result = await validateCompleteness(properties);
     expect(result.totalDefined).toBe(0);
-    expect(result.totalRequired).toBe(453);
+    expect(result.totalRequired).toBe(624);
     expect(result.valid).toBe(false); // No tokens provided, so invalid
   });
 });

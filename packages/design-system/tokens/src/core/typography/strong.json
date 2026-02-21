@@ -1,0 +1,22 @@
+{
+  "core": {
+    "typography": {
+      "strong": {
+        "font-weight": {
+          "$value": "{primitive.typography.font-weight.semibold}",
+          "$type": "fontWeight",
+          "$description": "Font weight for emphasized/strong text",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "typography",
+              "useCase": "Bold text, strong emphasis, labels, navigation items",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

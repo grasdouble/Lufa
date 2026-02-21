@@ -242,11 +242,11 @@ import './custom-theme.css'; // Your overrides
 ### Semantic Border Radius
 
 ```css
---lufa-semantic-ui-radius-small             /* 4px - subtle rounding */
---lufa-semantic-ui-radius-default           /* 8px - standard (most common) */
---lufa-semantic-ui-radius-medium            /* 12px - emphasized rounding */
---lufa-semantic-ui-radius-large             /* 16px - prominent rounding */
---lufa-semantic-ui-radius-full              /* 9999px - pill shape */
+--lufa-semantic-ui-border-radius-small             /* 4px - subtle rounding */
+--lufa-semantic-ui-border-radius-default           /* 8px - standard (most common) */
+--lufa-semantic-ui-border-radius-medium            /* 12px - emphasized rounding */
+--lufa-semantic-ui-border-radius-large             /* 16px - prominent rounding */
+--lufa-semantic-ui-border-radius-full              /* 9999px - pill shape */
 ```
 
 ### Semantic Shadows
@@ -307,8 +307,8 @@ Create a complete theme by overriding semantic and component tokens:
   --lufa-semantic-ui-spacing-comfortable: 24px;
 
   /* Border Radius (mode-independent) */
-  --lufa-semantic-ui-radius-default: 12px;
-  --lufa-semantic-ui-radius-large: 16px;
+  --lufa-semantic-ui-border-radius-default: 12px;
+  --lufa-semantic-ui-border-radius-large: 16px;
 }
 
 [data-mode='dark'] {
@@ -356,7 +356,7 @@ function CustomComponent() {
     // ✅ Use semantic tokens for mode-aware styling
     backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
     padding: 'var(--lufa-semantic-ui-spacing-default)',
-    borderRadius: 'var(--lufa-semantic-ui-radius-default)',
+    borderRadius: 'var(--lufa-semantic-ui-border-radius-default)',
     color: 'var(--lufa-semantic-ui-text-primary)',
   };
 
@@ -455,7 +455,7 @@ You wouldn't try to change `Math.PI`, and you shouldn't change primitive tokens.
 
 **Future (Phase 6):**
 
-- **Themes** (`data-color-theme`) - Ocean, Forest, Custom (for brand variants)
+- **Themes** (`data-theme`) - Ocean, Forest, Custom (for brand variants)
 
 Modes and themes will be orthogonal - you'll be able to combine any mode with any theme:
 

@@ -23,13 +23,13 @@ With the decision to separate modes (accessibility) from themes (brand variants)
 **Token System (as-built):**
 
 ```css
-[data-theme='light'] {
+[data-mode='light'] {
   /* ... */
 }
-[data-theme='dark'] {
+[data-mode='dark'] {
   /* ... */
 }
-[data-theme='high-contrast'] {
+[data-mode='high-contrast'] {
   /* ... */
 }
 ```
@@ -62,20 +62,20 @@ We will use the following HTML attribute naming convention:
 
 ### 2. Theme Attribute
 
-**Attribute:** `data-color-theme`  
+**Attribute:** `data-theme`  
 **Purpose:** Brand/palette variant  
 **Values:** `default` | `ocean` | `forest` | (custom)  
 **Managed by:** `useTheme` hook  
 **Package:** `@lufa/themes`
 
 ```html
-<html data-color-theme="ocean"></html>
+<html data-theme="ocean"></html>
 ```
 
 ### 3. Combined Usage
 
 ```html
-<html data-mode="dark" data-color-theme="ocean"></html>
+<html data-mode="dark" data-theme="ocean"></html>
 ```
 
 ---
@@ -109,7 +109,7 @@ We will use the following HTML attribute naming convention:
 - Implies auto-detection possibility
 - Doesn't conflict with other libraries
 
-### Why `data-color-theme` (not just `data-theme`)?
+### Why `data-theme` (not just `data-theme`)?
 
 **Avoids Conflicts:**
 
@@ -137,7 +137,7 @@ const { mode } = useThemeMode();           // Accessibility
 const { theme } = useTheme();              // Brand colors
 
 // Obvious in HTML
-<html data-mode="dark" data-color-theme="ocean">
+<html data-mode="dark" data-theme="ocean">
 ```
 
 ---
@@ -269,7 +269,7 @@ const { theme } = useTheme();              // Brand colors
 ```typescript
 // Obvious what each does
 document.documentElement.setAttribute('data-mode', 'dark');
-document.documentElement.setAttribute('data-color-theme', 'ocean');
+document.documentElement.setAttribute('data-theme', 'ocean');
 ```
 
 **CSS Selectors Are Obvious:**
@@ -287,15 +287,15 @@ document.documentElement.setAttribute('data-color-theme', 'ocean');
 }
 
 /* Theme selectors */
-[data-color-theme='ocean'] {
+[data-theme='ocean'] {
   /* ... */
 }
-[data-color-theme='forest'] {
+[data-theme='forest'] {
   /* ... */
 }
 
 /* Combined selectors */
-[data-color-theme='ocean'][data-mode='dark'] {
+[data-theme='ocean'][data-mode='dark'] {
   /* ... */
 }
 ```
@@ -303,14 +303,14 @@ document.documentElement.setAttribute('data-color-theme', 'ocean');
 **No Library Conflicts:**
 
 - `data-mode` is rare in the ecosystem
-- `data-color-theme` is unique to our system
+- `data-theme` is unique to our system
 - Won't clash with DaisyUI, Radix, shadcn, etc.
 
 **Future-Proof:**
 
 ```html
 <!-- Phase 6+ expansion possibilities -->
-<html data-mode="dark" data-color-theme="ocean" data-typography-theme="compact" data-spacing-theme="comfortable"></html>
+<html data-mode="dark" data-theme="ocean" data-typography-theme="compact" data-spacing-theme="comfortable"></html>
 ```
 
 **Developer Experience:**
@@ -318,7 +318,7 @@ document.documentElement.setAttribute('data-color-theme', 'ocean');
 ```javascript
 // Easy to read and understand
 const mode = document.documentElement.getAttribute('data-mode');
-const theme = document.documentElement.getAttribute('data-color-theme');
+const theme = document.documentElement.getAttribute('data-theme');
 
 // Clear in debugging
 console.log('Mode:', mode); // "dark"
@@ -332,9 +332,9 @@ console.log('Color Theme:', theme); // "ocean"
 **Token CSS Selectors Must Change:**
 
 ```diff
-- [data-theme='light'] { /* ... */ }
-- [data-theme='dark'] { /* ... */ }
-- [data-theme='high-contrast'] { /* ... */ }
+- [data-mode='light'] { /* ... */ }
+- [data-mode='dark'] { /* ... */ }
+- [data-mode='high-contrast'] { /* ... */ }
 + [data-mode='light'] { /* ... */ }
 + [data-mode='dark'] { /* ... */ }
 + [data-mode='high-contrast'] { /* ... */ }
@@ -370,13 +370,13 @@ useEffect(() => {
 // useTheme.ts (Phase 6)
 useEffect(() => {
   // Before: setAttribute('data-theme', theme)
-  document.documentElement.setAttribute('data-color-theme', theme); // Updated
+  document.documentElement.setAttribute('data-theme', theme); // Updated
 }, [theme]);
 ```
 
 **Slightly Longer Attribute Name:**
 
-- `data-color-theme` is 16 characters vs `data-theme` (10 characters)
+- `data-theme` is 16 characters vs `data-theme` (10 characters)
 - Marginally more verbose in HTML
 - Trade-off for clarity
 
@@ -399,7 +399,7 @@ useEffect(() => {
 **Longer Than Some Alternatives:**
 
 - `data-mode` is 9 characters (vs `data-theme` at 10, so actually shorter!)
-- `data-color-theme` is 16 characters (vs `data-theme` at 10)
+- `data-theme` is 16 characters (vs `data-theme` at 10)
 - **Acceptable trade-off:** Clarity worth the extra bytes
 
 ---
@@ -422,7 +422,7 @@ packages/design-system/tokens/
 ```
 packages/design-system/main/src/hooks/
 ├── useThemeMode.ts           # New hook, uses data-mode
-└── useTheme.ts               # Update to use data-color-theme (Phase 6)
+└── useTheme.ts               # Update to use data-theme (Phase 6)
 ```
 
 **Components:**
@@ -457,7 +457,7 @@ packages/design-system/_docs/
 **Phase 3: Phase 6 Theme Implementation**
 
 1. Implement real ocean.css and forest.css
-2. Update/clarify `useTheme` to use `data-color-theme`
+2. Update/clarify `useTheme` to use `data-theme`
 3. Enable theme switching UI
 
 **Phase 4: Deprecation (Post-Phase 6)**
@@ -486,7 +486,7 @@ This decision will be validated by:
 
 ```html
 <!DOCTYPE html>
-<html lang="en" data-mode="dark" data-color-theme="ocean">
+<html lang="en" data-mode="dark" data-theme="ocean">
   <head>
     <link rel="stylesheet" href="tokens.css" />
     <link rel="stylesheet" href="themes.css" />
@@ -518,18 +518,18 @@ This decision will be validated by:
 }
 
 /* themes.css - Theme overrides (Phase 6) */
-[data-color-theme='ocean'] {
+[data-theme='ocean'] {
   --lufa-core-brand-primary: #0ea5e9;
   --lufa-core-brand-secondary: #06b6d4;
 }
 
-[data-color-theme='forest'] {
+[data-theme='forest'] {
   --lufa-core-brand-primary: #10b981;
   --lufa-core-brand-secondary: #059669;
 }
 
 /* Combined selectors - Theme wins in cascade */
-[data-color-theme='ocean'][data-mode='dark'] {
+[data-theme='ocean'][data-mode='dark'] {
   --lufa-core-brand-primary: #38bdf8; /* Lighter ocean for dark mode */
 }
 ```

@@ -20,6 +20,8 @@ build
 #BNAD
 _bmad
 _bmad-output
+#BMAD generated files
+bmad-*
 
 #storybook
 storybook-static

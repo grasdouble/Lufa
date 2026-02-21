@@ -156,7 +156,7 @@ function Modal({ children }: { children: React.ReactNode }) {
         boxShadow: 'var(--lufa-semantic-ui-shadow-extra-large)',
         backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
         padding: 'var(--lufa-semantic-ui-spacing-comfortable)',
-        borderRadius: 'var(--lufa-semantic-ui-radius-large)',
+        borderRadius: 'var(--lufa-semantic-ui-border-radius-large)',
       }}
     >
       {children}

@@ -490,23 +490,23 @@
 }
 
 .borderRadius-small {
-  border-radius: var(--lufa-semantic-ui-radius-small);
+  border-radius: var(--lufa-semantic-ui-border-radius-small);
 }
 
 .borderRadius-default {
-  border-radius: var(--lufa-semantic-ui-radius-default);
+  border-radius: var(--lufa-semantic-ui-border-radius-default);
 }
 
 .borderRadius-medium {
-  border-radius: var(--lufa-semantic-ui-radius-medium);
+  border-radius: var(--lufa-semantic-ui-border-radius-medium);
 }
 
 .borderRadius-large {
-  border-radius: var(--lufa-semantic-ui-radius-large);
+  border-radius: var(--lufa-semantic-ui-border-radius-large);
 }
 
 .borderRadius-full {
-  border-radius: var(--lufa-semantic-ui-radius-full);
+  border-radius: var(--lufa-semantic-ui-border-radius-full);
 }
 
 /* ========================================== */
@@ -519,17 +519,17 @@
 }
 
 .borderWidth-thin {
-  border-width: 1px;
+  border-width: var(--lufa-semantic-ui-border-width-thin);
   border-style: solid;
 }
 
 .borderWidth-medium {
-  border-width: 2px;
+  border-width: var(--lufa-semantic-ui-border-width-medium);
   border-style: solid;
 }
 
 .borderWidth-thick {
-  border-width: 4px;
+  border-width: var(--lufa-semantic-ui-border-width-thick);
   border-style: solid;
 }
 

@@ -49,7 +49,7 @@ const parameters: Parameters = {
 
 /**
  * Custom decorator to handle theme (default/ocean/forest) and mode (light/dark/high-contrast)
- * Applies data-color-theme and data-mode attributes to the document root
+ * Applies data-theme and data-mode attributes to the document root
  */
 const withThemeAndMode: Decorator = (Story, context) => {
   const theme: string = context.globals.theme ?? 'default';
@@ -83,6 +83,7 @@ const preview: Preview = {
           { value: 'volcano', title: 'Volcano 🌋', icon: 'circle' },
           { value: 'coffee', title: 'Coffee ☕', icon: 'circle' },
           { value: 'volt', title: 'Volt ⚡', icon: 'circle' },
+          { value: 'steampunk', title: 'Steampunk ⚙️', icon: 'circle' },
         ],
         dynamicTitle: true,
       },

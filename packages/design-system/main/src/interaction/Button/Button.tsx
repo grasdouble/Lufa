@@ -4,7 +4,6 @@ import type { IconName } from '@content/Icon';
 import { Icon } from '@content/Icon';
 import { clsx } from 'clsx';
 
-import additionalStyles from './Button.additional.module.css';
 import styles from './Button.module.css';
 
 /**
@@ -192,16 +191,11 @@ const ButtonImpl = <T extends ElementType = 'button'>(
     // Base button class
     styles.button,
 
-    // Additional styles (for hover/focus/animations)
-    additionalStyles.button,
-
     // Type utilities
     type && styles[`type-${type}`],
-    type && additionalStyles[`type-${type}`],
 
     // Variant utilities
     variant && styles[`variant-${variant}`],
-    variant && additionalStyles[`variant-${variant}`],
 
     // Size utilities
     size && styles[`size-${size}`],
@@ -215,7 +209,6 @@ const ButtonImpl = <T extends ElementType = 'button'>(
     // States
     isDisabled && styles['disabled-true'],
     loading && styles['loading-true'],
-    loading && additionalStyles['loading-true'],
 
     // Custom className
     className
@@ -264,7 +257,7 @@ const ButtonImpl = <T extends ElementType = 'button'>(
       )}
 
       {/* Screen reader text for icon-only buttons in loading state */}
-      {isIconOnly && loading && <span className={additionalStyles['visually-hidden']}>Loading</span>}
+      {isIconOnly && loading && <span className={styles['visually-hidden']}>Loading</span>}
     </Component>
   );
 };

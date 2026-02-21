@@ -20,11 +20,11 @@ Architecture Decision Records (ADRs) document important architectural decisions 
 
 ### Theme & Mode System
 
-| ADR                                                              | Status         | Title                            | Description                                                                  | Date       | Impact   |
-| ---------------------------------------------------------------- | -------------- | -------------------------------- | ---------------------------------------------------------------------------- | ---------- | -------- |
-| [ADR-001](./ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)   | ✅ Implemented | Separation of Modes and Themes   | Distinguishes `data-mode` (accessibility) from `data-color-theme` (branding) | 2026-01-26 | Critical |
-| [ADR-002](./ADR-002-IMPLEMENTED-html-attributes-naming.md)       | ✅ Implemented | HTML Attribute Naming Convention | Defines HTML attribute naming for theme/mode application                     | 2026-01-26 | High     |
-| [ADR-003](./ADR-003-IMPLEMENTED-high-contrast-token-strategy.md) | ✅ Implemented | High-Contrast Token Strategy     | Ensures 100% WCAG AAA compliance for high-contrast mode                      | 2026-01-26 | High     |
+| ADR                                                              | Status         | Title                            | Description                                                            | Date       | Impact   |
+| ---------------------------------------------------------------- | -------------- | -------------------------------- | ---------------------------------------------------------------------- | ---------- | -------- |
+| [ADR-001](./ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)   | ✅ Implemented | Separation of Modes and Themes   | Distinguishes `data-mode` (accessibility) from `data-theme` (branding) | 2026-01-26 | Critical |
+| [ADR-002](./ADR-002-IMPLEMENTED-html-attributes-naming.md)       | ✅ Implemented | HTML Attribute Naming Convention | Defines HTML attribute naming for theme/mode application               | 2026-01-26 | High     |
+| [ADR-003](./ADR-003-IMPLEMENTED-high-contrast-token-strategy.md) | ✅ Implemented | High-Contrast Token Strategy     | Ensures 100% WCAG AAA compliance for high-contrast mode                | 2026-01-26 | High     |
 
 ### Token Architecture
 
@@ -57,7 +57,7 @@ If you're new to the design system, start with these critical ADRs:
    **Foundation:** Understand why primitives never change and how theming works at semantic/component level.
 
 2. **[ADR-001: Separation of Modes and Themes](./ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)** ⭐  
-   **Theming:** Understand the distinction between `data-mode` (accessibility) and `data-color-theme` (branding).
+   **Theming:** Understand the distinction between `data-mode` (accessibility) and `data-theme` (branding).
 
 3. **[ADR-005: Breakpoint Token Strategy](./ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)**  
    **Responsive:** Learn the 6-breakpoint system for responsive design.

@@ -187,7 +187,7 @@ StyleDictionary.registerFormat({
 
 export default {
   log: {
-    verbosity: 'default',
+    verbosity: 'verbose',
   },
   source: [
     'src/primitives/**/*.json',

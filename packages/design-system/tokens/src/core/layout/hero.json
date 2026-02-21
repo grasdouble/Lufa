@@ -1,0 +1,25 @@
+{
+  "core": {
+    "layout": {
+      "hero": {
+        "padding": {
+          "fluid": {
+            "$value": "clamp(32px, 6vw, 80px)",
+            "$type": "dimension",
+            "$description": "Fluid padding for hero sections (scales from 32px to 80px)",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "layout",
+                "useCase": "Hero section internal padding, banner spacing",
+                "fluid": true,
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

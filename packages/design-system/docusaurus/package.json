@@ -16,6 +16,9 @@
     "swizzle": "docusaurus swizzle",
     "typecheck": "tsc",
     "update-changelog": "node scripts/update-changelog.js",
+    "validate:token-usage": "node scripts/validate-token-usage.js",
+    "validate:token-usage:unused": "node scripts/validate-token-usage.js --unused",
+    "validate:token-usage:verbose": "node scripts/validate-token-usage.js --verbose",
     "write-heading-ids": "docusaurus write-heading-ids",
     "write-translations": "docusaurus write-translations"
   },
@@ -23,6 +26,9 @@
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
       "eslint --fix",
       "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "bash -c 'pnpm typecheck'"
     ],
     "*.{json,md,css,html}": [
       "prettier --write"
@@ -48,6 +54,7 @@
     "@docusaurus/theme-live-codeblock": "^3.9.2",
     "@easyops-cn/docusaurus-search-local": "^0.52.3",
     "@grasdouble/lufa_design-system": "workspace:^",
+    "@grasdouble/lufa_design-system-themes": "workspace:^",
     "@grasdouble/lufa_design-system-tokens": "workspace:^",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
@@ -68,6 +75,7 @@
     "eslint": "^9.39.2",
     "prettier": "^3.8.1",
     "prettier-plugin-packagejson": "^3.0.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
   "engines": {

@@ -59,7 +59,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({
     const observer = new MutationObserver(updateValue);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-color-theme', 'data-mode'],
+      attributeFilter: ['data-theme', 'data-mode'],
     });
 
     return () => observer.disconnect();

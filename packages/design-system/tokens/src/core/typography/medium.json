@@ -1,0 +1,22 @@
+{
+  "core": {
+    "typography": {
+      "medium": {
+        "font-weight": {
+          "$value": "{primitive.typography.font-weight.medium}",
+          "$type": "fontWeight",
+          "$description": "Font weight for medium emphasis text (labels, navigation, subtle highlights)",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "typography",
+              "useCase": "Labels, navigation items, light emphasis, UI controls",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

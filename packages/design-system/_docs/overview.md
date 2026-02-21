@@ -26,7 +26,7 @@
 
 ## What is Lufa Design System?
 
-Lufa Design System is a **token-based React component library** that provides a unified, accessible, and maintainable UI foundation for the Lufa microfrontend ecosystem. It implements a **role-based component architecture** (foundation → content → interaction → composition → utility) built on a **four-level semantic token system** (438 tokens).
+Lufa Design System is a **token-based React component library** that provides a unified, accessible, and maintainable UI foundation for the Lufa microfrontend ecosystem. It implements a **role-based component architecture** (foundation → content → interaction → composition → utility) built on a **four-level semantic token system** (621 tokens).
 
 ### Purpose
 
@@ -48,9 +48,9 @@ The Design System serves three primary purposes:
 - ✅ Badge (status indicator)
 - ✅ Divider (visual separator)
 
-**Tokens:** 438/438 complete (100%)
+**Tokens:** 621/621 complete (100%)
 
-- 4 levels: Primitives (111) → Core (58) → Semantic (103) → Component (166)
+- 4 levels: Primitives → Core → Semantic → Component
 - DTCG format compliant
 - 8ms CSS cascade performance
 
@@ -93,11 +93,11 @@ The Design System serves three primary purposes:
 - **3 accessibility modes**: Light, Dark, High-Contrast
 - **9 total configurations**: 3 themes × 3 modes
 - **Efficient cascade**: 6 core token overrides → 27+ tokens change automatically
-- **Runtime switching**: Change themes/modes via `data-color-theme` and `data-mode` attributes
+- **Runtime switching**: Change themes/modes via `data-theme` and `data-mode` attributes
 
 ```html
 <!-- Select theme (brand/aesthetic) -->
-<html data-color-theme="ocean">
+<html data-theme="ocean">
   <!-- Select mode (accessibility) -->
   <html data-mode="dark"></html>
 </html>
@@ -201,7 +201,7 @@ The Design System v2.0 follows an 8-phase implementation strategy, organized int
 | **Phase 3**  | Semantic Tokens           | ✅ Complete | 103 tokens         | 2026-01-23      |
 | **Phase 4**  | Component Tokens          | ✅ Complete | 166 tokens         | 2026-01-23      |
 | **Phase 5P** | Preparation (on-X + DTCG) | ✅ Complete | 6 on-X tokens      | 2026-01-23      |
-| **Total**    | **Token Architecture**    | **✅ 100%** | **438 tokens**     | **Complete** 🎉 |
+| **Total**    | **Token Architecture**    | **✅ 100%** | **621 tokens**     | **Complete** 🎉 |
 
 ### Current Phase: 5A - React Components ✅
 
@@ -221,7 +221,7 @@ Component Implementation: ██████████████████
 
 **Metrics:**
 
-- **Tokens:** 438/438 (100% architecture complete)
+- **Tokens:** 621/621 (100% architecture complete)
 - **CSS Variables:** 440
 - **Tests:** 554 passing (Playwright CT)
 - **DTCG Conformity:** 100%
@@ -253,7 +253,7 @@ Component Implementation: ██████████████████
 
 ### Key Achievements 🎉
 
-- ✅ 438 tokens created across 4 architecture levels
+- ✅ 621 tokens created across 4 architecture levels
 - ✅ 100% DTCG compliance maintained
 - ✅ Performance validated (8ms << 16ms)
 - ✅ Automation complete (93% time reduction in token maintenance)
@@ -262,7 +262,7 @@ Component Implementation: ██████████████████
 - ✅ Comprehensive documentation (60,000+ words)
 - ✅ **Immutable primitives architecture**: 535 tokens with strict architectural guarantees
 - ✅ **3 brand themes**: Default, Ocean 🌊, and Forest 🌲 themes with full accessibility support
-- ✅ **9 theme configurations**: 3 themes × 3 modes (light/dark/high-contrast)
+- ✅ **30 theme configurations**: 10 themes × 3 modes (light/dark/high-contrast)
 
 ### Architectural Decisions Made
 
@@ -357,9 +357,9 @@ The Design System is organized as **7 interconnected packages** within the Lufa 
 ```
 packages/design-system/
 ├── primitives/         [DEPRECATED] Raw values (archived)
-├── tokens/             [FOUNDATION] 438 semantic tokens
+├── tokens/             [FOUNDATION] 621 semantic tokens
 ├── main/               [CORE] 5 React components
-├── themes/             [THEMING] Theme variants (ocean, forest)
+├── themes/             [THEMING] Theme variants (ocean, forest, matrix, cyberpunk, sunset, nordic, volcano, coffee, volt, steampunk)
 ├── storybook/          [DOCS] Interactive component explorer
 ├── docusaurus/         [DOCS] API documentation
 └── playwright/         [TESTING] Component tests
@@ -400,19 +400,19 @@ Layer 1: Foundation
 ### Four-Level Token System
 
 ```
-Level 4: Component Tokens (166) → button/tokens.json, input/tokens.json
-Level 3: Semantic Tokens (103) → ui/spacing.json
-Level 2: Core Tokens (58) → brand/colors.json, neutral/colors.json
-Level 1: Primitives (111) → color/palette.json, spacing/scale.json
+Level 4: Component Tokens → button.json, input.json
+Level 3: Semantic Tokens → ui/spacing.json
+Level 2: Core Tokens → color/colors-brand.json, color/colors-neutral.json
+Level 1: Primitives → color.json, spacing.json
 ```
 
-**Total:** 438 tokens
+**Total:** 621 tokens
 
 **Architecture Principle:** Primitive tokens are **strictly immutable**. They serve as the "paint catalog" from which all semantic and component tokens derive their values. Mode switching and theming happen at the semantic/component layers, never at the primitive level.
 
 **Theming System:**
 
-- 3 brand themes (Default, Ocean, Forest)
+- 10 brand themes (Default, Ocean, Forest, Matrix, Cyberpunk, Sunset, Nordic, Volcano, Coffee, Volt, Steampunk)
 - 3 accessibility modes per theme (light, dark, high-contrast)
 - 9 total configurations available
 - Efficient cascade: Only 6 core tokens overridden per theme
@@ -624,7 +624,7 @@ Every component follows this pattern:
 ### Current Release (v0.7.0)
 
 - ✅ 7 components complete (Box, Stack, Text, Icon, Button, Badge, Divider)
-- ✅ 438 tokens (100% complete)
+- ✅ 621 tokens (100% complete)
 - ✅ 554 test cases
 - ✅ 46+ Storybook stories
 - ✅ Playwright visual regression

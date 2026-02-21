@@ -4,26 +4,26 @@
  * Neon-inspired color palette with fuchsia, cyan, and purple tones.
  * Evokes futuristic, night-city, high-tech aesthetics.
  *
- * Usage: <html data-color-theme="cyberpunk" data-mode="light|dark|high-contrast">
+ * Usage: <html data-theme="cyberpunk" data-mode="light|dark|high-contrast">
  */
 
 /* ==================== LIGHT MODE (Default) ==================== */
 
-[data-color-theme='cyberpunk'],
-[data-color-theme='cyberpunk'][data-mode='light'] {
+[data-theme='cyberpunk'],
+[data-theme='cyberpunk'][data-mode='light'] {
   /* Core Brand Tokens */
-  --lufa-core-brand-primary: #ff00ff;
+  --lufa-core-brand-primary-default: #ff00ff;
   --lufa-core-brand-primary-hover: #d900d9;
   --lufa-core-brand-primary-active: #b300b3;
-  --lufa-core-brand-secondary: #00ffff;
+  --lufa-core-brand-secondary-default: #00ffff;
   --lufa-core-brand-secondary-hover: #00d9d9;
   --lufa-core-brand-secondary-active: #00b3b3;
 
   /* Neutral Tokens - Cyberpunk Light (Pop) */
   --lufa-core-neutral-background: #fff5ff;
-  --lufa-core-neutral-surface: #ffe6ff;
+  --lufa-core-neutral-surface-default: #ffe6ff;
   --lufa-core-neutral-surface-hover: #ffccff;
-  --lufa-core-neutral-border: #ff99ff;
+  --lufa-core-neutral-border-default: #ff99ff;
   --lufa-core-neutral-border-strong: #ff00ff;
   --lufa-core-neutral-text-primary: #330033;
   --lufa-core-neutral-text-secondary: #660066;
@@ -31,19 +31,19 @@
   --lufa-core-neutral-text-disabled: #ffccff;
 
   /* Semantic Tokens */
-  --lufa-core-semantic-success: #00ff9f;
+  --lufa-core-semantic-success-default: #00ff9f;
   --lufa-core-semantic-success-subtle: #e6fff6;
   --lufa-core-semantic-success-border: #99ffd6;
   --lufa-core-semantic-success-hover: #00e68e;
-  --lufa-core-semantic-error: #ff0055;
+  --lufa-core-semantic-error-default: #ff0055;
   --lufa-core-semantic-error-subtle: #fff0f5;
   --lufa-core-semantic-error-border: #ffc2d6;
   --lufa-core-semantic-error-hover: #e6004d;
-  --lufa-core-semantic-warning: #f2ff00;
+  --lufa-core-semantic-warning-default: #f2ff00;
   --lufa-core-semantic-warning-subtle: #fdffe6;
   --lufa-core-semantic-warning-border: #f9ff99;
   --lufa-core-semantic-warning-hover: #d9e600;
-  --lufa-core-semantic-info: #00b3ff;
+  --lufa-core-semantic-info-default: #00b3ff;
   --lufa-core-semantic-info-subtle: #e6f7ff;
   --lufa-core-semantic-info-border: #99e1ff;
   --lufa-core-semantic-info-hover: #00a1e6;
@@ -51,20 +51,20 @@
 
 /* ==================== DARK MODE ==================== */
 
-[data-color-theme='cyberpunk'][data-mode='dark'] {
+[data-theme='cyberpunk'][data-mode='dark'] {
   /* Core Brand Tokens - Neon Glow */
-  --lufa-core-brand-primary: #ff00ff;
+  --lufa-core-brand-primary-default: #ff00ff;
   --lufa-core-brand-primary-hover: #ff33ff;
   --lufa-core-brand-primary-active: #cc00cc;
-  --lufa-core-brand-secondary: #00ffff;
+  --lufa-core-brand-secondary-default: #00ffff;
   --lufa-core-brand-secondary-hover: #33ffff;
   --lufa-core-brand-secondary-active: #00cccc;
 
   /* Neutral Tokens - Cyberpunk Dark */
   --lufa-core-neutral-background: #0d001a;
-  --lufa-core-neutral-surface: #1a0033;
+  --lufa-core-neutral-surface-default: #1a0033;
   --lufa-core-neutral-surface-hover: #26004d;
-  --lufa-core-neutral-border: #330066;
+  --lufa-core-neutral-border-default: #330066;
   --lufa-core-neutral-border-strong: #ff00ff;
   --lufa-core-neutral-text-primary: #00ffff;
   --lufa-core-neutral-text-secondary: #ff00ff;
@@ -72,19 +72,19 @@
   --lufa-core-neutral-text-disabled: #1a0033;
 
   /* Semantic Tokens - Neon Dark */
-  --lufa-core-semantic-success: #00ff9f;
+  --lufa-core-semantic-success-default: #00ff9f;
   --lufa-core-semantic-success-subtle: #001a10;
   --lufa-core-semantic-success-border: #006640;
   --lufa-core-semantic-success-hover: #33ffb2;
-  --lufa-core-semantic-error: #ff0055;
+  --lufa-core-semantic-error-default: #ff0055;
   --lufa-core-semantic-error-subtle: #1a0009;
   --lufa-core-semantic-error-border: #660022;
   --lufa-core-semantic-error-hover: #ff3377;
-  --lufa-core-semantic-warning: #f2ff00;
+  --lufa-core-semantic-warning-default: #f2ff00;
   --lufa-core-semantic-warning-subtle: #1a1a00;
   --lufa-core-semantic-warning-border: #666600;
   --lufa-core-semantic-warning-hover: #f5ff33;
-  --lufa-core-semantic-info: #00b3ff;
+  --lufa-core-semantic-info-default: #00b3ff;
   --lufa-core-semantic-info-subtle: #00121a;
   --lufa-core-semantic-info-border: #004766;
   --lufa-core-semantic-info-hover: #33c2ff;
@@ -92,18 +92,18 @@
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
-[data-color-theme='cyberpunk'][data-mode='high-contrast'] {
-  --lufa-core-brand-primary: #ff00ff;
+[data-theme='cyberpunk'][data-mode='high-contrast'] {
+  --lufa-core-brand-primary-default: #ff00ff;
   --lufa-core-brand-primary-hover: #ff66ff;
   --lufa-core-brand-primary-active: #cc00cc;
-  --lufa-core-brand-secondary: #00ffff;
+  --lufa-core-brand-secondary-default: #00ffff;
   --lufa-core-brand-secondary-hover: #66ffff;
   --lufa-core-brand-secondary-active: #00cccc;
 
   --lufa-core-neutral-background: #000000;
-  --lufa-core-neutral-surface: #000000;
+  --lufa-core-neutral-surface-default: #000000;
   --lufa-core-neutral-surface-hover: #1a0033;
-  --lufa-core-neutral-border: #00ffff;
+  --lufa-core-neutral-border-default: #00ffff;
   --lufa-core-neutral-border-strong: #ff00ff;
   --lufa-core-neutral-text-primary: #ffffff;
   --lufa-core-neutral-text-secondary: #00ffff;

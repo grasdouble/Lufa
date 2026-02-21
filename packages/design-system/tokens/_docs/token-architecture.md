@@ -10,7 +10,7 @@
 
 The Lufa Design System v2.0 uses a **4-level token architecture** built with **Style Dictionary 4.4.0** and conforming to **DTCG (Design Tokens Community Group) format 100%**.
 
-**Current Status**: **438 tokens created (100% complete)**
+**Current Status**: **621 tokens created (100% complete)**
 
 **Performance**: 8ms CSS cascade << 16ms (60fps threshold) - **Validated in production**
 
@@ -38,7 +38,7 @@ The Lufa Design System v2.0 uses a **4-level token architecture** built with **S
 └─────────────────────────────────────────────┘
 ```
 
-**Total**: 438 tokens across 4 levels
+**Total**: 621 tokens across 4 levels
 
 ---
 
@@ -53,15 +53,15 @@ The Lufa Design System v2.0 uses a **4-level token architecture** built with **S
 
 ### Token Breakdown
 
-| Category       | Count   | File                               | Description                                                     |
-| -------------- | ------- | ---------------------------------- | --------------------------------------------------------------- |
-| **Colors**     | 60      | `primitives/color/palette.json`    | 6 palettes × 10 shades (gray, blue, red, green, yellow, purple) |
-| **Spacing**    | 12      | `primitives/spacing/scale.json`    | Scale from 0px to 96px (4px base)                               |
-| **Typography** | 18      | `primitives/typography/*.json`     | Families (2), sizes (9), weights (4), line-heights (3)          |
-| **Shadows**    | 6       | `primitives/shadow/elevation.json` | Elevations from none to xl                                      |
-| **Radius**     | 7       | `primitives/radius/scale.json`     | Rounding from none to full (circle)                             |
-| **Motion**     | 8       | `primitives/motion/*.json`         | Timing (4), easing (4)                                          |
-| **TOTAL**      | **111** |                                    | Foundational values                                             |
+| Category       | Count   | File                           | Description                                                     |
+| -------------- | ------- | ------------------------------ | --------------------------------------------------------------- |
+| **Colors**     | 60      | `primitives/color.json`        | 6 palettes × 10 shades (gray, blue, red, green, yellow, purple) |
+| **Spacing**    | 12      | `primitives/spacing.json`      | Scale from 0px to 96px (4px base)                               |
+| **Typography** | 18      | `primitives/typography-*.json` | Families (2), sizes (9), weights (4), line-heights (3)          |
+| **Shadows**    | 6       | `primitives/shadow.json`       | Elevations from none to xl                                      |
+| **Radius**     | 7       | `primitives/radius.json`       | Rounding from none to full (circle)                             |
+| **Motion**     | 8       | `primitives/motion.json`       | Timing (4), easing (4)                                          |
+| **TOTAL**      | **111** |                                | Foundational values                                             |
 
 ### Naming Convention
 
@@ -99,15 +99,15 @@ The Lufa Design System v2.0 uses a **4-level token architecture** built with **S
 
 ### Token Breakdown
 
-| Category            | Count  | File                           | Description                                  |
-| ------------------- | ------ | ------------------------------ | -------------------------------------------- |
-| **Brand Colors**    | 6      | `core/brand/colors.json`       | Primary, secondary with hover/active states  |
-| **Neutral Colors**  | 9      | `core/neutral/colors.json`     | Backgrounds, surfaces, borders, text         |
-| **Semantic Colors** | 16     | `core/semantic/colors.json`    | Success, error, warning, info + variants     |
-| **Layout Spacing**  | 8      | `core/layout/spacing.json`     | Page padding, section gaps, container widths |
-| **Component Space** | 10     | `core/component/spacing.json`  | Button, input, card, modal spacing           |
-| **Typography**      | 9      | `core/typography/aliases.json` | Font families, weights, sizes                |
-| **TOTAL**           | **58** |                                | Global decisions                             |
+| Category            | Count  | File                              | Description                                  |
+| ------------------- | ------ | --------------------------------- | -------------------------------------------- |
+| **Brand Colors**    | 6      | `core/color/colors-brand.json`    | Primary, secondary with hover/active states  |
+| **Neutral Colors**  | 9      | `core/color/colors-neutral.json`  | Backgrounds, surfaces, borders, text         |
+| **Semantic Colors** | 16     | `core/color/colors-semantic.json` | Success, error, warning, info + variants     |
+| **Layout Spacing**  | 8      | `core/layout/spacing.json`        | Page padding, section gaps, container widths |
+| **Component Space** | 10     | `core/component/spacing.json`     | Button, input, card, modal spacing           |
+| **Typography**      | 9      | `core/typography/aliases.json`    | Font families, weights, sizes                |
+| **TOTAL**           | **58** |                                   | Global decisions                             |
 
 ### Aliasing Syntax
 
@@ -191,17 +191,17 @@ The Lufa Design System v2.0 uses a **4-level token architecture** built with **S
 
 ### Token Breakdown
 
-| Component   | Count   | File                            | Description                                    |
-| ----------- | ------- | ------------------------------- | ---------------------------------------------- |
-| **Button**  | 42      | `component/button/tokens.json`  | 3 types × 7 variants × 3 sizes (padding, font) |
-| **Card**    | 18      | `component/card/tokens.json`    | Padding, radius, shadow, border                |
-| **Input**   | 36      | `component/input/tokens.json`   | Height, padding, border, states                |
-| **Modal**   | 24      | `component/modal/tokens.json`   | Width, padding, backdrop, spacing              |
-| **Badge**   | 16      | `component/badge/tokens.json`   | Padding, radius, colors (7 variants)           |
-| **Tooltip** | 12      | `component/tooltip/tokens.json` | Padding, radius, shadow, arrow                 |
-| **Icon**    | 5       | `component/shared/tokens.json`  | Icon size tokens (xs/sm/md/lg/xl)              |
-| **Shared**  | 13      | `component/shared/tokens.json`  | Common component values (focus rings, etc.)    |
-| **TOTAL**   | **166** |                                 | Component-specific values                      |
+| Component   | Count   | File                     | Description                                    |
+| ----------- | ------- | ------------------------ | ---------------------------------------------- |
+| **Button**  | 42      | `component/button.json`  | 3 types × 7 variants × 3 sizes (padding, font) |
+| **Card**    | 18      | `component/card.json`    | Padding, radius, shadow, border                |
+| **Input**   | 36      | `component/input.json`   | Height, padding, border, states                |
+| **Modal**   | 24      | `component/modal.json`   | Width, padding, backdrop, spacing              |
+| **Badge**   | 16      | `component/badge.json`   | Padding, radius, colors (7 variants)           |
+| **Tooltip** | 12      | `component/tooltip.json` | Padding, radius, shadow, arrow                 |
+| **Icon**    | 5       | `component/shared.json`  | Icon size tokens (xs/sm/md/lg/xl)              |
+| **Shared**  | 13      | `component/shared.json`  | Common component values (focus rings, etc.)    |
+| **TOTAL**   | **166** |                          | Component-specific values                      |
 
 ### Icon Size Tokens
 
@@ -552,10 +552,10 @@ Each theme supports **3 accessibility modes**:
 
 **Important:** Theming and accessibility modes are **separate concerns**:
 
-| Attribute          | Purpose                   | Values                           | Example Use Case                    |
-| ------------------ | ------------------------- | -------------------------------- | ----------------------------------- |
-| `data-color-theme` | Brand/aesthetic selection | `default`, `ocean`, `forest`     | Corporate branding, user preference |
-| `data-mode`        | Accessibility adaptation  | `light`, `dark`, `high-contrast` | Visual accessibility, user needs    |
+| Attribute    | Purpose                   | Values                           | Example Use Case                    |
+| ------------ | ------------------------- | -------------------------------- | ----------------------------------- |
+| `data-theme` | Brand/aesthetic selection | `default`, `ocean`, `forest`     | Corporate branding, user preference |
+| `data-mode`  | Accessibility adaptation  | `light`, `dark`, `high-contrast` | Visual accessibility, user needs    |
 
 **Total Configurations:** 3 themes × 3 modes = **9 configurations**
 
@@ -565,7 +565,7 @@ Each theme supports **3 accessibility modes**:
 
 ```html
 <!-- Theme Selection (Brand) -->
-<html data-color-theme="default">
+<html data-theme="default">
   <!-- or "ocean" or "forest" -->
 
   <!-- Mode Selection (Accessibility) -->
@@ -579,13 +579,11 @@ Each theme supports **3 accessibility modes**:
 
 ```html
 <!-- Ocean theme with dark mode -->
-<html data-color-theme="ocean" data-mode="dark">
-  <!-- Forest theme with high-contrast mode -->
-  <html data-color-theme="forest" data-mode="high-contrast">
-    <!-- Default theme with light mode (default) -->
-    <html data-color-theme="default" data-mode="light"></html>
-  </html>
-</html>
+<html data-theme="ocean" data-mode="dark"></html>
+<!-- Forest theme with high-contrast mode -->
+<html data-theme="forest" data-mode="high-contrast"></html>
+<!-- Default theme with light mode (default) -->
+<html data-theme="default" data-mode="light"></html>
 ```
 
 ### Efficient Token Cascade
@@ -606,13 +604,13 @@ The theming system uses an **efficient cascade approach**:
 }
 
 /* Ocean theme override */
-[data-color-theme='ocean'] {
+[data-theme='ocean'] {
   --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-600);
   --lufa-core-brand-secondary: var(--lufa-primitive-color-teal-500);
 }
 
 /* Forest theme override */
-[data-color-theme='forest'] {
+[data-theme='forest'] {
   --lufa-core-brand-primary: var(--lufa-primitive-color-emerald-600);
   --lufa-core-brand-secondary: var(--lufa-primitive-color-green-600);
 }
@@ -644,11 +642,11 @@ Themes override semantic and component tokens while keeping primitives unchanged
 }
 
 /* OCEAN THEME OVERRIDES (all modes) */
-[data-color-theme='ocean'] {
+[data-theme='ocean'] {
   --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-600);
 }
 
-[data-color-theme='ocean'][data-mode='dark'] {
+[data-theme='ocean'][data-mode='dark'] {
   --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-400);
 }
 ```
@@ -659,13 +657,13 @@ Themes can be switched at runtime via JavaScript:
 
 ```typescript
 // Switch theme
-document.documentElement.setAttribute('data-color-theme', 'ocean');
+document.documentElement.setAttribute('data-theme', 'ocean');
 
 // Switch mode
 document.documentElement.setAttribute('data-mode', 'dark');
 
 // Combine both
-document.documentElement.setAttribute('data-color-theme', 'forest');
+document.documentElement.setAttribute('data-theme', 'forest');
 document.documentElement.setAttribute('data-mode', 'high-contrast');
 ```
 

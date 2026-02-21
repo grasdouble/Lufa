@@ -1,0 +1,53 @@
+{
+  "semantic": {
+    "interactive": {
+      "opacity": {
+        "disabled": {
+          "$value": "{primitive.opacity.scale.disabled}",
+          "$type": "number",
+          "$description": "Opacity value for disabled interactive elements (Material Design standard)",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "state",
+              "useCase": "Apply to buttons, inputs, and controls in disabled state",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "loading": {
+          "$value": "{primitive.opacity.scale.loading}",
+          "$type": "number",
+          "$description": "Opacity value for loading states and skeleton loaders",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "state",
+              "useCase": "Skeleton loaders, loading placeholders",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        },
+        "placeholder": {
+          "$value": "{primitive.opacity.scale.placeholder}",
+          "$type": "number",
+          "$description": "Opacity value for placeholder text and empty states",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "subcategory": "state",
+              "useCase": "Input placeholders, empty state illustrations",
+              "themeable": false,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

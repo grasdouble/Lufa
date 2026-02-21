@@ -1,0 +1,710 @@
+/**
+ * =============================================================================
+ * LUFA DESIGN SYSTEM - TOKEN TEMPLATE
+ * =============================================================================
+ *
+ * This template provides reusable patterns for creating alpha, shadow, overlay,
+ * and glow tokens for all themes. Copy the sections you need and customize
+ * for your theme's base file.
+ *
+ * HOW TO USE THIS TEMPLATE:
+ * 1. Copy the entire contents of a section you need (e.g., alpha tokens)
+ * 2. Replace 'your-theme' with your actual theme name
+ * 3. Replace RGB placeholder values with your theme's actual RGB values
+ * 4. Place tokens inside appropriate CSS selectors for your theme
+ *
+ * IMPORTANT: All tokens MUST be placed inside valid CSS selectors:
+ * - Use [data-theme='your-theme'] for theme-specific tokens
+ * - Use [data-mode='light'], [data-mode='dark'], [data-mode='high-contrast'] for mode-specific tokens
+ * - Combine both for mode-aware theme tokens
+ *
+ * Reference: packages/design-system/themes/TOKENS_CONVENTIONS.md (defined in ETR-001)
+ * Version: 1.1.0
+ * Created: 2026-02-10
+ * Updated: 2026-02-10 (Fixed CSS syntax, RGB naming, complete semantic tokens)
+ * =============================================================================
+ */
+
+/* =============================================================================
+   PREREQUISITES: RGB VARIABLE TOKENS
+   =============================================================================
+   
+   Before adding alpha tokens, you MUST first define RGB variables for your
+   theme's colors. Extract RGB values from your hex colors.
+   
+   IMPORTANT: Use the naming pattern --lufa-{color}-rgb (NOT --lufa-rgb-{color})
+   to match the official TOKENS_CONVENTIONS.md standard from ETR-001.
+   
+   Example: If your primary color is #B87333 (Brass)
+   RGB values: R=184, G=115, B=51
+   
+   Then define these RGB variable tokens:
+   
+   [data-theme='your-theme'] {
+     --lufa-primary-rgb: 184, 115, 51;
+     --lufa-secondary-rgb: 46, 139, 87;
+     --lufa-success-rgb: 46, 139, 87;
+     --lufa-error-rgb: 183, 65, 14;
+     --lufa-warning-rgb: 205, 133, 63;
+     --lufa-info-rgb: 112, 128, 144;
+   }
+   
+   These RGB variables are used in rgba() functions for alpha transparency.
+   ============================================================================= */
+
+/* =============================================================================
+   ALPHA TOKENS TEMPLATE
+   =============================================================================
+   
+   Alpha tokens provide transparency layers using standardized opacity levels.
+   Replace RGB values with your theme's color values from hex colors.
+   
+   Usage Pattern: --lufa-alpha-{color}-{opacity}
+   Opacity Levels: 3, 5, 8, 10, 15, 20, 30, 40, 50 (ALL 9 LEVELS)
+   
+   Use Cases:
+   - Subtle backgrounds and hover states (3-10%)
+   - Interactive overlays and focus states (15-30%)
+   - Semi-transparent UI elements (40-50%)
+   
+   COPY-PASTE INSTRUCTIONS:
+   1. Replace 'your-theme' with your actual theme name
+   2. Ensure RGB variables are defined first (see PREREQUISITES section above)
+   3. Copy ALL opacity levels for each color (primary, secondary, semantic)
+   ============================================================================= */
+
+/* --- Alpha Tokens - Primary Color (9 levels) --- */
+[data-theme='your-theme'] {
+  --lufa-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03); /* Ultra-subtle hint */
+  --lufa-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05); /* Subtle background */
+  --lufa-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08); /* Hover state */
+  --lufa-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1); /* Active subtle */
+  --lufa-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15); /* Light overlay */
+  --lufa-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2); /* Medium overlay */
+  --lufa-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3); /* Strong overlay */
+  --lufa-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4); /* Semi-transparent */
+  --lufa-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5); /* Half opacity */
+
+  /* --- Alpha Tokens - Secondary Color (9 levels) --- */
+  --lufa-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
+  --lufa-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
+  --lufa-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
+  --lufa-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
+  --lufa-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
+  --lufa-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
+  --lufa-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
+  --lufa-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
+  --lufa-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
+
+  /* --- Alpha Tokens - Success (9 levels) --- */
+  --lufa-alpha-success-3: rgba(var(--lufa-success-rgb), 0.03);
+  --lufa-alpha-success-5: rgba(var(--lufa-success-rgb), 0.05);
+  --lufa-alpha-success-8: rgba(var(--lufa-success-rgb), 0.08);
+  --lufa-alpha-success-10: rgba(var(--lufa-success-rgb), 0.1);
+  --lufa-alpha-success-15: rgba(var(--lufa-success-rgb), 0.15);
+  --lufa-alpha-success-20: rgba(var(--lufa-success-rgb), 0.2);
+  --lufa-alpha-success-30: rgba(var(--lufa-success-rgb), 0.3);
+  --lufa-alpha-success-40: rgba(var(--lufa-success-rgb), 0.4);
+  --lufa-alpha-success-50: rgba(var(--lufa-success-rgb), 0.5);
+
+  /* --- Alpha Tokens - Error (9 levels) --- */
+  --lufa-alpha-error-3: rgba(var(--lufa-error-rgb), 0.03);
+  --lufa-alpha-error-5: rgba(var(--lufa-error-rgb), 0.05);
+  --lufa-alpha-error-8: rgba(var(--lufa-error-rgb), 0.08);
+  --lufa-alpha-error-10: rgba(var(--lufa-error-rgb), 0.1);
+  --lufa-alpha-error-15: rgba(var(--lufa-error-rgb), 0.15);
+  --lufa-alpha-error-20: rgba(var(--lufa-error-rgb), 0.2);
+  --lufa-alpha-error-30: rgba(var(--lufa-error-rgb), 0.3);
+  --lufa-alpha-error-40: rgba(var(--lufa-error-rgb), 0.4);
+  --lufa-alpha-error-50: rgba(var(--lufa-error-rgb), 0.5);
+
+  /* --- Alpha Tokens - Warning (9 levels) --- */
+  --lufa-alpha-warning-3: rgba(var(--lufa-warning-rgb), 0.03);
+  --lufa-alpha-warning-5: rgba(var(--lufa-warning-rgb), 0.05);
+  --lufa-alpha-warning-8: rgba(var(--lufa-warning-rgb), 0.08);
+  --lufa-alpha-warning-10: rgba(var(--lufa-warning-rgb), 0.1);
+  --lufa-alpha-warning-15: rgba(var(--lufa-warning-rgb), 0.15);
+  --lufa-alpha-warning-20: rgba(var(--lufa-warning-rgb), 0.2);
+  --lufa-alpha-warning-30: rgba(var(--lufa-warning-rgb), 0.3);
+  --lufa-alpha-warning-40: rgba(var(--lufa-warning-rgb), 0.4);
+  --lufa-alpha-warning-50: rgba(var(--lufa-warning-rgb), 0.5);
+
+  /* --- Alpha Tokens - Info (9 levels) --- */
+  --lufa-alpha-info-3: rgba(var(--lufa-info-rgb), 0.03);
+  --lufa-alpha-info-5: rgba(var(--lufa-info-rgb), 0.05);
+  --lufa-alpha-info-8: rgba(var(--lufa-info-rgb), 0.08);
+  --lufa-alpha-info-10: rgba(var(--lufa-info-rgb), 0.1);
+  --lufa-alpha-info-15: rgba(var(--lufa-info-rgb), 0.15);
+  --lufa-alpha-info-20: rgba(var(--lufa-info-rgb), 0.2);
+  --lufa-alpha-info-30: rgba(var(--lufa-info-rgb), 0.3);
+  --lufa-alpha-info-40: rgba(var(--lufa-info-rgb), 0.4);
+  --lufa-alpha-info-50: rgba(var(--lufa-info-rgb), 0.5);
+}
+
+/* =============================================================================
+   SHADOW TOKENS TEMPLATE
+   =============================================================================
+   
+   Shadow tokens provide consistent elevation and depth across the design system.
+   Customize --lufa-shadow-color for your theme's shadow appearance.
+   
+   Usage Pattern: --lufa-shadow-{size}
+   Shadow Sizes: xs, sm, md, lg, xl
+   
+   Use Cases:
+   - xs: Subtle card separation, minimal elevation (0-2px)
+   - sm: Standard cards, dropdowns (2-4px)
+   - md: Floating panels, modals (4-8px)
+   - lg: Prominent overlays, tooltips (8-16px)
+   - xl: Maximum elevation, floating action buttons (12-24px)
+   
+   IMPORTANT: Shadow values below match TOKENS_CONVENTIONS.md (ETR-001).
+   Shadow-xl uses "0 12px 24px" per official spec, not "0 16px 32px".
+   
+   Mode-Aware Recommendations:
+   - Light mode: Use darker shadows with lower opacity (10-30%)
+   - Dark mode: Use stronger shadows for depth (50%)
+   - High-contrast: Use high-contrast shadows (80%)
+   
+   COPY-PASTE INSTRUCTIONS:
+   1. Copy each mode block (light, dark, high-contrast)
+   2. Replace 'your-theme' with your actual theme name
+   3. Adjust shadow-color opacity if needed for your theme
+   4. Shadow size tokens are standardized - copy as-is
+   ============================================================================= */
+
+/* Light Mode Example: Dark shadow with medium opacity */
+[data-theme='your-theme'][data-mode='light'] {
+  --lufa-shadow-color: rgba(0, 0, 0, 0.1); /* Adjust opacity for your theme */
+
+  /* Shadow Size Tokens (standardized - copy as-is) */
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color); /* 1px blur, subtle */
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color); /* 2px blur, standard */
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color); /* 4px blur, elevated */
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color); /* 8px blur, floating */
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color); /* 12px blur, prominent */
+}
+
+/* Dark Mode Example: Stronger shadow for depth */
+[data-theme='your-theme'][data-mode='dark'] {
+  --lufa-shadow-color: rgba(0, 0, 0, 0.5); /* Darker shadows work better in dark mode */
+
+  /* Shadow Size Tokens (standardized - copy as-is) */
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+}
+
+/* High-Contrast Example: Strong shadow for maximum separation */
+[data-theme='your-theme'][data-mode='high-contrast'] {
+  --lufa-shadow-color: rgba(0, 0, 0, 0.8); /* High contrast for accessibility */
+
+  /* Shadow Size Tokens (standardized - copy as-is) */
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+}
+
+/* =============================================================================
+   OVERLAY TOKENS TEMPLATE
+   =============================================================================
+   
+   Overlay tokens provide transparent layers for modals, dialogs, and dimming.
+   Standard pattern uses white for light overlays and black for dark overlays.
+   
+   Usage Pattern: --lufa-overlay-{tone}-{intensity}
+   Tones: light, dark
+   Intensities: subtle, (default - no suffix), strong, backdrop variants
+   
+   Use Cases:
+   - Subtle: Minimal dimming, subtle layer separation (5-10%)
+   - Default: Standard modal overlays, dropdowns (10-20%)
+   - Strong: Maximum dimming, important blocking modals (30-40%)
+   - Backdrop: Modal backgrounds requiring high opacity (30-70%)
+   
+   IMPORTANT: While overlay RGB values are usually standard (white/black),
+   the OPACITY values often need mode-specific adjustments. See examples below.
+   
+   Decision Guide:
+   1. Need to block interaction? → Use backdrop or strong
+   2. Need subtle visual feedback? → Use subtle or default
+   3. Need to show state change? → Use default or strong
+   4. Background is dark? → Use light variants
+   5. Background is light? → Use dark variants
+   
+   COPY-PASTE INSTRUCTIONS:
+   1. Copy mode-specific blocks for proper opacity adjustments
+   2. Replace 'your-theme' with your actual theme name
+   3. Test overlay opacity in all 3 modes for accessibility
+   ============================================================================= */
+
+/* Light Mode Overlays */
+[data-theme='your-theme'][data-mode='light'] {
+  /* Light overlays - for brightening on dark surfaces */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05); /* 5% white */
+  --lufa-overlay-light: rgba(255, 255, 255, 0.1); /* 10% white */
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2); /* 20% white */
+
+  /* Dark overlays - for dimming on light surfaces */
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.05); /* 5% black */
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.1); /* 10% black */
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.3); /* 30% black */
+
+  /* Backdrop overlays - for modal backgrounds */
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.3); /* 30% - lighter emphasis */
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.5); /* 50% - standard modal */
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.7); /* 70% - strong blocking */
+}
+
+/* Dark Mode Overlays - May need different opacity for visibility */
+[data-theme='your-theme'][data-mode='dark'] {
+  /* Light overlays - for brightening on dark surfaces */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
+
+  /* Dark overlays - may need higher opacity in dark mode */
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.1); /* Increased from 5% */
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.2); /* Increased from 10% */
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.4); /* Increased from 30% */
+
+  /* Backdrop overlays - may need stronger opacity */
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.5); /* Increased */
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.7); /* Increased */
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.9); /* Increased */
+}
+
+/* High-Contrast Mode Overlays - Maximum visibility */
+[data-theme='your-theme'][data-mode='high-contrast'] {
+  /* Light overlays */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.2);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.3);
+
+  /* Dark overlays - high contrast needs strong opacity */
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.2);
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.4);
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.6);
+
+  /* Backdrop overlays - very strong for accessibility */
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.6);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.8);
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.95);
+}
+
+/* =============================================================================
+   GLOW TOKENS TEMPLATE (OPTIONAL - Cyber/Neon Themes Only)
+   =============================================================================
+   
+   WHEN TO USE: Only include glow tokens in themes that require luminescence
+   effects (e.g., Cyberpunk, Matrix, neon-style themes). Traditional themes
+   (Steampunk, Forest, Ocean) should SKIP this section entirely.
+   
+   Glow tokens provide colored luminescence effects using multi-layer blur
+   shadows. Unlike shadows which create depth, glows create light emission.
+   
+   Usage Pattern: --lufa-glow-{type}-{intensity}
+   Types: box, text, inset
+   Intensities: subtle, (default), strong, intense
+   
+   DECISION GUIDE - Does your theme need glow tokens?
+   ✅ YES if: Neon/cyber aesthetic, elements emit light, futuristic theme
+   ❌ NO if: Natural/traditional aesthetic, only need depth (use shadows)
+   
+   IMPORTANT: Glow tokens are COMPLETELY OPTIONAL. If your theme doesn't
+   need luminescence, skip this entire section.
+   
+   Use Cases:
+   - Box glows: Glowing borders, cards, buttons, containers
+   - Text glows: Neon headings, glowing links, cyber text effects
+   - Inset glows: Inner luminescence on panels and containers
+   - Dual-color effects: Complementary glows (magenta+cyan, green+green)
+   
+   COPY-PASTE INSTRUCTIONS:
+   1. Replace 'your-theme' with your actual theme name
+   2. Define glow colors first (primary + secondary)
+   3. Copy all glow token definitions
+   4. Adjust glow color opacity per mode if needed
+   5. Test glow intensity in all 3 modes for visibility
+   ============================================================================= */
+
+/* --- Glow Color Variables (Theme-Specific) --- */
+[data-theme='your-theme'] {
+  /* Primary glow color - main luminescence */
+  --lufa-glow-color: rgba(255, 0, 255, 0.3); /* Example: Magenta at 30% opacity */
+
+  /* Secondary glow color - accent luminescence for dual-layer effects */
+  --lufa-glow-color-secondary: rgba(0, 255, 255, 0.2); /* Example: Cyan at 20% opacity */
+
+  /* CUSTOMIZATION NOTES:
+     - Cyberpunk: Use complementary neon colors (magenta + cyan)
+     - Matrix: Use same color with different opacity (green + green)
+     - Single-color: Set both to same color, vary opacity
+     - Opacity range: 0.2-0.5 typical for visibility without overwhelming
+  */
+}
+
+/* --- Box Glow Tokens (4 intensity levels) --- */
+[data-theme='your-theme'] {
+  /* Subtle: Minimal glow for hints and background elements */
+  --lufa-glow-box-subtle: 0 0 10px var(--lufa-glow-color), 0 0 20px var(--lufa-glow-color-secondary);
+
+  /* Default: Standard glow for UI elements */
+  --lufa-glow-box: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+
+  /* Strong: Prominent glow for emphasis */
+  --lufa-glow-box-strong: 0 0 30px var(--lufa-glow-color), 0 0 50px var(--lufa-glow-color-secondary);
+
+  /* Intense: Maximum luminescence for hero elements */
+  --lufa-glow-box-intense: 0 0 40px var(--lufa-glow-color), 0 0 60px var(--lufa-glow-color-secondary);
+
+  /* USAGE EXAMPLES:
+     .cyber-card { box-shadow: var(--lufa-glow-box); }
+     .button:hover { box-shadow: var(--lufa-glow-box-strong); }
+     .hero-section { box-shadow: var(--lufa-glow-box-intense); }
+  */
+}
+
+/* --- Text Glow Tokens (4 intensity levels) --- */
+[data-theme='your-theme'] {
+  /* Subtle: Minimal text glow */
+  --lufa-glow-text-subtle: 0 0 5px var(--lufa-glow-color);
+
+  /* Default: Standard text glow */
+  --lufa-glow-text: 0 0 10px var(--lufa-glow-color);
+
+  /* Strong: Prominent text glow with dual-layer */
+  --lufa-glow-text-strong: 0 0 15px var(--lufa-glow-color), 0 0 25px var(--lufa-glow-color-secondary);
+
+  /* Intense: Maximum text glow for hero text */
+  --lufa-glow-text-intense: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+
+  /* USAGE EXAMPLES:
+     .nav-link { text-shadow: var(--lufa-glow-text-subtle); }
+     h1 { text-shadow: var(--lufa-glow-text-strong); }
+     .hero-title { text-shadow: var(--lufa-glow-text-intense); }
+  */
+}
+
+/* --- Inset Glow Tokens (3 intensity levels) --- */
+[data-theme='your-theme'] {
+  /* Subtle: Minimal inner glow */
+  --lufa-glow-inset-subtle: inset 0 0 10px var(--lufa-glow-color);
+
+  /* Default: Standard inner glow */
+  --lufa-glow-inset: inset 0 0 20px var(--lufa-glow-color);
+
+  /* Strong: Prominent inner glow */
+  --lufa-glow-inset-strong: inset 0 0 30px var(--lufa-glow-color);
+
+  /* USAGE EXAMPLES:
+     .cyber-panel { box-shadow: var(--lufa-glow-inset); }
+     .input:focus { box-shadow: var(--lufa-glow-inset-subtle); }
+  */
+}
+
+/* --- Mode-Aware Glow Adjustments (Optional) --- */
+/* Glow intensity may need adjustment based on color mode for optimal visibility */
+
+[data-theme='your-theme'][data-mode='light'] {
+  /* Light mode: Reduce glow intensity for visibility on light backgrounds */
+  --lufa-glow-color: rgba(255, 0, 255, 0.2); /* Reduced opacity */
+  --lufa-glow-color-secondary: rgba(0, 255, 255, 0.15); /* Reduced opacity */
+}
+
+[data-theme='your-theme'][data-mode='dark'] {
+  /* Dark mode: Full or increased glow intensity */
+  --lufa-glow-color: rgba(255, 0, 255, 0.4); /* Increased opacity */
+  --lufa-glow-color-secondary: rgba(0, 255, 255, 0.3); /* Increased opacity */
+}
+
+[data-theme='your-theme'][data-mode='high-contrast'] {
+  /* High contrast: Strong, focused glow for maximum visibility */
+  --lufa-glow-color: rgba(255, 0, 255, 0.5); /* High opacity */
+  --lufa-glow-color-secondary: rgba(0, 255, 255, 0.4); /* High opacity */
+}
+
+/* =============================================================================
+   GLOW TOKENS - REAL-WORLD EXAMPLES
+   =============================================================================
+   
+   Below are complete implementations showing how to use glow tokens in
+   actual themes with different aesthetic approaches.
+   ============================================================================= */
+
+/* --- Example 1: Cyberpunk Theme (Dual-Color Neon) --- */
+[data-theme='cyberpunk'][data-mode='dark'] {
+  /* Magenta + Cyan complementary neon colors */
+  --lufa-glow-color: rgba(255, 0, 255, 0.3);
+  --lufa-glow-color-secondary: rgba(0, 255, 255, 0.2);
+
+  /* Box glows for cards and containers */
+  --lufa-glow-box-subtle: 0 0 10px var(--lufa-glow-color), 0 0 20px var(--lufa-glow-color-secondary);
+  --lufa-glow-box: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-strong: 0 0 30px var(--lufa-glow-color), 0 0 50px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-intense: 0 0 40px var(--lufa-glow-color), 0 0 60px var(--lufa-glow-color-secondary);
+
+  /* Text glows */
+  --lufa-glow-text-subtle: 0 0 5px var(--lufa-glow-color);
+  --lufa-glow-text: 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-text-strong: 0 0 15px var(--lufa-glow-color), 0 0 25px var(--lufa-glow-color-secondary);
+  --lufa-glow-text-intense: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+
+  /* Inset glows */
+  --lufa-glow-inset-subtle: inset 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-inset: inset 0 0 20px var(--lufa-glow-color);
+  --lufa-glow-inset-strong: inset 0 0 30px var(--lufa-glow-color);
+}
+
+/* --- Example 2: Matrix Theme (Monochrome Green Glow) --- */
+[data-theme='matrix'][data-mode='dark'] {
+  /* Neon green - same color, different intensity */
+  --lufa-glow-color: rgba(0, 255, 65, 0.4); /* Bright neon green */
+  --lufa-glow-color-secondary: rgba(0, 255, 65, 0.2); /* Same green, lower opacity */
+
+  /* Box glows - single color with intensity variation */
+  --lufa-glow-box-subtle: 0 0 10px var(--lufa-glow-color), 0 0 20px var(--lufa-glow-color-secondary);
+  --lufa-glow-box: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-strong: 0 0 30px var(--lufa-glow-color), 0 0 50px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-intense: 0 0 40px var(--lufa-glow-color), 0 0 60px var(--lufa-glow-color-secondary);
+
+  /* Text glows - minimal for readability */
+  --lufa-glow-text-subtle: 0 0 5px var(--lufa-glow-color);
+  --lufa-glow-text: 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-text-strong: 0 0 15px var(--lufa-glow-color), 0 0 25px var(--lufa-glow-color-secondary);
+  --lufa-glow-text-intense: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+
+  /* Inset glows */
+  --lufa-glow-inset-subtle: inset 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-inset: inset 0 0 20px var(--lufa-glow-color);
+  --lufa-glow-inset-strong: inset 0 0 30px var(--lufa-glow-color);
+}
+
+/* =============================================================================
+   COMBINING GLOWS WITH SHADOWS
+   =============================================================================
+   
+   For themes requiring BOTH depth (shadow) AND luminescence (glow), combine
+   shadow and glow tokens in the same box-shadow declaration.
+   ============================================================================= */
+
+/* Example: Cyberpunk card with elevation + neon glow */
+.cyber-card-elevated {
+  box-shadow:
+    var(--lufa-shadow-md),
+    /* Depth: 0 4px 8px rgba(0,0,0,0.1) */ var(--lufa-glow-box); /* Glow: 0 0 20px magenta + cyan */
+  /* Result: Card floats above surface AND emits neon light */
+}
+
+/* Example: Button with depth + intense glow on hover */
+.cyber-button:hover {
+  box-shadow:
+    var(--lufa-shadow-sm),
+    /* Subtle elevation */ var(--lufa-glow-box-strong); /* Strong glow effect */
+}
+
+/* =============================================================================
+   IMPLEMENTATION CHECKLIST
+   =============================================================================
+   
+   When using this template for a new theme, ensure you:
+   
+   [ ] Define RGB variable tokens using --lufa-{color}-rgb pattern (NOT --lufa-rgb-{color})
+   [ ] Place all tokens inside valid CSS selectors [data-theme='your-theme']
+   [ ] Copy ALL 9 opacity levels for EACH color (primary, secondary, success, error, warning, info)
+   [ ] Define mode-aware shadow color for light, dark, and high-contrast modes
+   [ ] Copy shadow size tokens matching TOKENS_CONVENTIONS.md spec (xl = 0 12px 24px)
+   [ ] Adjust overlay opacity values for each mode (light/dark/high-contrast)
+   [ ] IF cyber/neon theme: Add glow color variables and all glow token definitions
+   [ ] IF traditional theme: SKIP glow tokens section entirely (they're optional)
+   [ ] Test all tokens in light, dark, and high-contrast modes
+   [ ] Validate naming follows conventions in TOKENS_CONVENTIONS.md (ETR-001)
+   [ ] Run validation script: pnpm validate:template
+   [ ] Document any theme-specific customizations or deviations
+   
+   =============================================================================
+   BEST PRACTICES
+   =============================================================================
+   
+   1. RGB Variables First: Always define RGB variables before alpha tokens
+   2. Correct Naming: Use --lufa-{color}-rgb (matches ETR-001 TOKENS_CONVENTIONS.md)
+   3. Valid CSS: All tokens MUST be inside CSS selectors (never at root level)
+   4. Mode Awareness: Customize shadow-color AND overlay opacity for each mode
+   5. Consistency: Use standardized opacity levels - don't invent new values
+   6. Complete Sets: Define ALL 9 opacity levels for ALL 6 colors
+   7. Testing: Verify tokens in all three modes before considering complete
+   8. Documentation: Add comments explaining theme-specific customizations
+   9. Validation: Run validation script to ensure conventions are followed
+   10. Glow Tokens: Only include if theme requires luminescence effects
+   11. Performance: Glow effects can be expensive - use sparingly on many elements
+   12. Accessibility: Ensure glowing text remains readable with sufficient contrast
+   
+   =============================================================================
+   EXTRACTING RGB VALUES FROM HEX COLORS
+   =============================================================================
+   
+   To convert hex colors to RGB for alpha tokens:
+   
+   Method 1 - Manual Conversion:
+   Hex: #B87333
+   Split into pairs: B8 | 73 | 33
+   Convert each to decimal:
+   - B8 (hex) = 184 (decimal)
+   - 73 (hex) = 115 (decimal)
+   - 33 (hex) = 51 (decimal)
+   Result: rgb(184, 115, 51)
+   
+   Method 2 - Browser DevTools:
+   1. Open browser console
+   2. Paste: document.body.style.color = '#B87333'; getComputedStyle(document.body).color
+   3. Returns: "rgb(184, 115, 51)"
+   
+   Method 3 - Online Tools:
+   Use tools like https://www.rapidtables.com/convert/color/hex-to-rgb.html
+   
+   =============================================================================
+   USAGE EXAMPLE (Steampunk Theme)
+   =============================================================================
+   
+   Below is a complete example showing how to implement tokens for a theme.
+   This demonstrates the proper CSS selector structure and all token types.
+   ============================================================================= */
+
+/* Step 1: Define RGB variables from hex colors */
+[data-theme='steampunk'][data-mode='light'] {
+  /* Extract RGB from hex colors first */
+  /* Primary: #B87333 (Brass) = rgb(184, 115, 51) */
+  --lufa-primary-rgb: 184, 115, 51;
+
+  /* Secondary: #2E8B57 (Oxidized Copper) = rgb(46, 139, 87) */
+  --lufa-secondary-rgb: 46, 139, 87;
+
+  /* Semantic colors */
+  --lufa-success-rgb: 46, 139, 87;
+  --lufa-error-rgb: 183, 65, 14;
+  --lufa-warning-rgb: 205, 133, 63;
+  --lufa-info-rgb: 112, 128, 144;
+
+  /* Step 2: Define alpha tokens using RGB variables */
+  /* Primary alpha tokens (all 9 levels) */
+  --lufa-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
+  --lufa-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
+  --lufa-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
+  --lufa-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
+  --lufa-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
+  --lufa-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
+  --lufa-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
+  --lufa-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
+  --lufa-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
+
+  /* Secondary alpha tokens (all 9 levels) */
+  --lufa-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
+  --lufa-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
+  --lufa-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
+  --lufa-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
+  --lufa-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
+  --lufa-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
+  --lufa-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
+  --lufa-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
+  --lufa-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
+
+  /* (Continue pattern for success, error, warning, info with all 9 levels each) */
+
+  /* Step 3: Define mode-aware shadow color */
+  --lufa-shadow-color: rgba(44, 24, 16, 0.3); /* Dark bronze shadow */
+
+  /* Step 4: Copy shadow size tokens (standardized) */
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+
+  /* Step 5: Copy overlay tokens with mode-appropriate opacity */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.05);
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.1);
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.3);
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.3);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.5);
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.7);
+}
+
+/* Dark mode for steampunk theme (repeat structure with mode-adjusted values) */
+[data-theme='steampunk'][data-mode='dark'] {
+  /* RGB variables stay the same */
+  --lufa-primary-rgb: 184, 115, 51;
+  --lufa-secondary-rgb: 46, 139, 87;
+  /* ... etc ... */
+
+  /* Alpha tokens stay the same (reference RGB variables) */
+  --lufa-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
+  /* ... etc ... */
+
+  /* Shadow color adjusted for dark mode */
+  --lufa-shadow-color: rgba(0, 0, 0, 0.5);
+
+  /* Shadow sizes (same structure) */
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  /* ... etc ... */
+
+  /* Overlay opacity adjusted for dark mode */
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.2); /* Increased */
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.7); /* Increased */
+  /* ... etc ... */
+}
+
+/* High-contrast mode for steampunk theme */
+[data-theme='steampunk'][data-mode='high-contrast'] {
+  /* Same pattern as dark mode but with accessibility-optimized values */
+  --lufa-shadow-color: rgba(0, 0, 0, 0.8);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.8);
+  /* ... etc ... */
+}
+
+/* =============================================================================
+   FILE STRUCTURE GUIDE
+   =============================================================================
+   
+   When creating a new theme file (e.g., mytheme.css):
+   
+   1. Start with [data-theme='mytheme'] selector
+   2. Define RGB variables first
+   3. Define alpha tokens referencing RGB variables
+   4. Add mode-specific blocks for light/dark/high-contrast
+   5. Define shadows and overlays in each mode block
+   6. Test thoroughly in all 3 modes
+   
+   Example file structure:
+   
+   mytheme.css:
+   ├── [data-theme='mytheme']           ← Base theme tokens
+   │   ├── RGB variables
+   │   └── Alpha tokens (all 54 tokens)
+   ├── [data-theme='mytheme'][data-mode='light']
+   │   ├── Shadow color + sizes
+   │   └── Overlay tokens
+   ├── [data-theme='mytheme'][data-mode='dark']
+   │   ├── Shadow color + sizes
+   │   └── Overlay tokens
+   └── [data-theme='mytheme'][data-mode='high-contrast']
+       ├── Shadow color + sizes
+       └── Overlay tokens
+   
+   =============================================================================
+   REFERENCES
+   =============================================================================
+   
+   - Token Conventions (ETR-001): packages/design-system/themes/TOKENS_CONVENTIONS.md
+   - Theme README: packages/design-system/themes/README.md
+   - Validation Script: packages/design-system/themes/scripts/validate-conventions.ts
+   - Template Validation: packages/design-system/themes/scripts/validate-template.ts
+   - Example Implementation: packages/design-system/themes/src/steampunk.css
+   
+   ============================================================================= */

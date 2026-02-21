@@ -1,0 +1,64 @@
+{
+  "semantic": {
+    "interactive": {
+      "border": {
+        "default": {
+          "$value": "{core.neutral.border.default}",
+          "$type": "color",
+          "$description": "Default border color for interactive elements in resting state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Input borders, button outlines, card borders",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "hover": {
+          "$value": "{core.neutral.border.strong}",
+          "$type": "color",
+          "$description": "Border color when hovering over interactive elements - stronger emphasis",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Hover state borders for inputs and outlined buttons",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "focus": {
+          "$value": "{core.brand.primary.default}",
+          "$type": "color",
+          "$description": "Border color for focused interactive elements - indicates keyboard focus and accessibility",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Focus rings, focused input borders, keyboard navigation indicators",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "disabled": {
+          "$value": "{core.neutral.border.default}",
+          "$type": "color",
+          "$description": "Border color for disabled interactive elements - subtle indication of disabled state",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "interactive",
+              "useCase": "Disabled input borders, disabled button outlines",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

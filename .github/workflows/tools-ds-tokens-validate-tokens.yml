@@ -1,16 +1,34 @@
-name: Tools:DS:Tokens:Validate Design Tokens
+name: Tools:DS:Tokens:Validate Token Usage
 
 on:
   pull_request:
     paths:
       - 'packages/design-system/tokens/src/**/*.json'
-      - 'scripts/validate-token-metadata.js'
+      - 'packages/design-system/tokens/dist/**'
+      - 'packages/design-system/main/src/**/*.css'
+      - 'packages/design-system/main/src/**/*.ts'
+      - 'packages/design-system/main/src/**/*.tsx'
+      - 'packages/design-system/main/src/**/*.cjs'
+      - 'packages/design-system/main/scripts/validate-token-usage.js'
+      - 'packages/design-system/docusaurus/src/**/*.css'
+      - 'packages/design-system/docusaurus/src/**/*.ts'
+      - 'packages/design-system/docusaurus/src/**/*.tsx'
+      - 'packages/design-system/docusaurus/scripts/validate-token-usage.js'
   push:
     branches:
       - main
     paths:
       - 'packages/design-system/tokens/src/**/*.json'
-      - 'scripts/validate-token-metadata.js'
+      - 'packages/design-system/tokens/dist/**'
+      - 'packages/design-system/main/src/**/*.css'
+      - 'packages/design-system/main/src/**/*.ts'
+      - 'packages/design-system/main/src/**/*.tsx'
+      - 'packages/design-system/main/src/**/*.cjs'
+      - 'packages/design-system/main/scripts/validate-token-usage.js'
+      - 'packages/design-system/docusaurus/src/**/*.css'
+      - 'packages/design-system/docusaurus/src/**/*.ts'
+      - 'packages/design-system/docusaurus/src/**/*.tsx'
+      - 'packages/design-system/docusaurus/scripts/validate-token-usage.js'
   workflow_dispatch:
 
 permissions:
@@ -18,8 +36,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  validate-tokens:
-    name: Validate Token Metadata
+  validate-token-usage:
+    name: Validate Token Usage
     runs-on: ubuntu-latest
 
     steps:
@@ -32,85 +50,132 @@ jobs:
       - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: 🔍 Run token validation
-        id: validate
+      - name: 📦 Build tokens before validation
+        run: pnpm ds:tokens:build
+
+      # ── DS Main ──────────────────────────────────────────────────────────
+
+      - name: 🔍 Validate token usage — DS Main
+        id: validate-main
         run: |
-          echo "::group::Token Validation"
-          node scripts/validate-token-metadata.js
+          echo "::group::DS Main — Token Usage Validation"
+          pnpm ds:main:validate:token-usage
           echo "::endgroup::"
         continue-on-error: true
 
-      - name: 💬 Build validation comment
-        if: github.event_name == 'pull_request' && steps.validate.outcome == 'failure'
-        id: build-comment
+      # ── DS Docusaurus ─────────────────────────────────────────────────────
+
+      - name: 🔍 Validate token usage — DS Docusaurus
+        id: validate-docusaurus
         run: |
-          # Re-run validation to capture output
-          VALIDATION_OUTPUT=$(node scripts/validate-token-metadata.js 2>&1 || true)
+          echo "::group::DS Docusaurus — Token Usage Validation"
+          pnpm ds:docusaurus:validate:token-usage
+          echo "::endgroup::"
+        continue-on-error: true
 
-          # Parse validation errors
-          ERROR_COUNT=$(echo "$VALIDATION_OUTPUT" | grep -oP '✗ Tokens with Errors: \K\d+' || echo "0")
-          WARNING_COUNT=$(echo "$VALIDATION_OUTPUT" | grep -oP '⚠ Warnings: \K\d+' || echo "0")
+      # ── PR Comment ────────────────────────────────────────────────────────
 
-          # Build comment body with heredoc
+      - name: 💬 Build validation comment
+        if: github.event_name == 'pull_request'
+        id: build-comment
+        env:
+          MAIN_OUTCOME: ${{ steps.validate-main.outcome }}
+          DOCUSAURUS_OUTCOME: ${{ steps.validate-docusaurus.outcome }}
+        run: |
+          MAIN_STATUS="✅ Passed"
+          DOCUSAURUS_STATUS="✅ Passed"
+          [[ "$MAIN_OUTCOME" == "failure" ]] && MAIN_STATUS="❌ Failed"
+          [[ "$DOCUSAURUS_OUTCOME" == "failure" ]] && DOCUSAURUS_STATUS="❌ Failed"
+
+          # Only re-capture outputs when there are failures (avoids redundant runs on success)
+          MAIN_OUTPUT=""
+          DOCUSAURUS_OUTPUT=""
+          if [[ "$MAIN_OUTCOME" == "failure" ]]; then
+            MAIN_OUTPUT=$(pnpm ds:main:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
+          fi
+          if [[ "$DOCUSAURUS_OUTCOME" == "failure" ]]; then
+            DOCUSAURUS_OUTPUT=$(pnpm ds:docusaurus:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
+          fi
+
           {
             echo 'comment-body<<EOF_COMMENT'
             cat << EOF
-          <!-- token-validation-comment -->
-          ## 🔍 Design Token Validation
+          <!-- token-usage-validation-comment -->
+          ## 🔍 Design Token Usage Validation
 
-          ### ❌ Validation Failed
+          | Package | Status |
+          |---|---|
+          | DS Main | ${MAIN_STATUS} |
+          | DS Docusaurus | ${DOCUSAURUS_STATUS} |
 
-          **Errors:** ${ERROR_COUNT} | **Warnings:** ${WARNING_COUNT}
-
+          $(if [[ "$MAIN_OUTCOME" == "failure" ]]; then
+            cat << 'MAIN_SECTION'
           <details>
-          <summary>📋 Validation Report</summary>
+          <summary>📋 DS Main — Validation Report</summary>
 
           \`\`\`
-          ${VALIDATION_OUTPUT}
+          MAIN_SECTION
+            echo "${MAIN_OUTPUT}"
+            cat << 'MAIN_CLOSE'
           \`\`\`
 
           </details>
+          MAIN_CLOSE
+          fi)
 
+          $(if [[ "$DOCUSAURUS_OUTCOME" == "failure" ]]; then
+            cat << 'DOC_SECTION'
+          <details>
+          <summary>📋 DS Docusaurus — Validation Report</summary>
+
+          \`\`\`
+          DOC_SECTION
+            echo "${DOCUSAURUS_OUTPUT}"
+            cat << 'DOC_CLOSE'
+          \`\`\`
+
+          </details>
+          DOC_CLOSE
+          fi)
+
+          $(if [[ "$MAIN_OUTCOME" == "failure" || "$DOCUSAURUS_OUTCOME" == "failure" ]]; then
+            cat << 'FIX_SECTION'
           ### 💡 How to Fix
 
-          All tokens must include:
+          A token is referenced in source code but not defined in \`tokens/dist/tokens.css\`.
 
-          1. **\`\$description\`** - Meaningful description (min 10 chars)
-             - ✅ Good: "Primary brand color used for buttons, links, and key actions"
-             - ❌ Bad: "Primary color"
-
-          2. **\`\$type\`** - Valid DTCG type (color, dimension, fontFamily, etc.)
-
-          3. **\`\$extensions.lufa.themable\`** - Set to \`true\` or \`false\`
-
-          ### 📚 Resources
-
-          - 📖 [Your First Token Guide](https://github.com/${{ github.repository }}/blob/main/docs/contributors/your-first-token.md)
-          - ✂️ Use VSCode snippets: \`.vscode/lufa-tokens.code-snippets\`
-          - 🧪 Run locally: \`pnpm validate:tokens\`
+          - Check that the token exists in \`packages/design-system/tokens/src/\`
+          - Run \`pnpm ds:tokens:build\` to regenerate \`tokens.css\` after any token change
+          - 🧪 Run locally: \`pnpm ds:main:validate:token-usage\` / \`pnpm ds:docusaurus:validate:token-usage\`
+          FIX_SECTION
+          fi)
 
           ---
 
-          *Part of Lufa Design System v2.0 - Automated token validation*
+          *Part of Lufa Design System v2.0 - Automated token usage validation*
           EOF
             echo 'EOF_COMMENT'
           } >> $GITHUB_OUTPUT
 
       - name: 💬 Comment on PR with results
-        if: github.event_name == 'pull_request' && steps.validate.outcome == 'failure'
+        if: github.event_name == 'pull_request'
         uses: ./.github/actions/pr-comment
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          comment-marker: '<!-- token-validation-comment -->'
+          comment-marker: '<!-- token-usage-validation-comment -->'
           comment-body: ${{ steps.build-comment.outputs.comment-body }}
 
-      - name: ❌ Fail if validation errors
-        if: steps.validate.outcome == 'failure'
+      # ── Final gate ────────────────────────────────────────────────────────
+
+      - name: ❌ Fail if any validation errors
+        if: steps.validate-main.outcome == 'failure' || steps.validate-docusaurus.outcome == 'failure'
         run: |
-          echo "::error::Token validation failed. See validation report above."
+          [[ "${{ steps.validate-main.outcome }}" == "failure" ]] && \
+            echo "::error::DS Main token usage validation failed."
+          [[ "${{ steps.validate-docusaurus.outcome }}" == "failure" ]] && \
+            echo "::error::DS Docusaurus token usage validation failed."
           exit 1
 
-      - name: ✅ Validation successful
-        if: steps.validate.outcome == 'success'
-        run: |
-          echo "::notice::All tokens have valid metadata!"
+      - name: ✅ All token usages are valid
+        if: steps.validate-main.outcome == 'success' && steps.validate-docusaurus.outcome == 'success'
+        run: echo "::notice::All token usages are valid in DS Main and DS Docusaurus."

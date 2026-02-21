@@ -4,7 +4,7 @@
  * Nature-inspired color palette with emerald and green tones.
  * Evokes growth, earth, and natural environments.
  *
- * Usage: <html data-color-theme="forest" data-mode="light|dark|high-contrast">
+ * Usage: <html data-theme="forest" data-mode="light|dark|high-contrast">
  *
  * Color Palette:
  * Light Mode:
@@ -28,21 +28,21 @@
 
 /* ==================== LIGHT MODE (Default) ==================== */
 
-[data-color-theme='forest'],
-[data-color-theme='forest'][data-mode='light'] {
+[data-theme='forest'],
+[data-theme='forest'][data-mode='light'] {
   /* Core Brand Tokens */
-  --lufa-core-brand-primary: #059669;
+  --lufa-core-brand-primary-default: #059669;
   --lufa-core-brand-primary-hover: #047857;
   --lufa-core-brand-primary-active: #065f46;
-  --lufa-core-brand-secondary: #16a34a;
+  --lufa-core-brand-secondary-default: #16a34a;
   --lufa-core-brand-secondary-hover: #15803d;
   --lufa-core-brand-secondary-active: #166534;
 
   /* Neutral Tokens - Forest Light */
   --lufa-core-neutral-background: #f0fdf4;
-  --lufa-core-neutral-surface: #dcfce7;
+  --lufa-core-neutral-surface-default: #dcfce7;
   --lufa-core-neutral-surface-hover: #bbf7d0;
-  --lufa-core-neutral-border: #86efac;
+  --lufa-core-neutral-border-default: #86efac;
   --lufa-core-neutral-border-strong: #059669;
   --lufa-core-neutral-text-primary: #064e3b;
   --lufa-core-neutral-text-secondary: #065f46;
@@ -50,19 +50,19 @@
   --lufa-core-neutral-text-disabled: #86efac;
 
   /* Semantic Tokens - Forest Light */
-  --lufa-core-semantic-success: #16a34a;
+  --lufa-core-semantic-success-default: #16a34a;
   --lufa-core-semantic-success-subtle: #f0fdf4;
   --lufa-core-semantic-success-border: #bbf7d0;
   --lufa-core-semantic-success-hover: #15803d;
-  --lufa-core-semantic-error: #e11d48;
+  --lufa-core-semantic-error-default: #e11d48;
   --lufa-core-semantic-error-subtle: #fff1f2;
   --lufa-core-semantic-error-border: #fda4af;
   --lufa-core-semantic-error-hover: #be123c;
-  --lufa-core-semantic-warning: #d97706;
+  --lufa-core-semantic-warning-default: #d97706;
   --lufa-core-semantic-warning-subtle: #fef3c7;
   --lufa-core-semantic-warning-border: #fcd34d;
   --lufa-core-semantic-warning-hover: #b45309;
-  --lufa-core-semantic-info: #0284c7;
+  --lufa-core-semantic-info-default: #0284c7;
   --lufa-core-semantic-info-subtle: #e0f2fe;
   --lufa-core-semantic-info-border: #7dd3fc;
   --lufa-core-semantic-info-hover: #0369a1;
@@ -70,20 +70,20 @@
 
 /* ==================== DARK MODE ==================== */
 
-[data-color-theme='forest'][data-mode='dark'] {
+[data-theme='forest'][data-mode='dark'] {
   /* Core Brand Tokens - Brighter for dark backgrounds */
-  --lufa-core-brand-primary: #34d399;
+  --lufa-core-brand-primary-default: #34d399;
   --lufa-core-brand-primary-hover: #6ee7b7;
   --lufa-core-brand-primary-active: #10b981;
-  --lufa-core-brand-secondary: #4ade80;
+  --lufa-core-brand-secondary-default: #4ade80;
   --lufa-core-brand-secondary-hover: #86efac;
   --lufa-core-brand-secondary-active: #22c55e;
 
   /* Neutral Tokens - Forest Dark (Deep Forest) */
   --lufa-core-neutral-background: #022c22;
-  --lufa-core-neutral-surface: #064e3b;
+  --lufa-core-neutral-surface-default: #064e3b;
   --lufa-core-neutral-surface-hover: #065f46;
-  --lufa-core-neutral-border: #047857;
+  --lufa-core-neutral-border-default: #047857;
   --lufa-core-neutral-border-strong: #10b981;
   --lufa-core-neutral-text-primary: #ecfdf5;
   --lufa-core-neutral-text-secondary: #a7f3d0;
@@ -91,19 +91,19 @@
   --lufa-core-neutral-text-disabled: #064e3b;
 
   /* Semantic Tokens - Forest Dark */
-  --lufa-core-semantic-success: #22c55e;
+  --lufa-core-semantic-success-default: #22c55e;
   --lufa-core-semantic-success-subtle: #022c22;
   --lufa-core-semantic-success-border: #064e3b;
   --lufa-core-semantic-success-hover: #4ade80;
-  --lufa-core-semantic-error: #fb7185;
+  --lufa-core-semantic-error-default: #fb7185;
   --lufa-core-semantic-error-subtle: #4c0519;
   --lufa-core-semantic-error-border: #881337;
   --lufa-core-semantic-error-hover: #fda4af;
-  --lufa-core-semantic-warning: #fbbf24;
+  --lufa-core-semantic-warning-default: #fbbf24;
   --lufa-core-semantic-warning-subtle: #451a03;
   --lufa-core-semantic-warning-border: #78350f;
   --lufa-core-semantic-warning-hover: #fcd34d;
-  --lufa-core-semantic-info: #38bdf8;
+  --lufa-core-semantic-info-default: #38bdf8;
   --lufa-core-semantic-info-subtle: #082f49;
   --lufa-core-semantic-info-border: #0c4a6e;
   --lufa-core-semantic-info-hover: #7dd3fc;
@@ -111,20 +111,20 @@
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
-[data-color-theme='forest'][data-mode='high-contrast'] {
+[data-theme='forest'][data-mode='high-contrast'] {
   /* Use system green for maximum contrast in high-contrast mode */
-  --lufa-core-brand-primary: #00ff00;
+  --lufa-core-brand-primary-default: #00ff00;
   --lufa-core-brand-primary-hover: #33ff33;
   --lufa-core-brand-primary-active: #00cc00;
-  --lufa-core-brand-secondary: #00ff66;
+  --lufa-core-brand-secondary-default: #00ff66;
   --lufa-core-brand-secondary-hover: #33ff88;
   --lufa-core-brand-secondary-active: #00cc55;
 
   /* Neutral Tokens - High Contrast Green */
   --lufa-core-neutral-background: #000000;
-  --lufa-core-neutral-surface: #000000;
+  --lufa-core-neutral-surface-default: #000000;
   --lufa-core-neutral-surface-hover: #002200;
-  --lufa-core-neutral-border: #00ff00;
+  --lufa-core-neutral-border-default: #00ff00;
   --lufa-core-neutral-border-strong: #00ff00;
   --lufa-core-neutral-text-primary: #ffffff;
   --lufa-core-neutral-text-secondary: #ffffff;

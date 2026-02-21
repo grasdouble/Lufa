@@ -1,0 +1,499 @@
+{
+  "component": {
+    "input": {
+      "padding": {
+        "sm": {
+          "$value": "{semantic.ui.spacing.compact} {semantic.ui.spacing.default}",
+          "$type": "dimension",
+          "$description": "Small input padding",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Compact form fields",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "md": {
+          "$value": "{semantic.ui.spacing.default} {semantic.ui.spacing.comfortable}",
+          "$type": "dimension",
+          "$description": "Medium input padding (default)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Standard form fields",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "lg": {
+          "$value": "{semantic.ui.spacing.comfortable} {semantic.ui.spacing.spacious}",
+          "$type": "dimension",
+          "$description": "Large input padding",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Emphasized form fields",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "height": {
+        "sm": {
+          "$value": "{semantic.ui.height.sm}",
+          "$type": "dimension",
+          "$description": "Small input minimum height",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Compact inputs",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "md": {
+          "$value": "{semantic.ui.height.md}",
+          "$type": "dimension",
+          "$description": "Medium input minimum height (default)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Standard inputs",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "lg": {
+          "$value": "{semantic.ui.height.lg}",
+          "$type": "dimension",
+          "$description": "Large input minimum height",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Large inputs",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "font-size": {
+        "sm": {
+          "$value": "{semantic.typography.body.small}",
+          "$type": "dimension",
+          "$description": "Small input font size",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Compact input text",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "md": {
+          "$value": "{semantic.typography.body.default}",
+          "$type": "dimension",
+          "$description": "Medium input font size (default)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Standard input text",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "lg": {
+          "$value": "{semantic.typography.body.large}",
+          "$type": "dimension",
+          "$description": "Large input font size",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Large input text",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "border-radius": {
+        "$value": "{semantic.ui.border-radius.default}",
+        "$type": "dimension",
+        "$description": "Input border radius",
+        "$extensions": {
+          "lufa": {
+            "level": "component",
+            "category": "input",
+            "useCase": "All input variants",
+            "themeable": true,
+            "modeAware": false
+          }
+        }
+      },
+      "border-width": {
+        "$value": "{semantic.ui.border-width.thin}",
+        "$type": "dimension",
+        "$description": "Input border width",
+        "$extensions": {
+          "lufa": {
+            "level": "component",
+            "category": "input",
+            "useCase": "Input border",
+            "themeable": true,
+            "modeAware": false
+          }
+        }
+      },
+      "background": {
+        "default": {
+          "$value": "{semantic.ui.background.surface}",
+          "$type": "color",
+          "$description": "Input background color (default state)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "state": "default",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "hover": {
+          "$value": "{semantic.interactive.background.hover}",
+          "$type": "color",
+          "$description": "Input background color (hover state)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "state": "hover",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "disabled": {
+          "$value": "{semantic.interactive.background.disabled}",
+          "$type": "color",
+          "$description": "Input background color (disabled state)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "state": "disabled",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "border": {
+        "default": {
+          "$value": "{semantic.interactive.border.default}",
+          "$type": "color",
+          "$description": "Input border color (default state)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "state": "default",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "hover": {
+          "$value": "{semantic.interactive.border.hover}",
+          "$type": "color",
+          "$description": "Input border color (hover state)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "state": "hover",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "focus": {
+          "$value": "{semantic.interactive.border.focus}",
+          "$type": "color",
+          "$description": "Input border color (focus state)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "state": "focus",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "error": {
+          "$value": "{semantic.ui.border.error}",
+          "$type": "color",
+          "$description": "Input border color (error/invalid state)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "state": "error",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "disabled": {
+          "$value": "{semantic.interactive.border.disabled}",
+          "$type": "color",
+          "$description": "Input border color (disabled state)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "state": "disabled",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "text": {
+        "default": {
+          "$value": "{semantic.interactive.text.default}",
+          "$type": "color",
+          "$description": "Input text color (default state)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "state": "default",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "placeholder": {
+          "$value": "{semantic.ui.text.tertiary}",
+          "$type": "color",
+          "$description": "Input placeholder text color",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Placeholder text",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "disabled": {
+          "$value": "{semantic.interactive.text.disabled}",
+          "$type": "color",
+          "$description": "Input text color (disabled state)",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "state": "disabled",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "label": {
+        "font-size": {
+          "$value": "{semantic.typography.label}",
+          "$type": "dimension",
+          "$description": "Input label font size",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Form field labels",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "color": {
+          "$value": "{semantic.ui.text.secondary}",
+          "$type": "color",
+          "$description": "Input label text color",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Form field labels",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "spacing": {
+          "$value": "{semantic.ui.spacing.compact}",
+          "$type": "dimension",
+          "$description": "Spacing between label and input field",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Label to field gap",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "helper": {
+        "text": {
+          "font-size": {
+            "$value": "{semantic.typography.caption}",
+            "$type": "dimension",
+            "$description": "Helper/error text font size",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "input",
+                "useCase": "Helper text, error messages",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "color": {
+            "default": {
+              "$value": "{semantic.ui.text.tertiary}",
+              "$type": "color",
+              "$description": "Helper text color (default)",
+              "$extensions": {
+                "lufa": {
+                  "level": "component",
+                  "category": "input",
+                  "useCase": "Helper text",
+                  "themeable": true,
+                  "modeAware": false
+                }
+              }
+            },
+            "error": {
+              "$value": "{semantic.ui.text.error}",
+              "$type": "color",
+              "$description": "Helper text color (error state)",
+              "$extensions": {
+                "lufa": {
+                  "level": "component",
+                  "category": "input",
+                  "state": "error",
+                  "themeable": true,
+                  "modeAware": false
+                }
+              }
+            }
+          }
+        },
+        "spacing": {
+          "$value": "{semantic.ui.spacing.compact}",
+          "$type": "dimension",
+          "$description": "Spacing between input field and helper text",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Field to helper text gap",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "icon": {
+        "spacing": {
+          "$value": "{component.shared.icon.spacing}",
+          "$type": "dimension",
+          "$description": "Spacing between input icon and text",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Input fields with icons",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      },
+      "effect": {
+        "glow": {
+          "border": {
+            "default": {
+              "$value": "{semantic.effect.glow.border.none}",
+              "$type": "shadow",
+              "$description": "Input border glow effect (default state)",
+              "$extensions": {
+                "lufa": {
+                  "level": "component",
+                  "category": "input",
+                  "useCase": "Inputs with border glow in themed designs",
+                  "themeable": true,
+                  "modeAware": false
+                }
+              }
+            },
+            "focus": {
+              "$value": "{semantic.effect.glow.border.focus}",
+              "$type": "shadow",
+              "$description": "Input border glow effect (focus state)",
+              "$extensions": {
+                "lufa": {
+                  "level": "component",
+                  "category": "input",
+                  "useCase": "Enhanced glow when input is focused",
+                  "themeable": true,
+                  "modeAware": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "opacity": {
+        "inactive": {
+          "$value": "1",
+          "$type": "number",
+          "$description": "Input opacity when inactive/disabled",
+          "$extensions": {
+            "lufa": {
+              "level": "component",
+              "category": "input",
+              "useCase": "Disabled or inactive input states",
+              "themeable": true,
+              "modeAware": false,
+              "note": "Default is 1 (full opacity). Themes can reduce for visual indication."
+            }
+          }
+        }
+      }
+    }
+  }
+}

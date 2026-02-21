@@ -1,0 +1,64 @@
+{
+  "core": {
+    "layout": {
+      "header": {
+        "height": {
+          "base": {
+            "$value": "{primitive.height.56}",
+            "$type": "dimension",
+            "$description": "Header height for mobile viewports",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "layout",
+                "useCase": "Mobile navigation height",
+                "responsive": {
+                  "breakpoint": "base",
+                  "applyAt": "all"
+                },
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "md": {
+            "$value": "{primitive.height.64}",
+            "$type": "dimension",
+            "$description": "Header height for tablet and desktop viewports",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "layout",
+                "useCase": "Desktop navigation height",
+                "responsive": {
+                  "breakpoint": "md",
+                  "applyAt": "768px"
+                },
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "lg": {
+            "$value": "{primitive.height.64}",
+            "$type": "dimension",
+            "$description": "Header height for large desktop viewports",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "layout",
+                "useCase": "Large desktop navigation height",
+                "responsive": {
+                  "breakpoint": "lg",
+                  "applyAt": "1024px"
+                },
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

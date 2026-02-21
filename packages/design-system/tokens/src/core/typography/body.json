@@ -1,0 +1,94 @@
+{
+  "core": {
+    "typography": {
+      "body": {
+        "font-family": {
+          "$value": "{primitive.typography.font-family.sans}",
+          "$type": "fontFamily",
+          "$description": "Font family for body text and general content",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "typography",
+              "useCase": "Body text, paragraphs, labels, UI text",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "font-weight": {
+          "$value": "{primitive.typography.font-weight.normal}",
+          "$type": "fontWeight",
+          "$description": "Font weight for body text",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "typography",
+              "useCase": "Paragraphs, body text, normal text",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        },
+        "font-size": {
+          "large": {
+            "$value": "{primitive.typography.font-size.lg}",
+            "$type": "dimension",
+            "$description": "Large body text size",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "typography",
+                "useCase": "Lead paragraphs, emphasized body text, introductions",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "default": {
+            "$value": "{primitive.typography.font-size.base}",
+            "$type": "dimension",
+            "$description": "Default body text size (16px)",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "typography",
+                "useCase": "Body text, paragraphs, default UI text",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "small": {
+            "$value": "{primitive.typography.font-size.sm}",
+            "$type": "dimension",
+            "$description": "Small body text size",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "typography",
+                "useCase": "Secondary text, descriptions, help text",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          }
+        },
+        "line-height": {
+          "$value": "{primitive.typography.line-height.normal}",
+          "$type": "number",
+          "$description": "Line height for body text (1.5 for optimal readability)",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "typography",
+              "useCase": "Body text line spacing, paragraph line height",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

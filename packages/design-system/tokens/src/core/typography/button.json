@@ -1,0 +1,22 @@
+{
+  "core": {
+    "typography": {
+      "button": {
+        "font-size": {
+          "$value": "{primitive.typography.font-size.base}",
+          "$type": "dimension",
+          "$description": "Font size for button text",
+          "$extensions": {
+            "lufa": {
+              "level": "core",
+              "category": "typography",
+              "useCase": "Button labels, CTA text",
+              "themeable": true,
+              "modeAware": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

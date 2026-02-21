@@ -1,0 +1,64 @@
+{
+  "core": {
+    "layout": {
+      "modal": {
+        "padding": {
+          "base": {
+            "$value": "{primitive.spacing.24}",
+            "$type": "dimension",
+            "$description": "Internal padding for modals on mobile",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "layout",
+                "useCase": "Modal dialog internal spacing",
+                "responsive": {
+                  "breakpoint": "base",
+                  "applyAt": "all"
+                },
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "md": {
+            "$value": "{primitive.spacing.32}",
+            "$type": "dimension",
+            "$description": "Internal padding for modals on tablet",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "layout",
+                "useCase": "Modal padding on tablets",
+                "responsive": {
+                  "breakpoint": "md",
+                  "applyAt": "768px"
+                },
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          },
+          "lg": {
+            "$value": "{primitive.spacing.40}",
+            "$type": "dimension",
+            "$description": "Internal padding for modals on desktop",
+            "$extensions": {
+              "lufa": {
+                "level": "core",
+                "category": "layout",
+                "useCase": "Modal padding on desktop",
+                "responsive": {
+                  "breakpoint": "lg",
+                  "applyAt": "1024px"
+                },
+                "themeable": false,
+                "modeAware": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

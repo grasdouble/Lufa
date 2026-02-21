@@ -13,14 +13,16 @@ export const ThemeAndModeWrapper: React.FC<ThemeAndModeWrapperProps> = ({ theme,
   useEffect(() => {
     const root = document.documentElement;
 
-    // Apply theme attribute (Phase 6 - currently placeholder)
-    if (theme === 'default') {
-      root.removeAttribute('data-color-theme');
+    // Apply theme attribute
+    // IMPORTANT: Always set data-theme (empty string for default, value for others)
+    // This is required for CSS cascade with [data-theme] selector
+    if (theme === 'default' || !theme) {
+      root.setAttribute('data-theme', '');
     } else {
-      root.setAttribute('data-color-theme', theme);
+      root.setAttribute('data-theme', theme);
     }
 
-    // Apply mode attribute (Phase 2A - active)
+    // Apply mode attribute
     if (mode === '' || mode == null || mode === undefined) {
       root.setAttribute('data-mode', 'light'); // Default to light
     } else {
@@ -30,10 +32,10 @@ export const ThemeAndModeWrapper: React.FC<ThemeAndModeWrapperProps> = ({ theme,
     // Also update the docs iframe if it exists
     const docsRoot = window.parent?.document?.documentElement;
     if (docsRoot && docsRoot !== root) {
-      if (theme === 'default') {
-        docsRoot.removeAttribute('data-color-theme');
+      if (theme === 'default' || !theme) {
+        docsRoot.setAttribute('data-theme', '');
       } else {
-        docsRoot.setAttribute('data-color-theme', theme);
+        docsRoot.setAttribute('data-theme', theme);
       }
 
       if (mode === '' || mode == null || mode === undefined) {
@@ -46,7 +48,7 @@ export const ThemeAndModeWrapper: React.FC<ThemeAndModeWrapperProps> = ({ theme,
 
   return (
     <div
-      data-color-theme={theme !== 'default' ? theme : undefined}
+      data-theme={theme !== 'default' ? theme : ''}
       data-mode={mode || 'light'}
       style={{
         backgroundColor: 'var(--lufa-semantic-ui-background-page)',

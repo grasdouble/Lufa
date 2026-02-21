@@ -1,0 +1,48 @@
+{
+  "semantic": {
+    "ui": {
+      "backdrop": {
+        "blur": {
+          "$value": "blur(4px)",
+          "$type": "other",
+          "$description": "Backdrop blur for modals and overlays",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "subcategory": "backdrop",
+              "useCase": "Modal backdrops, overlay effects with varying blur based on mode",
+              "modes": {
+                "light": "blur(4px)",
+                "dark": "blur(8px)",
+                "high-contrast": "blur(2px)"
+              },
+              "modeAware": true,
+              "themeable": false
+            }
+          }
+        },
+        "brightness": {
+          "$value": "0.95",
+          "$type": "number",
+          "$description": "Backdrop brightness for overlays",
+          "$extensions": {
+            "lufa": {
+              "level": "semantic",
+              "category": "ui",
+              "subcategory": "backdrop",
+              "useCase": "Backdrop dimming with varying brightness based on mode",
+              "modes": {
+                "light": "0.95",
+                "dark": "0.7",
+                "high-contrast": "0.5"
+              },
+              "modeAware": true,
+              "themeable": false
+            }
+          }
+        }
+      }
+    }
+  }
+}
