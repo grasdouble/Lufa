@@ -4,6 +4,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import React, { useEffect, useState } from 'react';
+import { useColorMode } from '@docusaurus/theme-common';
 
 import styles from './PlaygroundThemeSwitcher.module.css';
 
@@ -19,8 +20,6 @@ type ThemeName =
   | 'coffee'
   | 'volt'
   | 'steampunk';
-
-type ColorMode = 'light' | 'dark' | 'high-contrast';
 
 type Theme = {
   name: ThemeName;
@@ -43,12 +42,6 @@ const THEMES: Theme[] = [
   { name: 'steampunk', label: 'Steampunk', icon: '⚙️', description: 'Victorian industrial' },
 ];
 
-const COLOR_MODES: { mode: ColorMode; label: string; icon: string }[] = [
-  { mode: 'light', label: 'Light', icon: '☀️' },
-  { mode: 'dark', label: 'Dark', icon: '🌙' },
-  { mode: 'high-contrast', label: 'High Contrast', icon: '🔲' },
-];
-
 type PlaygroundThemeSwitcherProps = {
   /**
    * Ref to the playground container element where theme will be applied
@@ -57,20 +50,17 @@ type PlaygroundThemeSwitcherProps = {
 };
 
 /**
- * Isolated ThemeSwitcher for the playground
- * Applies themes only to the playground container, not to Docusaurus
+ * Isolated ThemeSwitcher for the playground.
+ * Applies the color theme to the playground container only.
+ * Color mode (light/dark) is driven by Docusaurus's own toggle in the navbar.
  */
 export default function PlaygroundThemeSwitcher({ containerRef }: PlaygroundThemeSwitcherProps): React.JSX.Element {
   const [currentTheme, setCurrentTheme] = useState<ThemeName>('default');
-  const [currentMode, setCurrentMode] = useState<ColorMode>('light');
   const [isOpen, setIsOpen] = useState(false);
+  const { colorMode } = useColorMode();
 
   const applyTheme = (theme: ThemeName) => {
     if (!containerRef.current) return;
-
-    // For default theme or undefined: set data-theme attribute without value
-    // For other themes: set data-theme="themeName"
-    // Both cases match [data-theme] selector for CSS cascade
     if (theme === 'default' || !theme) {
       containerRef.current.setAttribute('data-theme', '');
     } else {
@@ -78,15 +68,15 @@ export default function PlaygroundThemeSwitcher({ containerRef }: PlaygroundThem
     }
   };
 
-  const applyColorMode = (mode: ColorMode) => {
+  // Sync data-mode with Docusaurus color mode
+  useEffect(() => {
     if (!containerRef.current) return;
-    containerRef.current.setAttribute('data-mode', mode);
-  };
+    containerRef.current.setAttribute('data-mode', colorMode === 'dark' ? 'dark' : 'light');
+  }, [colorMode, containerRef]);
 
-  // Apply initial theme and mode
+  // Apply initial theme
   useEffect(() => {
     applyTheme(currentTheme);
-    applyColorMode(currentMode);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -94,11 +84,6 @@ export default function PlaygroundThemeSwitcher({ containerRef }: PlaygroundThem
     setCurrentTheme(theme);
     applyTheme(theme);
     setIsOpen(false);
-  };
-
-  const handleColorModeChange = (mode: ColorMode) => {
-    setCurrentMode(mode);
-    applyColorMode(mode);
   };
 
   const currentThemeData = THEMES.find((t) => t.name === currentTheme) || THEMES[0];
@@ -130,25 +115,6 @@ export default function PlaygroundThemeSwitcher({ containerRef }: PlaygroundThem
                 >
                   <span className={styles.themeIcon}>{theme.icon}</span>
                   <span className={styles.themeName}>{theme.label}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className={styles.divider} />
-
-          <div className={styles.section}>
-            <h4 className={styles.sectionTitle}>Color Mode</h4>
-            <div className={styles.modeButtons}>
-              {COLOR_MODES.map((modeOption) => (
-                <button
-                  key={modeOption.mode}
-                  className={`${styles.modeButton} ${currentMode === modeOption.mode ? styles.active : ''}`}
-                  onClick={() => handleColorModeChange(modeOption.mode)}
-                  title={modeOption.label}
-                >
-                  <span className={styles.modeIcon}>{modeOption.icon}</span>
-                  <span className={styles.modeLabel}>{modeOption.label}</span>
                 </button>
               ))}
             </div>

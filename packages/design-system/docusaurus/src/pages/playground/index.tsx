@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import type { ReactNode } from 'react';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Layout from '@theme/Layout';
 
 import {
@@ -12,9 +14,7 @@ import {
   Card,
   Center,
   Cluster,
-  Container,
   Divider,
-  Flex,
   Grid,
   Input,
   Label,
@@ -22,9 +22,9 @@ import {
   Text,
 } from '@grasdouble/lufa_design-system';
 
-import DemoSite from './DemoSite';
+import DemoSite from './_DemoSite';
+import PlaygroundThemeSwitcher from './_PlaygroundThemeSwitcher';
 import styles from './playground.module.css';
-import PlaygroundThemeSwitcher from './PlaygroundThemeSwitcher';
 
 /**
  * ComponentShowcase - Displays all themable components
@@ -34,9 +34,9 @@ function ComponentShowcase() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className={styles.showcase}>
+    <Box className={styles.showcase}>
       {/* Typography Section */}
-      <section className={styles.section}>
+      <Box as="section" className={styles.section}>
         <Text as="h2" variant="h2" className={styles.sectionTitle}>
           Typography
         </Text>
@@ -54,12 +54,12 @@ function ComponentShowcase() {
           <Text>Regular body text - fully themable</Text>
           <Text variant="body-small">Small body text</Text>
         </Stack>
-      </section>
+      </Box>
 
       <Divider />
 
       {/* Buttons Section */}
-      <section className={styles.section}>
+      <Box as="section" className={styles.section}>
         <Text as="h2" variant="h2" className={styles.sectionTitle}>
           Buttons
         </Text>
@@ -101,50 +101,52 @@ function ComponentShowcase() {
             </Button>
           </Cluster>
         </Stack>
-      </section>
+      </Box>
 
       <Divider />
 
       {/* Badges Section */}
-      <section className={styles.section}>
+      <Box as="section" className={styles.section}>
         <Text as="h2" variant="h2" className={styles.sectionTitle}>
           Badges
         </Text>
-        <Cluster spacing="default">
-          <Badge variant="default">Default</Badge>
-          <Badge variant="success">Success</Badge>
-          <Badge variant="error">Error</Badge>
-          <Badge variant="warning">Warning</Badge>
-          <Badge variant="info">Info</Badge>
-        </Cluster>
-        <Cluster spacing="default" style={{ marginTop: '1rem' }}>
-          <Badge variant="default" dot>
-            Default with dot
-          </Badge>
-          <Badge variant="success" dot>
-            Success with dot
-          </Badge>
-          <Badge variant="error" dot>
-            Error with dot
-          </Badge>
-          <Badge variant="warning" dot>
-            Warning with dot
-          </Badge>
-          <Badge variant="info" dot>
-            Info with dot
-          </Badge>
-        </Cluster>
-      </section>
+        <Stack direction="vertical" spacing="default">
+          <Cluster spacing="default">
+            <Badge variant="default">Default</Badge>
+            <Badge variant="success">Success</Badge>
+            <Badge variant="error">Error</Badge>
+            <Badge variant="warning">Warning</Badge>
+            <Badge variant="info">Info</Badge>
+          </Cluster>
+          <Cluster spacing="default">
+            <Badge variant="default" dot>
+              Default with dot
+            </Badge>
+            <Badge variant="success" dot>
+              Success with dot
+            </Badge>
+            <Badge variant="error" dot>
+              Error with dot
+            </Badge>
+            <Badge variant="warning" dot>
+              Warning with dot
+            </Badge>
+            <Badge variant="info" dot>
+              Info with dot
+            </Badge>
+          </Cluster>
+        </Stack>
+      </Box>
 
       <Divider />
 
       {/* Form Elements Section */}
-      <section className={styles.section}>
+      <Box as="section" className={styles.section}>
         <Text as="h2" variant="h2" className={styles.sectionTitle}>
           Form Elements
         </Text>
         <Stack direction="vertical" spacing="comfortable">
-          <Box>
+          <Stack direction="vertical" spacing="compact">
             <Label htmlFor="text-input">Text Input</Label>
             <Input
               id="text-input"
@@ -153,40 +155,36 @@ function ComponentShowcase() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
-          </Box>
-          <Box>
+          </Stack>
+          <Stack direction="vertical" spacing="compact">
             <Label htmlFor="email-input">Email Input</Label>
             <Input id="email-input" type="email" placeholder="email@example.com" />
-          </Box>
-          <Box>
+          </Stack>
+          <Stack direction="vertical" spacing="compact">
             <Label htmlFor="disabled-input">Disabled Input</Label>
             <Input id="disabled-input" type="text" placeholder="Disabled" disabled />
-          </Box>
+          </Stack>
         </Stack>
-      </section>
+      </Box>
 
       <Divider />
 
       {/* Layout Components Section */}
-      <section className={styles.section}>
+      <Box as="section" className={styles.section}>
         <Text as="h2" variant="h2" className={styles.sectionTitle}>
           Layout Components
         </Text>
 
         <Stack direction="vertical" spacing="comfortable">
-          <Box>
-            <Text variant="body-small" style={{ marginBottom: '0.5rem' }}>
-              Box with background:
-            </Text>
+          <Stack direction="vertical" spacing="compact">
+            <Text variant="body-small">Box with background:</Text>
             <Box padding="comfortable" background="surface" borderRadius="default">
               <Text>This is a Box component with surface background</Text>
             </Box>
-          </Box>
+          </Stack>
 
-          <Box>
-            <Text variant="body-small" style={{ marginBottom: '0.5rem' }}>
-              Stack (vertical):
-            </Text>
+          <Stack direction="vertical" spacing="compact">
+            <Text variant="body-small">Stack (vertical):</Text>
             <Stack direction="vertical" spacing="compact">
               <Box padding="default" background="surface" borderRadius="small">
                 Item 1
@@ -198,30 +196,26 @@ function ComponentShowcase() {
                 Item 3
               </Box>
             </Stack>
-          </Box>
+          </Stack>
 
-          <Box>
-            <Text variant="body-small" style={{ marginBottom: '0.5rem' }}>
-              Flex (horizontal):
-            </Text>
-            <Flex gap="default" align="center">
-              <Box padding="default" background="surface" borderRadius="small" style={{ flex: 1 }}>
+          <Stack direction="vertical" spacing="compact">
+            <Text variant="body-small">Flex (horizontal):</Text>
+            <Grid columns={3} gap="default" className={styles.responsiveGrid3}>
+              <Box padding="default" background="surface" borderRadius="small">
                 Flex Item 1
               </Box>
-              <Box padding="default" background="surface" borderRadius="small" style={{ flex: 1 }}>
+              <Box padding="default" background="surface" borderRadius="small">
                 Flex Item 2
               </Box>
-              <Box padding="default" background="surface" borderRadius="small" style={{ flex: 1 }}>
+              <Box padding="default" background="surface" borderRadius="small">
                 Flex Item 3
               </Box>
-            </Flex>
-          </Box>
+            </Grid>
+          </Stack>
 
-          <Box>
-            <Text variant="body-small" style={{ marginBottom: '0.5rem' }}>
-              Grid (3 columns):
-            </Text>
-            <Grid columns={3} gap="default">
+          <Stack direction="vertical" spacing="compact">
+            <Text variant="body-small">Grid (3 columns):</Text>
+            <Grid columns={3} gap="default" className={styles.responsiveGrid3}>
               <Box padding="default" background="surface" borderRadius="small">
                 Grid 1
               </Box>
@@ -232,18 +226,18 @@ function ComponentShowcase() {
                 Grid 3
               </Box>
             </Grid>
-          </Box>
+          </Stack>
         </Stack>
-      </section>
+      </Box>
 
       <Divider />
 
       {/* Card Section */}
-      <section className={styles.section}>
+      <Box as="section" className={styles.section}>
         <Text as="h2" variant="h2" className={styles.sectionTitle}>
           Card Component
         </Text>
-        <Grid columns={2} gap="comfortable">
+        <Grid columns={2} gap="comfortable" className={styles.responsiveGrid2}>
           <Card>
             <Stack direction="vertical" spacing="compact">
               <Text as="h3" variant="h3">
@@ -274,12 +268,12 @@ function ComponentShowcase() {
             </Stack>
           </Card>
         </Grid>
-      </section>
+      </Box>
 
       <Divider />
 
       {/* Center Component */}
-      <section className={styles.section}>
+      <Box as="section" className={styles.section}>
         <Text as="h2" variant="h2" className={styles.sectionTitle}>
           Center Component
         </Text>
@@ -288,8 +282,8 @@ function ComponentShowcase() {
             <Badge variant="info">Centered Content</Badge>
           </Center>
         </Box>
-      </section>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
@@ -297,65 +291,57 @@ function ComponentShowcase() {
  * Main Playground Page
  */
 export default function Playground(): ReactNode {
-  const playgroundContainerRef = useRef<HTMLDivElement>(null);
+  const playgroundContentRef = useRef<HTMLDivElement>(null);
+  const subHeaderRef = useRef<HTMLDivElement>(null);
   const [view, setView] = useState<'demo' | 'components'>('demo');
+
+  // Dynamically track sub-header height so demoHeader sticky top is precise
+  useEffect(() => {
+    const el = subHeaderRef.current;
+    if (!el) return;
+    const update = () => {
+      const h = el.getBoundingClientRect().height;
+      document.documentElement.style.setProperty('--playground-sub-header-height', `${h}px`);
+    };
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Layout
       title="Interactive Playground"
       description="Test and explore Lufa Design System components with different theme modes"
     >
-      <div ref={playgroundContainerRef} className={styles.playgroundWrapper}>
-        <Container maxWidth="xlarge">
-          <Stack direction="vertical" spacing="comfortable">
-            {/* Header */}
-            <Box className={styles.header}>
-              <Text as="h1" variant="h1">
-                🎨 Interactive Playground
-              </Text>
-              <Text variant="body-large">
-                Explore all themable components from the Lufa Design System. Switch between themes and modes to see how
-                components adapt automatically.
-              </Text>
-            </Box>
+      {/* Sticky sub-header — outside themed zone, immune to theme/mode changes */}
+      <div ref={subHeaderRef} className={styles.playgroundSubHeader}>
+        <div className={styles.subHeaderInner}>
+          <PlaygroundThemeSwitcher containerRef={playgroundContentRef} />
+          <div className={styles.viewToggle} role="tablist" aria-label="Playground view">
+            <button
+              role="tab"
+              aria-selected={view === 'demo'}
+              className={`${styles.viewToggleBtn} ${view === 'demo' ? styles.viewToggleBtnActive : ''}`}
+              onClick={() => setView('demo')}
+            >
+              Demo Site
+            </button>
+            <button
+              role="tab"
+              aria-selected={view === 'components'}
+              className={`${styles.viewToggleBtn} ${view === 'components' ? styles.viewToggleBtnActive : ''}`}
+              onClick={() => setView('components')}
+            >
+              Component Library
+            </button>
+          </div>
+        </div>
+      </div>
 
-            {/* Theme Switcher & View Toggle */}
-            <Box className={styles.controls}>
-              <Stack direction="vertical" spacing="default" style={{ width: '100%' }}>
-                <PlaygroundThemeSwitcher containerRef={playgroundContainerRef} />
-
-                <Divider />
-
-                {/* View Toggle */}
-                <Center>
-                  <Cluster spacing="compact" className={styles.viewToggle}>
-                    <Button
-                      type={view === 'demo' ? 'solid' : 'ghost'}
-                      variant="primary"
-                      size="sm"
-                      onClick={() => setView('demo')}
-                    >
-                      Demo Site
-                    </Button>
-                    <Button
-                      type={view === 'components' ? 'solid' : 'ghost'}
-                      variant="primary"
-                      size="sm"
-                      onClick={() => setView('components')}
-                    >
-                      Component Library
-                    </Button>
-                  </Cluster>
-                </Center>
-              </Stack>
-            </Box>
-
-            <Divider />
-
-            {/* Content based on selected view */}
-            {view === 'demo' ? <DemoSite /> : <ComponentShowcase />}
-          </Stack>
-        </Container>
+      {/* Themed content — data-theme / data-mode applied here by PlaygroundThemeSwitcher */}
+      <div ref={playgroundContentRef} className={styles.playgroundContent}>
+        {view === 'demo' ? <DemoSite /> : <ComponentShowcase />}
       </div>
     </Layout>
   );

@@ -8,27 +8,27 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: var(--lufa-core-neutral-surface-default);
-  border: 1px solid var(--lufa-core-neutral-border-default);
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 6px;
-  color: var(--lufa-core-neutral-text-primary);
+  color: var(--ifm-font-color-base);
   cursor: pointer;
   font-family: inherit;
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .trigger:hover {
-  background: var(--lufa-core-neutral-surface-hover);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: var(--ifm-color-emphasis-200);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
   transform: translateY(-1px);
 }
 
 .trigger:active {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .icon {
@@ -53,10 +53,12 @@
   top: calc(100% + 0.5rem);
   left: 0;
   min-width: 320px;
-  background: var(--lufa-core-neutral-background);
-  border: 2px solid var(--lufa-core-neutral-border-default);
+  background: var(--ifm-navbar-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.08);
   padding: 1rem;
   z-index: 1000;
   animation: dropdownSlideIn 0.2s ease;
@@ -87,7 +89,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--lufa-core-neutral-text-secondary);
+  color: var(--ifm-color-emphasis-600);
   margin: 0 0 0.75rem 0;
 }
 
@@ -103,10 +105,10 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem;
-  background: var(--lufa-core-neutral-surface-default);
-  border: 2px solid var(--lufa-core-neutral-border-default);
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 6px;
-  color: var(--lufa-core-neutral-text-primary);
+  color: var(--ifm-font-color-base);
   cursor: pointer;
   font-family: inherit;
   font-size: 0.85rem;
@@ -116,16 +118,16 @@
 }
 
 .themeOption:hover {
-  background: var(--lufa-core-neutral-surface-hover);
-  border-color: var(--lufa-core-brand-primary-default);
+  background: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .themeOption.active {
-  background: var(--lufa-core-brand-primary-default);
-  border-color: var(--lufa-core-brand-primary-active);
-  color: var(--lufa-core-neutral-background);
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary-dark);
+  color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
@@ -137,123 +139,6 @@
 .themeName {
   font-family: var(--ifm-heading-font-family, inherit);
   letter-spacing: 0.02em;
-}
-
-/* Color Mode Buttons */
-.modeButtons {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.modeButton {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.75rem 0.5rem;
-  background: var(--lufa-core-neutral-surface-default);
-  border: 2px solid var(--lufa-core-neutral-border-default);
-  border-radius: 6px;
-  color: var(--lufa-core-neutral-text-primary);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.75rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.modeButton:hover {
-  background: var(--lufa-core-neutral-surface-hover);
-  border-color: var(--lufa-core-brand-primary-default);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.modeButton.active {
-  background: var(--lufa-core-brand-secondary-default);
-  border-color: var(--lufa-core-brand-secondary-active);
-  color: var(--lufa-core-neutral-background);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.modeIcon {
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.modeLabel {
-  font-family: var(--ifm-heading-font-family, inherit);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-}
-
-/* Divider */
-.divider {
-  height: 2px;
-  background: linear-gradient(to right, transparent 0%, var(--lufa-core-neutral-border-default) 50%, transparent 100%);
-  margin: 1rem 0;
-}
-
-/* Steampunk Theme Enhancements */
-[data-theme='steampunk'] .trigger {
-  border-width: 2px;
-  box-shadow:
-    0 2px 4px rgba(139, 69, 19, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-[data-theme='steampunk'] .trigger:hover {
-  box-shadow:
-    0 4px 8px rgba(139, 69, 19, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-[data-theme='steampunk'] .dropdown {
-  border-width: 3px;
-  box-shadow:
-    0 8px 24px rgba(139, 69, 19, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-[data-theme='steampunk'] .sectionTitle::before {
-  content: '⚙ ';
-  opacity: 0.7;
-}
-
-[data-theme='steampunk'] .themeOption,
-[data-theme='steampunk'] .modeButton {
-  border-width: 2px;
-}
-
-[data-theme='steampunk'] .themeOption:hover,
-[data-theme='steampunk'] .modeButton:hover {
-  box-shadow:
-    0 4px 8px rgba(139, 69, 19, 0.2),
-    0 0 12px rgba(184, 115, 51, 0.3);
-}
-
-[data-theme='steampunk'] .themeOption.active {
-  background: linear-gradient(
-    135deg,
-    var(--lufa-core-brand-primary-default) 0%,
-    var(--lufa-core-brand-primary-hover) 100%
-  );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    0 4px 12px rgba(139, 69, 19, 0.4);
-}
-
-[data-theme='steampunk'] .modeButton.active {
-  background: linear-gradient(
-    135deg,
-    var(--lufa-core-brand-secondary-default) 0%,
-    var(--lufa-core-brand-secondary-hover) 100%
-  );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    0 4px 12px rgba(46, 139, 87, 0.4);
 }
 
 /* Responsive */

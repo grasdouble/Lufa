@@ -29,24 +29,26 @@ export default function DemoSite() {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
 
   return (
-    <div className={styles.demoSite}>
+    <Box className={styles.demoSite}>
       {/* Header / Navigation */}
-      <Box as="header" className={styles.header}>
+      <Box as="header" className={styles.demoHeader}>
         <Container maxWidth="xlarge">
           <Flex justify="between" align="center">
             <Text as="h1" variant="h3" weight="bold">
               ⚡ Lufa Platform
             </Text>
-            <Cluster spacing="default">
-              <Button type="ghost" variant="neutral" size="sm">
-                Features
-              </Button>
-              <Button type="ghost" variant="neutral" size="sm">
-                Pricing
-              </Button>
-              <Button type="ghost" variant="neutral" size="sm">
-                Docs
-              </Button>
+            <Cluster spacing="default" align="center">
+              <Cluster spacing="compact" className={styles.navLinks}>
+                <Button type="ghost" variant="neutral" size="sm">
+                  Features
+                </Button>
+                <Button type="ghost" variant="neutral" size="sm">
+                  Pricing
+                </Button>
+                <Button type="ghost" variant="neutral" size="sm">
+                  Docs
+                </Button>
+              </Cluster>
               <Button type="outline" variant="primary" size="sm">
                 Sign In
               </Button>
@@ -119,7 +121,7 @@ export default function DemoSite() {
               </Stack>
             </Center>
 
-            <Grid columns={3} gap="default">
+            <Grid columns={3} gap="default" className={styles.responsiveGrid3}>
               {[
                 {
                   icon: '🎨',
@@ -193,7 +195,7 @@ export default function DemoSite() {
               </Stack>
             </Center>
 
-            <Grid columns={3} gap="default">
+            <Grid columns={3} gap="default" className={styles.responsiveGrid3}>
               {/* Free Plan */}
               <Card>
                 <Box padding="comfortable">
@@ -331,27 +333,25 @@ export default function DemoSite() {
                     Get the latest updates, tutorials, and best practices delivered to your inbox.
                   </Text>
 
-                  <Box style={{ width: '100%', maxWidth: '500px' }}>
-                    <Stack direction="vertical" spacing="default">
-                      <Stack direction="horizontal" spacing="default">
-                        <Box style={{ flex: 1 }}>
-                          <Input
-                            type="email"
-                            placeholder="Enter your email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            fullWidth
-                          />
-                        </Box>
-                        <Button type="solid" variant="primary">
-                          Subscribe
-                        </Button>
-                      </Stack>
-                      <Text variant="body-small" color="secondary" align="center">
-                        Join 10,000+ developers already using Lufa Design System
-                      </Text>
+                  <Stack direction="vertical" spacing="default">
+                    <Stack direction="horizontal" spacing="default">
+                      <Box className={styles.flexGrow}>
+                        <Input
+                          type="email"
+                          placeholder="Enter your email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          fullWidth
+                        />
+                      </Box>
+                      <Button type="solid" variant="primary">
+                        Subscribe
+                      </Button>
                     </Stack>
-                  </Box>
+                    <Text variant="body-small" color="secondary" align="center">
+                      Join 10,000+ developers already using Lufa Design System
+                    </Text>
+                  </Stack>
                 </Stack>
               </Center>
             </Box>
@@ -365,7 +365,7 @@ export default function DemoSite() {
       <Box as="footer" className={styles.footer}>
         <Container maxWidth="xlarge">
           <Stack direction="vertical" spacing="comfortable">
-            <Grid columns={4} gap="default">
+            <Grid columns={4} gap="default" className={styles.responsiveGrid4}>
               <Stack direction="vertical" spacing="compact">
                 <Text weight="bold">Product</Text>
                 <Button type="ghost" variant="neutral" size="sm">
@@ -440,6 +440,6 @@ export default function DemoSite() {
           </Stack>
         </Container>
       </Box>
-    </div>
+    </Box>
   );
 }

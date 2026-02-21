@@ -12,18 +12,18 @@
 [data-theme='sunset'],
 [data-theme='sunset'][data-mode='light'] {
   /* Core Brand Tokens */
-  --lufa-core-brand-primary: #f97316; /* Orange 600 */
+  --lufa-core-brand-primary-default: #f97316; /* Orange 600 */
   --lufa-core-brand-primary-hover: #ea580c;
   --lufa-core-brand-primary-active: #c2410c;
-  --lufa-core-brand-secondary: #f43f5e; /* Rose 500 */
+  --lufa-core-brand-secondary-default: #f43f5e; /* Rose 500 */
   --lufa-core-brand-secondary-hover: #e11d48;
   --lufa-core-brand-secondary-active: #be123c;
 
   /* Neutral Tokens - Sunset Light */
   --lufa-core-neutral-background: #fff7ed;
-  --lufa-core-neutral-surface: #ffedd5;
+  --lufa-core-neutral-surface-default: #ffedd5;
   --lufa-core-neutral-surface-hover: #fed7aa;
-  --lufa-core-neutral-border: #fdba74;
+  --lufa-core-neutral-border-default: #fdba74;
   --lufa-core-neutral-border-strong: #f97316;
   --lufa-core-neutral-text-primary: #431407;
   --lufa-core-neutral-text-secondary: #7c2d12;
@@ -31,19 +31,19 @@
   --lufa-core-neutral-text-disabled: #fed7aa;
 
   /* Semantic Tokens */
-  --lufa-core-semantic-success: #10b981;
+  --lufa-core-semantic-success-default: #10b981;
   --lufa-core-semantic-success-subtle: #ecfdf5;
   --lufa-core-semantic-success-border: #a7f3d0;
   --lufa-core-semantic-success-hover: #059669;
-  --lufa-core-semantic-error: #f43f5e;
+  --lufa-core-semantic-error-default: #f43f5e;
   --lufa-core-semantic-error-subtle: #fff1f2;
   --lufa-core-semantic-error-border: #fecdd3;
   --lufa-core-semantic-error-hover: #e11d48;
-  --lufa-core-semantic-warning: #f59e0b;
+  --lufa-core-semantic-warning-default: #f59e0b;
   --lufa-core-semantic-warning-subtle: #fffbeb;
   --lufa-core-semantic-warning-border: #fde68a;
   --lufa-core-semantic-warning-hover: #d97706;
-  --lufa-core-semantic-info: #6366f1;
+  --lufa-core-semantic-info-default: #6366f1;
   --lufa-core-semantic-info-subtle: #eef2ff;
   --lufa-core-semantic-info-border: #c7d2fe;
   --lufa-core-semantic-info-hover: #4f46e5;
@@ -53,18 +53,18 @@
 
 [data-theme='sunset'][data-mode='dark'] {
   /* Core Brand Tokens */
-  --lufa-core-brand-primary: #fb923c;
+  --lufa-core-brand-primary-default: #fb923c;
   --lufa-core-brand-primary-hover: #fdba74;
   --lufa-core-brand-primary-active: #f97316;
-  --lufa-core-brand-secondary: #fb7185;
+  --lufa-core-brand-secondary-default: #fb7185;
   --lufa-core-brand-secondary-hover: #fda4af;
   --lufa-core-brand-secondary-active: #f43f5e;
 
   /* Neutral Tokens - Sunset Dark */
   --lufa-core-neutral-background: #1c0c08;
-  --lufa-core-neutral-surface: #2d1610;
+  --lufa-core-neutral-surface-default: #2d1610;
   --lufa-core-neutral-surface-hover: #432018;
-  --lufa-core-neutral-border: #5a2e23;
+  --lufa-core-neutral-border-default: #5a2e23;
   --lufa-core-neutral-border-strong: #f97316;
   --lufa-core-neutral-text-primary: #fff7ed;
   --lufa-core-neutral-text-secondary: #fdba74;
@@ -72,19 +72,19 @@
   --lufa-core-neutral-text-disabled: #2d1610;
 
   /* Semantic Tokens */
-  --lufa-core-semantic-success: #34d399;
+  --lufa-core-semantic-success-default: #34d399;
   --lufa-core-semantic-success-subtle: #064e3b;
   --lufa-core-semantic-success-border: #065f46;
   --lufa-core-semantic-success-hover: #6ee7b7;
-  --lufa-core-semantic-error: #fb7185;
+  --lufa-core-semantic-error-default: #fb7185;
   --lufa-core-semantic-error-subtle: #4c0519;
   --lufa-core-semantic-error-border: #881337;
   --lufa-core-semantic-error-hover: #fda4af;
-  --lufa-core-semantic-warning: #fbbf24;
+  --lufa-core-semantic-warning-default: #fbbf24;
   --lufa-core-semantic-warning-subtle: #451a03;
   --lufa-core-semantic-warning-border: #78350f;
   --lufa-core-semantic-warning-hover: #fcd34d;
-  --lufa-core-semantic-info: #818cf8;
+  --lufa-core-semantic-info-default: #818cf8;
   --lufa-core-semantic-info-subtle: #1e1b4b;
   --lufa-core-semantic-info-border: #312e81;
   --lufa-core-semantic-info-hover: #a5b4fc;
@@ -93,17 +93,17 @@
 /* ==================== HIGH CONTRAST MODE ==================== */
 
 [data-theme='sunset'][data-mode='high-contrast'] {
-  --lufa-core-brand-primary: #ff8000;
+  --lufa-core-brand-primary-default: #ff8000;
   --lufa-core-brand-primary-hover: #ffa040;
   --lufa-core-brand-primary-active: #cc6600;
-  --lufa-core-brand-secondary: #ff0066;
+  --lufa-core-brand-secondary-default: #ff0066;
   --lufa-core-brand-secondary-hover: #ff4d88;
   --lufa-core-brand-secondary-active: #cc0052;
 
   --lufa-core-neutral-background: #000000;
-  --lufa-core-neutral-surface: #000000;
+  --lufa-core-neutral-surface-default: #000000;
   --lufa-core-neutral-surface-hover: #221100;
-  --lufa-core-neutral-border: #ff8000;
+  --lufa-core-neutral-border-default: #ff8000;
   --lufa-core-neutral-border-strong: #ff8000;
   --lufa-core-neutral-text-primary: #ffffff;
   --lufa-core-neutral-text-secondary: #ffffff;
