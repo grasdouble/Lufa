@@ -76,23 +76,26 @@ jobs:
       # ── PR Comment ────────────────────────────────────────────────────────
 
       - name: 💬 Build validation comment
-        if: >
-          github.event_name == 'pull_request' &&
-          (steps.validate-main.outcome == 'failure' || steps.validate-docusaurus.outcome == 'failure')
+        if: github.event_name == 'pull_request'
         id: build-comment
         env:
           MAIN_OUTCOME: ${{ steps.validate-main.outcome }}
           DOCUSAURUS_OUTCOME: ${{ steps.validate-docusaurus.outcome }}
         run: |
-          # Re-capture outputs (ANSI stripped for markdown readability)
-          MAIN_OUTPUT=$(pnpm ds:main:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
-          DOCUSAURUS_OUTPUT=$(pnpm ds:docusaurus:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
-
-          # Build status badges
           MAIN_STATUS="✅ Passed"
           DOCUSAURUS_STATUS="✅ Passed"
           [[ "$MAIN_OUTCOME" == "failure" ]] && MAIN_STATUS="❌ Failed"
           [[ "$DOCUSAURUS_OUTCOME" == "failure" ]] && DOCUSAURUS_STATUS="❌ Failed"
+
+          # Only re-capture outputs when there are failures (avoids redundant runs on success)
+          MAIN_OUTPUT=""
+          DOCUSAURUS_OUTPUT=""
+          if [[ "$MAIN_OUTCOME" == "failure" ]]; then
+            MAIN_OUTPUT=$(pnpm ds:main:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
+          fi
+          if [[ "$DOCUSAURUS_OUTCOME" == "failure" ]]; then
+            DOCUSAURUS_OUTPUT=$(pnpm ds:docusaurus:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
+          fi
 
           {
             echo 'comment-body<<EOF_COMMENT'
@@ -135,6 +138,8 @@ jobs:
           DOC_CLOSE
           fi)
 
+          $(if [[ "$MAIN_OUTCOME" == "failure" || "$DOCUSAURUS_OUTCOME" == "failure" ]]; then
+            cat << 'FIX_SECTION'
           ### 💡 How to Fix
 
           A token is referenced in source code but not defined in \`tokens/dist/tokens.css\`.
@@ -142,6 +147,8 @@ jobs:
           - Check that the token exists in \`packages/design-system/tokens/src/\`
           - Run \`pnpm ds:tokens:build\` to regenerate \`tokens.css\` after any token change
           - 🧪 Run locally: \`pnpm ds:main:validate:token-usage\` / \`pnpm ds:docusaurus:validate:token-usage\`
+          FIX_SECTION
+          fi)
 
           ---
 
@@ -151,9 +158,7 @@ jobs:
           } >> $GITHUB_OUTPUT
 
       - name: 💬 Comment on PR with results
-        if: >
-          github.event_name == 'pull_request' &&
-          (steps.validate-main.outcome == 'failure' || steps.validate-docusaurus.outcome == 'failure')
+        if: github.event_name == 'pull_request'
         uses: ./.github/actions/pr-comment
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
