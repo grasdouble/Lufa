@@ -1,5 +1,16 @@
 # @grasdouble/lufa_microfrontend_main-container
 
+## 0.6.13
+
+### Patch Changes
+
+- 03e75af: Fix tokens and their usage
+- Updated dependencies [03e75af]
+- Updated dependencies [18d206b]
+- Updated dependencies [4d7849f]
+- Updated dependencies [4f51c98]
+  - @grasdouble/lufa_design-system@2.0.0
+
 ## 0.6.12
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @grasdouble/lufa_design-system-themes
 
+## 1.0.1
+
+### Patch Changes
+
+- 03e75af: Fix tokens and their usage
+- Updated dependencies [03e75af]
+- Updated dependencies [18d206b]
+- Updated dependencies [4f51c98]
+- Updated dependencies [976a5f8]
+  - @grasdouble/lufa_design-system-tokens@1.1.0
+
 ## 1.0.0
 
 ### Major Changes

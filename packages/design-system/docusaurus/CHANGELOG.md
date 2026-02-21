@@ -1,5 +1,129 @@
 # @grasdouble/lufa_design-system-docusaurus
 
+## 1.1.0
+
+### Minor Changes
+
+- 4f51c98: refactor(design-system): migrate to 5-category structure and eliminate token warnings
+
+  BREAKING CHANGE: Component organization changed from 3-layer to 5-category structure
+
+  ## Component Migration (3-layer → 5-category)
+
+  Migrated 16 components to new semantic categories:
+  - **Foundation** (6): Box, Stack, Flex, Grid, Container, Center
+  - **Content** (4): Text, Icon, Badge, Divider
+  - **Interaction** (3): Button, Input, Label
+  - **Composition** (1): Card
+  - **Utility** (2): Portal, VisuallyHidden
+
+  **Note**: Public API unchanged - imports from `@grasdouble/lufa_design-system` work as before.
+
+  ## Token System Improvements
+  - Created custom `size/rem/fluid` transform for fluid typography
+  - Created custom `shadow/css/shorthand-custom` transform
+  - Eliminated all 22 transformation warnings (now 0 warnings)
+  - Updated style-dictionary config with explicit transform order
+  - Fixed value resolution order in CSS and JSON formats
+
+  ## Documentation Updates
+  - Updated 17 Storybook story titles to reflect new categories
+  - Fixed component count in READMEs (16/16 complete)
+  - Updated 15 internal documentation files
+  - Replaced deprecated primitives package reference with tokens
+
+  ## Testing Infrastructure
+  - Migrated 16 Playwright tests + 28 snapshots
+  - Migrated 23 Storybook stories
+  - Migrated 16 Docusaurus examples
+
+### Patch Changes
+
+- 03e75af: Fix tokens and their usage
+- 18d206b: fix(design-system): token usage corrections and component enhancements
+
+  ## Token System Fixes
+
+  ### Correct Token Usage
+  - **Text Component**: Use typography font-weight tokens instead of hardcoded values (400, 500, 600, 700)
+  - **Button Component**: Use semantic UI radius tokens instead of primitive radius scale
+  - **Input Component**: Use component-specific tokens for all properties (padding, font-size, colors, borders)
+  - **Label Component**: Use component-specific tokens for font-size, color, spacing, and line-height
+  - **Card Component**: Add proper color token for text color
+
+  ### Removed Deprecated Theme File
+  - Removed all `--lufa-token-*` custom properties from `theme.css`
+  - Theme-specific overrides now properly use the standard token hierarchy (`--lufa-core-*`, `--lufa-semantic-*`, `--lufa-component-*`)
+  - Theme file is now intentionally empty with documentation explaining the new approach
+
+  ## Component Enhancements
+
+  ### New Features
+  - **Flex Component**: Added `gap="none"` prop for zero gap spacing
+  - **Grid Component**: Added `gap="none"`, `gapX="none"`, and `gapY="none"` props for zero gap spacing
+  - **Stack Component**: Fixed `spacing="none"` to use 0 instead of tight spacing
+
+  ### CSS Improvements
+  - Improved CSS formatting and readability across components
+  - Better use of CSS custom properties
+  - Consistent multi-line gradient declarations in Divider component
+
+  ## Visual Regression Tests
+  - Added comprehensive Playwright visual snapshots for all components in both light and dark modes
+  - Snapshots cover: Badge, Box, Button, Card, Center, Container, Divider, Flex, Grid, Icon, Input, Label, Stack, Text
+
+  ## Type Safety
+  - Improved TypeScript types with proper interface formatting
+  - Better type consistency across hook definitions
+
+  ## Breaking Changes
+
+  None - All changes maintain backward compatibility
+
+  ## Migration
+
+  No action required - Changes are either internal or additive features
+
+- 4d7849f: feat(design-system): implement ADR-012 Foundation components documentation
+
+  ## New Foundation Components
+
+  Added 3 new foundation layout components with comprehensive documentation, tests, and Storybook stories:
+  - **AspectRatio** - Maintains consistent aspect ratios for media and containers (28 tests)
+  - **Bleed** - Breaks out of container constraints for full-width content (23 tests)
+  - **Cluster** - Wrapping layout for collections with intelligent spacing (67 tests)
+
+  ## Component Reclassification
+  - **Divider** moved from Content → Foundation category (maintains backward compatibility)
+
+  ## Documentation
+  - Complete MDX documentation for all 3 new components following official template
+  - Interactive live demos with LiveDemoSection tabs
+  - Updated component overview with 10 Foundation components total
+
+  ## Architecture
+
+  Foundation components now total 10 as per ADR-012:
+  1. Box, Stack, Flex, Grid, Container, Center (existing)
+  2. Divider (reclassified from Content)
+  3. AspectRatio, Cluster, Bleed (new)
+
+  All components include:
+  - Full TypeScript support with polymorphic APIs
+  - Accessibility compliance (WCAG 2.1 AA)
+  - Design token integration
+  - Visual regression tests
+  - Storybook stories
+
+- Updated dependencies [03e75af]
+- Updated dependencies [18d206b]
+- Updated dependencies [4d7849f]
+- Updated dependencies [4f51c98]
+- Updated dependencies [976a5f8]
+  - @grasdouble/lufa_design-system-themes@1.0.1
+  - @grasdouble/lufa_design-system-tokens@1.1.0
+  - @grasdouble/lufa_design-system@2.0.0
+
 ## 1.0.0
 
 ### Major Changes
