@@ -37,8 +37,8 @@ export function LiveDemo() {
         <div
           style={{
             ...boxStyle,
-            borderColor: 'var(--lufa-semantic-ui-border-focus)',
-            background: 'var(--lufa-semantic-ui-background-subtle)',
+            borderColor: 'var(--lufa-semantic-interactive-border-focus)',
+            background: 'var(--lufa-semantic-ui-background-surface)',
           }}
         >
           <code style={{ fontSize: '12px' }}>&lt;Portal&gt;…&lt;/Portal&gt;</code>
