@@ -1,4 +1,4 @@
-name: Tools:DS:Main:Validate Components
+name: DS:Tools:Main:Validate Components
 
 on:
   pull_request:

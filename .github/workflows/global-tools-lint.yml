@@ -1,4 +1,4 @@
-name: Tools:Lint
+name: Global:Tools:Lint
 
 on:
   pull_request:

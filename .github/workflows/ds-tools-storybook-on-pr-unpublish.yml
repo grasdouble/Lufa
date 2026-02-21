@@ -1,4 +1,4 @@
-name: Tools:DS:Storybook:On-PR-Unpublish
+name: DS:Tools:Storybook:On-PR-Unpublish
 
 on:
   pull_request:

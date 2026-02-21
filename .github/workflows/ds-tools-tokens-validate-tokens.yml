@@ -1,4 +1,4 @@
-name: Tools:DS:Tokens:Validate Token Usage
+name: DS:Tools:Tokens:Validate Token Usage
 
 on:
   pull_request:
