@@ -221,30 +221,28 @@
      ======================================================================== */
 
   /* --- Core: Layout Dimensions --- */
-  --lufa-core-layout-container-max-width: 1280px;
+  --lufa-core-layout-container-xl: 1280px;
   --lufa-core-layout-sidebar-width: 280px;
   --lufa-core-layout-content-max-width: 720px;
 
   /* --- Core: Brand Colors --- */
-  --lufa-core-brand-primary: var(--lufa-primitive-color-blue-600);
+  --lufa-core-brand-primary-default: var(--lufa-primitive-color-blue-600);
   --lufa-core-brand-primary-hover: var(--lufa-primitive-color-blue-700);
   --lufa-core-brand-primary-active: var(--lufa-primitive-color-blue-800);
-  --lufa-core-brand-secondary: var(--lufa-primitive-color-purple-500);
+  --lufa-core-brand-secondary-default: var(--lufa-primitive-color-purple-500);
   --lufa-core-brand-secondary-hover: var(--lufa-primitive-color-purple-600);
   --lufa-core-brand-secondary-active: var(--lufa-primitive-color-purple-700);
 
   /* --- Core: Layout Spacing --- */
   --lufa-core-layout-page-padding: var(--lufa-primitive-spacing-24);
-  --lufa-core-layout-page-padding-mobile: var(--lufa-primitive-spacing-16);
   --lufa-core-layout-section-gap: var(--lufa-primitive-spacing-64);
-  --lufa-core-layout-section-gap-mobile: var(--lufa-primitive-spacing-48);
   --lufa-core-layout-header-height: var(--lufa-primitive-spacing-64);
 
   /* --- Core: Neutral Colors --- */
   --lufa-core-neutral-background: var(--lufa-primitive-color-gray-50);
-  --lufa-core-neutral-surface: var(--lufa-primitive-color-gray-100);
+  --lufa-core-neutral-surface-default: var(--lufa-primitive-color-gray-100);
   --lufa-core-neutral-surface-hover: var(--lufa-primitive-color-gray-200);
-  --lufa-core-neutral-border: var(--lufa-primitive-color-gray-300);
+  --lufa-core-neutral-border-default: var(--lufa-primitive-color-gray-300);
   --lufa-core-neutral-border-strong: var(--lufa-primitive-color-gray-400);
   --lufa-core-neutral-text-primary: var(--lufa-primitive-color-gray-900);
   --lufa-core-neutral-text-secondary: var(--lufa-primitive-color-gray-600);
@@ -252,33 +250,33 @@
   --lufa-core-neutral-text-disabled: var(--lufa-primitive-color-gray-400);
 
   /* --- Core: Semantic State Colors --- */
-  --lufa-core-semantic-success: var(--lufa-primitive-color-green-500);
+  --lufa-core-semantic-success-default: var(--lufa-primitive-color-green-500);
   --lufa-core-semantic-success-subtle: var(--lufa-primitive-color-green-100);
   --lufa-core-semantic-success-border: var(--lufa-primitive-color-green-300);
   --lufa-core-semantic-success-hover: var(--lufa-primitive-color-green-600);
-  --lufa-core-semantic-error: var(--lufa-primitive-color-red-600);
+  --lufa-core-semantic-error-default: var(--lufa-primitive-color-red-600);
   --lufa-core-semantic-error-subtle: var(--lufa-primitive-color-red-100);
   --lufa-core-semantic-error-border: var(--lufa-primitive-color-red-300);
   --lufa-core-semantic-error-hover: var(--lufa-primitive-color-red-700);
-  --lufa-core-semantic-warning: var(--lufa-primitive-color-yellow-500);
+  --lufa-core-semantic-warning-default: var(--lufa-primitive-color-yellow-500);
   --lufa-core-semantic-warning-subtle: var(--lufa-primitive-color-yellow-100);
   --lufa-core-semantic-warning-border: var(--lufa-primitive-color-yellow-300);
   --lufa-core-semantic-warning-hover: var(--lufa-primitive-color-yellow-600);
-  --lufa-core-semantic-info: var(--lufa-primitive-color-blue-500);
+  --lufa-core-semantic-info-default: var(--lufa-primitive-color-blue-500);
   --lufa-core-semantic-info-subtle: var(--lufa-primitive-color-blue-100);
   --lufa-core-semantic-info-border: var(--lufa-primitive-color-blue-300);
   --lufa-core-semantic-info-hover: var(--lufa-primitive-color-blue-600);
 
   /* --- Core: Typography --- */
-  --lufa-core-typography-heading-font: var(--lufa-primitive-typography-font-family-sans);
-  --lufa-core-typography-body-font: var(--lufa-primitive-typography-font-family-sans);
-  --lufa-core-typography-code-font: var(--lufa-primitive-typography-font-family-mono);
-  --lufa-core-typography-heading-weight: var(--lufa-primitive-typography-font-weight-bold);
-  --lufa-core-typography-body-weight: var(--lufa-primitive-typography-font-weight-normal);
-  --lufa-core-typography-strong-weight: var(--lufa-primitive-typography-font-weight-semibold);
-  --lufa-core-typography-body-size: var(--lufa-primitive-typography-font-size-base);
+  --lufa-core-typography-heading-font-family: var(--lufa-primitive-typography-font-family-sans);
+  --lufa-core-typography-body-font-family: var(--lufa-primitive-typography-font-family-sans);
+  --lufa-core-typography-code-font-family: var(--lufa-primitive-typography-font-family-mono);
+  --lufa-core-typography-heading-font-weight: var(--lufa-primitive-typography-font-weight-bold);
+  --lufa-core-typography-body-font-weight: var(--lufa-primitive-typography-font-weight-normal);
+  --lufa-core-typography-strong-font-weight: var(--lufa-primitive-typography-font-weight-semibold);
+  --lufa-core-typography-body-font-size-default: var(--lufa-primitive-typography-font-size-base);
   --lufa-core-typography-body-line-height: var(--lufa-primitive-typography-line-height-normal);
-  --lufa-core-typography-small-size: var(--lufa-primitive-typography-font-size-sm);
+  --lufa-core-typography-small-font-size: var(--lufa-primitive-typography-font-size-sm);
 
   /* ========================================================================
      LEVEL 3: SEMANTIC TOKENS
@@ -303,37 +301,37 @@
   --lufa-semantic-interactive-background-disabled: var(--lufa-core-neutral-surface-default);
   --lufa-semantic-interactive-border-default: var(--lufa-core-neutral-border-default);
   --lufa-semantic-interactive-border-hover: var(--lufa-core-neutral-border-strong);
-  --lufa-semantic-interactive-border-focus: var(--lufa-core-brand-primary);
+  --lufa-semantic-interactive-border-focus: var(--lufa-core-brand-primary-default);
   --lufa-semantic-interactive-border-disabled: var(--lufa-core-neutral-border-default);
   --lufa-semantic-interactive-text-default: var(--lufa-core-neutral-text-primary);
   --lufa-semantic-interactive-text-hover: var(--lufa-core-neutral-text-primary);
   --lufa-semantic-interactive-text-active: var(--lufa-core-neutral-text-primary);
   --lufa-semantic-interactive-text-disabled: var(--lufa-core-neutral-text-disabled);
-  --lufa-semantic-interactive-focus-ring: var(--lufa-core-brand-primary);
+  --lufa-semantic-interactive-focus-ring: var(--lufa-core-brand-primary-default);
 
   /* --- Semantic: UI Backgrounds --- */
-  --lufa-semantic-ui-background-overlay: rgba(0, 0, 0, 0.5);
+  --lufa-semantic-ui-overlay-scrim: rgba(0, 0, 0, 0.5);
   --lufa-semantic-ui-background-on-primary: #ffffff;
   --lufa-semantic-ui-background-on-secondary: #ffffff;
   --lufa-semantic-ui-background-page: var(--lufa-core-neutral-background);
   --lufa-semantic-ui-background-surface: var(--lufa-core-neutral-surface-default);
   --lufa-semantic-ui-background-success: var(--lufa-core-semantic-success-subtle);
-  --lufa-semantic-ui-background-on-success: var(--lufa-core-semantic-success);
+  --lufa-semantic-ui-background-on-success: var(--lufa-core-semantic-success-default);
   --lufa-semantic-ui-background-error: var(--lufa-core-semantic-error-subtle);
-  --lufa-semantic-ui-background-on-error: var(--lufa-core-semantic-error);
+  --lufa-semantic-ui-background-on-error: var(--lufa-core-semantic-error-default);
   --lufa-semantic-ui-background-warning: var(--lufa-core-semantic-warning-subtle);
-  --lufa-semantic-ui-background-on-warning: var(--lufa-core-semantic-warning);
+  --lufa-semantic-ui-background-on-warning: var(--lufa-core-semantic-warning-default);
   --lufa-semantic-ui-background-info: var(--lufa-core-semantic-info-subtle);
-  --lufa-semantic-ui-background-on-info: var(--lufa-core-semantic-info);
+  --lufa-semantic-ui-background-on-info: var(--lufa-core-semantic-info-default);
 
   /* --- Semantic: UI Text --- */
   --lufa-semantic-ui-text-primary: var(--lufa-core-neutral-text-primary);
   --lufa-semantic-ui-text-secondary: var(--lufa-core-neutral-text-secondary);
   --lufa-semantic-ui-text-tertiary: var(--lufa-core-neutral-text-tertiary);
-  --lufa-semantic-ui-text-success: var(--lufa-core-semantic-success);
-  --lufa-semantic-ui-text-error: var(--lufa-core-semantic-error);
-  --lufa-semantic-ui-text-warning: var(--lufa-core-semantic-warning);
-  --lufa-semantic-ui-text-info: var(--lufa-core-semantic-info);
+  --lufa-semantic-ui-text-success: var(--lufa-core-semantic-success-default);
+  --lufa-semantic-ui-text-error: var(--lufa-core-semantic-error-default);
+  --lufa-semantic-ui-text-warning: var(--lufa-core-semantic-warning-default);
+  --lufa-semantic-ui-text-info: var(--lufa-core-semantic-info-default);
 
   /* --- Semantic: UI Borders --- */
   --lufa-semantic-ui-border-default: var(--lufa-core-neutral-border-default);
@@ -364,20 +362,20 @@
   --lufa-semantic-ui-spacing-spacious: var(--lufa-primitive-spacing-32);
 
   /* --- Semantic: UI Transitions --- */
-  --lufa-semantic-ui-transition-fast: var(--lufa-primitive-motion-duration-fast);
-  --lufa-semantic-ui-transition-normal: var(--lufa-primitive-motion-duration-normal);
-  --lufa-semantic-ui-transition-slow: var(--lufa-primitive-motion-duration-slow);
-  --lufa-semantic-ui-transition-timing-function: var(--lufa-primitive-motion-easing-ease-in-out);
+  --lufa-semantic-ui-transition-duration-fast: var(--lufa-primitive-motion-duration-fast);
+  --lufa-semantic-ui-transition-duration-normal: var(--lufa-primitive-motion-duration-normal);
+  --lufa-semantic-ui-transition-duration-slow: var(--lufa-primitive-motion-duration-slow);
+  --lufa-semantic-ui-transition-timing-function-default: var(--lufa-primitive-motion-easing-ease-in-out);
 
   /* --- Semantic: Typography Hierarchy --- */
-  --lufa-semantic-typography-heading-1: var(--lufa-primitive-typography-font-size-5xl);
-  --lufa-semantic-typography-heading-2: var(--lufa-primitive-typography-font-size-4xl);
-  --lufa-semantic-typography-heading-3: var(--lufa-primitive-typography-font-size-3xl);
-  --lufa-semantic-typography-heading-4: var(--lufa-primitive-typography-font-size-2xl);
-  --lufa-semantic-typography-heading-5: var(--lufa-primitive-typography-font-size-xl);
-  --lufa-semantic-typography-heading-6: var(--lufa-primitive-typography-font-size-lg);
+  --lufa-semantic-typography-heading-h1: var(--lufa-primitive-typography-font-size-5xl);
+  --lufa-semantic-typography-heading-h2: var(--lufa-primitive-typography-font-size-4xl);
+  --lufa-semantic-typography-heading-h3: var(--lufa-primitive-typography-font-size-3xl);
+  --lufa-semantic-typography-heading-h4: var(--lufa-primitive-typography-font-size-2xl);
+  --lufa-semantic-typography-heading-h5: var(--lufa-primitive-typography-font-size-xl);
+  --lufa-semantic-typography-heading-h6: var(--lufa-primitive-typography-font-size-lg);
   --lufa-semantic-typography-body-large: var(--lufa-primitive-typography-font-size-lg);
-  --lufa-semantic-typography-body: var(--lufa-primitive-typography-font-size-base);
+  --lufa-semantic-typography-body-default: var(--lufa-primitive-typography-font-size-base);
   --lufa-semantic-typography-body-small: var(--lufa-primitive-typography-font-size-sm);
   --lufa-semantic-typography-caption: var(--lufa-primitive-typography-font-size-xs);
   --lufa-semantic-typography-label: var(--lufa-primitive-typography-font-size-sm);
@@ -386,28 +384,28 @@
 
   /* --- Semantic: Button States --- */
   --lufa-semantic-button-primary-text: #ffffff;
-  --lufa-semantic-button-primary-background: var(--lufa-core-brand-primary);
+  --lufa-semantic-button-primary-background-default: var(--lufa-core-brand-primary-default);
   --lufa-semantic-button-primary-background-hover: var(--lufa-core-brand-primary-hover);
   --lufa-semantic-button-primary-background-active: var(--lufa-core-brand-primary-active);
   --lufa-semantic-button-secondary-text: #ffffff;
-  --lufa-semantic-button-secondary-background: var(--lufa-core-brand-secondary);
+  --lufa-semantic-button-secondary-background-default: var(--lufa-core-brand-secondary-default);
   --lufa-semantic-button-secondary-background-hover: var(--lufa-core-brand-secondary-hover);
   --lufa-semantic-button-secondary-background-active: var(--lufa-core-brand-secondary-active);
-  --lufa-semantic-button-ghost-background: rgba(0, 0, 0, 0);
+  --lufa-semantic-button-ghost-background-default: rgba(0, 0, 0, 0);
   --lufa-semantic-button-ghost-background-hover: var(--lufa-core-neutral-surface-hover);
-  --lufa-semantic-button-ghost-text: var(--lufa-core-brand-primary);
+  --lufa-semantic-button-ghost-text-default: var(--lufa-core-brand-primary-default);
   --lufa-semantic-button-ghost-text-hover: var(--lufa-core-brand-primary-hover);
-  --lufa-semantic-button-outline-background: rgba(0, 0, 0, 0);
-  --lufa-semantic-button-outline-background-hover: var(--lufa-core-brand-primary);
-  --lufa-semantic-button-outline-border: var(--lufa-core-brand-primary);
+  --lufa-semantic-button-outline-background-default: rgba(0, 0, 0, 0);
+  --lufa-semantic-button-outline-background-hover: var(--lufa-core-brand-primary-default);
+  --lufa-semantic-button-outline-border-default: var(--lufa-core-brand-primary-default);
   --lufa-semantic-button-outline-border-hover: var(--lufa-core-brand-primary-hover);
-  --lufa-semantic-button-outline-text: var(--lufa-core-brand-primary);
+  --lufa-semantic-button-outline-text-default: var(--lufa-core-brand-primary-default);
   --lufa-semantic-button-outline-text-hover: #ffffff;
   --lufa-semantic-button-destructive-text: #ffffff;
-  --lufa-semantic-button-destructive-background: var(--lufa-core-semantic-error);
+  --lufa-semantic-button-destructive-background-default: var(--lufa-core-semantic-error-default);
   --lufa-semantic-button-destructive-background-hover: var(--lufa-core-semantic-error-hover);
   --lufa-semantic-button-success-text: #ffffff;
-  --lufa-semantic-button-success-background: var(--lufa-core-semantic-success);
+  --lufa-semantic-button-success-background-default: var(--lufa-core-semantic-success-default);
   --lufa-semantic-button-success-background-hover: var(--lufa-core-semantic-success-hover);
 
   /* ========================================================================
@@ -424,21 +422,21 @@
   --lufa-component-badge-font-size-lg: 14px;
   --lufa-component-badge-dot-size: 6px;
   --lufa-component-badge-border-radius: var(--lufa-semantic-ui-border-radius-full);
-  --lufa-component-badge-default-background: var(--lufa-semantic-ui-background-surface);
-  --lufa-component-badge-default-text: var(--lufa-semantic-ui-text-secondary);
-  --lufa-component-badge-default-border: var(--lufa-semantic-ui-border-default);
-  --lufa-component-badge-success-background: var(--lufa-semantic-ui-background-success);
-  --lufa-component-badge-success-text: var(--lufa-semantic-ui-text-success);
-  --lufa-component-badge-success-border: var(--lufa-semantic-ui-border-success);
-  --lufa-component-badge-error-background: var(--lufa-semantic-ui-background-error);
-  --lufa-component-badge-error-text: var(--lufa-semantic-ui-text-error);
-  --lufa-component-badge-error-border: var(--lufa-semantic-ui-border-error);
-  --lufa-component-badge-warning-background: var(--lufa-semantic-ui-background-warning);
-  --lufa-component-badge-warning-text: var(--lufa-semantic-ui-text-warning);
-  --lufa-component-badge-warning-border: var(--lufa-semantic-ui-border-warning);
-  --lufa-component-badge-info-background: var(--lufa-semantic-ui-background-info);
-  --lufa-component-badge-info-text: var(--lufa-semantic-ui-text-info);
-  --lufa-component-badge-info-border: var(--lufa-semantic-ui-border-info);
+  --lufa-component-badge-variant-default-background: var(--lufa-semantic-ui-background-surface);
+  --lufa-component-badge-variant-default-text: var(--lufa-semantic-ui-text-secondary);
+  --lufa-component-badge-variant-default-border: var(--lufa-semantic-ui-border-default);
+  --lufa-component-badge-variant-success-background: var(--lufa-semantic-ui-background-success);
+  --lufa-component-badge-variant-success-text: var(--lufa-semantic-ui-text-success);
+  --lufa-component-badge-variant-success-border: var(--lufa-semantic-ui-border-success);
+  --lufa-component-badge-variant-error-background: var(--lufa-semantic-ui-background-error);
+  --lufa-component-badge-variant-error-text: var(--lufa-semantic-ui-text-error);
+  --lufa-component-badge-variant-error-border: var(--lufa-semantic-ui-border-error);
+  --lufa-component-badge-variant-warning-background: var(--lufa-semantic-ui-background-warning);
+  --lufa-component-badge-variant-warning-text: var(--lufa-semantic-ui-text-warning);
+  --lufa-component-badge-variant-warning-border: var(--lufa-semantic-ui-border-warning);
+  --lufa-component-badge-variant-info-background: var(--lufa-semantic-ui-background-info);
+  --lufa-component-badge-variant-info-text: var(--lufa-semantic-ui-text-info);
+  --lufa-component-badge-variant-info-border: var(--lufa-semantic-ui-border-info);
 
   /* --- Component: Button --- */
   --lufa-component-button-height-sm: 32px;
@@ -454,32 +452,38 @@
   --lufa-component-button-font-size-lg: var(--lufa-semantic-typography-body-large);
   --lufa-component-button-border-radius: var(--lufa-semantic-ui-border-radius-default);
   --lufa-component-button-icon-spacing: var(--lufa-component-shared-icon-spacing);
-  --lufa-component-button-disabled-opacity: 0.5;
-  --lufa-component-button-disabled-cursor: not-allowed;
-  --lufa-component-button-primary-text: var(--lufa-semantic-button-primary-text);
-  --lufa-component-button-primary-background: var(--lufa-semantic-button-primary-background);
-  --lufa-component-button-primary-background-hover: var(--lufa-semantic-button-primary-background-hover);
-  --lufa-component-button-primary-background-active: var(--lufa-semantic-button-primary-background-active);
-  --lufa-component-button-secondary-text: var(--lufa-semantic-button-secondary-text);
-  --lufa-component-button-secondary-background: var(--lufa-semantic-button-secondary-background);
-  --lufa-component-button-secondary-background-hover: var(--lufa-semantic-button-secondary-background-hover);
-  --lufa-component-button-secondary-background-active: var(--lufa-semantic-button-secondary-background-active);
-  --lufa-component-button-ghost-background: var(--lufa-semantic-button-ghost-background);
-  --lufa-component-button-ghost-background-hover: var(--lufa-semantic-button-ghost-background-hover);
-  --lufa-component-button-ghost-text: var(--lufa-semantic-button-ghost-text);
-  --lufa-component-button-ghost-text-hover: var(--lufa-semantic-button-ghost-text-hover);
-  --lufa-component-button-outline-background: var(--lufa-semantic-button-outline-background);
-  --lufa-component-button-outline-background-hover: var(--lufa-semantic-button-outline-background-hover);
-  --lufa-component-button-outline-border: var(--lufa-semantic-button-outline-border);
-  --lufa-component-button-outline-border-hover: var(--lufa-semantic-button-outline-border-hover);
-  --lufa-component-button-outline-text: var(--lufa-semantic-button-outline-text);
-  --lufa-component-button-outline-text-hover: var(--lufa-semantic-button-outline-text-hover);
-  --lufa-component-button-destructive-text: var(--lufa-semantic-button-destructive-text);
-  --lufa-component-button-destructive-background: var(--lufa-semantic-button-destructive-background);
-  --lufa-component-button-destructive-background-hover: var(--lufa-semantic-button-destructive-background-hover);
-  --lufa-component-button-success-text: var(--lufa-semantic-button-success-text);
-  --lufa-component-button-success-background: var(--lufa-semantic-button-success-background);
-  --lufa-component-button-success-background-hover: var(--lufa-semantic-button-success-background-hover);
+  --lufa-component-button-state-disabled-opacity: 0.5;
+  --lufa-component-button-state-disabled-cursor: not-allowed;
+  --lufa-component-button-variant-primary-text: var(--lufa-semantic-button-primary-text);
+  --lufa-component-button-variant-primary-background-default: var(--lufa-semantic-button-primary-background-default);
+  --lufa-component-button-variant-primary-background-hover: var(--lufa-semantic-button-primary-background-hover);
+  --lufa-component-button-variant-primary-background-active: var(--lufa-semantic-button-primary-background-active);
+  --lufa-component-button-variant-secondary-text: var(--lufa-semantic-button-secondary-text);
+  --lufa-component-button-variant-secondary-background-default: var(
+    --lufa-semantic-button-secondary-background-default
+  );
+  --lufa-component-button-variant-secondary-background-hover: var(--lufa-semantic-button-secondary-background-hover);
+  --lufa-component-button-variant-secondary-background-active: var(--lufa-semantic-button-secondary-background-active);
+  --lufa-component-button-type-ghost-background-default: var(--lufa-semantic-button-ghost-background-default);
+  --lufa-component-button-type-ghost-background-hover: var(--lufa-semantic-button-ghost-background-hover);
+  --lufa-component-button-type-ghost-text-default: var(--lufa-semantic-button-ghost-text-default);
+  --lufa-component-button-type-ghost-text-hover: var(--lufa-semantic-button-ghost-text-hover);
+  --lufa-component-button-type-outline-background-default: var(--lufa-semantic-button-outline-background-default);
+  --lufa-component-button-type-outline-background-hover: var(--lufa-semantic-button-outline-background-hover);
+  --lufa-component-button-type-outline-border-default: var(--lufa-semantic-button-outline-border-default);
+  --lufa-component-button-type-outline-border-hover: var(--lufa-semantic-button-outline-border-hover);
+  --lufa-component-button-type-outline-text-default: var(--lufa-semantic-button-outline-text-default);
+  --lufa-component-button-type-outline-text-hover: var(--lufa-semantic-button-outline-text-hover);
+  --lufa-component-button-variant-destructive-text: var(--lufa-semantic-button-destructive-text);
+  --lufa-component-button-variant-destructive-background-default: var(
+    --lufa-semantic-button-destructive-background-default
+  );
+  --lufa-component-button-variant-destructive-background-hover: var(
+    --lufa-semantic-button-destructive-background-hover
+  );
+  --lufa-component-button-variant-success-text: var(--lufa-semantic-button-success-text);
+  --lufa-component-button-variant-success-background-default: var(--lufa-semantic-button-success-background-default);
+  --lufa-component-button-variant-success-background-hover: var(--lufa-semantic-button-success-background-hover);
 
   /* --- Component: Card --- */
   --lufa-component-card-padding-sm: var(--lufa-semantic-ui-spacing-default);
@@ -494,7 +498,7 @@
   --lufa-component-card-header-padding: var(--lufa-semantic-ui-spacing-default);
   --lufa-component-card-footer-padding: var(--lufa-semantic-ui-spacing-default);
   --lufa-component-card-hover-shadow: var(--lufa-semantic-ui-shadow-large);
-  --lufa-component-card-hover-transform: translateY(-2px);
+  --lufa-component-card-hover-translate: translateY(-2px);
   --lufa-component-card-background: var(--lufa-semantic-ui-background-surface);
   --lufa-component-card-border: var(--lufa-semantic-ui-border-default);
   --lufa-component-card-header-border: var(--lufa-semantic-ui-border-default);
@@ -539,14 +543,14 @@
   --lufa-component-input-padding-lg: var(--lufa-semantic-ui-spacing-comfortable)
     var(--lufa-semantic-ui-spacing-spacious);
   --lufa-component-input-font-size-sm: var(--lufa-semantic-typography-body-small);
-  --lufa-component-input-font-size-md: var(--lufa-semantic-typography-body);
+  --lufa-component-input-font-size-md: var(--lufa-semantic-typography-body-default);
   --lufa-component-input-font-size-lg: var(--lufa-semantic-typography-body-large);
   --lufa-component-input-border-width: 1px;
   --lufa-component-input-border-radius: var(--lufa-semantic-ui-border-radius-default);
   --lufa-component-input-label-font-size: var(--lufa-semantic-typography-label);
   --lufa-component-input-label-spacing: var(--lufa-semantic-ui-spacing-compact);
   --lufa-component-input-helper-text-font-size: var(--lufa-semantic-typography-caption);
-  --lufa-component-input-helper-text-spacing: var(--lufa-semantic-ui-spacing-compact);
+  --lufa-component-input-helper-spacing: var(--lufa-semantic-ui-spacing-compact);
   --lufa-component-input-background-default: var(--lufa-semantic-ui-background-surface);
   --lufa-component-input-background-hover: var(--lufa-semantic-interactive-background-hover);
   --lufa-component-input-background-disabled: var(--lufa-semantic-interactive-background-disabled);
@@ -559,12 +563,12 @@
   --lufa-component-input-text-placeholder: var(--lufa-semantic-ui-text-tertiary);
   --lufa-component-input-text-disabled: var(--lufa-semantic-interactive-text-disabled);
   --lufa-component-input-label-color: var(--lufa-semantic-ui-text-secondary);
-  --lufa-component-input-helper-text-color: var(--lufa-semantic-ui-text-tertiary);
+  --lufa-component-input-helper-text-color-default: var(--lufa-semantic-ui-text-tertiary);
   --lufa-component-input-helper-text-color-error: var(--lufa-semantic-ui-text-error);
   --lufa-component-input-icon-spacing: var(--lufa-component-shared-icon-spacing);
 
   /* --- Component: Modal --- */
-  --lufa-component-modal-backdrop-background: var(--lufa-semantic-ui-background-overlay);
+  --lufa-component-modal-backdrop-background: var(--lufa-semantic-ui-overlay-scrim);
   --lufa-component-modal-backdrop-blur: 4px;
   --lufa-component-modal-content-max-width-sm: 400px;
   --lufa-component-modal-content-max-width-md: 600px;
@@ -580,12 +584,12 @@
   --lufa-component-modal-footer-border: var(--lufa-semantic-ui-border-default);
   --lufa-component-modal-close-button-size: 32px;
   --lufa-component-modal-close-button-position-offset: var(--lufa-semantic-ui-spacing-default);
-  --lufa-component-modal-close-button-color: var(--lufa-semantic-ui-text-secondary);
+  --lufa-component-modal-close-button-color-default: var(--lufa-semantic-ui-text-secondary);
   --lufa-component-modal-close-button-color-hover: var(--lufa-semantic-ui-text-primary);
   --lufa-component-modal-z-index-backdrop: 1000;
   --lufa-component-modal-z-index-content: 1001;
-  --lufa-component-modal-animation-duration-enter: var(--lufa-semantic-ui-transition-normal);
-  --lufa-component-modal-animation-duration-exit: var(--lufa-semantic-ui-transition-fast);
+  --lufa-component-modal-animation-duration-enter: var(--lufa-semantic-ui-transition-duration-normal);
+  --lufa-component-modal-animation-duration-exit: var(--lufa-semantic-ui-transition-duration-fast);
   --lufa-component-modal-animation-timing-function: var(--lufa-component-shared-transition-timing-function);
 
   /* --- Component: Tooltip --- */
@@ -597,7 +601,7 @@
   --lufa-component-tooltip-arrow-width: 8px;
   --lufa-component-tooltip-arrow-height: 4px;
   --lufa-component-tooltip-animation-delay: 200ms;
-  --lufa-component-tooltip-animation-duration: var(--lufa-semantic-ui-transition-fast);
+  --lufa-component-tooltip-animation-duration: var(--lufa-semantic-ui-transition-duration-fast);
   --lufa-component-tooltip-animation-timing-function: var(--lufa-component-shared-transition-timing-function);
   --lufa-component-tooltip-z-index: 9999;
   --lufa-component-tooltip-background: var(--lufa-semantic-ui-text-primary);
