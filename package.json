@@ -44,6 +44,8 @@
     "ds:main:prettier:check": "pnpm --filter @grasdouble/lufa_design-system run prettier:check",
     "ds:main:prettier:write": "pnpm --filter @grasdouble/lufa_design-system run prettier:write",
     "ds:main:typecheck": "pnpm --filter @grasdouble/lufa_design-system run typecheck",
+    "ds:main:validate:components": "pnpm --filter @grasdouble/lufa_design-system run validate:components",
+    "ds:main:validate:components:strict": "pnpm --filter @grasdouble/lufa_design-system run validate:components:strict",
     "ds:main:validate:token-usage": "pnpm --filter @grasdouble/lufa_design-system run validate:token-usage",
     "ds:main:validate:token-usage:unused": "pnpm --filter @grasdouble/lufa_design-system run validate:token-usage:unused",
     "ds:main:validate:token-usage:verbose": "pnpm --filter @grasdouble/lufa_design-system run validate:token-usage:verbose",
@@ -88,7 +90,6 @@
     "tools:bmad:viewer": "pnpm dlx bmad-viewer",
     "tools:generate-outdated-report": "node .github/actions/dependency-update/generateOutdatedReport.js",
     "validate:------------------------------------------": "",
-    "validate:components": "node scripts/validate-components.js",
     "validate:docs": "bash scripts/validate-ai-docs.sh"
   },
   "lint-staged": {
@@ -113,5 +114,5 @@
     "prettier": "^3.8.1",
     "prettier-plugin-packagejson": "^3.0.0"
   },
-  "packageManager": "pnpm@10.28.2"
+  "packageManager": "pnpm@10.30.1"
 }

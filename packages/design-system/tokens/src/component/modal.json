@@ -26,7 +26,8 @@
               "category": "modal",
               "useCase": "Backdrop-filter blur for modern modal overlays",
               "themeable": true,
-              "modeAware": false
+              "modeAware": false,
+              "note": "Fixed optical value — 4px is the standard blur amount for modal backdrops; no spatial token covers sub-spacing blur."
             }
           }
         }
@@ -71,7 +72,8 @@
                 "category": "modal",
                 "useCase": "Compact modals, confirmation dialogs",
                 "themeable": true,
-                "modeAware": false
+                "modeAware": false,
+                "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
           },
@@ -85,7 +87,8 @@
                 "category": "modal",
                 "useCase": "Standard modals, form dialogs",
                 "themeable": true,
-                "modeAware": false
+                "modeAware": false,
+                "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
           },
@@ -99,7 +102,8 @@
                 "category": "modal",
                 "useCase": "Large content modals, detailed forms",
                 "themeable": true,
-                "modeAware": false
+                "modeAware": false,
+                "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
           },
@@ -113,7 +117,8 @@
                 "category": "modal",
                 "useCase": "Full-width modals, complex UIs",
                 "themeable": true,
-                "modeAware": false
+                "modeAware": false,
+                "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
           }
@@ -207,7 +212,7 @@
           }
         }
       },
-      "close.button": {
+      "close-button": {
         "size": {
           "$value": "32px",
           "$type": "dimension",
@@ -218,7 +223,8 @@
               "category": "modal",
               "useCase": "Modal close button dimensions",
               "themeable": true,
-              "modeAware": false
+              "modeAware": false,
+              "note": "Fixed touch-target constant — 32px is the minimum recommended interactive target size."
             }
           }
         },
@@ -261,7 +267,6 @@
               "lufa": {
                 "level": "component",
                 "category": "modal",
-                "state": "hover",
                 "useCase": "Close button hover state",
                 "themeable": true,
                 "modeAware": false
@@ -327,7 +332,8 @@
               "category": "modal",
               "useCase": "Backdrop layer stacking",
               "themeable": true,
-              "modeAware": false
+              "modeAware": false,
+              "note": "Z-index constant — stacking order values are not semantic-layer tokens; 1000 is the standard modal backdrop level."
             }
           }
         },
@@ -341,7 +347,8 @@
               "category": "modal",
               "useCase": "Modal content layer stacking",
               "themeable": true,
-              "modeAware": false
+              "modeAware": false,
+              "note": "Z-index constant — must be exactly 1 above backdrop (1000) so content renders above overlay."
             }
           }
         }

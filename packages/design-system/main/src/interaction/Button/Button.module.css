@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--lufa-semantic-ui-spacing-compact);
-  cursor: pointer;
+  cursor: var(--lufa-component-button-state-default-cursor);
   font-family: inherit;
   font-weight: var(--lufa-primitive-typography-font-weight-semibold);
   text-decoration: none;
@@ -143,8 +143,8 @@
 /* ========================================== */
 
 .disabled-true {
-  opacity: var(--lufa-component-button-disabled-opacity);
-  cursor: var(--lufa-component-button-disabled-cursor);
+  opacity: var(--lufa-component-button-state-disabled-opacity);
+  cursor: var(--lufa-component-button-state-disabled-cursor);
   pointer-events: none;
 }
 
@@ -154,7 +154,7 @@
 
 .loading-true {
   opacity: 0.7;
-  cursor: wait;
+  cursor: var(--lufa-component-button-state-loading-cursor);
 }
 
 /* ========================================== */
@@ -164,42 +164,42 @@
 /* Solid + Primary (Blue) */
 
 .button.type-solid.variant-primary {
-  background-color: var(--lufa-component-button-primary-background-default);
-  color: var(--lufa-component-button-primary-text);
+  background-color: var(--lufa-component-button-variant-primary-background-default);
+  color: var(--lufa-component-button-variant-primary-text);
 }
 
 .button.type-solid.variant-primary:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-primary-background-hover);
+  background-color: var(--lufa-component-button-variant-primary-background-hover);
 }
 
 .button.type-solid.variant-primary:active:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-primary-background-active);
+  background-color: var(--lufa-component-button-variant-primary-background-active);
 }
 
 /* Solid + Secondary (Purple) */
 
 .button.type-solid.variant-secondary {
-  background-color: var(--lufa-component-button-secondary-background-default);
-  color: var(--lufa-component-button-secondary-text);
+  background-color: var(--lufa-component-button-variant-secondary-background-default);
+  color: var(--lufa-component-button-variant-secondary-text);
 }
 
 .button.type-solid.variant-secondary:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-secondary-background-hover);
+  background-color: var(--lufa-component-button-variant-secondary-background-hover);
 }
 
 .button.type-solid.variant-secondary:active:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-secondary-background-active);
+  background-color: var(--lufa-component-button-variant-secondary-background-active);
 }
 
 /* Solid + Success (Green) */
 
 .button.type-solid.variant-success {
-  background-color: var(--lufa-component-button-success-background-default);
-  color: var(--lufa-component-button-success-text);
+  background-color: var(--lufa-component-button-variant-success-background-default);
+  color: var(--lufa-component-button-variant-success-text);
 }
 
 .button.type-solid.variant-success:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-success-background-hover);
+  background-color: var(--lufa-component-button-variant-success-background-hover);
 }
 
 .button.type-solid.variant-success:active:not(:disabled):not(.disabled-true) {
@@ -209,12 +209,12 @@
 /* Solid + Danger (Red) */
 
 .button.type-solid.variant-danger {
-  background-color: var(--lufa-component-button-destructive-background-default);
-  color: var(--lufa-component-button-destructive-text);
+  background-color: var(--lufa-component-button-variant-destructive-background-default);
+  color: var(--lufa-component-button-variant-destructive-text);
 }
 
 .button.type-solid.variant-danger:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-destructive-background-hover);
+  background-color: var(--lufa-component-button-variant-destructive-background-hover);
 }
 
 .button.type-solid.variant-danger:active:not(:disabled):not(.disabled-true) {
@@ -269,15 +269,15 @@
 /* Outline + Primary (Blue) */
 
 .button.type-outline.variant-primary {
-  background-color: var(--lufa-component-button-outline-background-default);
-  color: var(--lufa-component-button-outline-text-default);
-  border-color: var(--lufa-component-button-outline-border-default);
+  background-color: var(--lufa-component-button-type-outline-background-default);
+  color: var(--lufa-component-button-type-outline-text-default);
+  border-color: var(--lufa-component-button-type-outline-border-default);
 }
 
 .button.type-outline.variant-primary:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-outline-background-hover);
-  color: var(--lufa-component-button-outline-text-hover);
-  border-color: var(--lufa-component-button-outline-border-hover);
+  background-color: var(--lufa-component-button-type-outline-background-hover);
+  color: var(--lufa-component-button-type-outline-text-hover);
+  border-color: var(--lufa-component-button-type-outline-border-hover);
 }
 
 .button.type-outline.variant-primary:active:not(:disabled):not(.disabled-true) {
@@ -401,13 +401,13 @@
 /* Ghost + Primary (Blue) */
 
 .button.type-ghost.variant-primary {
-  background-color: var(--lufa-component-button-ghost-background-default);
-  color: var(--lufa-component-button-ghost-text-default);
+  background-color: var(--lufa-component-button-type-ghost-background-default);
+  color: var(--lufa-component-button-type-ghost-text-default);
 }
 
 .button.type-ghost.variant-primary:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-ghost-background-hover);
-  color: var(--lufa-component-button-ghost-text-hover);
+  background-color: var(--lufa-component-button-type-ghost-background-hover);
+  color: var(--lufa-component-button-type-ghost-text-hover);
 }
 
 .button.type-ghost.variant-primary:active:not(:disabled):not(.disabled-true) {

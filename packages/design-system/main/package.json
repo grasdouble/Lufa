@@ -31,6 +31,8 @@
     "preview": "vite preview",
     "test-ct": "playwright test -c playwright-ct.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "validate:components": "node scripts/validate-components.js",
+    "validate:components:strict": "node scripts/validate-components.js --strict",
     "validate:token-usage": "node scripts/validate-token-usage.js",
     "validate:token-usage:unused": "node scripts/validate-token-usage.js --unused",
     "validate:token-usage:verbose": "node scripts/validate-token-usage.js --verbose"
