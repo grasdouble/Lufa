@@ -9,7 +9,11 @@
  * 3. Include accessibility metadata
  * 4. Export TypeScript types properly
  *
- * Usage: node scripts/validate-components.js
+ * Usage: node scripts/validate-components.js [--dir <path>] [--strict]
+ *
+ * Options:
+ *   --dir <path>   Override the components directory to scan
+ *   --strict       Treat warnings as errors (exits with code 1)
  */
 import fs from 'fs';
 import path from 'path';
@@ -18,8 +22,14 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Parse CLI arguments
+const args = process.argv.slice(2);
+const STRICT_MODE = args.includes('--strict');
+const customDirIndex = args.indexOf('--dir');
+const CUSTOM_DIR = customDirIndex !== -1 ? args[customDirIndex + 1] : null;
+
 // Configuration
-const COMPONENTS_DIR = path.join(__dirname, '../packages/design-system/main/src');
+const COMPONENTS_DIR = CUSTOM_DIR ? path.resolve(CUSTOM_DIR) : path.join(__dirname, '../src');
 const ALLOWED_HARDCODED_VALUES = [
   // Layout values that don't need tokens
   'flex',
@@ -47,9 +57,6 @@ const ALLOWED_HARDCODED_VALUES = [
   'space-evenly',
   'stretch',
   'baseline',
-  'pointer',
-  'default',
-  'not-allowed',
   'hidden',
   'visible',
   'none',
@@ -69,17 +76,18 @@ const ALLOWED_HARDCODED_VALUES = [
 ];
 
 // Color regex patterns that indicate hard-coded colors
+// Note: patterns are defined as factory functions to avoid stateful /g regex reuse
 const HARD_CODED_COLOR_PATTERNS = [
-  /#[0-9a-fA-F]{3,8}/g, // Hex colors (#fff, #ffffff, #ffffff80)
-  /rgb\([^)]+\)/g, // rgb() and rgba()
-  /hsl\([^)]+\)/g, // hsl() and hsla()
+  () => /#[0-9a-fA-F]{3,8}/g, // Hex colors (#fff, #ffffff, #ffffff80)
+  () => /rgb\([^)]+\)/g, // rgb() and rgba()
+  () => /hsl\([^)]+\)/g, // hsl() and hsla()
 ];
 
 // Dimension patterns (px, rem, em values that should use tokens)
 const HARD_CODED_DIMENSION_PATTERNS = [
-  /\b\d+px\b/g, // pixel values (16px, 20px)
-  /\b\d+\.?\d*rem\b/g, // rem values (1.5rem, 2rem)
-  /\b\d+\.?\d*em\b/g, // em values (1.5em, 2em)
+  () => /\b\d+px\b/g, // pixel values (16px, 20px)
+  () => /\b\d+\.?\d*rem\b/g, // rem values (1.5rem, 2rem)
+  () => /\b\d+\.?\d*em\b/g, // em values (1.5em, 2em)
 ];
 
 let errors = [];
@@ -89,11 +97,6 @@ let warnings = [];
  * Check if a line contains hard-coded values
  */
 function checkForHardCodedValues(line, filePath, lineNumber) {
-  // Skip lines with var() - those are using CSS variables (good!)
-  if (line.includes('var(--')) {
-    return;
-  }
-
   // Skip lines with token imports
   if (line.includes('tokens.') || line.includes("from '@grasdouble/lufa_design-system-tokens'")) {
     return;
@@ -105,9 +108,13 @@ function checkForHardCodedValues(line, filePath, lineNumber) {
     return;
   }
 
+  // Remove all var(--...) occurrences from the line before checking for hard-coded values
+  // This avoids false negatives while still catching hard-coded values on the same line
+  const lineWithoutTokens = line.replace(/var\(--[^)]+\)/g, 'var(TOKEN)');
+
   // Check for hard-coded colors
-  HARD_CODED_COLOR_PATTERNS.forEach((pattern) => {
-    const matches = line.match(pattern);
+  HARD_CODED_COLOR_PATTERNS.forEach((patternFactory) => {
+    const matches = lineWithoutTokens.match(patternFactory());
     if (matches) {
       matches.forEach((match) => {
         if (!ALLOWED_HARDCODED_VALUES.includes(match)) {
@@ -124,13 +131,12 @@ function checkForHardCodedValues(line, filePath, lineNumber) {
   });
 
   // Check for hard-coded dimensions
-  HARD_CODED_DIMENSION_PATTERNS.forEach((pattern) => {
-    const matches = line.match(pattern);
+  HARD_CODED_DIMENSION_PATTERNS.forEach((patternFactory) => {
+    const matches = lineWithoutTokens.match(patternFactory());
     if (matches) {
       matches.forEach((match) => {
-        // Skip if it's in an allowed context
-        const isAllowed = ALLOWED_HARDCODED_VALUES.some((allowed) => line.includes(allowed));
-        if (!isAllowed) {
+        // BUG FIX: check the specific matched value, not whether the line contains any allowed word
+        if (!ALLOWED_HARDCODED_VALUES.includes(match)) {
           warnings.push({
             file: path.relative(process.cwd(), filePath),
             line: lineNumber,
@@ -185,6 +191,12 @@ function checkPropDescriptions(content, filePath) {
  */
 function checkTypeExports(content, filePath) {
   const componentName = path.basename(filePath, '.tsx');
+
+  // Skip barrel/index files - they re-export but don't define their own Props
+  if (componentName === 'index') {
+    return;
+  }
+
   const expectedExport = `${componentName}Props`;
 
   // Check if Props interface/type is exported
@@ -257,6 +269,9 @@ function validateFile(filePath) {
 function printResults() {
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log('🔍 COMPONENT VALIDATION REPORT');
+  if (STRICT_MODE) {
+    console.log('   (strict mode: warnings treated as errors)');
+  }
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
   // Print errors
@@ -311,6 +326,12 @@ function printResults() {
  * Main execution
  */
 function main() {
+  // Validate --dir argument
+  if (customDirIndex !== -1 && !CUSTOM_DIR) {
+    console.error('❌ Error: --dir requires a path argument.');
+    process.exit(1);
+  }
+
   console.log('🔍 Starting component validation...\n');
   console.log(`📁 Scanning directory: ${COMPONENTS_DIR}\n`);
 
@@ -329,8 +350,8 @@ function main() {
 
   printResults();
 
-  // Exit with error code if there are errors
-  if (errors.length > 0) {
+  // Exit with error code if there are errors (or warnings in strict mode)
+  if (errors.length > 0 || (STRICT_MODE && warnings.length > 0)) {
     process.exit(1);
   }
 

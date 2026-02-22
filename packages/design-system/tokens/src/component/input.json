@@ -170,7 +170,7 @@
             "lufa": {
               "level": "component",
               "category": "input",
-              "state": "default",
+              "useCase": "Default input background",
               "themeable": true,
               "modeAware": false
             }
@@ -184,7 +184,7 @@
             "lufa": {
               "level": "component",
               "category": "input",
-              "state": "hover",
+              "useCase": "Hover background feedback on input field",
               "themeable": true,
               "modeAware": false
             }
@@ -198,7 +198,7 @@
             "lufa": {
               "level": "component",
               "category": "input",
-              "state": "disabled",
+              "useCase": "Disabled input background to signal non-interactable state",
               "themeable": true,
               "modeAware": false
             }
@@ -214,7 +214,7 @@
             "lufa": {
               "level": "component",
               "category": "input",
-              "state": "default",
+              "useCase": "Default resting border for input field",
               "themeable": true,
               "modeAware": false
             }
@@ -228,7 +228,7 @@
             "lufa": {
               "level": "component",
               "category": "input",
-              "state": "hover",
+              "useCase": "Hover border feedback on input field",
               "themeable": true,
               "modeAware": false
             }
@@ -242,7 +242,7 @@
             "lufa": {
               "level": "component",
               "category": "input",
-              "state": "focus",
+              "useCase": "Focused input border for keyboard/pointer focus indication",
               "themeable": true,
               "modeAware": false
             }
@@ -256,7 +256,7 @@
             "lufa": {
               "level": "component",
               "category": "input",
-              "state": "error",
+              "useCase": "Error border indicating invalid or failed validation",
               "themeable": true,
               "modeAware": false
             }
@@ -270,7 +270,7 @@
             "lufa": {
               "level": "component",
               "category": "input",
-              "state": "disabled",
+              "useCase": "Disabled input border to signal non-interactable state",
               "themeable": true,
               "modeAware": false
             }
@@ -286,7 +286,7 @@
             "lufa": {
               "level": "component",
               "category": "input",
-              "state": "default",
+              "useCase": "Default text color for user-entered content",
               "themeable": true,
               "modeAware": false
             }
@@ -314,7 +314,7 @@
             "lufa": {
               "level": "component",
               "category": "input",
-              "state": "disabled",
+              "useCase": "Dimmed text for disabled input field",
               "themeable": true,
               "modeAware": false
             }
@@ -404,7 +404,7 @@
                 "lufa": {
                   "level": "component",
                   "category": "input",
-                  "state": "error",
+                  "useCase": "Error message text color below invalid input",
                   "themeable": true,
                   "modeAware": false
                 }
@@ -490,6 +490,25 @@
               "themeable": true,
               "modeAware": false,
               "note": "Default is 1 (full opacity). Themes can reduce for visual indication."
+            }
+          }
+        }
+      },
+      "state": {
+        "disabled": {
+          "cursor": {
+            "$value": "{semantic.interactive.cursor.disabled}",
+            "$type": "other",
+            "$description": "Cursor for disabled input state",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "input",
+                "subcategory": "state",
+                "useCase": "Disabled input field cursor",
+                "themeable": false,
+                "modeAware": false
+              }
             }
           }
         }

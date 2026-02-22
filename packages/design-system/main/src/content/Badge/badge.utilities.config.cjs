@@ -38,11 +38,23 @@ module.exports = {
     variant: {
       property: ['background-color', 'color'],
       values: {
-        default: ['var(--lufa-component-badge-default-background)', 'var(--lufa-component-badge-default-text)'],
-        success: ['var(--lufa-component-badge-success-background)', 'var(--lufa-component-badge-success-text)'],
-        error: ['var(--lufa-component-badge-error-background)', 'var(--lufa-component-badge-error-text)'],
-        warning: ['var(--lufa-component-badge-warning-background)', 'var(--lufa-component-badge-warning-text)'],
-        info: ['var(--lufa-component-badge-info-background)', 'var(--lufa-component-badge-info-text)'],
+        default: [
+          'var(--lufa-component-badge-variant-default-background)',
+          'var(--lufa-component-badge-variant-default-text)',
+        ],
+        success: [
+          'var(--lufa-component-badge-variant-success-background)',
+          'var(--lufa-component-badge-variant-success-text)',
+        ],
+        error: [
+          'var(--lufa-component-badge-variant-error-background)',
+          'var(--lufa-component-badge-variant-error-text)',
+        ],
+        warning: [
+          'var(--lufa-component-badge-variant-warning-background)',
+          'var(--lufa-component-badge-variant-warning-text)',
+        ],
+        info: ['var(--lufa-component-badge-variant-info-background)', 'var(--lufa-component-badge-variant-info-text)'],
       },
     },
 

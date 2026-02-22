@@ -32,28 +32,28 @@
 /* ========================================== */
 
 .variant-default {
-  background-color: var(--lufa-component-badge-default-background);
-  color: var(--lufa-component-badge-default-text);
+  background-color: var(--lufa-component-badge-variant-default-background);
+  color: var(--lufa-component-badge-variant-default-text);
 }
 
 .variant-success {
-  background-color: var(--lufa-component-badge-success-background);
-  color: var(--lufa-component-badge-success-text);
+  background-color: var(--lufa-component-badge-variant-success-background);
+  color: var(--lufa-component-badge-variant-success-text);
 }
 
 .variant-error {
-  background-color: var(--lufa-component-badge-error-background);
-  color: var(--lufa-component-badge-error-text);
+  background-color: var(--lufa-component-badge-variant-error-background);
+  color: var(--lufa-component-badge-variant-error-text);
 }
 
 .variant-warning {
-  background-color: var(--lufa-component-badge-warning-background);
-  color: var(--lufa-component-badge-warning-text);
+  background-color: var(--lufa-component-badge-variant-warning-background);
+  color: var(--lufa-component-badge-variant-warning-text);
 }
 
 .variant-info {
-  background-color: var(--lufa-component-badge-info-background);
-  color: var(--lufa-component-badge-info-text);
+  background-color: var(--lufa-component-badge-variant-info-background);
+  color: var(--lufa-component-badge-variant-info-text);
 }
 
 /* ========================================== */

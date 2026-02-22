@@ -12,7 +12,8 @@
               "category": "badge",
               "useCase": "Compact badges, inline indicators",
               "themeable": true,
-              "modeAware": false
+              "modeAware": false,
+              "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
             }
           }
         },
@@ -26,7 +27,8 @@
               "category": "badge",
               "useCase": "Standard badges",
               "themeable": true,
-              "modeAware": false
+              "modeAware": false,
+              "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
             }
           }
         },
@@ -40,7 +42,8 @@
               "category": "badge",
               "useCase": "Prominent badges, emphasis",
               "themeable": true,
-              "modeAware": false
+              "modeAware": false,
+              "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
             }
           }
         }
@@ -104,222 +107,254 @@
           }
         }
       },
-      "default": {
-        "background": {
-          "$value": "{semantic.ui.background.surface}",
-          "$type": "color",
-          "$description": "Default badge background (neutral)",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "default",
-              "themeable": true,
-              "modeAware": false
+      "variant": {
+        "default": {
+          "background": {
+            "$value": "{semantic.ui.background.surface}",
+            "$type": "color",
+            "$description": "Default badge background (neutral)",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "default",
+                "useCase": "Neutral status badges, generic labels",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "text": {
+            "$value": "{semantic.ui.text.secondary}",
+            "$type": "color",
+            "$description": "Default badge text color",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "default",
+                "useCase": "Neutral status badges, generic labels",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "border": {
+            "$value": "{semantic.ui.border.default}",
+            "$type": "color",
+            "$description": "Default badge border (for outlined variant)",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "default",
+                "useCase": "Outlined default badges",
+                "themeable": true,
+                "modeAware": false
+              }
             }
           }
         },
-        "text": {
-          "$value": "{semantic.ui.text.secondary}",
-          "$type": "color",
-          "$description": "Default badge text color",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "default",
-              "themeable": true,
-              "modeAware": false
+        "success": {
+          "background": {
+            "$value": "{semantic.ui.background.success}",
+            "$type": "color",
+            "$description": "Success badge background",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "success",
+                "useCase": "Success state badges, positive status indicators",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "text": {
+            "$value": "{semantic.ui.text.success}",
+            "$type": "color",
+            "$description": "Success badge text color",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "success",
+                "useCase": "Success state badges",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "border": {
+            "$value": "{semantic.ui.border.success}",
+            "$type": "color",
+            "$description": "Success badge border (for outlined variant)",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "success",
+                "useCase": "Outlined success badges",
+                "themeable": true,
+                "modeAware": false
+              }
             }
           }
         },
-        "border": {
-          "$value": "{semantic.ui.border.default}",
-          "$type": "color",
-          "$description": "Default badge border (for outlined variant)",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "default",
-              "themeable": true,
-              "modeAware": false
+        "error": {
+          "background": {
+            "$value": "{semantic.ui.background.error}",
+            "$type": "color",
+            "$description": "Error badge background",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "error",
+                "useCase": "Error state badges, failure indicators",
+                "themeable": true,
+                "modeAware": false
+              }
             }
-          }
-        }
-      },
-      "success": {
-        "background": {
-          "$value": "{semantic.ui.background.success}",
-          "$type": "color",
-          "$description": "Success badge background",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "success",
-              "themeable": true,
-              "modeAware": false
+          },
+          "text": {
+            "$value": "{semantic.ui.text.error}",
+            "$type": "color",
+            "$description": "Error badge text color",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "error",
+                "useCase": "Error state badges",
+                "themeable": true,
+                "modeAware": false
+              }
             }
-          }
-        },
-        "text": {
-          "$value": "{semantic.ui.text.success}",
-          "$type": "color",
-          "$description": "Success badge text color",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "success",
-              "themeable": true,
-              "modeAware": false
-            }
-          }
-        },
-        "border": {
-          "$value": "{semantic.ui.border.success}",
-          "$type": "color",
-          "$description": "Success badge border (for outlined variant)",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "success",
-              "themeable": true,
-              "modeAware": false
-            }
-          }
-        }
-      },
-      "error": {
-        "background": {
-          "$value": "{semantic.ui.background.error}",
-          "$type": "color",
-          "$description": "Error badge background",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "error",
-              "themeable": true,
-              "modeAware": false
+          },
+          "border": {
+            "$value": "{semantic.ui.border.error}",
+            "$type": "color",
+            "$description": "Error badge border (for outlined variant)",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "error",
+                "useCase": "Outlined error badges",
+                "themeable": true,
+                "modeAware": false
+              }
             }
           }
         },
-        "text": {
-          "$value": "{semantic.ui.text.error}",
-          "$type": "color",
-          "$description": "Error badge text color",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "error",
-              "themeable": true,
-              "modeAware": false
+        "warning": {
+          "background": {
+            "$value": "{semantic.ui.background.warning}",
+            "$type": "color",
+            "$description": "Warning badge background",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "warning",
+                "useCase": "Warning state badges, caution indicators",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "text": {
+            "$value": "{semantic.ui.text.warning}",
+            "$type": "color",
+            "$description": "Warning badge text color",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "warning",
+                "useCase": "Warning state badges",
+                "themeable": true,
+                "modeAware": false
+              }
+            }
+          },
+          "border": {
+            "$value": "{semantic.ui.border.warning}",
+            "$type": "color",
+            "$description": "Warning badge border (for outlined variant)",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "warning",
+                "useCase": "Outlined warning badges",
+                "themeable": true,
+                "modeAware": false
+              }
             }
           }
         },
-        "border": {
-          "$value": "{semantic.ui.border.error}",
-          "$type": "color",
-          "$description": "Error badge border (for outlined variant)",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "error",
-              "themeable": true,
-              "modeAware": false
+        "info": {
+          "background": {
+            "$value": "{semantic.ui.background.info}",
+            "$type": "color",
+            "$description": "Info badge background",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "info",
+                "useCase": "Informational badges, neutral highlights",
+                "themeable": true,
+                "modeAware": false
+              }
             }
-          }
-        }
-      },
-      "warning": {
-        "background": {
-          "$value": "{semantic.ui.background.warning}",
-          "$type": "color",
-          "$description": "Warning badge background",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "warning",
-              "themeable": true,
-              "modeAware": false
+          },
+          "text": {
+            "$value": "{semantic.ui.text.info}",
+            "$type": "color",
+            "$description": "Info badge text color",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "info",
+                "useCase": "Informational badges",
+                "themeable": true,
+                "modeAware": false
+              }
             }
-          }
-        },
-        "text": {
-          "$value": "{semantic.ui.text.warning}",
-          "$type": "color",
-          "$description": "Warning badge text color",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "warning",
-              "themeable": true,
-              "modeAware": false
-            }
-          }
-        },
-        "border": {
-          "$value": "{semantic.ui.border.warning}",
-          "$type": "color",
-          "$description": "Warning badge border (for outlined variant)",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "warning",
-              "themeable": true,
-              "modeAware": false
-            }
-          }
-        }
-      },
-      "info": {
-        "background": {
-          "$value": "{semantic.ui.background.info}",
-          "$type": "color",
-          "$description": "Info badge background",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "info",
-              "themeable": true,
-              "modeAware": false
-            }
-          }
-        },
-        "text": {
-          "$value": "{semantic.ui.text.info}",
-          "$type": "color",
-          "$description": "Info badge text color",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "info",
-              "themeable": true,
-              "modeAware": false
-            }
-          }
-        },
-        "border": {
-          "$value": "{semantic.ui.border.info}",
-          "$type": "color",
-          "$description": "Info badge border (for outlined variant)",
-          "$extensions": {
-            "lufa": {
-              "level": "component",
-              "category": "badge",
-              "variant": "info",
-              "themeable": true,
-              "modeAware": false
+          },
+          "border": {
+            "$value": "{semantic.ui.border.info}",
+            "$type": "color",
+            "$description": "Info badge border (for outlined variant)",
+            "$extensions": {
+              "lufa": {
+                "level": "component",
+                "category": "badge",
+                "subcategory": "variant",
+                "variant": "info",
+                "useCase": "Outlined info badges",
+                "themeable": true,
+                "modeAware": false
+              }
             }
           }
         }
@@ -335,7 +370,8 @@
               "category": "badge",
               "useCase": "Notification dots, status indicators",
               "themeable": true,
-              "modeAware": false
+              "modeAware": false,
+              "note": "Fixed geometric value — dot size is a layout constant not driven by the spacing scale."
             }
           }
         }

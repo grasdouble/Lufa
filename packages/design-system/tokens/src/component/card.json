@@ -244,7 +244,6 @@
             "lufa": {
               "level": "component",
               "category": "card",
-              "state": "hover",
               "useCase": "Enhanced glow on card hover",
               "themeable": true,
               "modeAware": false
@@ -259,7 +258,6 @@
             "lufa": {
               "level": "component",
               "category": "card",
-              "state": "focus",
               "useCase": "Focus state for interactive/clickable cards",
               "themeable": true,
               "modeAware": false
@@ -276,7 +274,6 @@
             "lufa": {
               "level": "component",
               "category": "card",
-              "state": "hover",
               "useCase": "Clickable cards, interactive card hovers",
               "themeable": true,
               "modeAware": false
@@ -291,7 +288,6 @@
             "lufa": {
               "level": "component",
               "category": "card",
-              "state": "hover",
               "useCase": "Scale effect on interactive card hover",
               "themeable": true,
               "modeAware": false
@@ -306,7 +302,6 @@
             "lufa": {
               "level": "component",
               "category": "card",
-              "state": "hover",
               "useCase": "Lift effect on interactive card hover",
               "themeable": true,
               "modeAware": false

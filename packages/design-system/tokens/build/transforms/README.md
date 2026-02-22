@@ -21,6 +21,7 @@ Custom Style Dictionary transform that extends the built-in `size/rem` transform
 ## Purpose
 
 This transform extends the built-in `size/rem` transform to handle both:
+
 - **Simple px values**: `"16px"` → `"1rem"`
 - **Fluid clamp values**: `"clamp(1rem, 1vw, 2rem)"` → pass through unchanged
 
@@ -29,6 +30,7 @@ This transform extends the built-in `size/rem` transform to handle both:
 The built-in `size/rem` transform throws errors when it encounters `clamp()` functions because it expects simple numeric values. Our design system uses fluid typography and spacing that scales responsively using CSS `clamp()`, which are already in the correct format and should pass through unchanged.
 
 Without this custom transform:
+
 - Build process shows 22 transform error warnings
 - Fluid tokens with `clamp()` cause the built-in `size/rem` to fail
 - Simple px values still need conversion to rem for consistency
@@ -40,7 +42,7 @@ Without this custom transform:
 ### Transform Logic
 
 1. **Check value type**: If value contains `clamp()`, return unchanged
-2. **Check fluid extension**: If token has `$extensions.lufa.fluid: true`, return unchanged  
+2. **Check fluid extension**: If token has `$extensions.lufa.fluid: true`, return unchanged
 3. **Convert simple values**: Parse numeric/px values and convert to rem (16px base)
 
 ### Filter
@@ -56,6 +58,7 @@ Only processes tokens with `$type: "dimension"`.
 The transform object registered with Style Dictionary.
 
 **Properties:**
+
 - `type`: `'value'` (modifies token value)
 - `name`: `'size/rem/fluid'`
 - `transitive`: `true` (can reference other tokens)
@@ -63,6 +66,7 @@ The transform object registered with Style Dictionary.
 - `transform`: Function that converts px to rem or passes through fluid values
 
 **Transform Logic:**
+
 ```javascript
 // Clamp values pass through
 "clamp(1rem, 1vw, 2rem)" → "clamp(1rem, 1vw, 2rem)"
@@ -83,6 +87,7 @@ The transform object registered with Style Dictionary.
 
 ```javascript
 import StyleDictionary from 'style-dictionary';
+
 import { sizeRemFluid } from './build/transforms/size-rem-fluid.js';
 
 // Register the transform
@@ -171,10 +176,10 @@ Place `size/rem/fluid` where you would normally use `size/rem` - typically early
 
 ```css
 :root {
-  --lufa-font-size-base: 1rem;                              /* Converted */
+  --lufa-font-size-base: 1rem; /* Converted */
   --lufa-font-size-2xl: clamp(1.25rem, 1rem + 1vw, 1.5rem); /* Pass through */
-  --lufa-spacing-4: 1rem;                                   /* Converted */
-  --lufa-section-gap-fluid: clamp(48px, 8vw, 96px);        /* Pass through */
+  --lufa-spacing-4: 1rem; /* Converted */
+  --lufa-section-gap-fluid: clamp(48px, 8vw, 96px); /* Pass through */
 }
 ```
 
@@ -219,19 +224,21 @@ grep "font-size-2xl" dist/tokens.css
 # Should show: --lufa-primitive-typography-font-size-2xl: clamp(1.25rem, 1rem + 1vw, 1.5rem);
 
 # Check simple tokens convert
-grep "spacing-4:" dist/tokens.css  
+grep "spacing-4:" dist/tokens.css
 # Should show rem values, not px
 ```
 
 ### Expected Behavior
 
 ✅ **Correct:**
+
 - Fluid `clamp()` values preserved exactly
 - Simple px values converted to rem
 - Build succeeds with 11 expected warnings
 - All generated CSS is valid
 
 ❌ **Incorrect:**
+
 - `clamp()` values converted to rem (would break)
 - Build failures or errors (not just warnings)
 - Missing fluid tokens in output
@@ -241,13 +248,16 @@ grep "spacing-4:" dist/tokens.css
 ## Related Files
 
 ### Transform File
+
 - **[`size-rem-fluid.js`](./size-rem-fluid.js)** - Transform implementation
 
 ### Token Files Using Fluid Values
+
 - [`src/primitives/typography/font-sizes.json`](../../src/primitives/typography/font-sizes.json) - 7 fluid font-size tokens
 - [`src/core/layout/spacing.json`](../../src/core/layout/spacing.json) - 4 fluid layout tokens
 
 ### Configuration
+
 - [`style-dictionary.config.js`](../../style-dictionary.config.js) - Transform registration
 
 ---
@@ -311,12 +321,15 @@ Without this transform, responsive tokens would need manual media query generati
 Checks if a token has responsive metadata.
 
 **Parameters:**
+
 - `token` (Object) - Style Dictionary token object
 
 **Returns:**
+
 - `boolean` - `true` if token has `$extensions.lufa.responsive`, `false` otherwise
 
 **Example:**
+
 ```javascript
 import { isResponsiveToken } from './transforms/responsive.js';
 
@@ -332,12 +345,15 @@ if (isResponsiveToken(token)) {
 Extracts the breakpoint name from a responsive token.
 
 **Parameters:**
+
 - `token` (Object) - Style Dictionary token object
 
 **Returns:**
+
 - `string|null` - Breakpoint name (`'base'`, `'md'`, `'lg'`, etc.) or `null` if not responsive
 
 **Example:**
+
 ```javascript
 import { getTokenBreakpoint } from './transforms/responsive.js';
 
@@ -352,18 +368,21 @@ const breakpoint = getTokenBreakpoint(token);
 Maps breakpoint names to CSS media queries.
 
 **Parameters:**
+
 - `breakpoint` (string) - Breakpoint name (base, sm, md, lg, xl, 2xl)
 
 **Returns:**
+
 - `string|null` - Media query string or `null` for base (mobile-first)
 
 **Example:**
+
 ```javascript
 import { getMediaQuery } from './transforms/responsive.js';
 
 getMediaQuery('base'); // null (no media query)
-getMediaQuery('md');   // '(min-width: 768px)'
-getMediaQuery('lg');   // '(min-width: 1024px)'
+getMediaQuery('md'); // '(min-width: 768px)'
+getMediaQuery('lg'); // '(min-width: 1024px)'
 ```
 
 ---
@@ -373,11 +392,13 @@ getMediaQuery('lg');   // '(min-width: 1024px)'
 The transform object registered with Style Dictionary.
 
 **Properties:**
+
 - `name`: `'attribute/responsive'`
 - `type`: `'attribute'` (adds metadata without changing token value)
 - `transform`: Function that returns attributes object
 
 **Transform Output:**
+
 ```javascript
 {
   responsive: true,
@@ -396,6 +417,7 @@ For non-responsive tokens, returns empty object `{}`.
 
 ```javascript
 import StyleDictionary from 'style-dictionary';
+
 import { responsiveTransform } from './build/transforms/responsive.js';
 
 // Register the transform
@@ -487,6 +509,7 @@ Tokens must include `$extensions.lufa.responsive` with a `breakpoint` property:
 ### Token Naming Convention
 
 Responsive tokens should follow this pattern:
+
 - Group name: `page-padding`, `section-gap`, `grid-gap`
 - Variant suffix: `base`, `md`, `lg` (matches breakpoint name)
 
@@ -503,7 +526,7 @@ After transformation, responsive tokens receive these additional attributes:
   name: 'core-layout-page-padding-md',
   value: '24px',
   path: ['core', 'layout', 'page-padding', 'md'],
-  
+
   // Added by responsive transform
   attributes: {
     responsive: true,
@@ -522,14 +545,14 @@ Non-responsive tokens remain unchanged.
 
 The transform uses this breakpoint system (Tailwind-compatible):
 
-| Breakpoint | Media Query            | Min Width | Typical Device |
-|------------|------------------------|-----------|----------------|
-| `base`     | `null` (no query)      | 0px       | Mobile         |
-| `sm`       | `(min-width: 640px)`   | 640px     | Large phone    |
-| `md`       | `(min-width: 768px)`   | 768px     | Tablet         |
-| `lg`       | `(min-width: 1024px)`  | 1024px    | Desktop        |
-| `xl`       | `(min-width: 1280px)`  | 1280px    | Large desktop  |
-| `2xl`      | `(min-width: 1536px)`  | 1536px    | Wide screen    |
+| Breakpoint | Media Query           | Min Width | Typical Device |
+| ---------- | --------------------- | --------- | -------------- |
+| `base`     | `null` (no query)     | 0px       | Mobile         |
+| `sm`       | `(min-width: 640px)`  | 640px     | Large phone    |
+| `md`       | `(min-width: 768px)`  | 768px     | Tablet         |
+| `lg`       | `(min-width: 1024px)` | 1024px    | Desktop        |
+| `xl`       | `(min-width: 1280px)` | 1280px    | Large desktop  |
+| `2xl`      | `(min-width: 1536px)` | 1536px    | Wide screen    |
 
 ### Mobile-First Strategy
 
@@ -554,6 +577,7 @@ grep -A 5 "page-padding" dist/tokens.css
 ### Expected CSS Output
 
 Base value in `:root`:
+
 ```css
 :root {
   --lufa-core-layout-page-padding: 16px;
@@ -561,6 +585,7 @@ Base value in `:root`:
 ```
 
 Media query overrides:
+
 ```css
 @media (min-width: 768px) {
   :root {
@@ -578,16 +603,16 @@ Media query overrides:
 ### Unit Testing Example
 
 ```javascript
-import { isResponsiveToken, getTokenBreakpoint, getMediaQuery } from './responsive.js';
+import { getMediaQuery, getTokenBreakpoint, isResponsiveToken } from './responsive.js';
 
 const responsiveToken = {
   $extensions: {
     lufa: {
       responsive: {
-        breakpoint: 'md'
-      }
-    }
-  }
+        breakpoint: 'md',
+      },
+    },
+  },
 };
 
 console.assert(isResponsiveToken(responsiveToken) === true);

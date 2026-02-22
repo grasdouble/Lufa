@@ -3,19 +3,22 @@
 /**
  * Token Usage Validator
  *
- * Scans all component source files in src/ and reports CSS custom properties
- * (--lufa-*) that are referenced but NOT defined in
- * packages/design-system/tokens/dist/tokens.css.
- *
- * Scanned file types:
- *   - *.css          (CSS Modules, hand-written styles)
- *   - *.cjs          (utilities config files — compound selectors, states)
- *   - *.tsx / *.ts   (component files with inline style refs)
+ * Scans source files in a given directory and reports CSS custom properties
+ * (--lufa-*) that are referenced but NOT defined in this package's
+ * dist/tokens.css.
  *
  * Usage:
- *   node scripts/validate-token-usage.js
- *   node scripts/validate-token-usage.js --verbose   (also list per-file breakdown)
- *   node scripts/validate-token-usage.js --unused    (also report defined-but-unused tokens)
+ *   node path/to/validate-token-usage.js --dir <path>
+ *   node path/to/validate-token-usage.js --dir <path> --ext .css,.ts,.tsx,.cjs
+ *   node path/to/validate-token-usage.js --dir <path> --verbose
+ *   node path/to/validate-token-usage.js --dir <path> --unused
+ *
+ * Options:
+ *   --dir <path>   Directory to scan (required). Can be absolute or relative to cwd.
+ *   --ext <list>   Comma-separated list of file extensions to scan.
+ *                  Defaults to: .css,.ts,.tsx
+ *   --verbose, -v  Also list a per-file token breakdown.
+ *   --unused,  -u  Also report tokens defined in tokens.css but not referenced.
  */
 import fs from 'fs';
 import path from 'path';
@@ -25,20 +28,34 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // ──────────────────────────────────────────────
-// Paths
-// ──────────────────────────────────────────────
-
-const TOKENS_CSS = path.join(__dirname, '../../tokens/dist/tokens.css');
-
-const COMPONENTS_DIR = path.join(__dirname, '../src');
-
-// ──────────────────────────────────────────────
-// CLI flags
+// Parse CLI arguments
 // ──────────────────────────────────────────────
 
 const args = process.argv.slice(2);
+
+function getArg(flag) {
+  const idx = args.indexOf(flag);
+  return idx !== -1 ? args[idx + 1] : undefined;
+}
+
+const dirArg = getArg('--dir');
+const extArg = getArg('--ext');
 const VERBOSE = args.includes('--verbose') || args.includes('-v');
 const SHOW_UNUSED = args.includes('--unused') || args.includes('-u');
+
+if (!dirArg) {
+  console.error('Usage: node validate-token-usage.js --dir <path> [--ext .css,.ts,.tsx] [--verbose] [--unused]');
+  process.exit(1);
+}
+
+const SCAN_DIR = path.resolve(process.cwd(), dirArg);
+const EXTENSIONS = extArg ? extArg.split(',').map((e) => e.trim()) : ['.css', '.ts', '.tsx'];
+
+// ──────────────────────────────────────────────
+// Paths
+// ──────────────────────────────────────────────
+
+const TOKENS_CSS = path.join(__dirname, '../dist/tokens.css');
 
 // ──────────────────────────────────────────────
 // Helpers
@@ -59,23 +76,15 @@ function collectFiles(dir, extensions) {
 }
 
 /** Extract all unique --lufa-* token names from a string.
- * Strips CSS block comments and JS/TS template literal fragments before scanning
- * to avoid false positives from comment references (e.g. "--lufa-core-*")
- * and dynamic variable construction (e.g. `--lufa-semantic-ui-text-${color}`).
+ * Strips block comments and line comments before scanning to avoid false positives
+ * from comment references (e.g. "--lufa-core-*") and dynamic variable construction
+ * (e.g. `--lufa-semantic-ui-text-${color}`).
  */
 function extractTokens(content) {
-  // Remove CSS /* ... */ block comments
   const noBlockComments = content.replace(/\/\*[\s\S]*?\*\//g, '');
-  // Remove JS/TS // line comments
   const noLineComments = noBlockComments.replace(/\/\/.*/g, '');
-
   const matches = noLineComments.match(/--lufa-[a-z0-9-]+/g) ?? [];
-
-  return new Set(
-    matches
-      // A valid token never ends with a trailing dash (those are partial names from template literals)
-      .filter((t) => !t.endsWith('-'))
-  );
+  return new Set(matches.filter((t) => !t.endsWith('-')));
 }
 
 /** ANSI colours */
@@ -97,32 +106,35 @@ if (!fs.existsSync(TOKENS_CSS)) {
   process.exit(1);
 }
 
-const tokensCssContent = fs.readFileSync(TOKENS_CSS, 'utf-8');
+if (!fs.existsSync(SCAN_DIR)) {
+  console.error(`${RED}✗ Directory to scan not found: ${SCAN_DIR}${RESET}`);
+  process.exit(1);
+}
 
-// Tokens are defined as `  --lufa-foo-bar: ...;`  (left-hand side of a declaration)
+const tokensCssContent = fs.readFileSync(TOKENS_CSS, 'utf-8');
 const definedTokens = new Set([...tokensCssContent.matchAll(/^\s*(--lufa-[a-z0-9-]+)\s*:/gm)].map((m) => m[1]));
 
 console.log(
   `${CYAN}${BOLD}Token Usage Validator${RESET}\n` +
-    `${DIM}tokens.css: ${path.relative(process.cwd(), TOKENS_CSS)}${RESET}\n` +
-    `${DIM}components: ${path.relative(process.cwd(), COMPONENTS_DIR)}${RESET}\n`
+    `${DIM}tokens.css : ${path.relative(process.cwd(), TOKENS_CSS)}${RESET}\n` +
+    `${DIM}scan dir   : ${path.relative(process.cwd(), SCAN_DIR)}${RESET}\n` +
+    `${DIM}extensions : ${EXTENSIONS.join(', ')}${RESET}\n`
 );
 
 console.log(`  ${GREEN}✓ ${definedTokens.size} tokens defined in tokens.css${RESET}\n`);
 
 // ──────────────────────────────────────────────
-// 2. Scan component files
+// 2. Scan files
 // ──────────────────────────────────────────────
 
-const FILES_TO_SCAN = collectFiles(COMPONENTS_DIR, ['.css', '.cjs', '.tsx', '.ts']);
+const FILES_TO_SCAN = collectFiles(SCAN_DIR, EXTENSIONS);
 
-// Map: token → Set of file paths using it
 const usedTokenMap = new Map(); // token → Set<relativeFilePath>
 
 for (const filePath of FILES_TO_SCAN) {
   const content = fs.readFileSync(filePath, 'utf-8');
   const tokens = extractTokens(content);
-  const rel = path.relative(COMPONENTS_DIR, filePath);
+  const rel = path.relative(SCAN_DIR, filePath);
 
   for (const token of tokens) {
     if (!usedTokenMap.has(token)) usedTokenMap.set(token, new Set());
@@ -140,7 +152,6 @@ console.log(`  ${GREEN}✓ ${allUsedTokens.size} unique tokens referenced${RESET
 // ──────────────────────────────────────────────
 
 const missingTokens = [...allUsedTokens].filter((t) => !definedTokens.has(t)).sort();
-
 const unusedTokens = [...definedTokens].filter((t) => !allUsedTokens.has(t)).sort();
 
 // ──────────────────────────────────────────────
@@ -150,9 +161,7 @@ const unusedTokens = [...definedTokens].filter((t) => !allUsedTokens.has(t)).sor
 if (missingTokens.length === 0) {
   console.log(`${GREEN}${BOLD}✓ All referenced tokens exist in tokens.css${RESET}\n`);
 } else {
-  console.log(
-    `${RED}${BOLD}✗ ${missingTokens.length} token(s) referenced in components but NOT defined in tokens.css:${RESET}\n`
-  );
+  console.log(`${RED}${BOLD}✗ ${missingTokens.length} token(s) referenced but NOT defined in tokens.css:${RESET}\n`);
 
   for (const token of missingTokens) {
     const files = [...(usedTokenMap.get(token) ?? [])];
@@ -170,10 +179,10 @@ if (missingTokens.length === 0) {
 
 if (SHOW_UNUSED) {
   if (unusedTokens.length === 0) {
-    console.log(`${GREEN}✓ All defined tokens are used by at least one component${RESET}\n`);
+    console.log(`${GREEN}✓ All defined tokens are referenced in at least one file${RESET}\n`);
   } else {
     console.log(
-      `${YELLOW}${BOLD}⚠ ${unusedTokens.length} token(s) defined in tokens.css but not referenced by any component:${RESET}\n`
+      `${YELLOW}${BOLD}⚠ ${unusedTokens.length} token(s) defined in tokens.css but not referenced:${RESET}\n`
     );
     for (const token of unusedTokens) {
       console.log(`  ${YELLOW}${token}${RESET}`);
@@ -193,7 +202,7 @@ if (VERBOSE) {
     const tokens = [...extractTokens(content)].sort();
     if (tokens.length === 0) continue;
 
-    const rel = path.relative(COMPONENTS_DIR, filePath);
+    const rel = path.relative(SCAN_DIR, filePath);
     const invalid = tokens.filter((t) => !definedTokens.has(t));
 
     const label = invalid.length > 0 ? `${RED}✗${RESET}` : `${GREEN}✓${RESET}`;

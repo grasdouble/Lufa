@@ -37,7 +37,7 @@
   background-color: var(--lufa-component-input-background-disabled);
   color: var(--lufa-component-input-text-disabled);
   border-color: var(--lufa-component-input-border-disabled);
-  cursor: not-allowed;
+  cursor: var(--lufa-component-input-state-disabled-cursor);
 }
 
 .input.fullWidth {

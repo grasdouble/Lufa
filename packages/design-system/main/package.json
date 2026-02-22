@@ -31,9 +31,11 @@
     "preview": "vite preview",
     "test-ct": "playwright test -c playwright-ct.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "validate:token-usage": "node scripts/validate-token-usage.js",
-    "validate:token-usage:unused": "node scripts/validate-token-usage.js --unused",
-    "validate:token-usage:verbose": "node scripts/validate-token-usage.js --verbose"
+    "validate:components": "node scripts/validate-components.js",
+    "validate:components:strict": "node scripts/validate-components.js --strict",
+    "validate:token-usage": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD/src --ext .css,.cjs,.tsx,.ts",
+    "validate:token-usage:unused": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD/src --ext .css,.cjs,.tsx,.ts --unused",
+    "validate:token-usage:verbose": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD/src --ext .css,.cjs,.tsx,.ts --verbose"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
