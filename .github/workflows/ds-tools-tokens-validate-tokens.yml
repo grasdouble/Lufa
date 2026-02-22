@@ -9,11 +9,12 @@ on:
       - 'packages/design-system/main/src/**/*.ts'
       - 'packages/design-system/main/src/**/*.tsx'
       - 'packages/design-system/main/src/**/*.cjs'
-      - 'packages/design-system/main/scripts/validate-token-usage.js'
       - 'packages/design-system/docusaurus/src/**/*.css'
       - 'packages/design-system/docusaurus/src/**/*.ts'
       - 'packages/design-system/docusaurus/src/**/*.tsx'
-      - 'packages/design-system/docusaurus/scripts/validate-token-usage.js'
+      - 'packages/design-system/cli/src/**/*.css'
+      - 'packages/design-system/cli/src/**/*.ts'
+      - 'packages/design-system/tokens/scripts/validate-token-usage.js'
   push:
     branches:
       - main
@@ -24,11 +25,12 @@ on:
       - 'packages/design-system/main/src/**/*.ts'
       - 'packages/design-system/main/src/**/*.tsx'
       - 'packages/design-system/main/src/**/*.cjs'
-      - 'packages/design-system/main/scripts/validate-token-usage.js'
       - 'packages/design-system/docusaurus/src/**/*.css'
       - 'packages/design-system/docusaurus/src/**/*.ts'
       - 'packages/design-system/docusaurus/src/**/*.tsx'
-      - 'packages/design-system/docusaurus/scripts/validate-token-usage.js'
+      - 'packages/design-system/cli/src/**/*.css'
+      - 'packages/design-system/cli/src/**/*.ts'
+      - 'packages/design-system/tokens/scripts/validate-token-usage.js'
   workflow_dispatch:
 
 permissions:
@@ -73,6 +75,16 @@ jobs:
           echo "::endgroup::"
         continue-on-error: true
 
+      # ── DS CLI ───────────────────────────────────────────────────────────
+
+      - name: 🔍 Validate token usage — DS CLI
+        id: validate-cli
+        run: |
+          echo "::group::DS CLI — Token Usage Validation"
+          pnpm ds:cli:validate:token-usage
+          echo "::endgroup::"
+        continue-on-error: true
+
       # ── PR Comment ────────────────────────────────────────────────────────
 
       - name: 💬 Build validation comment
@@ -81,20 +93,27 @@ jobs:
         env:
           MAIN_OUTCOME: ${{ steps.validate-main.outcome }}
           DOCUSAURUS_OUTCOME: ${{ steps.validate-docusaurus.outcome }}
+          CLI_OUTCOME: ${{ steps.validate-cli.outcome }}
         run: |
           MAIN_STATUS="✅ Passed"
           DOCUSAURUS_STATUS="✅ Passed"
+          CLI_STATUS="✅ Passed"
           [[ "$MAIN_OUTCOME" == "failure" ]] && MAIN_STATUS="❌ Failed"
           [[ "$DOCUSAURUS_OUTCOME" == "failure" ]] && DOCUSAURUS_STATUS="❌ Failed"
+          [[ "$CLI_OUTCOME" == "failure" ]] && CLI_STATUS="❌ Failed"
 
           # Only re-capture outputs when there are failures (avoids redundant runs on success)
           MAIN_OUTPUT=""
           DOCUSAURUS_OUTPUT=""
+          CLI_OUTPUT=""
           if [[ "$MAIN_OUTCOME" == "failure" ]]; then
             MAIN_OUTPUT=$(pnpm ds:main:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
           fi
           if [[ "$DOCUSAURUS_OUTCOME" == "failure" ]]; then
             DOCUSAURUS_OUTPUT=$(pnpm ds:docusaurus:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
+          fi
+          if [[ "$CLI_OUTCOME" == "failure" ]]; then
+            CLI_OUTPUT=$(pnpm ds:cli:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
           fi
 
           {
@@ -107,6 +126,7 @@ jobs:
           |---|---|
           | DS Main | ${MAIN_STATUS} |
           | DS Docusaurus | ${DOCUSAURUS_STATUS} |
+          | DS CLI | ${CLI_STATUS} |
 
           $(if [[ "$MAIN_OUTCOME" == "failure" ]]; then
             cat << 'MAIN_SECTION'
@@ -138,7 +158,22 @@ jobs:
           DOC_CLOSE
           fi)
 
-          $(if [[ "$MAIN_OUTCOME" == "failure" || "$DOCUSAURUS_OUTCOME" == "failure" ]]; then
+          $(if [[ "$CLI_OUTCOME" == "failure" ]]; then
+            cat << 'CLI_SECTION'
+          <details>
+          <summary>📋 DS CLI — Validation Report</summary>
+
+          \`\`\`
+          CLI_SECTION
+            echo "${CLI_OUTPUT}"
+            cat << 'CLI_CLOSE'
+          \`\`\`
+
+          </details>
+          CLI_CLOSE
+          fi)
+
+          $(if [[ "$MAIN_OUTCOME" == "failure" || "$DOCUSAURUS_OUTCOME" == "failure" || "$CLI_OUTCOME" == "failure" ]]; then
             cat << 'FIX_SECTION'
           ### 💡 How to Fix
 
@@ -146,7 +181,7 @@ jobs:
 
           - Check that the token exists in \`packages/design-system/tokens/src/\`
           - Run \`pnpm ds:tokens:build\` to regenerate \`tokens.css\` after any token change
-          - 🧪 Run locally: \`pnpm ds:main:validate:token-usage\` / \`pnpm ds:docusaurus:validate:token-usage\`
+          - 🧪 Run locally: \`pnpm ds:main:validate:token-usage\` / \`pnpm ds:docusaurus:validate:token-usage\` / \`pnpm ds:cli:validate:token-usage\`
           FIX_SECTION
           fi)
 
@@ -168,14 +203,16 @@ jobs:
       # ── Final gate ────────────────────────────────────────────────────────
 
       - name: ❌ Fail if any validation errors
-        if: steps.validate-main.outcome == 'failure' || steps.validate-docusaurus.outcome == 'failure'
+        if: steps.validate-main.outcome == 'failure' || steps.validate-docusaurus.outcome == 'failure' || steps.validate-cli.outcome == 'failure'
         run: |
           [[ "${{ steps.validate-main.outcome }}" == "failure" ]] && \
             echo "::error::DS Main token usage validation failed."
           [[ "${{ steps.validate-docusaurus.outcome }}" == "failure" ]] && \
             echo "::error::DS Docusaurus token usage validation failed."
+          [[ "${{ steps.validate-cli.outcome }}" == "failure" ]] && \
+            echo "::error::DS CLI token usage validation failed."
           exit 1
 
       - name: ✅ All token usages are valid
-        if: steps.validate-main.outcome == 'success' && steps.validate-docusaurus.outcome == 'success'
-        run: echo "::notice::All token usages are valid in DS Main and DS Docusaurus."
+        if: steps.validate-main.outcome == 'success' && steps.validate-docusaurus.outcome == 'success' && steps.validate-cli.outcome == 'success'
+        run: echo "::notice::All token usages are valid in DS Main, DS Docusaurus and DS CLI."
