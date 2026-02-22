@@ -1,9 +1,9 @@
 /**
  * Custom Transform: Detect Responsive Tokens
- * 
+ *
  * Identifies tokens with responsive variants (base, md, lg) and marks them
  * for special handling in the CSS format.
- * 
+ *
  * A token is considered "responsive" if:
  * - It has $extensions.lufa.responsive metadata
  * - It's part of a token group with multiple breakpoint variants
@@ -43,7 +43,7 @@ export const getMediaQuery = (breakpoint) => {
     xl: '(min-width: 1280px)',
     '2xl': '(min-width: 1536px)',
   };
-  
+
   return breakpoints[breakpoint] || null;
 };
 
@@ -58,7 +58,7 @@ export const responsiveTransform = {
     if (isResponsiveToken(token)) {
       const breakpoint = getTokenBreakpoint(token);
       const mediaQuery = getMediaQuery(breakpoint);
-      
+
       return {
         responsive: true,
         breakpoint,

@@ -66,7 +66,10 @@ export const Container = forwardRef(
       fluid = false,
       size,
       // Responsive visibility props
-      show, hide, hideFrom, showFrom,
+      show,
+      hide,
+      hideFrom,
+      showFrom,
       // Standard props
       children,
       className,

@@ -110,7 +110,7 @@ The format processes tokens in **4 distinct phases:**
 Tokens are sorted into three categories:
 
 ```javascript
-const staticTokens = [];           // No responsive variants, no modes
+const staticTokens = []; // No responsive variants, no modes
 const responsiveTokensByBreakpoint = {
   base: [],
   sm: [],
@@ -119,7 +119,7 @@ const responsiveTokensByBreakpoint = {
   xl: [],
   '2xl': [],
 };
-const tokensWithModes = [];        // Tokens with light/dark/HC modes
+const tokensWithModes = []; // Tokens with light/dark/HC modes
 ```
 
 **Classification Logic:**
@@ -177,14 +177,14 @@ For each breakpoint with responsive tokens, generate a media query:
 
 **Breakpoint Mappings:**
 
-| Breakpoint | Media Query             | Use Case                    |
-|------------|-------------------------|-----------------------------|
-| `base`     | *(none)*                | Mobile portrait (default)   |
-| `sm`       | `(min-width: 640px)`    | Mobile landscape            |
-| `md`       | `(min-width: 768px)`    | Tablets portrait            |
-| `lg`       | `(min-width: 1024px)`   | Tablets landscape, desktop  |
-| `xl`       | `(min-width: 1280px)`   | Large desktop               |
-| `2xl`      | `(min-width: 1536px)`   | Ultra-wide displays         |
+| Breakpoint | Media Query           | Use Case                   |
+| ---------- | --------------------- | -------------------------- |
+| `base`     | _(none)_              | Mobile portrait (default)  |
+| `sm`       | `(min-width: 640px)`  | Mobile landscape           |
+| `md`       | `(min-width: 768px)`  | Tablets portrait           |
+| `lg`       | `(min-width: 1024px)` | Tablets landscape, desktop |
+| `xl`       | `(min-width: 1280px)` | Large desktop              |
+| `2xl`      | `(min-width: 1536px)` | Ultra-wide displays        |
 
 ### **Phase 4: Generate `[data-mode]` Selectors for Theme Modes**
 
@@ -350,41 +350,46 @@ The format uses three internal helper functions:
 Resolves token values, converting references to CSS `var()` syntax.
 
 **Signature:**
+
 ```javascript
-const formatValue = (token, dictionary) => { /* ... */ }
+const formatValue = (token, dictionary) => {
+  /* ... */
+};
 ```
 
 **Purpose:**
+
 - Detects if token value is a reference (starts with `{`)
 - Converts `{primitive.spacing.16}` → `var(--lufa-primitive-spacing-16)`
 - Returns raw value if not a reference
 
 **Examples:**
 
-| Input Token Value            | Output CSS Value                         |
-|------------------------------|------------------------------------------|
-| `"16px"`                     | `16px`                                   |
-| `"{primitive.spacing.16}"`   | `var(--lufa-primitive-spacing-16)`       |
-| `"#3b82f6"`                  | `#3b82f6`                                |
-| `"{core.brand.primary}"`     | `var(--lufa-core-brand-primary)`         |
+| Input Token Value          | Output CSS Value                   |
+| -------------------------- | ---------------------------------- |
+| `"16px"`                   | `16px`                             |
+| `"{primitive.spacing.16}"` | `var(--lufa-primitive-spacing-16)` |
+| `"#3b82f6"`                | `#3b82f6`                          |
+| `"{core.brand.primary}"`   | `var(--lufa-core-brand-primary)`   |
 
 **Code Flow:**
 
 ```javascript
 // 1. Check if outputReferences is enabled
-if (outputReferences && 
-    token.original.$value && 
-    typeof token.original.$value === 'string' && 
-    token.original.$value.startsWith('{')) {
-  
+if (
+  outputReferences &&
+  token.original.$value &&
+  typeof token.original.$value === 'string' &&
+  token.original.$value.startsWith('{')
+) {
   // 2. Extract reference path
   const refPath = token.original.$value.replace(/[{}]/g, '').split('.');
   // "{primitive.spacing.16}" → ["primitive", "spacing", "16"]
-  
+
   // 3. Convert to CSS variable name
   const cssVarName = `--${prefix}-${refPath.join('-')}`;
   // ["primitive", "spacing", "16"] → "--lufa-primitive-spacing-16"
-  
+
   // 4. Return as var() reference
   return `var(${cssVarName})`;
 }
@@ -400,24 +405,28 @@ return token.value || token.original?.$value || token.$value;
 Normalizes CSS variable names for responsive tokens by removing breakpoint suffixes.
 
 **Signature:**
+
 ```javascript
-const getResponsiveCSSVarName = (token) => { /* ... */ }
+const getResponsiveCSSVarName = (token) => {
+  /* ... */
+};
 ```
 
 **Purpose:**
+
 - Removes `.base`, `.md`, `.lg` suffixes from token paths
 - Ensures all breakpoint variants share the same CSS variable name
 - Prevents false positives for tokens naturally ending with "md", "lg", etc.
 
 **Examples:**
 
-| Token Path                               | CSS Variable Name                   |
-|------------------------------------------|-------------------------------------|
-| `core.layout.page-padding.base`          | `--lufa-core-layout-page-padding`   |
-| `core.layout.page-padding.md`            | `--lufa-core-layout-page-padding`   |
-| `core.layout.page-padding.lg`            | `--lufa-core-layout-page-padding`   |
-| `core.layout.section-gap.base`           | `--lufa-core-layout-section-gap`    |
-| `primitive.spacing.md` *(not responsive)*| `--lufa-primitive-spacing-md`       |
+| Token Path                                | CSS Variable Name                 |
+| ----------------------------------------- | --------------------------------- |
+| `core.layout.page-padding.base`           | `--lufa-core-layout-page-padding` |
+| `core.layout.page-padding.md`             | `--lufa-core-layout-page-padding` |
+| `core.layout.page-padding.lg`             | `--lufa-core-layout-page-padding` |
+| `core.layout.section-gap.base`            | `--lufa-core-layout-section-gap`  |
+| `primitive.spacing.md` _(not responsive)_ | `--lufa-primitive-spacing-md`     |
 
 **Code Flow:**
 
@@ -431,9 +440,7 @@ const breakpoint = getTokenBreakpoint(token);
 // "base"
 
 // 3. Check if token is responsive AND ends with breakpoint name
-if (isResponsiveToken(token) && 
-    ['base', 'sm', 'md', 'lg', 'xl', '2xl'].includes(path[path.length - 1])) {
-  
+if (isResponsiveToken(token) && ['base', 'sm', 'md', 'lg', 'xl', '2xl'].includes(path[path.length - 1])) {
   // 4. Remove breakpoint suffix
   path.pop();
   // ["core", "layout", "page-padding"]
@@ -458,27 +465,28 @@ The function checks both `isResponsiveToken(token)` AND whether the path ends wi
 Extracts the breakpoint name from token metadata.
 
 **Signature:**
+
 ```javascript
 export const getTokenBreakpoint = (token) => {
-  const responsive = token.$extensions?.lufa?.responsive || 
-                     token.original?.$extensions?.lufa?.responsive;
+  const responsive = token.$extensions?.lufa?.responsive || token.original?.$extensions?.lufa?.responsive;
   return responsive?.breakpoint || null;
 };
 ```
 
 **Purpose:**
+
 - Reads `$extensions.lufa.responsive.breakpoint` metadata
 - Returns breakpoint name (`base`, `md`, `lg`, etc.)
 - Returns `null` if token is not responsive
 
 **Examples:**
 
-| Token Metadata                                      | Return Value |
-|-----------------------------------------------------|--------------|
-| `{ $extensions: { lufa: { responsive: { breakpoint: "base" } } } }` | `"base"` |
-| `{ $extensions: { lufa: { responsive: { breakpoint: "md" } } } }`   | `"md"`   |
-| `{ $extensions: { lufa: { responsive: { breakpoint: "lg" } } } }`   | `"lg"`   |
-| `{ }` *(no metadata)*                               | `null`       |
+| Token Metadata                                                      | Return Value |
+| ------------------------------------------------------------------- | ------------ |
+| `{ $extensions: { lufa: { responsive: { breakpoint: "base" } } } }` | `"base"`     |
+| `{ $extensions: { lufa: { responsive: { breakpoint: "md" } } } }`   | `"md"`       |
+| `{ $extensions: { lufa: { responsive: { breakpoint: "lg" } } } }`   | `"lg"`       |
+| `{ }` _(no metadata)_                                               | `null`       |
 
 ---
 
@@ -487,6 +495,7 @@ export const getTokenBreakpoint = (token) => {
 Maps breakpoint names to CSS media query strings.
 
 **Signature:**
+
 ```javascript
 export const getMediaQuery = (breakpoint) => {
   const breakpoints = {
@@ -502,19 +511,20 @@ export const getMediaQuery = (breakpoint) => {
 ```
 
 **Purpose:**
+
 - Converts breakpoint names to standard media queries
 - Returns `null` for `base` (no media query needed for mobile-first)
 
 **Examples:**
 
-| Breakpoint | Media Query              |
-|------------|--------------------------|
-| `base`     | `null` *(no query)*      |
-| `sm`       | `(min-width: 640px)`     |
-| `md`       | `(min-width: 768px)`     |
-| `lg`       | `(min-width: 1024px)`    |
-| `xl`       | `(min-width: 1280px)`    |
-| `2xl`      | `(min-width: 1536px)`    |
+| Breakpoint | Media Query           |
+| ---------- | --------------------- |
+| `base`     | `null` _(no query)_   |
+| `sm`       | `(min-width: 640px)`  |
+| `md`       | `(min-width: 768px)`  |
+| `lg`       | `(min-width: 1024px)` |
+| `xl`       | `(min-width: 1280px)` |
+| `2xl`      | `(min-width: 1536px)` |
 
 ---
 
@@ -529,6 +539,7 @@ cat dist/tokens.css | head -100
 ```
 
 **Expected:**
+
 - `:root` selector at the top
 - Static tokens first
 - Responsive base values
@@ -543,6 +554,7 @@ grep -n "@media" dist/tokens.css
 ```
 
 **Expected Output:**
+
 ```
 545:@media (min-width: 768px) {
 556:@media (min-width: 1024px) {
@@ -557,11 +569,13 @@ grep "page-padding" dist/tokens.css
 ```
 
 **Expected:**
+
 ```css
 --lufa-core-layout-page-padding: var(--lufa-primitive-spacing-16);
 ```
 
 **NOT:**
+
 ```css
 --lufa-core-layout-page-padding-base: var(--lufa-primitive-spacing-16);
 --lufa-core-layout-page-padding-md: var(--lufa-primitive-spacing-24);
@@ -576,6 +590,7 @@ grep "var(--" dist/tokens.css | head -5
 ```
 
 **Expected:**
+
 ```css
 --lufa-core-layout-page-padding: var(--lufa-primitive-spacing-16);
 --lufa-core-brand-primary: var(--lufa-primitive-color-blue-500);
@@ -590,6 +605,7 @@ grep -A 5 "\[data-mode='dark'\]" dist/tokens.css
 ```
 
 **Expected:**
+
 ```css
 [data-mode='dark'] {
   --lufa-core-neutral-background: #111827;
@@ -604,8 +620,7 @@ Load the CSS and test with browser DevTools:
 
 ```javascript
 // Check base value (mobile)
-getComputedStyle(document.documentElement)
-  .getPropertyValue('--lufa-core-layout-page-padding');
+getComputedStyle(document.documentElement).getPropertyValue('--lufa-core-layout-page-padding');
 // Expected: "16px"
 
 // Resize to tablet (768px+)
@@ -616,8 +631,7 @@ getComputedStyle(document.documentElement)
 
 // Toggle dark mode
 document.documentElement.setAttribute('data-mode', 'dark');
-getComputedStyle(document.documentElement)
-  .getPropertyValue('--lufa-core-neutral-background');
+getComputedStyle(document.documentElement).getPropertyValue('--lufa-core-neutral-background');
 // Expected: "#111827"
 ```
 
@@ -627,25 +641,25 @@ getComputedStyle(document.documentElement)
 
 ### Required Dependencies
 
-| File                                      | Purpose                                          |
-|-------------------------------------------|--------------------------------------------------|
-| `build/transforms/responsive.js`          | Provides responsive metadata (`$extensions.lufa.responsive`) |
-| `style-dictionary.config.js`              | Registers and configures the format              |
+| File                             | Purpose                                                      |
+| -------------------------------- | ------------------------------------------------------------ |
+| `build/transforms/responsive.js` | Provides responsive metadata (`$extensions.lufa.responsive`) |
+| `style-dictionary.config.js`     | Registers and configures the format                          |
 
 ### Token Source Files
 
-| Path                          | Contents                                |
-|-------------------------------|-----------------------------------------|
-| `src/primitives/`             | Base tokens (spacing, colors, etc.)     |
-| `src/core/`                   | Core tokens (responsive + mode tokens)  |
-| `src/semantic/`               | Semantic tokens (success, error, etc.)  |
-| `src/component/`              | Component-specific tokens               |
+| Path              | Contents                               |
+| ----------------- | -------------------------------------- |
+| `src/primitives/` | Base tokens (spacing, colors, etc.)    |
+| `src/core/`       | Core tokens (responsive + mode tokens) |
+| `src/semantic/`   | Semantic tokens (success, error, etc.) |
+| `src/component/`  | Component-specific tokens              |
 
 ### Related Documentation
 
 - [Style Dictionary Documentation](https://amzn.github.io/style-dictionary/)
 - [Design Tokens Format Module Spec](https://design-tokens.github.io/community-group/format/)
-- [Lufa Design System - Token Architecture](../../docs/tokens.md) *(if exists)*
+- [Lufa Design System - Token Architecture](../../docs/tokens.md) _(if exists)_
 
 ---
 
@@ -654,6 +668,7 @@ getComputedStyle(document.documentElement)
 ### Issue: Variables include breakpoint suffixes
 
 **Problem:**
+
 ```css
 --lufa-core-layout-page-padding-base: 16px;
 --lufa-core-layout-page-padding-md: 24px;
@@ -666,7 +681,7 @@ Ensure the `attribute/responsive` transform is registered and running:
 transforms: [
   // ... other transforms
   'attribute/responsive', // ✅ Must be included
-]
+];
 ```
 
 ---
@@ -674,6 +689,7 @@ transforms: [
 ### Issue: Media queries are not generated
 
 **Problem:**
+
 ```css
 :root {
   --lufa-core-layout-page-padding: 16px;
@@ -706,6 +722,7 @@ Verify that tokens have responsive metadata:
 ### Issue: Token references are not preserved
 
 **Problem:**
+
 ```css
 --lufa-core-layout-page-padding: 16px; /* ❌ Should be var(--lufa-primitive-spacing-16) */
 ```
@@ -723,7 +740,7 @@ files: [
       prefix: 'lufa',
     },
   },
-]
+];
 ```
 
 ---

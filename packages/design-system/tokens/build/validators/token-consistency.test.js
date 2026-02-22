@@ -1,6 +1,6 @@
 /**
  * Test Suite for Token Consistency Validator
- * 
+ *
  * Tests all 6 validation rules:
  * 1. Primitives cannot be themeable or mode-aware
  * 2. Modes require modeAware
@@ -8,12 +8,13 @@
  * 4. Layout tokens must be structural constants
  * 5. Tokens with modes must have all three: light, dark, high-contrast
  * 6. No typo "themable"
- * 
+ *
  * @see ADR-011: Token Architecture - Primitives as Immutable Constants
  */
 
-import { validateToken, ValidationError } from './token-consistency.js';
 import assert from 'assert';
+
+import { validateToken, ValidationError } from './token-consistency.js';
 
 // ANSI colors for terminal output
 const colors = {
