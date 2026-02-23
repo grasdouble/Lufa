@@ -8,11 +8,9 @@
           "$description": "Monospace font family for code and technical content",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "typography",
               "useCase": "Code blocks, inline code, technical identifiers, monospace data",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }

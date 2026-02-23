@@ -7,11 +7,8 @@
         "$description": "Extra small height - Compact UI elements",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "height",
-            "useCase": "tags, badges, chips",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "tags, badges, chips"
           }
         }
       },
@@ -21,11 +18,8 @@
         "$description": "Small height - Compact buttons, inputs",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "height",
-            "useCase": "small buttons, compact inputs",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "small buttons, compact inputs"
           }
         }
       },
@@ -35,11 +29,8 @@
         "$description": "Default height - Standard buttons, inputs",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "height",
-            "useCase": "default buttons, standard inputs",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "default buttons, standard inputs"
           }
         }
       },
@@ -49,11 +40,8 @@
         "$description": "Large height - Prominent buttons, touch-friendly",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "height",
-            "useCase": "large buttons, touch-friendly inputs",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "large buttons, touch-friendly inputs"
           }
         }
       },
@@ -63,11 +51,8 @@
         "$description": "Extra large height - Headers, app bars",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "height",
-            "useCase": "mobile headers, app bars",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "mobile headers, app bars"
           }
         }
       },
@@ -77,11 +62,8 @@
         "$description": "2X large height - Desktop headers",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "height",
-            "useCase": "desktop headers, navigation",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "desktop headers, navigation"
           }
         }
       },
@@ -91,11 +73,8 @@
         "$description": "3X large height - Hero elements",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "height",
-            "useCase": "hero headers, prominent sections",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "hero headers, prominent sections"
           }
         }
       },
@@ -105,11 +84,8 @@
         "$description": "Maximum height - Extra large headers",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "height",
-            "useCase": "extra large headers, mastheads",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "extra large headers, mastheads"
           }
         }
       }

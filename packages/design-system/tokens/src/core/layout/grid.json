@@ -8,11 +8,9 @@
           "$description": "Standard 12-column grid system",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "layout-grid",
               "useCase": "CSS Grid template columns, grid-based layouts",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         },
@@ -23,11 +21,9 @@
             "$description": "Tight gap between grid items (8px)",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "layout-grid",
                 "useCase": "Dense grids, compact card layouts",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -37,11 +33,9 @@
             "$description": "Default gap between grid items (16px)",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "layout-grid",
                 "useCase": "Standard grid layouts, card grids",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -51,11 +45,9 @@
             "$description": "Comfortable gap between grid items (24px)",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "layout-grid",
                 "useCase": "Spacious grids, feature sections",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -65,11 +57,9 @@
             "$description": "Spacious gap between grid items (32px)",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "layout-grid",
                 "useCase": "Wide grids, portfolio layouts",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }
@@ -82,11 +72,9 @@
               "$description": "Minimum width for grid columns in auto-fit/auto-fill layouts",
               "$extensions": {
                 "lufa": {
-                  "level": "core",
                   "category": "layout-grid",
                   "useCase": "Responsive grid templates with auto-fit, card min-width",
-                  "themeable": false,
-                  "modeAware": false
+                  "themeable": false
                 }
               }
             }

@@ -8,11 +8,9 @@
           "$description": "Thin border width for subtle borders (1px)",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui-border",
               "useCase": "Default borders, dividers, card outlines, subtle separators",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         },
@@ -22,11 +20,9 @@
           "$description": "Medium border width for emphasized borders (2px)",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui-border",
               "useCase": "Focus indicators, selected states, thick dividers, emphasized borders",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         },
@@ -36,11 +32,9 @@
           "$description": "Thick border width for very strong emphasis (4px)",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui-border",
               "useCase": "Strong focus indicators, decorative borders, high emphasis dividers",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         }

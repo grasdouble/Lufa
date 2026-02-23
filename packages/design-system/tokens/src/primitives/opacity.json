@@ -8,11 +8,8 @@
           "$description": "Opacity for disabled states (Material Design standard - 38%)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "opacity",
-              "useCase": "Disabled buttons, inputs, and controls",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Disabled buttons, inputs, and controls"
             }
           }
         },
@@ -22,11 +19,8 @@
           "$description": "Opacity for placeholder elements (50%)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "opacity",
-              "useCase": "Input placeholders, empty state illustrations",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Input placeholders, empty state illustrations"
             }
           }
         },
@@ -36,11 +30,8 @@
           "$description": "Opacity for loading states (60%)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "opacity",
-              "useCase": "Skeleton loaders, loading placeholders",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Skeleton loaders, loading placeholders"
             }
           }
         }

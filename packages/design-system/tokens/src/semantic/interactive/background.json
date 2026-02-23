@@ -8,11 +8,9 @@
           "$description": "Default background for interactive elements like buttons and inputs in their resting state",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "interactive",
               "useCase": "Button backgrounds, input backgrounds, interactive card backgrounds",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -22,11 +20,9 @@
           "$description": "Background color when hovering over interactive elements - provides visual feedback",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "interactive",
               "useCase": "Hover state for buttons, inputs, cards, list items",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -36,11 +32,9 @@
           "$description": "Background color when pressing/clicking interactive elements - provides immediate feedback",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "interactive",
               "useCase": "Active/pressed state for buttons and clickable elements",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -50,11 +44,9 @@
           "$description": "Background color for disabled interactive elements - indicates non-interactive state",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "interactive",
               "useCase": "Disabled buttons, disabled inputs, non-interactive elements",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }

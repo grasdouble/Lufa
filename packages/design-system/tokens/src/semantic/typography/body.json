@@ -8,11 +8,9 @@
           "$description": "Large body text size - for emphasized paragraphs and lead text",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "typography",
               "useCase": "Lead paragraphs, emphasized body text, introductions",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -22,11 +20,9 @@
           "$description": "Default body text size - standard for all paragraphs and content",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "typography",
               "useCase": "Body text, paragraphs, standard content",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -36,11 +32,9 @@
           "$description": "Small body text size - for secondary content and descriptions",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "typography",
               "useCase": "Secondary text, descriptions, help text",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }

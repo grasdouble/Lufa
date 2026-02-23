@@ -8,11 +8,8 @@
           "$description": "Extra small icon size - compact UI",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "icon-size",
-              "useCase": "Badges, small buttons, compact indicators",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Badges, small buttons, compact indicators"
             }
           }
         },
@@ -22,11 +19,8 @@
           "$description": "Small icon size - standard UI",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "icon-size",
-              "useCase": "Button icons, input icons, default icon size",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Button icons, input icons, default icon size"
             }
           }
         },
@@ -36,11 +30,8 @@
           "$description": "Medium icon size - emphasized UI",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "icon-size",
-              "useCase": "Large buttons, card icons, section headers",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Large buttons, card icons, section headers"
             }
           }
         },
@@ -50,11 +41,8 @@
           "$description": "Large icon size - prominent UI",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "icon-size",
-              "useCase": "Modal headers, feature cards, hero sections",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Modal headers, feature cards, hero sections"
             }
           }
         },
@@ -64,11 +52,8 @@
           "$description": "Extra large icon size - hero UI",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "icon-size",
-              "useCase": "Hero sections, landing pages, large feature displays",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Hero sections, landing pages, large feature displays"
             }
           }
         }

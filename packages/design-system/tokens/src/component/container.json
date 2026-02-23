@@ -8,11 +8,9 @@
           "$description": "Max-width for extra small screens",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "container",
               "useCase": "Extra small screen container max-width",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -22,11 +20,9 @@
           "$description": "Max-width for small screens",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "container",
               "useCase": "Small screen container max-width",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -36,11 +32,9 @@
           "$description": "Max-width for medium screens",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "container",
               "useCase": "Medium screen container max-width",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -50,11 +44,9 @@
           "$description": "Max-width for large screens",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "container",
               "useCase": "Large screen container max-width",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -64,11 +56,9 @@
           "$description": "Max-width for extra large screens",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "container",
               "useCase": "Extra large screen container max-width",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -78,11 +68,9 @@
           "$description": "Max-width for 2x extra large screens",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "container",
               "useCase": "2XL screen container max-width",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -94,11 +82,9 @@
           "$description": "Default horizontal padding for container",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "container",
               "useCase": "Container horizontal gutter padding",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }

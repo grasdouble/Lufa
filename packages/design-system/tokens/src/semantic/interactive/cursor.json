@@ -8,12 +8,10 @@
           "$description": "Default cursor for interactive elements (buttons, links, clickable items)",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "interactive",
               "subcategory": "state",
               "useCase": "All clickable/interactive elements in their default state",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         },
@@ -23,12 +21,10 @@
           "$description": "Cursor for disabled interactive elements, indicating the action is not available",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "interactive",
               "subcategory": "state",
               "useCase": "Disabled buttons, inputs, and controls",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         },
@@ -38,12 +34,10 @@
           "$description": "Cursor for elements in a loading/busy state, indicating the user should wait",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "interactive",
               "subcategory": "state",
               "useCase": "Buttons or controls processing an async action",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         }

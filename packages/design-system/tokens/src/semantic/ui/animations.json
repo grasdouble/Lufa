@@ -9,12 +9,10 @@
             "$description": "Duration for pulse animation (breathing, pulsing effects)",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Loading indicators, attention-grabbing elements, breathing effects",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -24,12 +22,10 @@
             "$description": "Timing function for pulse animation",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Smooth pulsing effects",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }
@@ -41,12 +37,10 @@
             "$description": "Duration for shimmer animation (loading skeleton, shine effects)",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Skeleton loaders, loading states, shimmer effects",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -56,12 +50,10 @@
             "$description": "Timing function for shimmer animation",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Continuous shimmer movement",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }
@@ -73,12 +65,10 @@
             "$description": "Duration for slide-in animation",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Panel slides, drawer animations, modal entrances",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -88,12 +78,10 @@
             "$description": "Timing function for slide-in animation",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "animation",
                 "useCase": "Smooth entrance animations",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }

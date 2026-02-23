@@ -8,11 +8,9 @@
           "$description": "Standard divider/separator thickness",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "shared",
               "useCase": "Divider component, horizontal rules, separators",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -22,11 +20,9 @@
           "$description": "Divider color using semantic border",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "shared",
               "useCase": "Divider component color",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -39,11 +35,9 @@
             "$description": "Extra small icon size for compact UI",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "shared",
                 "useCase": "Badges, small buttons, compact indicators",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -53,11 +47,9 @@
             "$description": "Small icon size for standard UI",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "shared",
                 "useCase": "Button icons, input icons, default icon size",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -67,11 +59,9 @@
             "$description": "Medium icon size for emphasized UI",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "shared",
                 "useCase": "Large buttons, card icons, section headers",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -81,11 +71,9 @@
             "$description": "Large icon size for prominent UI",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "shared",
                 "useCase": "Modal headers, feature cards, hero sections",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -95,11 +83,9 @@
             "$description": "Extra large icon size for hero UI",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "shared",
                 "useCase": "Hero sections, landing pages, large feature displays",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }
@@ -110,11 +96,9 @@
           "$description": "Spacing between icon and adjacent text",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "shared",
               "useCase": "Button icon-text gap, input icon spacing",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -127,12 +111,10 @@
             "$description": "Focus outline width for keyboard navigation",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "shared",
                 "useCase": "All interactive elements focus indicator",
                 "a11y": "Required for WCAG 2.1 AA keyboard navigation",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -142,11 +124,9 @@
             "$description": "Focus outline offset from element edge",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "shared",
                 "useCase": "Focus ring spacing from element",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -156,11 +136,9 @@
             "$description": "Focus outline color",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "shared",
                 "useCase": "All interactive elements focus ring",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }
@@ -174,11 +152,9 @@
             "$description": "Fast transition for subtle interactions",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "shared",
                 "useCase": "Hover states, color changes",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -188,11 +164,9 @@
             "$description": "Normal transition for standard interactions",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "shared",
                 "useCase": "Button clicks, input focus, tooltips",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }
@@ -203,11 +177,9 @@
           "$description": "Standard easing function for smooth transitions",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "shared",
               "useCase": "All component transitions",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }

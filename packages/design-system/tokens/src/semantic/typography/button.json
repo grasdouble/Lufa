@@ -7,11 +7,9 @@
         "$description": "Button text size - for button labels and CTAs",
         "$extensions": {
           "lufa": {
-            "level": "semantic",
             "category": "typography",
             "useCase": "Button text, CTA labels, action labels",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       }

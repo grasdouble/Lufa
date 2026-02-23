@@ -8,11 +8,9 @@
           "$description": "Font size for form labels and UI labels",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "typography",
               "useCase": "Form labels, button labels, navigation labels",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }

@@ -1,17 +1,18 @@
 /**
- * Token Consistency Validator
+ * Token Consistency Validator - Simplified Version
  *
- * Enforces architectural rules for token metadata:
- * - Primitives must be immutable (themeable: false, modeAware: false)
- * - Only modeAware tokens can have modes object
- * - Layout tokens must be structural constants
- * - Tokens with modes must have all three: light, dark, high-contrast
- * - Tokens cannot be both fluid AND responsive (mutually exclusive)
+ * Enforces simplified architectural rules:
  *
- * @see ADR-011: Token Architecture - Primitives as Immutable Constants
- * @see ADR-006: Responsive Spacing Architecture
- * @see ADR-008: Responsive Typography Strategy
- * @see docs/FLUID_VS_RESPONSIVE.md
+ * 1. Primitives cannot have modes (always immutable)
+ * 2. Layout tokens cannot have modes (structural constants)
+ * 3. If modes exists, must have at least 'dark' mode
+ * 4. No 'light' in modes (it's implicit = $value)
+ * 5. No 'themable' typo (deprecated)
+ * 6. No explicit 'level' (inferred from path)
+ * 7. No 'modeAware' flag (inferred from modes presence)
+ * 8. Tokens cannot be both fluid AND responsive
+ *
+ * @see ADR-013: Token Metadata Simplification
  */
 
 import { readdirSync, readFileSync, statSync } from 'fs';
@@ -38,6 +39,22 @@ class ValidationError extends Error {
     this.file = file;
     this.name = 'ValidationError';
   }
+}
+
+/**
+ * Infer token level from path
+ */
+function inferLevel(path) {
+  if (!path || path.length === 0) return null;
+  const firstSegment = path[0].toLowerCase();
+
+  if (['primitive', 'primitives'].includes(firstSegment)) return 'primitive';
+  if (['core'].includes(firstSegment)) return 'core';
+  if (['semantic'].includes(firstSegment)) return 'semantic';
+  if (['component', 'components'].includes(firstSegment)) return 'component';
+  if (['layout'].includes(firstSegment)) return 'layout';
+
+  return null;
 }
 
 /**
@@ -97,108 +114,112 @@ function validateTokens(obj, path = [], file = '', errors = []) {
  */
 function validateToken(token, path, file) {
   const extensions = token.$extensions?.lufa;
+  const tokenPath = path.join('.');
+  const level = inferLevel(path);
 
   if (!extensions) {
     // No lufa extensions - skip validation
     return;
   }
 
-  const { level, themeable, modeAware, modes, themes, fluid, responsive } = extensions;
-  const tokenPath = path.join('.');
+  const { modes, themes, fluid, responsive } = extensions;
 
-  // Rule 1: Primitives cannot be themeable or mode-aware
-  if (level === 'primitive') {
-    if (themeable === true) {
-      throw new ValidationError(
-        `Primitive token "${tokenPath}" cannot have themeable=true. Primitives are immutable constants.`,
-        tokenPath,
-        file
-      );
-    }
-
-    if (modeAware === true) {
-      throw new ValidationError(
-        `Primitive token "${tokenPath}" cannot have modeAware=true. Primitives do not vary by mode.`,
-        tokenPath,
-        file
-      );
-    }
-
-    if (modes) {
-      throw new ValidationError(
-        `Primitive token "${tokenPath}" cannot have a modes object. Mode switching happens at semantic layer.`,
-        tokenPath,
-        file
-      );
-    }
-  }
-
-  // Rule 2: Only modeAware tokens can have modes object
-  if (modes && modeAware !== true) {
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 1: Primitives CANNOT have modes (always immutable)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  if (level === 'primitive' && modes) {
     throw new ValidationError(
-      `Token "${tokenPath}" has a modes object but modeAware is not true. Set modeAware: true or remove modes.`,
+      `Primitive token "${tokenPath}" cannot have modes. Primitives are immutable constants. Mode switching happens at core/semantic layer.`,
       tokenPath,
       file
     );
   }
 
-  // Rule 3: Only themeable tokens can have themes object
-  if (themes && themeable !== true) {
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 2: Layout tokens CANNOT have modes (structural constants)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  if (level === 'layout' && modes) {
     throw new ValidationError(
-      `Token "${tokenPath}" has a themes object but themeable is not true. Set themeable: true or remove themes.`,
+      `Layout token "${tokenPath}" cannot have modes. Layout tokens are structural constants.`,
       tokenPath,
       file
     );
   }
 
-  // Rule 4: Layout tokens must be structural constants
-  if (level === 'layout') {
-    if (themeable === true) {
-      throw new ValidationError(
-        `Layout token "${tokenPath}" cannot have themeable=true. Layout tokens are structural constants.`,
-        tokenPath,
-        file
-      );
-    }
-
-    if (modeAware === true) {
-      throw new ValidationError(
-        `Layout token "${tokenPath}" cannot have modeAware=true. Layout tokens do not vary by mode.`,
-        tokenPath,
-        file
-      );
-    }
-  }
-
-  // Rule 5: Tokens with modes must have all three: light, dark, high-contrast
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 3: If modes exists, must have at least 'dark' mode
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   if (modes) {
-    const requiredModes = ['light', 'dark', 'high-contrast'];
-    const missingModes = requiredModes.filter((mode) => !(mode in modes));
-
-    if (missingModes.length > 0) {
+    if (!modes.dark) {
       throw new ValidationError(
-        `Token "${tokenPath}" is missing required modes: ${missingModes.join(', ')}. All mode-aware tokens must define light, dark, and high-contrast.`,
+        `Token "${tokenPath}" has modes but missing 'dark'. All mode-aware tokens must define at least dark mode.`,
         tokenPath,
         file
       );
     }
   }
 
-  // Rule 6: Check for old typo "themable" (should be "themeable")
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 4: No 'light' in modes (it's implicit = $value)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  if (modes?.light) {
+    throw new ValidationError(
+      `Token "${tokenPath}" has modes.light but this is redundant. Light mode is implicit (= $value). Remove modes.light.`,
+      tokenPath,
+      file
+    );
+  }
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 5: No 'themable' typo (deprecated)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   if ('themable' in extensions) {
     throw new ValidationError(
-      `Token "${tokenPath}" uses deprecated "themable" (typo). Use "themeable" instead.`,
+      `Token "${tokenPath}" uses deprecated "themable" (typo). Remove this property - it's no longer used.`,
       tokenPath,
       file
     );
   }
 
-  // Rule 7: Tokens cannot be both fluid AND responsive (mutually exclusive)
-  // @see ADR-006 (Responsive Spacing) and ADR-008 (Fluid Typography)
-  // @see docs/FLUID_VS_RESPONSIVE.md for explanation
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 6: No explicit 'level' (inferred from path)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  if ('level' in extensions) {
+    throw new ValidationError(
+      `Token "${tokenPath}" has explicit 'level' property but this is inferred from path. Remove it. Inferred level: "${level}"`,
+      tokenPath,
+      file
+    );
+  }
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 7: No 'modeAware' flag (inferred from modes presence)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  if ('modeAware' in extensions) {
+    throw new ValidationError(
+      `Token "${tokenPath}" has 'modeAware' flag but this is inferred from presence of 'modes' object. Remove it.`,
+      tokenPath,
+      file
+    );
+  }
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 8: No 'themeable' on primitives (always false)
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  if (level === 'primitive' && 'themeable' in extensions) {
+    throw new ValidationError(
+      `Primitive token "${tokenPath}" has 'themeable' property but primitives are always immutable. Remove it.`,
+      tokenPath,
+      file
+    );
+  }
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 9: Tokens cannot be both fluid AND responsive
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   if (fluid === true && responsive !== undefined) {
     throw new ValidationError(
-      `Token "${tokenPath}" cannot be both fluid (CSS clamp) AND responsive (media queries). These approaches are mutually exclusive. Use fluid for typography scaling, responsive for layout spacing. See docs/FLUID_VS_RESPONSIVE.md`,
+      `Token "${tokenPath}" cannot be both fluid (CSS clamp) AND responsive (media queries). These approaches are mutually exclusive.`,
       tokenPath,
       file
     );
@@ -209,7 +230,7 @@ function validateToken(token, path, file) {
  * Main validation function
  */
 function validateTokenFiles(srcDir) {
-  console.log(`${colors.cyan}🔍 Token Consistency Validator${colors.reset}`);
+  console.log(`${colors.cyan}🔍 Token Consistency Validator (Simplified)${colors.reset}`);
   console.log(`${colors.blue}Scanning: ${srcDir}${colors.reset}\n`);
 
   const startTime = Date.now();
@@ -272,4 +293,4 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   process.exit(exitCode);
 }
 
-export { validateTokenFiles, validateToken, ValidationError };
+export { validateTokenFiles, validateToken, ValidationError, inferLevel };

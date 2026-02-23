@@ -8,11 +8,9 @@
           "$description": "Small button padding (vertical horizontal)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Compact buttons, inline actions",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -22,11 +20,9 @@
           "$description": "Medium button padding (default size)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Standard buttons, primary actions",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -36,11 +32,9 @@
           "$description": "Large button padding (emphasized actions)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Hero CTAs, prominent actions",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -52,11 +46,9 @@
           "$description": "Small button minimum height",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Compact button height",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -66,11 +58,9 @@
           "$description": "Medium button minimum height (default)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Standard button height",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -80,11 +70,9 @@
           "$description": "Large button minimum height",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Large button height",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -96,11 +84,9 @@
           "$description": "Small button font size",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Compact button text",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -110,11 +96,9 @@
           "$description": "Medium button font size (default)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Standard button text",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -124,11 +108,9 @@
           "$description": "Large button font size",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Large button text",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -139,11 +121,9 @@
         "$description": "Button border radius for rounded corners",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "button",
             "useCase": "All button variants",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -154,11 +134,9 @@
           "$description": "Button box-shadow glow effect (default state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Buttons with glow effects in themed designs",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -168,11 +146,9 @@
           "$description": "Button box-shadow glow effect (hover state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Enhanced glow on hover",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -185,11 +161,9 @@
             "$description": "Button text-shadow glow effect (default state)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "button",
                 "useCase": "Text glow for themed buttons",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -199,11 +173,9 @@
             "$description": "Button text-shadow glow effect (hover state)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "button",
                 "useCase": "Enhanced text glow on hover",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -216,11 +188,9 @@
           "$description": "Spacing between button icon and text",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "button",
               "useCase": "Buttons with icons",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -234,12 +204,10 @@
               "$description": "Primary button background color",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "primary",
                   "useCase": "Primary action buttons",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -249,11 +217,9 @@
               "$description": "Primary button hover state background",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "primary",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -263,11 +229,9 @@
               "$description": "Primary button active/pressed state background",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "primary",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -278,11 +242,9 @@
             "$description": "Primary button text color",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "button",
                 "variant": "primary",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -295,11 +257,9 @@
               "$description": "Secondary button background color",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "secondary",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -309,11 +269,9 @@
               "$description": "Secondary button hover state background",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "secondary",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -323,11 +281,9 @@
               "$description": "Secondary button active/pressed state background",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "secondary",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -338,11 +294,9 @@
             "$description": "Secondary button text color",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "button",
                 "variant": "secondary",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -355,11 +309,9 @@
               "$description": "Destructive button background (danger actions)",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "destructive",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -369,11 +321,9 @@
               "$description": "Destructive button hover state background",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "destructive",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -384,11 +334,9 @@
             "$description": "Destructive button text color",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "button",
                 "variant": "destructive",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -401,11 +349,9 @@
               "$description": "Success button background (positive actions)",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "success",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -415,11 +361,9 @@
               "$description": "Success button hover state background",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "success",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -430,11 +374,9 @@
             "$description": "Success button text color",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "button",
                 "variant": "success",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -449,11 +391,9 @@
               "$description": "Ghost button background (transparent)",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -463,11 +403,9 @@
               "$description": "Ghost button hover state background",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -479,11 +417,9 @@
               "$description": "Ghost button text color",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -493,11 +429,9 @@
               "$description": "Ghost button hover state text color",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -511,11 +445,9 @@
               "$description": "Outline button background (transparent)",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -525,11 +457,9 @@
               "$description": "Outline button hover state background",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -541,11 +471,9 @@
               "$description": "Outline button border color",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -555,11 +483,9 @@
               "$description": "Outline button hover state border",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -571,11 +497,9 @@
               "$description": "Outline button text color",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -585,11 +509,9 @@
               "$description": "Outline button hover state text",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -604,12 +526,10 @@
             "$description": "Default button cursor — applied to the base button in all clickable states",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "button",
                 "subcategory": "state",
                 "useCase": "Button default interactive state",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }
@@ -621,12 +541,10 @@
             "$description": "Disabled button opacity",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "button",
                 "subcategory": "state",
                 "useCase": "All disabled button states",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -636,12 +554,10 @@
             "$description": "Disabled button cursor style",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "button",
                 "subcategory": "state",
                 "useCase": "Disabled button cursor",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }
@@ -653,12 +569,10 @@
             "$description": "Loading button cursor style",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "button",
                 "subcategory": "state",
                 "useCase": "Button processing an async action",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }

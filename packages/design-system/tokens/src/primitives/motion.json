@@ -8,11 +8,8 @@
           "$description": "Instant duration for immediate feedback (100ms)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "Hover feedback, toggle switches, immediate interactions",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Hover feedback, toggle switches, immediate interactions"
             }
           }
         },
@@ -22,11 +19,8 @@
           "$description": "Fast duration for quick transitions (150ms)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "Button clicks, dropdown open/close, tooltip appear",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Button clicks, dropdown open/close, tooltip appear"
             }
           }
         },
@@ -36,11 +30,8 @@
           "$description": "Normal duration for standard transitions (300ms)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "Modal open, panel slide, standard animations",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Modal open, panel slide, standard animations"
             }
           }
         },
@@ -50,11 +41,8 @@
           "$description": "Slow duration for deliberate transitions (500ms)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "Page transitions, complex animations, emphasized movement",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Page transitions, complex animations, emphasized movement"
             }
           }
         },
@@ -64,11 +52,8 @@
           "$description": "Very slow duration for continuous animations (2s)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "Pulse animations, breathing effects, shimmer loading states",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Pulse animations, breathing effects, shimmer loading states"
             }
           }
         }
@@ -80,11 +65,8 @@
           "$description": "Linear easing - constant speed (no acceleration)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "Progress bars, loading indicators, mechanical movement",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Progress bars, loading indicators, mechanical movement"
             }
           }
         },
@@ -94,11 +76,8 @@
           "$description": "Ease-in - slow start, fast end (accelerating)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "Elements leaving screen, fade out, collapse",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Elements leaving screen, fade out, collapse"
             }
           }
         },
@@ -108,11 +87,8 @@
           "$description": "Ease-out - fast start, slow end (decelerating)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "Elements entering screen, fade in, expand",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Elements entering screen, fade in, expand"
             }
           }
         },
@@ -122,11 +98,8 @@
           "$description": "Ease-in-out - slow start and end (smooth)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "Modal open/close, smooth transitions, general purpose",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Modal open/close, smooth transitions, general purpose"
             }
           }
         },
@@ -136,11 +109,8 @@
           "$description": "Standard ease - browser default easing",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "General purpose transitions, light mode defaults",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "General purpose transitions, light mode defaults"
             }
           }
         },
@@ -150,11 +120,8 @@
           "$description": "Bounce easing - overshoots and settles back (playful)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "Playful interactions, energetic themes (volcano, cyberpunk)",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Playful interactions, energetic themes (volcano, cyberpunk)"
             }
           }
         },
@@ -164,11 +131,8 @@
           "$description": "Elastic easing - slight overshoot (energetic)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "motion",
-              "useCase": "Energetic themes, dynamic interactions (volt)",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Energetic themes, dynamic interactions (volt)"
             }
           }
         }

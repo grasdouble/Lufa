@@ -5,9 +5,26 @@
  * for special handling in the CSS format.
  *
  * A token is considered "responsive" if:
- * - It has $extensions.lufa.responsive metadata
- * - It's part of a token group with multiple breakpoint variants
+ * - Its last path segment matches a known breakpoint name (base, sm, md, lg, xl, 2xl)
+ *
+ * This uses "convention over configuration" - responsive tokens are detected
+ * by their naming pattern rather than requiring explicit metadata.
  */
+
+/**
+ * Valid breakpoint names
+ */
+const VALID_BREAKPOINTS = ['base', 'sm', 'md', 'lg', 'xl', '2xl'];
+
+/**
+ * Get the last segment of a token's path
+ * @param {object} token - Style Dictionary token
+ * @returns {string} - Last path segment
+ */
+const getLastPathSegment = (token) => {
+  const path = token.path || [];
+  return path[path.length - 1] || '';
+};
 
 /**
  * Check if a token is a responsive variant
@@ -15,8 +32,8 @@
  * @returns {boolean}
  */
 export const isResponsiveToken = (token) => {
-  const responsive = token.$extensions?.lufa?.responsive || token.original?.$extensions?.lufa?.responsive;
-  return !!responsive;
+  const lastSegment = getLastPathSegment(token);
+  return VALID_BREAKPOINTS.includes(lastSegment);
 };
 
 /**
@@ -25,8 +42,10 @@ export const isResponsiveToken = (token) => {
  * @returns {string|null} - Breakpoint name (base, md, lg, etc.) or null
  */
 export const getTokenBreakpoint = (token) => {
-  const responsive = token.$extensions?.lufa?.responsive || token.original?.$extensions?.lufa?.responsive;
-  return responsive?.breakpoint || null;
+  if (!isResponsiveToken(token)) {
+    return null;
+  }
+  return getLastPathSegment(token);
 };
 
 /**

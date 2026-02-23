@@ -9,12 +9,9 @@
             "$description": "Fluid padding for hero sections (scales from 32px to 80px)",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "layout",
                 "useCase": "Hero section internal padding, banner spacing",
-                "fluid": true,
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }

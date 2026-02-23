@@ -9,11 +9,9 @@
             "$description": "Subtle emphasis divider color (light gray)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "divider",
                 "useCase": "Light structural separation, barely-there dividers",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -23,11 +21,9 @@
             "$description": "Subtle emphasis thickness",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "divider",
                 "useCase": "Hairline dividers for minimal visual separation",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -39,11 +35,9 @@
             "$description": "Default emphasis divider color (gray)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "divider",
                 "useCase": "Standard section separators",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -53,11 +47,9 @@
             "$description": "Default emphasis thickness",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "divider",
                 "useCase": "Standard divider line weight",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -69,11 +61,9 @@
             "$description": "Moderate emphasis divider color (gray)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "divider",
                 "useCase": "Mid-level section breaks, panel separators",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -83,11 +73,9 @@
             "$description": "Moderate emphasis thickness - more visible",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "divider",
                 "useCase": "More visible divider for moderate hierarchy",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -99,11 +87,9 @@
             "$description": "Strong emphasis divider color (darker gray)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "divider",
                 "useCase": "Major section breaks, header/footer borders",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -113,11 +99,9 @@
             "$description": "Strong emphasis thickness",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "divider",
                 "useCase": "Strong visual break between major sections",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -129,11 +113,9 @@
             "$description": "Bold emphasis divider color (darker gray)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "divider",
                 "useCase": "Maximum visual emphasis, page-level dividers",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -143,11 +125,9 @@
             "$description": "Bold emphasis thickness - major section breaks",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "divider",
                 "useCase": "Thickest divider for boldest hierarchy breaks",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -160,11 +140,9 @@
           "$description": "Compact spacing around divider",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "divider",
               "useCase": "Dense layouts",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -174,11 +152,9 @@
           "$description": "Default spacing around divider",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "divider",
               "useCase": "Standard layouts",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -188,11 +164,9 @@
           "$description": "Comfortable spacing around divider",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "divider",
               "useCase": "Spacious layouts",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -203,11 +177,9 @@
         "$description": "Length of each dash segment in a dashed divider",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "divider",
             "useCase": "Dashed horizontal and vertical dividers",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -217,11 +189,9 @@
         "$description": "Total step between dash starts (dash + gap) in a dashed divider",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "divider",
             "useCase": "Dashed horizontal and vertical dividers",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       }

@@ -8,11 +8,9 @@
           "$description": "Standard width for sidebar navigation (desktop)",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "layout",
               "useCase": "Side navigation width, sidebar panels",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         }

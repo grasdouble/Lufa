@@ -7,11 +7,8 @@
         "$description": "Zero spacing - reset/remove gaps",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "reset margin/padding",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "reset margin/padding"
           }
         }
       },
@@ -21,11 +18,8 @@
         "$description": "Extra tight - minimal gaps between related elements",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "icon-text gap, tight lists",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "icon-text gap, tight lists"
           }
         }
       },
@@ -35,11 +29,8 @@
         "$description": "Tight - compact layouts, inline spacing",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "button padding, inline gaps",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "button padding, inline gaps"
           }
         }
       },
@@ -49,11 +40,8 @@
         "$description": "Comfortable - default element spacing",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "form field gaps, card padding",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "form field gaps, card padding"
           }
         }
       },
@@ -63,11 +51,8 @@
         "$description": "Base spacing - standard component gaps",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "section margins, component spacing",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "section margins, component spacing"
           }
         }
       },
@@ -77,11 +62,8 @@
         "$description": "Spacious - wider gaps between sections",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "section spacing, card gaps",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "section spacing, card gaps"
           }
         }
       },
@@ -91,11 +73,8 @@
         "$description": "Ample - major section spacing",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "page sections, large card padding",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "page sections, large card padding"
           }
         }
       },
@@ -105,11 +84,8 @@
         "$description": "Extra ample - emphasized spacing",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "hero sections, large gutters",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "hero sections, large gutters"
           }
         }
       },
@@ -119,11 +95,8 @@
         "$description": "Very ample - prominent gaps",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "page headers, major separators",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "page headers, major separators"
           }
         }
       },
@@ -133,11 +106,8 @@
         "$description": "Large - large page sections",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "section separators, page breaks",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "section separators, page breaks"
           }
         }
       },
@@ -147,11 +117,8 @@
         "$description": "Extra large - major layout spacing",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "footer spacing, large hero margins",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "footer spacing, large hero margins"
           }
         }
       },
@@ -161,11 +128,8 @@
         "$description": "Maximum - largest spacing value",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "spacing",
-            "useCase": "page-level margins, hero sections",
-            "themeable": false,
-            "modeAware": false
+            "useCase": "page-level margins, hero sections"
           }
         }
       }

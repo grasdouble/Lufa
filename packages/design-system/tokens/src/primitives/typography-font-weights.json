@@ -8,11 +8,8 @@
           "$description": "Normal font weight - used for standard body text",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Body text, paragraphs, descriptions",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Body text, paragraphs, descriptions"
             }
           }
         },
@@ -22,11 +19,8 @@
           "$description": "Medium font weight - used for subtle emphasis",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Labels, navigation, light emphasis",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Labels, navigation, light emphasis"
             }
           }
         },
@@ -36,11 +30,8 @@
           "$description": "Semibold font weight - used for subtitles and strong emphasis",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Subtitles, buttons, strong emphasis",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Subtitles, buttons, strong emphasis"
             }
           }
         },
@@ -50,11 +41,8 @@
           "$description": "Bold font weight - used for headings and important elements",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Headings, critical interface elements",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Headings, critical interface elements"
             }
           }
         }

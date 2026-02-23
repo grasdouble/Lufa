@@ -8,11 +8,8 @@
           "$description": "Extra small font size - used for tiny labels, footnotes",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Secondary labels, notes, timestamps",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Secondary labels, notes, timestamps"
             }
           }
         },
@@ -22,11 +19,8 @@
           "$description": "Small font size - used for secondary text, descriptions",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Secondary text, short descriptions",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Secondary text, short descriptions"
             }
           }
         },
@@ -36,11 +30,8 @@
           "$description": "Base font size - default size for body text",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Body text, standard paragraphs",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Body text, standard paragraphs"
             }
           }
         },
@@ -50,11 +41,8 @@
           "$description": "Large font size - used for emphasized text",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Emphasized text, lead paragraphs",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Emphasized text, lead paragraphs"
             }
           }
         },
@@ -64,11 +52,8 @@
           "$description": "Extra large font size - used for subtitles",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Subtitles, level 5-6 headings",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Subtitles, level 5-6 headings"
             }
           }
         },
@@ -78,20 +63,8 @@
           "$description": "2x extra large font size - fluid scaling from mobile to desktop",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Level 4 headings",
-              "fluid": true,
-              "fluidRange": {
-                "min": "20px",
-                "max": "24px",
-                "viewport": {
-                  "min": "320px",
-                  "max": "1280px"
-                }
-              },
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Level 4 headings"
             }
           }
         },
@@ -101,20 +74,8 @@
           "$description": "3x extra large font size - fluid scaling from mobile to desktop",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Level 3 headings",
-              "fluid": true,
-              "fluidRange": {
-                "min": "24px",
-                "max": "30px",
-                "viewport": {
-                  "min": "320px",
-                  "max": "1280px"
-                }
-              },
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Level 3 headings"
             }
           }
         },
@@ -124,20 +85,8 @@
           "$description": "4x extra large font size - fluid scaling from mobile to desktop",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Level 2 headings",
-              "fluid": true,
-              "fluidRange": {
-                "min": "28px",
-                "max": "36px",
-                "viewport": {
-                  "min": "320px",
-                  "max": "1280px"
-                }
-              },
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Level 2 headings"
             }
           }
         },
@@ -147,20 +96,8 @@
           "$description": "5x extra large font size - fluid scaling from mobile to desktop",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Level 1 headings, hero titles",
-              "fluid": true,
-              "fluidRange": {
-                "min": "32px",
-                "max": "48px",
-                "viewport": {
-                  "min": "320px",
-                  "max": "1280px"
-                }
-              },
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Level 1 headings, hero titles"
             }
           }
         },
@@ -170,20 +107,8 @@
           "$description": "6x extra large font size - fluid scaling for hero headlines and featured content",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Hero headlines, featured content, large page titles",
-              "fluid": true,
-              "fluidRange": {
-                "min": "40px",
-                "max": "60px",
-                "viewport": {
-                  "min": "320px",
-                  "max": "1280px"
-                }
-              },
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Hero headlines, featured content, large page titles"
             }
           }
         },
@@ -193,20 +118,8 @@
           "$description": "7x extra large font size - fluid scaling for marketing hero sections",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Marketing hero sections, landing page headlines, large announcements",
-              "fluid": true,
-              "fluidRange": {
-                "min": "48px",
-                "max": "72px",
-                "viewport": {
-                  "min": "320px",
-                  "max": "1280px"
-                }
-              },
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Marketing hero sections, landing page headlines, large announcements"
             }
           }
         },
@@ -216,21 +129,8 @@
           "$description": "8x extra large font size - fluid scaling for display text and brand impact moments (scales from 400px+ viewport)",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
-              "useCase": "Display text, brand impact moments, decorative large text",
-              "fluid": true,
-              "fluidRange": {
-                "min": "64px",
-                "max": "96px",
-                "viewport": {
-                  "min": "320px",
-                  "max": "1280px"
-                },
-                "note": "Fluid scaling engages at 400px+ viewport. Below 400px, remains at 64px (min value). Intentional for display tier targeting larger screens."
-              },
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Display text, brand impact moments, decorative large text"
             }
           }
         }

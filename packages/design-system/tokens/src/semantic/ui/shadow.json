@@ -8,12 +8,10 @@
           "$description": "Small shadow for subtle elevation (cards, panels)",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "shadow",
               "useCase": "Light cards, badges, compact panels, subtle elevation",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -23,12 +21,10 @@
           "$description": "Medium shadow for standard elevation (default for cards)",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "shadow",
               "useCase": "Standard cards, elevated panels, default elevation",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -38,12 +34,10 @@
           "$description": "Large shadow for strong elevation (modals, popovers)",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "shadow",
               "useCase": "Modals, drawers, large popovers, emphasized elevation",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -53,12 +47,10 @@
           "$description": "Extra large shadow for maximum elevation (floating elements)",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "shadow",
               "useCase": "Floating dialogs, important overlays, maximum elevation",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }

@@ -8,12 +8,10 @@
           "$description": "Extra small layout breakpoint - mobile portrait",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "layout",
               "useCase": "Mobile-first baseline, container max-widths, responsive layouts",
               "devices": "small phones (320-639px)",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -23,12 +21,10 @@
           "$description": "Small layout breakpoint - mobile landscape, large phones",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "layout",
               "useCase": "Container max-widths, responsive grid changes",
               "devices": "large phones (640-767px)",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -38,12 +34,10 @@
           "$description": "Medium layout breakpoint - tablets portrait",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "layout",
               "useCase": "Tablet layouts, container widths",
               "devices": "tablets portrait (768-1023px)",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -53,12 +47,10 @@
           "$description": "Large layout breakpoint - tablets landscape, small desktops",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "layout",
               "useCase": "Desktop layouts, wider containers",
               "devices": "tablets landscape, small desktops (1024-1279px)",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -68,12 +60,10 @@
           "$description": "Extra large layout breakpoint - desktop",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "layout",
               "useCase": "Standard desktop layouts",
               "devices": "desktops (1280-1535px)",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -83,12 +73,10 @@
           "$description": "2X extra large layout breakpoint - large desktop, ultra-wide",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "layout",
               "useCase": "Large screen layouts, ultra-wide displays",
               "devices": "large desktops (1536px+)",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
