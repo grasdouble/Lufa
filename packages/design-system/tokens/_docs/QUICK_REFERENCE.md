@@ -423,7 +423,7 @@ The Lufa Design System uses **two approaches** for viewport adaptation:
 | **Fluid**      | CSS `clamp()` | 11 tokens | Typography (smooth scaling)   |
 | **Responsive** | Media queries | 18 tokens | Layout (discrete breakpoints) |
 
-**See [FLUID_VS_RESPONSIVE.md](./FLUID_VS_RESPONSIVE.md) for complete guide.**
+**See [ARCHITECTURE.md](./ARCHITECTURE.md#viewport-adaptation-strategy) for complete guide.**
 
 ---
 
@@ -739,7 +739,7 @@ component.button.primary.background-hover
 ### JSON (Documentation/Storybook)
 
 ```typescript
-import tokens from '@grasdouble/lufa_design-system-tokens/dist/tokens-docs.json';
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 const primaryColor = tokens.primitive.color.blue['600'];
 const defaultSpacing = tokens.primitive.spacing['16'];
@@ -758,7 +758,7 @@ const defaultSpacing = tokens.primitive.spacing['16'];
 - Use mode-aware tokens for themeable elements
 - **Use fluid tokens (clamp) for large headings**
 - **Use responsive tokens (@media) for layout spacing**
-- **Check FLUID_VS_RESPONSIVE.md when adding viewport-adaptive tokens**
+- **Check ARCHITECTURE.md#viewport-adaptation-strategy when adding viewport-adaptive tokens**
 
 ### ❌ DON'T
 
@@ -810,9 +810,6 @@ const defaultSpacing = tokens.primitive.spacing['16'];
 
 **Need more details?** Check out:
 
-- [FLUID_VS_RESPONSIVE.md](./FLUID_VS_RESPONSIVE.md) - Fluid vs Responsive architecture guide
-- [TOKEN_ARCHITECTURE.md](./TOKEN_ARCHITECTURE.md) - Complete architecture guide
-- [TOKEN_ARCHITECTURE_VISUAL.md](./TOKEN_ARCHITECTURE_VISUAL.md) - Visual hierarchy guide
-- [COLOR_SYSTEM.md](./COLOR_SYSTEM.md) - Color scales and usage
-- [SPACING_SCALE.md](./SPACING_SCALE.md) - Spacing system
-- [TYPOGRAPHY_SYSTEM.md](./TYPOGRAPHY_SYSTEM.md) - Typography hierarchy
+- [ARCHITECTURE.md](./ARCHITECTURE.md) - 4-level hierarchy, naming conventions, fluid vs responsive, build system
+- [TOKENS.md](./TOKENS.md) - Colors, typography, spacing reference tables
+- [USAGE.md](./USAGE.md) - CSS Modules pattern, anti-patterns, ESLint rules

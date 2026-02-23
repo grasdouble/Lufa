@@ -18,7 +18,7 @@
  * - Use [data-mode='light'], [data-mode='dark'], [data-mode='high-contrast'] for mode-specific tokens
  * - Combine both for mode-aware theme tokens
  *
- * Reference: packages/design-system/themes/TOKENS_CONVENTIONS.md (defined in ETR-001)
+ * Reference: packages/design-system/themes/src/_token-template.css
  * Version: 1.1.0
  * Created: 2026-02-10
  * Updated: 2026-02-10 (Fixed CSS syntax, RGB naming, complete semantic tokens)
@@ -33,7 +33,7 @@
    theme's colors. Extract RGB values from your hex colors.
    
    IMPORTANT: Use the naming pattern --lufa-{color}-rgb (NOT --lufa-rgb-{color})
-   to match the official TOKENS_CONVENTIONS.md standard from ETR-001.
+   following the --lufa-{color}-rgb naming pattern.
    
    Example: If your primary color is #B87333 (Brass)
    RGB values: R=184, G=115, B=51
@@ -158,7 +158,7 @@
    - lg: Prominent overlays, tooltips (8-16px)
    - xl: Maximum elevation, floating action buttons (12-24px)
    
-   IMPORTANT: Shadow values below match TOKENS_CONVENTIONS.md (ETR-001).
+   IMPORTANT: Shadow-xl spec: 0 12px 24px (not 0 16px 32px).
    Shadow-xl uses "0 12px 24px" per official spec, not "0 16px 32px".
    
    Mode-Aware Recommendations:
@@ -517,12 +517,12 @@
    [ ] Place all tokens inside valid CSS selectors [data-theme='your-theme']
    [ ] Copy ALL 9 opacity levels for EACH color (primary, secondary, success, error, warning, info)
    [ ] Define mode-aware shadow color for light, dark, and high-contrast modes
-   [ ] Copy shadow size tokens matching TOKENS_CONVENTIONS.md spec (xl = 0 12px 24px)
+   [ ] Copy shadow size tokens — xl spec: 0 12px 24px
    [ ] Adjust overlay opacity values for each mode (light/dark/high-contrast)
    [ ] IF cyber/neon theme: Add glow color variables and all glow token definitions
    [ ] IF traditional theme: SKIP glow tokens section entirely (they're optional)
    [ ] Test all tokens in light, dark, and high-contrast modes
-   [ ] Validate naming follows conventions in TOKENS_CONVENTIONS.md (ETR-001)
+   [ ] Validate naming follows --lufa-{color}-rgb pattern
    [ ] Run validation script: pnpm validate:template
    [ ] Document any theme-specific customizations or deviations
    
@@ -531,7 +531,7 @@
    =============================================================================
    
    1. RGB Variables First: Always define RGB variables before alpha tokens
-   2. Correct Naming: Use --lufa-{color}-rgb (matches ETR-001 TOKENS_CONVENTIONS.md)
+   2. Correct Naming: Use --lufa-{color}-rgb (e.g. --lufa-primary-rgb)
    3. Valid CSS: All tokens MUST be inside CSS selectors (never at root level)
    4. Mode Awareness: Customize shadow-color AND overlay opacity for each mode
    5. Consistency: Use standardized opacity levels - don't invent new values
@@ -701,7 +701,7 @@
    REFERENCES
    =============================================================================
    
-   - Token Conventions (ETR-001): packages/design-system/themes/TOKENS_CONVENTIONS.md
+   - Token Template: packages/design-system/themes/src/_token-template.css
    - Theme README: packages/design-system/themes/README.md
    - Validation Script: packages/design-system/themes/scripts/validate-conventions.ts
    - Template Validation: packages/design-system/themes/scripts/validate-template.ts

@@ -340,9 +340,9 @@ export default function Playground(): ReactNode {
       </div>
 
       {/* Themed content — data-theme / data-mode applied here by PlaygroundThemeSwitcher */}
-      <div ref={playgroundContentRef} className={styles.playgroundContent}>
+      <main ref={playgroundContentRef} className={styles.playgroundContent}>
         {view === 'demo' ? <DemoSite /> : <ComponentShowcase />}
-      </div>
+      </main>
     </Layout>
   );
 }

@@ -93,8 +93,8 @@ export default function PlaygroundThemeSwitcher({ containerRef }: PlaygroundThem
       <button
         className={styles.trigger}
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Switch playground theme"
-        title="Switch playground theme"
+        aria-label={`${currentThemeData.label} theme - Switch playground theme`}
+        title={`Current theme: ${currentThemeData.label}. Click to switch theme.`}
       >
         <span className={styles.icon}>{currentThemeData.icon}</span>
         <span className={styles.label}>{currentThemeData.label}</span>

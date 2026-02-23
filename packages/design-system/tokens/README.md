@@ -1,396 +1,110 @@
 [← Back to Design System Overview](../README.md)
 
-# Lufa Design System - Tokens
+# Lufa Design System — Tokens
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
+[![Style Dictionary](https://img.shields.io/badge/Style_Dictionary-5.x-FF6B35?style=flat-square)](https://styledictionary.com)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](../../LICENSE.md)
 
-> **4-Level Token Architecture Complete** - 453 tokens across primitives, core, semantic, and component levels
+Design token package for the Lufa Design System. **698 tokens** across 4 levels, generating **1025 CSS custom properties**.
 
-## 📦 Overview
-
-This package contains the **design tokens** of Lufa Design System v2.0 - a 4-level token architecture built with Style Dictionary v4.4.0 and DTCG format.
-
-**Current Status:** 453 tokens (100% complete)
-
-**Token Architecture:**
+## Architecture
 
 ```
-┌─────────────────────────────────────────────┐
-│  Level 4: Component Tokens                 │ ⬅️ 181 tokens ✅
-├─────────────────────────────────────────────┤
-│  Level 3: Semantic Tokens                  │ ⬅️ 103 tokens ✅
-├─────────────────────────────────────────────┤
-│  Level 2: Core Tokens                      │ ⬅️ 58 tokens ✅
-├─────────────────────────────────────────────┤
-│  Level 1: Primitive Tokens                 │ ⬅️ 111 tokens ✅
-└─────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────┐
+│  Level 4: COMPONENT (235)  button · card · input · …    │
+├─────────────────────────────────────────────────────────┤
+│  Level 3: SEMANTIC (175)   ui · interactive · typography│
+├─────────────────────────────────────────────────────────┤
+│  Level 2: CORE (85)        brand · layout · typography  │
+├─────────────────────────────────────────────────────────┤
+│  Level 1: PRIMITIVE (203)  color · spacing · motion · … │
+└─────────────────────────────────────────────────────────┘
 ```
 
-## 📊 Package Contents
+| Level         | Tokens  | CSS vars | Description                   |
+| ------------- | ------- | -------- | ----------------------------- |
+| **Primitive** | 203     | ~250     | Raw immutable values          |
+| **Core**      | 85      | ~180     | Global design decisions       |
+| **Semantic**  | 175     | ~290     | UI-context tokens             |
+| **Component** | 235     | ~305     | Component-specific tokens     |
+| **Total**     | **698** | **1025** | Including responsive variants |
 
-**453 tokens created** distributed across 4 levels:
-
-### Level 1: Primitive Tokens (111 tokens)
-
-| Category       | Tokens  | Description                                                           |
-| -------------- | ------- | --------------------------------------------------------------------- |
-| **Colors**     | 60      | 6 color palettes × 10 shades (gray, blue, red, green, yellow, purple) |
-| **Spacing**    | 12      | Scale from 0px to 96px (4px base)                                     |
-| **Typography** | 18      | Families (2), sizes (9), weights (4), line-heights (3)                |
-| **Shadows**    | 6       | Elevations from none to xl                                            |
-| **Radius**     | 7       | Rounding from none to full (circle)                                   |
-| **Subtotal**   | **111** | Raw, non-semantic foundational values                                 |
-
-### Level 2: Core Tokens (58 tokens)
-
-| Category       | Tokens | Description                                                    |
-| -------------- | ------ | -------------------------------------------------------------- |
-| **Brand**      | 6      | Primary/secondary colors with hover/active states              |
-| **Neutral**    | 9      | Backgrounds, surfaces, borders, text hierarchy                 |
-| **Semantic**   | 16     | Success, error, warning, info (base + subtle + border + hover) |
-| **Layout**     | 8      | Page padding, section gaps, container widths                   |
-| **Component**  | 10     | Button, input, card, modal spacing standards                   |
-| **Typography** | 9      | Font families, weights, sizes for common use cases             |
-| **Subtotal**   | **58** | Global design decisions, alias to primitives                   |
-
-### Level 3: Semantic Tokens (103 tokens)
-
-UI-context tokens for interactive states, component variants, z-index, spacing, radius, shadow, and transitions.
-
-### Level 4: Component Tokens (181 tokens)
-
-Component-specific tokens for Button, Badge, Input, Card, Modal, Tooltip, and shared tokens.
-
-### Total
-
-| Level          | Tokens  | Status            |
-| -------------- | ------- | ----------------- |
-| **Primitives** | 111     | ✅ Complete       |
-| **Core**       | 58      | ✅ Complete       |
-| **Semantic**   | 103     | ✅ Complete       |
-| **Component**  | 181     | ✅ Complete       |
-| **TOTAL**      | **453** | **100% Complete** |
-
-## 🚀 Installation
+## Installation & Setup
 
 ```bash
-# In the monorepo
-pnpm --filter @grasdouble/lufa_design-system-tokens install
-
-# Build tokens
-cd packages/design-system/tokens
+# Build tokens (in monorepo root or package dir)
 pnpm build
 ```
 
-## 📁 Package Structure
-
-```
-packages/design-system/tokens/
-├── src/
-│   └── primitives/
-│       ├── index.json                        # Main entry point
-│       ├── color/
-│       │   └── palette.json                  # 60 tokens (gray, blue, red, green, yellow, purple)
-│       ├── spacing/
-│       │   └── scale.json                    # 12 tokens (0-96px)
-│       ├── typography/
-│       │   ├── font-families.json            # 2 tokens (sans, mono)
-│       │   ├── font-sizes.json               # 9 tokens (xs-5xl)
-│       │   ├── font-weights.json             # 4 tokens (normal-bold)
-│       │   └── line-heights.json             # 3 tokens (tight, normal, relaxed)
-│       ├── shadow/
-│       │   └── elevation.json                # 6 tokens (none-xl)
-│       └── radius/
-│           └── scale.json                    # 7 tokens (none-full)
-├── dist/
-│   ├── tokens.css                            # CSS Custom Properties (103 variables)
-│   └── tokens-docs.json                      # Documentation JSON (for Storybook/docs)
-├── style-dictionary.config.js                # Style Dictionary configuration
-└── README.md                                 # This file
-```
-
-## 🎨 Token Categories
-
-### 1. Colors (60 tokens)
-
-**6 color palettes** with 9 shades each (50-900):
-
-- **Gray**: Neutrals (backgrounds, text, borders)
-- **Blue**: Information, primary
-- **Red**: Errors, alerts
-- **Green**: Success, validation
-- **Yellow**: Warnings
-- **Purple**: Accent, creativity
-
-**CSS Naming:**
-
 ```css
---lufa-primitive-color-{color}-{shade}
-/* Examples: */
---lufa-primitive-color-gray-500
---lufa-primitive-color-blue-600
---lufa-primitive-color-red-50
-```
-
-### 2. Spacing (12 tokens)
-
-**4px-based scale** for consistent spacing:
-
-```
-0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96 (px)
-```
-
-**CSS Naming:**
-
-```css
---lufa-primitive-spacing-{value}
-/* Examples: */
---lufa-primitive-spacing-0    /* 0px */
---lufa-primitive-spacing-16   /* 16px */
---lufa-primitive-spacing-64   /* 64px */
-```
-
-### 3. Typography (18 tokens)
-
-#### 3.1 Font Families (2 tokens)
-
-- `sans`: System default (0kb download)
-- `mono`: System monospace (0kb download)
-
-#### 3.2 Font Sizes (9 tokens)
-
-```
-xs: 12px, sm: 14px, base: 16px, lg: 18px, xl: 20px,
-2xl: 24px, 3xl: 30px, 4xl: 36px, 5xl: 48px
-```
-
-#### 3.3 Font Weights (4 tokens)
-
-```
-normal: 400, medium: 500, semibold: 600, bold: 700
-```
-
-#### 3.4 Line Heights (3 tokens)
-
-```
-tight: 1.25, normal: 1.5, relaxed: 1.75
-```
-
-**CSS Naming:**
-
-```css
---lufa-primitive-typography-font-family-sans
---lufa-primitive-typography-font-size-base     /* 16px */
---lufa-primitive-typography-font-weight-semibold  /* 600 */
---lufa-primitive-typography-line-height-normal /* 1.5 */
-```
-
-### 4. Shadows (6 tokens)
-
-**6 elevation levels** (none, sm, base, md, lg, xl):
-
-```css
---lufa-primitive-shadow-elevation-none    /* No shadow */
---lufa-primitive-shadow-elevation-sm      /* Elevation 1 */
---lufa-primitive-shadow-elevation-base    /* Elevation 2 */
---lufa-primitive-shadow-elevation-md      /* Elevation 3 */
---lufa-primitive-shadow-elevation-lg      /* Elevation 4 */
---lufa-primitive-shadow-elevation-xl      /* Elevation 5 */
-```
-
-**Usage Examples:**
-
-- `sm`: Light cards, badges
-- `base`: Standard cards
-- `md`: Dropdowns, popovers
-- `lg`: Modals, sidebars
-- `xl`: Floating elements, notifications
-
-### 5. Radius (7 tokens)
-
-**7 rounding levels** (none → full):
-
-```css
---lufa-primitive-radius-scale-none    /* 0px - sharp corners */
---lufa-primitive-radius-scale-sm      /* 2px */
---lufa-primitive-radius-scale-base    /* 4px - standard */
---lufa-primitive-radius-scale-md      /* 6px */
---lufa-primitive-radius-scale-lg      /* 8px */
---lufa-primitive-radius-scale-xl      /* 12px */
---lufa-primitive-radius-scale-full    /* 9999px - circle */
-```
-
-## 🛠️ Usage
-
-### In CSS (Recommended - Primary Usage)
-
-```css
-/* Import generated file */
+/* In your root CSS file */
 @import '@grasdouble/lufa_design-system-tokens/tokens.css';
-
-/* Use CSS Custom Properties */
-.my-component {
-  color: var(--lufa-primitive-color-blue-600);
-  padding: var(--lufa-primitive-spacing-16);
-  font-size: var(--lufa-primitive-typography-font-size-base);
-  font-weight: var(--lufa-primitive-typography-font-weight-semibold);
-  border-radius: var(--lufa-primitive-radius-scale-base);
-  box-shadow: var(--lufa-primitive-shadow-elevation-base);
-}
 ```
 
-### In React Components (CSS Modules Pattern)
+## Usage
 
-**✅ CORRECT - Use CSS Modules with CSS custom properties:**
-
-```typescript
-// Button.tsx
-import styles from './Button.module.css';
-
-export const Button = () => <button className={styles.button}>Click me</button>;
-```
+### CSS (primary — in CSS Modules)
 
 ```css
-/* Button.module.css */
 .button {
-  color: var(--lufa-primitive-color-blue-600); /* Themable! */
+  background-color: var(--lufa-core-brand-primary);
   padding: var(--lufa-primitive-spacing-16);
+  border-radius: var(--lufa-primitive-radius-scale-base);
+  font-size: var(--lufa-primitive-typography-font-size-base);
 }
 ```
 
-**Why this pattern?**
-
-1. 🎨 **Theming** - CSS variables can be overridden by themes
-2. 🏗️ **Architecture** - Components should only use their own CSS Modules
-3. 🔄 **Runtime flexibility** - CSS variables support dynamic theme switching
-4. ⚡ **Performance** - No JS execution needed for styling
-
-### In Documentation/Storybook (JSON)
-
-For displaying token values in Storybook stories or documentation:
+### JavaScript / TypeScript
 
 ```typescript
-// Button.stories.tsx
-import tokens from '@grasdouble/lufa_design-system-tokens/dist/tokens-docs.json';
+// Runtime access (canvas, charts, generated styles)
+import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
-export default {
-  title: 'Components/Button',
-  parameters: {
-    design: {
-      primaryColor: tokens.primitive.color.blue['600'], // "#2563eb"
-      spacing: tokens.primitive.spacing['16'], // "16px"
-    },
-  },
-};
-
-// Display token value in story description
-export const Primary = {
-  parameters: {
-    docs: {
-      description: {
-        story: `Uses primary color: ${tokens.primitive.color.blue['600']}`,
-      },
-    },
-  },
-};
+const primary = tokens.core.brand.primary; // "#2563eb"
+const spacing = tokens.primitive.spacing['16']; // "16px"
 ```
 
-## 🔨 Development
+### Naming format
 
-### Build
+```
+--lufa-{level}-{category}-{name}[-{variant}][-{state}]
+
+--lufa-primitive-color-blue-600
+--lufa-core-brand-primary
+--lufa-semantic-ui-text-primary
+--lufa-component-button-primary-background
+```
+
+> **Components must never import JSON tokens directly** — use CSS Modules with CSS variables only.  
+> See [\_docs/USAGE.md](./_docs/USAGE.md) for the full pattern and ESLint enforcement rules.
+
+## Package Exports
+
+| Export           | Path                                               | Use case               |
+| ---------------- | -------------------------------------------------- | ---------------------- |
+| Default / values | `@grasdouble/lufa_design-system-tokens/values`     | JS/TS runtime access   |
+| CSS variables    | `@grasdouble/lufa_design-system-tokens/tokens.css` | Component styling      |
+| Metadata         | `@grasdouble/lufa_design-system-tokens/metadata`   | Build scripts, tooling |
+
+## Development
 
 ```bash
-# Build tokens
-pnpm build
-
-# Build in watch mode
-pnpm build:watch
+pnpm build           # validate → clean → build
+pnpm build:watch     # watch mode
+pnpm validate:tokens # DTCG format checks
+pnpm check:size      # CSS output size guard (warn >120 KB)
+pnpm clean           # remove dist/
 ```
 
-### Validation
+## Documentation
 
-```bash
-# Validate token metadata
-pnpm validate
-```
-
-### Token Structure
-
-All tokens follow the **DTCG (Design Tokens Community Group)** format:
-
-```json
-{
-  "token-name": {
-    "$value": "...",
-    "$type": "color|dimension|fontFamily|fontWeight|number|shadow",
-    "$description": "English description",
-    "metadata": {
-      "level": "primitive",
-      "category": "color|spacing|typography|shadow|radius",
-      "useCase": "Use case description"
-      // ... other specific metadata
-    }
-  }
-}
-```
-
-## 📐 Design Principles
-
-### 1. Non-Semantic
-
-Primitive tokens are **intentionally non-semantic**:
-
-- ✅ `color-blue-500` (raw value)
-- ❌ `color-primary` (semantic - level 2+)
-
-### 2. Industry Standards
-
-Using industry-standard references:
-
-- **Colors**: Inspired by Tailwind CSS
-- **Spacing**: 4px base (Material Design standard)
-- **Typography**: Clear modular scale
-
-### 3. Accessibility
-
-Metadata includes:
-
-- WCAG contrast ratios for colors
-- Line-height recommendations (WCAG 1.5 minimum)
-- Documented use cases
-
-## 🔄 Next Steps
-
-### v2.1+ - Extended Components
-
-Additional component tokens for Forms, Feedback, Overlay, and Navigation components planned for v2.1+.
-
-See [Roadmap](../_docs/roadmap-and-status.md) for details.
-
-## 📚 Complete Documentation
-
-- **Execution Plan**: `docs/planning/phase-1-semaine-1-execution-plan.md`
-- **AGENTS.md**: Complete guide for developers and AI agents
-- **CLAUDE.md**: Quick reference for Claude Code
-
-## 🤝 Contributing
-
-To contribute to tokens:
-
-1. Modify JSON files in `src/primitives/`
-2. Follow DTCG format
-3. Include complete metadata
-4. Test build: `pnpm build`
-5. Validate: `pnpm validate`
-6. Create changeset: `pnpm changeset`
-
-## 📄 License
-
-MIT
+| File                                                    | Description                                                              |
+| ------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [\_docs/QUICK_REFERENCE.md](./_docs/QUICK_REFERENCE.md) | ⭐ Developer cheat sheet                                                 |
+| [\_docs/ARCHITECTURE.md](./_docs/ARCHITECTURE.md)       | 4-level hierarchy, naming conventions, fluid vs responsive, build system |
+| [\_docs/TOKENS.md](./_docs/TOKENS.md)                   | Colors, typography, spacing reference tables                             |
+| [\_docs/USAGE.md](./_docs/USAGE.md)                     | CSS Modules pattern, anti-patterns, ESLint rules                         |
 
 ---
 
-**Version**: 2.0.0  
-**Date**: January 2026  
-**Status**: ✅ 100% Complete (4 levels)
+**v1.1.0** · Style Dictionary v5.2.0 · DTCG format · MIT

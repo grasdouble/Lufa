@@ -30,19 +30,29 @@
 
 [data-theme='matrix'],
 [data-theme='matrix'][data-mode='light'] {
+  /* ===== RGB VARIABLE TOKENS ===== */
+  /* Extracted from hex colors for alpha token usage */
+  --lufa-primary-rgb: 0, 100, 0; /* #006400 */
+  --lufa-secondary-rgb: 34, 197, 94; /* #22c55e */
+  --lufa-success-rgb: 5, 150, 105; /* #059669 */
+  --lufa-error-rgb: 220, 38, 38; /* #dc2626 */
+  --lufa-warning-rgb: 217, 119, 6; /* #d97706 */
+  --lufa-info-rgb: 2, 132, 199; /* #0284c7 */
+
   /* Core Brand Tokens */
-  --lufa-core-brand-primary-default: #008f11;
+  --lufa-core-brand-primary-default: #006400;
   --lufa-core-brand-primary-hover: #006400;
   --lufa-core-brand-primary-active: #003b00;
   --lufa-core-brand-secondary-default: #22c55e;
   --lufa-core-brand-secondary-hover: #16a34a;
   --lufa-core-brand-secondary-active: #15803d;
+  --lufa-core-brand-accent-visited: #006633;
 
   /* Neutral Tokens - Matrix Light */
   --lufa-core-neutral-background: #e6f9e6;
   --lufa-core-neutral-surface-default: #d9f2d9;
   --lufa-core-neutral-surface-hover: #c6ecc6;
-  --lufa-core-neutral-border-default: #99e699;
+  --lufa-core-neutral-border-default: #15803d;
   --lufa-core-neutral-border-strong: #008f11;
   --lufa-core-neutral-text-primary: #003b00;
   --lufa-core-neutral-text-secondary: #006400;
@@ -66,11 +76,119 @@
   --lufa-core-semantic-info-subtle: #e0f2fe;
   --lufa-core-semantic-info-border: #7dd3fc;
   --lufa-core-semantic-info-hover: #0369a1;
+
+  /* ===== BUTTON COMPONENT TOKENS ===== */
+  /* Primary button - uses dark green background with white text (good contrast in light mode) */
+  --lufa-component-button-variant-primary-background-default: var(--lufa-core-brand-primary-default);
+  --lufa-component-button-variant-primary-background-hover: var(--lufa-core-brand-primary-hover);
+  --lufa-component-button-variant-primary-background-active: var(--lufa-core-brand-primary-active);
+  --lufa-component-button-variant-primary-text: #ffffff; /* White text on dark green = good contrast */
+
+  /* ===== ALPHA TOKENS ===== */
+  /* Primary alpha tokens (9 levels) */
+  --lufa-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
+  --lufa-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
+  --lufa-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
+  --lufa-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
+  --lufa-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
+  --lufa-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
+  --lufa-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
+  --lufa-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
+  --lufa-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
+
+  /* Secondary alpha tokens (9 levels) */
+  --lufa-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
+  --lufa-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
+  --lufa-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
+  --lufa-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
+  --lufa-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
+  --lufa-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
+  --lufa-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
+  --lufa-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
+  --lufa-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
+
+  /* Success alpha tokens (9 levels) */
+  --lufa-alpha-success-3: rgba(var(--lufa-success-rgb), 0.03);
+  --lufa-alpha-success-5: rgba(var(--lufa-success-rgb), 0.05);
+  --lufa-alpha-success-8: rgba(var(--lufa-success-rgb), 0.08);
+  --lufa-alpha-success-10: rgba(var(--lufa-success-rgb), 0.1);
+  --lufa-alpha-success-15: rgba(var(--lufa-success-rgb), 0.15);
+  --lufa-alpha-success-20: rgba(var(--lufa-success-rgb), 0.2);
+  --lufa-alpha-success-30: rgba(var(--lufa-success-rgb), 0.3);
+  --lufa-alpha-success-40: rgba(var(--lufa-success-rgb), 0.4);
+  --lufa-alpha-success-50: rgba(var(--lufa-success-rgb), 0.5);
+
+  /* Error alpha tokens (9 levels) */
+  --lufa-alpha-error-3: rgba(var(--lufa-error-rgb), 0.03);
+  --lufa-alpha-error-5: rgba(var(--lufa-error-rgb), 0.05);
+  --lufa-alpha-error-8: rgba(var(--lufa-error-rgb), 0.08);
+  --lufa-alpha-error-10: rgba(var(--lufa-error-rgb), 0.1);
+  --lufa-alpha-error-15: rgba(var(--lufa-error-rgb), 0.15);
+  --lufa-alpha-error-20: rgba(var(--lufa-error-rgb), 0.2);
+  --lufa-alpha-error-30: rgba(var(--lufa-error-rgb), 0.3);
+  --lufa-alpha-error-40: rgba(var(--lufa-error-rgb), 0.4);
+  --lufa-alpha-error-50: rgba(var(--lufa-error-rgb), 0.5);
+
+  /* Warning alpha tokens (9 levels) */
+  --lufa-alpha-warning-3: rgba(var(--lufa-warning-rgb), 0.03);
+  --lufa-alpha-warning-5: rgba(var(--lufa-warning-rgb), 0.05);
+  --lufa-alpha-warning-8: rgba(var(--lufa-warning-rgb), 0.08);
+  --lufa-alpha-warning-10: rgba(var(--lufa-warning-rgb), 0.1);
+  --lufa-alpha-warning-15: rgba(var(--lufa-warning-rgb), 0.15);
+  --lufa-alpha-warning-20: rgba(var(--lufa-warning-rgb), 0.2);
+  --lufa-alpha-warning-30: rgba(var(--lufa-warning-rgb), 0.3);
+  --lufa-alpha-warning-40: rgba(var(--lufa-warning-rgb), 0.4);
+  --lufa-alpha-warning-50: rgba(var(--lufa-warning-rgb), 0.5);
+
+  /* Info alpha tokens (9 levels) */
+  --lufa-alpha-info-3: rgba(var(--lufa-info-rgb), 0.03);
+  --lufa-alpha-info-5: rgba(var(--lufa-info-rgb), 0.05);
+  --lufa-alpha-info-8: rgba(var(--lufa-info-rgb), 0.08);
+  --lufa-alpha-info-10: rgba(var(--lufa-info-rgb), 0.1);
+  --lufa-alpha-info-15: rgba(var(--lufa-info-rgb), 0.15);
+  --lufa-alpha-info-20: rgba(var(--lufa-info-rgb), 0.2);
+  --lufa-alpha-info-30: rgba(var(--lufa-info-rgb), 0.3);
+  --lufa-alpha-info-40: rgba(var(--lufa-info-rgb), 0.4);
+  --lufa-alpha-info-50: rgba(var(--lufa-info-rgb), 0.5);
+
+  /* ===== SHADOW TOKENS ===== */
+  --lufa-shadow-color: rgba(0, 0, 0, 0.1); /* Light mode shadow */
+
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+
+  /* ===== OVERLAY TOKENS ===== */
+  /* Light overlays - for brightening on dark surfaces */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
+
+  /* Dark overlays - for dimming on light surfaces */
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.05);
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.1);
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.3);
+
+  /* Backdrop overlays - for modal backgrounds */
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.3);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.5);
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.7);
 }
 
 /* ==================== DARK MODE ==================== */
 
 [data-theme='matrix'][data-mode='dark'] {
+  /* ===== RGB VARIABLE TOKENS ===== */
+  /* Extracted from hex colors for alpha token usage */
+  --lufa-primary-rgb: 0, 255, 65; /* #00ff41 */
+  --lufa-secondary-rgb: 0, 143, 17; /* #008f11 */
+  --lufa-success-rgb: 0, 255, 65; /* #00ff41 */
+  --lufa-error-rgb: 255, 0, 0; /* #ff0000 */
+  --lufa-warning-rgb: 255, 255, 0; /* #ffff00 */
+  --lufa-info-rgb: 0, 255, 255; /* #00ffff */
+
   /* Core Brand Tokens - Brighter for dark backgrounds */
   --lufa-core-brand-primary-default: #00ff41;
   --lufa-core-brand-primary-hover: #39ff14;
@@ -78,16 +196,17 @@
   --lufa-core-brand-secondary-default: #008f11;
   --lufa-core-brand-secondary-hover: #00ff41;
   --lufa-core-brand-secondary-active: #003b00;
+  --lufa-core-brand-accent-visited: #33ff66;
 
   /* Neutral Tokens - Matrix Dark (The Real Experience) */
   --lufa-core-neutral-background: #0d0208;
   --lufa-core-neutral-surface-default: #001100;
   --lufa-core-neutral-surface-hover: #002200;
-  --lufa-core-neutral-border-default: #003b00;
+  --lufa-core-neutral-border-default: #007800;
   --lufa-core-neutral-border-strong: #008f11;
   --lufa-core-neutral-text-primary: #00ff41;
   --lufa-core-neutral-text-secondary: #008f11;
-  --lufa-core-neutral-text-tertiary: #003b00;
+  --lufa-core-neutral-text-tertiary: #007800;
   --lufa-core-neutral-text-disabled: #002200;
 
   /* Semantic Tokens - Matrix Dark (Neon variants) */
@@ -104,14 +223,78 @@
   --lufa-core-semantic-warning-border: #808000;
   --lufa-core-semantic-warning-hover: #ffff33;
   --lufa-core-semantic-info-default: #00ffff;
-  --lufa-core-semantic-info-subtle: #002020;
-  --lufa-core-semantic-info-border: #008080;
-  --lufa-core-semantic-info-hover: #33ffff;
+  --lufa-core-semantic-info-subtle: #003030;
+  --lufa-core-semantic-info-border: #00a0a0;
+  --lufa-core-semantic-info-hover: #66ffff;
+
+  /* ===== BUTTON COMPONENT TOKENS ===== */
+  /* Primary button - uses neon green background with BLACK text for maximum contrast */
+  --lufa-component-button-variant-primary-background-default: var(--lufa-core-brand-primary-default); /* #00ff41 */
+  --lufa-component-button-variant-primary-background-hover: var(--lufa-core-brand-primary-hover); /* #39ff14 */
+  --lufa-component-button-variant-primary-background-active: var(--lufa-core-brand-primary-active); /* #00cc33 */
+  --lufa-component-button-variant-primary-text: #000000; /* BLACK text on neon green = maximum contrast for accessibility */
+
+  /* ===== SHADOW TOKENS ===== */
+  /* Dark mode shadow with green tint for Matrix aesthetic */
+  --lufa-shadow-color: rgba(0, 100, 0, 0.5);
+
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+
+  /* ===== OVERLAY TOKENS ===== */
+  /* Light overlays - for brightening on dark surfaces */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
+
+  /* Dark overlays - higher opacity in dark mode */
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.1);
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.2);
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.4);
+
+  /* Backdrop overlays - stronger for dark mode */
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.5);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.7);
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.9);
+
+  /* ===== GLOW TOKENS (CRITICAL FOR MATRIX THEME) ===== */
+  /* Glow color variables - monochrome neon green */
+  --lufa-glow-color: rgba(0, 255, 65, 0.4); /* Neon green like Matrix code */
+  --lufa-glow-color-secondary: rgba(0, 255, 65, 0.2); /* Same green, lower opacity */
+
+  /* Box glow tokens (4 intensity levels) */
+  --lufa-glow-box-subtle: 0 0 10px var(--lufa-glow-color), 0 0 20px var(--lufa-glow-color-secondary);
+  --lufa-glow-box: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-strong: 0 0 30px var(--lufa-glow-color), 0 0 50px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-intense: 0 0 40px var(--lufa-glow-color), 0 0 60px var(--lufa-glow-color-secondary);
+
+  /* Text glow tokens (4 intensity levels) - CRITICAL for Matrix aesthetic */
+  --lufa-glow-text-subtle: 0 0 5px var(--lufa-glow-color);
+  --lufa-glow-text: 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-text-strong: 0 0 15px var(--lufa-glow-color), 0 0 25px var(--lufa-glow-color-secondary);
+  --lufa-glow-text-intense: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+
+  /* Inset glow tokens (3 intensity levels) */
+  --lufa-glow-inset-subtle: inset 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-inset: inset 0 0 20px var(--lufa-glow-color);
+  --lufa-glow-inset-strong: inset 0 0 30px var(--lufa-glow-color);
 }
 
 /* ==================== HIGH CONTRAST MODE ==================== */
 
 [data-theme='matrix'][data-mode='high-contrast'] {
+  /* ===== RGB VARIABLE TOKENS ===== */
+  /* Extracted from hex colors for alpha token usage */
+  --lufa-primary-rgb: 0, 255, 65; /* #00ff41 */
+  --lufa-secondary-rgb: 0, 255, 0; /* #00ff00 */
+  --lufa-success-rgb: 0, 255, 65; /* #00ff41 */
+  --lufa-error-rgb: 255, 0, 0; /* #ff0000 */
+  --lufa-warning-rgb: 255, 255, 0; /* #ffff00 */
+  --lufa-info-rgb: 0, 255, 255; /* #00ffff */
+
   /* Use matrix neon green for maximum contrast */
   --lufa-core-brand-primary-default: #00ff41;
   --lufa-core-brand-primary-hover: #39ff14;
@@ -119,6 +302,7 @@
   --lufa-core-brand-secondary-default: #00ff00;
   --lufa-core-brand-secondary-hover: #33ff33;
   --lufa-core-brand-secondary-active: #00cc00;
+  --lufa-core-brand-accent-visited: #00ff00;
 
   /* Neutral Tokens - Maximum Contrast */
   --lufa-core-neutral-background: #000000;
@@ -130,4 +314,119 @@
   --lufa-core-neutral-text-secondary: #00ff41;
   --lufa-core-neutral-text-tertiary: #008f11;
   --lufa-core-neutral-text-disabled: #003b00;
+
+  /* ===== ALPHA TOKENS ===== */
+  /* Primary alpha tokens (9 levels) */
+  --lufa-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
+  --lufa-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
+  --lufa-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
+  --lufa-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
+  --lufa-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
+  --lufa-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
+  --lufa-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
+  --lufa-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
+  --lufa-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
+
+  /* Secondary alpha tokens (9 levels) */
+  --lufa-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
+  --lufa-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
+  --lufa-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
+  --lufa-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
+  --lufa-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
+  --lufa-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
+  --lufa-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
+  --lufa-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
+  --lufa-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
+
+  /* Success alpha tokens (9 levels) */
+  --lufa-alpha-success-3: rgba(var(--lufa-success-rgb), 0.03);
+  --lufa-alpha-success-5: rgba(var(--lufa-success-rgb), 0.05);
+  --lufa-alpha-success-8: rgba(var(--lufa-success-rgb), 0.08);
+  --lufa-alpha-success-10: rgba(var(--lufa-success-rgb), 0.1);
+  --lufa-alpha-success-15: rgba(var(--lufa-success-rgb), 0.15);
+  --lufa-alpha-success-20: rgba(var(--lufa-success-rgb), 0.2);
+  --lufa-alpha-success-30: rgba(var(--lufa-success-rgb), 0.3);
+  --lufa-alpha-success-40: rgba(var(--lufa-success-rgb), 0.4);
+  --lufa-alpha-success-50: rgba(var(--lufa-success-rgb), 0.5);
+
+  /* Error alpha tokens (9 levels) */
+  --lufa-alpha-error-3: rgba(var(--lufa-error-rgb), 0.03);
+  --lufa-alpha-error-5: rgba(var(--lufa-error-rgb), 0.05);
+  --lufa-alpha-error-8: rgba(var(--lufa-error-rgb), 0.08);
+  --lufa-alpha-error-10: rgba(var(--lufa-error-rgb), 0.1);
+  --lufa-alpha-error-15: rgba(var(--lufa-error-rgb), 0.15);
+  --lufa-alpha-error-20: rgba(var(--lufa-error-rgb), 0.2);
+  --lufa-alpha-error-30: rgba(var(--lufa-error-rgb), 0.3);
+  --lufa-alpha-error-40: rgba(var(--lufa-error-rgb), 0.4);
+  --lufa-alpha-error-50: rgba(var(--lufa-error-rgb), 0.5);
+
+  /* Warning alpha tokens (9 levels) */
+  --lufa-alpha-warning-3: rgba(var(--lufa-warning-rgb), 0.03);
+  --lufa-alpha-warning-5: rgba(var(--lufa-warning-rgb), 0.05);
+  --lufa-alpha-warning-8: rgba(var(--lufa-warning-rgb), 0.08);
+  --lufa-alpha-warning-10: rgba(var(--lufa-warning-rgb), 0.1);
+  --lufa-alpha-warning-15: rgba(var(--lufa-warning-rgb), 0.15);
+  --lufa-alpha-warning-20: rgba(var(--lufa-warning-rgb), 0.2);
+  --lufa-alpha-warning-30: rgba(var(--lufa-warning-rgb), 0.3);
+  --lufa-alpha-warning-40: rgba(var(--lufa-warning-rgb), 0.4);
+  --lufa-alpha-warning-50: rgba(var(--lufa-warning-rgb), 0.5);
+
+  /* Info alpha tokens (9 levels) */
+  --lufa-alpha-info-3: rgba(var(--lufa-info-rgb), 0.03);
+  --lufa-alpha-info-5: rgba(var(--lufa-info-rgb), 0.05);
+  --lufa-alpha-info-8: rgba(var(--lufa-info-rgb), 0.08);
+  --lufa-alpha-info-10: rgba(var(--lufa-info-rgb), 0.1);
+  --lufa-alpha-info-15: rgba(var(--lufa-info-rgb), 0.15);
+  --lufa-alpha-info-20: rgba(var(--lufa-info-rgb), 0.2);
+  --lufa-alpha-info-30: rgba(var(--lufa-info-rgb), 0.3);
+  --lufa-alpha-info-40: rgba(var(--lufa-info-rgb), 0.4);
+  --lufa-alpha-info-50: rgba(var(--lufa-info-rgb), 0.5);
+
+  /* ===== SHADOW TOKENS ===== */
+  /* High contrast shadow for maximum separation */
+  --lufa-shadow-color: rgba(0, 0, 0, 0.8);
+
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+
+  /* ===== OVERLAY TOKENS ===== */
+  /* Light overlays */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.2);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.3);
+
+  /* Dark overlays - high contrast needs strong opacity */
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.2);
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.4);
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.6);
+
+  /* Backdrop overlays - very strong for accessibility */
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.6);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.8);
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.95);
+
+  /* ===== GLOW TOKENS (Strong intensity for high contrast) ===== */
+  /* Glow color variables - strong neon green for maximum visibility */
+  --lufa-glow-color: rgba(0, 255, 65, 0.5); /* Higher opacity for high contrast */
+  --lufa-glow-color-secondary: rgba(0, 255, 65, 0.3); /* Same green, lower opacity */
+
+  /* Box glow tokens (4 intensity levels) */
+  --lufa-glow-box-subtle: 0 0 10px var(--lufa-glow-color), 0 0 20px var(--lufa-glow-color-secondary);
+  --lufa-glow-box: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-strong: 0 0 30px var(--lufa-glow-color), 0 0 50px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-intense: 0 0 40px var(--lufa-glow-color), 0 0 60px var(--lufa-glow-color-secondary);
+
+  /* Text glow tokens (4 intensity levels) */
+  --lufa-glow-text-subtle: 0 0 5px var(--lufa-glow-color);
+  --lufa-glow-text: 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-text-strong: 0 0 15px var(--lufa-glow-color), 0 0 25px var(--lufa-glow-color-secondary);
+  --lufa-glow-text-intense: 0 0 20px var(--lufa-glow-color), 0 0 40px var(--lufa-glow-color-secondary);
+
+  /* Inset glow tokens (3 intensity levels) */
+  --lufa-glow-inset-subtle: inset 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-inset: inset 0 0 20px var(--lufa-glow-color);
+  --lufa-glow-inset-strong: inset 0 0 30px var(--lufa-glow-color);
 }
