@@ -122,7 +122,7 @@ function validateToken(token, path, file) {
     return;
   }
 
-  const { modes, themes, fluid, responsive } = extensions;
+  const { modes, fluid, responsive } = extensions;
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // RULE 1: Primitives CANNOT have modes (always immutable)

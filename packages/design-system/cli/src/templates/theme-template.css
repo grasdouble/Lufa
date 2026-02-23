@@ -234,9 +234,15 @@
   --lufa-core-brand-secondary-active: var(--lufa-primitive-color-purple-700);
 
   /* --- Core: Layout Spacing --- */
-  --lufa-core-layout-page-padding: var(--lufa-primitive-spacing-24);
-  --lufa-core-layout-section-gap: var(--lufa-primitive-spacing-64);
-  --lufa-core-layout-header-height: var(--lufa-primitive-spacing-64);
+  --lufa-core-layout-page-padding-base: var(--lufa-primitive-spacing-16);
+  --lufa-core-layout-page-padding-md: var(--lufa-primitive-spacing-24);
+  --lufa-core-layout-page-padding-lg: var(--lufa-primitive-spacing-32);
+  --lufa-core-layout-section-gap-base: var(--lufa-primitive-spacing-48);
+  --lufa-core-layout-section-gap-md: var(--lufa-primitive-spacing-64);
+  --lufa-core-layout-section-gap-lg: var(--lufa-primitive-spacing-80);
+  --lufa-core-layout-header-height-base: var(--lufa-primitive-height-56);
+  --lufa-core-layout-header-height-md: var(--lufa-primitive-height-64);
+  --lufa-core-layout-header-height-lg: var(--lufa-primitive-height-64);
 
   /* --- Core: Neutral Colors --- */
   --lufa-core-neutral-background: var(--lufa-primitive-color-gray-50);
