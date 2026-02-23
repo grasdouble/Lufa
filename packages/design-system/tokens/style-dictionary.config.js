@@ -1,25 +1,17 @@
 import StyleDictionary from 'style-dictionary';
 
-import { cssWithMediaQueries } from './build/formats/css-with-media-queries.js';
 import wcagPreprocessor from './build/preprocessors/add-wcag-metadata.js';
-import { responsiveTransform } from './build/transforms/responsive.js';
 import { shadowCssShorthandCustom } from './build/transforms/shadow-css-shorthand-custom.js';
 import { sizeRemFluid } from './build/transforms/size-rem-fluid.js';
 
 // Register WCAG preprocessor
 StyleDictionary.registerPreprocessor(wcagPreprocessor);
 
-// Register custom transform for responsive tokens
-StyleDictionary.registerTransform(responsiveTransform);
-
 // Register custom transform for size/rem that handles fluid clamp values
 StyleDictionary.registerTransform(sizeRemFluid);
 
 // Register custom shadow shorthand transform (replaces built-in to avoid size/rem warnings)
 StyleDictionary.registerTransform(shadowCssShorthandCustom);
-
-// Register custom format for CSS with media queries
-StyleDictionary.registerFormat(cssWithMediaQueries);
 
 /**
  * Custom format: VSCode extension map format
@@ -242,7 +234,6 @@ export default {
       transforms: [
         // 1. ATTRIBUTE TRANSFORMS (add metadata)
         'attribute/cti',
-        'attribute/responsive', // Custom: responsive breakpoint metadata
 
         // 2. NAME TRANSFORMS
         'name/kebab',
@@ -266,7 +257,7 @@ export default {
       files: [
         {
           destination: 'tokens.css',
-          format: 'css/variables-with-media-queries', // Use custom format with media queries
+          format: 'css/variables-with-modes', // Use modes format (light/dark/high-contrast) without media queries
           options: {
             outputReferences: true, // Preserves 4-level token cascade
             prefix: 'lufa',

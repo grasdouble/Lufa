@@ -1,7 +1,7 @@
 # ADR-013: Token Metadata Simplification
 
 **Status:** Implemented  
-**Date:** 2026-02-23  
+**Date:** 2026-02-24 (Updated)  
 **Deciders:** Architecture Team  
 **Context:** Token System Optimization - Architecture Cleanup
 
@@ -265,80 +265,7 @@ Contrast ratios are derived from color hex values (single source of truth).
 
 ---
 
-### Principle 6: Infer Responsive Tokens from Naming Convention
-
-**Responsive tokens are detected by their path structure, not explicit metadata**
-
-If a token's path ends with a valid breakpoint name (`base`, `sm`, `md`, `lg`, `xl`, `2xl`), it's automatically treated as responsive.
-
-```json
-// ❌ BEFORE (redundant metadata)
-{
-  "core": {
-    "layout": {
-      "header": {
-        "height": {
-          "md": {
-            "$value": "{primitive.height.64}",
-            "$extensions": {
-              "lufa": {
-                "responsive": {
-                  "breakpoint": "md",      // Duplicates path segment
-                  "applyAt": "768px"        // Hardcoded in transform anyway
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-// ✅ AFTER (convention-based detection)
-{
-  "core": {
-    "layout": {
-      "header": {
-        "height": {
-          "md": {
-            "$value": "{primitive.height.64}"
-            // Path ending in "md" → automatically responsive
-            // Breakpoint = "md", media query = "(min-width: 768px)"
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-**Detection logic** (`build/transforms/responsive.js`):
-
-```javascript
-const VALID_BREAKPOINTS = ['base', 'sm', 'md', 'lg', 'xl', '2xl'];
-
-export const isResponsiveToken = (token) => {
-  const lastSegment = token.path[token.path.length - 1];
-  return VALID_BREAKPOINTS.includes(lastSegment);
-};
-
-export const getTokenBreakpoint = (token) => {
-  return token.path[token.path.length - 1]; // Last path segment
-};
-```
-
-**Benefits:**
-
-- ✅ Zero redundant metadata (15 responsive objects removed)
-- ✅ Self-documenting (token name indicates breakpoint)
-- ✅ Enforces naming convention (consistency)
-- ✅ Single source of truth (path structure)
-- ✅ Same CSS output (media queries unchanged)
-
----
-
-### Principle 7: Detect Fluid Tokens from CSS Value
+### Principle 6: Detect Fluid Tokens from CSS Value
 
 **Fluid tokens are identified by the presence of `clamp()` in their value**
 
@@ -784,7 +711,6 @@ npm run test             # Ensure no regressions
 | Primitives (~500 tokens)    | 4 properties/token | 0-1 properties/token | ~75%      |
 | Core/Semantic (~150 tokens) | 5 properties/token | 1-2 properties/token | ~60%      |
 | Component (~100 tokens)     | 4 properties/token | 0-1 properties/token | ~75%      |
-| Layout responsive (15)      | 3 properties       | 0 properties         | ~100%     |
 | Fluid tokens (11)           | 2-3 properties     | 0 properties         | ~100%     |
 
 **Total metadata size:** ~45% reduction
@@ -798,9 +724,8 @@ npm run test             # Ensure no regressions
 | `level`               | 631      | 74     | ✅ Removed   |
 | `modes.light`         | 43       | 12     | ✅ Removed   |
 | `wcagAALarge/wcagAAA` | 120      | 1      | ✅ Automated |
-| `responsive`          | 15       | 5      | ✅ Removed   |
 | `fluid`/`fluidRange`  | 18       | 5      | ✅ Removed   |
-| **Total**             | **1636** | **74** | ✅ Complete  |
+| **Total**             | **1621** | **74** | ✅ Complete  |
 
 ### Build Performance
 
