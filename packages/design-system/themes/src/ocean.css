@@ -287,4 +287,25 @@
   --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.6);
   --lufa-overlay-backdrop: rgba(0, 0, 0, 0.8);
   --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.95);
+
+  /* Semantic Tokens - High Visibility for Accessibility */
+  --lufa-core-semantic-success-default: #00ff7f; /* High contrast success */
+  --lufa-core-semantic-success-subtle: #000000; /* Pure black background */
+  --lufa-core-semantic-success-border: #00ff7f; /* Matching border for max contrast */
+  --lufa-core-semantic-success-hover: #7fffd4; /* Brighter success */
+
+  --lufa-core-semantic-error-default: #ff1744; /* High contrast error */
+  --lufa-core-semantic-error-subtle: #000000; /* Pure black background */
+  --lufa-core-semantic-error-border: #ff1744; /* Matching border for max contrast */
+  --lufa-core-semantic-error-hover: #ff5252; /* Brighter error */
+
+  --lufa-core-semantic-warning-default: #ffd700; /* High contrast warning */
+  --lufa-core-semantic-warning-subtle: #000000; /* Pure black background */
+  --lufa-core-semantic-warning-border: #ffd700; /* Matching border for max contrast */
+  --lufa-core-semantic-warning-hover: #ffed4e; /* Brighter warning */
+
+  --lufa-core-semantic-info-default: #00bfff; /* High contrast info */
+  --lufa-core-semantic-info-subtle: #000000; /* Pure black background */
+  --lufa-core-semantic-info-border: #00bfff; /* Matching border for max contrast */
+  --lufa-core-semantic-info-hover: #87ceeb; /* Brighter info */
 }
