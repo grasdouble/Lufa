@@ -52,6 +52,22 @@
               "themeable": true
             }
           }
+        },
+        "on": {
+          "background": {
+            "$value": "{primitive.color.hc.white}",
+            "$type": "color",
+            "$description": "Text color to use on primary brand background. Ensures WCAG AA contrast (4.5:1+) against primary brand color.",
+            "$extensions": {
+              "lufa": {
+                "category": "brand",
+                "role": "text-on-brand",
+                "useCase": "Text and icons on primary brand colored backgrounds (buttons, badges, banners)",
+                "a11y": "Must maintain 4.5:1 contrast ratio with brand primary color",
+                "themeable": true
+              }
+            }
+          }
         }
       },
       "secondary": {
@@ -103,6 +119,22 @@
                 "high-contrast": "{primitive.color.purple.800}"
               },
               "themeable": true
+            }
+          }
+        },
+        "on": {
+          "background": {
+            "$value": "{primitive.color.hc.white}",
+            "$type": "color",
+            "$description": "Text color to use on secondary brand background. Ensures WCAG AA contrast (4.5:1+) against secondary brand color.",
+            "$extensions": {
+              "lufa": {
+                "category": "brand",
+                "role": "text-on-brand",
+                "useCase": "Text and icons on secondary brand colored backgrounds (buttons, badges, highlights)",
+                "a11y": "Must maintain 4.5:1 contrast ratio with brand secondary color",
+                "themeable": true
+              }
             }
           }
         }

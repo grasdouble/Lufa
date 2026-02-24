@@ -19,6 +19,8 @@
   --lufa-core-brand-secondary-hover: #854d0e;
   --lufa-core-brand-secondary-active: #713f12;
   --lufa-core-brand-accent-visited: #7c3aed;
+  --lufa-core-brand-primary-on-background: #ffffff;
+  --lufa-core-brand-secondary-on-background: #ffffff;
 
   /* Neutral Tokens - Coffee Light (Parchment) */
   --lufa-core-neutral-background: #faf7f2;
@@ -164,6 +166,8 @@
   --lufa-core-brand-secondary-hover: #eab308;
   --lufa-core-brand-secondary-active: #a16207;
   --lufa-core-brand-accent-visited: #a78bfa;
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   /* Neutral Tokens - Coffee Dark (Roasted) */
   --lufa-core-neutral-background: #1a120b;
@@ -232,6 +236,8 @@
   --lufa-core-brand-secondary-hover: #ca8a04;
   --lufa-core-brand-secondary-active: #a16207;
   --lufa-core-brand-accent-visited: #bf00ff; /* Purple — WCAG AA on black (4.7:1) */
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   --lufa-core-neutral-background: #000000;
   --lufa-core-neutral-surface-default: #000000;

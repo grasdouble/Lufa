@@ -38,6 +38,8 @@
   --lufa-core-brand-secondary-hover: #115e59; /* Teal 800 */
   --lufa-core-brand-secondary-active: #134e4a; /* Teal 900 */
   --lufa-core-brand-accent-visited: #7c3aed;
+  --lufa-core-brand-primary-on-background: #ffffff;
+  --lufa-core-brand-secondary-on-background: #ffffff;
 
   /* Neutral Tokens - Ocean Light */
   --lufa-core-neutral-background: #f0f9ff;
@@ -182,6 +184,8 @@
   --lufa-core-brand-secondary-hover: #5eead4;
   --lufa-core-brand-secondary-active: #14b8a6;
   --lufa-core-brand-accent-visited: #a78bfa;
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   /* Neutral Tokens - Ocean Dark (Deep Sea) */
   --lufa-core-neutral-background: #082f49;
@@ -250,6 +254,8 @@
   --lufa-core-brand-secondary-hover: #33ffd6;
   --lufa-core-brand-secondary-active: #00ccaa;
   --lufa-core-brand-accent-visited: #bf00ff; /* Purple — WCAG AA on black (4.7:1) */
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   /* Neutral Tokens - High Contrast Blue */
   --lufa-core-neutral-background: #000000;

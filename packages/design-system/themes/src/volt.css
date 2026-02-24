@@ -12,13 +12,15 @@
 [data-theme='volt'],
 [data-theme='volt'][data-mode='light'] {
   /* Core Brand Tokens */
-  --lufa-core-brand-primary-default: #4d7c0f; /* Lime 400 */
-  --lufa-core-brand-primary-hover: #bef264;
+  --lufa-core-brand-primary-default: #4d7c0f; /* Lime 700 - WCAG AA (4.91:1) */
+  --lufa-core-brand-primary-hover: #65a30d; /* Lime 600 - WCAG AA-Large (3.04:1) */
   --lufa-core-brand-primary-active: #84cc16;
   --lufa-core-brand-secondary-default: #000000;
   --lufa-core-brand-secondary-hover: #333333;
   --lufa-core-brand-secondary-active: #1a1a1a;
   --lufa-core-brand-accent-visited: #7c3aed;
+  --lufa-core-brand-primary-on-background: #ffffff;
+  --lufa-core-brand-secondary-on-background: #ffffff;
 
   /* Neutral Tokens - Volt Light */
   --lufa-core-neutral-background: #fdfdfd;
@@ -160,6 +162,8 @@
   --lufa-core-brand-secondary-hover: #ffffff;
   --lufa-core-brand-secondary-active: #cccccc;
   --lufa-core-brand-accent-visited: #a78bfa;
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   /* Neutral Tokens - Volt Dark (Industrial) */
   --lufa-core-neutral-background: #0a0a0a;
@@ -220,6 +224,8 @@
   --lufa-core-brand-secondary-hover: #ffffff;
   --lufa-core-brand-secondary-active: #cccccc;
   --lufa-core-brand-accent-visited: #bf00ff; /* Purple — WCAG AA on black (4.7:1) */
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   --lufa-core-neutral-background: #000000;
   --lufa-core-neutral-surface-default: #000000;

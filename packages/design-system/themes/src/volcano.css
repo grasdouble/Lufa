@@ -19,6 +19,8 @@
   --lufa-core-brand-secondary-hover: #7c2d12; /* Orange 900 */
   --lufa-core-brand-secondary-active: #431407; /* Orange 950 */
   --lufa-core-brand-accent-visited: #9333ea;
+  --lufa-core-brand-primary-on-background: #ffffff;
+  --lufa-core-brand-secondary-on-background: #ffffff;
 
   /* Neutral Tokens - Volcano Light */
   --lufa-core-neutral-background: #fffafa;
@@ -163,6 +165,8 @@
   --lufa-core-brand-secondary-hover: #fdba74;
   --lufa-core-brand-secondary-active: #ea580c;
   --lufa-core-brand-accent-visited: #c084fc;
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   /* Neutral Tokens - Volcano Dark (The Pit) */
   --lufa-core-neutral-background: #0f0505;
@@ -230,6 +234,8 @@
   --lufa-core-brand-secondary-hover: #ffaa33;
   --lufa-core-brand-secondary-active: #cc6600;
   --lufa-core-brand-accent-visited: #bf00ff; /* Purple — WCAG AA on black (4.7:1) */
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   --lufa-core-neutral-background: #000000;
   --lufa-core-neutral-surface-default: #000000;

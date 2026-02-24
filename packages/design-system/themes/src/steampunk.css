@@ -102,6 +102,8 @@
   --lufa-core-brand-secondary-hover: #184629; /* Darker oxidized */
   --lufa-core-brand-secondary-active: #12331c; /* Darkest */
   --lufa-core-brand-accent-visited: #7c3aed; /* Deep patina */
+  --lufa-core-brand-primary-on-background: #ffffff;
+  --lufa-core-brand-secondary-on-background: #ffffff;
 
   /* Neutral Tokens - Parchment & Aged Paper */
   --lufa-core-neutral-background: #f5e6d3; /* Warm parchment */
@@ -173,6 +175,8 @@
   --lufa-core-brand-secondary-hover: #66cdaa; /* Glowing patina */
   --lufa-core-brand-secondary-active: #2e8b57;
   --lufa-core-brand-accent-visited: #a78bfa; /* Deep patina */
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   /* Neutral Tokens - Dark Workshop */
   --lufa-core-neutral-background: #1a0f0a; /* Deep workshop darkness */
@@ -244,6 +248,8 @@
   --lufa-core-brand-secondary-hover: #7fffd4; /* Aquamarine */
   --lufa-core-brand-secondary-active: #3cb371;
   --lufa-core-brand-accent-visited: #bf00ff; /* Purple — WCAG AA on black (4.7:1) */ /* Medium patina */
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   /* Neutral Tokens - Blueprint/Schematic */
   --lufa-core-neutral-background: #000000; /* Pure black */

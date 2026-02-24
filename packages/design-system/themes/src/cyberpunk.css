@@ -24,6 +24,8 @@
   --lufa-core-brand-secondary-hover: #005555; /* Darker hover */
   --lufa-core-brand-secondary-active: #004444; /* Darkest active */
   --lufa-core-brand-accent-visited: #b300d9;
+  --lufa-core-brand-primary-on-background: #ffffff;
+  --lufa-core-brand-secondary-on-background: #ffffff;
 
   /* Neutral Tokens - Cyberpunk Light (Pop) */
   --lufa-core-neutral-background: #fff5ff;
@@ -200,6 +202,8 @@
   --lufa-core-brand-secondary-hover: #33ffff;
   --lufa-core-brand-secondary-active: #00cccc;
   --lufa-core-brand-accent-visited: #f0abfc;
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   /* Neutral Tokens - Cyberpunk Dark */
   --lufa-core-neutral-background: #0d001a;
@@ -375,6 +379,8 @@
   --lufa-core-brand-secondary-hover: #66ffff;
   --lufa-core-brand-secondary-active: #00cccc;
   --lufa-core-brand-accent-visited: #ff00ff;
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   --lufa-core-neutral-background: #000000;
   --lufa-core-neutral-surface-default: #000000;

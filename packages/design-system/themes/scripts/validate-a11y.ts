@@ -16,13 +16,23 @@
  *   - text-tertiary  on background     → AA-Large / UI (3:1)
  *   - text-primary   on surface        → AA  (4.5:1)
  *   - text-secondary on surface        → AA  (4.5:1)
- *   - brand-primary  on background     → AA  (4.5:1)  — links
+ *   - text-primary   on surface-hover  → AA  (4.5:1)  — interactive hover states
+ *   - brand-primary on background     → AA  (4.5:1)  — links
+ *   - brand-primary-hover  on background   → AA-Large (3:1)  — link hover (UI component)
  *   - brand-secondary on background    → AA  (4.5:1)  — secondary links/buttons
+ *   - brand-secondary-hover on background  → AA-Large (3:1)  — button hover (UI component)
+ *   - brand-primary-on-bg on brand-primary    → AA  (4.5:1)  — text on brand buttons
+ *   - brand-secondary-on-bg on brand-secondary  → AA  (4.5:1)  — text on brand buttons
  *   - brand-visited  on background     → AA  (4.5:1)  — visited links
+ *   - brand-primary on surface         → AA-Large (3:1)  — focus rings on surfaces (UI component)
  *   - semantic-success  on success-subtle  → AA  (4.5:1)  — badges, alerts
+ *   - semantic-success-hover on success-subtle → AA-Large (3:1) — hover states
  *   - semantic-error    on error-subtle    → AA  (4.5:1)  — badges, alerts
+ *   - semantic-error-hover on error-subtle → AA-Large (3:1) — hover states
  *   - semantic-warning  on warning-subtle  → AA  (4.5:1)  — badges, alerts
+ *   - semantic-warning-hover on warning-subtle → AA-Large (3:1) — hover states
  *   - semantic-info     on info-subtle     → AA  (4.5:1)  — badges, alerts
+ *   - semantic-info-hover on info-subtle → AA-Large (3:1) — hover states
  *
  *   ADVISORY (failures → warning only, exit 0):
  *   - border-default on background     → UI component (3:1)
@@ -132,11 +142,27 @@ const CONTRAST_PAIRS: ContrastPair[] = [
     blocking: true,
   },
   {
+    label: 'text-primary / surface-hover',
+    fg: 'lufa-core-neutral-text-primary',
+    bg: 'lufa-core-neutral-surface-hover',
+    required: 4.5,
+    level: 'AA',
+    blocking: true,
+  },
+  {
     label: 'brand-primary / background',
     fg: 'lufa-core-brand-primary-default',
     bg: 'lufa-core-neutral-background',
     required: 4.5,
     level: 'AA',
+    blocking: true,
+  },
+  {
+    label: 'brand-primary-hover / background',
+    fg: 'lufa-core-brand-primary-hover',
+    bg: 'lufa-core-neutral-background',
+    required: 3.0,
+    level: 'AA-Large',
     blocking: true,
   },
   {
@@ -148,11 +174,43 @@ const CONTRAST_PAIRS: ContrastPair[] = [
     blocking: true,
   },
   {
+    label: 'brand-secondary-hover / background',
+    fg: 'lufa-core-brand-secondary-hover',
+    bg: 'lufa-core-neutral-background',
+    required: 3.0,
+    level: 'AA-Large',
+    blocking: true,
+  },
+  {
+    label: 'brand-primary-on-bg / brand-primary',
+    fg: 'lufa-core-brand-primary-on-background',
+    bg: 'lufa-core-brand-primary-default',
+    required: 4.5,
+    level: 'AA',
+    blocking: true,
+  },
+  {
+    label: 'brand-secondary-on-bg / brand-secondary',
+    fg: 'lufa-core-brand-secondary-on-background',
+    bg: 'lufa-core-brand-secondary-default',
+    required: 4.5,
+    level: 'AA',
+    blocking: true,
+  },
+  {
     label: 'brand-visited / background',
     fg: 'lufa-core-brand-accent-visited',
     bg: 'lufa-core-neutral-background',
     required: 4.5,
     level: 'AA',
+    blocking: true,
+  },
+  {
+    label: 'brand-primary / surface (focus ring)',
+    fg: 'lufa-core-brand-primary-default',
+    bg: 'lufa-core-neutral-surface-default',
+    required: 3.0,
+    level: 'AA-Large',
     blocking: true,
   },
   // Semantic tokens: success/error/warning/info on their subtle backgrounds
@@ -166,11 +224,27 @@ const CONTRAST_PAIRS: ContrastPair[] = [
     blocking: true,
   },
   {
+    label: 'semantic-success-hover / success-subtle',
+    fg: 'lufa-core-semantic-success-hover',
+    bg: 'lufa-core-semantic-success-subtle',
+    required: 3.0,
+    level: 'AA-Large',
+    blocking: true,
+  },
+  {
     label: 'semantic-error / error-subtle',
     fg: 'lufa-core-semantic-error-default',
     bg: 'lufa-core-semantic-error-subtle',
     required: 4.5,
     level: 'AA',
+    blocking: true,
+  },
+  {
+    label: 'semantic-error-hover / error-subtle',
+    fg: 'lufa-core-semantic-error-hover',
+    bg: 'lufa-core-semantic-error-subtle',
+    required: 3.0,
+    level: 'AA-Large',
     blocking: true,
   },
   {
@@ -182,11 +256,27 @@ const CONTRAST_PAIRS: ContrastPair[] = [
     blocking: true,
   },
   {
+    label: 'semantic-warning-hover / warning-subtle',
+    fg: 'lufa-core-semantic-warning-hover',
+    bg: 'lufa-core-semantic-warning-subtle',
+    required: 3.0,
+    level: 'AA-Large',
+    blocking: true,
+  },
+  {
     label: 'semantic-info / info-subtle',
     fg: 'lufa-core-semantic-info-default',
     bg: 'lufa-core-semantic-info-subtle',
     required: 4.5,
     level: 'AA',
+    blocking: true,
+  },
+  {
+    label: 'semantic-info-hover / info-subtle',
+    fg: 'lufa-core-semantic-info-hover',
+    bg: 'lufa-core-semantic-info-subtle',
+    required: 3.0,
+    level: 'AA-Large',
     blocking: true,
   },
   // Advisory: decorative borders may legitimately have lower contrast

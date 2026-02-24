@@ -132,37 +132,29 @@
             }
           },
           "primary": {
-            "$value": "{primitive.color.hc.white}",
+            "$value": "{core.brand.primary.on.background}",
             "$type": "color",
-            "$description": "Text and icons on primary background - AAA contrast guaranteed with primary brand color",
+            "$description": "Text and icons on primary brand background - themeable for accessibility",
             "$extensions": {
               "lufa": {
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text/icons on primary buttons, primary badges, primary interactive elements",
-                "pairedWith": "core.brand.primary",
-                "modes": {
-                  "dark": "{primitive.color.hc.white}",
-                  "high-contrast": "{primitive.color.hc.white}"
-                },
+                "pairedWith": "core.brand.primary.default",
                 "themeable": true
               }
             }
           },
           "secondary": {
-            "$value": "{primitive.color.hc.white}",
+            "$value": "{core.brand.secondary.on.background}",
             "$type": "color",
-            "$description": "Text and icons on secondary background - AAA contrast guaranteed with secondary brand color",
+            "$description": "Text and icons on secondary brand background - themeable for accessibility",
             "$extensions": {
               "lufa": {
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text/icons on secondary buttons, secondary badges, secondary interactive elements",
-                "pairedWith": "core.brand.secondary",
-                "modes": {
-                  "dark": "{primitive.color.hc.white}",
-                  "high-contrast": "{primitive.color.hc.white}"
-                },
+                "pairedWith": "core.brand.secondary.default",
                 "themeable": true
               }
             }
