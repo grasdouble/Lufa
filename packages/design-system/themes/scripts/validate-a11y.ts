@@ -17,7 +17,12 @@
  *   - text-primary   on surface        → AA  (4.5:1)
  *   - text-secondary on surface        → AA  (4.5:1)
  *   - brand-primary  on background     → AA  (4.5:1)  — links
+ *   - brand-secondary on background    → AA  (4.5:1)  — secondary links/buttons
  *   - brand-visited  on background     → AA  (4.5:1)  — visited links
+ *   - semantic-success  on success-subtle  → AA  (4.5:1)  — badges, alerts
+ *   - semantic-error    on error-subtle    → AA  (4.5:1)  — badges, alerts
+ *   - semantic-warning  on warning-subtle  → AA  (4.5:1)  — badges, alerts
+ *   - semantic-info     on info-subtle     → AA  (4.5:1)  — badges, alerts
  *
  *   ADVISORY (failures → warning only, exit 0):
  *   - border-default on background     → UI component (3:1)
@@ -135,9 +140,51 @@ const CONTRAST_PAIRS: ContrastPair[] = [
     blocking: true,
   },
   {
+    label: 'brand-secondary / background',
+    fg: 'lufa-core-brand-secondary-default',
+    bg: 'lufa-core-neutral-background',
+    required: 4.5,
+    level: 'AA',
+    blocking: true,
+  },
+  {
     label: 'brand-visited / background',
     fg: 'lufa-core-brand-accent-visited',
     bg: 'lufa-core-neutral-background',
+    required: 4.5,
+    level: 'AA',
+    blocking: true,
+  },
+  // Semantic tokens: success/error/warning/info on their subtle backgrounds
+  // Used in badges, alerts, banners - critical for status communication
+  {
+    label: 'semantic-success / success-subtle',
+    fg: 'lufa-core-semantic-success-default',
+    bg: 'lufa-core-semantic-success-subtle',
+    required: 4.5,
+    level: 'AA',
+    blocking: true,
+  },
+  {
+    label: 'semantic-error / error-subtle',
+    fg: 'lufa-core-semantic-error-default',
+    bg: 'lufa-core-semantic-error-subtle',
+    required: 4.5,
+    level: 'AA',
+    blocking: true,
+  },
+  {
+    label: 'semantic-warning / warning-subtle',
+    fg: 'lufa-core-semantic-warning-default',
+    bg: 'lufa-core-semantic-warning-subtle',
+    required: 4.5,
+    level: 'AA',
+    blocking: true,
+  },
+  {
+    label: 'semantic-info / info-subtle',
+    fg: 'lufa-core-semantic-info-default',
+    bg: 'lufa-core-semantic-info-subtle',
     required: 4.5,
     level: 'AA',
     blocking: true,

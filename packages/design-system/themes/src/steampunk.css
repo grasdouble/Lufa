@@ -20,7 +20,7 @@
   /* ==================== RGB VARIABLES ==================== */
   /* Extracted from hex colors for alpha token support */
   --lufa-primary-rgb: 139, 69, 19; /* #8b4513 - Copper/Brass */
-  --lufa-secondary-rgb: 46, 139, 87; /* #2e8b57 - Oxidized Copper */
+  --lufa-secondary-rgb: 31, 90, 55; /* #1f5a37 - Dark sea green */
   --lufa-success-rgb: 46, 139, 87; /* #2e8b57 - Oxidized copper green */
   --lufa-error-rgb: 183, 65, 14; /* #b7410e - Rust red */
   --lufa-warning-rgb: 205, 133, 63; /* #cd853f - Peru/golden brass */
@@ -98,9 +98,9 @@
   --lufa-core-brand-primary-default: #8b4513; /* Copper/Brass */
   --lufa-core-brand-primary-hover: #a0632b; /* Darker brass */
   --lufa-core-brand-primary-active: #8b4513; /* Saddle brown */
-  --lufa-core-brand-secondary-default: #2e8b57; /* Sea green (oxidized copper) */
-  --lufa-core-brand-secondary-hover: #267347; /* Darker oxidized */
-  --lufa-core-brand-secondary-active: #1f5a37;
+  --lufa-core-brand-secondary-default: #1f5a37; /* Dark sea green - WCAG AA compliant (6.73:1) */
+  --lufa-core-brand-secondary-hover: #184629; /* Darker oxidized */
+  --lufa-core-brand-secondary-active: #12331c; /* Darkest */
   --lufa-core-brand-accent-visited: #7c3aed; /* Deep patina */
 
   /* Neutral Tokens - Parchment & Aged Paper */
@@ -115,25 +115,25 @@
   --lufa-core-neutral-text-disabled: #c4a574; /* Faded bronze */
 
   /* Semantic Tokens - Industrial Signals */
-  --lufa-core-semantic-success-default: #2e8b57; /* Oxidized copper green */
+  --lufa-core-semantic-success-default: #267347; /* Darker patina - WCAG AA (4.59:1) */
   --lufa-core-semantic-success-subtle: #e8f5ee; /* Pale mint */
   --lufa-core-semantic-success-border: #9bcf9f; /* Light patina */
-  --lufa-core-semantic-success-hover: #267347; /* Darker patina */
+  --lufa-core-semantic-success-hover: #1e5938; /* Even darker hover */
 
   --lufa-core-semantic-error-default: #b7410e; /* Rust red */
   --lufa-core-semantic-error-subtle: #fbeae5; /* Pale rust */
   --lufa-core-semantic-error-border: #e89a7a; /* Light rust */
   --lufa-core-semantic-error-hover: #9a350c; /* Deep rust */
 
-  --lufa-core-semantic-warning-default: #cd853f; /* Peru/golden brass */
+  --lufa-core-semantic-warning-default: #9a5e2a; /* Much darker brass - WCAG AA (4.55:1) */
   --lufa-core-semantic-warning-subtle: #fbf3e8; /* Pale gold */
   --lufa-core-semantic-warning-border: #e5c89f; /* Light brass */
-  --lufa-core-semantic-warning-hover: #b87333; /* Darker brass */
+  --lufa-core-semantic-warning-hover: #7f4e22; /* Even darker brass */
 
-  --lufa-core-semantic-info-default: #708090; /* Slate gray (steam) */
+  --lufa-core-semantic-info-default: #5a6a77; /* Dark steam - WCAG AA (4.73:1) */
   --lufa-core-semantic-info-subtle: #f0f2f4; /* Pale steam */
   --lufa-core-semantic-info-border: #b8c2cc; /* Light steam */
-  --lufa-core-semantic-info-hover: #5a6a77; /* Dark steam */
+  --lufa-core-semantic-info-hover: #4b5863; /* Darker steam */
 
   /* ==================== SHADOW TOKENS ==================== */
   /* Warm bronze shadow for Victorian daylight */

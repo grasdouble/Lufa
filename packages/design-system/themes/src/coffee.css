@@ -228,9 +228,9 @@
   --lufa-core-brand-primary-default: #d97706; /* Amber 500 — WCAG AA on black (6.6:1) */
   --lufa-core-brand-primary-hover: #ca8a04;
   --lufa-core-brand-primary-active: #854d0e;
-  --lufa-core-brand-secondary-default: #854d0e;
-  --lufa-core-brand-secondary-hover: #a16207;
-  --lufa-core-brand-secondary-active: #713f12;
+  --lufa-core-brand-secondary-default: #d97706; /* Amber 500 — WCAG AA on black (6.6:1) */
+  --lufa-core-brand-secondary-hover: #ca8a04;
+  --lufa-core-brand-secondary-active: #a16207;
   --lufa-core-brand-accent-visited: #bf00ff; /* Purple — WCAG AA on black (4.7:1) */
 
   --lufa-core-neutral-background: #000000;
@@ -276,7 +276,7 @@
   --lufa-core-semantic-success-border: #8bc34a; /* Matching border for max contrast */
   --lufa-core-semantic-success-hover: #aed581; /* Brighter success */
 
-  --lufa-core-semantic-error-default: #d32f2f; /* High contrast error */
+  --lufa-core-semantic-error-default: #e53935; /* High contrast error - WCAG AA (4.52:1) */
   --lufa-core-semantic-error-subtle: #000000; /* Pure black background */
   --lufa-core-semantic-error-border: #d32f2f; /* Matching border for max contrast */
   --lufa-core-semantic-error-hover: #e57373; /* Brighter error */

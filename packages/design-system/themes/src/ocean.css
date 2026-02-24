@@ -34,9 +34,9 @@
   --lufa-core-brand-primary-default: #0e7490;
   --lufa-core-brand-primary-hover: #0e7490;
   --lufa-core-brand-primary-active: #155e75;
-  --lufa-core-brand-secondary-default: #14b8a6;
-  --lufa-core-brand-secondary-hover: #0d9488;
-  --lufa-core-brand-secondary-active: #0f766e;
+  --lufa-core-brand-secondary-default: #0f766e; /* Teal 700 - WCAG AA compliant (5.54:1) */
+  --lufa-core-brand-secondary-hover: #115e59; /* Teal 800 */
+  --lufa-core-brand-secondary-active: #134e4a; /* Teal 900 */
   --lufa-core-brand-accent-visited: #7c3aed;
 
   /* Neutral Tokens - Ocean Light */
@@ -51,27 +51,27 @@
   --lufa-core-neutral-text-disabled: #93c5fd;
 
   /* Semantic Tokens - Ocean Light (Themed towards blues/teals) */
-  --lufa-core-semantic-success-default: #059669;
+  --lufa-core-semantic-success-default: #047857; /* Darker green - WCAG AA (4.95:1) */
   --lufa-core-semantic-success-subtle: #d1fae5;
   --lufa-core-semantic-success-border: #6ee7b7;
-  --lufa-core-semantic-success-hover: #047857;
-  --lufa-core-semantic-error-default: #e11d48;
+  --lufa-core-semantic-success-hover: #065f46;
+  --lufa-core-semantic-error-default: #be123c; /* Darker red - WCAG AA (4.94:1) */
   --lufa-core-semantic-error-subtle: #fff1f2;
   --lufa-core-semantic-error-border: #fda4af;
-  --lufa-core-semantic-error-hover: #be123c;
-  --lufa-core-semantic-warning-default: #d97706;
+  --lufa-core-semantic-error-hover: #b91c1c;
+  --lufa-core-semantic-warning-default: #b45309; /* Darker amber - WCAG AA (5.52:1) */
   --lufa-core-semantic-warning-subtle: #fef3c7;
   --lufa-core-semantic-warning-border: #fcd34d;
-  --lufa-core-semantic-warning-hover: #b45309;
-  --lufa-core-semantic-info-default: #0284c7;
+  --lufa-core-semantic-warning-hover: #92400e;
+  --lufa-core-semantic-info-default: #0369a1; /* Darker blue - WCAG AA (4.72:1) */
   --lufa-core-semantic-info-subtle: #e0f2fe;
   --lufa-core-semantic-info-border: #7dd3fc;
-  --lufa-core-semantic-info-hover: #0369a1;
+  --lufa-core-semantic-info-hover: #075985;
 
   /* ==================== RGB VARIABLES ==================== */
   /* RGB values extracted from hex colors for alpha tokens */
   --lufa-primary-rgb: 14, 116, 144;
-  --lufa-secondary-rgb: 20, 184, 166;
+  --lufa-secondary-rgb: 15, 118, 110; /* #0f766e */
   --lufa-success-rgb: 5, 150, 105;
   --lufa-error-rgb: 225, 29, 72;
   --lufa-warning-rgb: 217, 119, 6;

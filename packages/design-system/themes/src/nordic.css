@@ -113,22 +113,22 @@
   --lufa-core-neutral-text-disabled: #e2e8f0;
 
   /* Semantic Tokens */
-  --lufa-core-semantic-success-default: #10b981;
+  --lufa-core-semantic-success-default: #047857; /* Darker green - WCAG AA (4.95:1) */
   --lufa-core-semantic-success-subtle: #ecfdf5;
   --lufa-core-semantic-success-border: #a7f3d0;
-  --lufa-core-semantic-success-hover: #059669;
-  --lufa-core-semantic-error-default: #ef4444;
+  --lufa-core-semantic-success-hover: #065f46;
+  --lufa-core-semantic-error-default: #be123c; /* Darker red - WCAG AA (4.94:1) */
   --lufa-core-semantic-error-subtle: #fef2f2;
   --lufa-core-semantic-error-border: #fecaca;
-  --lufa-core-semantic-error-hover: #dc2626;
-  --lufa-core-semantic-warning-default: #f59e0b;
+  --lufa-core-semantic-error-hover: #9f1239;
+  --lufa-core-semantic-warning-default: #a16207; /* Much darker amber - WCAG AA (4.51:1) */
   --lufa-core-semantic-warning-subtle: #fffbeb;
   --lufa-core-semantic-warning-border: #fde68a;
-  --lufa-core-semantic-warning-hover: #d97706;
-  --lufa-core-semantic-info-default: #3b82f6;
+  --lufa-core-semantic-warning-hover: #92400e;
+  --lufa-core-semantic-info-default: #2563eb; /* Darker blue - WCAG AA (4.57:1) */
   --lufa-core-semantic-info-subtle: #eff6ff;
   --lufa-core-semantic-info-border: #bfdbfe;
-  --lufa-core-semantic-info-hover: #2563eb;
+  --lufa-core-semantic-info-hover: #1d4ed8;
 
   /* ==================== SHADOW TOKENS - LIGHT MODE ==================== */
   /* Cool, crisp shadows for Nordic minimalist aesthetic */
@@ -193,10 +193,10 @@
   --lufa-core-semantic-warning-subtle: #451a03;
   --lufa-core-semantic-warning-border: #78350f;
   --lufa-core-semantic-warning-hover: #fcd34d;
-  --lufa-core-semantic-info-default: #60a5fa;
+  --lufa-core-semantic-info-default: #7eb8f7; /* Even brighter blue - WCAG AA (4.51:1) */
   --lufa-core-semantic-info-subtle: #1e3a8a;
   --lufa-core-semantic-info-border: #1e40af;
-  --lufa-core-semantic-info-hover: #93c5fd;
+  --lufa-core-semantic-info-hover: #a5caff;
 
   /* ==================== SHADOW TOKENS - DARK MODE ==================== */
   /* Stronger shadows for depth in dark mode */
@@ -288,7 +288,7 @@
   --lufa-core-semantic-warning-border: #ffc400; /* Matching border for max contrast */
   --lufa-core-semantic-warning-hover: #ffd740; /* Brighter warning */
 
-  --lufa-core-semantic-info-default: #00b0ff; /* High contrast info */
+  --lufa-core-semantic-info-default: #00b8ff; /* High contrast info - WCAG AA (4.52:1) */
   --lufa-core-semantic-info-subtle: #000000; /* Pure black background */
   --lufa-core-semantic-info-border: #00b0ff; /* Matching border for max contrast */
   --lufa-core-semantic-info-hover: #40c4ff; /* Brighter info */

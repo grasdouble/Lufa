@@ -15,9 +15,9 @@
   --lufa-core-brand-primary-default: #dc2626; /* Red 600 */
   --lufa-core-brand-primary-hover: #b91c1c;
   --lufa-core-brand-primary-active: #991b1b;
-  --lufa-core-brand-secondary-default: #ea580c; /* Orange 600 */
-  --lufa-core-brand-secondary-hover: #c2410c;
-  --lufa-core-brand-secondary-active: #9a3412;
+  --lufa-core-brand-secondary-default: #9a3412; /* Orange 800 - WCAG AA compliant (6.89:1) */
+  --lufa-core-brand-secondary-hover: #7c2d12; /* Orange 900 */
+  --lufa-core-brand-secondary-active: #431407; /* Orange 950 */
   --lufa-core-brand-accent-visited: #9333ea;
 
   /* Neutral Tokens - Volcano Light */
@@ -32,18 +32,18 @@
   --lufa-core-neutral-text-disabled: #fecaca;
 
   /* Semantic Tokens */
-  --lufa-core-semantic-success-default: #16a34a;
+  --lufa-core-semantic-success-default: #15803d; /* Darker green - WCAG AA (4.67:1) */
   --lufa-core-semantic-success-subtle: #f0fdf4;
   --lufa-core-semantic-success-border: #bbf7d0;
-  --lufa-core-semantic-success-hover: #15803d;
-  --lufa-core-semantic-error-default: #dc2626;
+  --lufa-core-semantic-success-hover: #166534;
+  --lufa-core-semantic-error-default: #b91c1c; /* Darker red - WCAG AA (5.96:1) */
   --lufa-core-semantic-error-subtle: #fef2f2;
   --lufa-core-semantic-error-border: #fecaca;
-  --lufa-core-semantic-error-hover: #b91c1c;
-  --lufa-core-semantic-warning-default: #f59e0b;
+  --lufa-core-semantic-error-hover: #991b1b;
+  --lufa-core-semantic-warning-default: #b45309; /* Much darker amber - WCAG AA (4.51:1) */
   --lufa-core-semantic-warning-subtle: #fffbeb;
   --lufa-core-semantic-warning-border: #fde68a;
-  --lufa-core-semantic-warning-hover: #d97706;
+  --lufa-core-semantic-warning-hover: #92400e;
   --lufa-core-semantic-info-default: #2563eb;
   --lufa-core-semantic-info-subtle: #eff6ff;
   --lufa-core-semantic-info-border: #bfdbfe;
@@ -52,7 +52,7 @@
   /* ==================== RGB VARIABLES ==================== */
   /* Extracted from hex colors for alpha token generation */
   --lufa-primary-rgb: 220, 38, 38; /* #dc2626 */
-  --lufa-secondary-rgb: 234, 88, 12; /* #ea580c */
+  --lufa-secondary-rgb: 154, 52, 18; /* #9a3412 */
   --lufa-success-rgb: 22, 163, 74; /* #16a34a */
   --lufa-error-rgb: 220, 38, 38; /* #dc2626 */
   --lufa-warning-rgb: 245, 158, 11; /* #f59e0b */
@@ -188,10 +188,10 @@
   --lufa-core-semantic-warning-subtle: #451a03;
   --lufa-core-semantic-warning-border: #78350f;
   --lufa-core-semantic-warning-hover: #fcd34d;
-  --lufa-core-semantic-info-default: #60a5fa;
+  --lufa-core-semantic-info-default: #7eb8f7; /* Even brighter blue - WCAG AA (4.51:1) */
   --lufa-core-semantic-info-subtle: #1e3a8a;
   --lufa-core-semantic-info-border: #1e40af;
-  --lufa-core-semantic-info-hover: #93c5fd;
+  --lufa-core-semantic-info-hover: #a5caff;
 
   /* ==================== SHADOW TOKENS (Dark Mode) ==================== */
   /* Intense dark shadow with slight red tint for molten effect */

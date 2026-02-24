@@ -14,8 +14,10 @@
  * - Secondary: #00b515 (bright-green) - Saturated Matrix green
  * - Secondary Hover: #008f11 (matrix-medium) - Matrix green
  * - Secondary Active: #006400 (matrix-dark) - Dark green
- * - Background: #f0fff0 - Very subtle green tint
- * - Shadows/Glows: Subtle green tint for Matrix identity
+ * - Background: #e6ffe6 - Clearly visible green tint
+ * - Surface: #d9ffd9 - Greenish surface for Matrix feel
+ * - Borders: #00b515 / #008f11 - Bright Matrix green borders
+ * - Shadows/Glows: Visible green tint for strong Matrix identity
  *
  * Dark Mode:
  * - Primary: #00ff41 (matrix-neon) - Neon green
@@ -34,50 +36,50 @@
 [data-theme='matrix'][data-mode='light'] {
   /* ===== RGB VARIABLE TOKENS ===== */
   /* Extracted from hex colors for alpha token usage */
-  --lufa-primary-rgb: 0, 143, 17; /* #008f11 - Matrix green */
-  --lufa-secondary-rgb: 0, 181, 21; /* #00b515 - Brighter green */
+  --lufa-primary-rgb: 0, 120, 0; /* #007800 - Darker Matrix green */
+  --lufa-secondary-rgb: 0, 100, 0; /* #006400 - Dark green for accessibility */
   --lufa-success-rgb: 5, 150, 105; /* #059669 */
   --lufa-error-rgb: 220, 38, 38; /* #dc2626 */
   --lufa-warning-rgb: 217, 119, 6; /* #d97706 */
   --lufa-info-rgb: 2, 132, 199; /* #0284c7 */
 
   /* Core Brand Tokens */
-  --lufa-core-brand-primary-default: #008f11; /* Vivid Matrix green */
-  --lufa-core-brand-primary-hover: #006400; /* Darker hover */
+  --lufa-core-brand-primary-default: #007800; /* Darker Matrix green for better contrast (meets AA) */
+  --lufa-core-brand-primary-hover: #006400; /* Hover darker */
   --lufa-core-brand-primary-active: #003b00;
-  --lufa-core-brand-secondary-default: #00b515; /* More saturated green */
-  --lufa-core-brand-secondary-hover: #008f11; /* Matrix green hover */
-  --lufa-core-brand-secondary-active: #006400;
+  --lufa-core-brand-secondary-default: #006400; /* Dark green - WCAG AA compliant (6.57:1) */
+  --lufa-core-brand-secondary-hover: #004d00; /* Darker hover */
+  --lufa-core-brand-secondary-active: #003b00; /* Darkest active */
   --lufa-core-brand-accent-visited: #006633;
 
   /* Neutral Tokens - Matrix Light */
-  --lufa-core-neutral-background: #f0fff0; /* Very subtle green tint */
-  --lufa-core-neutral-surface-default: #e8ffe8; /* Slightly greenish surface */
-  --lufa-core-neutral-surface-hover: #d4f8d4; /* More pronounced green on hover */
-  --lufa-core-neutral-border-default: #008f11; /* Matrix green border, more visible */
-  --lufa-core-neutral-border-strong: #006400; /* Darker strong border */
+  --lufa-core-neutral-background: #e6ffe6; /* More visible green tint */
+  --lufa-core-neutral-surface-default: #d9ffd9; /* Clearly greenish surface */
+  --lufa-core-neutral-surface-hover: #c6f7c6; /* More pronounced green on hover */
+  --lufa-core-neutral-border-default: #00b515; /* Brighter Matrix green border */
+  --lufa-core-neutral-border-strong: #008f11; /* Matrix green strong border */
   --lufa-core-neutral-text-primary: #001a00; /* Very dark primary text */
   --lufa-core-neutral-text-secondary: #003b00; /* Matrix dark secondary text */
-  --lufa-core-neutral-text-tertiary: #006400; /* Matrix green tertiary text */
-  --lufa-core-neutral-text-disabled: #b3dfb3;
+  --lufa-core-neutral-text-tertiary: #008f11; /* Matrix green tertiary text */
+  --lufa-core-neutral-text-disabled: #99d699;
 
   /* Semantic Tokens - Matrix Light */
-  --lufa-core-semantic-success-default: #008f11; /* Matrix green for success */
+  --lufa-core-semantic-success-default: #006400; /* Darker green - WCAG AA (6.57:1) */
   --lufa-core-semantic-success-subtle: #e8ffe8; /* Very light green background */
   --lufa-core-semantic-success-border: #00b515; /* Matrix green border */
-  --lufa-core-semantic-success-hover: #006400; /* Darker hover */
-  --lufa-core-semantic-error-default: #dc2626;
+  --lufa-core-semantic-success-hover: #003b00; /* Even darker hover */
+  --lufa-core-semantic-error-default: #b91c1c; /* Darker red - WCAG AA (5.3:1) */
   --lufa-core-semantic-error-subtle: #fee2e2;
   --lufa-core-semantic-error-border: #fca5a5;
-  --lufa-core-semantic-error-hover: #b91d1d;
-  --lufa-core-semantic-warning-default: #d97706;
+  --lufa-core-semantic-error-hover: #991b1b;
+  --lufa-core-semantic-warning-default: #b45309; /* Darker amber - WCAG AA (5.52:1) */
   --lufa-core-semantic-warning-subtle: #fef3c7;
   --lufa-core-semantic-warning-border: #fcd34d;
-  --lufa-core-semantic-warning-hover: #b45309;
-  --lufa-core-semantic-info-default: #0284c7;
+  --lufa-core-semantic-warning-hover: #92400e;
+  --lufa-core-semantic-info-default: #0369a1; /* Darker blue - WCAG AA (4.72:1) */
   --lufa-core-semantic-info-subtle: #e0f2fe;
   --lufa-core-semantic-info-border: #7dd3fc;
-  --lufa-core-semantic-info-hover: #0369a1;
+  --lufa-core-semantic-info-hover: #075985;
 
   /* ===== BUTTON COMPONENT TOKENS ===== */
   /* Primary button - uses dark green background with white text (good contrast in light mode) */
@@ -154,7 +156,7 @@
   --lufa-alpha-info-50: rgba(var(--lufa-info-rgb), 0.5);
 
   /* ===== SHADOW TOKENS ===== */
-  --lufa-shadow-color: rgba(0, 143, 17, 0.15); /* Shadow with Matrix green tint */
+  --lufa-shadow-color: rgba(0, 143, 17, 0.25); /* More visible shadow with Matrix green tint */
 
   --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
   --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
@@ -164,25 +166,25 @@
 
   /* ===== GLOW TOKENS FOR LIGHT MODE (SUBTLE) ===== */
   /* Glow color variables - subtle green glow for light mode */
-  --lufa-glow-color: rgba(0, 143, 17, 0.2); /* Subtle Matrix green glow */
-  --lufa-glow-color-secondary: rgba(0, 143, 17, 0.1); /* Same green, more subtle */
+  --lufa-glow-color: rgba(0, 181, 21, 0.3); /* More visible Matrix green glow */
+  --lufa-glow-color-secondary: rgba(0, 143, 17, 0.15); /* Secondary glow */
 
-  /* Box glow tokens (4 intensity levels) - very subtle in light mode */
-  --lufa-glow-box-subtle: 0 0 8px var(--lufa-glow-color), 0 0 12px var(--lufa-glow-color-secondary);
-  --lufa-glow-box: 0 0 12px var(--lufa-glow-color), 0 0 18px var(--lufa-glow-color-secondary);
-  --lufa-glow-box-strong: 0 0 16px var(--lufa-glow-color), 0 0 24px var(--lufa-glow-color-secondary);
-  --lufa-glow-box-intense: 0 0 20px var(--lufa-glow-color), 0 0 30px var(--lufa-glow-color-secondary);
+  /* Box glow tokens (4 intensity levels) - more visible in light mode */
+  --lufa-glow-box-subtle: 0 0 10px var(--lufa-glow-color), 0 0 15px var(--lufa-glow-color-secondary);
+  --lufa-glow-box: 0 0 15px var(--lufa-glow-color), 0 0 22px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-strong: 0 0 20px var(--lufa-glow-color), 0 0 28px var(--lufa-glow-color-secondary);
+  --lufa-glow-box-intense: 0 0 25px var(--lufa-glow-color), 0 0 35px var(--lufa-glow-color-secondary);
 
-  /* Text glow tokens (4 intensity levels) - very subtle to avoid hindering readability */
-  --lufa-glow-text-subtle: 0 0 3px var(--lufa-glow-color);
-  --lufa-glow-text: 0 0 5px var(--lufa-glow-color);
-  --lufa-glow-text-strong: 0 0 8px var(--lufa-glow-color), 0 0 12px var(--lufa-glow-color-secondary);
-  --lufa-glow-text-intense: 0 0 10px var(--lufa-glow-color), 0 0 16px var(--lufa-glow-color-secondary);
+  /* Text glow tokens (4 intensity levels) - subtle but visible */
+  --lufa-glow-text-subtle: 0 0 4px var(--lufa-glow-color);
+  --lufa-glow-text: 0 0 6px var(--lufa-glow-color);
+  --lufa-glow-text-strong: 0 0 10px var(--lufa-glow-color), 0 0 15px var(--lufa-glow-color-secondary);
+  --lufa-glow-text-intense: 0 0 12px var(--lufa-glow-color), 0 0 20px var(--lufa-glow-color-secondary);
 
   /* Inset glow tokens (3 intensity levels) */
-  --lufa-glow-inset-subtle: inset 0 0 8px var(--lufa-glow-color);
-  --lufa-glow-inset: inset 0 0 12px var(--lufa-glow-color);
-  --lufa-glow-inset-strong: inset 0 0 18px var(--lufa-glow-color);
+  --lufa-glow-inset-subtle: inset 0 0 10px var(--lufa-glow-color);
+  --lufa-glow-inset: inset 0 0 15px var(--lufa-glow-color);
+  --lufa-glow-inset-strong: inset 0 0 22px var(--lufa-glow-color);
 
   /* ===== OVERLAY TOKENS ===== */
   /* Light overlays - for brightening on dark surfaces */

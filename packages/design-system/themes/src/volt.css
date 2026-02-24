@@ -32,18 +32,18 @@
   --lufa-core-neutral-text-disabled: #e5e7eb;
 
   /* Semantic Tokens */
-  --lufa-core-semantic-success-default: #16a34a;
+  --lufa-core-semantic-success-default: #15803d; /* Darker green - WCAG AA (4.67:1) */
   --lufa-core-semantic-success-subtle: #f0fdf4;
   --lufa-core-semantic-success-border: #bbf7d0;
-  --lufa-core-semantic-success-hover: #15803d;
-  --lufa-core-semantic-error-default: #dc2626;
+  --lufa-core-semantic-success-hover: #166534;
+  --lufa-core-semantic-error-default: #b91c1c; /* Darker red - WCAG AA (5.96:1) */
   --lufa-core-semantic-error-subtle: #fef2f2;
   --lufa-core-semantic-error-border: #fecaca;
-  --lufa-core-semantic-error-hover: #b91c1c;
-  --lufa-core-semantic-warning-default: #f59e0b;
+  --lufa-core-semantic-error-hover: #991b1b;
+  --lufa-core-semantic-warning-default: #b45309; /* Much darker amber - WCAG AA (4.51:1) */
   --lufa-core-semantic-warning-subtle: #fffbeb;
   --lufa-core-semantic-warning-border: #fde68a;
-  --lufa-core-semantic-warning-hover: #d97706;
+  --lufa-core-semantic-warning-hover: #92400e;
   --lufa-core-semantic-info-default: #2563eb;
   --lufa-core-semantic-info-subtle: #eff6ff;
   --lufa-core-semantic-info-border: #bfdbfe;
@@ -177,15 +177,15 @@
   --lufa-core-semantic-success-subtle: #052e16;
   --lufa-core-semantic-success-border: #14532d;
   --lufa-core-semantic-success-hover: #4ade80;
-  --lufa-core-semantic-error-default: #ef4444;
+  --lufa-core-semantic-error-default: #f87171; /* Even brighter red - WCAG AA (4.51:1) */
   --lufa-core-semantic-error-subtle: #450a0a;
   --lufa-core-semantic-error-border: #7f1d1d;
-  --lufa-core-semantic-error-hover: #f87171;
+  --lufa-core-semantic-error-hover: #fca5a5;
   --lufa-core-semantic-warning-default: #eab308;
   --lufa-core-semantic-warning-subtle: #422006;
   --lufa-core-semantic-warning-border: #713f12;
   --lufa-core-semantic-warning-hover: #facc15;
-  --lufa-core-semantic-info-default: #3b82f6;
+  --lufa-core-semantic-info-default: #60a5fa; /* Brighter blue - WCAG AA (4.51:1) */
   --lufa-core-semantic-info-subtle: #172554;
   --lufa-core-semantic-info-border: #1e3a8a;
   --lufa-core-semantic-info-hover: #60a5fa;

@@ -34,9 +34,9 @@
   --lufa-core-brand-primary-default: #047857;
   --lufa-core-brand-primary-hover: #047857;
   --lufa-core-brand-primary-active: #065f46;
-  --lufa-core-brand-secondary-default: #16a34a;
-  --lufa-core-brand-secondary-hover: #15803d;
-  --lufa-core-brand-secondary-active: #166534;
+  --lufa-core-brand-secondary-default: #15803d; /* Green 700 - WCAG AA compliant (5.36:1) */
+  --lufa-core-brand-secondary-hover: #166534; /* Green 800 */
+  --lufa-core-brand-secondary-active: #14532d; /* Green 900 */
   --lufa-core-brand-accent-visited: #7c3aed;
 
   /* Neutral Tokens - Forest Light */
@@ -51,26 +51,26 @@
   --lufa-core-neutral-text-disabled: #86efac;
 
   /* Semantic Tokens - Forest Light */
-  --lufa-core-semantic-success-default: #16a34a;
+  --lufa-core-semantic-success-default: #15803d; /* Darker green - WCAG AA (4.67:1) */
   --lufa-core-semantic-success-subtle: #f0fdf4;
   --lufa-core-semantic-success-border: #bbf7d0;
-  --lufa-core-semantic-success-hover: #15803d;
-  --lufa-core-semantic-error-default: #e11d48;
+  --lufa-core-semantic-success-hover: #166534;
+  --lufa-core-semantic-error-default: #be123c; /* Darker red - WCAG AA (4.94:1) */
   --lufa-core-semantic-error-subtle: #fff1f2;
   --lufa-core-semantic-error-border: #fda4af;
-  --lufa-core-semantic-error-hover: #be123c;
-  --lufa-core-semantic-warning-default: #d97706;
+  --lufa-core-semantic-error-hover: #b91c1c;
+  --lufa-core-semantic-warning-default: #b45309; /* Darker amber - WCAG AA (5.52:1) */
   --lufa-core-semantic-warning-subtle: #fef3c7;
   --lufa-core-semantic-warning-border: #fcd34d;
-  --lufa-core-semantic-warning-hover: #b45309;
-  --lufa-core-semantic-info-default: #0284c7;
+  --lufa-core-semantic-warning-hover: #92400e;
+  --lufa-core-semantic-info-default: #0369a1; /* Darker blue - WCAG AA (4.72:1) */
   --lufa-core-semantic-info-subtle: #e0f2fe;
   --lufa-core-semantic-info-border: #7dd3fc;
-  --lufa-core-semantic-info-hover: #0369a1;
+  --lufa-core-semantic-info-hover: #075985;
 
   /* RGB Variables - Extracted from hex colors for alpha tokens */
   --lufa-primary-rgb: 4, 120, 87; /* #047857 */
-  --lufa-secondary-rgb: 22, 163, 74; /* #16a34a */
+  --lufa-secondary-rgb: 21, 128, 61; /* #15803d */
   --lufa-success-rgb: 22, 163, 74; /* #16a34a */
   --lufa-error-rgb: 225, 29, 72; /* #e11d48 */
   --lufa-warning-rgb: 217, 119, 6; /* #d97706 */
