@@ -1,21 +1,17 @@
 import StyleDictionary from 'style-dictionary';
 
-import { cssWithMediaQueries } from './build/formats/css-with-media-queries.js';
-import { responsiveTransform } from './build/transforms/responsive.js';
+import wcagPreprocessor from './build/preprocessors/add-wcag-metadata.js';
 import { shadowCssShorthandCustom } from './build/transforms/shadow-css-shorthand-custom.js';
 import { sizeRemFluid } from './build/transforms/size-rem-fluid.js';
 
-// Register custom transform for responsive tokens
-StyleDictionary.registerTransform(responsiveTransform);
+// Register WCAG preprocessor
+StyleDictionary.registerPreprocessor(wcagPreprocessor);
 
 // Register custom transform for size/rem that handles fluid clamp values
 StyleDictionary.registerTransform(sizeRemFluid);
 
 // Register custom shadow shorthand transform (replaces built-in to avoid size/rem warnings)
 StyleDictionary.registerTransform(shadowCssShorthandCustom);
-
-// Register custom format for CSS with media queries
-StyleDictionary.registerFormat(cssWithMediaQueries);
 
 /**
  * Custom format: VSCode extension map format
@@ -89,8 +85,14 @@ StyleDictionary.registerFormat({
 });
 
 /**
- * Custom format: CSS with multi-mode support
- * Generates CSS with [data-theme] selectors for light, dark, and high-contrast modes
+ * Custom format: CSS with multi-mode support (Simplified)
+ *
+ * Generates CSS with [data-mode] selectors for light, dark, and high-contrast modes.
+ *
+ * Infers mode-awareness from presence of 'modes' object (no modeAware flag needed).
+ * Light mode is implicit ($value), only dark and high-contrast need to be in modes.
+ *
+ * @see ADR-013: Token Metadata Simplification
  */
 StyleDictionary.registerFormat({
   name: 'css/variables-with-modes',
@@ -116,13 +118,19 @@ StyleDictionary.registerFormat({
       return token.value || token.original?.$value || token.$value;
     };
 
+    // Helper: Check if token has modes (mode-aware is inferred)
+    const hasModes = (token) => {
+      const modes = token.$extensions?.lufa?.modes || token.original?.$extensions?.lufa?.modes;
+      return modes && typeof modes === 'object' && Object.keys(modes).length > 0;
+    };
+
     // Separate tokens with and without modes
     const tokensWithModes = [];
     const tokensWithoutModes = [];
 
     dictionary.allTokens.forEach((token) => {
-      const modes = token.$extensions?.lufa?.modes || token.original?.$extensions?.lufa?.modes;
-      if (modes) {
+      if (hasModes(token)) {
+        const modes = token.$extensions?.lufa?.modes || token.original?.$extensions?.lufa?.modes;
         tokensWithModes.push({ token, modes });
       } else {
         tokensWithoutModes.push(token);
@@ -131,10 +139,11 @@ StyleDictionary.registerFormat({
 
     let output = '/**\n * Do not edit directly, this file was auto-generated.\n */\n\n';
 
-    // 1. Default theme (:root and [data-mode='light'])
-    output += ":root,\n[data-mode='light'] {\n";
+    // 1. Light mode ([data-mode='light'] only - no :root)
+    // Light mode uses $value (implicit)
+    output += "[data-theme],\n[data-theme][data-mode='light'] {\n";
 
-    // Tokens without modes (always in :root)
+    // Tokens without modes (immutable - always same value)
     tokensWithoutModes.forEach((token) => {
       const cssVarName = `--${prefix}-${token.path.join('-')}`;
       const value = formatValue(token, dictionary);
@@ -142,10 +151,10 @@ StyleDictionary.registerFormat({
       output += `  ${cssVarName}: ${value};${comment}\n`;
     });
 
-    // Tokens with modes (light mode values)
+    // Tokens with modes (light mode = $value)
     tokensWithModes.forEach(({ token }) => {
       const cssVarName = `--${prefix}-${token.path.join('-')}`;
-      const value = formatValue(token, dictionary);
+      const value = formatValue(token, dictionary); // Light = $value (implicit)
       const comment = token.$description ? ` /** ${token.$description} */` : '';
       output += `  ${cssVarName}: ${value};${comment}\n`;
     });
@@ -154,10 +163,15 @@ StyleDictionary.registerFormat({
 
     // 2. Dark mode
     if (tokensWithModes.length > 0) {
-      output += "[data-mode='dark'] {\n";
+      output += "[data-theme][data-mode='dark'] {\n";
       tokensWithModes.forEach(({ token, modes }) => {
         const cssVarName = `--${prefix}-${token.path.join('-')}`;
         let darkValue = modes.dark;
+
+        if (!darkValue) {
+          console.warn(`⚠️  Token ${token.path.join('.')} has modes but missing 'dark' - using $value`);
+          darkValue = formatValue(token, dictionary);
+        }
 
         // Resolve reference if needed (handles multiple {ref} in one value)
         if (typeof darkValue === 'string' && darkValue.includes('{')) {
@@ -171,11 +185,25 @@ StyleDictionary.registerFormat({
       });
       output += '}\n\n';
 
-      // 3. High contrast mode
-      output += "[data-mode='high-contrast'] {\n";
+      // 3. High contrast mode (optional - fallback to dark if missing)
+      output += "[data-theme][data-mode='high-contrast'] {\n";
       tokensWithModes.forEach(({ token, modes }) => {
         const cssVarName = `--${prefix}-${token.path.join('-')}`;
-        const highContrastValue = modes['high-contrast'];
+        let highContrastValue = modes['high-contrast'];
+
+        // If no high-contrast, fallback to dark mode
+        if (!highContrastValue) {
+          highContrastValue = modes.dark;
+        }
+
+        // Resolve reference if needed
+        if (typeof highContrastValue === 'string' && highContrastValue.includes('{')) {
+          highContrastValue = highContrastValue.replace(/\{([^}]+)\}/g, (_, refContent) => {
+            const refPath = refContent.split('.');
+            return `var(--${prefix}-${refPath.join('-')})`;
+          });
+        }
+
         output += `  ${cssVarName}: ${highContrastValue};\n`;
       });
       output += '}\n';
@@ -189,6 +217,8 @@ export default {
   log: {
     verbosity: 'verbose',
   },
+  // Preprocessors run before building (enrich tokens)
+  preprocessors: ['add-wcag-metadata'],
   source: [
     'src/primitives/**/*.json',
     'src/core/**/*.json',
@@ -204,7 +234,6 @@ export default {
       transforms: [
         // 1. ATTRIBUTE TRANSFORMS (add metadata)
         'attribute/cti',
-        'attribute/responsive', // Custom: responsive breakpoint metadata
 
         // 2. NAME TRANSFORMS
         'name/kebab',
@@ -228,7 +257,7 @@ export default {
       files: [
         {
           destination: 'tokens.css',
-          format: 'css/variables-with-media-queries', // Use custom format with media queries
+          format: 'css/variables-with-modes', // Use modes format (light/dark/high-contrast) without media queries
           options: {
             outputReferences: true, // Preserves 4-level token cascade
             prefix: 'lufa',

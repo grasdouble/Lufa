@@ -8,13 +8,10 @@
           "$description": "Extra tight letter spacing for very large headings and display text",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
               "property": "letter-spacing",
               "useCase": "Display text, hero headings (60px+), 6xl-8xl sizes",
-              "recommendedFontSizes": ["6xl", "7xl", "8xl"],
-              "themeable": false,
-              "modeAware": false
+              "recommendedFontSizes": ["6xl", "7xl", "8xl"]
             }
           }
         },
@@ -24,13 +21,10 @@
           "$description": "Tight letter spacing for large headings",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
               "property": "letter-spacing",
               "useCase": "Large headings (H1-H3), 3xl-5xl sizes",
-              "recommendedFontSizes": ["3xl", "4xl", "5xl"],
-              "themeable": false,
-              "modeAware": false
+              "recommendedFontSizes": ["3xl", "4xl", "5xl"]
             }
           }
         },
@@ -40,13 +34,10 @@
           "$description": "Normal letter spacing for body text and default use",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
               "property": "letter-spacing",
               "useCase": "Body text, paragraphs, standard content (base-2xl)",
-              "recommendedFontSizes": ["sm", "base", "lg", "xl", "2xl"],
-              "themeable": false,
-              "modeAware": false
+              "recommendedFontSizes": ["sm", "base", "lg", "xl", "2xl"]
             }
           }
         },
@@ -56,14 +47,11 @@
           "$description": "Wide letter spacing for small text and uppercase labels",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
               "property": "letter-spacing",
               "useCase": "Small text, captions, uppercase labels (xs-sm)",
               "recommendedFontSizes": ["xs", "sm"],
-              "uppercaseRecommended": true,
-              "themeable": false,
-              "modeAware": false
+              "uppercaseRecommended": true
             }
           }
         },
@@ -73,14 +61,11 @@
           "$description": "Extra wide letter spacing for all-caps headings and emphasis",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
               "property": "letter-spacing",
               "useCase": "All-caps headings, button text (uppercase), section labels",
               "uppercaseRequired": true,
-              "recommendedFontSizes": ["sm", "base", "lg", "xl"],
-              "themeable": false,
-              "modeAware": false
+              "recommendedFontSizes": ["sm", "base", "lg", "xl"]
             }
           }
         }

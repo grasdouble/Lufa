@@ -5,6 +5,7 @@
 > - `packages/design-system/docusaurus/_docs/component-documentation-best-practices.md`
 > - `packages/design-system/docusaurus/_docs/adding-a-new-page.md`
 > - `packages/design-system/docusaurus/_docs/writing-code-examples.md`
+> - `packages/design-system/docusaurus/_docs/using-live-components.md`
 
 ## Context
 
@@ -76,7 +77,9 @@ From `writing-code-examples.md`:
 - Avoid app-specific logic or large scaffolding.
 - Default examples must use default props only.
 
-## Live Demo Tabs (Strict)
+## 5) Live Demo Tabs (Strict)
+
+> See `using-live-components.md` for full setup instructions and MDX scope configuration.
 
 - Use `LiveDemoSection` with `tabs` for live demos.
 - Always include **Default** first.
@@ -92,12 +95,12 @@ function Example() {
 ```
 ````
 
-## 5) Accessibility & Theming
+## 6) Accessibility & Theming
 
 - Document keyboard interaction and ARIA requirements.
 - Mention token groups and mode-aware behavior.
 
-## 6) Validation Checklist
+## 7) Validation Checklist
 
 - [ ] Frontmatter complete
 - [ ] Structure matches the strict order

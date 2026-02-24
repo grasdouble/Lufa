@@ -7,11 +7,9 @@
         "$description": "Caption text size - smallest text for metadata and labels",
         "$extensions": {
           "lufa": {
-            "level": "semantic",
             "category": "typography",
             "useCase": "Captions, footnotes, labels, timestamps, metadata",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       }

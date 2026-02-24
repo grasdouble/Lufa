@@ -19,11 +19,14 @@ You are creating stories to document and test UI components in Storybook. Storie
 - Use **Component Story Format (CSF) 3.0** objects.
 - `meta` object must include: `title`, `component`, and `argTypes`.
 - **Do NOT include** `tags: ['autodocs']` unless explicitly requested.
-- Import types from `@storybook/react`.
+- Import types from **`@storybook/react-vite`** (Storybook 10.x — NOT `@storybook/react`).
 
 ```ts
-import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 ```
+
+> **Important:** Always put `import React from 'react'` first, then the Storybook import.
 
 ## 2) Visual Standards (CRITICAL)
 
@@ -38,11 +41,54 @@ import { getColorByIndex, STORY_COLORS } from '../../constants/storyColors';
 
 **Color decision guide:**
 
-- Directional props → `STORY_COLORS.directional`
-- Axis props → `STORY_COLORS.axis`
-- Multiple variants (mapping) → `getColorByIndex(index)`
-- Primary highlights → `STORY_COLORS.primary`
-- Backgrounds/borders/text → `STORY_COLORS.neutral`
+| Use case                                  | Color to use                               |
+| ----------------------------------------- | ------------------------------------------ |
+| Story UI (text, containers, borders)      | `STORY_COLORS.themed.*` ✅ **recommended** |
+| Directional props (top/right/bottom/left) | `STORY_COLORS.directional`                 |
+| Axis props (X/Y)                          | `STORY_COLORS.axis`                        |
+| Multiple variants (mapping)               | `getColorByIndex(index)`                   |
+| Primary decorative highlights             | `STORY_COLORS.primary`                     |
+| Legacy code only                          | `STORY_COLORS.neutral` ⚠️ deprecated       |
+
+#### `STORY_COLORS.themed` — Theme-aware colors (recommended)
+
+Use for story containers, text, borders, and backgrounds. These CSS variables **automatically adapt** to light, dark, and high-contrast modes.
+
+```ts
+// ✅ NEW — adapts to all themes
+color: STORY_COLORS.themed.text.primary;
+backgroundColor: STORY_COLORS.themed.background.surface;
+border: `1px solid ${STORY_COLORS.themed.border.default}`;
+```
+
+Available themed tokens:
+
+- `themed.text.primary` / `.secondary` / `.tertiary` / `.inverse`
+- `themed.background.page` / `.surface` / `.success` / `.error` / `.warning` / `.info`
+- `themed.border.default` / `.subtle`
+- `themed.shadow.sm` / `.md`
+
+#### `STORY_COLORS.neutral` — Legacy (deprecated)
+
+> **⚠️ Deprecated.** Still present for backwards compatibility.
+> Prefer `STORY_COLORS.themed.*` for all new stories.
+> `neutral` colors are hardcoded and **do not adapt to dark mode**.
+
+```ts
+// ❌ OLD — always light mode values, doesn't adapt to dark mode
+color: STORY_COLORS.neutral.textDark;
+
+// ✅ NEW — adapts to all themes
+color: STORY_COLORS.themed.text.primary;
+```
+
+Migration map:
+
+- `neutral.textDark` / `neutral.text` → `themed.text.primary`
+- `neutral.textSlate` → `themed.text.secondary`
+- `neutral.backgroundLight` / `neutral.bgGray` → `themed.background.surface`
+- `neutral.borderMedium` → `themed.border.default`
+- `neutral.borderSlate` → `themed.border.subtle`
 
 ### B) Helper Components
 
@@ -52,11 +98,18 @@ Use the helpers from:
 import { CodeBlock, PropCard, StoryContainer } from '../../components/helpers';
 ```
 
+For interactive Playground stories, also use:
+
+```ts
+import { PlaygroundContainer } from '../../components/helpers';
+```
+
 Rules:
 
 - Wrap **everything** in `<StoryContainer>`
 - Wrap each example in `<PropCard label="...">`
 - Use `<CodeBlock>` to show clean usage examples
+- Use `<PlaygroundContainer>` for full Playground stories with args
 
 ### C) Spacing Visualization (Padding/Margin)
 
@@ -105,7 +158,10 @@ StoryContainer
 
 ## Quick Checklist
 
+- [ ] Import from `@storybook/react-vite` (NOT `@storybook/react`)
+- [ ] `import React from 'react'` is the first import
 - [ ] No hardcoded colors
+- [ ] Use `STORY_COLORS.themed.*` for story UI elements (not `neutral`)
 - [ ] `StoryContainer` + `PropCard` + `CodeBlock`
 - [ ] Clean `generateCode()`
 - [ ] Hover highlights + dynamic code (when multiple variants)

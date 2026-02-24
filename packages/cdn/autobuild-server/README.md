@@ -63,7 +63,3 @@ pnpm cdn:autobuild-server:lint
 # Format
 pnpm cdn:autobuild-server:prettier
 ```
-
-## Contributing
-
-See [CONTRIBUTING.md](../../../CONTRIBUTING.md) for development guidelines.

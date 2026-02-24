@@ -84,7 +84,3 @@ export default [
 
 - [@grasdouble/lufa_config_prettier](../prettier/) - Prettier configuration
 - [@grasdouble/lufa_config_tsconfig](../tsconfig/) - TypeScript configuration
-
-## Contributing
-
-See [CONTRIBUTING.md](../../../CONTRIBUTING.md) for development guidelines.

@@ -4,7 +4,7 @@ Automatically updates npm dependencies to the latest minor/patch versions each w
 
 ## Overview
 
-Runs on a weekly cron or on demand to bump dependencies with pnpm, regenerate `docs/reports/OUTDATED_DEPENDENCIES.report`, and push a `chore: update dependencies` commit when changes are detected. Keeps the monorepo aligned with the latest safe versions and surfaces remaining outdated packages in the job summary.
+Runs on a weekly cron or on demand to bump dependencies with pnpm, regenerate `_docs/reports/OUTDATED_DEPENDENCIES.report`, and push a `chore: update dependencies` commit when changes are detected. Keeps the monorepo aligned with the latest safe versions and surfaces remaining outdated packages in the job summary.
 
 ### Purpose
 
@@ -75,7 +75,7 @@ Runs the composite action to:
 - Re-checkout with the provided PAT and configure `.npmrc` for GitHub Packages
 - Install pnpm and set up Node.js from `.tool-versions` with pnpm caching
 - Install dependencies, update all packages to latest minor/patch (`pnpm update -r`)
-- Generate `docs/reports/OUTDATED_DEPENDENCIES.report` via `pnpm exec node generateOutdatedReport.js`
+- Generate `_docs/reports/OUTDATED_DEPENDENCIES.report` via `pnpm exec node generateOutdatedReport.js`
 - Commit and push changes as `chore: update dependencies` when diffs are present
 - Append the outdated dependencies table to the job summary
 
@@ -100,14 +100,14 @@ Uses the GitHub-hosted Ubuntu runner; no custom labels required.
 
 1. Go to **Actions → Cron:Dependency-Update → Run workflow**.
 2. Select the target branch (defaults to default branch) and run.
-3. Monitor the run; check the summary and the generated `docs/reports/OUTDATED_DEPENDENCIES.report`.
+3. Monitor the run; check the summary and the generated `_docs/reports/OUTDATED_DEPENDENCIES.report`.
 4. Confirm the pushed commit if updates were made.
 
 ## Expected Output
 
 ### Successful update with changes
 
-Dependencies are bumped to the latest minor/patch versions, the outdated report is regenerated, and a commit is pushed. The report appended to the summary mirrors `docs/reports/OUTDATED_DEPENDENCIES.report`, for example:
+Dependencies are bumped to the latest minor/patch versions, the outdated report is regenerated, and a commit is pushed. The report appended to the summary mirrors `_docs/reports/OUTDATED_DEPENDENCIES.report`, for example:
 
 ```
 # Outdated Dependencies Report
@@ -134,7 +134,7 @@ Missing or insufficient `LUFA_CI_SECRET_READ` permissions cause authentication f
 ## What Happens Next
 
 1. The repository receives a `chore: update dependencies` commit when updates exist.
-2. `pnpm-lock.yaml`, package versions, and `docs/reports/OUTDATED_DEPENDENCIES.report` reflect the latest state.
+2. `pnpm-lock.yaml`, package versions, and `_docs/reports/OUTDATED_DEPENDENCIES.report` reflect the latest state.
 3. The job summary highlights remaining outdated packages for follow-up decisions (e.g., major upgrades).
 4. Downstream pipelines use the updated dependencies on subsequent runs.
 

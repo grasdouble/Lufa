@@ -8,11 +8,8 @@
           "$description": "No rounding - sharp corners",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "radius",
-              "useCase": "Square elements, strictly geometric design",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Square elements, strictly geometric design"
             }
           }
         },
@@ -22,11 +19,8 @@
           "$description": "Small radius - slightly rounded corners",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "radius",
-              "useCase": "Badges, tags, small interface elements",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Badges, tags, small interface elements"
             }
           }
         },
@@ -36,11 +30,8 @@
           "$description": "Base radius - standard rounding for most elements",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "radius",
-              "useCase": "Buttons, inputs, standard cards",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Buttons, inputs, standard cards"
             }
           }
         },
@@ -50,11 +41,8 @@
           "$description": "Medium radius - more pronounced rounding",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "radius",
-              "useCase": "Featured cards, panels",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Featured cards, panels"
             }
           }
         },
@@ -64,11 +52,8 @@
           "$description": "Large radius - generous rounding",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "radius",
-              "useCase": "Modals, large cards, important surfaces",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Modals, large cards, important surfaces"
             }
           }
         },
@@ -78,11 +63,8 @@
           "$description": "Extra large radius - very pronounced rounding",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "radius",
-              "useCase": "Large surfaces, modern design",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Large surfaces, modern design"
             }
           }
         },
@@ -92,11 +74,8 @@
           "$description": "2X Extra large radius - highly pronounced rounding",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "radius",
-              "useCase": "Modal dialogs, hero cards, large panels, prominent components",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Modal dialogs, hero cards, large panels, prominent components"
             }
           }
         },
@@ -106,11 +85,8 @@
           "$description": "Full radius - perfect circle or pill shape",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "radius",
-              "useCase": "Avatars, pill buttons, circular elements",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "Avatars, pill buttons, circular elements"
             }
           }
         }

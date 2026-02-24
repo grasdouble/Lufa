@@ -7,13 +7,10 @@
         "$description": "Extra small - Mobile portrait (320px+)",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "breakpoint",
             "useCase": "mobile-first baseline",
             "devices": "small phones (320-639px)",
-            "mediaQuery": "@media (min-width: 320px)",
-            "themeable": false,
-            "modeAware": false
+            "mediaQuery": "@media (min-width: 320px)"
           }
         }
       },
@@ -23,13 +20,10 @@
         "$description": "Small - Mobile landscape, large phones (640px+)",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "breakpoint",
             "useCase": "small tablet, large mobile",
             "devices": "large phones (640-767px)",
-            "mediaQuery": "@media (min-width: 640px)",
-            "themeable": false,
-            "modeAware": false
+            "mediaQuery": "@media (min-width: 640px)"
           }
         }
       },
@@ -39,13 +33,10 @@
         "$description": "Medium - Tablets portrait (768px+)",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "breakpoint",
             "useCase": "tablet layouts",
             "devices": "tablets portrait (768-1023px)",
-            "mediaQuery": "@media (min-width: 768px)",
-            "themeable": false,
-            "modeAware": false
+            "mediaQuery": "@media (min-width: 768px)"
           }
         }
       },
@@ -55,13 +46,10 @@
         "$description": "Large - Tablets landscape, small desktops (1024px+)",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "breakpoint",
             "useCase": "desktop layouts",
             "devices": "tablets landscape, small desktops (1024-1279px)",
-            "mediaQuery": "@media (min-width: 1024px)",
-            "themeable": false,
-            "modeAware": false
+            "mediaQuery": "@media (min-width: 1024px)"
           }
         }
       },
@@ -71,13 +59,10 @@
         "$description": "Extra large - Desktop (1280px+)",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "breakpoint",
             "useCase": "standard desktop",
             "devices": "desktops (1280-1535px)",
-            "mediaQuery": "@media (min-width: 1280px)",
-            "themeable": false,
-            "modeAware": false
+            "mediaQuery": "@media (min-width: 1280px)"
           }
         }
       },
@@ -87,13 +72,10 @@
         "$description": "2X Extra large - Large desktop, ultra-wide (1536px+)",
         "$extensions": {
           "lufa": {
-            "level": "primitive",
             "category": "breakpoint",
             "useCase": "large screens",
             "devices": "large desktops (1536px+)",
-            "mediaQuery": "@media (min-width: 1536px)",
-            "themeable": false,
-            "modeAware": false
+            "mediaQuery": "@media (min-width: 1536px)"
           }
         }
       }

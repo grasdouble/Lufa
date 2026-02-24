@@ -41,7 +41,3 @@ This microfrontend is registered in the [main-container](../main-container/) and
 
 - [Main Container](../main-container/) - Container application
 - [Microfrontends Overview](../README.md) - Architecture documentation
-
-## Contributing
-
-See [CONTRIBUTING.md](../../../../CONTRIBUTING.md) for development guidelines.

@@ -7,11 +7,9 @@
         "$description": "Popover background color",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "popover",
             "useCase": "Popover content background",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -21,11 +19,9 @@
         "$description": "Popover text color",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "popover",
             "useCase": "Popover content text",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -35,11 +31,9 @@
         "$description": "Popover content padding",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "popover",
             "useCase": "Popover body padding",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -49,11 +43,9 @@
         "$description": "Popover border color",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "popover",
             "useCase": "Popover outline border",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -63,11 +55,9 @@
         "$description": "Popover border radius",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "popover",
             "useCase": "Popover corners",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -77,11 +67,9 @@
         "$description": "Popover shadow for elevation",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "popover",
             "useCase": "Popover elevation above content",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -91,11 +79,9 @@
         "$description": "Popover maximum width",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "popover",
             "useCase": "Popover width constraint",
             "themeable": true,
-            "modeAware": false,
             "note": "Layout constant — popover max-width is not covered by semantic container tokens."
           }
         }
@@ -107,11 +93,9 @@
           "$description": "Popover arrow width (base of triangle)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "popover",
               "useCase": "Popover arrow pointing to target",
               "themeable": true,
-              "modeAware": false,
               "note": "Geometric triangle constant — CSS border-based arrow sizing requires explicit pixel values."
             }
           }
@@ -122,11 +106,9 @@
           "$description": "Popover arrow height (triangle height)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "popover",
               "useCase": "Popover arrow projection",
               "themeable": true,
-              "modeAware": false,
               "note": "Geometric triangle constant — CSS border-based arrow sizing requires explicit pixel values."
             }
           }
@@ -138,11 +120,9 @@
         "$description": "Popover offset distance from target element",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "popover",
             "useCase": "Spacing between popover and trigger",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -152,11 +132,9 @@
         "$description": "Popover z-index (high to appear above most content)",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "popover",
             "useCase": "Popover layer stacking",
             "themeable": true,
-            "modeAware": false,
             "note": "High z-index constant — must appear above all application layers including modals (1000+)."
           }
         }

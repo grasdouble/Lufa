@@ -7,11 +7,9 @@
         "$description": "Tooltip background color (typically dark for high contrast)",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "tooltip",
             "useCase": "Tooltip background, popover background",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -21,11 +19,9 @@
         "$description": "Tooltip text color (inverted for contrast)",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "tooltip",
             "useCase": "Tooltip text content",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -35,11 +31,9 @@
         "$description": "Tooltip padding (vertical horizontal)",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "tooltip",
             "useCase": "Tooltip content padding",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -49,11 +43,9 @@
         "$description": "Tooltip border radius",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "tooltip",
             "useCase": "Tooltip corners",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -63,11 +55,9 @@
         "$description": "Tooltip font size",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "tooltip",
             "useCase": "Tooltip text size",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -77,12 +67,10 @@
         "$description": "Tooltip maximum width to prevent overflow",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "tooltip",
             "useCase": "Tooltip width constraint for long text",
             "themeable": true,
-            "modeAware": false,
-            "note": "Layout constant \u2014 tooltip max-width is not covered by semantic container tokens."
+            "note": "Layout constant — tooltip max-width is not covered by semantic container tokens."
           }
         }
       },
@@ -92,11 +80,9 @@
         "$description": "Tooltip shadow for elevation",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "tooltip",
             "useCase": "Tooltip elevation above content",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -107,12 +93,10 @@
           "$description": "Tooltip arrow width (base of triangle)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "tooltip",
               "useCase": "Tooltip arrow pointing to target element",
               "themeable": true,
-              "modeAware": false,
-              "note": "Geometric triangle constant \u2014 CSS border-based arrow sizing requires explicit pixel values."
+              "note": "Geometric triangle constant — CSS border-based arrow sizing requires explicit pixel values."
             }
           }
         },
@@ -122,12 +106,10 @@
           "$description": "Tooltip arrow height (triangle height)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "tooltip",
               "useCase": "Tooltip arrow projection",
               "themeable": true,
-              "modeAware": false,
-              "note": "Geometric triangle constant \u2014 CSS border-based arrow sizing requires explicit pixel values."
+              "note": "Geometric triangle constant — CSS border-based arrow sizing requires explicit pixel values."
             }
           }
         }
@@ -138,11 +120,9 @@
         "$description": "Tooltip offset distance from target element",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "tooltip",
             "useCase": "Spacing between tooltip and trigger element",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -153,11 +133,9 @@
           "$description": "Tooltip fade-in/fade-out duration",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "tooltip",
               "useCase": "Tooltip appear/disappear animation",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -167,12 +145,10 @@
           "$description": "Tooltip appearance delay (on hover)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "tooltip",
               "useCase": "Delay before tooltip appears on hover",
               "themeable": true,
-              "modeAware": false,
-              "note": "UX timing constant \u2014 200ms is the minimum delay to prevent tooltip flicker on quick hover gestures."
+              "note": "UX timing constant — 200ms is the minimum delay to prevent tooltip flicker on quick hover gestures."
             }
           }
         },
@@ -182,11 +158,9 @@
           "$description": "Tooltip animation timing function",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "tooltip",
               "useCase": "Smooth animation curve",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -197,11 +171,9 @@
         "$description": "Tooltip z-index (high to appear above most content)",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "tooltip",
             "useCase": "Tooltip layer stacking",
             "themeable": true,
-            "modeAware": false,
             "note": "High z-index constant — must appear above all application layers including modals (1000+)."
           }
         }

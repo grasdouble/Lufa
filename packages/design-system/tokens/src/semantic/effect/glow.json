@@ -9,11 +9,9 @@
             "$description": "No box glow effect (default for most components)",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "effect",
                 "useCase": "Components without glow effects, light themes",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -24,11 +22,9 @@
               "$description": "Primary box glow effect for interactive elements (cards, buttons) - themeable",
               "$extensions": {
                 "lufa": {
-                  "level": "semantic",
                   "category": "effect",
                   "useCase": "Cards, buttons in dark mode or themed experiences",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -38,11 +34,9 @@
               "$description": "Enhanced primary box glow on hover - themeable",
               "$extensions": {
                 "lufa": {
-                  "level": "semantic",
                   "category": "effect",
                   "useCase": "Hover state for cards and buttons",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -53,11 +47,9 @@
             "$description": "Focus ring glow for accessibility - themeable (default: blue-500 with 25% opacity)",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "effect",
                 "useCase": "Focus states for interactive elements like cards",
                 "themeable": true,
-                "modeAware": false,
                 "note": "Default fallback for accessibility. Themes can override with brand colors."
               }
             }
@@ -70,11 +62,9 @@
             "$description": "No text glow effect (default)",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "effect",
                 "useCase": "Default text rendering",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -85,11 +75,9 @@
               "$description": "Primary text glow for neon/cyberpunk effects - themeable",
               "$extensions": {
                 "lufa": {
-                  "level": "semantic",
                   "category": "effect",
                   "useCase": "Text glow effects in themed buttons",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -99,11 +87,9 @@
               "$description": "Enhanced text glow on hover - themeable",
               "$extensions": {
                 "lufa": {
-                  "level": "semantic",
                   "category": "effect",
                   "useCase": "Hover state for text with glow effects",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -116,11 +102,9 @@
             "$description": "No border glow effect (default)",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "effect",
                 "useCase": "Default border rendering",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -130,11 +114,9 @@
             "$description": "Border glow for focused inputs - themeable (default: blue-500 with 20% opacity)",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "effect",
                 "useCase": "Focus state for input fields",
                 "themeable": true,
-                "modeAware": false,
                 "note": "Default fallback for accessibility. Themes can override with brand colors."
               }
             }

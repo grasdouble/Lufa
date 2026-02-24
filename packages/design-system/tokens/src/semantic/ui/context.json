@@ -8,11 +8,9 @@
           "$description": "Main page background - base canvas for entire application",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Root background, page wrapper, main container",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -22,11 +20,9 @@
           "$description": "Surface background for cards, panels, and elevated content",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -36,11 +32,9 @@
           "$description": "Background for success messages and positive feedback",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Success alerts, positive notifications, confirmation banners",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -50,11 +44,9 @@
           "$description": "Background for error messages and validation failures",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Error alerts, validation messages, destructive action confirmations",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -64,11 +56,9 @@
           "$description": "Background for warning messages and caution notices",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Warning alerts, caution banners, pending action notices",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -78,11 +68,9 @@
           "$description": "Background for informational messages and neutral notifications",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Info alerts, tips, help messages, neutral notifications",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -93,13 +81,11 @@
             "$description": "Text and icons on success background - for use with background-success (subtle background)",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text in success alerts, success badge text, success message content",
                 "pairedWith": "background-success",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -109,13 +95,11 @@
             "$description": "Text and icons on error background - for use with background-error (subtle background)",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text in error alerts, error badge text, error message content",
                 "pairedWith": "background-error",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -125,13 +109,11 @@
             "$description": "Text and icons on warning background - for use with background-warning (subtle background)",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text in warning alerts, warning badge text, warning message content",
                 "pairedWith": "background-warning",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -141,67 +123,39 @@
             "$description": "Text and icons on info background - for use with background-info (subtle background)",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text in info alerts, info badge text, info message content",
                 "pairedWith": "background-info",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
           "primary": {
-            "$value": "{primitive.color.hc.white}",
+            "$value": "{core.brand.primary.on.background}",
             "$type": "color",
-            "$description": "Text and icons on primary background - AAA contrast guaranteed with primary brand color",
+            "$description": "Text and icons on primary brand background - themeable for accessibility",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text/icons on primary buttons, primary badges, primary interactive elements",
-                "pairedWith": "core.brand.primary",
-                "modes": {
-                  "light": "{primitive.color.hc.white}",
-                  "dark": "{primitive.color.hc.white}",
-                  "high-contrast": "{primitive.color.hc.white}"
-                },
-                "a11y": {
-                  "contrastRatio": {
-                    "onBlue600": 7.5
-                  },
-                  "wcagLevel": "AAA"
-                },
-                "themeable": true,
-                "modeAware": true
+                "pairedWith": "core.brand.primary.default",
+                "themeable": true
               }
             }
           },
           "secondary": {
-            "$value": "{primitive.color.hc.white}",
+            "$value": "{core.brand.secondary.on.background}",
             "$type": "color",
-            "$description": "Text and icons on secondary background - AAA contrast guaranteed with secondary brand color",
+            "$description": "Text and icons on secondary brand background - themeable for accessibility",
             "$extensions": {
               "lufa": {
-                "level": "semantic",
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text/icons on secondary buttons, secondary badges, secondary interactive elements",
-                "pairedWith": "core.brand.secondary",
-                "modes": {
-                  "light": "{primitive.color.hc.white}",
-                  "dark": "{primitive.color.hc.white}",
-                  "high-contrast": "{primitive.color.hc.white}"
-                },
-                "a11y": {
-                  "contrastRatio": {
-                    "onPurple500": 7.2
-                  },
-                  "wcagLevel": "AAA"
-                },
-                "themeable": true,
-                "modeAware": true
+                "pairedWith": "core.brand.secondary.default",
+                "themeable": true
               }
             }
           }
@@ -214,17 +168,14 @@
           "$description": "Semi-transparent backdrop for modals, dialogs, and drawers",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "overlay",
               "useCase": "Modal backdrops, dialog overlays, drawer backgrounds",
               "modes": {
-                "light": "{primitive.color.alpha.black.50}",
                 "dark": "{primitive.color.alpha.black.80}",
                 "high-contrast": "{primitive.color.alpha.black.90}"
               },
-              "themeable": true,
-              "modeAware": true
+              "themeable": true
             }
           }
         },
@@ -234,17 +185,14 @@
           "$description": "Subtle overlay for hover states on interactive elements",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "overlay",
               "useCase": "Hover state backgrounds for list items, cards, table rows",
               "modes": {
-                "light": "{primitive.color.alpha.black.4}",
                 "dark": "{primitive.color.alpha.white.8}",
                 "high-contrast": "{primitive.color.alpha.white.16}"
               },
-              "themeable": true,
-              "modeAware": true
+              "themeable": true
             }
           }
         },
@@ -254,17 +202,14 @@
           "$description": "Overlay for pressed/active states",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "overlay",
               "useCase": "Pressed/active state overlays on buttons and interactive elements",
               "modes": {
-                "light": "{primitive.color.alpha.black.8}",
                 "dark": "{primitive.color.alpha.white.16}",
                 "high-contrast": "{primitive.color.alpha.white.16}"
               },
-              "themeable": true,
-              "modeAware": true
+              "themeable": true
             }
           }
         },
@@ -274,17 +219,14 @@
           "$description": "Overlay for selected states in lists and menus",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "overlay",
               "useCase": "Selected list items, active menu items, selected tabs",
               "modes": {
-                "light": "{primitive.color.alpha.black.16}",
                 "dark": "{primitive.color.alpha.white.16}",
                 "high-contrast": "{primitive.color.alpha.white.16}"
               },
-              "themeable": true,
-              "modeAware": true
+              "themeable": true
             }
           }
         },
@@ -294,17 +236,14 @@
           "$description": "Scrim overlay for bottom sheets and temporary surfaces",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "overlay",
               "useCase": "Bottom sheets, temporary drawers, transient overlays",
               "modes": {
-                "light": "{primitive.color.alpha.black.38}",
                 "dark": "{primitive.color.alpha.black.60}",
                 "high-contrast": "{primitive.color.alpha.black.80}"
               },
-              "themeable": true,
-              "modeAware": true
+              "themeable": true
             }
           }
         }
@@ -316,11 +255,9 @@
           "$description": "Primary text color for headings and body content",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Headings, body text, primary labels, main content",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -330,11 +267,9 @@
           "$description": "Secondary text color for supporting content",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Descriptions, captions, metadata, secondary labels",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -344,11 +279,9 @@
           "$description": "Tertiary text color for subtle content",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Placeholder text, timestamps, optional information",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -358,11 +291,9 @@
           "$description": "Text color for success messages and positive feedback",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Success message text, positive status indicators, confirmation text",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -372,11 +303,9 @@
           "$description": "Text color for error messages and validation failures",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Error message text, validation errors, destructive action warnings",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -386,11 +315,9 @@
           "$description": "Text color for warning messages and caution notices",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Warning message text, caution labels, pending action notices",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -400,11 +327,9 @@
           "$description": "Text color for informational messages",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Info message text, help content, neutral notifications",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -416,11 +341,9 @@
           "$description": "Default border color for dividers and element boundaries",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Dividers, separators, card borders, section boundaries",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -430,11 +353,9 @@
           "$description": "Stronger border for emphasis and visual hierarchy",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Emphasized borders, section separators, strong dividers",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -444,11 +365,9 @@
           "$description": "Border color for success contexts",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Success alert borders, positive status borders",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -458,11 +377,9 @@
           "$description": "Border color for error contexts",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Error alert borders, invalid input borders, destructive action borders",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -472,11 +389,9 @@
           "$description": "Border color for warning contexts",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Warning alert borders, caution element borders",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -486,11 +401,9 @@
           "$description": "Border color for informational contexts",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "useCase": "Info alert borders, help element borders",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -502,12 +415,10 @@
           "$description": "Caption text size alias for UI components",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "typography",
               "useCase": "Caption text, small labels, tooltip text, metadata",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }

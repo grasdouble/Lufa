@@ -109,7 +109,3 @@ Each microfrontend:
 - [Design System](../../design-system/) - Shared UI components
 - [CDN Autobuild Server](../../cdn/autobuild-server/) - Asset serving infrastructure
 - [Vite Plugins](../../plugins/vite/) - Custom Vite plugins for microfrontends
-
-## Contributing
-
-See [CONTRIBUTING.md](../../../CONTRIBUTING.md) for development guidelines and best practices.

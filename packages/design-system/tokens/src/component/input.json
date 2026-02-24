@@ -8,11 +8,9 @@
           "$description": "Small input padding",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Compact form fields",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -22,11 +20,9 @@
           "$description": "Medium input padding (default)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Standard form fields",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -36,11 +32,9 @@
           "$description": "Large input padding",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Emphasized form fields",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -52,11 +46,9 @@
           "$description": "Small input minimum height",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Compact inputs",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -66,11 +58,9 @@
           "$description": "Medium input minimum height (default)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Standard inputs",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -80,11 +70,9 @@
           "$description": "Large input minimum height",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Large inputs",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -96,11 +84,9 @@
           "$description": "Small input font size",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Compact input text",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -110,11 +96,9 @@
           "$description": "Medium input font size (default)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Standard input text",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -124,11 +108,9 @@
           "$description": "Large input font size",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Large input text",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -139,11 +121,9 @@
         "$description": "Input border radius",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "input",
             "useCase": "All input variants",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -153,11 +133,9 @@
         "$description": "Input border width",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "input",
             "useCase": "Input border",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -168,11 +146,9 @@
           "$description": "Input background color (default state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Default input background",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -182,11 +158,9 @@
           "$description": "Input background color (hover state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Hover background feedback on input field",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -196,11 +170,9 @@
           "$description": "Input background color (disabled state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Disabled input background to signal non-interactable state",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -212,11 +184,9 @@
           "$description": "Input border color (default state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Default resting border for input field",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -226,11 +196,9 @@
           "$description": "Input border color (hover state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Hover border feedback on input field",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -240,11 +208,9 @@
           "$description": "Input border color (focus state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Focused input border for keyboard/pointer focus indication",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -254,11 +220,9 @@
           "$description": "Input border color (error/invalid state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Error border indicating invalid or failed validation",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -268,11 +232,9 @@
           "$description": "Input border color (disabled state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Disabled input border to signal non-interactable state",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -284,11 +246,9 @@
           "$description": "Input text color (default state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Default text color for user-entered content",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -298,11 +258,9 @@
           "$description": "Input placeholder text color",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Placeholder text",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -312,11 +270,9 @@
           "$description": "Input text color (disabled state)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Dimmed text for disabled input field",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -328,11 +284,9 @@
           "$description": "Input label font size",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Form field labels",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -342,11 +296,9 @@
           "$description": "Input label text color",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Form field labels",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -356,11 +308,9 @@
           "$description": "Spacing between label and input field",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Label to field gap",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -373,11 +323,9 @@
             "$description": "Helper/error text font size",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "input",
                 "useCase": "Helper text, error messages",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -388,11 +336,9 @@
               "$description": "Helper text color (default)",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "input",
                   "useCase": "Helper text",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -402,11 +348,9 @@
               "$description": "Helper text color (error state)",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "input",
                   "useCase": "Error message text color below invalid input",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -418,11 +362,9 @@
           "$description": "Spacing between input field and helper text",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Field to helper text gap",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -434,11 +376,9 @@
           "$description": "Spacing between input icon and text",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Input fields with icons",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -452,11 +392,9 @@
               "$description": "Input border glow effect (default state)",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "input",
                   "useCase": "Inputs with border glow in themed designs",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             },
@@ -466,11 +404,9 @@
               "$description": "Input border glow effect (focus state)",
               "$extensions": {
                 "lufa": {
-                  "level": "component",
                   "category": "input",
                   "useCase": "Enhanced glow when input is focused",
-                  "themeable": true,
-                  "modeAware": false
+                  "themeable": true
                 }
               }
             }
@@ -484,11 +420,9 @@
           "$description": "Input opacity when inactive/disabled",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "input",
               "useCase": "Disabled or inactive input states",
               "themeable": true,
-              "modeAware": false,
               "note": "Default is 1 (full opacity). Themes can reduce for visual indication."
             }
           }
@@ -502,12 +436,10 @@
             "$description": "Cursor for disabled input state",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "input",
                 "subcategory": "state",
                 "useCase": "Disabled input field cursor",
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }

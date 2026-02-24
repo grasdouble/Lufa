@@ -8,11 +8,9 @@
           "$description": "Small badge padding",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "badge",
               "useCase": "Compact badges, inline indicators",
               "themeable": true,
-              "modeAware": false,
               "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
             }
           }
@@ -23,11 +21,9 @@
           "$description": "Medium badge padding (default)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "badge",
               "useCase": "Standard badges",
               "themeable": true,
-              "modeAware": false,
               "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
             }
           }
@@ -38,11 +34,9 @@
           "$description": "Large badge padding",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "badge",
               "useCase": "Prominent badges, emphasis",
               "themeable": true,
-              "modeAware": false,
               "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
             }
           }
@@ -55,12 +49,10 @@
           "$description": "Small badge font size - 10px (between xs and sm)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "badge",
               "useCase": "Compact badges",
               "note": "Custom value - smaller than xs (12px) for compact badges",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -70,11 +62,9 @@
           "$description": "Medium badge font size - references caption (12px)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "badge",
               "useCase": "Standard badges",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -84,11 +74,9 @@
           "$description": "Large badge font size - references body small (14px)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "badge",
               "useCase": "Large badges",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -99,11 +87,9 @@
         "$description": "Badge border radius (pill shape)",
         "$extensions": {
           "lufa": {
-            "level": "component",
             "category": "badge",
             "useCase": "All badge variants",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       },
@@ -115,13 +101,11 @@
             "$description": "Default badge background (neutral)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "default",
                 "useCase": "Neutral status badges, generic labels",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -131,13 +115,11 @@
             "$description": "Default badge text color",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "default",
                 "useCase": "Neutral status badges, generic labels",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -147,13 +129,11 @@
             "$description": "Default badge border (for outlined variant)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "default",
                 "useCase": "Outlined default badges",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -165,13 +145,11 @@
             "$description": "Success badge background",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "success",
                 "useCase": "Success state badges, positive status indicators",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -181,13 +159,11 @@
             "$description": "Success badge text color",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "success",
                 "useCase": "Success state badges",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -197,13 +173,11 @@
             "$description": "Success badge border (for outlined variant)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "success",
                 "useCase": "Outlined success badges",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -215,13 +189,11 @@
             "$description": "Error badge background",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "error",
                 "useCase": "Error state badges, failure indicators",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -231,13 +203,11 @@
             "$description": "Error badge text color",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "error",
                 "useCase": "Error state badges",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -247,13 +217,11 @@
             "$description": "Error badge border (for outlined variant)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "error",
                 "useCase": "Outlined error badges",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -265,13 +233,11 @@
             "$description": "Warning badge background",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "warning",
                 "useCase": "Warning state badges, caution indicators",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -281,13 +247,11 @@
             "$description": "Warning badge text color",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "warning",
                 "useCase": "Warning state badges",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -297,13 +261,11 @@
             "$description": "Warning badge border (for outlined variant)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "warning",
                 "useCase": "Outlined warning badges",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -315,13 +277,11 @@
             "$description": "Info badge background",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "info",
                 "useCase": "Informational badges, neutral highlights",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -331,13 +291,11 @@
             "$description": "Info badge text color",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "info",
                 "useCase": "Informational badges",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -347,13 +305,11 @@
             "$description": "Info badge border (for outlined variant)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "subcategory": "variant",
                 "variant": "info",
                 "useCase": "Outlined info badges",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -366,11 +322,9 @@
           "$description": "Badge dot indicator size",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "badge",
               "useCase": "Notification dots, status indicators",
               "themeable": true,
-              "modeAware": false,
               "note": "Fixed geometric value — dot size is a layout constant not driven by the spacing scale."
             }
           }
@@ -383,11 +337,9 @@
           "$description": "Badge box-shadow glow effect",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "badge",
               "useCase": "Badges with glow effects in themed designs",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -398,11 +350,9 @@
             "$description": "Badge pulse animation (for live/active indicators)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "badge",
                 "useCase": "Animated status badges, notification indicators",
                 "themeable": true,
-                "modeAware": false,
                 "note": "Default is 'none'. Themes can override with keyframe animation name."
               }
             }

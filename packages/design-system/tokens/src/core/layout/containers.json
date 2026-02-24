@@ -8,11 +8,9 @@
           "$description": "Small container max-width (640px)",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "layout-container",
               "useCase": "Narrow content containers, forms, small sections",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         },
@@ -22,11 +20,9 @@
           "$description": "Medium container max-width (768px)",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "layout-container",
               "useCase": "Medium content containers, article width",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         },
@@ -36,11 +32,9 @@
           "$description": "Large container max-width (1024px)",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "layout-container",
               "useCase": "Standard page containers, main content areas",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         },
@@ -50,11 +44,9 @@
           "$description": "Extra large container max-width (1280px)",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "layout-container",
               "useCase": "Wide page containers, dashboard layouts",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         },
@@ -64,11 +56,9 @@
           "$description": "2X extra large container max-width (1536px)",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "layout-container",
               "useCase": "Ultra-wide containers, large screen layouts",
-              "themeable": false,
-              "modeAware": false
+              "themeable": false
             }
           }
         },
@@ -79,15 +69,9 @@
             "$description": "Horizontal gutter between container and content on mobile",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "layout",
                 "useCase": "Container internal gutters, grid gaps",
-                "responsive": {
-                  "breakpoint": "base",
-                  "applyAt": "all"
-                },
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -97,15 +81,9 @@
             "$description": "Horizontal gutter between container and content on tablet",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "layout",
                 "useCase": "Container gutters on tablets",
-                "responsive": {
-                  "breakpoint": "md",
-                  "applyAt": "768px"
-                },
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -115,15 +93,9 @@
             "$description": "Horizontal gutter between container and content on desktop",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "layout",
                 "useCase": "Container gutters on desktop",
-                "responsive": {
-                  "breakpoint": "lg",
-                  "applyAt": "1024px"
-                },
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           },
@@ -133,12 +105,9 @@
             "$description": "Fluid container gutters (scales from 16px to 48px)",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "layout",
                 "useCase": "Responsive container internal spacing",
-                "fluid": true,
-                "themeable": false,
-                "modeAware": false
+                "themeable": false
               }
             }
           }

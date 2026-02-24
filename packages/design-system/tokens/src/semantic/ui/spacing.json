@@ -8,12 +8,10 @@
           "$description": "Tight spacing for very dense layouts - minimal spacing between elements",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "spacing",
               "useCase": "Icon-text spacing, minimal gaps, dense toolbars, button icon spacing",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -23,12 +21,10 @@
           "$description": "Compact spacing for tight layouts and dense UIs",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "spacing",
               "useCase": "Dense forms, compact cards, toolbar spacing, tight button padding",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -38,12 +34,10 @@
           "$description": "Default spacing for standard layouts (most common)",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "spacing",
               "useCase": "Standard button padding, card padding, form field spacing, list item gaps",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -53,12 +47,10 @@
           "$description": "Comfortable spacing for relaxed, breathable layouts",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "spacing",
               "useCase": "Spacious cards, comfortable forms, section padding, hero components",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -68,12 +60,10 @@
           "$description": "Spacious spacing for generous, airy layouts",
           "$extensions": {
             "lufa": {
-              "level": "semantic",
               "category": "ui",
               "subcategory": "spacing",
               "useCase": "Large components, hero sections, landing page spacing, emphasis areas",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }

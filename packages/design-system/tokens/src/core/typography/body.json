@@ -8,11 +8,9 @@
           "$description": "Font family for body text and general content",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "typography",
               "useCase": "Body text, paragraphs, labels, UI text",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -22,11 +20,9 @@
           "$description": "Font weight for body text",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "typography",
               "useCase": "Paragraphs, body text, normal text",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -37,11 +33,9 @@
             "$description": "Large body text size",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "typography",
                 "useCase": "Lead paragraphs, emphasized body text, introductions",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -51,11 +45,9 @@
             "$description": "Default body text size (16px)",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "typography",
                 "useCase": "Body text, paragraphs, default UI text",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -65,11 +57,9 @@
             "$description": "Small body text size",
             "$extensions": {
               "lufa": {
-                "level": "core",
                 "category": "typography",
                 "useCase": "Secondary text, descriptions, help text",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -80,11 +70,9 @@
           "$description": "Line height for body text (1.5 for optimal readability)",
           "$extensions": {
             "lufa": {
-              "level": "core",
               "category": "typography",
               "useCase": "Body text line spacing, paragraph line height",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }

@@ -50,12 +50,16 @@ test('should match snapshot', async ({ mount }) => {
 
 #### Accessibility (A11y)
 
-Use the `axe-playwright` integration (or equivalent helper if configured) to verify WCAG compliance.
+Use the `@axe-core/playwright` integration to verify WCAG compliance.
 
 ```tsx
-test('should not have a11y violations', async ({ mount, makeAxeBuilder }) => {
-  const component = await mount(<Component />);
-  const accessibilityScanResults = await makeAxeBuilder().analyze();
+import AxeBuilder from '@axe-core/playwright';
+
+test('should not have a11y violations', async ({ mount, page }) => {
+  await mount(<Component />);
+  const accessibilityScanResults = await new AxeBuilder({ page })
+    .disableRules(['page-has-heading-one', 'landmark-one-main', 'region'])
+    .analyze();
   expect(accessibilityScanResults.violations).toEqual([]);
 });
 ```

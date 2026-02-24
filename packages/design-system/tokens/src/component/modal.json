@@ -8,11 +8,9 @@
           "$description": "Modal backdrop background (semi-transparent overlay)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Modal backdrop, drawer overlays",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -22,11 +20,9 @@
           "$description": "Backdrop blur effect amount",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Backdrop-filter blur for modern modal overlays",
               "themeable": true,
-              "modeAware": false,
               "note": "Fixed optical value — 4px is the standard blur amount for modal backdrops; no spatial token covers sub-spacing blur."
             }
           }
@@ -39,11 +35,9 @@
           "$description": "Modal content background",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Modal content area background",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -53,11 +47,9 @@
           "$description": "Modal content padding",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Modal body padding",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -68,11 +60,9 @@
             "$description": "Small modal max width",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "modal",
                 "useCase": "Compact modals, confirmation dialogs",
                 "themeable": true,
-                "modeAware": false,
                 "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
@@ -83,11 +73,9 @@
             "$description": "Medium modal max width (default)",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "modal",
                 "useCase": "Standard modals, form dialogs",
                 "themeable": true,
-                "modeAware": false,
                 "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
@@ -98,11 +86,9 @@
             "$description": "Large modal max width",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "modal",
                 "useCase": "Large content modals, detailed forms",
                 "themeable": true,
-                "modeAware": false,
                 "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
@@ -113,11 +99,9 @@
             "$description": "Extra large modal max width",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "modal",
                 "useCase": "Full-width modals, complex UIs",
                 "themeable": true,
-                "modeAware": false,
                 "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
@@ -129,11 +113,9 @@
           "$description": "Modal content border radius",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Modal content area corners",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -143,11 +125,9 @@
           "$description": "Modal content shadow for strong elevation",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Modal content elevation above backdrop",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -159,11 +139,9 @@
           "$description": "Modal header padding",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Modal header section",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -173,11 +151,9 @@
           "$description": "Modal header bottom border",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Separator between header and body",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -189,11 +165,9 @@
           "$description": "Modal footer padding",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Modal footer section (actions area)",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         },
@@ -203,11 +177,9 @@
           "$description": "Modal footer top border",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Separator between body and footer",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -219,11 +191,9 @@
           "$description": "Close button size (width and height)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Modal close button dimensions",
               "themeable": true,
-              "modeAware": false,
               "note": "Fixed touch-target constant — 32px is the minimum recommended interactive target size."
             }
           }
@@ -235,11 +205,9 @@
             "$description": "Close button offset from modal edges",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "modal",
                 "useCase": "Close button positioning (top-right)",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -251,11 +219,9 @@
             "$description": "Close button icon color",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "modal",
                 "useCase": "Close button icon",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -265,11 +231,9 @@
             "$description": "Close button icon color on hover",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "modal",
                 "useCase": "Close button hover state",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -283,11 +247,9 @@
             "$description": "Modal enter animation duration",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "modal",
                 "useCase": "Modal fade-in and scale-up animation",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           },
@@ -297,11 +259,9 @@
             "$description": "Modal exit animation duration",
             "$extensions": {
               "lufa": {
-                "level": "component",
                 "category": "modal",
                 "useCase": "Modal fade-out animation",
-                "themeable": true,
-                "modeAware": false
+                "themeable": true
               }
             }
           }
@@ -312,11 +272,9 @@
           "$description": "Modal animation timing function",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Smooth animation curve for enter/exit",
-              "themeable": true,
-              "modeAware": false
+              "themeable": true
             }
           }
         }
@@ -328,11 +286,9 @@
           "$description": "Modal backdrop z-index",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Backdrop layer stacking",
               "themeable": true,
-              "modeAware": false,
               "note": "Z-index constant — stacking order values are not semantic-layer tokens; 1000 is the standard modal backdrop level."
             }
           }
@@ -343,11 +299,9 @@
           "$description": "Modal content z-index (above backdrop)",
           "$extensions": {
             "lufa": {
-              "level": "component",
               "category": "modal",
               "useCase": "Modal content layer stacking",
               "themeable": true,
-              "modeAware": false,
               "note": "Z-index constant — must be exactly 1 above backdrop (1000) so content renders above overlay."
             }
           }

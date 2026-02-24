@@ -27,7 +27,7 @@ Identify the user's intent and follow the corresponding path:
 Before executing ANY generation task, you MUST perform these context checks:
 
 1.  **Duplicate Check**:
-    - If creating a component: `ls packages/design-system/main/src/components` -> Does it already exist?
+    - If creating a component: check the relevant category folder — `ls packages/design-system/main/src/foundation`, `ls packages/design-system/main/src/content`, `ls packages/design-system/main/src/interaction`, `ls packages/design-system/main/src/composition`, `ls packages/design-system/main/src/utility` -> Does it already exist?
     - If creating a token: `grep` existing token files to avoid redefining the same value.
 
 2.  **Dependency Check**:
@@ -43,9 +43,9 @@ Before executing ANY generation task, you MUST perform these context checks:
 1.  **Analyze**: Read `tokens.md` and `components.md`.
 2.  **Check**: Does a similar component exist?
 3.  **Tokens**: Define necessary tokens in `tokens/src/component/`.
-4.  **Component**: Create `tsx`, `module.css`, `additional.module.css`.
-5.  **Stories**: Create `stories.tsx` (Read `stories.md`).
-6.  **Docs**: Create `docs.md` (Read `documentation.md`).
+4.  **Component**: Create `[ComponentName].tsx`, `[ComponentName].module.css`, `[componentName].utilities.config.cjs`, and additional `*.module.css` if needed.
+5.  **Stories**: Create `[ComponentName].stories.tsx` in `storybook/src/stories/[category]/` (Read `stories.md`).
+6.  **Docs**: Create `[ComponentName].mdx` in `docusaurus/docs/[category]/` (Read `documentation.md`).
 
 ## 4. Execution Protocol
 

@@ -7,11 +7,9 @@
         "$description": "Label text size - for form labels and UI labels",
         "$extensions": {
           "lufa": {
-            "level": "semantic",
             "category": "typography",
             "useCase": "Form labels, input labels, UI component labels",
-            "themeable": true,
-            "modeAware": false
+            "themeable": true
           }
         }
       }

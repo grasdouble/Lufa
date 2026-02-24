@@ -29,7 +29,7 @@ type Theme = {
 };
 
 const THEMES: Theme[] = [
-  { name: 'default', label: 'Default', icon: '📘', description: 'Docusaurus classic' },
+  { name: 'default', label: 'Default', icon: '📘', description: 'Clean blue theme' },
   { name: 'ocean', label: 'Ocean', icon: '🌊', description: 'Marine-inspired' },
   { name: 'forest', label: 'Forest', icon: '🌲', description: 'Organic natural' },
   { name: 'matrix', label: 'Matrix', icon: '💾', description: 'Digital cyber' },
@@ -93,8 +93,8 @@ export default function PlaygroundThemeSwitcher({ containerRef }: PlaygroundThem
       <button
         className={styles.trigger}
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Switch playground theme"
-        title="Switch playground theme"
+        aria-label={`${currentThemeData.label} theme - Switch playground theme`}
+        title={`Current theme: ${currentThemeData.label}. Click to switch theme.`}
       >
         <span className={styles.icon}>{currentThemeData.icon}</span>
         <span className={styles.label}>{currentThemeData.label}</span>

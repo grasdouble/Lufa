@@ -15,15 +15,18 @@
   --lufa-core-brand-primary-default: #dc2626; /* Red 600 */
   --lufa-core-brand-primary-hover: #b91c1c;
   --lufa-core-brand-primary-active: #991b1b;
-  --lufa-core-brand-secondary-default: #ea580c; /* Orange 600 */
-  --lufa-core-brand-secondary-hover: #c2410c;
-  --lufa-core-brand-secondary-active: #9a3412;
+  --lufa-core-brand-secondary-default: #9a3412; /* Orange 800 - WCAG AA compliant (6.89:1) */
+  --lufa-core-brand-secondary-hover: #7c2d12; /* Orange 900 */
+  --lufa-core-brand-secondary-active: #431407; /* Orange 950 */
+  --lufa-core-brand-accent-visited: #9333ea;
+  --lufa-core-brand-primary-on-background: #ffffff;
+  --lufa-core-brand-secondary-on-background: #ffffff;
 
   /* Neutral Tokens - Volcano Light */
   --lufa-core-neutral-background: #fffafa;
   --lufa-core-neutral-surface-default: #fef2f2;
   --lufa-core-neutral-surface-hover: #fee2e2;
-  --lufa-core-neutral-border-default: #fecaca;
+  --lufa-core-neutral-border-default: #ef4444;
   --lufa-core-neutral-border-strong: #dc2626;
   --lufa-core-neutral-text-primary: #450a0a;
   --lufa-core-neutral-text-secondary: #7f1d1d;
@@ -31,22 +34,124 @@
   --lufa-core-neutral-text-disabled: #fecaca;
 
   /* Semantic Tokens */
-  --lufa-core-semantic-success-default: #16a34a;
+  --lufa-core-semantic-success-default: #15803d; /* Darker green - WCAG AA (4.67:1) */
   --lufa-core-semantic-success-subtle: #f0fdf4;
   --lufa-core-semantic-success-border: #bbf7d0;
-  --lufa-core-semantic-success-hover: #15803d;
-  --lufa-core-semantic-error-default: #dc2626;
+  --lufa-core-semantic-success-hover: #166534;
+  --lufa-core-semantic-error-default: #b91c1c; /* Darker red - WCAG AA (5.96:1) */
   --lufa-core-semantic-error-subtle: #fef2f2;
   --lufa-core-semantic-error-border: #fecaca;
-  --lufa-core-semantic-error-hover: #b91c1c;
-  --lufa-core-semantic-warning-default: #f59e0b;
+  --lufa-core-semantic-error-hover: #991b1b;
+  --lufa-core-semantic-warning-default: #b45309; /* Much darker amber - WCAG AA (4.51:1) */
   --lufa-core-semantic-warning-subtle: #fffbeb;
   --lufa-core-semantic-warning-border: #fde68a;
-  --lufa-core-semantic-warning-hover: #d97706;
+  --lufa-core-semantic-warning-hover: #92400e;
   --lufa-core-semantic-info-default: #2563eb;
   --lufa-core-semantic-info-subtle: #eff6ff;
   --lufa-core-semantic-info-border: #bfdbfe;
   --lufa-core-semantic-info-hover: #1d4ed8;
+
+  /* ==================== RGB VARIABLES ==================== */
+  /* Extracted from hex colors for alpha token generation */
+  --lufa-primary-rgb: 220, 38, 38; /* #dc2626 */
+  --lufa-secondary-rgb: 154, 52, 18; /* #9a3412 */
+  --lufa-success-rgb: 22, 163, 74; /* #16a34a */
+  --lufa-error-rgb: 220, 38, 38; /* #dc2626 */
+  --lufa-warning-rgb: 245, 158, 11; /* #f59e0b */
+  --lufa-info-rgb: 37, 99, 235; /* #2563eb */
+
+  /* ==================== ALPHA TOKENS ==================== */
+  /* Primary Alpha (9 levels) */
+  --lufa-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
+  --lufa-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
+  --lufa-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
+  --lufa-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
+  --lufa-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
+  --lufa-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
+  --lufa-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
+  --lufa-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
+  --lufa-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
+
+  /* Secondary Alpha (9 levels) */
+  --lufa-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
+  --lufa-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
+  --lufa-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
+  --lufa-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
+  --lufa-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
+  --lufa-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
+  --lufa-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
+  --lufa-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
+  --lufa-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
+
+  /* Success Alpha (9 levels) */
+  --lufa-alpha-success-3: rgba(var(--lufa-success-rgb), 0.03);
+  --lufa-alpha-success-5: rgba(var(--lufa-success-rgb), 0.05);
+  --lufa-alpha-success-8: rgba(var(--lufa-success-rgb), 0.08);
+  --lufa-alpha-success-10: rgba(var(--lufa-success-rgb), 0.1);
+  --lufa-alpha-success-15: rgba(var(--lufa-success-rgb), 0.15);
+  --lufa-alpha-success-20: rgba(var(--lufa-success-rgb), 0.2);
+  --lufa-alpha-success-30: rgba(var(--lufa-success-rgb), 0.3);
+  --lufa-alpha-success-40: rgba(var(--lufa-success-rgb), 0.4);
+  --lufa-alpha-success-50: rgba(var(--lufa-success-rgb), 0.5);
+
+  /* Error Alpha (9 levels) */
+  --lufa-alpha-error-3: rgba(var(--lufa-error-rgb), 0.03);
+  --lufa-alpha-error-5: rgba(var(--lufa-error-rgb), 0.05);
+  --lufa-alpha-error-8: rgba(var(--lufa-error-rgb), 0.08);
+  --lufa-alpha-error-10: rgba(var(--lufa-error-rgb), 0.1);
+  --lufa-alpha-error-15: rgba(var(--lufa-error-rgb), 0.15);
+  --lufa-alpha-error-20: rgba(var(--lufa-error-rgb), 0.2);
+  --lufa-alpha-error-30: rgba(var(--lufa-error-rgb), 0.3);
+  --lufa-alpha-error-40: rgba(var(--lufa-error-rgb), 0.4);
+  --lufa-alpha-error-50: rgba(var(--lufa-error-rgb), 0.5);
+
+  /* Warning Alpha (9 levels) */
+  --lufa-alpha-warning-3: rgba(var(--lufa-warning-rgb), 0.03);
+  --lufa-alpha-warning-5: rgba(var(--lufa-warning-rgb), 0.05);
+  --lufa-alpha-warning-8: rgba(var(--lufa-warning-rgb), 0.08);
+  --lufa-alpha-warning-10: rgba(var(--lufa-warning-rgb), 0.1);
+  --lufa-alpha-warning-15: rgba(var(--lufa-warning-rgb), 0.15);
+  --lufa-alpha-warning-20: rgba(var(--lufa-warning-rgb), 0.2);
+  --lufa-alpha-warning-30: rgba(var(--lufa-warning-rgb), 0.3);
+  --lufa-alpha-warning-40: rgba(var(--lufa-warning-rgb), 0.4);
+  --lufa-alpha-warning-50: rgba(var(--lufa-warning-rgb), 0.5);
+
+  /* Info Alpha (9 levels) */
+  --lufa-alpha-info-3: rgba(var(--lufa-info-rgb), 0.03);
+  --lufa-alpha-info-5: rgba(var(--lufa-info-rgb), 0.05);
+  --lufa-alpha-info-8: rgba(var(--lufa-info-rgb), 0.08);
+  --lufa-alpha-info-10: rgba(var(--lufa-info-rgb), 0.1);
+  --lufa-alpha-info-15: rgba(var(--lufa-info-rgb), 0.15);
+  --lufa-alpha-info-20: rgba(var(--lufa-info-rgb), 0.2);
+  --lufa-alpha-info-30: rgba(var(--lufa-info-rgb), 0.3);
+  --lufa-alpha-info-40: rgba(var(--lufa-info-rgb), 0.4);
+  --lufa-alpha-info-50: rgba(var(--lufa-info-rgb), 0.5);
+
+  /* ==================== SHADOW TOKENS (Light Mode) ==================== */
+  /* Fiery red-tinted shadow for volcano aesthetic */
+  --lufa-shadow-color: rgba(69, 10, 10, 0.25); /* Deep red shadow */
+
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+
+  /* ==================== OVERLAY TOKENS (Light Mode) ==================== */
+  /* Light overlays - for brightening */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
+
+  /* Dark overlays - for dimming */
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.05);
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.1);
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.3);
+
+  /* Backdrop overlays - for modal backgrounds */
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.3);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.5);
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.7);
 }
 
 /* ==================== DARK MODE ==================== */
@@ -59,12 +164,15 @@
   --lufa-core-brand-secondary-default: #fb923c;
   --lufa-core-brand-secondary-hover: #fdba74;
   --lufa-core-brand-secondary-active: #ea580c;
+  --lufa-core-brand-accent-visited: #c084fc;
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   /* Neutral Tokens - Volcano Dark (The Pit) */
   --lufa-core-neutral-background: #0f0505;
   --lufa-core-neutral-surface-default: #1a0a0a;
   --lufa-core-neutral-surface-hover: #2d1212;
-  --lufa-core-neutral-border-default: #451a1a;
+  --lufa-core-neutral-border-default: #b91c1c;
   --lufa-core-neutral-border-strong: #f87171;
   --lufa-core-neutral-text-primary: #fef2f2;
   --lufa-core-neutral-text-secondary: #fca5a5;
@@ -84,10 +192,36 @@
   --lufa-core-semantic-warning-subtle: #451a03;
   --lufa-core-semantic-warning-border: #78350f;
   --lufa-core-semantic-warning-hover: #fcd34d;
-  --lufa-core-semantic-info-default: #60a5fa;
+  --lufa-core-semantic-info-default: #7eb8f7; /* Even brighter blue - WCAG AA (4.51:1) */
   --lufa-core-semantic-info-subtle: #1e3a8a;
   --lufa-core-semantic-info-border: #1e40af;
-  --lufa-core-semantic-info-hover: #93c5fd;
+  --lufa-core-semantic-info-hover: #a5caff;
+
+  /* ==================== SHADOW TOKENS (Dark Mode) ==================== */
+  /* Intense dark shadow with slight red tint for molten effect */
+  --lufa-shadow-color: rgba(220, 38, 38, 0.4); /* Red-tinted shadow */
+
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+
+  /* ==================== OVERLAY TOKENS (Dark Mode) ==================== */
+  /* Light overlays - for brightening */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
+
+  /* Dark overlays - increased opacity for visibility in dark mode */
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.1);
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.2);
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.4);
+
+  /* Backdrop overlays - stronger for dark backgrounds */
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.5);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.7);
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.9);
 }
 
 /* ==================== HIGH CONTRAST MODE ==================== */
@@ -99,6 +233,9 @@
   --lufa-core-brand-secondary-default: #ff8800;
   --lufa-core-brand-secondary-hover: #ffaa33;
   --lufa-core-brand-secondary-active: #cc6600;
+  --lufa-core-brand-accent-visited: #bf00ff; /* Purple — WCAG AA on black (4.7:1) */
+  --lufa-core-brand-primary-on-background: #000000;
+  --lufa-core-brand-secondary-on-background: #000000;
 
   --lufa-core-neutral-background: #000000;
   --lufa-core-neutral-surface-default: #000000;
@@ -109,4 +246,51 @@
   --lufa-core-neutral-text-secondary: #ffffff;
   --lufa-core-neutral-text-tertiary: #ff3300;
   --lufa-core-neutral-text-disabled: #441111;
+
+  /* ==================== SHADOW TOKENS (High-Contrast Mode) ==================== */
+  /* Strong shadow with orange glow for maximum separation */
+  --lufa-shadow-color: rgba(255, 51, 0, 0.6); /* Intense orange-red shadow */
+
+  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
+  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
+  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
+  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
+  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
+
+  /* ==================== OVERLAY TOKENS (High-Contrast Mode) ==================== */
+  /* Light overlays */
+  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.1);
+  --lufa-overlay-light: rgba(255, 255, 255, 0.2);
+  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.3);
+
+  /* Dark overlays - high contrast needs strong opacity */
+  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.2);
+  --lufa-overlay-dark: rgba(0, 0, 0, 0.4);
+  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.6);
+
+  /* Backdrop overlays - very strong for accessibility */
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.6);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.8);
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.95);
+
+  /* Semantic Tokens - High Visibility for Accessibility */
+  --lufa-core-semantic-success-default: #76ff03; /* High contrast success */
+  --lufa-core-semantic-success-subtle: #000000; /* Pure black background */
+  --lufa-core-semantic-success-border: #76ff03; /* Matching border for max contrast */
+  --lufa-core-semantic-success-hover: #b2ff59; /* Brighter success */
+
+  --lufa-core-semantic-error-default: #ff1744; /* High contrast error */
+  --lufa-core-semantic-error-subtle: #000000; /* Pure black background */
+  --lufa-core-semantic-error-border: #ff1744; /* Matching border for max contrast */
+  --lufa-core-semantic-error-hover: #ff5252; /* Brighter error */
+
+  --lufa-core-semantic-warning-default: #ff9100; /* High contrast warning */
+  --lufa-core-semantic-warning-subtle: #000000; /* Pure black background */
+  --lufa-core-semantic-warning-border: #ff9100; /* Matching border for max contrast */
+  --lufa-core-semantic-warning-hover: #ffab40; /* Brighter warning */
+
+  --lufa-core-semantic-info-default: #00b8d4; /* High contrast info */
+  --lufa-core-semantic-info-subtle: #000000; /* Pure black background */
+  --lufa-core-semantic-info-border: #00b8d4; /* Matching border for max contrast */
+  --lufa-core-semantic-info-hover: #26c6da; /* Brighter info */
 }

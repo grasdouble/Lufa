@@ -8,12 +8,7 @@
           "$description": "Lightest gray - backgrounds, subtle borders",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["gray-900", "gray-800", "gray-700"],
-              "wcagAAA": ["gray-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -23,12 +18,7 @@
           "$description": "Very light gray - hover states, disabled backgrounds",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["gray-900", "gray-800", "gray-700"],
-              "wcagAAA": ["gray-900", "gray-800"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -38,12 +28,7 @@
           "$description": "Light gray - borders, separators",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["gray-900", "gray-800", "gray-700"],
-              "wcagAAA": ["gray-900", "gray-800"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -53,12 +38,7 @@
           "$description": "Medium-light gray - inactive elements",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["gray-900", "gray-800"],
-              "wcagAAA": ["gray-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -68,12 +48,7 @@
           "$description": "Medium gray - placeholders, disabled text",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["gray-900"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -83,12 +58,7 @@
           "$description": "Base gray - secondary text, icons",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["gray-50", "gray-100"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -98,12 +68,7 @@
           "$description": "Dark gray - primary text, headings",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["gray-50", "gray-100", "gray-200"],
-              "wcagAAA": ["gray-50", "gray-100"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -113,12 +78,7 @@
           "$description": "Darker gray - accented text",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["gray-50", "gray-100", "gray-200"],
-              "wcagAAA": ["gray-50", "gray-100", "gray-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -128,12 +88,7 @@
           "$description": "Very dark gray - high contrast text",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["gray-50", "gray-100", "gray-200"],
-              "wcagAAA": ["gray-50", "gray-100", "gray-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -143,12 +98,7 @@
           "$description": "Darkest gray - maximum contrast text",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["gray-50", "gray-100", "gray-200", "gray-300"],
-              "wcagAAA": ["gray-50", "gray-100", "gray-200", "gray-300"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         }
@@ -160,12 +110,7 @@
           "$description": "Lightest blue - info backgrounds",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["blue-900", "blue-800", "blue-700"],
-              "wcagAAA": ["blue-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -175,12 +120,7 @@
           "$description": "Very light blue - info hover states",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["blue-900", "blue-800", "blue-700"],
-              "wcagAAA": ["blue-900", "blue-800"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -190,12 +130,7 @@
           "$description": "Light blue - info borders",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["blue-900", "blue-800"],
-              "wcagAAA": ["blue-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -205,12 +140,7 @@
           "$description": "Medium-light blue - disabled info elements",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["blue-900"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -220,12 +150,7 @@
           "$description": "Medium blue - info icons",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -235,12 +160,7 @@
           "$description": "Base blue - brand primary, links",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -250,12 +170,7 @@
           "$description": "Dark blue - primary hover",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100", "blue-200"],
-              "wcagAAA": ["blue-50", "blue-100"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -265,12 +180,7 @@
           "$description": "Darker blue - primary active",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100", "blue-200"],
-              "wcagAAA": ["blue-50", "blue-100", "blue-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -280,12 +190,7 @@
           "$description": "Very dark blue - primary high contrast",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100", "blue-200"],
-              "wcagAAA": ["blue-50", "blue-100", "blue-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -295,12 +200,7 @@
           "$description": "Darkest blue - primary maximum contrast",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["blue-50", "blue-100", "blue-200", "blue-300"],
-              "wcagAAA": ["blue-50", "blue-100", "blue-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         }
@@ -312,12 +212,7 @@
           "$description": "Lightest red - error backgrounds",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["red-900", "red-800", "red-700"],
-              "wcagAAA": ["red-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -327,12 +222,7 @@
           "$description": "Very light red - error hover states",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["red-900", "red-800", "red-700"],
-              "wcagAAA": ["red-900", "red-800"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -342,12 +232,7 @@
           "$description": "Light red - error borders",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["red-900", "red-800"],
-              "wcagAAA": ["red-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -357,12 +242,7 @@
           "$description": "Medium-light red - disabled error elements",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["red-900"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -372,12 +252,7 @@
           "$description": "Medium red - error icons",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["red-50", "red-100"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -387,12 +262,7 @@
           "$description": "Base red - error states, destructive actions",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["red-50", "red-100"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -402,12 +272,7 @@
           "$description": "Dark red - error hover",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["red-50", "red-100", "red-200"],
-              "wcagAAA": ["red-50", "red-100"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -417,12 +282,7 @@
           "$description": "Darker red - error active",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["red-50", "red-100", "red-200"],
-              "wcagAAA": ["red-50", "red-100", "red-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -432,12 +292,7 @@
           "$description": "Very dark red - error high contrast",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["red-50", "red-100", "red-200"],
-              "wcagAAA": ["red-50", "red-100", "red-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -447,12 +302,7 @@
           "$description": "Darkest red - error maximum contrast",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["red-50", "red-100", "red-200", "red-300"],
-              "wcagAAA": ["red-50", "red-100", "red-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         }
@@ -464,12 +314,7 @@
           "$description": "Lightest green - success backgrounds",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["green-900", "green-800", "green-700"],
-              "wcagAAA": ["green-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -479,12 +324,7 @@
           "$description": "Very light green - success hover states",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["green-900", "green-800", "green-700"],
-              "wcagAAA": ["green-900", "green-800"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -494,12 +334,7 @@
           "$description": "Light green - success borders",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["green-900", "green-800"],
-              "wcagAAA": ["green-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -509,12 +344,7 @@
           "$description": "Medium-light green - disabled success elements",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["green-900"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -524,12 +354,7 @@
           "$description": "Medium green - success icons",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["green-900"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -539,12 +364,7 @@
           "$description": "Base green - success states, positive actions",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["green-50", "green-100"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -554,12 +374,7 @@
           "$description": "Dark green - success hover",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["green-50", "green-100", "green-200"],
-              "wcagAAA": ["green-50", "green-100"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -569,12 +384,7 @@
           "$description": "Darker green - success active",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["green-50", "green-100", "green-200"],
-              "wcagAAA": ["green-50", "green-100", "green-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -584,12 +394,7 @@
           "$description": "Very dark green - success high contrast",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["green-50", "green-100", "green-200"],
-              "wcagAAA": ["green-50", "green-100", "green-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -599,12 +404,7 @@
           "$description": "Darkest green - success maximum contrast",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["green-50", "green-100", "green-200", "green-300"],
-              "wcagAAA": ["green-50", "green-100", "green-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         }
@@ -616,12 +416,7 @@
           "$description": "Lightest yellow - alert backgrounds",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["yellow-900", "yellow-800", "yellow-700"],
-              "wcagAAA": ["yellow-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -631,12 +426,7 @@
           "$description": "Very light yellow - alert hover states",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["yellow-900", "yellow-800", "yellow-700"],
-              "wcagAAA": ["yellow-900", "yellow-800"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -646,12 +436,7 @@
           "$description": "Light yellow - alert borders",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["yellow-900", "yellow-800"],
-              "wcagAAA": ["yellow-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -661,12 +446,7 @@
           "$description": "Medium-light yellow - disabled alert elements",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["yellow-900"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -676,12 +456,7 @@
           "$description": "Medium yellow - alert icons",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["yellow-900"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -691,12 +466,7 @@
           "$description": "Base yellow - alert states, attention",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["yellow-900"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -706,12 +476,7 @@
           "$description": "Dark yellow - alert hover",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200"],
-              "wcagAAA": ["yellow-50", "yellow-100"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -721,12 +486,7 @@
           "$description": "Darker yellow - alert active",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200"],
-              "wcagAAA": ["yellow-50", "yellow-100", "yellow-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -736,12 +496,7 @@
           "$description": "Very dark yellow - alert high contrast",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200"],
-              "wcagAAA": ["yellow-50", "yellow-100", "yellow-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -751,12 +506,7 @@
           "$description": "Darkest yellow - alert maximum contrast",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["yellow-50", "yellow-100", "yellow-200", "yellow-300"],
-              "wcagAAA": ["yellow-50", "yellow-100", "yellow-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         }
@@ -768,12 +518,7 @@
           "$description": "Lightest purple - accent backgrounds",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["purple-900", "purple-800", "purple-700"],
-              "wcagAAA": ["purple-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -783,12 +528,7 @@
           "$description": "Very light purple - accent hover states",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["purple-900", "purple-800", "purple-700"],
-              "wcagAAA": ["purple-900", "purple-800"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -798,12 +538,7 @@
           "$description": "Light purple - accent borders",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["purple-900", "purple-800"],
-              "wcagAAA": ["purple-900"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -813,12 +548,7 @@
           "$description": "Medium-light purple - disabled accent elements",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["purple-900"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -828,12 +558,7 @@
           "$description": "Medium purple - accent icons",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["purple-900"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -843,12 +568,7 @@
           "$description": "Base purple - secondary brand, accent",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["purple-50", "purple-100"],
-              "wcagAAA": [],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -858,12 +578,7 @@
           "$description": "Dark purple - accent hover",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["purple-50", "purple-100", "purple-200"],
-              "wcagAAA": ["purple-50", "purple-100"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -873,12 +588,7 @@
           "$description": "Darker purple - accent active",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["purple-50", "purple-100", "purple-200"],
-              "wcagAAA": ["purple-50", "purple-100", "purple-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -888,12 +598,7 @@
           "$description": "Very dark purple - accent high contrast",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["purple-50", "purple-100", "purple-200"],
-              "wcagAAA": ["purple-50", "purple-100", "purple-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         },
@@ -903,12 +608,7 @@
           "$description": "Darkest purple - accent maximum contrast",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
-              "category": "color",
-              "wcagAALarge": ["purple-50", "purple-100", "purple-200", "purple-300"],
-              "wcagAAA": ["purple-50", "purple-100", "purple-200"],
-              "themeable": false,
-              "modeAware": false
+              "category": "color"
             }
           }
         }
@@ -920,12 +620,9 @@
           "$description": "Pure black for high-contrast text and borders - WCAG AAA compliant",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode text, borders, and icons",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "High-contrast mode text, borders, and icons"
             }
           }
         },
@@ -935,12 +632,9 @@
           "$description": "Pure white for high-contrast backgrounds and inverse text",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode backgrounds and inverse text",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "High-contrast mode backgrounds and inverse text"
             }
           }
         },
@@ -950,12 +644,9 @@
           "$description": "Pure blue for high-contrast primary actions and links",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode primary buttons, links, focus indicators",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "High-contrast mode primary buttons, links, focus indicators"
             }
           }
         },
@@ -965,12 +656,9 @@
           "$description": "Pure red for high-contrast error states and destructive actions",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode error messages, destructive buttons, validation",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "High-contrast mode error messages, destructive buttons, validation"
             }
           }
         },
@@ -980,12 +668,9 @@
           "$description": "Pure green for high-contrast success states and positive feedback",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode success messages, positive indicators",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "High-contrast mode success messages, positive indicators"
             }
           }
         },
@@ -995,12 +680,9 @@
           "$description": "Pure yellow for high-contrast warning states and alerts",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "color",
               "palette": "high-contrast",
-              "useCase": "High-contrast mode warning messages, alert banners",
-              "themeable": false,
-              "modeAware": false
+              "useCase": "High-contrast mode warning messages, alert banners"
             }
           }
         }
@@ -1013,10 +695,7 @@
             "$description": "4% opacity black - ultra-subtle overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1026,10 +705,7 @@
             "$description": "5% opacity black - ultra-subtle shadow layer",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1039,10 +715,7 @@
             "$description": "8% opacity black - hover state overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1052,10 +725,7 @@
             "$description": "12% opacity black - hover/scrim variant",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1065,10 +735,7 @@
             "$description": "15% opacity black - soft shadow layer",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1078,10 +745,7 @@
             "$description": "16% opacity black - subtle overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1091,10 +755,7 @@
             "$description": "38% opacity black - disabled state standard (Material Design)",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1104,10 +765,7 @@
             "$description": "50% opacity black - balanced overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1117,10 +775,7 @@
             "$description": "60% opacity black - medium overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1130,10 +785,7 @@
             "$description": "80% opacity black - strong overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1143,10 +795,7 @@
             "$description": "90% opacity black - very strong overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1156,10 +805,7 @@
             "$description": "Solid black - reference value",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           }
@@ -1171,10 +817,7 @@
             "$description": "4% opacity white - ultra-subtle overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1184,10 +827,7 @@
             "$description": "5% opacity white - ultra-subtle shadow layer",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1197,10 +837,7 @@
             "$description": "8% opacity white - hover state overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1210,10 +847,7 @@
             "$description": "12% opacity white - hover/scrim variant",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1223,10 +857,7 @@
             "$description": "15% opacity white - soft shadow layer",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1236,10 +867,7 @@
             "$description": "16% opacity white - subtle overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1249,10 +877,7 @@
             "$description": "38% opacity white - disabled state standard",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1262,10 +887,7 @@
             "$description": "50% opacity white - balanced overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1275,10 +897,7 @@
             "$description": "60% opacity white - medium overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1288,10 +907,7 @@
             "$description": "80% opacity white - strong overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1301,10 +917,7 @@
             "$description": "90% opacity white - very strong overlay",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           },
@@ -1314,10 +927,7 @@
             "$description": "Solid white - reference value",
             "$extensions": {
               "lufa": {
-                "level": "primitive",
-                "category": "color",
-                "themeable": false,
-                "modeAware": false
+                "category": "color"
               }
             }
           }

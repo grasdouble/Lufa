@@ -8,12 +8,9 @@
           "$description": "System sans-serif font stack - optimized for readability, 0kb download",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
               "performance": "0kb download",
-              "platforms": ["macOS", "Windows", "Linux", "iOS", "Android"],
-              "themeable": false,
-              "modeAware": false
+              "platforms": ["macOS", "Windows", "Linux", "iOS", "Android"]
             }
           }
         },
@@ -23,12 +20,9 @@
           "$description": "System monospace font stack - code blocks, technical content",
           "$extensions": {
             "lufa": {
-              "level": "primitive",
               "category": "typography",
               "performance": "0kb download",
-              "platforms": ["macOS", "Windows", "Linux", "iOS", "Android"],
-              "themeable": false,
-              "modeAware": false
+              "platforms": ["macOS", "Windows", "Linux", "iOS", "Android"]
             }
           }
         }

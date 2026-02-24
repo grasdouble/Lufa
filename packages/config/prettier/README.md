@@ -75,7 +75,3 @@ Install the [Prettier extension](https://marketplace.visualstudio.com/items?item
 
 - [@grasdouble/lufa_config_eslint](../eslint/) - ESLint configuration
 - [@grasdouble/lufa_config_tsconfig](../tsconfig/) - TypeScript configuration
-
-## Contributing
-
-See [CONTRIBUTING.md](../../../CONTRIBUTING.md) for development guidelines.

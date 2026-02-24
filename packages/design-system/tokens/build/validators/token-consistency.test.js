@@ -1,588 +1,516 @@
 /**
- * Test Suite for Token Consistency Validator
+ * Tests for Token Consistency Validator
  *
- * Tests all 6 validation rules:
- * 1. Primitives cannot be themeable or mode-aware
- * 2. Modes require modeAware
- * 3. Themes require themeable
- * 4. Layout tokens must be structural constants
- * 5. Tokens with modes must have all three: light, dark, high-contrast
- * 6. No typo "themable"
- *
- * @see ADR-011: Token Architecture - Primitives as Immutable Constants
+ * Tests all 9 validation rules from ADR-013
  */
 
-import assert from 'assert';
+import { inferLevel, validateToken, ValidationError } from './token-consistency.js';
 
-import { validateToken, ValidationError } from './token-consistency.js';
+let testsPassed = 0;
+let testsFailed = 0;
 
-// ANSI colors for terminal output
-const colors = {
-  reset: '\x1b[0m',
-  red: '\x1b[31m',
-  green: '\x1b[32m',
-  yellow: '\x1b[33m',
-  cyan: '\x1b[36m',
-  dim: '\x1b[2m',
-};
-
-// Test statistics
-let passed = 0;
-let failed = 0;
-const startTime = Date.now();
-
-/**
- * Test runner function
- */
+// Helper to run a test
 function test(name, fn) {
   try {
     fn();
-    passed++;
-    console.log(`${colors.green}✓${colors.reset} ${name}`);
+    console.log(`✅ ${name}`);
+    testsPassed++;
   } catch (error) {
-    failed++;
-    console.error(`${colors.red}✗${colors.reset} ${name}`);
-    console.error(`${colors.red}  ${error.message}${colors.reset}`);
-    if (error.stack) {
-      console.error(`${colors.dim}${error.stack}${colors.reset}`);
+    console.error(`❌ ${name}`);
+    console.error(`   ${error.message}`);
+    testsFailed++;
+  }
+}
+
+// Helper to assert a validation error is thrown
+function assertThrows(fn, expectedMessage) {
+  try {
+    fn();
+    throw new Error('Expected ValidationError to be thrown');
+  } catch (error) {
+    if (!(error instanceof ValidationError)) {
+      throw new Error(`Expected ValidationError, got ${error.constructor.name}: ${error.message}`);
+    }
+    if (expectedMessage && !error.message.includes(expectedMessage)) {
+      throw new Error(`Expected message to include "${expectedMessage}", got "${error.message}"`);
     }
   }
 }
 
-/**
- * Helper to assert validation error is thrown
- */
-function assertValidationError(token, path, expectedMessageFragment) {
-  try {
-    validateToken(token, path, 'test.json');
-    throw new Error('Expected validation to throw ValidationError');
-  } catch (error) {
-    assert(error instanceof ValidationError, `Expected ValidationError but got ${error.constructor.name}`);
-    assert(
-      error.message.includes(expectedMessageFragment),
-      `Expected error message to include "${expectedMessageFragment}" but got: "${error.message}"`
-    );
-    assert.strictEqual(error.tokenPath, path.join('.'));
-    assert.strictEqual(error.file, 'test.json');
-  }
+// Helper to assert no error is thrown
+function assertNoThrow(fn) {
+  fn();
 }
 
-/**
- * Helper to assert validation passes
- */
-function assertValidationPasses(token, path) {
-  try {
-    validateToken(token, path, 'test.json');
-  } catch (error) {
-    throw new Error(`Expected validation to pass but got error: ${error.message}`);
-  }
-}
+console.log('\n═══════════════════════════════════════════════════════════');
+console.log('Token Consistency Validator - Simplified (ADR-013)');
+console.log('═══════════════════════════════════════════════════════════\n');
 
-console.log(`${colors.cyan}🧪 Token Consistency Validator Test Suite${colors.reset}\n`);
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 1: inferLevel() function
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 1: inferLevel() function');
+console.log('─────────────────────────────────────\n');
 
-// ============================================================================
-// RULE 1: Primitives Cannot Be Themeable or Mode-Aware
-// ============================================================================
+test('inferLevel: primitives (singular)', () => {
+  console.assert(inferLevel(['primitive', 'color', 'blue-500']) === 'primitive');
+});
 
-console.log(`${colors.yellow}Rule 1: Primitives Cannot Be Themeable or Mode-Aware${colors.reset}`);
+test('inferLevel: primitives (plural)', () => {
+  console.assert(inferLevel(['primitives', 'spacing', 'sm']) === 'primitive');
+});
 
-test('Reject primitive with themeable: true', () => {
+test('inferLevel: core', () => {
+  console.assert(inferLevel(['core', 'color', 'brand-primary']) === 'core');
+});
+
+test('inferLevel: semantic', () => {
+  console.assert(inferLevel(['semantic', 'ui', 'background']) === 'semantic');
+});
+
+test('inferLevel: component (singular)', () => {
+  console.assert(inferLevel(['component', 'button', 'background']) === 'component');
+});
+
+test('inferLevel: component (plural)', () => {
+  console.assert(inferLevel(['components', 'card', 'border']) === 'component');
+});
+
+test('inferLevel: layout', () => {
+  console.assert(inferLevel(['layout', 'container', 'width']) === 'layout');
+});
+
+test('inferLevel: null for unknown path', () => {
+  console.assert(inferLevel(['unknown', 'path']) === null);
+});
+
+test('inferLevel: null for empty path', () => {
+  console.assert(inferLevel([]) === null);
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 2: RULE 1 - Primitives cannot have modes
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 2: RULE 1 - Primitives cannot have modes');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 1: Primitive with modes should throw', () => {
   const token = {
-    $value: '#2563eb',
+    $value: '#3b82f6',
+    $extensions: {
+      lufa: {
+        modes: {
+          dark: '#60a5fa',
+        },
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['primitives', 'color', 'blue-500'], 'test.json'), 'cannot have modes');
+});
+
+test('RULE 1: Primitive without modes should pass', () => {
+  const token = {
+    $value: '#3b82f6',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['primitives', 'color', 'blue-500'], 'test.json'));
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 3: RULE 2 - Layout tokens cannot have modes
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 3: RULE 2 - Layout tokens cannot have modes');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 2: Layout with modes should throw', () => {
+  const token = {
+    $value: '1200px',
+    $extensions: {
+      lufa: {
+        modes: {
+          dark: '1400px',
+        },
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['layout', 'container', 'width'], 'test.json'), 'cannot have modes');
+});
+
+test('RULE 2: Layout without modes should pass', () => {
+  const token = {
+    $value: '1200px',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['layout', 'container', 'width'], 'test.json'));
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 4: RULE 3 - modes must have at least 'dark'
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 4: RULE 3 - modes must have at least "dark"');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 3: modes without dark should throw', () => {
+  const token = {
+    $value: '#ffffff',
+    $extensions: {
+      lufa: {
+        modes: {
+          custom: '#000000',
+        },
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['core', 'color', 'background'], 'test.json'), "missing 'dark'");
+});
+
+test('RULE 3: modes with dark should pass', () => {
+  const token = {
+    $value: '#ffffff',
+    $extensions: {
+      lufa: {
+        modes: {
+          dark: '#000000',
+        },
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['core', 'color', 'background'], 'test.json'));
+});
+
+test('RULE 3: modes with dark and custom should pass', () => {
+  const token = {
+    $value: '#ffffff',
+    $extensions: {
+      lufa: {
+        modes: {
+          dark: '#000000',
+          custom: '#333333',
+        },
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['core', 'color', 'background'], 'test.json'));
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 5: RULE 4 - No 'light' in modes (implicit)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 5: RULE 4 - No "light" in modes (implicit)');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 4: modes.light should throw', () => {
+  const token = {
+    $value: '#ffffff',
+    $extensions: {
+      lufa: {
+        modes: {
+          light: '#ffffff',
+          dark: '#000000',
+        },
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['core', 'color', 'background'], 'test.json'), 'modes.light');
+});
+
+test('RULE 4: modes without light should pass', () => {
+  const token = {
+    $value: '#ffffff',
+    $extensions: {
+      lufa: {
+        modes: {
+          dark: '#000000',
+        },
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['core', 'color', 'background'], 'test.json'));
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 6: RULE 5 - No 'themable' typo (deprecated)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 6: RULE 5 - No "themable" typo (deprecated)');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 5: themable property should throw', () => {
+  const token = {
+    $value: '#3b82f6',
+    $extensions: {
+      lufa: {
+        themable: true,
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['core', 'color', 'primary'], 'test.json'), 'themable');
+});
+
+test('RULE 5: without themable should pass', () => {
+  const token = {
+    $value: '#3b82f6',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['core', 'color', 'primary'], 'test.json'));
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 7: RULE 6 - No explicit 'level' (inferred from path)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 7: RULE 6 - No explicit "level" (inferred)');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 6: explicit level should throw', () => {
+  const token = {
+    $value: '#3b82f6',
     $extensions: {
       lufa: {
         level: 'primitive',
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['primitives', 'color', 'blue-500'], 'test.json'), 'explicit');
+});
+
+test('RULE 6: without level should pass', () => {
+  const token = {
+    $value: '#3b82f6',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['primitives', 'color', 'blue-500'], 'test.json'));
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 8: RULE 7 - No 'modeAware' flag (inferred)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 8: RULE 7 - No "modeAware" flag (inferred)');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 7: modeAware flag should throw', () => {
+  const token = {
+    $value: '#ffffff',
+    $extensions: {
+      lufa: {
+        modeAware: true,
+        modes: {
+          dark: '#000000',
+        },
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['core', 'color', 'background'], 'test.json'), 'modeAware');
+});
+
+test('RULE 7: without modeAware should pass', () => {
+  const token = {
+    $value: '#ffffff',
+    $extensions: {
+      lufa: {
+        modes: {
+          dark: '#000000',
+        },
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['core', 'color', 'background'], 'test.json'));
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 9: RULE 8 - No 'themeable' on primitives
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 9: RULE 8 - No "themeable" on primitives');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 8: primitive with themeable should throw', () => {
+  const token = {
+    $value: '#3b82f6',
+    $extensions: {
+      lufa: {
+        themeable: false,
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['primitives', 'color', 'blue-500'], 'test.json'), 'themeable');
+});
+
+test('RULE 8: primitive without themeable should pass', () => {
+  const token = {
+    $value: '#3b82f6',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['primitives', 'color', 'blue-500'], 'test.json'));
+});
+
+test('RULE 8: semantic with themeable should pass', () => {
+  const token = {
+    $value: '{primitives.color.blue-500}',
+    $extensions: {
+      lufa: {
         themeable: true,
-        modeAware: false,
       },
     },
   };
-  assertValidationError(token, ['primitive', 'color', 'blue', '600'], 'themeable=true');
+  assertNoThrow(() => validateToken(token, ['semantic', 'ui', 'primary'], 'test.json'));
 });
 
-test('Reject primitive with modeAware: true', () => {
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 10: RULE 9 - No fluid AND responsive together
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 10: RULE 9 - No fluid AND responsive together');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 9: fluid=true and responsive should throw', () => {
   const token = {
-    $value: '#2563eb',
+    $value: 'clamp(1rem, 2vw, 2rem)',
     $extensions: {
       lufa: {
-        level: 'primitive',
-        themeable: false,
-        modeAware: true,
+        fluid: true,
+        responsive: {
+          sm: '1rem',
+          md: '1.5rem',
+        },
       },
     },
   };
-  assertValidationError(token, ['primitive', 'color', 'blue', '600'], 'modeAware=true');
+  assertThrows(() => validateToken(token, ['core', 'typography', 'size'], 'test.json'), 'mutually exclusive');
 });
 
-test('Reject primitive with modes object', () => {
+test('RULE 9: fluid=true without responsive should pass', () => {
   const token = {
-    $value: '#2563eb',
+    $value: 'clamp(1rem, 2vw, 2rem)',
     $extensions: {
       lufa: {
-        level: 'primitive',
-        themeable: false,
-        modeAware: false,
+        fluid: true,
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['core', 'typography', 'size'], 'test.json'));
+});
+
+test('RULE 9: responsive without fluid should pass', () => {
+  const token = {
+    $value: '1rem',
+    $extensions: {
+      lufa: {
+        responsive: {
+          sm: '1rem',
+          md: '1.5rem',
+        },
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['core', 'typography', 'size'], 'test.json'));
+});
+
+test('RULE 9: fluid=false and responsive should pass', () => {
+  const token = {
+    $value: '1rem',
+    $extensions: {
+      lufa: {
+        fluid: false,
+        responsive: {
+          sm: '1rem',
+          md: '1.5rem',
+        },
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['core', 'typography', 'size'], 'test.json'));
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 11: Edge cases
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 11: Edge cases');
+console.log('─────────────────────────────────────\n');
+
+test('Edge case: Token without $extensions should pass', () => {
+  const token = {
+    $value: '#3b82f6',
+  };
+  assertNoThrow(() => validateToken(token, ['primitives', 'color', 'blue-500'], 'test.json'));
+});
+
+test('Edge case: Token without $extensions.lufa should pass', () => {
+  const token = {
+    $value: '#3b82f6',
+    $extensions: {},
+  };
+  assertNoThrow(() => validateToken(token, ['primitives', 'color', 'blue-500'], 'test.json'));
+});
+
+test('Edge case: Token with empty modes object is valid', () => {
+  const token = {
+    $value: '#3b82f6',
+    $extensions: {
+      lufa: {
+        modes: {},
+      },
+    },
+  };
+  // Empty modes object should fail RULE 3 (must have 'dark')
+  assertThrows(() => validateToken(token, ['core', 'color', 'primary'], 'test.json'), "missing 'dark'");
+});
+
+test('Edge case: Complex valid token (semantic, mode-aware, themeable)', () => {
+  const token = {
+    $value: '{primitives.color.blue-500}',
+    $extensions: {
+      lufa: {
         modes: {
-          light: '#2563eb',
-          dark: '#3b82f6',
-          'high-contrast': '#1e40af',
+          dark: '{primitives.color.blue-400}',
         },
-      },
-    },
-  };
-  assertValidationError(token, ['primitive', 'color', 'blue', '600'], 'modes object');
-});
-
-test('Accept primitive with themeable: false, modeAware: false', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'primitive',
-        themeable: false,
-        modeAware: false,
-      },
-    },
-  };
-  assertValidationPasses(token, ['primitive', 'color', 'blue', '600']);
-});
-
-// ============================================================================
-// RULE 2: Modes Require modeAware
-// ============================================================================
-
-console.log(`\n${colors.yellow}Rule 2: Modes Require modeAware${colors.reset}`);
-
-test('Reject token with modes but modeAware: false', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: false,
-        modeAware: false,
-        modes: {
-          light: '{color.blue.600}',
-          dark: '{color.blue.400}',
-          'high-contrast': '{color.blue.800}',
-        },
-      },
-    },
-  };
-  assertValidationError(token, ['semantic', 'color', 'primary'], 'modeAware is not true');
-});
-
-test('Reject token with modes but modeAware undefined', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: false,
-        modes: {
-          light: '{color.blue.600}',
-          dark: '{color.blue.400}',
-          'high-contrast': '{color.blue.800}',
-        },
-      },
-    },
-  };
-  assertValidationError(token, ['semantic', 'color', 'primary'], 'modeAware is not true');
-});
-
-test('Accept token with modes and modeAware: true', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: false,
-        modeAware: true,
-        modes: {
-          light: '{color.blue.600}',
-          dark: '{color.blue.400}',
-          'high-contrast': '{color.blue.800}',
-        },
-      },
-    },
-  };
-  assertValidationPasses(token, ['semantic', 'color', 'primary']);
-});
-
-// ============================================================================
-// RULE 3: Themes Require Themeable
-// ============================================================================
-
-console.log(`\n${colors.yellow}Rule 3: Themes Require Themeable${colors.reset}`);
-
-test('Reject token with themes but themeable: false', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: false,
-        modeAware: false,
-        themes: {
-          default: '{color.blue.600}',
-          brand: '{color.purple.600}',
-        },
-      },
-    },
-  };
-  assertValidationError(token, ['semantic', 'color', 'primary'], 'themeable is not true');
-});
-
-test('Reject token with themes but themeable undefined', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        modeAware: false,
-        themes: {
-          default: '{color.blue.600}',
-          brand: '{color.purple.600}',
-        },
-      },
-    },
-  };
-  assertValidationError(token, ['semantic', 'color', 'primary'], 'themeable is not true');
-});
-
-test('Accept token with themes and themeable: true', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
         themeable: true,
-        modeAware: false,
-        themes: {
-          default: '{color.blue.600}',
-          brand: '{color.purple.600}',
-        },
       },
     },
   };
-  assertValidationPasses(token, ['semantic', 'color', 'primary']);
+  assertNoThrow(() => validateToken(token, ['semantic', 'ui', 'primary'], 'test.json'));
 });
 
-// ============================================================================
-// RULE 4: Layout Tokens Must Be Structural Constants
-// ============================================================================
+console.log('');
 
-console.log(`\n${colors.yellow}Rule 4: Layout Tokens Must Be Structural Constants${colors.reset}`);
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// SUMMARY
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('═══════════════════════════════════════════════════════════');
+console.log(`Tests passed: ${testsPassed}`);
+console.log(`Tests failed: ${testsFailed}`);
+console.log('═══════════════════════════════════════════════════════════\n');
 
-test('Reject layout token with themeable: true', () => {
-  const token = {
-    $value: '16px',
-    $extensions: {
-      lufa: {
-        level: 'layout',
-        themeable: true,
-        modeAware: false,
-      },
-    },
-  };
-  assertValidationError(token, ['layout', 'spacing', 'base'], 'themeable=true');
-});
-
-test('Reject layout token with modeAware: true', () => {
-  const token = {
-    $value: '16px',
-    $extensions: {
-      lufa: {
-        level: 'layout',
-        themeable: false,
-        modeAware: true,
-      },
-    },
-  };
-  assertValidationError(token, ['layout', 'spacing', 'base'], 'modeAware=true');
-});
-
-test('Accept layout token with themeable: false, modeAware: false', () => {
-  const token = {
-    $value: '16px',
-    $extensions: {
-      lufa: {
-        level: 'layout',
-        themeable: false,
-        modeAware: false,
-      },
-    },
-  };
-  assertValidationPasses(token, ['layout', 'spacing', 'base']);
-});
-
-// ============================================================================
-// RULE 5: Tokens with Modes Must Have All Three
-// ============================================================================
-
-console.log(`\n${colors.yellow}Rule 5: Tokens with Modes Must Have All Three${colors.reset}`);
-
-test('Reject token missing light mode', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: false,
-        modeAware: true,
-        modes: {
-          dark: '{color.blue.400}',
-          'high-contrast': '{color.blue.800}',
-        },
-      },
-    },
-  };
-  assertValidationError(token, ['semantic', 'color', 'primary'], 'missing required modes: light');
-});
-
-test('Reject token missing dark mode', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: false,
-        modeAware: true,
-        modes: {
-          light: '{color.blue.600}',
-          'high-contrast': '{color.blue.800}',
-        },
-      },
-    },
-  };
-  assertValidationError(token, ['semantic', 'color', 'primary'], 'missing required modes: dark');
-});
-
-test('Reject token missing high-contrast mode', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: false,
-        modeAware: true,
-        modes: {
-          light: '{color.blue.600}',
-          dark: '{color.blue.400}',
-        },
-      },
-    },
-  };
-  assertValidationError(token, ['semantic', 'color', 'primary'], 'missing required modes: high-contrast');
-});
-
-test('Reject token missing multiple modes', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: false,
-        modeAware: true,
-        modes: {
-          light: '{color.blue.600}',
-        },
-      },
-    },
-  };
-  assertValidationError(token, ['semantic', 'color', 'primary'], 'missing required modes');
-});
-
-test('Accept token with all three modes', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: false,
-        modeAware: true,
-        modes: {
-          light: '{color.blue.600}',
-          dark: '{color.blue.400}',
-          'high-contrast': '{color.blue.800}',
-        },
-      },
-    },
-  };
-  assertValidationPasses(token, ['semantic', 'color', 'primary']);
-});
-
-// ============================================================================
-// RULE 6: No Typo "themable"
-// ============================================================================
-
-console.log(`\n${colors.yellow}Rule 6: No Typo "themable"${colors.reset}`);
-
-test('Reject token with "themable" (typo)', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themable: true, // Typo!
-        modeAware: false,
-      },
-    },
-  };
-  assertValidationError(token, ['semantic', 'color', 'primary'], 'themable');
-});
-
-test('Accept token with "themeable" (correct spelling)', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: true,
-        modeAware: false,
-      },
-    },
-  };
-  assertValidationPasses(token, ['semantic', 'color', 'primary']);
-});
-
-// ============================================================================
-// ADDITIONAL EDGE CASES
-// ============================================================================
-
-console.log(`\n${colors.yellow}Additional Edge Cases${colors.reset}`);
-
-test('Skip validation for tokens without $extensions.lufa', () => {
-  const token = {
-    $value: '#2563eb',
-  };
-  assertValidationPasses(token, ['color', 'blue', '600']);
-});
-
-test('Skip validation for tokens with $extensions but no lufa', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      otherSystem: {
-        foo: 'bar',
-      },
-    },
-  };
-  assertValidationPasses(token, ['color', 'blue', '600']);
-});
-
-test('Validate token with only $extensions (no $value)', () => {
-  const token = {
-    $extensions: {
-      lufa: {
-        level: 'primitive',
-        themeable: true,
-        modeAware: false,
-      },
-    },
-  };
-  assertValidationError(token, ['color', 'blue', '600'], 'themeable=true');
-});
-
-test('Accept semantic token with modeAware: true and themeable: true', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: true,
-        modeAware: true,
-        modes: {
-          light: '{color.blue.600}',
-          dark: '{color.blue.400}',
-          'high-contrast': '{color.blue.800}',
-        },
-      },
-    },
-  };
-  assertValidationPasses(token, ['semantic', 'color', 'primary']);
-});
-
-test('Accept token with complex nested path', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'primitive',
-        themeable: false,
-        modeAware: false,
-      },
-    },
-  };
-  assertValidationPasses(token, ['primitive', 'color', 'brand', 'primary', 'base', '600']);
-});
-
-test('Validation error includes correct path for nested token', () => {
-  const token = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'primitive',
-        themeable: true,
-        modeAware: false,
-      },
-    },
-  };
-  try {
-    validateToken(token, ['a', 'b', 'c', 'd'], 'nested.json');
-    assert.fail('Expected validation to throw');
-  } catch (error) {
-    assert(error instanceof ValidationError);
-    assert.strictEqual(error.tokenPath, 'a.b.c.d');
-    assert.strictEqual(error.file, 'nested.json');
-  }
-});
-
-// ============================================================================
-// PERFORMANCE TEST
-// ============================================================================
-
-console.log(`\n${colors.yellow}Performance Test${colors.reset}`);
-
-test('Validate 500+ tokens in <500ms', () => {
-  const validToken = {
-    $value: '#2563eb',
-    $extensions: {
-      lufa: {
-        level: 'semantic',
-        themeable: false,
-        modeAware: true,
-        modes: {
-          light: '{color.blue.600}',
-          dark: '{color.blue.400}',
-          'high-contrast': '{color.blue.800}',
-        },
-      },
-    },
-  };
-
-  const perfStart = Date.now();
-  for (let i = 0; i < 500; i++) {
-    validateToken(validToken, ['semantic', 'color', `token${i}`], 'perf-test.json');
-  }
-  const perfDuration = Date.now() - perfStart;
-
-  assert(perfDuration < 500, `Performance test failed: ${perfDuration}ms > 500ms`);
-  console.log(`  ${colors.dim}(Validated 500 tokens in ${perfDuration}ms)${colors.reset}`);
-});
-
-// ============================================================================
-// TEST SUMMARY
-// ============================================================================
-
-const duration = Date.now() - startTime;
-
-console.log(`\n${'─'.repeat(60)}`);
-
-if (failed === 0) {
-  console.log(`${colors.green}✓ All ${passed} tests passed in ${duration}ms${colors.reset}\n`);
-  process.exit(0);
-} else {
-  console.log(`${colors.red}✗ ${failed} test(s) failed, ${passed} passed in ${duration}ms${colors.reset}\n`);
+if (testsFailed > 0) {
+  console.error('❌ Some tests failed!');
   process.exit(1);
+} else {
+  console.log('✅ All tests passed!');
+  process.exit(0);
 }

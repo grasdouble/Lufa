@@ -93,7 +93,3 @@ Override settings in your local `tsconfig.json`:
 
 - [@grasdouble/lufa_config_eslint](../eslint/) - ESLint configuration
 - [@grasdouble/lufa_config_prettier](../prettier/) - Prettier configuration
-
-## Contributing
-
-See [CONTRIBUTING.md](../../../CONTRIBUTING.md) for development guidelines.

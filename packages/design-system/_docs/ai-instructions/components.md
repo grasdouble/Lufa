@@ -8,7 +8,7 @@ You are creating or modifying React components for the Lufa Design System. These
 
 - **Framework**: React 18+
 - **Language**: TypeScript
-- **Styling**: CSS Modules (with `.additional.module.css` separation)
+- **Styling**: CSS Modules (single file per component)
 - **Bundling**: Vite (Library Mode)
 
 ## File Structure
@@ -24,8 +24,8 @@ Each component resides in its own directory based on its category:
 Within each component directory:
 
 - `[ComponentName].tsx`: Main component logic.
-- `[ComponentName].module.css`: Core structural styles.
-- `[ComponentName].additional.module.css`: Variant/State styles (if needed).
+- `[ComponentName].module.css`: All component styles (auto-generated from the utilities config).
+- `[component-name].utilities.config.cjs`: CSS utility class definitions used by the `generate-utilities.cjs` script to produce `[ComponentName].module.css`.
 - `index.ts`: Public export.
 
 ## Coding Standards
@@ -34,7 +34,7 @@ Within each component directory:
 
 - Use **functional components** with `forwardRef`.
 - Use `clsx` for class name composition.
-- Export components with `displayName`.
+- Export components with `displayName` via `Object.assign`.
 - **Polymorphism**: Support the `as` prop pattern using Generics (see Button example).
 
 ### 2. TypeScript Props
@@ -50,9 +50,7 @@ Within each component directory:
 - Use **Design Tokens** (CSS variables) for all values.
   - Correct: `color: var(--lufa-color-text-primary);`
   - Incorrect: `color: #333;`
-- **Separation of Concerns**:
-  - `*.module.css`: Layout, dimensions, base display properties.
-  - `*.additional.module.css`: Colors, themes, visual variants, interactions (hover/active).
+- **Single CSS file**: All styles (layout, colors, variants, interactions) live in one `[ComponentName].module.css` file that is auto-generated from the `[component-name].utilities.config.cjs` configuration.
 
 ### 4. Accessibility (a11y)
 
@@ -68,32 +66,60 @@ Within each component directory:
 ## Template
 
 ```tsx
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { forwardRef } from 'react';
 import { clsx } from 'clsx';
 
-import additionalStyles from './Component.additional.module.css';
 import styles from './Component.module.css';
 
-export type ComponentProps = {
+export type ComponentProps<T extends ElementType = 'div'> = {
+  /**
+   * HTML element to render
+   * @default 'div'
+   */
+  as?: T;
+
   variant?: 'primary' | 'secondary';
+
+  className?: string;
   // ... other props
 };
 
-export const Component = forwardRef<HTMLDivElement, ComponentProps>(
-  ({ variant = 'primary', className, ...props }, ref) => {
-    return (
-      <div ref={ref} className={clsx(styles.root, additionalStyles[`variant-${variant}`], className)} {...props} />
-    );
-  }
-);
+export type ComponentComponentProps<T extends ElementType> = ComponentProps<T> &
+  Omit<ComponentPropsWithoutRef<T>, keyof ComponentProps<T>>;
 
-Component.displayName = 'Component';
+// ============================================
+// COMPONENT
+// ============================================
+
+/**
+ * Component implementation with ref forwarding
+ */
+const ComponentImpl = <T extends ElementType = 'div'>(
+  { as, variant = 'primary', className, ...htmlProps }: ComponentComponentProps<T>,
+  ref: React.ForwardedRef<Element>
+) => {
+  const Component = as ?? 'div';
+
+  const componentClassName = clsx(styles.root, variant && styles[`variant-${variant}`], className);
+
+  return <Component ref={ref as React.Ref<never>} className={componentClassName} {...htmlProps} />;
+};
+
+// Forward ref with generic type support
+const ComponentWithRef = forwardRef(ComponentImpl) as <T extends ElementType = 'div'>(
+  props: ComponentComponentProps<T> & { ref?: React.Ref<React.ComponentRef<T>> }
+) => React.ReactElement;
+
+// Export with displayName
+export const Component = Object.assign(ComponentWithRef, { displayName: 'Component' });
 ```
 
 ## Checklist for Validation
 
-- [ ] Is `forwardRef` implemented correctly?
+- [ ] Is `forwardRef` implemented correctly with `Object.assign` for `displayName`?
 - [ ] Are all styles using CSS Variables (tokens)?
-- [ ] Is logic separated from styles?
+- [ ] Is `[component-name].utilities.config.cjs` created for CSS generation?
 - [ ] Are prop types exhaustive and commented?
-- [ ] Is the `displayName` set?
+- [ ] Is the `displayName` set via `Object.assign`?
+- [ ] Is `index.ts` updated to export the new component?
