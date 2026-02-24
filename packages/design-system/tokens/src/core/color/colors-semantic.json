@@ -3,7 +3,7 @@
     "semantic": {
       "success": {
         "default": {
-          "$value": "{primitive.color.green.500}",
+          "$value": "{primitive.color.green.700}",
           "$type": "color",
           "$description": "Success state color - positive feedback, confirmations, completed actions",
           "$extensions": {
@@ -213,7 +213,7 @@
       },
       "info": {
         "default": {
-          "$value": "{primitive.color.blue.500}",
+          "$value": "{primitive.color.blue.700}",
           "$type": "color",
           "$description": "Info state color - informational messages, tips, neutral notifications",
           "$extensions": {
@@ -222,7 +222,7 @@
               "role": "feedback",
               "useCase": "Info messages, help icons, informational badges, neutral notifications",
               "modes": {
-                "dark": "{primitive.color.blue.400}",
+                "dark": "{primitive.color.blue.300}",
                 "high-contrast": "{primitive.color.hc.blue}"
               },
               "themeable": true

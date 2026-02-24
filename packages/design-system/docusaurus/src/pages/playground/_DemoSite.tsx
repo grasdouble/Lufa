@@ -32,7 +32,7 @@ export default function DemoSite() {
     <Box className={styles.demoSite}>
       {/* Header / Navigation */}
       <Box as="header" className={styles.demoHeader}>
-        <Container maxWidth="xlarge">
+        <Container size="xl">
           <Flex justify="between" align="center">
             <Text as="h1" variant="h3" weight="bold">
               ⚡ Lufa Platform
@@ -64,7 +64,7 @@ export default function DemoSite() {
 
       {/* Hero Section */}
       <Box as="section" className={styles.hero}>
-        <Container maxWidth="large">
+        <Container size="lg">
           <Center>
             <Stack direction="vertical" spacing="comfortable" align="center">
               <Badge variant="info">New Release v2.0</Badge>
@@ -108,7 +108,7 @@ export default function DemoSite() {
 
       {/* Features Section */}
       <Box as="section" className={styles.features}>
-        <Container maxWidth="xlarge">
+        <Container size="xl">
           <Stack direction="vertical" spacing="comfortable">
             <Center>
               <Stack direction="vertical" spacing="default" align="center">
@@ -182,7 +182,7 @@ export default function DemoSite() {
 
       {/* Pricing Section */}
       <Box as="section" className={styles.pricing}>
-        <Container maxWidth="large">
+        <Container size="lg">
           <Stack direction="vertical" spacing="comfortable">
             <Center>
               <Stack direction="vertical" spacing="default" align="center">
@@ -321,7 +321,7 @@ export default function DemoSite() {
 
       {/* Newsletter / CTA Section */}
       <Box as="section" className={styles.newsletter}>
-        <Container maxWidth="medium">
+        <Container size="md">
           <Card>
             <Box padding="comfortable">
               <Center>
@@ -363,7 +363,7 @@ export default function DemoSite() {
 
       {/* Footer */}
       <Box as="footer" className={styles.footer}>
-        <Container maxWidth="xlarge">
+        <Container size="xl">
           <Stack direction="vertical" spacing="comfortable">
             <Grid columns={4} gap="default" className={styles.responsiveGrid4}>
               <Stack direction="vertical" spacing="compact">

@@ -12,7 +12,7 @@
               "role": "action",
               "useCase": "Primary buttons, links, focus indicators, active navigation items",
               "modes": {
-                "dark": "{primitive.color.blue.500}",
+                "dark": "{primitive.color.blue.400}",
                 "high-contrast": "{primitive.color.hc.blue}"
               },
               "themeable": true
@@ -29,7 +29,7 @@
               "role": "action",
               "useCase": "Hover state for primary buttons and clickable elements",
               "modes": {
-                "dark": "{primitive.color.blue.400}",
+                "dark": "{primitive.color.blue.300}",
                 "high-contrast": "{primitive.color.hc.blue}"
               },
               "themeable": true
@@ -64,6 +64,10 @@
                 "role": "text-on-brand",
                 "useCase": "Text and icons on primary brand colored backgrounds (buttons, badges, banners)",
                 "a11y": "Must maintain 4.5:1 contrast ratio with brand primary color",
+                "modes": {
+                  "dark": "{primitive.color.gray.900}",
+                  "high-contrast": "{primitive.color.hc.white}"
+                },
                 "themeable": true
               }
             }
@@ -72,7 +76,7 @@
       },
       "secondary": {
         "default": {
-          "$value": "{primitive.color.purple.500}",
+          "$value": "{primitive.color.purple.600}",
           "$type": "color",
           "$description": "Secondary brand color used for accents, highlights, and secondary actions",
           "$extensions": {
