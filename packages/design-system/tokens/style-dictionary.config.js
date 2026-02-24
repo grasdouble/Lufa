@@ -139,9 +139,9 @@ StyleDictionary.registerFormat({
 
     let output = '/**\n * Do not edit directly, this file was auto-generated.\n */\n\n';
 
-    // 1. Light mode (:root and [data-mode='light'])
+    // 1. Light mode ([data-mode='light'] only - no :root)
     // Light mode uses $value (implicit)
-    output += ":root,\n[data-mode='light'] {\n";
+    output += "[data-theme],\n[data-theme][data-mode='light'] {\n";
 
     // Tokens without modes (immutable - always same value)
     tokensWithoutModes.forEach((token) => {
@@ -163,7 +163,7 @@ StyleDictionary.registerFormat({
 
     // 2. Dark mode
     if (tokensWithModes.length > 0) {
-      output += "[data-mode='dark'] {\n";
+      output += "[data-theme][data-mode='dark'] {\n";
       tokensWithModes.forEach(({ token, modes }) => {
         const cssVarName = `--${prefix}-${token.path.join('-')}`;
         let darkValue = modes.dark;
@@ -186,7 +186,7 @@ StyleDictionary.registerFormat({
       output += '}\n\n';
 
       // 3. High contrast mode (optional - fallback to dark if missing)
-      output += "[data-mode='high-contrast'] {\n";
+      output += "[data-theme][data-mode='high-contrast'] {\n";
       tokensWithModes.forEach(({ token, modes }) => {
         const cssVarName = `--${prefix}-${token.path.join('-')}`;
         let highContrastValue = modes['high-contrast'];

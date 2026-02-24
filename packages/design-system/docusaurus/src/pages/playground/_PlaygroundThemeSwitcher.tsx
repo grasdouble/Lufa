@@ -29,7 +29,7 @@ type Theme = {
 };
 
 const THEMES: Theme[] = [
-  { name: 'default', label: 'Default', icon: '📘', description: 'Docusaurus classic' },
+  { name: 'default', label: 'Default', icon: '📘', description: 'Clean blue theme' },
   { name: 'ocean', label: 'Ocean', icon: '🌊', description: 'Marine-inspired' },
   { name: 'forest', label: 'Forest', icon: '🌲', description: 'Organic natural' },
   { name: 'matrix', label: 'Matrix', icon: '💾', description: 'Digital cyber' },
