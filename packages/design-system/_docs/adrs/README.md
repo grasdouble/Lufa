@@ -1,8 +1,8 @@
 # Architecture Decision Records (ADRs)
 
-**Last Updated:** 2026-01-26  
-**Total ADRs:** 11  
-**Implemented:** 11 | **Accepted:** 0
+**Last Updated:** 2026-02-24  
+**Total ADRs:** 13  
+**Implemented:** 13 | **Deprecated:** 0 | **Accepted:** 0
 
 ## About This Index
 
@@ -28,11 +28,12 @@ Architecture Decision Records (ADRs) document important architectural decisions 
 
 ### Token Architecture
 
-| ADR                                                                         | Status         | Title                            | Description                                                      | Date       | Impact   |
-| --------------------------------------------------------------------------- | -------------- | -------------------------------- | ---------------------------------------------------------------- | ---------- | -------- |
-| [ADR-004](./ADR-004-IMPLEMENTED-alpha-opacity-token-architecture.md)        | ✅ Implemented | Alpha/Opacity Token Architecture | Adds alpha/opacity tokens for transparent colors and overlays    | 2026-01-26 | Medium   |
-| [ADR-007](./ADR-007-IMPLEMENTED-zero-value-token-handling.md)               | ✅ Implemented | Zero-Value Token Handling        | Fixes bug where `space-0` was 4px instead of 0px                 | 2026-01-26 | Medium   |
-| [ADR-011](./ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md) | ✅ Implemented | Immutable Primitives Principle   | Establishes 4-level token architecture with immutable primitives | 2026-01-27 | Critical |
+| ADR                                                                         | Status         | Title                            | Description                                                                              | Date       | Impact   |
+| --------------------------------------------------------------------------- | -------------- | -------------------------------- | ---------------------------------------------------------------------------------------- | ---------- | -------- |
+| [ADR-004](./ADR-004-IMPLEMENTED-alpha-opacity-token-architecture.md)        | ✅ Implemented | Alpha/Opacity Token Architecture | Adds alpha/opacity tokens for transparent colors and overlays                            | 2026-01-26 | Medium   |
+| [ADR-007](./ADR-007-IMPLEMENTED-zero-value-token-handling.md)               | ✅ Implemented | Zero-Value Token Handling        | Fixes bug where `space-0` was 4px instead of 0px                                         | 2026-01-26 | Medium   |
+| [ADR-011](./ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md) | ✅ Implemented | Immutable Primitives Principle   | Establishes 4-level token architecture with immutable primitives                         | 2026-01-27 | Critical |
+| [ADR-013](./ADR-013-IMPLEMENTED-token-metadata-simplification.md)           | ✅ Implemented | Token Metadata Simplification    | Simplifies token metadata via convention over configuration; supersedes ADR-011 metadata | 2026-02-24 | High     |
 
 ### Responsive Design
 
@@ -49,6 +50,12 @@ Architecture Decision Records (ADRs) document important architectural decisions 
 | [ADR-009](./ADR-009-IMPLEMENTED-letter-spacing-token-architecture.md) | ✅ Implemented | Letter-Spacing Token Architecture | Adds 5 letter-spacing tokens (tighter to wider) for typography fine-tuning | 2026-01-26 | Low    |
 | [ADR-010](./ADR-010-IMPLEMENTED-extended-type-scale-strategy.md)      | ✅ Implemented | Extended Type Scale Strategy      | Extends type scale with 6xl, 7xl, 8xl fluid tokens (+510 bytes)            | 2026-01-26 | Medium |
 
+### Component Architecture
+
+| ADR                                                                       | Status         | Title                               | Description                                                                                       | Date       | Impact |
+| ------------------------------------------------------------------------- | -------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------- | ---------- | ------ |
+| [ADR-012](./ADR-012-IMPLEMENTED-foundation-component-naming-and-scope.md) | ✅ Implemented | Foundation Component Naming & Scope | Establishes `Cluster` naming (vs Wrap) and promotes Bleed to medium-priority foundation component | 2026-02-07 | High   |
+
 ## Critical ADRs for New Contributors
 
 If you're new to the design system, start with these critical ADRs:
@@ -56,27 +63,33 @@ If you're new to the design system, start with these critical ADRs:
 1. **[ADR-011: Immutable Primitives Principle](./ADR-011-IMPLEMENTED-token-architecture-primitives-immutable.md)** ⭐  
    **Foundation:** Understand why primitives never change and how theming works at semantic/component level.
 
-2. **[ADR-001: Separation of Modes and Themes](./ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)** ⭐  
+2. **[ADR-013: Token Metadata Simplification](./ADR-013-IMPLEMENTED-token-metadata-simplification.md)** ⭐  
+   **Token Architecture:** Understand the current simplified metadata conventions (supersedes ADR-011 metadata rules).
+
+3. **[ADR-001: Separation of Modes and Themes](./ADR-001-IMPLEMENTED-modes-vs-themes-separation.md)** ⭐  
    **Theming:** Understand the distinction between `data-mode` (accessibility) and `data-theme` (branding).
 
-3. **[ADR-005: Breakpoint Token Strategy](./ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)**  
+4. **[ADR-012: Foundation Component Naming & Scope](./ADR-012-IMPLEMENTED-foundation-component-naming-and-scope.md)**  
+   **Components:** Learn the `Cluster` naming convention and the foundation component roadmap (AspectRatio, Cluster, Bleed).
+
+5. **[ADR-005: Breakpoint Token Strategy](./ADR-005-IMPLEMENTED-breakpoint-token-strategy.md)**  
    **Responsive:** Learn the 6-breakpoint system for responsive design.
 
-4. **[ADR-008: Responsive Typography Strategy](./ADR-008-IMPLEMENTED-responsive-typography-strategy.md)**  
+6. **[ADR-008: Responsive Typography Strategy](./ADR-008-IMPLEMENTED-responsive-typography-strategy.md)**  
    **Typography:** Learn how fluid typography works with CSS clamp().
 
 ## ADR Status Definitions
 
 - **👍🏻 Accepted** - Decision approved but not yet fully implemented (0 ADRs)
-- **✅ Implemented** - Decision implemented and in production (11 ADRs)
+- **✅ Implemented** - Decision implemented and in production (13 ADRs)
 - **🚧 Proposed** - Under review
 - **❌ Rejected** - Decision rejected
-- **⚠️ Deprecated** - Decision superseded by a newer ADR
+- **⚠️ Deprecated** - Decision superseded by a newer ADR (0 ADRs)
 
 ## How to Propose a New ADR
 
 1. Copy an existing ADR as template
-2. Number your ADR (next available number: ADR-012)
+2. Number your ADR (next available number: ADR-014)
 3. Use the naming format: `ADR-{number}-PROPOSED-{short-name}.md` (start with "PROPOSED" status in UPPERCASE)
 4. Fill in the Context, Decision, and Consequences sections
 5. Submit for review via pull request

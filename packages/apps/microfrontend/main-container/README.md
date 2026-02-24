@@ -47,7 +47,3 @@ New microfrontends are registered in the container configuration. Each microfron
 
 - [Home Microfrontend](../home/) - Example microfrontend application
 - [Microfrontends Overview](../README.md) - Architecture documentation
-
-## Contributing
-
-See [CONTRIBUTING.md](../../../../CONTRIBUTING.md) for development guidelines.

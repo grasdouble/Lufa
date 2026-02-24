@@ -2,6 +2,7 @@
 
 > **Strict patterns aligned with Storybook rules/templates.**
 > Source of truth:
+>
 > - `packages/design-system/storybook/_docs/story-guide.md`
 > - `packages/design-system/storybook/_docs/story-rules.md`
 > - `packages/design-system/storybook/_docs/story-template.md`
@@ -11,6 +12,9 @@
 Copy these patterns exactly. Replace `[Component]` and props with real values.
 Do **not** add `tags: ['autodocs']` unless explicitly requested.
 
+> **Import rule:** Always use `@storybook/react-vite` (Storybook 10.x).
+> `import React from 'react'` must come first.
+
 ---
 
 ## PATTERN: BASIC_GRID
@@ -18,8 +22,8 @@ Do **not** add `tags: ['autodocs']` unless explicitly requested.
 Use for displaying simple variants in a grid.
 
 ```typescript
-import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { [Component] } from '@grasdouble/lufa_design-system';
 
@@ -66,7 +70,7 @@ export const PropVariants: Story = {
 
 ## PATTERN: SPACING_VISUALIZER
 
-Use for **padding/margin** stories with the strict “border + inner content” pattern.
+Use for **padding/margin** stories with the strict "border + inner content" pattern.
 
 ```typescript
 export const PropPadding: StoryObj<typeof Box> = {
@@ -104,7 +108,7 @@ export const PropPadding: StoryObj<typeof Box> = {
                     <div
                       style={{
                         backgroundColor: colors.main,
-                        color: STORY_COLORS.neutral.white,
+                        color: 'white',
                         fontSize: '14px',
                         fontWeight: 600,
                         textAlign: 'center',
@@ -120,7 +124,7 @@ export const PropPadding: StoryObj<typeof Box> = {
                         top: '4px',
                         right: '4px',
                         backgroundColor: colors.main,
-                        color: STORY_COLORS.neutral.white,
+                        color: 'white',
                         fontSize: '10px',
                         fontWeight: 600,
                         padding: '2px 6px',
@@ -146,6 +150,9 @@ export const PropPadding: StoryObj<typeof Box> = {
   },
 };
 ```
+
+> **Note:** In `SPACING_VISUALIZER`, inner overlay text uses `color: 'white'` (literal) because
+> it sits on a colored `main` background — not on a theme-aware surface. This is intentional.
 
 ---
 
@@ -188,7 +195,27 @@ export const PropVariants: StoryObj = {
 
 ## PATTERN: PLAYGROUND
 
-Use for full interactive control outside of ArgsTable.
+Use for full interactive control with Storybook args (Controls panel).
+Prefer `PlaygroundContainer` over a raw `StoryContainer` for this pattern.
+
+```typescript
+import { PlaygroundContainer } from '../../components/helpers';
+
+export const Playground: Story = {
+  args: {
+    // default arg values
+  },
+  render: (args) => {
+    return (
+      <PlaygroundContainer>
+        <[Component] {...args} />
+      </PlaygroundContainer>
+    );
+  },
+};
+```
+
+For a custom manual playground (without Storybook args), use `StoryContainer` and `STORY_COLORS.themed`:
 
 ```typescript
 export const Playground: StoryObj = {
@@ -199,8 +226,20 @@ export const Playground: StoryObj = {
     return (
       <StoryContainer>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          <div style={{ padding: '20px', backgroundColor: STORY_COLORS.neutral.backgroundLight }}>
-            <label style={{ display: 'block', marginBottom: '8px', fontWeight: 600 }}>Variant</label>
+          <div style={{
+            padding: '20px',
+            backgroundColor: STORY_COLORS.themed.background.surface,
+            border: `1px solid ${STORY_COLORS.themed.border.default}`,
+            borderRadius: '8px',
+          }}>
+            <label style={{
+              display: 'block',
+              marginBottom: '8px',
+              fontWeight: 600,
+              color: STORY_COLORS.themed.text.primary,
+            }}>
+              Variant
+            </label>
             <select value={variant} onChange={(e) => setVariant(e.target.value)}>
               <option value="default">Default</option>
               <option value="primary">Primary</option>
@@ -216,3 +255,19 @@ export const Playground: StoryObj = {
   },
 };
 ```
+
+---
+
+## Color Usage Reference
+
+| Use case                                  | API                                      | Note                           |
+| ----------------------------------------- | ---------------------------------------- | ------------------------------ |
+| Story text, labels, section headers       | `STORY_COLORS.themed.text.primary`       | Adapts to dark mode            |
+| Story subtitle / secondary text           | `STORY_COLORS.themed.text.secondary`     | Adapts to dark mode            |
+| Story container / card backgrounds        | `STORY_COLORS.themed.background.surface` | Adapts to dark mode            |
+| Story borders and dividers                | `STORY_COLORS.themed.border.default`     | Adapts to dark mode            |
+| Directional props (top/right/bottom/left) | `STORY_COLORS.directional.top.main` etc. | Fixed colors                   |
+| Axis props (X/Y/combined)                 | `STORY_COLORS.axis.x.main` etc.          | Fixed colors                   |
+| Multiple variants (mapped array)          | `getColorByIndex(idx)`                   | Cycles through palette         |
+| Single decorative highlight               | `STORY_COLORS.primary.blue.main` etc.    | Fixed colors                   |
+| **Deprecated** — legacy only              | `STORY_COLORS.neutral.*`                 | ⚠️ Does NOT adapt to dark mode |

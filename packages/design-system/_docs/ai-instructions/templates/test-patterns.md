@@ -52,11 +52,11 @@ Automated a11y check using axe-core integration.
 ```typescript
 import AxeBuilder from '@axe-core/playwright';
 
-test('should not have accessibility violations', async ({ page, mount }) => {
+test('should not have accessibility violations', async ({ mount, page }) => {
   await mount(<[Component]>Accessible Content</[Component]>);
 
   const accessibilityScanResults = await new AxeBuilder({ page })
-    .include('[data-testid="root"]') // Adjust selector as needed
+    .disableRules(['page-has-heading-one', 'landmark-one-main', 'region'])
     .analyze();
 
   expect(accessibilityScanResults.violations).toEqual([]);
