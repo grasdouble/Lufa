@@ -6,6 +6,7 @@
   "main": "index.js",
   "files": [
     "basic.mjs",
+    "light.mjs",
     "node.mjs",
     "react.mjs",
     "README.md",

@@ -1,5 +1,5 @@
 {
-  "extends": "@grasdouble/lufa_config_tsconfig/react-library.json",
+  "extends": "@grasdouble/lufa_config_tsconfig/node.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",

@@ -69,4 +69,4 @@ runs:
     - name: Generate summary
       shell: bash
       run: |
-        cat ./docs/reports/OUTDATED_DEPENDENCIES.report >> "$GITHUB_STEP_SUMMARY"
+        cat ./_docs/reports/OUTDATED_DEPENDENCIES.report >> "$GITHUB_STEP_SUMMARY"
