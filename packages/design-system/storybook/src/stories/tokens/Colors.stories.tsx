@@ -268,7 +268,7 @@ export const Overview: Story = {
           description="Success context borders"
         />
         <ColorSwatch
-          token="--lufa-core-semantic-success-hover"
+          token="--lufa-core-feedback-success-hover"
           name="success-hover"
           description="Success interactive hover state"
         />
@@ -293,7 +293,7 @@ export const Overview: Story = {
         />
         <ColorSwatch token="--lufa-semantic-ui-border-error" name="error-border" description="Error context borders" />
         <ColorSwatch
-          token="--lufa-core-semantic-error-hover"
+          token="--lufa-core-feedback-error-hover"
           name="error-hover"
           description="Error/destructive hover state"
         />
@@ -322,7 +322,7 @@ export const Overview: Story = {
           description="Warning context borders"
         />
         <ColorSwatch
-          token="--lufa-core-semantic-warning-hover"
+          token="--lufa-core-feedback-warning-hover"
           name="warning-hover"
           description="Warning interactive hover state"
         />
@@ -343,7 +343,7 @@ export const Overview: Story = {
         />
         <ColorSwatch token="--lufa-semantic-ui-border-info" name="info-border" description="Info context borders" />
         <ColorSwatch
-          token="--lufa-core-semantic-info-hover"
+          token="--lufa-core-feedback-info-hover"
           name="info-hover"
           description="Info interactive hover state"
         />
@@ -693,7 +693,7 @@ export const SemanticColors: Story = {
         <ColorSwatch token="--lufa-semantic-ui-background-success" name="success-background" />
         <ColorSwatch token="--lufa-semantic-ui-background-on-success" name="on-success" />
         <ColorSwatch token="--lufa-semantic-ui-border-success" name="success-border" />
-        <ColorSwatch token="--lufa-core-semantic-success-hover" name="success-hover" />
+        <ColorSwatch token="--lufa-core-feedback-success-hover" name="success-hover" />
       </ColorCategory>
 
       <ColorCategory title="Error">
@@ -701,7 +701,7 @@ export const SemanticColors: Story = {
         <ColorSwatch token="--lufa-semantic-ui-background-error" name="error-background" />
         <ColorSwatch token="--lufa-semantic-ui-background-on-error" name="on-error" />
         <ColorSwatch token="--lufa-semantic-ui-border-error" name="error-border" />
-        <ColorSwatch token="--lufa-core-semantic-error-hover" name="error-hover" />
+        <ColorSwatch token="--lufa-core-feedback-error-hover" name="error-hover" />
       </ColorCategory>
 
       <ColorCategory title="Warning">
@@ -709,7 +709,7 @@ export const SemanticColors: Story = {
         <ColorSwatch token="--lufa-semantic-ui-background-warning" name="warning-background" />
         <ColorSwatch token="--lufa-semantic-ui-background-on-warning" name="on-warning" />
         <ColorSwatch token="--lufa-semantic-ui-border-warning" name="warning-border" />
-        <ColorSwatch token="--lufa-core-semantic-warning-hover" name="warning-hover" />
+        <ColorSwatch token="--lufa-core-feedback-warning-hover" name="warning-hover" />
       </ColorCategory>
 
       <ColorCategory title="Info">
@@ -717,7 +717,7 @@ export const SemanticColors: Story = {
         <ColorSwatch token="--lufa-semantic-ui-background-info" name="info-background" />
         <ColorSwatch token="--lufa-semantic-ui-background-on-info" name="on-info" />
         <ColorSwatch token="--lufa-semantic-ui-border-info" name="info-border" />
-        <ColorSwatch token="--lufa-core-semantic-info-hover" name="info-hover" />
+        <ColorSwatch token="--lufa-core-feedback-info-hover" name="info-hover" />
       </ColorCategory>
     </StoryContainer>
   ),

@@ -156,9 +156,10 @@ export function isValidHexColor(value: string): boolean {
 
 /**
  * Check if a value is a valid dimension (px, rem, em, etc.)
+ * Also accepts `0` without a unit (valid CSS for zero-length values)
  */
 export function isValidDimension(value: string): boolean {
-  return /^-?\d+(\.\d+)?(px|rem|em|%|vh|vw|vmin|vmax)$/.test(value.trim());
+  return /^-?\d+(\.\d+)?(px|rem|em|%|vh|vw|vmin|vmax)$/.test(value.trim()) || value.trim() === '0';
 }
 
 /**

@@ -42,15 +42,15 @@
             }
           },
           "focus": {
-            "$value": "0 0 0 3px rgba(59, 130, 246, 0.25)",
+            "$value": "0 0 0 3px {primitive.color.alpha.black.16}",
             "$type": "shadow",
-            "$description": "Focus ring glow for accessibility - themeable (default: blue-500 with 25% opacity)",
+            "$description": "Focus ring glow for accessibility - neutral alpha token, themeable via theme overrides",
             "$extensions": {
               "lufa": {
                 "category": "effect",
                 "useCase": "Focus states for interactive elements like cards",
                 "themeable": true,
-                "note": "Default fallback for accessibility. Themes can override with brand colors."
+                "note": "Uses neutral alpha token instead of hardcoded brand color. Themes can override via their own token values."
               }
             }
           }
@@ -109,15 +109,15 @@
             }
           },
           "focus": {
-            "$value": "0 0 0 2px rgba(59, 130, 246, 0.2)",
+            "$value": "0 0 0 2px {primitive.color.alpha.black.8}",
             "$type": "shadow",
-            "$description": "Border glow for focused inputs - themeable (default: blue-500 with 20% opacity)",
+            "$description": "Border glow for focused inputs - neutral alpha token, themeable via theme overrides",
             "$extensions": {
               "lufa": {
                 "category": "effect",
                 "useCase": "Focus state for input fields",
                 "themeable": true,
-                "note": "Default fallback for accessibility. Themes can override with brand colors."
+                "note": "Uses neutral alpha token instead of hardcoded brand color. Themes can override via their own token values."
               }
             }
           }

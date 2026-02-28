@@ -56,7 +56,7 @@ function getExpectedFormat(tokenName: string): string | null {
 
   // Font size tokens
   if (tokenName.includes('-font-size-')) {
-    return 'dimension (e.g., 14px, 1rem) or CSS variable reference';
+    return 'dimension (e.g., 14px, 1rem), clamp() for responsive sizes, or CSS variable reference';
   }
 
   // Font weight tokens
@@ -104,8 +104,13 @@ function validateTokenFormat(property: CSSCustomProperty): FormatError | null {
     if (!isValidHexColor(value) && !value.startsWith('rgba(') && !value.startsWith('rgb(')) {
       return { token: name, value, expectedFormat, line };
     }
-  } else if (name.includes('-spacing-') || name.includes('-radius-') || name.includes('-font-size-')) {
+  } else if (name.includes('-spacing-') || name.includes('-radius-')) {
     if (!isValidDimension(value)) {
+      return { token: name, value, expectedFormat, line };
+    }
+  } else if (name.includes('-font-size-')) {
+    // Font sizes can be dimensions OR clamp() for responsive typography
+    if (!isValidDimension(value) && !value.startsWith('clamp(')) {
       return { token: name, value, expectedFormat, line };
     }
   } else if (name.includes('-duration-')) {

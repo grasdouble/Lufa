@@ -195,14 +195,14 @@ For tokens with mode variants, generate theme selectors:
   --lufa-core-neutral-background: #111827;
   --lufa-core-neutral-text-primary: #f9fafb;
   --lufa-core-brand-primary: #3b82f6;
-  --lufa-core-semantic-success: #4ade80;
+  --lufa-core-feedback-success: #4ade80;
 }
 
 [data-mode='high-contrast'] {
   --lufa-core-neutral-background: var(--lufa-primitive-color-hc-black);
   --lufa-core-neutral-text-primary: var(--lufa-primitive-color-hc-white);
   --lufa-core-brand-primary: var(--lufa-primitive-color-hc-blue);
-  --lufa-core-semantic-success: var(--lufa-primitive-color-hc-green);
+  --lufa-core-feedback-success: var(--lufa-primitive-color-hc-green);
 }
 ```
 

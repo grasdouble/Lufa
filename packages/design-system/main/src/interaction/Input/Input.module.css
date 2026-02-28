@@ -20,7 +20,7 @@
   color: var(--lufa-component-input-text-placeholder);
 }
 
-.input:focus {
+.input:focus-visible {
   border-color: var(--lufa-component-input-border-focus);
   box-shadow: 0 0 0 var(--lufa-component-shared-focus-outline-width) var(--lufa-component-shared-focus-outline-color);
 }
@@ -29,8 +29,8 @@
   border-color: var(--lufa-component-input-border-error);
 }
 
-.input.error:focus {
-  box-shadow: 0 0 0 var(--lufa-component-shared-focus-outline-width) var(--lufa-semantic-ui-background-error);
+.input.error:focus-visible {
+  box-shadow: 0 0 0 var(--lufa-component-shared-focus-outline-width) var(--lufa-component-input-border-error);
 }
 
 .input.disabled {

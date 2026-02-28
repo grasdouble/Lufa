@@ -90,8 +90,8 @@ const COLOR_PAIRS_TO_CHECK: [string, string, 'text' | 'ui'][] = [
   ['component-badge-info-text', 'component-badge-info-background', 'text'],
 
   // Input states
+  // Note: disabled state is exempt from WCAG 1.4.3 / 1.4.11 contrast requirements
   ['component-input-text-default', 'component-input-background-default', 'text'],
-  ['component-input-text-disabled', 'component-input-background-disabled', 'text'],
   ['component-input-border-default', 'component-input-background-default', 'ui'],
   ['component-input-border-hover', 'component-input-background-default', 'ui'],
   ['component-input-border-focus', 'component-input-background-default', 'ui'],

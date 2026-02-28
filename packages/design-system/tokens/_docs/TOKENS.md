@@ -101,17 +101,17 @@ Need a color?
 ```css
 /* Status alert */
 .alert-success {
-  background: var(--lufa-core-semantic-success-subtle);
-  border: 1px solid var(--lufa-core-semantic-success-border);
-  color: var(--lufa-core-semantic-success);
+  background: var(--lufa-core-feedback-success-subtle);
+  border: 1px solid var(--lufa-core-feedback-success-border);
+  color: var(--lufa-core-feedback-success);
 }
 
 /* Form field in error state */
 .input-invalid {
-  border-color: var(--lufa-core-semantic-error);
+  border-color: var(--lufa-core-feedback-error);
 }
 .validation-error {
-  color: var(--lufa-core-semantic-error);
+  color: var(--lufa-core-feedback-error);
   font-size: var(--lufa-semantic-typography-caption);
   margin-top: var(--lufa-primitive-spacing-4);
 }

@@ -36,6 +36,23 @@
             }
           }
         },
+        "raised": {
+          "$value": "{primitive.color.gray.200}",
+          "$type": "color",
+          "$description": "Raised surface color - slightly elevated above default, used as resting state for neutral solid buttons",
+          "$extensions": {
+            "lufa": {
+              "category": "neutral",
+              "role": "action",
+              "useCase": "Resting state for neutral solid buttons, slightly elevated surfaces",
+              "modes": {
+                "dark": "{primitive.color.gray.700}",
+                "high-contrast": "{primitive.color.gray.200}"
+              },
+              "themeable": true
+            }
+          }
+        },
         "hover": {
           "$value": "{primitive.color.gray.200}",
           "$type": "color",
@@ -52,13 +69,30 @@
               "themeable": true
             }
           }
+        },
+        "active": {
+          "$value": "{primitive.color.gray.300}",
+          "$type": "color",
+          "$description": "Active/pressed state for interactive surfaces - one shade darker than hover for click feedback",
+          "$extensions": {
+            "lufa": {
+              "category": "neutral",
+              "role": "action",
+              "useCase": "Active/pressed state for list items, table rows, clickable cards",
+              "modes": {
+                "dark": "{primitive.color.gray.600}",
+                "high-contrast": "{primitive.color.gray.300}"
+              },
+              "themeable": true
+            }
+          }
         }
       },
       "border": {
         "default": {
-          "$value": "{primitive.color.gray.300}",
+          "$value": "{primitive.color.gray.500}",
           "$type": "color",
-          "$description": "Default border color for dividers and element boundaries",
+          "$description": "Default border color for dividers and element boundaries - meets WCAG 1.4.11 Non-text Contrast (3:1)",
           "$extensions": {
             "lufa": {
               "category": "neutral",
@@ -73,9 +107,9 @@
           }
         },
         "strong": {
-          "$value": "{primitive.color.gray.400}",
+          "$value": "{primitive.color.gray.600}",
           "$type": "color",
-          "$description": "Stronger border color for emphasis or focus states",
+          "$description": "Stronger border color for emphasis or focus states - meets WCAG 1.4.11 Non-text Contrast (3:1)",
           "$extensions": {
             "lufa": {
               "category": "neutral",
@@ -126,9 +160,9 @@
           }
         },
         "tertiary": {
-          "$value": "{primitive.color.gray.500}",
+          "$value": "{primitive.color.gray.600}",
           "$type": "color",
-          "$description": "Tertiary text color - lower contrast for subtle text",
+          "$description": "Tertiary text color - meets WCAG AA 4.5:1 on both page and surface backgrounds",
           "$extensions": {
             "lufa": {
               "category": "neutral",

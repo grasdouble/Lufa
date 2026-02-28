@@ -210,22 +210,22 @@
   --lufa-core-neutral-text-disabled: var(--lufa-primitive-color-gray-400);
 
   /* --- Core: Semantic State Colors --- */
-  --lufa-core-semantic-success: var(--lufa-primitive-color-green-500);
-  --lufa-core-semantic-success-subtle: var(--lufa-primitive-color-green-100);
-  --lufa-core-semantic-success-border: var(--lufa-primitive-color-green-300);
-  --lufa-core-semantic-success-hover: var(--lufa-primitive-color-green-600);
-  --lufa-core-semantic-error: var(--lufa-primitive-color-red-600);
-  --lufa-core-semantic-error-subtle: var(--lufa-primitive-color-red-100);
-  --lufa-core-semantic-error-border: var(--lufa-primitive-color-red-300);
-  --lufa-core-semantic-error-hover: var(--lufa-primitive-color-red-700);
-  --lufa-core-semantic-warning: var(--lufa-primitive-color-yellow-500);
-  --lufa-core-semantic-warning-subtle: var(--lufa-primitive-color-yellow-100);
-  --lufa-core-semantic-warning-border: var(--lufa-primitive-color-yellow-300);
-  --lufa-core-semantic-warning-hover: var(--lufa-primitive-color-yellow-600);
-  --lufa-core-semantic-info: var(--lufa-primitive-color-blue-500);
-  --lufa-core-semantic-info-subtle: var(--lufa-primitive-color-blue-100);
-  --lufa-core-semantic-info-border: var(--lufa-primitive-color-blue-300);
-  --lufa-core-semantic-info-hover: var(--lufa-primitive-color-blue-600);
+  --lufa-core-feedback-success: var(--lufa-primitive-color-green-500);
+  --lufa-core-feedback-success-subtle: var(--lufa-primitive-color-green-100);
+  --lufa-core-feedback-success-border: var(--lufa-primitive-color-green-300);
+  --lufa-core-feedback-success-hover: var(--lufa-primitive-color-green-600);
+  --lufa-core-feedback-error: var(--lufa-primitive-color-red-600);
+  --lufa-core-feedback-error-subtle: var(--lufa-primitive-color-red-100);
+  --lufa-core-feedback-error-border: var(--lufa-primitive-color-red-300);
+  --lufa-core-feedback-error-hover: var(--lufa-primitive-color-red-700);
+  --lufa-core-feedback-warning: var(--lufa-primitive-color-yellow-500);
+  --lufa-core-feedback-warning-subtle: var(--lufa-primitive-color-yellow-100);
+  --lufa-core-feedback-warning-border: var(--lufa-primitive-color-yellow-300);
+  --lufa-core-feedback-warning-hover: var(--lufa-primitive-color-yellow-600);
+  --lufa-core-feedback-info: var(--lufa-primitive-color-blue-500);
+  --lufa-core-feedback-info-subtle: var(--lufa-primitive-color-blue-100);
+  --lufa-core-feedback-info-border: var(--lufa-primitive-color-blue-300);
+  --lufa-core-feedback-info-hover: var(--lufa-primitive-color-blue-600);
 
   /* --- Core: Typography --- */
   --lufa-core-typography-heading-font: var(--lufa-primitive-typography-font-family-sans);
@@ -275,31 +275,31 @@
   --lufa-semantic-ui-background-on-secondary: #ffffff;
   --lufa-semantic-ui-background-page: #ffffff;
   --lufa-semantic-ui-background-surface: var(--lufa-core-neutral-surface-default);
-  --lufa-semantic-ui-background-success: var(--lufa-core-semantic-success-subtle);
-  --lufa-semantic-ui-background-on-success: var(--lufa-core-semantic-success);
-  --lufa-semantic-ui-background-error: var(--lufa-core-semantic-error-subtle);
-  --lufa-semantic-ui-background-on-error: var(--lufa-core-semantic-error);
-  --lufa-semantic-ui-background-warning: var(--lufa-core-semantic-warning-subtle);
-  --lufa-semantic-ui-background-on-warning: var(--lufa-core-semantic-warning);
-  --lufa-semantic-ui-background-info: var(--lufa-core-semantic-info-subtle);
-  --lufa-semantic-ui-background-on-info: var(--lufa-core-semantic-info);
+  --lufa-semantic-ui-background-success: var(--lufa-core-feedback-success-subtle);
+  --lufa-semantic-ui-background-on-success: var(--lufa-core-feedback-success);
+  --lufa-semantic-ui-background-error: var(--lufa-core-feedback-error-subtle);
+  --lufa-semantic-ui-background-on-error: var(--lufa-core-feedback-error);
+  --lufa-semantic-ui-background-warning: var(--lufa-core-feedback-warning-subtle);
+  --lufa-semantic-ui-background-on-warning: var(--lufa-core-feedback-warning);
+  --lufa-semantic-ui-background-info: var(--lufa-core-feedback-info-subtle);
+  --lufa-semantic-ui-background-on-info: var(--lufa-core-feedback-info);
 
   /* --- Semantic: UI Text --- */
   --lufa-semantic-ui-text-primary: #ffff99; /* INVALID: Yellow text on white background - fails WCAG */
   --lufa-semantic-ui-text-secondary: var(--lufa-core-neutral-text-secondary);
   --lufa-semantic-ui-text-tertiary: var(--lufa-core-neutral-text-tertiary);
-  --lufa-semantic-ui-text-success: var(--lufa-core-semantic-success);
-  --lufa-semantic-ui-text-error: var(--lufa-core-semantic-error);
-  --lufa-semantic-ui-text-warning: var(--lufa-core-semantic-warning);
-  --lufa-semantic-ui-text-info: var(--lufa-core-semantic-info);
+  --lufa-semantic-ui-text-success: var(--lufa-core-feedback-success);
+  --lufa-semantic-ui-text-error: var(--lufa-core-feedback-error);
+  --lufa-semantic-ui-text-warning: var(--lufa-core-feedback-warning);
+  --lufa-semantic-ui-text-info: var(--lufa-core-feedback-info);
 
   /* --- Semantic: UI Borders --- */
   --lufa-semantic-ui-border-default: var(--lufa-core-neutral-border-default);
   --lufa-semantic-ui-border-strong: var(--lufa-core-neutral-border-strong);
-  --lufa-semantic-ui-border-success: var(--lufa-core-semantic-success-border);
-  --lufa-semantic-ui-border-error: var(--lufa-core-semantic-error-border);
-  --lufa-semantic-ui-border-warning: var(--lufa-core-semantic-warning-border);
-  --lufa-semantic-ui-border-info: var(--lufa-core-semantic-info-border);
+  --lufa-semantic-ui-border-success: var(--lufa-core-feedback-success-border);
+  --lufa-semantic-ui-border-error: var(--lufa-core-feedback-error-border);
+  --lufa-semantic-ui-border-warning: var(--lufa-core-feedback-warning-border);
+  --lufa-semantic-ui-border-info: var(--lufa-core-feedback-info-border);
 
   /* --- Semantic: UI Radius --- */
   --lufa-semantic-ui-border-radius-small: var(--lufa-primitive-radius-scale-base);
@@ -362,11 +362,11 @@
   --lufa-semantic-button-outline-text: var(--lufa-core-brand-primary);
   --lufa-semantic-button-outline-text-hover: #ffffff;
   --lufa-semantic-button-destructive-text: #ffffff;
-  --lufa-semantic-button-destructive-background: var(--lufa-core-semantic-error);
-  --lufa-semantic-button-destructive-background-hover: var(--lufa-core-semantic-error-hover);
+  --lufa-semantic-button-destructive-background: var(--lufa-core-feedback-error);
+  --lufa-semantic-button-destructive-background-hover: var(--lufa-core-feedback-error-hover);
   --lufa-semantic-button-success-text: #ffffff;
-  --lufa-semantic-button-success-background: var(--lufa-core-semantic-success);
-  --lufa-semantic-button-success-background-hover: var(--lufa-core-semantic-success-hover);
+  --lufa-semantic-button-success-background: var(--lufa-core-feedback-success);
+  --lufa-semantic-button-success-background-hover: var(--lufa-core-feedback-success-hover);
 
   /* ========================================================================
      LEVEL 4: COMPONENT TOKENS

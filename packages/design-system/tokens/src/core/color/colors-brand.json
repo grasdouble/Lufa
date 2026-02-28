@@ -93,9 +93,9 @@
           }
         },
         "hover": {
-          "$value": "{primitive.color.purple.600}",
+          "$value": "{primitive.color.purple.700}",
           "$type": "color",
-          "$description": "Secondary brand hover state",
+          "$description": "Secondary brand hover state - darker shade for interactive feedback",
           "$extensions": {
             "lufa": {
               "category": "brand",
@@ -110,9 +110,9 @@
           }
         },
         "active": {
-          "$value": "{primitive.color.purple.700}",
+          "$value": "{primitive.color.purple.800}",
           "$type": "color",
-          "$description": "Secondary brand active/pressed state",
+          "$description": "Secondary brand active/pressed state - darkest shade for click feedback",
           "$extensions": {
             "lufa": {
               "category": "brand",

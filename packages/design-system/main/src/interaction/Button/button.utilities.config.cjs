@@ -32,11 +32,13 @@ module.exports = {
     'font-family': 'inherit',
     'font-weight': 'var(--lufa-primitive-typography-font-weight-semibold)',
     'text-decoration': 'none',
-    'border-radius': 'var(--lufa-component-button-border-radius)', // Default radius (8px)
+    'border-radius': 'var(--lufa-semantic-ui-border-radius-default)', // Default radius (8px)
     transition:
       'all var(--lufa-semantic-ui-transition-duration-fast) var(--lufa-semantic-ui-transition-timing-function-default)',
     'user-select': 'none',
     'white-space': 'nowrap',
+    'box-shadow': 'var(--lufa-component-button-effect-glow-default)', // Themeable glow effect (default: none)
+    'text-shadow': 'var(--lufa-component-button-effect-text-glow-default)', // Themeable text glow (default: none)
   },
 
   utilities: {
@@ -76,22 +78,22 @@ module.exports = {
       property: ['height', 'padding-left', 'padding-right', 'font-size'],
       values: {
         sm: [
-          'var(--lufa-component-button-height-sm)', // 32px
+          'var(--lufa-semantic-ui-height-sm)', // 32px
           'var(--lufa-semantic-ui-spacing-compact)', // 8px
           'var(--lufa-semantic-ui-spacing-compact)',
-          'var(--lufa-component-button-font-size-sm)', // 14px
+          'var(--lufa-semantic-typography-body-small)', // 14px
         ],
         md: [
-          'var(--lufa-component-button-height-md)', // 40px
+          'var(--lufa-semantic-ui-height-md)', // 40px
           'var(--lufa-semantic-ui-spacing-default)', // 16px
           'var(--lufa-semantic-ui-spacing-default)',
-          'var(--lufa-component-button-font-size-md)', // 16px
+          'var(--lufa-semantic-typography-button)', // 16px
         ],
         lg: [
-          'var(--lufa-component-button-height-lg)', // 48px
+          'var(--lufa-semantic-ui-height-lg)', // 48px
           'var(--lufa-semantic-ui-spacing-comfortable)', // 24px
           'var(--lufa-semantic-ui-spacing-comfortable)',
-          'var(--lufa-component-button-font-size-lg)', // 18px
+          'var(--lufa-semantic-typography-body-large)', // 18px
         ],
       },
     },
@@ -197,7 +199,7 @@ module.exports = {
           'background-color': 'var(--lufa-component-button-variant-success-background-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-success-hover)',
+          'background-color': 'var(--lufa-component-button-variant-success-background-active)',
         },
       },
     },
@@ -213,7 +215,7 @@ module.exports = {
           'background-color': 'var(--lufa-component-button-variant-destructive-background-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-error-hover)',
+          'background-color': 'var(--lufa-component-button-variant-destructive-background-active)',
         },
       },
     },
@@ -221,15 +223,15 @@ module.exports = {
       comment: 'Solid + Warning (Orange/Yellow-600)',
       selector: '.button.type-solid.variant-warning',
       properties: {
-        'background-color': 'var(--lufa-semantic-button-warning-background-default)',
+        'background-color': 'var(--lufa-semantic-button-warning-background-default)', // default state
         color: 'var(--lufa-semantic-button-warning-text)',
       },
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-semantic-button-warning-background-hover)',
+          'background-color': 'var(--lufa-semantic-button-warning-background-hover)', // hover = darker
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-warning-hover)',
+          'background-color': 'var(--lufa-component-button-variant-warning-background-active)',
         },
       },
     },
@@ -237,15 +239,15 @@ module.exports = {
       comment: 'Solid + Info (Blue-500)',
       selector: '.button.type-solid.variant-info',
       properties: {
-        'background-color': 'var(--lufa-semantic-button-info-background-default)',
+        'background-color': 'var(--lufa-semantic-button-info-background-default)', // default state
         color: 'var(--lufa-semantic-button-info-text)',
       },
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-info-hover)',
+          'background-color': 'var(--lufa-semantic-button-info-background-hover)', // hover = darker
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-info-hover)',
+          'background-color': 'var(--lufa-component-button-variant-info-background-active)',
         },
       },
     },
@@ -253,15 +255,15 @@ module.exports = {
       comment: 'Solid + Neutral (Gray)',
       selector: '.button.type-solid.variant-neutral',
       properties: {
-        'background-color': 'var(--lufa-core-neutral-surface-hover)',
-        color: 'var(--lufa-core-neutral-text-primary)',
+        'background-color': 'var(--lufa-component-button-variant-neutral-background-default)',
+        color: 'var(--lufa-component-button-variant-neutral-text)',
       },
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-neutral-border-default)',
+          'background-color': 'var(--lufa-component-button-variant-neutral-background-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-neutral-border-strong)',
+          'background-color': 'var(--lufa-component-button-variant-neutral-background-active)',
         },
       },
     },
@@ -284,8 +286,8 @@ module.exports = {
           'border-color': 'var(--lufa-component-button-type-outline-border-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-brand-primary-active)',
-          'border-color': 'var(--lufa-core-brand-primary-active)',
+          'background-color': 'var(--lufa-component-button-type-outline-variant-primary-background-active)',
+          'border-color': 'var(--lufa-component-button-type-outline-variant-primary-border-active)',
         },
       },
     },
@@ -304,8 +306,8 @@ module.exports = {
           'border-color': 'var(--lufa-core-brand-secondary-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-brand-secondary-active)',
-          'border-color': 'var(--lufa-core-brand-secondary-active)',
+          'background-color': 'var(--lufa-component-button-type-outline-variant-secondary-background-active)',
+          'border-color': 'var(--lufa-component-button-type-outline-variant-secondary-border-active)',
         },
       },
     },
@@ -314,18 +316,18 @@ module.exports = {
       selector: '.button.type-outline.variant-success',
       properties: {
         'background-color': 'transparent',
-        color: 'var(--lufa-core-semantic-success-default)',
-        'border-color': 'var(--lufa-core-semantic-success-default)',
+        color: 'var(--lufa-core-feedback-success-default)',
+        'border-color': 'var(--lufa-core-feedback-success-default)',
       },
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-success-default)',
+          'background-color': 'var(--lufa-core-feedback-success-default)',
           color: 'var(--lufa-semantic-button-success-text)',
-          'border-color': 'var(--lufa-core-semantic-success-hover)',
+          'border-color': 'var(--lufa-core-feedback-success-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-success-hover)',
-          'border-color': 'var(--lufa-core-semantic-success-hover)',
+          'background-color': 'var(--lufa-component-button-type-outline-variant-success-background-active)',
+          'border-color': 'var(--lufa-component-button-type-outline-variant-success-border-active)',
         },
       },
     },
@@ -334,18 +336,18 @@ module.exports = {
       selector: '.button.type-outline.variant-danger',
       properties: {
         'background-color': 'transparent',
-        color: 'var(--lufa-core-semantic-error-default)',
-        'border-color': 'var(--lufa-core-semantic-error-default)',
+        color: 'var(--lufa-core-feedback-error-default)',
+        'border-color': 'var(--lufa-core-feedback-error-default)',
       },
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-error-default)',
+          'background-color': 'var(--lufa-core-feedback-error-default)',
           color: 'var(--lufa-semantic-button-destructive-text)',
-          'border-color': 'var(--lufa-core-semantic-error-hover)',
+          'border-color': 'var(--lufa-core-feedback-error-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-error-hover)',
-          'border-color': 'var(--lufa-core-semantic-error-hover)',
+          'background-color': 'var(--lufa-component-button-type-outline-variant-danger-background-active)',
+          'border-color': 'var(--lufa-component-button-type-outline-variant-danger-border-active)',
         },
       },
     },
@@ -354,18 +356,18 @@ module.exports = {
       selector: '.button.type-outline.variant-warning',
       properties: {
         'background-color': 'transparent',
-        color: 'var(--lufa-core-semantic-warning-hover)',
-        'border-color': 'var(--lufa-core-semantic-warning-hover)',
+        color: 'var(--lufa-core-feedback-warning-default)', // default = resting state (not hover)
+        'border-color': 'var(--lufa-core-feedback-warning-default)',
       },
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-warning-hover)',
+          'background-color': 'var(--lufa-core-feedback-warning-default)', // fills with default color on hover
           color: 'var(--lufa-semantic-button-warning-text)',
-          'border-color': 'var(--lufa-core-semantic-warning-hover)',
+          'border-color': 'var(--lufa-core-feedback-warning-hover)', // border gets darker on hover
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-warning-hover)',
-          'border-color': 'var(--lufa-core-semantic-warning-hover)',
+          'background-color': 'var(--lufa-component-button-type-outline-variant-warning-background-active)',
+          'border-color': 'var(--lufa-component-button-type-outline-variant-warning-border-active)',
         },
       },
     },
@@ -374,18 +376,18 @@ module.exports = {
       selector: '.button.type-outline.variant-info',
       properties: {
         'background-color': 'transparent',
-        color: 'var(--lufa-core-semantic-info-default)',
-        'border-color': 'var(--lufa-core-semantic-info-default)',
+        color: 'var(--lufa-core-feedback-info-default)',
+        'border-color': 'var(--lufa-core-feedback-info-default)',
       },
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-info-default)',
+          'background-color': 'var(--lufa-core-feedback-info-default)',
           color: 'var(--lufa-semantic-button-info-text)',
-          'border-color': 'var(--lufa-core-semantic-info-hover)',
+          'border-color': 'var(--lufa-core-feedback-info-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-semantic-info-hover)',
-          'border-color': 'var(--lufa-core-semantic-info-hover)',
+          'background-color': 'var(--lufa-component-button-type-outline-variant-info-background-active)',
+          'border-color': 'var(--lufa-component-button-type-outline-variant-info-border-active)',
         },
       },
     },
@@ -400,11 +402,11 @@ module.exports = {
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
           'background-color': 'var(--lufa-core-neutral-surface-hover)',
-          'border-color': 'var(--lufa-core-neutral-text-secondary)',
+          'border-color': 'var(--lufa-core-neutral-border-strong)', // stays border-strong on hover
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-neutral-border-default)',
-          'border-color': 'var(--lufa-core-neutral-text-secondary)',
+          'background-color': 'var(--lufa-component-button-type-outline-variant-neutral-background-active)',
+          'border-color': 'var(--lufa-core-neutral-border-strong)', // stays border-strong on active
         },
       },
     },
@@ -425,8 +427,8 @@ module.exports = {
           color: 'var(--lufa-component-button-type-ghost-text-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-neutral-surface-hover)',
-          color: 'var(--lufa-core-brand-primary-active)',
+          'background-color': 'var(--lufa-component-button-type-ghost-background-active)',
+          color: 'var(--lufa-component-button-type-ghost-variant-primary-text-active)',
         },
       },
     },
@@ -443,8 +445,8 @@ module.exports = {
           color: 'var(--lufa-core-brand-secondary-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-neutral-surface-hover)',
-          color: 'var(--lufa-core-brand-secondary-active)',
+          'background-color': 'var(--lufa-component-button-type-ghost-background-active)',
+          color: 'var(--lufa-component-button-type-ghost-variant-secondary-text-active)',
         },
       },
     },
@@ -453,16 +455,16 @@ module.exports = {
       selector: '.button.type-ghost.variant-success',
       properties: {
         'background-color': 'transparent',
-        color: 'var(--lufa-core-semantic-success-default)',
+        color: 'var(--lufa-core-feedback-success-default)',
       },
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
           'background-color': 'var(--lufa-semantic-button-ghost-background-hover)',
-          color: 'var(--lufa-core-semantic-success-hover)',
+          color: 'var(--lufa-core-feedback-success-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-neutral-surface-hover)',
-          color: 'var(--lufa-core-semantic-success-hover)',
+          'background-color': 'var(--lufa-component-button-type-ghost-background-active)',
+          color: 'var(--lufa-component-button-type-ghost-variant-success-text-active)',
         },
       },
     },
@@ -471,16 +473,16 @@ module.exports = {
       selector: '.button.type-ghost.variant-danger',
       properties: {
         'background-color': 'transparent',
-        color: 'var(--lufa-core-semantic-error-default)',
+        color: 'var(--lufa-core-feedback-error-default)',
       },
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
           'background-color': 'var(--lufa-semantic-button-ghost-background-hover)',
-          color: 'var(--lufa-core-semantic-error-hover)',
+          color: 'var(--lufa-core-feedback-error-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-neutral-surface-hover)',
-          color: 'var(--lufa-core-semantic-error-hover)',
+          'background-color': 'var(--lufa-component-button-type-ghost-background-active)',
+          color: 'var(--lufa-component-button-type-ghost-variant-danger-text-active)',
         },
       },
     },
@@ -489,16 +491,16 @@ module.exports = {
       selector: '.button.type-ghost.variant-warning',
       properties: {
         'background-color': 'transparent',
-        color: 'var(--lufa-core-semantic-warning-hover)',
+        color: 'var(--lufa-core-feedback-warning-default)', // default = resting (not hover)
       },
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
           'background-color': 'var(--lufa-semantic-button-ghost-background-hover)',
-          color: 'var(--lufa-core-semantic-warning-hover)',
+          color: 'var(--lufa-core-feedback-warning-hover)', // hover = darker
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-neutral-surface-hover)',
-          color: 'var(--lufa-core-semantic-warning-hover)',
+          'background-color': 'var(--lufa-component-button-type-ghost-background-active)',
+          color: 'var(--lufa-component-button-type-ghost-variant-warning-text-active)',
         },
       },
     },
@@ -507,16 +509,16 @@ module.exports = {
       selector: '.button.type-ghost.variant-info',
       properties: {
         'background-color': 'transparent',
-        color: 'var(--lufa-core-semantic-info-default)',
+        color: 'var(--lufa-core-feedback-info-default)',
       },
       states: {
         ':hover:not(:disabled):not(.disabled-true)': {
           'background-color': 'var(--lufa-semantic-button-ghost-background-hover)',
-          color: 'var(--lufa-core-semantic-info-hover)',
+          color: 'var(--lufa-core-feedback-info-hover)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-neutral-surface-hover)',
-          color: 'var(--lufa-core-semantic-info-hover)',
+          'background-color': 'var(--lufa-component-button-type-ghost-background-active)',
+          color: 'var(--lufa-component-button-type-ghost-variant-info-text-active)',
         },
       },
     },
@@ -533,8 +535,8 @@ module.exports = {
           color: 'var(--lufa-core-neutral-text-primary)',
         },
         ':active:not(:disabled):not(.disabled-true)': {
-          'background-color': 'var(--lufa-core-neutral-surface-hover)',
-          color: 'var(--lufa-core-neutral-text-primary)',
+          'background-color': 'var(--lufa-component-button-type-ghost-background-active)',
+          color: 'var(--lufa-component-button-type-ghost-variant-neutral-text-active)',
         },
       },
     },
@@ -551,6 +553,14 @@ module.exports = {
         outline:
           'var(--lufa-component-shared-focus-outline-width) solid var(--lufa-component-shared-focus-outline-color)',
         'outline-offset': 'var(--lufa-component-shared-focus-outline-offset)',
+      },
+    },
+    {
+      comment: 'Glow hover state — enhanced box-shadow and text-shadow on hover (themeable)',
+      selector: '.button:hover:not(:disabled):not(.disabled-true)',
+      properties: {
+        'box-shadow': 'var(--lufa-component-button-effect-glow-hover)',
+        'text-shadow': 'var(--lufa-component-button-effect-text-glow-hover)',
       },
     },
     {

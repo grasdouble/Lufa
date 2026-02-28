@@ -242,7 +242,7 @@
       "destructive": {
         "background": {
           "default": {
-            "$value": "{core.semantic.error.default}",
+            "$value": "{core.feedback.error.default}",
             "$type": "color",
             "$description": "Destructive button background - for delete and dangerous actions (default state)",
             "$extensions": {
@@ -254,7 +254,7 @@
             }
           },
           "hover": {
-            "$value": "{core.semantic.error.hover}",
+            "$value": "{core.feedback.error.hover}",
             "$type": "color",
             "$description": "Destructive button background (hover state)",
             "$extensions": {
@@ -282,7 +282,7 @@
       "success": {
         "background": {
           "default": {
-            "$value": "{core.semantic.success.default}",
+            "$value": "{core.feedback.success.default}",
             "$type": "color",
             "$description": "Success button background - for positive confirmations (default state)",
             "$extensions": {
@@ -294,7 +294,7 @@
             }
           },
           "hover": {
-            "$value": "{core.semantic.success.hover}",
+            "$value": "{core.feedback.success.hover}",
             "$type": "color",
             "$description": "Success button background (hover state)",
             "$extensions": {
@@ -322,7 +322,7 @@
       "warning": {
         "background": {
           "default": {
-            "$value": "{core.semantic.warning.default}",
+            "$value": "{core.feedback.warning.default}",
             "$type": "color",
             "$description": "Warning button background - for caution actions (default state)",
             "$extensions": {
@@ -334,7 +334,7 @@
             }
           },
           "hover": {
-            "$value": "{core.semantic.warning.hover}",
+            "$value": "{core.feedback.warning.hover}",
             "$type": "color",
             "$description": "Warning button background (hover state)",
             "$extensions": {
@@ -362,7 +362,7 @@
       "info": {
         "background": {
           "default": {
-            "$value": "{core.semantic.info.default}",
+            "$value": "{core.feedback.info.default}",
             "$type": "color",
             "$description": "Info button background - for informational actions (default state)",
             "$extensions": {
@@ -374,7 +374,7 @@
             }
           },
           "hover": {
-            "$value": "{core.semantic.info.hover}",
+            "$value": "{core.feedback.info.hover}",
             "$type": "color",
             "$description": "Info button background (hover state)",
             "$extensions": {

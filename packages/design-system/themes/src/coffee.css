@@ -34,22 +34,22 @@
   --lufa-core-neutral-text-disabled: #eadecf;
 
   /* Semantic Tokens - Toned down success/error */
-  --lufa-core-semantic-success-default: #15803d;
-  --lufa-core-semantic-success-subtle: #f0fdf4;
-  --lufa-core-semantic-success-border: #bbf7d0;
-  --lufa-core-semantic-success-hover: #166534;
-  --lufa-core-semantic-error-default: #991b1b;
-  --lufa-core-semantic-error-subtle: #fef2f2;
-  --lufa-core-semantic-error-border: #fecaca;
-  --lufa-core-semantic-error-hover: #7f1d1d;
-  --lufa-core-semantic-warning-default: #b45309;
-  --lufa-core-semantic-warning-subtle: #fffbeb;
-  --lufa-core-semantic-warning-border: #fde68a;
-  --lufa-core-semantic-warning-hover: #92400e;
-  --lufa-core-semantic-info-default: #1d4ed8;
-  --lufa-core-semantic-info-subtle: #eff6ff;
-  --lufa-core-semantic-info-border: #bfdbfe;
-  --lufa-core-semantic-info-hover: #1e40af;
+  --lufa-core-feedback-success-default: #15803d;
+  --lufa-core-feedback-success-subtle: #f0fdf4;
+  --lufa-core-feedback-success-border: #bbf7d0;
+  --lufa-core-feedback-success-hover: #166534;
+  --lufa-core-feedback-error-default: #991b1b;
+  --lufa-core-feedback-error-subtle: #fef2f2;
+  --lufa-core-feedback-error-border: #fecaca;
+  --lufa-core-feedback-error-hover: #7f1d1d;
+  --lufa-core-feedback-warning-default: #b45309;
+  --lufa-core-feedback-warning-subtle: #fffbeb;
+  --lufa-core-feedback-warning-border: #fde68a;
+  --lufa-core-feedback-warning-hover: #92400e;
+  --lufa-core-feedback-info-default: #1d4ed8;
+  --lufa-core-feedback-info-subtle: #eff6ff;
+  --lufa-core-feedback-info-border: #bfdbfe;
+  --lufa-core-feedback-info-hover: #1e40af;
 
   /* ==================== RGB VARIABLES ==================== */
   /* Extracted from hex colors above for alpha token usage */
@@ -181,22 +181,22 @@
   --lufa-core-neutral-text-disabled: #2d2015;
 
   /* Semantic Tokens */
-  --lufa-core-semantic-success-default: #4ade80;
-  --lufa-core-semantic-success-subtle: #052e16;
-  --lufa-core-semantic-success-border: #14532d;
-  --lufa-core-semantic-success-hover: #86efac;
-  --lufa-core-semantic-error-default: #f87171;
-  --lufa-core-semantic-error-subtle: #450a0a;
-  --lufa-core-semantic-error-border: #7f1d1d;
-  --lufa-core-semantic-error-hover: #fca5a5;
-  --lufa-core-semantic-warning-default: #fbbf24;
-  --lufa-core-semantic-warning-subtle: #451a03;
-  --lufa-core-semantic-warning-border: #78350f;
-  --lufa-core-semantic-warning-hover: #fcd34d;
-  --lufa-core-semantic-info-default: #60a5fa;
-  --lufa-core-semantic-info-subtle: #172554;
-  --lufa-core-semantic-info-border: #1e3a8a;
-  --lufa-core-semantic-info-hover: #93c5fd;
+  --lufa-core-feedback-success-default: #4ade80;
+  --lufa-core-feedback-success-subtle: #052e16;
+  --lufa-core-feedback-success-border: #14532d;
+  --lufa-core-feedback-success-hover: #86efac;
+  --lufa-core-feedback-error-default: #f87171;
+  --lufa-core-feedback-error-subtle: #450a0a;
+  --lufa-core-feedback-error-border: #7f1d1d;
+  --lufa-core-feedback-error-hover: #fca5a5;
+  --lufa-core-feedback-warning-default: #fbbf24;
+  --lufa-core-feedback-warning-subtle: #451a03;
+  --lufa-core-feedback-warning-border: #78350f;
+  --lufa-core-feedback-warning-hover: #fcd34d;
+  --lufa-core-feedback-info-default: #60a5fa;
+  --lufa-core-feedback-info-subtle: #172554;
+  --lufa-core-feedback-info-border: #1e3a8a;
+  --lufa-core-feedback-info-hover: #93c5fd;
 
   /* ==================== SHADOW TOKENS (Dark Mode) ==================== */
   /* Stronger shadows for depth in dark mode */
@@ -232,7 +232,7 @@
   --lufa-core-brand-primary-default: #d97706; /* Amber 500 — WCAG AA on black (6.6:1) */
   --lufa-core-brand-primary-hover: #ca8a04;
   --lufa-core-brand-primary-active: #854d0e;
-  --lufa-core-brand-secondary-default: #d97706; /* Amber 500 — WCAG AA on black (6.6:1) */
+  --lufa-core-brand-secondary-default: #ffa726; /* Amber 500 — WCAG AA on black (6.6:1) */
   --lufa-core-brand-secondary-hover: #ca8a04;
   --lufa-core-brand-secondary-active: #a16207;
   --lufa-core-brand-accent-visited: #bf00ff; /* Purple — WCAG AA on black (4.7:1) */
@@ -277,23 +277,23 @@
   --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.95);
 
   /* Semantic Tokens - High Visibility for Accessibility */
-  --lufa-core-semantic-success-default: #8bc34a; /* High contrast success */
-  --lufa-core-semantic-success-subtle: #000000; /* Pure black background */
-  --lufa-core-semantic-success-border: #8bc34a; /* Matching border for max contrast */
-  --lufa-core-semantic-success-hover: #aed581; /* Brighter success */
+  --lufa-core-feedback-success-default: #8bc34a; /* High contrast success */
+  --lufa-core-feedback-success-subtle: #000000; /* Pure black background */
+  --lufa-core-feedback-success-border: #8bc34a; /* Matching border for max contrast */
+  --lufa-core-feedback-success-hover: #aed581; /* Brighter success */
 
-  --lufa-core-semantic-error-default: #e53935; /* High contrast error - WCAG AA (4.52:1) */
-  --lufa-core-semantic-error-subtle: #000000; /* Pure black background */
-  --lufa-core-semantic-error-border: #d32f2f; /* Matching border for max contrast */
-  --lufa-core-semantic-error-hover: #e57373; /* Brighter error */
+  --lufa-core-feedback-error-default: #e53935; /* High contrast error - WCAG AA (4.52:1) */
+  --lufa-core-feedback-error-subtle: #000000; /* Pure black background */
+  --lufa-core-feedback-error-border: #d32f2f; /* Matching border for max contrast */
+  --lufa-core-feedback-error-hover: #e57373; /* Brighter error */
 
-  --lufa-core-semantic-warning-default: #ffa726; /* High contrast warning */
-  --lufa-core-semantic-warning-subtle: #000000; /* Pure black background */
-  --lufa-core-semantic-warning-border: #ffa726; /* Matching border for max contrast */
-  --lufa-core-semantic-warning-hover: #ffb74d; /* Brighter warning */
+  --lufa-core-feedback-warning-default: #ffa726; /* High contrast warning */
+  --lufa-core-feedback-warning-subtle: #000000; /* Pure black background */
+  --lufa-core-feedback-warning-border: #ffa726; /* Matching border for max contrast */
+  --lufa-core-feedback-warning-hover: #ffb74d; /* Brighter warning */
 
-  --lufa-core-semantic-info-default: #42a5f5; /* High contrast info */
-  --lufa-core-semantic-info-subtle: #000000; /* Pure black background */
-  --lufa-core-semantic-info-border: #42a5f5; /* Matching border for max contrast */
-  --lufa-core-semantic-info-hover: #64b5f6; /* Brighter info */
+  --lufa-core-feedback-info-default: #42a5f5; /* High contrast info */
+  --lufa-core-feedback-info-subtle: #000000; /* Pure black background */
+  --lufa-core-feedback-info-border: #42a5f5; /* Matching border for max contrast */
+  --lufa-core-feedback-info-hover: #64b5f6; /* Brighter info */
 }

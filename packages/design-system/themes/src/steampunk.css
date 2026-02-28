@@ -117,25 +117,25 @@
   --lufa-core-neutral-text-disabled: #c4a574; /* Faded bronze */
 
   /* Semantic Tokens - Industrial Signals */
-  --lufa-core-semantic-success-default: #267347; /* Darker patina - WCAG AA (4.59:1) */
-  --lufa-core-semantic-success-subtle: #e8f5ee; /* Pale mint */
-  --lufa-core-semantic-success-border: #9bcf9f; /* Light patina */
-  --lufa-core-semantic-success-hover: #1e5938; /* Even darker hover */
+  --lufa-core-feedback-success-default: #267347; /* Darker patina - WCAG AA (4.59:1) */
+  --lufa-core-feedback-success-subtle: #e8f5ee; /* Pale mint */
+  --lufa-core-feedback-success-border: #9bcf9f; /* Light patina */
+  --lufa-core-feedback-success-hover: #1e5938; /* Even darker hover */
 
-  --lufa-core-semantic-error-default: #b7410e; /* Rust red */
-  --lufa-core-semantic-error-subtle: #fbeae5; /* Pale rust */
-  --lufa-core-semantic-error-border: #e89a7a; /* Light rust */
-  --lufa-core-semantic-error-hover: #9a350c; /* Deep rust */
+  --lufa-core-feedback-error-default: #b7410e; /* Rust red */
+  --lufa-core-feedback-error-subtle: #fbeae5; /* Pale rust */
+  --lufa-core-feedback-error-border: #e89a7a; /* Light rust */
+  --lufa-core-feedback-error-hover: #9a350c; /* Deep rust */
 
-  --lufa-core-semantic-warning-default: #9a5e2a; /* Much darker brass - WCAG AA (4.55:1) */
-  --lufa-core-semantic-warning-subtle: #fbf3e8; /* Pale gold */
-  --lufa-core-semantic-warning-border: #e5c89f; /* Light brass */
-  --lufa-core-semantic-warning-hover: #7f4e22; /* Even darker brass */
+  --lufa-core-feedback-warning-default: #8a5020; /* Much darker brass - WCAG AA */
+  --lufa-core-feedback-warning-subtle: #fbf3e8; /* Pale gold */
+  --lufa-core-feedback-warning-border: #e5c89f; /* Light brass */
+  --lufa-core-feedback-warning-hover: #7f4e22; /* Even darker brass */
 
-  --lufa-core-semantic-info-default: #5a6a77; /* Dark steam - WCAG AA (4.73:1) */
-  --lufa-core-semantic-info-subtle: #f0f2f4; /* Pale steam */
-  --lufa-core-semantic-info-border: #b8c2cc; /* Light steam */
-  --lufa-core-semantic-info-hover: #4b5863; /* Darker steam */
+  --lufa-core-feedback-info-default: #5a6a77; /* Dark steam - WCAG AA (4.73:1) */
+  --lufa-core-feedback-info-subtle: #f0f2f4; /* Pale steam */
+  --lufa-core-feedback-info-border: #b8c2cc; /* Light steam */
+  --lufa-core-feedback-info-hover: #4b5863; /* Darker steam */
 
   /* ==================== SHADOW TOKENS ==================== */
   /* Warm bronze shadow for Victorian daylight */
@@ -159,9 +159,9 @@
   --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.3); /* 30% black */
 
   /* Backdrop overlays - for modal backgrounds */
-  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.3); /* 30% - lighter emphasis */
-  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.5); /* 50% - standard modal */
-  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.7); /* 70% - strong blocking */
+  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.3);
+  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.5);
+  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.7);
 }
 
 /* ==================== DARK MODE - Industrial Night ==================== */
@@ -190,25 +190,25 @@
   --lufa-core-neutral-text-disabled: #4a2c1a; /* Very faded */
 
   /* Semantic Tokens - Night Signals */
-  --lufa-core-semantic-success-default: #3cb371; /* Bright patina */
-  --lufa-core-semantic-success-subtle: #0d1f15; /* Dark patina bg */
-  --lufa-core-semantic-success-border: #1f5a37; /* Patina border */
-  --lufa-core-semantic-success-hover: #66cdaa; /* Glowing patina */
+  --lufa-core-feedback-success-default: #3cb371; /* Bright patina */
+  --lufa-core-feedback-success-subtle: #0d1f15; /* Dark patina bg */
+  --lufa-core-feedback-success-border: #1f5a37; /* Patina border */
+  --lufa-core-feedback-success-hover: #66cdaa; /* Glowing patina */
 
-  --lufa-core-semantic-error-default: #e6653f; /* Glowing rust */
-  --lufa-core-semantic-error-subtle: #1f0d08; /* Dark rust bg */
-  --lufa-core-semantic-error-border: #4a1f14; /* Rust border */
-  --lufa-core-semantic-error-hover: #f28964; /* Hot rust */
+  --lufa-core-feedback-error-default: #e6653f; /* Glowing rust */
+  --lufa-core-feedback-error-subtle: #1f0d08; /* Dark rust bg */
+  --lufa-core-feedback-error-border: #4a1f14; /* Rust border */
+  --lufa-core-feedback-error-hover: #f28964; /* Hot rust */
 
-  --lufa-core-semantic-warning-default: #deb887; /* Glowing brass */
-  --lufa-core-semantic-warning-subtle: #1f1a0f; /* Dark brass bg */
-  --lufa-core-semantic-warning-border: #4a3d28; /* Brass border */
-  --lufa-core-semantic-warning-hover: #f2d7a8; /* Hot brass */
+  --lufa-core-feedback-warning-default: #deb887; /* Glowing brass */
+  --lufa-core-feedback-warning-subtle: #1f1a0f; /* Dark brass bg */
+  --lufa-core-feedback-warning-border: #4a3d28; /* Brass border */
+  --lufa-core-feedback-warning-hover: #f2d7a8; /* Hot brass */
 
-  --lufa-core-semantic-info-default: #8fa6b8; /* Light steam */
-  --lufa-core-semantic-info-subtle: #0f1215; /* Dark steam bg */
-  --lufa-core-semantic-info-border: #2c3539; /* Steam border */
-  --lufa-core-semantic-info-hover: #a8bfcc; /* Bright steam */
+  --lufa-core-feedback-info-default: #8fa6b8; /* Light steam */
+  --lufa-core-feedback-info-subtle: #0f1215; /* Dark steam bg */
+  --lufa-core-feedback-info-border: #2c3539; /* Steam border */
+  --lufa-core-feedback-info-hover: #a8bfcc; /* Bright steam */
 
   /* ==================== SHADOW TOKENS ==================== */
   /* Stronger shadow for depth in dark workshop */
@@ -263,25 +263,25 @@
   --lufa-core-neutral-text-disabled: #4a2c1a; /* Dark bronze */
 
   /* Semantic Tokens - High Visibility Signals */
-  --lufa-core-semantic-success-default: #00fa9a; /* Bright patina */
-  --lufa-core-semantic-success-subtle: #000000; /* Black bg */
-  --lufa-core-semantic-success-border: #00fa9a; /* Matching border */
-  --lufa-core-semantic-success-hover: #7fffd4; /* Brighter */
+  --lufa-core-feedback-success-default: #00fa9a; /* Bright patina */
+  --lufa-core-feedback-success-subtle: #000000; /* Black bg */
+  --lufa-core-feedback-success-border: #00fa9a; /* Matching border */
+  --lufa-core-feedback-success-hover: #7fffd4; /* Brighter */
 
-  --lufa-core-semantic-error-default: #ff4500; /* Orange red */
-  --lufa-core-semantic-error-subtle: #000000; /* Black bg */
-  --lufa-core-semantic-error-border: #ff4500; /* Matching border */
-  --lufa-core-semantic-error-hover: #ff6347; /* Tomato */
+  --lufa-core-feedback-error-default: #ff4500; /* Orange red */
+  --lufa-core-feedback-error-subtle: #000000; /* Black bg */
+  --lufa-core-feedback-error-border: #ff4500; /* Matching border */
+  --lufa-core-feedback-error-hover: #ff6347; /* Tomato */
 
-  --lufa-core-semantic-warning-default: #ffd700; /* Gold */
-  --lufa-core-semantic-warning-subtle: #000000; /* Black bg */
-  --lufa-core-semantic-warning-border: #ffd700; /* Matching border */
-  --lufa-core-semantic-warning-hover: #ffed4e; /* Brighter gold */
+  --lufa-core-feedback-warning-default: #ffd700; /* Gold */
+  --lufa-core-feedback-warning-subtle: #000000; /* Black bg */
+  --lufa-core-feedback-warning-border: #ffd700; /* Matching border */
+  --lufa-core-feedback-warning-hover: #ffed4e; /* Brighter gold */
 
-  --lufa-core-semantic-info-default: #87ceeb; /* Sky blue */
-  --lufa-core-semantic-info-subtle: #000000; /* Black bg */
-  --lufa-core-semantic-info-border: #87ceeb; /* Matching border */
-  --lufa-core-semantic-info-hover: #b0e0e6; /* Powder blue */
+  --lufa-core-feedback-info-default: #87ceeb; /* Sky blue */
+  --lufa-core-feedback-info-subtle: #000000; /* Black bg */
+  --lufa-core-feedback-info-border: #87ceeb; /* Matching border */
+  --lufa-core-feedback-info-hover: #b0e0e6; /* Powder blue */
 
   /* ==================== SHADOW TOKENS ==================== */
   /* Strong shadow for maximum separation and accessibility */

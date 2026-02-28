@@ -87,28 +87,28 @@ START: What are you styling?
 
 ```css
 /* Success */
---lufa-core-semantic-success
---lufa-core-semantic-success-subtle
---lufa-core-semantic-success-border
---lufa-core-semantic-success-hover
+--lufa-core-feedback-success
+--lufa-core-feedback-success-subtle
+--lufa-core-feedback-success-border
+--lufa-core-feedback-success-hover
 
 /* Error */
---lufa-core-semantic-error
---lufa-core-semantic-error-subtle
---lufa-core-semantic-error-border
---lufa-core-semantic-error-hover
+--lufa-core-feedback-error
+--lufa-core-feedback-error-subtle
+--lufa-core-feedback-error-border
+--lufa-core-feedback-error-hover
 
 /* Warning */
---lufa-core-semantic-warning
---lufa-core-semantic-warning-subtle
---lufa-core-semantic-warning-border
---lufa-core-semantic-warning-hover
+--lufa-core-feedback-warning
+--lufa-core-feedback-warning-subtle
+--lufa-core-feedback-warning-border
+--lufa-core-feedback-warning-hover
 
 /* Info */
---lufa-core-semantic-info
---lufa-core-semantic-info-subtle
---lufa-core-semantic-info-border
---lufa-core-semantic-info-hover
+--lufa-core-feedback-info
+--lufa-core-feedback-info-subtle
+--lufa-core-feedback-info-border
+--lufa-core-feedback-info-hover
 ```
 
 #### UI Colors
@@ -332,12 +332,12 @@ START: What are you styling?
 }
 
 .input-error {
-  border-color: var(--lufa-core-semantic-error);
+  border-color: var(--lufa-core-feedback-error);
 }
 
 .input-error:focus {
-  border-color: var(--lufa-core-semantic-error);
-  outline-color: var(--lufa-core-semantic-error);
+  border-color: var(--lufa-core-feedback-error);
+  outline-color: var(--lufa-core-feedback-error);
 }
 ```
 
@@ -348,36 +348,36 @@ START: What are you styling?
 ```css
 /* Success Alert */
 .alert-success {
-  background: var(--lufa-core-semantic-success-subtle);
-  border: 1px solid var(--lufa-core-semantic-success-border);
-  color: var(--lufa-core-semantic-success);
+  background: var(--lufa-core-feedback-success-subtle);
+  border: 1px solid var(--lufa-core-feedback-success-border);
+  color: var(--lufa-core-feedback-success);
   padding: var(--lufa-primitive-spacing-12);
   border-radius: var(--lufa-primitive-radius-scale-base);
 }
 
 /* Error Alert */
 .alert-error {
-  background: var(--lufa-core-semantic-error-subtle);
-  border: 1px solid var(--lufa-core-semantic-error-border);
-  color: var(--lufa-core-semantic-error);
+  background: var(--lufa-core-feedback-error-subtle);
+  border: 1px solid var(--lufa-core-feedback-error-border);
+  color: var(--lufa-core-feedback-error);
   padding: var(--lufa-primitive-spacing-12);
   border-radius: var(--lufa-primitive-radius-scale-base);
 }
 
 /* Warning Alert */
 .alert-warning {
-  background: var(--lufa-core-semantic-warning-subtle);
-  border: 1px solid var(--lufa-core-semantic-warning-border);
-  color: var(--lufa-core-semantic-warning);
+  background: var(--lufa-core-feedback-warning-subtle);
+  border: 1px solid var(--lufa-core-feedback-warning-border);
+  color: var(--lufa-core-feedback-warning);
   padding: var(--lufa-primitive-spacing-12);
   border-radius: var(--lufa-primitive-radius-scale-base);
 }
 
 /* Info Alert */
 .alert-info {
-  background: var(--lufa-core-semantic-info-subtle);
-  border: 1px solid var(--lufa-core-semantic-info-border);
-  color: var(--lufa-core-semantic-info);
+  background: var(--lufa-core-feedback-info-subtle);
+  border: 1px solid var(--lufa-core-feedback-info-border);
+  color: var(--lufa-core-feedback-info);
   padding: var(--lufa-primitive-spacing-12);
   border-radius: var(--lufa-primitive-radius-scale-base);
 }
@@ -402,11 +402,11 @@ START: What are you styling?
 }
 
 .badge-success {
-  background: var(--lufa-core-semantic-success);
+  background: var(--lufa-core-feedback-success);
 }
 
 .badge-error {
-  background: var(--lufa-core-semantic-error);
+  background: var(--lufa-core-feedback-error);
 }
 ```
 
@@ -599,7 +599,7 @@ Need viewport adaptation?
 
 .form-error {
   font-size: var(--lufa-semantic-typography-caption);
-  color: var(--lufa-core-semantic-error);
+  color: var(--lufa-core-feedback-error);
 }
 ```
 

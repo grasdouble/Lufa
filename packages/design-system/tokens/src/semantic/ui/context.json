@@ -27,7 +27,7 @@
           }
         },
         "success": {
-          "$value": "{core.semantic.success.subtle}",
+          "$value": "{core.feedback.success.subtle}",
           "$type": "color",
           "$description": "Background for success messages and positive feedback",
           "$extensions": {
@@ -39,7 +39,7 @@
           }
         },
         "error": {
-          "$value": "{core.semantic.error.subtle}",
+          "$value": "{core.feedback.error.subtle}",
           "$type": "color",
           "$description": "Background for error messages and validation failures",
           "$extensions": {
@@ -51,7 +51,7 @@
           }
         },
         "warning": {
-          "$value": "{core.semantic.warning.subtle}",
+          "$value": "{core.feedback.warning.subtle}",
           "$type": "color",
           "$description": "Background for warning messages and caution notices",
           "$extensions": {
@@ -63,7 +63,7 @@
           }
         },
         "info": {
-          "$value": "{core.semantic.info.subtle}",
+          "$value": "{core.feedback.info.subtle}",
           "$type": "color",
           "$description": "Background for informational messages and neutral notifications",
           "$extensions": {
@@ -76,7 +76,7 @@
         },
         "on": {
           "success": {
-            "$value": "{core.semantic.success.default}",
+            "$value": "{core.feedback.success.default}",
             "$type": "color",
             "$description": "Text and icons on success background - for use with background-success (subtle background)",
             "$extensions": {
@@ -90,7 +90,7 @@
             }
           },
           "error": {
-            "$value": "{core.semantic.error.default}",
+            "$value": "{core.feedback.error.default}",
             "$type": "color",
             "$description": "Text and icons on error background - for use with background-error (subtle background)",
             "$extensions": {
@@ -104,7 +104,7 @@
             }
           },
           "warning": {
-            "$value": "{core.semantic.warning.default}",
+            "$value": "{core.feedback.warning.default}",
             "$type": "color",
             "$description": "Text and icons on warning background - for use with background-warning (subtle background)",
             "$extensions": {
@@ -118,7 +118,7 @@
             }
           },
           "info": {
-            "$value": "{core.semantic.info.default}",
+            "$value": "{core.feedback.info.default}",
             "$type": "color",
             "$description": "Text and icons on info background - for use with background-info (subtle background)",
             "$extensions": {
@@ -286,7 +286,7 @@
           }
         },
         "success": {
-          "$value": "{core.semantic.success.default}",
+          "$value": "{core.feedback.success.default}",
           "$type": "color",
           "$description": "Text color for success messages and positive feedback",
           "$extensions": {
@@ -298,7 +298,7 @@
           }
         },
         "error": {
-          "$value": "{core.semantic.error.default}",
+          "$value": "{core.feedback.error.default}",
           "$type": "color",
           "$description": "Text color for error messages and validation failures",
           "$extensions": {
@@ -310,7 +310,7 @@
           }
         },
         "warning": {
-          "$value": "{core.semantic.warning.default}",
+          "$value": "{core.feedback.warning.default}",
           "$type": "color",
           "$description": "Text color for warning messages and caution notices",
           "$extensions": {
@@ -322,7 +322,7 @@
           }
         },
         "info": {
-          "$value": "{core.semantic.info.default}",
+          "$value": "{core.feedback.info.default}",
           "$type": "color",
           "$description": "Text color for informational messages",
           "$extensions": {
@@ -360,7 +360,7 @@
           }
         },
         "success": {
-          "$value": "{core.semantic.success.border}",
+          "$value": "{core.feedback.success.border}",
           "$type": "color",
           "$description": "Border color for success contexts",
           "$extensions": {
@@ -372,7 +372,7 @@
           }
         },
         "error": {
-          "$value": "{core.semantic.error.border}",
+          "$value": "{core.feedback.error.border}",
           "$type": "color",
           "$description": "Border color for error contexts",
           "$extensions": {
@@ -384,7 +384,7 @@
           }
         },
         "warning": {
-          "$value": "{core.semantic.warning.border}",
+          "$value": "{core.feedback.warning.border}",
           "$type": "color",
           "$description": "Border color for warning contexts",
           "$extensions": {
@@ -396,7 +396,7 @@
           }
         },
         "info": {
-          "$value": "{core.semantic.info.border}",
+          "$value": "{core.feedback.info.border}",
           "$type": "color",
           "$description": "Border color for informational contexts",
           "$extensions": {

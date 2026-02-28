@@ -5,5 +5,19 @@
       "type": "local",
       "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
     }
+  },
+  "permissions": {
+    "git": {
+      "commit": "ask",
+      "push": "ask",
+      "rebase": "ask",
+      "reset": "ask"
+    }
+  },
+  "dangerousCommands": {
+    "git commit": "ask",
+    "git push": "ask",
+    "git rebase": "ask",
+    "git reset": "ask"
   }
 }

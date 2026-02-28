@@ -1,6 +1,6 @@
 {
   "core": {
-    "semantic": {
+    "feedback": {
       "success": {
         "default": {
           "$value": "{primitive.color.green.700}",
@@ -54,9 +54,9 @@
           }
         },
         "hover": {
-          "$value": "{primitive.color.green.600}",
+          "$value": "{primitive.color.green.800}",
           "$type": "color",
-          "$description": "Hover state for success interactive elements",
+          "$description": "Hover state for success interactive elements - one shade darker than default for visible state change",
           "$extensions": {
             "lufa": {
               "category": "semantic",
@@ -69,13 +69,30 @@
               "themeable": true
             }
           }
+        },
+        "active": {
+          "$value": "{primitive.color.green.900}",
+          "$type": "color",
+          "$description": "Active/pressed state for success interactive elements - darkest shade for click feedback",
+          "$extensions": {
+            "lufa": {
+              "category": "semantic",
+              "role": "feedback",
+              "useCase": "Active/pressed state for success buttons",
+              "modes": {
+                "dark": "{primitive.color.green.200}",
+                "high-contrast": "{primitive.color.hc.green}"
+              },
+              "themeable": true
+            }
+          }
         }
       },
       "error": {
         "default": {
-          "$value": "{primitive.color.red.600}",
+          "$value": "{primitive.color.red.700}",
           "$type": "color",
-          "$description": "Error state color - validation errors, destructive actions, critical warnings",
+          "$description": "Error state color - validation errors, destructive actions, critical warnings - meets WCAG AA on subtle error background",
           "$extensions": {
             "lufa": {
               "category": "semantic",
@@ -107,9 +124,9 @@
           }
         },
         "border": {
-          "$value": "{primitive.color.red.300}",
+          "$value": "{primitive.color.red.500}",
           "$type": "color",
-          "$description": "Error border color for outlined elements",
+          "$description": "Error border color for outlined elements - meets WCAG 1.4.11 (3:1) on light backgrounds",
           "$extensions": {
             "lufa": {
               "category": "semantic",
@@ -124,9 +141,9 @@
           }
         },
         "hover": {
-          "$value": "{primitive.color.red.700}",
+          "$value": "{primitive.color.red.800}",
           "$type": "color",
-          "$description": "Hover state for error/destructive interactive elements",
+          "$description": "Hover state for error/destructive interactive elements - one shade darker than default for visible state change",
           "$extensions": {
             "lufa": {
               "category": "semantic",
@@ -139,13 +156,30 @@
               "themeable": true
             }
           }
+        },
+        "active": {
+          "$value": "{primitive.color.red.900}",
+          "$type": "color",
+          "$description": "Active/pressed state for error/destructive interactive elements - darkest shade for click feedback",
+          "$extensions": {
+            "lufa": {
+              "category": "semantic",
+              "role": "feedback",
+              "useCase": "Active/pressed state for destructive buttons",
+              "modes": {
+                "dark": "{primitive.color.red.200}",
+                "high-contrast": "{primitive.color.hc.red}"
+              },
+              "themeable": true
+            }
+          }
         }
       },
       "warning": {
         "default": {
-          "$value": "{primitive.color.yellow.500}",
+          "$value": "{primitive.color.yellow.700}",
           "$type": "color",
-          "$description": "Warning state color - caution messages, important notices, pending actions",
+          "$description": "Warning state color - caution messages, important notices, pending actions - meets WCAG AA on page and warning backgrounds",
           "$extensions": {
             "lufa": {
               "category": "semantic",
@@ -194,9 +228,9 @@
           }
         },
         "hover": {
-          "$value": "{primitive.color.yellow.600}",
+          "$value": "{primitive.color.yellow.800}",
           "$type": "color",
-          "$description": "Hover state for warning interactive elements",
+          "$description": "Hover state for warning interactive elements - one shade darker than default for visible state change",
           "$extensions": {
             "lufa": {
               "category": "semantic",
@@ -204,6 +238,23 @@
               "useCase": "Hover state for warning buttons and links",
               "modes": {
                 "dark": "{primitive.color.yellow.300}",
+                "high-contrast": "{primitive.color.hc.yellow}"
+              },
+              "themeable": true
+            }
+          }
+        },
+        "active": {
+          "$value": "{primitive.color.yellow.900}",
+          "$type": "color",
+          "$description": "Active/pressed state for warning interactive elements - darkest shade for click feedback",
+          "$extensions": {
+            "lufa": {
+              "category": "semantic",
+              "role": "feedback",
+              "useCase": "Active/pressed state for warning buttons",
+              "modes": {
+                "dark": "{primitive.color.yellow.200}",
                 "high-contrast": "{primitive.color.hc.yellow}"
               },
               "themeable": true
@@ -264,9 +315,9 @@
           }
         },
         "hover": {
-          "$value": "{primitive.color.blue.600}",
+          "$value": "{primitive.color.blue.800}",
           "$type": "color",
-          "$description": "Hover state for info interactive elements",
+          "$description": "Hover state for info interactive elements - one shade darker than default for visible state change",
           "$extensions": {
             "lufa": {
               "category": "semantic",
@@ -274,6 +325,23 @@
               "useCase": "Hover state for info buttons and links",
               "modes": {
                 "dark": "{primitive.color.blue.300}",
+                "high-contrast": "{primitive.color.hc.blue}"
+              },
+              "themeable": true
+            }
+          }
+        },
+        "active": {
+          "$value": "{primitive.color.blue.900}",
+          "$type": "color",
+          "$description": "Active/pressed state for info interactive elements - darkest shade for click feedback",
+          "$extensions": {
+            "lufa": {
+              "category": "semantic",
+              "role": "feedback",
+              "useCase": "Active/pressed state for info buttons",
+              "modes": {
+                "dark": "{primitive.color.blue.200}",
                 "high-contrast": "{primitive.color.hc.blue}"
               },
               "themeable": true
