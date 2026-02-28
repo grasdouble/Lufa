@@ -1,6 +1,6 @@
 ---
 name: 'testarch-atdd'
-description: 'Generate failing acceptance tests using TDD cycle. Use when the user says 'lets write acceptance tests' or 'I want to do ATDD''
+description: 'Generate failing acceptance tests using TDD cycle. Use when the user says ""lets write acceptance tests"" or ""I want to do ATDD""'
 ---
 
 Execute the BMAD 'testarch-atdd' workflow.
