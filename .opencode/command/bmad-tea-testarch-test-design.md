@@ -1,6 +1,6 @@
 ---
 name: 'testarch-test-design'
-description: 'Create system-level or epic-level test plans. Use when the user says 'lets design test plan' or 'I want to create test strategy''
+description: 'Create system-level or epic-level test plans. Use when the user says ""lets design test plan"" or ""I want to create test strategy""'
 ---
 
 Execute the BMAD 'testarch-test-design' workflow.

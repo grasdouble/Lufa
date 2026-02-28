@@ -1,6 +1,6 @@
 ---
 name: bmad-tea-testarch-framework
-description: bmad-tea-testarch-framework skill
+description: Initialize test framework with Playwright or Cypress. Use when the user says ""lets setup test framework"" or ""I want to initialize testing framework""
 ---
 
 IT IS CRITICAL THAT YOU FOLLOW THESE STEPS - while staying in character as the current agent persona you may have loaded:
