@@ -3,6 +3,8 @@ name: Global:Tools:Missing-Changeset
 on:
   pull_request:
     types: [opened, synchronize, reopened, labeled]
+    branches-ignore:
+      - changeset-release/main
 
 permissions:
   contents: read
