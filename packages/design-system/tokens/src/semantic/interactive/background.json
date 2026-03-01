@@ -49,6 +49,19 @@
               "themeable": true
             }
           }
+        },
+        "focus": {
+          "$value": "{core.color.neutral.surface.default}",
+          "$type": "color",
+          "$description": "Background color for focused interactive elements — same as default. Focus indication is provided by focus ring/border, not background change.",
+          "$extensions": {
+            "lufa": {
+              "category": "interactive",
+              "useCase": "Focused buttons, focused inputs — background unchanged, focus ring provides indication",
+              "note": "Background does not change on focus by design. Use semantic.interactive.focus.ring for the visual focus indicator.",
+              "themeable": true
+            }
+          }
         }
       }
     }

@@ -3,38 +3,80 @@
     "input": {
       "padding": {
         "sm": {
-          "$value": "{semantic.ui.spacing.compact} {semantic.ui.spacing.default}",
-          "$type": "dimension",
-          "$description": "Small input padding",
-          "$extensions": {
-            "lufa": {
-              "category": "input",
-              "useCase": "Compact form fields",
-              "themeable": true
+          "block": {
+            "$value": "{semantic.ui.spacing.compact}",
+            "$type": "dimension",
+            "$description": "Small input block-axis padding (top/bottom, 8px)",
+            "$extensions": {
+              "lufa": {
+                "category": "input",
+                "useCase": "Compact form fields",
+                "themeable": true
+              }
+            }
+          },
+          "inline": {
+            "$value": "{semantic.ui.spacing.default}",
+            "$type": "dimension",
+            "$description": "Small input inline-axis padding (left/right, 16px)",
+            "$extensions": {
+              "lufa": {
+                "category": "input",
+                "useCase": "Compact form fields",
+                "themeable": true
+              }
             }
           }
         },
         "md": {
-          "$value": "{semantic.ui.spacing.default} {semantic.ui.spacing.comfortable}",
-          "$type": "dimension",
-          "$description": "Medium input padding (default)",
-          "$extensions": {
-            "lufa": {
-              "category": "input",
-              "useCase": "Standard form fields",
-              "themeable": true
+          "block": {
+            "$value": "{semantic.ui.spacing.default}",
+            "$type": "dimension",
+            "$description": "Medium input block-axis padding (top/bottom, 16px)",
+            "$extensions": {
+              "lufa": {
+                "category": "input",
+                "useCase": "Standard form fields",
+                "themeable": true
+              }
+            }
+          },
+          "inline": {
+            "$value": "{semantic.ui.spacing.comfortable}",
+            "$type": "dimension",
+            "$description": "Medium input inline-axis padding (left/right, 24px)",
+            "$extensions": {
+              "lufa": {
+                "category": "input",
+                "useCase": "Standard form fields",
+                "themeable": true
+              }
             }
           }
         },
         "lg": {
-          "$value": "{semantic.ui.spacing.comfortable} {semantic.ui.spacing.spacious}",
-          "$type": "dimension",
-          "$description": "Large input padding",
-          "$extensions": {
-            "lufa": {
-              "category": "input",
-              "useCase": "Emphasized form fields",
-              "themeable": true
+          "block": {
+            "$value": "{semantic.ui.spacing.comfortable}",
+            "$type": "dimension",
+            "$description": "Large input block-axis padding (top/bottom, 24px)",
+            "$extensions": {
+              "lufa": {
+                "category": "input",
+                "useCase": "Emphasized form fields",
+                "themeable": true
+              }
+            }
+          },
+          "inline": {
+            "$value": "{semantic.ui.spacing.spacious}",
+            "$type": "dimension",
+            "$description": "Large input inline-axis padding (left/right, 32px)",
+            "$extensions": {
+              "lufa": {
+                "category": "input",
+                "useCase": "Emphasized form fields",
+                "themeable": true
+              }
             }
           }
         }

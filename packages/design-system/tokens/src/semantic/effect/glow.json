@@ -42,7 +42,13 @@
             }
           },
           "focus": {
-            "$value": "0 0 0 3px {core.color.alpha.black.16}",
+            "$value": {
+              "offsetX": "0",
+              "offsetY": "0",
+              "blur": "0",
+              "spread": "3px",
+              "color": "{core.color.alpha.black.16}"
+            },
             "$type": "shadow",
             "$description": "Focus ring glow for accessibility - neutral alpha token, themeable via theme overrides",
             "$extensions": {
@@ -109,7 +115,13 @@
             }
           },
           "focus": {
-            "$value": "0 0 0 2px {core.color.alpha.black.8}",
+            "$value": {
+              "offsetX": "0",
+              "offsetY": "0",
+              "blur": "0",
+              "spread": "2px",
+              "color": "{core.color.alpha.black.8}"
+            },
             "$type": "shadow",
             "$description": "Border glow for focused inputs - neutral alpha token, themeable via theme overrides",
             "$extensions": {

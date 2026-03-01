@@ -2,64 +2,102 @@
   "component": {
     "badge": {
       "padding": {
-        "sm": {
-          "$value": "2px 6px",
-          "$type": "dimension",
-          "$description": "Small badge padding",
-          "$extensions": {
-            "lufa": {
-              "category": "badge",
-              "useCase": "Compact badges, inline indicators",
-              "themeable": true,
-              "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
+        "compact": {
+          "block": {
+            "$value": "{semantic.ui.spacing.tight}",
+            "$type": "dimension",
+            "$description": "Compact badge block-axis padding (top/bottom) — semantic tight (4px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Standard badges",
+                "themeable": true
+              }
+            }
+          },
+          "inline": {
+            "$value": "{semantic.ui.spacing.compact}",
+            "$type": "dimension",
+            "$description": "Compact badge inline-axis padding (left/right) — semantic compact (8px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Standard badges",
+                "themeable": true
+              }
             }
           }
         },
-        "md": {
-          "$value": "4px 8px",
-          "$type": "dimension",
-          "$description": "Medium badge padding (default)",
-          "$extensions": {
-            "lufa": {
-              "category": "badge",
-              "useCase": "Standard badges",
-              "themeable": true,
-              "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
+        "default": {
+          "block": {
+            "$value": "{semantic.ui.spacing.compact}",
+            "$type": "dimension",
+            "$description": "Default badge block-axis padding (top/bottom) — semantic compact (8px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Standard badges",
+                "themeable": true
+              }
+            }
+          },
+          "inline": {
+            "$value": "{semantic.ui.spacing.snug}",
+            "$type": "dimension",
+            "$description": "Default badge inline-axis padding (left/right) — semantic snug (12px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Standard badges",
+                "themeable": true
+              }
             }
           }
         },
-        "lg": {
-          "$value": "6px 12px",
-          "$type": "dimension",
-          "$description": "Large badge padding",
-          "$extensions": {
-            "lufa": {
-              "category": "badge",
-              "useCase": "Prominent badges, emphasis",
-              "themeable": true,
-              "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
+        "large": {
+          "block": {
+            "$value": "{semantic.ui.spacing.snug}",
+            "$type": "dimension",
+            "$description": "Large badge block-axis padding (top/bottom) — semantic snug (12px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Prominent badges, emphasis",
+                "themeable": true
+              }
+            }
+          },
+          "inline": {
+            "$value": "{semantic.ui.spacing.default}",
+            "$type": "dimension",
+            "$description": "Large badge inline-axis padding (left/right) — semantic default (16px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Prominent badges, emphasis",
+                "themeable": true
+              }
             }
           }
         }
       },
       "font-size": {
-        "sm": {
-          "$value": "10px",
+        "compact": {
+          "$value": "{semantic.typography.caption}",
           "$type": "dimension",
-          "$description": "Small badge font size - 10px (between xs and sm)",
+          "$description": "Compact badge font size — semantic caption (12px)",
           "$extensions": {
             "lufa": {
               "category": "badge",
               "useCase": "Compact badges",
-              "note": "Custom value - smaller than xs (12px) for compact badges",
               "themeable": true
             }
           }
         },
-        "md": {
-          "$value": "{semantic.typography.caption}",
+        "default": {
+          "$value": "{semantic.typography.body.small}",
           "$type": "dimension",
-          "$description": "Medium badge font size - references caption (12px)",
+          "$description": "Default badge font size — semantic body small (14px)",
           "$extensions": {
             "lufa": {
               "category": "badge",
@@ -68,14 +106,14 @@
             }
           }
         },
-        "lg": {
-          "$value": "{semantic.typography.body.small}",
+        "large": {
+          "$value": "{semantic.typography.body.default}",
           "$type": "dimension",
-          "$description": "Large badge font size - references body small (14px)",
+          "$description": "Large badge font size — semantic body default (16px)",
           "$extensions": {
             "lufa": {
               "category": "badge",
-              "useCase": "Large badges",
+              "useCase": "Prominent badges, emphasis",
               "themeable": true
             }
           }
@@ -96,7 +134,7 @@
       "variant": {
         "default": {
           "background": {
-            "$value": "{semantic.ui.background.surface}",
+            "$value": "{semantic.ui.background.surface.default}",
             "$type": "color",
             "$description": "Default badge background (neutral)",
             "$extensions": {

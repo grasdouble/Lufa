@@ -49,6 +49,19 @@
               "themeable": true
             }
           }
+        },
+        "focus": {
+          "$value": "{core.color.neutral.text.primary}",
+          "$type": "color",
+          "$description": "Text color for focused interactive elements — same as default. Text color does not change on focus; the focus ring provides the visual indicator.",
+          "$extensions": {
+            "lufa": {
+              "category": "interactive",
+              "useCase": "Focused button text, focused input text — text color unchanged",
+              "note": "Text color does not change on focus by design. Use semantic.interactive.focus.ring for the visual focus indicator.",
+              "themeable": true
+            }
+          }
         }
       }
     }

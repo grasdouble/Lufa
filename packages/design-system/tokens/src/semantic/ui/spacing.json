@@ -28,6 +28,19 @@
             }
           }
         },
+        "snug": {
+          "$value": "{primitive.spacing.12}",
+          "$type": "dimension",
+          "$description": "Snug spacing — between compact (8px) and default (16px), for components that need a mid-step",
+          "$extensions": {
+            "lufa": {
+              "category": "ui",
+              "subcategory": "spacing",
+              "useCase": "Badge padding, tag inline spacing, dense button horizontal padding",
+              "themeable": true
+            }
+          }
+        },
         "default": {
           "$value": "{primitive.spacing.16}",
           "$type": "dimension",

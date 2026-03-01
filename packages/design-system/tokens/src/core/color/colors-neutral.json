@@ -161,9 +161,9 @@
             }
           },
           "tertiary": {
-            "$value": "{primitive.color.gray.600}",
+            "$value": "{primitive.color.gray.500}",
             "$type": "color",
-            "$description": "Tertiary text color - meets WCAG AA 4.5:1 on both page and surface backgrounds",
+            "$description": "Tertiary text color - lighter than secondary for optional, non-essential content. Use only for metadata, timestamps, and decorative labels where content is not required reading. Does not guarantee WCAG AA on light surfaces.",
             "$extensions": {
               "lufa": {
                 "category": "neutral",
@@ -173,6 +173,7 @@
                   "dark": "{primitive.color.gray.500}",
                   "high-contrast": "{primitive.color.gray.600}"
                 },
+                "note": "Intentionally below secondary (gray.600). Gray.500 is borderline contrast on light surfaces — reserve for non-essential content only.",
                 "themeable": true
               }
             }

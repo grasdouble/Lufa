@@ -15,22 +15,21 @@
           }
         },
         "blur": {
-          "$value": "4px",
-          "$type": "dimension",
-          "$description": "Backdrop blur effect amount",
+          "$value": "{semantic.ui.backdrop.blur}",
+          "$type": "other",
+          "$description": "Backdrop blur effect for modal overlay",
           "$extensions": {
             "lufa": {
               "category": "modal",
               "useCase": "Backdrop-filter blur for modern modal overlays",
-              "themeable": true,
-              "note": "Fixed optical value — 4px is the standard blur amount for modal backdrops; no spatial token covers sub-spacing blur."
+              "themeable": true
             }
           }
         }
       },
       "content": {
         "background": {
-          "$value": "{semantic.ui.background.surface}",
+          "$value": "{semantic.ui.background.surface.default}",
           "$type": "color",
           "$description": "Modal content background",
           "$extensions": {
@@ -57,7 +56,7 @@
           "sm": {
             "$value": "400px",
             "$type": "dimension",
-            "$description": "Small modal max width",
+            "$description": "Small modal max width — intentionally raw (400px). Breakpoint-aligned modal width not covered by the semantic spacing scale.",
             "$extensions": {
               "lufa": {
                 "category": "modal",
@@ -70,7 +69,7 @@
           "md": {
             "$value": "600px",
             "$type": "dimension",
-            "$description": "Medium modal max width (default)",
+            "$description": "Medium modal max width (default) — intentionally raw (600px). Breakpoint-aligned modal width not covered by the semantic spacing scale.",
             "$extensions": {
               "lufa": {
                 "category": "modal",
@@ -83,7 +82,7 @@
           "lg": {
             "$value": "800px",
             "$type": "dimension",
-            "$description": "Large modal max width",
+            "$description": "Large modal max width — intentionally raw (800px). Breakpoint-aligned modal width not covered by the semantic spacing scale.",
             "$extensions": {
               "lufa": {
                 "category": "modal",
@@ -96,7 +95,7 @@
           "xl": {
             "$value": "1200px",
             "$type": "dimension",
-            "$description": "Extra large modal max width",
+            "$description": "Extra large modal max width — intentionally raw (1200px). Breakpoint-aligned modal width not covered by the semantic spacing scale.",
             "$extensions": {
               "lufa": {
                 "category": "modal",
@@ -120,7 +119,7 @@
           }
         },
         "shadow": {
-          "$value": "{semantic.ui.shadow.extra.large}",
+          "$value": "{semantic.ui.shadow.extra-large}",
           "$type": "shadow",
           "$description": "Modal content shadow for strong elevation",
           "$extensions": {
@@ -188,7 +187,7 @@
         "size": {
           "$value": "32px",
           "$type": "dimension",
-          "$description": "Close button size (width and height)",
+          "$description": "Close button size (width and height) — intentionally raw (32px). Fixed touch-target constant; minimum recommended interactive target size.",
           "$extensions": {
             "lufa": {
               "category": "modal",
@@ -281,28 +280,26 @@
       },
       "z-index": {
         "backdrop": {
-          "$value": "1000",
+          "$value": "{semantic.z-index.modal-backdrop}",
           "$type": "number",
-          "$description": "Modal backdrop z-index",
+          "$description": "Modal backdrop z-index — references semantic modal-backdrop layer",
           "$extensions": {
             "lufa": {
               "category": "modal",
               "useCase": "Backdrop layer stacking",
-              "themeable": true,
-              "note": "Z-index constant — stacking order values are not semantic-layer tokens; 1000 is the standard modal backdrop level."
+              "themeable": false
             }
           }
         },
         "content": {
-          "$value": "1001",
+          "$value": "{semantic.z-index.modal}",
           "$type": "number",
-          "$description": "Modal content z-index (above backdrop)",
+          "$description": "Modal content z-index — references semantic modal layer (above backdrop)",
           "$extensions": {
             "lufa": {
               "category": "modal",
               "useCase": "Modal content layer stacking",
-              "themeable": true,
-              "note": "Z-index constant — must be exactly 1 above backdrop (1000) so content renders above overlay."
+              "themeable": false
             }
           }
         }

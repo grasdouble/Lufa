@@ -11,6 +11,7 @@
               "category": "interactive",
               "subcategory": "state",
               "useCase": "Apply to buttons, inputs, and controls in disabled state",
+              "note": "References primitive directly — opacity is a universal utility constant with no brand-specific variation. The core layer adds no value here.",
               "themeable": false
             }
           }
@@ -24,6 +25,7 @@
               "category": "interactive",
               "subcategory": "state",
               "useCase": "Skeleton loaders, loading placeholders",
+              "note": "References primitive directly — opacity is a universal utility constant with no brand-specific variation. The core layer adds no value here.",
               "themeable": false
             }
           }
@@ -37,6 +39,7 @@
               "category": "interactive",
               "subcategory": "state",
               "useCase": "Input placeholders, empty state illustrations",
+              "note": "References primitive directly — opacity is a universal utility constant with no brand-specific variation. The core layer adds no value here.",
               "themeable": false
             }
           }

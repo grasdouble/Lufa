@@ -14,7 +14,7 @@
         }
       },
       "text": {
-        "$value": "{semantic.ui.background.surface}",
+        "$value": "{semantic.ui.background.surface.default}",
         "$type": "color",
         "$description": "Tooltip text color (inverted for contrast)",
         "$extensions": {
@@ -26,14 +26,28 @@
         }
       },
       "padding": {
-        "$value": "{semantic.ui.spacing.compact} {semantic.ui.spacing.default}",
-        "$type": "dimension",
-        "$description": "Tooltip padding (vertical horizontal)",
-        "$extensions": {
-          "lufa": {
-            "category": "tooltip",
-            "useCase": "Tooltip content padding",
-            "themeable": true
+        "block": {
+          "$value": "{semantic.ui.spacing.compact}",
+          "$type": "dimension",
+          "$description": "Tooltip block-axis padding (top/bottom, 8px)",
+          "$extensions": {
+            "lufa": {
+              "category": "tooltip",
+              "useCase": "Tooltip content padding (top/bottom)",
+              "themeable": true
+            }
+          }
+        },
+        "inline": {
+          "$value": "{semantic.ui.spacing.default}",
+          "$type": "dimension",
+          "$description": "Tooltip inline-axis padding (left/right, 16px)",
+          "$extensions": {
+            "lufa": {
+              "category": "tooltip",
+              "useCase": "Tooltip content padding (left/right)",
+              "themeable": true
+            }
           }
         }
       },
@@ -64,7 +78,7 @@
       "max-width": {
         "$value": "320px",
         "$type": "dimension",
-        "$description": "Tooltip maximum width to prevent overflow",
+        "$description": "Tooltip maximum width — intentionally raw (320px). Component-specific layout constraint not represented in the semantic spacing or container scale.",
         "$extensions": {
           "lufa": {
             "category": "tooltip",
@@ -90,7 +104,7 @@
         "width": {
           "$value": "8px",
           "$type": "dimension",
-          "$description": "Tooltip arrow width (base of triangle)",
+          "$description": "Tooltip arrow width (base of triangle) — intentionally raw (8px). Geometric constant for CSS border-based arrow; not part of the spacing scale.",
           "$extensions": {
             "lufa": {
               "category": "tooltip",
@@ -103,7 +117,7 @@
         "height": {
           "$value": "4px",
           "$type": "dimension",
-          "$description": "Tooltip arrow height (triangle height)",
+          "$description": "Tooltip arrow height (triangle height) — intentionally raw (4px). Geometric constant for CSS border-based arrow; not part of the spacing scale.",
           "$extensions": {
             "lufa": {
               "category": "tooltip",
@@ -142,7 +156,7 @@
         "delay": {
           "$value": "200ms",
           "$type": "duration",
-          "$description": "Tooltip appearance delay (on hover)",
+          "$description": "Tooltip appearance delay (on hover) — intentionally raw (200ms). UX timing constant to prevent tooltip flicker on quick hover gestures; not part of the transition duration scale.",
           "$extensions": {
             "lufa": {
               "category": "tooltip",
@@ -166,15 +180,14 @@
         }
       },
       "z-index": {
-        "$value": "9999",
+        "$value": "{semantic.z-index.popover}",
         "$type": "number",
-        "$description": "Tooltip z-index (high to appear above most content)",
+        "$description": "Tooltip z-index — references semantic popover layer (tooltips share the popover stacking level)",
         "$extensions": {
           "lufa": {
             "category": "tooltip",
             "useCase": "Tooltip layer stacking",
-            "themeable": true,
-            "note": "High z-index constant — must appear above all application layers including modals (1000+)."
+            "themeable": false
           }
         }
       }
