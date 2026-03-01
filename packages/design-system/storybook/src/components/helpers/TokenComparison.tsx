@@ -41,7 +41,7 @@ const TokenColumn: React.FC<TokenColumnProps> = ({ label, token, value, isThemea
       border: isThemeable
         ? '2px solid var(--lufa-semantic-ui-border-success)'
         : '2px solid var(--lufa-primitive-color-gray-300)',
-      backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+      backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
     }}
   >
     {/* Label */}
@@ -201,7 +201,7 @@ export const TokenComparison: React.FC<TokenComparisonProps> = ({
         padding: '24px',
         borderRadius: '12px',
         border: '1px solid var(--lufa-semantic-ui-border-default)',
-        backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+        backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
       }}
     >
       {/* Header */}

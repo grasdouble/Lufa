@@ -3,16 +3,16 @@
 .buttonGroup {
   display: inline-flex;
   align-items: center;
-  gap: var(--lufa-spacing-sm);
+  gap: var(--lufa-semantic-ui-spacing-compact);
 }
 
 /* Select variant - native select styled to match design system */
 .select {
-  padding: var(--lufa-spacing-sm) var(--lufa-spacing-base);
+  padding: var(--lufa-semantic-ui-spacing-compact) var(--lufa-semantic-ui-spacing-default);
   border: 1px solid var(--lufa-semantic-ui-border-default);
-  background-color: var(--lufa-semantic-ui-background-default);
+  background-color: var(--lufa-semantic-ui-background-surface-default);
   color: var(--lufa-semantic-ui-text-primary);
-  border-radius: var(--lufa-radius-md);
+  border-radius: var(--lufa-semantic-ui-border-radius-medium);
   cursor: pointer;
   transition: all 200ms;
 }
@@ -29,9 +29,9 @@
 /* Tabs variant - container for tab buttons */
 .tabs {
   display: inline-flex;
-  gap: var(--lufa-spacing-xs);
-  background-color: var(--lufa-semantic-ui-background-surface);
+  gap: var(--lufa-semantic-ui-spacing-tight);
+  background-color: var(--lufa-semantic-ui-background-surface-default);
   border: 1px solid var(--lufa-semantic-ui-border-default);
-  border-radius: var(--lufa-radius-lg);
-  padding: var(--lufa-spacing-xs);
+  border-radius: var(--lufa-semantic-ui-border-radius-large);
+  padding: var(--lufa-semantic-ui-spacing-tight);
 }

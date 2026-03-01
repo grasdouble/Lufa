@@ -213,7 +213,7 @@ export const TokenMatrix: React.FC<TokenMatrixProps> = ({
                 padding: '14px',
                 borderRadius: '6px',
                 border: '1px solid var(--lufa-semantic-ui-border-default)',
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
                 boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
                 transition: 'all 0.2s ease',
               }}

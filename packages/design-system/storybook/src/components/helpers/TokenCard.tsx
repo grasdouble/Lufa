@@ -95,7 +95,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({
         padding: '16px',
         borderRadius: '8px',
         border: `2px solid ${colors.border}`,
-        backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+        backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
         minWidth: '280px',
         flex: '1 1 280px',
         boxShadow: '0 1px 3px rgba(0,0,0,0.1)',

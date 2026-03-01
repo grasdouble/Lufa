@@ -15,7 +15,10 @@
     "lint": "eslint .",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "validate:token-usage": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD/src --ext .css,.tsx,.ts",
+    "validate:token-usage:unused": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD/src --ext .css,.tsx,.ts --unused",
+    "validate:token-usage:verbose": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD/src --ext .css,.tsx,.ts --verbose"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [

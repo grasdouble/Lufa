@@ -299,14 +299,14 @@ export const THEMED_COLORS = {
     /** Success text color (green) */
     success: 'var(--lufa-semantic-ui-text-success)',
     /** Inverse text color (for dark backgrounds) */
-    inverse: 'var(--lufa-semantic-ui-text-inverse)',
+    inverse: 'var(--lufa-semantic-ui-background-on-primary)',
   },
   /** Background colors that adapt to theme */
   background: {
     /** Page background */
     page: 'var(--lufa-semantic-ui-background-page)',
     /** Surface background (cards, panels) */
-    surface: 'var(--lufa-semantic-ui-background-surface)',
+    surface: 'var(--lufa-semantic-ui-background-surface-default)',
     /** Success background (green) */
     success: 'var(--lufa-semantic-ui-background-success)',
     /** Error background (red) */
@@ -323,14 +323,14 @@ export const THEMED_COLORS = {
     /** Default border color */
     default: 'var(--lufa-semantic-ui-border-default)',
     /** Subtle border color */
-    subtle: 'var(--lufa-semantic-ui-border-subtle)',
+    subtle: 'var(--lufa-semantic-ui-border-default)',
   },
   /** Shadow tokens that adapt to theme */
   shadow: {
     /** Small shadow */
-    sm: 'var(--lufa-semantic-ui-shadow-sm)',
+    sm: 'var(--lufa-semantic-ui-shadow-small)',
     /** Medium shadow */
-    md: 'var(--lufa-semantic-ui-shadow-md)',
+    md: 'var(--lufa-semantic-ui-shadow-medium)',
   },
   /** Overlay tokens that adapt to theme */
   overlay: {

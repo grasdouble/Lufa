@@ -46,7 +46,7 @@ export const PropCard = ({
   interactionType?: 'click' | 'hover';
 }) => {
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.currentTarget.style.background = 'var(--lufa-semantic-ui-background-infoer)';
+    e.currentTarget.style.background = 'var(--lufa-semantic-ui-background-info)';
     e.currentTarget.style.transform = 'translateY(-2px)';
 
     if (interactionType === 'hover' && onInteraction) {
