@@ -3,7 +3,7 @@
     "ui": {
       "background": {
         "page": {
-          "$value": "{core.neutral.background}",
+          "$value": "{core.color.neutral.background}",
           "$type": "color",
           "$description": "Main page background - base canvas for entire application",
           "$extensions": {
@@ -15,19 +15,45 @@
           }
         },
         "surface": {
-          "$value": "{core.neutral.surface.default}",
-          "$type": "color",
-          "$description": "Surface background for cards, panels, and elevated content",
-          "$extensions": {
-            "lufa": {
-              "category": "ui",
-              "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds",
-              "themeable": true
+          "default": {
+            "$value": "{core.color.neutral.surface.default}",
+            "$type": "color",
+            "$description": "Surface background for cards, panels, and elevated content",
+            "$extensions": {
+              "lufa": {
+                "category": "ui",
+                "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds",
+                "themeable": true
+              }
+            }
+          },
+          "raised": {
+            "$value": "{core.color.neutral.surface.raised}",
+            "$type": "color",
+            "$description": "Raised surface background - slightly elevated above default surface",
+            "$extensions": {
+              "lufa": {
+                "category": "ui",
+                "useCase": "Raised cards, neutral button default backgrounds, elevated panels",
+                "themeable": true
+              }
+            }
+          },
+          "active": {
+            "$value": "{core.color.neutral.surface.active}",
+            "$type": "color",
+            "$description": "Active surface background - for pressed/active interactive surfaces",
+            "$extensions": {
+              "lufa": {
+                "category": "ui",
+                "useCase": "Active/pressed state for interactive surfaces, ghost button active backgrounds",
+                "themeable": true
+              }
             }
           }
         },
         "success": {
-          "$value": "{core.feedback.success.subtle}",
+          "$value": "{core.color.feedback.success.subtle}",
           "$type": "color",
           "$description": "Background for success messages and positive feedback",
           "$extensions": {
@@ -39,7 +65,7 @@
           }
         },
         "error": {
-          "$value": "{core.feedback.error.subtle}",
+          "$value": "{core.color.feedback.error.subtle}",
           "$type": "color",
           "$description": "Background for error messages and validation failures",
           "$extensions": {
@@ -51,7 +77,7 @@
           }
         },
         "warning": {
-          "$value": "{core.feedback.warning.subtle}",
+          "$value": "{core.color.feedback.warning.subtle}",
           "$type": "color",
           "$description": "Background for warning messages and caution notices",
           "$extensions": {
@@ -63,7 +89,7 @@
           }
         },
         "info": {
-          "$value": "{core.feedback.info.subtle}",
+          "$value": "{core.color.feedback.info.subtle}",
           "$type": "color",
           "$description": "Background for informational messages and neutral notifications",
           "$extensions": {
@@ -76,7 +102,7 @@
         },
         "on": {
           "success": {
-            "$value": "{core.feedback.success.default}",
+            "$value": "{core.color.feedback.success.default}",
             "$type": "color",
             "$description": "Text and icons on success background - for use with background-success (subtle background)",
             "$extensions": {
@@ -90,7 +116,7 @@
             }
           },
           "error": {
-            "$value": "{core.feedback.error.default}",
+            "$value": "{core.color.feedback.error.default}",
             "$type": "color",
             "$description": "Text and icons on error background - for use with background-error (subtle background)",
             "$extensions": {
@@ -104,7 +130,7 @@
             }
           },
           "warning": {
-            "$value": "{core.feedback.warning.default}",
+            "$value": "{core.color.feedback.warning.default}",
             "$type": "color",
             "$description": "Text and icons on warning background - for use with background-warning (subtle background)",
             "$extensions": {
@@ -118,7 +144,7 @@
             }
           },
           "info": {
-            "$value": "{core.feedback.info.default}",
+            "$value": "{core.color.feedback.info.default}",
             "$type": "color",
             "$description": "Text and icons on info background - for use with background-info (subtle background)",
             "$extensions": {
@@ -132,7 +158,7 @@
             }
           },
           "primary": {
-            "$value": "{core.brand.primary.on.background}",
+            "$value": "{core.color.brand.primary.on.background}",
             "$type": "color",
             "$description": "Text and icons on primary brand background - themeable for accessibility",
             "$extensions": {
@@ -140,13 +166,13 @@
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text/icons on primary buttons, primary badges, primary interactive elements",
-                "pairedWith": "core.brand.primary.default",
+                "pairedWith": "core.color.brand.primary.default",
                 "themeable": true
               }
             }
           },
           "secondary": {
-            "$value": "{core.brand.secondary.on.background}",
+            "$value": "{core.color.brand.secondary.on.background}",
             "$type": "color",
             "$description": "Text and icons on secondary brand background - themeable for accessibility",
             "$extensions": {
@@ -154,7 +180,7 @@
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text/icons on secondary buttons, secondary badges, secondary interactive elements",
-                "pairedWith": "core.brand.secondary.default",
+                "pairedWith": "core.color.brand.secondary.default",
                 "themeable": true
               }
             }
@@ -163,7 +189,7 @@
       },
       "overlay": {
         "backdrop": {
-          "$value": "{primitive.color.alpha.black.50}",
+          "$value": "{core.color.alpha.black.50}",
           "$type": "color",
           "$description": "Semi-transparent backdrop for modals, dialogs, and drawers",
           "$extensions": {
@@ -172,15 +198,15 @@
               "subcategory": "overlay",
               "useCase": "Modal backdrops, dialog overlays, drawer backgrounds",
               "modes": {
-                "dark": "{primitive.color.alpha.black.80}",
-                "high-contrast": "{primitive.color.alpha.black.90}"
+                "dark": "{core.color.alpha.black.80}",
+                "high-contrast": "{core.color.alpha.black.90}"
               },
               "themeable": true
             }
           }
         },
         "hover": {
-          "$value": "{primitive.color.alpha.black.4}",
+          "$value": "{core.color.alpha.black.4}",
           "$type": "color",
           "$description": "Subtle overlay for hover states on interactive elements",
           "$extensions": {
@@ -189,15 +215,15 @@
               "subcategory": "overlay",
               "useCase": "Hover state backgrounds for list items, cards, table rows",
               "modes": {
-                "dark": "{primitive.color.alpha.white.8}",
-                "high-contrast": "{primitive.color.alpha.white.16}"
+                "dark": "{core.color.alpha.white.8}",
+                "high-contrast": "{core.color.alpha.white.16}"
               },
               "themeable": true
             }
           }
         },
         "pressed": {
-          "$value": "{primitive.color.alpha.black.8}",
+          "$value": "{core.color.alpha.black.8}",
           "$type": "color",
           "$description": "Overlay for pressed/active states",
           "$extensions": {
@@ -206,15 +232,15 @@
               "subcategory": "overlay",
               "useCase": "Pressed/active state overlays on buttons and interactive elements",
               "modes": {
-                "dark": "{primitive.color.alpha.white.16}",
-                "high-contrast": "{primitive.color.alpha.white.16}"
+                "dark": "{core.color.alpha.white.16}",
+                "high-contrast": "{core.color.alpha.white.16}"
               },
               "themeable": true
             }
           }
         },
         "selected": {
-          "$value": "{primitive.color.alpha.black.16}",
+          "$value": "{core.color.alpha.black.16}",
           "$type": "color",
           "$description": "Overlay for selected states in lists and menus",
           "$extensions": {
@@ -223,15 +249,15 @@
               "subcategory": "overlay",
               "useCase": "Selected list items, active menu items, selected tabs",
               "modes": {
-                "dark": "{primitive.color.alpha.white.16}",
-                "high-contrast": "{primitive.color.alpha.white.16}"
+                "dark": "{core.color.alpha.white.16}",
+                "high-contrast": "{core.color.alpha.white.16}"
               },
               "themeable": true
             }
           }
         },
         "scrim": {
-          "$value": "{primitive.color.alpha.black.38}",
+          "$value": "{core.color.alpha.black.38}",
           "$type": "color",
           "$description": "Scrim overlay for bottom sheets and temporary surfaces",
           "$extensions": {
@@ -240,8 +266,8 @@
               "subcategory": "overlay",
               "useCase": "Bottom sheets, temporary drawers, transient overlays",
               "modes": {
-                "dark": "{primitive.color.alpha.black.60}",
-                "high-contrast": "{primitive.color.alpha.black.80}"
+                "dark": "{core.color.alpha.black.60}",
+                "high-contrast": "{core.color.alpha.black.80}"
               },
               "themeable": true
             }
@@ -250,7 +276,7 @@
       },
       "text": {
         "primary": {
-          "$value": "{core.neutral.text.primary}",
+          "$value": "{core.color.neutral.text.primary}",
           "$type": "color",
           "$description": "Primary text color for headings and body content",
           "$extensions": {
@@ -262,7 +288,7 @@
           }
         },
         "secondary": {
-          "$value": "{core.neutral.text.secondary}",
+          "$value": "{core.color.neutral.text.secondary}",
           "$type": "color",
           "$description": "Secondary text color for supporting content",
           "$extensions": {
@@ -274,7 +300,7 @@
           }
         },
         "tertiary": {
-          "$value": "{core.neutral.text.tertiary}",
+          "$value": "{core.color.neutral.text.tertiary}",
           "$type": "color",
           "$description": "Tertiary text color for subtle content",
           "$extensions": {
@@ -286,7 +312,7 @@
           }
         },
         "success": {
-          "$value": "{core.feedback.success.default}",
+          "$value": "{core.color.feedback.success.default}",
           "$type": "color",
           "$description": "Text color for success messages and positive feedback",
           "$extensions": {
@@ -298,7 +324,7 @@
           }
         },
         "error": {
-          "$value": "{core.feedback.error.default}",
+          "$value": "{core.color.feedback.error.default}",
           "$type": "color",
           "$description": "Text color for error messages and validation failures",
           "$extensions": {
@@ -310,7 +336,7 @@
           }
         },
         "warning": {
-          "$value": "{core.feedback.warning.default}",
+          "$value": "{core.color.feedback.warning.default}",
           "$type": "color",
           "$description": "Text color for warning messages and caution notices",
           "$extensions": {
@@ -322,7 +348,7 @@
           }
         },
         "info": {
-          "$value": "{core.feedback.info.default}",
+          "$value": "{core.color.feedback.info.default}",
           "$type": "color",
           "$description": "Text color for informational messages",
           "$extensions": {
@@ -336,7 +362,7 @@
       },
       "border": {
         "default": {
-          "$value": "{core.neutral.border.default}",
+          "$value": "{core.color.neutral.border.default}",
           "$type": "color",
           "$description": "Default border color for dividers and element boundaries",
           "$extensions": {
@@ -348,7 +374,7 @@
           }
         },
         "strong": {
-          "$value": "{core.neutral.border.strong}",
+          "$value": "{core.color.neutral.border.strong}",
           "$type": "color",
           "$description": "Stronger border for emphasis and visual hierarchy",
           "$extensions": {
@@ -360,7 +386,7 @@
           }
         },
         "success": {
-          "$value": "{core.feedback.success.border}",
+          "$value": "{core.color.feedback.success.border}",
           "$type": "color",
           "$description": "Border color for success contexts",
           "$extensions": {
@@ -372,7 +398,7 @@
           }
         },
         "error": {
-          "$value": "{core.feedback.error.border}",
+          "$value": "{core.color.feedback.error.border}",
           "$type": "color",
           "$description": "Border color for error contexts",
           "$extensions": {
@@ -384,7 +410,7 @@
           }
         },
         "warning": {
-          "$value": "{core.feedback.warning.border}",
+          "$value": "{core.color.feedback.warning.border}",
           "$type": "color",
           "$description": "Border color for warning contexts",
           "$extensions": {
@@ -396,7 +422,7 @@
           }
         },
         "info": {
-          "$value": "{core.feedback.info.border}",
+          "$value": "{core.color.feedback.info.border}",
           "$type": "color",
           "$description": "Border color for informational contexts",
           "$extensions": {

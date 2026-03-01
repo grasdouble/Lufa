@@ -105,7 +105,7 @@ class TemplateValidator {
     // Check each opacity level exists in primary tokens
     const missingOpacities: number[] = [];
     requiredOpacities.forEach((opacity) => {
-      const pattern = new RegExp(`--lufa-alpha-primary-${opacity}:`);
+      const pattern = new RegExp(`--lufa-color-alpha-primary-${opacity}:`);
       if (!pattern.test(this.templateContent)) {
         missingOpacities.push(opacity);
       }
@@ -125,7 +125,7 @@ class TemplateValidator {
     }
 
     // Validate alpha token pattern structure
-    const alphaPattern = /--lufa-alpha-\w+-\d+:\s*rgba\(/g;
+    const alphaPattern = /--lufa-color-alpha-\w+-\d+:\s*rgba\(/g;
     const matches = this.templateContent.match(alphaPattern);
     // Should have 6 colors × 9 opacity levels = 54 tokens minimum
     if (!matches || matches.length < 54) {
@@ -147,7 +147,7 @@ class TemplateValidator {
 
     semanticColors.forEach((color) => {
       requiredOpacities.forEach((opacity) => {
-        const pattern = new RegExp(`--lufa-alpha-${color}-${opacity}:`);
+        const pattern = new RegExp(`--lufa-color-alpha-${color}-${opacity}:`);
         if (!pattern.test(this.templateContent)) {
           missingSemanticLevels.push(`${color}-${opacity}`);
         }

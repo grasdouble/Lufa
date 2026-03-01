@@ -331,13 +331,19 @@ console.log('Color Theme:', theme); // "ocean"
 
 **Token CSS Selectors Must Change:**
 
-```diff
-- [data-mode='light'] { /* ... */ }
-- [data-mode='dark'] { /* ... */ }
-- [data-mode='high-contrast'] { /* ... */ }
-+ [data-mode='light'] { /* ... */ }
-+ [data-mode='dark'] { /* ... */ }
-+ [data-mode='high-contrast'] { /* ... */ }
+No breaking changes — this ADR formalized existing conventions. The token CSS already used `[data-mode]` selectors, so no selector changes were required:
+
+```css
+/* tokens.css already uses data-mode selectors */
+[data-mode='light'] {
+  /* ... */
+}
+[data-mode='dark'] {
+  /* ... */
+}
+[data-mode='high-contrast'] {
+  /* ... */
+}
 ```
 
 **Style Dictionary Config Update:**

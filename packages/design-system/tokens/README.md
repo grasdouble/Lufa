@@ -60,7 +60,7 @@ pnpm build
 // Runtime access (canvas, charts, generated styles)
 import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
-const primary = tokens.core.brand.primary; // "#2563eb"
+const primary = tokens.core.color.brand.primary; // "#2563eb"
 const spacing = tokens.primitive.spacing['16']; // "16px"
 ```
 

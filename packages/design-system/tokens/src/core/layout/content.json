@@ -4,7 +4,7 @@
       "content": {
         "max": {
           "width": {
-            "$value": "720px",
+            "$value": "{primitive.layout.content.max-width}",
             "$type": "dimension",
             "$description": "Maximum width for readable text content (optimal reading length)",
             "$extensions": {

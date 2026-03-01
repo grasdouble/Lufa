@@ -9,7 +9,7 @@
 
 /**
  * Breakpoint keys from Lufa token system
- * Matches primitives in: tokens/src/primitives/breakpoint/scale.json
+ * Matches primitives in: tokens/src/primitives/breakpoint.json
  */
 export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 

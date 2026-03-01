@@ -1,10 +1,18 @@
 /**
  * Tests for Token Consistency Validator
  *
- * Tests all 9 validation rules from ADR-013
+ * Tests all 13 validation rules from ADR-013 and ADR-014
  */
 
-import { inferLevel, validateToken, ValidationError } from './token-consistency.js';
+import {
+  checkHierarchyViolation,
+  containsRawHexColor,
+  extractReferences,
+  inferLevel,
+  validateToken,
+  ValidationError,
+  ValidationWarning,
+} from './token-consistency.js';
 
 let testsPassed = 0;
 let testsFailed = 0;
@@ -42,8 +50,32 @@ function assertNoThrow(fn) {
   fn();
 }
 
+// Helper to assert that warnings are returned containing expected message
+function assertWarns(fn, expectedMessage) {
+  const warnings = fn();
+  if (!warnings || warnings.length === 0) {
+    throw new Error(`Expected ValidationWarning but got no warnings`);
+  }
+  const hasMatch = warnings.some(
+    (w) => w instanceof ValidationWarning && (!expectedMessage || w.message.includes(expectedMessage))
+  );
+  if (!hasMatch) {
+    throw new Error(
+      `Expected warning to include "${expectedMessage}", got: ${warnings.map((w) => w.message).join('; ')}`
+    );
+  }
+}
+
+// Helper to assert that no warnings are returned
+function assertNoWarnings(fn) {
+  const warnings = fn();
+  if (warnings && warnings.length > 0) {
+    throw new Error(`Expected no warnings but got ${warnings.length}: ${warnings.map((w) => w.message).join('; ')}`);
+  }
+}
+
 console.log('\n═══════════════════════════════════════════════════════════');
-console.log('Token Consistency Validator - Simplified (ADR-013)');
+console.log('Token Consistency Validator - Simplified (ADR-013 + ADR-014)');
 console.log('═══════════════════════════════════════════════════════════\n');
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -449,9 +481,438 @@ test('RULE 9: fluid=false and responsive should pass', () => {
 console.log('');
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// TEST GROUP 11: Edge cases
+// TEST GROUP 11: RULE 10 - No primitive self-references
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-console.log('Test Group 11: Edge cases');
+console.log('Test Group 11: RULE 10 - No primitive self-references');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 10: Primitive referencing another primitive should throw', () => {
+  const token = {
+    $value: '{primitive.color.blue-400}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertThrows(
+    () => validateToken(token, ['primitives', 'color', 'blue-500'], 'test.json'),
+    'references another primitive'
+  );
+});
+
+test('RULE 10: Primitive referencing primitives (plural) should throw', () => {
+  const token = {
+    $value: '{primitives.spacing.4}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertThrows(() => validateToken(token, ['primitives', 'spacing', '8'], 'test.json'), 'references another primitive');
+});
+
+test('RULE 10: Primitive with raw value should pass', () => {
+  const token = {
+    $value: '#3b82f6',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['primitives', 'color', 'blue-500'], 'test.json'));
+});
+
+test('RULE 10: Non-primitive with primitive reference should not throw (handled by rule 11)', () => {
+  const token = {
+    $value: '{primitive.color.blue-500}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['core', 'color', 'brand-primary'], 'test.json'));
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 12: RULE 11 - Hierarchy chain validation
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 12: RULE 11 - Hierarchy chain validation');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 11: Component referencing semantic should pass (no warnings)', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['component', 'button', 'background'], 'test.json'));
+});
+
+test('RULE 11: Component referencing component (self-level) should pass', () => {
+  const token = {
+    $value: '{component.card.background}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['component', 'button', 'background'], 'test.json'));
+});
+
+test('RULE 11: Component referencing primitive should warn', () => {
+  const token = {
+    $value: '{primitive.color.blue-500}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertWarns(
+    () => validateToken(token, ['component', 'button', 'background'], 'test.json'),
+    'violates the hierarchy chain'
+  );
+});
+
+test('RULE 11: Component referencing core should warn', () => {
+  const token = {
+    $value: '{core.color.brand-primary}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertWarns(
+    () => validateToken(token, ['component', 'button', 'background'], 'test.json'),
+    'violates the hierarchy chain'
+  );
+});
+
+test('RULE 11: Semantic referencing core should pass', () => {
+  const token = {
+    $value: '{core.color.brand-primary}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['semantic', 'ui', 'primary'], 'test.json'));
+});
+
+test('RULE 11: Semantic referencing primitive (color) should warn', () => {
+  const token = {
+    $value: '{primitive.color.blue-500}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertWarns(() => validateToken(token, ['semantic', 'color', 'primary'], 'test.json'), 'ADR-014');
+});
+
+test('RULE 11: Semantic referencing primitive (spacing) should pass (ADR-014 exception)', () => {
+  const token = {
+    $value: '{primitive.spacing.4}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['semantic', 'spacing', 'md'], 'test.json'));
+});
+
+test('RULE 11: Semantic referencing primitive (radius) should pass (ADR-014 exception)', () => {
+  const token = {
+    $value: '{primitive.radius.md}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['semantic', 'radius', 'default'], 'test.json'));
+});
+
+test('RULE 11: Semantic (ui category) referencing primitive spacing should pass (ADR-014 ref-based check)', () => {
+  const token = {
+    $value: '{primitive.spacing.4}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+      },
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['semantic', 'ui', 'spacing', 'default'], 'test.json'));
+});
+
+test('RULE 11: Semantic (interactive category) referencing primitive opacity should pass (ADR-014 ref-based check)', () => {
+  const token = {
+    $value: '{primitive.opacity.scale.disabled}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+      },
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['semantic', 'interactive', 'opacity', 'disabled'], 'test.json'));
+});
+
+test('RULE 11: Semantic (ui category) referencing primitive border-width should pass (ADR-014 ref-based check)', () => {
+  const token = {
+    $value: '{primitive.border-width.scale.base}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+      },
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['semantic', 'interactive', 'focus', 'ring-offset'], 'test.json'));
+});
+
+test('RULE 11: Semantic (layout category) referencing primitive breakpoint should pass (ADR-014 ref-based check)', () => {
+  const token = {
+    $value: '{primitive.breakpoint.md}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+      },
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['semantic', 'layout', 'breakpoint', 'md'], 'test.json'));
+});
+
+test('RULE 11: Semantic (ui category) referencing primitive.color.alpha should warn (color must go through core)', () => {
+  const token = {
+    $value: '{primitive.color.alpha.black.50}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+        modes: {
+          dark: '{primitive.color.alpha.black.80}',
+          'high-contrast': '{primitive.color.alpha.black.90}',
+        },
+      },
+    },
+  };
+  assertWarns(
+    () => validateToken(token, ['semantic', 'ui', 'overlay', 'backdrop'], 'test.json'),
+    'Color primitives MUST go through the core layer'
+  );
+});
+
+test('RULE 11: Semantic (effect category) referencing primitive.color.alpha in composite value should warn', () => {
+  const token = {
+    $value: '0 0 0 3px {primitive.color.alpha.black.16}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+      },
+    },
+  };
+  assertWarns(
+    () => validateToken(token, ['semantic', 'effect', 'glow', 'box', 'focus'], 'test.json'),
+    'Color primitives MUST go through the core layer'
+  );
+});
+
+test('RULE 11: Core referencing primitive should pass', () => {
+  const token = {
+    $value: '{primitive.color.blue-500}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['core', 'color', 'brand-primary'], 'test.json'));
+});
+
+test('RULE 11: Core referencing semantic should warn', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertWarns(
+    () => validateToken(token, ['core', 'color', 'brand-primary'], 'test.json'),
+    'violates the hierarchy chain'
+  );
+});
+
+test('RULE 11: Hierarchy check also applies to mode values', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        modes: {
+          dark: '{primitive.color.blue-400}',
+        },
+      },
+    },
+  };
+  assertWarns(() => validateToken(token, ['component', 'button', 'background'], 'test.json'), 'modes.dark');
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 13: RULE 12 - No raw hex colors outside primitives
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 13: RULE 12 - No raw hex colors outside primitives');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 12: Core token with raw hex color should warn', () => {
+  const token = {
+    $value: '#ff5500',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertWarns(() => validateToken(token, ['core', 'color', 'accent'], 'test.json'), 'raw hex color');
+});
+
+test('RULE 12: Semantic token with raw hex color should warn', () => {
+  const token = {
+    $value: '#abc',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertWarns(() => validateToken(token, ['semantic', 'ui', 'border'], 'test.json'), 'raw hex color');
+});
+
+test('RULE 12: Component token with raw hex color should warn', () => {
+  const token = {
+    $value: '#aabbcc',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertWarns(() => validateToken(token, ['component', 'card', 'background'], 'test.json'), 'raw hex color');
+});
+
+test('RULE 12: Primitive token with raw hex color should NOT warn', () => {
+  const token = {
+    $value: '#3b82f6',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['primitives', 'color', 'blue-500'], 'test.json'));
+});
+
+test('RULE 12: Core token with token reference (no hex) should pass', () => {
+  const token = {
+    $value: '{primitive.color.blue-500}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['core', 'color', 'brand-primary'], 'test.json'));
+});
+
+test('RULE 12: Raw hex in mode value should warn', () => {
+  const token = {
+    $value: '{primitive.color.blue-500}',
+    $extensions: {
+      lufa: {
+        modes: {
+          dark: '#112233',
+        },
+      },
+    },
+  };
+  assertWarns(() => validateToken(token, ['core', 'color', 'brand-primary'], 'test.json'), 'raw hex color');
+});
+
+test('RULE 12: Core clamp() with hex is allowed (exception)', () => {
+  const token = {
+    $value: 'clamp(#fff, 2vw, #000)',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['core', 'layout', 'fluid-size'], 'test.json'));
+});
+
+test('RULE 12: Semantic clamp() with hex should still warn (exception only for core)', () => {
+  const token = {
+    $value: 'clamp(#fff, 2vw, #000)',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertWarns(() => validateToken(token, ['semantic', 'layout', 'fluid-size'], 'test.json'), 'raw hex color');
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 14: RULE 13 - Component z-index must reference semantic
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 14: RULE 13 - Component z-index must reference semantic');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 13: Component z-index with raw numeric value should warn', () => {
+  const token = {
+    $value: '100',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertWarns(
+    () => validateToken(token, ['component', 'modal', 'z-index'], 'test.json'),
+    'does not reference a semantic token'
+  );
+});
+
+test('RULE 13: Component z-index referencing semantic should pass', () => {
+  const token = {
+    $value: '{semantic.z-index.overlay}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertNoWarnings(() => validateToken(token, ['component', 'modal', 'z-index'], 'test.json'));
+});
+
+test('RULE 13: Component z-index referencing core should warn', () => {
+  const token = {
+    $value: '{core.z-index.modal}',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  assertWarns(
+    () => validateToken(token, ['component', 'modal', 'z-index'], 'test.json'),
+    'does not reference a semantic token'
+  );
+});
+
+test('RULE 13: Non-component z-index with raw value should NOT trigger this rule', () => {
+  const token = {
+    $value: '100',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  // semantic level z-index should not trigger rule 13 (component-only)
+  const warnings = validateToken(token, ['semantic', 'z-index', 'overlay'], 'test.json');
+  const hasZIndexWarning = warnings.some((w) => w.message.includes('does not reference a semantic token'));
+  if (hasZIndexWarning) {
+    throw new Error('Rule 13 should only apply to component tokens');
+  }
+});
+
+test('RULE 13: Component token without z-index in path should not trigger', () => {
+  const token = {
+    $value: '100',
+    $extensions: {
+      lufa: {},
+    },
+  };
+  const warnings = validateToken(token, ['component', 'button', 'opacity'], 'test.json');
+  const hasZIndexWarning = warnings.some((w) => w.message.includes('does not reference a semantic token'));
+  if (hasZIndexWarning) {
+    throw new Error('Rule 13 should only apply when path contains z-index');
+  }
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 15: Edge cases
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 15: Edge cases');
 console.log('─────────────────────────────────────\n');
 
 test('Edge case: Token without $extensions should pass', () => {

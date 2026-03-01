@@ -72,7 +72,7 @@ React Components (*.tsx)
 // In Storybook stories only
 import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
-const primary = tokens.core.brand.primary; // "#2563eb"
+const primary = tokens.core.color.brand.primary; // "#2563eb"
 ```
 
 ---

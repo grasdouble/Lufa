@@ -3,7 +3,7 @@
     "interactive": {
       "text": {
         "default": {
-          "$value": "{core.neutral.text.primary}",
+          "$value": "{core.color.neutral.text.primary}",
           "$type": "color",
           "$description": "Default text color for interactive elements in resting state",
           "$extensions": {
@@ -15,7 +15,7 @@
           }
         },
         "hover": {
-          "$value": "{core.neutral.text.primary}",
+          "$value": "{core.color.neutral.text.primary}",
           "$type": "color",
           "$description": "Text color when hovering over interactive elements - maintains readability",
           "$extensions": {
@@ -27,7 +27,7 @@
           }
         },
         "active": {
-          "$value": "{core.neutral.text.primary}",
+          "$value": "{core.color.neutral.text.primary}",
           "$type": "color",
           "$description": "Text color when pressing/clicking interactive elements",
           "$extensions": {
@@ -39,7 +39,7 @@
           }
         },
         "disabled": {
-          "$value": "{core.neutral.text.disabled}",
+          "$value": "{core.color.neutral.text.disabled}",
           "$type": "color",
           "$description": "Text color for disabled interactive elements - low contrast indicates non-interactive",
           "$extensions": {

@@ -3,7 +3,7 @@
     "interactive": {
       "background": {
         "default": {
-          "$value": "{core.neutral.surface.default}",
+          "$value": "{core.color.neutral.surface.default}",
           "$type": "color",
           "$description": "Default background for interactive elements like buttons and inputs in their resting state",
           "$extensions": {
@@ -15,7 +15,7 @@
           }
         },
         "hover": {
-          "$value": "{core.neutral.surface.hover}",
+          "$value": "{core.color.neutral.surface.hover}",
           "$type": "color",
           "$description": "Background color when hovering over interactive elements - provides visual feedback",
           "$extensions": {
@@ -27,7 +27,7 @@
           }
         },
         "active": {
-          "$value": "{core.brand.primary.active}",
+          "$value": "{core.color.brand.primary.active}",
           "$type": "color",
           "$description": "Background color when pressing/clicking interactive elements - provides immediate feedback",
           "$extensions": {
@@ -39,7 +39,7 @@
           }
         },
         "disabled": {
-          "$value": "{core.neutral.surface.default}",
+          "$value": "{core.color.neutral.surface.default}",
           "$type": "color",
           "$description": "Background color for disabled interactive elements - indicates non-interactive state",
           "$extensions": {

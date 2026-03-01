@@ -64,16 +64,16 @@ This means the theme activates by default in light mode and mode-specific overri
 
 Each theme file defines the following token groups:
 
-| Token Group         | Naming Pattern                      | Description                                                            |
-| ------------------- | ----------------------------------- | ---------------------------------------------------------------------- |
-| **Brand tokens**    | `--lufa-core-brand-*`               | Primary, secondary, accent colors and their hover/active states        |
-| **Neutral tokens**  | `--lufa-core-neutral-*`             | Backgrounds, surfaces, borders, and text hierarchy                     |
-| **Semantic tokens** | `--lufa-core-semantic-*`            | Success, error, warning, info states with subtle/border/hover variants |
-| **RGB variables**   | `--lufa-{color}-rgb`                | Raw RGB triplets used to compose alpha tokens                          |
-| **Alpha tokens**    | `--lufa-alpha-{color}-{opacity}`    | 9 transparency levels (3–50%) for each of 6 colors = 54 tokens         |
-| **Shadow tokens**   | `--lufa-shadow-{size}`              | 5 elevation sizes (xs, sm, md, lg, xl) built from a theme shadow color |
-| **Overlay tokens**  | `--lufa-overlay-{tone}-{intensity}` | Light/dark tonal overlays for hover states, modals, and backdrops      |
-| **Glow tokens**     | `--lufa-glow-{type}-{intensity}`    | Neon luminescence effects — **Matrix and Cyberpunk only**              |
+| Token Group         | Naming Pattern                         | Description                                                            |
+| ------------------- | -------------------------------------- | ---------------------------------------------------------------------- |
+| **Brand tokens**    | `--lufa-core-brand-*`                  | Primary, secondary, accent colors and their hover/active states        |
+| **Neutral tokens**  | `--lufa-core-neutral-*`                | Backgrounds, surfaces, borders, and text hierarchy                     |
+| **Semantic tokens** | `--lufa-core-semantic-*`               | Success, error, warning, info states with subtle/border/hover variants |
+| **RGB variables**   | `--lufa-{color}-rgb`                   | Raw RGB triplets used to compose alpha tokens                          |
+| **Alpha tokens**    | `--lufa-color-alpha-{color}-{opacity}` | 9 transparency levels (3–50%) for each of 6 colors = 54 tokens         |
+| **Shadow tokens**   | `--lufa-shadow-{size}`                 | 5 elevation sizes (xs, sm, md, lg, xl) built from a theme shadow color |
+| **Overlay tokens**  | `--lufa-overlay-{tone}-{intensity}`    | Light/dark tonal overlays for hover states, modals, and backdrops      |
+| **Glow tokens**     | `--lufa-glow-{type}-{intensity}`       | Neon luminescence effects — **Matrix and Cyberpunk only**              |
 
 ### File Structure per Theme
 
@@ -262,10 +262,10 @@ All token names follow the pattern established by `@grasdouble/lufa_design-syste
 #### Alpha Tokens (54 per theme — 6 colors × 9 opacity levels)
 
 ```css
---lufa-alpha-{primary|secondary|success|error|warning|info}-{3|5|8|10|15|20|30|40|50}
+--lufa-color-alpha-{primary|secondary|success|error|warning|info}-{3|5|8|10|15|20|30|40|50}
 /* e.g. */
---lufa-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
---lufa-alpha-error-50:   rgba(var(--lufa-error-rgb), 0.5);
+--lufa-color-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
+--lufa-color-alpha-error-50:   rgba(var(--lufa-error-rgb), 0.5);
 ```
 
 #### Shadow Tokens

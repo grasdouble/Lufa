@@ -116,7 +116,7 @@
         }
       },
       "background": {
-        "$value": "{semantic.ui.background.surface}",
+        "$value": "{semantic.ui.background.surface.default}",
         "$type": "color",
         "$description": "Card background color",
         "$extensions": {

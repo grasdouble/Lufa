@@ -3,7 +3,7 @@
     "interactive": {
       "border": {
         "default": {
-          "$value": "{core.neutral.border.default}",
+          "$value": "{core.color.neutral.border.default}",
           "$type": "color",
           "$description": "Default border color for interactive elements in resting state",
           "$extensions": {
@@ -15,7 +15,7 @@
           }
         },
         "hover": {
-          "$value": "{core.neutral.border.strong}",
+          "$value": "{core.color.neutral.border.strong}",
           "$type": "color",
           "$description": "Border color when hovering over interactive elements - stronger emphasis",
           "$extensions": {
@@ -27,7 +27,7 @@
           }
         },
         "focus": {
-          "$value": "{core.brand.primary.default}",
+          "$value": "{core.color.brand.primary.default}",
           "$type": "color",
           "$description": "Border color for focused interactive elements - indicates keyboard focus and accessibility",
           "$extensions": {
@@ -39,7 +39,7 @@
           }
         },
         "disabled": {
-          "$value": "{core.neutral.border.default}",
+          "$value": "{core.color.neutral.border.default}",
           "$type": "color",
           "$description": "Border color for disabled interactive elements - subtle indication of disabled state",
           "$extensions": {

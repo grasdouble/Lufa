@@ -117,7 +117,7 @@ describe('CSS Parser Utils', () => {
     });
 
     it('removes --lufa- prefix', () => {
-      expect(tokenNameFromCSSVar('--lufa-core-brand-primary')).toBe('core.brand.primary');
+      expect(tokenNameFromCSSVar('--lufa-core-brand-primary')).toBe('core.color.brand.primary');
     });
 
     it('converts kebab-case to dot notation', () => {
@@ -132,7 +132,7 @@ describe('CSS Parser Utils', () => {
     });
 
     it('adds --lufa- prefix', () => {
-      expect(cssVarNameFromToken('core.brand.primary')).toBe('--lufa-core-brand-primary');
+      expect(cssVarNameFromToken('core.color.brand.primary')).toBe('--lufa-core-brand-primary');
     });
 
     it('converts dot notation to kebab-case', () => {

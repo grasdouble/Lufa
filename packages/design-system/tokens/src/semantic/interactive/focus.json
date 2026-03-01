@@ -3,7 +3,7 @@
     "interactive": {
       "focus": {
         "ring": {
-          "$value": "{core.brand.primary.default}",
+          "$value": "{core.color.brand.primary.default}",
           "$type": "color",
           "$description": "Color for focus rings around interactive elements - ensures accessibility compliance",
           "$extensions": {
@@ -14,7 +14,7 @@
             }
           }
         },
-        "ring.offset": {
+        "ring-offset": {
           "$value": "{primitive.border-width.scale.base}",
           "$type": "dimension",
           "$description": "Offset distance for focus rings from element edge - improves visibility (standard UX constant)",
@@ -28,7 +28,7 @@
           }
         },
         "background": {
-          "$value": "{core.brand.primary.default}",
+          "$value": "{core.color.brand.primary.default}",
           "$type": "color",
           "$description": "Background color for focused interactive elements (rare use case)",
           "$extensions": {

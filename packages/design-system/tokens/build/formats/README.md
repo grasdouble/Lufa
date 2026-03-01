@@ -365,12 +365,12 @@ const formatValue = (token, dictionary) => {
 
 **Examples:**
 
-| Input Token Value          | Output CSS Value                   |
-| -------------------------- | ---------------------------------- |
-| `"16px"`                   | `16px`                             |
-| `"{primitive.spacing.16}"` | `var(--lufa-primitive-spacing-16)` |
-| `"#3b82f6"`                | `#3b82f6`                          |
-| `"{core.brand.primary}"`   | `var(--lufa-core-brand-primary)`   |
+| Input Token Value              | Output CSS Value                   |
+| ------------------------------ | ---------------------------------- |
+| `"16px"`                       | `16px`                             |
+| `"{primitive.spacing.16}"`     | `var(--lufa-primitive-spacing-16)` |
+| `"#3b82f6"`                    | `#3b82f6`                          |
+| `"{core.color.brand.primary}"` | `var(--lufa-core-brand-primary)`   |
 
 **Code Flow:**
 

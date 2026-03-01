@@ -544,7 +544,7 @@ import {
 ```ts
 import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
-// tokens.core.brand.primary.default === "#2563eb"
+// tokens.core.color.brand.primary.default === "#2563eb"
 // tokens.primitive.spacing['16'] === "16px"
 ```
 

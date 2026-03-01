@@ -61,7 +61,7 @@
             "primary": {
               "background": {
                 "default": {
-                  "$value": "{semantic.button.primary.background.default}",
+                  "$value": "{semantic.interactive.action.primary.default}",
                   "$type": "color",
                   "$description": "Solid primary button background color",
                   "$extensions": {
@@ -74,7 +74,7 @@
                   }
                 },
                 "hover": {
-                  "$value": "{semantic.button.primary.background.hover}",
+                  "$value": "{semantic.interactive.action.primary.hover}",
                   "$type": "color",
                   "$description": "Solid primary button hover state background",
                   "$extensions": {
@@ -86,7 +86,7 @@
                   }
                 },
                 "active": {
-                  "$value": "{semantic.button.primary.background.active}",
+                  "$value": "{semantic.interactive.action.primary.active}",
                   "$type": "color",
                   "$description": "Solid primary button active/pressed state background",
                   "$extensions": {
@@ -99,7 +99,7 @@
                 }
               },
               "text": {
-                "$value": "{semantic.button.primary.text}",
+                "$value": "{semantic.interactive.action.primary.on}",
                 "$type": "color",
                 "$description": "Solid primary button text color",
                 "$extensions": {
@@ -114,7 +114,7 @@
             "secondary": {
               "background": {
                 "default": {
-                  "$value": "{semantic.button.secondary.background.default}",
+                  "$value": "{semantic.interactive.action.secondary.default}",
                   "$type": "color",
                   "$description": "Solid secondary button background color",
                   "$extensions": {
@@ -126,7 +126,7 @@
                   }
                 },
                 "hover": {
-                  "$value": "{semantic.button.secondary.background.hover}",
+                  "$value": "{semantic.interactive.action.secondary.hover}",
                   "$type": "color",
                   "$description": "Solid secondary button hover state background",
                   "$extensions": {
@@ -138,7 +138,7 @@
                   }
                 },
                 "active": {
-                  "$value": "{semantic.button.secondary.background.active}",
+                  "$value": "{semantic.interactive.action.secondary.active}",
                   "$type": "color",
                   "$description": "Solid secondary button active/pressed state background",
                   "$extensions": {
@@ -151,7 +151,7 @@
                 }
               },
               "text": {
-                "$value": "{semantic.button.secondary.text}",
+                "$value": "{semantic.interactive.action.secondary.on}",
                 "$type": "color",
                 "$description": "Solid secondary button text color",
                 "$extensions": {
@@ -166,7 +166,7 @@
             "destructive": {
               "background": {
                 "default": {
-                  "$value": "{semantic.button.destructive.background.default}",
+                  "$value": "{semantic.interactive.action.destructive.default}",
                   "$type": "color",
                   "$description": "Solid destructive button background (danger actions)",
                   "$extensions": {
@@ -178,7 +178,7 @@
                   }
                 },
                 "hover": {
-                  "$value": "{semantic.button.destructive.background.hover}",
+                  "$value": "{semantic.interactive.action.destructive.hover}",
                   "$type": "color",
                   "$description": "Solid destructive button hover state background",
                   "$extensions": {
@@ -190,7 +190,7 @@
                   }
                 },
                 "active": {
-                  "$value": "{core.feedback.error.active}",
+                  "$value": "{semantic.interactive.action.destructive.active}",
                   "$type": "color",
                   "$description": "Solid destructive button active/pressed state background",
                   "$extensions": {
@@ -203,7 +203,7 @@
                 }
               },
               "text": {
-                "$value": "{semantic.button.destructive.text}",
+                "$value": "{semantic.interactive.action.destructive.on}",
                 "$type": "color",
                 "$description": "Solid destructive button text color",
                 "$extensions": {
@@ -218,7 +218,7 @@
             "success": {
               "background": {
                 "default": {
-                  "$value": "{semantic.button.success.background.default}",
+                  "$value": "{semantic.interactive.action.success.default}",
                   "$type": "color",
                   "$description": "Solid success button background (positive actions)",
                   "$extensions": {
@@ -230,7 +230,7 @@
                   }
                 },
                 "hover": {
-                  "$value": "{semantic.button.success.background.hover}",
+                  "$value": "{semantic.interactive.action.success.hover}",
                   "$type": "color",
                   "$description": "Solid success button hover state background",
                   "$extensions": {
@@ -242,7 +242,7 @@
                   }
                 },
                 "active": {
-                  "$value": "{core.feedback.success.active}",
+                  "$value": "{semantic.interactive.action.success.active}",
                   "$type": "color",
                   "$description": "Solid success button active/pressed state background",
                   "$extensions": {
@@ -255,7 +255,7 @@
                 }
               },
               "text": {
-                "$value": "{semantic.button.success.text}",
+                "$value": "{semantic.interactive.action.success.on}",
                 "$type": "color",
                 "$description": "Solid success button text color",
                 "$extensions": {
@@ -270,7 +270,7 @@
             "warning": {
               "background": {
                 "default": {
-                  "$value": "{semantic.button.warning.background.default}",
+                  "$value": "{semantic.interactive.action.warning.default}",
                   "$type": "color",
                   "$description": "Solid warning button background",
                   "$extensions": {
@@ -282,7 +282,7 @@
                   }
                 },
                 "hover": {
-                  "$value": "{semantic.button.warning.background.hover}",
+                  "$value": "{semantic.interactive.action.warning.hover}",
                   "$type": "color",
                   "$description": "Solid warning button hover state background",
                   "$extensions": {
@@ -294,7 +294,7 @@
                   }
                 },
                 "active": {
-                  "$value": "{core.feedback.warning.active}",
+                  "$value": "{semantic.interactive.action.warning.active}",
                   "$type": "color",
                   "$description": "Solid warning button active/pressed state background",
                   "$extensions": {
@@ -307,7 +307,7 @@
                 }
               },
               "text": {
-                "$value": "{semantic.button.warning.text}",
+                "$value": "{semantic.interactive.action.warning.on}",
                 "$type": "color",
                 "$description": "Solid warning button text color",
                 "$extensions": {
@@ -322,7 +322,7 @@
             "info": {
               "background": {
                 "default": {
-                  "$value": "{semantic.button.info.background.default}",
+                  "$value": "{semantic.interactive.action.info.default}",
                   "$type": "color",
                   "$description": "Solid info button background",
                   "$extensions": {
@@ -334,7 +334,7 @@
                   }
                 },
                 "hover": {
-                  "$value": "{semantic.button.info.background.hover}",
+                  "$value": "{semantic.interactive.action.info.hover}",
                   "$type": "color",
                   "$description": "Solid info button hover state background",
                   "$extensions": {
@@ -346,7 +346,7 @@
                   }
                 },
                 "active": {
-                  "$value": "{core.feedback.info.active}",
+                  "$value": "{semantic.interactive.action.info.active}",
                   "$type": "color",
                   "$description": "Solid info button active/pressed state background",
                   "$extensions": {
@@ -359,7 +359,7 @@
                 }
               },
               "text": {
-                "$value": "{semantic.button.info.text}",
+                "$value": "{semantic.interactive.action.info.on}",
                 "$type": "color",
                 "$description": "Solid info button text color",
                 "$extensions": {
@@ -374,7 +374,7 @@
             "neutral": {
               "background": {
                 "default": {
-                  "$value": "{core.neutral.surface.raised}",
+                  "$value": "{semantic.interactive.action.neutral.default}",
                   "$type": "color",
                   "$description": "Solid neutral button background - resting state, slightly elevated above page surface",
                   "$extensions": {
@@ -386,7 +386,7 @@
                   }
                 },
                 "hover": {
-                  "$value": "{core.neutral.surface.active}",
+                  "$value": "{semantic.interactive.action.neutral.hover}",
                   "$type": "color",
                   "$description": "Solid neutral button hover state background",
                   "$extensions": {
@@ -398,7 +398,7 @@
                   }
                 },
                 "active": {
-                  "$value": "{primitive.color.gray.400}",
+                  "$value": "{semantic.interactive.action.neutral.active}",
                   "$type": "color",
                   "$description": "Solid neutral button active/pressed state background",
                   "$extensions": {
@@ -411,7 +411,7 @@
                 }
               },
               "text": {
-                "$value": "{core.neutral.text.primary}",
+                "$value": "{semantic.interactive.action.neutral.on}",
                 "$type": "color",
                 "$description": "Solid neutral button text color",
                 "$extensions": {
@@ -428,7 +428,7 @@
         "ghost": {
           "background": {
             "default": {
-              "$value": "{semantic.button.ghost.background.default}",
+              "$value": "transparent",
               "$type": "color",
               "$description": "Ghost button background (transparent)",
               "$extensions": {
@@ -440,7 +440,7 @@
               }
             },
             "hover": {
-              "$value": "{semantic.button.ghost.background.hover}",
+              "$value": "{semantic.interactive.background.hover}",
               "$type": "color",
               "$description": "Ghost button hover state background",
               "$extensions": {
@@ -452,7 +452,7 @@
               }
             },
             "active": {
-              "$value": "{core.neutral.surface.active}",
+              "$value": "{semantic.ui.background.surface.active}",
               "$type": "color",
               "$description": "Ghost button active/pressed state background - shared across all ghost variants",
               "$extensions": {
@@ -466,7 +466,7 @@
           },
           "text": {
             "default": {
-              "$value": "{semantic.button.ghost.text.default}",
+              "$value": "{semantic.interactive.action.primary.default}",
               "$type": "color",
               "$description": "Ghost button text color",
               "$extensions": {
@@ -478,7 +478,7 @@
               }
             },
             "hover": {
-              "$value": "{semantic.button.ghost.text.hover}",
+              "$value": "{semantic.interactive.action.primary.hover}",
               "$type": "color",
               "$description": "Ghost button hover state text color",
               "$extensions": {
@@ -494,7 +494,7 @@
             "primary": {
               "text": {
                 "active": {
-                  "$value": "{core.brand.primary.active}",
+                  "$value": "{semantic.interactive.action.primary.active}",
                   "$type": "color",
                   "$description": "Ghost primary button active state text color",
                   "$extensions": {
@@ -510,7 +510,7 @@
             "secondary": {
               "text": {
                 "active": {
-                  "$value": "{core.brand.secondary.active}",
+                  "$value": "{semantic.interactive.action.secondary.active}",
                   "$type": "color",
                   "$description": "Ghost secondary button active state text color",
                   "$extensions": {
@@ -526,7 +526,7 @@
             "success": {
               "text": {
                 "active": {
-                  "$value": "{core.feedback.success.active}",
+                  "$value": "{semantic.interactive.action.success.active}",
                   "$type": "color",
                   "$description": "Ghost success button active state text color",
                   "$extensions": {
@@ -539,16 +539,16 @@
                 }
               }
             },
-            "danger": {
+            "destructive": {
               "text": {
                 "active": {
-                  "$value": "{core.feedback.error.active}",
+                  "$value": "{semantic.interactive.action.destructive.active}",
                   "$type": "color",
-                  "$description": "Ghost danger button active state text color",
+                  "$description": "Ghost destructive button active state text color",
                   "$extensions": {
                     "lufa": {
                       "category": "button",
-                      "variant": "ghost-danger",
+                      "variant": "ghost-destructive",
                       "themeable": true
                     }
                   }
@@ -558,7 +558,7 @@
             "warning": {
               "text": {
                 "active": {
-                  "$value": "{core.feedback.warning.active}",
+                  "$value": "{semantic.interactive.action.warning.active}",
                   "$type": "color",
                   "$description": "Ghost warning button active state text color",
                   "$extensions": {
@@ -574,7 +574,7 @@
             "info": {
               "text": {
                 "active": {
-                  "$value": "{core.feedback.info.active}",
+                  "$value": "{semantic.interactive.action.info.active}",
                   "$type": "color",
                   "$description": "Ghost info button active state text color",
                   "$extensions": {
@@ -590,7 +590,7 @@
             "neutral": {
               "text": {
                 "active": {
-                  "$value": "{core.neutral.text.primary}",
+                  "$value": "{semantic.interactive.action.neutral.on}",
                   "$type": "color",
                   "$description": "Ghost neutral button active state text color",
                   "$extensions": {
@@ -608,7 +608,7 @@
         "outline": {
           "background": {
             "default": {
-              "$value": "{semantic.button.outline.background.default}",
+              "$value": "transparent",
               "$type": "color",
               "$description": "Outline button background (transparent)",
               "$extensions": {
@@ -620,7 +620,7 @@
               }
             },
             "hover": {
-              "$value": "{semantic.button.outline.background.hover}",
+              "$value": "{semantic.interactive.action.primary.default}",
               "$type": "color",
               "$description": "Outline button hover state background",
               "$extensions": {
@@ -634,7 +634,7 @@
           },
           "border": {
             "default": {
-              "$value": "{semantic.button.outline.border.default}",
+              "$value": "{semantic.interactive.action.primary.default}",
               "$type": "color",
               "$description": "Outline button border color",
               "$extensions": {
@@ -646,7 +646,7 @@
               }
             },
             "hover": {
-              "$value": "{semantic.button.outline.border.hover}",
+              "$value": "{semantic.interactive.action.primary.hover}",
               "$type": "color",
               "$description": "Outline button hover state border",
               "$extensions": {
@@ -660,7 +660,7 @@
           },
           "text": {
             "default": {
-              "$value": "{semantic.button.outline.text.default}",
+              "$value": "{semantic.interactive.action.primary.default}",
               "$type": "color",
               "$description": "Outline button text color",
               "$extensions": {
@@ -672,7 +672,7 @@
               }
             },
             "hover": {
-              "$value": "{semantic.button.outline.text.hover}",
+              "$value": "{semantic.interactive.action.primary.on}",
               "$type": "color",
               "$description": "Outline button hover state text",
               "$extensions": {
@@ -688,7 +688,7 @@
             "primary": {
               "background": {
                 "active": {
-                  "$value": "{core.brand.primary.active}",
+                  "$value": "{semantic.interactive.action.primary.active}",
                   "$type": "color",
                   "$description": "Outline primary button active state background",
                   "$extensions": {
@@ -702,7 +702,7 @@
               },
               "border": {
                 "active": {
-                  "$value": "{core.brand.primary.active}",
+                  "$value": "{semantic.interactive.action.primary.active}",
                   "$type": "color",
                   "$description": "Outline primary button active state border color",
                   "$extensions": {
@@ -718,7 +718,7 @@
             "secondary": {
               "background": {
                 "active": {
-                  "$value": "{core.brand.secondary.active}",
+                  "$value": "{semantic.interactive.action.secondary.active}",
                   "$type": "color",
                   "$description": "Outline secondary button active state background",
                   "$extensions": {
@@ -732,7 +732,7 @@
               },
               "border": {
                 "active": {
-                  "$value": "{core.brand.secondary.active}",
+                  "$value": "{semantic.interactive.action.secondary.active}",
                   "$type": "color",
                   "$description": "Outline secondary button active state border color",
                   "$extensions": {
@@ -748,7 +748,7 @@
             "success": {
               "background": {
                 "active": {
-                  "$value": "{core.feedback.success.active}",
+                  "$value": "{semantic.interactive.action.success.active}",
                   "$type": "color",
                   "$description": "Outline success button active state background",
                   "$extensions": {
@@ -762,7 +762,7 @@
               },
               "border": {
                 "active": {
-                  "$value": "{core.feedback.success.active}",
+                  "$value": "{semantic.interactive.action.success.active}",
                   "$type": "color",
                   "$description": "Outline success button active state border color",
                   "$extensions": {
@@ -775,16 +775,16 @@
                 }
               }
             },
-            "danger": {
+            "destructive": {
               "background": {
                 "active": {
-                  "$value": "{core.feedback.error.active}",
+                  "$value": "{semantic.interactive.action.destructive.active}",
                   "$type": "color",
-                  "$description": "Outline danger button active state background",
+                  "$description": "Outline destructive button active state background",
                   "$extensions": {
                     "lufa": {
                       "category": "button",
-                      "variant": "outline-danger",
+                      "variant": "outline-destructive",
                       "themeable": true
                     }
                   }
@@ -792,13 +792,13 @@
               },
               "border": {
                 "active": {
-                  "$value": "{core.feedback.error.active}",
+                  "$value": "{semantic.interactive.action.destructive.active}",
                   "$type": "color",
-                  "$description": "Outline danger button active state border color",
+                  "$description": "Outline destructive button active state border color",
                   "$extensions": {
                     "lufa": {
                       "category": "button",
-                      "variant": "outline-danger",
+                      "variant": "outline-destructive",
                       "themeable": true
                     }
                   }
@@ -808,7 +808,7 @@
             "warning": {
               "background": {
                 "active": {
-                  "$value": "{core.feedback.warning.active}",
+                  "$value": "{semantic.interactive.action.warning.active}",
                   "$type": "color",
                   "$description": "Outline warning button active state background",
                   "$extensions": {
@@ -822,7 +822,7 @@
               },
               "border": {
                 "active": {
-                  "$value": "{core.feedback.warning.active}",
+                  "$value": "{semantic.interactive.action.warning.active}",
                   "$type": "color",
                   "$description": "Outline warning button active state border color",
                   "$extensions": {
@@ -838,7 +838,7 @@
             "info": {
               "background": {
                 "active": {
-                  "$value": "{core.feedback.info.active}",
+                  "$value": "{semantic.interactive.action.info.active}",
                   "$type": "color",
                   "$description": "Outline info button active state background",
                   "$extensions": {
@@ -852,7 +852,7 @@
               },
               "border": {
                 "active": {
-                  "$value": "{core.feedback.info.active}",
+                  "$value": "{semantic.interactive.action.info.active}",
                   "$type": "color",
                   "$description": "Outline info button active state border color",
                   "$extensions": {
@@ -868,7 +868,7 @@
             "neutral": {
               "background": {
                 "active": {
-                  "$value": "{core.neutral.surface.active}",
+                  "$value": "{semantic.interactive.action.neutral.active}",
                   "$type": "color",
                   "$description": "Outline neutral button active state background",
                   "$extensions": {

@@ -5,7 +5,7 @@
  * - Simple px values: "16px" → "1rem"
  * - Fluid clamp values: "clamp(1rem, 1vw, 2rem)" → pass through unchanged
  *
- * Tokens with fluid: true extension or clamp() values are NOT matched by this transform
+ * Tokens with clamp() values are NOT matched by this transform
  */
 export const sizeRemFluid = {
   type: 'value',
@@ -25,8 +25,10 @@ export const sizeRemFluid = {
       return false;
     }
 
-    // Skip tokens marked as fluid
-    if (token.$extensions?.lufa?.fluid === true || token.original?.$extensions?.lufa?.fluid === true) {
+    // Skip tokens already in rem — transitive resolution on the JSON platform
+    // resolves references to their already-converted values (e.g. "0.0625rem").
+    // Dividing by 16 a second time would produce a wrong result.
+    if (typeof value === 'string' && value.endsWith('rem')) {
       return false;
     }
 

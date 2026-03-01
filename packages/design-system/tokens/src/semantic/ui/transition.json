@@ -43,7 +43,7 @@
             }
           }
         },
-        "timing.function": {
+        "timing-function": {
           "default": {
             "$value": "{primitive.motion.easing.ease-in-out}",
             "$type": "cubicBezier",

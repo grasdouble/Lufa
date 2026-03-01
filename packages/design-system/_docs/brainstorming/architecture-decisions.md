@@ -34,7 +34,7 @@ Primitives → Core Tokens → Semantic Tokens → [Component Tokens] → Compon
 2. **Core Tokens** (Level 2)
    - Foundation: brand, neutral, semantic base
    - References primitives only
-   - Examples: `core.brand.primary`, `core.neutral.background`
+   - Examples: `core.color.brand.primary`, `core.color.neutral.background`
 
 3. **Semantic Tokens** (Level 3)
    - UI-level meanings: backgrounds, text, borders, actions

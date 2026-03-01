@@ -141,7 +141,7 @@
       },
       "background": {
         "default": {
-          "$value": "{semantic.ui.background.surface}",
+          "$value": "{semantic.ui.background.surface.default}",
           "$type": "color",
           "$description": "Input background color (default state)",
           "$extensions": {

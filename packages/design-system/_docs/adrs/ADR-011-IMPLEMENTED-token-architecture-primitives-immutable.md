@@ -757,7 +757,7 @@ if (token.$extensions.lufa.themeable && token.$extensions.lufa.modeAware) { ... 
    {
      "primitive": {
        "color": {
-         "$description": "IMMUTABLE: Primitive color values never change. Use semantic tokens (core.brand.*) for mode-aware colors.",
+         "$description": "IMMUTABLE: Primitive color values never change. Use semantic tokens (core.color.brand.*) for mode-aware colors.",
          "blue": {
            "600": {
              "$value": "#2563eb"

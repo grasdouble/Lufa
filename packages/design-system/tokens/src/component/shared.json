@@ -30,7 +30,7 @@
       "icon": {
         "size": {
           "xs": {
-            "$value": "{primitive.icon-size.scale.xs}",
+            "$value": "{semantic.ui.icon-size.xs}",
             "$type": "dimension",
             "$description": "Extra small icon size for compact UI",
             "$extensions": {
@@ -42,7 +42,7 @@
             }
           },
           "sm": {
-            "$value": "{primitive.icon-size.scale.sm}",
+            "$value": "{semantic.ui.icon-size.sm}",
             "$type": "dimension",
             "$description": "Small icon size for standard UI",
             "$extensions": {
@@ -54,7 +54,7 @@
             }
           },
           "md": {
-            "$value": "{primitive.icon-size.scale.md}",
+            "$value": "{semantic.ui.icon-size.md}",
             "$type": "dimension",
             "$description": "Medium icon size for emphasized UI",
             "$extensions": {
@@ -66,7 +66,7 @@
             }
           },
           "lg": {
-            "$value": "{primitive.icon-size.scale.lg}",
+            "$value": "{semantic.ui.icon-size.lg}",
             "$type": "dimension",
             "$description": "Large icon size for prominent UI",
             "$extensions": {
@@ -78,7 +78,7 @@
             }
           },
           "xl": {
-            "$value": "{primitive.icon-size.scale.xl}",
+            "$value": "{semantic.ui.icon-size.xl}",
             "$type": "dimension",
             "$description": "Extra large icon size for hero UI",
             "$extensions": {
@@ -147,7 +147,7 @@
       "transition": {
         "duration": {
           "fast": {
-            "$value": "150ms",
+            "$value": "{semantic.ui.transition.duration.fast}",
             "$type": "duration",
             "$description": "Fast transition for subtle interactions",
             "$extensions": {
@@ -159,7 +159,7 @@
             }
           },
           "normal": {
-            "$value": "250ms",
+            "$value": "{semantic.ui.transition.duration.normal}",
             "$type": "duration",
             "$description": "Normal transition for standard interactions",
             "$extensions": {
@@ -172,7 +172,7 @@
           }
         },
         "timing-function": {
-          "$value": "ease-in-out",
+          "$value": "{semantic.ui.transition.timing-function.default}",
           "$type": "cubicBezier",
           "$description": "Standard easing function for smooth transitions",
           "$extensions": {

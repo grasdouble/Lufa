@@ -20,7 +20,7 @@ START: What are you styling?
 │
 ├─ 🎨 COLOR
 │  ├─ Brand color (primary/secondary)?
-│  │  └─ Use: core.brand.primary / core.brand.secondary
+│  │  └─ Use: core.color.brand.primary / core.color.brand.secondary
 │  ├─ Semantic state (success/error/warning/info)?
 │  │  └─ Use: core.semantic.[state]
 │  ├─ UI element (text/background/border)?
@@ -707,7 +707,7 @@ primitive.spacing.16
 primitive.typography.font-size.base
 
 /* Core */
-core.brand.primary
+core.color.brand.primary
 core.semantic.success
 core.semantic.error-subtle
 

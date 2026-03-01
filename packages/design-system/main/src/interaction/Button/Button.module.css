@@ -226,12 +226,12 @@
 /* Solid + Warning (Orange/Yellow-600) */
 
 .button.type-solid.variant-warning {
-  background-color: var(--lufa-semantic-button-warning-background-default);
-  color: var(--lufa-semantic-button-warning-text);
+  background-color: var(--lufa-component-button-variant-warning-background-default);
+  color: var(--lufa-component-button-variant-warning-text);
 }
 
 .button.type-solid.variant-warning:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-semantic-button-warning-background-hover);
+  background-color: var(--lufa-component-button-variant-warning-background-hover);
 }
 
 .button.type-solid.variant-warning:active:not(:disabled):not(.disabled-true) {
@@ -241,12 +241,12 @@
 /* Solid + Info (Blue-500) */
 
 .button.type-solid.variant-info {
-  background-color: var(--lufa-semantic-button-info-background-default);
-  color: var(--lufa-semantic-button-info-text);
+  background-color: var(--lufa-component-button-variant-info-background-default);
+  color: var(--lufa-component-button-variant-info-text);
 }
 
 .button.type-solid.variant-info:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-semantic-button-info-background-hover);
+  background-color: var(--lufa-component-button-variant-info-background-hover);
 }
 
 .button.type-solid.variant-info:active:not(:disabled):not(.disabled-true) {
@@ -316,7 +316,7 @@
 
 .button.type-outline.variant-success:hover:not(:disabled):not(.disabled-true) {
   background-color: var(--lufa-core-feedback-success-default);
-  color: var(--lufa-semantic-button-success-text);
+  color: var(--lufa-component-button-type-outline-text-hover);
   border-color: var(--lufa-core-feedback-success-hover);
 }
 
@@ -335,7 +335,7 @@
 
 .button.type-outline.variant-danger:hover:not(:disabled):not(.disabled-true) {
   background-color: var(--lufa-core-feedback-error-default);
-  color: var(--lufa-semantic-button-destructive-text);
+  color: var(--lufa-component-button-type-outline-text-hover);
   border-color: var(--lufa-core-feedback-error-hover);
 }
 
@@ -354,7 +354,7 @@
 
 .button.type-outline.variant-warning:hover:not(:disabled):not(.disabled-true) {
   background-color: var(--lufa-core-feedback-warning-default);
-  color: var(--lufa-semantic-button-warning-text);
+  color: var(--lufa-component-button-type-outline-text-hover);
   border-color: var(--lufa-core-feedback-warning-hover);
 }
 
@@ -373,7 +373,7 @@
 
 .button.type-outline.variant-info:hover:not(:disabled):not(.disabled-true) {
   background-color: var(--lufa-core-feedback-info-default);
-  color: var(--lufa-semantic-button-info-text);
+  color: var(--lufa-component-button-type-outline-text-hover);
   border-color: var(--lufa-core-feedback-info-hover);
 }
 
@@ -425,7 +425,7 @@
 }
 
 .button.type-ghost.variant-secondary:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-semantic-button-ghost-background-hover);
+  background-color: var(--lufa-component-button-type-ghost-background-hover);
   color: var(--lufa-core-brand-secondary-hover);
 }
 
@@ -442,7 +442,7 @@
 }
 
 .button.type-ghost.variant-success:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-semantic-button-ghost-background-hover);
+  background-color: var(--lufa-component-button-type-ghost-background-hover);
   color: var(--lufa-core-feedback-success-hover);
 }
 
@@ -459,7 +459,7 @@
 }
 
 .button.type-ghost.variant-danger:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-semantic-button-ghost-background-hover);
+  background-color: var(--lufa-component-button-type-ghost-background-hover);
   color: var(--lufa-core-feedback-error-hover);
 }
 
@@ -476,7 +476,7 @@
 }
 
 .button.type-ghost.variant-warning:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-semantic-button-ghost-background-hover);
+  background-color: var(--lufa-component-button-type-ghost-background-hover);
   color: var(--lufa-core-feedback-warning-hover);
 }
 
@@ -493,7 +493,7 @@
 }
 
 .button.type-ghost.variant-info:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-semantic-button-ghost-background-hover);
+  background-color: var(--lufa-component-button-type-ghost-background-hover);
   color: var(--lufa-core-feedback-info-hover);
 }
 
@@ -510,7 +510,7 @@
 }
 
 .button.type-ghost.variant-neutral:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-semantic-button-ghost-background-hover);
+  background-color: var(--lufa-component-button-type-ghost-background-hover);
   color: var(--lufa-core-neutral-text-primary);
 }
 

@@ -172,7 +172,7 @@
         }
       },
       "dash-size": {
-        "$value": "{primitive.spacing.8}",
+        "$value": "{semantic.ui.divider.dash-size}",
         "$type": "dimension",
         "$description": "Length of each dash segment in a dashed divider",
         "$extensions": {
@@ -184,7 +184,7 @@
         }
       },
       "dash-gap": {
-        "$value": "{primitive.spacing.12}",
+        "$value": "{semantic.ui.divider.dash-gap}",
         "$type": "dimension",
         "$description": "Total step between dash starts (dash + gap) in a dashed divider",
         "$extensions": {

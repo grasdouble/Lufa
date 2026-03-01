@@ -123,7 +123,7 @@ We will adopt a **6-breakpoint system** aligned with Tailwind CSS and current St
 
 **Primitive Level:** Raw pixel values
 
-**File:** `tokens/src/primitives/breakpoint/scale.json`
+**File:** `tokens/src/primitives/breakpoint.json`
 
 ```json
 {
@@ -386,7 +386,7 @@ export const Breakpoints = {
 
 ### Phase 1: Create Tokens (Day 1)
 
-1. Create `tokens/src/primitives/breakpoint/scale.json`
+1. Create `tokens/src/primitives/breakpoint.json`
 2. Add 6 breakpoint tokens (xs, sm, md, lg, xl, 2xl)
 3. Run `npm run tokens:build`
 4. Verify CSS output contains `--lufa-primitive-breakpoint-*` variables
@@ -438,7 +438,7 @@ The breakpoint tokens now serve as the single source of truth for all responsive
 **Files Modified:**
 
 ```
-packages/design-system/tokens/src/primitives/breakpoint/scale.json (NEW)
+packages/design-system/tokens/src/primitives/breakpoint.json (NEW)
 packages/design-system/storybook/.storybook/breakpoints.ts (UPDATED)
 packages/design-system/tokens/src/core/layout/spacing.json (UPDATED - container tokens)
 packages/design-system/tokens/dist/tokens.css (UPDATED - 6 new CSS variables)

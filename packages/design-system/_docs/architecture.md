@@ -420,7 +420,7 @@ Level 1: Foundation Tokens (111 tokens)
     "ui": {
       "action": {
         "primary": {
-          "$value": "{core.brand.primary}",
+          "$value": "{core.color.brand.primary}",
           "$type": "color",
           "$extensions": {
             "lufa": {

@@ -378,7 +378,7 @@ Add alpha variants to primitive palette for flexibility:
 {
   "semantic": {
     "ui": {
-      "overlay": "{core.neutral.background}/50"
+      "overlay": "{core.color.neutral.background}/50"
     }
   }
 }
@@ -602,3 +602,17 @@ Baseline reflects the state at the time of this ADR decision (2026-01-26). Curre
 **Signed off by:** Architecture Team  
 **Implementation Start:** Phase 2B Planning  
 **Review Date:** Implementation complete (2026-01-28)
+
+---
+
+## Implementation Update — Hierarchy Alignment (2026-03)
+
+During the token hierarchy restructuring (see `remaining-hierarchy-warnings-plan.md`), semantic overlay and glow tokens were found to reference `primitive.color.alpha.*` directly. This violated ADR-014's rule that **color tokens MUST follow the full hierarchy chain** (`primitive → core → semantic → component`).
+
+**Changes made:**
+
+- Created `core/color/colors-alpha.json` with 10 intermediate `core.color.alpha.*` tokens mapping to the referenced primitive alpha values
+- Updated `semantic/ui/context.json` — 15 overlay references (5 tokens × 3 modes) now point to `core.color.alpha.*` instead of `primitive.color.alpha.*`
+- Updated `semantic/effect/glow.json` — 2 focus glow references now point to `core.color.alpha.*` instead of `primitive.color.alpha.*`
+
+The full `primitive → core → semantic` chain is now respected for all color alpha tokens. Token count increased from 675 → 685 (+10 core alpha tokens).
