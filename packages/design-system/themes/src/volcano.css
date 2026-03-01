@@ -1,446 +1,128 @@
-/**
- * Lufa Design System - Volcano Theme
- *
- * Intense color palette with red, orange, and charcoal tones.
- * Evokes power, energy, and high-heat aesthetics.
- *
- * Usage: <html data-theme="volcano" data-mode="light|dark|high-contrast">
- */
-
-/* ==================== LIGHT MODE (Default) ==================== */
+/* Volcano Theme — Lufa Design System */
 
 [data-theme='volcano'],
 [data-theme='volcano'][data-mode='light'] {
-  /* Core Brand Tokens */
-  --lufa-core-brand-primary-default: #dc2626; /* Red 600 */
-  --lufa-core-brand-primary-hover: #b91c1c;
-  --lufa-core-brand-primary-active: #991b1b;
-  --lufa-core-brand-secondary-default: #9a3412; /* Orange 800 - WCAG AA compliant (6.89:1) */
-  --lufa-core-brand-secondary-hover: #7c2d12; /* Orange 900 */
-  --lufa-core-brand-secondary-active: #431407; /* Orange 950 */
-  --lufa-core-brand-accent-visited: #9333ea;
-  --lufa-core-brand-primary-on-background: #ffffff;
-  --lufa-core-brand-secondary-on-background: #ffffff;
+  /* Brand */
+  --lufa-core-color-brand-primary-default: #dc2626;
+  --lufa-core-color-brand-primary-hover: #b91c1c;
+  --lufa-core-color-brand-primary-active: #991b1b;
+  --lufa-core-color-brand-primary-on-background: #ffffff;
+  --lufa-core-color-brand-secondary-default: #9a3412;
+  --lufa-core-color-brand-secondary-hover: #7c2d12;
+  --lufa-core-color-brand-secondary-active: #431407;
+  --lufa-core-color-brand-secondary-on-background: #ffffff;
+  --lufa-core-color-brand-accent-visited: #9333ea;
 
-  /* Neutral Tokens - Volcano Light */
-  --lufa-core-neutral-background: #fffafa;
-  --lufa-core-neutral-surface-default: #fef2f2;
-  --lufa-core-neutral-surface-hover: #fee2e2;
-  --lufa-core-neutral-border-default: #ef4444;
-  --lufa-core-neutral-border-strong: #dc2626;
-  --lufa-core-neutral-text-primary: #450a0a;
-  --lufa-core-neutral-text-secondary: #7f1d1d;
-  --lufa-core-neutral-text-tertiary: #991b1b;
-  --lufa-core-neutral-text-disabled: #fecaca;
+  /* Neutral */
+  --lufa-core-color-neutral-background: #fffafa;
+  --lufa-core-color-neutral-surface-default: #fef2f2;
+  --lufa-core-color-neutral-surface-hover: #fee2e2;
+  --lufa-core-color-neutral-border-default: #ef4444;
+  --lufa-core-color-neutral-border-strong: #dc2626;
+  --lufa-core-color-neutral-text-primary: #450a0a;
+  --lufa-core-color-neutral-text-secondary: #7f1d1d;
+  --lufa-core-color-neutral-text-tertiary: #991b1b;
+  --lufa-core-color-neutral-text-disabled: #fecaca;
 
-  /* Semantic Tokens */
-  --lufa-core-feedback-success-default: #15803d; /* Darker green - WCAG AA (4.67:1) */
-  --lufa-core-feedback-success-subtle: #f0fdf4;
-  --lufa-core-feedback-success-border: #bbf7d0;
-  --lufa-core-feedback-success-hover: #166534;
-  --lufa-core-feedback-error-default: #b91c1c; /* Darker red - WCAG AA (5.96:1) */
-  --lufa-core-feedback-error-subtle: #fef2f2;
-  --lufa-core-feedback-error-border: #fecaca;
-  --lufa-core-feedback-error-hover: #991b1b;
-  --lufa-core-feedback-warning-default: #b45309; /* Much darker amber - WCAG AA (4.51:1) */
-  --lufa-core-feedback-warning-subtle: #fffbeb;
-  --lufa-core-feedback-warning-border: #fde68a;
-  --lufa-core-feedback-warning-hover: #92400e;
-  --lufa-core-feedback-info-default: #2563eb;
-  --lufa-core-feedback-info-subtle: #eff6ff;
-  --lufa-core-feedback-info-border: #bfdbfe;
-  --lufa-core-feedback-info-hover: #1d4ed8;
-
-  /* ==================== RGB VARIABLES ==================== */
-  /* Extracted from hex colors for alpha token generation */
-  --lufa-primary-rgb: 220, 38, 38; /* #dc2626 */
-  --lufa-secondary-rgb: 154, 52, 18; /* #9a3412 */
-  --lufa-success-rgb: 22, 163, 74; /* #16a34a */
-  --lufa-error-rgb: 220, 38, 38; /* #dc2626 */
-  --lufa-warning-rgb: 245, 158, 11; /* #f59e0b */
-  --lufa-info-rgb: 37, 99, 235; /* #2563eb */
-
-  /* ==================== ALPHA TOKENS ==================== */
-  /* Primary Alpha (9 levels) */
-  --lufa-color-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
-  --lufa-color-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
-  --lufa-color-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
-  --lufa-color-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
-  --lufa-color-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
-  --lufa-color-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
-  --lufa-color-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
-  --lufa-color-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
-  --lufa-color-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
-
-  /* Secondary Alpha (9 levels) */
-  --lufa-color-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
-  --lufa-color-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
-  --lufa-color-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
-  --lufa-color-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
-  --lufa-color-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
-  --lufa-color-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
-  --lufa-color-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
-  --lufa-color-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
-  --lufa-color-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
-
-  /* Success Alpha (9 levels) */
-  --lufa-color-alpha-success-3: rgba(var(--lufa-success-rgb), 0.03);
-  --lufa-color-alpha-success-5: rgba(var(--lufa-success-rgb), 0.05);
-  --lufa-color-alpha-success-8: rgba(var(--lufa-success-rgb), 0.08);
-  --lufa-color-alpha-success-10: rgba(var(--lufa-success-rgb), 0.1);
-  --lufa-color-alpha-success-15: rgba(var(--lufa-success-rgb), 0.15);
-  --lufa-color-alpha-success-20: rgba(var(--lufa-success-rgb), 0.2);
-  --lufa-color-alpha-success-30: rgba(var(--lufa-success-rgb), 0.3);
-  --lufa-color-alpha-success-40: rgba(var(--lufa-success-rgb), 0.4);
-  --lufa-color-alpha-success-50: rgba(var(--lufa-success-rgb), 0.5);
-
-  /* Error Alpha (9 levels) */
-  --lufa-color-alpha-error-3: rgba(var(--lufa-error-rgb), 0.03);
-  --lufa-color-alpha-error-5: rgba(var(--lufa-error-rgb), 0.05);
-  --lufa-color-alpha-error-8: rgba(var(--lufa-error-rgb), 0.08);
-  --lufa-color-alpha-error-10: rgba(var(--lufa-error-rgb), 0.1);
-  --lufa-color-alpha-error-15: rgba(var(--lufa-error-rgb), 0.15);
-  --lufa-color-alpha-error-20: rgba(var(--lufa-error-rgb), 0.2);
-  --lufa-color-alpha-error-30: rgba(var(--lufa-error-rgb), 0.3);
-  --lufa-color-alpha-error-40: rgba(var(--lufa-error-rgb), 0.4);
-  --lufa-color-alpha-error-50: rgba(var(--lufa-error-rgb), 0.5);
-
-  /* Warning Alpha (9 levels) */
-  --lufa-color-alpha-warning-3: rgba(var(--lufa-warning-rgb), 0.03);
-  --lufa-color-alpha-warning-5: rgba(var(--lufa-warning-rgb), 0.05);
-  --lufa-color-alpha-warning-8: rgba(var(--lufa-warning-rgb), 0.08);
-  --lufa-color-alpha-warning-10: rgba(var(--lufa-warning-rgb), 0.1);
-  --lufa-color-alpha-warning-15: rgba(var(--lufa-warning-rgb), 0.15);
-  --lufa-color-alpha-warning-20: rgba(var(--lufa-warning-rgb), 0.2);
-  --lufa-color-alpha-warning-30: rgba(var(--lufa-warning-rgb), 0.3);
-  --lufa-color-alpha-warning-40: rgba(var(--lufa-warning-rgb), 0.4);
-  --lufa-color-alpha-warning-50: rgba(var(--lufa-warning-rgb), 0.5);
-
-  /* Info Alpha (9 levels) */
-  --lufa-color-alpha-info-3: rgba(var(--lufa-info-rgb), 0.03);
-  --lufa-color-alpha-info-5: rgba(var(--lufa-info-rgb), 0.05);
-  --lufa-color-alpha-info-8: rgba(var(--lufa-info-rgb), 0.08);
-  --lufa-color-alpha-info-10: rgba(var(--lufa-info-rgb), 0.1);
-  --lufa-color-alpha-info-15: rgba(var(--lufa-info-rgb), 0.15);
-  --lufa-color-alpha-info-20: rgba(var(--lufa-info-rgb), 0.2);
-  --lufa-color-alpha-info-30: rgba(var(--lufa-info-rgb), 0.3);
-  --lufa-color-alpha-info-40: rgba(var(--lufa-info-rgb), 0.4);
-  --lufa-color-alpha-info-50: rgba(var(--lufa-info-rgb), 0.5);
-
-  /* ==================== SHADOW TOKENS (Light Mode) ==================== */
-  /* Fiery red-tinted shadow for volcano aesthetic */
-  --lufa-shadow-color: rgba(69, 10, 10, 0.25); /* Deep red shadow */
-
-  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
-  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
-  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
-  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
-  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
-
-  /* ==================== OVERLAY TOKENS (Light Mode) ==================== */
-  /* Light overlays - for brightening */
-  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
-  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
-  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
-
-  /* Dark overlays - for dimming */
-  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.05);
-  --lufa-overlay-dark: rgba(0, 0, 0, 0.1);
-  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.3);
-
-  /* Backdrop overlays - for modal backgrounds */
-  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.3);
-  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.5);
-  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.7);
+  /* Feedback */
+  --lufa-core-color-feedback-success-default: #15803d;
+  --lufa-core-color-feedback-success-subtle: #f0fdf4;
+  --lufa-core-color-feedback-success-border: #bbf7d0;
+  --lufa-core-color-feedback-success-hover: #166534;
+  --lufa-core-color-feedback-error-default: #b91c1c;
+  --lufa-core-color-feedback-error-subtle: #fef2f2;
+  --lufa-core-color-feedback-error-border: #fecaca;
+  --lufa-core-color-feedback-error-hover: #991b1b;
+  --lufa-core-color-feedback-warning-default: #b45309;
+  --lufa-core-color-feedback-warning-subtle: #fffbeb;
+  --lufa-core-color-feedback-warning-border: #fde68a;
+  --lufa-core-color-feedback-warning-hover: #92400e;
+  --lufa-core-color-feedback-info-default: #2563eb;
+  --lufa-core-color-feedback-info-subtle: #eff6ff;
+  --lufa-core-color-feedback-info-border: #bfdbfe;
+  --lufa-core-color-feedback-info-hover: #1d4ed8;
 }
-
-/* ==================== DARK MODE ==================== */
 
 [data-theme='volcano'][data-mode='dark'] {
-  /* Core Brand Tokens */
-  --lufa-core-brand-primary-default: #f87171;
-  --lufa-core-brand-primary-hover: #fca5a5;
-  --lufa-core-brand-primary-active: #dc2626;
-  --lufa-core-brand-secondary-default: #fb923c;
-  --lufa-core-brand-secondary-hover: #fdba74;
-  --lufa-core-brand-secondary-active: #ea580c;
-  --lufa-core-brand-accent-visited: #c084fc;
-  --lufa-core-brand-primary-on-background: #000000;
-  --lufa-core-brand-secondary-on-background: #000000;
+  /* Brand */
+  --lufa-core-color-brand-primary-default: #f87171;
+  --lufa-core-color-brand-primary-hover: #fca5a5;
+  --lufa-core-color-brand-primary-active: #dc2626;
+  --lufa-core-color-brand-primary-on-background: #000000;
+  --lufa-core-color-brand-secondary-default: #fb923c;
+  --lufa-core-color-brand-secondary-hover: #fdba74;
+  --lufa-core-color-brand-secondary-active: #ea580c;
+  --lufa-core-color-brand-secondary-on-background: #000000;
+  --lufa-core-color-brand-accent-visited: #c084fc;
 
-  /* Neutral Tokens - Volcano Dark (The Pit) */
-  --lufa-core-neutral-background: #0f0505;
-  --lufa-core-neutral-surface-default: #1a0a0a;
-  --lufa-core-neutral-surface-hover: #2d1212;
-  --lufa-core-neutral-border-default: #b91c1c;
-  --lufa-core-neutral-border-strong: #f87171;
-  --lufa-core-neutral-text-primary: #fef2f2;
-  --lufa-core-neutral-text-secondary: #fca5a5;
-  --lufa-core-neutral-text-tertiary: #f87171;
-  --lufa-core-neutral-text-disabled: #1a0a0a;
+  /* Neutral */
+  --lufa-core-color-neutral-background: #0f0505;
+  --lufa-core-color-neutral-surface-default: #1a0a0a;
+  --lufa-core-color-neutral-surface-hover: #2d1212;
+  --lufa-core-color-neutral-border-default: #b91c1c;
+  --lufa-core-color-neutral-border-strong: #f87171;
+  --lufa-core-color-neutral-text-primary: #fef2f2;
+  --lufa-core-color-neutral-text-secondary: #fca5a5;
+  --lufa-core-color-neutral-text-tertiary: #f87171;
+  --lufa-core-color-neutral-text-disabled: #1a0a0a;
 
-  /* Semantic Tokens */
-  --lufa-core-feedback-success-default: #34d399;
-  --lufa-core-feedback-success-subtle: #064e3b;
-  --lufa-core-feedback-success-border: #065f46;
-  --lufa-core-feedback-success-hover: #6ee7b7;
-  --lufa-core-feedback-error-default: #f87171;
-  --lufa-core-feedback-error-subtle: #450a0a;
-  --lufa-core-feedback-error-border: #7f1d1d;
-  --lufa-core-feedback-error-hover: #fca5a5;
-  --lufa-core-feedback-warning-default: #fbbf24;
-  --lufa-core-feedback-warning-subtle: #451a03;
-  --lufa-core-feedback-warning-border: #78350f;
-  --lufa-core-feedback-warning-hover: #fcd34d;
-  --lufa-core-feedback-info-default: #7eb8f7; /* Even brighter blue - WCAG AA (4.51:1) */
-  --lufa-core-feedback-info-subtle: #1e3a8a;
-  --lufa-core-feedback-info-border: #1e40af;
-  --lufa-core-feedback-info-hover: #a5caff;
-
-  /* ==================== SHADOW TOKENS (Dark Mode) ==================== */
-  /* Intense dark shadow with slight red tint for molten effect */
-  --lufa-shadow-color: rgba(220, 38, 38, 0.4); /* Red-tinted shadow */
-
-  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
-  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
-  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
-  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
-  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
-
-  /* ==================== OVERLAY TOKENS (Dark Mode) ==================== */
-  /* Light overlays - for brightening */
-  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
-  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
-  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
-
-  /* Dark overlays - increased opacity for visibility in dark mode */
-  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.1);
-  --lufa-overlay-dark: rgba(0, 0, 0, 0.2);
-  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.4);
-
-  /* Backdrop overlays - stronger for dark backgrounds */
-  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.5);
-  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.7);
-  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.9);
-
-  /* ==================== RGB VARIABLES - DARK MODE ==================== */
-  --lufa-primary-rgb: 248, 113, 113; /* #f87171 */
-  --lufa-secondary-rgb: 251, 146, 60; /* #fb923c */
-  --lufa-success-rgb: 52, 211, 153; /* #34d399 */
-  --lufa-error-rgb: 248, 113, 113; /* #f87171 */
-  --lufa-warning-rgb: 251, 191, 36; /* #fbbf24 */
-  --lufa-info-rgb: 126, 184, 247; /* #7eb8f7 */
-
-  /* ==================== ALPHA TOKENS - DARK MODE ==================== */
-  /* Primary Alpha (9 levels) */
-  --lufa-color-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
-  --lufa-color-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
-  --lufa-color-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
-  --lufa-color-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
-  --lufa-color-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
-  --lufa-color-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
-  --lufa-color-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
-  --lufa-color-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
-  --lufa-color-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
-
-  /* Secondary Alpha (9 levels) */
-  --lufa-color-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
-  --lufa-color-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
-  --lufa-color-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
-  --lufa-color-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
-  --lufa-color-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
-  --lufa-color-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
-  --lufa-color-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
-  --lufa-color-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
-  --lufa-color-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
-
-  /* Success Alpha (9 levels) */
-  --lufa-color-alpha-success-3: rgba(var(--lufa-success-rgb), 0.03);
-  --lufa-color-alpha-success-5: rgba(var(--lufa-success-rgb), 0.05);
-  --lufa-color-alpha-success-8: rgba(var(--lufa-success-rgb), 0.08);
-  --lufa-color-alpha-success-10: rgba(var(--lufa-success-rgb), 0.1);
-  --lufa-color-alpha-success-15: rgba(var(--lufa-success-rgb), 0.15);
-  --lufa-color-alpha-success-20: rgba(var(--lufa-success-rgb), 0.2);
-  --lufa-color-alpha-success-30: rgba(var(--lufa-success-rgb), 0.3);
-  --lufa-color-alpha-success-40: rgba(var(--lufa-success-rgb), 0.4);
-  --lufa-color-alpha-success-50: rgba(var(--lufa-success-rgb), 0.5);
-
-  /* Error Alpha (9 levels) */
-  --lufa-color-alpha-error-3: rgba(var(--lufa-error-rgb), 0.03);
-  --lufa-color-alpha-error-5: rgba(var(--lufa-error-rgb), 0.05);
-  --lufa-color-alpha-error-8: rgba(var(--lufa-error-rgb), 0.08);
-  --lufa-color-alpha-error-10: rgba(var(--lufa-error-rgb), 0.1);
-  --lufa-color-alpha-error-15: rgba(var(--lufa-error-rgb), 0.15);
-  --lufa-color-alpha-error-20: rgba(var(--lufa-error-rgb), 0.2);
-  --lufa-color-alpha-error-30: rgba(var(--lufa-error-rgb), 0.3);
-  --lufa-color-alpha-error-40: rgba(var(--lufa-error-rgb), 0.4);
-  --lufa-color-alpha-error-50: rgba(var(--lufa-error-rgb), 0.5);
-
-  /* Warning Alpha (9 levels) */
-  --lufa-color-alpha-warning-3: rgba(var(--lufa-warning-rgb), 0.03);
-  --lufa-color-alpha-warning-5: rgba(var(--lufa-warning-rgb), 0.05);
-  --lufa-color-alpha-warning-8: rgba(var(--lufa-warning-rgb), 0.08);
-  --lufa-color-alpha-warning-10: rgba(var(--lufa-warning-rgb), 0.1);
-  --lufa-color-alpha-warning-15: rgba(var(--lufa-warning-rgb), 0.15);
-  --lufa-color-alpha-warning-20: rgba(var(--lufa-warning-rgb), 0.2);
-  --lufa-color-alpha-warning-30: rgba(var(--lufa-warning-rgb), 0.3);
-  --lufa-color-alpha-warning-40: rgba(var(--lufa-warning-rgb), 0.4);
-  --lufa-color-alpha-warning-50: rgba(var(--lufa-warning-rgb), 0.5);
-
-  /* Info Alpha (9 levels) */
-  --lufa-color-alpha-info-3: rgba(var(--lufa-info-rgb), 0.03);
-  --lufa-color-alpha-info-5: rgba(var(--lufa-info-rgb), 0.05);
-  --lufa-color-alpha-info-8: rgba(var(--lufa-info-rgb), 0.08);
-  --lufa-color-alpha-info-10: rgba(var(--lufa-info-rgb), 0.1);
-  --lufa-color-alpha-info-15: rgba(var(--lufa-info-rgb), 0.15);
-  --lufa-color-alpha-info-20: rgba(var(--lufa-info-rgb), 0.2);
-  --lufa-color-alpha-info-30: rgba(var(--lufa-info-rgb), 0.3);
-  --lufa-color-alpha-info-40: rgba(var(--lufa-info-rgb), 0.4);
-  --lufa-color-alpha-info-50: rgba(var(--lufa-info-rgb), 0.5);
+  /* Feedback */
+  --lufa-core-color-feedback-success-default: #34d399;
+  --lufa-core-color-feedback-success-subtle: #064e3b;
+  --lufa-core-color-feedback-success-border: #065f46;
+  --lufa-core-color-feedback-success-hover: #6ee7b7;
+  --lufa-core-color-feedback-error-default: #f87171;
+  --lufa-core-color-feedback-error-subtle: #450a0a;
+  --lufa-core-color-feedback-error-border: #7f1d1d;
+  --lufa-core-color-feedback-error-hover: #fca5a5;
+  --lufa-core-color-feedback-warning-default: #fbbf24;
+  --lufa-core-color-feedback-warning-subtle: #451a03;
+  --lufa-core-color-feedback-warning-border: #78350f;
+  --lufa-core-color-feedback-warning-hover: #fcd34d;
+  --lufa-core-color-feedback-info-default: #7eb8f7;
+  --lufa-core-color-feedback-info-subtle: #1e3a8a;
+  --lufa-core-color-feedback-info-border: #1e40af;
+  --lufa-core-color-feedback-info-hover: #a5caff;
 }
 
-/* ==================== HIGH CONTRAST MODE ==================== */
-
 [data-theme='volcano'][data-mode='high-contrast'] {
-  --lufa-core-brand-primary-default: #ff3300;
-  --lufa-core-brand-primary-hover: #ff6633;
-  --lufa-core-brand-primary-active: #cc2200;
-  --lufa-core-brand-secondary-default: #ff8800;
-  --lufa-core-brand-secondary-hover: #ffaa33;
-  --lufa-core-brand-secondary-active: #cc6600;
-  --lufa-core-brand-accent-visited: #bf00ff; /* Purple — WCAG AA on black (4.7:1) */
-  --lufa-core-brand-primary-on-background: #000000;
-  --lufa-core-brand-secondary-on-background: #000000;
+  /* Brand */
+  --lufa-core-color-brand-primary-default: #ff3300;
+  --lufa-core-color-brand-primary-hover: #ff6633;
+  --lufa-core-color-brand-primary-active: #cc2200;
+  --lufa-core-color-brand-primary-on-background: #000000;
+  --lufa-core-color-brand-secondary-default: #ff8800;
+  --lufa-core-color-brand-secondary-hover: #ffaa33;
+  --lufa-core-color-brand-secondary-active: #cc6600;
+  --lufa-core-color-brand-secondary-on-background: #000000;
+  --lufa-core-color-brand-accent-visited: #bf00ff;
 
-  --lufa-core-neutral-background: #000000;
-  --lufa-core-neutral-surface-default: #000000;
-  --lufa-core-neutral-surface-hover: #220505;
-  --lufa-core-neutral-border-default: #ff3300;
-  --lufa-core-neutral-border-strong: #ff3300;
-  --lufa-core-neutral-text-primary: #ffffff;
-  --lufa-core-neutral-text-secondary: #ffffff;
-  --lufa-core-neutral-text-tertiary: #ff3300;
-  --lufa-core-neutral-text-disabled: #441111;
+  /* Neutral */
+  --lufa-core-color-neutral-background: #000000;
+  --lufa-core-color-neutral-surface-default: #000000;
+  --lufa-core-color-neutral-surface-hover: #220505;
+  --lufa-core-color-neutral-border-default: #ff3300;
+  --lufa-core-color-neutral-border-strong: #ff3300;
+  --lufa-core-color-neutral-text-primary: #ffffff;
+  --lufa-core-color-neutral-text-secondary: #ffffff;
+  --lufa-core-color-neutral-text-tertiary: #ff3300;
+  --lufa-core-color-neutral-text-disabled: #441111;
 
-  /* ==================== SHADOW TOKENS (High-Contrast Mode) ==================== */
-  /* Strong shadow with orange glow for maximum separation */
-  --lufa-shadow-color: rgba(255, 51, 0, 0.6); /* Intense orange-red shadow */
-
-  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
-  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
-  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
-  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
-  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
-
-  /* ==================== OVERLAY TOKENS (High-Contrast Mode) ==================== */
-  /* Light overlays */
-  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.1);
-  --lufa-overlay-light: rgba(255, 255, 255, 0.2);
-  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.3);
-
-  /* Dark overlays - high contrast needs strong opacity */
-  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.2);
-  --lufa-overlay-dark: rgba(0, 0, 0, 0.4);
-  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.6);
-
-  /* Backdrop overlays - very strong for accessibility */
-  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.6);
-  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.8);
-  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.95);
-
-  /* Semantic Tokens - High Visibility for Accessibility */
-  --lufa-core-feedback-success-default: #76ff03; /* High contrast success */
-  --lufa-core-feedback-success-subtle: #000000; /* Pure black background */
-  --lufa-core-feedback-success-border: #76ff03; /* Matching border for max contrast */
-  --lufa-core-feedback-success-hover: #b2ff59; /* Brighter success */
-
-  --lufa-core-feedback-error-default: #ff1744; /* High contrast error */
-  --lufa-core-feedback-error-subtle: #000000; /* Pure black background */
-  --lufa-core-feedback-error-border: #ff1744; /* Matching border for max contrast */
-  --lufa-core-feedback-error-hover: #ff5252; /* Brighter error */
-
-  --lufa-core-feedback-warning-default: #ff9100; /* High contrast warning */
-  --lufa-core-feedback-warning-subtle: #000000; /* Pure black background */
-  --lufa-core-feedback-warning-border: #ff9100; /* Matching border for max contrast */
-  --lufa-core-feedback-warning-hover: #ffab40; /* Brighter warning */
-
-  --lufa-core-feedback-info-default: #00b8d4; /* High contrast info */
-  --lufa-core-feedback-info-subtle: #000000; /* Pure black background */
-  --lufa-core-feedback-info-border: #00b8d4; /* Matching border for max contrast */
-  --lufa-core-feedback-info-hover: #26c6da; /* Brighter info */
-
-  /* ==================== RGB VARIABLES - HIGH CONTRAST MODE ==================== */
-  --lufa-primary-rgb: 255, 51, 0; /* #ff3300 */
-  --lufa-secondary-rgb: 255, 136, 0; /* #ff8800 */
-  --lufa-success-rgb: 118, 255, 3; /* #76ff03 */
-  --lufa-error-rgb: 255, 23, 68; /* #ff1744 */
-  --lufa-warning-rgb: 255, 145, 0; /* #ff9100 */
-  --lufa-info-rgb: 0, 184, 212; /* #00b8d4 */
-
-  /* ==================== ALPHA TOKENS - HIGH CONTRAST MODE ==================== */
-  /* Primary Alpha (9 levels) */
-  --lufa-color-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
-  --lufa-color-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
-  --lufa-color-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
-  --lufa-color-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
-  --lufa-color-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
-  --lufa-color-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
-  --lufa-color-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
-  --lufa-color-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
-  --lufa-color-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
-
-  /* Secondary Alpha (9 levels) */
-  --lufa-color-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
-  --lufa-color-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
-  --lufa-color-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
-  --lufa-color-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
-  --lufa-color-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
-  --lufa-color-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
-  --lufa-color-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
-  --lufa-color-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
-  --lufa-color-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
-
-  /* Success Alpha (9 levels) */
-  --lufa-color-alpha-success-3: rgba(var(--lufa-success-rgb), 0.03);
-  --lufa-color-alpha-success-5: rgba(var(--lufa-success-rgb), 0.05);
-  --lufa-color-alpha-success-8: rgba(var(--lufa-success-rgb), 0.08);
-  --lufa-color-alpha-success-10: rgba(var(--lufa-success-rgb), 0.1);
-  --lufa-color-alpha-success-15: rgba(var(--lufa-success-rgb), 0.15);
-  --lufa-color-alpha-success-20: rgba(var(--lufa-success-rgb), 0.2);
-  --lufa-color-alpha-success-30: rgba(var(--lufa-success-rgb), 0.3);
-  --lufa-color-alpha-success-40: rgba(var(--lufa-success-rgb), 0.4);
-  --lufa-color-alpha-success-50: rgba(var(--lufa-success-rgb), 0.5);
-
-  /* Error Alpha (9 levels) */
-  --lufa-color-alpha-error-3: rgba(var(--lufa-error-rgb), 0.03);
-  --lufa-color-alpha-error-5: rgba(var(--lufa-error-rgb), 0.05);
-  --lufa-color-alpha-error-8: rgba(var(--lufa-error-rgb), 0.08);
-  --lufa-color-alpha-error-10: rgba(var(--lufa-error-rgb), 0.1);
-  --lufa-color-alpha-error-15: rgba(var(--lufa-error-rgb), 0.15);
-  --lufa-color-alpha-error-20: rgba(var(--lufa-error-rgb), 0.2);
-  --lufa-color-alpha-error-30: rgba(var(--lufa-error-rgb), 0.3);
-  --lufa-color-alpha-error-40: rgba(var(--lufa-error-rgb), 0.4);
-  --lufa-color-alpha-error-50: rgba(var(--lufa-error-rgb), 0.5);
-
-  /* Warning Alpha (9 levels) */
-  --lufa-color-alpha-warning-3: rgba(var(--lufa-warning-rgb), 0.03);
-  --lufa-color-alpha-warning-5: rgba(var(--lufa-warning-rgb), 0.05);
-  --lufa-color-alpha-warning-8: rgba(var(--lufa-warning-rgb), 0.08);
-  --lufa-color-alpha-warning-10: rgba(var(--lufa-warning-rgb), 0.1);
-  --lufa-color-alpha-warning-15: rgba(var(--lufa-warning-rgb), 0.15);
-  --lufa-color-alpha-warning-20: rgba(var(--lufa-warning-rgb), 0.2);
-  --lufa-color-alpha-warning-30: rgba(var(--lufa-warning-rgb), 0.3);
-  --lufa-color-alpha-warning-40: rgba(var(--lufa-warning-rgb), 0.4);
-  --lufa-color-alpha-warning-50: rgba(var(--lufa-warning-rgb), 0.5);
-
-  /* Info Alpha (9 levels) */
-  --lufa-color-alpha-info-3: rgba(var(--lufa-info-rgb), 0.03);
-  --lufa-color-alpha-info-5: rgba(var(--lufa-info-rgb), 0.05);
-  --lufa-color-alpha-info-8: rgba(var(--lufa-info-rgb), 0.08);
-  --lufa-color-alpha-info-10: rgba(var(--lufa-info-rgb), 0.1);
-  --lufa-color-alpha-info-15: rgba(var(--lufa-info-rgb), 0.15);
-  --lufa-color-alpha-info-20: rgba(var(--lufa-info-rgb), 0.2);
-  --lufa-color-alpha-info-30: rgba(var(--lufa-info-rgb), 0.3);
-  --lufa-color-alpha-info-40: rgba(var(--lufa-info-rgb), 0.4);
-  --lufa-color-alpha-info-50: rgba(var(--lufa-info-rgb), 0.5);
+  /* Feedback */
+  --lufa-core-color-feedback-success-default: #76ff03;
+  --lufa-core-color-feedback-success-subtle: #000000;
+  --lufa-core-color-feedback-success-border: #76ff03;
+  --lufa-core-color-feedback-success-hover: #b2ff59;
+  --lufa-core-color-feedback-error-default: #ff1744;
+  --lufa-core-color-feedback-error-subtle: #000000;
+  --lufa-core-color-feedback-error-border: #ff1744;
+  --lufa-core-color-feedback-error-hover: #ff5252;
+  --lufa-core-color-feedback-warning-default: #ff9100;
+  --lufa-core-color-feedback-warning-subtle: #000000;
+  --lufa-core-color-feedback-warning-border: #ff9100;
+  --lufa-core-color-feedback-warning-hover: #ffab40;
+  --lufa-core-color-feedback-info-default: #00b8d4;
+  --lufa-core-color-feedback-info-subtle: #000000;
+  --lufa-core-color-feedback-info-border: #00b8d4;
+  --lufa-core-color-feedback-info-hover: #26c6da;
 }

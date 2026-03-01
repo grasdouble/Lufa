@@ -1,429 +1,128 @@
-/**
- * Lufa Design System - Volt Theme
- *
- * Industrial color palette with volt yellow, black, and steel tones.
- * Evokes energy, construction, and high-visibility aesthetics.
- *
- * Usage: <html data-theme="volt" data-mode="light|dark|high-contrast">
- */
-
-/* ==================== LIGHT MODE (Default) ==================== */
+/* Volt Theme — Lufa Design System */
 
 [data-theme='volt'],
 [data-theme='volt'][data-mode='light'] {
-  /* Core Brand Tokens */
-  --lufa-core-brand-primary-default: #4d7c0f; /* Lime 700 - WCAG AA (4.91:1) */
-  --lufa-core-brand-primary-hover: #65a30d; /* Lime 600 - WCAG AA-Large (3.04:1) */
-  --lufa-core-brand-primary-active: #84cc16;
-  --lufa-core-brand-secondary-default: #000000;
-  --lufa-core-brand-secondary-hover: #333333;
-  --lufa-core-brand-secondary-active: #1a1a1a;
-  --lufa-core-brand-accent-visited: #7c3aed;
-  --lufa-core-brand-primary-on-background: #ffffff;
-  --lufa-core-brand-secondary-on-background: #ffffff;
+  /* Brand */
+  --lufa-core-color-brand-primary-default: #4d7c0f;
+  --lufa-core-color-brand-primary-hover: #65a30d;
+  --lufa-core-color-brand-primary-active: #84cc16;
+  --lufa-core-color-brand-primary-on-background: #ffffff;
+  --lufa-core-color-brand-secondary-default: #000000;
+  --lufa-core-color-brand-secondary-hover: #333333;
+  --lufa-core-color-brand-secondary-active: #1a1a1a;
+  --lufa-core-color-brand-secondary-on-background: #ffffff;
+  --lufa-core-color-brand-accent-visited: #7c3aed;
 
-  /* Neutral Tokens - Volt Light */
-  --lufa-core-neutral-background: #fdfdfd;
-  --lufa-core-neutral-surface-default: #f3f4f6;
-  --lufa-core-neutral-surface-hover: #e5e7eb;
-  --lufa-core-neutral-border-default: #6b7280;
-  --lufa-core-neutral-border-strong: #000000;
-  --lufa-core-neutral-text-primary: #111827;
-  --lufa-core-neutral-text-secondary: #374151;
-  --lufa-core-neutral-text-tertiary: #6b7280;
-  --lufa-core-neutral-text-disabled: #e5e7eb;
+  /* Neutral */
+  --lufa-core-color-neutral-background: #fdfdfd;
+  --lufa-core-color-neutral-surface-default: #f3f4f6;
+  --lufa-core-color-neutral-surface-hover: #e5e7eb;
+  --lufa-core-color-neutral-border-default: #6b7280;
+  --lufa-core-color-neutral-border-strong: #000000;
+  --lufa-core-color-neutral-text-primary: #111827;
+  --lufa-core-color-neutral-text-secondary: #374151;
+  --lufa-core-color-neutral-text-tertiary: #6b7280;
+  --lufa-core-color-neutral-text-disabled: #e5e7eb;
 
-  /* Semantic Tokens */
-  --lufa-core-feedback-success-default: #15803d; /* Darker green - WCAG AA (4.67:1) */
-  --lufa-core-feedback-success-subtle: #f0fdf4;
-  --lufa-core-feedback-success-border: #bbf7d0;
-  --lufa-core-feedback-success-hover: #166534;
-  --lufa-core-feedback-error-default: #b91c1c; /* Darker red - WCAG AA (5.96:1) */
-  --lufa-core-feedback-error-subtle: #fef2f2;
-  --lufa-core-feedback-error-border: #fecaca;
-  --lufa-core-feedback-error-hover: #991b1b;
-  --lufa-core-feedback-warning-default: #b45309; /* Much darker amber - WCAG AA (4.51:1) */
-  --lufa-core-feedback-warning-subtle: #fffbeb;
-  --lufa-core-feedback-warning-border: #fde68a;
-  --lufa-core-feedback-warning-hover: #92400e;
-  --lufa-core-feedback-info-default: #2563eb;
-  --lufa-core-feedback-info-subtle: #eff6ff;
-  --lufa-core-feedback-info-border: #bfdbfe;
-  --lufa-core-feedback-info-hover: #1d4ed8;
-
-  /* RGB Variables - Extracted from hex colors */
-  /* Primary: #4d7c0f = rgb(77, 124, 15) */
-  --lufa-primary-rgb: 77, 124, 15;
-  /* Secondary: #000000 = rgb(0, 0, 0) */
-  --lufa-secondary-rgb: 0, 0, 0;
-  /* Success: #16a34a = rgb(22, 163, 74) */
-  --lufa-success-rgb: 22, 163, 74;
-  /* Error: #dc2626 = rgb(220, 38, 38) */
-  --lufa-error-rgb: 220, 38, 38;
-  /* Warning: #f59e0b = rgb(245, 158, 11) */
-  --lufa-warning-rgb: 245, 158, 11;
-  /* Info: #2563eb = rgb(37, 99, 235) */
-  --lufa-info-rgb: 37, 99, 235;
-
-  /* Alpha Tokens - Primary Color (9 levels) */
-  --lufa-color-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
-  --lufa-color-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
-  --lufa-color-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
-  --lufa-color-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
-  --lufa-color-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
-  --lufa-color-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
-  --lufa-color-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
-  --lufa-color-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
-  --lufa-color-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
-
-  /* Alpha Tokens - Secondary Color (9 levels) */
-  --lufa-color-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
-  --lufa-color-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
-  --lufa-color-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
-  --lufa-color-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
-  --lufa-color-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
-  --lufa-color-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
-  --lufa-color-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
-  --lufa-color-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
-  --lufa-color-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
-
-  /* Alpha Tokens - Success (9 levels) */
-  --lufa-color-alpha-success-3: rgba(var(--lufa-success-rgb), 0.03);
-  --lufa-color-alpha-success-5: rgba(var(--lufa-success-rgb), 0.05);
-  --lufa-color-alpha-success-8: rgba(var(--lufa-success-rgb), 0.08);
-  --lufa-color-alpha-success-10: rgba(var(--lufa-success-rgb), 0.1);
-  --lufa-color-alpha-success-15: rgba(var(--lufa-success-rgb), 0.15);
-  --lufa-color-alpha-success-20: rgba(var(--lufa-success-rgb), 0.2);
-  --lufa-color-alpha-success-30: rgba(var(--lufa-success-rgb), 0.3);
-  --lufa-color-alpha-success-40: rgba(var(--lufa-success-rgb), 0.4);
-  --lufa-color-alpha-success-50: rgba(var(--lufa-success-rgb), 0.5);
-
-  /* Alpha Tokens - Error (9 levels) */
-  --lufa-color-alpha-error-3: rgba(var(--lufa-error-rgb), 0.03);
-  --lufa-color-alpha-error-5: rgba(var(--lufa-error-rgb), 0.05);
-  --lufa-color-alpha-error-8: rgba(var(--lufa-error-rgb), 0.08);
-  --lufa-color-alpha-error-10: rgba(var(--lufa-error-rgb), 0.1);
-  --lufa-color-alpha-error-15: rgba(var(--lufa-error-rgb), 0.15);
-  --lufa-color-alpha-error-20: rgba(var(--lufa-error-rgb), 0.2);
-  --lufa-color-alpha-error-30: rgba(var(--lufa-error-rgb), 0.3);
-  --lufa-color-alpha-error-40: rgba(var(--lufa-error-rgb), 0.4);
-  --lufa-color-alpha-error-50: rgba(var(--lufa-error-rgb), 0.5);
-
-  /* Alpha Tokens - Warning (9 levels) */
-  --lufa-color-alpha-warning-3: rgba(var(--lufa-warning-rgb), 0.03);
-  --lufa-color-alpha-warning-5: rgba(var(--lufa-warning-rgb), 0.05);
-  --lufa-color-alpha-warning-8: rgba(var(--lufa-warning-rgb), 0.08);
-  --lufa-color-alpha-warning-10: rgba(var(--lufa-warning-rgb), 0.1);
-  --lufa-color-alpha-warning-15: rgba(var(--lufa-warning-rgb), 0.15);
-  --lufa-color-alpha-warning-20: rgba(var(--lufa-warning-rgb), 0.2);
-  --lufa-color-alpha-warning-30: rgba(var(--lufa-warning-rgb), 0.3);
-  --lufa-color-alpha-warning-40: rgba(var(--lufa-warning-rgb), 0.4);
-  --lufa-color-alpha-warning-50: rgba(var(--lufa-warning-rgb), 0.5);
-
-  /* Alpha Tokens - Info (9 levels) */
-  --lufa-color-alpha-info-3: rgba(var(--lufa-info-rgb), 0.03);
-  --lufa-color-alpha-info-5: rgba(var(--lufa-info-rgb), 0.05);
-  --lufa-color-alpha-info-8: rgba(var(--lufa-info-rgb), 0.08);
-  --lufa-color-alpha-info-10: rgba(var(--lufa-info-rgb), 0.1);
-  --lufa-color-alpha-info-15: rgba(var(--lufa-info-rgb), 0.15);
-  --lufa-color-alpha-info-20: rgba(var(--lufa-info-rgb), 0.2);
-  --lufa-color-alpha-info-30: rgba(var(--lufa-info-rgb), 0.3);
-  --lufa-color-alpha-info-40: rgba(var(--lufa-info-rgb), 0.4);
-  --lufa-color-alpha-info-50: rgba(var(--lufa-info-rgb), 0.5);
-
-  /* Shadow Tokens - Light Mode */
-  --lufa-shadow-color: rgba(0, 0, 0, 0.1); /* Standard shadow for light backgrounds */
-  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
-  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
-  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
-  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
-  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
-
-  /* Overlay Tokens - Light Mode */
-  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
-  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
-  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
-  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.05);
-  --lufa-overlay-dark: rgba(0, 0, 0, 0.1);
-  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.3);
-  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.3);
-  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.5);
-  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.7);
+  /* Feedback */
+  --lufa-core-color-feedback-success-default: #15803d;
+  --lufa-core-color-feedback-success-subtle: #f0fdf4;
+  --lufa-core-color-feedback-success-border: #bbf7d0;
+  --lufa-core-color-feedback-success-hover: #166534;
+  --lufa-core-color-feedback-error-default: #b91c1c;
+  --lufa-core-color-feedback-error-subtle: #fef2f2;
+  --lufa-core-color-feedback-error-border: #fecaca;
+  --lufa-core-color-feedback-error-hover: #991b1b;
+  --lufa-core-color-feedback-warning-default: #b45309;
+  --lufa-core-color-feedback-warning-subtle: #fffbeb;
+  --lufa-core-color-feedback-warning-border: #fde68a;
+  --lufa-core-color-feedback-warning-hover: #92400e;
+  --lufa-core-color-feedback-info-default: #2563eb;
+  --lufa-core-color-feedback-info-subtle: #eff6ff;
+  --lufa-core-color-feedback-info-border: #bfdbfe;
+  --lufa-core-color-feedback-info-hover: #1d4ed8;
 }
-
-/* ==================== DARK MODE ==================== */
 
 [data-theme='volt'][data-mode='dark'] {
-  /* Core Brand Tokens */
-  --lufa-core-brand-primary-default: #a3e635;
-  --lufa-core-brand-primary-hover: #bef264;
-  --lufa-core-brand-primary-active: #84cc16;
-  --lufa-core-brand-secondary-default: #ffffff;
-  --lufa-core-brand-secondary-hover: #ffffff;
-  --lufa-core-brand-secondary-active: #cccccc;
-  --lufa-core-brand-accent-visited: #a78bfa;
-  --lufa-core-brand-primary-on-background: #000000;
-  --lufa-core-brand-secondary-on-background: #000000;
+  /* Brand */
+  --lufa-core-color-brand-primary-default: #a3e635;
+  --lufa-core-color-brand-primary-hover: #bef264;
+  --lufa-core-color-brand-primary-active: #84cc16;
+  --lufa-core-color-brand-primary-on-background: #000000;
+  --lufa-core-color-brand-secondary-default: #ffffff;
+  --lufa-core-color-brand-secondary-hover: #ffffff;
+  --lufa-core-color-brand-secondary-active: #cccccc;
+  --lufa-core-color-brand-secondary-on-background: #000000;
+  --lufa-core-color-brand-accent-visited: #a78bfa;
 
-  /* Neutral Tokens - Volt Dark (Industrial) */
-  --lufa-core-neutral-background: #0a0a0a;
-  --lufa-core-neutral-surface-default: #171717;
-  --lufa-core-neutral-surface-hover: #262626;
-  --lufa-core-neutral-border-default: #737373;
-  --lufa-core-neutral-border-strong: #a3e635;
-  --lufa-core-neutral-text-primary: #a3e635;
-  --lufa-core-neutral-text-secondary: #ffffff;
-  --lufa-core-neutral-text-tertiary: #888888; /* WCAG AA fix: was #737373 (4.18:1), now #888888 (≈4.71:1) */
-  --lufa-core-neutral-text-disabled: #171717;
+  /* Neutral */
+  --lufa-core-color-neutral-background: #0a0a0a;
+  --lufa-core-color-neutral-surface-default: #171717;
+  --lufa-core-color-neutral-surface-hover: #262626;
+  --lufa-core-color-neutral-border-default: #737373;
+  --lufa-core-color-neutral-border-strong: #a3e635;
+  --lufa-core-color-neutral-text-primary: #a3e635;
+  --lufa-core-color-neutral-text-secondary: #ffffff;
+  --lufa-core-color-neutral-text-tertiary: #888888;
+  --lufa-core-color-neutral-text-disabled: #171717;
 
-  /* Semantic Tokens */
-  --lufa-core-feedback-success-default: #22c55e;
-  --lufa-core-feedback-success-subtle: #052e16;
-  --lufa-core-feedback-success-border: #14532d;
-  --lufa-core-feedback-success-hover: #4ade80;
-  --lufa-core-feedback-error-default: #f87171; /* Even brighter red - WCAG AA (4.51:1) */
-  --lufa-core-feedback-error-subtle: #450a0a;
-  --lufa-core-feedback-error-border: #7f1d1d;
-  --lufa-core-feedback-error-hover: #fca5a5;
-  --lufa-core-feedback-warning-default: #eab308;
-  --lufa-core-feedback-warning-subtle: #422006;
-  --lufa-core-feedback-warning-border: #713f12;
-  --lufa-core-feedback-warning-hover: #facc15;
-  --lufa-core-feedback-info-default: #60a5fa; /* Brighter blue - WCAG AA (4.51:1) */
-  --lufa-core-feedback-info-subtle: #172554;
-  --lufa-core-feedback-info-border: #1e3a8a;
-  --lufa-core-feedback-info-hover: #60a5fa;
-
-  /* Shadow Tokens - Dark Mode */
-  --lufa-shadow-color: rgba(0, 0, 0, 0.5); /* Stronger shadow for dark backgrounds */
-  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
-  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
-  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
-  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
-  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
-
-  /* Overlay Tokens - Dark Mode */
-  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.05);
-  --lufa-overlay-light: rgba(255, 255, 255, 0.1);
-  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.2);
-  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.1);
-  --lufa-overlay-dark: rgba(0, 0, 0, 0.2);
-  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.4);
-  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.5);
-  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.7);
-  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.9);
-
-  /* ==================== RGB VARIABLES - DARK MODE ==================== */
-  --lufa-primary-rgb: 163, 230, 53; /* #a3e635 */
-  --lufa-secondary-rgb: 255, 255, 255; /* #ffffff */
-  --lufa-success-rgb: 34, 197, 94; /* #22c55e */
-  --lufa-error-rgb: 248, 113, 113; /* #f87171 */
-  --lufa-warning-rgb: 234, 179, 8; /* #eab308 */
-  --lufa-info-rgb: 96, 165, 250; /* #60a5fa */
-
-  /* ==================== ALPHA TOKENS - DARK MODE ==================== */
-  /* Primary alpha tokens (9 levels) */
-  --lufa-color-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
-  --lufa-color-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
-  --lufa-color-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
-  --lufa-color-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
-  --lufa-color-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
-  --lufa-color-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
-  --lufa-color-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
-  --lufa-color-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
-  --lufa-color-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
-
-  /* Secondary alpha tokens (9 levels) */
-  --lufa-color-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
-  --lufa-color-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
-  --lufa-color-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
-  --lufa-color-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
-  --lufa-color-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
-  --lufa-color-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
-  --lufa-color-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
-  --lufa-color-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
-  --lufa-color-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
-
-  /* Success alpha tokens (9 levels) */
-  --lufa-color-alpha-success-3: rgba(var(--lufa-success-rgb), 0.03);
-  --lufa-color-alpha-success-5: rgba(var(--lufa-success-rgb), 0.05);
-  --lufa-color-alpha-success-8: rgba(var(--lufa-success-rgb), 0.08);
-  --lufa-color-alpha-success-10: rgba(var(--lufa-success-rgb), 0.1);
-  --lufa-color-alpha-success-15: rgba(var(--lufa-success-rgb), 0.15);
-  --lufa-color-alpha-success-20: rgba(var(--lufa-success-rgb), 0.2);
-  --lufa-color-alpha-success-30: rgba(var(--lufa-success-rgb), 0.3);
-  --lufa-color-alpha-success-40: rgba(var(--lufa-success-rgb), 0.4);
-  --lufa-color-alpha-success-50: rgba(var(--lufa-success-rgb), 0.5);
-
-  /* Error alpha tokens (9 levels) */
-  --lufa-color-alpha-error-3: rgba(var(--lufa-error-rgb), 0.03);
-  --lufa-color-alpha-error-5: rgba(var(--lufa-error-rgb), 0.05);
-  --lufa-color-alpha-error-8: rgba(var(--lufa-error-rgb), 0.08);
-  --lufa-color-alpha-error-10: rgba(var(--lufa-error-rgb), 0.1);
-  --lufa-color-alpha-error-15: rgba(var(--lufa-error-rgb), 0.15);
-  --lufa-color-alpha-error-20: rgba(var(--lufa-error-rgb), 0.2);
-  --lufa-color-alpha-error-30: rgba(var(--lufa-error-rgb), 0.3);
-  --lufa-color-alpha-error-40: rgba(var(--lufa-error-rgb), 0.4);
-  --lufa-color-alpha-error-50: rgba(var(--lufa-error-rgb), 0.5);
-
-  /* Warning alpha tokens (9 levels) */
-  --lufa-color-alpha-warning-3: rgba(var(--lufa-warning-rgb), 0.03);
-  --lufa-color-alpha-warning-5: rgba(var(--lufa-warning-rgb), 0.05);
-  --lufa-color-alpha-warning-8: rgba(var(--lufa-warning-rgb), 0.08);
-  --lufa-color-alpha-warning-10: rgba(var(--lufa-warning-rgb), 0.1);
-  --lufa-color-alpha-warning-15: rgba(var(--lufa-warning-rgb), 0.15);
-  --lufa-color-alpha-warning-20: rgba(var(--lufa-warning-rgb), 0.2);
-  --lufa-color-alpha-warning-30: rgba(var(--lufa-warning-rgb), 0.3);
-  --lufa-color-alpha-warning-40: rgba(var(--lufa-warning-rgb), 0.4);
-  --lufa-color-alpha-warning-50: rgba(var(--lufa-warning-rgb), 0.5);
-
-  /* Info alpha tokens (9 levels) */
-  --lufa-color-alpha-info-3: rgba(var(--lufa-info-rgb), 0.03);
-  --lufa-color-alpha-info-5: rgba(var(--lufa-info-rgb), 0.05);
-  --lufa-color-alpha-info-8: rgba(var(--lufa-info-rgb), 0.08);
-  --lufa-color-alpha-info-10: rgba(var(--lufa-info-rgb), 0.1);
-  --lufa-color-alpha-info-15: rgba(var(--lufa-info-rgb), 0.15);
-  --lufa-color-alpha-info-20: rgba(var(--lufa-info-rgb), 0.2);
-  --lufa-color-alpha-info-30: rgba(var(--lufa-info-rgb), 0.3);
-  --lufa-color-alpha-info-40: rgba(var(--lufa-info-rgb), 0.4);
-  --lufa-color-alpha-info-50: rgba(var(--lufa-info-rgb), 0.5);
+  /* Feedback */
+  --lufa-core-color-feedback-success-default: #22c55e;
+  --lufa-core-color-feedback-success-subtle: #052e16;
+  --lufa-core-color-feedback-success-border: #14532d;
+  --lufa-core-color-feedback-success-hover: #4ade80;
+  --lufa-core-color-feedback-error-default: #f87171;
+  --lufa-core-color-feedback-error-subtle: #450a0a;
+  --lufa-core-color-feedback-error-border: #7f1d1d;
+  --lufa-core-color-feedback-error-hover: #fca5a5;
+  --lufa-core-color-feedback-warning-default: #eab308;
+  --lufa-core-color-feedback-warning-subtle: #422006;
+  --lufa-core-color-feedback-warning-border: #713f12;
+  --lufa-core-color-feedback-warning-hover: #facc15;
+  --lufa-core-color-feedback-info-default: #60a5fa;
+  --lufa-core-color-feedback-info-subtle: #172554;
+  --lufa-core-color-feedback-info-border: #1e3a8a;
+  --lufa-core-color-feedback-info-hover: #60a5fa;
 }
 
-/* ==================== HIGH CONTRAST MODE ==================== */
-
 [data-theme='volt'][data-mode='high-contrast'] {
-  --lufa-core-brand-primary-default: #a3e635;
-  --lufa-core-brand-primary-hover: #bef264;
-  --lufa-core-brand-primary-active: #84cc16;
-  --lufa-core-brand-secondary-default: #ffffff;
-  --lufa-core-brand-secondary-hover: #ffffff;
-  --lufa-core-brand-secondary-active: #cccccc;
-  --lufa-core-brand-accent-visited: #bf00ff; /* Purple — WCAG AA on black (4.7:1) */
-  --lufa-core-brand-primary-on-background: #000000;
-  --lufa-core-brand-secondary-on-background: #000000;
+  /* Brand */
+  --lufa-core-color-brand-primary-default: #a3e635;
+  --lufa-core-color-brand-primary-hover: #bef264;
+  --lufa-core-color-brand-primary-active: #84cc16;
+  --lufa-core-color-brand-primary-on-background: #000000;
+  --lufa-core-color-brand-secondary-default: #ffffff;
+  --lufa-core-color-brand-secondary-hover: #ffffff;
+  --lufa-core-color-brand-secondary-active: #cccccc;
+  --lufa-core-color-brand-secondary-on-background: #000000;
+  --lufa-core-color-brand-accent-visited: #bf00ff;
 
-  --lufa-core-neutral-background: #000000;
-  --lufa-core-neutral-surface-default: #000000;
-  --lufa-core-neutral-surface-hover: #1a1a1a;
-  --lufa-core-neutral-border-default: #a3e635;
-  --lufa-core-neutral-border-strong: #a3e635;
-  --lufa-core-neutral-text-primary: #a3e635;
-  --lufa-core-neutral-text-secondary: #ffffff;
-  --lufa-core-neutral-text-tertiary: #a3e635;
-  --lufa-core-neutral-text-disabled: #333333;
+  /* Neutral */
+  --lufa-core-color-neutral-background: #000000;
+  --lufa-core-color-neutral-surface-default: #000000;
+  --lufa-core-color-neutral-surface-hover: #1a1a1a;
+  --lufa-core-color-neutral-border-default: #a3e635;
+  --lufa-core-color-neutral-border-strong: #a3e635;
+  --lufa-core-color-neutral-text-primary: #a3e635;
+  --lufa-core-color-neutral-text-secondary: #ffffff;
+  --lufa-core-color-neutral-text-tertiary: #a3e635;
+  --lufa-core-color-neutral-text-disabled: #333333;
 
-  /* Shadow Tokens - High Contrast Mode */
-  --lufa-shadow-color: rgba(0, 0, 0, 0.8); /* Strong shadow for maximum contrast */
-  --lufa-shadow-xs: 0 1px 2px var(--lufa-shadow-color);
-  --lufa-shadow-sm: 0 2px 4px var(--lufa-shadow-color);
-  --lufa-shadow-md: 0 4px 8px var(--lufa-shadow-color);
-  --lufa-shadow-lg: 0 8px 16px var(--lufa-shadow-color);
-  --lufa-shadow-xl: 0 12px 24px var(--lufa-shadow-color);
-
-  /* Overlay Tokens - High Contrast Mode */
-  --lufa-overlay-light-subtle: rgba(255, 255, 255, 0.1);
-  --lufa-overlay-light: rgba(255, 255, 255, 0.2);
-  --lufa-overlay-light-strong: rgba(255, 255, 255, 0.3);
-  --lufa-overlay-dark-subtle: rgba(0, 0, 0, 0.2);
-  --lufa-overlay-dark: rgba(0, 0, 0, 0.4);
-  --lufa-overlay-dark-strong: rgba(0, 0, 0, 0.6);
-  --lufa-overlay-backdrop-light: rgba(0, 0, 0, 0.6);
-  --lufa-overlay-backdrop: rgba(0, 0, 0, 0.8);
-  --lufa-overlay-backdrop-strong: rgba(0, 0, 0, 0.95);
-
-  /* Semantic Tokens - High Visibility for Accessibility */
-  --lufa-core-feedback-success-default: #76ff03; /* High contrast success */
-  --lufa-core-feedback-success-subtle: #000000; /* Pure black background */
-  --lufa-core-feedback-success-border: #76ff03; /* Matching border for max contrast */
-  --lufa-core-feedback-success-hover: #b2ff59; /* Brighter success */
-
-  --lufa-core-feedback-error-default: #ff1744; /* High contrast error */
-  --lufa-core-feedback-error-subtle: #000000; /* Pure black background */
-  --lufa-core-feedback-error-border: #ff1744; /* Matching border for max contrast */
-  --lufa-core-feedback-error-hover: #ff5252; /* Brighter error */
-
-  --lufa-core-feedback-warning-default: #ffea00; /* High contrast warning */
-  --lufa-core-feedback-warning-subtle: #000000; /* Pure black background */
-  --lufa-core-feedback-warning-border: #ffea00; /* Matching border for max contrast */
-  --lufa-core-feedback-warning-hover: #fff176; /* Brighter warning */
-
-  --lufa-core-feedback-info-default: #00e5ff; /* High contrast info */
-  --lufa-core-feedback-info-subtle: #000000; /* Pure black background */
-  --lufa-core-feedback-info-border: #00e5ff; /* Matching border for max contrast */
-  --lufa-core-feedback-info-hover: #84ffff; /* Brighter info */
-
-  /* ==================== RGB VARIABLES - HIGH CONTRAST MODE ==================== */
-  --lufa-primary-rgb: 163, 230, 53; /* #a3e635 */
-  --lufa-secondary-rgb: 255, 255, 255; /* #ffffff */
-  --lufa-success-rgb: 118, 255, 3; /* #76ff03 */
-  --lufa-error-rgb: 255, 23, 68; /* #ff1744 */
-  --lufa-warning-rgb: 255, 234, 0; /* #ffea00 */
-  --lufa-info-rgb: 0, 229, 255; /* #00e5ff */
-
-  /* ==================== ALPHA TOKENS - HIGH CONTRAST MODE ==================== */
-  /* Primary alpha tokens (9 levels) */
-  --lufa-color-alpha-primary-3: rgba(var(--lufa-primary-rgb), 0.03);
-  --lufa-color-alpha-primary-5: rgba(var(--lufa-primary-rgb), 0.05);
-  --lufa-color-alpha-primary-8: rgba(var(--lufa-primary-rgb), 0.08);
-  --lufa-color-alpha-primary-10: rgba(var(--lufa-primary-rgb), 0.1);
-  --lufa-color-alpha-primary-15: rgba(var(--lufa-primary-rgb), 0.15);
-  --lufa-color-alpha-primary-20: rgba(var(--lufa-primary-rgb), 0.2);
-  --lufa-color-alpha-primary-30: rgba(var(--lufa-primary-rgb), 0.3);
-  --lufa-color-alpha-primary-40: rgba(var(--lufa-primary-rgb), 0.4);
-  --lufa-color-alpha-primary-50: rgba(var(--lufa-primary-rgb), 0.5);
-
-  /* Secondary alpha tokens (9 levels) */
-  --lufa-color-alpha-secondary-3: rgba(var(--lufa-secondary-rgb), 0.03);
-  --lufa-color-alpha-secondary-5: rgba(var(--lufa-secondary-rgb), 0.05);
-  --lufa-color-alpha-secondary-8: rgba(var(--lufa-secondary-rgb), 0.08);
-  --lufa-color-alpha-secondary-10: rgba(var(--lufa-secondary-rgb), 0.1);
-  --lufa-color-alpha-secondary-15: rgba(var(--lufa-secondary-rgb), 0.15);
-  --lufa-color-alpha-secondary-20: rgba(var(--lufa-secondary-rgb), 0.2);
-  --lufa-color-alpha-secondary-30: rgba(var(--lufa-secondary-rgb), 0.3);
-  --lufa-color-alpha-secondary-40: rgba(var(--lufa-secondary-rgb), 0.4);
-  --lufa-color-alpha-secondary-50: rgba(var(--lufa-secondary-rgb), 0.5);
-
-  /* Success alpha tokens (9 levels) */
-  --lufa-color-alpha-success-3: rgba(var(--lufa-success-rgb), 0.03);
-  --lufa-color-alpha-success-5: rgba(var(--lufa-success-rgb), 0.05);
-  --lufa-color-alpha-success-8: rgba(var(--lufa-success-rgb), 0.08);
-  --lufa-color-alpha-success-10: rgba(var(--lufa-success-rgb), 0.1);
-  --lufa-color-alpha-success-15: rgba(var(--lufa-success-rgb), 0.15);
-  --lufa-color-alpha-success-20: rgba(var(--lufa-success-rgb), 0.2);
-  --lufa-color-alpha-success-30: rgba(var(--lufa-success-rgb), 0.3);
-  --lufa-color-alpha-success-40: rgba(var(--lufa-success-rgb), 0.4);
-  --lufa-color-alpha-success-50: rgba(var(--lufa-success-rgb), 0.5);
-
-  /* Error alpha tokens (9 levels) */
-  --lufa-color-alpha-error-3: rgba(var(--lufa-error-rgb), 0.03);
-  --lufa-color-alpha-error-5: rgba(var(--lufa-error-rgb), 0.05);
-  --lufa-color-alpha-error-8: rgba(var(--lufa-error-rgb), 0.08);
-  --lufa-color-alpha-error-10: rgba(var(--lufa-error-rgb), 0.1);
-  --lufa-color-alpha-error-15: rgba(var(--lufa-error-rgb), 0.15);
-  --lufa-color-alpha-error-20: rgba(var(--lufa-error-rgb), 0.2);
-  --lufa-color-alpha-error-30: rgba(var(--lufa-error-rgb), 0.3);
-  --lufa-color-alpha-error-40: rgba(var(--lufa-error-rgb), 0.4);
-  --lufa-color-alpha-error-50: rgba(var(--lufa-error-rgb), 0.5);
-
-  /* Warning alpha tokens (9 levels) */
-  --lufa-color-alpha-warning-3: rgba(var(--lufa-warning-rgb), 0.03);
-  --lufa-color-alpha-warning-5: rgba(var(--lufa-warning-rgb), 0.05);
-  --lufa-color-alpha-warning-8: rgba(var(--lufa-warning-rgb), 0.08);
-  --lufa-color-alpha-warning-10: rgba(var(--lufa-warning-rgb), 0.1);
-  --lufa-color-alpha-warning-15: rgba(var(--lufa-warning-rgb), 0.15);
-  --lufa-color-alpha-warning-20: rgba(var(--lufa-warning-rgb), 0.2);
-  --lufa-color-alpha-warning-30: rgba(var(--lufa-warning-rgb), 0.3);
-  --lufa-color-alpha-warning-40: rgba(var(--lufa-warning-rgb), 0.4);
-  --lufa-color-alpha-warning-50: rgba(var(--lufa-warning-rgb), 0.5);
-
-  /* Info alpha tokens (9 levels) */
-  --lufa-color-alpha-info-3: rgba(var(--lufa-info-rgb), 0.03);
-  --lufa-color-alpha-info-5: rgba(var(--lufa-info-rgb), 0.05);
-  --lufa-color-alpha-info-8: rgba(var(--lufa-info-rgb), 0.08);
-  --lufa-color-alpha-info-10: rgba(var(--lufa-info-rgb), 0.1);
-  --lufa-color-alpha-info-15: rgba(var(--lufa-info-rgb), 0.15);
-  --lufa-color-alpha-info-20: rgba(var(--lufa-info-rgb), 0.2);
-  --lufa-color-alpha-info-30: rgba(var(--lufa-info-rgb), 0.3);
-  --lufa-color-alpha-info-40: rgba(var(--lufa-info-rgb), 0.4);
-  --lufa-color-alpha-info-50: rgba(var(--lufa-info-rgb), 0.5);
+  /* Feedback */
+  --lufa-core-color-feedback-success-default: #76ff03;
+  --lufa-core-color-feedback-success-subtle: #000000;
+  --lufa-core-color-feedback-success-border: #76ff03;
+  --lufa-core-color-feedback-success-hover: #b2ff59;
+  --lufa-core-color-feedback-error-default: #ff1744;
+  --lufa-core-color-feedback-error-subtle: #000000;
+  --lufa-core-color-feedback-error-border: #ff1744;
+  --lufa-core-color-feedback-error-hover: #ff5252;
+  --lufa-core-color-feedback-warning-default: #ffea00;
+  --lufa-core-color-feedback-warning-subtle: #000000;
+  --lufa-core-color-feedback-warning-border: #ffea00;
+  --lufa-core-color-feedback-warning-hover: #fff176;
+  --lufa-core-color-feedback-info-default: #00e5ff;
+  --lufa-core-color-feedback-info-subtle: #000000;
+  --lufa-core-color-feedback-info-border: #00e5ff;
+  --lufa-core-color-feedback-info-hover: #84ffff;
 }
