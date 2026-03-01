@@ -204,11 +204,11 @@ const ButtonImpl = <T extends ElementType = 'button'>(
     radius && styles[`radius-${radius}`],
 
     // Full width
-    fullWidth && styles['fullWidth-true'],
+    fullWidth && styles.fullWidth,
 
     // States
-    isDisabled && styles['disabled-true'],
-    loading && styles['loading-true'],
+    isDisabled && styles.disabled,
+    loading && styles.loading,
 
     // Custom className
     className

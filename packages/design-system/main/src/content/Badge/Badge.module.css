@@ -61,18 +61,21 @@
 /* ========================================== */
 
 .size-sm {
-  padding: var(--lufa-component-badge-padding-sm);
-  font-size: var(--lufa-component-badge-font-size-sm);
+  padding-block: var(--lufa-component-badge-padding-compact-block);
+  padding-inline: var(--lufa-component-badge-padding-compact-inline);
+  font-size: var(--lufa-component-badge-font-size-compact);
 }
 
 .size-md {
-  padding: var(--lufa-component-badge-padding-md);
-  font-size: var(--lufa-component-badge-font-size-md);
+  padding-block: var(--lufa-component-badge-padding-default-block);
+  padding-inline: var(--lufa-component-badge-padding-default-inline);
+  font-size: var(--lufa-component-badge-font-size-default);
 }
 
 .size-lg {
-  padding: var(--lufa-component-badge-padding-lg);
-  font-size: var(--lufa-component-badge-font-size-lg);
+  padding-block: var(--lufa-component-badge-padding-large-block);
+  padding-inline: var(--lufa-component-badge-padding-large-inline);
+  font-size: var(--lufa-component-badge-font-size-large);
 }
 
 /* ========================================== */

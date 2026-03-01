@@ -7,7 +7,7 @@
  *
  * Architecture: Single-dimensional design
  * - VARIANT: Semantic color intention (default, success, error, warning, info)
- * - SIZE: Dimensions and padding (sm, md, lg)
+ * - SIZE: Dimensions and padding (compact, default, large)
  * - DOT: Optional notification dot indicator
  *
  * @see packages/design-system/main/scripts/generate-utilities.js
@@ -62,19 +62,22 @@ module.exports = {
     // SIZES - Dimensions and Padding
     // ==========================================
     size: {
-      property: ['padding', 'font-size'],
+      property: ['padding-block', 'padding-inline', 'font-size'],
       values: {
         sm: [
-          'var(--lufa-component-badge-padding-sm)', // 2px 6px
-          'var(--lufa-component-badge-font-size-sm)', // 10px
+          'var(--lufa-component-badge-padding-compact-block)', // 2px
+          'var(--lufa-component-badge-padding-compact-inline)', // 6px
+          'var(--lufa-component-badge-font-size-compact)', // 10px
         ],
         md: [
-          'var(--lufa-component-badge-padding-md)', // 4px 8px
-          'var(--lufa-component-badge-font-size-md)', // 12px
+          'var(--lufa-component-badge-padding-default-block)', // 4px
+          'var(--lufa-component-badge-padding-default-inline)', // 8px
+          'var(--lufa-component-badge-font-size-default)', // 12px
         ],
         lg: [
-          'var(--lufa-component-badge-padding-lg)', // 6px 12px
-          'var(--lufa-component-badge-font-size-lg)', // 14px
+          'var(--lufa-component-badge-padding-large-block)', // 6px
+          'var(--lufa-component-badge-padding-large-inline)', // 12px
+          'var(--lufa-component-badge-font-size-large)', // 14px
         ],
       },
     },

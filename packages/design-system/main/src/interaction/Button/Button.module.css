@@ -136,7 +136,7 @@
 /* FULLWIDTH */
 /* ========================================== */
 
-.fullWidth-true {
+.fullWidth {
   width: 100%;
 }
 
@@ -144,7 +144,7 @@
 /* DISABLED */
 /* ========================================== */
 
-.disabled-true {
+.disabled {
   opacity: var(--lufa-component-button-state-disabled-opacity);
   cursor: var(--lufa-component-button-state-disabled-cursor);
   pointer-events: none;
@@ -154,7 +154,7 @@
 /* LOADING */
 /* ========================================== */
 
-.loading-true {
+.loading {
   opacity: var(--lufa-semantic-interactive-opacity-loading);
   cursor: var(--lufa-component-button-state-loading-cursor);
 }
@@ -166,106 +166,106 @@
 /* Solid + Primary (Blue) */
 
 .button.type-solid.variant-primary {
-  background-color: var(--lufa-component-button-variant-primary-background-default);
-  color: var(--lufa-component-button-variant-primary-text);
+  background-color: var(--lufa-component-button-type-solid-variant-primary-background-default);
+  color: var(--lufa-component-button-type-solid-variant-primary-text);
 }
 
-.button.type-solid.variant-primary:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-primary-background-hover);
+.button.type-solid.variant-primary:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-secondary-background-hover);
 }
 
-.button.type-solid.variant-primary:active:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-primary-background-active);
+.button.type-solid.variant-primary:active:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-primary-background-active);
 }
 
 /* Solid + Secondary (Purple) */
 
 .button.type-solid.variant-secondary {
-  background-color: var(--lufa-component-button-variant-secondary-background-default);
-  color: var(--lufa-component-button-variant-secondary-text);
+  background-color: var(--lufa-component-button-type-solid-variant-secondary-background-default);
+  color: var(--lufa-component-button-type-solid-variant-secondary-text);
 }
 
-.button.type-solid.variant-secondary:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-secondary-background-hover);
+.button.type-solid.variant-secondary:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-secondary-background-hover);
 }
 
-.button.type-solid.variant-secondary:active:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-secondary-background-active);
+.button.type-solid.variant-secondary:active:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-secondary-background-active);
 }
 
 /* Solid + Success (Green) */
 
 .button.type-solid.variant-success {
-  background-color: var(--lufa-component-button-variant-success-background-default);
-  color: var(--lufa-component-button-variant-success-text);
+  background-color: var(--lufa-component-button-type-solid-variant-success-background-default);
+  color: var(--lufa-component-button-type-solid-variant-success-text);
 }
 
-.button.type-solid.variant-success:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-success-background-hover);
+.button.type-solid.variant-success:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-success-background-hover);
 }
 
-.button.type-solid.variant-success:active:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-success-background-active);
+.button.type-solid.variant-success:active:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-success-background-active);
 }
 
 /* Solid + Danger (Red) */
 
 .button.type-solid.variant-danger {
-  background-color: var(--lufa-component-button-variant-destructive-background-default);
-  color: var(--lufa-component-button-variant-destructive-text);
+  background-color: var(--lufa-component-button-type-solid-variant-destructive-background-default);
+  color: var(--lufa-component-button-type-solid-variant-destructive-text);
 }
 
-.button.type-solid.variant-danger:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-destructive-background-hover);
+.button.type-solid.variant-danger:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-destructive-background-hover);
 }
 
-.button.type-solid.variant-danger:active:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-destructive-background-active);
+.button.type-solid.variant-danger:active:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-destructive-background-active);
 }
 
 /* Solid + Warning (Orange/Yellow-600) */
 
 .button.type-solid.variant-warning {
-  background-color: var(--lufa-component-button-variant-warning-background-default);
-  color: var(--lufa-component-button-variant-warning-text);
+  background-color: var(--lufa-component-button-type-solid-variant-warning-background-default);
+  color: var(--lufa-component-button-type-solid-variant-warning-text);
 }
 
-.button.type-solid.variant-warning:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-warning-background-hover);
+.button.type-solid.variant-warning:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-warning-background-hover);
 }
 
-.button.type-solid.variant-warning:active:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-warning-background-active);
+.button.type-solid.variant-warning:active:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-warning-background-active);
 }
 
 /* Solid + Info (Blue-500) */
 
 .button.type-solid.variant-info {
-  background-color: var(--lufa-component-button-variant-info-background-default);
-  color: var(--lufa-component-button-variant-info-text);
+  background-color: var(--lufa-component-button-type-solid-variant-info-background-default);
+  color: var(--lufa-component-button-type-solid-variant-info-text);
 }
 
-.button.type-solid.variant-info:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-info-background-hover);
+.button.type-solid.variant-info:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-info-background-hover);
 }
 
-.button.type-solid.variant-info:active:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-info-background-active);
+.button.type-solid.variant-info:active:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-info-background-active);
 }
 
 /* Solid + Neutral (Gray) */
 
 .button.type-solid.variant-neutral {
-  background-color: var(--lufa-component-button-variant-neutral-background-default);
-  color: var(--lufa-component-button-variant-neutral-text);
+  background-color: var(--lufa-component-button-type-solid-variant-neutral-background-default);
+  color: var(--lufa-component-button-type-solid-variant-neutral-text);
 }
 
-.button.type-solid.variant-neutral:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-neutral-background-hover);
+.button.type-solid.variant-neutral:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-neutral-background-hover);
 }
 
-.button.type-solid.variant-neutral:active:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-variant-neutral-background-active);
+.button.type-solid.variant-neutral:active:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-solid-variant-neutral-background-active);
 }
 
 /* Outline + Primary (Blue) */
@@ -276,13 +276,13 @@
   border-color: var(--lufa-component-button-type-outline-border-default);
 }
 
-.button.type-outline.variant-primary:hover:not(:disabled):not(.disabled-true) {
+.button.type-outline.variant-primary:hover:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-outline-background-hover);
   color: var(--lufa-component-button-type-outline-text-hover);
   border-color: var(--lufa-component-button-type-outline-border-hover);
 }
 
-.button.type-outline.variant-primary:active:not(:disabled):not(.disabled-true) {
+.button.type-outline.variant-primary:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-outline-variant-primary-background-active);
   border-color: var(--lufa-component-button-type-outline-variant-primary-border-active);
 }
@@ -291,17 +291,17 @@
 
 .button.type-outline.variant-secondary {
   background-color: transparent;
-  color: var(--lufa-core-brand-secondary-default);
-  border-color: var(--lufa-core-brand-secondary-default);
+  color: var(--lufa-semantic-interactive-action-secondary-default);
+  border-color: var(--lufa-semantic-interactive-action-secondary-default);
 }
 
-.button.type-outline.variant-secondary:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-core-brand-secondary-default);
+.button.type-outline.variant-secondary:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-semantic-interactive-action-secondary-default);
   color: var(--lufa-semantic-ui-background-on-secondary);
-  border-color: var(--lufa-core-brand-secondary-hover);
+  border-color: var(--lufa-semantic-interactive-action-secondary-hover);
 }
 
-.button.type-outline.variant-secondary:active:not(:disabled):not(.disabled-true) {
+.button.type-outline.variant-secondary:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-outline-variant-secondary-background-active);
   border-color: var(--lufa-component-button-type-outline-variant-secondary-border-active);
 }
@@ -310,17 +310,17 @@
 
 .button.type-outline.variant-success {
   background-color: transparent;
-  color: var(--lufa-core-feedback-success-default);
-  border-color: var(--lufa-core-feedback-success-default);
+  color: var(--lufa-semantic-interactive-action-success-default);
+  border-color: var(--lufa-semantic-interactive-action-success-default);
 }
 
-.button.type-outline.variant-success:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-core-feedback-success-default);
+.button.type-outline.variant-success:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-semantic-interactive-action-success-default);
   color: var(--lufa-component-button-type-outline-text-hover);
-  border-color: var(--lufa-core-feedback-success-hover);
+  border-color: var(--lufa-semantic-interactive-action-success-hover);
 }
 
-.button.type-outline.variant-success:active:not(:disabled):not(.disabled-true) {
+.button.type-outline.variant-success:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-outline-variant-success-background-active);
   border-color: var(--lufa-component-button-type-outline-variant-success-border-active);
 }
@@ -329,36 +329,36 @@
 
 .button.type-outline.variant-danger {
   background-color: transparent;
-  color: var(--lufa-core-feedback-error-default);
-  border-color: var(--lufa-core-feedback-error-default);
+  color: var(--lufa-semantic-interactive-action-destructive-default);
+  border-color: var(--lufa-semantic-interactive-action-destructive-default);
 }
 
-.button.type-outline.variant-danger:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-core-feedback-error-default);
+.button.type-outline.variant-danger:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-semantic-interactive-action-destructive-default);
   color: var(--lufa-component-button-type-outline-text-hover);
-  border-color: var(--lufa-core-feedback-error-hover);
+  border-color: var(--lufa-semantic-interactive-action-destructive-hover);
 }
 
-.button.type-outline.variant-danger:active:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-component-button-type-outline-variant-danger-background-active);
-  border-color: var(--lufa-component-button-type-outline-variant-danger-border-active);
+.button.type-outline.variant-danger:active:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-component-button-type-outline-variant-destructive-background-active);
+  border-color: var(--lufa-component-button-type-outline-variant-destructive-border-active);
 }
 
 /* Outline + Warning (Orange/Yellow-600) */
 
 .button.type-outline.variant-warning {
   background-color: transparent;
-  color: var(--lufa-core-feedback-warning-default);
-  border-color: var(--lufa-core-feedback-warning-default);
+  color: var(--lufa-semantic-interactive-action-warning-default);
+  border-color: var(--lufa-semantic-interactive-action-warning-default);
 }
 
-.button.type-outline.variant-warning:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-core-feedback-warning-default);
+.button.type-outline.variant-warning:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-semantic-interactive-action-warning-default);
   color: var(--lufa-component-button-type-outline-text-hover);
-  border-color: var(--lufa-core-feedback-warning-hover);
+  border-color: var(--lufa-semantic-interactive-action-warning-hover);
 }
 
-.button.type-outline.variant-warning:active:not(:disabled):not(.disabled-true) {
+.button.type-outline.variant-warning:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-outline-variant-warning-background-active);
   border-color: var(--lufa-component-button-type-outline-variant-warning-border-active);
 }
@@ -367,17 +367,17 @@
 
 .button.type-outline.variant-info {
   background-color: transparent;
-  color: var(--lufa-core-feedback-info-default);
-  border-color: var(--lufa-core-feedback-info-default);
+  color: var(--lufa-semantic-interactive-action-info-default);
+  border-color: var(--lufa-semantic-interactive-action-info-default);
 }
 
-.button.type-outline.variant-info:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-core-feedback-info-default);
+.button.type-outline.variant-info:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-semantic-interactive-action-info-default);
   color: var(--lufa-component-button-type-outline-text-hover);
-  border-color: var(--lufa-core-feedback-info-hover);
+  border-color: var(--lufa-semantic-interactive-action-info-hover);
 }
 
-.button.type-outline.variant-info:active:not(:disabled):not(.disabled-true) {
+.button.type-outline.variant-info:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-outline-variant-info-background-active);
   border-color: var(--lufa-component-button-type-outline-variant-info-border-active);
 }
@@ -386,18 +386,18 @@
 
 .button.type-outline.variant-neutral {
   background-color: transparent;
-  color: var(--lufa-core-neutral-text-secondary);
-  border-color: var(--lufa-core-neutral-border-strong);
+  color: var(--lufa-semantic-ui-text-secondary);
+  border-color: var(--lufa-semantic-interactive-border-hover);
 }
 
-.button.type-outline.variant-neutral:hover:not(:disabled):not(.disabled-true) {
-  background-color: var(--lufa-core-neutral-surface-hover);
-  border-color: var(--lufa-core-neutral-border-strong);
+.button.type-outline.variant-neutral:hover:not(:disabled):not(.disabled) {
+  background-color: var(--lufa-semantic-interactive-background-hover);
+  border-color: var(--lufa-semantic-interactive-border-hover);
 }
 
-.button.type-outline.variant-neutral:active:not(:disabled):not(.disabled-true) {
+.button.type-outline.variant-neutral:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-outline-variant-neutral-background-active);
-  border-color: var(--lufa-core-neutral-border-strong);
+  border-color: var(--lufa-semantic-interactive-border-hover);
 }
 
 /* Ghost + Primary (Blue) */
@@ -407,12 +407,12 @@
   color: var(--lufa-component-button-type-ghost-text-default);
 }
 
-.button.type-ghost.variant-primary:hover:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-primary:hover:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-hover);
   color: var(--lufa-component-button-type-ghost-text-hover);
 }
 
-.button.type-ghost.variant-primary:active:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-primary:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-active);
   color: var(--lufa-component-button-type-ghost-variant-primary-text-active);
 }
@@ -421,15 +421,15 @@
 
 .button.type-ghost.variant-secondary {
   background-color: transparent;
-  color: var(--lufa-core-brand-secondary-default);
+  color: var(--lufa-semantic-interactive-action-secondary-default);
 }
 
-.button.type-ghost.variant-secondary:hover:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-secondary:hover:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-hover);
-  color: var(--lufa-core-brand-secondary-hover);
+  color: var(--lufa-semantic-interactive-action-secondary-hover);
 }
 
-.button.type-ghost.variant-secondary:active:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-secondary:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-active);
   color: var(--lufa-component-button-type-ghost-variant-secondary-text-active);
 }
@@ -438,15 +438,15 @@
 
 .button.type-ghost.variant-success {
   background-color: transparent;
-  color: var(--lufa-core-feedback-success-default);
+  color: var(--lufa-semantic-interactive-action-success-default);
 }
 
-.button.type-ghost.variant-success:hover:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-success:hover:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-hover);
-  color: var(--lufa-core-feedback-success-hover);
+  color: var(--lufa-semantic-interactive-action-success-hover);
 }
 
-.button.type-ghost.variant-success:active:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-success:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-active);
   color: var(--lufa-component-button-type-ghost-variant-success-text-active);
 }
@@ -455,32 +455,32 @@
 
 .button.type-ghost.variant-danger {
   background-color: transparent;
-  color: var(--lufa-core-feedback-error-default);
+  color: var(--lufa-semantic-interactive-action-destructive-default);
 }
 
-.button.type-ghost.variant-danger:hover:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-danger:hover:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-hover);
-  color: var(--lufa-core-feedback-error-hover);
+  color: var(--lufa-semantic-interactive-action-destructive-hover);
 }
 
-.button.type-ghost.variant-danger:active:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-danger:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-active);
-  color: var(--lufa-component-button-type-ghost-variant-danger-text-active);
+  color: var(--lufa-component-button-type-ghost-variant-destructive-text-active);
 }
 
 /* Ghost + Warning (Orange/Yellow-600) */
 
 .button.type-ghost.variant-warning {
   background-color: transparent;
-  color: var(--lufa-core-feedback-warning-default);
+  color: var(--lufa-semantic-interactive-action-warning-default);
 }
 
-.button.type-ghost.variant-warning:hover:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-warning:hover:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-hover);
-  color: var(--lufa-core-feedback-warning-hover);
+  color: var(--lufa-semantic-interactive-action-warning-hover);
 }
 
-.button.type-ghost.variant-warning:active:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-warning:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-active);
   color: var(--lufa-component-button-type-ghost-variant-warning-text-active);
 }
@@ -489,15 +489,15 @@
 
 .button.type-ghost.variant-info {
   background-color: transparent;
-  color: var(--lufa-core-feedback-info-default);
+  color: var(--lufa-semantic-interactive-action-info-default);
 }
 
-.button.type-ghost.variant-info:hover:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-info:hover:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-hover);
-  color: var(--lufa-core-feedback-info-hover);
+  color: var(--lufa-semantic-interactive-action-info-hover);
 }
 
-.button.type-ghost.variant-info:active:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-info:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-active);
   color: var(--lufa-component-button-type-ghost-variant-info-text-active);
 }
@@ -506,15 +506,15 @@
 
 .button.type-ghost.variant-neutral {
   background-color: transparent;
-  color: var(--lufa-core-neutral-text-secondary);
+  color: var(--lufa-semantic-ui-text-secondary);
 }
 
-.button.type-ghost.variant-neutral:hover:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-neutral:hover:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-hover);
-  color: var(--lufa-core-neutral-text-primary);
+  color: var(--lufa-semantic-ui-text-primary);
 }
 
-.button.type-ghost.variant-neutral:active:not(:disabled):not(.disabled-true) {
+.button.type-ghost.variant-neutral:active:not(:disabled):not(.disabled) {
   background-color: var(--lufa-component-button-type-ghost-background-active);
   color: var(--lufa-component-button-type-ghost-variant-neutral-text-active);
 }
@@ -530,13 +530,13 @@
 }
 
 /* Glow hover state — enhanced box-shadow and text-shadow on hover (themeable) */
-.button:hover:not(:disabled):not(.disabled-true) {
+.button:hover:not(:disabled):not(.disabled) {
   box-shadow: var(--lufa-component-button-effect-glow-hover);
   text-shadow: var(--lufa-component-button-effect-text-glow-hover);
 }
 
 /* Loading spinner — animates first child icon */
-.button.loading-true > :first-child svg {
+.button.loading > :first-child svg {
   animation: spin 1s linear infinite;
 }
 

@@ -68,7 +68,7 @@ const GridImpl = <T extends ElementType = 'div'>(
     gapY && styles[`gapY-${gapY}`],
     align && styles[`align-${align}`],
     justify && styles[`justify-${justify}`],
-    inline && styles[`inline-true`],
+    inline && styles.inline,
     className
   );
 

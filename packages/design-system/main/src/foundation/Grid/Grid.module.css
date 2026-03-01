@@ -182,6 +182,6 @@
 /* INLINE */
 /* ========================================== */
 
-.inline-true {
+.inline {
   display: inline-grid;
 }
