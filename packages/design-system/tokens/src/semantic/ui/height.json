@@ -10,7 +10,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Small buttons, compact form controls, dense UI",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Default buttons, standard form controls",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -34,7 +36,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Large buttons, touch-friendly controls, prominent UI",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

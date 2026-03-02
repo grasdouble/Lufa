@@ -12,7 +12,8 @@
               "category": "ui",
               "subcategory": "divider",
               "useCase": "Dashed horizontal and vertical dividers",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -25,7 +26,8 @@
               "category": "ui",
               "subcategory": "divider",
               "useCase": "Dashed horizontal and vertical dividers",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

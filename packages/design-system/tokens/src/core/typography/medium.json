@@ -10,7 +10,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Labels, navigation items, light emphasis, UI controls",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

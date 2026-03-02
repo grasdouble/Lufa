@@ -11,7 +11,8 @@
               "category": "ui",
               "subcategory": "spacing",
               "useCase": "Icon-text spacing, minimal gaps, dense toolbars, button icon spacing",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -24,7 +25,8 @@
               "category": "ui",
               "subcategory": "spacing",
               "useCase": "Dense forms, compact cards, toolbar spacing, tight button padding",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -37,7 +39,8 @@
               "category": "ui",
               "subcategory": "spacing",
               "useCase": "Badge padding, tag inline spacing, dense button horizontal padding",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -50,7 +53,8 @@
               "category": "ui",
               "subcategory": "spacing",
               "useCase": "Standard button padding, card padding, form field spacing, list item gaps",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -63,7 +67,8 @@
               "category": "ui",
               "subcategory": "spacing",
               "useCase": "Spacious cards, comfortable forms, section padding, hero components",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -76,7 +81,8 @@
               "category": "ui",
               "subcategory": "spacing",
               "useCase": "Large components, hero sections, landing page spacing, emphasis areas",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

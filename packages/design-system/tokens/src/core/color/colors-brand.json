@@ -16,7 +16,8 @@
                   "dark": "{primitive.color.blue.400}",
                   "high-contrast": "{primitive.color.hc.blue}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -33,7 +34,8 @@
                   "dark": "{primitive.color.blue.300}",
                   "high-contrast": "{primitive.color.hc.blue}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -50,7 +52,8 @@
                   "dark": "{primitive.color.blue.600}",
                   "high-contrast": "{primitive.color.hc.blue}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -69,7 +72,8 @@
                     "dark": "{primitive.color.gray.900}",
                     "high-contrast": "{primitive.color.hc.white}"
                   },
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "starter"
                 }
               }
             }
@@ -89,7 +93,8 @@
                   "dark": "{primitive.color.purple.400}",
                   "high-contrast": "{primitive.color.purple.600}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -106,7 +111,8 @@
                   "dark": "{primitive.color.purple.300}",
                   "high-contrast": "{primitive.color.purple.700}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -123,7 +129,8 @@
                   "dark": "{primitive.color.purple.500}",
                   "high-contrast": "{primitive.color.purple.800}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -142,7 +149,8 @@
                     "dark": "{primitive.color.gray.900}",
                     "high-contrast": "{primitive.color.hc.white}"
                   },
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "starter"
                 }
               }
             }
@@ -163,7 +171,8 @@
                   "dark": "{primitive.color.purple.400}",
                   "high-contrast": "{primitive.color.hc.purple}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           }

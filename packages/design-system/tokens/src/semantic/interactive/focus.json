@@ -10,7 +10,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Focus indicators, keyboard navigation rings, accessibility focus states",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -36,7 +37,8 @@
               "category": "interactive",
               "subcategory": "state",
               "useCase": "Filled focus states (not just outline)",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

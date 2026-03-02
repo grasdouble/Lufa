@@ -10,7 +10,8 @@
             "lufa": {
               "category": "container",
               "useCase": "Extra small screen container max-width",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "category": "container",
               "useCase": "Small screen container max-width",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -34,7 +36,8 @@
             "lufa": {
               "category": "container",
               "useCase": "Medium screen container max-width",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -46,7 +49,8 @@
             "lufa": {
               "category": "container",
               "useCase": "Large screen container max-width",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -58,7 +62,8 @@
             "lufa": {
               "category": "container",
               "useCase": "Extra large screen container max-width",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -70,7 +75,8 @@
             "lufa": {
               "category": "container",
               "useCase": "2XL screen container max-width",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -84,7 +90,8 @@
             "lufa": {
               "category": "container",
               "useCase": "Container horizontal gutter padding",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

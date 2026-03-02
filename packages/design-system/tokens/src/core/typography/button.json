@@ -10,7 +10,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Button labels, CTA text",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

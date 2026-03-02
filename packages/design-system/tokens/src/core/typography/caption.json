@@ -10,7 +10,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Captions, metadata, timestamps, helper text",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

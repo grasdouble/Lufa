@@ -10,7 +10,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Bold text, strong emphasis, labels, navigation items",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

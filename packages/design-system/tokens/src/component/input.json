@@ -11,7 +11,8 @@
               "lufa": {
                 "category": "input",
                 "useCase": "Compact form fields",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -23,7 +24,8 @@
               "lufa": {
                 "category": "input",
                 "useCase": "Compact form fields",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -37,7 +39,8 @@
               "lufa": {
                 "category": "input",
                 "useCase": "Standard form fields",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -49,7 +52,8 @@
               "lufa": {
                 "category": "input",
                 "useCase": "Standard form fields",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -63,7 +67,8 @@
               "lufa": {
                 "category": "input",
                 "useCase": "Emphasized form fields",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -75,7 +80,8 @@
               "lufa": {
                 "category": "input",
                 "useCase": "Emphasized form fields",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -90,7 +96,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Compact inputs",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -102,7 +109,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Standard inputs",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -114,7 +122,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Large inputs",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -128,7 +137,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Compact input text",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -140,7 +150,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Standard input text",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -152,7 +163,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Large input text",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -165,7 +177,8 @@
           "lufa": {
             "category": "input",
             "useCase": "All input variants",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
@@ -177,7 +190,8 @@
           "lufa": {
             "category": "input",
             "useCase": "Input border",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
@@ -190,7 +204,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Default input background",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -202,7 +217,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Hover background feedback on input field",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -214,7 +230,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Disabled input background to signal non-interactable state",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -228,7 +245,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Default resting border for input field",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -240,7 +258,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Hover border feedback on input field",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -252,7 +271,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Focused input border for keyboard/pointer focus indication",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -264,7 +284,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Error border indicating invalid or failed validation",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -276,7 +297,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Disabled input border to signal non-interactable state",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -290,7 +312,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Default text color for user-entered content",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -302,7 +325,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Placeholder text",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -314,7 +338,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Dimmed text for disabled input field",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -328,7 +353,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Form field labels",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -340,7 +366,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Form field labels",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -352,7 +379,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Label to field gap",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -367,7 +395,8 @@
               "lufa": {
                 "category": "input",
                 "useCase": "Helper text, error messages",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -380,7 +409,8 @@
                 "lufa": {
                   "category": "input",
                   "useCase": "Helper text",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
@@ -392,7 +422,8 @@
                 "lufa": {
                   "category": "input",
                   "useCase": "Error message text color below invalid input",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             }
@@ -406,7 +437,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Field to helper text gap",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -420,7 +452,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Input fields with icons",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -436,7 +469,8 @@
                 "lufa": {
                   "category": "input",
                   "useCase": "Inputs with border glow in themed designs",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
@@ -448,7 +482,8 @@
                 "lufa": {
                   "category": "input",
                   "useCase": "Enhanced glow when input is focused",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             }
@@ -465,6 +500,7 @@
               "category": "input",
               "useCase": "Disabled or inactive input states",
               "themeable": true,
+              "themeLevel": "advanced",
               "note": "Default is 1 (full opacity). Themes can reduce for visual indication."
             }
           }

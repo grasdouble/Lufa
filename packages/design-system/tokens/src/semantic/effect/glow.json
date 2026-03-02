@@ -11,7 +11,8 @@
               "lufa": {
                 "category": "effect",
                 "useCase": "Components without glow effects, light themes",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -24,7 +25,8 @@
                 "lufa": {
                   "category": "effect",
                   "useCase": "Cards, buttons in dark mode or themed experiences",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "extended"
                 }
               }
             },
@@ -36,7 +38,8 @@
                 "lufa": {
                   "category": "effect",
                   "useCase": "Hover state for cards and buttons",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "extended"
                 }
               }
             }
@@ -56,6 +59,7 @@
                 "category": "effect",
                 "useCase": "Focus states for interactive elements like cards",
                 "themeable": true,
+                "themeLevel": "extended",
                 "note": "Uses neutral alpha token instead of hardcoded brand color. Themes can override via their own token values."
               }
             }
@@ -70,7 +74,8 @@
               "lufa": {
                 "category": "effect",
                 "useCase": "Default text rendering",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -83,7 +88,8 @@
                 "lufa": {
                   "category": "effect",
                   "useCase": "Text glow effects in themed buttons",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "extended"
                 }
               }
             },
@@ -95,7 +101,8 @@
                 "lufa": {
                   "category": "effect",
                   "useCase": "Hover state for text with glow effects",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "extended"
                 }
               }
             }
@@ -110,7 +117,8 @@
               "lufa": {
                 "category": "effect",
                 "useCase": "Default border rendering",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -129,6 +137,7 @@
                 "category": "effect",
                 "useCase": "Focus state for input fields",
                 "themeable": true,
+                "themeLevel": "extended",
                 "note": "Uses neutral alpha token instead of hardcoded brand color. Themes can override via their own token values."
               }
             }

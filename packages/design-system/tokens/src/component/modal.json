@@ -10,7 +10,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Modal backdrop, drawer overlays",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Backdrop-filter blur for modern modal overlays",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -36,7 +38,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Modal content area background",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -48,7 +51,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Modal body padding",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -62,6 +66,7 @@
                 "category": "modal",
                 "useCase": "Compact modals, confirmation dialogs",
                 "themeable": true,
+                "themeLevel": "advanced",
                 "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
@@ -75,6 +80,7 @@
                 "category": "modal",
                 "useCase": "Standard modals, form dialogs",
                 "themeable": true,
+                "themeLevel": "advanced",
                 "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
@@ -88,6 +94,7 @@
                 "category": "modal",
                 "useCase": "Large content modals, detailed forms",
                 "themeable": true,
+                "themeLevel": "advanced",
                 "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
@@ -101,6 +108,7 @@
                 "category": "modal",
                 "useCase": "Full-width modals, complex UIs",
                 "themeable": true,
+                "themeLevel": "advanced",
                 "note": "Layout constant — breakpoint-aligned modal widths are not covered by the semantic spacing scale."
               }
             }
@@ -114,7 +122,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Modal content area corners",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -126,7 +135,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Modal content elevation above backdrop",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -140,7 +150,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Modal header section",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -152,7 +163,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Separator between header and body",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -166,7 +178,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Modal footer section (actions area)",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -178,7 +191,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Separator between body and footer",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -193,6 +207,7 @@
               "category": "modal",
               "useCase": "Modal close button dimensions",
               "themeable": true,
+              "themeLevel": "advanced",
               "note": "Fixed touch-target constant — 32px is the minimum recommended interactive target size."
             }
           }
@@ -206,7 +221,8 @@
               "lufa": {
                 "category": "modal",
                 "useCase": "Close button positioning (top-right)",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -220,7 +236,8 @@
               "lufa": {
                 "category": "modal",
                 "useCase": "Close button icon",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -232,7 +249,8 @@
               "lufa": {
                 "category": "modal",
                 "useCase": "Close button hover state",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -248,7 +266,8 @@
               "lufa": {
                 "category": "modal",
                 "useCase": "Modal fade-in and scale-up animation",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -260,7 +279,8 @@
               "lufa": {
                 "category": "modal",
                 "useCase": "Modal fade-out animation",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -273,7 +293,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Smooth animation curve for enter/exit",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

@@ -10,7 +10,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Button backgrounds, input backgrounds, interactive card backgrounds",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Hover state for buttons, inputs, cards, list items",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -34,7 +36,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Active/pressed state for buttons and clickable elements",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -46,7 +49,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Disabled buttons, disabled inputs, non-interactive elements",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -59,7 +63,8 @@
               "category": "interactive",
               "useCase": "Focused buttons, focused inputs — background unchanged, focus ring provides indication",
               "note": "Background does not change on focus by design. Use semantic.interactive.focus.ring for the visual focus indicator.",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

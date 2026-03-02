@@ -10,7 +10,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Button labels, input text, interactive element labels",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Hover state text for buttons and interactive elements",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -34,7 +36,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Active/pressed state text for buttons",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -46,7 +49,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Disabled button text, disabled input text, non-interactive labels",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -59,7 +63,8 @@
               "category": "interactive",
               "useCase": "Focused button text, focused input text — text color unchanged",
               "note": "Text color does not change on focus by design. Use semantic.interactive.focus.ring for the visual focus indicator.",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

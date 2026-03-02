@@ -11,7 +11,8 @@
               "category": "ui",
               "subcategory": "background",
               "useCase": "Decorative CSS background-image pattern layered on top of the base background gradient in themed surfaces",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

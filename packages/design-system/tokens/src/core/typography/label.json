@@ -10,7 +10,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Form labels, button labels, navigation labels",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

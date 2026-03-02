@@ -16,7 +16,8 @@
                   "dark": "{primitive.color.green.400}",
                   "high-contrast": "{primitive.color.hc.green}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -33,7 +34,8 @@
                   "dark": "{primitive.color.green.900}",
                   "high-contrast": "{primitive.color.green.100}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -50,7 +52,8 @@
                   "dark": "{primitive.color.green.700}",
                   "high-contrast": "{primitive.color.hc.green}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -67,7 +70,8 @@
                   "dark": "{primitive.color.green.300}",
                   "high-contrast": "{primitive.color.hc.green}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -84,7 +88,8 @@
                   "dark": "{primitive.color.green.200}",
                   "high-contrast": "{primitive.color.hc.green}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -103,7 +108,8 @@
                     "dark": "{primitive.color.gray.900}",
                     "high-contrast": "{primitive.color.hc.white}"
                   },
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "starter"
                 }
               }
             }
@@ -123,7 +129,8 @@
                   "dark": "{primitive.color.red.400}",
                   "high-contrast": "{primitive.color.hc.red}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -140,7 +147,8 @@
                   "dark": "{primitive.color.red.900}",
                   "high-contrast": "{primitive.color.red.100}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -157,7 +165,8 @@
                   "dark": "{primitive.color.red.700}",
                   "high-contrast": "{primitive.color.hc.red}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -174,7 +183,8 @@
                   "dark": "{primitive.color.red.300}",
                   "high-contrast": "{primitive.color.hc.red}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -191,7 +201,8 @@
                   "dark": "{primitive.color.red.200}",
                   "high-contrast": "{primitive.color.hc.red}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -210,7 +221,8 @@
                     "dark": "{primitive.color.gray.900}",
                     "high-contrast": "{primitive.color.hc.white}"
                   },
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "starter"
                 }
               }
             }
@@ -230,7 +242,8 @@
                   "dark": "{primitive.color.yellow.400}",
                   "high-contrast": "{primitive.color.hc.yellow}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -247,7 +260,8 @@
                   "dark": "{primitive.color.yellow.900}",
                   "high-contrast": "{primitive.color.yellow.100}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -264,7 +278,8 @@
                   "dark": "{primitive.color.yellow.700}",
                   "high-contrast": "{primitive.color.hc.yellow}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -281,7 +296,8 @@
                   "dark": "{primitive.color.yellow.300}",
                   "high-contrast": "{primitive.color.hc.yellow}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -298,7 +314,8 @@
                   "dark": "{primitive.color.yellow.200}",
                   "high-contrast": "{primitive.color.hc.yellow}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -317,7 +334,8 @@
                     "dark": "{primitive.color.gray.900}",
                     "high-contrast": "{primitive.color.hc.white}"
                   },
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "starter"
                 }
               }
             }
@@ -337,7 +355,8 @@
                   "dark": "{primitive.color.blue.300}",
                   "high-contrast": "{primitive.color.hc.blue}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -354,7 +373,8 @@
                   "dark": "{primitive.color.blue.900}",
                   "high-contrast": "{primitive.color.blue.100}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -371,7 +391,8 @@
                   "dark": "{primitive.color.blue.700}",
                   "high-contrast": "{primitive.color.hc.blue}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -388,7 +409,8 @@
                   "dark": "{primitive.color.blue.300}",
                   "high-contrast": "{primitive.color.hc.blue}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -405,7 +427,8 @@
                   "dark": "{primitive.color.blue.200}",
                   "high-contrast": "{primitive.color.hc.blue}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -424,7 +447,8 @@
                     "dark": "{primitive.color.gray.900}",
                     "high-contrast": "{primitive.color.hc.white}"
                   },
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "starter"
                 }
               }
             }

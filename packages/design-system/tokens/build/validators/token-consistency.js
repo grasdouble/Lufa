@@ -16,6 +16,9 @@
  * 11. Reference hierarchy chain must be respected (hierarchy-chain-validation)
  * 12. No raw hex colors outside primitives (no-raw-hex-colors-outside-primitives)
  * 13. Component z-index must reference semantic tokens (z-index-must-reference-semantic)
+ * 14. If 'themeable' is true, 'themeLevel' must be defined
+ * 15. If 'themeLevel' is defined, 'themeable' must be true
+ * 16. 'themeLevel' must be one of: starter | extended | advanced
  *
  * @see ADR-013: Token Metadata Simplification
  * @see ADR-014: Non-color primitive reference exception
@@ -421,6 +424,40 @@ function validateToken(token, path, file) {
         );
       }
     }
+  }
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 14: If 'themeable' is true, 'themeLevel' must be defined
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  if (extensions.themeable === true && !('themeLevel' in extensions)) {
+    throw new ValidationError(
+      `Token "${tokenPath}" has "themeable: true" but is missing "themeLevel". All themeable tokens must define a themeLevel (e.g. "starter", "advanced", "extended").`,
+      tokenPath,
+      file
+    );
+  }
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 15: If 'themeLevel' is defined, 'themeable' must be true
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  if ('themeLevel' in extensions && extensions.themeable !== true) {
+    throw new ValidationError(
+      `Token "${tokenPath}" has "themeLevel" defined but "themeable" is not true. Remove "themeLevel" or set "themeable: true".`,
+      tokenPath,
+      file
+    );
+  }
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // RULE 16: 'themeLevel' must be one of: starter | extended | advanced
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  const VALID_THEME_LEVELS = ['starter', 'extended', 'advanced'];
+  if ('themeLevel' in extensions && !VALID_THEME_LEVELS.includes(extensions.themeLevel)) {
+    throw new ValidationError(
+      `Token "${tokenPath}" has invalid "themeLevel" value: "${extensions.themeLevel}". Must be one of: ${VALID_THEME_LEVELS.join(', ')}.`,
+      tokenPath,
+      file
+    );
   }
 
   return warnings;

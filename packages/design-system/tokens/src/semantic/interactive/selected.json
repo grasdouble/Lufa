@@ -11,7 +11,8 @@
               "category": "interactive",
               "subcategory": "state",
               "useCase": "Selected list items, active menu items, selected tabs",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -24,7 +25,8 @@
               "category": "interactive",
               "subcategory": "state",
               "useCase": "Text in selected list items, active navigation",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

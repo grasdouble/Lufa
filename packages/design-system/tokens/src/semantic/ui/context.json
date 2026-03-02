@@ -10,7 +10,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Root background, page wrapper, main container",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -23,7 +24,8 @@
               "lufa": {
                 "category": "ui",
                 "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -35,7 +37,8 @@
               "lufa": {
                 "category": "ui",
                 "useCase": "Raised cards, neutral button default backgrounds, elevated panels",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -47,7 +50,8 @@
               "lufa": {
                 "category": "ui",
                 "useCase": "Active/pressed state for interactive surfaces, ghost button active backgrounds",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           }
@@ -60,7 +64,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Success alerts, positive notifications, confirmation banners",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -72,7 +77,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Error alerts, validation messages, destructive action confirmations",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -84,7 +90,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Warning alerts, caution banners, pending action notices",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -96,7 +103,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Info alerts, tips, help messages, neutral notifications",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -111,7 +119,8 @@
                 "subcategory": "contrast",
                 "useCase": "Text in success alerts, success badge text, success message content",
                 "pairedWith": "background-success",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -125,7 +134,8 @@
                 "subcategory": "contrast",
                 "useCase": "Text in error alerts, error badge text, error message content",
                 "pairedWith": "background-error",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -139,7 +149,8 @@
                 "subcategory": "contrast",
                 "useCase": "Text in warning alerts, warning badge text, warning message content",
                 "pairedWith": "background-warning",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -153,7 +164,8 @@
                 "subcategory": "contrast",
                 "useCase": "Text in info alerts, info badge text, info message content",
                 "pairedWith": "background-info",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -167,7 +179,8 @@
                 "subcategory": "contrast",
                 "useCase": "Text/icons on primary buttons, primary badges, primary interactive elements",
                 "pairedWith": "core.color.brand.primary.default",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -181,7 +194,8 @@
                 "subcategory": "contrast",
                 "useCase": "Text/icons on secondary buttons, secondary badges, secondary interactive elements",
                 "pairedWith": "core.color.brand.secondary.default",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           }
@@ -201,7 +215,8 @@
                 "dark": "{core.color.alpha.black.80}",
                 "high-contrast": "{core.color.alpha.black.90}"
               },
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -218,7 +233,8 @@
                 "dark": "{core.color.alpha.white.8}",
                 "high-contrast": "{core.color.alpha.white.16}"
               },
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -235,7 +251,8 @@
                 "dark": "{core.color.alpha.white.16}",
                 "high-contrast": "{core.color.alpha.white.16}"
               },
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -252,7 +269,8 @@
                 "dark": "{core.color.alpha.white.16}",
                 "high-contrast": "{core.color.alpha.white.16}"
               },
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -269,7 +287,8 @@
                 "dark": "{core.color.alpha.black.60}",
                 "high-contrast": "{core.color.alpha.black.80}"
               },
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }
@@ -283,7 +302,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Headings, body text, primary labels, main content",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -295,7 +315,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Descriptions, captions, metadata, secondary labels",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -307,7 +328,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Placeholder text, timestamps, optional information",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -319,7 +341,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Success message text, positive status indicators, confirmation text",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -331,7 +354,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Error message text, validation errors, destructive action warnings",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -343,7 +367,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Warning message text, caution labels, pending action notices",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -355,7 +380,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Info message text, help content, neutral notifications",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }
@@ -369,7 +395,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Dividers, separators, card borders, section boundaries",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -381,7 +408,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Emphasized borders, section separators, strong dividers",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -393,7 +421,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Success alert borders, positive status borders",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -405,7 +434,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Error alert borders, invalid input borders, destructive action borders",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -417,7 +447,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Warning alert borders, caution element borders",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -429,7 +460,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Info alert borders, help element borders",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }
@@ -444,7 +476,8 @@
               "category": "ui",
               "subcategory": "typography",
               "useCase": "Caption text, small labels, tooltip text, metadata",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

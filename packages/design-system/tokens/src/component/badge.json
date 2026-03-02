@@ -11,7 +11,8 @@
               "lufa": {
                 "category": "badge",
                 "useCase": "Standard badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -23,7 +24,8 @@
               "lufa": {
                 "category": "badge",
                 "useCase": "Standard badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -37,7 +39,8 @@
               "lufa": {
                 "category": "badge",
                 "useCase": "Standard badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -49,7 +52,8 @@
               "lufa": {
                 "category": "badge",
                 "useCase": "Standard badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -63,7 +67,8 @@
               "lufa": {
                 "category": "badge",
                 "useCase": "Prominent badges, emphasis",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -75,7 +80,8 @@
               "lufa": {
                 "category": "badge",
                 "useCase": "Prominent badges, emphasis",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -90,7 +96,8 @@
             "lufa": {
               "category": "badge",
               "useCase": "Compact badges",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -102,7 +109,8 @@
             "lufa": {
               "category": "badge",
               "useCase": "Standard badges",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -114,7 +122,8 @@
             "lufa": {
               "category": "badge",
               "useCase": "Prominent badges, emphasis",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -127,7 +136,8 @@
           "lufa": {
             "category": "badge",
             "useCase": "All badge variants",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
@@ -143,7 +153,8 @@
                 "subcategory": "variant",
                 "variant": "default",
                 "useCase": "Neutral status badges, generic labels",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -157,7 +168,8 @@
                 "subcategory": "variant",
                 "variant": "default",
                 "useCase": "Neutral status badges, generic labels",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -171,7 +183,8 @@
                 "subcategory": "variant",
                 "variant": "default",
                 "useCase": "Outlined default badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -187,7 +200,8 @@
                 "subcategory": "variant",
                 "variant": "success",
                 "useCase": "Success state badges, positive status indicators",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -201,7 +215,8 @@
                 "subcategory": "variant",
                 "variant": "success",
                 "useCase": "Success state badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -215,7 +230,8 @@
                 "subcategory": "variant",
                 "variant": "success",
                 "useCase": "Outlined success badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -231,7 +247,8 @@
                 "subcategory": "variant",
                 "variant": "error",
                 "useCase": "Error state badges, failure indicators",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -245,7 +262,8 @@
                 "subcategory": "variant",
                 "variant": "error",
                 "useCase": "Error state badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -259,7 +277,8 @@
                 "subcategory": "variant",
                 "variant": "error",
                 "useCase": "Outlined error badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -275,7 +294,8 @@
                 "subcategory": "variant",
                 "variant": "warning",
                 "useCase": "Warning state badges, caution indicators",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -289,7 +309,8 @@
                 "subcategory": "variant",
                 "variant": "warning",
                 "useCase": "Warning state badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -303,7 +324,8 @@
                 "subcategory": "variant",
                 "variant": "warning",
                 "useCase": "Outlined warning badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -319,7 +341,8 @@
                 "subcategory": "variant",
                 "variant": "info",
                 "useCase": "Informational badges, neutral highlights",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -333,7 +356,8 @@
                 "subcategory": "variant",
                 "variant": "info",
                 "useCase": "Informational badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -347,7 +371,8 @@
                 "subcategory": "variant",
                 "variant": "info",
                 "useCase": "Outlined info badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -363,6 +388,7 @@
               "category": "badge",
               "useCase": "Notification dots, status indicators",
               "themeable": true,
+              "themeLevel": "advanced",
               "note": "Fixed geometric value — dot size is a layout constant not driven by the spacing scale."
             }
           }
@@ -377,7 +403,8 @@
             "lufa": {
               "category": "badge",
               "useCase": "Badges with glow effects in themed designs",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -391,6 +418,7 @@
                 "category": "badge",
                 "useCase": "Animated status badges, notification indicators",
                 "themeable": true,
+                "themeLevel": "advanced",
                 "note": "Default is 'none'. Themes can override with keyframe animation name."
               }
             }

@@ -12,7 +12,8 @@
               "subcategory": "link",
               "useCase": "Standard hyperlinks, navigation links, text links",
               "a11y": "Maintains WCAG AA contrast in all modes",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -25,7 +26,8 @@
               "category": "interactive",
               "subcategory": "link",
               "useCase": "Hover state for links, enhanced interactivity indication",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -39,7 +41,8 @@
               "subcategory": "link",
               "useCase": "Previously visited hyperlinks, navigation history",
               "a11y": "Distinct from default link color for clarity",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -53,7 +56,8 @@
               "subcategory": "link",
               "useCase": "Keyboard navigation focus, accessibility compliance",
               "a11y": "Ensures focus ring is visible in all modes",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -66,7 +70,8 @@
               "category": "interactive",
               "subcategory": "link",
               "useCase": "Active click state for links, pressed state",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

@@ -10,7 +10,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Code blocks, inline code, technical identifiers, monospace data",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

@@ -15,7 +15,8 @@
                 "dark": "{primitive.color.gray.900}",
                 "high-contrast": "{primitive.color.hc.white}"
               },
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "starter"
             }
           }
         },
@@ -33,7 +34,8 @@
                   "dark": "{primitive.color.gray.800}",
                   "high-contrast": "{primitive.color.gray.50}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -50,7 +52,8 @@
                   "dark": "{primitive.color.gray.700}",
                   "high-contrast": "{primitive.color.gray.200}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -67,7 +70,8 @@
                   "dark": "{primitive.color.gray.700}",
                   "high-contrast": "{primitive.color.gray.200}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -84,7 +88,8 @@
                   "dark": "{primitive.color.gray.600}",
                   "high-contrast": "{primitive.color.gray.300}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           }
@@ -103,7 +108,8 @@
                   "dark": "{primitive.color.gray.700}",
                   "high-contrast": "{primitive.color.hc.black}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -120,7 +126,8 @@
                   "dark": "{primitive.color.gray.600}",
                   "high-contrast": "{primitive.color.hc.black}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           }
@@ -139,7 +146,8 @@
                   "dark": "{primitive.color.gray.50}",
                   "high-contrast": "{primitive.color.hc.black}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -156,7 +164,8 @@
                   "dark": "{primitive.color.gray.400}",
                   "high-contrast": "{primitive.color.gray.700}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -174,7 +183,8 @@
                   "high-contrast": "{primitive.color.gray.600}"
                 },
                 "note": "Intentionally below secondary (gray.600). Gray.500 is borderline contrast on light surfaces — reserve for non-essential content only.",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           },
@@ -191,7 +201,8 @@
                   "dark": "{primitive.color.gray.600}",
                   "high-contrast": "{primitive.color.gray.500}"
                 },
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "starter"
               }
             }
           }

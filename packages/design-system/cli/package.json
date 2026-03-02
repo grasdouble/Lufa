@@ -27,6 +27,7 @@
     "clean": "rm -rf dist",
     "copy:templates": "mkdir -p dist/templates && cp src/templates/*.css dist/templates/",
     "dev": "tsx src/cli.ts",
+    "generate:template": "node scripts/generate-theme-template.js",
     "lint": "eslint .",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",

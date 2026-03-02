@@ -11,7 +11,8 @@
               "lufa": {
                 "category": "button",
                 "useCase": "Buttons with glow effects in themed designs",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -23,7 +24,8 @@
               "lufa": {
                 "category": "button",
                 "useCase": "Enhanced glow on hover",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -37,7 +39,8 @@
               "lufa": {
                 "category": "button",
                 "useCase": "Text glow for themed buttons",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -49,7 +52,8 @@
               "lufa": {
                 "category": "button",
                 "useCase": "Enhanced text glow on hover",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -69,7 +73,8 @@
                       "category": "button",
                       "variant": "solid-primary",
                       "useCase": "Primary action buttons",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -81,7 +86,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-primary",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -93,7 +99,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-primary",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -106,7 +113,8 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-primary",
-                    "themeable": true
+                    "themeable": true,
+                    "themeLevel": "advanced"
                   }
                 }
               }
@@ -121,7 +129,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-secondary",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -133,7 +142,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-secondary",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -145,7 +155,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-secondary",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -158,7 +169,8 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-secondary",
-                    "themeable": true
+                    "themeable": true,
+                    "themeLevel": "advanced"
                   }
                 }
               }
@@ -173,7 +185,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-destructive",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -185,7 +198,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-destructive",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -197,7 +211,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-destructive",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -210,7 +225,8 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-destructive",
-                    "themeable": true
+                    "themeable": true,
+                    "themeLevel": "advanced"
                   }
                 }
               }
@@ -225,7 +241,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-success",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -237,7 +254,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-success",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -249,7 +267,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-success",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -262,7 +281,8 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-success",
-                    "themeable": true
+                    "themeable": true,
+                    "themeLevel": "advanced"
                   }
                 }
               }
@@ -277,7 +297,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-warning",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -289,7 +310,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-warning",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -301,7 +323,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-warning",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -314,7 +337,8 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-warning",
-                    "themeable": true
+                    "themeable": true,
+                    "themeLevel": "advanced"
                   }
                 }
               }
@@ -329,7 +353,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-info",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -341,7 +366,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-info",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -353,7 +379,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-info",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -366,7 +393,8 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-info",
-                    "themeable": true
+                    "themeable": true,
+                    "themeLevel": "advanced"
                   }
                 }
               }
@@ -381,7 +409,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-neutral",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -393,7 +422,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-neutral",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 },
@@ -405,7 +435,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "solid-neutral",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -418,7 +449,8 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-neutral",
-                    "themeable": true
+                    "themeable": true,
+                    "themeLevel": "advanced"
                   }
                 }
               }
@@ -435,7 +467,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
@@ -447,7 +480,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
@@ -459,7 +493,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             }
@@ -473,7 +508,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
@@ -485,7 +521,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             }
@@ -501,7 +538,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-primary",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -517,7 +555,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-secondary",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -533,7 +572,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-success",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -549,7 +589,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-destructive",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -565,7 +606,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-warning",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -581,7 +623,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-info",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -597,7 +640,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-neutral",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -615,7 +659,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
@@ -627,7 +672,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             }
@@ -641,7 +687,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
@@ -653,7 +700,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             }
@@ -667,7 +715,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
@@ -679,7 +728,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             }
@@ -695,7 +745,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-primary",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -709,7 +760,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-primary",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -725,7 +777,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-secondary",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -739,7 +792,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-secondary",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -755,7 +809,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-success",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -769,7 +824,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-success",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -785,7 +841,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-destructive",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -799,7 +856,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-destructive",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -815,7 +873,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-warning",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -829,7 +888,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-warning",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -845,7 +905,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-info",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -859,7 +920,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-info",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }
@@ -875,7 +937,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "outline-neutral",
-                      "themeable": true
+                      "themeable": true,
+                      "themeLevel": "advanced"
                     }
                   }
                 }

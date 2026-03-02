@@ -27,7 +27,7 @@
     "ds:all:prettier:check": "pnpm ds:primitives:prettier:check && pnpm ds:tokens:prettier:check && pnpm ds:themes:prettier:check && pnpm ds:main:prettier:check && pnpm ds:storybook:prettier:check && pnpm ds:docusaurus:prettier:check",
     "ds:all:prettier:write": "pnpm ds:primitives:prettier:write && pnpm ds:tokens:prettier:write && pnpm ds:themes:prettier:write && pnpm ds:main:prettier:write && pnpm ds:storybook:prettier:write && pnpm ds:docusaurus:prettier:write",
     "ds:all:typecheck": "pnpm ds:primitives:typecheck && pnpm ds:tokens:typecheck && pnpm ds:themes:typecheck && pnpm ds:main:typecheck && pnpm ds:storybook:typecheck && pnpm ds:docusaurus:typecheck",
-    "ds:all:validate:token-usage": "pnpm ds:main:validate:token-usage && pnpm ds:storybook:validate:token-usage && pnpm ds:themes:validate:token-usage && pnpm ds:docusaurus:validate:token-usage",
+    "ds:all:validate:token-usage": "pnpm ds:cli:validate:token-usage &&pnpm ds:main:validate:token-usage && pnpm ds:storybook:validate:token-usage && pnpm ds:themes:validate:token-usage && pnpm ds:docusaurus:validate:token-usage",
     "ds:all:validate:token-usage:unused": "pnpm ds:main:validate:token-usage:unused && pnpm ds:storybook:validate:token-usage:unused && pnpm ds:themes:validate:token-usage:unused && pnpm ds:docusaurus:validate:token-usage:unused",
     "ds:all:validate:token-usage:verbose": "pnpm ds:main:validate:token-usage:verbose && pnpm ds:storybook:validate:token-usage:verbose && pnpm ds:themes:validate:token-usage:verbose && pnpm ds:docusaurus:validate:token-usage:verbose",
     "ds:cli:----------------------------------": "",

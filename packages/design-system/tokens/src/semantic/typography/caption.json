@@ -9,7 +9,8 @@
           "lufa": {
             "category": "typography",
             "useCase": "Captions, footnotes, labels, timestamps, metadata",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "extended"
           }
         }
       }

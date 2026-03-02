@@ -1,7 +1,7 @@
 /**
  * Tests for Token Consistency Validator
  *
- * Tests all 13 validation rules from ADR-013 and ADR-014
+ * Tests all 16 validation rules from ADR-013 and ADR-014
  */
 
 import {
@@ -77,7 +77,6 @@ function assertNoWarnings(fn) {
 console.log('\n═══════════════════════════════════════════════════════════');
 console.log('Token Consistency Validator - Simplified (ADR-013 + ADR-014)');
 console.log('═══════════════════════════════════════════════════════════\n');
-
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // TEST GROUP 1: inferLevel() function
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -405,6 +404,7 @@ test('RULE 8: semantic with themeable should pass', () => {
     $extensions: {
       lufa: {
         themeable: true,
+        themeLevel: 'extended',
       },
     },
   };
@@ -629,6 +629,7 @@ test('RULE 11: Semantic (ui category) referencing primitive spacing should pass 
     $extensions: {
       lufa: {
         themeable: true,
+        themeLevel: 'starter',
       },
     },
   };
@@ -641,6 +642,7 @@ test('RULE 11: Semantic (interactive category) referencing primitive opacity sho
     $extensions: {
       lufa: {
         themeable: true,
+        themeLevel: 'starter',
       },
     },
   };
@@ -653,6 +655,7 @@ test('RULE 11: Semantic (ui category) referencing primitive border-width should 
     $extensions: {
       lufa: {
         themeable: true,
+        themeLevel: 'starter',
       },
     },
   };
@@ -665,6 +668,7 @@ test('RULE 11: Semantic (layout category) referencing primitive breakpoint shoul
     $extensions: {
       lufa: {
         themeable: true,
+        themeLevel: 'starter',
       },
     },
   };
@@ -677,6 +681,7 @@ test('RULE 11: Semantic (ui category) referencing primitive.color.alpha should w
     $extensions: {
       lufa: {
         themeable: true,
+        themeLevel: 'starter',
         modes: {
           dark: '{primitive.color.alpha.black.80}',
           'high-contrast': '{primitive.color.alpha.black.90}',
@@ -696,6 +701,7 @@ test('RULE 11: Semantic (effect category) referencing primitive.color.alpha in c
     $extensions: {
       lufa: {
         themeable: true,
+        themeLevel: 'starter',
       },
     },
   };
@@ -952,6 +958,7 @@ test('Edge case: Complex valid token (semantic, mode-aware, themeable)', () => {
           dark: '{primitives.color.blue-400}',
         },
         themeable: true,
+        themeLevel: 'starter',
       },
     },
   };
@@ -959,6 +966,266 @@ test('Edge case: Complex valid token (semantic, mode-aware, themeable)', () => {
 });
 
 console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 16: RULE 14 - If 'themeable' is true, 'themeLevel' must be defined
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 16: RULE 14 - themeable:true requires themeLevel');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 14: themeable:true without themeLevel should throw', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        category: 'button',
+        themeable: true,
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['component', 'button', 'background'], 'test.json'), 'missing "themeLevel"');
+});
+
+test('RULE 14: themeable:true with themeLevel defined should pass', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        category: 'button',
+        themeable: true,
+        themeLevel: 'advanced',
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['component', 'button', 'background'], 'test.json'));
+});
+
+test('RULE 14: themeable:false without themeLevel should pass (rule does not apply)', () => {
+  const token = {
+    $value: '{semantic.interactive.cursor.default}',
+    $extensions: {
+      lufa: {
+        category: 'button',
+        themeable: false,
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['component', 'button', 'state'], 'test.json'));
+});
+
+test('RULE 14: token without themeable without themeLevel should pass (rule does not apply)', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        category: 'button',
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['component', 'button', 'background'], 'test.json'));
+});
+
+test('RULE 14: themeable:true with themeLevel "starter" should pass', () => {
+  const token = {
+    $value: '{core.color.brand-primary}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+        themeLevel: 'starter',
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['semantic', 'ui', 'primary'], 'test.json'));
+});
+
+test('RULE 14: themeable:true with themeLevel "extended" should pass', () => {
+  const token = {
+    $value: 'none',
+    $extensions: {
+      lufa: {
+        themeable: true,
+        themeLevel: 'extended',
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['semantic', 'ui', 'background', 'pattern'], 'test.json'));
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 17: RULE 15 - If 'themeLevel' is defined, 'themeable' must be true
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 17: RULE 15 - themeLevel defined requires themeable:true');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 15: themeLevel defined with themeable:false should throw', () => {
+  const token = {
+    $value: '{semantic.interactive.cursor.default}',
+    $extensions: {
+      lufa: {
+        category: 'button',
+        themeable: false,
+        themeLevel: 'advanced',
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['component', 'button', 'state'], 'test.json'), '"themeable" is not true');
+});
+
+test('RULE 15: themeLevel defined without themeable should throw', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        category: 'button',
+        themeLevel: 'advanced',
+      },
+    },
+  };
+  assertThrows(
+    () => validateToken(token, ['component', 'button', 'background'], 'test.json'),
+    '"themeable" is not true'
+  );
+});
+
+test('RULE 15: themeLevel defined with themeable:true should pass', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        category: 'button',
+        themeable: true,
+        themeLevel: 'advanced',
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['component', 'button', 'background'], 'test.json'));
+});
+
+test('RULE 15: no themeLevel with themeable:false should pass (rule does not apply)', () => {
+  const token = {
+    $value: '{semantic.interactive.cursor.default}',
+    $extensions: {
+      lufa: {
+        category: 'button',
+        themeable: false,
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['component', 'button', 'state'], 'test.json'));
+});
+
+test('RULE 15: no themeLevel without themeable should pass (rule does not apply)', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        category: 'button',
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['component', 'button', 'background'], 'test.json'));
+});
+
+console.log('');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// TEST GROUP 18: RULE 16 - 'themeLevel' must be one of: starter | extended | advanced
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+console.log('Test Group 18: RULE 16 - themeLevel must be starter | extended | advanced');
+console.log('─────────────────────────────────────\n');
+
+test('RULE 16: themeLevel "starter" should pass', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+        themeLevel: 'starter',
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['component', 'button', 'background'], 'test.json'));
+});
+
+test('RULE 16: themeLevel "extended" should pass', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+        themeLevel: 'extended',
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['component', 'button', 'background'], 'test.json'));
+});
+
+test('RULE 16: themeLevel "advanced" should pass', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+        themeLevel: 'advanced',
+      },
+    },
+  };
+  assertNoThrow(() => validateToken(token, ['component', 'button', 'background'], 'test.json'));
+});
+
+test('RULE 16: themeLevel "core" should throw (invalid value)', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+        themeLevel: 'core',
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['semantic', 'ui', 'primary'], 'test.json'), 'invalid "themeLevel" value');
+});
+
+test('RULE 16: themeLevel "basic" should throw (invalid value)', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+        themeLevel: 'basic',
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['semantic', 'ui', 'primary'], 'test.json'), 'invalid "themeLevel" value');
+});
+
+test('RULE 16: themeLevel "premium" should throw (invalid value)', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+        themeLevel: 'premium',
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['semantic', 'ui', 'primary'], 'test.json'), 'invalid "themeLevel" value');
+});
+
+test('RULE 16: themeLevel "" (empty string) should throw (invalid value)', () => {
+  const token = {
+    $value: '{semantic.ui.primary}',
+    $extensions: {
+      lufa: {
+        themeable: true,
+        themeLevel: '',
+      },
+    },
+  };
+  assertThrows(() => validateToken(token, ['semantic', 'ui', 'primary'], 'test.json'), 'invalid "themeLevel" value');
+});
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // SUMMARY

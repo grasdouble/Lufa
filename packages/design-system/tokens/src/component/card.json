@@ -10,7 +10,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Compact cards, dense grids, mobile views",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Standard cards, content cards, list items",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -34,7 +36,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Hero cards, feature cards, dashboard widgets",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -48,7 +51,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Compact cards, list items",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -60,7 +64,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Standard cards, content cards",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -72,7 +77,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Feature cards, hero sections",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -86,7 +92,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Flat cards, minimal elevation",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -98,7 +105,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Standard cards, elevated content",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -110,7 +118,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Modal cards, floating panels, prominent cards",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -123,7 +132,8 @@
           "lufa": {
             "category": "card",
             "useCase": "All card backgrounds",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
@@ -135,7 +145,8 @@
           "lufa": {
             "category": "card",
             "useCase": "Outlined cards, bordered card variant",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
@@ -148,7 +159,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Card header sections",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -160,7 +172,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Separator between card header and body",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -174,7 +187,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Card footer sections",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -186,7 +200,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Separator between card body and footer",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -200,7 +215,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Thematic glow effects on cards (cyberpunk, neon themes)",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -212,7 +228,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Enhanced glow on card hover",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -224,7 +241,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Focus state for interactive/clickable cards",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -238,7 +256,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Clickable cards, interactive card hovers",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -250,7 +269,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Scale effect on interactive card hover",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -262,7 +282,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Lift effect on interactive card hover",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

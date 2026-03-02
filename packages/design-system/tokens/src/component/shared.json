@@ -10,7 +10,8 @@
             "lufa": {
               "category": "shared",
               "useCase": "Divider component, horizontal rules, separators",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "category": "shared",
               "useCase": "Divider component color",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -98,7 +100,8 @@
             "lufa": {
               "category": "shared",
               "useCase": "Button icon-text gap, input icon spacing",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -179,7 +182,8 @@
             "lufa": {
               "category": "shared",
               "useCase": "All component transitions",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

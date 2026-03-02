@@ -12,7 +12,8 @@
               "category": "ui",
               "subcategory": "icon-size",
               "useCase": "Badges, small buttons, compact indicators",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -25,7 +26,8 @@
               "category": "ui",
               "subcategory": "icon-size",
               "useCase": "Button icons, input icons, default icon size",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -38,7 +40,8 @@
               "category": "ui",
               "subcategory": "icon-size",
               "useCase": "Large buttons, card icons, section headers",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -51,7 +54,8 @@
               "category": "ui",
               "subcategory": "icon-size",
               "useCase": "Modal headers, feature cards, hero sections",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -64,7 +68,8 @@
               "category": "ui",
               "subcategory": "icon-size",
               "useCase": "Hero sections, landing pages, large feature displays",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
