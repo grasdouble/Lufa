@@ -39,17 +39,29 @@ export function DirectionVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             First item
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Second item
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Third item
           </div>
@@ -65,17 +77,29 @@ export function DirectionVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             First item
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Second item
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Third item
           </div>
@@ -93,50 +117,60 @@ export function SpacingVariants() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <Stack spacing="none" style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px' }}>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           spacing=&quot;none&quot; (0px)
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           No gap between items
         </div>
       </Stack>
 
       <Stack spacing="tight" style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px' }}>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           spacing=&quot;tight&quot; (4px)
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>Minimal spacing</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
+          Minimal spacing
+        </div>
       </Stack>
 
       <Stack spacing="compact" style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px' }}>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           spacing=&quot;compact&quot; (8px)
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>Small spacing</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
+          Small spacing
+        </div>
       </Stack>
 
       <Stack spacing="default" style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px' }}>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           spacing=&quot;default&quot; (16px)
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>Standard spacing</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
+          Standard spacing
+        </div>
       </Stack>
 
       <Stack
         spacing="comfortable"
         style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px' }}
       >
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           spacing=&quot;comfortable&quot; (24px)
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>Generous spacing</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
+          Generous spacing
+        </div>
       </Stack>
 
       <Stack spacing="spacious" style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px' }}>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           spacing=&quot;spacious&quot; (32px)
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>Large spacing</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
+          Large spacing
+        </div>
       </Stack>
     </div>
   );
@@ -158,21 +192,29 @@ export function AlignVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px', minHeight: '120px' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Short
           </div>
           <div
             style={{
               padding: '12px 12px 40px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
             }}
           >
             Taller item
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Short
           </div>
@@ -188,21 +230,29 @@ export function AlignVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px', minHeight: '120px' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Short
           </div>
           <div
             style={{
               padding: '12px 12px 40px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
             }}
           >
             Taller item
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Short
           </div>
@@ -218,21 +268,29 @@ export function AlignVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px', minHeight: '120px' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Short
           </div>
           <div
             style={{
               padding: '12px 12px 40px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
             }}
           >
             Taller item
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Short
           </div>
@@ -248,21 +306,29 @@ export function AlignVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px', minHeight: '120px' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Stretches
           </div>
           <div
             style={{
               padding: '12px 12px 40px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
             }}
           >
             Taller item
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Stretches
           </div>
@@ -280,7 +346,7 @@ export function AlignVariants() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
               fontSize: '14px',
             }}
@@ -290,7 +356,7 @@ export function AlignVariants() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
               fontSize: '20px',
             }}
@@ -300,7 +366,7 @@ export function AlignVariants() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
               fontSize: '14px',
             }}
@@ -329,17 +395,29 @@ export function JustifyVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px', width: '100%' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 1
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 2
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 3
           </div>
@@ -355,17 +433,29 @@ export function JustifyVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px', width: '100%' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 1
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 2
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 3
           </div>
@@ -381,17 +471,29 @@ export function JustifyVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px', width: '100%' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 1
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 2
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 3
           </div>
@@ -407,17 +509,29 @@ export function JustifyVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px', width: '100%' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 1
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 2
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 3
           </div>
@@ -433,17 +547,29 @@ export function JustifyVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px', width: '100%' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 1
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 2
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 3
           </div>
@@ -459,17 +585,29 @@ export function JustifyVariants() {
           style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px', width: '100%' }}
         >
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 1
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 2
           </div>
           <div
-            style={{ padding: '12px', background: 'var(--lufa-semantic-ui-background-surface)', borderRadius: '4px' }}
+            style={{
+              padding: '12px',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
+              borderRadius: '4px',
+            }}
           >
             Item 3
           </div>
@@ -497,7 +635,7 @@ export function WrapVariant() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
               minWidth: '100px',
             }}
@@ -507,7 +645,7 @@ export function WrapVariant() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
               minWidth: '100px',
             }}
@@ -517,7 +655,7 @@ export function WrapVariant() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
               minWidth: '100px',
             }}
@@ -527,7 +665,7 @@ export function WrapVariant() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
               minWidth: '100px',
             }}
@@ -548,7 +686,7 @@ export function WrapVariant() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
               minWidth: '100px',
             }}
@@ -558,7 +696,7 @@ export function WrapVariant() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
               minWidth: '100px',
             }}
@@ -568,7 +706,7 @@ export function WrapVariant() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
               minWidth: '100px',
             }}
@@ -578,7 +716,7 @@ export function WrapVariant() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: '4px',
               minWidth: '100px',
             }}
@@ -603,10 +741,10 @@ export function PolymorphicVariant() {
         spacing="default"
         style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px' }}
       >
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           <strong>as=&quot;section&quot;</strong> - Thematic content section
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           Contains related content
         </div>
       </Stack>
@@ -617,10 +755,12 @@ export function PolymorphicVariant() {
         style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px' }}
         aria-label="Example"
       >
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           <strong>as=&quot;nav&quot;</strong> - Navigation links
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>Navigation items</div>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
+          Navigation items
+        </div>
       </Stack>
 
       <Stack
@@ -633,11 +773,15 @@ export function PolymorphicVariant() {
           margin: 0,
         }}
       >
-        <li style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <li style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           <strong>as=&quot;ul&quot;</strong> - Unordered list
         </li>
-        <li style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>List item 2</li>
-        <li style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>List item 3</li>
+        <li style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
+          List item 2
+        </li>
+        <li style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
+          List item 3
+        </li>
       </Stack>
 
       <Stack
@@ -646,10 +790,10 @@ export function PolymorphicVariant() {
         spacing="default"
         style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '16px' }}
       >
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           <strong>as=&quot;div&quot;</strong> (default)
         </div>
-        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface)' }}>
+        <div style={{ padding: '8px', background: 'var(--lufa-semantic-ui-background-surface-default)' }}>
           Generic container
         </div>
       </Stack>

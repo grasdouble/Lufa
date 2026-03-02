@@ -9,6 +9,10 @@ on:
       - 'packages/design-system/main/src/**/*.ts'
       - 'packages/design-system/main/src/**/*.tsx'
       - 'packages/design-system/main/src/**/*.cjs'
+      - 'packages/design-system/storybook/src/**/*.css'
+      - 'packages/design-system/storybook/src/**/*.ts'
+      - 'packages/design-system/storybook/src/**/*.tsx'
+      - 'packages/design-system/themes/src/**/*.css'
       - 'packages/design-system/docusaurus/src/**/*.css'
       - 'packages/design-system/docusaurus/src/**/*.ts'
       - 'packages/design-system/docusaurus/src/**/*.tsx'
@@ -25,6 +29,10 @@ on:
       - 'packages/design-system/main/src/**/*.ts'
       - 'packages/design-system/main/src/**/*.tsx'
       - 'packages/design-system/main/src/**/*.cjs'
+      - 'packages/design-system/storybook/src/**/*.css'
+      - 'packages/design-system/storybook/src/**/*.ts'
+      - 'packages/design-system/storybook/src/**/*.tsx'
+      - 'packages/design-system/themes/src/**/*.css'
       - 'packages/design-system/docusaurus/src/**/*.css'
       - 'packages/design-system/docusaurus/src/**/*.ts'
       - 'packages/design-system/docusaurus/src/**/*.tsx'
@@ -65,6 +73,26 @@ jobs:
           echo "::endgroup::"
         continue-on-error: true
 
+      # ── DS Storybook ─────────────────────────────────────────────────────
+
+      - name: 🔍 Validate token usage — DS Storybook
+        id: validate-storybook
+        run: |
+          echo "::group::DS Storybook — Token Usage Validation"
+          pnpm ds:storybook:validate:token-usage
+          echo "::endgroup::"
+        continue-on-error: true
+
+      # ── DS Themes ─────────────────────────────────────────────────────────
+
+      - name: 🔍 Validate token usage — DS Themes
+        id: validate-themes
+        run: |
+          echo "::group::DS Themes — Token Usage Validation"
+          pnpm ds:themes:validate:token-usage
+          echo "::endgroup::"
+        continue-on-error: true
+
       # ── DS Docusaurus ─────────────────────────────────────────────────────
 
       - name: 🔍 Validate token usage — DS Docusaurus
@@ -92,22 +120,36 @@ jobs:
         id: build-comment
         env:
           MAIN_OUTCOME: ${{ steps.validate-main.outcome }}
+          STORYBOOK_OUTCOME: ${{ steps.validate-storybook.outcome }}
+          THEMES_OUTCOME: ${{ steps.validate-themes.outcome }}
           DOCUSAURUS_OUTCOME: ${{ steps.validate-docusaurus.outcome }}
           CLI_OUTCOME: ${{ steps.validate-cli.outcome }}
         run: |
           MAIN_STATUS="✅ Passed"
+          STORYBOOK_STATUS="✅ Passed"
+          THEMES_STATUS="✅ Passed"
           DOCUSAURUS_STATUS="✅ Passed"
           CLI_STATUS="✅ Passed"
           [[ "$MAIN_OUTCOME" == "failure" ]] && MAIN_STATUS="❌ Failed"
+          [[ "$STORYBOOK_OUTCOME" == "failure" ]] && STORYBOOK_STATUS="❌ Failed"
+          [[ "$THEMES_OUTCOME" == "failure" ]] && THEMES_STATUS="❌ Failed"
           [[ "$DOCUSAURUS_OUTCOME" == "failure" ]] && DOCUSAURUS_STATUS="❌ Failed"
           [[ "$CLI_OUTCOME" == "failure" ]] && CLI_STATUS="❌ Failed"
 
           # Only re-capture outputs when there are failures (avoids redundant runs on success)
           MAIN_OUTPUT=""
+          STORYBOOK_OUTPUT=""
+          THEMES_OUTPUT=""
           DOCUSAURUS_OUTPUT=""
           CLI_OUTPUT=""
           if [[ "$MAIN_OUTCOME" == "failure" ]]; then
             MAIN_OUTPUT=$(pnpm ds:main:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
+          fi
+          if [[ "$STORYBOOK_OUTCOME" == "failure" ]]; then
+            STORYBOOK_OUTPUT=$(pnpm ds:storybook:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
+          fi
+          if [[ "$THEMES_OUTCOME" == "failure" ]]; then
+            THEMES_OUTPUT=$(pnpm ds:themes:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
           fi
           if [[ "$DOCUSAURUS_OUTCOME" == "failure" ]]; then
             DOCUSAURUS_OUTPUT=$(pnpm ds:docusaurus:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
@@ -125,6 +167,8 @@ jobs:
           | Package | Status |
           |---|---|
           | DS Main | ${MAIN_STATUS} |
+          | DS Storybook | ${STORYBOOK_STATUS} |
+          | DS Themes | ${THEMES_STATUS} |
           | DS Docusaurus | ${DOCUSAURUS_STATUS} |
           | DS CLI | ${CLI_STATUS} |
 
@@ -141,6 +185,36 @@ jobs:
 
           </details>
           MAIN_CLOSE
+          fi)
+
+          $(if [[ "$STORYBOOK_OUTCOME" == "failure" ]]; then
+            cat << 'STORYBOOK_SECTION'
+          <details>
+          <summary>📋 DS Storybook — Validation Report</summary>
+
+          \`\`\`
+          STORYBOOK_SECTION
+            echo "${STORYBOOK_OUTPUT}"
+            cat << 'STORYBOOK_CLOSE'
+          \`\`\`
+
+          </details>
+          STORYBOOK_CLOSE
+          fi)
+
+          $(if [[ "$THEMES_OUTCOME" == "failure" ]]; then
+            cat << 'THEMES_SECTION'
+          <details>
+          <summary>📋 DS Themes — Validation Report</summary>
+
+          \`\`\`
+          THEMES_SECTION
+            echo "${THEMES_OUTPUT}"
+            cat << 'THEMES_CLOSE'
+          \`\`\`
+
+          </details>
+          THEMES_CLOSE
           fi)
 
           $(if [[ "$DOCUSAURUS_OUTCOME" == "failure" ]]; then
@@ -173,7 +247,7 @@ jobs:
           CLI_CLOSE
           fi)
 
-          $(if [[ "$MAIN_OUTCOME" == "failure" || "$DOCUSAURUS_OUTCOME" == "failure" || "$CLI_OUTCOME" == "failure" ]]; then
+          $(if [[ "$MAIN_OUTCOME" == "failure" || "$STORYBOOK_OUTCOME" == "failure" || "$THEMES_OUTCOME" == "failure" || "$DOCUSAURUS_OUTCOME" == "failure" || "$CLI_OUTCOME" == "failure" ]]; then
             cat << 'FIX_SECTION'
           ### 💡 How to Fix
 
@@ -181,7 +255,7 @@ jobs:
 
           - Check that the token exists in \`packages/design-system/tokens/src/\`
           - Run \`pnpm ds:tokens:build\` to regenerate \`tokens.css\` after any token change
-          - 🧪 Run locally: \`pnpm ds:main:validate:token-usage\` / \`pnpm ds:docusaurus:validate:token-usage\` / \`pnpm ds:cli:validate:token-usage\`
+          - 🧪 Run locally: \`pnpm ds:all:validate:token-usage\`
           FIX_SECTION
           fi)
 
@@ -203,10 +277,14 @@ jobs:
       # ── Final gate ────────────────────────────────────────────────────────
 
       - name: ❌ Fail if any validation errors
-        if: steps.validate-main.outcome == 'failure' || steps.validate-docusaurus.outcome == 'failure' || steps.validate-cli.outcome == 'failure'
+        if: steps.validate-main.outcome == 'failure' || steps.validate-storybook.outcome == 'failure' || steps.validate-themes.outcome == 'failure' || steps.validate-docusaurus.outcome == 'failure' || steps.validate-cli.outcome == 'failure'
         run: |
           [[ "${{ steps.validate-main.outcome }}" == "failure" ]] && \
             echo "::error::DS Main token usage validation failed."
+          [[ "${{ steps.validate-storybook.outcome }}" == "failure" ]] && \
+            echo "::error::DS Storybook token usage validation failed."
+          [[ "${{ steps.validate-themes.outcome }}" == "failure" ]] && \
+            echo "::error::DS Themes token usage validation failed."
           [[ "${{ steps.validate-docusaurus.outcome }}" == "failure" ]] && \
             echo "::error::DS Docusaurus token usage validation failed."
           [[ "${{ steps.validate-cli.outcome }}" == "failure" ]] && \
@@ -214,5 +292,5 @@ jobs:
           exit 1
 
       - name: ✅ All token usages are valid
-        if: steps.validate-main.outcome == 'success' && steps.validate-docusaurus.outcome == 'success' && steps.validate-cli.outcome == 'success'
-        run: echo "::notice::All token usages are valid in DS Main, DS Docusaurus and DS CLI."
+        if: steps.validate-main.outcome == 'success' && steps.validate-storybook.outcome == 'success' && steps.validate-themes.outcome == 'success' && steps.validate-docusaurus.outcome == 'success' && steps.validate-cli.outcome == 'success'
+        run: echo "::notice::All token usages are valid in DS Main, DS Storybook, DS Themes, DS Docusaurus and DS CLI."

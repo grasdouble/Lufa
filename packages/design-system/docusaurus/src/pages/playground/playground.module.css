@@ -81,7 +81,7 @@
 }
 
 .section:not(:last-child) {
-  border-bottom: 1px solid var(--lufa-core-neutral-border-default);
+  border-bottom: 1px solid var(--lufa-core-color-neutral-border-default);
 }
 
 .flexGrow {
@@ -117,8 +117,8 @@
 .sectionTitle {
   margin-bottom: 1.5rem !important;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--lufa-core-neutral-border-default);
-  color: var(--lufa-core-neutral-text-primary);
+  border-bottom: 2px solid var(--lufa-core-color-neutral-border-default);
+  color: var(--lufa-core-color-neutral-text-primary);
   transition:
     border-color 0.2s ease,
     color 0.2s ease;
@@ -146,8 +146,8 @@
 
 .demoSite .demoHeader {
   padding: 1.5rem 0;
-  background: var(--lufa-core-neutral-surface-default);
-  border-bottom: 1px solid var(--lufa-core-neutral-border-default);
+  background: var(--lufa-core-color-neutral-surface-default);
+  border-bottom: 1px solid var(--lufa-core-color-neutral-border-default);
   /* position: sticky; */
   /* top: calc(var(--ifm-navbar-height) + var(--playground-sub-header-height, 57px)); */
   z-index: 100;
@@ -172,7 +172,7 @@
 
 .pricing {
   padding: 5rem 0;
-  background: var(--lufa-core-neutral-surface-default);
+  background: var(--lufa-core-color-neutral-surface-default);
   transition: background-color 0.2s ease;
 }
 
@@ -182,8 +182,8 @@
 
 .footer {
   padding: 3rem 0;
-  background: var(--lufa-core-neutral-surface-default);
-  border-top: 1px solid var(--lufa-core-neutral-border-default);
+  background: var(--lufa-core-color-neutral-surface-default);
+  border-top: 1px solid var(--lufa-core-color-neutral-border-default);
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease;

@@ -16,7 +16,11 @@ export function LiveDemo() {
     <div style={{ overflowX: 'hidden' }}>
       <Container size="md" style={{ padding: '0 16px' }}>
         <div
-          style={{ padding: '16px', background: 'var(--lufa-semantic-ui-background-surface)', marginBottom: '16px' }}
+          style={{
+            padding: '16px',
+            background: 'var(--lufa-semantic-ui-background-surface-default)',
+            marginBottom: '16px',
+          }}
         >
           Content at reading width (Container)
         </div>
@@ -38,7 +42,7 @@ export function LiveDemo() {
         <div
           style={{
             padding: '16px',
-            background: 'var(--lufa-semantic-ui-background-surface)',
+            background: 'var(--lufa-semantic-ui-background-surface-default)',
             marginTop: '16px',
           }}
         >
@@ -63,7 +67,7 @@ export function InlineVariants() {
           <div
             style={{
               padding: '12px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               marginBottom: '12px',
               border: '1px solid var(--lufa-semantic-ui-border-default)',
             }}
@@ -133,7 +137,7 @@ export function BlockVariant() {
       <div
         style={{
           padding: '16px',
-          background: 'var(--lufa-semantic-ui-background-surface)',
+          background: 'var(--lufa-semantic-ui-background-surface-default)',
           marginBottom: '32px',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
         }}
@@ -163,7 +167,7 @@ export function BlockVariant() {
       <div
         style={{
           padding: '16px',
-          background: 'var(--lufa-semantic-ui-background-surface)',
+          background: 'var(--lufa-semantic-ui-background-surface-default)',
           marginTop: '32px',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
         }}
@@ -246,7 +250,11 @@ export function PolymorphicVariant() {
     <div style={{ overflowX: 'hidden' }}>
       <Container size="md" style={{ padding: '0 16px' }}>
         <div
-          style={{ padding: '16px', background: 'var(--lufa-semantic-ui-background-surface)', marginBottom: '16px' }}
+          style={{
+            padding: '16px',
+            background: 'var(--lufa-semantic-ui-background-surface-default)',
+            marginBottom: '16px',
+          }}
         >
           Regular content
         </div>
@@ -262,7 +270,13 @@ export function PolymorphicVariant() {
           </div>
         </Bleed>
 
-        <div style={{ padding: '16px', background: 'var(--lufa-semantic-ui-background-surface)', marginTop: '16px' }}>
+        <div
+          style={{
+            padding: '16px',
+            background: 'var(--lufa-semantic-ui-background-surface-default)',
+            marginTop: '16px',
+          }}
+        >
           Regular content continues
         </div>
       </Container>

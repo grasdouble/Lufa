@@ -61,7 +61,7 @@ export function SpacingVariants() {
                 key={tag}
                 style={{
                   padding: '6px 12px',
-                  background: 'var(--lufa-semantic-ui-background-surface)',
+                  background: 'var(--lufa-semantic-ui-background-surface-default)',
                   border: '1px solid var(--lufa-semantic-ui-border-default)',
                   borderRadius: '4px',
                   fontSize: '13px',

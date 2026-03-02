@@ -38,7 +38,7 @@ export function LiveDemo() {
           style={{
             ...boxStyle,
             borderColor: 'var(--lufa-semantic-interactive-border-focus)',
-            background: 'var(--lufa-semantic-ui-background-surface)',
+            background: 'var(--lufa-semantic-ui-background-surface-default)',
           }}
         >
           <code style={{ fontSize: '12px' }}>&lt;Portal&gt;…&lt;/Portal&gt;</code>
@@ -62,7 +62,7 @@ export function LiveDemo() {
               <div
                 style={{
                   padding: '8px 14px',
-                  background: 'var(--lufa-semantic-ui-background-surface)',
+                  background: 'var(--lufa-semantic-ui-background-surface-default)',
                   color: 'var(--lufa-semantic-ui-text-primary)',
                   border: '1px solid var(--lufa-semantic-ui-border-default)',
                   borderRadius: 'var(--lufa-primitive-radius-scale-base)',
@@ -109,7 +109,7 @@ export function PortalWithContainer() {
               top: 12,
               right: 12,
               padding: '8px 12px',
-              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+              backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
               color: 'var(--lufa-semantic-ui-text-primary)',
               borderRadius: 'var(--lufa-primitive-radius-scale-base)',
               border: '1px solid var(--lufa-semantic-ui-border-default)',
