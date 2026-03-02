@@ -164,10 +164,7 @@ module.exports = {
       },
       states: {
         ':hover:not(:disabled):not(.disabled)': {
-          'background-color': 'var(--lufa-component-button-type-solid-variant-secondary-background-hover)',
-        },
-        ':active:not(:disabled):not(.disabled)': {
-          'background-color': 'var(--lufa-component-button-type-solid-variant-secondary-background-active)',
+          'background-color': 'var(--lufa-component-button-type-solid-variant-primary-background-hover)',
         },
         ':active:not(:disabled):not(.disabled)': {
           'background-color': 'var(--lufa-component-button-type-solid-variant-primary-background-active)',

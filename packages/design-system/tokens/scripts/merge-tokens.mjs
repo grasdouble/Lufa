@@ -18,7 +18,6 @@ import { dirname, resolve } from 'node:path';
 import { glob } from 'glob';
 
 const TOKENS_ROOT = resolve(dirname(new URL(import.meta.url).pathname), '..');
-const SRC_DIR = resolve(TOKENS_ROOT, 'src');
 const DEFAULT_OUTPUT = resolve(TOKENS_ROOT, 'dist', 'tokens-source-merged.json');
 
 /**

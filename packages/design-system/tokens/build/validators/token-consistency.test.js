@@ -4,15 +4,7 @@
  * Tests all 16 validation rules from ADR-013 and ADR-014
  */
 
-import {
-  checkHierarchyViolation,
-  containsRawHexColor,
-  extractReferences,
-  inferLevel,
-  validateToken,
-  ValidationError,
-  ValidationWarning,
-} from './token-consistency.js';
+import { inferLevel, validateToken, ValidationError, ValidationWarning } from './token-consistency.js';
 
 let testsPassed = 0;
 let testsFailed = 0;
