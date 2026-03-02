@@ -18,6 +18,9 @@ on:
       - 'packages/design-system/docusaurus/src/**/*.tsx'
       - 'packages/design-system/cli/src/**/*.css'
       - 'packages/design-system/cli/src/**/*.ts'
+      - 'packages/design-system/playwright/src/**/*.css'
+      - 'packages/design-system/playwright/src/**/*.ts'
+      - 'packages/design-system/playwright/src/**/*.tsx'
       - 'packages/design-system/tokens/scripts/validate-token-usage.js'
   push:
     branches:
@@ -38,6 +41,9 @@ on:
       - 'packages/design-system/docusaurus/src/**/*.tsx'
       - 'packages/design-system/cli/src/**/*.css'
       - 'packages/design-system/cli/src/**/*.ts'
+      - 'packages/design-system/playwright/src/**/*.css'
+      - 'packages/design-system/playwright/src/**/*.ts'
+      - 'packages/design-system/playwright/src/**/*.tsx'
       - 'packages/design-system/tokens/scripts/validate-token-usage.js'
   workflow_dispatch:
 
@@ -113,6 +119,16 @@ jobs:
           echo "::endgroup::"
         continue-on-error: true
 
+      # ── DS Playwright ────────────────────────────────────────────────────
+
+      - name: 🔍 Validate token usage — DS Playwright
+        id: validate-playwright
+        run: |
+          echo "::group::DS Playwright — Token Usage Validation"
+          pnpm ds:playwright:validate:token-usage
+          echo "::endgroup::"
+        continue-on-error: true
+
       # ── PR Comment ────────────────────────────────────────────────────────
 
       - name: 💬 Build validation comment
@@ -124,17 +140,20 @@ jobs:
           THEMES_OUTCOME: ${{ steps.validate-themes.outcome }}
           DOCUSAURUS_OUTCOME: ${{ steps.validate-docusaurus.outcome }}
           CLI_OUTCOME: ${{ steps.validate-cli.outcome }}
+          PLAYWRIGHT_OUTCOME: ${{ steps.validate-playwright.outcome }}
         run: |
           MAIN_STATUS="✅ Passed"
           STORYBOOK_STATUS="✅ Passed"
           THEMES_STATUS="✅ Passed"
           DOCUSAURUS_STATUS="✅ Passed"
           CLI_STATUS="✅ Passed"
+          PLAYWRIGHT_STATUS="✅ Passed"
           [[ "$MAIN_OUTCOME" == "failure" ]] && MAIN_STATUS="❌ Failed"
           [[ "$STORYBOOK_OUTCOME" == "failure" ]] && STORYBOOK_STATUS="❌ Failed"
           [[ "$THEMES_OUTCOME" == "failure" ]] && THEMES_STATUS="❌ Failed"
           [[ "$DOCUSAURUS_OUTCOME" == "failure" ]] && DOCUSAURUS_STATUS="❌ Failed"
           [[ "$CLI_OUTCOME" == "failure" ]] && CLI_STATUS="❌ Failed"
+          [[ "$PLAYWRIGHT_OUTCOME" == "failure" ]] && PLAYWRIGHT_STATUS="❌ Failed"
 
           # Only re-capture outputs when there are failures (avoids redundant runs on success)
           MAIN_OUTPUT=""
@@ -142,6 +161,7 @@ jobs:
           THEMES_OUTPUT=""
           DOCUSAURUS_OUTPUT=""
           CLI_OUTPUT=""
+          PLAYWRIGHT_OUTPUT=""
           if [[ "$MAIN_OUTCOME" == "failure" ]]; then
             MAIN_OUTPUT=$(pnpm ds:main:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
           fi
@@ -157,6 +177,9 @@ jobs:
           if [[ "$CLI_OUTCOME" == "failure" ]]; then
             CLI_OUTPUT=$(pnpm ds:cli:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
           fi
+          if [[ "$PLAYWRIGHT_OUTCOME" == "failure" ]]; then
+            PLAYWRIGHT_OUTPUT=$(pnpm ds:playwright:validate:token-usage 2>&1 | sed 's/\x1B\[[0-9;]*[mK]//g' || true)
+          fi
 
           {
             echo 'comment-body<<EOF_COMMENT'
@@ -171,6 +194,7 @@ jobs:
           | DS Themes | ${THEMES_STATUS} |
           | DS Docusaurus | ${DOCUSAURUS_STATUS} |
           | DS CLI | ${CLI_STATUS} |
+          | DS Playwright | ${PLAYWRIGHT_STATUS} |
 
           $(if [[ "$MAIN_OUTCOME" == "failure" ]]; then
             cat << 'MAIN_SECTION'
@@ -247,7 +271,22 @@ jobs:
           CLI_CLOSE
           fi)
 
-          $(if [[ "$MAIN_OUTCOME" == "failure" || "$STORYBOOK_OUTCOME" == "failure" || "$THEMES_OUTCOME" == "failure" || "$DOCUSAURUS_OUTCOME" == "failure" || "$CLI_OUTCOME" == "failure" ]]; then
+          $(if [[ "$PLAYWRIGHT_OUTCOME" == "failure" ]]; then
+            cat << 'PLAYWRIGHT_SECTION'
+          <details>
+          <summary>📋 DS Playwright — Validation Report</summary>
+
+          \`\`\`
+          PLAYWRIGHT_SECTION
+            echo "${PLAYWRIGHT_OUTPUT}"
+            cat << 'PLAYWRIGHT_CLOSE'
+          \`\`\`
+
+          </details>
+          PLAYWRIGHT_CLOSE
+          fi)
+
+          $(if [[ "$MAIN_OUTCOME" == "failure" || "$STORYBOOK_OUTCOME" == "failure" || "$THEMES_OUTCOME" == "failure" || "$DOCUSAURUS_OUTCOME" == "failure" || "$CLI_OUTCOME" == "failure" || "$PLAYWRIGHT_OUTCOME" == "failure" ]]; then
             cat << 'FIX_SECTION'
           ### 💡 How to Fix
 
@@ -277,7 +316,7 @@ jobs:
       # ── Final gate ────────────────────────────────────────────────────────
 
       - name: ❌ Fail if any validation errors
-        if: steps.validate-main.outcome == 'failure' || steps.validate-storybook.outcome == 'failure' || steps.validate-themes.outcome == 'failure' || steps.validate-docusaurus.outcome == 'failure' || steps.validate-cli.outcome == 'failure'
+        if: steps.validate-main.outcome == 'failure' || steps.validate-storybook.outcome == 'failure' || steps.validate-themes.outcome == 'failure' || steps.validate-docusaurus.outcome == 'failure' || steps.validate-cli.outcome == 'failure' || steps.validate-playwright.outcome == 'failure'
         run: |
           [[ "${{ steps.validate-main.outcome }}" == "failure" ]] && \
             echo "::error::DS Main token usage validation failed."
@@ -289,8 +328,10 @@ jobs:
             echo "::error::DS Docusaurus token usage validation failed."
           [[ "${{ steps.validate-cli.outcome }}" == "failure" ]] && \
             echo "::error::DS CLI token usage validation failed."
+          [[ "${{ steps.validate-playwright.outcome }}" == "failure" ]] && \
+            echo "::error::DS Playwright token usage validation failed."
           exit 1
 
       - name: ✅ All token usages are valid
-        if: steps.validate-main.outcome == 'success' && steps.validate-storybook.outcome == 'success' && steps.validate-themes.outcome == 'success' && steps.validate-docusaurus.outcome == 'success' && steps.validate-cli.outcome == 'success'
-        run: echo "::notice::All token usages are valid in DS Main, DS Storybook, DS Themes, DS Docusaurus and DS CLI."
+        if: steps.validate-main.outcome == 'success' && steps.validate-storybook.outcome == 'success' && steps.validate-themes.outcome == 'success' && steps.validate-docusaurus.outcome == 'success' && steps.validate-cli.outcome == 'success' && steps.validate-playwright.outcome == 'success'
+        run: echo "::notice::All token usages are valid in DS Main, DS Storybook, DS Themes, DS Docusaurus, DS CLI and DS Playwright."

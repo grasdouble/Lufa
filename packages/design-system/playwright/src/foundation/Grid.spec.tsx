@@ -67,13 +67,13 @@ test.describe('Visual Regression', () => {
               <Grid
                 columns={cols}
                 gap="tight"
-                style={{ border: '1px solid var(--lufa-core-neutral-border-default)', padding: '8px' }}
+                style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '8px' }}
               >
                 {Array.from({ length: cols * 2 }).map((_, i) => (
                   <div
                     key={i}
                     style={{
-                      background: 'var(--lufa-core-neutral-surface-hover)',
+                      background: 'var(--lufa-semantic-interactive-background-hover)',
                       height: 40,
                       display: 'flex',
                       alignItems: 'center',
@@ -108,10 +108,13 @@ test.describe('Visual Regression', () => {
               <Grid
                 columns={3}
                 gap={gap}
-                style={{ border: '1px solid var(--lufa-core-neutral-border-default)', padding: '8px' }}
+                style={{ border: '1px solid var(--lufa-semantic-ui-border-default)', padding: '8px' }}
               >
                 {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} style={{ background: 'var(--lufa-core-neutral-surface-hover)', height: 30 }} />
+                  <div
+                    key={i}
+                    style={{ background: 'var(--lufa-semantic-interactive-background-hover)', height: 30 }}
+                  />
                 ))}
               </Grid>
             </div>

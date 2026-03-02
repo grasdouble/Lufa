@@ -370,7 +370,7 @@ test.describe('Divider Component', () => {
               <div key={spacing} style={{ marginBottom: '24px' }}>
                 <div
                   style={{
-                    backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                    backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
                     padding: '8px',
                     color: 'var(--lufa-semantic-ui-text-primary)',
                   }}
@@ -380,7 +380,7 @@ test.describe('Divider Component', () => {
                 <Divider spacing={spacing} emphasis="strong" />
                 <div
                   style={{
-                    backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                    backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
                     padding: '8px',
                     color: 'var(--lufa-semantic-ui-text-primary)',
                   }}

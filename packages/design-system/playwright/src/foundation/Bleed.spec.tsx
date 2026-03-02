@@ -341,7 +341,7 @@ test.describe('Bleed Component', () => {
             <Container
               size="md"
               style={{
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
                 padding: '24px',
                 border: '2px dashed var(--lufa-semantic-ui-border-default)',
                 overflow: 'hidden',
@@ -374,8 +374,8 @@ test.describe('Bleed Component', () => {
                         fontSize: '10px',
                         color:
                           value === 'full'
-                            ? 'var(--lufa-semantic-ui-text-on-info)'
-                            : 'var(--lufa-semantic-ui-text-on-success)',
+                            ? 'var(--lufa-semantic-ui-background-on-info)'
+                            : 'var(--lufa-semantic-ui-background-on-success)',
                       }}
                     >
                       {value === 'full' ? 'Full-width bleed' : `Bleeds ${value}px`}
@@ -400,7 +400,7 @@ test.describe('Bleed Component', () => {
             </h2>
             <div
               style={{
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
                 padding: '24px',
                 border: '2px dashed var(--lufa-semantic-ui-border-default)',
                 maxWidth: '500px',
@@ -435,7 +435,7 @@ test.describe('Bleed Component', () => {
                         backgroundColor: 'var(--lufa-semantic-ui-background-warning)',
                         padding: '8px',
                         fontSize: '10px',
-                        color: 'var(--lufa-semantic-ui-text-on-warning)',
+                        color: 'var(--lufa-semantic-ui-background-on-warning)',
                       }}
                     >
                       inline=16, block={value}
@@ -493,7 +493,7 @@ test.describe('Bleed Component', () => {
                     <div
                       key={`combo-${inlineVal}-${blockVal}`}
                       style={{
-                        backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                        backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
                         border: '1px solid var(--lufa-semantic-ui-border-default)',
                         overflow: 'hidden',
                       }}
@@ -545,7 +545,7 @@ test.describe('Bleed Component', () => {
                               backgroundColor: 'var(--lufa-semantic-ui-background-info)',
                               padding: '12px',
                               fontSize: '10px',
-                              color: 'var(--lufa-semantic-ui-text-on-info)',
+                              color: 'var(--lufa-semantic-ui-background-on-info)',
                               textAlign: 'center',
                               fontWeight: '600',
                             }}
@@ -588,7 +588,7 @@ test.describe('Bleed Component', () => {
             <Container
               size="md"
               style={{
-                backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+                backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
                 padding: '24px',
                 border: '2px dashed var(--lufa-semantic-ui-border-default)',
               }}
@@ -610,7 +610,7 @@ test.describe('Bleed Component', () => {
                       backgroundColor: 'var(--lufa-semantic-ui-background-success)',
                       padding: '8px',
                       fontSize: '10px',
-                      color: 'var(--lufa-semantic-ui-text-on-success)',
+                      color: 'var(--lufa-semantic-ui-background-on-success)',
                     }}
                   >
                     Default div element
@@ -635,7 +635,7 @@ test.describe('Bleed Component', () => {
                       backgroundColor: 'var(--lufa-semantic-ui-background-error)',
                       padding: '8px',
                       fontSize: '10px',
-                      color: 'var(--lufa-semantic-ui-text-on-error)',
+                      color: 'var(--lufa-semantic-ui-background-on-error)',
                     }}
                   >
                     Section element
@@ -660,7 +660,7 @@ test.describe('Bleed Component', () => {
                       backgroundColor: 'var(--lufa-semantic-ui-background-info)',
                       padding: '8px',
                       fontSize: '10px',
-                      color: 'var(--lufa-semantic-ui-text-on-info)',
+                      color: 'var(--lufa-semantic-ui-background-on-info)',
                     }}
                   >
                     Article element
@@ -685,7 +685,7 @@ test.describe('Bleed Component', () => {
                       backgroundColor: 'var(--lufa-semantic-ui-background-warning)',
                       padding: '8px',
                       fontSize: '10px',
-                      color: 'var(--lufa-semantic-ui-text-on-warning)',
+                      color: 'var(--lufa-semantic-ui-background-on-warning)',
                     }}
                   >
                     Figure element
