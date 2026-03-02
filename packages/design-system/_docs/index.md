@@ -233,7 +233,7 @@ pnpm ds:test:update-snapshots
 pnpm ds:test:docker:update-snapshots-linux
 
 # Compress snapshots (reduce repo size)
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 ```
 
 ### Use Case 5: "I need to create a release"

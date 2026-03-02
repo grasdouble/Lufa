@@ -457,7 +457,7 @@ jobs:
 
       # Step 10: Compress snapshots (level 6 for CI artifacts)
       - name: Compress snapshots
-        run: pnpm ds:test:compress-snapshots
+        run: pnpm ds:playwright:compress-snapshots
         # Note: We compress manually with level 6 (maximum) before committing.
         # The pre-commit hook (level 3) will run during git commit but won't
         # re-compress already optimized files. This ensures CI snapshots get

@@ -44,7 +44,7 @@ pnpm ds:test:ui
 pnpm ds:test:update-snapshots
 
 # Compress snapshots
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 ```
 
 ## Additional Guides

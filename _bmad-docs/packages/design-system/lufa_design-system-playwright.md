@@ -289,7 +289,7 @@ await expect(component).toHaveScreenshot('badge-all-variants.png');
 pnpm ds:test                               # Run all CT tests
 pnpm ds:test:ui                            # UI mode
 pnpm ds:test:update-snapshots              # Update + compress
-pnpm ds:test:compress-snapshots            # Manual compress only
+pnpm ds:playwright:compress-snapshots            # Manual compress only
 pnpm ds:test:docker:update-snapshots-linux # Docker Linux snapshots
 ```
 

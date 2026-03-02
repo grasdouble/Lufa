@@ -262,7 +262,7 @@ if [[ -f "$ROOT_PACKAGE_JSON" ]]; then
         "ds:test:ci"
         "ds:test:ui"
         "ds:test:update-snapshots"
-        "ds:test:compress-snapshots"
+        "ds:playwright:compress-snapshots"
         "ds:test:docker:update-snapshots-linux"
     )
     

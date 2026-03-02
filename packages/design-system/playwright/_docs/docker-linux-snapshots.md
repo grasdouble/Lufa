@@ -180,7 +180,7 @@ pnpm ds:test
 pnpm ds:test:docker:update-snapshots-linux
 
 # 3. Compress all snapshots (both macOS and Linux)
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 
 # 4. Review the new Linux snapshots
 git status
@@ -227,7 +227,7 @@ Already up to date
 📸 Linux snapshots have been generated (with -linux suffix)
 💡 Next steps:
    1. Review the new snapshots in __snapshots__ directories
-   2. Compress them: pnpm ds:test:compress-snapshots
+   2. Compress them: pnpm ds:playwright:compress-snapshots
    3. Commit them: git add . && git commit -m 'test: add Linux snapshots'
 ```
 
@@ -250,7 +250,7 @@ Already up to date
 💡 Next steps:
 
 1.  Review the new snapshots in **snapshots** directories
-2.  Compress them: pnpm ds:test:compress-snapshots
+2.  Compress them: pnpm ds:playwright:compress-snapshots
 3.  Commit them: git add . && git commit -m 'test: add Linux snapshots'
 
 ````
@@ -510,7 +510,7 @@ pnpm ds:test:update-snapshots
 pnpm ds:test:docker:update-snapshots-linux
 
 # 3. Compress all
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 
 # 4. Commit both
 git add packages/design-system/playwright/__snapshots__/
@@ -522,7 +522,7 @@ git commit -m "test: update snapshots after design token changes"
 Always compress snapshots after generation to keep repository size manageable:
 
 ```bash
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 ```
 
 This uses oxipng level 6 (maximum compression) for significant space savings.

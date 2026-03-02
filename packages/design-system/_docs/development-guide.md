@@ -383,7 +383,7 @@ pnpm ds:test:docker:update-snapshots-linux
 
 ```bash
 # Manual compression
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 
 # Automatic compression (pre-commit hook)
 # Runs via lint-staged on `git commit`

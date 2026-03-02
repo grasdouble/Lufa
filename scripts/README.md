@@ -284,7 +284,7 @@ The snapshot compression scripts have been moved to the Playwright package where
 
 ```bash
 # Manual compression (all snapshots)
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 
 # Pre-commit hook (automatic for staged snapshots)
 # Runs automatically when you commit snapshot files
