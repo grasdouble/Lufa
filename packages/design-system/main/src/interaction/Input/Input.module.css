@@ -77,6 +77,6 @@
 }
 
 /* Error + Focus — red focus ring */
-.input.error-true:focus-visible {
+.input.error:focus-visible {
   box-shadow: 0 0 0 var(--lufa-component-shared-focus-outline-width) var(--lufa-component-input-border-error);
 }

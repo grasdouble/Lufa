@@ -72,7 +72,7 @@ module.exports = {
     },
     {
       comment: 'Error + Focus — red focus ring',
-      selector: '.input.error-true:focus-visible',
+      selector: '.input.error:focus-visible',
       properties: {
         'box-shadow': '0 0 0 var(--lufa-component-shared-focus-outline-width) var(--lufa-component-input-border-error)',
       },

@@ -171,7 +171,7 @@
 }
 
 .button.type-solid.variant-primary:hover:not(:disabled):not(.disabled) {
-  background-color: var(--lufa-component-button-type-solid-variant-secondary-background-hover);
+  background-color: var(--lufa-component-button-type-solid-variant-primary-background-hover);
 }
 
 .button.type-solid.variant-primary:active:not(:disabled):not(.disabled) {
