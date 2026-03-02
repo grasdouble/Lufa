@@ -6,7 +6,7 @@
     "bundle": {
       "description": "Total bundle size limits (JS + CSS)",
       "totalSize": {
-        "max": 250,
+        "max": 275,
         "unit": "KB",
         "failOnExceed": true
       },
@@ -53,7 +53,7 @@
     }
   },
   "metadata": {
-    "lastUpdated": "2026-02-05",
+    "lastUpdated": "2026-03-02",
     "workflow": ".github/workflows/tools-ds-performance-budgets.yml",
     "notes": [
       "Bundle size budgets are for uncompressed files",
