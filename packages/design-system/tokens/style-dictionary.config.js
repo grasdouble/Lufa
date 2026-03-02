@@ -114,8 +114,9 @@ StyleDictionary.registerFormat({
           return `var(--${prefix}-${refPath.join('-')})`;
         });
       }
-      // Return the transformed value, or fallback to original $value
-      return token.value || token.original?.$value || token.$value;
+      // Return the transformed value (SD v5: lives in token.$value after transforms, token.value is undefined)
+      // Fallback chain: transformed $value → legacy value → original $value (raw)
+      return token.$value ?? token.value ?? token.original?.$value;
     };
 
     // Helper: Check if token has modes (mode-aware is inferred)

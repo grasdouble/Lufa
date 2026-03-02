@@ -1,5 +1,38 @@
 /* Volt Theme — Lufa Design System */
 
+/* Structural tokens — apply to all modes */
+[data-theme='volt'] {
+  /* Shape — razor sharp, electric */
+  --lufa-semantic-ui-border-radius-small: var(--lufa-primitive-radius-scale-none);
+  --lufa-semantic-ui-border-radius-default: var(--lufa-primitive-radius-scale-none);
+  --lufa-semantic-ui-border-radius-medium: var(--lufa-primitive-radius-scale-sm);
+  --lufa-semantic-ui-border-radius-large: var(--lufa-primitive-radius-scale-base);
+
+  /* Motion — instant snap, electric */
+  --lufa-semantic-ui-transition-duration-fast: var(--lufa-primitive-motion-duration-instant);
+  --lufa-semantic-ui-transition-duration-normal: var(--lufa-primitive-motion-duration-fast);
+  --lufa-semantic-ui-transition-timing-function-default: var(--lufa-primitive-motion-easing-linear);
+
+  /* Typography — mono headings for tech feel */
+  --lufa-core-typography-heading-font-family: var(--lufa-primitive-typography-font-family-mono);
+  --lufa-core-typography-heading-letter-spacing: var(--lufa-primitive-typography-letter-spacing-wider);
+
+  /* Shadows — tinted electric-lime */
+  --lufa-semantic-ui-shadow-small: 0px 1px 2px 0px rgba(77, 124, 15, 0.18);
+  --lufa-semantic-ui-shadow-medium: 0px 2px 4px 0px rgba(77, 124, 15, 0.22);
+  --lufa-semantic-ui-shadow-large: 0px 8px 16px 0px rgba(77, 124, 15, 0.28);
+  --lufa-semantic-ui-shadow-extra-large: 0px 12px 24px 0px rgba(77, 124, 15, 0.35);
+
+  /* Background pattern — electric scan lines */
+  --lufa-semantic-ui-background-pattern: repeating-linear-gradient(
+    0deg,
+    rgba(77, 124, 15, 0.06) 0px,
+    rgba(77, 124, 15, 0.06) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+
 [data-theme='volt'],
 [data-theme='volt'][data-mode='light'] {
   /* Brand */
@@ -41,6 +74,12 @@
   --lufa-core-color-feedback-info-subtle: #eff6ff;
   --lufa-core-color-feedback-info-border: #bfdbfe;
   --lufa-core-color-feedback-info-hover: #1d4ed8;
+
+  /* Glow — electric yellow (light mode) */
+  --lufa-semantic-effect-glow-box-primary-default: 0 0 10px rgba(234, 179, 8, 0.45);
+  --lufa-semantic-effect-glow-box-primary-hover: 0 0 22px rgba(234, 179, 8, 0.75);
+  --lufa-semantic-effect-glow-text-primary-default: 0 0 8px rgba(234, 179, 8, 0.5);
+  --lufa-semantic-effect-glow-text-primary-hover: 0 0 16px rgba(234, 179, 8, 0.85);
 }
 
 [data-theme='volt'][data-mode='dark'] {
@@ -83,6 +122,12 @@
   --lufa-core-color-feedback-info-subtle: #172554;
   --lufa-core-color-feedback-info-border: #1e3a8a;
   --lufa-core-color-feedback-info-hover: #60a5fa;
+
+  /* Glow — electric yellow (dark mode) */
+  --lufa-semantic-effect-glow-box-primary-default: 0 0 14px rgba(234, 179, 8, 0.65);
+  --lufa-semantic-effect-glow-box-primary-hover: 0 0 30px rgba(234, 179, 8, 0.95);
+  --lufa-semantic-effect-glow-text-primary-default: 0 0 10px rgba(234, 179, 8, 0.7);
+  --lufa-semantic-effect-glow-text-primary-hover: 0 0 20px rgba(234, 179, 8, 1);
 }
 
 [data-theme='volt'][data-mode='high-contrast'] {
@@ -125,4 +170,10 @@
   --lufa-core-color-feedback-info-subtle: #000000;
   --lufa-core-color-feedback-info-border: #00e5ff;
   --lufa-core-color-feedback-info-hover: #84ffff;
+
+  /* Glow — disabled for accessibility */
+  --lufa-semantic-effect-glow-box-primary-default: none;
+  --lufa-semantic-effect-glow-box-primary-hover: none;
+  --lufa-semantic-effect-glow-text-primary-default: none;
+  --lufa-semantic-effect-glow-text-primary-hover: none;
 }

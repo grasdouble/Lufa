@@ -1,5 +1,29 @@
 /* Coffee Theme — Lufa Design System */
 
+/* Structural tokens — apply to all modes */
+[data-theme='coffee'] {
+  /* Shape — comfortable, cozy */
+  --lufa-semantic-ui-border-radius-small: var(--lufa-primitive-radius-scale-base);
+  --lufa-semantic-ui-border-radius-default: var(--lufa-primitive-radius-scale-lg);
+  --lufa-semantic-ui-border-radius-medium: var(--lufa-primitive-radius-scale-xl);
+  --lufa-semantic-ui-border-radius-large: var(--lufa-primitive-radius-scale-2xl);
+
+  /* Motion — slow, unhurried, cozy */
+  --lufa-semantic-ui-transition-duration-fast: var(--lufa-primitive-motion-duration-normal);
+  --lufa-semantic-ui-transition-duration-normal: var(--lufa-primitive-motion-duration-slow);
+  --lufa-semantic-ui-transition-timing-function-default: var(--lufa-primitive-motion-easing-ease);
+
+  /* Shadows — tinted warm-brown */
+  --lufa-semantic-ui-shadow-small: 0px 1px 2px 0px rgba(120, 53, 15, 0.15);
+  --lufa-semantic-ui-shadow-medium: 0px 2px 4px 0px rgba(120, 53, 15, 0.18);
+  --lufa-semantic-ui-shadow-large: 0px 8px 16px 0px rgba(120, 53, 15, 0.22);
+  --lufa-semantic-ui-shadow-extra-large: 0px 12px 24px 0px rgba(120, 53, 15, 0.28);
+
+  /* Background pattern — warm paper grain dots */
+  --lufa-semantic-ui-background-pattern: radial-gradient(circle at 1px 1px, rgba(120, 53, 15, 0.07) 1px, transparent 0)
+    0 0 / 18px 18px;
+}
+
 [data-theme='coffee'],
 [data-theme='coffee'][data-mode='light'] {
   /* Brand */
@@ -41,6 +65,10 @@
   --lufa-core-color-feedback-info-subtle: #eff6ff;
   --lufa-core-color-feedback-info-border: #bfdbfe;
   --lufa-core-color-feedback-info-hover: #1e40af;
+
+  /* Glow — warm amber (light mode) */
+  --lufa-semantic-effect-glow-box-primary-default: 0 0 6px rgba(180, 120, 50, 0.2);
+  --lufa-semantic-effect-glow-box-primary-hover: 0 0 14px rgba(180, 120, 50, 0.4);
 }
 
 [data-theme='coffee'][data-mode='dark'] {
@@ -83,6 +111,10 @@
   --lufa-core-color-feedback-info-subtle: #172554;
   --lufa-core-color-feedback-info-border: #1e3a8a;
   --lufa-core-color-feedback-info-hover: #93c5fd;
+
+  /* Glow — warm amber (dark mode) */
+  --lufa-semantic-effect-glow-box-primary-default: 0 0 10px rgba(180, 120, 50, 0.35);
+  --lufa-semantic-effect-glow-box-primary-hover: 0 0 20px rgba(180, 120, 50, 0.6);
 }
 
 [data-theme='coffee'][data-mode='high-contrast'] {
@@ -125,4 +157,8 @@
   --lufa-core-color-feedback-info-subtle: #000000;
   --lufa-core-color-feedback-info-border: #42a5f5;
   --lufa-core-color-feedback-info-hover: #64b5f6;
+
+  /* Glow — disabled for accessibility */
+  --lufa-semantic-effect-glow-box-primary-default: none;
+  --lufa-semantic-effect-glow-box-primary-hover: none;
 }

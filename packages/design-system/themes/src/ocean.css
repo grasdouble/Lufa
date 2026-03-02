@@ -1,5 +1,29 @@
 /* Ocean Theme — Lufa Design System */
 
+/* Structural tokens — apply to all modes */
+[data-theme='ocean'] {
+  /* Shape — very rounded, fluid */
+  --lufa-semantic-ui-border-radius-small: var(--lufa-primitive-radius-scale-lg);
+  --lufa-semantic-ui-border-radius-default: var(--lufa-primitive-radius-scale-2xl);
+  --lufa-semantic-ui-border-radius-medium: var(--lufa-primitive-radius-scale-full);
+  --lufa-semantic-ui-border-radius-large: var(--lufa-primitive-radius-scale-full);
+
+  /* Motion — slow, wave-like */
+  --lufa-semantic-ui-transition-duration-fast: var(--lufa-primitive-motion-duration-normal);
+  --lufa-semantic-ui-transition-duration-normal: var(--lufa-primitive-motion-duration-slow);
+  --lufa-semantic-ui-transition-timing-function-default: var(--lufa-primitive-motion-easing-ease-out);
+
+  /* Shadows — tinted cyan-blue */
+  --lufa-semantic-ui-shadow-small: 0px 1px 2px 0px rgba(14, 116, 144, 0.15);
+  --lufa-semantic-ui-shadow-medium: 0px 2px 4px 0px rgba(14, 116, 144, 0.18);
+  --lufa-semantic-ui-shadow-large: 0px 8px 16px 0px rgba(14, 116, 144, 0.22);
+  --lufa-semantic-ui-shadow-extra-large: 0px 12px 24px 0px rgba(14, 116, 144, 0.28);
+
+  /* Background pattern — subtle wave grid */
+  --lufa-semantic-ui-background-pattern: radial-gradient(circle at 1px 1px, rgba(14, 116, 144, 0.08) 1px, transparent 0)
+    0 0 / 28px 28px;
+}
+
 [data-theme='ocean'],
 [data-theme='ocean'][data-mode='light'] {
   /* Brand */
@@ -41,6 +65,10 @@
   --lufa-core-color-feedback-info-subtle: #e0f2fe;
   --lufa-core-color-feedback-info-border: #7dd3fc;
   --lufa-core-color-feedback-info-hover: #075985;
+
+  /* Glow — subtle blue (light mode) */
+  --lufa-semantic-effect-glow-box-primary-default: 0 0 8px rgba(14, 165, 233, 0.2);
+  --lufa-semantic-effect-glow-box-primary-hover: 0 0 16px rgba(14, 165, 233, 0.4);
 }
 
 [data-theme='ocean'][data-mode='dark'] {
@@ -83,6 +111,10 @@
   --lufa-core-color-feedback-info-subtle: #082f49;
   --lufa-core-color-feedback-info-border: #0c4a6e;
   --lufa-core-color-feedback-info-hover: #7dd3fc;
+
+  /* Glow — blue glow (dark mode) */
+  --lufa-semantic-effect-glow-box-primary-default: 0 0 12px rgba(14, 165, 233, 0.4);
+  --lufa-semantic-effect-glow-box-primary-hover: 0 0 24px rgba(14, 165, 233, 0.7);
 }
 
 [data-theme='ocean'][data-mode='high-contrast'] {
@@ -125,4 +157,8 @@
   --lufa-core-color-feedback-info-subtle: #000000;
   --lufa-core-color-feedback-info-border: #00bfff;
   --lufa-core-color-feedback-info-hover: #87ceeb;
+
+  /* Glow — disabled for accessibility */
+  --lufa-semantic-effect-glow-box-primary-default: none;
+  --lufa-semantic-effect-glow-box-primary-hover: none;
 }

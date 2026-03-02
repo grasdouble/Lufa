@@ -1,5 +1,39 @@
 /* Matrix Theme — Lufa Design System */
 
+/* Structural tokens — apply to all modes */
+[data-theme='matrix'] {
+  /* Shape — terminal sharp, pure rectangles */
+  --lufa-semantic-ui-border-radius-small: var(--lufa-primitive-radius-scale-none);
+  --lufa-semantic-ui-border-radius-default: var(--lufa-primitive-radius-scale-none);
+  --lufa-semantic-ui-border-radius-medium: var(--lufa-primitive-radius-scale-none);
+  --lufa-semantic-ui-border-radius-large: var(--lufa-primitive-radius-scale-sm);
+
+  /* Motion — instant, linear — like terminal output */
+  --lufa-semantic-ui-transition-duration-fast: var(--lufa-primitive-motion-duration-instant);
+  --lufa-semantic-ui-transition-duration-normal: var(--lufa-primitive-motion-duration-fast);
+  --lufa-semantic-ui-transition-timing-function-default: var(--lufa-primitive-motion-easing-linear);
+
+  /* Typography — full mono — headings AND body text (terminal feel) */
+  --lufa-core-typography-heading-font-family: var(--lufa-primitive-typography-font-family-mono);
+  --lufa-core-typography-body-font-family: var(--lufa-primitive-typography-font-family-mono);
+  --lufa-core-typography-heading-letter-spacing: var(--lufa-primitive-typography-letter-spacing-wider);
+
+  /* Shadows — tinted matrix-green */
+  --lufa-semantic-ui-shadow-small: 0px 1px 2px 0px rgba(0, 120, 0, 0.2);
+  --lufa-semantic-ui-shadow-medium: 0px 2px 4px 0px rgba(0, 120, 0, 0.25);
+  --lufa-semantic-ui-shadow-large: 0px 8px 16px 0px rgba(0, 120, 0, 0.32);
+  --lufa-semantic-ui-shadow-extra-large: 0px 12px 24px 0px rgba(0, 120, 0, 0.42);
+
+  /* Background pattern — terminal scan lines */
+  --lufa-semantic-ui-background-pattern: repeating-linear-gradient(
+    0deg,
+    rgba(0, 120, 0, 0.06) 0px,
+    rgba(0, 120, 0, 0.06) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
 [data-theme='matrix'],
 [data-theme='matrix'][data-mode='light'] {
   /* Brand */

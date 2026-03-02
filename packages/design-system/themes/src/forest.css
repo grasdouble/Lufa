@@ -1,5 +1,29 @@
 /* Forest Theme — Lufa Design System */
 
+/* Structural tokens — apply to all modes */
+[data-theme='forest'] {
+  /* Shape — organic, medium rounded */
+  --lufa-semantic-ui-border-radius-small: var(--lufa-primitive-radius-scale-md);
+  --lufa-semantic-ui-border-radius-default: var(--lufa-primitive-radius-scale-xl);
+  --lufa-semantic-ui-border-radius-medium: var(--lufa-primitive-radius-scale-2xl);
+  --lufa-semantic-ui-border-radius-large: var(--lufa-primitive-radius-scale-full);
+
+  /* Motion — natural, breathing */
+  --lufa-semantic-ui-transition-duration-fast: var(--lufa-primitive-motion-duration-fast);
+  --lufa-semantic-ui-transition-duration-normal: var(--lufa-primitive-motion-duration-normal);
+  --lufa-semantic-ui-transition-timing-function-default: var(--lufa-primitive-motion-easing-ease-in-out);
+
+  /* Shadows — tinted emerald-green */
+  --lufa-semantic-ui-shadow-small: 0px 1px 2px 0px rgba(4, 120, 87, 0.15);
+  --lufa-semantic-ui-shadow-medium: 0px 2px 4px 0px rgba(4, 120, 87, 0.18);
+  --lufa-semantic-ui-shadow-large: 0px 8px 16px 0px rgba(4, 120, 87, 0.22);
+  --lufa-semantic-ui-shadow-extra-large: 0px 12px 24px 0px rgba(4, 120, 87, 0.28);
+
+  /* Background pattern — organic dot pattern */
+  --lufa-semantic-ui-background-pattern: radial-gradient(circle at 2px 2px, rgba(4, 120, 87, 0.1) 2px, transparent 0) 0
+    0 / 40px 40px;
+}
+
 [data-theme='forest'],
 [data-theme='forest'][data-mode='light'] {
   /* Brand */

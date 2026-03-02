@@ -1,5 +1,45 @@
 /* Volcano Theme — Lufa Design System */
 
+/* Structural tokens — apply to all modes */
+[data-theme='volcano'] {
+  /* Shape — sharp, brutal, volcanic */
+  --lufa-semantic-ui-border-radius-small: var(--lufa-primitive-radius-scale-none);
+  --lufa-semantic-ui-border-radius-default: var(--lufa-primitive-radius-scale-sm);
+  --lufa-semantic-ui-border-radius-medium: var(--lufa-primitive-radius-scale-base);
+  --lufa-semantic-ui-border-radius-large: var(--lufa-primitive-radius-scale-md);
+
+  /* Motion — fast, aggressive */
+  --lufa-semantic-ui-transition-duration-fast: var(--lufa-primitive-motion-duration-instant);
+  --lufa-semantic-ui-transition-duration-normal: var(--lufa-primitive-motion-duration-fast);
+  --lufa-semantic-ui-transition-timing-function-default: var(--lufa-primitive-motion-easing-ease-in);
+
+  /* Typography — tightly compressed headings for brutal feel */
+  --lufa-core-typography-heading-letter-spacing: var(--lufa-primitive-typography-letter-spacing-tighter);
+
+  /* Shadows — tinted deep-red */
+  --lufa-semantic-ui-shadow-small: 0px 1px 2px 0px rgba(220, 38, 38, 0.15);
+  --lufa-semantic-ui-shadow-medium: 0px 2px 4px 0px rgba(220, 38, 38, 0.18);
+  --lufa-semantic-ui-shadow-large: 0px 8px 16px 0px rgba(220, 38, 38, 0.22);
+  --lufa-semantic-ui-shadow-extra-large: 0px 12px 24px 0px rgba(220, 38, 38, 0.28);
+
+  /* Background pattern — diagonal crack pattern */
+  --lufa-semantic-ui-background-pattern:
+    repeating-linear-gradient(
+      -60deg,
+      rgba(220, 38, 38, 0.05) 0px,
+      rgba(220, 38, 38, 0.05) 1px,
+      transparent 1px,
+      transparent 12px
+    ),
+    repeating-linear-gradient(
+      60deg,
+      rgba(220, 38, 38, 0.04) 0px,
+      rgba(220, 38, 38, 0.04) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+}
+
 [data-theme='volcano'],
 [data-theme='volcano'][data-mode='light'] {
   /* Brand */
@@ -41,6 +81,12 @@
   --lufa-core-color-feedback-info-subtle: #eff6ff;
   --lufa-core-color-feedback-info-border: #bfdbfe;
   --lufa-core-color-feedback-info-hover: #1d4ed8;
+
+  /* Glow — hot red-orange (light mode) */
+  --lufa-semantic-effect-glow-box-primary-default: 0 0 10px rgba(220, 38, 38, 0.35);
+  --lufa-semantic-effect-glow-box-primary-hover: 0 0 22px rgba(220, 38, 38, 0.6);
+  --lufa-semantic-effect-glow-text-primary-default: 0 0 6px rgba(220, 38, 38, 0.25);
+  --lufa-semantic-effect-glow-text-primary-hover: 0 0 14px rgba(220, 38, 38, 0.5);
 }
 
 [data-theme='volcano'][data-mode='dark'] {
@@ -83,6 +129,12 @@
   --lufa-core-color-feedback-info-subtle: #1e3a8a;
   --lufa-core-color-feedback-info-border: #1e40af;
   --lufa-core-color-feedback-info-hover: #a5caff;
+
+  /* Glow — hot red-orange (dark mode) */
+  --lufa-semantic-effect-glow-box-primary-default: 0 0 14px rgba(220, 38, 38, 0.55);
+  --lufa-semantic-effect-glow-box-primary-hover: 0 0 30px rgba(220, 38, 38, 0.85);
+  --lufa-semantic-effect-glow-text-primary-default: 0 0 8px rgba(220, 38, 38, 0.45);
+  --lufa-semantic-effect-glow-text-primary-hover: 0 0 18px rgba(220, 38, 38, 0.75);
 }
 
 [data-theme='volcano'][data-mode='high-contrast'] {
@@ -125,4 +177,10 @@
   --lufa-core-color-feedback-info-subtle: #000000;
   --lufa-core-color-feedback-info-border: #00b8d4;
   --lufa-core-color-feedback-info-hover: #26c6da;
+
+  /* Glow — disabled for accessibility */
+  --lufa-semantic-effect-glow-box-primary-default: none;
+  --lufa-semantic-effect-glow-box-primary-hover: none;
+  --lufa-semantic-effect-glow-text-primary-default: none;
+  --lufa-semantic-effect-glow-text-primary-hover: none;
 }

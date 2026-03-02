@@ -1,5 +1,34 @@
 /* Steampunk Theme — Lufa Design System */
 
+/* Structural tokens — apply to all modes */
+[data-theme='steampunk'] {
+  /* Shape — square, industrial, no rounding */
+  --lufa-semantic-ui-border-radius-small: var(--lufa-primitive-radius-scale-none);
+  --lufa-semantic-ui-border-radius-default: var(--lufa-primitive-radius-scale-none);
+  --lufa-semantic-ui-border-radius-medium: var(--lufa-primitive-radius-scale-sm);
+  --lufa-semantic-ui-border-radius-large: var(--lufa-primitive-radius-scale-base);
+
+  /* Motion — slow, mechanical, deliberate */
+  --lufa-semantic-ui-transition-duration-fast: var(--lufa-primitive-motion-duration-normal);
+  --lufa-semantic-ui-transition-duration-normal: var(--lufa-primitive-motion-duration-slow);
+  --lufa-semantic-ui-transition-timing-function-default: var(--lufa-primitive-motion-easing-linear);
+
+  /* Typography — mono headings for mechanical feel */
+  --lufa-core-typography-heading-font-family: var(--lufa-primitive-typography-font-family-mono);
+  --lufa-core-typography-heading-letter-spacing: var(--lufa-primitive-typography-letter-spacing-wide);
+
+  /* Shadows — tinted bronze-brown */
+  --lufa-semantic-ui-shadow-small: 0px 1px 2px 0px rgba(139, 69, 19, 0.18);
+  --lufa-semantic-ui-shadow-medium: 0px 2px 4px 0px rgba(139, 69, 19, 0.22);
+  --lufa-semantic-ui-shadow-large: 0px 8px 16px 0px rgba(139, 69, 19, 0.28);
+  --lufa-semantic-ui-shadow-extra-large: 0px 12px 24px 0px rgba(139, 69, 19, 0.35);
+
+  /* Background pattern — grill (horizontal dense + vertical coarse) */
+  --lufa-semantic-ui-background-pattern:
+    linear-gradient(rgba(139, 69, 19, 0.07) 1px, transparent 1px) 0 0 / 16px 16px,
+    linear-gradient(90deg, rgba(139, 69, 19, 0.04) 1px, transparent 1px) 0 0 / 48px 48px;
+}
+
 [data-theme='steampunk'],
 [data-theme='steampunk'][data-mode='light'] {
   /* Brand */
@@ -41,6 +70,10 @@
   --lufa-core-color-feedback-info-subtle: #f0f2f4;
   --lufa-core-color-feedback-info-border: #b8c2cc;
   --lufa-core-color-feedback-info-hover: #4b5863;
+
+  /* Glow — bronze sepia (light mode) */
+  --lufa-semantic-effect-glow-box-primary-default: 0 0 8px rgba(180, 130, 70, 0.3);
+  --lufa-semantic-effect-glow-box-primary-hover: 0 0 18px rgba(180, 130, 70, 0.55);
 }
 
 [data-theme='steampunk'][data-mode='dark'] {
@@ -83,6 +116,10 @@
   --lufa-core-color-feedback-info-subtle: #0f1215;
   --lufa-core-color-feedback-info-border: #2c3539;
   --lufa-core-color-feedback-info-hover: #a8bfcc;
+
+  /* Glow — bronze sepia (dark mode) */
+  --lufa-semantic-effect-glow-box-primary-default: 0 0 12px rgba(180, 130, 70, 0.5);
+  --lufa-semantic-effect-glow-box-primary-hover: 0 0 24px rgba(180, 130, 70, 0.8);
 }
 
 [data-theme='steampunk'][data-mode='high-contrast'] {
@@ -125,4 +162,8 @@
   --lufa-core-color-feedback-info-subtle: #000000;
   --lufa-core-color-feedback-info-border: #87ceeb;
   --lufa-core-color-feedback-info-hover: #b0e0e6;
+
+  /* Glow — disabled for accessibility */
+  --lufa-semantic-effect-glow-box-primary-default: none;
+  --lufa-semantic-effect-glow-box-primary-hover: none;
 }
