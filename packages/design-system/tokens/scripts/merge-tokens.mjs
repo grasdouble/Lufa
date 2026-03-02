@@ -26,6 +26,9 @@ const DEFAULT_OUTPUT = resolve(TOKENS_ROOT, 'dist', 'tokens-source-merged.json')
  */
 function deepMerge(target, source) {
   for (const key of Object.keys(source)) {
+    if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
+      continue;
+    }
     if (
       source[key] &&
       typeof source[key] === 'object' &&
