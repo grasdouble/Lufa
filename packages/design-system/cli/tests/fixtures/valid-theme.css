@@ -2,19 +2,20 @@
  * Lufa Design System - Valid Theme Fixture
  * Auto-generated from tokens.css for CLI validator testing.
  * DO NOT edit manually.
- * Generated: 2026-02-28T13:46:31.047Z
+ * Generated: 2026-03-02T09:09:14.259Z
  */
 
-:root {
-  --lufa-primitive-border-width-scale-thin: 1px; /** Thin border width - subtle borders */
-  --lufa-primitive-border-width-scale-base: 2px; /** Base border width - emphasized borders */
-  --lufa-primitive-border-width-scale-thick: 4px; /** Thick border width - very strong emphasis */
-  --lufa-primitive-breakpoint-xs: 320px; /** Extra small - Mobile portrait (320px+) */
-  --lufa-primitive-breakpoint-sm: 640px; /** Small - Mobile landscape, large phones (640px+) */
-  --lufa-primitive-breakpoint-md: 768px; /** Medium - Tablets portrait (768px+) */
-  --lufa-primitive-breakpoint-lg: 1024px; /** Large - Tablets landscape, small desktops (1024px+) */
-  --lufa-primitive-breakpoint-xl: 1280px; /** Extra large - Desktop (1280px+) */
-  --lufa-primitive-breakpoint-2xl: 1536px; /** 2X Extra large - Large desktop, ultra-wide (1536px+) */
+[data-theme],
+[data-theme][data-mode='light'] {
+  --lufa-primitive-border-width-scale-thin: 0.0625rem; /** Thin border width - subtle borders */
+  --lufa-primitive-border-width-scale-base: 0.125rem; /** Base border width - emphasized borders */
+  --lufa-primitive-border-width-scale-thick: 0.25rem; /** Thick border width - very strong emphasis */
+  --lufa-primitive-breakpoint-xs: 20rem; /** Extra small - Mobile portrait (320px+) */
+  --lufa-primitive-breakpoint-sm: 40rem; /** Small - Mobile landscape, large phones (640px+) */
+  --lufa-primitive-breakpoint-md: 48rem; /** Medium - Tablets portrait (768px+) */
+  --lufa-primitive-breakpoint-lg: 64rem; /** Large - Tablets landscape, small desktops (1024px+) */
+  --lufa-primitive-breakpoint-xl: 80rem; /** Extra large - Desktop (1280px+) */
+  --lufa-primitive-breakpoint-2xl: 96rem; /** 2X Extra large - Large desktop, ultra-wide (1536px+) */
   --lufa-primitive-color-gray-50: #f9fafb; /** Lightest gray - backgrounds, subtle borders */
   --lufa-primitive-color-gray-100: #f3f4f6; /** Very light gray - hover states, disabled backgrounds */
   --lufa-primitive-color-gray-200: #e5e7eb; /** Light gray - borders, separators */
@@ -81,6 +82,7 @@
   --lufa-primitive-color-hc-red: #ff0000; /** Pure red for high-contrast error states and destructive actions */
   --lufa-primitive-color-hc-green: #00ff00; /** Pure green for high-contrast success states and positive feedback */
   --lufa-primitive-color-hc-yellow: #ffff00; /** Pure yellow for high-contrast warning states and alerts */
+  --lufa-primitive-color-hc-purple: #9900ff; /** Pure purple for high-contrast visited links and secondary accents */
   --lufa-primitive-color-alpha-black-4: rgba(0, 0, 0, 0.04); /** 4% opacity black - ultra-subtle overlay */
   --lufa-primitive-color-alpha-black-5: rgba(0, 0, 0, 0.05); /** 5% opacity black - ultra-subtle shadow layer */
   --lufa-primitive-color-alpha-black-8: rgba(0, 0, 0, 0.08); /** 8% opacity black - hover state overlay */
@@ -97,7 +99,7 @@
   --lufa-primitive-color-alpha-black-60: rgba(0, 0, 0, 0.6); /** 60% opacity black - medium overlay */
   --lufa-primitive-color-alpha-black-80: rgba(0, 0, 0, 0.8); /** 80% opacity black - strong overlay */
   --lufa-primitive-color-alpha-black-90: rgba(0, 0, 0, 0.9); /** 90% opacity black - very strong overlay */
-  --lufa-primitive-color-alpha-black-100: rgba(0, 0, 0, 1); /** Solid black - reference value */
+  --lufa-primitive-color-alpha-black-100: #000000; /** Solid black - reference value */
   --lufa-primitive-color-alpha-white-4: rgba(255, 255, 255, 0.04); /** 4% opacity white - ultra-subtle overlay */
   --lufa-primitive-color-alpha-white-5: rgba(255, 255, 255, 0.05); /** 5% opacity white - ultra-subtle shadow layer */
   --lufa-primitive-color-alpha-white-8: rgba(255, 255, 255, 0.08); /** 8% opacity white - hover state overlay */
@@ -109,20 +111,22 @@
   --lufa-primitive-color-alpha-white-60: rgba(255, 255, 255, 0.6); /** 60% opacity white - medium overlay */
   --lufa-primitive-color-alpha-white-80: rgba(255, 255, 255, 0.8); /** 80% opacity white - strong overlay */
   --lufa-primitive-color-alpha-white-90: rgba(255, 255, 255, 0.9); /** 90% opacity white - very strong overlay */
-  --lufa-primitive-color-alpha-white-100: rgba(255, 255, 255, 1); /** Solid white - reference value */
-  --lufa-primitive-height-24: 24px; /** Extra small height - Compact UI elements */
-  --lufa-primitive-height-32: 32px; /** Small height - Compact buttons, inputs */
-  --lufa-primitive-height-40: 40px; /** Default height - Standard buttons, inputs */
-  --lufa-primitive-height-48: 48px; /** Large height - Prominent buttons, touch-friendly */
-  --lufa-primitive-height-56: 56px; /** Extra large height - Headers, app bars */
-  --lufa-primitive-height-64: 64px; /** 2X large height - Desktop headers */
-  --lufa-primitive-height-80: 80px; /** 3X large height - Hero elements */
-  --lufa-primitive-height-96: 96px; /** Maximum height - Extra large headers */
-  --lufa-primitive-icon-size-scale-xs: 16px; /** Extra small icon size - compact UI */
-  --lufa-primitive-icon-size-scale-sm: 20px; /** Small icon size - standard UI */
-  --lufa-primitive-icon-size-scale-md: 24px; /** Medium icon size - emphasized UI */
-  --lufa-primitive-icon-size-scale-lg: 32px; /** Large icon size - prominent UI */
-  --lufa-primitive-icon-size-scale-xl: 40px; /** Extra large icon size - hero UI */
+  --lufa-primitive-color-alpha-white-100: #ffffff; /** Solid white - reference value */
+  --lufa-primitive-height-24: 1.5rem; /** Extra small height - Compact UI elements */
+  --lufa-primitive-height-32: 2rem; /** Small height - Compact buttons, inputs */
+  --lufa-primitive-height-40: 2.5rem; /** Default height - Standard buttons, inputs */
+  --lufa-primitive-height-48: 3rem; /** Large height - Prominent buttons, touch-friendly */
+  --lufa-primitive-height-56: 3.5rem; /** Extra large height - Headers, app bars */
+  --lufa-primitive-height-64: 4rem; /** 2X large height - Desktop headers */
+  --lufa-primitive-height-80: 5rem; /** 3X large height - Hero elements */
+  --lufa-primitive-height-96: 6rem; /** Maximum height - Extra large headers */
+  --lufa-primitive-icon-size-scale-xs: 1rem; /** Extra small icon size - compact UI */
+  --lufa-primitive-icon-size-scale-sm: 1.25rem; /** Small icon size - standard UI */
+  --lufa-primitive-icon-size-scale-md: 1.5rem; /** Medium icon size - emphasized UI */
+  --lufa-primitive-icon-size-scale-lg: 2rem; /** Large icon size - prominent UI */
+  --lufa-primitive-icon-size-scale-xl: 2.5rem; /** Extra large icon size - hero UI */
+  --lufa-primitive-layout-sidebar-width: 17.5rem; /** Standard sidebar width for desktop navigation panels */
+  --lufa-primitive-layout-content-max-width: 45rem; /** Maximum width for readable text content (optimal reading length ~65-75 characters) */
   --lufa-primitive-motion-duration-instant: 100ms; /** Instant duration for immediate feedback (100ms) */
   --lufa-primitive-motion-duration-fast: 150ms; /** Fast duration for quick transitions (150ms) */
   --lufa-primitive-motion-duration-normal: 300ms; /** Normal duration for standard transitions (300ms) */
@@ -168,41 +172,41 @@
   --lufa-primitive-opacity-scale-disabled: 0.38; /** Opacity for disabled states (Material Design standard - 38%) */
   --lufa-primitive-opacity-scale-placeholder: 0.5; /** Opacity for placeholder elements (50%) */
   --lufa-primitive-opacity-scale-loading: 0.6; /** Opacity for loading states (60%) */
-  --lufa-primitive-radius-scale-none: 0px; /** No rounding - sharp corners */
-  --lufa-primitive-radius-scale-sm: 2px; /** Small radius - slightly rounded corners */
-  --lufa-primitive-radius-scale-base: 4px; /** Base radius - standard rounding for most elements */
-  --lufa-primitive-radius-scale-md: 6px; /** Medium radius - more pronounced rounding */
-  --lufa-primitive-radius-scale-lg: 8px; /** Large radius - generous rounding */
-  --lufa-primitive-radius-scale-xl: 12px; /** Extra large radius - very pronounced rounding */
-  --lufa-primitive-radius-scale-2xl: 16px; /** 2X Extra large radius - highly pronounced rounding */
-  --lufa-primitive-radius-scale-full: 9999px; /** Full radius - perfect circle or pill shape */
-  --lufa-primitive-shadow-elevation-none: [object Object]; /** No shadow - surface at base level */
-  --lufa-primitive-shadow-elevation-sm: [object Object]; /** Small shadow - subtle elevation for cards and panels */
-  --lufa-primitive-shadow-elevation-base: [object Object]; /** Base shadow - standard elevation for cards */
-  --lufa-primitive-shadow-elevation-md: [object Object]; /** Medium shadow - elevation for dropdowns and popovers */
-  --lufa-primitive-shadow-elevation-lg: [object Object]; /** Large shadow - elevation for modals and sidebars */
-  --lufa-primitive-shadow-elevation-xl: [object Object]; /** Extra large shadow - maximum elevation for floating elements */
-  --lufa-primitive-spacing-0: 0px; /** Zero spacing - reset/remove gaps */
-  --lufa-primitive-spacing-4: 4px; /** Extra tight - minimal gaps between related elements */
-  --lufa-primitive-spacing-8: 8px; /** Tight - compact layouts, inline spacing */
-  --lufa-primitive-spacing-12: 12px; /** Comfortable - default element spacing */
-  --lufa-primitive-spacing-16: 16px; /** Base spacing - standard component gaps */
-  --lufa-primitive-spacing-24: 24px; /** Spacious - wider gaps between sections */
-  --lufa-primitive-spacing-32: 32px; /** Ample - major section spacing */
-  --lufa-primitive-spacing-40: 40px; /** Extra ample - emphasized spacing */
-  --lufa-primitive-spacing-48: 48px; /** Very ample - prominent gaps */
-  --lufa-primitive-spacing-64: 64px; /** Large - large page sections */
-  --lufa-primitive-spacing-80: 80px; /** Extra large - major layout spacing */
-  --lufa-primitive-spacing-96: 96px; /** Maximum - largest spacing value */
+  --lufa-primitive-radius-scale-none: 0rem; /** No rounding - sharp corners */
+  --lufa-primitive-radius-scale-sm: 0.125rem; /** Small radius - slightly rounded corners */
+  --lufa-primitive-radius-scale-base: 0.25rem; /** Base radius - standard rounding for most elements */
+  --lufa-primitive-radius-scale-md: 0.375rem; /** Medium radius - more pronounced rounding */
+  --lufa-primitive-radius-scale-lg: 0.5rem; /** Large radius - generous rounding */
+  --lufa-primitive-radius-scale-xl: 0.75rem; /** Extra large radius - very pronounced rounding */
+  --lufa-primitive-radius-scale-2xl: 1rem; /** 2X Extra large radius - highly pronounced rounding */
+  --lufa-primitive-radius-scale-full: 624.9375rem; /** Full radius - perfect circle or pill shape */
+  --lufa-primitive-shadow-elevation-none: 0px 0px 0px 0px rgba(0, 0, 0, 0); /** No shadow - surface at base level */
+  --lufa-primitive-shadow-elevation-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05); /** Small shadow - subtle elevation for cards and panels */
+  --lufa-primitive-shadow-elevation-base: 0px 2px 4px 0px rgba(0, 0, 0, 0.1); /** Base shadow - standard elevation for cards */
+  --lufa-primitive-shadow-elevation-md: 0px 4px 6px 0px rgba(0, 0, 0, 0.1); /** Medium shadow - elevation for dropdowns and popovers */
+  --lufa-primitive-shadow-elevation-lg: 0px 8px 16px 0px rgba(0, 0, 0, 0.12); /** Large shadow - elevation for modals and sidebars */
+  --lufa-primitive-shadow-elevation-xl: 0px 12px 24px 0px rgba(0, 0, 0, 0.15); /** Extra large shadow - maximum elevation for floating elements */
+  --lufa-primitive-spacing-0: 0rem; /** Zero spacing - reset/remove gaps */
+  --lufa-primitive-spacing-4: 0.25rem; /** Extra tight - minimal gaps between related elements */
+  --lufa-primitive-spacing-8: 0.5rem; /** Tight - compact layouts, inline spacing */
+  --lufa-primitive-spacing-12: 0.75rem; /** Comfortable - default element spacing */
+  --lufa-primitive-spacing-16: 1rem; /** Base spacing - standard component gaps */
+  --lufa-primitive-spacing-24: 1.5rem; /** Spacious - wider gaps between sections */
+  --lufa-primitive-spacing-32: 2rem; /** Ample - major section spacing */
+  --lufa-primitive-spacing-40: 2.5rem; /** Extra ample - emphasized spacing */
+  --lufa-primitive-spacing-48: 3rem; /** Very ample - prominent gaps */
+  --lufa-primitive-spacing-64: 4rem; /** Large - large page sections */
+  --lufa-primitive-spacing-80: 5rem; /** Extra large - major layout spacing */
+  --lufa-primitive-spacing-96: 6rem; /** Maximum - largest spacing value */
   --lufa-primitive-typography-font-family-sans:
     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /** System sans-serif font stack - optimized for readability, 0kb download */
   --lufa-primitive-typography-font-family-mono:
     ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; /** System monospace font stack - code blocks, technical content */
-  --lufa-primitive-typography-font-size-xs: 12px; /** Extra small font size - used for tiny labels, footnotes */
-  --lufa-primitive-typography-font-size-sm: 14px; /** Small font size - used for secondary text, descriptions */
-  --lufa-primitive-typography-font-size-base: 16px; /** Base font size - default size for body text */
-  --lufa-primitive-typography-font-size-lg: 18px; /** Large font size - used for emphasized text */
-  --lufa-primitive-typography-font-size-xl: 20px; /** Extra large font size - used for subtitles */
+  --lufa-primitive-typography-font-size-xs: 0.75rem; /** Extra small font size - used for tiny labels, footnotes */
+  --lufa-primitive-typography-font-size-sm: 0.875rem; /** Small font size - used for secondary text, descriptions */
+  --lufa-primitive-typography-font-size-base: 1rem; /** Base font size - default size for body text */
+  --lufa-primitive-typography-font-size-lg: 1.125rem; /** Large font size - used for emphasized text */
+  --lufa-primitive-typography-font-size-xl: 1.25rem; /** Extra large font size - used for subtitles */
   --lufa-primitive-typography-font-size-2xl: clamp(
     1.25rem,
     1rem + 1vw,
@@ -242,47 +246,44 @@
   --lufa-primitive-typography-font-weight-medium: 500; /** Medium font weight - used for subtle emphasis */
   --lufa-primitive-typography-font-weight-semibold: 600; /** Semibold font weight - used for subtitles and strong emphasis */
   --lufa-primitive-typography-font-weight-bold: 700; /** Bold font weight - used for headings and important elements */
-  --lufa-primitive-typography-letter-spacing-tighter: -0.04em; /** Extra tight letter spacing for very large headings and display text */
-  --lufa-primitive-typography-letter-spacing-tight: -0.02em; /** Tight letter spacing for large headings */
-  --lufa-primitive-typography-letter-spacing-normal: 0; /** Normal letter spacing for body text and default use */
-  --lufa-primitive-typography-letter-spacing-wide: 0.05em; /** Wide letter spacing for small text and uppercase labels */
-  --lufa-primitive-typography-letter-spacing-wider: 0.1em; /** Extra wide letter spacing for all-caps headings and emphasis */
+  --lufa-primitive-typography-letter-spacing-tighter: -0.0025rem; /** Extra tight letter spacing for very large headings and display text */
+  --lufa-primitive-typography-letter-spacing-tight: -0.00125rem; /** Tight letter spacing for large headings */
+  --lufa-primitive-typography-letter-spacing-normal: 0rem; /** Normal letter spacing for body text and default use */
+  --lufa-primitive-typography-letter-spacing-wide: 0.003125rem; /** Wide letter spacing for small text and uppercase labels */
+  --lufa-primitive-typography-letter-spacing-wider: 0.00625rem; /** Extra wide letter spacing for all-caps headings and emphasis */
   --lufa-primitive-typography-line-height-tight: 1.25; /** Tight line height - used for headings and short text */
   --lufa-primitive-typography-line-height-normal: 1.5; /** Normal line height - used for standard body text (WCAG recommended) */
   --lufa-primitive-typography-line-height-relaxed: 1.75; /** Relaxed line height - used for better readability of long text */
-  --lufa-core-alpha-black-4: var(
+  --lufa-core-color-alpha-black-4: var(
     --lufa-primitive-color-alpha-black-4
   ); /** Ultra-subtle black overlay - hover state on light surfaces */
-  --lufa-core-alpha-black-8: var(
+  --lufa-core-color-alpha-black-8: var(
     --lufa-primitive-color-alpha-black-8
   ); /** Subtle black overlay - pressed states and focus glow on light surfaces */
-  --lufa-core-alpha-black-16: var(
+  --lufa-core-color-alpha-black-16: var(
     --lufa-primitive-color-alpha-black-16
   ); /** Light black overlay - selected states and focus ring on light surfaces */
-  --lufa-core-alpha-black-38: var(
+  --lufa-core-color-alpha-black-38: var(
     --lufa-primitive-color-alpha-black-38
   ); /** Medium black overlay - scrim for bottom sheets and drawers */
-  --lufa-core-alpha-black-50: var(
+  --lufa-core-color-alpha-black-50: var(
     --lufa-primitive-color-alpha-black-50
   ); /** Half-opacity black overlay - modal backdrops in light mode */
-  --lufa-core-alpha-black-60: var(
+  --lufa-core-color-alpha-black-60: var(
     --lufa-primitive-color-alpha-black-60
   ); /** Strong black overlay - scrim in dark mode */
-  --lufa-core-alpha-black-80: var(
+  --lufa-core-color-alpha-black-80: var(
     --lufa-primitive-color-alpha-black-80
   ); /** Very strong black overlay - modal backdrops in dark mode, high-contrast scrim */
-  --lufa-core-alpha-black-90: var(
+  --lufa-core-color-alpha-black-90: var(
     --lufa-primitive-color-alpha-black-90
   ); /** Near-opaque black overlay - high-contrast modal backdrops */
-  --lufa-core-alpha-white-8: var(
+  --lufa-core-color-alpha-white-8: var(
     --lufa-primitive-color-alpha-white-8
   ); /** Subtle white overlay - hover state on dark surfaces */
-  --lufa-core-alpha-white-16: var(
+  --lufa-core-color-alpha-white-16: var(
     --lufa-primitive-color-alpha-white-16
   ); /** Light white overlay - pressed/selected states on dark surfaces */
-  --lufa-core-brand-secondary-on-background: var(
-    --lufa-primitive-color-hc-white
-  ); /** Text color to use on secondary brand background. Ensures WCAG AA contrast (4.5:1+) against secondary brand color. */
   --lufa-core-layout-container-sm: var(--lufa-primitive-breakpoint-sm); /** Small container max-width (640px) */
   --lufa-core-layout-container-md: var(--lufa-primitive-breakpoint-md); /** Medium container max-width (768px) */
   --lufa-core-layout-container-lg: var(--lufa-primitive-breakpoint-lg); /** Large container max-width (1024px) */
@@ -304,7 +305,9 @@
     4vw,
     48px
   ); /** Fluid container gutters (scales from 16px to 48px) */
-  --lufa-core-layout-content-max-width: 720px; /** Maximum width for readable text content (optimal reading length) */
+  --lufa-core-layout-content-max-width: var(
+    --lufa-primitive-layout-content-max-width
+  ); /** Maximum width for readable text content (optimal reading length) */
   --lufa-core-layout-grid-columns: 12; /** Standard 12-column grid system */
   --lufa-core-layout-grid-gap-tight: var(--lufa-primitive-spacing-8); /** Tight gap between grid items (8px) */
   --lufa-core-layout-grid-gap-default: var(--lufa-primitive-spacing-16); /** Default gap between grid items (16px) */
@@ -312,7 +315,7 @@
     --lufa-primitive-spacing-24
   ); /** Comfortable gap between grid items (24px) */
   --lufa-core-layout-grid-gap-spacious: var(--lufa-primitive-spacing-32); /** Spacious gap between grid items (32px) */
-  --lufa-core-layout-grid-min-column-width: 280px; /** Minimum width for grid columns in auto-fit/auto-fill layouts */
+  --lufa-core-layout-grid-min-column-width: 17.5rem; /** Minimum width for grid columns in auto-fit/auto-fill layouts */
   --lufa-core-layout-header-height-base: var(--lufa-primitive-height-56); /** Header height for mobile viewports */
   --lufa-core-layout-header-height-md: var(
     --lufa-primitive-height-64
@@ -350,7 +353,9 @@
     8vw,
     96px
   ); /** Fluid vertical spacing between major sections (scales from 48px to 96px) */
-  --lufa-core-layout-sidebar-width: 280px; /** Standard width for sidebar navigation (desktop) */
+  --lufa-core-layout-sidebar-width: var(
+    --lufa-primitive-layout-sidebar-width
+  ); /** Standard width for sidebar navigation (desktop) */
   --lufa-core-typography-body-font-family: var(
     --lufa-primitive-typography-font-family-sans
   ); /** Font family for body text and general content */
@@ -384,6 +389,9 @@
   --lufa-core-typography-heading-font-weight: var(
     --lufa-primitive-typography-font-weight-bold
   ); /** Font weight for all heading levels */
+  --lufa-core-typography-heading-letter-spacing: var(
+    --lufa-primitive-typography-letter-spacing-tight
+  ); /** Letter spacing for headings — tight by default, override per theme */
   --lufa-core-typography-heading-font-size-h1: var(
     --lufa-primitive-typography-font-size-5xl
   ); /** Font size for H1 headings (largest) */
@@ -417,12 +425,12 @@
   --lufa-semantic-effect-glow-box-none: none; /** No box glow effect (default for most components) */
   --lufa-semantic-effect-glow-box-primary-default: none; /** Primary box glow effect for interactive elements (cards, buttons) - themeable */
   --lufa-semantic-effect-glow-box-primary-hover: none; /** Enhanced primary box glow on hover - themeable */
-  --lufa-semantic-effect-glow-box-focus: 0 0 0 3px var(--lufa-core-alpha-black-16); /** Focus ring glow for accessibility - neutral alpha token, themeable via theme overrides */
+  --lufa-semantic-effect-glow-box-focus: 0 0 0 3px rgba(0, 0, 0, 0.16); /** Focus ring glow for accessibility - neutral alpha token, themeable via theme overrides */
   --lufa-semantic-effect-glow-text-none: none; /** No text glow effect (default) */
   --lufa-semantic-effect-glow-text-primary-default: none; /** Primary text glow for neon/cyberpunk effects - themeable */
   --lufa-semantic-effect-glow-text-primary-hover: none; /** Enhanced text glow on hover - themeable */
   --lufa-semantic-effect-glow-border-none: none; /** No border glow effect (default) */
-  --lufa-semantic-effect-glow-border-focus: 0 0 0 2px var(--lufa-core-alpha-black-8); /** Border glow for focused inputs - neutral alpha token, themeable via theme overrides */
+  --lufa-semantic-effect-glow-border-focus: 0 0 0 2px rgba(0, 0, 0, 0.08); /** Border glow for focused inputs - neutral alpha token, themeable via theme overrides */
   --lufa-semantic-z-index-base: 0; /** Base z-index for normal content flow */
   --lufa-semantic-z-index-dropdown: 1000; /** Z-index for dropdown menus - above normal content */
   --lufa-semantic-z-index-sticky: 1100; /** Z-index for sticky positioned elements - above dropdowns */
@@ -432,139 +440,142 @@
   --lufa-semantic-z-index-popover: 1500; /** Z-index for popovers and tooltips - above modals */
   --lufa-semantic-z-index-toast: 1600; /** Z-index for toast notifications - highest layer for critical messages */
   --lufa-semantic-interactive-action-primary-default: var(
-    --lufa-core-brand-primary-default
+    --lufa-core-color-brand-primary-default
   ); /** Primary action intent color - default state. Used for primary buttons, toggles, chips, and other actionable elements. */
   --lufa-semantic-interactive-action-primary-hover: var(
-    --lufa-core-brand-primary-hover
+    --lufa-core-color-brand-primary-hover
   ); /** Primary action intent color - hover state */
   --lufa-semantic-interactive-action-primary-active: var(
-    --lufa-core-brand-primary-active
+    --lufa-core-color-brand-primary-active
   ); /** Primary action intent color - active/pressed state */
   --lufa-semantic-interactive-action-primary-on: var(
-    --lufa-core-brand-primary-on-background
+    --lufa-core-color-brand-primary-on-background
   ); /** Text/icon color on primary action backgrounds - ensures WCAG AA contrast */
   --lufa-semantic-interactive-action-secondary-default: var(
-    --lufa-core-brand-secondary-default
+    --lufa-core-color-brand-secondary-default
   ); /** Secondary action intent color - default state. Used for secondary buttons, accents, and alternative actions. */
   --lufa-semantic-interactive-action-secondary-hover: var(
-    --lufa-core-brand-secondary-hover
+    --lufa-core-color-brand-secondary-hover
   ); /** Secondary action intent color - hover state */
   --lufa-semantic-interactive-action-secondary-active: var(
-    --lufa-core-brand-secondary-active
+    --lufa-core-color-brand-secondary-active
   ); /** Secondary action intent color - active/pressed state */
   --lufa-semantic-interactive-action-secondary-on: var(
-    --lufa-core-brand-secondary-on-background
+    --lufa-core-color-brand-secondary-on-background
   ); /** Text/icon color on secondary action backgrounds - ensures WCAG AA contrast */
   --lufa-semantic-interactive-action-destructive-default: var(
-    --lufa-core-feedback-error-default
+    --lufa-core-color-feedback-error-default
   ); /** Destructive action intent color - default state. Used for danger/delete buttons and destructive actions. */
   --lufa-semantic-interactive-action-destructive-hover: var(
-    --lufa-core-feedback-error-hover
+    --lufa-core-color-feedback-error-hover
   ); /** Destructive action intent color - hover state */
   --lufa-semantic-interactive-action-destructive-active: var(
-    --lufa-core-feedback-error-active
+    --lufa-core-color-feedback-error-active
   ); /** Destructive action intent color - active/pressed state */
   --lufa-semantic-interactive-action-destructive-on: var(
-    --lufa-core-feedback-error-on-background
+    --lufa-core-color-feedback-error-on-background
   ); /** Text/icon color on destructive action backgrounds - ensures WCAG AA contrast */
   --lufa-semantic-interactive-action-success-default: var(
-    --lufa-core-feedback-success-default
+    --lufa-core-color-feedback-success-default
   ); /** Success action intent color - default state. Used for positive/confirmation action elements. */
   --lufa-semantic-interactive-action-success-hover: var(
-    --lufa-core-feedback-success-hover
+    --lufa-core-color-feedback-success-hover
   ); /** Success action intent color - hover state */
   --lufa-semantic-interactive-action-success-active: var(
-    --lufa-core-feedback-success-active
+    --lufa-core-color-feedback-success-active
   ); /** Success action intent color - active/pressed state */
   --lufa-semantic-interactive-action-success-on: var(
-    --lufa-core-feedback-success-on-background
+    --lufa-core-color-feedback-success-on-background
   ); /** Text/icon color on success action backgrounds - ensures WCAG AA contrast */
   --lufa-semantic-interactive-action-warning-default: var(
-    --lufa-core-feedback-warning-default
+    --lufa-core-color-feedback-warning-default
   ); /** Warning action intent color - default state. Used for caution/warning action elements. */
   --lufa-semantic-interactive-action-warning-hover: var(
-    --lufa-core-feedback-warning-hover
+    --lufa-core-color-feedback-warning-hover
   ); /** Warning action intent color - hover state */
   --lufa-semantic-interactive-action-warning-active: var(
-    --lufa-core-feedback-warning-active
+    --lufa-core-color-feedback-warning-active
   ); /** Warning action intent color - active/pressed state */
   --lufa-semantic-interactive-action-warning-on: var(
-    --lufa-core-feedback-warning-on-background
+    --lufa-core-color-feedback-warning-on-background
   ); /** Text/icon color on warning action backgrounds - ensures WCAG AA contrast */
   --lufa-semantic-interactive-action-info-default: var(
-    --lufa-core-feedback-info-default
+    --lufa-core-color-feedback-info-default
   ); /** Info action intent color - default state. Used for informational action elements. */
   --lufa-semantic-interactive-action-info-hover: var(
-    --lufa-core-feedback-info-hover
+    --lufa-core-color-feedback-info-hover
   ); /** Info action intent color - hover state */
   --lufa-semantic-interactive-action-info-active: var(
-    --lufa-core-feedback-info-active
+    --lufa-core-color-feedback-info-active
   ); /** Info action intent color - active/pressed state */
   --lufa-semantic-interactive-action-info-on: var(
-    --lufa-core-feedback-info-on-background
+    --lufa-core-color-feedback-info-on-background
   ); /** Text/icon color on info action backgrounds - ensures WCAG AA contrast */
   --lufa-semantic-interactive-action-neutral-default: var(
-    --lufa-core-neutral-surface-default
+    --lufa-core-color-neutral-surface-default
   ); /** Neutral action intent color - default state. Used for neutral/default action elements, slightly elevated above surface. */
   --lufa-semantic-interactive-action-neutral-hover: var(
-    --lufa-core-neutral-surface-hover
+    --lufa-core-color-neutral-surface-hover
   ); /** Neutral action intent color - hover state */
   --lufa-semantic-interactive-action-neutral-active: var(
-    --lufa-core-neutral-surface-active
+    --lufa-core-color-neutral-surface-active
   ); /** Neutral action intent color - active/pressed state */
   --lufa-semantic-interactive-action-neutral-on: var(
-    --lufa-core-neutral-text-primary
+    --lufa-core-color-neutral-text-primary
   ); /** Text/icon color on neutral action backgrounds - uses primary text for readability */
   --lufa-semantic-interactive-background-default: var(
-    --lufa-core-neutral-surface-default
+    --lufa-core-color-neutral-surface-default
   ); /** Default background for interactive elements like buttons and inputs in their resting state */
   --lufa-semantic-interactive-background-hover: var(
-    --lufa-core-neutral-surface-hover
+    --lufa-core-color-neutral-surface-hover
   ); /** Background color when hovering over interactive elements - provides visual feedback */
   --lufa-semantic-interactive-background-active: var(
-    --lufa-core-brand-primary-active
+    --lufa-core-color-brand-primary-active
   ); /** Background color when pressing/clicking interactive elements - provides immediate feedback */
   --lufa-semantic-interactive-background-disabled: var(
-    --lufa-core-neutral-surface-default
+    --lufa-core-color-neutral-surface-default
   ); /** Background color for disabled interactive elements - indicates non-interactive state */
+  --lufa-semantic-interactive-background-focus: var(
+    --lufa-core-color-neutral-surface-default
+  ); /** Background color for focused interactive elements — same as default. Focus indication is provided by focus ring/border, not background change. */
   --lufa-semantic-interactive-border-default: var(
-    --lufa-core-neutral-border-default
+    --lufa-core-color-neutral-border-default
   ); /** Default border color for interactive elements in resting state */
   --lufa-semantic-interactive-border-hover: var(
-    --lufa-core-neutral-border-strong
+    --lufa-core-color-neutral-border-strong
   ); /** Border color when hovering over interactive elements - stronger emphasis */
   --lufa-semantic-interactive-border-focus: var(
-    --lufa-core-brand-primary-default
+    --lufa-core-color-brand-primary-default
   ); /** Border color for focused interactive elements - indicates keyboard focus and accessibility */
   --lufa-semantic-interactive-border-disabled: var(
-    --lufa-core-neutral-border-default
+    --lufa-core-color-neutral-border-default
   ); /** Border color for disabled interactive elements - subtle indication of disabled state */
   --lufa-semantic-interactive-cursor-default: pointer; /** Default cursor for interactive elements (buttons, links, clickable items) */
   --lufa-semantic-interactive-cursor-disabled: not-allowed; /** Cursor for disabled interactive elements, indicating the action is not available */
   --lufa-semantic-interactive-cursor-loading: wait; /** Cursor for elements in a loading/busy state, indicating the user should wait */
   --lufa-semantic-interactive-focus-ring: var(
-    --lufa-core-brand-primary-default
+    --lufa-core-color-brand-primary-default
   ); /** Color for focus rings around interactive elements - ensures accessibility compliance */
   --lufa-semantic-interactive-focus-ring-offset: var(
     --lufa-primitive-border-width-scale-base
   ); /** Offset distance for focus rings from element edge - improves visibility (standard UX constant) */
   --lufa-semantic-interactive-focus-background: var(
-    --lufa-core-brand-primary-default
+    --lufa-core-color-brand-primary-default
   ); /** Background color for focused interactive elements (rare use case) */
   --lufa-semantic-interactive-link-default: var(
-    --lufa-core-brand-primary-default
+    --lufa-core-color-brand-primary-default
   ); /** Default link color for all link states in resting state */
   --lufa-semantic-interactive-link-hover: var(
-    --lufa-core-brand-primary-hover
+    --lufa-core-color-brand-primary-hover
   ); /** Link color when hovering - provides visual feedback */
   --lufa-semantic-interactive-link-visited: var(
-    --lufa-core-brand-accent-visited
+    --lufa-core-color-brand-accent-visited
   ); /** Color for visited links - helps users track navigation history */
   --lufa-semantic-interactive-link-focus: var(
-    --lufa-core-brand-primary-default
+    --lufa-core-color-brand-primary-default
   ); /** Link color when focused via keyboard - accessibility focus state */
   --lufa-semantic-interactive-link-active: var(
-    --lufa-core-brand-primary-active
+    --lufa-core-color-brand-primary-active
   ); /** Link color when being clicked/activated */
   --lufa-semantic-interactive-opacity-disabled: var(
     --lufa-primitive-opacity-scale-disabled
@@ -579,20 +590,23 @@
     --lufa-semantic-ui-overlay-selected
   ); /** Background color for selected items in lists and menus */
   --lufa-semantic-interactive-selected-text: var(
-    --lufa-core-brand-primary-default
+    --lufa-core-color-brand-primary-default
   ); /** Text color for selected items */
   --lufa-semantic-interactive-text-default: var(
-    --lufa-core-neutral-text-primary
+    --lufa-core-color-neutral-text-primary
   ); /** Default text color for interactive elements in resting state */
   --lufa-semantic-interactive-text-hover: var(
-    --lufa-core-neutral-text-primary
+    --lufa-core-color-neutral-text-primary
   ); /** Text color when hovering over interactive elements - maintains readability */
   --lufa-semantic-interactive-text-active: var(
-    --lufa-core-neutral-text-primary
+    --lufa-core-color-neutral-text-primary
   ); /** Text color when pressing/clicking interactive elements */
   --lufa-semantic-interactive-text-disabled: var(
-    --lufa-core-neutral-text-disabled
+    --lufa-core-color-neutral-text-disabled
   ); /** Text color for disabled interactive elements - low contrast indicates non-interactive */
+  --lufa-semantic-interactive-text-focus: var(
+    --lufa-core-color-neutral-text-primary
+  ); /** Text color for focused interactive elements — same as default. Text color does not change on focus; the focus ring provides the visual indicator. */
   --lufa-semantic-layout-breakpoint-xs: var(
     --lufa-primitive-breakpoint-xs
   ); /** Extra small layout breakpoint - mobile portrait */
@@ -665,6 +679,49 @@
   --lufa-semantic-ui-animation-slide-in-timing: var(
     --lufa-primitive-motion-easing-ease-out
   ); /** Timing function for slide-in animation */
+  --lufa-semantic-ui-background-pattern: none; /** Optional decorative background pattern overlay — none by default, themeable via theme overrides */
+  --lufa-semantic-ui-background-page: var(
+    --lufa-core-color-neutral-background
+  ); /** Main page background - base canvas for entire application */
+  --lufa-semantic-ui-background-surface-default: var(
+    --lufa-core-color-neutral-surface-default
+  ); /** Surface background for cards, panels, and elevated content */
+  --lufa-semantic-ui-background-surface-raised: var(
+    --lufa-core-color-neutral-surface-raised
+  ); /** Raised surface background - slightly elevated above default surface */
+  --lufa-semantic-ui-background-surface-active: var(
+    --lufa-core-color-neutral-surface-active
+  ); /** Active surface background - for pressed/active interactive surfaces */
+  --lufa-semantic-ui-background-success: var(
+    --lufa-core-color-feedback-success-subtle
+  ); /** Background for success messages and positive feedback */
+  --lufa-semantic-ui-background-error: var(
+    --lufa-core-color-feedback-error-subtle
+  ); /** Background for error messages and validation failures */
+  --lufa-semantic-ui-background-warning: var(
+    --lufa-core-color-feedback-warning-subtle
+  ); /** Background for warning messages and caution notices */
+  --lufa-semantic-ui-background-info: var(
+    --lufa-core-color-feedback-info-subtle
+  ); /** Background for informational messages and neutral notifications */
+  --lufa-semantic-ui-background-on-success: var(
+    --lufa-core-color-feedback-success-default
+  ); /** Text and icons on success background - for use with background-success (subtle background) */
+  --lufa-semantic-ui-background-on-error: var(
+    --lufa-core-color-feedback-error-default
+  ); /** Text and icons on error background - for use with background-error (subtle background) */
+  --lufa-semantic-ui-background-on-warning: var(
+    --lufa-core-color-feedback-warning-default
+  ); /** Text and icons on warning background - for use with background-warning (subtle background) */
+  --lufa-semantic-ui-background-on-info: var(
+    --lufa-core-color-feedback-info-default
+  ); /** Text and icons on info background - for use with background-info (subtle background) */
+  --lufa-semantic-ui-background-on-primary: var(
+    --lufa-core-color-brand-primary-on-background
+  ); /** Text and icons on primary brand background - themeable for accessibility */
+  --lufa-semantic-ui-background-on-secondary: var(
+    --lufa-core-color-brand-secondary-on-background
+  ); /** Text and icons on secondary brand background - themeable for accessibility */
   --lufa-semantic-ui-border-radius-small: var(
     --lufa-primitive-radius-scale-base
   ); /** Small border radius for subtle rounding (4px) */
@@ -689,74 +746,52 @@
   --lufa-semantic-ui-border-width-thick: var(
     --lufa-primitive-border-width-scale-thick
   ); /** Thick border width for very strong emphasis (4px) */
-  --lufa-semantic-ui-background-page: var(
-    --lufa-core-neutral-background
-  ); /** Main page background - base canvas for entire application */
-  --lufa-semantic-ui-background-surface: var(
-    --lufa-core-neutral-surface-default
-  ); /** Surface background for cards, panels, and elevated content */
-  --lufa-semantic-ui-background-success: var(
-    --lufa-core-feedback-success-subtle
-  ); /** Background for success messages and positive feedback */
-  --lufa-semantic-ui-background-error: var(
-    --lufa-core-feedback-error-subtle
-  ); /** Background for error messages and validation failures */
-  --lufa-semantic-ui-background-warning: var(
-    --lufa-core-feedback-warning-subtle
-  ); /** Background for warning messages and caution notices */
-  --lufa-semantic-ui-background-info: var(
-    --lufa-core-feedback-info-subtle
-  ); /** Background for informational messages and neutral notifications */
-  --lufa-semantic-ui-background-on-success: var(
-    --lufa-core-feedback-success-default
-  ); /** Text and icons on success background - for use with background-success (subtle background) */
-  --lufa-semantic-ui-background-on-error: var(
-    --lufa-core-feedback-error-default
-  ); /** Text and icons on error background - for use with background-error (subtle background) */
-  --lufa-semantic-ui-background-on-warning: var(
-    --lufa-core-feedback-warning-default
-  ); /** Text and icons on warning background - for use with background-warning (subtle background) */
-  --lufa-semantic-ui-background-on-info: var(
-    --lufa-core-feedback-info-default
-  ); /** Text and icons on info background - for use with background-info (subtle background) */
-  --lufa-semantic-ui-background-on-primary: var(
-    --lufa-core-brand-primary-on-background
-  ); /** Text and icons on primary brand background - themeable for accessibility */
-  --lufa-semantic-ui-background-on-secondary: var(
-    --lufa-core-brand-secondary-on-background
-  ); /** Text and icons on secondary brand background - themeable for accessibility */
   --lufa-semantic-ui-text-primary: var(
-    --lufa-core-neutral-text-primary
+    --lufa-core-color-neutral-text-primary
   ); /** Primary text color for headings and body content */
   --lufa-semantic-ui-text-secondary: var(
-    --lufa-core-neutral-text-secondary
+    --lufa-core-color-neutral-text-secondary
   ); /** Secondary text color for supporting content */
   --lufa-semantic-ui-text-tertiary: var(
-    --lufa-core-neutral-text-tertiary
+    --lufa-core-color-neutral-text-tertiary
   ); /** Tertiary text color for subtle content */
   --lufa-semantic-ui-text-success: var(
-    --lufa-core-feedback-success-default
+    --lufa-core-color-feedback-success-default
   ); /** Text color for success messages and positive feedback */
   --lufa-semantic-ui-text-error: var(
-    --lufa-core-feedback-error-default
+    --lufa-core-color-feedback-error-default
   ); /** Text color for error messages and validation failures */
   --lufa-semantic-ui-text-warning: var(
-    --lufa-core-feedback-warning-default
+    --lufa-core-color-feedback-warning-default
   ); /** Text color for warning messages and caution notices */
-  --lufa-semantic-ui-text-info: var(--lufa-core-feedback-info-default); /** Text color for informational messages */
+  --lufa-semantic-ui-text-info: var(
+    --lufa-core-color-feedback-info-default
+  ); /** Text color for informational messages */
   --lufa-semantic-ui-border-default: var(
-    --lufa-core-neutral-border-default
+    --lufa-core-color-neutral-border-default
   ); /** Default border color for dividers and element boundaries */
   --lufa-semantic-ui-border-strong: var(
-    --lufa-core-neutral-border-strong
+    --lufa-core-color-neutral-border-strong
   ); /** Stronger border for emphasis and visual hierarchy */
-  --lufa-semantic-ui-border-success: var(--lufa-core-feedback-success-border); /** Border color for success contexts */
-  --lufa-semantic-ui-border-error: var(--lufa-core-feedback-error-border); /** Border color for error contexts */
-  --lufa-semantic-ui-border-warning: var(--lufa-core-feedback-warning-border); /** Border color for warning contexts */
-  --lufa-semantic-ui-border-info: var(--lufa-core-feedback-info-border); /** Border color for informational contexts */
+  --lufa-semantic-ui-border-success: var(
+    --lufa-core-color-feedback-success-border
+  ); /** Border color for success contexts */
+  --lufa-semantic-ui-border-error: var(--lufa-core-color-feedback-error-border); /** Border color for error contexts */
+  --lufa-semantic-ui-border-warning: var(
+    --lufa-core-color-feedback-warning-border
+  ); /** Border color for warning contexts */
+  --lufa-semantic-ui-border-info: var(
+    --lufa-core-color-feedback-info-border
+  ); /** Border color for informational contexts */
   --lufa-semantic-ui-typography-caption: var(
     --lufa-semantic-typography-caption
   ); /** Caption text size alias for UI components */
+  --lufa-semantic-ui-divider-dash-size: var(
+    --lufa-primitive-spacing-8
+  ); /** Length of each dash segment in a dashed divider */
+  --lufa-semantic-ui-divider-dash-gap: var(
+    --lufa-primitive-spacing-12
+  ); /** Total step between dash starts (dash + gap) in a dashed divider */
   --lufa-semantic-ui-height-sm: var(
     --lufa-primitive-height-32
   ); /** Small UI component height - compact buttons, inputs */
@@ -766,6 +801,21 @@
   --lufa-semantic-ui-height-lg: var(
     --lufa-primitive-height-48
   ); /** Large UI component height - prominent buttons, touch-friendly */
+  --lufa-semantic-ui-icon-size-xs: var(
+    --lufa-primitive-icon-size-scale-xs
+  ); /** Extra small icon size - compact UI elements */
+  --lufa-semantic-ui-icon-size-sm: var(
+    --lufa-primitive-icon-size-scale-sm
+  ); /** Small icon size - standard UI elements */
+  --lufa-semantic-ui-icon-size-md: var(
+    --lufa-primitive-icon-size-scale-md
+  ); /** Medium icon size - emphasized UI elements */
+  --lufa-semantic-ui-icon-size-lg: var(
+    --lufa-primitive-icon-size-scale-lg
+  ); /** Large icon size - prominent UI elements */
+  --lufa-semantic-ui-icon-size-xl: var(
+    --lufa-primitive-icon-size-scale-xl
+  ); /** Extra large icon size - hero UI elements */
   --lufa-semantic-ui-shadow-small: var(
     --lufa-primitive-shadow-elevation-sm
   ); /** Small shadow for subtle elevation (cards, panels) */
@@ -784,6 +834,9 @@
   --lufa-semantic-ui-spacing-compact: var(
     --lufa-primitive-spacing-8
   ); /** Compact spacing for tight layouts and dense UIs */
+  --lufa-semantic-ui-spacing-snug: var(
+    --lufa-primitive-spacing-12
+  ); /** Snug spacing — between compact (8px) and default (16px), for components that need a mid-step */
   --lufa-semantic-ui-spacing-default: var(
     --lufa-primitive-spacing-16
   ); /** Default spacing for standard layouts (most common) */
@@ -805,21 +858,38 @@
   --lufa-semantic-ui-transition-timing-function-default: var(
     --lufa-primitive-motion-easing-ease-in-out
   ); /** Default timing function for smooth animations (ease-in-out) */
-  --lufa-component-badge-padding-sm: 2px 6px; /** Small badge padding */
-  --lufa-component-badge-padding-md: 4px 8px; /** Medium badge padding (default) */
-  --lufa-component-badge-padding-lg: 6px 12px; /** Large badge padding */
-  --lufa-component-badge-font-size-sm: 10px; /** Small badge font size - 10px (between xs and sm) */
-  --lufa-component-badge-font-size-md: var(
+  --lufa-component-badge-padding-compact-block: var(
+    --lufa-semantic-ui-spacing-tight
+  ); /** Compact badge block-axis padding (top/bottom) — semantic tight (4px) */
+  --lufa-component-badge-padding-compact-inline: var(
+    --lufa-semantic-ui-spacing-compact
+  ); /** Compact badge inline-axis padding (left/right) — semantic compact (8px) */
+  --lufa-component-badge-padding-default-block: var(
+    --lufa-semantic-ui-spacing-compact
+  ); /** Default badge block-axis padding (top/bottom) — semantic compact (8px) */
+  --lufa-component-badge-padding-default-inline: var(
+    --lufa-semantic-ui-spacing-snug
+  ); /** Default badge inline-axis padding (left/right) — semantic snug (12px) */
+  --lufa-component-badge-padding-large-block: var(
+    --lufa-semantic-ui-spacing-snug
+  ); /** Large badge block-axis padding (top/bottom) — semantic snug (12px) */
+  --lufa-component-badge-padding-large-inline: var(
+    --lufa-semantic-ui-spacing-default
+  ); /** Large badge inline-axis padding (left/right) — semantic default (16px) */
+  --lufa-component-badge-font-size-compact: var(
     --lufa-semantic-typography-caption
-  ); /** Medium badge font size - references caption (12px) */
-  --lufa-component-badge-font-size-lg: var(
+  ); /** Compact badge font size — semantic caption (12px) */
+  --lufa-component-badge-font-size-default: var(
     --lufa-semantic-typography-body-small
-  ); /** Large badge font size - references body small (14px) */
+  ); /** Default badge font size — semantic body small (14px) */
+  --lufa-component-badge-font-size-large: var(
+    --lufa-semantic-typography-body-default
+  ); /** Large badge font size — semantic body default (16px) */
   --lufa-component-badge-border-radius: var(
     --lufa-semantic-ui-border-radius-full
   ); /** Badge border radius (pill shape) */
   --lufa-component-badge-variant-default-background: var(
-    --lufa-semantic-ui-background-surface
+    --lufa-semantic-ui-background-surface-default
   ); /** Default badge background (neutral) */
   --lufa-component-badge-variant-default-text: var(--lufa-semantic-ui-text-secondary); /** Default badge text color */
   --lufa-component-badge-variant-default-border: var(
@@ -851,7 +921,7 @@
   --lufa-component-badge-variant-info-border: var(
     --lufa-semantic-ui-border-info
   ); /** Info badge border (for outlined variant) */
-  --lufa-component-badge-dot-size: 6px; /** Badge dot indicator size */
+  --lufa-component-badge-dot-size: 0.375rem; /** Badge dot indicator size */
   --lufa-component-badge-effect-glow: var(
     --lufa-semantic-effect-glow-box-primary-default
   ); /** Badge box-shadow glow effect */
@@ -952,7 +1022,7 @@
   --lufa-component-button-type-solid-variant-neutral-text: var(
     --lufa-semantic-interactive-action-neutral-on
   ); /** Solid neutral button text color */
-  --lufa-component-button-type-ghost-background-default: transparent; /** Ghost button background (transparent) */
+  --lufa-component-button-type-ghost-background-default: rgba(0, 0, 0, 0); /** Ghost button background (transparent) */
   --lufa-component-button-type-ghost-background-hover: var(
     --lufa-semantic-interactive-background-hover
   ); /** Ghost button hover state background */
@@ -986,7 +1056,12 @@
   --lufa-component-button-type-ghost-variant-neutral-text-active: var(
     --lufa-semantic-interactive-action-neutral-on
   ); /** Ghost neutral button active state text color */
-  --lufa-component-button-type-outline-background-default: transparent; /** Outline button background (transparent) */
+  --lufa-component-button-type-outline-background-default: rgba(
+    0,
+    0,
+    0,
+    0
+  ); /** Outline button background (transparent) */
   --lufa-component-button-type-outline-background-hover: var(
     --lufa-semantic-interactive-action-primary-default
   ); /** Outline button hover state background */
@@ -1074,7 +1149,7 @@
     --lufa-semantic-ui-shadow-medium
   ); /** Medium shadow for standard elevation (default) */
   --lufa-component-card-shadow-lg: var(--lufa-semantic-ui-shadow-large); /** Large shadow for strong elevation */
-  --lufa-component-card-background: var(--lufa-semantic-ui-background-surface); /** Card background color */
+  --lufa-component-card-background: var(--lufa-semantic-ui-background-surface-default); /** Card background color */
   --lufa-component-card-border: var(--lufa-semantic-ui-border-default); /** Card border color (for outlined variant) */
   --lufa-component-card-header-padding: var(--lufa-semantic-ui-spacing-default); /** Card header padding */
   --lufa-component-card-header-border: var(
@@ -1157,15 +1232,29 @@
     --lufa-semantic-ui-spacing-comfortable
   ); /** Comfortable spacing around divider */
   --lufa-component-divider-dash-size: var(
-    --lufa-primitive-spacing-8
+    --lufa-semantic-ui-divider-dash-size
   ); /** Length of each dash segment in a dashed divider */
   --lufa-component-divider-dash-gap: var(
-    --lufa-primitive-spacing-12
+    --lufa-semantic-ui-divider-dash-gap
   ); /** Total step between dash starts (dash + gap) in a dashed divider */
-  --lufa-component-input-padding-sm: var(--lufa-semantic-ui-spacing-compact) var(--lufa-semantic-ui-spacing-default); /** Small input padding */
-  --lufa-component-input-padding-md: var(--lufa-semantic-ui-spacing-default) var(--lufa-semantic-ui-spacing-comfortable); /** Medium input padding (default) */
-  --lufa-component-input-padding-lg: var(--lufa-semantic-ui-spacing-comfortable)
-    var(--lufa-semantic-ui-spacing-spacious); /** Large input padding */
+  --lufa-component-input-padding-sm-block: var(
+    --lufa-semantic-ui-spacing-compact
+  ); /** Small input block-axis padding (top/bottom, 8px) */
+  --lufa-component-input-padding-sm-inline: var(
+    --lufa-semantic-ui-spacing-default
+  ); /** Small input inline-axis padding (left/right, 16px) */
+  --lufa-component-input-padding-md-block: var(
+    --lufa-semantic-ui-spacing-default
+  ); /** Medium input block-axis padding (top/bottom, 16px) */
+  --lufa-component-input-padding-md-inline: var(
+    --lufa-semantic-ui-spacing-comfortable
+  ); /** Medium input inline-axis padding (left/right, 24px) */
+  --lufa-component-input-padding-lg-block: var(
+    --lufa-semantic-ui-spacing-comfortable
+  ); /** Large input block-axis padding (top/bottom, 24px) */
+  --lufa-component-input-padding-lg-inline: var(
+    --lufa-semantic-ui-spacing-spacious
+  ); /** Large input inline-axis padding (left/right, 32px) */
   --lufa-component-input-height-sm: var(--lufa-semantic-ui-height-sm); /** Small input minimum height */
   --lufa-component-input-height-md: var(--lufa-semantic-ui-height-md); /** Medium input minimum height (default) */
   --lufa-component-input-height-lg: var(--lufa-semantic-ui-height-lg); /** Large input minimum height */
@@ -1177,7 +1266,7 @@
   --lufa-component-input-border-radius: var(--lufa-semantic-ui-border-radius-default); /** Input border radius */
   --lufa-component-input-border-width: var(--lufa-semantic-ui-border-width-thin); /** Input border width */
   --lufa-component-input-background-default: var(
-    --lufa-semantic-ui-background-surface
+    --lufa-semantic-ui-background-surface-default
   ); /** Input background color (default state) */
   --lufa-component-input-background-hover: var(
     --lufa-semantic-interactive-background-hover
@@ -1240,13 +1329,17 @@
   --lufa-component-modal-backdrop-background: var(
     --lufa-semantic-ui-overlay-backdrop
   ); /** Modal backdrop background (semi-transparent overlay) */
-  --lufa-component-modal-backdrop-blur: 4px; /** Backdrop blur effect amount */
-  --lufa-component-modal-content-background: var(--lufa-semantic-ui-background-surface); /** Modal content background */
+  --lufa-component-modal-backdrop-blur: var(
+    --lufa-semantic-ui-backdrop-blur
+  ); /** Backdrop blur effect for modal overlay */
+  --lufa-component-modal-content-background: var(
+    --lufa-semantic-ui-background-surface-default
+  ); /** Modal content background */
   --lufa-component-modal-content-padding: var(--lufa-semantic-ui-spacing-comfortable); /** Modal content padding */
-  --lufa-component-modal-content-max-width-sm: 400px; /** Small modal max width */
-  --lufa-component-modal-content-max-width-md: 600px; /** Medium modal max width (default) */
-  --lufa-component-modal-content-max-width-lg: 800px; /** Large modal max width */
-  --lufa-component-modal-content-max-width-xl: 1200px; /** Extra large modal max width */
+  --lufa-component-modal-content-max-width-sm: 25rem; /** Small modal max width — intentionally raw (400px). Breakpoint-aligned modal width not covered by the semantic spacing scale. */
+  --lufa-component-modal-content-max-width-md: 37.5rem; /** Medium modal max width (default) — intentionally raw (600px). Breakpoint-aligned modal width not covered by the semantic spacing scale. */
+  --lufa-component-modal-content-max-width-lg: 50rem; /** Large modal max width — intentionally raw (800px). Breakpoint-aligned modal width not covered by the semantic spacing scale. */
+  --lufa-component-modal-content-max-width-xl: 75rem; /** Extra large modal max width — intentionally raw (1200px). Breakpoint-aligned modal width not covered by the semantic spacing scale. */
   --lufa-component-modal-content-border-radius: var(
     --lufa-semantic-ui-border-radius-large
   ); /** Modal content border radius */
@@ -1257,7 +1350,7 @@
   --lufa-component-modal-header-border: var(--lufa-semantic-ui-border-default); /** Modal header bottom border */
   --lufa-component-modal-footer-padding: var(--lufa-semantic-ui-spacing-comfortable); /** Modal footer padding */
   --lufa-component-modal-footer-border: var(--lufa-semantic-ui-border-default); /** Modal footer top border */
-  --lufa-component-modal-close-button-size: 32px; /** Close button size (width and height) */
+  --lufa-component-modal-close-button-size: 2rem; /** Close button size (width and height) — intentionally raw (32px). Fixed touch-target constant; minimum recommended interactive target size. */
   --lufa-component-modal-close-button-position-offset: var(
     --lufa-semantic-ui-spacing-default
   ); /** Close button offset from modal edges */
@@ -1276,21 +1369,29 @@
   --lufa-component-modal-animation-timing-function: var(
     --lufa-component-shared-transition-timing-function
   ); /** Modal animation timing function */
-  --lufa-component-modal-z-index-backdrop: 1000; /** Modal backdrop z-index */
-  --lufa-component-modal-z-index-content: 1001; /** Modal content z-index (above backdrop) */
-  --lufa-component-popover-background: var(--lufa-semantic-ui-background-surface); /** Popover background color */
+  --lufa-component-modal-z-index-backdrop: var(
+    --lufa-semantic-z-index-modal-backdrop
+  ); /** Modal backdrop z-index — references semantic modal-backdrop layer */
+  --lufa-component-modal-z-index-content: var(
+    --lufa-semantic-z-index-modal
+  ); /** Modal content z-index — references semantic modal layer (above backdrop) */
+  --lufa-component-popover-background: var(
+    --lufa-semantic-ui-background-surface-default
+  ); /** Popover background color */
   --lufa-component-popover-text: var(--lufa-semantic-ui-text-primary); /** Popover text color */
   --lufa-component-popover-padding: var(--lufa-semantic-ui-spacing-default); /** Popover content padding */
   --lufa-component-popover-border: var(--lufa-semantic-ui-border-default); /** Popover border color */
   --lufa-component-popover-border-radius: var(--lufa-semantic-ui-border-radius-medium); /** Popover border radius */
   --lufa-component-popover-shadow: var(--lufa-semantic-ui-shadow-large); /** Popover shadow for elevation */
-  --lufa-component-popover-max-width: 400px; /** Popover maximum width */
-  --lufa-component-popover-arrow-width: 12px; /** Popover arrow width (base of triangle) */
-  --lufa-component-popover-arrow-height: 6px; /** Popover arrow height (triangle height) */
+  --lufa-component-popover-max-width: 25rem; /** Popover maximum width — intentionally raw (400px). Component-specific layout constraint not represented in the semantic spacing or container scale. */
+  --lufa-component-popover-arrow-width: 0.75rem; /** Popover arrow width (base of triangle) — intentionally raw (12px). Geometric constant for CSS border-based arrow; not part of the spacing scale. */
+  --lufa-component-popover-arrow-height: 0.375rem; /** Popover arrow height (triangle height) — intentionally raw (6px). Geometric constant for CSS border-based arrow; not part of the spacing scale. */
   --lufa-component-popover-offset: var(
     --lufa-semantic-ui-spacing-default
   ); /** Popover offset distance from target element */
-  --lufa-component-popover-z-index: 9999; /** Popover z-index (high to appear above most content) */
+  --lufa-component-popover-z-index: var(
+    --lufa-semantic-z-index-popover
+  ); /** Popover z-index — references semantic popover layer */
   --lufa-component-shared-divider-thickness: var(
     --lufa-semantic-ui-border-width-thin
   ); /** Standard divider/separator thickness */
@@ -1298,18 +1399,12 @@
     --lufa-semantic-ui-border-default
   ); /** Divider color using semantic border */
   --lufa-component-shared-icon-size-xs: var(
-    --lufa-primitive-icon-size-scale-xs
+    --lufa-semantic-ui-icon-size-xs
   ); /** Extra small icon size for compact UI */
-  --lufa-component-shared-icon-size-sm: var(--lufa-primitive-icon-size-scale-sm); /** Small icon size for standard UI */
-  --lufa-component-shared-icon-size-md: var(
-    --lufa-primitive-icon-size-scale-md
-  ); /** Medium icon size for emphasized UI */
-  --lufa-component-shared-icon-size-lg: var(
-    --lufa-primitive-icon-size-scale-lg
-  ); /** Large icon size for prominent UI */
-  --lufa-component-shared-icon-size-xl: var(
-    --lufa-primitive-icon-size-scale-xl
-  ); /** Extra large icon size for hero UI */
+  --lufa-component-shared-icon-size-sm: var(--lufa-semantic-ui-icon-size-sm); /** Small icon size for standard UI */
+  --lufa-component-shared-icon-size-md: var(--lufa-semantic-ui-icon-size-md); /** Medium icon size for emphasized UI */
+  --lufa-component-shared-icon-size-lg: var(--lufa-semantic-ui-icon-size-lg); /** Large icon size for prominent UI */
+  --lufa-component-shared-icon-size-xl: var(--lufa-semantic-ui-icon-size-xl); /** Extra large icon size for hero UI */
   --lufa-component-shared-icon-spacing: var(
     --lufa-semantic-ui-spacing-tight
   ); /** Spacing between icon and adjacent text */
@@ -1320,173 +1415,305 @@
     --lufa-semantic-ui-border-width-medium
   ); /** Focus outline offset from element edge */
   --lufa-component-shared-focus-outline-color: var(--lufa-semantic-interactive-focus-ring); /** Focus outline color */
-  --lufa-component-shared-transition-duration-fast: 150ms; /** Fast transition for subtle interactions */
-  --lufa-component-shared-transition-duration-normal: 250ms; /** Normal transition for standard interactions */
-  --lufa-component-shared-transition-timing-function: ease-in-out; /** Standard easing function for smooth transitions */
+  --lufa-component-shared-transition-duration-fast: var(
+    --lufa-semantic-ui-transition-duration-fast
+  ); /** Fast transition for subtle interactions */
+  --lufa-component-shared-transition-duration-normal: var(
+    --lufa-semantic-ui-transition-duration-normal
+  ); /** Normal transition for standard interactions */
+  --lufa-component-shared-transition-timing-function: var(
+    --lufa-semantic-ui-transition-timing-function-default
+  ); /** Standard easing function for smooth transitions */
   --lufa-component-tooltip-background: var(
     --lufa-semantic-ui-text-primary
   ); /** Tooltip background color (typically dark for high contrast) */
   --lufa-component-tooltip-text: var(
-    --lufa-semantic-ui-background-surface
+    --lufa-semantic-ui-background-surface-default
   ); /** Tooltip text color (inverted for contrast) */
-  --lufa-component-tooltip-padding: var(--lufa-semantic-ui-spacing-compact) var(--lufa-semantic-ui-spacing-default); /** Tooltip padding (vertical horizontal) */
+  --lufa-component-tooltip-padding-block: var(
+    --lufa-semantic-ui-spacing-compact
+  ); /** Tooltip block-axis padding (top/bottom, 8px) */
+  --lufa-component-tooltip-padding-inline: var(
+    --lufa-semantic-ui-spacing-default
+  ); /** Tooltip inline-axis padding (left/right, 16px) */
   --lufa-component-tooltip-border-radius: var(--lufa-semantic-ui-border-radius-small); /** Tooltip border radius */
   --lufa-component-tooltip-font-size: var(--lufa-semantic-ui-typography-caption); /** Tooltip font size */
-  --lufa-component-tooltip-max-width: 320px; /** Tooltip maximum width to prevent overflow */
+  --lufa-component-tooltip-max-width: 20rem; /** Tooltip maximum width — intentionally raw (320px). Component-specific layout constraint not represented in the semantic spacing or container scale. */
   --lufa-component-tooltip-shadow: var(--lufa-semantic-ui-shadow-medium); /** Tooltip shadow for elevation */
-  --lufa-component-tooltip-arrow-width: 8px; /** Tooltip arrow width (base of triangle) */
-  --lufa-component-tooltip-arrow-height: 4px; /** Tooltip arrow height (triangle height) */
+  --lufa-component-tooltip-arrow-width: 0.5rem; /** Tooltip arrow width (base of triangle) — intentionally raw (8px). Geometric constant for CSS border-based arrow; not part of the spacing scale. */
+  --lufa-component-tooltip-arrow-height: 0.25rem; /** Tooltip arrow height (triangle height) — intentionally raw (4px). Geometric constant for CSS border-based arrow; not part of the spacing scale. */
   --lufa-component-tooltip-offset: var(
     --lufa-semantic-ui-spacing-compact
   ); /** Tooltip offset distance from target element */
   --lufa-component-tooltip-animation-duration: var(
     --lufa-semantic-ui-transition-duration-fast
   ); /** Tooltip fade-in/fade-out duration */
-  --lufa-component-tooltip-animation-delay: 200ms; /** Tooltip appearance delay (on hover) */
+  --lufa-component-tooltip-animation-delay: 200ms; /** Tooltip appearance delay (on hover) — intentionally raw (200ms). UX timing constant to prevent tooltip flicker on quick hover gestures; not part of the transition duration scale. */
   --lufa-component-tooltip-animation-timing-function: var(
     --lufa-component-shared-transition-timing-function
   ); /** Tooltip animation timing function */
-  --lufa-component-tooltip-z-index: 9999; /** Tooltip z-index (high to appear above most content) */
-  --lufa-core-brand-primary-default: var(
+  --lufa-component-tooltip-z-index: var(
+    --lufa-semantic-z-index-popover
+  ); /** Tooltip z-index — references semantic popover layer (tooltips share the popover stacking level) */
+  --lufa-core-color-brand-primary-default: var(
     --lufa-primitive-color-blue-600
   ); /** Primary brand color used for main actions, links, and focus states. Represents trust and reliability. */
-  --lufa-core-brand-primary-hover: var(
+  --lufa-core-color-brand-primary-hover: var(
     --lufa-primitive-color-blue-700
   ); /** Primary brand hover state - darker shade for interactive feedback */
-  --lufa-core-brand-primary-active: var(
+  --lufa-core-color-brand-primary-active: var(
     --lufa-primitive-color-blue-800
   ); /** Primary brand active/pressed state - darkest shade for click feedback */
-  --lufa-core-brand-primary-on-background: var(
+  --lufa-core-color-brand-primary-on-background: var(
     --lufa-primitive-color-hc-white
   ); /** Text color to use on primary brand background. Ensures WCAG AA contrast (4.5:1+) against primary brand color. */
-  --lufa-core-brand-secondary-default: var(
+  --lufa-core-color-brand-secondary-default: var(
     --lufa-primitive-color-purple-600
   ); /** Secondary brand color used for accents, highlights, and secondary actions */
-  --lufa-core-brand-secondary-hover: var(
+  --lufa-core-color-brand-secondary-hover: var(
     --lufa-primitive-color-purple-700
   ); /** Secondary brand hover state - darker shade for interactive feedback */
-  --lufa-core-brand-secondary-active: var(
+  --lufa-core-color-brand-secondary-active: var(
     --lufa-primitive-color-purple-800
   ); /** Secondary brand active/pressed state - darkest shade for click feedback */
-  --lufa-core-brand-accent-visited: var(
+  --lufa-core-color-brand-secondary-on-background: var(
+    --lufa-primitive-color-hc-white
+  ); /** Text color to use on secondary brand background. Ensures WCAG AA contrast (4.5:1+) against secondary brand color. */
+  --lufa-core-color-brand-accent-visited: var(
     --lufa-primitive-color-purple-600
   ); /** Visited link color - purple to indicate previously visited links */
-  --lufa-core-feedback-success-default: var(
+  --lufa-core-color-feedback-success-default: var(
     --lufa-primitive-color-green-700
   ); /** Success state color - positive feedback, confirmations, completed actions */
-  --lufa-core-feedback-success-subtle: var(
+  --lufa-core-color-feedback-success-subtle: var(
     --lufa-primitive-color-green-100
   ); /** Subtle success background for alert boxes and banners */
-  --lufa-core-feedback-success-border: var(
+  --lufa-core-color-feedback-success-border: var(
     --lufa-primitive-color-green-300
   ); /** Success border color for outlined elements */
-  --lufa-core-feedback-success-hover: var(
+  --lufa-core-color-feedback-success-hover: var(
     --lufa-primitive-color-green-800
   ); /** Hover state for success interactive elements - one shade darker than default for visible state change */
-  --lufa-core-feedback-success-active: var(
+  --lufa-core-color-feedback-success-active: var(
     --lufa-primitive-color-green-900
   ); /** Active/pressed state for success interactive elements - darkest shade for click feedback */
-  --lufa-core-feedback-success-on-background: var(
+  --lufa-core-color-feedback-success-on-background: var(
     --lufa-primitive-color-hc-white
   ); /** Text color to use on success feedback background. Ensures WCAG AA contrast (4.5:1+) against success color. */
-  --lufa-core-feedback-error-default: var(
+  --lufa-core-color-feedback-error-default: var(
     --lufa-primitive-color-red-700
   ); /** Error state color - validation errors, destructive actions, critical warnings - meets WCAG AA on subtle error background */
-  --lufa-core-feedback-error-subtle: var(
+  --lufa-core-color-feedback-error-subtle: var(
     --lufa-primitive-color-red-100
   ); /** Subtle error background for alert boxes and banners */
-  --lufa-core-feedback-error-border: var(
+  --lufa-core-color-feedback-error-border: var(
     --lufa-primitive-color-red-500
   ); /** Error border color for outlined elements - meets WCAG 1.4.11 (3:1) on light backgrounds */
-  --lufa-core-feedback-error-hover: var(
+  --lufa-core-color-feedback-error-hover: var(
     --lufa-primitive-color-red-800
   ); /** Hover state for error/destructive interactive elements - one shade darker than default for visible state change */
-  --lufa-core-feedback-error-active: var(
+  --lufa-core-color-feedback-error-active: var(
     --lufa-primitive-color-red-900
   ); /** Active/pressed state for error/destructive interactive elements - darkest shade for click feedback */
-  --lufa-core-feedback-error-on-background: var(
+  --lufa-core-color-feedback-error-on-background: var(
     --lufa-primitive-color-hc-white
   ); /** Text color to use on error feedback background. Ensures WCAG AA contrast (4.5:1+) against error color. */
-  --lufa-core-feedback-warning-default: var(
+  --lufa-core-color-feedback-warning-default: var(
     --lufa-primitive-color-yellow-700
   ); /** Warning state color - caution messages, important notices, pending actions - meets WCAG AA on page and warning backgrounds */
-  --lufa-core-feedback-warning-subtle: var(
+  --lufa-core-color-feedback-warning-subtle: var(
     --lufa-primitive-color-yellow-100
   ); /** Subtle warning background for alert boxes and banners */
-  --lufa-core-feedback-warning-border: var(
+  --lufa-core-color-feedback-warning-border: var(
     --lufa-primitive-color-yellow-300
   ); /** Warning border color for outlined elements */
-  --lufa-core-feedback-warning-hover: var(
+  --lufa-core-color-feedback-warning-hover: var(
     --lufa-primitive-color-yellow-800
   ); /** Hover state for warning interactive elements - one shade darker than default for visible state change */
-  --lufa-core-feedback-warning-active: var(
+  --lufa-core-color-feedback-warning-active: var(
     --lufa-primitive-color-yellow-900
   ); /** Active/pressed state for warning interactive elements - darkest shade for click feedback */
-  --lufa-core-feedback-warning-on-background: var(
+  --lufa-core-color-feedback-warning-on-background: var(
     --lufa-primitive-color-hc-white
   ); /** Text color to use on warning feedback background. Ensures WCAG AA contrast (4.5:1+) against warning color. */
-  --lufa-core-feedback-info-default: var(
+  --lufa-core-color-feedback-info-default: var(
     --lufa-primitive-color-blue-700
   ); /** Info state color - informational messages, tips, neutral notifications */
-  --lufa-core-feedback-info-subtle: var(
+  --lufa-core-color-feedback-info-subtle: var(
     --lufa-primitive-color-blue-100
   ); /** Subtle info background for alert boxes and banners */
-  --lufa-core-feedback-info-border: var(--lufa-primitive-color-blue-300); /** Info border color for outlined elements */
-  --lufa-core-feedback-info-hover: var(
+  --lufa-core-color-feedback-info-border: var(
+    --lufa-primitive-color-blue-300
+  ); /** Info border color for outlined elements */
+  --lufa-core-color-feedback-info-hover: var(
     --lufa-primitive-color-blue-800
   ); /** Hover state for info interactive elements - one shade darker than default for visible state change */
-  --lufa-core-feedback-info-active: var(
+  --lufa-core-color-feedback-info-active: var(
     --lufa-primitive-color-blue-900
   ); /** Active/pressed state for info interactive elements - darkest shade for click feedback */
-  --lufa-core-feedback-info-on-background: var(
+  --lufa-core-color-feedback-info-on-background: var(
     --lufa-primitive-color-hc-white
   ); /** Text color to use on info feedback background. Ensures WCAG AA contrast (4.5:1+) against info color. */
-  --lufa-core-neutral-background: var(
+  --lufa-core-color-neutral-background: var(
     --lufa-primitive-color-gray-50
   ); /** Page background color - lightest neutral for main canvas */
-  --lufa-core-neutral-surface-default: var(
+  --lufa-core-color-neutral-surface-default: var(
     --lufa-primitive-color-gray-100
   ); /** Surface color for cards, panels, and elevated elements */
-  --lufa-core-neutral-surface-raised: var(
+  --lufa-core-color-neutral-surface-raised: var(
     --lufa-primitive-color-gray-200
   ); /** Raised surface color - slightly elevated above default, used as resting state for neutral solid buttons */
-  --lufa-core-neutral-surface-hover: var(--lufa-primitive-color-gray-200); /** Hover state for interactive surfaces */
-  --lufa-core-neutral-surface-active: var(
+  --lufa-core-color-neutral-surface-hover: var(
+    --lufa-primitive-color-gray-200
+  ); /** Hover state for interactive surfaces */
+  --lufa-core-color-neutral-surface-active: var(
     --lufa-primitive-color-gray-300
   ); /** Active/pressed state for interactive surfaces - one shade darker than hover for click feedback */
-  --lufa-core-neutral-border-default: var(
+  --lufa-core-color-neutral-border-default: var(
     --lufa-primitive-color-gray-500
   ); /** Default border color for dividers and element boundaries - meets WCAG 1.4.11 Non-text Contrast (3:1) */
-  --lufa-core-neutral-border-strong: var(
+  --lufa-core-color-neutral-border-strong: var(
     --lufa-primitive-color-gray-600
   ); /** Stronger border color for emphasis or focus states - meets WCAG 1.4.11 Non-text Contrast (3:1) */
-  --lufa-core-neutral-text-primary: var(
+  --lufa-core-color-neutral-text-primary: var(
     --lufa-primitive-color-gray-900
   ); /** Primary text color - highest contrast for body text and headings */
-  --lufa-core-neutral-text-secondary: var(
+  --lufa-core-color-neutral-text-secondary: var(
     --lufa-primitive-color-gray-600
   ); /** Secondary text color - medium contrast for supporting text */
-  --lufa-core-neutral-text-tertiary: var(
-    --lufa-primitive-color-gray-600
-  ); /** Tertiary text color - meets WCAG AA 4.5:1 on both page and surface backgrounds */
-  --lufa-core-neutral-text-disabled: var(
+  --lufa-core-color-neutral-text-tertiary: var(
+    --lufa-primitive-color-gray-500
+  ); /** Tertiary text color - lighter than secondary for optional, non-essential content. Use only for metadata, timestamps, and decorative labels where content is not required reading. Does not guarantee WCAG AA on light surfaces. */
+  --lufa-core-color-neutral-text-disabled: var(
     --lufa-primitive-color-gray-400
   ); /** Disabled text color - lowest contrast for inactive elements */
   --lufa-semantic-interactive-transform-scale-hover: 1.02; /** Scale transformation on hover, adapting per mode for optimal visual feedback */
-  --lufa-semantic-interactive-transform-translate-hover: 0; /** Vertical translation on hover (upward lift), adapting per mode */
+  --lufa-semantic-interactive-transform-translate-hover: 0rem; /** Vertical translation on hover (upward lift), adapting per mode */
   --lufa-semantic-ui-backdrop-blur: blur(4px); /** Backdrop blur for modals and overlays */
   --lufa-semantic-ui-backdrop-brightness: 0.95; /** Backdrop brightness for overlays */
   --lufa-semantic-ui-overlay-backdrop: var(
-    --lufa-core-alpha-black-50
+    --lufa-core-color-alpha-black-50
   ); /** Semi-transparent backdrop for modals, dialogs, and drawers */
   --lufa-semantic-ui-overlay-hover: var(
-    --lufa-core-alpha-black-4
+    --lufa-core-color-alpha-black-4
   ); /** Subtle overlay for hover states on interactive elements */
-  --lufa-semantic-ui-overlay-pressed: var(--lufa-core-alpha-black-8); /** Overlay for pressed/active states */
+  --lufa-semantic-ui-overlay-pressed: var(--lufa-core-color-alpha-black-8); /** Overlay for pressed/active states */
   --lufa-semantic-ui-overlay-selected: var(
-    --lufa-core-alpha-black-16
+    --lufa-core-color-alpha-black-16
   ); /** Overlay for selected states in lists and menus */
   --lufa-semantic-ui-overlay-scrim: var(
-    --lufa-core-alpha-black-38
+    --lufa-core-color-alpha-black-38
   ); /** Scrim overlay for bottom sheets and temporary surfaces */
+}
+
+[data-theme][data-mode='dark'] {
+  --lufa-core-color-brand-primary-default: #60a5fa;
+  --lufa-core-color-brand-primary-hover: #93c5fd;
+  --lufa-core-color-brand-primary-active: #2563eb;
+  --lufa-core-color-brand-primary-on-background: #111827;
+  --lufa-core-color-brand-secondary-default: #c084fc;
+  --lufa-core-color-brand-secondary-hover: #d8b4fe;
+  --lufa-core-color-brand-secondary-active: #a855f7;
+  --lufa-core-color-brand-secondary-on-background: #111827;
+  --lufa-core-color-brand-accent-visited: #c084fc;
+  --lufa-core-color-feedback-success-default: #4ade80;
+  --lufa-core-color-feedback-success-subtle: #14532d;
+  --lufa-core-color-feedback-success-border: #15803d;
+  --lufa-core-color-feedback-success-hover: #86efac;
+  --lufa-core-color-feedback-success-active: #bbf7d0;
+  --lufa-core-color-feedback-success-on-background: #111827;
+  --lufa-core-color-feedback-error-default: #f87171;
+  --lufa-core-color-feedback-error-subtle: #7f1d1d;
+  --lufa-core-color-feedback-error-border: #b91c1c;
+  --lufa-core-color-feedback-error-hover: #fca5a5;
+  --lufa-core-color-feedback-error-active: #fecaca;
+  --lufa-core-color-feedback-error-on-background: #111827;
+  --lufa-core-color-feedback-warning-default: #facc15;
+  --lufa-core-color-feedback-warning-subtle: #713f12;
+  --lufa-core-color-feedback-warning-border: #a16207;
+  --lufa-core-color-feedback-warning-hover: #fde047;
+  --lufa-core-color-feedback-warning-active: #fef08a;
+  --lufa-core-color-feedback-warning-on-background: #111827;
+  --lufa-core-color-feedback-info-default: #93c5fd;
+  --lufa-core-color-feedback-info-subtle: #1e3a8a;
+  --lufa-core-color-feedback-info-border: #1d4ed8;
+  --lufa-core-color-feedback-info-hover: #93c5fd;
+  --lufa-core-color-feedback-info-active: #bfdbfe;
+  --lufa-core-color-feedback-info-on-background: #111827;
+  --lufa-core-color-neutral-background: #111827;
+  --lufa-core-color-neutral-surface-default: #1f2937;
+  --lufa-core-color-neutral-surface-raised: #374151;
+  --lufa-core-color-neutral-surface-hover: #374151;
+  --lufa-core-color-neutral-surface-active: #4b5563;
+  --lufa-core-color-neutral-border-default: #374151;
+  --lufa-core-color-neutral-border-strong: #4b5563;
+  --lufa-core-color-neutral-text-primary: #f9fafb;
+  --lufa-core-color-neutral-text-secondary: #9ca3af;
+  --lufa-core-color-neutral-text-tertiary: #6b7280;
+  --lufa-core-color-neutral-text-disabled: #4b5563;
+  --lufa-semantic-interactive-transform-scale-hover: 1.05;
+  --lufa-semantic-interactive-transform-translate-hover: -2px;
+  --lufa-semantic-ui-backdrop-blur: blur(8px);
+  --lufa-semantic-ui-backdrop-brightness: 0.7;
+  --lufa-semantic-ui-overlay-backdrop: rgba(0, 0, 0, 0.8);
+  --lufa-semantic-ui-overlay-hover: rgba(255, 255, 255, 0.08);
+  --lufa-semantic-ui-overlay-pressed: rgba(255, 255, 255, 0.16);
+  --lufa-semantic-ui-overlay-selected: rgba(255, 255, 255, 0.16);
+  --lufa-semantic-ui-overlay-scrim: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme][data-mode='high-contrast'] {
+  --lufa-core-color-brand-primary-default: #0000ff;
+  --lufa-core-color-brand-primary-hover: #0000ff;
+  --lufa-core-color-brand-primary-active: #0000ff;
+  --lufa-core-color-brand-primary-on-background: #ffffff;
+  --lufa-core-color-brand-secondary-default: #9333ea;
+  --lufa-core-color-brand-secondary-hover: #7e22ce;
+  --lufa-core-color-brand-secondary-active: #6b21a8;
+  --lufa-core-color-brand-secondary-on-background: #ffffff;
+  --lufa-core-color-brand-accent-visited: #9900ff;
+  --lufa-core-color-feedback-success-default: #00ff00;
+  --lufa-core-color-feedback-success-subtle: #dcfce7;
+  --lufa-core-color-feedback-success-border: #00ff00;
+  --lufa-core-color-feedback-success-hover: #00ff00;
+  --lufa-core-color-feedback-success-active: #00ff00;
+  --lufa-core-color-feedback-success-on-background: #ffffff;
+  --lufa-core-color-feedback-error-default: #ff0000;
+  --lufa-core-color-feedback-error-subtle: #fee2e2;
+  --lufa-core-color-feedback-error-border: #ff0000;
+  --lufa-core-color-feedback-error-hover: #ff0000;
+  --lufa-core-color-feedback-error-active: #ff0000;
+  --lufa-core-color-feedback-error-on-background: #ffffff;
+  --lufa-core-color-feedback-warning-default: #ffff00;
+  --lufa-core-color-feedback-warning-subtle: #fef9c3;
+  --lufa-core-color-feedback-warning-border: #ffff00;
+  --lufa-core-color-feedback-warning-hover: #ffff00;
+  --lufa-core-color-feedback-warning-active: #ffff00;
+  --lufa-core-color-feedback-warning-on-background: #ffffff;
+  --lufa-core-color-feedback-info-default: #0000ff;
+  --lufa-core-color-feedback-info-subtle: #dbeafe;
+  --lufa-core-color-feedback-info-border: #0000ff;
+  --lufa-core-color-feedback-info-hover: #0000ff;
+  --lufa-core-color-feedback-info-active: #0000ff;
+  --lufa-core-color-feedback-info-on-background: #ffffff;
+  --lufa-core-color-neutral-background: #ffffff;
+  --lufa-core-color-neutral-surface-default: #f9fafb;
+  --lufa-core-color-neutral-surface-raised: #e5e7eb;
+  --lufa-core-color-neutral-surface-hover: #e5e7eb;
+  --lufa-core-color-neutral-surface-active: #d1d5db;
+  --lufa-core-color-neutral-border-default: #000000;
+  --lufa-core-color-neutral-border-strong: #000000;
+  --lufa-core-color-neutral-text-primary: #000000;
+  --lufa-core-color-neutral-text-secondary: #374151;
+  --lufa-core-color-neutral-text-tertiary: #4b5563;
+  --lufa-core-color-neutral-text-disabled: #6b7280;
+  --lufa-semantic-interactive-transform-scale-hover: 1.02;
+  --lufa-semantic-interactive-transform-translate-hover: 0;
+  --lufa-semantic-ui-backdrop-blur: blur(2px);
+  --lufa-semantic-ui-backdrop-brightness: 0.5;
+  --lufa-semantic-ui-overlay-backdrop: rgba(0, 0, 0, 0.9);
+  --lufa-semantic-ui-overlay-hover: rgba(255, 255, 255, 0.16);
+  --lufa-semantic-ui-overlay-pressed: rgba(255, 255, 255, 0.16);
+  --lufa-semantic-ui-overlay-selected: rgba(255, 255, 255, 0.16);
+  --lufa-semantic-ui-overlay-scrim: rgba(0, 0, 0, 0.8);
 }
