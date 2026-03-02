@@ -170,7 +170,7 @@ jobs:
       # Step 7: Upload test results on failure
       - name: 📦 Upload test results
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-test-results
           path: packages/design-system/playwright/test-results/
@@ -179,7 +179,7 @@ jobs:
       # Step 8: Upload Playwright trace on failure
       - name: 📦 Upload Playwright trace
         if: failure()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-trace
           path: packages/design-system/playwright/test-results/**/*.zip
@@ -188,7 +188,7 @@ jobs:
       # Step 9: Upload HTML report on failure
       - name: 📦 Upload HTML report
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-html-report
           path: packages/design-system/playwright/playwright-report/
@@ -197,7 +197,7 @@ jobs:
       # Step 10: Upload visual diffs
       - name: 📦 Upload visual diffs
         if: steps.metrics.outputs.visual_diffs != '0'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: visual-diffs
           path: packages/design-system/playwright/test-results/**/*-diff.png
@@ -206,7 +206,7 @@ jobs:
       # Step 10b: Upload baseline snapshots
       - name: 📦 Upload baseline snapshots
         if: steps.metrics.outputs.visual_diffs != '0'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: baseline-snapshots
           path: packages/design-system/playwright/__snapshots__/**/*.png
