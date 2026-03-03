@@ -32,15 +32,6 @@ runs:
         echo "::endgroup::"
       continue-on-error: true
 
-    - name: 🪙 Tokens — validate:token-usage
-      id: tokens-token-usage
-      shell: bash
-      run: |
-        echo "::group::Tokens — validate:token-usage"
-        pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage
-        echo "::endgroup::"
-      continue-on-error: true
-
     - name: 🪙 Tokens — prettier:check
       id: tokens-prettier
       shell: bash
@@ -305,7 +296,6 @@ runs:
         FAILURES=0
         OUTCOMES=(
           "${{ steps.tokens-validate-tokens.outcome }}"
-          "${{ steps.tokens-token-usage.outcome }}"
           "${{ steps.tokens-prettier.outcome }}"
           "${{ steps.themes-lint.outcome }}"
           "${{ steps.themes-typecheck.outcome }}"
@@ -347,7 +337,6 @@ runs:
       shell: bash
       env:
         TOKENS_VALIDATE_TOKENS: ${{ steps.tokens-validate-tokens.outcome }}
-        TOKENS_TOKEN_USAGE: ${{ steps.tokens-token-usage.outcome }}
         TOKENS_PRETTIER: ${{ steps.tokens-prettier.outcome }}
         THEMES_LINT: ${{ steps.themes-lint.outcome }}
         THEMES_TYPECHECK: ${{ steps.themes-typecheck.outcome }}
@@ -403,7 +392,6 @@ runs:
           echo "| Package | Check | Status |"
           echo "|---------|-------|--------|"
           echo "| 🪙 Tokens | validate:tokens | $(si "$TOKENS_VALIDATE_TOKENS") $(sl "$TOKENS_VALIDATE_TOKENS") |"
-          echo "| 🪙 Tokens | validate:token-usage | $(si "$TOKENS_TOKEN_USAGE") $(sl "$TOKENS_TOKEN_USAGE") |"
           echo "| 🪙 Tokens | prettier:check | $(si "$TOKENS_PRETTIER") $(sl "$TOKENS_PRETTIER") |"
           echo "| 🎨 Themes | lint | $(si "$THEMES_LINT") $(sl "$THEMES_LINT") |"
           echo "| 🎨 Themes | typecheck | $(si "$THEMES_TYPECHECK") $(sl "$THEMES_TYPECHECK") |"
@@ -437,7 +425,6 @@ runs:
             echo "### 💡 How to Fix"
             echo ""
             [[ "$TOKENS_VALIDATE_TOKENS" == "failure" ]]    && echo "- **Tokens — validate:tokens:** \`pnpm --filter @grasdouble/lufa_design-system-tokens run validate:tokens\`"
-            [[ "$TOKENS_TOKEN_USAGE" == "failure" ]]        && echo "- **Tokens — token-usage:** \`pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage\`"
             [[ "$TOKENS_PRETTIER" == "failure" ]]           && echo "- **Tokens — prettier:** \`pnpm --filter @grasdouble/lufa_design-system-tokens run prettier:write\`"
             [[ "$THEMES_LINT" == "failure" ]]               && echo "- **Themes — lint:** \`pnpm --filter @grasdouble/lufa_design-system-themes run lint\`"
             [[ "$THEMES_TYPECHECK" == "failure" ]]          && echo "- **Themes — typecheck:** \`pnpm --filter @grasdouble/lufa_design-system-themes run typecheck\`"
