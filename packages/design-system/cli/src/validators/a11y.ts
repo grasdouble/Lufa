@@ -22,9 +22,9 @@
 
 import { readFileSync } from 'node:fs';
 
+import { getColorPairsToCheck } from '../utils/contrast.js';
 import { resolveCSSVarValue } from '../utils/parse-css.js';
 import { getContrastRatio, meetsWCAG_AA_Text, meetsWCAG_AA_UI } from '../utils/wcag.js';
-import { getColorPairsToCheck } from './contrast.js';
 
 // ---------------------------------------------------------------------------
 // Types

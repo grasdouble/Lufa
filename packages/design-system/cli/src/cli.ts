@@ -4,10 +4,9 @@
  * Lufa Design System CLI
  *
  * Commands:
- *   lufa-ds-cli validate <theme-file>                  All checks (completeness + format + a11y)
+ *   lufa-ds-cli validate <theme-file>                  All checks (format + a11y)
  *   lufa-ds-cli validate <theme-file> --a11y            WCAG AA contrast check only
  *   lufa-ds-cli validate <theme-file> --format          Format check only
- *   lufa-ds-cli validate <theme-file> --completeness    Completeness check only
  *   lufa-ds-cli validate --dir <directory>              All checks on every CSS file in a directory
  *   lufa-ds-cli validate --a11y --dir <directory>       A11y check only on every CSS file in a directory
  *   lufa-ds-cli template [level] [--output-name <name>] Create a theme CSS file in the CWD
@@ -23,7 +22,6 @@ import { Command } from 'commander';
 import type { A11yResult } from './validators/a11y.js';
 import { parseCSSFile } from './utils/parse-css.js';
 import { validateA11y } from './validators/a11y.js';
-import { validateCompleteness } from './validators/completeness.js';
 import { validateFormat } from './validators/format.js';
 
 // ---------------------------------------------------------------------------
@@ -35,7 +33,6 @@ type TemplateLevel = 'starter' | 'extended' | 'advanced';
 type ValidateOptions = {
   a11y?: boolean;
   format?: boolean;
-  completeness?: boolean;
   dir?: string;
 };
 
@@ -121,21 +118,8 @@ function printA11yResult(a11yResult: A11yResult): void {
 
 async function runCheckAll(file: string): Promise<boolean> {
   const properties = await parseCSSFile(file);
-  const [completenessResult, a11yResult] = await Promise.all([validateCompleteness(properties), validateA11y(file)]);
+  const a11yResult = await validateA11y(file);
   const formatResult = validateFormat(properties);
-
-  // Completeness
-  if (!completenessResult.valid) {
-    completenessResult.missingTokens.forEach((token) => console.log(chalk.red(`  ✗ Missing required token: ${token}`)));
-  } else {
-    console.log(chalk.green(`  ✓ Completeness — all required tokens present`));
-  }
-
-  if (completenessResult.extraTokens.length > 0) {
-    completenessResult.extraTokens.forEach((token) =>
-      console.log(chalk.yellow(`  ⚠ Extra token (not in design system): ${token}`))
-    );
-  }
 
   // Format
   if (!formatResult.valid) {
@@ -151,7 +135,7 @@ async function runCheckAll(file: string): Promise<boolean> {
   console.log(chalk.bold('  A11y (WCAG AA):'));
   printA11yResult(a11yResult);
 
-  return completenessResult.valid && formatResult.valid && a11yResult.valid;
+  return formatResult.valid && a11yResult.valid;
 }
 
 async function runCheckA11y(file: string): Promise<boolean> {
@@ -175,29 +159,9 @@ async function runCheckFormat(file: string): Promise<boolean> {
   return formatResult.valid;
 }
 
-async function runCheckCompleteness(file: string): Promise<boolean> {
-  const properties = await parseCSSFile(file);
-  const completenessResult = await validateCompleteness(properties);
-
-  if (!completenessResult.valid) {
-    completenessResult.missingTokens.forEach((token) => console.log(chalk.red(`  ✗ Missing required token: ${token}`)));
-  } else {
-    console.log(chalk.green(`  ✓ All required tokens are present`));
-  }
-
-  if (completenessResult.extraTokens.length > 0) {
-    completenessResult.extraTokens.forEach((token) =>
-      console.log(chalk.yellow(`  ⚠ Extra token (not in design system): ${token}`))
-    );
-  }
-
-  return completenessResult.valid;
-}
-
 function selectCheck(options: ValidateOptions): (file: string) => Promise<boolean> {
   if (options.a11y) return runCheckA11y;
   if (options.format) return runCheckFormat;
-  if (options.completeness) return runCheckCompleteness;
   return runCheckAll;
 }
 
@@ -239,7 +203,6 @@ program
   .description('Validate a theme CSS file against Lufa Design System requirements')
   .option('--a11y', 'Run WCAG AA contrast check only')
   .option('--format', 'Run format check only')
-  .option('--completeness', 'Run completeness check only')
   .option('-d, --dir <directory>', 'Validate all *.css files in a directory')
   .action(async (themeFile: string | undefined, options: ValidateOptions) => {
     try {
