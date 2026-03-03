@@ -1,5 +1,41 @@
 # @grasdouble/lufa_design-system-docusaurus
 
+## 1.2.0
+
+### Minor Changes
+
+- 3d8eea0: Update documentation examples to use new token naming conventions
+  - **Badge examples** - Updated to use new `compact/default/large` size tokens
+  - **Icon examples** - Updated to use new `semantic/ui/icon-size` tokens
+  - **Text examples** - Minor token reference updates
+  - **Bleed, Cluster, Divider, Stack examples** - Updated layout and spacing token references
+  - **Portal examples** - Updated z-index and overlay token references
+  - **Playground** - Updated `PlaygroundThemeSwitcher` and playground CSS to use new surface and background tokens
+
+### Patch Changes
+
+- d27c912: Update playground theme switcher for better UX
+
+  **Improvements:**
+  - Simplified theme switcher component implementation
+  - Updated imports and structure for better maintainability
+  - Aligned with new theme package structure (post alpha tokens addition)
+
+  **Impact:**
+  - Minor UI/UX improvements in documentation playground
+  - No breaking changes to documentation site
+
+- feab2a5: improve component tokens
+- Updated dependencies [feab2a5]
+- Updated dependencies [d27c912]
+- Updated dependencies [d27c912]
+- Updated dependencies [3d8eea0]
+- Updated dependencies [3d8eea0]
+- Updated dependencies [3d8eea0]
+  - @grasdouble/lufa_design-system-tokens@1.2.0
+  - @grasdouble/lufa_design-system@2.1.0
+  - @grasdouble/lufa_design-system-themes@1.1.0
+
 ## 1.1.0
 
 ### Minor Changes

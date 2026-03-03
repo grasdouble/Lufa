@@ -1,5 +1,11 @@
 # @grasdouble/lufa_config_eslint
 
+## 0.1.4
+
+### Patch Changes
+
+- d27c912: Add light config for root mono-repo config
+
 ## 0.1.3
 
 ### Patch Changes

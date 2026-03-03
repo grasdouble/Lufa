@@ -1,5 +1,15 @@
 # @grasdouble/lufa_plugin_vscode_lufa-ds-preview
 
+## 0.4.5
+
+### Patch Changes
+
+- 3d8eea0: Add TypeScript typecheck step to lint-staged configuration and add `.prettierignore` to exclude `dist/` from Prettier formatting
+- Updated dependencies [feab2a5]
+- Updated dependencies [d27c912]
+- Updated dependencies [3d8eea0]
+  - @grasdouble/lufa_design-system-tokens@1.2.0
+
 ## 0.4.4
 
 ### Patch Changes
