@@ -664,7 +664,7 @@ Level 1: Foundation Tokens (111 tokens)
 1. **Generate Template:**
 
    ```bash
-   lufa-validate-theme --template > my-theme.css
+   lufa-ds-cli theme-template --output-name my-theme
    ```
 
 2. **Customize Tokens:**
@@ -680,14 +680,14 @@ Level 1: Foundation Tokens (111 tokens)
 3. **Validate Theme:**
 
    ```bash
-   lufa-validate-theme my-theme.css
+   lufa-ds-cli theme-validate my-theme.css
    # ✓ All 453 required tokens defined
    # ✗ 3 contrast violations found
    ```
 
 4. **Fix Violations:**
    ```bash
-   lufa-validate-theme my-theme.css --verbose
+   lufa-ds-cli theme-validate my-theme.css --a11y
    # ✗ Button primary: 3.2:1 (requires 4.5:1)
    #   Recommendation: Darken #ff6b6b to #d93636
    ```
@@ -1298,17 +1298,7 @@ test.describe('InteractionName', () => {
 
 ```bash
 # Validate custom theme
-lufa-validate-theme my-theme.css
-
-# Output:
-# ✓ All 453 required tokens defined
-# ✗ 3 contrast violations found
-# ✓ All token formats valid
-
-# Verbose mode with recommendations
-lufa-validate-theme my-theme.css --verbose
-# ✗ Button primary: 3.2:1 (requires 4.5:1)
-#   Recommendation: Darken #ff6b6b to #d93636
+lufa-ds-cli theme-validate my-theme.css
 ```
 
 ---
@@ -1399,7 +1389,7 @@ If absolutely necessary:
 
 1. Create theme CSS file: `themes/my-theme.css`
 2. Override brand tokens (6 minimum)
-3. Validate with CLI: `lufa-validate-theme my-theme.css`
+3. Validate with CLI: `lufa-ds-cli theme-validate my-theme.css`
 4. Test across 3 modes (light, dark, high-contrast)
 5. Add to themes package
 
@@ -1457,7 +1447,7 @@ pnpm ds:test
 pnpm ds:test:update-snapshots
 
 # Validate custom theme
-lufa-validate-theme my-theme.css
+lufa-ds-cli theme-validate my-theme.css
 
 # Start Storybook
 pnpm ds:storybook:dev

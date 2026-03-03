@@ -98,6 +98,7 @@
   --lufa-component-button-type-outline-variant-destructive-border-active: #ffffff;
   --lufa-component-button-type-outline-variant-warning-border-active: #ffffff;
   --lufa-component-button-type-outline-variant-info-border-active: #ffffff;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #0f172a; /* neutral-text-primary on #cbd5e1 = 12.02:1 */
 
   /* Outline button hover — fix border-hover on bg-hover (primary-hover on primary-default = low contrast) */
   --lufa-component-button-type-outline-border-hover: #ffffff; /* 5.93:1 on bg-hover #0369a1 */
@@ -169,6 +170,7 @@
   --lufa-component-button-type-outline-variant-destructive-border-active: #000000;
   --lufa-component-button-type-outline-variant-warning-border-active: #000000;
   --lufa-component-button-type-outline-variant-info-border-active: #000000;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #f8fafc; /* neutral-text-primary on #1e293b = 13.98:1 */
 
   /* Outline button hover — fix border-hover on bg-hover */
   --lufa-component-button-type-outline-border-hover: #000000; /* 9.80:1 on #38bdf8 */
@@ -237,6 +239,7 @@
   --lufa-component-button-type-outline-variant-destructive-border-active: #000000;
   --lufa-component-button-type-outline-variant-warning-border-active: #000000;
   --lufa-component-button-type-outline-variant-info-border-active: #000000;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #ffffff; /* neutral-text-primary on #0a1929 = 17.74:1 */
 
   /* Outline button hover — fix border-hover on bg-hover */
   --lufa-component-button-type-outline-border-hover: #000000; /* 11.08:1 on #00ccff */

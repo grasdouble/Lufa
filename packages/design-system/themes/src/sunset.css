@@ -95,6 +95,7 @@
   --lufa-component-button-type-outline-variant-destructive-background-active: #fff7ed;
   --lufa-component-button-type-outline-variant-warning-background-active: #fff7ed;
   --lufa-component-button-type-outline-variant-info-background-active: #fff7ed;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #431407; /* neutral-text-primary on #fff7ed = 14.74:1 */
 
   /* Glow — warm orange (light mode) */
   --lufa-semantic-effect-glow-box-primary-default: 0 0 10px rgba(249, 115, 22, 0.25);
@@ -166,6 +167,7 @@
   --lufa-component-button-type-outline-variant-destructive-background-active: #4c0519;
   --lufa-component-button-type-outline-variant-warning-background-active: #451a03;
   --lufa-component-button-type-outline-variant-info-background-active: #1e1b4b;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #fff7ed; /* neutral-text-primary on #1c0c08 = 17.89:1 */
 
   /* Glow — warm orange (dark mode) */
   --lufa-semantic-effect-glow-box-primary-default: 0 0 14px rgba(249, 115, 22, 0.45);
@@ -237,6 +239,7 @@
   --lufa-component-button-type-outline-variant-destructive-background-active: #000000;
   --lufa-component-button-type-outline-variant-warning-background-active: #000000;
   --lufa-component-button-type-outline-variant-info-background-active: #000000;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #ffffff; /* neutral-text-primary on #000000 = 21:1 */
 
   /* HC: ghost secondary active — override to use brighter secondary color for text legibility */
   --lufa-component-button-type-ghost-variant-secondary-text-active: #ff0066;

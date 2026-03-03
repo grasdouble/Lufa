@@ -386,7 +386,7 @@ Use the Lufa CLI to validate your custom themes:
 pnpm add -D @grasdouble/lufa_design-system-cli
 
 # Validate your theme
-pnpm lufa-ds-cli validate-theme ./src/themes/brand-theme.css
+npx lufa-ds-cli theme-validate ./src/themes/brand-theme.css
 ```
 
 The validator checks:

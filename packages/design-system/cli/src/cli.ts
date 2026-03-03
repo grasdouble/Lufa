@@ -4,12 +4,12 @@
  * Lufa Design System CLI
  *
  * Commands:
- *   lufa-ds-cli validate <theme-file>                  All checks (format + a11y)
- *   lufa-ds-cli validate <theme-file> --a11y            WCAG AA contrast check only
- *   lufa-ds-cli validate <theme-file> --format          Format check only
- *   lufa-ds-cli validate --dir <directory>              All checks on every CSS file in a directory
- *   lufa-ds-cli validate --a11y --dir <directory>       A11y check only on every CSS file in a directory
- *   lufa-ds-cli template [level] [--output-name <name>] Create a theme CSS file in the CWD
+ *   lufa-ds-cli theme-validate <theme-file>                  All checks (format + a11y)
+ *   lufa-ds-cli theme-validate <theme-file> --a11y            WCAG AA contrast check only
+ *   lufa-ds-cli theme-validate <theme-file> --format          Format check only
+ *   lufa-ds-cli theme-validate --dir <directory>              All checks on every CSS file in a directory
+ *   lufa-ds-cli theme-validate --a11y --dir <directory>       A11y check only on every CSS file in a directory
+ *   lufa-ds-cli theme-template [level] [--output-name <name>] Create a theme CSS file in the CWD
  */
 import { readFile } from 'fs/promises';
 import { readdirSync } from 'node:fs';
@@ -195,11 +195,11 @@ program
   .addHelpCommand(true);
 
 // ---------------------------------------------------------------------------
-// Sub-command: validate
+// Sub-command: theme-validate
 // ---------------------------------------------------------------------------
 
 program
-  .command('validate [theme-file]')
+  .command('theme-validate [theme-file]')
   .description('Validate a theme CSS file against Lufa Design System requirements')
   .option('--a11y', 'Run WCAG AA contrast check only')
   .option('--format', 'Run format check only')
@@ -238,7 +238,7 @@ program
 // ---------------------------------------------------------------------------
 
 program
-  .command('template [level]')
+  .command('theme-template [level]')
   .description(`Create a theme CSS file in the current directory (levels: ${TEMPLATE_LEVELS.join(', ')})`)
   .option('-o, --output-name <name>', 'Output file name without the .css extension')
   .action(async (levelArg: string | undefined, options: { outputName?: string }) => {

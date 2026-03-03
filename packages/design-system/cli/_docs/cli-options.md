@@ -1,9 +1,9 @@
 # CLI Reference
 
-## `validate`
+## `theme-validate`
 
 ```
-lufa-ds-cli validate [theme-file] [options]
+lufa-ds-cli theme-validate [theme-file] [options]
 
 Arguments:
   theme-file                   Path to the theme CSS file to validate
@@ -20,10 +20,10 @@ Options:
 When no option is passed, all three checks run (completeness + format + a11y).
 Options `--a11y`, `--format`, and `--completeness` are mutually exclusive.
 
-## `template`
+## `theme-template`
 
 ```
-lufa-ds-cli template [level] [options]
+lufa-ds-cli theme-template [level] [options]
 
 Arguments:
   level                        Template level: starter (default), extended, advanced

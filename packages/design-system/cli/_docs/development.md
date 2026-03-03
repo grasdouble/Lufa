@@ -8,8 +8,8 @@ pnpm install
 pnpm build
 
 # Run in development mode (with TypeScript, no build needed)
-pnpm dev validate path/to/theme.css
-pnpm dev template --output-name my-theme
+pnpm dev theme-validate path/to/theme.css
+pnpm dev theme-template --output-name my-theme
 
 # Run tests
 pnpm test

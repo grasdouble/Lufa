@@ -23,14 +23,14 @@ pnpm add @grasdouble/lufa_design-system-cli
 
 ```bash
 # Validate a custom theme file
-npx lufa-validate-theme ./my-custom-theme.css
+npx lufa-ds-cli theme-validate ./my-custom-theme.css
 
 # Output starter theme template (default)
-npx lufa-validate-theme --template > my-theme.css
+npx lufa-ds-cli theme-template > my-theme.css
 
 # Output extended or advanced template
-npx lufa-validate-theme --template extended > my-theme.css
-npx lufa-validate-theme --template advanced > my-theme.css
+npx lufa-ds-cli theme-template extended > my-theme.css
+npx lufa-ds-cli theme-template advanced > my-theme.css
 ```
 
 ## CLI Documentation

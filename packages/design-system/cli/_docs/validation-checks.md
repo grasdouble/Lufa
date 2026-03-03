@@ -1,19 +1,7 @@
 # Validation Checks
 
-Running `lufa-ds-cli validate <theme-file>` performs three checks. Each can also
-be run in isolation with `--completeness`, `--format`, or `--a11y`.
-
-## Completeness
-
-Ensures all required Lufa design tokens are defined in the theme file.
-
-**Passes when:** every token expected by the design system is present.  
-**Warns when:** extra tokens are defined that are not part of the design system.
-
-```
-✓ Completeness — all required tokens present
-⚠ Extra token (not in design system): --lufa-custom-color-foo
-```
+Running `lufa-ds-cli theme-validate <theme-file>` performs three checks. Each can also
+be run in isolation with `--format`, or `--a11y`.
 
 ## Format
 

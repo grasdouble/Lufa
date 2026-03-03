@@ -115,9 +115,8 @@
   --lufa-component-button-type-outline-variant-primary-border-active: #ffffff;
   --lufa-component-button-type-outline-variant-secondary-border-active: #ffffff;
   --lufa-component-button-type-outline-variant-destructive-border-active: #ffffff;
-  --lufa-component-button-type-outline-variant-ghost-border-active: #ffffff;
-  --lufa-component-button-type-outline-variant-neutral-border-active: #ffffff;
-  --lufa-component-button-type-outline-variant-link-border-active: #ffffff;
+  /* FIX: neutral-border-active — #ffffff on #c6f7c6 = 1.2:1 FAIL; use #001a00 (neutral-text-primary) = 15.27:1 ✓ */
+  --lufa-component-button-type-outline-variant-neutral-border-active: #001a00;
   --lufa-component-button-type-outline-variant-success-border-active: #ffffff;
   --lufa-component-button-type-outline-variant-warning-border-active: #ffffff;
   --lufa-component-button-type-outline-variant-info-border-active: #ffffff;
@@ -211,9 +210,7 @@
   --lufa-component-button-type-outline-variant-secondary-border-active: #00ff41;
   /* FIX: destructive-bg-active = error-active = #ff0000 — use #000000 border (5.25:1 ✓) */
   --lufa-component-button-type-outline-variant-destructive-border-active: #000000;
-  --lufa-component-button-type-outline-variant-ghost-border-active: #00ff41;
   --lufa-component-button-type-outline-variant-neutral-border-active: #00ff41;
-  --lufa-component-button-type-outline-variant-link-border-active: #00ff41;
   /* success-active (#00ff00) and warning-active (#ffff00) are vivid — use black border */
   --lufa-component-button-type-outline-variant-success-border-active: #000000;
   --lufa-component-button-type-outline-variant-warning-border-active: #000000;
@@ -302,9 +299,7 @@
   --lufa-component-button-type-outline-variant-secondary-border-active: #000000;
   /* FIX: destructive-bg-active = error-active = #ff0000 — use #000000 border (5.25:1 ✓) */
   --lufa-component-button-type-outline-variant-destructive-border-active: #000000;
-  --lufa-component-button-type-outline-variant-ghost-border-active: #00ff41;
   --lufa-component-button-type-outline-variant-neutral-border-active: #00ff41;
-  --lufa-component-button-type-outline-variant-link-border-active: #00ff41;
   /* success-active (#00ff00) and warning-active (#ffff00) are vivid — use black border */
   --lufa-component-button-type-outline-variant-success-border-active: #000000;
   --lufa-component-button-type-outline-variant-warning-border-active: #000000;

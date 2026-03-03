@@ -102,6 +102,7 @@
   --lufa-component-button-type-outline-variant-destructive-border-active: #ffffff;
   --lufa-component-button-type-outline-variant-warning-border-active: #ffffff;
   --lufa-component-button-type-outline-variant-info-border-active: #ffffff;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #330033; /* neutral-text-primary on #d1d5db = 11.99:1 */
   /* Interactive: fix text-active (#330033 on #b300b3 = 3.0:1) and page-bg check */
   --lufa-semantic-interactive-background-active: #ff66ff;
   --lufa-semantic-interactive-text-active: #330033;
@@ -178,6 +179,8 @@
   --lufa-component-button-type-outline-variant-destructive-border-active: #000000;
   --lufa-component-button-type-outline-variant-warning-border-active: #000000;
   --lufa-component-button-type-outline-variant-info-border-active: #000000;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #00ffff; /* neutral-text-primary on #4b5563 = 6.03:1 */
+  --lufa-component-button-type-outline-variant-neutral-background-active: #1a0033; /* override HC gray-300 fallback; #00ffff on #1a0033 = 15.34:1 */
   /* Interactive: fix text-active (#00ffff on #dd00dd = 3.77) — use dark bg + white text (both pairs pass) */
   --lufa-semantic-interactive-background-active: #660066;
   --lufa-semantic-interactive-text-active: #ffffff;
@@ -257,4 +260,5 @@
   --lufa-component-button-type-outline-variant-destructive-border-active: #000000;
   --lufa-component-button-type-outline-variant-warning-border-active: #000000;
   --lufa-component-button-type-outline-variant-info-border-active: #000000;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #000000; /* black on #d1d5db = 14.46:1 (white would be 1.47:1 — fails) */
 }

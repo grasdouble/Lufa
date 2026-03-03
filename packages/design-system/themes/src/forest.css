@@ -86,6 +86,7 @@
   --lufa-component-button-type-outline-variant-destructive-border-active: #ecfdf5;
   --lufa-component-button-type-outline-variant-warning-border-active: #ecfdf5;
   --lufa-component-button-type-outline-variant-info-border-active: #ecfdf5;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #064e3b; /* neutral-text-primary on #f0fdf4 = 9.28:1 */
 }
 
 [data-theme='forest'][data-mode='dark'] {
@@ -149,6 +150,7 @@
   --lufa-component-button-type-outline-variant-destructive-border-active: #022c22;
   --lufa-component-button-type-outline-variant-warning-border-active: #022c22;
   --lufa-component-button-type-outline-variant-info-border-active: #022c22;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #ecfdf5; /* neutral-text-primary on #022c22 = 14.38:1 */
 }
 
 [data-theme='forest'][data-mode='high-contrast'] {
@@ -212,4 +214,5 @@
   --lufa-component-button-type-outline-variant-destructive-border-active: #000000;
   --lufa-component-button-type-outline-variant-warning-border-active: #000000;
   --lufa-component-button-type-outline-variant-info-border-active: #000000;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #ffffff; /* neutral-text-primary on #000000 = 21:1 */
 }

@@ -1004,6 +1004,21 @@
                     }
                   }
                 }
+              },
+              "border": {
+                "active": {
+                  "$value": "{semantic.interactive.action.neutral.active}",
+                  "$type": "color",
+                  "$description": "Outline neutral button active state border color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-neutral",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
               }
             }
           }

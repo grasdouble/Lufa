@@ -84,6 +84,7 @@
   --lufa-component-button-type-outline-variant-destructive-background-active: #faf7f2;
   --lufa-component-button-type-outline-variant-warning-background-active: #faf7f2;
   --lufa-component-button-type-outline-variant-info-background-active: #faf7f2;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #2d1610; /* neutral-text-primary on #eadecf = 12.84:1 */
 
   /* Glow — warm amber (light mode) */
   --lufa-semantic-effect-glow-box-primary-default: 0 0 6px rgba(180, 120, 50, 0.2);
@@ -153,6 +154,7 @@
   --lufa-component-button-type-outline-variant-destructive-background-active: #1a120b;
   --lufa-component-button-type-outline-variant-warning-background-active: #1a120b;
   --lufa-component-button-type-outline-variant-info-background-active: #1a120b;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #faf7f2; /* neutral-text-primary on #1a120b = 17.31:1 */
 
   /* Glow — warm amber (dark mode) */
   --lufa-semantic-effect-glow-box-primary-default: 0 0 10px rgba(180, 120, 50, 0.35);
@@ -222,6 +224,7 @@
   --lufa-component-button-type-outline-variant-destructive-background-active: #000000;
   --lufa-component-button-type-outline-variant-warning-background-active: #000000;
   --lufa-component-button-type-outline-variant-info-background-active: #000000;
+  --lufa-component-button-type-outline-variant-neutral-border-active: #ffffff; /* neutral-text-primary on #221100 = 18.29:1 */
 
   /* Glow — disabled for accessibility */
   --lufa-semantic-effect-glow-box-primary-default: none;

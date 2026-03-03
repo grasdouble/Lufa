@@ -3,7 +3,7 @@
 ## Full Validation (all checks)
 
 ```bash
-$ lufa-ds-cli validate ./my-theme.css
+$ lufa-ds-cli theme-validate ./my-theme.css
 🔍 my-theme.css
 
   ✓ Completeness — all required tokens present
@@ -20,7 +20,7 @@ $ lufa-ds-cli validate ./my-theme.css
 ## Validation with Errors
 
 ```bash
-$ lufa-ds-cli validate ./my-theme.css
+$ lufa-ds-cli theme-validate ./my-theme.css
 🔍 my-theme.css
 
   ✗ Missing required token: --lufa-core-color-brand-primary-default
@@ -39,7 +39,7 @@ $ lufa-ds-cli validate ./my-theme.css
 ## A11y Check Only
 
 ```bash
-$ lufa-ds-cli validate ./my-theme.css --a11y
+$ lufa-ds-cli theme-validate ./my-theme.css --a11y
 🔍 my-theme.css
 
   ✓ [light] 102 checks passed (3 skipped)
@@ -53,7 +53,7 @@ $ lufa-ds-cli validate ./my-theme.css --a11y
 ## A11y Check on a Directory
 
 ```bash
-$ lufa-ds-cli validate --a11y --dir ./themes/src
+$ lufa-ds-cli theme-validate --a11y --dir ./themes/src
 🔍 ocean.css
 
   ✓ [light] 102 checks passed
@@ -71,11 +71,11 @@ $ lufa-ds-cli validate --a11y --dir ./themes/src
 ## Create a Theme Template
 
 ```bash
-$ lufa-ds-cli template
+$ lufa-ds-cli theme-template
 Output file name (without .css): my-brand
 ✓ Created my-brand.css
 
-$ lufa-ds-cli template extended -o my-brand
+$ lufa-ds-cli theme-template extended -o my-brand
 ✓ Created my-brand.css
 ```
 

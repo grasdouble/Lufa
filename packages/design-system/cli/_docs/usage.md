@@ -4,36 +4,35 @@
 
 ```bash
 # Run all checks (completeness + format + a11y)
-lufa-ds-cli validate ./my-theme.css
+lufa-ds-cli theme-validate ./my-theme.css
 
 # Run only the WCAG AA contrast check
-lufa-ds-cli validate ./my-theme.css --a11y
+lufa-ds-cli theme-validate ./my-theme.css --a11y
 
 # Run only the format check
-lufa-ds-cli validate ./my-theme.css --format
+lufa-ds-cli theme-validate ./my-theme.css --format
 
 # Run only the completeness check
-lufa-ds-cli validate ./my-theme.css --completeness
+lufa-ds-cli theme-validate ./my-theme.css --completeness
 
 # Run all checks on every CSS file in a directory
-lufa-ds-cli validate --dir ./themes/src
+lufa-ds-cli theme-validate --dir ./themes/src
 
 # Run a11y check on every CSS file in a directory
-lufa-ds-cli validate --a11y --dir ./themes/src
+lufa-ds-cli theme-validate --a11y --dir ./themes/src
 ```
 
 ## Create a Theme Template
 
 ```bash
 # Create a starter template in the current directory (prompts for file name)
-lufa-ds-cli template
+lufa-ds-cli theme-template
 
 # Create an extended template with a specific file name
-lufa-ds-cli template extended --output-name my-theme
-# → creates my-theme.css in the current directory
+lufa-ds-cli theme-template extended --output-name my-theme
 
 # Available levels: starter (default), extended, advanced
-lufa-ds-cli template advanced -o my-brand-theme
+lufa-ds-cli theme-template advanced -o my-brand-theme
 ```
 
 ## Exit Codes
