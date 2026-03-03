@@ -12,11 +12,16 @@
     "docker:update-snapshots-linux": "bash scripts/docker-update-snapshots-linux.sh",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "test": "playwright test -c playwright-ct.config.ts",
     "test-ct": "playwright test -c playwright-ct.config.ts",
     "test-ct:ui": "playwright test -c playwright-ct.config.ts --ui",
     "test-ct:update-snapshots": "playwright test -c playwright-ct.config.ts --update-snapshots=all && pnpm run compress-snapshots",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "validate:token-usage": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD --ext .css,.tsx,.ts",
+    "validate:token-usage:unused": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD --ext .css,.tsx,.ts --unused",
+    "validate:token-usage:verbose": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD --ext .css,.tsx,.ts --verbose",
     "validate-system": "bash scripts/validate-snapshot-system.sh"
   },
   "lint-staged": {
@@ -35,6 +40,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",
     "@grasdouble/lufa_config_eslint": "workspace:^",
+    "@grasdouble/lufa_config_prettier": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
     "@grasdouble/lufa_design-system": "workspace:^",
     "@playwright/experimental-ct-react": "^1.58.2",
@@ -43,6 +49,7 @@
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.2",
     "lucide-react": "^0.563.0",
+    "prettier": "^3.8.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "typescript": "^5.9.3"

@@ -434,7 +434,7 @@
 }
 
 .background-surface {
-  background-color: var(--lufa-semantic-ui-background-surface);
+  background-color: var(--lufa-semantic-ui-background-surface-default);
 }
 
 .background-success {

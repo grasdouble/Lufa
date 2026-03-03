@@ -2,81 +2,128 @@
   "component": {
     "badge": {
       "padding": {
-        "sm": {
-          "$value": "2px 6px",
-          "$type": "dimension",
-          "$description": "Small badge padding",
-          "$extensions": {
-            "lufa": {
-              "category": "badge",
-              "useCase": "Compact badges, inline indicators",
-              "themeable": true,
-              "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
+        "compact": {
+          "block": {
+            "$value": "{semantic.ui.spacing.tight}",
+            "$type": "dimension",
+            "$description": "Compact badge block-axis padding (top/bottom) — semantic tight (4px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Standard badges",
+                "themeable": true,
+                "themeLevel": "advanced"
+              }
+            }
+          },
+          "inline": {
+            "$value": "{semantic.ui.spacing.compact}",
+            "$type": "dimension",
+            "$description": "Compact badge inline-axis padding (left/right) — semantic compact (8px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Standard badges",
+                "themeable": true,
+                "themeLevel": "advanced"
+              }
             }
           }
         },
-        "md": {
-          "$value": "4px 8px",
-          "$type": "dimension",
-          "$description": "Medium badge padding (default)",
-          "$extensions": {
-            "lufa": {
-              "category": "badge",
-              "useCase": "Standard badges",
-              "themeable": true,
-              "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
+        "default": {
+          "block": {
+            "$value": "{semantic.ui.spacing.compact}",
+            "$type": "dimension",
+            "$description": "Default badge block-axis padding (top/bottom) — semantic compact (8px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Standard badges",
+                "themeable": true,
+                "themeLevel": "advanced"
+              }
+            }
+          },
+          "inline": {
+            "$value": "{semantic.ui.spacing.snug}",
+            "$type": "dimension",
+            "$description": "Default badge inline-axis padding (left/right) — semantic snug (12px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Standard badges",
+                "themeable": true,
+                "themeLevel": "advanced"
+              }
             }
           }
         },
-        "lg": {
-          "$value": "6px 12px",
-          "$type": "dimension",
-          "$description": "Large badge padding",
-          "$extensions": {
-            "lufa": {
-              "category": "badge",
-              "useCase": "Prominent badges, emphasis",
-              "themeable": true,
-              "note": "Badge-specific dense values — semantic spacing tokens start at 4px (compact), which is too large for compact badges."
+        "large": {
+          "block": {
+            "$value": "{semantic.ui.spacing.snug}",
+            "$type": "dimension",
+            "$description": "Large badge block-axis padding (top/bottom) — semantic snug (12px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Prominent badges, emphasis",
+                "themeable": true,
+                "themeLevel": "advanced"
+              }
+            }
+          },
+          "inline": {
+            "$value": "{semantic.ui.spacing.default}",
+            "$type": "dimension",
+            "$description": "Large badge inline-axis padding (left/right) — semantic default (16px)",
+            "$extensions": {
+              "lufa": {
+                "category": "badge",
+                "useCase": "Prominent badges, emphasis",
+                "themeable": true,
+                "themeLevel": "advanced"
+              }
             }
           }
         }
       },
       "font-size": {
-        "sm": {
-          "$value": "10px",
+        "compact": {
+          "$value": "{semantic.typography.caption}",
           "$type": "dimension",
-          "$description": "Small badge font size - 10px (between xs and sm)",
+          "$description": "Compact badge font size — semantic caption (12px)",
           "$extensions": {
             "lufa": {
               "category": "badge",
               "useCase": "Compact badges",
-              "note": "Custom value - smaller than xs (12px) for compact badges",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
-        "md": {
-          "$value": "{semantic.typography.caption}",
+        "default": {
+          "$value": "{semantic.typography.body.small}",
           "$type": "dimension",
-          "$description": "Medium badge font size - references caption (12px)",
+          "$description": "Default badge font size — semantic body small (14px)",
           "$extensions": {
             "lufa": {
               "category": "badge",
               "useCase": "Standard badges",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
-        "lg": {
-          "$value": "{semantic.typography.body.small}",
+        "large": {
+          "$value": "{semantic.typography.body.default}",
           "$type": "dimension",
-          "$description": "Large badge font size - references body small (14px)",
+          "$description": "Large badge font size — semantic body default (16px)",
           "$extensions": {
             "lufa": {
               "category": "badge",
-              "useCase": "Large badges",
-              "themeable": true
+              "useCase": "Prominent badges, emphasis",
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
@@ -89,14 +136,15 @@
           "lufa": {
             "category": "badge",
             "useCase": "All badge variants",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
       "variant": {
         "default": {
           "background": {
-            "$value": "{semantic.ui.background.surface}",
+            "$value": "{semantic.ui.background.surface.default}",
             "$type": "color",
             "$description": "Default badge background (neutral)",
             "$extensions": {
@@ -105,7 +153,8 @@
                 "subcategory": "variant",
                 "variant": "default",
                 "useCase": "Neutral status badges, generic labels",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -119,7 +168,8 @@
                 "subcategory": "variant",
                 "variant": "default",
                 "useCase": "Neutral status badges, generic labels",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -133,7 +183,8 @@
                 "subcategory": "variant",
                 "variant": "default",
                 "useCase": "Outlined default badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -149,7 +200,8 @@
                 "subcategory": "variant",
                 "variant": "success",
                 "useCase": "Success state badges, positive status indicators",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -163,7 +215,8 @@
                 "subcategory": "variant",
                 "variant": "success",
                 "useCase": "Success state badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -177,7 +230,8 @@
                 "subcategory": "variant",
                 "variant": "success",
                 "useCase": "Outlined success badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -193,7 +247,8 @@
                 "subcategory": "variant",
                 "variant": "error",
                 "useCase": "Error state badges, failure indicators",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -207,7 +262,8 @@
                 "subcategory": "variant",
                 "variant": "error",
                 "useCase": "Error state badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -221,7 +277,8 @@
                 "subcategory": "variant",
                 "variant": "error",
                 "useCase": "Outlined error badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -237,7 +294,8 @@
                 "subcategory": "variant",
                 "variant": "warning",
                 "useCase": "Warning state badges, caution indicators",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -251,7 +309,8 @@
                 "subcategory": "variant",
                 "variant": "warning",
                 "useCase": "Warning state badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -265,7 +324,8 @@
                 "subcategory": "variant",
                 "variant": "warning",
                 "useCase": "Outlined warning badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -281,7 +341,8 @@
                 "subcategory": "variant",
                 "variant": "info",
                 "useCase": "Informational badges, neutral highlights",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -295,7 +356,8 @@
                 "subcategory": "variant",
                 "variant": "info",
                 "useCase": "Informational badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -309,7 +371,8 @@
                 "subcategory": "variant",
                 "variant": "info",
                 "useCase": "Outlined info badges",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -325,6 +388,7 @@
               "category": "badge",
               "useCase": "Notification dots, status indicators",
               "themeable": true,
+              "themeLevel": "advanced",
               "note": "Fixed geometric value — dot size is a layout constant not driven by the spacing scale."
             }
           }
@@ -339,7 +403,8 @@
             "lufa": {
               "category": "badge",
               "useCase": "Badges with glow effects in themed designs",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -353,6 +418,7 @@
                 "category": "badge",
                 "useCase": "Animated status badges, notification indicators",
                 "themeable": true,
+                "themeLevel": "advanced",
                 "note": "Default is 'none'. Themes can override with keyframe animation name."
               }
             }

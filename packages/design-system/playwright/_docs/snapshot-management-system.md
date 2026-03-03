@@ -206,7 +206,7 @@ git pull
 | Script                             | Purpose                 | Speed               | Usage                                        |
 | ---------------------------------- | ----------------------- | ------------------- | -------------------------------------------- |
 | `compress-snapshots-precommit.sh`  | Pre-commit compression  | Level 3, ~1s/file   | Automatic via git hook                       |
-| `compress-snapshots-manual.sh`     | Manual bulk compression | Level 6, ~3-6s/file | `pnpm ds:test:compress-snapshots`            |
+| `compress-snapshots-manual.sh`     | Manual bulk compression | Level 6, ~3-6s/file | `pnpm ds:playwright:compress-snapshots`      |
 | `docker-update-snapshots-linux.sh` | Docker Linux snapshots  | ~4-6 min total      | `pnpm ds:test:docker:update-snapshots-linux` |
 
 ### Configuration Files
@@ -321,7 +321,7 @@ git pull
 
 ```bash
 # Run manual compression (level 6, thorough)
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 
 # Commit compressed snapshots
 git add packages/design-system/playwright/__snapshots__/**/*.png
@@ -723,7 +723,7 @@ Then decide:
 oxipng --version
 
 # Try manual compression
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 
 # If still fails, bypass hook temporarily
 git commit --no-verify -m "..."
@@ -762,7 +762,7 @@ pnpm ds:test:update-snapshots             # Update local snapshots
 pnpm ds:test:docker:update-snapshots-linux
 
 # Manual compression
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 
 # GitHub Actions
 gh pr edit --add-label snapshot-update

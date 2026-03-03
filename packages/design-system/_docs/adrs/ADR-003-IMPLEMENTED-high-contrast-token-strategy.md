@@ -104,12 +104,12 @@ We will **complete high-contrast token coverage using a hybrid approach**:
   "semantic": {
     "ui": {
       "background-page": {
-        "$value": "{core.neutral.background}"
-        // Inherits HC value from core.neutral.background
+        "$value": "{core.color.neutral.background}"
+        // Inherits HC value from core.color.neutral.background
       },
       "text-primary": {
-        "$value": "{core.neutral.text-primary}"
-        // Inherits HC value from core.neutral.text-primary
+        "$value": "{core.color.neutral.text-primary}"
+        // Inherits HC value from core.color.neutral.text-primary
       }
     }
   }
@@ -488,7 +488,7 @@ Add HC overrides for tokens that need special handling:
     },
     "interactive": {
       "focus-ring": {
-        "$value": "{core.brand.primary}",
+        "$value": "{core.color.brand.primary}",
         "$extensions": {
           "mode": {
             "high-contrast": "{primitive.color.hc.blue}"

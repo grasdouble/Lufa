@@ -4,6 +4,8 @@
  * Defines the structure of Lufa token metadata extensions.
  *
  * @see ADR-011: Token Architecture - Primitives as Immutable Constants
+ * @see ADR-013: Token Metadata Simplification
+ * @see ADR-014: Non-color primitive reference exception
  */
 
 /**
@@ -29,15 +31,19 @@ export type TokenCategory =
   | 'layout';
 
 /**
- * Mode definitions for accessibility contexts
+ * Mode definitions for accessibility contexts.
+ *
+ * **Light mode is intentionally absent** — it is always implicit and equals
+ * the token's top-level `$value`.  Declaring `modes.light` in a source token
+ * is a validation error (RULE 4 in token-consistency.js).
+ *
+ * @see token-consistency.js RULE 4
  */
 export interface TokenModes {
-  /** Light mode value */
-  light: string;
   /** Dark mode value */
   dark: string;
   /** High-contrast mode value */
-  'high-contrast': string;
+  'high-contrast'?: string;
 }
 
 /**
@@ -84,16 +90,17 @@ export interface ResponsiveConfig {
 }
 
 /**
- * Lufa-specific token metadata extensions
+ * Lufa-specific token metadata extensions — **source token file shape**.
+ *
+ * Use this interface when authoring token JSON files under `src/`.
+ *
+ * Fields that are **inferred at build time and therefore forbidden in sources**:
+ * - `level`  — inferred from the token's path segment (RULE 6)
+ * - `modeAware` — inferred from the presence of `modes` (RULE 7)
+ *
+ * @see token-consistency.js RULE 6, RULE 7
  */
-export interface LufaExtensions {
-  /**
-   * Token layer in the architecture
-   *
-   * @see ADR-011 for layer definitions
-   */
-  level: TokenLevel;
-
+export interface LufaExtensionsSource {
   /**
    * Token category for organization
    */
@@ -105,25 +112,19 @@ export interface LufaExtensions {
    * - `true`: Token can be overridden by different themes (e.g., brand colors)
    * - `false`: Token is a constant across all themes (e.g., primitives, layout)
    *
+   * Note: Primitives MUST NOT include this field (RULE 8).
+   *
    * @default false for primitives and layout, true for others
    */
-  themeable: boolean;
-
-  /**
-   * Can this token vary by mode (light/dark/high-contrast)?
-   *
-   * - `true`: Token has different values for different accessibility modes
-   * - `false`: Token value is the same across all modes
-   *
-   * @default false for primitives and layout, varies for others
-   */
-  modeAware: boolean;
+  themeable?: boolean;
 
   /**
    * Mode-specific token values
    *
-   * Only valid if `modeAware: true`
-   * Must define all three modes: light, dark, high-contrast
+   * Presence of this field implies `modeAware: true` — do **not** also set
+   * `modeAware` explicitly (forbidden by RULE 7).
+   *
+   * Must define at least `dark`. Light mode is implicit (= `$value`).
    */
   modes?: TokenModes;
 
@@ -142,22 +143,7 @@ export interface LufaExtensions {
    * - `true`: Token uses CSS clamp() (e.g., `clamp(2rem, 1.5rem + 2vw, 3rem)`)
    * - `false` or undefined: Token uses fixed values
    *
-   * **When to use:**
-   * - ✅ Typography tokens (headings 2xl and above)
-   * - ✅ Large-scale spacing that should scale smoothly
-   * - ❌ Layout spacing (use `responsive` instead)
-   * - ❌ Body text (use fixed values)
-   *
-   * **Mutually exclusive with `responsive`** - A token cannot be both fluid and responsive.
-   *
-   * **Examples:**
-   * - Fluid H1: `clamp(2rem, 1.5rem + 2vw, 3rem)` → 32px to 48px smoothly
-   * - Fixed body: `16px` → Same at all viewport sizes
-   *
-   * **Performance:**
-   * - File size impact: ~80 bytes per token (minimal)
-   * - Runtime: Single CSS calculation, no media queries
-   * - Browser support: 96.1% (Chrome 79+, Firefox 75+, Safari 13.1+)
+   * **Mutually exclusive with `responsive`** (RULE 9).
    *
    * @default false
    * @see ADR-008: Responsive Typography Strategy
@@ -169,25 +155,6 @@ export interface LufaExtensions {
   /**
    * Fluid scaling range configuration (only valid if `fluid: true`)
    *
-   * Documents the min/max values and viewport range for CSS clamp() tokens.
-   *
-   * **Example:**
-   * ```json
-   * {
-   *   "fluid": true,
-   *   "fluidRange": {
-   *     "min": "32px",
-   *     "max": "48px",
-   *     "viewport": { "min": "320px", "max": "1280px" }
-   *   }
-   * }
-   * ```
-   *
-   * **Generates CSS:**
-   * ```css
-   * clamp(2rem, 1.5rem + 2vw, 3rem)
-   * ```
-   *
    * @see fluid
    * @see docs/FLUID_VS_RESPONSIVE.md
    */
@@ -196,50 +163,7 @@ export interface LufaExtensions {
   /**
    * Does this token change at specific breakpoints using media queries?
    *
-   * **Responsive tokens have discrete values at specific viewport breakpoints.**
-   *
-   * - Defined: Token has variants for different breakpoints (e.g., base, md, lg)
-   * - Undefined: Token uses the same value at all viewport sizes
-   *
-   * **When to use:**
-   * - ✅ Layout spacing (page-padding, section-gap, container-gutter)
-   * - ✅ Structural tokens that define page layout
-   * - ✅ Tokens needing precise control at specific breakpoints
-   * - ❌ Typography (use `fluid` instead for better performance)
-   * - ❌ Component spacing (typically fixed)
-   *
-   * **Mutually exclusive with `fluid`** - A token cannot be both fluid and responsive.
-   *
-   * **Examples:**
-   * - Responsive page-padding:
-   *   - `base`: 16px (mobile, all viewports)
-   *   - `md`: 24px (tablet, 768px+)
-   *   - `lg`: 32px (desktop, 1024px+)
-   * - Fixed button padding: 12px 16px (same at all sizes)
-   *
-   * **Implementation:**
-   * Responsive tokens are implemented as separate token variants with suffixes:
-   * - `page-padding.base` → 16px
-   * - `page-padding.md` → 24px (applies at 768px+)
-   * - `page-padding.lg` → 32px (applies at 1024px+)
-   *
-   * **CSS Output:**
-   * ```css
-   * --token-base: 16px;
-   *
-   * @media (min-width: 768px) {
-   *   --token-md: 24px;
-   * }
-   *
-   * @media (min-width: 1024px) {
-   *   --token-lg: 32px;
-   * }
-   * ```
-   *
-   * **Performance:**
-   * - File size impact: ~150 bytes per token set (3 variants)
-   * - Runtime: Native media query handling (highly optimized)
-   * - Browser support: 99.9% (universal)
+   * **Mutually exclusive with `fluid`** (RULE 9).
    *
    * @see ADR-006: Responsive Spacing Architecture
    * @see docs/FLUID_VS_RESPONSIVE.md for complete guide
@@ -250,6 +174,37 @@ export interface LufaExtensions {
    * Additional notes or documentation
    */
   description?: string;
+}
+
+/**
+ * Lufa-specific token metadata extensions — **processed/output shape**.
+ *
+ * This interface describes the shape produced by Style Dictionary after
+ * build-time inference.  Use it when reading `dist/tokens-metadata.json`
+ * or the output of the SD preprocessors/transforms.
+ *
+ * `level` and `modeAware` are present here because they are *added* by
+ * the build pipeline (inferred from path / `modes` presence) and will
+ * appear in the final output even though they must not appear in sources.
+ */
+export interface LufaExtensions extends LufaExtensionsSource {
+  /**
+   * Token layer in the architecture — inferred from path at build time.
+   *
+   * **Do NOT set this field in source token files** (RULE 6 — validation error).
+   *
+   * @see token-consistency.js RULE 6
+   */
+  level?: TokenLevel;
+
+  /**
+   * Whether this token varies by mode — inferred from `modes` presence at build time.
+   *
+   * **Do NOT set this field in source token files** (RULE 7 — validation error).
+   *
+   * @see token-consistency.js RULE 7
+   */
+  modeAware?: boolean;
 }
 
 /**
@@ -306,16 +261,24 @@ export interface ValidationError {
 }
 
 /**
- * Validation rules
+ * All 13 validation rules enforced by token-consistency.js
+ *
+ * @see token-consistency.js for rule descriptions
  */
 export type ValidationRule =
-  | 'primitives-immutable'
-  | 'modes-require-modeAware'
-  | 'themes-require-themeable'
-  | 'layout-structural'
-  | 'modes-complete'
+  | 'primitives-no-modes'
+  | 'layout-no-modes'
+  | 'modes-require-dark'
+  | 'modes-no-light'
   | 'no-typo-themable'
-  | 'fluid-responsive-exclusive';
+  | 'no-explicit-level'
+  | 'no-explicit-modeAware'
+  | 'fluid-responsive-exclusive'
+  | 'primitives-no-themeable'
+  | 'no-primitive-self-references'
+  | 'hierarchy-chain-validation'
+  | 'no-raw-hex-colors-outside-primitives'
+  | 'z-index-must-reference-semantic';
 
 /**
  * Type guard: Check if object is a DesignToken
@@ -332,10 +295,14 @@ export function isPrimitiveToken(token: DesignToken): boolean {
 }
 
 /**
- * Type guard: Check if token is mode-aware
+ * Type guard: Check if token is mode-aware (has mode-specific values).
+ *
+ * A token is mode-aware when its `modes` object is present — the
+ * `modeAware` flag is inferred from this and should not be relied on
+ * in source files.
  */
 export function isModeAwareToken(token: DesignToken): boolean {
-  return token.$extensions?.lufa?.modeAware === true;
+  return token.$extensions?.lufa?.modes !== undefined;
 }
 
 /**

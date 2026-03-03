@@ -11,12 +11,13 @@
               "category": "interactive",
               "subcategory": "state",
               "useCase": "Selected list items, active menu items, selected tabs",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "text": {
-          "$value": "{core.brand.primary.default}",
+          "$value": "{core.color.brand.primary.default}",
           "$type": "color",
           "$description": "Text color for selected items",
           "$extensions": {
@@ -24,7 +25,8 @@
               "category": "interactive",
               "subcategory": "state",
               "useCase": "Text in selected list items, active navigation",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

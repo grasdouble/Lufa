@@ -7,17 +7,15 @@ pnpm install
 # Build the CLI
 pnpm build
 
-# Run in development mode (with TypeScript)
-pnpm dev path/to/theme.css
-
-# Print the template
-pnpm dev -- --template
-
-# Or run directly with tsx
-pnpm exec tsx src/cli.ts --template
+# Run in development mode (with TypeScript, no build needed)
+pnpm dev theme-validate path/to/theme.css
+pnpm dev theme-template --output-name my-theme
 
 # Run tests
 pnpm test
+
+# Run tests once (no watch)
+pnpm test:run
 
 # Run tests with coverage
 pnpm test:coverage

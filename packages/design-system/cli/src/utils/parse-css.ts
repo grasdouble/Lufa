@@ -107,10 +107,10 @@ export function extractCSSVarName(varReference: string): string | null {
  *
  * @example
  * // properties = {
- * //   '--lufa-core-brand-primary': 'var(--lufa-primitive-color-blue-600)',
+ * //   '--lufa-core-color-brand-primary': 'var(--lufa-primitive-color-blue-600)',
  * //   '--lufa-primitive-color-blue-600': '#2563eb'
  * // }
- * resolveCSSVarValue('var(--lufa-core-brand-primary)', properties)
+ * resolveCSSVarValue('var(--lufa-core-color-brand-primary)', properties)
  * // Returns: '#2563eb'
  */
 export function resolveCSSVarValue(
@@ -156,9 +156,10 @@ export function isValidHexColor(value: string): boolean {
 
 /**
  * Check if a value is a valid dimension (px, rem, em, etc.)
+ * Also accepts `0` without a unit (valid CSS for zero-length values)
  */
 export function isValidDimension(value: string): boolean {
-  return /^-?\d+(\.\d+)?(px|rem|em|%|vh|vw|vmin|vmax)$/.test(value.trim());
+  return /^-?\d+(\.\d+)?(px|rem|em|%|vh|vw|vmin|vmax)$/.test(value.trim()) || value.trim() === '0';
 }
 
 /**

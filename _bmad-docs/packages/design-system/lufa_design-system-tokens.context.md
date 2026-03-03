@@ -78,7 +78,7 @@ src/
 │   ├── ui/
 │   │   ├── context.json       # background/overlay/text/border context tokens
 │   │   ├── spacing.json       # tight/compact/default/comfortable/spacious
-│   │   ├── shadow.json        # small/medium/large/extra.large
+│   │   ├── shadow.json        # small/medium/large/extra-large
 │   │   ├── animations.json    # pulse/shimmer/slide-in
 │   │   ├── backdrop.json
 │   │   ├── border-radius.json
@@ -86,7 +86,7 @@ src/
 │   │   ├── height.json
 │   │   └── transition.json
 │   ├── interactive/
-│   │   ├── focus.json         # ring + ring.offset + background
+│   │   ├── focus.json         # ring + ring-offset + background
 │   │   ├── background.json    # hover/pressed/selected overlays
 │   │   ├── border.json
 │   │   ├── cursor.json        # default/disabled/loading

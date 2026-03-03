@@ -1,61 +1,46 @@
 # Validation Checks
 
-The CLI performs three validation checks.
+Running `lufa-ds-cli theme-validate <theme-file>` performs three checks. Each can also
+be run in isolation with `--format`, or `--a11y`.
 
-## 1. Completeness Check
+## Format
 
-Ensures all required tokens are defined. The Lufa Design System has **31 theme-aware tokens** that must be defined for each theme mode (light, dark, high-contrast).
+Validates that every token value uses an accepted CSS format.
 
-**Checks:**
+**Accepted formats:**
 
-- All 184+ primitive tokens are defined
-- All 31 core theme-aware tokens have values for light, dark, and high-contrast modes
-- All semantic and component tokens are present
-
-**Example Output:**
+- Colors: `#RGB`, `#RRGGBB`, `#RRGGBBAA`, `rgb()`, `rgba()`, `hsl()`, `hsla()`
+- Dimensions: `px`, `rem`, `em`, `%`, `vh`, `vw`
+- Durations: `ms`, `s`
+- References: `var(--lufa-*)`
 
 ```
-✓ All 453 required tokens are defined
+✓ Format — all token values are valid
+✗ --lufa-core-color-brand-primary-default (line 12): Invalid format — expected hex or var()
 ```
 
-## 2. Contrast Check (WCAG AA)
+## A11y (WCAG AA)
 
-Validates color contrast ratios to ensure accessibility compliance.
+Validates color contrast ratios across every mode defined in the theme
+(`light`, `dark`, `high-contrast`). Color pairs are derived entirely from
+token metadata — no hardcoded lists.
 
 **Standards:**
 
-- **Normal text** (< 18px): Minimum 4.5:1 contrast ratio
-- **Large text** (≥ 18px or bold ≥ 14px): Minimum 3:1 contrast ratio
-- **UI components**: Minimum 3:1 contrast ratio
+- Normal text: minimum **4.5:1**
+- UI components and borders: minimum **3:1**
 
-**Checks:**
-
-- Text colors against background colors
-- Interactive element colors (buttons, links)
-- Border colors against adjacent surfaces
-- High-contrast mode has AAA compliance (7:1+)
-
-**Example Output:**
+Resolution follows the browser cascade: the DS base tokens (`tokens.css`) are
+loaded first, then the theme overrides are merged on top per mode, and all
+`var()` chains are resolved before the contrast ratio is calculated.
 
 ```
-✓ All 47 color pairs meet WCAG AA standards
+  A11y (WCAG AA):
+  ✓ [light] 102 checks passed (3 skipped)
+  ✗ [dark] 1 violation(s) (102 checks, 0 skipped)
+      --lufa-semantic-ui-text-primary on --lufa-semantic-ui-background-page — 3.1:1 (needs 4.5:1 WCAG AA Text)
+  ✓ [high-contrast] 102 checks passed
 ```
 
-## 3. Format Check
-
-Validates CSS syntax and value formats.
-
-**Checks:**
-
-- Valid CSS custom property names (`--lufa-*`)
-- Color values: hex (#RGB, #RRGGBB), rgb(), rgba(), hsl(), hsla()
-- Dimensions: px, rem, em, %, vh, vw
-- Durations: ms, s
-- Numbers: unitless values where appropriate
-- References: valid var() syntax
-
-**Example Output:**
-
-```
-✓ All 453 token values have valid formats
-```
+Skipped pairs are those where one of the two tokens is not defined in the theme
+(the check cannot be performed without both values).

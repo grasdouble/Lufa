@@ -3,35 +3,35 @@
 .buttonGroup {
   display: inline-flex;
   align-items: center;
-  gap: var(--lufa-spacing-sm);
+  gap: var(--lufa-semantic-ui-spacing-compact);
 }
 
 /* Select variant - native select styled to match design system */
 .select {
-  padding: var(--lufa-spacing-sm) var(--lufa-spacing-base);
-  border: 1px solid var(--lufa-color-border-default);
-  background-color: var(--lufa-color-background-primary);
-  color: var(--lufa-color-text-primary);
-  border-radius: var(--lufa-radius-md);
+  padding: var(--lufa-semantic-ui-spacing-compact) var(--lufa-semantic-ui-spacing-default);
+  border: 1px solid var(--lufa-semantic-ui-border-default);
+  background-color: var(--lufa-semantic-ui-background-surface-default);
+  color: var(--lufa-semantic-ui-text-primary);
+  border-radius: var(--lufa-semantic-ui-border-radius-medium);
   cursor: pointer;
   transition: all 200ms;
 }
 
 .select:hover {
-  border-color: var(--lufa-color-border-medium);
+  border-color: var(--lufa-semantic-ui-border-strong);
 }
 
-.select:focus {
-  outline: 2px solid var(--lufa-color-interactive-focus);
-  outline-offset: 2px;
+.select:focus-visible {
+  outline: var(--lufa-component-shared-focus-outline-width) solid var(--lufa-component-shared-focus-outline-color);
+  outline-offset: var(--lufa-component-shared-focus-outline-offset);
 }
 
 /* Tabs variant - container for tab buttons */
 .tabs {
   display: inline-flex;
-  gap: var(--lufa-spacing-xs);
-  background-color: var(--lufa-color-background-secondary);
-  border: 1px solid var(--lufa-color-border-default);
-  border-radius: var(--lufa-radius-lg);
-  padding: var(--lufa-spacing-xs);
+  gap: var(--lufa-semantic-ui-spacing-tight);
+  background-color: var(--lufa-semantic-ui-background-surface-default);
+  border: 1px solid var(--lufa-semantic-ui-border-default);
+  border-radius: var(--lufa-semantic-ui-border-radius-large);
+  padding: var(--lufa-semantic-ui-spacing-tight);
 }

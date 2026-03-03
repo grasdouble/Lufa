@@ -163,17 +163,17 @@ const { theme, setTheme } = useTheme();
 ```css
 /* Tokens define mode overrides */
 [data-mode='dark'] {
-  --lufa-core-brand-primary: #60a5fa;
+  --lufa-core-color-brand-primary: #60a5fa;
 }
 
 /* Themes override brand tokens (Phase 6) */
 [data-theme='ocean'] {
-  --lufa-core-brand-primary: #0ea5e9; /* Ocean blue */
+  --lufa-core-color-brand-primary: #0ea5e9; /* Ocean blue */
 }
 
 /* Both can apply - theme overrides win */
 [data-theme='ocean'][data-mode='dark'] {
-  --lufa-core-brand-primary: #38bdf8; /* Lighter ocean blue for dark */
+  --lufa-core-color-brand-primary: #38bdf8; /* Lighter ocean blue for dark */
 }
 ```
 

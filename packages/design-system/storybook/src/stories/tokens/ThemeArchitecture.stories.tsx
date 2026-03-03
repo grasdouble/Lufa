@@ -25,9 +25,9 @@ import { StoryContainer, TokenCard, TokenComparison, TokenMatrix, TokenReference
  *    - Example: `--lufa-semantic-ui-background-page`
  *
  * 3. **Component Tokens** (Component Layer)
- *    - Component-specific: button-primary-background, card-border
+ *    - Component-specific: button-type-solid-variant-primary-background-default, card-border
  *    - Themeable and contextual
- *    - Example: `--lufa-component-button-primary-background`
+ *    - Example: `--lufa-component-button-type-solid-variant-primary-background-default`
  *
  * ## Testing Instructions
  *
@@ -73,7 +73,7 @@ export const Overview: Story = {
           marginBottom: '48px',
           padding: '32px',
           borderRadius: '12px',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
           border: '2px solid var(--lufa-semantic-ui-border-default)',
         }}
       >
@@ -119,7 +119,8 @@ export const Overview: Story = {
                   lineHeight: '1.5',
                 }}
               >
-                Component-specific tokens. Example: <code>--lufa-component-button-primary-background</code>
+                Component-specific tokens. Example:{' '}
+                <code>--lufa-component-button-type-solid-variant-primary-background-default</code>
                 <br />
                 <strong>Themeable:</strong> ✅ Yes | <strong>Mode-Aware:</strong> ✅ Yes
               </div>
@@ -382,7 +383,7 @@ export const ThemeableVsNonThemeable: Story = {
         description="Brand primary color: themeable semantic vs immutable primitive"
         themeableToken={{
           name: 'Brand Primary',
-          cssVariable: '--lufa-core-brand-primary',
+          cssVariable: '--lufa-core-color-brand-primary-default',
           description: 'Themeable brand color that changes with theme',
         }}
         nonThemeableToken={{
@@ -453,7 +454,7 @@ export const ModeAwareTokens: Story = {
           },
           {
             name: 'Surface Background',
-            cssVariable: '--lufa-semantic-ui-background-surface',
+            cssVariable: '--lufa-semantic-ui-background-surface-default',
             level: 'semantic',
             themeable: true,
             modeAware: true,
@@ -727,13 +728,13 @@ export const TokenReferenceChains: Story = {
         chain={[
           {
             name: 'Button Primary BG',
-            cssVariable: '--lufa-component-button-primary-background',
+            cssVariable: '--lufa-component-button-type-solid-variant-primary-background-default',
             level: 'component',
             description: 'Component token for button',
           },
           {
             name: 'Brand Primary',
-            cssVariable: '--lufa-core-brand-primary',
+            cssVariable: '--lufa-core-color-brand-primary-default',
             level: 'semantic',
             description: 'Semantic brand color',
           },
@@ -752,7 +753,7 @@ export const TokenReferenceChains: Story = {
         chain={[
           {
             name: 'Badge Success BG',
-            cssVariable: '--lufa-component-badge-success-background',
+            cssVariable: '--lufa-component-badge-variant-success-background',
             level: 'component',
             description: 'Badge component token',
           },
@@ -878,7 +879,7 @@ export const ComponentExamples: Story = {
             gap: '12px',
             padding: '24px',
             borderRadius: '8px',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
           }}
         >
@@ -932,7 +933,7 @@ export const ComponentExamples: Story = {
             gap: '12px',
             padding: '24px',
             borderRadius: '8px',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             alignItems: 'center',
           }}
@@ -943,8 +944,8 @@ export const ComponentExamples: Story = {
               borderRadius: '12px',
               fontSize: '13px',
               fontWeight: 600,
-              backgroundColor: 'var(--lufa-component-badge-default-background)',
-              color: 'var(--lufa-component-badge-default-text)',
+              backgroundColor: 'var(--lufa-component-badge-variant-default-background)',
+              color: 'var(--lufa-component-badge-variant-default-text)',
             }}
           >
             Default
@@ -955,8 +956,8 @@ export const ComponentExamples: Story = {
               borderRadius: '12px',
               fontSize: '13px',
               fontWeight: 600,
-              backgroundColor: 'var(--lufa-component-badge-success-background)',
-              color: 'var(--lufa-component-badge-success-text)',
+              backgroundColor: 'var(--lufa-component-badge-variant-success-background)',
+              color: 'var(--lufa-component-badge-variant-success-text)',
             }}
           >
             Success
@@ -967,8 +968,8 @@ export const ComponentExamples: Story = {
               borderRadius: '12px',
               fontSize: '13px',
               fontWeight: 600,
-              backgroundColor: 'var(--lufa-component-badge-error-background)',
-              color: 'var(--lufa-component-badge-error-text)',
+              backgroundColor: 'var(--lufa-component-badge-variant-error-background)',
+              color: 'var(--lufa-component-badge-variant-error-text)',
             }}
           >
             Error
@@ -979,8 +980,8 @@ export const ComponentExamples: Story = {
               borderRadius: '12px',
               fontSize: '13px',
               fontWeight: 600,
-              backgroundColor: 'var(--lufa-component-badge-warning-background)',
-              color: 'var(--lufa-component-badge-warning-text)',
+              backgroundColor: 'var(--lufa-component-badge-variant-warning-background)',
+              color: 'var(--lufa-component-badge-variant-warning-text)',
             }}
           >
             Warning
@@ -991,8 +992,8 @@ export const ComponentExamples: Story = {
               borderRadius: '12px',
               fontSize: '13px',
               fontWeight: 600,
-              backgroundColor: 'var(--lufa-component-badge-info-background)',
-              color: 'var(--lufa-component-badge-info-text)',
+              backgroundColor: 'var(--lufa-component-badge-variant-info-background)',
+              color: 'var(--lufa-component-badge-variant-info-text)',
             }}
           >
             Info

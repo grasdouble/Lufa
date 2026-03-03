@@ -48,7 +48,7 @@ export function AllVariants() {
             padding: 'var(--lufa-semantic-ui-spacing-compact)',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
           }}
         >
           <Badge variant={value}>{label}</Badge>
@@ -108,7 +108,7 @@ export function AllSizes() {
             padding: 'var(--lufa-semantic-ui-spacing-compact)',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
           }}
         >
           <Badge size={value} variant="success">
@@ -163,7 +163,7 @@ export function WithDotIndicator() {
           padding: 'var(--lufa-semantic-ui-spacing-compact)',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
           borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
         }}
       >
         <Badge variant="error">5 alerts</Badge>
@@ -197,7 +197,7 @@ export function WithDotIndicator() {
           padding: 'var(--lufa-semantic-ui-spacing-compact)',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
           borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
         }}
       >
         <Badge dot variant="error">
@@ -233,7 +233,7 @@ export function WithDotIndicator() {
           padding: 'var(--lufa-semantic-ui-spacing-compact)',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
           borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
         }}
       >
         <div style={{ display: 'flex', gap: 'var(--lufa-semantic-ui-spacing-compact)', flexWrap: 'wrap' }}>

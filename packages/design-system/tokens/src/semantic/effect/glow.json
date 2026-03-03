@@ -11,7 +11,8 @@
               "lufa": {
                 "category": "effect",
                 "useCase": "Components without glow effects, light themes",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -24,7 +25,8 @@
                 "lufa": {
                   "category": "effect",
                   "useCase": "Cards, buttons in dark mode or themed experiences",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "extended"
                 }
               }
             },
@@ -36,21 +38,29 @@
                 "lufa": {
                   "category": "effect",
                   "useCase": "Hover state for cards and buttons",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "extended"
                 }
               }
             }
           },
           "focus": {
-            "$value": "0 0 0 3px rgba(59, 130, 246, 0.25)",
+            "$value": {
+              "offsetX": "0",
+              "offsetY": "0",
+              "blur": "0",
+              "spread": "3px",
+              "color": "{core.color.alpha.black.16}"
+            },
             "$type": "shadow",
-            "$description": "Focus ring glow for accessibility - themeable (default: blue-500 with 25% opacity)",
+            "$description": "Focus ring glow for accessibility - neutral alpha token, themeable via theme overrides",
             "$extensions": {
               "lufa": {
                 "category": "effect",
                 "useCase": "Focus states for interactive elements like cards",
                 "themeable": true,
-                "note": "Default fallback for accessibility. Themes can override with brand colors."
+                "themeLevel": "extended",
+                "note": "Uses neutral alpha token instead of hardcoded brand color. Themes can override via their own token values."
               }
             }
           }
@@ -64,7 +74,8 @@
               "lufa": {
                 "category": "effect",
                 "useCase": "Default text rendering",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
@@ -77,7 +88,8 @@
                 "lufa": {
                   "category": "effect",
                   "useCase": "Text glow effects in themed buttons",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "extended"
                 }
               }
             },
@@ -89,7 +101,8 @@
                 "lufa": {
                   "category": "effect",
                   "useCase": "Hover state for text with glow effects",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "extended"
                 }
               }
             }
@@ -104,20 +117,28 @@
               "lufa": {
                 "category": "effect",
                 "useCase": "Default border rendering",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
           "focus": {
-            "$value": "0 0 0 2px rgba(59, 130, 246, 0.2)",
+            "$value": {
+              "offsetX": "0",
+              "offsetY": "0",
+              "blur": "0",
+              "spread": "2px",
+              "color": "{core.color.alpha.black.8}"
+            },
             "$type": "shadow",
-            "$description": "Border glow for focused inputs - themeable (default: blue-500 with 20% opacity)",
+            "$description": "Border glow for focused inputs - neutral alpha token, themeable via theme overrides",
             "$extensions": {
               "lufa": {
                 "category": "effect",
                 "useCase": "Focus state for input fields",
                 "themeable": true,
-                "note": "Default fallback for accessibility. Themes can override with brand colors."
+                "themeLevel": "extended",
+                "note": "Uses neutral alpha token instead of hardcoded brand color. Themes can override via their own token values."
               }
             }
           }

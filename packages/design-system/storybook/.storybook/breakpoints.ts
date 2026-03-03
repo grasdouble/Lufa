@@ -2,7 +2,7 @@
  * Breakpoints for Storybook viewport configuration
  *
  * Based on Lufa Design System breakpoint tokens (Sprint 1 - Phase 2.2)
- * @see packages/design-system/tokens/src/primitives/breakpoint/scale.json
+ * @see packages/design-system/tokens/src/primitives/breakpoint.json
  *
  * These values match the primitive breakpoint tokens:
  * - breakpoint-xs: 320px (mobile portrait)

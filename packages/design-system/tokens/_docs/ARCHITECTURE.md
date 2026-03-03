@@ -160,7 +160,7 @@ START: I need a new token
 | Level     | Example                                      |
 | --------- | -------------------------------------------- |
 | Primitive | `--lufa-primitive-color-blue-600`            |
-| Core      | `--lufa-core-brand-primary`                  |
+| Core      | `--lufa-core-color-brand-primary`            |
 | Semantic  | `--lufa-semantic-ui-text-primary`            |
 | Component | `--lufa-component-button-primary-background` |
 

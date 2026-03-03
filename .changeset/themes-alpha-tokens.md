@@ -7,15 +7,15 @@ Add alpha (transparency) tokens and accessibility validation to all themes
 **New Features:**
 
 - **Alpha tokens (54 new tokens per theme)** - Added 9 levels of transparency (3%, 5%, 8%, 10%, 15%, 20%, 30%, 40%, 50%) for each semantic color:
-  - `--lufa-alpha-primary-{3,5,8,10,15,20,30,40,50}`
-  - `--lufa-alpha-secondary-{3,5,8,10,15,20,30,40,50}`
-  - `--lufa-alpha-success-{3,5,8,10,15,20,30,40,50}`
-  - `--lufa-alpha-error-{3,5,8,10,15,20,30,40,50}`
-  - `--lufa-alpha-warning-{3,5,8,10,15,20,30,40,50}`
-  - `--lufa-alpha-info-{3,5,8,10,15,20,30,40,50}`
+  - `--lufa-color-alpha-primary-{3,5,8,10,15,20,30,40,50}`
+  - `--lufa-color-alpha-secondary-{3,5,8,10,15,20,30,40,50}`
+  - `--lufa-color-alpha-success-{3,5,8,10,15,20,30,40,50}`
+  - `--lufa-color-alpha-error-{3,5,8,10,15,20,30,40,50}`
+  - `--lufa-color-alpha-warning-{3,5,8,10,15,20,30,40,50}`
+  - `--lufa-color-alpha-info-{3,5,8,10,15,20,30,40,50}`
 - **RGB variables** - Added base RGB values for alpha token computation:
   - `--lufa-primary-rgb`, `--lufa-secondary-rgb`, `--lufa-success-rgb`, `--lufa-error-rgb`, `--lufa-warning-rgb`, `--lufa-info-rgb`
-- **Visited link token** - Added `--lufa-core-brand-accent-visited` for better link state management
+- **Visited link token** - Added `--lufa-core-color-brand-accent-visited` for better link state management
 
 **Improvements:**
 

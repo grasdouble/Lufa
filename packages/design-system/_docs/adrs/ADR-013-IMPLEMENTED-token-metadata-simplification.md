@@ -136,7 +136,7 @@ No need for explicit `level` property.
 
 ```json
 // Path: primitive.color.blue.600 → level = "primitive"
-// Path: core.brand.primary → level = "core"
+// Path: core.color.brand.primary → level = "core"
 // Path: semantic.button.background → level = "semantic"
 ```
 
@@ -440,9 +440,9 @@ const FLUID_VIEWPORT_RANGE = {
     "button": {
       "primary": {
         "background": {
-          "$value": "{core.brand.primary}",
+          "$value": "{core.color.brand.primary}",
           "$type": "color"
-          // Inherits modes from core.brand.primary automatically
+          // Inherits modes from core.color.brand.primary automatically
         }
       }
     }
@@ -463,8 +463,8 @@ const FLUID_VIEWPORT_RANGE = {
           "$extensions": {
             "lufa": {
               "modes": {
-                "dark": "{core.neutral.surface.subtle}",
-                "high-contrast": "{core.neutral.border.strong}"
+                "dark": "{core.color.neutral.surface.subtle}",
+                "high-contrast": "{core.color.neutral.border.strong}"
               }
             }
           }
@@ -655,7 +655,7 @@ npm run test             # Ensure no regressions
     "button": {
       "primary": {
         "background": {
-          "$value": "{core.brand.primary}",
+          "$value": "{core.color.brand.primary}",
           "$type": "color",
           "$extensions": {
             "lufa": {
@@ -680,7 +680,7 @@ npm run test             # Ensure no regressions
     "button": {
       "primary": {
         "background": {
-          "$value": "{core.brand.primary}",
+          "$value": "{core.color.brand.primary}",
           "$type": "color",
           "$extensions": {
             "lufa": {
@@ -696,7 +696,7 @@ npm run test             # Ensure no regressions
 
 **Benefits:**
 
-- Automatically inherits modes from `core.brand.primary` via CSS variable reference
+- Automatically inherits modes from `core.color.brand.primary` via CSS variable reference
 - No conflicting `modeAware: false` flag
 - Cleaner, more maintainable
 

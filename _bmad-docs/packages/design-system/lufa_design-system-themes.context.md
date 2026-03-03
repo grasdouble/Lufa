@@ -87,7 +87,7 @@ Every theme file contains these sections:
   --lufa-error-rgb, --lufa-warning-rgb, --lufa-info-rgb
 
   /* Alpha tokens: 6 colors × 9 opacity levels = 54 tokens */
-  --lufa-alpha-{primary|secondary|success|error|warning|info}-{3|5|8|10|15|20|30|40|50}
+  --lufa-color-alpha-{primary|secondary|success|error|warning|info}-{3|5|8|10|15|20|30|40|50}
 
   /* Shadow tokens: color variable + 5 size tokens */
   --lufa-shadow-color

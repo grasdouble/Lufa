@@ -2,14 +2,15 @@
   "component": {
     "popover": {
       "background": {
-        "$value": "{semantic.ui.background.surface}",
+        "$value": "{semantic.ui.background.surface.default}",
         "$type": "color",
         "$description": "Popover background color",
         "$extensions": {
           "lufa": {
             "category": "popover",
             "useCase": "Popover content background",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
@@ -21,7 +22,8 @@
           "lufa": {
             "category": "popover",
             "useCase": "Popover content text",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
@@ -33,7 +35,8 @@
           "lufa": {
             "category": "popover",
             "useCase": "Popover body padding",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
@@ -45,7 +48,8 @@
           "lufa": {
             "category": "popover",
             "useCase": "Popover outline border",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
@@ -57,7 +61,8 @@
           "lufa": {
             "category": "popover",
             "useCase": "Popover corners",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
@@ -69,19 +74,21 @@
           "lufa": {
             "category": "popover",
             "useCase": "Popover elevation above content",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
       "max-width": {
         "$value": "400px",
         "$type": "dimension",
-        "$description": "Popover maximum width",
+        "$description": "Popover maximum width — intentionally raw (400px). Component-specific layout constraint not represented in the semantic spacing or container scale.",
         "$extensions": {
           "lufa": {
             "category": "popover",
             "useCase": "Popover width constraint",
             "themeable": true,
+            "themeLevel": "advanced",
             "note": "Layout constant — popover max-width is not covered by semantic container tokens."
           }
         }
@@ -90,12 +97,13 @@
         "width": {
           "$value": "12px",
           "$type": "dimension",
-          "$description": "Popover arrow width (base of triangle)",
+          "$description": "Popover arrow width (base of triangle) — intentionally raw (12px). Geometric constant for CSS border-based arrow; not part of the spacing scale.",
           "$extensions": {
             "lufa": {
               "category": "popover",
               "useCase": "Popover arrow pointing to target",
               "themeable": true,
+              "themeLevel": "advanced",
               "note": "Geometric triangle constant — CSS border-based arrow sizing requires explicit pixel values."
             }
           }
@@ -103,12 +111,13 @@
         "height": {
           "$value": "6px",
           "$type": "dimension",
-          "$description": "Popover arrow height (triangle height)",
+          "$description": "Popover arrow height (triangle height) — intentionally raw (6px). Geometric constant for CSS border-based arrow; not part of the spacing scale.",
           "$extensions": {
             "lufa": {
               "category": "popover",
               "useCase": "Popover arrow projection",
               "themeable": true,
+              "themeLevel": "advanced",
               "note": "Geometric triangle constant — CSS border-based arrow sizing requires explicit pixel values."
             }
           }
@@ -122,20 +131,20 @@
           "lufa": {
             "category": "popover",
             "useCase": "Spacing between popover and trigger",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
       "z-index": {
-        "$value": "9999",
+        "$value": "{semantic.z-index.popover}",
         "$type": "number",
-        "$description": "Popover z-index (high to appear above most content)",
+        "$description": "Popover z-index — references semantic popover layer",
         "$extensions": {
           "lufa": {
             "category": "popover",
             "useCase": "Popover layer stacking",
-            "themeable": true,
-            "note": "High z-index constant — must appear above all application layers including modals (1000+)."
+            "themeable": false
           }
         }
       }

@@ -30,9 +30,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Thresholds (in KB)
-const MAX_SIZE_KB = 150; // Hard limit - build fails (updated from 80 KB)
-const WARNING_SIZE_KB = 120; // Warning - notification only (updated from 70 KB)
-const BASELINE_SIZE_KB = 78; // Current size after refactoring (was 61 KB in v0.8.0)
+const MAX_SIZE_KB = 150; // Hard limit - build fails
+const WARNING_SIZE_KB = 120; // Warning - notification only
+const BASELINE_SIZE_KB = 78; // Current size after refactoring
 
 // File to check
 const cssPath = path.join(__dirname, '../dist/tokens.css');

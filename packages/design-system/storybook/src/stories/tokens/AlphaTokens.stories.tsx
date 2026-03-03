@@ -47,7 +47,7 @@ const OverlayTile = ({ token, label }: { token: string; label: string }) => (
         position: 'relative',
         borderRadius: '10px',
         border: '1px solid var(--lufa-semantic-ui-border-default)',
-        background: 'var(--lufa-semantic-ui-background-surface)',
+        background: 'var(--lufa-semantic-ui-background-surface-default)',
         overflow: 'hidden',
         height: '120px',
       }}
@@ -57,7 +57,7 @@ const OverlayTile = ({ token, label }: { token: string; label: string }) => (
           position: 'absolute',
           inset: 0,
           background:
-            'linear-gradient(135deg, var(--lufa-semantic-ui-background-surface) 0%, var(--lufa-semantic-ui-background-page) 100%)',
+            'linear-gradient(135deg, var(--lufa-semantic-ui-background-surface-default) 0%, var(--lufa-semantic-ui-background-page) 100%)',
         }}
       />
       <div style={{ position: 'absolute', inset: 0, background: `var(${token})` }} />
@@ -82,7 +82,7 @@ export const Overview: Story = {
               key={`black-${value}`}
               token={`--lufa-primitive-color-alpha-black-${value}`}
               label={`black.${value}`}
-              base="var(--lufa-semantic-ui-background-surface)"
+              base="var(--lufa-semantic-ui-background-surface-default)"
             />
           ))}
         </div>
@@ -98,7 +98,7 @@ export const Overview: Story = {
               key={`white-${value}`}
               token={`--lufa-primitive-color-alpha-white-${value}`}
               label={`white.${value}`}
-              base="var(--lufa-semantic-ui-background-inverse)"
+              base="var(--lufa-semantic-ui-background-page)"
             />
           ))}
         </div>
@@ -113,7 +113,7 @@ export const Overview: Story = {
           <OverlayTile token="--lufa-semantic-ui-overlay-hover" label="overlay-hover" />
           <OverlayTile token="--lufa-semantic-ui-overlay-pressed" label="overlay-pressed" />
           <OverlayTile token="--lufa-semantic-ui-overlay-selected" label="overlay-selected" />
-          <OverlayTile token="--lufa-semantic-ui-scrim" label="scrim" />
+          <OverlayTile token="--lufa-semantic-ui-overlay-scrim" label="scrim" />
         </div>
       </section>
 
@@ -126,7 +126,7 @@ export const Overview: Story = {
             padding: '16px',
             borderRadius: '10px',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
-            background: 'var(--lufa-semantic-ui-background-surface)',
+            background: 'var(--lufa-semantic-ui-background-surface-default)',
           }}
         >
           <div
@@ -143,9 +143,9 @@ export const Overview: Story = {
               display: 'inline-block',
               padding: '8px 12px',
               borderRadius: '6px',
-              background: 'var(--lufa-semantic-ui-background-surface)',
+              background: 'var(--lufa-semantic-ui-background-surface-default)',
               border: '1px solid var(--lufa-semantic-ui-border-default)',
-              opacity: 'var(--lufa-semantic-interactive-disabled-opacity)',
+              opacity: 'var(--lufa-semantic-interactive-opacity-disabled)',
             }}
           >
             Disabled example

@@ -62,6 +62,8 @@ const COMPONENT_CONFIGS = {
 
   // Interaction components
   Button: path.join(INTERACTION_DIR, 'Button/button.utilities.config.cjs'),
+  Input: path.join(INTERACTION_DIR, 'Input/input.utilities.config.cjs'),
+  Label: path.join(INTERACTION_DIR, 'Label/label.utilities.config.cjs'),
 };
 
 // ==========================================
@@ -77,7 +79,8 @@ const COMPONENT_CONFIGS = {
  * @returns {string} CSS class string
  */
 function generateCSSClass(utilityName, valueName, property, cssValue) {
-  const className = `.${utilityName}-${valueName}`;
+  // Boolean utilities: if valueName is 'true', emit `.utilityName` (no suffix)
+  const className = valueName === 'true' ? `.${utilityName}` : `.${utilityName}-${valueName}`;
   const properties = Array.isArray(property) ? property : [property];
 
   // Handle values based on type:

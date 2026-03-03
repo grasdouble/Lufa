@@ -33,17 +33,17 @@ Alpha overlays: `--lufa-primitive-color-alpha-black-{8|12|20}` / `white-{8|12|20
 
 ### Core Colors — Brand & Semantic (32 tokens)
 
-| Token                          | Light        | Dark         | Use Case                      |
-| ------------------------------ | ------------ | ------------ | ----------------------------- |
-| `core.brand.primary`           | `blue-600`   | `blue-500`   | Primary buttons, links, focus |
-| `core.brand.primary-hover`     | `blue-700`   | `blue-400`   | Primary hover                 |
-| `core.brand.secondary`         | `purple-500` | `purple-400` | Secondary buttons, badges     |
-| `core.semantic.success`        | `green-500`  | `green-400`  | Success text, icons           |
-| `core.semantic.success-subtle` | `green-100`  | `green-900`  | Success alert backgrounds     |
-| `core.semantic.error`          | `red-600`    | `red-400`    | Error text, validation        |
-| `core.semantic.error-subtle`   | `red-100`    | `red-900`    | Error alert backgrounds       |
-| `core.semantic.warning`        | `yellow-500` | `yellow-400` | Warning text                  |
-| `core.semantic.info`           | `blue-500`   | `blue-400`   | Info text, help icons         |
+| Token                            | Light        | Dark         | Use Case                      |
+| -------------------------------- | ------------ | ------------ | ----------------------------- |
+| `core.color.brand.primary`       | `blue-600`   | `blue-500`   | Primary buttons, links, focus |
+| `core.color.brand.primary-hover` | `blue-700`   | `blue-400`   | Primary hover                 |
+| `core.color.brand.secondary`     | `purple-500` | `purple-400` | Secondary buttons, badges     |
+| `core.semantic.success`          | `green-500`  | `green-400`  | Success text, icons           |
+| `core.semantic.success-subtle`   | `green-100`  | `green-900`  | Success alert backgrounds     |
+| `core.semantic.error`            | `red-600`    | `red-400`    | Error text, validation        |
+| `core.semantic.error-subtle`     | `red-100`    | `red-900`    | Error alert backgrounds       |
+| `core.semantic.warning`          | `yellow-500` | `yellow-400` | Warning text                  |
+| `core.semantic.info`             | `blue-500`   | `blue-400`   | Info text, help icons         |
 
 #### Mode switching
 
@@ -51,13 +51,13 @@ Colors adapt automatically via CSS data attributes:
 
 ```css
 :root {
-  --lufa-core-brand-primary: #2563eb;
+  --lufa-core-color-brand-primary: #2563eb;
 }
 [data-theme='dark'] {
-  --lufa-core-brand-primary: #3b82f6;
+  --lufa-core-color-brand-primary: #3b82f6;
 }
 [data-theme='high-contrast'] {
-  --lufa-core-brand-primary: #0000ff;
+  --lufa-core-color-brand-primary: #0000ff;
 }
 ```
 
@@ -90,7 +90,7 @@ color: var(--lufa-semantic-ui-text-on-primary);
 ```
 Need a color?
 ├─ Raw palette value?             → primitive.color.{palette}.{shade}
-├─ Brand (primary/secondary)?     → core.brand.{name}
+├─ Brand (primary/secondary)?     → core.color.brand.{name}
 ├─ State (success/error/…)?       → core.semantic.{state}
 ├─ General UI (text/bg/border)?   → semantic.ui.{context}.{role}
 └─ Component-specific?            → component.{name}.{…}
@@ -101,17 +101,17 @@ Need a color?
 ```css
 /* Status alert */
 .alert-success {
-  background: var(--lufa-core-semantic-success-subtle);
-  border: 1px solid var(--lufa-core-semantic-success-border);
-  color: var(--lufa-core-semantic-success);
+  background: var(--lufa-core-color-feedback-success-subtle);
+  border: 1px solid var(--lufa-core-color-feedback-success-border);
+  color: var(--lufa-core-color-feedback-success);
 }
 
 /* Form field in error state */
 .input-invalid {
-  border-color: var(--lufa-core-semantic-error);
+  border-color: var(--lufa-core-color-feedback-error);
 }
 .validation-error {
-  color: var(--lufa-core-semantic-error);
+  color: var(--lufa-core-color-feedback-error);
   font-size: var(--lufa-semantic-typography-caption);
   margin-top: var(--lufa-primitive-spacing-4);
 }

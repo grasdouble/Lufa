@@ -91,7 +91,7 @@ export const CodeBlock = ({
             {subtitle && (
               <span
                 style={{
-                  color: 'var(--lufa-core-brand-primary)',
+                  color: 'var(--lufa-core-color-brand-primary-default)',
                   fontWeight: 600,
                 }}
               >
@@ -111,7 +111,7 @@ export const CodeBlock = ({
                     padding: '6px 12px',
                     background:
                       activeTab === index
-                        ? 'var(--lufa-core-brand-primary)'
+                        ? 'var(--lufa-core-color-brand-primary-default)'
                         : 'var(--lufa-primitive-color-alpha-white-16)',
                     color:
                       activeTab === index

@@ -42,7 +42,7 @@ const CenterImpl = <T extends ElementType = 'div'>(
   return (
     <Box<T>
       ref={ref as React.Ref<never>}
-      className={clsx(styles.center, inline && styles['inline-true'], className)}
+      className={clsx(styles.center, inline && styles.inline, className)}
       {...(props as BoxComponentProps<T>)}
     />
   );

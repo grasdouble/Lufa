@@ -88,7 +88,7 @@ pnpm ds:test:docker:update-snapshots-linux
 
 ```bash
 # Via npm script (recommended - from root)
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 
 # Or via Playwright package
 cd packages/design-system/playwright
@@ -298,7 +298,7 @@ git commit -m "test(button): update snapshot for new variant"
 pnpm ds:test:update-snapshots
 
 # 2. Compress all snapshots at once (faster than pre-commit hook for bulk)
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 
 # Output:
 # 🖼️  Compressing all Playwright snapshots...
@@ -319,7 +319,7 @@ git commit -m "test: update all snapshots after token changes"
 brew install oxipng
 
 # 2. Compress all existing snapshots
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 
 # 3. Commit optimized snapshots
 git add packages/design-system/playwright/__snapshots__/
@@ -365,7 +365,7 @@ brew install oxipng
 
 1. Check oxipng installation: `which oxipng`
 2. Check file permissions: Ensure snapshot files are writable
-3. Try manual compression first: `pnpm ds:test:compress-snapshots`
+3. Try manual compression first: `pnpm ds:playwright:compress-snapshots`
 4. Check script output for specific error messages
 
 ---
@@ -660,7 +660,7 @@ If you need to adjust compression settings:
 1. Edit `compress-snapshots-manual.sh`
 2. Modify the `oxipng -o 6` command (line ~61)
 3. Consider levels 4-6 only (better compression)
-4. Test with: `pnpm ds:test:compress-snapshots`
+4. Test with: `pnpm ds:playwright:compress-snapshots`
 
 **Important**: Keep different optimization levels for different use cases. Pre-commit needs speed, manual can afford thoroughness.
 
@@ -672,7 +672,7 @@ git add packages/design-system/playwright/__snapshots__/.../some-file.png
 bash .husky/pre-commit
 
 # Test manual compression (level 6)
-pnpm ds:test:compress-snapshots
+pnpm ds:playwright:compress-snapshots
 
 # Test on a single file (level 3 - fast)
 oxipng -o 3 --strip safe --preserve packages/design-system/playwright/__snapshots__/.../test.png
@@ -730,4 +730,4 @@ A: Yes, if you have oxipng and bash available (e.g., via Git Bash, WSL, or Cygwi
 A: The commit is aborted, and you'll see an error message. Fix the issue (usually missing oxipng) and try again.
 
 **Q: Should I re-compress existing snapshots with level 6?**  
-A: If they were previously compressed with level 3, you might gain 2-5% additional savings. Run `pnpm ds:test:compress-snapshots` to find out.
+A: If they were previously compressed with level 3, you might gain 2-5% additional savings. Run `pnpm ds:playwright:compress-snapshots` to find out.

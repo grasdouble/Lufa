@@ -157,28 +157,32 @@ export const Overview: Story = {
       {/* Brand Colors */}
       <ColorCategory title="Brand Colors">
         <ColorSwatch
-          token="--lufa-core-brand-primary"
+          token="--lufa-core-color-brand-primary-default"
           name="primary"
           description="Primary brand color for main actions and focus states"
         />
-        <ColorSwatch token="--lufa-core-brand-primary-hover" name="primary-hover" description="Primary hover state" />
         <ColorSwatch
-          token="--lufa-core-brand-primary-active"
+          token="--lufa-core-color-brand-primary-hover"
+          name="primary-hover"
+          description="Primary hover state"
+        />
+        <ColorSwatch
+          token="--lufa-core-color-brand-primary-active"
           name="primary-active"
           description="Primary active/pressed state"
         />
         <ColorSwatch
-          token="--lufa-core-brand-secondary"
+          token="--lufa-core-color-brand-secondary-default"
           name="secondary"
           description="Secondary brand color for accents and highlights"
         />
         <ColorSwatch
-          token="--lufa-core-brand-secondary-hover"
+          token="--lufa-core-color-brand-secondary-hover"
           name="secondary-hover"
           description="Secondary hover state"
         />
         <ColorSwatch
-          token="--lufa-core-brand-secondary-active"
+          token="--lufa-core-color-brand-secondary-active"
           name="secondary-active"
           description="Secondary active/pressed state"
         />
@@ -188,12 +192,12 @@ export const Overview: Story = {
       <ColorCategory title="Neutral - Background">
         <ColorSwatch token="--lufa-semantic-ui-background-page" name="page" description="Main page background" />
         <ColorSwatch
-          token="--lufa-semantic-ui-background-surface"
+          token="--lufa-semantic-ui-background-surface-default"
           name="surface"
           description="Cards, panels, elevated content"
         />
         <ColorSwatch
-          token="--lufa-core-neutral-surface-hover"
+          token="--lufa-core-color-neutral-surface-hover"
           name="surface-hover"
           description="Hover state for interactive surfaces"
         />
@@ -220,7 +224,7 @@ export const Overview: Story = {
         <ColorSwatch token="--lufa-semantic-ui-text-secondary" name="text-secondary" description="Supporting content" />
         <ColorSwatch token="--lufa-semantic-ui-text-tertiary" name="text-tertiary" description="Subtle content" />
         <ColorSwatch
-          token="--lufa-core-neutral-text-disabled"
+          token="--lufa-core-color-neutral-text-disabled"
           name="text-disabled"
           description="Disabled/inactive text"
         />
@@ -268,7 +272,7 @@ export const Overview: Story = {
           description="Success context borders"
         />
         <ColorSwatch
-          token="--lufa-core-semantic-success-hover"
+          token="--lufa-core-color-feedback-success-hover"
           name="success-hover"
           description="Success interactive hover state"
         />
@@ -293,7 +297,7 @@ export const Overview: Story = {
         />
         <ColorSwatch token="--lufa-semantic-ui-border-error" name="error-border" description="Error context borders" />
         <ColorSwatch
-          token="--lufa-core-semantic-error-hover"
+          token="--lufa-core-color-feedback-error-hover"
           name="error-hover"
           description="Error/destructive hover state"
         />
@@ -322,7 +326,7 @@ export const Overview: Story = {
           description="Warning context borders"
         />
         <ColorSwatch
-          token="--lufa-core-semantic-warning-hover"
+          token="--lufa-core-color-feedback-warning-hover"
           name="warning-hover"
           description="Warning interactive hover state"
         />
@@ -343,7 +347,7 @@ export const Overview: Story = {
         />
         <ColorSwatch token="--lufa-semantic-ui-border-info" name="info-border" description="Info context borders" />
         <ColorSwatch
-          token="--lufa-core-semantic-info-hover"
+          token="--lufa-core-color-feedback-info-hover"
           name="info-hover"
           description="Info interactive hover state"
         />
@@ -352,22 +356,22 @@ export const Overview: Story = {
       {/* Button Colors - Primary */}
       <ColorCategory title="Button - Primary">
         <ColorSwatch
-          token="--lufa-component-button-primary-background"
+          token="--lufa-component-button-type-solid-variant-primary-background-default"
           name="primary-bg"
           description="Primary button background"
         />
         <ColorSwatch
-          token="--lufa-component-button-primary-background-hover"
+          token="--lufa-component-button-type-solid-variant-primary-background-hover"
           name="primary-bg-hover"
           description="Primary button hover"
         />
         <ColorSwatch
-          token="--lufa-component-button-primary-background-active"
+          token="--lufa-component-button-type-solid-variant-primary-background-active"
           name="primary-bg-active"
           description="Primary button active"
         />
         <ColorSwatch
-          token="--lufa-component-button-primary-text"
+          token="--lufa-component-button-type-solid-variant-primary-text"
           name="primary-text"
           description="Primary button text"
         />
@@ -376,22 +380,22 @@ export const Overview: Story = {
       {/* Button Colors - Secondary */}
       <ColorCategory title="Button - Secondary">
         <ColorSwatch
-          token="--lufa-component-button-secondary-background"
+          token="--lufa-component-button-type-solid-variant-secondary-background-default"
           name="secondary-bg"
           description="Secondary button background"
         />
         <ColorSwatch
-          token="--lufa-component-button-secondary-background-hover"
+          token="--lufa-component-button-type-solid-variant-secondary-background-hover"
           name="secondary-bg-hover"
           description="Secondary button hover"
         />
         <ColorSwatch
-          token="--lufa-component-button-secondary-background-active"
+          token="--lufa-component-button-type-solid-variant-secondary-background-active"
           name="secondary-bg-active"
           description="Secondary button active"
         />
         <ColorSwatch
-          token="--lufa-component-button-secondary-text"
+          token="--lufa-component-button-type-solid-variant-secondary-text"
           name="secondary-text"
           description="Secondary button text"
         />
@@ -400,18 +404,22 @@ export const Overview: Story = {
       {/* Button Colors - Ghost */}
       <ColorCategory title="Button - Ghost">
         <ColorSwatch
-          token="--lufa-component-button-ghost-background"
+          token="--lufa-component-button-type-ghost-background-default"
           name="ghost-bg"
           description="Ghost button background (transparent)"
         />
         <ColorSwatch
-          token="--lufa-component-button-ghost-background-hover"
+          token="--lufa-component-button-type-ghost-background-hover"
           name="ghost-bg-hover"
           description="Ghost button hover"
         />
-        <ColorSwatch token="--lufa-component-button-ghost-text" name="ghost-text" description="Ghost button text" />
         <ColorSwatch
-          token="--lufa-component-button-ghost-text-hover"
+          token="--lufa-component-button-type-ghost-text-default"
+          name="ghost-text"
+          description="Ghost button text"
+        />
+        <ColorSwatch
+          token="--lufa-component-button-type-ghost-text-hover"
           name="ghost-text-hover"
           description="Ghost button text hover"
         />
@@ -420,32 +428,32 @@ export const Overview: Story = {
       {/* Button Colors - Outline */}
       <ColorCategory title="Button - Outline">
         <ColorSwatch
-          token="--lufa-component-button-outline-background"
+          token="--lufa-component-button-type-outline-background-default"
           name="outline-bg"
           description="Outline button background (transparent)"
         />
         <ColorSwatch
-          token="--lufa-component-button-outline-background-hover"
+          token="--lufa-component-button-type-outline-background-hover"
           name="outline-bg-hover"
           description="Outline button hover background"
         />
         <ColorSwatch
-          token="--lufa-component-button-outline-border"
+          token="--lufa-component-button-type-outline-border-default"
           name="outline-border"
           description="Outline button border"
         />
         <ColorSwatch
-          token="--lufa-component-button-outline-border-hover"
+          token="--lufa-component-button-type-outline-border-hover"
           name="outline-border-hover"
           description="Outline button border hover"
         />
         <ColorSwatch
-          token="--lufa-component-button-outline-text"
+          token="--lufa-component-button-type-outline-text-default"
           name="outline-text"
           description="Outline button text"
         />
         <ColorSwatch
-          token="--lufa-component-button-outline-text-hover"
+          token="--lufa-component-button-type-outline-text-hover"
           name="outline-text-hover"
           description="Outline button text hover"
         />
@@ -454,32 +462,32 @@ export const Overview: Story = {
       {/* Button Colors - Destructive & Success */}
       <ColorCategory title="Button - Destructive & Success">
         <ColorSwatch
-          token="--lufa-component-button-destructive-background"
+          token="--lufa-component-button-type-solid-variant-destructive-background-default"
           name="destructive-bg"
           description="Destructive button (danger actions)"
         />
         <ColorSwatch
-          token="--lufa-component-button-destructive-background-hover"
+          token="--lufa-component-button-type-solid-variant-destructive-background-hover"
           name="destructive-bg-hover"
           description="Destructive button hover"
         />
         <ColorSwatch
-          token="--lufa-component-button-destructive-text"
+          token="--lufa-component-button-type-solid-variant-destructive-text"
           name="destructive-text"
           description="Destructive button text"
         />
         <ColorSwatch
-          token="--lufa-component-button-success-background"
+          token="--lufa-component-button-type-solid-variant-success-background-default"
           name="success-bg"
           description="Success button (positive actions)"
         />
         <ColorSwatch
-          token="--lufa-component-button-success-background-hover"
+          token="--lufa-component-button-type-solid-variant-success-background-hover"
           name="success-bg-hover"
           description="Success button hover"
         />
         <ColorSwatch
-          token="--lufa-component-button-success-text"
+          token="--lufa-component-button-type-solid-variant-success-text"
           name="success-text"
           description="Success button text"
         />
@@ -532,47 +540,55 @@ export const Overview: Story = {
       {/* Component - Badge */}
       <ColorCategory title="Component - Badge">
         <ColorSwatch
-          token="--lufa-component-badge-default-background"
+          token="--lufa-component-badge-variant-default-background"
           name="badge-default-bg"
           description="Default badge background"
         />
         <ColorSwatch
-          token="--lufa-component-badge-default-text"
+          token="--lufa-component-badge-variant-default-text"
           name="badge-default-text"
           description="Default badge text"
         />
         <ColorSwatch
-          token="--lufa-component-badge-success-background"
+          token="--lufa-component-badge-variant-success-background"
           name="badge-success-bg"
           description="Success badge background"
         />
         <ColorSwatch
-          token="--lufa-component-badge-success-text"
+          token="--lufa-component-badge-variant-success-text"
           name="badge-success-text"
           description="Success badge text"
         />
         <ColorSwatch
-          token="--lufa-component-badge-error-background"
+          token="--lufa-component-badge-variant-error-background"
           name="badge-error-bg"
           description="Error badge background"
         />
-        <ColorSwatch token="--lufa-component-badge-error-text" name="badge-error-text" description="Error badge text" />
         <ColorSwatch
-          token="--lufa-component-badge-warning-background"
+          token="--lufa-component-badge-variant-error-text"
+          name="badge-error-text"
+          description="Error badge text"
+        />
+        <ColorSwatch
+          token="--lufa-component-badge-variant-warning-background"
           name="badge-warning-bg"
           description="Warning badge background"
         />
         <ColorSwatch
-          token="--lufa-component-badge-warning-text"
+          token="--lufa-component-badge-variant-warning-text"
           name="badge-warning-text"
           description="Warning badge text"
         />
         <ColorSwatch
-          token="--lufa-component-badge-info-background"
+          token="--lufa-component-badge-variant-info-background"
           name="badge-info-bg"
           description="Info badge background"
         />
-        <ColorSwatch token="--lufa-component-badge-info-text" name="badge-info-text" description="Info badge text" />
+        <ColorSwatch
+          token="--lufa-component-badge-variant-info-text"
+          name="badge-info-text"
+          description="Info badge text"
+        />
       </ColorCategory>
 
       {/* Component - Card */}
@@ -693,7 +709,7 @@ export const SemanticColors: Story = {
         <ColorSwatch token="--lufa-semantic-ui-background-success" name="success-background" />
         <ColorSwatch token="--lufa-semantic-ui-background-on-success" name="on-success" />
         <ColorSwatch token="--lufa-semantic-ui-border-success" name="success-border" />
-        <ColorSwatch token="--lufa-core-semantic-success-hover" name="success-hover" />
+        <ColorSwatch token="--lufa-core-color-feedback-success-hover" name="success-hover" />
       </ColorCategory>
 
       <ColorCategory title="Error">
@@ -701,7 +717,7 @@ export const SemanticColors: Story = {
         <ColorSwatch token="--lufa-semantic-ui-background-error" name="error-background" />
         <ColorSwatch token="--lufa-semantic-ui-background-on-error" name="on-error" />
         <ColorSwatch token="--lufa-semantic-ui-border-error" name="error-border" />
-        <ColorSwatch token="--lufa-core-semantic-error-hover" name="error-hover" />
+        <ColorSwatch token="--lufa-core-color-feedback-error-hover" name="error-hover" />
       </ColorCategory>
 
       <ColorCategory title="Warning">
@@ -709,7 +725,7 @@ export const SemanticColors: Story = {
         <ColorSwatch token="--lufa-semantic-ui-background-warning" name="warning-background" />
         <ColorSwatch token="--lufa-semantic-ui-background-on-warning" name="on-warning" />
         <ColorSwatch token="--lufa-semantic-ui-border-warning" name="warning-border" />
-        <ColorSwatch token="--lufa-core-semantic-warning-hover" name="warning-hover" />
+        <ColorSwatch token="--lufa-core-color-feedback-warning-hover" name="warning-hover" />
       </ColorCategory>
 
       <ColorCategory title="Info">
@@ -717,7 +733,7 @@ export const SemanticColors: Story = {
         <ColorSwatch token="--lufa-semantic-ui-background-info" name="info-background" />
         <ColorSwatch token="--lufa-semantic-ui-background-on-info" name="on-info" />
         <ColorSwatch token="--lufa-semantic-ui-border-info" name="info-border" />
-        <ColorSwatch token="--lufa-core-semantic-info-hover" name="info-hover" />
+        <ColorSwatch token="--lufa-core-color-feedback-info-hover" name="info-hover" />
       </ColorCategory>
     </StoryContainer>
   ),
@@ -732,25 +748,40 @@ export const ComponentColors: Story = {
   render: () => (
     <StoryContainer title="Component Colors">
       <ColorCategory title="Button - Primary">
-        <ColorSwatch token="--lufa-component-button-primary-background" name="primary-bg" />
-        <ColorSwatch token="--lufa-component-button-primary-background-hover" name="primary-bg-hover" />
-        <ColorSwatch token="--lufa-component-button-primary-background-active" name="primary-bg-active" />
-        <ColorSwatch token="--lufa-component-button-primary-text" name="primary-text" />
+        <ColorSwatch token="--lufa-component-button-type-solid-variant-primary-background-default" name="primary-bg" />
+        <ColorSwatch
+          token="--lufa-component-button-type-solid-variant-primary-background-hover"
+          name="primary-bg-hover"
+        />
+        <ColorSwatch
+          token="--lufa-component-button-type-solid-variant-primary-background-active"
+          name="primary-bg-active"
+        />
+        <ColorSwatch token="--lufa-component-button-type-solid-variant-primary-text" name="primary-text" />
       </ColorCategory>
 
       <ColorCategory title="Button - Secondary">
-        <ColorSwatch token="--lufa-component-button-secondary-background" name="secondary-bg" />
-        <ColorSwatch token="--lufa-component-button-secondary-background-hover" name="secondary-bg-hover" />
-        <ColorSwatch token="--lufa-component-button-secondary-background-active" name="secondary-bg-active" />
-        <ColorSwatch token="--lufa-component-button-secondary-text" name="secondary-text" />
+        <ColorSwatch
+          token="--lufa-component-button-type-solid-variant-secondary-background-default"
+          name="secondary-bg"
+        />
+        <ColorSwatch
+          token="--lufa-component-button-type-solid-variant-secondary-background-hover"
+          name="secondary-bg-hover"
+        />
+        <ColorSwatch
+          token="--lufa-component-button-type-solid-variant-secondary-background-active"
+          name="secondary-bg-active"
+        />
+        <ColorSwatch token="--lufa-component-button-type-solid-variant-secondary-text" name="secondary-text" />
       </ColorCategory>
 
       <ColorCategory title="Badge">
-        <ColorSwatch token="--lufa-component-badge-default-background" name="default-bg" />
-        <ColorSwatch token="--lufa-component-badge-success-background" name="success-bg" />
-        <ColorSwatch token="--lufa-component-badge-error-background" name="error-bg" />
-        <ColorSwatch token="--lufa-component-badge-warning-background" name="warning-bg" />
-        <ColorSwatch token="--lufa-component-badge-info-background" name="info-bg" />
+        <ColorSwatch token="--lufa-component-badge-variant-default-background" name="default-bg" />
+        <ColorSwatch token="--lufa-component-badge-variant-success-background" name="success-bg" />
+        <ColorSwatch token="--lufa-component-badge-variant-error-background" name="error-bg" />
+        <ColorSwatch token="--lufa-component-badge-variant-warning-background" name="warning-bg" />
+        <ColorSwatch token="--lufa-component-badge-variant-info-background" name="info-bg" />
       </ColorCategory>
 
       <ColorCategory title="Input">

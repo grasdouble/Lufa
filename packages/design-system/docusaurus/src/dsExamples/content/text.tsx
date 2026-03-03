@@ -245,7 +245,7 @@ export function PolymorphicVariant() {
             padding: '16px',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: '8px',
-            background: 'var(--lufa-semantic-ui-background-surface)',
+            background: 'var(--lufa-semantic-ui-background-surface-default)',
           }}
         >
           <Text as={value} variant="body" weight="semibold" style={{ marginBottom: '4px', display: 'block' }}>

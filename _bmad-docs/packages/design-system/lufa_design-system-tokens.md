@@ -12,7 +12,7 @@ generatedAtCommit: 'd27c912328f538971b6720513be2c817c2feff15'
 
 ## Overview
 
-The design token package for the Lufa Design System. It defines **698 tokens** across a 4-level hierarchy and builds to **1025 CSS custom properties**. The package uses [Style Dictionary v5](https://styledictionary.com) and follows the [DTCG (Design Tokens Community Group)](https://www.designtokens.org/) token format.
+The design token package for the Lufa Design System. It defines **685 tokens** across a 4-level hierarchy and builds to **~1025 CSS custom properties**. The package uses [Style Dictionary v5](https://styledictionary.com) and follows the [DTCG (Design Tokens Community Group)](https://www.designtokens.org/) token format.
 
 All tokens are authored in JSON source files, processed through a Style Dictionary build pipeline, and emitted as:
 
@@ -41,13 +41,13 @@ The token system is organized as a strict 4-level cascade:
 └─────────────────────────────────────────────────────────┘
 ```
 
-| Level         | Source path      | Token count | CSS vars | Description                   |
-| ------------- | ---------------- | ----------- | -------- | ----------------------------- |
-| **Primitive** | `src/primitives` | 203         | ~250     | Raw immutable values          |
-| **Core**      | `src/core`       | 85          | ~180     | Global design decisions       |
-| **Semantic**  | `src/semantic`   | 175         | ~290     | UI-context tokens             |
-| **Component** | `src/component`  | 235         | ~305     | Component-specific tokens     |
-| **Total**     |                  | **698**     | **1025** | Including responsive variants |
+| Level         | Source path      | Token count | CSS vars  | Description                   |
+| ------------- | ---------------- | ----------- | --------- | ----------------------------- |
+| **Primitive** | `src/primitives` | 203         | ~250      | Raw immutable values          |
+| **Core**      | `src/core`       | 85          | ~180      | Global design decisions       |
+| **Semantic**  | `src/semantic`   | 175         | ~290      | UI-context tokens             |
+| **Component** | `src/component`  | 235         | ~305      | Component-specific tokens     |
+| **Total**     |                  | **~700**    | **~1025** | Including responsive variants |
 
 ### Token reference flow
 
@@ -226,30 +226,30 @@ Applies design intent to primitives. All tokens here reference primitives and ca
 
 #### Brand colors (`src/core/color/colors-brand.json`)
 
-| Token path                         | Light value (→ primitive)    | Role               |
-| ---------------------------------- | ---------------------------- | ------------------ |
-| `core.brand.primary.default`       | `primitive.color.blue.600`   | Main CTA, links    |
-| `core.brand.primary.hover`         | `primitive.color.blue.700`   | Hover on primary   |
-| `core.brand.primary.active`        | `primitive.color.blue.800`   | Pressed primary    |
-| `core.brand.primary.on.background` | `primitive.color.hc.white`   | Text on primary bg |
-| `core.brand.secondary.default`     | `primitive.color.purple.600` | Secondary actions  |
-| `core.brand.secondary.hover`       | `primitive.color.purple.600` | Hover on secondary |
-| `core.brand.secondary.active`      | `primitive.color.purple.700` | Pressed secondary  |
-| `core.brand.accent.visited`        | `primitive.color.purple.600` | Visited links      |
+| Token path                               | Light value (→ primitive)    | Role               |
+| ---------------------------------------- | ---------------------------- | ------------------ |
+| `core.color.brand.primary.default`       | `primitive.color.blue.600`   | Main CTA, links    |
+| `core.color.brand.primary.hover`         | `primitive.color.blue.700`   | Hover on primary   |
+| `core.color.brand.primary.active`        | `primitive.color.blue.800`   | Pressed primary    |
+| `core.color.brand.primary.on.background` | `primitive.color.hc.white`   | Text on primary bg |
+| `core.color.brand.secondary.default`     | `primitive.color.purple.600` | Secondary actions  |
+| `core.color.brand.secondary.hover`       | `primitive.color.purple.600` | Hover on secondary |
+| `core.color.brand.secondary.active`      | `primitive.color.purple.700` | Pressed secondary  |
+| `core.color.brand.accent.visited`        | `primitive.color.purple.600` | Visited links      |
 
 #### Neutral colors (`src/core/color/colors-neutral.json`)
 
-| Token path                     | Light value                | Role                    |
-| ------------------------------ | -------------------------- | ----------------------- |
-| `core.neutral.background`      | `primitive.color.gray.50`  | Page canvas             |
-| `core.neutral.surface.default` | `primitive.color.gray.100` | Cards, panels           |
-| `core.neutral.surface.hover`   | `primitive.color.gray.200` | Hover on surfaces       |
-| `core.neutral.border.default`  | `primitive.color.gray.300` | Dividers, card borders  |
-| `core.neutral.border.strong`   | `primitive.color.gray.400` | Emphasized borders      |
-| `core.neutral.text.primary`    | `primitive.color.gray.900` | Body text, headings     |
-| `core.neutral.text.secondary`  | `primitive.color.gray.600` | Supporting text         |
-| `core.neutral.text.tertiary`   | `primitive.color.gray.500` | Placeholder, timestamps |
-| `core.neutral.text.disabled`   | `primitive.color.gray.400` | Disabled labels         |
+| Token path                           | Light value                | Role                    |
+| ------------------------------------ | -------------------------- | ----------------------- |
+| `core.color.neutral.background`      | `primitive.color.gray.50`  | Page canvas             |
+| `core.color.neutral.surface.default` | `primitive.color.gray.100` | Cards, panels           |
+| `core.color.neutral.surface.hover`   | `primitive.color.gray.200` | Hover on surfaces       |
+| `core.color.neutral.border.default`  | `primitive.color.gray.300` | Dividers, card borders  |
+| `core.color.neutral.border.strong`   | `primitive.color.gray.400` | Emphasized borders      |
+| `core.color.neutral.text.primary`    | `primitive.color.gray.900` | Body text, headings     |
+| `core.color.neutral.text.secondary`  | `primitive.color.gray.600` | Supporting text         |
+| `core.color.neutral.text.tertiary`   | `primitive.color.gray.500` | Placeholder, timestamps |
+| `core.color.neutral.text.disabled`   | `primitive.color.gray.400` | Disabled labels         |
 
 #### Semantic feedback colors (`src/core/color/colors-semantic.json`)
 
@@ -268,7 +268,7 @@ Four states — `success`, `error`, `warning`, `info` — each with: `default`, 
 
 #### Core layout (`src/core/layout/`)
 
-9 files covering layout-specific spacing and sizing: `containers`, `content`, `grid`, `header`, `hero`, `modal`, `page`, `section`, `sidebar`.
+9 files covering layout-specific spacing and sizing: `container`, `content`, `grid`, `header`, `hero`, `modal`, `page`, `section`, `sidebar`.
 
 ---
 
@@ -291,7 +291,7 @@ Provides named UI tokens consumed directly by components:
 | File                 | Token group                   | Key values                                                                                |
 | -------------------- | ----------------------------- | ----------------------------------------------------------------------------------------- |
 | `spacing.json`       | `semantic.ui.spacing.*`       | `tight` (4px), `compact` (8px), `default` (16px), `comfortable` (24px), `spacious` (32px) |
-| `shadow.json`        | `semantic.ui.shadow.*`        | `small`, `medium`, `large`, `extra.large`                                                 |
+| `shadow.json`        | `semantic.ui.shadow.*`        | `small`, `medium`, `large`, `extra-large`                                                 |
 | `border-radius.json` | `semantic.ui.border-radius.*` | References primitive radius scale                                                         |
 | `border-width.json`  | `semantic.ui.border-width.*`  | References primitive border-width scale                                                   |
 | `height.json`        | `semantic.ui.height.*`        | `sm`, `md`, `lg` for interactive element sizing                                           |
@@ -305,7 +305,7 @@ Provides named UI tokens consumed directly by components:
 
 | File              | Tokens                                                          |
 | ----------------- | --------------------------------------------------------------- |
-| `focus.json`      | `focus.ring`, `focus.ring.offset` (2px), `focus.background`     |
+| `focus.json`      | `focus.ring`, `focus.ring-offset` (2px), `focus.background`     |
 | `background.json` | Hover/pressed/selected background overlays                      |
 | `border.json`     | Focus and active border states                                  |
 | `cursor.json`     | `default` (pointer), `disabled` (not-allowed), `loading` (wait) |
@@ -450,7 +450,7 @@ The package ships 4 export paths (defined in `package.json#exports`):
 import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
 // Access resolved primitive values
-const primary = tokens.core.brand.primary.default; // "#2563eb"
+const primary = tokens.core.color.brand.primary.default; // "#2563eb"
 const spacing = tokens.primitive.spacing['16']; // "16px"
 const fontBase = tokens.primitive.typography['font-size'].base; // "1rem"
 ```
@@ -461,7 +461,7 @@ const fontBase = tokens.primitive.typography['font-size'].base; // "1rem"
 import metadata from '@grasdouble/lufa_design-system-tokens/metadata';
 
 // metadata includes description, extensions (category, useCase, modes, themeable, a11y)
-const token = metadata.core.brand.primary.default;
+const token = metadata.core.color.brand.primary.default;
 console.log(token.description); // "Primary brand color used for main actions…"
 console.log(token.extensions.lufa.themeable); // true
 ```

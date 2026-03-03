@@ -51,7 +51,7 @@ export function AllOrientations() {
             padding: 'var(--lufa-semantic-ui-spacing-default)',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
@@ -132,7 +132,7 @@ export function AllEmphasisLevels() {
             padding: 'var(--lufa-semantic-ui-spacing-default)',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
@@ -189,7 +189,7 @@ export function AllSpacing() {
             padding: 'var(--lufa-semantic-ui-spacing-default)',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
           }}
         >
           <div
@@ -215,7 +215,7 @@ export function AllSpacing() {
           <div
             style={{
               padding: '8px',
-              backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+              backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
               borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
             }}
           >
@@ -259,7 +259,7 @@ export function LineStyles() {
             padding: 'var(--lufa-semantic-ui-spacing-default)',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
@@ -291,7 +291,7 @@ export function LineStyles() {
           padding: 'var(--lufa-semantic-ui-spacing-default)',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
           borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
         }}
       >
         <div

@@ -685,6 +685,18 @@
               "useCase": "High-contrast mode warning messages, alert banners"
             }
           }
+        },
+        "purple": {
+          "$value": "#9900ff",
+          "$type": "color",
+          "$description": "Pure purple for high-contrast visited links and secondary accents",
+          "$extensions": {
+            "lufa": {
+              "category": "color",
+              "palette": "high-contrast",
+              "useCase": "High-contrast mode visited links, secondary brand accents"
+            }
+          }
         }
       },
       "alpha": {

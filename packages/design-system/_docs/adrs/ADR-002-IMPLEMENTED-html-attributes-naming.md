@@ -331,13 +331,19 @@ console.log('Color Theme:', theme); // "ocean"
 
 **Token CSS Selectors Must Change:**
 
-```diff
-- [data-mode='light'] { /* ... */ }
-- [data-mode='dark'] { /* ... */ }
-- [data-mode='high-contrast'] { /* ... */ }
-+ [data-mode='light'] { /* ... */ }
-+ [data-mode='dark'] { /* ... */ }
-+ [data-mode='high-contrast'] { /* ... */ }
+No breaking changes — this ADR formalized existing conventions. The token CSS already used `[data-mode]` selectors, so no selector changes were required:
+
+```css
+/* tokens.css already uses data-mode selectors */
+[data-mode='light'] {
+  /* ... */
+}
+[data-mode='dark'] {
+  /* ... */
+}
+[data-mode='high-contrast'] {
+  /* ... */
+}
 ```
 
 **Style Dictionary Config Update:**
@@ -503,34 +509,34 @@ This decision will be validated by:
 /* tokens.css - Mode overrides */
 :root,
 [data-mode='light'] {
-  --lufa-core-brand-primary: #3b82f6;
-  --lufa-core-neutral-background-page: #ffffff;
+  --lufa-core-color-brand-primary: #3b82f6;
+  --lufa-core-color-neutral-background-page: #ffffff;
 }
 
 [data-mode='dark'] {
-  --lufa-core-brand-primary: #60a5fa;
-  --lufa-core-neutral-background-page: #0a0a0a;
+  --lufa-core-color-brand-primary: #60a5fa;
+  --lufa-core-color-neutral-background-page: #0a0a0a;
 }
 
 [data-mode='high-contrast'] {
-  --lufa-core-brand-primary: #0066ff;
+  --lufa-core-color-brand-primary: #0066ff;
   --lufa-semantic-ui-text-emphasis: #ffffff;
 }
 
 /* themes.css - Theme overrides (Phase 6) */
 [data-theme='ocean'] {
-  --lufa-core-brand-primary: #0ea5e9;
-  --lufa-core-brand-secondary: #06b6d4;
+  --lufa-core-color-brand-primary: #0ea5e9;
+  --lufa-core-color-brand-secondary: #06b6d4;
 }
 
 [data-theme='forest'] {
-  --lufa-core-brand-primary: #10b981;
-  --lufa-core-brand-secondary: #059669;
+  --lufa-core-color-brand-primary: #10b981;
+  --lufa-core-color-brand-secondary: #059669;
 }
 
 /* Combined selectors - Theme wins in cascade */
 [data-theme='ocean'][data-mode='dark'] {
-  --lufa-core-brand-primary: #38bdf8; /* Lighter ocean for dark mode */
+  --lufa-core-color-brand-primary: #38bdf8; /* Lighter ocean for dark mode */
 }
 ```
 

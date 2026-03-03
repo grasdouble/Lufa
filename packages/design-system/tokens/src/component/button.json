@@ -1,160 +1,36 @@
 {
   "component": {
     "button": {
-      "padding": {
-        "sm": {
-          "$value": "{semantic.ui.spacing.compact} {semantic.ui.spacing.default}",
-          "$type": "dimension",
-          "$description": "Small button padding (vertical horizontal)",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Compact buttons, inline actions",
-              "themeable": true
-            }
-          }
-        },
-        "md": {
-          "$value": "{semantic.ui.spacing.default} {semantic.ui.spacing.comfortable}",
-          "$type": "dimension",
-          "$description": "Medium button padding (default size)",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Standard buttons, primary actions",
-              "themeable": true
-            }
-          }
-        },
-        "lg": {
-          "$value": "{semantic.ui.spacing.comfortable} {semantic.ui.spacing.spacious}",
-          "$type": "dimension",
-          "$description": "Large button padding (emphasized actions)",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Hero CTAs, prominent actions",
-              "themeable": true
-            }
-          }
-        }
-      },
-      "height": {
-        "sm": {
-          "$value": "{semantic.ui.height.sm}",
-          "$type": "dimension",
-          "$description": "Small button minimum height",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Compact button height",
-              "themeable": true
-            }
-          }
-        },
-        "md": {
-          "$value": "{semantic.ui.height.md}",
-          "$type": "dimension",
-          "$description": "Medium button minimum height (default)",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Standard button height",
-              "themeable": true
-            }
-          }
-        },
-        "lg": {
-          "$value": "{semantic.ui.height.lg}",
-          "$type": "dimension",
-          "$description": "Large button minimum height",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Large button height",
-              "themeable": true
-            }
-          }
-        }
-      },
-      "font-size": {
-        "sm": {
-          "$value": "{semantic.typography.body.small}",
-          "$type": "dimension",
-          "$description": "Small button font size",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Compact button text",
-              "themeable": true
-            }
-          }
-        },
-        "md": {
-          "$value": "{semantic.typography.button}",
-          "$type": "dimension",
-          "$description": "Medium button font size (default)",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Standard button text",
-              "themeable": true
-            }
-          }
-        },
-        "lg": {
-          "$value": "{semantic.typography.body.large}",
-          "$type": "dimension",
-          "$description": "Large button font size",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Large button text",
-              "themeable": true
-            }
-          }
-        }
-      },
-      "border-radius": {
-        "$value": "{semantic.ui.border-radius.default}",
-        "$type": "dimension",
-        "$description": "Button border radius for rounded corners",
-        "$extensions": {
-          "lufa": {
-            "category": "button",
-            "useCase": "All button variants",
-            "themeable": true
-          }
-        }
-      },
-      "glow": {
-        "default": {
-          "$value": "{semantic.effect.glow.box.primary.default}",
-          "$type": "shadow",
-          "$description": "Button box-shadow glow effect (default state)",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Buttons with glow effects in themed designs",
-              "themeable": true
-            }
-          }
-        },
-        "hover": {
-          "$value": "{semantic.effect.glow.box.primary.hover}",
-          "$type": "shadow",
-          "$description": "Button box-shadow glow effect (hover state)",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Enhanced glow on hover",
-              "themeable": true
-            }
-          }
-        }
-      },
-      "text": {
+      "effect": {
         "glow": {
+          "default": {
+            "$value": "{semantic.effect.glow.box.primary.default}",
+            "$type": "shadow",
+            "$description": "Button box-shadow glow effect (default state)",
+            "$extensions": {
+              "lufa": {
+                "category": "button",
+                "useCase": "Buttons with glow effects in themed designs",
+                "themeable": true,
+                "themeLevel": "advanced"
+              }
+            }
+          },
+          "hover": {
+            "$value": "{semantic.effect.glow.box.primary.hover}",
+            "$type": "shadow",
+            "$description": "Button box-shadow glow effect (hover state)",
+            "$extensions": {
+              "lufa": {
+                "category": "button",
+                "useCase": "Enhanced glow on hover",
+                "themeable": true,
+                "themeLevel": "advanced"
+              }
+            }
+          }
+        },
+        "text-glow": {
           "default": {
             "$value": "{semantic.effect.glow.text.primary.default}",
             "$type": "shadow",
@@ -163,7 +39,8 @@
               "lufa": {
                 "category": "button",
                 "useCase": "Text glow for themed buttons",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -175,263 +52,656 @@
               "lufa": {
                 "category": "button",
                 "useCase": "Enhanced text glow on hover",
-                "themeable": true
-              }
-            }
-          }
-        }
-      },
-      "icon": {
-        "spacing": {
-          "$value": "{component.shared.icon.spacing}",
-          "$type": "dimension",
-          "$description": "Spacing between button icon and text",
-          "$extensions": {
-            "lufa": {
-              "category": "button",
-              "useCase": "Buttons with icons",
-              "themeable": true
-            }
-          }
-        }
-      },
-      "variant": {
-        "primary": {
-          "background": {
-            "default": {
-              "$value": "{semantic.button.primary.background.default}",
-              "$type": "color",
-              "$description": "Primary button background color",
-              "$extensions": {
-                "lufa": {
-                  "category": "button",
-                  "variant": "primary",
-                  "useCase": "Primary action buttons",
-                  "themeable": true
-                }
-              }
-            },
-            "hover": {
-              "$value": "{semantic.button.primary.background.hover}",
-              "$type": "color",
-              "$description": "Primary button hover state background",
-              "$extensions": {
-                "lufa": {
-                  "category": "button",
-                  "variant": "primary",
-                  "themeable": true
-                }
-              }
-            },
-            "active": {
-              "$value": "{semantic.button.primary.background.active}",
-              "$type": "color",
-              "$description": "Primary button active/pressed state background",
-              "$extensions": {
-                "lufa": {
-                  "category": "button",
-                  "variant": "primary",
-                  "themeable": true
-                }
-              }
-            }
-          },
-          "text": {
-            "$value": "{semantic.button.primary.text}",
-            "$type": "color",
-            "$description": "Primary button text color",
-            "$extensions": {
-              "lufa": {
-                "category": "button",
-                "variant": "primary",
-                "themeable": true
-              }
-            }
-          }
-        },
-        "secondary": {
-          "background": {
-            "default": {
-              "$value": "{semantic.button.secondary.background.default}",
-              "$type": "color",
-              "$description": "Secondary button background color",
-              "$extensions": {
-                "lufa": {
-                  "category": "button",
-                  "variant": "secondary",
-                  "themeable": true
-                }
-              }
-            },
-            "hover": {
-              "$value": "{semantic.button.secondary.background.hover}",
-              "$type": "color",
-              "$description": "Secondary button hover state background",
-              "$extensions": {
-                "lufa": {
-                  "category": "button",
-                  "variant": "secondary",
-                  "themeable": true
-                }
-              }
-            },
-            "active": {
-              "$value": "{semantic.button.secondary.background.active}",
-              "$type": "color",
-              "$description": "Secondary button active/pressed state background",
-              "$extensions": {
-                "lufa": {
-                  "category": "button",
-                  "variant": "secondary",
-                  "themeable": true
-                }
-              }
-            }
-          },
-          "text": {
-            "$value": "{semantic.button.secondary.text}",
-            "$type": "color",
-            "$description": "Secondary button text color",
-            "$extensions": {
-              "lufa": {
-                "category": "button",
-                "variant": "secondary",
-                "themeable": true
-              }
-            }
-          }
-        },
-        "destructive": {
-          "background": {
-            "default": {
-              "$value": "{semantic.button.destructive.background.default}",
-              "$type": "color",
-              "$description": "Destructive button background (danger actions)",
-              "$extensions": {
-                "lufa": {
-                  "category": "button",
-                  "variant": "destructive",
-                  "themeable": true
-                }
-              }
-            },
-            "hover": {
-              "$value": "{semantic.button.destructive.background.hover}",
-              "$type": "color",
-              "$description": "Destructive button hover state background",
-              "$extensions": {
-                "lufa": {
-                  "category": "button",
-                  "variant": "destructive",
-                  "themeable": true
-                }
-              }
-            }
-          },
-          "text": {
-            "$value": "{semantic.button.destructive.text}",
-            "$type": "color",
-            "$description": "Destructive button text color",
-            "$extensions": {
-              "lufa": {
-                "category": "button",
-                "variant": "destructive",
-                "themeable": true
-              }
-            }
-          }
-        },
-        "success": {
-          "background": {
-            "default": {
-              "$value": "{semantic.button.success.background.default}",
-              "$type": "color",
-              "$description": "Success button background (positive actions)",
-              "$extensions": {
-                "lufa": {
-                  "category": "button",
-                  "variant": "success",
-                  "themeable": true
-                }
-              }
-            },
-            "hover": {
-              "$value": "{semantic.button.success.background.hover}",
-              "$type": "color",
-              "$description": "Success button hover state background",
-              "$extensions": {
-                "lufa": {
-                  "category": "button",
-                  "variant": "success",
-                  "themeable": true
-                }
-              }
-            }
-          },
-          "text": {
-            "$value": "{semantic.button.success.text}",
-            "$type": "color",
-            "$description": "Success button text color",
-            "$extensions": {
-              "lufa": {
-                "category": "button",
-                "variant": "success",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
         }
       },
       "type": {
+        "solid": {
+          "variant": {
+            "primary": {
+              "background": {
+                "default": {
+                  "$value": "{semantic.interactive.action.primary.default}",
+                  "$type": "color",
+                  "$description": "Solid primary button background color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-primary",
+                      "useCase": "Primary action buttons",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "hover": {
+                  "$value": "{semantic.interactive.action.primary.hover}",
+                  "$type": "color",
+                  "$description": "Solid primary button hover state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-primary",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "active": {
+                  "$value": "{semantic.interactive.action.primary.active}",
+                  "$type": "color",
+                  "$description": "Solid primary button active/pressed state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-primary",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "text": {
+                "$value": "{semantic.interactive.action.primary.on}",
+                "$type": "color",
+                "$description": "Solid primary button text color",
+                "$extensions": {
+                  "lufa": {
+                    "category": "button",
+                    "variant": "solid-primary",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.primary.background.default",
+                      "component.button.type.solid.variant.primary.background.hover",
+                      "component.button.type.solid.variant.primary.background.active"
+                    ],
+                    "contrastType": "text",
+                    "themeable": true,
+                    "themeLevel": "advanced"
+                  }
+                }
+              }
+            },
+            "secondary": {
+              "background": {
+                "default": {
+                  "$value": "{semantic.interactive.action.secondary.default}",
+                  "$type": "color",
+                  "$description": "Solid secondary button background color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-secondary",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "hover": {
+                  "$value": "{semantic.interactive.action.secondary.hover}",
+                  "$type": "color",
+                  "$description": "Solid secondary button hover state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-secondary",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "active": {
+                  "$value": "{semantic.interactive.action.secondary.active}",
+                  "$type": "color",
+                  "$description": "Solid secondary button active/pressed state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-secondary",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "text": {
+                "$value": "{semantic.interactive.action.secondary.on}",
+                "$type": "color",
+                "$description": "Solid secondary button text color",
+                "$extensions": {
+                  "lufa": {
+                    "category": "button",
+                    "variant": "solid-secondary",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.secondary.background.default",
+                      "component.button.type.solid.variant.secondary.background.hover",
+                      "component.button.type.solid.variant.secondary.background.active"
+                    ],
+                    "contrastType": "text",
+                    "themeable": true,
+                    "themeLevel": "advanced"
+                  }
+                }
+              }
+            },
+            "destructive": {
+              "background": {
+                "default": {
+                  "$value": "{semantic.interactive.action.destructive.default}",
+                  "$type": "color",
+                  "$description": "Solid destructive button background (danger actions)",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-destructive",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "hover": {
+                  "$value": "{semantic.interactive.action.destructive.hover}",
+                  "$type": "color",
+                  "$description": "Solid destructive button hover state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-destructive",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "active": {
+                  "$value": "{semantic.interactive.action.destructive.active}",
+                  "$type": "color",
+                  "$description": "Solid destructive button active/pressed state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-destructive",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "text": {
+                "$value": "{semantic.interactive.action.destructive.on}",
+                "$type": "color",
+                "$description": "Solid destructive button text color",
+                "$extensions": {
+                  "lufa": {
+                    "category": "button",
+                    "variant": "solid-destructive",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.destructive.background.default",
+                      "component.button.type.solid.variant.destructive.background.hover",
+                      "component.button.type.solid.variant.destructive.background.active"
+                    ],
+                    "contrastType": "text",
+                    "themeable": true,
+                    "themeLevel": "advanced"
+                  }
+                }
+              }
+            },
+            "success": {
+              "background": {
+                "default": {
+                  "$value": "{semantic.interactive.action.success.default}",
+                  "$type": "color",
+                  "$description": "Solid success button background (positive actions)",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-success",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "hover": {
+                  "$value": "{semantic.interactive.action.success.hover}",
+                  "$type": "color",
+                  "$description": "Solid success button hover state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-success",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "active": {
+                  "$value": "{semantic.interactive.action.success.active}",
+                  "$type": "color",
+                  "$description": "Solid success button active/pressed state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-success",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "text": {
+                "$value": "{semantic.interactive.action.success.on}",
+                "$type": "color",
+                "$description": "Solid success button text color",
+                "$extensions": {
+                  "lufa": {
+                    "category": "button",
+                    "variant": "solid-success",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.success.background.default",
+                      "component.button.type.solid.variant.success.background.hover",
+                      "component.button.type.solid.variant.success.background.active"
+                    ],
+                    "contrastType": "text",
+                    "themeable": true,
+                    "themeLevel": "advanced"
+                  }
+                }
+              }
+            },
+            "warning": {
+              "background": {
+                "default": {
+                  "$value": "{semantic.interactive.action.warning.default}",
+                  "$type": "color",
+                  "$description": "Solid warning button background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-warning",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "hover": {
+                  "$value": "{semantic.interactive.action.warning.hover}",
+                  "$type": "color",
+                  "$description": "Solid warning button hover state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-warning",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "active": {
+                  "$value": "{semantic.interactive.action.warning.active}",
+                  "$type": "color",
+                  "$description": "Solid warning button active/pressed state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-warning",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "text": {
+                "$value": "{semantic.interactive.action.warning.on}",
+                "$type": "color",
+                "$description": "Solid warning button text color",
+                "$extensions": {
+                  "lufa": {
+                    "category": "button",
+                    "variant": "solid-warning",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.warning.background.default",
+                      "component.button.type.solid.variant.warning.background.hover",
+                      "component.button.type.solid.variant.warning.background.active"
+                    ],
+                    "contrastType": "text",
+                    "themeable": true,
+                    "themeLevel": "advanced"
+                  }
+                }
+              }
+            },
+            "info": {
+              "background": {
+                "default": {
+                  "$value": "{semantic.interactive.action.info.default}",
+                  "$type": "color",
+                  "$description": "Solid info button background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-info",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "hover": {
+                  "$value": "{semantic.interactive.action.info.hover}",
+                  "$type": "color",
+                  "$description": "Solid info button hover state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-info",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "active": {
+                  "$value": "{semantic.interactive.action.info.active}",
+                  "$type": "color",
+                  "$description": "Solid info button active/pressed state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-info",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "text": {
+                "$value": "{semantic.interactive.action.info.on}",
+                "$type": "color",
+                "$description": "Solid info button text color",
+                "$extensions": {
+                  "lufa": {
+                    "category": "button",
+                    "variant": "solid-info",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.info.background.default",
+                      "component.button.type.solid.variant.info.background.hover",
+                      "component.button.type.solid.variant.info.background.active"
+                    ],
+                    "contrastType": "text",
+                    "themeable": true,
+                    "themeLevel": "advanced"
+                  }
+                }
+              }
+            },
+            "neutral": {
+              "background": {
+                "default": {
+                  "$value": "{semantic.interactive.action.neutral.default}",
+                  "$type": "color",
+                  "$description": "Solid neutral button background - resting state, slightly elevated above page surface",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-neutral",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "hover": {
+                  "$value": "{semantic.interactive.action.neutral.hover}",
+                  "$type": "color",
+                  "$description": "Solid neutral button hover state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-neutral",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                },
+                "active": {
+                  "$value": "{semantic.interactive.action.neutral.active}",
+                  "$type": "color",
+                  "$description": "Solid neutral button active/pressed state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "solid-neutral",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "text": {
+                "$value": "{semantic.interactive.action.neutral.on}",
+                "$type": "color",
+                "$description": "Solid neutral button text color",
+                "$extensions": {
+                  "lufa": {
+                    "category": "button",
+                    "variant": "solid-neutral",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.neutral.background.default",
+                      "component.button.type.solid.variant.neutral.background.hover",
+                      "component.button.type.solid.variant.neutral.background.active"
+                    ],
+                    "contrastType": "text",
+                    "themeable": true,
+                    "themeLevel": "advanced"
+                  }
+                }
+              }
+            }
+          }
+        },
         "ghost": {
           "background": {
             "default": {
-              "$value": "{semantic.button.ghost.background.default}",
+              "$value": "transparent",
               "$type": "color",
               "$description": "Ghost button background (transparent)",
               "$extensions": {
                 "lufa": {
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
             "hover": {
-              "$value": "{semantic.button.ghost.background.hover}",
+              "$value": "{semantic.interactive.background.hover}",
               "$type": "color",
               "$description": "Ghost button hover state background",
               "$extensions": {
                 "lufa": {
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
+                }
+              }
+            },
+            "active": {
+              "$value": "{semantic.ui.background.surface.active}",
+              "$type": "color",
+              "$description": "Ghost button active/pressed state background - shared across all ghost variants",
+              "$extensions": {
+                "lufa": {
+                  "category": "button",
+                  "variant": "ghost",
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             }
           },
           "text": {
             "default": {
-              "$value": "{semantic.button.ghost.text.default}",
+              "$value": "{semantic.interactive.action.primary.default}",
               "$type": "color",
               "$description": "Ghost button text color",
               "$extensions": {
                 "lufa": {
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true
+                  "contrastWith": ["semantic.ui.background.page"],
+                  "contrastType": "text",
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
             "hover": {
-              "$value": "{semantic.button.ghost.text.hover}",
+              "$value": "{semantic.interactive.action.primary.hover}",
               "$type": "color",
               "$description": "Ghost button hover state text color",
               "$extensions": {
                 "lufa": {
                   "category": "button",
                   "variant": "ghost",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
+                }
+              }
+            }
+          },
+          "variant": {
+            "primary": {
+              "text": {
+                "active": {
+                  "$value": "{semantic.interactive.action.primary.active}",
+                  "$type": "color",
+                  "$description": "Ghost primary button active state text color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "ghost-primary",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "secondary": {
+              "text": {
+                "active": {
+                  "$value": "{semantic.interactive.action.secondary.active}",
+                  "$type": "color",
+                  "$description": "Ghost secondary button active state text color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "ghost-secondary",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "success": {
+              "text": {
+                "active": {
+                  "$value": "{semantic.interactive.action.success.active}",
+                  "$type": "color",
+                  "$description": "Ghost success button active state text color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "ghost-success",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "destructive": {
+              "text": {
+                "active": {
+                  "$value": "{semantic.interactive.action.destructive.active}",
+                  "$type": "color",
+                  "$description": "Ghost destructive button active state text color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "ghost-destructive",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "warning": {
+              "text": {
+                "active": {
+                  "$value": "{semantic.interactive.action.warning.active}",
+                  "$type": "color",
+                  "$description": "Ghost warning button active state text color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "ghost-warning",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "info": {
+              "text": {
+                "active": {
+                  "$value": "{semantic.interactive.action.info.active}",
+                  "$type": "color",
+                  "$description": "Ghost info button active state text color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "ghost-info",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "neutral": {
+              "text": {
+                "active": {
+                  "$value": "{semantic.interactive.action.neutral.on}",
+                  "$type": "color",
+                  "$description": "Ghost neutral button active state text color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "ghost-neutral",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
                 }
               }
             }
@@ -440,78 +710,314 @@
         "outline": {
           "background": {
             "default": {
-              "$value": "{semantic.button.outline.background.default}",
+              "$value": "transparent",
               "$type": "color",
               "$description": "Outline button background (transparent)",
               "$extensions": {
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
             "hover": {
-              "$value": "{semantic.button.outline.background.hover}",
+              "$value": "{semantic.interactive.action.primary.default}",
               "$type": "color",
               "$description": "Outline button hover state background",
               "$extensions": {
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             }
           },
           "border": {
             "default": {
-              "$value": "{semantic.button.outline.border.default}",
+              "$value": "{semantic.interactive.action.primary.default}",
               "$type": "color",
               "$description": "Outline button border color",
               "$extensions": {
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "contrastWith": ["semantic.ui.background.page"],
+                  "contrastType": "ui",
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
             "hover": {
-              "$value": "{semantic.button.outline.border.hover}",
+              "$value": "{semantic.interactive.action.primary.hover}",
               "$type": "color",
               "$description": "Outline button hover state border",
               "$extensions": {
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             }
           },
           "text": {
             "default": {
-              "$value": "{semantic.button.outline.text.default}",
+              "$value": "{semantic.interactive.action.primary.default}",
               "$type": "color",
               "$description": "Outline button text color",
               "$extensions": {
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "contrastWith": ["semantic.ui.background.page"],
+                  "contrastType": "text",
+                  "themeable": true,
+                  "themeLevel": "advanced"
                 }
               }
             },
             "hover": {
-              "$value": "{semantic.button.outline.text.hover}",
+              "$value": "{semantic.interactive.action.primary.on}",
               "$type": "color",
               "$description": "Outline button hover state text",
               "$extensions": {
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
-                  "themeable": true
+                  "themeable": true,
+                  "themeLevel": "advanced"
+                }
+              }
+            }
+          },
+          "variant": {
+            "primary": {
+              "background": {
+                "active": {
+                  "$value": "{semantic.interactive.action.primary.active}",
+                  "$type": "color",
+                  "$description": "Outline primary button active state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-primary",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "border": {
+                "active": {
+                  "$value": "{semantic.interactive.action.primary.active}",
+                  "$type": "color",
+                  "$description": "Outline primary button active state border color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-primary",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "secondary": {
+              "background": {
+                "active": {
+                  "$value": "{semantic.interactive.action.secondary.active}",
+                  "$type": "color",
+                  "$description": "Outline secondary button active state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-secondary",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "border": {
+                "active": {
+                  "$value": "{semantic.interactive.action.secondary.active}",
+                  "$type": "color",
+                  "$description": "Outline secondary button active state border color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-secondary",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "success": {
+              "background": {
+                "active": {
+                  "$value": "{semantic.interactive.action.success.active}",
+                  "$type": "color",
+                  "$description": "Outline success button active state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-success",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "border": {
+                "active": {
+                  "$value": "{semantic.interactive.action.success.active}",
+                  "$type": "color",
+                  "$description": "Outline success button active state border color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-success",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "destructive": {
+              "background": {
+                "active": {
+                  "$value": "{semantic.interactive.action.destructive.active}",
+                  "$type": "color",
+                  "$description": "Outline destructive button active state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-destructive",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "border": {
+                "active": {
+                  "$value": "{semantic.interactive.action.destructive.active}",
+                  "$type": "color",
+                  "$description": "Outline destructive button active state border color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-destructive",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "warning": {
+              "background": {
+                "active": {
+                  "$value": "{semantic.interactive.action.warning.active}",
+                  "$type": "color",
+                  "$description": "Outline warning button active state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-warning",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "border": {
+                "active": {
+                  "$value": "{semantic.interactive.action.warning.active}",
+                  "$type": "color",
+                  "$description": "Outline warning button active state border color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-warning",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "info": {
+              "background": {
+                "active": {
+                  "$value": "{semantic.interactive.action.info.active}",
+                  "$type": "color",
+                  "$description": "Outline info button active state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-info",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "border": {
+                "active": {
+                  "$value": "{semantic.interactive.action.info.active}",
+                  "$type": "color",
+                  "$description": "Outline info button active state border color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-info",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              }
+            },
+            "neutral": {
+              "background": {
+                "active": {
+                  "$value": "{semantic.interactive.action.neutral.active}",
+                  "$type": "color",
+                  "$description": "Outline neutral button active state background",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-neutral",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
+                }
+              },
+              "border": {
+                "active": {
+                  "$value": "{semantic.interactive.action.neutral.active}",
+                  "$type": "color",
+                  "$description": "Outline neutral button active state border color",
+                  "$extensions": {
+                    "lufa": {
+                      "category": "button",
+                      "variant": "outline-neutral",
+                      "themeable": true,
+                      "themeLevel": "advanced"
+                    }
+                  }
                 }
               }
             }

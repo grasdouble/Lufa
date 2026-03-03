@@ -3,7 +3,7 @@
     "layout": {
       "sidebar": {
         "width": {
-          "$value": "280px",
+          "$value": "{primitive.layout.sidebar.width}",
           "$type": "dimension",
           "$description": "Standard width for sidebar navigation (desktop)",
           "$extensions": {

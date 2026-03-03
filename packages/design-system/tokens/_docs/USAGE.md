@@ -20,7 +20,7 @@ export const Button = ({ children }) => (
 ```css
 /* Button.module.css */
 .button {
-  background-color: var(--lufa-core-brand-primary);
+  background-color: var(--lufa-core-color-brand-primary);
   padding: var(--lufa-primitive-spacing-16);
 }
 ```
@@ -41,15 +41,15 @@ React Components (*.tsx)
 
 ```css
 :root {
-  --lufa-core-brand-primary: #2563eb;
+  --lufa-core-color-brand-primary: #2563eb;
 }
 [data-mode='dark'] {
-  --lufa-core-brand-primary: #60a5fa;
+  --lufa-core-color-brand-primary: #60a5fa;
 }
 
 /* Component adapts automatically — no JS changes needed */
 .button {
-  background-color: var(--lufa-core-brand-primary);
+  background-color: var(--lufa-core-color-brand-primary);
 }
 ```
 
@@ -72,7 +72,7 @@ React Components (*.tsx)
 // In Storybook stories only
 import tokens from '@grasdouble/lufa_design-system-tokens/values';
 
-const primary = tokens.core.brand.primary; // "#2563eb"
+const primary = tokens.core.color.brand.primary; // "#2563eb"
 ```
 
 ---
@@ -84,7 +84,7 @@ const primary = tokens.core.brand.primary; // "#2563eb"
 ```css
 /* ✅ PREFERRED — semantic naming */
 .button {
-  background-color: var(--lufa-core-brand-primary);
+  background-color: var(--lufa-core-color-brand-primary);
 }
 
 /* ✅ ACCEPTABLE — primitives when no semantic token exists */
@@ -157,7 +157,7 @@ import tokens from '@grasdouble/lufa_design-system-tokens/values';
 /* ✅ CORRECT */
 .button {
   padding: var(--lufa-primitive-spacing-16);
-  background-color: var(--lufa-core-brand-primary);
+  background-color: var(--lufa-core-color-brand-primary);
 }
 ```
 

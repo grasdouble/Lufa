@@ -102,8 +102,8 @@ platforms: {
 ```tsx
 // Before and After - same usage
 const Button = styled.button`
-  background: var(--lufa-core-brand-primary);
-  color: var(--lufa-core-neutral-text-on-primary);
+  background: var(--lufa-core-color-brand-primary);
+  color: var(--lufa-core-color-neutral-text-on-primary);
 `;
 ```
 

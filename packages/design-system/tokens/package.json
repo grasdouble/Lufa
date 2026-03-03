@@ -9,7 +9,12 @@
     ".": "./dist/tokens-values.json",
     "./tokens.css": "./dist/tokens.css",
     "./values": "./dist/tokens-values.json",
-    "./metadata": "./dist/tokens-metadata.json"
+    "./metadata": "./dist/tokens-metadata.json",
+    "./merged": "./dist/tokens-source-merged.json",
+    "./themeable": "./dist/themeable-tokens.css",
+    "./themeable-starter": "./dist/themeable-tokens-starter.css",
+    "./themeable-extended": "./dist/themeable-tokens-extended.css",
+    "./themeable-advanced": "./dist/themeable-tokens-advanced.css"
   },
   "main": "./dist/tokens-values.json",
   "files": [
@@ -18,9 +23,10 @@
   ],
   "scripts": {
     "prebuild": "pnpm validate:tokens",
-    "build": "pnpm clean && style-dictionary build --config ./style-dictionary.config.js && pnpm check:size",
+    "build": "pnpm clean && style-dictionary build --config ./style-dictionary.config.js && pnpm check:size && pnpm merge:tokens",
     "check:size": "node scripts/check-css-size.mjs",
     "clean": "rm -rf dist",
+    "merge:tokens": "node scripts/merge-tokens.mjs",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "test": "pnpm test:validator && pnpm test:wcag",

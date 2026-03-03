@@ -157,7 +157,7 @@ export const PaddingVisualizer: React.FC<PaddingVisualizerProps> = ({
             fontSize: '9px',
             fontWeight: 600,
             color: 'var(--lufa-semantic-ui-text-secondary)',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
             padding: '2px 6px',
             borderRadius: '3px',
             border: '1px solid var(--lufa-semantic-ui-border-default)',

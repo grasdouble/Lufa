@@ -3,80 +3,114 @@
     "ui": {
       "background": {
         "page": {
-          "$value": "{core.neutral.background}",
+          "$value": "{core.color.neutral.background}",
           "$type": "color",
           "$description": "Main page background - base canvas for entire application",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Root background, page wrapper, main container",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "surface": {
-          "$value": "{core.neutral.surface.default}",
-          "$type": "color",
-          "$description": "Surface background for cards, panels, and elevated content",
-          "$extensions": {
-            "lufa": {
-              "category": "ui",
-              "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds",
-              "themeable": true
+          "default": {
+            "$value": "{core.color.neutral.surface.default}",
+            "$type": "color",
+            "$description": "Surface background for cards, panels, and elevated content",
+            "$extensions": {
+              "lufa": {
+                "category": "ui",
+                "useCase": "Cards, panels, modal backgrounds, dropdown backgrounds",
+                "themeable": true,
+                "themeLevel": "extended"
+              }
+            }
+          },
+          "raised": {
+            "$value": "{core.color.neutral.surface.raised}",
+            "$type": "color",
+            "$description": "Raised surface background - slightly elevated above default surface",
+            "$extensions": {
+              "lufa": {
+                "category": "ui",
+                "useCase": "Raised cards, neutral button default backgrounds, elevated panels",
+                "themeable": true,
+                "themeLevel": "extended"
+              }
+            }
+          },
+          "active": {
+            "$value": "{core.color.neutral.surface.active}",
+            "$type": "color",
+            "$description": "Active surface background - for pressed/active interactive surfaces",
+            "$extensions": {
+              "lufa": {
+                "category": "ui",
+                "useCase": "Active/pressed state for interactive surfaces, ghost button active backgrounds",
+                "themeable": true,
+                "themeLevel": "extended"
+              }
             }
           }
         },
         "success": {
-          "$value": "{core.semantic.success.subtle}",
+          "$value": "{core.color.feedback.success.subtle}",
           "$type": "color",
           "$description": "Background for success messages and positive feedback",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Success alerts, positive notifications, confirmation banners",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "error": {
-          "$value": "{core.semantic.error.subtle}",
+          "$value": "{core.color.feedback.error.subtle}",
           "$type": "color",
           "$description": "Background for error messages and validation failures",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Error alerts, validation messages, destructive action confirmations",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "warning": {
-          "$value": "{core.semantic.warning.subtle}",
+          "$value": "{core.color.feedback.warning.subtle}",
           "$type": "color",
           "$description": "Background for warning messages and caution notices",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Warning alerts, caution banners, pending action notices",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "info": {
-          "$value": "{core.semantic.info.subtle}",
+          "$value": "{core.color.feedback.info.subtle}",
           "$type": "color",
           "$description": "Background for informational messages and neutral notifications",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Info alerts, tips, help messages, neutral notifications",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "on": {
           "success": {
-            "$value": "{core.semantic.success.default}",
+            "$value": "{core.color.feedback.success.default}",
             "$type": "color",
             "$description": "Text and icons on success background - for use with background-success (subtle background)",
             "$extensions": {
@@ -85,12 +119,15 @@
                 "subcategory": "contrast",
                 "useCase": "Text in success alerts, success badge text, success message content",
                 "pairedWith": "background-success",
-                "themeable": true
+                "contrastWith": ["semantic.ui.background.success"],
+                "contrastType": "text",
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
           "error": {
-            "$value": "{core.semantic.error.default}",
+            "$value": "{core.color.feedback.error.default}",
             "$type": "color",
             "$description": "Text and icons on error background - for use with background-error (subtle background)",
             "$extensions": {
@@ -99,12 +136,15 @@
                 "subcategory": "contrast",
                 "useCase": "Text in error alerts, error badge text, error message content",
                 "pairedWith": "background-error",
-                "themeable": true
+                "contrastWith": ["semantic.ui.background.error"],
+                "contrastType": "text",
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
           "warning": {
-            "$value": "{core.semantic.warning.default}",
+            "$value": "{core.color.feedback.warning.default}",
             "$type": "color",
             "$description": "Text and icons on warning background - for use with background-warning (subtle background)",
             "$extensions": {
@@ -113,12 +153,15 @@
                 "subcategory": "contrast",
                 "useCase": "Text in warning alerts, warning badge text, warning message content",
                 "pairedWith": "background-warning",
-                "themeable": true
+                "contrastWith": ["semantic.ui.background.warning"],
+                "contrastType": "text",
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
           "info": {
-            "$value": "{core.semantic.info.default}",
+            "$value": "{core.color.feedback.info.default}",
             "$type": "color",
             "$description": "Text and icons on info background - for use with background-info (subtle background)",
             "$extensions": {
@@ -127,12 +170,15 @@
                 "subcategory": "contrast",
                 "useCase": "Text in info alerts, info badge text, info message content",
                 "pairedWith": "background-info",
-                "themeable": true
+                "contrastWith": ["semantic.ui.background.info"],
+                "contrastType": "text",
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
           "primary": {
-            "$value": "{core.brand.primary.on.background}",
+            "$value": "{core.color.brand.primary.on.background}",
             "$type": "color",
             "$description": "Text and icons on primary brand background - themeable for accessibility",
             "$extensions": {
@@ -140,13 +186,14 @@
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text/icons on primary buttons, primary badges, primary interactive elements",
-                "pairedWith": "core.brand.primary.default",
-                "themeable": true
+                "pairedWith": "core.color.brand.primary.default",
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           },
           "secondary": {
-            "$value": "{core.brand.secondary.on.background}",
+            "$value": "{core.color.brand.secondary.on.background}",
             "$type": "color",
             "$description": "Text and icons on secondary brand background - themeable for accessibility",
             "$extensions": {
@@ -154,8 +201,9 @@
                 "category": "ui",
                 "subcategory": "contrast",
                 "useCase": "Text/icons on secondary buttons, secondary badges, secondary interactive elements",
-                "pairedWith": "core.brand.secondary.default",
-                "themeable": true
+                "pairedWith": "core.color.brand.secondary.default",
+                "themeable": true,
+                "themeLevel": "extended"
               }
             }
           }
@@ -163,7 +211,7 @@
       },
       "overlay": {
         "backdrop": {
-          "$value": "{primitive.color.alpha.black.50}",
+          "$value": "{core.color.alpha.black.50}",
           "$type": "color",
           "$description": "Semi-transparent backdrop for modals, dialogs, and drawers",
           "$extensions": {
@@ -172,15 +220,16 @@
               "subcategory": "overlay",
               "useCase": "Modal backdrops, dialog overlays, drawer backgrounds",
               "modes": {
-                "dark": "{primitive.color.alpha.black.80}",
-                "high-contrast": "{primitive.color.alpha.black.90}"
+                "dark": "{core.color.alpha.black.80}",
+                "high-contrast": "{core.color.alpha.black.90}"
               },
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "hover": {
-          "$value": "{primitive.color.alpha.black.4}",
+          "$value": "{core.color.alpha.black.4}",
           "$type": "color",
           "$description": "Subtle overlay for hover states on interactive elements",
           "$extensions": {
@@ -189,15 +238,16 @@
               "subcategory": "overlay",
               "useCase": "Hover state backgrounds for list items, cards, table rows",
               "modes": {
-                "dark": "{primitive.color.alpha.white.8}",
-                "high-contrast": "{primitive.color.alpha.white.16}"
+                "dark": "{core.color.alpha.white.8}",
+                "high-contrast": "{core.color.alpha.white.16}"
               },
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "pressed": {
-          "$value": "{primitive.color.alpha.black.8}",
+          "$value": "{core.color.alpha.black.8}",
           "$type": "color",
           "$description": "Overlay for pressed/active states",
           "$extensions": {
@@ -206,15 +256,16 @@
               "subcategory": "overlay",
               "useCase": "Pressed/active state overlays on buttons and interactive elements",
               "modes": {
-                "dark": "{primitive.color.alpha.white.16}",
-                "high-contrast": "{primitive.color.alpha.white.16}"
+                "dark": "{core.color.alpha.white.16}",
+                "high-contrast": "{core.color.alpha.white.16}"
               },
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "selected": {
-          "$value": "{primitive.color.alpha.black.16}",
+          "$value": "{core.color.alpha.black.16}",
           "$type": "color",
           "$description": "Overlay for selected states in lists and menus",
           "$extensions": {
@@ -223,15 +274,16 @@
               "subcategory": "overlay",
               "useCase": "Selected list items, active menu items, selected tabs",
               "modes": {
-                "dark": "{primitive.color.alpha.white.16}",
-                "high-contrast": "{primitive.color.alpha.white.16}"
+                "dark": "{core.color.alpha.white.16}",
+                "high-contrast": "{core.color.alpha.white.16}"
               },
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "scrim": {
-          "$value": "{primitive.color.alpha.black.38}",
+          "$value": "{core.color.alpha.black.38}",
           "$type": "color",
           "$description": "Scrim overlay for bottom sheets and temporary surfaces",
           "$extensions": {
@@ -240,170 +292,202 @@
               "subcategory": "overlay",
               "useCase": "Bottom sheets, temporary drawers, transient overlays",
               "modes": {
-                "dark": "{primitive.color.alpha.black.60}",
-                "high-contrast": "{primitive.color.alpha.black.80}"
+                "dark": "{core.color.alpha.black.60}",
+                "high-contrast": "{core.color.alpha.black.80}"
               },
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }
       },
       "text": {
         "primary": {
-          "$value": "{core.neutral.text.primary}",
+          "$value": "{core.color.neutral.text.primary}",
           "$type": "color",
           "$description": "Primary text color for headings and body content",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Headings, body text, primary labels, main content",
-              "themeable": true
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.surface.default"],
+              "contrastType": "text",
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "secondary": {
-          "$value": "{core.neutral.text.secondary}",
+          "$value": "{core.color.neutral.text.secondary}",
           "$type": "color",
           "$description": "Secondary text color for supporting content",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Descriptions, captions, metadata, secondary labels",
-              "themeable": true
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.surface.default"],
+              "contrastType": "text",
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "tertiary": {
-          "$value": "{core.neutral.text.tertiary}",
+          "$value": "{core.color.neutral.text.tertiary}",
           "$type": "color",
           "$description": "Tertiary text color for subtle content",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Placeholder text, timestamps, optional information",
-              "themeable": true
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.surface.default"],
+              "contrastType": "text",
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "success": {
-          "$value": "{core.semantic.success.default}",
+          "$value": "{core.color.feedback.success.default}",
           "$type": "color",
           "$description": "Text color for success messages and positive feedback",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Success message text, positive status indicators, confirmation text",
-              "themeable": true
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.success"],
+              "contrastType": "text",
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "error": {
-          "$value": "{core.semantic.error.default}",
+          "$value": "{core.color.feedback.error.default}",
           "$type": "color",
           "$description": "Text color for error messages and validation failures",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Error message text, validation errors, destructive action warnings",
-              "themeable": true
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.error"],
+              "contrastType": "text",
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "warning": {
-          "$value": "{core.semantic.warning.default}",
+          "$value": "{core.color.feedback.warning.default}",
           "$type": "color",
           "$description": "Text color for warning messages and caution notices",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Warning message text, caution labels, pending action notices",
-              "themeable": true
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.warning"],
+              "contrastType": "text",
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "info": {
-          "$value": "{core.semantic.info.default}",
+          "$value": "{core.color.feedback.info.default}",
           "$type": "color",
           "$description": "Text color for informational messages",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Info message text, help content, neutral notifications",
-              "themeable": true
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.info"],
+              "contrastType": "text",
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }
       },
       "border": {
         "default": {
-          "$value": "{core.neutral.border.default}",
+          "$value": "{core.color.neutral.border.default}",
           "$type": "color",
           "$description": "Default border color for dividers and element boundaries",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Dividers, separators, card borders, section boundaries",
-              "themeable": true
+              "contrastWith": ["semantic.ui.background.page"],
+              "contrastType": "ui",
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "strong": {
-          "$value": "{core.neutral.border.strong}",
+          "$value": "{core.color.neutral.border.strong}",
           "$type": "color",
           "$description": "Stronger border for emphasis and visual hierarchy",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Emphasized borders, section separators, strong dividers",
-              "themeable": true
+              "contrastWith": ["semantic.ui.background.page"],
+              "contrastType": "ui",
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "success": {
-          "$value": "{core.semantic.success.border}",
+          "$value": "{core.color.feedback.success.border}",
           "$type": "color",
           "$description": "Border color for success contexts",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Success alert borders, positive status borders",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "error": {
-          "$value": "{core.semantic.error.border}",
+          "$value": "{core.color.feedback.error.border}",
           "$type": "color",
           "$description": "Border color for error contexts",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Error alert borders, invalid input borders, destructive action borders",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "warning": {
-          "$value": "{core.semantic.warning.border}",
+          "$value": "{core.color.feedback.warning.border}",
           "$type": "color",
           "$description": "Border color for warning contexts",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Warning alert borders, caution element borders",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "info": {
-          "$value": "{core.semantic.info.border}",
+          "$value": "{core.color.feedback.info.border}",
           "$type": "color",
           "$description": "Border color for informational contexts",
           "$extensions": {
             "lufa": {
               "category": "ui",
               "useCase": "Info alert borders, help element borders",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }
@@ -418,7 +502,8 @@
               "category": "ui",
               "subcategory": "typography",
               "useCase": "Caption text, small labels, tooltip text, metadata",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

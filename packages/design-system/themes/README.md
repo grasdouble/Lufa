@@ -73,7 +73,7 @@ Each theme file also includes alpha, shadow, overlay, and glow tokens (cyber the
 
 ```
 Token types per theme:
-  --lufa-alpha-{color}-{opacity}        transparency (9 levels per color)
+  --lufa-color-alpha-{color}-{opacity}        transparency (9 levels per color)
   --lufa-shadow-{size}                  elevation (xs, sm, md, lg, xl)
   --lufa-overlay-{tone}-{intensity}     layering (light/dark × 3 intensities)
   --lufa-glow-{type}-{intensity}        neon glow — Matrix & Cyberpunk only

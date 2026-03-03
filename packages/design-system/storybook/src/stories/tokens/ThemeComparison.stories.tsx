@@ -152,8 +152,8 @@ export const ThemeShowcase: Story = {
               Brand Colors (Change with Theme)
             </h3>
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <ColorSwatch label="Primary" cssVariable="--lufa-core-brand-primary" />
-              <ColorSwatch label="Secondary" cssVariable="--lufa-core-brand-secondary" />
+              <ColorSwatch label="Primary" cssVariable="--lufa-core-color-brand-primary-default" />
+              <ColorSwatch label="Secondary" cssVariable="--lufa-core-color-brand-secondary-default" />
             </div>
           </section>
 
@@ -218,7 +218,7 @@ export const ThemeShowcase: Story = {
             <a
               href="#"
               style={{
-                color: 'var(--lufa-core-brand-primary)',
+                color: 'var(--lufa-core-color-brand-primary-default)',
                 textDecoration: 'underline',
                 fontSize: '14px',
                 fontWeight: 500,
@@ -256,7 +256,7 @@ export const ThemeShowcase: Story = {
                 backgroundColor: 'var(--lufa-component-card-background)',
                 border: '1px solid var(--lufa-component-card-border)',
                 borderRadius: '8px',
-                borderLeft: `4px solid var(--lufa-core-brand-primary)`,
+                borderLeft: `4px solid var(--lufa-core-color-brand-primary-default)`,
               }}
             >
               <div
@@ -312,8 +312,8 @@ export const ThemeShowcase: Story = {
                   borderRadius: '12px',
                   fontSize: '13px',
                   fontWeight: 600,
-                  backgroundColor: 'var(--lufa-component-badge-success-background)',
-                  color: 'var(--lufa-component-badge-success-text)',
+                  backgroundColor: 'var(--lufa-component-badge-variant-success-background)',
+                  color: 'var(--lufa-component-badge-variant-success-text)',
                 }}
               >
                 Success (Always Green)
@@ -324,8 +324,8 @@ export const ThemeShowcase: Story = {
                   borderRadius: '12px',
                   fontSize: '13px',
                   fontWeight: 600,
-                  backgroundColor: 'var(--lufa-component-badge-error-background)',
-                  color: 'var(--lufa-component-badge-error-text)',
+                  backgroundColor: 'var(--lufa-component-badge-variant-error-background)',
+                  color: 'var(--lufa-component-badge-variant-error-text)',
                 }}
               >
                 Error (Always Red)
@@ -336,8 +336,8 @@ export const ThemeShowcase: Story = {
                   borderRadius: '12px',
                   fontSize: '13px',
                   fontWeight: 600,
-                  backgroundColor: 'var(--lufa-component-badge-warning-background)',
-                  color: 'var(--lufa-component-badge-warning-text)',
+                  backgroundColor: 'var(--lufa-component-badge-variant-warning-background)',
+                  color: 'var(--lufa-component-badge-variant-warning-text)',
                 }}
               >
                 Warning (Always Yellow)
@@ -348,8 +348,8 @@ export const ThemeShowcase: Story = {
                   borderRadius: '12px',
                   fontSize: '13px',
                   fontWeight: 600,
-                  backgroundColor: 'var(--lufa-component-badge-info-background)',
-                  color: 'var(--lufa-component-badge-info-text)',
+                  backgroundColor: 'var(--lufa-component-badge-variant-info-background)',
+                  color: 'var(--lufa-component-badge-variant-info-text)',
                 }}
               >
                 Info (Always Blue)

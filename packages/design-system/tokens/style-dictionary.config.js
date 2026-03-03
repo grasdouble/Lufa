@@ -85,6 +85,118 @@ StyleDictionary.registerFormat({
 });
 
 /**
+ * Custom format: CSS themeable token template
+ *
+ * Generates a CSS template file for theme authors to override themeable tokens.
+ * Outputs 3 selector blocks: light, dark, high-contrast.
+ *
+ * Options:
+ *   - outputReferences: boolean — if true, uses var(--lufa-*) references instead of resolved values
+ *   - prefix: string — CSS variable prefix (default: 'lufa')
+ *   - themeLevelFilter: 'starter' | 'extended' | 'advanced' — cumulative level filter
+ */
+StyleDictionary.registerFormat({
+  name: 'css/themeable-tokens',
+  format: ({ dictionary, options }) => {
+    const prefix = options.prefix || 'lufa';
+    const { outputReferences, themeLevelFilter } = options;
+
+    // Helper: resolve token value or reference
+    const formatValue = (token) => {
+      if (
+        outputReferences &&
+        token.original.$value &&
+        typeof token.original.$value === 'string' &&
+        token.original.$value.includes('{')
+      ) {
+        return token.original.$value.replace(/\{([^}]+)\}/g, (_, refContent) => {
+          const refPath = refContent.split('.');
+          return `var(--${prefix}-${refPath.join('-')})`;
+        });
+      }
+      return token.$value ?? token.value ?? token.original?.$value;
+    };
+
+    // Helper: resolve a modes value string (may contain {ref})
+    const formatModeValue = (modeValue) => {
+      if (typeof modeValue === 'string' && modeValue.includes('{')) {
+        return modeValue.replace(/\{([^}]+)\}/g, (_, refContent) => {
+          const refPath = refContent.split('.');
+          return `var(--${prefix}-${refPath.join('-')})`;
+        });
+      }
+      return modeValue;
+    };
+
+    // Filter: themeable + has modes
+    const hasModes = (token) => {
+      const modes = token.$extensions?.lufa?.modes || token.original?.$extensions?.lufa?.modes;
+      return modes && typeof modes === 'object' && Object.keys(modes).length > 0;
+    };
+
+    const isThemeable = (token) =>
+      token.$extensions?.lufa?.themeable === true || token.original?.$extensions?.lufa?.themeable === true;
+
+    // For level-filtered outputs: include all themeable tokens (with or without modes).
+    // For generic outputs (all): keep the hasModes requirement.
+    let filtered = dictionary.allTokens.filter((t) =>
+      themeLevelFilter ? isThemeable(t) : isThemeable(t) && hasModes(t)
+    );
+
+    // Filter by themeLevel (cumulative: starter ⊂ extended ⊂ advanced)
+    if (themeLevelFilter) {
+      const LEVEL_ORDER = ['starter', 'extended', 'advanced'];
+      const maxIndex = LEVEL_ORDER.indexOf(themeLevelFilter);
+      const allowedLevels = LEVEL_ORDER.slice(0, maxIndex + 1);
+      filtered = filtered.filter((t) => {
+        const tl = t.$extensions?.lufa?.themeLevel || t.original?.$extensions?.lufa?.themeLevel;
+        return allowedLevels.includes(tl);
+      });
+    }
+
+    if (filtered.length === 0) {
+      return '/**\n * Do not edit directly, this file was auto-generated.\n */\n';
+    }
+
+    const tokenData = filtered.map((token) => {
+      const modes = token.$extensions?.lufa?.modes || token.original?.$extensions?.lufa?.modes;
+      return { token, modes };
+    });
+
+    let output = '/**\n * Do not edit directly, this file was auto-generated.\n */\n\n';
+
+    // 1. Light mode
+    output += "[data-theme='your-theme-name'],\n[data-theme='your-theme-name'][data-mode='light'] {\n";
+    tokenData.forEach(({ token }) => {
+      const cssVarName = `--${prefix}-${token.path.join('-')}`;
+      const value = formatValue(token);
+      output += `  ${cssVarName}: ${value};\n`;
+    });
+    output += '}\n\n';
+
+    // 2. Dark mode
+    output += "[data-theme='your-theme-name'][data-mode='dark'] {\n";
+    tokenData.forEach(({ token, modes }) => {
+      const cssVarName = `--${prefix}-${token.path.join('-')}`;
+      const darkValue = formatModeValue((modes && modes.dark) || formatValue(token));
+      output += `  ${cssVarName}: ${darkValue};\n`;
+    });
+    output += '}\n\n';
+
+    // 3. High-contrast mode
+    output += "[data-theme='your-theme-name'][data-mode='high-contrast'] {\n";
+    tokenData.forEach(({ token, modes }) => {
+      const cssVarName = `--${prefix}-${token.path.join('-')}`;
+      const hcValue = formatModeValue((modes && modes['high-contrast']) || (modes && modes.dark) || formatValue(token));
+      output += `  ${cssVarName}: ${hcValue};\n`;
+    });
+    output += '}\n';
+
+    return output;
+  },
+});
+
+/**
  * Custom format: CSS with multi-mode support (Simplified)
  *
  * Generates CSS with [data-mode] selectors for light, dark, and high-contrast modes.
@@ -114,8 +226,9 @@ StyleDictionary.registerFormat({
           return `var(--${prefix}-${refPath.join('-')})`;
         });
       }
-      // Return the transformed value, or fallback to original $value
-      return token.value || token.original?.$value || token.$value;
+      // Return the transformed value (SD v5: lives in token.$value after transforms, token.value is undefined)
+      // Fallback chain: transformed $value → legacy value → original $value (raw)
+      return token.$value ?? token.value ?? token.original?.$value;
     };
 
     // Helper: Check if token has modes (mode-aware is inferred)
@@ -261,6 +374,41 @@ export default {
           options: {
             outputReferences: true, // Preserves 4-level token cascade
             prefix: 'lufa',
+          },
+        },
+        {
+          destination: 'themeable-tokens.css',
+          format: 'css/themeable-tokens',
+          options: {
+            outputReferences: true,
+            prefix: 'lufa',
+          },
+        },
+        {
+          destination: 'themeable-tokens-starter.css',
+          format: 'css/themeable-tokens',
+          options: {
+            outputReferences: true,
+            prefix: 'lufa',
+            themeLevelFilter: 'starter',
+          },
+        },
+        {
+          destination: 'themeable-tokens-extended.css',
+          format: 'css/themeable-tokens',
+          options: {
+            outputReferences: true,
+            prefix: 'lufa',
+            themeLevelFilter: 'extended',
+          },
+        },
+        {
+          destination: 'themeable-tokens-advanced.css',
+          format: 'css/themeable-tokens',
+          options: {
+            outputReferences: true,
+            prefix: 'lufa',
+            themeLevelFilter: 'advanced',
           },
         },
       ],

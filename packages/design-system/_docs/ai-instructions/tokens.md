@@ -44,7 +44,7 @@ tokens/src/
 │   ├── typography/
 │   │   └── body.json, heading.json, button.json, ...  # Typography role tokens
 │   └── layout/
-│       └── containers.json, grid.json, ...            # Layout structural tokens
+│       └── container.json, grid.json, ...             # Layout structural tokens
 ├── semantic/
 │   ├── ui/
 │   │   ├── spacing.json         # spacing.tight, .compact, .default, .comfortable, .spacious
@@ -246,7 +246,7 @@ Semantic tokens map design intent to core values. They use **intent-based names*
     "interactive": {
       "background": {
         "hover": {
-          "$value": "{core.neutral.surface.hover}",
+          "$value": "{core.color.neutral.surface.hover}",
           "$type": "color",
           "$description": "Background color when hovering over interactive elements",
           "$extensions": {
@@ -279,8 +279,8 @@ When a semantic token needs **explicit mode overrides** (different from the refe
               "category": "button",
               "useCase": "Ghost/outline button backgrounds",
               "modes": {
-                "dark": "{core.neutral.surface.subtle}",
-                "high-contrast": "{core.neutral.border.strong}"
+                "dark": "{core.color.neutral.surface.subtle}",
+                "high-contrast": "{core.color.neutral.border.strong}"
               },
               "themeable": true
             }

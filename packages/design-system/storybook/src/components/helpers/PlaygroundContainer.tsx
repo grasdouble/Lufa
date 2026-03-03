@@ -64,7 +64,7 @@ export const PlaygroundContainer = ({
         display: 'flex',
         flexDirection: 'column',
         gap: '16px',
-        background: 'var(--lufa-semantic-ui-background-surface)',
+        background: 'var(--lufa-semantic-ui-background-surface-default)',
       }}
     >
       {/* Toggle Controls */}
@@ -124,7 +124,7 @@ export const PlaygroundContainer = ({
           padding: '24px',
           border: '2px dashed var(--lufa-semantic-ui-border-default)',
           borderRadius: '8px',
-          background: 'var(--lufa-semantic-ui-background-surface)',
+          background: 'var(--lufa-semantic-ui-background-surface-default)',
           minWidth: '400px',
           minHeight: '200px',
           flex: 1,
@@ -204,7 +204,7 @@ export const PlaygroundContainer = ({
             <div
               style={{
                 padding: '12px 16px',
-                background: 'var(--lufa-semantic-ui-background-surface)',
+                background: 'var(--lufa-semantic-ui-background-surface-default)',
                 borderRadius: '6px',
                 fontSize: '14px',
                 color: 'var(--lufa-semantic-ui-text-secondary)',
@@ -222,7 +222,7 @@ export const PlaygroundContainer = ({
               <div
                 style={{
                   padding: '12px 16px',
-                  background: 'var(--lufa-semantic-ui-background-surface)',
+                  background: 'var(--lufa-semantic-ui-background-surface-default)',
                   borderRadius: '6px',
                   fontSize: '14px',
                   color: 'var(--lufa-semantic-ui-text-secondary)',
@@ -242,7 +242,7 @@ export const PlaygroundContainer = ({
               <div
                 style={{
                   padding: '12px 16px',
-                  background: 'var(--lufa-semantic-ui-background-surface)',
+                  background: 'var(--lufa-semantic-ui-background-surface-default)',
                   borderRadius: '6px',
                   fontSize: '14px',
                   color: 'var(--lufa-semantic-ui-text-secondary)',
@@ -261,7 +261,7 @@ export const PlaygroundContainer = ({
             <div
               style={{
                 padding: '12px 16px',
-                background: 'var(--lufa-semantic-ui-background-surface)',
+                background: 'var(--lufa-semantic-ui-background-surface-default)',
                 borderRadius: '6px',
                 fontSize: '14px',
                 color: 'var(--lufa-semantic-ui-text-secondary)',

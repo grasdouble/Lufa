@@ -3,30 +3,42 @@
 ## Validate a Theme
 
 ```bash
-# Validate a custom theme file
-npx lufa-validate-theme ./my-custom-theme.css
+# Run all checks (completeness + format + a11y)
+lufa-ds-cli theme-validate ./my-theme.css
 
-# Verbose output with all errors
-npx lufa-validate-theme ./my-custom-theme.css --verbose
+# Run only the WCAG AA contrast check
+lufa-ds-cli theme-validate ./my-theme.css --a11y
 
-# Without colored output
-npx lufa-validate-theme ./my-custom-theme.css --no-color
+# Run only the format check
+lufa-ds-cli theme-validate ./my-theme.css --format
+
+# Run only the completeness check
+lufa-ds-cli theme-validate ./my-theme.css --completeness
+
+# Run all checks on every CSS file in a directory
+lufa-ds-cli theme-validate --dir ./themes/src
+
+# Run a11y check on every CSS file in a directory
+lufa-ds-cli theme-validate --a11y --dir ./themes/src
 ```
 
-## Get Theme Template
+## Create a Theme Template
 
 ```bash
-# Output complete theme template
-npx lufa-validate-theme --template > my-theme.css
+# Create a starter template in the current directory (prompts for file name)
+lufa-ds-cli theme-template
 
-# Use the template as starting point
-npx lufa-validate-theme --template > custom-theme.css
-# Edit custom-theme.css with your brand colors
-npx lufa-validate-theme custom-theme.css
+# Create an extended template with a specific file name
+lufa-ds-cli theme-template extended --output-name my-theme
+
+# Available levels: starter (default), extended, advanced
+lufa-ds-cli theme-template advanced -o my-brand-theme
 ```
 
 ## Exit Codes
 
-- `0` - Theme is valid
-- `1` - Validation errors found
-- `2` - CLI error (invalid arguments, file not found, etc.)
+| Code | Meaning                                             |
+| ---- | --------------------------------------------------- |
+| `0`  | All checks passed                                   |
+| `1`  | One or more validation errors found                 |
+| `2`  | CLI error (invalid arguments, file not found, etc.) |

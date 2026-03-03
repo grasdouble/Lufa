@@ -52,7 +52,7 @@ export function SizeVariants() {
             padding: 'var(--lufa-semantic-ui-spacing-compact)',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
           }}
         >
           <Icon name="star" size={value} color="primary" aria-hidden="true" />
@@ -120,8 +120,8 @@ export function ColorVariants() {
             padding: 'var(--lufa-semantic-ui-spacing-compact)',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
-            color: value === 'currentColor' ? 'var(--lufa-core-brand-primary-default)' : undefined,
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
+            color: value === 'currentColor' ? 'var(--lufa-core-color-brand-primary-default)' : undefined,
           }}
         >
           <Icon name="heart" size="lg" color={value} aria-hidden="true" />
@@ -174,7 +174,7 @@ export function TitleExamples() {
           padding: 'var(--lufa-semantic-ui-spacing-compact)',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
           borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
         }}
       >
         <Icon name="check" size="md" color="success" />
@@ -208,7 +208,7 @@ export function TitleExamples() {
           padding: 'var(--lufa-semantic-ui-spacing-compact)',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
           borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
         }}
       >
         <Icon name="alert-circle" size="md" color="warning" title="Warning: This action cannot be undone" />
@@ -242,7 +242,7 @@ export function TitleExamples() {
           padding: 'var(--lufa-semantic-ui-spacing-compact)',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
           borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
         }}
       >
         <button
@@ -254,7 +254,7 @@ export function TitleExamples() {
             padding: 'var(--lufa-semantic-ui-spacing-compact)',
             border: '1px solid var(--lufa-semantic-ui-border-default)',
             borderRadius: 'var(--lufa-primitive-radius-scale-base)',
-            backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+            backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
             cursor: 'pointer',
           }}
           aria-label="Delete item"
@@ -309,7 +309,7 @@ export function PolymorphicVariant() {
           padding: 'var(--lufa-semantic-ui-spacing-compact)',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
           borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
         }}
       >
         <Icon name="user" size="md" color="primary" aria-hidden="true" />
@@ -343,7 +343,7 @@ export function PolymorphicVariant() {
           padding: 'var(--lufa-semantic-ui-spacing-compact)',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
           borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
         }}
       >
         <Icon name="home" size="md" color="primary" as="div" aria-hidden="true" />
@@ -377,7 +377,7 @@ export function PolymorphicVariant() {
           padding: 'var(--lufa-semantic-ui-spacing-compact)',
           border: '1px solid var(--lufa-semantic-ui-border-default)',
           borderRadius: 'var(--lufa-primitive-radius-scale-sm)',
-          backgroundColor: 'var(--lufa-semantic-ui-background-surface)',
+          backgroundColor: 'var(--lufa-semantic-ui-background-surface-default)',
         }}
       >
         <Icon name="star" size="md" color="primary" as="i" aria-hidden="true" />

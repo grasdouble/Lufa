@@ -701,3 +701,7 @@ Since this ADR is **implemented**, success is measured by:
 **Approved By:** Design System Team  
 **Date Approved:** 2026-01-26  
 **Implementation Date:** 2026-01-26
+
+---
+
+> **Note (2026-03-01):** The 70 KB CSS budget referenced throughout this ADR reflects the constraint at the time of Phase 2D implementation (v0.7.1, ~608 tokens, 67 KB actual). Since then, the token system has grown to 685 tokens (~78 KB baseline) with the addition of interactive action tokens, core alpha tokens, icon-size tokens, and divider tokens. The operational CSS size guard in `scripts/check-css-size.mjs` has been updated accordingly: **120 KB warning / 150 KB hard limit**. The 70 KB figures in this ADR remain accurate as historical context for the Phase 2D decisions.

@@ -34,7 +34,7 @@ Primitives → Core Tokens → Semantic Tokens → [Component Tokens] → Compon
 2. **Core Tokens** (Level 2)
    - Foundation: brand, neutral, semantic base
    - References primitives only
-   - Examples: `core.brand.primary`, `core.neutral.background`
+   - Examples: `core.color.brand.primary`, `core.color.neutral.background`
 
 3. **Semantic Tokens** (Level 3)
    - UI-level meanings: backgrounds, text, borders, actions
@@ -105,7 +105,7 @@ packages/design-system/tokens/src/
 
 ```css
 --lufa-primitive-color-blue-600: #3b82f6;
---lufa-core-brand-primary: var(--lufa-primitive-color-blue-600);
+--lufa-core-color-brand-primary: var(--lufa-primitive-color-blue-600);
 ```
 
 ### Naming Rules
@@ -143,17 +143,17 @@ packages/design-system/tokens/src/
 /* Multi-mode support */
 :root,
 [data-mode='light'] {
-  --lufa-core-neutral-background: var(--lufa-primitive-color-gray-50);
+  --lufa-core-color-neutral-background: var(--lufa-primitive-color-gray-50);
   /* ... 173 tokens */
 }
 
 [data-mode='dark'] {
-  --lufa-core-neutral-background: var(--lufa-primitive-color-gray-900);
+  --lufa-core-color-neutral-background: var(--lufa-primitive-color-gray-900);
   /* ... 31 mode-specific tokens */
 }
 
 [data-mode='high-contrast'] {
-  --lufa-core-neutral-background: #ffffff;
+  --lufa-core-color-neutral-background: #ffffff;
   /* ... 31 mode-specific tokens */
 }
 ```
@@ -347,7 +347,7 @@ pnpm clean
 
 // CSS (automatic)
 .component {
-  background: var(--lufa-core-neutral-background);
+  background: var(--lufa-core-color-neutral-background);
   /* Resolves based on [data-mode] selector */
 }
 ```

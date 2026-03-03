@@ -92,7 +92,7 @@ export const Container = forwardRef(
         ref={ref as React.Ref<never>}
         className={clsx(
           styles.container,
-          fluid && styles['fluid-true'],
+          fluid && styles.fluid,
           size && styles[`size-${size}`],
           ...visibilityClasses,
           className

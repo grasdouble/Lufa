@@ -11,7 +11,8 @@
               "lufa": {
                 "category": "divider",
                 "useCase": "Light structural separation, barely-there dividers",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -23,7 +24,8 @@
               "lufa": {
                 "category": "divider",
                 "useCase": "Hairline dividers for minimal visual separation",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -37,7 +39,8 @@
               "lufa": {
                 "category": "divider",
                 "useCase": "Standard section separators",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -49,7 +52,8 @@
               "lufa": {
                 "category": "divider",
                 "useCase": "Standard divider line weight",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -63,7 +67,8 @@
               "lufa": {
                 "category": "divider",
                 "useCase": "Mid-level section breaks, panel separators",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -75,7 +80,8 @@
               "lufa": {
                 "category": "divider",
                 "useCase": "More visible divider for moderate hierarchy",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -89,7 +95,8 @@
               "lufa": {
                 "category": "divider",
                 "useCase": "Major section breaks, header/footer borders",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -101,7 +108,8 @@
               "lufa": {
                 "category": "divider",
                 "useCase": "Strong visual break between major sections",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -115,7 +123,8 @@
               "lufa": {
                 "category": "divider",
                 "useCase": "Maximum visual emphasis, page-level dividers",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -127,7 +136,8 @@
               "lufa": {
                 "category": "divider",
                 "useCase": "Thickest divider for boldest hierarchy breaks",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -142,7 +152,8 @@
             "lufa": {
               "category": "divider",
               "useCase": "Dense layouts",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -154,7 +165,8 @@
             "lufa": {
               "category": "divider",
               "useCase": "Standard layouts",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -166,32 +178,35 @@
             "lufa": {
               "category": "divider",
               "useCase": "Spacious layouts",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }
       },
       "dash-size": {
-        "$value": "{primitive.spacing.8}",
+        "$value": "{semantic.ui.divider.dash-size}",
         "$type": "dimension",
         "$description": "Length of each dash segment in a dashed divider",
         "$extensions": {
           "lufa": {
             "category": "divider",
             "useCase": "Dashed horizontal and vertical dividers",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       },
       "dash-gap": {
-        "$value": "{primitive.spacing.12}",
+        "$value": "{semantic.ui.divider.dash-gap}",
         "$type": "dimension",
         "$description": "Total step between dash starts (dash + gap) in a dashed divider",
         "$extensions": {
           "lufa": {
             "category": "divider",
             "useCase": "Dashed horizontal and vertical dividers",
-            "themeable": true
+            "themeable": true,
+            "themeLevel": "advanced"
           }
         }
       }

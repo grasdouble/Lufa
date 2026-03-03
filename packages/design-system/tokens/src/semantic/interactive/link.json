@@ -3,7 +3,7 @@
     "interactive": {
       "link": {
         "default": {
-          "$value": "{core.brand.primary.default}",
+          "$value": "{core.color.brand.primary.default}",
           "$type": "color",
           "$description": "Default link color for all link states in resting state",
           "$extensions": {
@@ -12,12 +12,13 @@
               "subcategory": "link",
               "useCase": "Standard hyperlinks, navigation links, text links",
               "a11y": "Maintains WCAG AA contrast in all modes",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "hover": {
-          "$value": "{core.brand.primary.hover}",
+          "$value": "{core.color.brand.primary.hover}",
           "$type": "color",
           "$description": "Link color when hovering - provides visual feedback",
           "$extensions": {
@@ -25,12 +26,13 @@
               "category": "interactive",
               "subcategory": "link",
               "useCase": "Hover state for links, enhanced interactivity indication",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "visited": {
-          "$value": "{core.brand.accent.visited}",
+          "$value": "{core.color.brand.accent.visited}",
           "$type": "color",
           "$description": "Color for visited links - helps users track navigation history",
           "$extensions": {
@@ -39,12 +41,13 @@
               "subcategory": "link",
               "useCase": "Previously visited hyperlinks, navigation history",
               "a11y": "Distinct from default link color for clarity",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "focus": {
-          "$value": "{core.brand.primary.default}",
+          "$value": "{core.color.brand.primary.default}",
           "$type": "color",
           "$description": "Link color when focused via keyboard - accessibility focus state",
           "$extensions": {
@@ -53,12 +56,13 @@
               "subcategory": "link",
               "useCase": "Keyboard navigation focus, accessibility compliance",
               "a11y": "Ensures focus ring is visible in all modes",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
         "active": {
-          "$value": "{core.brand.primary.active}",
+          "$value": "{core.color.brand.primary.active}",
           "$type": "color",
           "$description": "Link color when being clicked/activated",
           "$extensions": {
@@ -66,7 +70,8 @@
               "category": "interactive",
               "subcategory": "link",
               "useCase": "Active click state for links, pressed state",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

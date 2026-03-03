@@ -63,7 +63,7 @@ const FlexImpl = <T extends ElementType = 'div'>(
     justify && styles[`justify-${justify}`],
     align && styles[`align-${align}`],
     gap && styles[`gap-${gap}`],
-    inline && styles[`inline-true`],
+    inline && styles.inline,
     className
   );
 

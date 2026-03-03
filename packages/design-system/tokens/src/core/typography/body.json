@@ -10,7 +10,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Body text, paragraphs, labels, UI text",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Paragraphs, body text, normal text",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         },
@@ -35,7 +37,8 @@
               "lufa": {
                 "category": "typography",
                 "useCase": "Lead paragraphs, emphasized body text, introductions",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -47,7 +50,8 @@
               "lufa": {
                 "category": "typography",
                 "useCase": "Body text, paragraphs, default UI text",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           },
@@ -59,7 +63,8 @@
               "lufa": {
                 "category": "typography",
                 "useCase": "Secondary text, descriptions, help text",
-                "themeable": true
+                "themeable": true,
+                "themeLevel": "advanced"
               }
             }
           }
@@ -72,7 +77,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Body text line spacing, paragraph line height",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "advanced"
             }
           }
         }

@@ -85,9 +85,9 @@ export const TokenVsHardCoded: Story = {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {/*
                   EDUCATIONAL NOTE: These buttons use semantic design tokens.
-                  - Background: var(--lufa-component-button-primary-background)
-                  - Text: var(--lufa-component-button-primary-text)
-                  - Hover: var(--lufa-component-button-primary-background-hover)
+                  - Background: var(--lufa-component-button-type-solid-variant-primary-background-default)
+                  - Text: var(--lufa-component-button-type-solid-variant-primary-text)
+                  - Hover: var(--lufa-component-button-type-solid-variant-primary-background-default-hover)
                   
                   These tokens automatically adapt to:
                   - Light mode
@@ -120,7 +120,7 @@ export const TokenVsHardCoded: Story = {
 </Text>
 
 {/* CSS automatically uses: */}
-background: var(--lufa-component-button-primary-background);
+background: var(--lufa-component-button-type-solid-variant-primary-background-default);
 color: var(--lufa-semantic-ui-text-success);`}
               language="jsx"
               title="Token-Based Code"
@@ -422,8 +422,8 @@ export const CommonPatterns: Story = {
 <Button variant="success">Success</Button>
 
 {/* Internally uses component tokens: */}
-background: var(--lufa-component-button-primary-background);
-color: var(--lufa-component-button-primary-text);`}
+background: var(--lufa-component-button-type-solid-variant-primary-background-default);
+color: var(--lufa-component-button-type-solid-variant-primary-text);`}
               language="jsx"
               title="Component Tokens Pattern"
             />
@@ -462,7 +462,7 @@ color: var(--lufa-component-button-primary-text);`}
 
 {/* Or use CSS variables for custom elements: */}
 <div style={{
-  background: 'var(--lufa-semantic-ui-background-surface)',
+  background: 'var(--lufa-semantic-ui-background-surface-default)',
   color: 'var(--lufa-semantic-ui-text-primary)',
   borderColor: 'var(--lufa-semantic-ui-border-default)'
 }} />`}

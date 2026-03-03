@@ -10,7 +10,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Lead paragraphs, emphasized body text, introductions",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -22,7 +23,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Body text, paragraphs, standard content",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         },
@@ -34,7 +36,8 @@
             "lufa": {
               "category": "typography",
               "useCase": "Secondary text, descriptions, help text",
-              "themeable": true
+              "themeable": true,
+              "themeLevel": "extended"
             }
           }
         }

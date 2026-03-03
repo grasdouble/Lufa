@@ -55,7 +55,12 @@ type PlaygroundThemeSwitcherProps = {
  * Color mode (light/dark) is driven by Docusaurus's own toggle in the navbar.
  */
 export default function PlaygroundThemeSwitcher({ containerRef }: PlaygroundThemeSwitcherProps): React.JSX.Element {
-  const [currentTheme, setCurrentTheme] = useState<ThemeName>('default');
+  const [currentTheme, setCurrentTheme] = useState<ThemeName>(() => {
+    if (typeof window === 'undefined') return 'default';
+    const stored = localStorage.getItem('lufa-playground-theme');
+    if (stored && THEMES.some((t) => t.name === stored)) return stored as ThemeName;
+    return 'default';
+  });
   const [isOpen, setIsOpen] = useState(false);
   const { colorMode } = useColorMode();
 
@@ -83,6 +88,7 @@ export default function PlaygroundThemeSwitcher({ containerRef }: PlaygroundThem
   const handleThemeChange = (theme: ThemeName) => {
     setCurrentTheme(theme);
     applyTheme(theme);
+    localStorage.setItem('lufa-playground-theme', theme);
     setIsOpen(false);
   };
 

@@ -187,12 +187,12 @@ test.describe('Button Component', () => {
     test.describe('fullWidth Variant', () => {
       test('should apply fullWidth class', async ({ mount }) => {
         const component = await mount(<Button fullWidth>Full Width</Button>);
-        await expect(component).toHaveClass(/_fullWidth-true_/);
+        await expect(component).toHaveClass(/_fullWidth_/);
       });
 
       test('should not apply fullWidth class by default', async ({ mount }) => {
         const component = await mount(<Button>Normal Width</Button>);
-        await expect(component).not.toHaveClass(/_fullWidth-true_/);
+        await expect(component).not.toHaveClass(/_fullWidth_/);
       });
     });
   });
@@ -210,7 +210,7 @@ test.describe('Button Component', () => {
 
       test('should apply disabled class', async ({ mount }) => {
         const component = await mount(<Button disabled>Disabled</Button>);
-        await expect(component).toHaveClass(/_disabled-true_/);
+        await expect(component).toHaveClass(/_disabled_/);
       });
 
       test('should not be clickable when disabled', async ({ mount }) => {
@@ -237,14 +237,14 @@ test.describe('Button Component', () => {
           </Button>
         );
         await expect(component).toBeDisabled();
-        await expect(component).toHaveClass(/_disabled-true_/);
+        await expect(component).toHaveClass(/_disabled_/);
       });
     });
 
     test.describe('Loading State', () => {
       test('should apply loading class when loading=true', async ({ mount }) => {
         const component = await mount(<Button loading>Loading...</Button>);
-        await expect(component).toHaveClass(/_loading-true_/);
+        await expect(component).toHaveClass(/_loading_/);
       });
 
       test('should be disabled when loading', async ({ mount }) => {
@@ -282,7 +282,7 @@ test.describe('Button Component', () => {
         );
         // When loading, the left icon should be replaced by spinner
         // We just check that loading state is applied
-        await expect(component).toHaveClass(/_loading-true_/);
+        await expect(component).toHaveClass(/_loading_/);
       });
     });
 
@@ -294,7 +294,7 @@ test.describe('Button Component', () => {
           </Button>
         );
         await expect(component).toBeDisabled();
-        await expect(component).toHaveClass(/_loading-true_/);
+        await expect(component).toHaveClass(/_loading_/);
       });
     });
   });

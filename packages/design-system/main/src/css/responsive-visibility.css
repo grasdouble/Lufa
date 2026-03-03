@@ -10,7 +10,7 @@
  * - Mobile-first approach (min-width media queries)
  * - Accessibility: Uses display:none (removes from accessibility tree)
  *
- * Breakpoints (from tokens/primitives/breakpoint/scale.json):
+ * Breakpoints (from tokens/primitives/breakpoint.json):
  * - xs: 320px
  * - sm: 640px
  * - md: 768px

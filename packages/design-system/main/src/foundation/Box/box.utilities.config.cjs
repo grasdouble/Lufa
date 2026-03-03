@@ -194,7 +194,7 @@ module.exports = {
       property: 'background-color',
       values: {
         page: '--lufa-semantic-ui-background-page',
-        surface: '--lufa-semantic-ui-background-surface',
+        surface: '--lufa-semantic-ui-background-surface-default',
         success: '--lufa-semantic-ui-background-success',
         error: '--lufa-semantic-ui-background-error',
         warning: '--lufa-semantic-ui-background-warning',
