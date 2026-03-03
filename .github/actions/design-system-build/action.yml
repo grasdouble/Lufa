@@ -31,9 +31,10 @@ runs:
       with:
         path: |
           packages/design-system/tokens/dist
+          packages/design-system/cli/dist
           packages/design-system/themes/dist
           packages/design-system/main/dist
-        key: ds-build-${{ runner.os }}-${{ hashFiles('packages/design-system/tokens/**/*.json', 'packages/design-system/themes/src/**/*', 'packages/design-system/main/src/**/*', 'packages/design-system/*/package.json') }}
+        key: ds-build-${{ runner.os }}-${{ hashFiles('packages/design-system/tokens/**/*.json', 'packages/design-system/cli/src/**/*', 'packages/design-system/themes/src/**/*', 'packages/design-system/main/src/**/*', 'packages/design-system/*/package.json') }}
         restore-keys: |
           ds-build-${{ runner.os }}-
 
@@ -42,15 +43,15 @@ runs:
       shell: bash
       run: pnpm ds:tokens:build
 
+    - name: 🏗️ Build design cli
+      if: steps.cache-build.outputs.cache-hit != 'true'
+      shell: bash
+      run: pnpm ds:cli:build
+
     - name: 🏗️ Build design themes
       if: steps.cache-build.outputs.cache-hit != 'true'
       shell: bash
       run: pnpm ds:themes:build
-
-    - name: 🏗️ Build design cli
-      if: steps.cache-cli.outputs.cache-hit != 'true'
-      shell: bash
-      run: pnpm ds:cli:build
 
     - name: 🏗️ Build design system main
       if: steps.cache-build.outputs.cache-hit != 'true'
