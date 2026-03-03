@@ -24,9 +24,12 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "lint-staged": {
-    "*.{js,mjs}": [
+    "*.{js,ts,mjs}": [
       "eslint --fix",
       "prettier --write"
+    ],
+    "*.ts": [
+      "bash -c 'pnpm typecheck'"
     ],
     "*.{json,md}": [
       "prettier --write"
