@@ -1,5 +1,5 @@
-import { expect, test } from '@playwright/experimental-ct-react';
 import AxeBuilder from '@axe-core/playwright';
+import { expect, test } from '@playwright/experimental-ct-react';
 
 import { Portal } from '@grasdouble/lufa_design-system';
 

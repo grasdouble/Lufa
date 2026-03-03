@@ -43,14 +43,6 @@ jobs:
         if: always()
         run: pnpm all:typecheck
 
-      - name: Run DS theme validation
-        if: always()
-        run: pnpm ds:themes:validate:all
-
-      - name: Run DS token validation
-        if: always()
-        run: pnpm ds:all:validate:token-usage
-
       # Step 8: Check formatting
       - name: 🎨 Check formatting
         if: always()

@@ -36,13 +36,6 @@
         "failOnExceed": true,
         "description": "Total time for tokens + themes + main build"
       },
-      "tests": {
-        "max": 120,
-        "unit": "seconds",
-        "failOnExceed": false,
-        "warnOnExceed": true,
-        "description": "Playwright component tests execution time"
-      },
       "cssCascade": {
         "max": 1000,
         "unit": "milliseconds",
@@ -53,13 +46,13 @@
     }
   },
   "metadata": {
-    "lastUpdated": "2026-03-02",
-    "workflow": ".github/workflows/tools-ds-performance-budgets.yml",
+    "lastUpdated": "2026-03-03",
+    "action": ".github/actions/design-system-performance-budgets/action.yml",
     "notes": [
       "Bundle size budgets are for uncompressed files",
       "Gzipped size represents actual network transfer size",
-      "Test execution time budget is checked by the playwright-ct workflow",
-      "CSS cascade time measures CLI validation performance"
+      "CSS cascade time measures CLI validation performance",
+      "Playwright test execution time budget is in .github/config/playwright-budgets.json"
     ]
   }
 }

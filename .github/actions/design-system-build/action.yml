@@ -1,4 +1,4 @@
-name: 'Build Design System'
+name: 'Design System:Build'
 description: 'Build design system packages with intelligent caching'
 
 inputs:
@@ -46,6 +46,11 @@ runs:
       if: steps.cache-build.outputs.cache-hit != 'true'
       shell: bash
       run: pnpm ds:themes:build
+
+    - name: 🏗️ Build design cli
+      if: steps.cache-cli.outputs.cache-hit != 'true'
+      shell: bash
+      run: pnpm ds:cli:build
 
     - name: 🏗️ Build design system main
       if: steps.cache-build.outputs.cache-hit != 'true'
