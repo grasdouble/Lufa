@@ -33,7 +33,7 @@
 [data-theme='steampunk'][data-mode='light'] {
   /* Brand */
   --lufa-core-color-brand-primary-default: #8b4513;
-  --lufa-core-color-brand-primary-hover: #a0632b;
+  --lufa-core-color-brand-primary-hover: #7a4a1e;
   --lufa-core-color-brand-primary-active: #8b4513;
   --lufa-core-color-brand-primary-on-background: #ffffff;
   --lufa-core-color-brand-secondary-default: #1f5a37;
@@ -46,8 +46,9 @@
   --lufa-core-color-neutral-background: #f5e6d3;
   --lufa-core-color-neutral-surface-default: #ead9c2;
   --lufa-core-color-neutral-surface-hover: #e0ccb1;
-  --lufa-core-color-neutral-border-default: #9f7a3e;
-  --lufa-core-color-neutral-border-strong: #8b7355;
+  --lufa-core-color-neutral-surface-active: #f5e6d3;
+  --lufa-core-color-neutral-border-default: #7a5a30;
+  --lufa-core-color-neutral-border-strong: #7a5a30;
   --lufa-core-color-neutral-text-primary: #2c1810;
   --lufa-core-color-neutral-text-secondary: #4a2c1a;
   --lufa-core-color-neutral-text-tertiary: #6b4423;
@@ -56,20 +57,42 @@
   /* Feedback */
   --lufa-core-color-feedback-success-default: #267347;
   --lufa-core-color-feedback-success-subtle: #e8f5ee;
-  --lufa-core-color-feedback-success-border: #9bcf9f;
+  --lufa-core-color-feedback-success-border: #267347;
+  --lufa-core-color-feedback-success-active: #267347;
   --lufa-core-color-feedback-success-hover: #1e5938;
+  --lufa-core-color-feedback-success-on-background: #ffffff;
   --lufa-core-color-feedback-error-default: #b7410e;
   --lufa-core-color-feedback-error-subtle: #fbeae5;
-  --lufa-core-color-feedback-error-border: #e89a7a;
+  --lufa-core-color-feedback-error-border: #9a350c;
+  --lufa-core-color-feedback-error-active: #b7410e;
   --lufa-core-color-feedback-error-hover: #9a350c;
+  --lufa-core-color-feedback-error-on-background: #ffffff;
   --lufa-core-color-feedback-warning-default: #8a5020;
   --lufa-core-color-feedback-warning-subtle: #fbf3e8;
-  --lufa-core-color-feedback-warning-border: #e5c89f;
+  --lufa-core-color-feedback-warning-border: #8a5020;
+  --lufa-core-color-feedback-warning-active: #8a5020;
   --lufa-core-color-feedback-warning-hover: #7f4e22;
+  --lufa-core-color-feedback-warning-on-background: #ffffff;
   --lufa-core-color-feedback-info-default: #5a6a77;
   --lufa-core-color-feedback-info-subtle: #f0f2f4;
-  --lufa-core-color-feedback-info-border: #b8c2cc;
+  --lufa-core-color-feedback-info-border: #5a6a77;
+  --lufa-core-color-feedback-info-active: #5a6a77;
   --lufa-core-color-feedback-info-hover: #4b5863;
+  --lufa-core-color-feedback-info-on-background: #ffffff;
+
+  /* Semantic overrides — interactive active bg must work with neutral-text-primary */
+  --lufa-semantic-interactive-background-active: #d4924a;
+
+  /* Component overrides — outline button border-hover contrasts against primary-default bg */
+  --lufa-component-button-type-outline-border-hover: #ffffff;
+
+  /* Component overrides — outline button border-active (border === bg at 1:1, use white) */
+  --lufa-component-button-type-outline-variant-primary-border-active: #ffffff;
+  --lufa-component-button-type-outline-variant-secondary-border-active: #ffffff;
+  --lufa-component-button-type-outline-variant-success-border-active: #ffffff;
+  --lufa-component-button-type-outline-variant-destructive-border-active: #ffffff;
+  --lufa-component-button-type-outline-variant-warning-border-active: #ffffff;
+  --lufa-component-button-type-outline-variant-info-border-active: #ffffff;
 
   /* Glow — bronze sepia (light mode) */
   --lufa-semantic-effect-glow-box-primary-default: 0 0 8px rgba(180, 130, 70, 0.3);
@@ -84,7 +107,7 @@
   --lufa-core-color-brand-primary-on-background: #000000;
   --lufa-core-color-brand-secondary-default: #3cb371;
   --lufa-core-color-brand-secondary-hover: #66cdaa;
-  --lufa-core-color-brand-secondary-active: #2e8b57;
+  --lufa-core-color-brand-secondary-active: #3cb371;
   --lufa-core-color-brand-secondary-on-background: #000000;
   --lufa-core-color-brand-accent-visited: #a78bfa;
 
@@ -92,6 +115,7 @@
   --lufa-core-color-neutral-background: #1a0f0a;
   --lufa-core-color-neutral-surface-default: #2c1810;
   --lufa-core-color-neutral-surface-hover: #3d2416;
+  --lufa-core-color-neutral-surface-active: #1a0f0a;
   --lufa-core-color-neutral-border-default: #a0632b;
   --lufa-core-color-neutral-border-strong: #b87333;
   --lufa-core-color-neutral-text-primary: #f5e6d3;
@@ -102,20 +126,42 @@
   /* Feedback */
   --lufa-core-color-feedback-success-default: #3cb371;
   --lufa-core-color-feedback-success-subtle: #0d1f15;
-  --lufa-core-color-feedback-success-border: #1f5a37;
+  --lufa-core-color-feedback-success-border: #3cb371;
+  --lufa-core-color-feedback-success-active: #3cb371;
   --lufa-core-color-feedback-success-hover: #66cdaa;
+  --lufa-core-color-feedback-success-on-background: #000000;
   --lufa-core-color-feedback-error-default: #e6653f;
   --lufa-core-color-feedback-error-subtle: #1f0d08;
-  --lufa-core-color-feedback-error-border: #4a1f14;
+  --lufa-core-color-feedback-error-border: #e6653f;
+  --lufa-core-color-feedback-error-active: #e6653f;
   --lufa-core-color-feedback-error-hover: #f28964;
+  --lufa-core-color-feedback-error-on-background: #000000;
   --lufa-core-color-feedback-warning-default: #deb887;
   --lufa-core-color-feedback-warning-subtle: #1f1a0f;
-  --lufa-core-color-feedback-warning-border: #4a3d28;
+  --lufa-core-color-feedback-warning-border: #deb887;
+  --lufa-core-color-feedback-warning-active: #deb887;
   --lufa-core-color-feedback-warning-hover: #f2d7a8;
+  --lufa-core-color-feedback-warning-on-background: #000000;
   --lufa-core-color-feedback-info-default: #8fa6b8;
   --lufa-core-color-feedback-info-subtle: #0f1215;
-  --lufa-core-color-feedback-info-border: #2c3539;
+  --lufa-core-color-feedback-info-border: #8fa6b8;
+  --lufa-core-color-feedback-info-active: #8fa6b8;
   --lufa-core-color-feedback-info-hover: #a8bfcc;
+  --lufa-core-color-feedback-info-on-background: #000000;
+
+  /* Semantic overrides — interactive active bg must work with neutral-text-primary */
+  --lufa-semantic-interactive-background-active: #3d2416;
+
+  /* Component overrides — outline button border-hover contrasts against primary-default bg */
+  --lufa-component-button-type-outline-border-hover: #000000;
+
+  /* Component overrides — outline button border-active (border === bg at 1:1, use #000000) */
+  --lufa-component-button-type-outline-variant-primary-border-active: #000000;
+  --lufa-component-button-type-outline-variant-secondary-border-active: #000000;
+  --lufa-component-button-type-outline-variant-success-border-active: #000000;
+  --lufa-component-button-type-outline-variant-destructive-border-active: #000000;
+  --lufa-component-button-type-outline-variant-warning-border-active: #000000;
+  --lufa-component-button-type-outline-variant-info-border-active: #000000;
 
   /* Glow — bronze sepia (dark mode) */
   --lufa-semantic-effect-glow-box-primary-default: 0 0 12px rgba(180, 130, 70, 0.5);
@@ -138,6 +184,7 @@
   --lufa-core-color-neutral-background: #000000;
   --lufa-core-color-neutral-surface-default: #0a0503;
   --lufa-core-color-neutral-surface-hover: #1a0f0a;
+  --lufa-core-color-neutral-surface-active: #000000;
   --lufa-core-color-neutral-border-default: #ffb347;
   --lufa-core-color-neutral-border-strong: #ffd700;
   --lufa-core-color-neutral-text-primary: #ffffff;
@@ -149,19 +196,41 @@
   --lufa-core-color-feedback-success-default: #00fa9a;
   --lufa-core-color-feedback-success-subtle: #000000;
   --lufa-core-color-feedback-success-border: #00fa9a;
+  --lufa-core-color-feedback-success-active: #00fa9a;
   --lufa-core-color-feedback-success-hover: #7fffd4;
+  --lufa-core-color-feedback-success-on-background: #000000;
   --lufa-core-color-feedback-error-default: #ff4500;
   --lufa-core-color-feedback-error-subtle: #000000;
   --lufa-core-color-feedback-error-border: #ff4500;
+  --lufa-core-color-feedback-error-active: #ff4500;
   --lufa-core-color-feedback-error-hover: #ff6347;
+  --lufa-core-color-feedback-error-on-background: #000000;
   --lufa-core-color-feedback-warning-default: #ffd700;
   --lufa-core-color-feedback-warning-subtle: #000000;
   --lufa-core-color-feedback-warning-border: #ffd700;
+  --lufa-core-color-feedback-warning-active: #ffd700;
   --lufa-core-color-feedback-warning-hover: #ffed4e;
+  --lufa-core-color-feedback-warning-on-background: #000000;
   --lufa-core-color-feedback-info-default: #87ceeb;
   --lufa-core-color-feedback-info-subtle: #000000;
   --lufa-core-color-feedback-info-border: #87ceeb;
+  --lufa-core-color-feedback-info-active: #87ceeb;
   --lufa-core-color-feedback-info-hover: #b0e0e6;
+  --lufa-core-color-feedback-info-on-background: #000000;
+
+  /* Semantic overrides — interactive active bg must work with neutral-text-primary (#ffffff) */
+  --lufa-semantic-interactive-background-active: #000000;
+
+  /* Component overrides — outline button border-hover contrasts against primary-default bg */
+  --lufa-component-button-type-outline-border-hover: #000000;
+
+  /* Component overrides — outline button border-active (border === bg at 1:1, use #000000) */
+  --lufa-component-button-type-outline-variant-primary-border-active: #000000;
+  --lufa-component-button-type-outline-variant-secondary-border-active: #000000;
+  --lufa-component-button-type-outline-variant-success-border-active: #000000;
+  --lufa-component-button-type-outline-variant-destructive-border-active: #000000;
+  --lufa-component-button-type-outline-variant-warning-border-active: #000000;
+  --lufa-component-button-type-outline-variant-info-border-active: #000000;
 
   /* Glow — disabled for accessibility */
   --lufa-semantic-effect-glow-box-primary-default: none;

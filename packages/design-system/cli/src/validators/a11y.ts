@@ -69,10 +69,35 @@ type TokenMap = Map<string, string>;
 
 /**
  * Parse a flat CSS file and return all --lufa-* custom property declarations
- * from every rule block (no mode distinction).
+ * from every rule block, intentionally ignoring selectors (no mode distinction).
  *
- * Used to load the DS base tokens (tokens.css) which declare all semantic /
- * component vars as var() references to core / primitive tokens.
+ * ## Why selectors are ignored here
+ *
+ * This function is exclusively used to load `tokens.css` — the DS base layer.
+ * `tokens.css` is structured as three blocks:
+ *
+ *   1. `[data-theme], [data-theme][data-mode='light']`  — 697 vars:
+ *        all primitive values + all semantic/component var() chain scaffolding
+ *        + light-mode core color hex values as the baseline.
+ *   2. `[data-theme][data-mode='dark']`                 — 53 vars:
+ *        core color hex overrides for dark mode.
+ *   3. `[data-theme][data-mode='high-contrast']`        — 53 vars:
+ *        core color hex overrides for high-contrast mode.
+ *
+ * Flattening all three blocks (last-write-wins) means the 53 core color tokens
+ * end up with high-contrast hex values in the resulting map. This is harmless
+ * because the base map's purpose here is NOT to supply final color values —
+ * it is only used so that `resolveCSSVarValue()` can walk the var() chains
+ * (semantic → core → primitive). The actual mode-specific hex values are
+ * always provided by the theme file via `parseThemeFileByMode()`, and theme
+ * tokens are spread on top of base tokens in the merge step (see `validateA11y`),
+ * so they unconditionally overwrite whatever leaked from the dark/HC blocks.
+ *
+ * ## What this means for theme authors
+ *
+ * Themes do NOT need to work around this. A theme's `[data-mode='dark']` block
+ * always wins over anything in the base map. The flat base map is purely
+ * structural scaffolding, not a source of truth for colors.
  */
 function parseFlatCSSTokens(content: string): TokenMap {
   const stripped = content.replace(/\/\*[\s\S]*?\*\//g, '');
