@@ -35,7 +35,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: 🏗️ Build design system
-        uses: ./.github/actions/build-design-system
+        uses: ./.github/actions/design-system-build
         with:
           build-storybook: 'true'
           build-docusaurus: 'false'
