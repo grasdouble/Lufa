@@ -1,5 +1,51 @@
 # @grasdouble/lufa_design-system-tokens
 
+## 1.2.0
+
+### Minor Changes
+
+- 3d8eea0: Improve token architecture with new semantic layers and granular component tokens
+
+  **New token categories:**
+  - **Alpha colors** (`core/color/colors-alpha`) - 10 new black/white transparency levels (`--lufa-core-color-alpha-black-{4,8,16,38,50,60,80,90}`, `--lufa-core-color-alpha-white-{8,16}`)
+  - **Feedback colors** (`core/color/colors-feedback`) - Dedicated feedback palette replacing `colors-semantic`: success, error, warning, info with `default`, `subtle`, `border`, `hover`, `active`, `on-background` variants
+  - **Interactive action tokens** (`semantic/interactive/action`) - 28 new tokens for primary, secondary, destructive, success, warning, info, neutral action states (`default`, `hover`, `active`, `on`)
+  - **Icon size tokens** (`semantic/ui/icon-size`) - 5 standardized sizes: `xs`, `sm`, `md`, `lg`, `xl`
+  - **Divider tokens** (`semantic/ui/divider`) - `dash-size` and `dash-gap` tokens
+  - **Background surface tokens** (`semantic/ui/background`) - `pattern`, `surface-default`, `surface-raised`, `surface-active`
+  - **Spacing snug** (`semantic/ui/spacing`) - New `snug` spacing level
+  - **Layout primitives** (`primitives/layout`) - `sidebar-width` and `content-max-width` tokens
+
+  **Component token improvements:**
+  - **Button** - Restructured tokens with explicit `type-solid`, `type-ghost`, `type-outline` prefixes and full variant coverage (primary, secondary, destructive, success, warning, info, neutral) with `active` states
+  - **Badge** - Renamed padding tokens to `compact/default/large` with `block`/`inline` axis split
+  - **Input** - Padding tokens split into `block`/`inline` axis per size
+  - **Tooltip** - Padding split into `block`/`inline` axis
+  - **New merge script** (`scripts/merge-tokens.mjs`) - Utility to merge all DTCG source files into a single JSON for tooling
+
+  **Token validator improvements:**
+  - Extended `token-consistency.js` with additional validation rules from ADR-013 and ADR-014
+
+### Patch Changes
+
+- feab2a5: improve component tokens
+- d27c912: Remove responsive token system and fix token validation errors
+
+  **Breaking architectural change (backward compatible):**
+  - **Removed responsive token system** - Tokens no longer generate with media queries. The `build/transforms/responsive.js` and `build/formats/css-with-media-queries.js` files have been deleted.
+  - **All tokens are now fixed values** - Tokens ending with sm/md/lg/xl now generate as separate fixed tokens (e.g., `--lufa-component-button-height-sm`, `--lufa-component-button-height-md`, etc.) instead of a single responsive token.
+  - **Updated ADR-013** - Removed Principle 6 (Responsive Tokens) to reflect the current architecture. Design tokens now provide a palette of choices; components manage their own responsive behavior.
+  - **Fixed CLI theme template** - Updated core layout tokens to use responsive variants (-base/-md/-lg) instead of single tokens.
+
+  **Impact:**
+  - Token count: 631 tokens (previously had validation errors)
+  - CSS size: 80.79 KB (+3.6% from baseline, well within 150 KB limit)
+  - All token validation passes: 0 errors
+  - **No breaking changes** - Existing token names remain the same, only the generation strategy changed
+
+  **Migration:**
+  No action required. If you were using single responsive tokens like `--lufa-core-layout-page-padding`, update to use the appropriate variant (`-base`, `-md`, `-lg`) and apply them with your own media queries.
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @grasdouble/cdn_autobuild-server
 
+## 0.3.5
+
+### Patch Changes
+
+- 3d8eea0: Add `.prettierignore` to exclude `dist/` from Prettier formatting
+
 ## 0.3.4
 
 ### Patch Changes

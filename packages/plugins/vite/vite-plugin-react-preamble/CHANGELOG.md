@@ -1,5 +1,11 @@
 # @grasdouble/lufa_plugin_vite_vite-plugin-react-preamble
 
+## 0.0.5
+
+### Patch Changes
+
+- 3d8eea0: Add TypeScript typecheck step to lint-staged configuration
+
 ## 0.0.4
 
 ### Patch Changes

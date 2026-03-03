@@ -1,5 +1,14 @@
 # @grasdouble/lufa_microfrontend_main-container
 
+## 0.6.14
+
+### Patch Changes
+
+- 3d8eea0: Add `.prettierignore` to exclude `dist/` from Prettier formatting
+- Updated dependencies [feab2a5]
+- Updated dependencies [3d8eea0]
+  - @grasdouble/lufa_design-system@2.1.0
+
 ## 0.6.13
 
 ### Patch Changes
