@@ -113,6 +113,12 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-primary",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.primary.background.default",
+                      "component.button.type.solid.variant.primary.background.hover",
+                      "component.button.type.solid.variant.primary.background.active"
+                    ],
+                    "contrastType": "text",
                     "themeable": true,
                     "themeLevel": "advanced"
                   }
@@ -169,6 +175,12 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-secondary",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.secondary.background.default",
+                      "component.button.type.solid.variant.secondary.background.hover",
+                      "component.button.type.solid.variant.secondary.background.active"
+                    ],
+                    "contrastType": "text",
                     "themeable": true,
                     "themeLevel": "advanced"
                   }
@@ -225,6 +237,12 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-destructive",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.destructive.background.default",
+                      "component.button.type.solid.variant.destructive.background.hover",
+                      "component.button.type.solid.variant.destructive.background.active"
+                    ],
+                    "contrastType": "text",
                     "themeable": true,
                     "themeLevel": "advanced"
                   }
@@ -281,6 +299,12 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-success",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.success.background.default",
+                      "component.button.type.solid.variant.success.background.hover",
+                      "component.button.type.solid.variant.success.background.active"
+                    ],
+                    "contrastType": "text",
                     "themeable": true,
                     "themeLevel": "advanced"
                   }
@@ -337,6 +361,12 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-warning",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.warning.background.default",
+                      "component.button.type.solid.variant.warning.background.hover",
+                      "component.button.type.solid.variant.warning.background.active"
+                    ],
+                    "contrastType": "text",
                     "themeable": true,
                     "themeLevel": "advanced"
                   }
@@ -393,6 +423,12 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-info",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.info.background.default",
+                      "component.button.type.solid.variant.info.background.hover",
+                      "component.button.type.solid.variant.info.background.active"
+                    ],
+                    "contrastType": "text",
                     "themeable": true,
                     "themeLevel": "advanced"
                   }
@@ -449,6 +485,12 @@
                   "lufa": {
                     "category": "button",
                     "variant": "solid-neutral",
+                    "contrastWith": [
+                      "component.button.type.solid.variant.neutral.background.default",
+                      "component.button.type.solid.variant.neutral.background.hover",
+                      "component.button.type.solid.variant.neutral.background.active"
+                    ],
+                    "contrastType": "text",
                     "themeable": true,
                     "themeLevel": "advanced"
                   }
@@ -508,6 +550,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "ghost",
+                  "contrastWith": ["semantic.ui.background.page"],
+                  "contrastType": "text",
                   "themeable": true,
                   "themeLevel": "advanced"
                 }
@@ -538,6 +582,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-primary",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
                       "themeable": true,
                       "themeLevel": "advanced"
                     }
@@ -555,6 +601,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-secondary",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
                       "themeable": true,
                       "themeLevel": "advanced"
                     }
@@ -572,6 +620,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-success",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
                       "themeable": true,
                       "themeLevel": "advanced"
                     }
@@ -589,6 +639,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-destructive",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
                       "themeable": true,
                       "themeLevel": "advanced"
                     }
@@ -606,6 +658,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-warning",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
                       "themeable": true,
                       "themeLevel": "advanced"
                     }
@@ -623,6 +677,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-info",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
                       "themeable": true,
                       "themeLevel": "advanced"
                     }
@@ -640,6 +696,8 @@
                     "lufa": {
                       "category": "button",
                       "variant": "ghost-neutral",
+                      "contrastWith": ["component.button.type.ghost.background.active"],
+                      "contrastType": "text",
                       "themeable": true,
                       "themeLevel": "advanced"
                     }
@@ -687,6 +745,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
+                  "contrastWith": ["semantic.ui.background.page"],
+                  "contrastType": "ui",
                   "themeable": true,
                   "themeLevel": "advanced"
                 }
@@ -715,6 +775,8 @@
                 "lufa": {
                   "category": "button",
                   "variant": "outline",
+                  "contrastWith": ["semantic.ui.background.page"],
+                  "contrastType": "text",
                   "themeable": true,
                   "themeLevel": "advanced"
                 }

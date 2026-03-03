@@ -15,7 +15,7 @@ Add alpha (transparency) tokens and accessibility validation to all themes
   - `--lufa-color-alpha-info-{3,5,8,10,15,20,30,40,50}`
 - **RGB variables** - Added base RGB values for alpha token computation:
   - `--lufa-primary-rgb`, `--lufa-secondary-rgb`, `--lufa-success-rgb`, `--lufa-error-rgb`, `--lufa-warning-rgb`, `--lufa-info-rgb`
-- **Visited link token** - Added `--lufa-core-brand-accent-visited` for better link state management
+- **Visited link token** - Added `--lufa-core-color-brand-accent-visited` for better link state management
 
 **Improvements:**
 

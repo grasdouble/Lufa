@@ -1,92 +1,100 @@
 # Examples
 
-## Basic Validation
+## Full Validation (all checks)
 
 ```bash
-$ npx lufa-validate-theme ./my-theme.css
-🔍 Validating theme: ./my-theme.css
+$ lufa-ds-cli validate ./my-theme.css
+🔍 my-theme.css
 
-Found 453 custom properties
+  ✓ Completeness — all required tokens present
+  ✓ Format — all token values are valid
 
-1. Completeness Check
-✓ All 453 required tokens are defined
+  A11y (WCAG AA):
+  ✓ [light] 102 checks passed
+  ✓ [dark] 102 checks passed
+  ✓ [high-contrast] 102 checks passed
 
-2. Contrast Check (WCAG AA)
-✓ All 47 color pairs meet WCAG AA standards
-
-3. Format Check
-✓ All 453 token values have valid formats
-
-✅ Theme is valid!
+✅ All checks passed!
 ```
 
 ## Validation with Errors
 
 ```bash
-$ npx lufa-validate-theme ./incomplete-theme.css
-🔍 Validating theme: ./incomplete-theme.css
+$ lufa-ds-cli validate ./my-theme.css
+🔍 my-theme.css
 
-Found 445 custom properties
+  ✗ Missing required token: --lufa-core-color-brand-primary-default
+  ✗ Missing required token: --lufa-core-color-brand-secondary-default
+  ✓ Format — all token values are valid
 
-1. Completeness Check
-✗ Missing 8 tokens (445/453)
-  Missing tokens:
-    - --lufa-core-brand-primary
-    - --lufa-core-brand-primary-hover
-    - --lufa-core-brand-primary-active
-    - --lufa-core-brand-secondary
-    - --lufa-core-brand-secondary-hover
-    - --lufa-core-brand-secondary-active
-    ... and 2 more
+  A11y (WCAG AA):
+  ✗ [light] 2 violation(s) (102 checks, 0 skipped)
+      --lufa-semantic-ui-text-primary on --lufa-semantic-ui-background-page — 2.1:1 (needs 4.5:1 WCAG AA Text)
+      --lufa-component-button-text on --lufa-component-button-background — 2.8:1 (needs 4.5:1 WCAG AA Text)
+  ✓ [dark] 102 checks passed
 
-2. Contrast Check (WCAG AA)
-✗ 3 contrast violations found
-  Violations:
-    - --lufa-core-neutral-text-primary on --lufa-core-neutral-background: 3.2:1 (needs 4.5:1 for normal-text)
-    - --lufa-core-brand-primary on --lufa-core-neutral-surface: 2.8:1 (needs 3:1 for ui-component)
-    ... and 1 more
-
-3. Format Check
-✓ All 445 token values have valid formats
-
-❌ Theme validation failed
-
-Run with --verbose to see all errors
+❌ Validation failed
 ```
 
-## Using Verbose Mode
+## A11y Check Only
 
 ```bash
-$ npx lufa-validate-theme ./my-theme.css --verbose
-# Shows ALL errors and warnings, not just the first few
+$ lufa-ds-cli validate ./my-theme.css --a11y
+🔍 my-theme.css
+
+  ✓ [light] 102 checks passed (3 skipped)
+  ✗ [dark] 1 violation(s) (102 checks, 0 skipped)
+      --lufa-semantic-ui-text-secondary on --lufa-semantic-ui-background-surface-default — 3.8:1 (needs 4.5:1 WCAG AA Text)
+  ✓ [high-contrast] 102 checks passed
+
+❌ Validation failed
 ```
 
-## Multi-Mode Theme Example
+## A11y Check on a Directory
+
+```bash
+$ lufa-ds-cli validate --a11y --dir ./themes/src
+🔍 ocean.css
+
+  ✓ [light] 102 checks passed
+  ✓ [dark] 102 checks passed
+
+🔍 forest.css
+
+  ✓ [light] 102 checks passed
+  ✗ [dark] 1 violation(s) (102 checks, 0 skipped)
+      --lufa-semantic-ui-text-primary on --lufa-semantic-ui-background-page — 3.1:1 (needs 4.5:1 WCAG AA Text)
+
+❌ Validation failed
+```
+
+## Create a Theme Template
+
+```bash
+$ lufa-ds-cli template
+Output file name (without .css): my-brand
+✓ Created my-brand.css
+
+$ lufa-ds-cli template extended -o my-brand
+✓ Created my-brand.css
+```
+
+## Multi-Mode Theme Structure
 
 ```css
-/* custom-theme.css */
-:root,
-[data-mode='light'] {
-  --lufa-core-neutral-background: #ffffff;
-  --lufa-core-neutral-text-primary: #111827;
-  /* ... more light mode tokens */
+/* my-theme.css */
+[data-theme='my-brand'][data-mode='light'] {
+  --lufa-core-color-brand-primary-default: #0e7490;
+  /* ... */
 }
 
-[data-mode='dark'] {
-  --lufa-core-neutral-background: #111827;
-  --lufa-core-neutral-text-primary: #f9fafb;
-  /* ... more dark mode tokens */
+[data-theme='my-brand'][data-mode='dark'] {
+  --lufa-core-color-brand-primary-default: #22d3ee;
+  /* ... */
 }
 
-[data-mode='high-contrast'] {
-  --lufa-core-neutral-background: #ffffff;
-  --lufa-core-neutral-text-primary: #000000;
-  /* ... more high-contrast tokens */
+[data-theme='my-brand'][data-mode='high-contrast'] {
+  --lufa-core-color-brand-primary-default: #ffffff;
+  /* ... */
 }
-```
-
-```bash
-$ npx lufa-validate-theme custom-theme.css
-✅ Theme is valid!
-# Validates all three modes automatically
 ```

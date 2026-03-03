@@ -47,7 +47,7 @@ pnpm build
 
 ```css
 .button {
-  background-color: var(--lufa-core-brand-primary);
+  background-color: var(--lufa-core-color-brand-primary);
   padding: var(--lufa-primitive-spacing-16);
   border-radius: var(--lufa-primitive-radius-scale-base);
   font-size: var(--lufa-primitive-typography-font-size-base);
@@ -70,7 +70,7 @@ const spacing = tokens.primitive.spacing['16']; // "16px"
 --lufa-{level}-{category}-{name}[-{variant}][-{state}]
 
 --lufa-primitive-color-blue-600
---lufa-core-brand-primary
+--lufa-core-color-brand-primary
 --lufa-semantic-ui-text-primary
 --lufa-component-button-primary-background
 ```

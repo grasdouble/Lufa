@@ -253,15 +253,15 @@ interface TokenMetadata {
 ```css
 :root,
 [data-mode='light'] {
-  --lufa-core-brand-primary: var(--lufa-primitive-color-blue-600);
+  --lufa-core-color-brand-primary: var(--lufa-primitive-color-blue-600);
 }
 
 [data-mode='dark'] {
-  --lufa-core-brand-primary: var(--lufa-primitive-color-blue-400);
+  --lufa-core-color-brand-primary: var(--lufa-primitive-color-blue-400);
 }
 
 [data-mode='high-contrast'] {
-  --lufa-core-brand-primary: var(--lufa-primitive-color-hc-blue);
+  --lufa-core-color-brand-primary: var(--lufa-primitive-color-hc-blue);
 }
 ```
 
@@ -726,7 +726,7 @@ if (token.$extensions.lufa.themeable && token.$extensions.lufa.modeAware) { ... 
     * ======================================== */
    :root,
    [data-mode='light'] {
-     --lufa-core-brand-primary: var(--lufa-primitive-color-blue-600);
+     --lufa-core-color-brand-primary: var(--lufa-primitive-color-blue-600);
      /* ... */
    }
    ```
@@ -1291,11 +1291,11 @@ If critical issues arise, we can rollback in phases:
 ```css
 :root,
 [data-mode='light'] {
-  --lufa-core-brand-primary: var(--lufa-primitive-color-blue-600);
+  --lufa-core-color-brand-primary: var(--lufa-primitive-color-blue-600);
 }
 
 [data-mode='dark'] {
-  --lufa-core-brand-primary: var(--lufa-primitive-color-blue-400);
+  --lufa-core-color-brand-primary: var(--lufa-primitive-color-blue-400);
 }
 /* No change in output */
 ```

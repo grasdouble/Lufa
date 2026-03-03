@@ -11,7 +11,7 @@ import {
   parseCSSContent,
   resolveCSSVarValue,
   tokenNameFromCSSVar,
-} from '../../../src/utils/parse-css.js';
+} from '../parse-css.js';
 
 describe('CSS Parser Utils', () => {
   describe('parseCSSContent', () => {
@@ -117,11 +117,13 @@ describe('CSS Parser Utils', () => {
     });
 
     it('removes --lufa- prefix', () => {
-      expect(tokenNameFromCSSVar('--lufa-core-brand-primary')).toBe('core.color.brand.primary');
+      expect(tokenNameFromCSSVar('--lufa-core-color-brand-primary-default')).toBe('core.color.brand.primary.default');
     });
 
     it('converts kebab-case to dot notation', () => {
-      expect(tokenNameFromCSSVar('--lufa-component-button-primary-text')).toBe('component.button.primary.text');
+      expect(tokenNameFromCSSVar('--lufa-component-button-type-solid-variant-primary-text')).toBe(
+        'component.button.type.solid.variant.primary.text'
+      );
     });
   });
 
@@ -132,11 +134,13 @@ describe('CSS Parser Utils', () => {
     });
 
     it('adds --lufa- prefix', () => {
-      expect(cssVarNameFromToken('core.color.brand.primary')).toBe('--lufa-core-brand-primary');
+      expect(cssVarNameFromToken('core.color.brand.primary.default')).toBe('--lufa-core-color-brand-primary-default');
     });
 
     it('converts dot notation to kebab-case', () => {
-      expect(cssVarNameFromToken('component.button.primary.text')).toBe('--lufa-component-button-primary-text');
+      expect(cssVarNameFromToken('component.button.type.solid.variant.primary.text')).toBe(
+        '--lufa-component-button-type-solid-variant-primary-text'
+      );
     });
   });
 
@@ -171,7 +175,7 @@ describe('CSS Parser Utils', () => {
 
   describe('resolveCSSVarValue', () => {
     it('returns non-var() values as-is', () => {
-      const props = new Map();
+      const props = new Map<string, string>();
       expect(resolveCSSVarValue('#ffffff', props)).toBe('#ffffff');
       expect(resolveCSSVarValue('16px', props)).toBe('16px');
       expect(resolveCSSVarValue('150ms', props)).toBe('150ms');
@@ -226,8 +230,8 @@ describe('CSS Parser Utils', () => {
     it('resolves real Lufa token chains', () => {
       const props = new Map([
         ['--lufa-primitive-color-gray-900', '#111827'],
-        ['--lufa-core-neutral-text-primary', 'var(--lufa-primitive-color-gray-900)'],
-        ['--lufa-semantic-ui-text-primary', 'var(--lufa-core-neutral-text-primary)'],
+        ['--lufa-core-color-neutral-text-primary', 'var(--lufa-primitive-color-gray-900)'],
+        ['--lufa-semantic-ui-text-primary', 'var(--lufa-core-color-neutral-text-primary)'],
       ]);
       expect(resolveCSSVarValue('var(--lufa-semantic-ui-text-primary)', props)).toBe('#111827');
     });
@@ -328,9 +332,13 @@ describe('CSS Parser Utils', () => {
     it('groups properties by token level', () => {
       const properties = [
         { name: '--lufa-primitive-color-blue-500', value: '#2563eb', line: 1 },
-        { name: '--lufa-core-brand-primary', value: 'var(--lufa-primitive-color-blue-500)', line: 2 },
-        { name: '--lufa-semantic-ui-text-primary', value: 'var(--lufa-core-neutral-text-primary)', line: 3 },
-        { name: '--lufa-component-button-primary-text', value: 'var(--lufa-semantic-ui-text-primary)', line: 4 },
+        { name: '--lufa-core-color-brand-primary-default', value: 'var(--lufa-primitive-color-blue-500)', line: 2 },
+        { name: '--lufa-semantic-ui-text-primary', value: 'var(--lufa-core-color-neutral-text-primary)', line: 3 },
+        {
+          name: '--lufa-component-button-type-solid-variant-primary-text',
+          value: 'var(--lufa-semantic-ui-text-primary)',
+          line: 4,
+        },
         { name: '--custom-token', value: '#fff', line: 5 },
       ];
 
@@ -356,8 +364,8 @@ describe('CSS Parser Utils', () => {
     it('groups all primitives correctly', () => {
       const properties = [
         { name: '--lufa-primitive-color-blue-500', value: '#2563eb', line: 1 },
-        { name: '--lufa-primitive-spacing-base', value: '16px', line: 2 },
-        { name: '--lufa-primitive-duration-fast', value: '150ms', line: 3 },
+        { name: '--lufa-primitive-spacing-16', value: '16px', line: 2 },
+        { name: '--lufa-primitive-motion-duration-fast', value: '150ms', line: 3 },
       ];
 
       const grouped = groupPropertiesByLevel(properties);

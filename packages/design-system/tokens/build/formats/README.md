@@ -144,8 +144,8 @@ Outputs the `:root` selector with all base values:
   --lufa-core-layout-section-gap: var(--lufa-primitive-spacing-24);
 
   /* Tokens with modes (light mode values) */
-  --lufa-core-neutral-background: #ffffff;
-  --lufa-core-neutral-text-primary: #111827;
+  --lufa-core-color-neutral-background: #ffffff;
+  --lufa-core-color-neutral-text-primary: #111827;
 }
 ```
 
@@ -192,17 +192,17 @@ For tokens with mode variants, generate theme selectors:
 
 ```css
 [data-mode='dark'] {
-  --lufa-core-neutral-background: #111827;
-  --lufa-core-neutral-text-primary: #f9fafb;
-  --lufa-core-brand-primary: #3b82f6;
-  --lufa-core-feedback-success: #4ade80;
+  --lufa-core-color-neutral-background: #111827;
+  --lufa-core-color-neutral-text-primary: #f9fafb;
+  --lufa-core-color-brand-primary: #3b82f6;
+  --lufa-core-color-feedback-success: #4ade80;
 }
 
 [data-mode='high-contrast'] {
-  --lufa-core-neutral-background: var(--lufa-primitive-color-hc-black);
-  --lufa-core-neutral-text-primary: var(--lufa-primitive-color-hc-white);
-  --lufa-core-brand-primary: var(--lufa-primitive-color-hc-blue);
-  --lufa-core-feedback-success: var(--lufa-primitive-color-hc-green);
+  --lufa-core-color-neutral-background: var(--lufa-primitive-color-hc-black);
+  --lufa-core-color-neutral-text-primary: var(--lufa-primitive-color-hc-white);
+  --lufa-core-color-brand-primary: var(--lufa-primitive-color-hc-blue);
+  --lufa-core-color-feedback-success: var(--lufa-primitive-color-hc-green);
 }
 ```
 
@@ -234,9 +234,9 @@ For tokens with mode variants, generate theme selectors:
   --lufa-core-typography-heading-size: clamp(1.5rem, 2vw, 2rem); /** Fluid heading size */
 
   /* Tokens with modes (light mode values) */
-  --lufa-core-neutral-background: #ffffff; /** Light mode background */
-  --lufa-core-neutral-text-primary: #111827; /** Light mode text */
-  --lufa-core-brand-primary: #3b82f6; /** Light mode brand color */
+  --lufa-core-color-neutral-background: #ffffff; /** Light mode background */
+  --lufa-core-color-neutral-text-primary: #111827; /** Light mode text */
+  --lufa-core-color-brand-primary: #3b82f6; /** Light mode brand color */
 }
 
 /* ========================================
@@ -260,15 +260,15 @@ For tokens with mode variants, generate theme selectors:
    Phase 4: Theme Modes
    ======================================== */
 [data-mode='dark'] {
-  --lufa-core-neutral-background: #111827; /** Dark mode background */
-  --lufa-core-neutral-text-primary: #f9fafb; /** Dark mode text */
-  --lufa-core-brand-primary: #3b82f6; /** Dark mode brand color */
+  --lufa-core-color-neutral-background: #111827; /** Dark mode background */
+  --lufa-core-color-neutral-text-primary: #f9fafb; /** Dark mode text */
+  --lufa-core-color-brand-primary: #3b82f6; /** Dark mode brand color */
 }
 
 [data-mode='high-contrast'] {
-  --lufa-core-neutral-background: var(--lufa-primitive-color-hc-black); /** HC black background */
-  --lufa-core-neutral-text-primary: var(--lufa-primitive-color-hc-white); /** HC white text */
-  --lufa-core-brand-primary: var(--lufa-primitive-color-hc-blue); /** HC pure blue */
+  --lufa-core-color-neutral-background: var(--lufa-primitive-color-hc-black); /** HC black background */
+  --lufa-core-color-neutral-text-primary: var(--lufa-primitive-color-hc-white); /** HC white text */
+  --lufa-core-color-brand-primary: var(--lufa-primitive-color-hc-blue); /** HC pure blue */
 }
 ```
 
@@ -365,12 +365,12 @@ const formatValue = (token, dictionary) => {
 
 **Examples:**
 
-| Input Token Value              | Output CSS Value                   |
-| ------------------------------ | ---------------------------------- |
-| `"16px"`                       | `16px`                             |
-| `"{primitive.spacing.16}"`     | `var(--lufa-primitive-spacing-16)` |
-| `"#3b82f6"`                    | `#3b82f6`                          |
-| `"{core.color.brand.primary}"` | `var(--lufa-core-brand-primary)`   |
+| Input Token Value              | Output CSS Value                       |
+| ------------------------------ | -------------------------------------- |
+| `"16px"`                       | `16px`                                 |
+| `"{primitive.spacing.16}"`     | `var(--lufa-primitive-spacing-16)`     |
+| `"#3b82f6"`                    | `#3b82f6`                              |
+| `"{core.color.brand.primary}"` | `var(--lufa-core-color-brand-primary)` |
 
 **Code Flow:**
 
@@ -593,7 +593,7 @@ grep "var(--" dist/tokens.css | head -5
 
 ```css
 --lufa-core-layout-page-padding: var(--lufa-primitive-spacing-16);
---lufa-core-brand-primary: var(--lufa-primitive-color-blue-500);
+--lufa-core-color-brand-primary: var(--lufa-primitive-color-blue-500);
 ```
 
 ### 5. Verify Theme Modes
@@ -608,9 +608,9 @@ grep -A 5 "\[data-mode='dark'\]" dist/tokens.css
 
 ```css
 [data-mode='dark'] {
-  --lufa-core-neutral-background: #111827;
-  --lufa-core-neutral-text-primary: #f9fafb;
-  --lufa-core-brand-primary: #3b82f6;
+  --lufa-core-color-neutral-background: #111827;
+  --lufa-core-color-neutral-text-primary: #f9fafb;
+  --lufa-core-color-brand-primary: #3b82f6;
 }
 ```
 
@@ -631,7 +631,7 @@ getComputedStyle(document.documentElement).getPropertyValue('--lufa-core-layout-
 
 // Toggle dark mode
 document.documentElement.setAttribute('data-mode', 'dark');
-getComputedStyle(document.documentElement).getPropertyValue('--lufa-core-neutral-background');
+getComputedStyle(document.documentElement).getPropertyValue('--lufa-core-color-neutral-background');
 // Expected: "#111827"
 ```
 

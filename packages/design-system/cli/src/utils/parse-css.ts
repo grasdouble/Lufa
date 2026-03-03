@@ -107,10 +107,10 @@ export function extractCSSVarName(varReference: string): string | null {
  *
  * @example
  * // properties = {
- * //   '--lufa-core-brand-primary': 'var(--lufa-primitive-color-blue-600)',
+ * //   '--lufa-core-color-brand-primary': 'var(--lufa-primitive-color-blue-600)',
  * //   '--lufa-primitive-color-blue-600': '#2563eb'
  * // }
- * resolveCSSVarValue('var(--lufa-core-brand-primary)', properties)
+ * resolveCSSVarValue('var(--lufa-core-color-brand-primary)', properties)
  * // Returns: '#2563eb'
  */
 export function resolveCSSVarValue(

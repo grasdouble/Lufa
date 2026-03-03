@@ -1,12 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
-import type { CSSCustomProperty } from '../../../src/utils/parse-css.js';
-import { validateCompleteness } from '../../../src/validators/completeness.js';
+import type { CSSCustomProperty } from '../../utils/parse-css.js';
+import { getRequiredTokens, validateCompleteness } from '../completeness.js';
 
 describe('Completeness Validator', () => {
   it('passes when all required tokens are present', async () => {
-    // This test would require loading actual token names from metadata
-    // For now, test that the validator returns the expected structure
     const properties: CSSCustomProperty[] = [];
 
     const result = await validateCompleteness(properties);
@@ -15,13 +13,12 @@ describe('Completeness Validator', () => {
     expect(result).toHaveProperty('totalDefined');
     expect(result).toHaveProperty('missingTokens');
     expect(result).toHaveProperty('extraTokens');
-    expect(result.totalRequired).toBe(685);
   });
 
   it('detects missing tokens', async () => {
     const properties: CSSCustomProperty[] = [
       { name: '--lufa-primitive-color-blue-500', value: '#2563eb', line: 1 },
-      { name: '--lufa-core-brand-primary', value: 'var(--lufa-primitive-color-blue-500)', line: 2 },
+      { name: '--lufa-core-color-brand-primary-default', value: 'var(--lufa-primitive-color-blue-500)', line: 2 },
     ];
 
     const result = await validateCompleteness(properties);
@@ -31,12 +28,13 @@ describe('Completeness Validator', () => {
   });
 
   it('reports correct counts', async () => {
+    const requiredTokens = await getRequiredTokens();
     const properties: CSSCustomProperty[] = [];
 
     const result = await validateCompleteness(properties);
     expect(result.totalDefined).toBe(0);
-    expect(result.totalRequired).toBe(685);
-    expect(result.missingTokens).toHaveLength(685);
+    expect(result.totalRequired).toBe(requiredTokens.length);
+    expect(result.missingTokens).toHaveLength(requiredTokens.length);
   });
 
   it('identifies specific missing tokens', async () => {
@@ -50,10 +48,9 @@ describe('Completeness Validator', () => {
   it('handles duplicate tokens (counts only once)', async () => {
     const properties: CSSCustomProperty[] = [];
 
-    // Add all 609 unique tokens
-    for (let i = 0; i < 609; i++) {
+    for (let i = 0; i < 10; i++) {
       properties.push({
-        name: `--lufa-test-token-${i}`,
+        name: `--custom-test-token-${i}`,
         value: 'test',
         line: i + 1,
       });
@@ -61,33 +58,33 @@ describe('Completeness Validator', () => {
 
     // Add duplicate
     properties.push({
-      name: '--lufa-test-token-0',
+      name: '--custom-test-token-0',
       value: 'duplicate',
-      line: 609,
+      line: 11,
     });
 
     const result = await validateCompleteness(properties);
-    expect(result.totalDefined).toBe(610); // All properties counted (609 unique + 1 duplicate)
+    expect(result.totalDefined).toBe(11); // All properties counted (10 unique + 1 duplicate)
   });
 
   it('ignores non-lufa tokens', async () => {
+    const requiredTokens = await getRequiredTokens();
     const properties: CSSCustomProperty[] = [
       { name: '--custom-color', value: '#fff', line: 1 },
       { name: '--another-var', value: '16px', line: 2 },
     ];
 
     const result = await validateCompleteness(properties);
-    // Custom tokens are in totalDefined but won't match required tokens
-    expect(result.missingTokens).toHaveLength(685); // All required tokens still missing
+    expect(result.missingTokens).toHaveLength(requiredTokens.length); // All required tokens still missing
   });
 
   it('validates token name format', async () => {
-    // Test that validator checks actual required tokens from metadata
+    const requiredTokens = await getRequiredTokens();
     const properties: CSSCustomProperty[] = [];
 
     const result = await validateCompleteness(properties);
     expect(result.totalDefined).toBe(0);
-    expect(result.totalRequired).toBe(685);
-    expect(result.valid).toBe(false); // No tokens provided, so invalid
+    expect(result.totalRequired).toBe(requiredTokens.length);
+    expect(result.valid).toBe(false);
   });
 });

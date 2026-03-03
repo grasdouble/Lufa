@@ -7,7 +7,7 @@ import {
   meetsWCAG_AA_Text,
   meetsWCAG_AA_UI,
   meetsWCAG_AAA,
-} from '../../../src/utils/wcag.js';
+} from '../wcag.js';
 
 describe('WCAG Utils', () => {
   describe('hexToRgb', () => {

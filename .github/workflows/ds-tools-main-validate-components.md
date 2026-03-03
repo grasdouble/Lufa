@@ -84,7 +84,7 @@ paths:
 ```tsx
 // Using CSS variables (design tokens)
 <div style={{ color: 'var(--lufa-semantic-ui-text-primary)' }}>Text</div>
-<div style={{ backgroundColor: 'var(--lufa-core-brand-primary)' }}>Text</div>
+<div style={{ backgroundColor: 'var(--lufa-core-color-brand-primary)' }}>Text</div>
 
 // Using token imports
 import tokens from '@grasdouble/lufa_design-system-tokens';

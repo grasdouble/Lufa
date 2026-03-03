@@ -172,6 +172,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Separator between card header and body",
+              "contrastWith": ["component.card.background"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "advanced"
             }
@@ -200,6 +202,8 @@
             "lufa": {
               "category": "card",
               "useCase": "Separator between card body and footer",
+              "contrastWith": ["component.card.background"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "advanced"
             }

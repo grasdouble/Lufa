@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '20'
       - run: npm install -g @grasdouble/lufa_design-system-cli
-      - run: lufa-validate-theme src/theme.css
+      - run: lufa-ds-cli validate src/theme.css
 ```
 
 ## Pre-commit Hook
@@ -27,7 +27,7 @@ jobs:
 ```bash
 # .husky/pre-commit
 #!/bin/sh
-npx lufa-validate-theme src/theme.css || exit 1
+npx lufa-ds-cli validate src/theme.css || exit 1
 ```
 
 ## NPM Script
@@ -35,7 +35,7 @@ npx lufa-validate-theme src/theme.css || exit 1
 ```json
 {
   "scripts": {
-    "validate-theme": "lufa-validate-theme src/theme.css",
+    "validate-theme": "lufa-ds-cli validate src/theme.css",
     "prebuild": "npm run validate-theme"
   }
 }

@@ -163,6 +163,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Separator between header and body",
+              "contrastWith": ["component.modal.content.background"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "advanced"
             }
@@ -191,6 +193,8 @@
             "lufa": {
               "category": "modal",
               "useCase": "Separator between body and footer",
+              "contrastWith": ["component.modal.content.background"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "advanced"
             }

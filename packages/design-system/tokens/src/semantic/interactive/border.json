@@ -10,6 +10,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Input borders, button outlines, card borders",
+              "contrastWith": ["semantic.ui.background.page"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "extended"
             }
@@ -23,6 +25,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Hover state borders for inputs and outlined buttons",
+              "contrastWith": ["semantic.ui.background.page"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "extended"
             }
@@ -36,6 +40,8 @@
             "lufa": {
               "category": "interactive",
               "useCase": "Focus rings, focused input borders, keyboard navigation indicators",
+              "contrastWith": ["semantic.ui.background.page"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "extended"
             }

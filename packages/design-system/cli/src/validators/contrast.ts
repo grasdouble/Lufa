@@ -1,168 +1,222 @@
 /**
- * Contrast Validator
+ * Contrast — Color Pair Provider
  *
- * Validates WCAG contrast ratios for color token pairs
+ * Builds the list of (foreground, background, type) color pairs that must be
+ * checked for WCAG AA contrast.  Pairs are derived from two sources, in
+ * priority order:
+ *
+ * 1. Explicit metadata: tokens carrying `extensions.lufa.contrastWith` (array
+ *    of dot-notation token paths) and `extensions.lufa.contrastType`
+ *    ("text" | "ui").  Set directly in the token source files for
+ *    cross-namespace pairs and multi-background checks that cannot be inferred
+ *    automatically.
+ *
+ * 2. Dynamic inference: sibling-based algorithm that tries to find a
+ *    `-background` sibling for any `-text` or `-border` token in the same
+ *    namespace.  This handles the majority of same-namespace pairs
+ *    (e.g. badge.variant.*.text → badge.variant.*.background).
+ *
+ * There are no hardcoded EXPLICIT_PAIRS — all contrast knowledge lives in the
+ * token metadata.
+ *
+ * NOTE: This module only *provides* pairs.  Actual WCAG validation is
+ * performed by `a11y.ts`.
  */
 
-import type { CSSCustomProperty } from '../utils/parse-css.js';
-import { resolveCSSVarValue } from '../utils/parse-css.js';
-import { getContrastRatio, meetsWCAG_AA_Text, meetsWCAG_AA_UI } from '../utils/wcag.js';
+import { readFile } from 'fs/promises';
 
-export type ContrastViolation = {
-  foreground: string;
-  background: string;
-  ratio: number;
-  required: number;
-  type: 'text' | 'ui';
-};
+type ColorPair = [string, string, 'text' | 'ui'];
 
-export type ContrastResult = {
-  valid: boolean;
-  violations: ContrastViolation[];
-  totalChecks: number;
+/**
+ * Convert camelCase to kebab-case
+ */
+function camelToKebab(str: string): string {
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+}
+
+/**
+ * Convert a dot-notation token path (as used in sources / metadata keys) to a CSS var suffix.
+ * e.g. "semantic.ui.background.page" → "semantic-ui-background-page"
+ * Each segment is individually converted from camelCase to kebab-case, then joined with "-".
+ */
+function dotPathToCssSuffix(dotPath: string): string {
+  return dotPath.split('.').map(camelToKebab).join('-');
+}
+
+type TokenMetadata = {
+  value: unknown;
+  type: string;
+  extensions?: {
+    lufa?: {
+      contrastWith?: string[];
+      contrastType?: 'text' | 'ui';
+    };
+  };
 };
 
 /**
- * Define color pairs that need to be checked for contrast
- * Format: [foreground-token-suffix, background-token-suffix, type]
+ * Recursively walk the metadata and collect:
+ * - All color token paths (for the sibling-fallback algorithm)
+ * - All explicit (contrastWith) pairs from metadata annotations
  */
-const COLOR_PAIRS_TO_CHECK: [string, string, 'text' | 'ui'][] = [
-  // Text colors on backgrounds
-  ['semantic-ui-text-primary', 'semantic-ui-background-page', 'text'],
-  ['semantic-ui-text-primary', 'semantic-ui-background-surface', 'text'],
-  ['semantic-ui-text-secondary', 'semantic-ui-background-page', 'text'],
-  ['semantic-ui-text-secondary', 'semantic-ui-background-surface', 'text'],
-  ['semantic-ui-text-tertiary', 'semantic-ui-background-page', 'text'],
-  ['semantic-ui-text-tertiary', 'semantic-ui-background-surface', 'text'],
+function extractFromMetadata(
+  obj: Record<string, unknown>,
+  prefix = ''
+): { colorPaths: string[]; explicitPairs: ColorPair[] } {
+  const colorPaths: string[] = [];
+  const explicitPairs: ColorPair[] = [];
 
-  // Success colors
-  ['semantic-ui-text-success', 'semantic-ui-background-page', 'text'],
-  ['semantic-ui-background-on-success', 'semantic-ui-background-success', 'text'],
+  for (const [key, value] of Object.entries(obj)) {
+    const kebabKey = camelToKebab(key);
+    const currentPath = prefix ? `${prefix}-${kebabKey}` : kebabKey;
 
-  // Error colors
-  ['semantic-ui-text-error', 'semantic-ui-background-page', 'text'],
-  ['semantic-ui-background-on-error', 'semantic-ui-background-error', 'text'],
+    if (value && typeof value === 'object') {
+      const token = value as TokenMetadata;
+      if ('value' in token && token.type === 'color') {
+        colorPaths.push(currentPath);
 
-  // Warning colors
-  ['semantic-ui-text-warning', 'semantic-ui-background-page', 'text'],
-  ['semantic-ui-background-on-warning', 'semantic-ui-background-warning', 'text'],
-
-  // Info colors
-  ['semantic-ui-text-info', 'semantic-ui-background-page', 'text'],
-  ['semantic-ui-background-on-info', 'semantic-ui-background-info', 'text'],
-
-  // Borders on backgrounds (UI components)
-  ['semantic-ui-border-default', 'semantic-ui-background-page', 'ui'],
-  ['semantic-ui-border-strong', 'semantic-ui-background-page', 'ui'],
-
-  // Interactive colors
-  ['semantic-interactive-text-default', 'semantic-ui-background-page', 'text'],
-  ['semantic-interactive-text-hover', 'semantic-ui-background-page', 'text'],
-  ['semantic-interactive-border-default', 'semantic-ui-background-page', 'ui'],
-  ['semantic-interactive-border-hover', 'semantic-ui-background-page', 'ui'],
-  ['semantic-interactive-border-active', 'semantic-ui-background-page', 'ui'],
-  ['semantic-interactive-border-focus', 'semantic-ui-background-page', 'ui'],
-
-  // Button - Primary
-  ['component-button-primary-text-default', 'component-button-primary-background-default', 'text'],
-  ['component-button-primary-text-hover', 'component-button-primary-background-hover', 'text'],
-  ['component-button-primary-text-active', 'component-button-primary-background-active', 'text'],
-
-  // Button - Secondary
-  ['component-button-secondary-text-default', 'component-button-secondary-background-default', 'text'],
-  ['component-button-secondary-text-hover', 'component-button-secondary-background-hover', 'text'],
-  ['component-button-secondary-border-default', 'component-button-secondary-background-default', 'ui'],
-
-  // Button - Ghost
-  ['component-button-ghost-text-default', 'semantic-ui-background-page', 'text'],
-  ['component-button-ghost-text-hover', 'component-button-ghost-background-hover', 'text'],
-
-  // Button - Danger
-  ['component-button-danger-text-default', 'component-button-danger-background-default', 'text'],
-  ['component-button-danger-text-hover', 'component-button-danger-background-hover', 'text'],
-
-  // Badge colors (all variants)
-  ['component-badge-default-text', 'component-badge-default-background', 'text'],
-  ['component-badge-primary-text', 'component-badge-primary-background', 'text'],
-  ['component-badge-success-text', 'component-badge-success-background', 'text'],
-  ['component-badge-error-text', 'component-badge-error-background', 'text'],
-  ['component-badge-warning-text', 'component-badge-warning-background', 'text'],
-  ['component-badge-info-text', 'component-badge-info-background', 'text'],
-
-  // Input states
-  // Note: disabled state is exempt from WCAG 1.4.3 / 1.4.11 contrast requirements
-  ['component-input-text-default', 'component-input-background-default', 'text'],
-  ['component-input-border-default', 'component-input-background-default', 'ui'],
-  ['component-input-border-hover', 'component-input-background-default', 'ui'],
-  ['component-input-border-focus', 'component-input-background-default', 'ui'],
-  ['component-input-border-error', 'component-input-background-default', 'ui'],
-
-  // Tooltip & Popover
-  ['component-tooltip-text', 'component-tooltip-background', 'text'],
-  ['component-popover-text', 'component-popover-background', 'text'],
-
-  // Alert components
-  ['component-alert-success-text', 'component-alert-success-background', 'text'],
-  ['component-alert-error-text', 'component-alert-error-background', 'text'],
-  ['component-alert-warning-text', 'component-alert-warning-background', 'text'],
-  ['component-alert-info-text', 'component-alert-info-background', 'text'],
-
-  // Card components
-  ['component-card-text', 'component-card-background', 'text'],
-  ['component-card-border', 'component-card-background', 'ui'],
-];
-
-/**
- * Validate contrast ratios for all color pairs
- */
-export function validateContrast(properties: CSSCustomProperty[]): ContrastResult {
-  const violations: ContrastViolation[] = [];
-
-  // Create a map of token names to values for quick lookup
-  const tokenMap = new Map(properties.map((p) => [p.name, p.value]));
-
-  // Check each defined color pair
-  for (const [fgSuffix, bgSuffix, type] of COLOR_PAIRS_TO_CHECK) {
-    const fgName = `--lufa-${fgSuffix}`;
-    const bgName = `--lufa-${bgSuffix}`;
-
-    const fgValue = tokenMap.get(fgName);
-    const bgValue = tokenMap.get(bgName);
-
-    // Skip if either token is not defined
-    if (!fgValue || !bgValue) {
-      continue;
-    }
-
-    // Resolve CSS variable references (e.g., var(--lufa-primitive-color-gray-900))
-    const resolvedFg = resolveCSSVarValue(fgValue, tokenMap) ?? fgValue;
-    const resolvedBg = resolveCSSVarValue(bgValue, tokenMap) ?? bgValue;
-
-    // Calculate contrast ratio with resolved values
-    const ratio = getContrastRatio(resolvedFg, resolvedBg);
-
-    if (ratio === null) {
-      // Skip if colors are invalid (will be caught by format validator)
-      continue;
-    }
-
-    // Check if ratio meets WCAG standards
-    const meetsStandard = type === 'text' ? meetsWCAG_AA_Text(ratio) : meetsWCAG_AA_UI(ratio);
-
-    if (!meetsStandard) {
-      violations.push({
-        foreground: fgName,
-        background: bgName,
-        ratio: Math.round(ratio * 100) / 100, // Round to 2 decimal places
-        required: type === 'text' ? 4.5 : 3.0,
-        type,
-      });
+        // Check for explicit contrastWith annotation
+        const lufaExt = token.extensions?.lufa;
+        if (lufaExt?.contrastWith && Array.isArray(lufaExt.contrastWith)) {
+          const contrastType = lufaExt.contrastType ?? 'text';
+          for (const bgDotPath of lufaExt.contrastWith) {
+            const bgSuffix = dotPathToCssSuffix(bgDotPath);
+            explicitPairs.push([currentPath, bgSuffix, contrastType]);
+          }
+        }
+      } else if (!('value' in token)) {
+        const nested = extractFromMetadata(value as Record<string, unknown>, currentPath);
+        colorPaths.push(...nested.colorPaths);
+        explicitPairs.push(...nested.explicitPairs);
+      }
     }
   }
 
-  return {
-    valid: violations.length === 0,
-    violations,
-    totalChecks: COLOR_PAIRS_TO_CHECK.length,
-  };
+  return { colorPaths, explicitPairs };
+}
+
+/**
+ * Determine if a token path suffix indicates it should be checked as a
+ * foreground (text or border) and what background it pairs with.
+ *
+ * Rules:
+ * - Tokens ending in -text* (excluding -placeholder, -label, -helper-*): type 'text'
+ * - Tokens containing -border- or ending in -border (excluding -color suffix): type 'ui'
+ * - Skip: -disabled (WCAG exempt), overlay/backdrop/scrim/focus-ring/focus-outline (not foreground)
+ * - Skip: primitive and core namespaces
+ * - Background pairing: replace -text or -border segment with -background in the same path
+ *   If no such sibling exists → skip (handled by contrastWith annotations for cross-namespace cases)
+ */
+function deriveSiblingPairs(colorTokenPaths: string[], explicitPairKeys: Set<string>): ColorPair[] {
+  const tokenSet = new Set(colorTokenPaths);
+  const pairs: ColorPair[] = [];
+
+  // Tokens to skip (not contrast foregrounds)
+  const SKIP_PATTERNS = [
+    'primitive',
+    'core',
+    '-disabled',
+    'overlay',
+    'backdrop',
+    'scrim',
+    'focus-ring',
+    'focus-background',
+    'focus-outline',
+    '-placeholder',
+    '-label',
+    'helper-text',
+    'divider',
+    'close-button',
+    'shared-',
+    '-backdrop',
+    '-modal-backdrop',
+    'modal-close',
+  ];
+
+  for (const tokenPath of colorTokenPaths) {
+    if (SKIP_PATTERNS.some((p) => tokenPath.includes(p))) continue;
+
+    let type: 'text' | 'ui' | null = null;
+
+    // Determine if it's a text foreground
+    if (
+      tokenPath.includes('-text') &&
+      !tokenPath.includes('-placeholder') &&
+      !tokenPath.includes('-label') &&
+      !tokenPath.includes('helper-text')
+    ) {
+      type = 'text';
+    }
+    // Determine if it's a border foreground
+    else if (tokenPath.includes('-border') && !tokenPath.endsWith('-color')) {
+      type = 'ui';
+    }
+
+    if (!type) continue;
+
+    // Try to find a sibling background by replacing -text or -border with -background
+    // e.g. "component-badge-variant-default-text" → "component-badge-variant-default-background"
+    // e.g. "component-input-border-default" → "component-input-background-default"
+    const bgCandidate = tokenPath
+      .replace(/(.*)-text(-|$)/, '$1-background$2')
+      .replace(/(.*)-border(-|$)/, '$1-background$2');
+
+    if (bgCandidate !== tokenPath && tokenSet.has(bgCandidate)) {
+      const pairKey = `${tokenPath}|${bgCandidate}`;
+      // Only add if this pair isn't already covered by an explicit contrastWith annotation
+      if (!explicitPairKeys.has(pairKey)) {
+        pairs.push([tokenPath, bgCandidate, type]);
+      }
+    }
+    // If no sibling background found → skip; cross-namespace cases are handled by contrastWith
+  }
+
+  return pairs;
+}
+
+/**
+ * Build the final list of color pairs to check:
+ * 1. Explicit pairs from contrastWith annotations (come first)
+ * 2. Sibling-inferred pairs (fallback for tokens without contrastWith)
+ * Deduplication is handled by tracking seen (fg|bg) keys.
+ */
+function buildColorPairs(explicitPairs: ColorPair[], siblingPairs: ColorPair[]): ColorPair[] {
+  const seen = new Set<string>();
+  const result: ColorPair[] = [];
+
+  for (const pair of [...explicitPairs, ...siblingPairs]) {
+    const key = `${pair[0]}|${pair[1]}`;
+    if (!seen.has(key)) {
+      seen.add(key);
+      result.push(pair);
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Load color pairs to check by reading the design system token metadata.
+ * Pairs are fully derived from metadata — no hardcoded lists.
+ */
+export async function getColorPairsToCheck(): Promise<ColorPair[]> {
+  try {
+    const metadataPath = new URL(import.meta.resolve('@grasdouble/lufa_design-system-tokens/metadata'));
+    const metadataContent = await readFile(metadataPath, 'utf-8');
+    const tokensMetadata = JSON.parse(metadataContent) as Record<string, unknown>;
+
+    const { colorPaths, explicitPairs } = extractFromMetadata(tokensMetadata);
+
+    // Build a set of explicit pair keys so sibling algo can skip already-covered pairs
+    const explicitPairKeys = new Set(explicitPairs.map(([fg, bg]) => `${fg}|${bg}`));
+    const siblingPairs = deriveSiblingPairs(colorPaths, explicitPairKeys);
+
+    return buildColorPairs(explicitPairs, siblingPairs);
+  } catch (error) {
+    throw new Error(
+      'Failed to load token metadata from @grasdouble/lufa_design-system-tokens. ' +
+        'Make sure the package is installed and built. ' +
+        `Error: ${error instanceof Error ? error.message : String(error)}`
+    );
+  }
 }

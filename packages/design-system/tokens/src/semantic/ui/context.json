@@ -119,6 +119,8 @@
                 "subcategory": "contrast",
                 "useCase": "Text in success alerts, success badge text, success message content",
                 "pairedWith": "background-success",
+                "contrastWith": ["semantic.ui.background.success"],
+                "contrastType": "text",
                 "themeable": true,
                 "themeLevel": "extended"
               }
@@ -134,6 +136,8 @@
                 "subcategory": "contrast",
                 "useCase": "Text in error alerts, error badge text, error message content",
                 "pairedWith": "background-error",
+                "contrastWith": ["semantic.ui.background.error"],
+                "contrastType": "text",
                 "themeable": true,
                 "themeLevel": "extended"
               }
@@ -149,6 +153,8 @@
                 "subcategory": "contrast",
                 "useCase": "Text in warning alerts, warning badge text, warning message content",
                 "pairedWith": "background-warning",
+                "contrastWith": ["semantic.ui.background.warning"],
+                "contrastType": "text",
                 "themeable": true,
                 "themeLevel": "extended"
               }
@@ -164,6 +170,8 @@
                 "subcategory": "contrast",
                 "useCase": "Text in info alerts, info badge text, info message content",
                 "pairedWith": "background-info",
+                "contrastWith": ["semantic.ui.background.info"],
+                "contrastType": "text",
                 "themeable": true,
                 "themeLevel": "extended"
               }
@@ -302,6 +310,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Headings, body text, primary labels, main content",
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.surface.default"],
+              "contrastType": "text",
               "themeable": true,
               "themeLevel": "extended"
             }
@@ -315,6 +325,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Descriptions, captions, metadata, secondary labels",
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.surface.default"],
+              "contrastType": "text",
               "themeable": true,
               "themeLevel": "extended"
             }
@@ -328,6 +340,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Placeholder text, timestamps, optional information",
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.surface.default"],
+              "contrastType": "text",
               "themeable": true,
               "themeLevel": "extended"
             }
@@ -341,6 +355,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Success message text, positive status indicators, confirmation text",
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.success"],
+              "contrastType": "text",
               "themeable": true,
               "themeLevel": "extended"
             }
@@ -354,6 +370,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Error message text, validation errors, destructive action warnings",
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.error"],
+              "contrastType": "text",
               "themeable": true,
               "themeLevel": "extended"
             }
@@ -367,6 +385,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Warning message text, caution labels, pending action notices",
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.warning"],
+              "contrastType": "text",
               "themeable": true,
               "themeLevel": "extended"
             }
@@ -380,6 +400,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Info message text, help content, neutral notifications",
+              "contrastWith": ["semantic.ui.background.page", "semantic.ui.background.info"],
+              "contrastType": "text",
               "themeable": true,
               "themeLevel": "extended"
             }
@@ -395,6 +417,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Dividers, separators, card borders, section boundaries",
+              "contrastWith": ["semantic.ui.background.page"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "extended"
             }
@@ -408,6 +432,8 @@
             "lufa": {
               "category": "ui",
               "useCase": "Emphasized borders, section separators, strong dividers",
+              "contrastWith": ["semantic.ui.background.page"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "extended"
             }

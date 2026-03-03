@@ -6,16 +6,16 @@ Le playground utilise maintenant les tokens CSS pour adapter automatiquement son
 
 ### Tokens CSS Utilisés
 
-| Élément              | Token                              | Propriété       |
-| -------------------- | ---------------------------------- | --------------- |
-| `.playgroundWrapper` | `--lufa-core-neutral-background`   | `background`    |
-| `.playgroundWrapper` | `--lufa-core-neutral-text-primary` | `color`         |
-| `.header`            | `--lufa-core-neutral-text-primary` | `color`         |
-| `.controls`          | `--lufa-core-neutral-surface`      | `background`    |
-| `.controls`          | `--lufa-core-neutral-border`       | `border`        |
-| `.sectionTitle`      | `--lufa-core-neutral-border`       | `border-bottom` |
-| `.sectionTitle`      | `--lufa-core-neutral-text-primary` | `color`         |
-| `.section`           | `--lufa-core-neutral-border`       | `border-bottom` |
+| Élément              | Token                                    | Propriété       |
+| -------------------- | ---------------------------------------- | --------------- |
+| `.playgroundWrapper` | `--lufa-core-color-neutral-background`   | `background`    |
+| `.playgroundWrapper` | `--lufa-core-color-neutral-text-primary` | `color`         |
+| `.header`            | `--lufa-core-color-neutral-text-primary` | `color`         |
+| `.controls`          | `--lufa-core-color-neutral-surface`      | `background`    |
+| `.controls`          | `--lufa-core-color-neutral-border`       | `border`        |
+| `.sectionTitle`      | `--lufa-core-color-neutral-border`       | `border-bottom` |
+| `.sectionTitle`      | `--lufa-core-color-neutral-text-primary` | `color`         |
+| `.section`           | `--lufa-core-color-neutral-border`       | `border-bottom` |
 
 ### Transitions Ajoutées
 
@@ -65,11 +65,11 @@ Utilisateur sélectionne "Ocean + Dark"
 HTML: <div data-theme="ocean" data-mode="dark">
   ↓
 CSS: [data-theme='ocean'][data-mode='dark'] {
-  --lufa-core-neutral-background: #164e63; (cyan-900)
+  --lufa-core-color-neutral-background: #164e63; (cyan-900)
 }
   ↓
 .playgroundWrapper {
-  background: var(--lufa-core-neutral-background);
+  background: var(--lufa-core-color-neutral-background);
 }
   ↓
 Background devient cyan-900 avec transition fluide ✨
@@ -92,8 +92,8 @@ Background devient cyan-900 avec transition fluide ✨
 
 ## 📋 Checklist
 
-- [x] `.playgroundWrapper` utilise `--lufa-core-neutral-background`
-- [x] `.playgroundWrapper` utilise `--lufa-core-neutral-text-primary`
+- [x] `.playgroundWrapper` utilise `--lufa-core-color-neutral-background`
+- [x] `.playgroundWrapper` utilise `--lufa-core-color-neutral-text-primary`
 - [x] `.header` utilise les tokens de texte
 - [x] `.controls` utilise les tokens de surface et bordure
 - [x] `.sectionTitle` utilise les tokens de bordure et texte

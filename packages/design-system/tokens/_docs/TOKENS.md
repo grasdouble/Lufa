@@ -51,13 +51,13 @@ Colors adapt automatically via CSS data attributes:
 
 ```css
 :root {
-  --lufa-core-brand-primary: #2563eb;
+  --lufa-core-color-brand-primary: #2563eb;
 }
 [data-theme='dark'] {
-  --lufa-core-brand-primary: #3b82f6;
+  --lufa-core-color-brand-primary: #3b82f6;
 }
 [data-theme='high-contrast'] {
-  --lufa-core-brand-primary: #0000ff;
+  --lufa-core-color-brand-primary: #0000ff;
 }
 ```
 
@@ -101,17 +101,17 @@ Need a color?
 ```css
 /* Status alert */
 .alert-success {
-  background: var(--lufa-core-feedback-success-subtle);
-  border: 1px solid var(--lufa-core-feedback-success-border);
-  color: var(--lufa-core-feedback-success);
+  background: var(--lufa-core-color-feedback-success-subtle);
+  border: 1px solid var(--lufa-core-color-feedback-success-border);
+  color: var(--lufa-core-color-feedback-success);
 }
 
 /* Form field in error state */
 .input-invalid {
-  border-color: var(--lufa-core-feedback-error);
+  border-color: var(--lufa-core-color-feedback-error);
 }
 .validation-error {
-  color: var(--lufa-core-feedback-error);
+  color: var(--lufa-core-color-feedback-error);
   font-size: var(--lufa-semantic-typography-caption);
   margin-top: var(--lufa-primitive-spacing-4);
 }

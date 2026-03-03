@@ -5,8 +5,6 @@
  */
 
 import { readFile } from 'fs/promises';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
 
 import type { CSSCustomProperty } from '../utils/parse-css.js';
 
@@ -21,20 +19,11 @@ export type CompletenessResult = {
 /**
  * Get list of all required token names from the design system
  *
- * These are the 438 tokens that MUST be defined in any custom theme
+ * These are the tokens that MUST be defined in any custom theme
  */
 export async function getRequiredTokens(): Promise<string[]> {
-  // Read the tokens metadata JSON file from the tokens package
-  // This contains all 438 tokens in the design system
   try {
-    // Resolve path to tokens-metadata.json in the tokens package
-    // When running from CLI, node_modules will be in parent directories
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = dirname(__filename);
-
-    // Try to resolve from node_modules
-    const metadataPath = join(__dirname, '../../../tokens/dist/tokens-metadata.json');
-
+    const metadataPath = new URL(import.meta.resolve('@grasdouble/lufa_design-system-tokens/metadata'));
     const metadataContent = await readFile(metadataPath, 'utf-8');
     const tokensMetadata = JSON.parse(metadataContent) as Record<string, unknown>;
 

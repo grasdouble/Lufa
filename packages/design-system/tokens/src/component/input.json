@@ -258,6 +258,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Hover border feedback on input field",
+              "contrastWith": ["component.input.background.default"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "advanced"
             }
@@ -271,6 +273,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Focused input border for keyboard/pointer focus indication",
+              "contrastWith": ["component.input.background.default"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "advanced"
             }
@@ -284,6 +288,8 @@
             "lufa": {
               "category": "input",
               "useCase": "Error border indicating invalid or failed validation",
+              "contrastWith": ["component.input.background.default"],
+              "contrastType": "ui",
               "themeable": true,
               "themeLevel": "advanced"
             }

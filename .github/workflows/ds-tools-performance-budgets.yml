@@ -119,10 +119,10 @@ jobs:
           # Create test theme for validation
           cat > /tmp/test-theme.css << 'THEMEEOF'
           [data-mode="light"] {
-            --lufa-semantic-ui-text-primary: var(--lufa-core-neutral-text-primary);
-            --lufa-semantic-ui-bg-primary: var(--lufa-core-neutral-bg-primary);
-            --lufa-core-neutral-text-primary: var(--lufa-primitive-color-gray-900);
-            --lufa-core-neutral-bg-primary: var(--lufa-primitive-color-white);
+            --lufa-semantic-ui-text-primary: var(--lufa-core-color-neutral-text-primary);
+            --lufa-semantic-ui-bg-primary: var(--lufa-core-color-neutral-bg-primary);
+            --lufa-core-color-neutral-text-primary: var(--lufa-primitive-color-gray-900);
+            --lufa-core-color-neutral-bg-primary: var(--lufa-primitive-color-white);
             --lufa-primitive-color-gray-900: #111827;
             --lufa-primitive-color-white: #ffffff;
           }

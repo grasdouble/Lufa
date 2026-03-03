@@ -144,12 +144,12 @@ These 5 principles are **mandatory** for all design system work. Violations shou
 ```css
 /* Mode switching (tokens package) */
 [data-mode='dark'] {
-  --lufa-core-neutral-background: var(--lufa-primitive-color-gray-900);
+  --lufa-core-color-neutral-background: var(--lufa-primitive-color-gray-900);
 }
 
 /* Theme switching (themes package) */
 [data-theme='ocean'] {
-  --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-600);
+  --lufa-core-color-brand-primary: var(--lufa-primitive-color-cyan-600);
 }
 ```
 
@@ -496,10 +496,10 @@ Level 1: Foundation Tokens (111 tokens)
 --lufa-primitive-spacing-4: 16px;
 
 /* Level 2: Core */
---lufa-core-brand-primary: var(--lufa-primitive-color-blue-600);
+--lufa-core-color-brand-primary: var(--lufa-primitive-color-blue-600);
 
 /* Level 3: Semantic */
---lufa-semantic-ui-action-primary: var(--lufa-core-brand-primary);
+--lufa-semantic-ui-action-primary: var(--lufa-core-color-brand-primary);
 
 /* Level 4: Interaction */
 --lufa-component-button-background-primary: var(--lufa-semantic-ui-action-primary);
@@ -572,15 +572,15 @@ Level 1: Foundation Tokens (111 tokens)
 /* Generated CSS */
 :root,
 [data-mode='light'] {
-  --lufa-core-neutral-background: var(--lufa-primitive-color-gray-50);
+  --lufa-core-color-neutral-background: var(--lufa-primitive-color-gray-50);
 }
 
 [data-mode='dark'] {
-  --lufa-core-neutral-background: var(--lufa-primitive-color-gray-900);
+  --lufa-core-color-neutral-background: var(--lufa-primitive-color-gray-900);
 }
 
 [data-mode='high-contrast'] {
-  --lufa-core-neutral-background: #ffffff;
+  --lufa-core-color-neutral-background: #ffffff;
 }
 ```
 
@@ -611,8 +611,8 @@ Level 1: Foundation Tokens (111 tokens)
 /* themes/ocean.css */
 [data-theme='ocean'] {
   /* Override only brand tokens */
-  --lufa-core-brand-primary: var(--lufa-primitive-color-cyan-600);
-  --lufa-core-brand-primary-hover: var(--lufa-primitive-color-cyan-700);
+  --lufa-core-color-brand-primary: var(--lufa-primitive-color-cyan-600);
+  --lufa-core-color-brand-primary-hover: var(--lufa-primitive-color-cyan-700);
   /* Only 6 overrides cascade to 27+ derived tokens */
 }
 ```
@@ -671,8 +671,8 @@ Level 1: Foundation Tokens (111 tokens)
 
    ```css
    [data-theme='my-brand'] {
-     --lufa-core-brand-primary: #ff6b6b;
-     --lufa-core-brand-primary-hover: #ff5252;
+     --lufa-core-color-brand-primary: #ff6b6b;
+     --lufa-core-color-brand-primary-hover: #ff5252;
      /* ...customize tokens */
    }
    ```
@@ -1218,9 +1218,9 @@ test.describe('InteractionName', () => {
 
 ```css
 [data-mode='high-contrast'] {
-  --lufa-core-neutral-background: #ffffff;
-  --lufa-core-neutral-text-primary: #000000;
-  --lufa-core-brand-primary: #0000ff; /* Pure blue */
+  --lufa-core-color-neutral-background: #ffffff;
+  --lufa-core-color-neutral-text-primary: #000000;
+  --lufa-core-color-brand-primary: #0000ff; /* Pure blue */
 }
 ```
 
@@ -1254,8 +1254,8 @@ test.describe('InteractionName', () => {
 ```css
 /* 4-level cascade */
 --lufa-primitive-color-blue-600: #2563eb; /* Level 1 */
---lufa-core-brand-primary: var(--lufa-primitive-color-blue-600); /* Level 2 */
---lufa-semantic-ui-action-primary: var(--lufa-core-brand-primary); /* Level 3 */
+--lufa-core-color-brand-primary: var(--lufa-primitive-color-blue-600); /* Level 2 */
+--lufa-semantic-ui-action-primary: var(--lufa-core-color-brand-primary); /* Level 3 */
 --lufa-component-button-bg-primary: var(--lufa-semantic-ui-action-primary); /* Level 4 */
 
 /* Resolution: 8ms for 1000 elements */
@@ -1405,10 +1405,10 @@ If absolutely necessary:
 
 **Minimum overrides (6 tokens):**
 
-- `--lufa-core-brand-primary`
-- `--lufa-core-brand-primary-hover`
-- `--lufa-core-brand-secondary`
-- `--lufa-core-brand-secondary-hover`
+- `--lufa-core-color-brand-primary`
+- `--lufa-core-color-brand-primary-hover`
+- `--lufa-core-color-brand-secondary`
+- `--lufa-core-color-brand-secondary-hover`
 - Additional semantic tokens as needed
 
 ---

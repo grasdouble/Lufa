@@ -5,30 +5,18 @@
   "description": "Lufa Design System - CLI tools for theme validation",
   "license": "MIT",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./templates/theme-template.css": "./dist/templates/theme-template.css"
-  },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "bin": {
-    "lufa-validate-theme": "./dist/cli.js"
+    "lufa-ds-cli": "./dist/cli.js"
   },
   "files": [
     "dist",
     "README.md"
   ],
   "scripts": {
-    "build": "pnpm clean && tsc && pnpm copy:templates",
+    "build": "pnpm clean && tsc",
     "build:watch": "tsc --watch",
     "clean": "rm -rf dist",
-    "copy:templates": "mkdir -p dist/templates && cp src/templates/*.css dist/templates/",
     "dev": "tsx src/cli.ts",
-    "generate:fixture": "node scripts/generate-valid-theme-fixture.js",
-    "generate:template": "node scripts/generate-theme-template.js",
     "lint": "eslint .",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
@@ -37,9 +25,10 @@
     "test:run": "vitest run",
     "test:ui": "vitest --ui",
     "typecheck": "tsc --noEmit",
-    "validate:token-usage": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD/src --ext .css,.ts",
-    "validate:token-usage:unused": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD/src --ext .css,.ts --unused",
-    "validate:token-usage:verbose": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD/src --ext .css,.ts --verbose"
+    "validate:a11y": "node dist/cli.js a11y",
+    "validate:token-usage": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD --ext .css,.ts",
+    "validate:token-usage:unused": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD --ext .css,.ts --unused",
+    "validate:token-usage:verbose": "pnpm --filter @grasdouble/lufa_design-system-tokens run validate:token-usage -- --dir $PWD --ext .css,.ts --verbose"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [

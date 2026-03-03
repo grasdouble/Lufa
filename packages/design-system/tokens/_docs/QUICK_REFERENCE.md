@@ -73,42 +73,42 @@ START: What are you styling?
 
 ```css
 /* Primary actions */
---lufa-core-brand-primary
---lufa-core-brand-primary-hover
---lufa-core-brand-primary-active
+--lufa-core-color-brand-primary
+--lufa-core-color-brand-primary-hover
+--lufa-core-color-brand-primary-active
 
 /* Secondary actions */
---lufa-core-brand-secondary
---lufa-core-brand-secondary-hover
---lufa-core-brand-secondary-active
+--lufa-core-color-brand-secondary
+--lufa-core-color-brand-secondary-hover
+--lufa-core-color-brand-secondary-active
 ```
 
 #### Semantic States
 
 ```css
 /* Success */
---lufa-core-feedback-success
---lufa-core-feedback-success-subtle
---lufa-core-feedback-success-border
---lufa-core-feedback-success-hover
+--lufa-core-color-feedback-success
+--lufa-core-color-feedback-success-subtle
+--lufa-core-color-feedback-success-border
+--lufa-core-color-feedback-success-hover
 
 /* Error */
---lufa-core-feedback-error
---lufa-core-feedback-error-subtle
---lufa-core-feedback-error-border
---lufa-core-feedback-error-hover
+--lufa-core-color-feedback-error
+--lufa-core-color-feedback-error-subtle
+--lufa-core-color-feedback-error-border
+--lufa-core-color-feedback-error-hover
 
 /* Warning */
---lufa-core-feedback-warning
---lufa-core-feedback-warning-subtle
---lufa-core-feedback-warning-border
---lufa-core-feedback-warning-hover
+--lufa-core-color-feedback-warning
+--lufa-core-color-feedback-warning-subtle
+--lufa-core-color-feedback-warning-border
+--lufa-core-color-feedback-warning-hover
 
 /* Info */
---lufa-core-feedback-info
---lufa-core-feedback-info-subtle
---lufa-core-feedback-info-border
---lufa-core-feedback-info-hover
+--lufa-core-color-feedback-info
+--lufa-core-color-feedback-info-subtle
+--lufa-core-color-feedback-info-border
+--lufa-core-color-feedback-info-hover
 ```
 
 #### UI Colors
@@ -326,18 +326,18 @@ START: What are you styling?
 }
 
 .input:focus {
-  border-color: var(--lufa-core-brand-primary);
-  outline: 2px solid var(--lufa-core-brand-primary);
+  border-color: var(--lufa-core-color-brand-primary);
+  outline: 2px solid var(--lufa-core-color-brand-primary);
   outline-offset: 2px;
 }
 
 .input-error {
-  border-color: var(--lufa-core-feedback-error);
+  border-color: var(--lufa-core-color-feedback-error);
 }
 
 .input-error:focus {
-  border-color: var(--lufa-core-feedback-error);
-  outline-color: var(--lufa-core-feedback-error);
+  border-color: var(--lufa-core-color-feedback-error);
+  outline-color: var(--lufa-core-color-feedback-error);
 }
 ```
 
@@ -348,36 +348,36 @@ START: What are you styling?
 ```css
 /* Success Alert */
 .alert-success {
-  background: var(--lufa-core-feedback-success-subtle);
-  border: 1px solid var(--lufa-core-feedback-success-border);
-  color: var(--lufa-core-feedback-success);
+  background: var(--lufa-core-color-feedback-success-subtle);
+  border: 1px solid var(--lufa-core-color-feedback-success-border);
+  color: var(--lufa-core-color-feedback-success);
   padding: var(--lufa-primitive-spacing-12);
   border-radius: var(--lufa-primitive-radius-scale-base);
 }
 
 /* Error Alert */
 .alert-error {
-  background: var(--lufa-core-feedback-error-subtle);
-  border: 1px solid var(--lufa-core-feedback-error-border);
-  color: var(--lufa-core-feedback-error);
+  background: var(--lufa-core-color-feedback-error-subtle);
+  border: 1px solid var(--lufa-core-color-feedback-error-border);
+  color: var(--lufa-core-color-feedback-error);
   padding: var(--lufa-primitive-spacing-12);
   border-radius: var(--lufa-primitive-radius-scale-base);
 }
 
 /* Warning Alert */
 .alert-warning {
-  background: var(--lufa-core-feedback-warning-subtle);
-  border: 1px solid var(--lufa-core-feedback-warning-border);
-  color: var(--lufa-core-feedback-warning);
+  background: var(--lufa-core-color-feedback-warning-subtle);
+  border: 1px solid var(--lufa-core-color-feedback-warning-border);
+  color: var(--lufa-core-color-feedback-warning);
   padding: var(--lufa-primitive-spacing-12);
   border-radius: var(--lufa-primitive-radius-scale-base);
 }
 
 /* Info Alert */
 .alert-info {
-  background: var(--lufa-core-feedback-info-subtle);
-  border: 1px solid var(--lufa-core-feedback-info-border);
-  color: var(--lufa-core-feedback-info);
+  background: var(--lufa-core-color-feedback-info-subtle);
+  border: 1px solid var(--lufa-core-color-feedback-info-border);
+  color: var(--lufa-core-color-feedback-info);
   padding: var(--lufa-primitive-spacing-12);
   border-radius: var(--lufa-primitive-radius-scale-base);
 }
@@ -393,20 +393,20 @@ START: What are you styling?
   font-weight: var(--lufa-primitive-typography-font-weight-semibold);
   padding: 2px var(--lufa-primitive-spacing-8);
   border-radius: var(--lufa-primitive-radius-scale-full);
-  background: var(--lufa-core-brand-primary);
+  background: var(--lufa-core-color-brand-primary);
   color: white;
 }
 
 .badge-secondary {
-  background: var(--lufa-core-brand-secondary);
+  background: var(--lufa-core-color-brand-secondary);
 }
 
 .badge-success {
-  background: var(--lufa-core-feedback-success);
+  background: var(--lufa-core-color-feedback-success);
 }
 
 .badge-error {
-  background: var(--lufa-core-feedback-error);
+  background: var(--lufa-core-color-feedback-error);
 }
 ```
 
@@ -599,7 +599,7 @@ Need viewport adaptation?
 
 .form-error {
   font-size: var(--lufa-semantic-typography-caption);
-  color: var(--lufa-core-feedback-error);
+  color: var(--lufa-core-color-feedback-error);
 }
 ```
 
@@ -730,7 +730,7 @@ component.button.primary.background-hover
 
 ```css
 .my-component {
-  color: var(--lufa-core-brand-primary);
+  color: var(--lufa-core-color-brand-primary);
   padding: var(--lufa-primitive-spacing-16);
   font-size: var(--lufa-semantic-typography-body-default);
 }
