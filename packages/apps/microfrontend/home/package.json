@@ -32,6 +32,9 @@
     "*.{ts,tsx}": [
       "bash -c 'pnpm typecheck'"
     ],
+    "package.json": [
+      "sort-package-json"
+    ],
     "*.{json,md,css,html}": [
       "prettier --write"
     ]
@@ -46,18 +49,18 @@
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_prettier": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
-    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
-    "@types/react": "^19.2.10",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.2",
-    "eslint": "^9.39.2",
+    "@vitejs/plugin-react": "^5.1.4",
+    "eslint": "^9.39.3",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.26",
     "prettier": "^3.8.1",
-    "prettier-plugin-packagejson": "^3.0.0",
+    "sort-package-json": "^3.6.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.54.0",
+    "typescript-eslint": "^8.56.1",
     "vite": "^7.3.1",
     "vite-plugin-css-injected-by-js": "^3.5.2",
     "vite-plugin-externalize-deps": "^0.10.0",

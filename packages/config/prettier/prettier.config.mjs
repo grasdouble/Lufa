@@ -6,7 +6,7 @@
  */
 const config = {
   // Plugins
-  plugins: ['@ianvs/prettier-plugin-sort-imports', 'prettier-plugin-packagejson'],
+  plugins: ['@ianvs/prettier-plugin-sort-imports'],
 
   // Code style - industry standards compatible with ESLint
   printWidth: 120, // Standard: 80-120 (120 for modern wide screens)
