@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
-          token: ${{ secrets.LUFA_CI_SECRET_READ }}
+          token: ${{ secrets.LUFA_CI_SECRET_DEPENDABOT }}
 
       - name: 📦 Setup Node.js and pnpm
         uses: ./.github/actions/setup-node-pnpm
@@ -28,7 +28,7 @@ jobs:
       - name: Create/Update changeset for dependency updates
         uses: the-guild-org/changesets-dependencies-action@v1.2.2
         env:
-          GITHUB_TOKEN: ${{ secrets.LUFA_CI_SECRET_READ }}
+          GITHUB_TOKEN: ${{ secrets.LUFA_CI_SECRET_DEPENDABOT }}
 
       - name: Commit changeset (if any)
         run: |
