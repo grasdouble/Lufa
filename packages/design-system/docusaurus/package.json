@@ -30,6 +30,9 @@
     "*.{ts,tsx}": [
       "bash -c 'pnpm typecheck'"
     ],
+    "package.json": [
+      "sort-package-json"
+    ],
     "*.{json,md,css,html}": [
       "prettier --write"
     ]
@@ -52,13 +55,13 @@
     "@docusaurus/preset-classic": "3.9.2",
     "@docusaurus/theme-common": "^3.9.2",
     "@docusaurus/theme-live-codeblock": "^3.9.2",
-    "@easyops-cn/docusaurus-search-local": "^0.52.3",
+    "@easyops-cn/docusaurus-search-local": "^0.55.1",
     "@grasdouble/lufa_design-system": "workspace:^",
     "@grasdouble/lufa_design-system-themes": "workspace:^",
     "@grasdouble/lufa_design-system-tokens": "workspace:^",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.563.0",
+    "lucide-react": "^0.577.0",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
@@ -70,11 +73,11 @@
     "@grasdouble/lufa_config_eslint": "workspace:^",
     "@grasdouble/lufa_config_prettier": "workspace:^",
     "@grasdouble/lufa_config_tsconfig": "workspace:^",
-    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
-    "@types/node": "^25.1.0",
-    "eslint": "^9.39.2",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+    "@types/node": "^25.3.3",
+    "eslint": "^10.0.2",
     "prettier": "^3.8.1",
-    "prettier-plugin-packagejson": "^3.0.0",
+    "sort-package-json": "^3.6.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },

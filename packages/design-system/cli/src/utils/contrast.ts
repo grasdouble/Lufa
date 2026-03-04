@@ -215,8 +215,8 @@ export async function getColorPairsToCheck(): Promise<ColorPair[]> {
   } catch (error) {
     throw new Error(
       'Failed to load token metadata from @grasdouble/lufa_design-system-tokens. ' +
-        'Make sure the package is installed and built. ' +
-        `Error: ${error instanceof Error ? error.message : String(error)}`
+        'Make sure the package is installed and built.',
+      { cause: error }
     );
   }
 }
