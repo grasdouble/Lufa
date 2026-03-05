@@ -3,8 +3,6 @@ name: Global:Tools:Missing-Changeset
 on:
   pull_request:
     types: [opened, synchronize, reopened, labeled]
-    branches-ignore:
-      - changeset-release/main
 
 permissions:
   contents: read
@@ -13,6 +11,7 @@ permissions:
 
 jobs:
   validate-changesets:
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
 
     steps:
