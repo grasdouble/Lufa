@@ -1,5 +1,11 @@
 # @grasdouble/lufa_config_tsconfig
 
+## 0.1.2
+
+### Patch Changes
+
+- 9f95f14: Update Dependency
+
 ## 0.1.1
 
 ### Patch Changes

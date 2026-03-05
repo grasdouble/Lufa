@@ -1,5 +1,16 @@
 # @grasdouble/lufa_design-system-storybook
 
+## 1.2.1
+
+### Patch Changes
+
+- b1666d7: Dependency updates
+- 9f95f14: Update Dependency
+- Updated dependencies [9f95f14]
+  - @grasdouble/lufa_design-system-themes@1.1.1
+  - @grasdouble/lufa_design-system-tokens@1.2.1
+  - @grasdouble/lufa_design-system@2.1.1
+
 ## 1.2.0
 
 ### Minor Changes

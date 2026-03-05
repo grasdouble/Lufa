@@ -1,5 +1,11 @@
 # @grasdouble/lufa_plugin_vite_vite-plugin-react-preamble
 
+## 0.0.6
+
+### Patch Changes
+
+- 9f95f14: Update Dependency
+
 ## 0.0.5
 
 ### Patch Changes
