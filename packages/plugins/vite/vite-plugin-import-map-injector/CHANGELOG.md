@@ -1,5 +1,11 @@
 # @grasdouble/lufa_plugin_vite_vite-plugin-import-map-injector
 
+## 0.2.5
+
+### Patch Changes
+
+- 9f95f14: Update Dependency
+
 ## 0.2.4
 
 ### Patch Changes
