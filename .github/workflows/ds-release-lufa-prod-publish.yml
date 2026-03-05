@@ -51,9 +51,9 @@ jobs:
       - name: 📂 Deploy to FTP
         uses: ./.github/actions/ftp-deploy
         with:
-          server: ${{ secrets.STORYBOOK_FTP_URL }}
-          port: ${{ secrets.STORYBOOK_FTP_PORT }}
-          protocol: ${{ secrets.STORYBOOK_FTP_PROTOCOL }}
-          username: ${{ secrets.STORYBOOK_FTP_LOGIN }}
-          password: ${{ secrets.STORYBOOK_FTP_PWD }}
+          server: ${{ secrets.LUFA_FTP_URL }}
+          port: ${{ secrets.LUFA_FTP_PORT }}
+          protocol: ${{ secrets.LUFA_FTP_PROTOCOL }}
+          username: ${{ secrets.LUFA_FTP_LOGIN }}
+          password: ${{ secrets.LUFA_FTP_PWD }}
           local-dir: ${{ inputs.target == 'storybook' && './packages/design-system/storybook/storybook-static/' || './packages/design-system/docusaurus/build/' }}
